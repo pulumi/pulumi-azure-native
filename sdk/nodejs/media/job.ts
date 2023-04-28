@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
  * API Version: 2022-07-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a Job
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.media.Job("job", {
+ *     accountName: "contosomedia",
+ *     correlationData: {
+ *         "Key 2": "Value 2",
+ *         key1: "value1",
+ *     },
+ *     input: {
+ *         assetName: "job1-InputAsset",
+ *         odataType: "#Microsoft.Media.JobInputAsset",
+ *     },
+ *     jobName: "job1",
+ *     outputs: [{
+ *         assetName: "job1-OutputAsset",
+ *         odataType: "#Microsoft.Media.JobOutputAsset",
+ *     }],
+ *     resourceGroupName: "contosoresources",
+ *     transformName: "exampleTransform",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media:Job job1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Media/mediaservices/contosomedia/transforms/exampleTransform/jobs/job1 
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

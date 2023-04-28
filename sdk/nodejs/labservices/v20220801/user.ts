@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * User of a lab that can register for and use virtual machines within the lab.
+ *
+ * ## Example Usage
+ * ### putUser
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const user = new azure_native.labservices.v20220801.User("user", {
+ *     additionalUsageQuota: "PT10H",
+ *     email: "testuser@contoso.com",
+ *     labName: "testlab",
+ *     resourceGroupName: "testrg123",
+ *     userName: "testuser",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:labservices/v20220801:User default /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labs/testlab/users/testuser 
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

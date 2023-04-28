@@ -828,6 +828,38 @@ class WebAppAuthSettings(pulumi.CustomResource):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
 
+        ## Example Usage
+        ### Update Auth Settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_auth_settings = azure_native.web.v20220901.WebAppAuthSettings("webAppAuthSettings",
+            allowed_external_redirect_urls=[
+                "sitef6141.customdomain.net",
+                "sitef6141.customdomain.info",
+            ],
+            client_id="42d795a9-8abb-4d06-8534-39528af40f8e.apps.googleusercontent.com",
+            default_provider=azure_native.web/v20220901.BuiltInAuthenticationProvider.GOOGLE,
+            enabled=True,
+            name="sitef6141",
+            resource_group_name="testrg123",
+            runtime_version="~1",
+            token_refresh_extension_hours=120,
+            token_store_enabled=True,
+            unauthenticated_client_action=azure_native.web/v20220901.UnauthenticatedClientAction.REDIRECT_TO_LOGIN_PAGE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppAuthSettings authsettings /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/authsettings 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aad_claims_authorization: Gets a JSON string containing the Azure AD Acl settings.
@@ -932,6 +964,38 @@ class WebAppAuthSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization feature.
+
+        ## Example Usage
+        ### Update Auth Settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_auth_settings = azure_native.web.v20220901.WebAppAuthSettings("webAppAuthSettings",
+            allowed_external_redirect_urls=[
+                "sitef6141.customdomain.net",
+                "sitef6141.customdomain.info",
+            ],
+            client_id="42d795a9-8abb-4d06-8534-39528af40f8e.apps.googleusercontent.com",
+            default_provider=azure_native.web/v20220901.BuiltInAuthenticationProvider.GOOGLE,
+            enabled=True,
+            name="sitef6141",
+            resource_group_name="testrg123",
+            runtime_version="~1",
+            token_refresh_extension_hours=120,
+            token_store_enabled=True,
+            unauthenticated_client_action=azure_native.web/v20220901.UnauthenticatedClientAction.REDIRECT_TO_LOGIN_PAGE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppAuthSettings authsettings /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/authsettings 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsArgs args: The arguments to use to populate this resource's properties.

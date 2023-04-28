@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.ContainerService
     /// A node pool snapshot resource.
     /// API Version: 2023-01-01.
     /// Previous API Version: 2021-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Snapshot
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var snapshot = new AzureNative.ContainerService.Snapshot("snapshot", new()
+    ///     {
+    ///         CreationData = new AzureNative.ContainerService.Inputs.CreationDataArgs
+    ///         {
+    ///             SourceResourceId = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool0",
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "snapshot1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///             { "key2", "val2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice:Snapshot snapshot1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:Snapshot")]
     public partial class Snapshot : global::Pulumi.CustomResource

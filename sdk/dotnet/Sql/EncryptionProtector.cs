@@ -13,6 +13,59 @@ namespace Pulumi.AzureNative.Sql
     /// The server encryption protector.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update the encryption protector to key vault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var encryptionProtector = new AzureNative.Sql.EncryptionProtector("encryptionProtector", new()
+    ///     {
+    ///         AutoRotationEnabled = false,
+    ///         EncryptionProtectorName = "current",
+    ///         ResourceGroupName = "sqlcrudtest-7398",
+    ///         ServerKeyName = "someVault_someKey_01234567890123456789012345678901",
+    ///         ServerKeyType = "AzureKeyVault",
+    ///         ServerName = "sqlcrudtest-4645",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update the encryption protector to service managed
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var encryptionProtector = new AzureNative.Sql.EncryptionProtector("encryptionProtector", new()
+    ///     {
+    ///         EncryptionProtectorName = "current",
+    ///         ResourceGroupName = "sqlcrudtest-7398",
+    ///         ServerKeyName = "ServiceManaged",
+    ///         ServerKeyType = "ServiceManaged",
+    ///         ServerName = "sqlcrudtest-4645",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:EncryptionProtector current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/encryptionProtector/current 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:EncryptionProtector")]
     public partial class EncryptionProtector : global::Pulumi.CustomResource

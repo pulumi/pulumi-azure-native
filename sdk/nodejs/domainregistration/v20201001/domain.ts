@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about a domain.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:domainregistration/v20201001:Domain myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName} 
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

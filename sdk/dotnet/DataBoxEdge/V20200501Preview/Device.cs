@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
     /// <summary>
     /// The Data Box Edge/Gateway device.
+    /// 
+    /// ## Example Usage
+    /// ### DataBoxEdgeDevicePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var device = new AzureNative.DataBoxEdge.V20200501Preview.Device("device", new()
+    ///     {
+    ///         DeviceName = "testedgedevice",
+    ///         Location = "WUS",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         Sku = new AzureNative.DataBoxEdge.V20200501Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Edge",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20200501preview:Device testedgedevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2020-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200501preview:Device")]

@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * Describes a hybrid machine.
  * API Version: 2022-11-10.
  * Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or Update a Machine
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machine = new azure_native.hybridcompute.Machine("machine", {
+ *     clientPublicKey: "string",
+ *     identity: {
+ *         type: azure_native.hybridcompute.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "eastus2euap",
+ *     locationData: {
+ *         name: "Redmond",
+ *     },
+ *     machineName: "myMachine",
+ *     parentClusterResourceId: "{AzureStackHCIResourceId}",
+ *     privateLinkScopeResourceId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+ *     resourceGroupName: "myResourceGroup",
+ *     vmId: "b7a098cc-b0b8-46e8-a205-62f301a62a8f",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcompute:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/myMachine 
+ * ```
  */
 export class Machine extends pulumi.CustomResource {
     /**

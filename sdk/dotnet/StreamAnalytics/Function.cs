@@ -13,6 +13,117 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// A function object, containing all information associated with the named function. All functions are contained under a streaming job.
     /// API Version: 2020-03-01.
     /// Previous API Version: 2016-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a JavaScript function
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var function = new AzureNative.StreamAnalytics.Function("function", new()
+    ///     {
+    ///         FunctionName = "function8197",
+    ///         JobName = "sj8653",
+    ///         Properties = new AzureNative.StreamAnalytics.Inputs.ScalarFunctionPropertiesArgs
+    ///         {
+    ///             Binding = new AzureNative.StreamAnalytics.Inputs.JavaScriptFunctionBindingArgs
+    ///             {
+    ///                 Script = "function (x, y) { return x + y; }",
+    ///                 Type = "Microsoft.StreamAnalytics/JavascriptUdf",
+    ///             },
+    ///             Inputs = new[]
+    ///             {
+    ///                 new AzureNative.StreamAnalytics.Inputs.FunctionInputArgs
+    ///                 {
+    ///                     DataType = "Any",
+    ///                 },
+    ///             },
+    ///             Output = new AzureNative.StreamAnalytics.Inputs.FunctionOutputArgs
+    ///             {
+    ///                 DataType = "Any",
+    ///             },
+    ///             Type = "Scalar",
+    ///         },
+    ///         ResourceGroupName = "sjrg1637",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Azure ML function
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var function = new AzureNative.StreamAnalytics.Function("function", new()
+    ///     {
+    ///         FunctionName = "function588",
+    ///         JobName = "sj9093",
+    ///         Properties = new AzureNative.StreamAnalytics.Inputs.ScalarFunctionPropertiesArgs
+    ///         {
+    ///             Binding = new AzureNative.StreamAnalytics.Inputs.AzureMachineLearningWebServiceFunctionBindingArgs
+    ///             {
+    ///                 ApiKey = "someApiKey==",
+    ///                 BatchSize = 1000,
+    ///                 Endpoint = "someAzureMLEndpointURL",
+    ///                 Inputs = new AzureNative.StreamAnalytics.Inputs.AzureMachineLearningWebServiceInputsArgs
+    ///                 {
+    ///                     ColumnNames = new[]
+    ///                     {
+    ///                         new AzureNative.StreamAnalytics.Inputs.AzureMachineLearningWebServiceInputColumnArgs
+    ///                         {
+    ///                             DataType = "string",
+    ///                             MapTo = 0,
+    ///                             Name = "tweet",
+    ///                         },
+    ///                     },
+    ///                     Name = "input1",
+    ///                 },
+    ///                 Outputs = new[]
+    ///                 {
+    ///                     new AzureNative.StreamAnalytics.Inputs.AzureMachineLearningWebServiceOutputColumnArgs
+    ///                     {
+    ///                         DataType = "string",
+    ///                         Name = "Sentiment",
+    ///                     },
+    ///                 },
+    ///                 Type = "Microsoft.MachineLearning/WebService",
+    ///             },
+    ///             Inputs = new[]
+    ///             {
+    ///                 new AzureNative.StreamAnalytics.Inputs.FunctionInputArgs
+    ///                 {
+    ///                     DataType = "nvarchar(max)",
+    ///                 },
+    ///             },
+    ///             Output = new AzureNative.StreamAnalytics.Inputs.FunctionOutputArgs
+    ///             {
+    ///                 DataType = "nvarchar(max)",
+    ///             },
+    ///             Type = "Scalar",
+    ///         },
+    ///         ResourceGroupName = "sjrg7",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:streamanalytics:Function function588 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg7/providers/Microsoft.StreamAnalytics/streamingjobs/sj9093/functions/function588 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:Function")]
     public partial class Function : global::Pulumi.CustomResource

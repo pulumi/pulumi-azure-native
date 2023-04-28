@@ -11,6 +11,99 @@ namespace Pulumi.AzureNative.DocumentDB.V20200301
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBDatabaseAccountCreateMax
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccount = new AzureNative.DocumentDB.V20200301.DatabaseAccount("databaseAccount", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ConsistencyPolicy = new AzureNative.DocumentDB.V20200301.Inputs.ConsistencyPolicyArgs
+    ///         {
+    ///             DefaultConsistencyLevel = AzureNative.DocumentDB.V20200301.DefaultConsistencyLevel.BoundedStaleness,
+    ///             MaxIntervalInSeconds = 10,
+    ///             MaxStalenessPrefix = 200,
+    ///         },
+    ///         DatabaseAccountOfferType = AzureNative.DocumentDB.V20200301.DatabaseAccountOfferType.Standard,
+    ///         IpRangeFilter = "10.10.10.10",
+    ///         IsVirtualNetworkFilterEnabled = true,
+    ///         KeyVaultKeyUri = "https://myKeyVault.vault.azure.net",
+    ///         Kind = "GlobalDocumentDB",
+    ///         Location = "westus",
+    ///         Locations = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20200301.Inputs.LocationArgs
+    ///             {
+    ///                 FailoverPriority = 0,
+    ///                 IsZoneRedundant = false,
+    ///                 LocationName = "southcentralus",
+    ///             },
+    ///             new AzureNative.DocumentDB.V20200301.Inputs.LocationArgs
+    ///             {
+    ///                 FailoverPriority = 1,
+    ///                 IsZoneRedundant = false,
+    ///                 LocationName = "eastus",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///         VirtualNetworkRules = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20200301.Inputs.VirtualNetworkRuleArgs
+    ///             {
+    ///                 Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    ///                 IgnoreMissingVNetServiceEndpoint = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CosmosDBDatabaseAccountCreateMin
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccount = new AzureNative.DocumentDB.V20200301.DatabaseAccount("databaseAccount", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseAccountOfferType = AzureNative.DocumentDB.V20200301.DatabaseAccountOfferType.Standard,
+    ///         Location = "westus",
+    ///         Locations = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20200301.Inputs.LocationArgs
+    ///             {
+    ///                 FailoverPriority = 0,
+    ///                 IsZoneRedundant = false,
+    ///                 LocationName = "southcentralus",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20200301:DatabaseAccount ddb1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2020-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20200301:DatabaseAccount")]

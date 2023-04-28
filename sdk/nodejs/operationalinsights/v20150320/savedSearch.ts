@@ -10,6 +10,37 @@ import * as utilities from "../../utilities";
 /**
  * Value object for saved search results.
  *
+ * ## Example Usage
+ * ### SavedSearchCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const savedSearch = new azure_native.operationalinsights.v20150320.SavedSearch("savedSearch", {
+ *     category: "Saved Search Test Category",
+ *     displayName: "Create or Update Saved Search Test",
+ *     query: "Heartbeat | summarize Count() by Computer",
+ *     resourceGroupName: "TestRG",
+ *     savedSearchId: "00000000-0000-0000-0000-00000000000",
+ *     tags: [{
+ *         name: "Group",
+ *         value: "Computer",
+ *     }],
+ *     version: 2,
+ *     workspaceName: "TestWS",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights/v20150320:SavedSearch myresource1 subscriptions/00000000-0000-0000-0000-000000000005/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/AtlantisDemo/savedSearches/test-new-saved-search-id-2015 
+ * ```
+ *
  * @deprecated Version 2015-03-20 will be removed in v2 of the provider.
  */
 export class SavedSearch extends pulumi.CustomResource {

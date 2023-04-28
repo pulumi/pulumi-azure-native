@@ -96,6 +96,28 @@ class Workspace(pulumi.CustomResource):
         """
         Workspace resource.
 
+        ## Example Usage
+        ### Create or update a workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.healthcareapis.v20220515.Workspace("workspace",
+            location="westus",
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20220515:Workspace workspace1 /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The resource location.
@@ -111,6 +133,28 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace resource.
+
+        ## Example Usage
+        ### Create or update a workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.healthcareapis.v20220515.Workspace("workspace",
+            location="westus",
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20220515:Workspace workspace1 /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

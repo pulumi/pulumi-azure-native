@@ -96,6 +96,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The private endpoint connection.
 
+        ## Example Usage
+        ### Approve a private endpoint connection manually.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.hdinsight.v20210601.PrivateEndpointConnection("privateEndpointConnection",
+            cluster_name="cluster1",
+            private_endpoint_connection_name="testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2",
+            private_link_service_connection_state=azure_native.hdinsight.v20210601.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                description="update it from pending to approved.",
+                status="Approved",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hdinsight/v20210601:PrivateEndpointConnection testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1/privateEndpointConnections/testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -111,6 +138,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection.
+
+        ## Example Usage
+        ### Approve a private endpoint connection manually.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.hdinsight.v20210601.PrivateEndpointConnection("privateEndpointConnection",
+            cluster_name="cluster1",
+            private_endpoint_connection_name="testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2",
+            private_link_service_connection_state=azure_native.hdinsight.v20210601.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                description="update it from pending to approved.",
+                status="Approved",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hdinsight/v20210601:PrivateEndpointConnection testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1/privateEndpointConnections/testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

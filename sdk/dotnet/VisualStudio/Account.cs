@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.VisualStudio
     /// The response to an account resource GET request.
     /// API Version: 2017-11-01-preview.
     /// Previous API Version: 2014-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create an account resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.VisualStudio.Account("account", new()
+    ///     {
+    ///         AccountName = "Example",
+    ///         Location = "Central US",
+    ///         OperationType = "create",
+    ///         Properties = null,
+    ///         ResourceGroupName = "VS-Example-Group",
+    ///         ResourceName = "Example",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:visualstudio:Account VS-Example-Group /subscriptions/0de7f055-dbea-498d-8e9e-da287eedca90/resourceGroups/VS-Example-Group/providers/Microsoft.VisualStudio/account/Example 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:visualstudio:Account")]
     public partial class Account : global::Pulumi.CustomResource

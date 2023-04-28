@@ -11,6 +11,60 @@ namespace Pulumi.AzureNative.Compute.V20200930
 {
     /// <summary>
     /// Specifies information about the Shared Image Gallery that you want to create or update.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery with sharing profile.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gallery = new AzureNative.Compute.V20200930.Gallery("gallery", new()
+    ///     {
+    ///         Description = "This is the gallery description.",
+    ///         GalleryName = "myGalleryName",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SharingProfile = new AzureNative.Compute.V20200930.Inputs.SharingProfileArgs
+    ///         {
+    ///             Permissions = "Groups",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a simple gallery.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gallery = new AzureNative.Compute.V20200930.Gallery("gallery", new()
+    ///     {
+    ///         Description = "This is the gallery description.",
+    ///         GalleryName = "myGalleryName",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20200930:Gallery myGalleryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20200930:Gallery")]
     public partial class Gallery : global::Pulumi.CustomResource

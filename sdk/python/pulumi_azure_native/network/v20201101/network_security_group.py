@@ -132,6 +132,51 @@ class NetworkSecurityGroup(pulumi.CustomResource):
         """
         NetworkSecurityGroup resource.
 
+        ## Example Usage
+        ### Create network security group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_security_group = azure_native.network.v20201101.NetworkSecurityGroup("networkSecurityGroup",
+            location="eastus",
+            network_security_group_name="testnsg",
+            resource_group_name="rg1")
+
+        ```
+        ### Create network security group with rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_security_group = azure_native.network.v20201101.NetworkSecurityGroup("networkSecurityGroup",
+            location="eastus",
+            network_security_group_name="testnsg",
+            resource_group_name="rg1",
+            security_rules=[{
+                "access": "Allow",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "80",
+                "direction": "Inbound",
+                "name": "rule1",
+                "priority": 130,
+                "protocol": "*",
+                "sourceAddressPrefix": "*",
+                "sourcePortRange": "*",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:NetworkSecurityGroup testnsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -149,6 +194,51 @@ class NetworkSecurityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkSecurityGroup resource.
+
+        ## Example Usage
+        ### Create network security group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_security_group = azure_native.network.v20201101.NetworkSecurityGroup("networkSecurityGroup",
+            location="eastus",
+            network_security_group_name="testnsg",
+            resource_group_name="rg1")
+
+        ```
+        ### Create network security group with rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_security_group = azure_native.network.v20201101.NetworkSecurityGroup("networkSecurityGroup",
+            location="eastus",
+            network_security_group_name="testnsg",
+            resource_group_name="rg1",
+            security_rules=[{
+                "access": "Allow",
+                "destinationAddressPrefix": "*",
+                "destinationPortRange": "80",
+                "direction": "Inbound",
+                "name": "rule1",
+                "priority": 130,
+                "protocol": "*",
+                "sourceAddressPrefix": "*",
+                "sourcePortRange": "*",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:NetworkSecurityGroup testnsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityGroupInitArgs args: The arguments to use to populate this resource's properties.

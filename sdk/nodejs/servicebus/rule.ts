@@ -11,6 +11,71 @@ import * as utilities from "../utilities";
  * Description of Rule Resource.
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RulesCreateCorrelationFilter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rule = new azure_native.servicebus.Rule("rule", {
+ *     correlationFilter: {
+ *         properties: {
+ *             topicHint: "Crop",
+ *         },
+ *     },
+ *     filterType: azure_native.servicebus.FilterType.CorrelationFilter,
+ *     namespaceName: "sdk-Namespace-1319",
+ *     resourceGroupName: "resourceGroupName",
+ *     ruleName: "sdk-Rules-6571",
+ *     subscriptionName: "sdk-Subscriptions-8691",
+ *     topicName: "sdk-Topics-2081",
+ * });
+ *
+ * ```
+ * ### RulesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rule = new azure_native.servicebus.Rule("rule", {
+ *     namespaceName: "sdk-Namespace-1319",
+ *     resourceGroupName: "resourceGroupName",
+ *     ruleName: "sdk-Rules-6571",
+ *     subscriptionName: "sdk-Subscriptions-8691",
+ *     topicName: "sdk-Topics-2081",
+ * });
+ *
+ * ```
+ * ### RulesCreateSqlFilter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rule = new azure_native.servicebus.Rule("rule", {
+ *     filterType: azure_native.servicebus.FilterType.SqlFilter,
+ *     namespaceName: "sdk-Namespace-1319",
+ *     resourceGroupName: "resourceGroupName",
+ *     ruleName: "sdk-Rules-6571",
+ *     sqlFilter: {
+ *         sqlExpression: "myproperty=test",
+ *     },
+ *     subscriptionName: "sdk-Subscriptions-8691",
+ *     topicName: "sdk-Topics-2081",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus:Rule sdk-Rules-6571 /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1319/topics/sdk-Topics-2081/subscriptions/sdk-Subscriptions-8691/rules/sdk-Rules-6571 
+ * ```
  */
 export class Rule extends pulumi.CustomResource {
     /**

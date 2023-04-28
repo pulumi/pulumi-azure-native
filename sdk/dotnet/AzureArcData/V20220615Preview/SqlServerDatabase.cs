@@ -11,6 +11,67 @@ namespace Pulumi.AzureNative.AzureArcData.V20220615Preview
 {
     /// <summary>
     /// Arc Sql Server database
+    /// 
+    /// ## Example Usage
+    /// ### Create a Arc Sql Server database.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlServerDatabase = new AzureNative.AzureArcData.V20220615Preview.SqlServerDatabase("sqlServerDatabase", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         Location = "southeastasia",
+    ///         Properties = new AzureNative.AzureArcData.V20220615Preview.Inputs.SqlServerDatabaseResourcePropertiesArgs
+    ///         {
+    ///             BackupInformation = new AzureNative.AzureArcData.V20220615Preview.Inputs.SqlServerDatabaseResourcePropertiesBackupInformationArgs
+    ///             {
+    ///                 LastFullBackup = "2022-05-05T16:26:33.883Z",
+    ///                 LastLogBackup = "2022-05-10T16:26:33.883Z",
+    ///             },
+    ///             CollationName = "SQL_Latin1_General_CP1_CI_AS",
+    ///             CompatibilityLevel = 150,
+    ///             DatabaseCreationDate = "2022-04-05T16:26:33.883Z",
+    ///             DatabaseOptions = new AzureNative.AzureArcData.V20220615Preview.Inputs.SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs
+    ///             {
+    ///                 IsAutoCloseOn = true,
+    ///                 IsAutoCreateStatsOn = true,
+    ///                 IsAutoShrinkOn = true,
+    ///                 IsAutoUpdateStatsOn = true,
+    ///                 IsEncrypted = true,
+    ///                 IsMemoryOptimizationEnabled = true,
+    ///                 IsRemoteDataArchiveEnabled = true,
+    ///                 IsTrustworthyOn = true,
+    ///             },
+    ///             IsReadOnly = true,
+    ///             RecoveryMode = "Full",
+    ///             SizeMB = 150,
+    ///             SpaceAvailableMB = 100,
+    ///             State = "Online",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SqlServerInstanceName = "testSqlServerInstance",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata/v20220615preview:SqlServerDatabase testdb /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/testSqlServerInstance/testsqlManagedInstance/databases/testdb 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20220615preview:SqlServerDatabase")]
     public partial class SqlServerDatabase : global::Pulumi.CustomResource

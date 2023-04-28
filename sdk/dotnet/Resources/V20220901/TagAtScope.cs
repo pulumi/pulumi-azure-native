@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.Resources.V20220901
 {
     /// <summary>
     /// Wrapper resource for tags API requests and responses.
+    /// 
+    /// ## Example Usage
+    /// ### Update tags on a resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tagAtScope = new AzureNative.Resources.V20220901.TagAtScope("tagAtScope", new()
+    ///     {
+    ///         Properties = new AzureNative.Resources.V20220901.Inputs.TagsArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "tagKey1", "tag-value-1" },
+    ///                 { "tagKey2", "tag-value-2" },
+    ///             },
+    ///         },
+    ///         Scope = "subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/myPRNameSpace/VM/myVm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update tags on a subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tagAtScope = new AzureNative.Resources.V20220901.TagAtScope("tagAtScope", new()
+    ///     {
+    ///         Properties = new AzureNative.Resources.V20220901.Inputs.TagsArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "tagKey1", "tag-value-1" },
+    ///                 { "tagKey2", "tag-value-2" },
+    ///             },
+    ///         },
+    ///         Scope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20220901:TagAtScope myresource1 subscriptions/00000000-0000-0000-0000-000000000000 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20220901:TagAtScope")]
     public partial class TagAtScope : global::Pulumi.CustomResource

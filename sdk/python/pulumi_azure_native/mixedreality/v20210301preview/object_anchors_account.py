@@ -179,6 +179,31 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
         """
         ObjectAnchorsAccount Response.
 
+        ## Example Usage
+        ### Create object anchors account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        object_anchors_account = azure_native.mixedreality.v20210301preview.ObjectAnchorsAccount("objectAnchorsAccount",
+            account_name="MyAccount",
+            identity=azure_native.mixedreality.v20210301preview.ObjectAnchorsAccountIdentityArgs(
+                type=azure_native.mixedreality/v20210301preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/objectAnchorsAccounts/MyAccount 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.
@@ -198,6 +223,31 @@ class ObjectAnchorsAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ObjectAnchorsAccount Response.
+
+        ## Example Usage
+        ### Create object anchors account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        object_anchors_account = azure_native.mixedreality.v20210301preview.ObjectAnchorsAccount("objectAnchorsAccount",
+            account_name="MyAccount",
+            identity=azure_native.mixedreality.v20210301preview.ObjectAnchorsAccountIdentityArgs(
+                type=azure_native.mixedreality/v20210301preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/objectAnchorsAccounts/MyAccount 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ObjectAnchorsAccountArgs args: The arguments to use to populate this resource's properties.

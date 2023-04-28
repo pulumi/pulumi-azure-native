@@ -13,6 +13,171 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Resource information, as returned by the resource provider.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Recovery Services vault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vault = new AzureNative.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Identity = new AzureNative.RecoveryServices.Inputs.IdentityDataArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.VaultPropertiesArgs
+    ///         {
+    ///             PublicNetworkAccess = "Enabled",
+    ///         },
+    ///         ResourceGroupName = "Default-RecoveryServices-ResourceGroup",
+    ///         Sku = new AzureNative.RecoveryServices.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         VaultName = "swaggerExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Vault With Monitoring Setting
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vault = new AzureNative.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Identity = new AzureNative.RecoveryServices.Inputs.IdentityDataArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.VaultPropertiesArgs
+    ///         {
+    ///             MonitoringSettings = new AzureNative.RecoveryServices.Inputs.MonitoringSettingsArgs
+    ///             {
+    ///                 AzureMonitorAlertSettings = new AzureNative.RecoveryServices.Inputs.AzureMonitorAlertSettingsArgs
+    ///                 {
+    ///                     AlertsForAllJobFailures = "Enabled",
+    ///                 },
+    ///                 ClassicAlertSettings = new AzureNative.RecoveryServices.Inputs.ClassicAlertSettingsArgs
+    ///                 {
+    ///                     AlertsForCriticalOperations = "Disabled",
+    ///                 },
+    ///             },
+    ///             PublicNetworkAccess = "Enabled",
+    ///         },
+    ///         ResourceGroupName = "Default-RecoveryServices-ResourceGroup",
+    ///         Sku = new AzureNative.RecoveryServices.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         VaultName = "swaggerExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Vault with CustomerManagedKeys
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vault = new AzureNative.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Identity = new AzureNative.RecoveryServices.Inputs.IdentityDataArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi", null },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.VaultPropertiesArgs
+    ///         {
+    ///             Encryption = new AzureNative.RecoveryServices.Inputs.VaultPropertiesEncryptionArgs
+    ///             {
+    ///                 InfrastructureEncryption = "Enabled",
+    ///                 KekIdentity = new AzureNative.RecoveryServices.Inputs.CmkKekIdentityArgs
+    ///                 {
+    ///                     UserAssignedIdentity = "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi",
+    ///                 },
+    ///                 KeyVaultProperties = new AzureNative.RecoveryServices.Inputs.CmkKeyVaultPropertiesArgs
+    ///                 {
+    ///                     KeyUri = "https://cmk2xkv.vault.azure.net/keys/Key1/0767b348bb1a4c07baa6c4ec0055d2b3",
+    ///                 },
+    ///             },
+    ///             PublicNetworkAccess = "Enabled",
+    ///         },
+    ///         ResourceGroupName = "Default-RecoveryServices-ResourceGroup",
+    ///         Sku = new AzureNative.RecoveryServices.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         VaultName = "swaggerExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Vault with User Assigned Identity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vault = new AzureNative.RecoveryServices.Vault("vault", new()
+    ///     {
+    ///         Identity = new AzureNative.RecoveryServices.Inputs.IdentityDataArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi", null },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.VaultPropertiesArgs
+    ///         {
+    ///             PublicNetworkAccess = "Enabled",
+    ///         },
+    ///         ResourceGroupName = "Default-RecoveryServices-ResourceGroup",
+    ///         Sku = new AzureNative.RecoveryServices.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         VaultName = "swaggerExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices:Vault swaggerExample /subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/Default-RecoveryServices-ResourceGroup/providers/Microsoft.RecoveryServices/vaults/swaggerExample 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:Vault")]
     public partial class Vault : global::Pulumi.CustomResource

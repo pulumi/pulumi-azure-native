@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.Network
     /// Information about packet capture session.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create packet capture
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var packetCapture = new AzureNative.Network.PacketCapture("packetCapture", new()
+    ///     {
+    ///         BytesToCapturePerPacket = 10000,
+    ///         Filters = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.PacketCaptureFilterArgs
+    ///             {
+    ///                 LocalIPAddress = "10.0.0.4",
+    ///                 LocalPort = "80",
+    ///                 Protocol = "TCP",
+    ///             },
+    ///         },
+    ///         NetworkWatcherName = "nw1",
+    ///         PacketCaptureName = "pc1",
+    ///         ResourceGroupName = "rg1",
+    ///         StorageLocation = new AzureNative.Network.Inputs.PacketCaptureStorageLocationArgs
+    ///         {
+    ///             FilePath = "D:\\capture\\pc1.cap",
+    ///             StorageId = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/pcstore",
+    ///             StoragePath = "https://mytestaccountname.blob.core.windows.net/capture/pc1.cap",
+    ///         },
+    ///         Target = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///         TimeLimitInSeconds = 100,
+    ///         TotalBytesPerSession = 100000,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:PacketCapture pc1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/packetCaptures/pc1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PacketCapture")]
     public partial class PacketCapture : global::Pulumi.CustomResource

@@ -150,6 +150,170 @@ class DatabaseAccount(pulumi.CustomResource):
         """
         An Azure Cosmos DB database account.
 
+        ## Example Usage
+        ### CosmosDBDatabaseAccountCreateMax
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20210401preview.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            identity=azure_native.documentdb.v20210401preview.ManagedServiceIdentityArgs(
+                type=azure_native.documentdb/v20210401preview.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/eu2cgroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+                },
+            ),
+            kind="MongoDB",
+            location="westus",
+            properties=azure_native.documentdb.v20210401preview.DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs(
+                api_properties=azure_native.documentdb.v20210401preview.ApiPropertiesArgs(
+                    server_version="3.2",
+                ),
+                backup_policy=azure_native.documentdb.v20210401preview.PeriodicModeBackupPolicyArgs(
+                    periodic_mode_properties=azure_native.documentdb.v20210401preview.PeriodicModePropertiesArgs(
+                        backup_interval_in_minutes=240,
+                        backup_retention_interval_in_hours=720,
+                        backup_storage_redundancy="Geo",
+                    ),
+                    type="Periodic",
+                ),
+                consistency_policy=azure_native.documentdb.v20210401preview.ConsistencyPolicyArgs(
+                    default_consistency_level=azure_native.documentdb/v20210401preview.DefaultConsistencyLevel.BOUNDED_STALENESS,
+                    max_interval_in_seconds=10,
+                    max_staleness_prefix=200,
+                ),
+                cors=[azure_native.documentdb.v20210401preview.CorsPolicyArgs(
+                    allowed_origins="https://test",
+                )],
+                create_mode="Default",
+                database_account_offer_type=azure_native.documentdb/v20210401preview.DatabaseAccountOfferType.STANDARD,
+                default_identity="FirstPartyIdentity",
+                enable_analytical_storage=True,
+                enable_free_tier=False,
+                ip_rules=[
+                    azure_native.documentdb.v20210401preview.IpAddressOrRangeArgs(
+                        ip_address_or_range="23.43.230.120",
+                    ),
+                    azure_native.documentdb.v20210401preview.IpAddressOrRangeArgs(
+                        ip_address_or_range="110.12.240.0/12",
+                    ),
+                ],
+                is_virtual_network_filter_enabled=True,
+                key_vault_key_uri="https://myKeyVault.vault.azure.net",
+                locations=[
+                    azure_native.documentdb.v20210401preview.LocationArgs(
+                        failover_priority=0,
+                        is_zone_redundant=False,
+                        location_name="southcentralus",
+                    ),
+                    azure_native.documentdb.v20210401preview.LocationArgs(
+                        failover_priority=1,
+                        is_zone_redundant=False,
+                        location_name="eastus",
+                    ),
+                ],
+                network_acl_bypass=azure_native.documentdb/v20210401preview.NetworkAclBypass.NONE,
+                network_acl_bypass_resource_ids=[],
+                public_network_access="Enabled",
+                virtual_network_rules=[azure_native.documentdb.v20210401preview.VirtualNetworkRuleArgs(
+                    id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+                    ignore_missing_v_net_service_endpoint=False,
+                )],
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+        ### CosmosDBDatabaseAccountCreateMin
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20210401preview.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            location="westus",
+            properties=azure_native.documentdb.v20210401preview.DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs(
+                create_mode="Default",
+                database_account_offer_type=azure_native.documentdb/v20210401preview.DatabaseAccountOfferType.STANDARD,
+                locations=[azure_native.documentdb.v20210401preview.LocationArgs(
+                    failover_priority=0,
+                    is_zone_redundant=False,
+                    location_name="southcentralus",
+                )],
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### CosmosDBRestoreDatabaseAccountCreateUpdate.json
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20210401preview.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            kind="GlobalDocumentDB",
+            location="westus",
+            properties=azure_native.documentdb.v20210401preview.RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs(
+                api_properties=azure_native.documentdb.v20210401preview.ApiPropertiesArgs(
+                    server_version="3.2",
+                ),
+                backup_policy=azure_native.documentdb.v20210401preview.ContinuousModeBackupPolicyArgs(
+                    type="Continuous",
+                ),
+                consistency_policy=azure_native.documentdb.v20210401preview.ConsistencyPolicyArgs(
+                    default_consistency_level=azure_native.documentdb/v20210401preview.DefaultConsistencyLevel.BOUNDED_STALENESS,
+                    max_interval_in_seconds=10,
+                    max_staleness_prefix=200,
+                ),
+                create_mode="Restore",
+                database_account_offer_type=azure_native.documentdb/v20210401preview.DatabaseAccountOfferType.STANDARD,
+                enable_analytical_storage=True,
+                enable_free_tier=False,
+                key_vault_key_uri="https://myKeyVault.vault.azure.net",
+                locations=[azure_native.documentdb.v20210401preview.LocationArgs(
+                    failover_priority=0,
+                    is_zone_redundant=False,
+                    location_name="southcentralus",
+                )],
+                restore_parameters=azure_native.documentdb.v20210401preview.RestoreParametersArgs(
+                    databases_to_restore=[
+                        azure_native.documentdb.v20210401preview.DatabaseRestoreResourceArgs(
+                            collection_names=[
+                                "collection1",
+                                "collection2",
+                            ],
+                            database_name="db1",
+                        ),
+                        azure_native.documentdb.v20210401preview.DatabaseRestoreResourceArgs(
+                            collection_names=[
+                                "collection3",
+                                "collection4",
+                            ],
+                            database_name="db2",
+                        ),
+                    ],
+                    restore_mode="PointInTime",
+                    restore_source="/subscriptions/subid/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/1a97b4bb-f6a0-430e-ade1-638d781830cc",
+                    restore_timestamp_in_utc="2021-03-11T22:05:09Z",
+                ),
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20210401preview:DatabaseAccount ddb1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -168,6 +332,170 @@ class DatabaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB database account.
+
+        ## Example Usage
+        ### CosmosDBDatabaseAccountCreateMax
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20210401preview.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            identity=azure_native.documentdb.v20210401preview.ManagedServiceIdentityArgs(
+                type=azure_native.documentdb/v20210401preview.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/eu2cgroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+                },
+            ),
+            kind="MongoDB",
+            location="westus",
+            properties=azure_native.documentdb.v20210401preview.DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs(
+                api_properties=azure_native.documentdb.v20210401preview.ApiPropertiesArgs(
+                    server_version="3.2",
+                ),
+                backup_policy=azure_native.documentdb.v20210401preview.PeriodicModeBackupPolicyArgs(
+                    periodic_mode_properties=azure_native.documentdb.v20210401preview.PeriodicModePropertiesArgs(
+                        backup_interval_in_minutes=240,
+                        backup_retention_interval_in_hours=720,
+                        backup_storage_redundancy="Geo",
+                    ),
+                    type="Periodic",
+                ),
+                consistency_policy=azure_native.documentdb.v20210401preview.ConsistencyPolicyArgs(
+                    default_consistency_level=azure_native.documentdb/v20210401preview.DefaultConsistencyLevel.BOUNDED_STALENESS,
+                    max_interval_in_seconds=10,
+                    max_staleness_prefix=200,
+                ),
+                cors=[azure_native.documentdb.v20210401preview.CorsPolicyArgs(
+                    allowed_origins="https://test",
+                )],
+                create_mode="Default",
+                database_account_offer_type=azure_native.documentdb/v20210401preview.DatabaseAccountOfferType.STANDARD,
+                default_identity="FirstPartyIdentity",
+                enable_analytical_storage=True,
+                enable_free_tier=False,
+                ip_rules=[
+                    azure_native.documentdb.v20210401preview.IpAddressOrRangeArgs(
+                        ip_address_or_range="23.43.230.120",
+                    ),
+                    azure_native.documentdb.v20210401preview.IpAddressOrRangeArgs(
+                        ip_address_or_range="110.12.240.0/12",
+                    ),
+                ],
+                is_virtual_network_filter_enabled=True,
+                key_vault_key_uri="https://myKeyVault.vault.azure.net",
+                locations=[
+                    azure_native.documentdb.v20210401preview.LocationArgs(
+                        failover_priority=0,
+                        is_zone_redundant=False,
+                        location_name="southcentralus",
+                    ),
+                    azure_native.documentdb.v20210401preview.LocationArgs(
+                        failover_priority=1,
+                        is_zone_redundant=False,
+                        location_name="eastus",
+                    ),
+                ],
+                network_acl_bypass=azure_native.documentdb/v20210401preview.NetworkAclBypass.NONE,
+                network_acl_bypass_resource_ids=[],
+                public_network_access="Enabled",
+                virtual_network_rules=[azure_native.documentdb.v20210401preview.VirtualNetworkRuleArgs(
+                    id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+                    ignore_missing_v_net_service_endpoint=False,
+                )],
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+        ### CosmosDBDatabaseAccountCreateMin
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20210401preview.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            location="westus",
+            properties=azure_native.documentdb.v20210401preview.DefaultRequestDatabaseAccountCreateUpdatePropertiesArgs(
+                create_mode="Default",
+                database_account_offer_type=azure_native.documentdb/v20210401preview.DatabaseAccountOfferType.STANDARD,
+                locations=[azure_native.documentdb.v20210401preview.LocationArgs(
+                    failover_priority=0,
+                    is_zone_redundant=False,
+                    location_name="southcentralus",
+                )],
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### CosmosDBRestoreDatabaseAccountCreateUpdate.json
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20210401preview.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            kind="GlobalDocumentDB",
+            location="westus",
+            properties=azure_native.documentdb.v20210401preview.RestoreReqeustDatabaseAccountCreateUpdatePropertiesArgs(
+                api_properties=azure_native.documentdb.v20210401preview.ApiPropertiesArgs(
+                    server_version="3.2",
+                ),
+                backup_policy=azure_native.documentdb.v20210401preview.ContinuousModeBackupPolicyArgs(
+                    type="Continuous",
+                ),
+                consistency_policy=azure_native.documentdb.v20210401preview.ConsistencyPolicyArgs(
+                    default_consistency_level=azure_native.documentdb/v20210401preview.DefaultConsistencyLevel.BOUNDED_STALENESS,
+                    max_interval_in_seconds=10,
+                    max_staleness_prefix=200,
+                ),
+                create_mode="Restore",
+                database_account_offer_type=azure_native.documentdb/v20210401preview.DatabaseAccountOfferType.STANDARD,
+                enable_analytical_storage=True,
+                enable_free_tier=False,
+                key_vault_key_uri="https://myKeyVault.vault.azure.net",
+                locations=[azure_native.documentdb.v20210401preview.LocationArgs(
+                    failover_priority=0,
+                    is_zone_redundant=False,
+                    location_name="southcentralus",
+                )],
+                restore_parameters=azure_native.documentdb.v20210401preview.RestoreParametersArgs(
+                    databases_to_restore=[
+                        azure_native.documentdb.v20210401preview.DatabaseRestoreResourceArgs(
+                            collection_names=[
+                                "collection1",
+                                "collection2",
+                            ],
+                            database_name="db1",
+                        ),
+                        azure_native.documentdb.v20210401preview.DatabaseRestoreResourceArgs(
+                            collection_names=[
+                                "collection3",
+                                "collection4",
+                            ],
+                            database_name="db2",
+                        ),
+                    ],
+                    restore_mode="PointInTime",
+                    restore_source="/subscriptions/subid/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/1a97b4bb-f6a0-430e-ade1-638d781830cc",
+                    restore_timestamp_in_utc="2021-03-11T22:05:09Z",
+                ),
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20210401preview:DatabaseAccount ddb1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseAccountArgs args: The arguments to use to populate this resource's properties.

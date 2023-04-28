@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The StorSimple Manager
+    /// 
+    /// ## Example Usage
+    /// ### ManagersCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var manager = new AzureNative.StorSimple.V20161001.Manager("manager", new()
+    ///     {
+    ///         CisIntrinsicSettings = new AzureNative.StorSimple.V20161001.Inputs.ManagerIntrinsicSettingsArgs
+    ///         {
+    ///             Type = AzureNative.StorSimple.V20161001.ManagerType.HelsinkiV1,
+    ///         },
+    ///         Location = "westus",
+    ///         ManagerName = "hManagerForSDKTest",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         Sku = new AzureNative.StorSimple.V20161001.Inputs.ManagerSkuArgs
+    ///         {
+    ///             Name = AzureNative.StorSimple.V20161001.ManagerSkuType.Standard,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20161001:Manager hManagerForSDKTest /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/Managers/hManagerForSDKTest 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:Manager")]

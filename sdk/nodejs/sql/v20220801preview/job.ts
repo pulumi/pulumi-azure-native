@@ -9,6 +9,52 @@ import * as utilities from "../../utilities";
 
 /**
  * A job.
+ *
+ * ## Example Usage
+ * ### Create a job with all properties specified
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.sql.v20220801preview.Job("job", {
+ *     description: "my favourite job",
+ *     jobAgentName: "agent1",
+ *     jobName: "job1",
+ *     resourceGroupName: "group1",
+ *     schedule: {
+ *         enabled: true,
+ *         endTime: "2015-09-24T23:59:59Z",
+ *         interval: "PT5M",
+ *         startTime: "2015-09-24T18:30:01Z",
+ *         type: azure_native.sql.v20220801preview.JobScheduleType.Recurring,
+ *     },
+ *     serverName: "server1",
+ * });
+ *
+ * ```
+ * ### Create a job with default properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.sql.v20220801preview.Job("job", {
+ *     jobAgentName: "agent1",
+ *     jobName: "job1",
+ *     resourceGroupName: "group1",
+ *     serverName: "server1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:Job job1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/jobs/job1 
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

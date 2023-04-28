@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.Network
     /// Describes a DNS forwarding ruleset.
     /// API Version: 2022-07-01.
     /// Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Upsert DNS forwarding ruleset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dnsForwardingRuleset = new AzureNative.Network.DnsForwardingRuleset("dnsForwardingRuleset", new()
+    ///     {
+    ///         DnsForwardingRulesetName = "samplednsForwardingRuleset",
+    ///         DnsResolverOutboundEndpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint0",
+    ///             },
+    ///             new AzureNative.Network.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint1",
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "sampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:DnsForwardingRuleset sampleDnsForwardingRuleset /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRulesets/sampleDnsForwardingRuleset 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DnsForwardingRuleset")]
     public partial class DnsForwardingRuleset : global::Pulumi.CustomResource

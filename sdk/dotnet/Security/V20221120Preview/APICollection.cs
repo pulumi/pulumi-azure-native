@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Security.V20221120Preview
 {
     /// <summary>
     /// An API collection as represented by Defender for APIs.
+    /// 
+    /// ## Example Usage
+    /// ### Onboard an Azure API Management API to Defender for APIs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiCollection = new AzureNative.Security.V20221120Preview.APICollection("apiCollection", new()
+    ///     {
+    ///         ApiCollectionId = "echo-api",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20221120preview:APICollection echo-api /subscriptions/3fa85f64-5717-4562-b3fc-2c963f66afa6/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/providers/Microsoft.Security/apiCollections/echo-api 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20221120preview:APICollection")]
     public partial class APICollection : global::Pulumi.CustomResource

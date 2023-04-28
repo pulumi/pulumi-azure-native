@@ -168,6 +168,31 @@ class VirtualNetworkTap(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Virtual Network Tap
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_tap = azure_native.network.VirtualNetworkTap("virtualNetworkTap",
+            destination_network_interface_ip_configuration=azure_native.network.NetworkInterfaceIPConfigurationArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/testNetworkInterface/ipConfigurations/ipconfig1",
+            ),
+            location="centraluseuap",
+            resource_group_name="rg1",
+            tap_name="test-vtap")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkTap testvtap /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkTaps/testvtap 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FrontendIPConfigurationArgs']] destination_load_balancer_front_end_ip_configuration: The reference to the private IP address on the internal Load Balancer that will receive the tap.
@@ -189,6 +214,31 @@ class VirtualNetworkTap(pulumi.CustomResource):
         Virtual Network Tap resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Virtual Network Tap
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_tap = azure_native.network.VirtualNetworkTap("virtualNetworkTap",
+            destination_network_interface_ip_configuration=azure_native.network.NetworkInterfaceIPConfigurationArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/testNetworkInterface/ipConfigurations/ipconfig1",
+            ),
+            location="centraluseuap",
+            resource_group_name="rg1",
+            tap_name="test-vtap")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkTap testvtap /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkTaps/testvtap 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkTapInitArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,77 @@ namespace Pulumi.AzureNative.Media
     /// The streaming endpoint.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a streaming endpoint
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingEndpoint = new AzureNative.Media.StreamingEndpoint("streamingEndpoint", new()
+    ///     {
+    ///         AccessControl = new AzureNative.Media.Inputs.StreamingEndpointAccessControlArgs
+    ///         {
+    ///             Akamai = new AzureNative.Media.Inputs.AkamaiAccessControlArgs
+    ///             {
+    ///                 AkamaiSignatureHeaderAuthenticationKeyList = new[]
+    ///                 {
+    ///                     new AzureNative.Media.Inputs.AkamaiSignatureHeaderAuthenticationKeyArgs
+    ///                     {
+    ///                         Base64Key = "dGVzdGlkMQ==",
+    ///                         Expiration = "2029-12-31T16:00:00-08:00",
+    ///                         Identifier = "id1",
+    ///                     },
+    ///                     new AzureNative.Media.Inputs.AkamaiSignatureHeaderAuthenticationKeyArgs
+    ///                     {
+    ///                         Base64Key = "dGVzdGlkMQ==",
+    ///                         Expiration = "2030-12-31T16:00:00-08:00",
+    ///                         Identifier = "id2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Ip = new AzureNative.Media.Inputs.IPAccessControlArgs
+    ///             {
+    ///                 Allow = new[]
+    ///                 {
+    ///                     new AzureNative.Media.Inputs.IPRangeArgs
+    ///                     {
+    ///                         Address = "192.168.1.1",
+    ///                         Name = "AllowedIp",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AccountName = "slitestmedia10",
+    ///         AvailabilitySetName = "availableset",
+    ///         CdnEnabled = false,
+    ///         Description = "test event 1",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "mediaresources",
+    ///         ScaleUnits = 1,
+    ///         StreamingEndpointName = "myStreamingEndpoint1",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media:StreamingEndpoint myStreamingEndpoint1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingendpoints/myStreamingEndpoint1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media:StreamingEndpoint")]
     public partial class StreamingEndpoint : global::Pulumi.CustomResource

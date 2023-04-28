@@ -113,6 +113,35 @@ class Transform(pulumi.CustomResource):
         """
         A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
 
+        ## Example Usage
+        ### Create or update a Transform
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        transform = azure_native.media.v20200501.Transform("transform",
+            account_name="contosomedia",
+            description="Example Transform to illustrate create and update.",
+            outputs=[azure_native.media.v20200501.TransformOutputArgs(
+                preset=azure_native.media.v20200501.BuiltInStandardEncoderPresetArgs(
+                    odata_type="#Microsoft.Media.BuiltInStandardEncoderPreset",
+                    preset_name="AdaptiveStreaming",
+                ),
+            )],
+            resource_group_name="contosoresources",
+            transform_name="createdTransform")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20200501:Transform createdTransform /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Media/mediaservices/contosomedia/transforms/createdTransform 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -129,6 +158,35 @@ class Transform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
+
+        ## Example Usage
+        ### Create or update a Transform
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        transform = azure_native.media.v20200501.Transform("transform",
+            account_name="contosomedia",
+            description="Example Transform to illustrate create and update.",
+            outputs=[azure_native.media.v20200501.TransformOutputArgs(
+                preset=azure_native.media.v20200501.BuiltInStandardEncoderPresetArgs(
+                    odata_type="#Microsoft.Media.BuiltInStandardEncoderPreset",
+                    preset_name="AdaptiveStreaming",
+                ),
+            )],
+            resource_group_name="contosoresources",
+            transform_name="createdTransform")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20200501:Transform createdTransform /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Media/mediaservices/contosomedia/transforms/createdTransform 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TransformArgs args: The arguments to use to populate this resource's properties.

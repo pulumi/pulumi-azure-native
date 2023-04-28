@@ -301,6 +301,49 @@ class VirtualMachine(pulumi.CustomResource):
         API Version: 2019-04-01.
         Previous API Version: 2019-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateVirtualMachine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.vmwarecloudsimple.VirtualMachine("virtualMachine",
+            amount_of_ram=4096,
+            disks=[{
+                "controllerId": "1000",
+                "independenceMode": azure_native.vmwarecloudsimple.DiskIndependenceMode.PERSISTENT,
+                "totalSize": 10485760,
+                "virtualDiskId": "2000",
+            }],
+            location="westus2",
+            nics=[{
+                "network": {
+                    "id": "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualNetworks/dvportgroup-19",
+                },
+                "nicType": azure_native.vmwarecloudsimple.NICType.E1000,
+                "powerOnBoot": True,
+                "virtualNicId": "4000",
+            }],
+            number_of_cores=2,
+            private_cloud_id="/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud",
+            resource_group_name="myResourceGroup",
+            resource_pool=azure_native.vmwarecloudsimple.ResourcePoolResponseArgs(
+                id="/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/resourcePools/resgroup-26",
+            ),
+            template_id="/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualMachineTemplates/vm-34",
+            virtual_machine_name="myVirtualMachine")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:vmwarecloudsimple:VirtualMachine myVirtualMachine /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VMwareCloudSimple/virtualMachines/myVirtualMachine 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] amount_of_ram: The amount of memory
@@ -330,6 +373,49 @@ class VirtualMachine(pulumi.CustomResource):
         Virtual machine model
         API Version: 2019-04-01.
         Previous API Version: 2019-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateVirtualMachine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.vmwarecloudsimple.VirtualMachine("virtualMachine",
+            amount_of_ram=4096,
+            disks=[{
+                "controllerId": "1000",
+                "independenceMode": azure_native.vmwarecloudsimple.DiskIndependenceMode.PERSISTENT,
+                "totalSize": 10485760,
+                "virtualDiskId": "2000",
+            }],
+            location="westus2",
+            nics=[{
+                "network": {
+                    "id": "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualNetworks/dvportgroup-19",
+                },
+                "nicType": azure_native.vmwarecloudsimple.NICType.E1000,
+                "powerOnBoot": True,
+                "virtualNicId": "4000",
+            }],
+            number_of_cores=2,
+            private_cloud_id="/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud",
+            resource_group_name="myResourceGroup",
+            resource_pool=azure_native.vmwarecloudsimple.ResourcePoolResponseArgs(
+                id="/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/resourcePools/resgroup-26",
+            ),
+            template_id="/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualMachineTemplates/vm-34",
+            virtual_machine_name="myVirtualMachine")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:vmwarecloudsimple:VirtualMachine myVirtualMachine /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VMwareCloudSimple/virtualMachines/myVirtualMachine 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

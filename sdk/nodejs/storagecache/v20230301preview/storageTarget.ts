@@ -9,6 +9,91 @@ import * as utilities from "../../utilities";
 
 /**
  * Type of the Storage Target.
+ *
+ * ## Example Usage
+ * ### StorageTargets_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageTarget = new azure_native.storagecache.v20230301preview.StorageTarget("storageTarget", {
+ *     cacheName: "sc1",
+ *     junctions: [
+ *         {
+ *             namespacePath: "/path/on/cache",
+ *             nfsAccessPolicy: "default",
+ *             nfsExport: "exp1",
+ *             targetPath: "/path/on/exp1",
+ *         },
+ *         {
+ *             namespacePath: "/path2/on/cache",
+ *             nfsAccessPolicy: "rootSquash",
+ *             nfsExport: "exp2",
+ *             targetPath: "/path2/on/exp2",
+ *         },
+ *     ],
+ *     nfs3: {
+ *         target: "10.0.44.44",
+ *         usageModel: "READ_ONLY",
+ *         verificationTimer: 30,
+ *     },
+ *     resourceGroupName: "scgroup",
+ *     storageTargetName: "st1",
+ *     targetType: "nfs3",
+ * });
+ *
+ * ```
+ * ### StorageTargets_CreateOrUpdate_BlobNfs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageTarget = new azure_native.storagecache.v20230301preview.StorageTarget("storageTarget", {
+ *     blobNfs: {
+ *         target: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/blofnfs/blobServices/default/containers/blobnfs",
+ *         usageModel: "READ_WRITE",
+ *         verificationTimer: 28800,
+ *         writeBackTimer: 3600,
+ *     },
+ *     cacheName: "sc1",
+ *     junctions: [{
+ *         namespacePath: "/blobnfs",
+ *     }],
+ *     resourceGroupName: "scgroup",
+ *     storageTargetName: "st1",
+ *     targetType: "blobNfs",
+ * });
+ *
+ * ```
+ * ### StorageTargets_CreateOrUpdate_NoJunctions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageTarget = new azure_native.storagecache.v20230301preview.StorageTarget("storageTarget", {
+ *     cacheName: "sc1",
+ *     nfs3: {
+ *         target: "10.0.44.44",
+ *         usageModel: "READ_ONLY",
+ *         verificationTimer: 30,
+ *     },
+ *     resourceGroupName: "scgroup",
+ *     storageTargetName: "st1",
+ *     targetType: "nfs3",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagecache/v20230301preview:StorageTarget st1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1/storagetargets/st1 
+ * ```
  */
 export class StorageTarget extends pulumi.CustomResource {
     /**

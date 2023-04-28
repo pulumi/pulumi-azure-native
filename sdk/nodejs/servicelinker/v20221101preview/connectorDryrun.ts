@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * a dryrun job resource
+ *
+ * ## Example Usage
+ * ### ConnectorDryrunCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectorDryrun = new azure_native.servicelinker.v20221101preview.ConnectorDryrun("connectorDryrun", {
+ *     dryrunName: "dryrunName",
+ *     location: "westus",
+ *     parameters: {
+ *         actionName: "createOrUpdate",
+ *         authInfo: {
+ *             authType: "secret",
+ *             name: "name",
+ *             secretInfo: {
+ *                 secretType: "rawValue",
+ *                 value: "secret",
+ *             },
+ *         },
+ *         targetService: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+ *             type: "AzureResource",
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicelinker/v20221101preview:ConnectorDryrun dryrunName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.ServiceLinker/locations/westus/dryruns/dryrunName 
+ * ```
  */
 export class ConnectorDryrun extends pulumi.CustomResource {
     /**

@@ -96,6 +96,48 @@ class SecurityPolicy(pulumi.CustomResource):
         """
         SecurityPolicy association for AzureFrontDoor profile
 
+        ## Example Usage
+        ### SecurityPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_policy = azure_native.cdn.v20200901.SecurityPolicy("securityPolicy",
+            parameters=azure_native.cdn.v20200901.SecurityPolicyWebApplicationFirewallParametersResponseArgs(
+                associations=[{
+                    "domains": [
+                        azure_native.cdn.v20200901.ResourceReferenceArgs(
+                            id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afddomains/testdomain1",
+                        ),
+                        azure_native.cdn.v20200901.ResourceReferenceArgs(
+                            id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afddomains/testdomain2",
+                        ),
+                    ],
+                    "patternsToMatch": [
+                        "/images",
+                        "/videos",
+                    ],
+                }],
+                type="WebApplicationFirewall",
+                waf_policy=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                    id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/wafTest",
+                ),
+            ),
+            profile_name="profile1",
+            resource_group_name="RG",
+            security_policy_name="securityPolicy1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:SecurityPolicy securityPolicy1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/securityPolicy1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SecurityPolicyWebApplicationFirewallParametersArgs']] parameters: object which contains security policy parameters
@@ -111,6 +153,48 @@ class SecurityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SecurityPolicy association for AzureFrontDoor profile
+
+        ## Example Usage
+        ### SecurityPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_policy = azure_native.cdn.v20200901.SecurityPolicy("securityPolicy",
+            parameters=azure_native.cdn.v20200901.SecurityPolicyWebApplicationFirewallParametersResponseArgs(
+                associations=[{
+                    "domains": [
+                        azure_native.cdn.v20200901.ResourceReferenceArgs(
+                            id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afddomains/testdomain1",
+                        ),
+                        azure_native.cdn.v20200901.ResourceReferenceArgs(
+                            id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afddomains/testdomain2",
+                        ),
+                    ],
+                    "patternsToMatch": [
+                        "/images",
+                        "/videos",
+                    ],
+                }],
+                type="WebApplicationFirewall",
+                waf_policy=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                    id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/wafTest",
+                ),
+            ),
+            profile_name="profile1",
+            resource_group_name="RG",
+            security_policy_name="securityPolicy1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:SecurityPolicy securityPolicy1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/securityPolicy1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityPolicyArgs args: The arguments to use to populate this resource's properties.

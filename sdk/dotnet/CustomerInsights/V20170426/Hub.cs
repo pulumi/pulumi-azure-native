@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// Hub resource.
+    /// 
+    /// ## Example Usage
+    /// ### Hubs_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hub = new AzureNative.CustomerInsights.V20170426.Hub("hub", new()
+    ///     {
+    ///         HubBillingInfo = new AzureNative.CustomerInsights.V20170426.Inputs.HubBillingInfoFormatArgs
+    ///         {
+    ///             MaxUnits = 5,
+    ///             MinUnits = 1,
+    ///             SkuName = "B0",
+    ///         },
+    ///         HubName = "sdkTestHub",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestHubRG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170426:Hub testHub2839 /subscriptions/subid/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/testHub2839 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Hub")]
     public partial class Hub : global::Pulumi.CustomResource

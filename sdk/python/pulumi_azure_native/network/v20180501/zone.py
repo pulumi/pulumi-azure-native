@@ -151,6 +151,31 @@ class Zone(pulumi.CustomResource):
         """
         Describes a DNS zone.
 
+        ## Example Usage
+        ### Create zone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        zone = azure_native.network.v20180501.Zone("zone",
+            location="Global",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            zone_name="zone1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180501:Zone zone1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.
@@ -169,6 +194,31 @@ class Zone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a DNS zone.
+
+        ## Example Usage
+        ### Create zone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        zone = azure_native.network.v20180501.Zone("zone",
+            location="Global",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            zone_name="zone1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180501:Zone zone1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ZoneArgs args: The arguments to use to populate this resource's properties.

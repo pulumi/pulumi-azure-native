@@ -16,6 +16,79 @@ import * as utilities from "../utilities";
  *   - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
  *     API Version: 2021-11-01-preview.
  *     Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a pipeline topology with an Rtsp source and video sink.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pipelineTopology = new azure_native.videoanalyzer.PipelineTopology("pipelineTopology", {
+ *     accountName: "testaccount2",
+ *     description: "Pipeline Topology 1 Description",
+ *     kind: "Live",
+ *     parameters: [
+ *         {
+ *             "default": "rtsp://microsoft.com/video.mp4",
+ *             description: "rtsp source url parameter",
+ *             name: "rtspUrlParameter",
+ *             type: "String",
+ *         },
+ *         {
+ *             "default": "password",
+ *             description: "rtsp source password parameter",
+ *             name: "rtspPasswordParameter",
+ *             type: "SecretString",
+ *         },
+ *     ],
+ *     pipelineTopologyName: "pipelineTopology1",
+ *     resourceGroupName: "testrg",
+ *     sinks: [{
+ *         inputs: [{
+ *             nodeName: "rtspSource",
+ *         }],
+ *         name: "videoSink",
+ *         type: "#Microsoft.VideoAnalyzer.VideoSink",
+ *         videoCreationProperties: {
+ *             description: "Parking lot south entrance",
+ *             segmentLength: "PT30S",
+ *             title: "Parking Lot (Camera 1)",
+ *         },
+ *         videoName: "camera001",
+ *         videoPublishingOptions: {
+ *             disableArchive: "false",
+ *             disableRtspPublishing: "true",
+ *         },
+ *     }],
+ *     sku: {
+ *         name: "Live_S1",
+ *     },
+ *     sources: [{
+ *         endpoint: {
+ *             credentials: {
+ *                 password: `${rtspPasswordParameter}`,
+ *                 type: "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
+ *                 username: "username",
+ *             },
+ *             type: "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
+ *             url: `${rtspUrlParameter}`,
+ *         },
+ *         name: "rtspSource",
+ *         transport: "Http",
+ *         type: "#Microsoft.VideoAnalyzer.RtspSource",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:videoanalyzer:PipelineTopology pipelineTopology1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/pipelineTopologies/pipelineTopology1 
+ * ```
  */
 export class PipelineTopology extends pulumi.CustomResource {
     /**

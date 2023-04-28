@@ -13,6 +13,75 @@ namespace Pulumi.AzureNative.Storage
     /// Properties of the file share, including Id, resource name, resource type, Etag.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create NFS Shares
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileShare = new AzureNative.Storage.FileShare("fileShare", new()
+    ///     {
+    ///         AccountName = "sto666",
+    ///         EnabledProtocols = "NFS",
+    ///         ResourceGroupName = "res346",
+    ///         ShareName = "share1235",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutShares
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileShare = new AzureNative.Storage.FileShare("fileShare", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         ResourceGroupName = "res3376",
+    ///         ShareName = "share6185",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutShares with Access Tier
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileShare = new AzureNative.Storage.FileShare("fileShare", new()
+    ///     {
+    ///         AccessTier = "Hot",
+    ///         AccountName = "sto666",
+    ///         ResourceGroupName = "res346",
+    ///         ShareName = "share1235",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:FileShare share1235 /subscriptions/{subscription-id}/resourceGroups/res346/providers/Microsoft.Storage/storageAccounts/sto666/fileServices/default/shares/share1235 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:FileShare")]
     public partial class FileShare : global::Pulumi.CustomResource

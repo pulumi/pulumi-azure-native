@@ -192,7 +192,56 @@ class BmcKeySet(pulumi.CustomResource):
                  user_list: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KeySetUserArgs']]]]] = None,
                  __props__=None):
         """
-        Create a BmcKeySet resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update baseboard management controller key set of cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bmc_key_set = azure_native.networkcloud.v20221212preview.BmcKeySet("bmcKeySet",
+            azure_group_id="f110271b-XXXX-4163-9b99-214d91660f0e",
+            bmc_key_set_name="bmcKeySetName",
+            cluster_name="clusterName",
+            expiration="2022-12-31T23:59:59.008Z",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            privilege_level="Administrator",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            user_list=[
+                azure_native.networkcloud.v20221212preview.KeySetUserArgs(
+                    azure_user_name="userABC",
+                    description="Needs access for troubleshooting as a part of the support team",
+                    ssh_public_key=azure_native.networkcloud.v20221212preview.SshPublicKeyArgs(
+                        key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                    ),
+                ),
+                azure_native.networkcloud.v20221212preview.KeySetUserArgs(
+                    azure_user_name="userXYZ",
+                    description="Needs access for troubleshooting as a part of the support team",
+                    ssh_public_key=azure_native.networkcloud.v20221212preview.SshPublicKeyArgs(
+                        key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                    ),
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:BmcKeySet bmcKeySetName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/bmcKeySets/bmcKeySetName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_group_id: The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
@@ -213,7 +262,56 @@ class BmcKeySet(pulumi.CustomResource):
                  args: BmcKeySetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BmcKeySet resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update baseboard management controller key set of cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bmc_key_set = azure_native.networkcloud.v20221212preview.BmcKeySet("bmcKeySet",
+            azure_group_id="f110271b-XXXX-4163-9b99-214d91660f0e",
+            bmc_key_set_name="bmcKeySetName",
+            cluster_name="clusterName",
+            expiration="2022-12-31T23:59:59.008Z",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            privilege_level="Administrator",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            user_list=[
+                azure_native.networkcloud.v20221212preview.KeySetUserArgs(
+                    azure_user_name="userABC",
+                    description="Needs access for troubleshooting as a part of the support team",
+                    ssh_public_key=azure_native.networkcloud.v20221212preview.SshPublicKeyArgs(
+                        key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                    ),
+                ),
+                azure_native.networkcloud.v20221212preview.KeySetUserArgs(
+                    azure_user_name="userXYZ",
+                    description="Needs access for troubleshooting as a part of the support team",
+                    ssh_public_key=azure_native.networkcloud.v20221212preview.SshPublicKeyArgs(
+                        key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                    ),
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:BmcKeySet bmcKeySetName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/bmcKeySets/bmcKeySetName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param BmcKeySetArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -150,6 +150,78 @@ class SqlManagedInstance(pulumi.CustomResource):
         API Version: 2023-03-15-preview.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a SQL Managed Instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_managed_instance = azure_native.azurearcdata.SqlManagedInstance("sqlManagedInstance",
+            extended_location=azure_native.azurearcdata.ExtendedLocationArgs(
+                name="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+                type="CustomLocation",
+            ),
+            location="northeurope",
+            properties=azure_native.azurearcdata.SqlManagedInstancePropertiesResponseArgs(
+                active_directory_information=azure_native.azurearcdata.ActiveDirectoryInformationArgs(
+                    keytab_information=azure_native.azurearcdata.KeytabInformationArgs(
+                        keytab="********",
+                    ),
+                ),
+                admin="Admin user",
+                basic_login_information=azure_native.azurearcdata.BasicLoginInformationArgs(
+                    password="********",
+                    username="username",
+                ),
+                cluster_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s",
+                end_time="Instance end time",
+                extension_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s/providers/Microsoft.KubernetesConfiguration/extensions/extension",
+                k8s_raw={
+                    "spec": {
+                        "replicas": 1,
+                        "scheduling": {
+                            "default": {
+                                "resources": azure_native.azurearcdata.K8sResourceRequirementsArgs(
+                                    limits={
+                                        "additionalProperty": "additionalValue",
+                                        "cpu": "1",
+                                        "memory": "8Gi",
+                                    },
+                                    requests={
+                                        "additionalProperty": "additionalValue",
+                                        "cpu": "1",
+                                        "memory": "8Gi",
+                                    },
+                                ),
+                            },
+                        },
+                    },
+                },
+                license_type="LicenseIncluded",
+                start_time="Instance start time",
+            ),
+            resource_group_name="testrg",
+            sku=azure_native.azurearcdata.SqlManagedInstanceSkuResponseArgs(
+                dev=True,
+                name=azure_native.azurearcdata.SqlManagedInstanceSkuName.V_CORE,
+                tier=azure_native.azurearcdata.SqlManagedInstanceSkuTier.GENERAL_PURPOSE,
+            ),
+            sql_managed_instance_name="testsqlManagedInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:SqlManagedInstance testsqlManagedInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testsqlManagedInstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
@@ -170,6 +242,78 @@ class SqlManagedInstance(pulumi.CustomResource):
         A SqlManagedInstance.
         API Version: 2023-03-15-preview.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a SQL Managed Instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_managed_instance = azure_native.azurearcdata.SqlManagedInstance("sqlManagedInstance",
+            extended_location=azure_native.azurearcdata.ExtendedLocationArgs(
+                name="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+                type="CustomLocation",
+            ),
+            location="northeurope",
+            properties=azure_native.azurearcdata.SqlManagedInstancePropertiesResponseArgs(
+                active_directory_information=azure_native.azurearcdata.ActiveDirectoryInformationArgs(
+                    keytab_information=azure_native.azurearcdata.KeytabInformationArgs(
+                        keytab="********",
+                    ),
+                ),
+                admin="Admin user",
+                basic_login_information=azure_native.azurearcdata.BasicLoginInformationArgs(
+                    password="********",
+                    username="username",
+                ),
+                cluster_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s",
+                end_time="Instance end time",
+                extension_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s/providers/Microsoft.KubernetesConfiguration/extensions/extension",
+                k8s_raw={
+                    "spec": {
+                        "replicas": 1,
+                        "scheduling": {
+                            "default": {
+                                "resources": azure_native.azurearcdata.K8sResourceRequirementsArgs(
+                                    limits={
+                                        "additionalProperty": "additionalValue",
+                                        "cpu": "1",
+                                        "memory": "8Gi",
+                                    },
+                                    requests={
+                                        "additionalProperty": "additionalValue",
+                                        "cpu": "1",
+                                        "memory": "8Gi",
+                                    },
+                                ),
+                            },
+                        },
+                    },
+                },
+                license_type="LicenseIncluded",
+                start_time="Instance start time",
+            ),
+            resource_group_name="testrg",
+            sku=azure_native.azurearcdata.SqlManagedInstanceSkuResponseArgs(
+                dev=True,
+                name=azure_native.azurearcdata.SqlManagedInstanceSkuName.V_CORE,
+                tier=azure_native.azurearcdata.SqlManagedInstanceSkuTier.GENERAL_PURPOSE,
+            ),
+            sql_managed_instance_name="testsqlManagedInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:SqlManagedInstance testsqlManagedInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testsqlManagedInstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlManagedInstanceArgs args: The arguments to use to populate this resource's properties.

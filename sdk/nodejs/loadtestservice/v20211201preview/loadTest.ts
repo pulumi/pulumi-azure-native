@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * LoadTest details
+ *
+ * ## Example Usage
+ * ### LoadTests_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadTest = new azure_native.loadtestservice.v20211201preview.LoadTest("loadTest", {
+ *     description: "This is new load test resource",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     loadTestName: "myLoadTest",
+ *     location: "westus",
+ *     resourceGroupName: "dummyrg",
+ *     tags: {
+ *         Team: "Dev Exp",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:loadtestservice/v20211201preview:LoadTest myLoadTest /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.LoadTestService/loadTests/myLoadTest 
+ * ```
  */
 export class LoadTest extends pulumi.CustomResource {
     /**

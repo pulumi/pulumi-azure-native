@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Defines the inventory item.
  * API Version: 2022-07-15-preview.
  * Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateInventoryItem
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const inventoryItem = new azure_native.connectedvmwarevsphere.InventoryItem("inventoryItem", {
+ *     inventoryItemName: "testItem",
+ *     inventoryType: "ResourcePool",
+ *     resourceGroupName: "testrg",
+ *     vcenterName: "ContosoVCenter",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:connectedvmwarevsphere:InventoryItem testItem /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter/InventoryItems/testItem 
+ * ```
  */
 export class InventoryItem extends pulumi.CustomResource {
     /**

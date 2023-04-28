@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// A short term retention policy.
+    /// 
+    /// ## Example Usage
+    /// ### Update the short term retention policy for the database.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupShortTermRetentionPolicy = new AzureNative.Sql.V20220801Preview.BackupShortTermRetentionPolicy("backupShortTermRetentionPolicy", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         DiffBackupIntervalInHours = 24,
+    ///         PolicyName = "default",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         RetentionDays = 7,
+    ///         ServerName = "testsvr",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testsvr/databases/testdb/backupShortTermRetentionPolicies/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy")]
     public partial class BackupShortTermRetentionPolicy : global::Pulumi.CustomResource

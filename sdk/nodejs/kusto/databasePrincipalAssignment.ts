@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Class representing a database principal assignment.
  * API Version: 2022-12-29.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### KustoDatabasePrincipalAssignmentsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databasePrincipalAssignment = new azure_native.kusto.DatabasePrincipalAssignment("databasePrincipalAssignment", {
+ *     clusterName: "kustoCluster",
+ *     databaseName: "Kustodatabase8",
+ *     principalAssignmentName: "kustoprincipal1",
+ *     principalId: "87654321-1234-1234-1234-123456789123",
+ *     principalType: "App",
+ *     resourceGroupName: "kustorptest",
+ *     role: "Admin",
+ *     tenantId: "12345678-1234-1234-1234-123456789123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto:DatabasePrincipalAssignment kustoCluster/Kustodatabase8/kustoprincipal1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/Kustodatabase8/PrincipalAssignments/kustoprincipal1 
+ * ```
  */
 export class DatabasePrincipalAssignment extends pulumi.CustomResource {
     /**

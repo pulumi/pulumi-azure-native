@@ -149,6 +149,55 @@ class Bot(pulumi.CustomResource):
         """
         Bot resource definition
 
+        ## Example Usage
+        ### Create Bot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot = azure_native.botservice.v20210301.Bot("bot",
+            kind="sdk",
+            location="West US",
+            properties=azure_native.botservice.v20210301.BotPropertiesResponseArgs(
+                cmek_key_vault_url="https://myCmekKey",
+                description="The description of the bot",
+                developer_app_insight_key="appinsightskey",
+                developer_app_insights_api_key="appinsightsapikey",
+                developer_app_insights_application_id="appinsightsappid",
+                display_name="The Name of the bot",
+                endpoint="http://mybot.coffee",
+                icon_url="http://myicon",
+                is_cmek_enabled=True,
+                luis_app_ids=[
+                    "luisappid1",
+                    "luisappid2",
+                ],
+                luis_key="luiskey",
+                msa_app_id="exampleappid",
+                public_network_access="Enabled",
+                schema_transformation_version="1.0",
+            ),
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname",
+            sku=azure_native.botservice.v20210301.SkuResponseArgs(
+                name="S1",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice/v20210301:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.BotService/botServices/samplebotname 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
@@ -167,6 +216,55 @@ class Bot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Bot resource definition
+
+        ## Example Usage
+        ### Create Bot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot = azure_native.botservice.v20210301.Bot("bot",
+            kind="sdk",
+            location="West US",
+            properties=azure_native.botservice.v20210301.BotPropertiesResponseArgs(
+                cmek_key_vault_url="https://myCmekKey",
+                description="The description of the bot",
+                developer_app_insight_key="appinsightskey",
+                developer_app_insights_api_key="appinsightsapikey",
+                developer_app_insights_application_id="appinsightsappid",
+                display_name="The Name of the bot",
+                endpoint="http://mybot.coffee",
+                icon_url="http://myicon",
+                is_cmek_enabled=True,
+                luis_app_ids=[
+                    "luisappid1",
+                    "luisappid2",
+                ],
+                luis_key="luiskey",
+                msa_app_id="exampleappid",
+                public_network_access="Enabled",
+                schema_transformation_version="1.0",
+            ),
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname",
+            sku=azure_native.botservice.v20210301.SkuResponseArgs(
+                name="S1",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice/v20210301:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.BotService/botServices/samplebotname 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.

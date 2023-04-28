@@ -116,6 +116,35 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementApproveOrRejectPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_by_name = azure_native.apimanagement.PrivateEndpointConnectionByName("privateEndpointConnectionByName",
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/privateEndpointConnections/connectionName",
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            properties=azure_native.apimanagement.PrivateEndpointConnectionRequestPropertiesArgs(
+                private_link_service_connection_state=azure_native.apimanagement.PrivateLinkServiceConnectionStateArgs(
+                    description="The Private Endpoint Connection is approved.",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:PrivateEndpointConnectionByName privateEndpointConnectionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/privateEndpointConnections/privateEndpointConnectionName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Private Endpoint Connection Resource Id.
@@ -134,6 +163,35 @@ class PrivateEndpointConnectionByName(pulumi.CustomResource):
         The Private Endpoint Connection resource.
         API Version: 2022-08-01.
         Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementApproveOrRejectPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_by_name = azure_native.apimanagement.PrivateEndpointConnectionByName("privateEndpointConnectionByName",
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/privateEndpointConnections/connectionName",
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            properties=azure_native.apimanagement.PrivateEndpointConnectionRequestPropertiesArgs(
+                private_link_service_connection_state=azure_native.apimanagement.PrivateLinkServiceConnectionStateArgs(
+                    description="The Private Endpoint Connection is approved.",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:PrivateEndpointConnectionByName privateEndpointConnectionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/privateEndpointConnections/privateEndpointConnectionName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionByNameArgs args: The arguments to use to populate this resource's properties.

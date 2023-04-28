@@ -11,6 +11,79 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
 {
     /// <summary>
     /// An object that represents a pipeline run for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### PipelineRunCreate_Export
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipelineRun = new AzureNative.ContainerRegistry.V20230101Preview.PipelineRun("pipelineRun", new()
+    ///     {
+    ///         PipelineRunName = "myPipelineRun",
+    ///         RegistryName = "myRegistry",
+    ///         Request = new AzureNative.ContainerRegistry.V20230101Preview.Inputs.PipelineRunRequestArgs
+    ///         {
+    ///             Artifacts = new[]
+    ///             {
+    ///                 "sourceRepository/hello-world",
+    ///                 "sourceRepository2@sha256:00000000000000000000000000000000000",
+    ///             },
+    ///             PipelineResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline",
+    ///             Target = new AzureNative.ContainerRegistry.V20230101Preview.Inputs.PipelineRunTargetPropertiesArgs
+    ///             {
+    ///                 Name = "myblob.tar.gz",
+    ///                 Type = "AzureStorageBlob",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PipelineRunCreate_Import
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipelineRun = new AzureNative.ContainerRegistry.V20230101Preview.PipelineRun("pipelineRun", new()
+    ///     {
+    ///         ForceUpdateTag = "2020-03-04T17:23:21.9261521+00:00",
+    ///         PipelineRunName = "myPipelineRun",
+    ///         RegistryName = "myRegistry",
+    ///         Request = new AzureNative.ContainerRegistry.V20230101Preview.Inputs.PipelineRunRequestArgs
+    ///         {
+    ///             CatalogDigest = "sha256@",
+    ///             PipelineResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline",
+    ///             Source = new AzureNative.ContainerRegistry.V20230101Preview.Inputs.PipelineRunSourcePropertiesArgs
+    ///             {
+    ///                 Name = "myblob.tar.gz",
+    ///                 Type = "AzureStorageBlob",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20230101preview:PipelineRun myPipelineRun /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/pipelineRuns/myPipelineRun 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20230101preview:PipelineRun")]
     public partial class PipelineRun : global::Pulumi.CustomResource

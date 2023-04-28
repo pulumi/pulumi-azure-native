@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * VirtualHub Resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### VirtualHubPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualHub = new azure_native.network.VirtualHub("virtualHub", {
+ *     addressPrefix: "10.168.0.0/24",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     sku: "Basic",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualHubName: "virtualHub2",
+ *     virtualWan: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:VirtualHub virtualHub2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub2 
+ * ```
  */
 export class VirtualHub extends pulumi.CustomResource {
     /**

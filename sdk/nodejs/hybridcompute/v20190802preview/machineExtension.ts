@@ -10,6 +10,48 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Machine Extension.
  *
+ * ## Example Usage
+ * ### Create or Update a Machine Extension
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineExtension = new azure_native.hybridcompute.v20190802preview.MachineExtension("machineExtension", {
+ *     autoUpgradeMinorVersion: true,
+ *     extensionName: "MMA",
+ *     forceUpdateTag: "false",
+ *     instanceView: {
+ *         name: "string",
+ *         status: {
+ *             code: "string",
+ *             displayStatus: "string",
+ *             level: azure_native.hybridcompute.v20190802preview.StatusLevelTypes.Info,
+ *             message: "string",
+ *             time: "2019-08-08T20:36:46.620Z",
+ *         },
+ *         type: "string",
+ *         typeHandlerVersion: "string",
+ *     },
+ *     location: "string",
+ *     name: "myMachine",
+ *     protectedSettings: {},
+ *     publisher: "Publisher1",
+ *     resourceGroupName: "myResourceGroup",
+ *     settings: {},
+ *     typeHandlerVersion: "1.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcompute/v20190802preview:MachineExtension string string 
+ * ```
+ *
  * @deprecated Version 2019-08-02-preview will be removed in v2 of the provider.
  */
 export class MachineExtension extends pulumi.CustomResource {

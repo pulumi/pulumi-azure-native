@@ -9,6 +9,16 @@ import * as utilities from "../../utilities";
 
 /**
  * Markup rule
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement/v20221005preview:MarkupRule markup-2022 providers/Microsoft.CostManagement/markupRules/markup-2022 
+ * ```
  */
 export class MarkupRule extends pulumi.CustomResource {
     /**

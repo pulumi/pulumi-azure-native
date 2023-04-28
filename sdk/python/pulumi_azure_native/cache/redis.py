@@ -341,6 +341,99 @@ class Redis(pulumi.CustomResource):
         API Version: 2022-06-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RedisCacheCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        redis = azure_native.cache.Redis("redis",
+            enable_non_ssl_port=True,
+            location="West US",
+            minimum_tls_version="1.2",
+            name="cache1",
+            redis_configuration=azure_native.cache.RedisCommonPropertiesRedisConfigurationArgs(
+                maxmemory_policy="allkeys-lru",
+            ),
+            redis_version="4",
+            replicas_per_primary=2,
+            resource_group_name="rg1",
+            shard_count=2,
+            sku=azure_native.cache.SkuArgs(
+                capacity=1,
+                family="P",
+                name="Premium",
+            ),
+            static_ip="192.168.0.5",
+            subnet_id="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+            zones=["1"])
+
+        ```
+        ### RedisCacheCreateDefaultVersion
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        redis = azure_native.cache.Redis("redis",
+            enable_non_ssl_port=True,
+            location="West US",
+            minimum_tls_version="1.2",
+            name="cache1",
+            redis_configuration=azure_native.cache.RedisCommonPropertiesRedisConfigurationArgs(
+                maxmemory_policy="allkeys-lru",
+            ),
+            replicas_per_primary=2,
+            resource_group_name="rg1",
+            shard_count=2,
+            sku=azure_native.cache.SkuArgs(
+                capacity=1,
+                family="P",
+                name="Premium",
+            ),
+            static_ip="192.168.0.5",
+            subnet_id="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+            zones=["1"])
+
+        ```
+        ### RedisCacheCreateLatestVersion
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        redis = azure_native.cache.Redis("redis",
+            enable_non_ssl_port=True,
+            location="West US",
+            minimum_tls_version="1.2",
+            name="cache1",
+            redis_configuration=azure_native.cache.RedisCommonPropertiesRedisConfigurationArgs(
+                maxmemory_policy="allkeys-lru",
+            ),
+            redis_version="Latest",
+            replicas_per_primary=2,
+            resource_group_name="rg1",
+            shard_count=2,
+            sku=azure_native.cache.SkuArgs(
+                capacity=1,
+                family="P",
+                name="Premium",
+            ),
+            static_ip="192.168.0.5",
+            subnet_id="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache:Redis cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_non_ssl_port: Specifies whether the non-ssl Redis server port (6379) is enabled.
@@ -372,6 +465,99 @@ class Redis(pulumi.CustomResource):
         A single Redis item in List or Get Operation.
         API Version: 2022-06-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RedisCacheCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        redis = azure_native.cache.Redis("redis",
+            enable_non_ssl_port=True,
+            location="West US",
+            minimum_tls_version="1.2",
+            name="cache1",
+            redis_configuration=azure_native.cache.RedisCommonPropertiesRedisConfigurationArgs(
+                maxmemory_policy="allkeys-lru",
+            ),
+            redis_version="4",
+            replicas_per_primary=2,
+            resource_group_name="rg1",
+            shard_count=2,
+            sku=azure_native.cache.SkuArgs(
+                capacity=1,
+                family="P",
+                name="Premium",
+            ),
+            static_ip="192.168.0.5",
+            subnet_id="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+            zones=["1"])
+
+        ```
+        ### RedisCacheCreateDefaultVersion
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        redis = azure_native.cache.Redis("redis",
+            enable_non_ssl_port=True,
+            location="West US",
+            minimum_tls_version="1.2",
+            name="cache1",
+            redis_configuration=azure_native.cache.RedisCommonPropertiesRedisConfigurationArgs(
+                maxmemory_policy="allkeys-lru",
+            ),
+            replicas_per_primary=2,
+            resource_group_name="rg1",
+            shard_count=2,
+            sku=azure_native.cache.SkuArgs(
+                capacity=1,
+                family="P",
+                name="Premium",
+            ),
+            static_ip="192.168.0.5",
+            subnet_id="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+            zones=["1"])
+
+        ```
+        ### RedisCacheCreateLatestVersion
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        redis = azure_native.cache.Redis("redis",
+            enable_non_ssl_port=True,
+            location="West US",
+            minimum_tls_version="1.2",
+            name="cache1",
+            redis_configuration=azure_native.cache.RedisCommonPropertiesRedisConfigurationArgs(
+                maxmemory_policy="allkeys-lru",
+            ),
+            redis_version="Latest",
+            replicas_per_primary=2,
+            resource_group_name="rg1",
+            shard_count=2,
+            sku=azure_native.cache.SkuArgs(
+                capacity=1,
+                family="P",
+                name="Premium",
+            ),
+            static_ip="192.168.0.5",
+            subnet_id="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache:Redis cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RedisArgs args: The arguments to use to populate this resource's properties.

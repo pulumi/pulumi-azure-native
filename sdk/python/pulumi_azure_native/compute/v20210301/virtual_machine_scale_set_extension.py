@@ -246,6 +246,13 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  __props__=None):
         """
         Describes a Virtual Machine Scale Set Extension.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210301:VirtualMachineScaleSetExtension myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/extensions/{vmssExtensionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -271,6 +278,13 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine Scale Set Extension.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210301:VirtualMachineScaleSetExtension myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/extensions/{vmssExtensionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetExtensionInitArgs args: The arguments to use to populate this resource's properties.

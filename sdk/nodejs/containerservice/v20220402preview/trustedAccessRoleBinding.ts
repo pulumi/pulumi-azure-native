@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines binding between a resource and role
+ *
+ * ## Example Usage
+ * ### Create or update a trusted access role binding
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const trustedAccessRoleBinding = new azure_native.containerservice.v20220402preview.TrustedAccessRoleBinding("trustedAccessRoleBinding", {
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     roles: [
+ *         "Microsoft.MachineLearningServices/workspaces/reader",
+ *         "Microsoft.MachineLearningServices/workspaces/writer",
+ *     ],
+ *     sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/b/providers/Microsoft.MachineLearningServices/workspaces/c",
+ *     trustedAccessRoleBindingName: "binding1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding binding1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/trustedAccessRoleBindings/binding1 
+ * ```
  */
 export class TrustedAccessRoleBinding extends pulumi.CustomResource {
     /**

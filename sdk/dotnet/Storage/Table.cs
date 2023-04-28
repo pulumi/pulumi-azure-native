@@ -13,6 +13,77 @@ namespace Pulumi.AzureNative.Storage
     /// Properties of the table, including Id, resource name, resource type.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### TableOperationPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var table = new AzureNative.Storage.Table("table", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         ResourceGroupName = "res3376",
+    ///         TableName = "table6185",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### TableOperationPutOrPatchAcls
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var table = new AzureNative.Storage.Table("table", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         ResourceGroupName = "res3376",
+    ///         SignedIdentifiers = new[]
+    ///         {
+    ///             new AzureNative.Storage.Inputs.TableSignedIdentifierArgs
+    ///             {
+    ///                 AccessPolicy = new AzureNative.Storage.Inputs.TableAccessPolicyArgs
+    ///                 {
+    ///                     ExpiryTime = "2022-03-20T08:49:37.0000000Z",
+    ///                     Permission = "raud",
+    ///                     StartTime = "2022-03-17T08:49:37.0000000Z",
+    ///                 },
+    ///                 Id = "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+    ///             },
+    ///             new AzureNative.Storage.Inputs.TableSignedIdentifierArgs
+    ///             {
+    ///                 AccessPolicy = new AzureNative.Storage.Inputs.TableAccessPolicyArgs
+    ///                 {
+    ///                     ExpiryTime = "2022-03-20T08:49:37.0000000Z",
+    ///                     Permission = "rad",
+    ///                     StartTime = "2022-03-17T08:49:37.0000000Z",
+    ///                 },
+    ///                 Id = "PTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODklMTI",
+    ///             },
+    ///         },
+    ///         TableName = "table6185",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:Table table6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/tableServices/default/tables/table6185 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Table")]
     public partial class Table : global::Pulumi.CustomResource

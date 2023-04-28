@@ -13,6 +13,90 @@ namespace Pulumi.AzureNative.WebPubSub
     /// A class represent a resource.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### WebPubSub_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webPubSub = new AzureNative.WebPubSub.WebPubSub("webPubSub", new()
+    ///     {
+    ///         DisableAadAuth = false,
+    ///         DisableLocalAuth = false,
+    ///         Identity = new AzureNative.WebPubSub.Inputs.ManagedIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         LiveTraceConfiguration = new AzureNative.WebPubSub.Inputs.LiveTraceConfigurationArgs
+    ///         {
+    ///             Categories = new[]
+    ///             {
+    ///                 new AzureNative.WebPubSub.Inputs.LiveTraceCategoryArgs
+    ///                 {
+    ///                     Enabled = "true",
+    ///                     Name = "ConnectivityLogs",
+    ///                 },
+    ///             },
+    ///             Enabled = "false",
+    ///         },
+    ///         Location = "eastus",
+    ///         NetworkACLs = new AzureNative.WebPubSub.Inputs.WebPubSubNetworkACLsArgs
+    ///         {
+    ///             DefaultAction = "Deny",
+    ///             PrivateEndpoints = new[]
+    ///             {
+    ///                 new AzureNative.WebPubSub.Inputs.PrivateEndpointACLArgs
+    ///                 {
+    ///                     Allow = new[]
+    ///                     {
+    ///                         "ServerConnection",
+    ///                     },
+    ///                     Name = "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    ///                 },
+    ///             },
+    ///             PublicNetwork = new AzureNative.WebPubSub.Inputs.NetworkACLArgs
+    ///             {
+    ///                 Allow = new[]
+    ///                 {
+    ///                     "ClientConnection",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "myWebPubSubService",
+    ///         Sku = new AzureNative.WebPubSub.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Premium_P1",
+    ///             Tier = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         Tls = new AzureNative.WebPubSub.Inputs.WebPubSubTlsSettingsArgs
+    ///         {
+    ///             ClientCertEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:webpubsub:WebPubSub myWebPubSubService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSub")]
     public partial class WebPubSub : global::Pulumi.CustomResource

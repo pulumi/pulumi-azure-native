@@ -301,6 +301,73 @@ class VirtualMachineExtension(pulumi.CustomResource):
         """
         Describes a Virtual Machine Extension.
 
+        ## Example Usage
+        ### VirtualMachineExtensions_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_extension = azure_native.compute.v20211101.VirtualMachineExtension("virtualMachineExtension",
+            auto_upgrade_minor_version=True,
+            enable_automatic_upgrade=True,
+            force_update_tag="a",
+            instance_view=azure_native.compute.v20211101.VirtualMachineExtensionInstanceViewResponseArgs(
+                name="aaaaaaaaaaaaaaaaa",
+                statuses=[azure_native.compute.v20211101.InstanceViewStatusArgs(
+                    code="aaaaaaaaaaaaaaaaaaaaaaa",
+                    display_status="aaaaaa",
+                    level=azure_native.compute/v20211101.StatusLevelTypes.INFO,
+                    message="a",
+                    time="2021-11-30T12:58:26.522Z",
+                )],
+                substatuses=[azure_native.compute.v20211101.InstanceViewStatusArgs(
+                    code="aaaaaaaaaaaaaaaaaaaaaaa",
+                    display_status="aaaaaa",
+                    level=azure_native.compute/v20211101.StatusLevelTypes.INFO,
+                    message="a",
+                    time="2021-11-30T12:58:26.522Z",
+                )],
+                type="aaaaaaaaa",
+                type_handler_version="aaaaaaaaaaaaaaaaaaaaaaaaaa",
+            ),
+            location="westus",
+            protected_settings={},
+            publisher="extPublisher",
+            resource_group_name="rgcompute",
+            settings={},
+            suppress_failures=True,
+            tags={
+                "key9183": "aa",
+            },
+            type="extType",
+            type_handler_version="1.2",
+            vm_extension_name="aaaaaaaaaaaaa",
+            vm_name="aaaaaaaaaaaaaaaaaaaaaaaa")
+
+        ```
+        ### VirtualMachineExtensions_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_extension = azure_native.compute.v20211101.VirtualMachineExtension("virtualMachineExtension",
+            location="westus",
+            resource_group_name="rgcompute",
+            vm_extension_name="aaaaaaaaaaaaaaaaaaaaaaaa",
+            vm_name="aaaa")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20211101:VirtualMachineExtension myVMExtension /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/myVMExtension 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -328,6 +395,73 @@ class VirtualMachineExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine Extension.
+
+        ## Example Usage
+        ### VirtualMachineExtensions_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_extension = azure_native.compute.v20211101.VirtualMachineExtension("virtualMachineExtension",
+            auto_upgrade_minor_version=True,
+            enable_automatic_upgrade=True,
+            force_update_tag="a",
+            instance_view=azure_native.compute.v20211101.VirtualMachineExtensionInstanceViewResponseArgs(
+                name="aaaaaaaaaaaaaaaaa",
+                statuses=[azure_native.compute.v20211101.InstanceViewStatusArgs(
+                    code="aaaaaaaaaaaaaaaaaaaaaaa",
+                    display_status="aaaaaa",
+                    level=azure_native.compute/v20211101.StatusLevelTypes.INFO,
+                    message="a",
+                    time="2021-11-30T12:58:26.522Z",
+                )],
+                substatuses=[azure_native.compute.v20211101.InstanceViewStatusArgs(
+                    code="aaaaaaaaaaaaaaaaaaaaaaa",
+                    display_status="aaaaaa",
+                    level=azure_native.compute/v20211101.StatusLevelTypes.INFO,
+                    message="a",
+                    time="2021-11-30T12:58:26.522Z",
+                )],
+                type="aaaaaaaaa",
+                type_handler_version="aaaaaaaaaaaaaaaaaaaaaaaaaa",
+            ),
+            location="westus",
+            protected_settings={},
+            publisher="extPublisher",
+            resource_group_name="rgcompute",
+            settings={},
+            suppress_failures=True,
+            tags={
+                "key9183": "aa",
+            },
+            type="extType",
+            type_handler_version="1.2",
+            vm_extension_name="aaaaaaaaaaaaa",
+            vm_name="aaaaaaaaaaaaaaaaaaaaaaaa")
+
+        ```
+        ### VirtualMachineExtensions_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_extension = azure_native.compute.v20211101.VirtualMachineExtension("virtualMachineExtension",
+            location="westus",
+            resource_group_name="rgcompute",
+            vm_extension_name="aaaaaaaaaaaaaaaaaaaaaaaa",
+            vm_name="aaaa")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20211101:VirtualMachineExtension myVMExtension /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/myVMExtension 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineExtensionArgs args: The arguments to use to populate this resource's properties.

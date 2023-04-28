@@ -11,6 +11,576 @@ namespace Pulumi.AzureNative.Batch.V20210101
 {
     /// <summary>
     /// Contains information about a pool.
+    /// 
+    /// ## Example Usage
+    /// ### CreatePool - Custom Image
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.Batch.V20210101.Pool("pool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         DeploymentConfiguration = new AzureNative.Batch.V20210101.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             VirtualMachineConfiguration = new AzureNative.Batch.V20210101.Inputs.VirtualMachineConfigurationArgs
+    ///             {
+    ///                 ImageReference = new AzureNative.Batch.V20210101.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/networking-group/providers/Microsoft.Compute/galleries/testgallery/images/testimagedef/versions/0.0.1",
+    ///                 },
+    ///                 NodeAgentSkuId = "batch.node.ubuntu 18.04",
+    ///             },
+    ///         },
+    ///         PoolName = "testpool",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         VmSize = "STANDARD_D4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreatePool - Full CloudServiceConfiguration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.Batch.V20210101.Pool("pool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         ApplicationLicenses = new[]
+    ///         {
+    ///             "app-license0",
+    ///             "app-license1",
+    ///         },
+    ///         ApplicationPackages = new[]
+    ///         {
+    ///             new AzureNative.Batch.V20210101.Inputs.ApplicationPackageReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct/pools/testpool/applications/app_1234",
+    ///                 Version = "asdf",
+    ///             },
+    ///         },
+    ///         Certificates = new[]
+    ///         {
+    ///             new AzureNative.Batch.V20210101.Inputs.CertificateReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct/pools/testpool/certificates/sha1-1234567",
+    ///                 StoreLocation = AzureNative.Batch.V20210101.CertificateStoreLocation.LocalMachine,
+    ///                 StoreName = "MY",
+    ///                 Visibility = new[]
+    ///                 {
+    ///                     AzureNative.Batch.V20210101.CertificateVisibility.RemoteUser,
+    ///                 },
+    ///             },
+    ///         },
+    ///         DeploymentConfiguration = new AzureNative.Batch.V20210101.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             CloudServiceConfiguration = new AzureNative.Batch.V20210101.Inputs.CloudServiceConfigurationArgs
+    ///             {
+    ///                 OsFamily = "4",
+    ///                 OsVersion = "WA-GUEST-OS-4.45_201708-01",
+    ///             },
+    ///         },
+    ///         DisplayName = "my-pool-name",
+    ///         InterNodeCommunication = AzureNative.Batch.V20210101.InterNodeCommunicationState.Enabled,
+    ///         Metadata = new[]
+    ///         {
+    ///             new AzureNative.Batch.V20210101.Inputs.MetadataItemArgs
+    ///             {
+    ///                 Name = "metadata-1",
+    ///                 Value = "value-1",
+    ///             },
+    ///             new AzureNative.Batch.V20210101.Inputs.MetadataItemArgs
+    ///             {
+    ///                 Name = "metadata-2",
+    ///                 Value = "value-2",
+    ///             },
+    ///         },
+    ///         NetworkConfiguration = new AzureNative.Batch.V20210101.Inputs.NetworkConfigurationArgs
+    ///         {
+    ///             PublicIPAddressConfiguration = new AzureNative.Batch.V20210101.Inputs.PublicIPAddressConfigurationArgs
+    ///             {
+    ///                 IpAddressIds = new[]
+    ///                 {
+    ///                     "/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135",
+    ///                     "/subscriptions/subid2/resourceGroups/rg24/providers/Microsoft.Network/publicIPAddresses/ip268",
+    ///                 },
+    ///                 Provision = AzureNative.Batch.V20210101.IPAddressProvisioningType.UserManaged,
+    ///             },
+    ///             SubnetId = "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+    ///         },
+    ///         PoolName = "testpool",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         ScaleSettings = new AzureNative.Batch.V20210101.Inputs.ScaleSettingsArgs
+    ///         {
+    ///             FixedScale = new AzureNative.Batch.V20210101.Inputs.FixedScaleSettingsArgs
+    ///             {
+    ///                 NodeDeallocationOption = AzureNative.Batch.V20210101.ComputeNodeDeallocationOption.TaskCompletion,
+    ///                 ResizeTimeout = "PT8M",
+    ///                 TargetDedicatedNodes = 6,
+    ///                 TargetLowPriorityNodes = 28,
+    ///             },
+    ///         },
+    ///         StartTask = new AzureNative.Batch.V20210101.Inputs.StartTaskArgs
+    ///         {
+    ///             CommandLine = "cmd /c SET",
+    ///             EnvironmentSettings = new[]
+    ///             {
+    ///                 new AzureNative.Batch.V20210101.Inputs.EnvironmentSettingArgs
+    ///                 {
+    ///                     Name = "MYSET",
+    ///                     Value = "1234",
+    ///                 },
+    ///             },
+    ///             MaxTaskRetryCount = 6,
+    ///             ResourceFiles = new[]
+    ///             {
+    ///                 new AzureNative.Batch.V20210101.Inputs.ResourceFileArgs
+    ///                 {
+    ///                     FileMode = "777",
+    ///                     FilePath = "c:\\temp\\gohere",
+    ///                     HttpUrl = "https://testaccount.blob.core.windows.net/example-blob-file",
+    ///                 },
+    ///             },
+    ///             UserIdentity = new AzureNative.Batch.V20210101.Inputs.UserIdentityArgs
+    ///             {
+    ///                 AutoUser = new AzureNative.Batch.V20210101.Inputs.AutoUserSpecificationArgs
+    ///                 {
+    ///                     ElevationLevel = AzureNative.Batch.V20210101.ElevationLevel.Admin,
+    ///                     Scope = AzureNative.Batch.V20210101.AutoUserScope.Pool,
+    ///                 },
+    ///             },
+    ///             WaitForSuccess = true,
+    ///         },
+    ///         TaskSchedulingPolicy = new AzureNative.Batch.V20210101.Inputs.TaskSchedulingPolicyArgs
+    ///         {
+    ///             NodeFillType = AzureNative.Batch.V20210101.ComputeNodeFillType.Pack,
+    ///         },
+    ///         TaskSlotsPerNode = 13,
+    ///         UserAccounts = new[]
+    ///         {
+    ///             new AzureNative.Batch.V20210101.Inputs.UserAccountArgs
+    ///             {
+    ///                 ElevationLevel = AzureNative.Batch.V20210101.ElevationLevel.Admin,
+    ///                 LinuxUserConfiguration = new AzureNative.Batch.V20210101.Inputs.LinuxUserConfigurationArgs
+    ///                 {
+    ///                     Gid = 4567,
+    ///                     SshPrivateKey = "sshprivatekeyvalue",
+    ///                     Uid = 1234,
+    ///                 },
+    ///                 Name = "username1",
+    ///                 Password = "&lt;ExamplePassword&gt;",
+    ///             },
+    ///         },
+    ///         VmSize = "STANDARD_D4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreatePool - Full VirtualMachineConfiguration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.Batch.V20210101.Pool("pool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         DeploymentConfiguration = new AzureNative.Batch.V20210101.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             VirtualMachineConfiguration = new AzureNative.Batch.V20210101.Inputs.VirtualMachineConfigurationArgs
+    ///             {
+    ///                 DataDisks = new[]
+    ///                 {
+    ///                     new AzureNative.Batch.V20210101.Inputs.DataDiskArgs
+    ///                     {
+    ///                         Caching = AzureNative.Batch.V20210101.CachingType.ReadWrite,
+    ///                         DiskSizeGB = 30,
+    ///                         Lun = 0,
+    ///                         StorageAccountType = AzureNative.Batch.V20210101.StorageAccountType.Premium_LRS,
+    ///                     },
+    ///                     new AzureNative.Batch.V20210101.Inputs.DataDiskArgs
+    ///                     {
+    ///                         Caching = AzureNative.Batch.V20210101.CachingType.None,
+    ///                         DiskSizeGB = 200,
+    ///                         Lun = 1,
+    ///                         StorageAccountType = AzureNative.Batch.V20210101.StorageAccountType.Standard_LRS,
+    ///                     },
+    ///                 },
+    ///                 DiskEncryptionConfiguration = new AzureNative.Batch.V20210101.Inputs.DiskEncryptionConfigurationArgs
+    ///                 {
+    ///                     Targets = new[]
+    ///                     {
+    ///                         AzureNative.Batch.V20210101.DiskEncryptionTarget.OsDisk,
+    ///                         AzureNative.Batch.V20210101.DiskEncryptionTarget.TemporaryDisk,
+    ///                     },
+    ///                 },
+    ///                 ImageReference = new AzureNative.Batch.V20210101.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "WindowsServer",
+    ///                     Publisher = "MicrosoftWindowsServer",
+    ///                     Sku = "2016-Datacenter-SmallDisk",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 LicenseType = "Windows_Server",
+    ///                 NodeAgentSkuId = "batch.node.windows amd64",
+    ///                 NodePlacementConfiguration = new AzureNative.Batch.V20210101.Inputs.NodePlacementConfigurationArgs
+    ///                 {
+    ///                     Policy = AzureNative.Batch.V20210101.NodePlacementPolicyType.Zonal,
+    ///                 },
+    ///                 WindowsConfiguration = new AzureNative.Batch.V20210101.Inputs.WindowsConfigurationArgs
+    ///                 {
+    ///                     EnableAutomaticUpdates = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         NetworkConfiguration = new AzureNative.Batch.V20210101.Inputs.NetworkConfigurationArgs
+    ///         {
+    ///             EndpointConfiguration = new AzureNative.Batch.V20210101.Inputs.PoolEndpointConfigurationArgs
+    ///             {
+    ///                 InboundNatPools = new[]
+    ///                 {
+    ///                     new AzureNative.Batch.V20210101.Inputs.InboundNatPoolArgs
+    ///                     {
+    ///                         BackendPort = 12001,
+    ///                         FrontendPortRangeEnd = 15100,
+    ///                         FrontendPortRangeStart = 15000,
+    ///                         Name = "testnat",
+    ///                         NetworkSecurityGroupRules = new[]
+    ///                         {
+    ///                             new AzureNative.Batch.V20210101.Inputs.NetworkSecurityGroupRuleArgs
+    ///                             {
+    ///                                 Access = AzureNative.Batch.V20210101.NetworkSecurityGroupRuleAccess.Allow,
+    ///                                 Priority = 150,
+    ///                                 SourceAddressPrefix = "192.100.12.45",
+    ///                                 SourcePortRanges = new[]
+    ///                                 {
+    ///                                     "1",
+    ///                                     "2",
+    ///                                 },
+    ///                             },
+    ///                             new AzureNative.Batch.V20210101.Inputs.NetworkSecurityGroupRuleArgs
+    ///                             {
+    ///                                 Access = AzureNative.Batch.V20210101.NetworkSecurityGroupRuleAccess.Deny,
+    ///                                 Priority = 3500,
+    ///                                 SourceAddressPrefix = "*",
+    ///                                 SourcePortRanges = new[]
+    ///                                 {
+    ///                                     "*",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Protocol = AzureNative.Batch.V20210101.InboundEndpointProtocol.TCP,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         PoolName = "testpool",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         ScaleSettings = new AzureNative.Batch.V20210101.Inputs.ScaleSettingsArgs
+    ///         {
+    ///             AutoScale = new AzureNative.Batch.V20210101.Inputs.AutoScaleSettingsArgs
+    ///             {
+    ///                 EvaluationInterval = "PT5M",
+    ///                 Formula = "$TargetDedicatedNodes=1",
+    ///             },
+    ///         },
+    ///         VmSize = "STANDARD_D4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreatePool - Minimal CloudServiceConfiguration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.Batch.V20210101.Pool("pool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         DeploymentConfiguration = new AzureNative.Batch.V20210101.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             CloudServiceConfiguration = new AzureNative.Batch.V20210101.Inputs.CloudServiceConfigurationArgs
+    ///             {
+    ///                 OsFamily = "5",
+    ///             },
+    ///         },
+    ///         PoolName = "testpool",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         ScaleSettings = new AzureNative.Batch.V20210101.Inputs.ScaleSettingsArgs
+    ///         {
+    ///             FixedScale = new AzureNative.Batch.V20210101.Inputs.FixedScaleSettingsArgs
+    ///             {
+    ///                 TargetDedicatedNodes = 3,
+    ///             },
+    ///         },
+    ///         VmSize = "STANDARD_D4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreatePool - Minimal VirtualMachineConfiguration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.Batch.V20210101.Pool("pool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         DeploymentConfiguration = new AzureNative.Batch.V20210101.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             VirtualMachineConfiguration = new AzureNative.Batch.V20210101.Inputs.VirtualMachineConfigurationArgs
+    ///             {
+    ///                 ImageReference = new AzureNative.Batch.V20210101.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "UbuntuServer",
+    ///                     Publisher = "Canonical",
+    ///                     Sku = "18.04-LTS",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 NodeAgentSkuId = "batch.node.ubuntu 18.04",
+    ///             },
+    ///         },
+    ///         PoolName = "testpool",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         ScaleSettings = new AzureNative.Batch.V20210101.Inputs.ScaleSettingsArgs
+    ///         {
+    ///             AutoScale = new AzureNative.Batch.V20210101.Inputs.AutoScaleSettingsArgs
+    ///             {
+    ///                 EvaluationInterval = "PT5M",
+    ///                 Formula = "$TargetDedicatedNodes=1",
+    ///             },
+    ///         },
+    ///         VmSize = "STANDARD_D4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreatePool - No public IP
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.Batch.V20210101.Pool("pool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         DeploymentConfiguration = new AzureNative.Batch.V20210101.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             VirtualMachineConfiguration = new AzureNative.Batch.V20210101.Inputs.VirtualMachineConfigurationArgs
+    ///             {
+    ///                 ImageReference = new AzureNative.Batch.V20210101.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/networking-group/providers/Microsoft.Compute/galleries/testgallery/images/testimagedef/versions/0.0.1",
+    ///                 },
+    ///                 NodeAgentSkuId = "batch.node.ubuntu 18.04",
+    ///             },
+    ///         },
+    ///         NetworkConfiguration = new AzureNative.Batch.V20210101.Inputs.NetworkConfigurationArgs
+    ///         {
+    ///             PublicIPAddressConfiguration = new AzureNative.Batch.V20210101.Inputs.PublicIPAddressConfigurationArgs
+    ///             {
+    ///                 Provision = AzureNative.Batch.V20210101.IPAddressProvisioningType.NoPublicIPAddresses,
+    ///             },
+    ///             SubnetId = "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+    ///         },
+    ///         PoolName = "testpool",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         VmSize = "STANDARD_D4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreatePool - Public IPs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.Batch.V20210101.Pool("pool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         DeploymentConfiguration = new AzureNative.Batch.V20210101.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             VirtualMachineConfiguration = new AzureNative.Batch.V20210101.Inputs.VirtualMachineConfigurationArgs
+    ///             {
+    ///                 ImageReference = new AzureNative.Batch.V20210101.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/networking-group/providers/Microsoft.Compute/galleries/testgallery/images/testimagedef/versions/0.0.1",
+    ///                 },
+    ///                 NodeAgentSkuId = "batch.node.ubuntu 18.04",
+    ///             },
+    ///         },
+    ///         NetworkConfiguration = new AzureNative.Batch.V20210101.Inputs.NetworkConfigurationArgs
+    ///         {
+    ///             PublicIPAddressConfiguration = new AzureNative.Batch.V20210101.Inputs.PublicIPAddressConfigurationArgs
+    ///             {
+    ///                 IpAddressIds = new[]
+    ///                 {
+    ///                     "/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135",
+    ///                 },
+    ///                 Provision = AzureNative.Batch.V20210101.IPAddressProvisioningType.UserManaged,
+    ///             },
+    ///             SubnetId = "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+    ///         },
+    ///         PoolName = "testpool",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         VmSize = "STANDARD_D4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreatePool - UserAssignedIdentities
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.Batch.V20210101.Pool("pool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         DeploymentConfiguration = new AzureNative.Batch.V20210101.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             VirtualMachineConfiguration = new AzureNative.Batch.V20210101.Inputs.VirtualMachineConfigurationArgs
+    ///             {
+    ///                 ImageReference = new AzureNative.Batch.V20210101.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "UbuntuServer",
+    ///                     Publisher = "Canonical",
+    ///                     Sku = "18.04-LTS",
+    ///                     Version = "latest",
+    ///                 },
+    ///                 NodeAgentSkuId = "batch.node.ubuntu 18.04",
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.Batch.V20210101.Inputs.BatchPoolIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Batch.V20210101.PoolIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", null },
+    ///                 { "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2", null },
+    ///             },
+    ///         },
+    ///         PoolName = "testpool",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         ScaleSettings = new AzureNative.Batch.V20210101.Inputs.ScaleSettingsArgs
+    ///         {
+    ///             AutoScale = new AzureNative.Batch.V20210101.Inputs.AutoScaleSettingsArgs
+    ///             {
+    ///                 EvaluationInterval = "PT5M",
+    ///                 Formula = "$TargetDedicatedNodes=1",
+    ///             },
+    ///         },
+    ///         VmSize = "STANDARD_D4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreatePool - VirtualMachineConfiguration Extensions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.Batch.V20210101.Pool("pool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         DeploymentConfiguration = new AzureNative.Batch.V20210101.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             VirtualMachineConfiguration = new AzureNative.Batch.V20210101.Inputs.VirtualMachineConfigurationArgs
+    ///             {
+    ///                 Extensions = new[]
+    ///                 {
+    ///                     new AzureNative.Batch.V20210101.Inputs.VMExtensionArgs
+    ///                     {
+    ///                         AutoUpgradeMinorVersion = true,
+    ///                         Name = "batchextension1",
+    ///                         ProtectedSettings = 
+    ///                         {
+    ///                             { "protectedSettingsKey", "protectedSettingsValue" },
+    ///                         },
+    ///                         Publisher = "Microsoft.Azure.Security.Monitoring",
+    ///                         Settings = 
+    ///                         {
+    ///                             { "settingsKey", "settingsValue" },
+    ///                         },
+    ///                         Type = "SecurityMonitoringForLinux",
+    ///                         TypeHandlerVersion = "1.0",
+    ///                     },
+    ///                 },
+    ///                 ImageReference = new AzureNative.Batch.V20210101.Inputs.ImageReferenceArgs
+    ///                 {
+    ///                     Offer = "UbuntuServer",
+    ///                     Publisher = "Canonical",
+    ///                     Sku = "16.04.0-LTS",
+    ///                 },
+    ///                 NodeAgentSkuId = "batch.node.ubuntu 16.04",
+    ///             },
+    ///         },
+    ///         PoolName = "testpool",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         ScaleSettings = new AzureNative.Batch.V20210101.Inputs.ScaleSettingsArgs
+    ///         {
+    ///             AutoScale = new AzureNative.Batch.V20210101.Inputs.AutoScaleSettingsArgs
+    ///             {
+    ///                 EvaluationInterval = "PT5M",
+    ///                 Formula = "$TargetDedicatedNodes=1",
+    ///             },
+    ///         },
+    ///         VmSize = "STANDARD_D4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:batch/v20210101:Pool testpool /subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct/pools/testpool 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:batch/v20210101:Pool")]
     public partial class Pool : global::Pulumi.CustomResource

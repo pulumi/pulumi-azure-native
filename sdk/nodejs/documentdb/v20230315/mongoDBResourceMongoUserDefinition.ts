@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB User Definition
+ *
+ * ## Example Usage
+ * ### CosmosDBMongoDBUserDefinitionCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoDBResourceMongoUserDefinition = new azure_native.documentdb.v20230315.MongoDBResourceMongoUserDefinition("mongoDBResourceMongoUserDefinition", {
+ *     accountName: "myAccountName",
+ *     customData: "My custom data",
+ *     databaseName: "sales",
+ *     mechanisms: "SCRAM-SHA-256",
+ *     mongoUserDefinitionId: "myMongoUserDefinitionId",
+ *     password: "myPassword",
+ *     resourceGroupName: "myResourceGroupName",
+ *     roles: [{
+ *         db: "sales",
+ *         role: "myReadRole",
+ *     }],
+ *     userName: "myUserName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20230315:MongoDBResourceMongoUserDefinition myUserName /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbUserDefinitions/myUserId 
+ * ```
  */
 export class MongoDBResourceMongoUserDefinition extends pulumi.CustomResource {
     /**

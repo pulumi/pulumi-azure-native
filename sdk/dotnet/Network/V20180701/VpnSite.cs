@@ -11,6 +11,59 @@ namespace Pulumi.AzureNative.Network.V20180701
 {
     /// <summary>
     /// VpnSite Resource.
+    /// 
+    /// ## Example Usage
+    /// ### VpnSiteCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpnSite = new AzureNative.Network.V20180701.VpnSite("vpnSite", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.V20180701.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         BgpProperties = new AzureNative.Network.V20180701.Inputs.BgpSettingsArgs
+    ///         {
+    ///             Asn = 1234,
+    ///             BgpPeeringAddress = "192.168.0.0",
+    ///         },
+    ///         DeviceProperties = new AzureNative.Network.V20180701.Inputs.DevicePropertiesArgs
+    ///         {
+    ///             DeviceModel = "model01",
+    ///             DeviceVendor = "vendor1",
+    ///             LinkSpeedInMbps = 200,
+    ///         },
+    ///         IpAddress = "10.0.0.0",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualWAN = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/VirtualWans/virtualWan1",
+    ///         VpnSiteName = "vpnSite1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180701:VpnSite vpnSite1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180701:VpnSite")]
     public partial class VpnSite : global::Pulumi.CustomResource

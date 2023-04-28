@@ -13,6 +13,78 @@ namespace Pulumi.AzureNative.Compute
     /// Specifies information about the dedicated host group that the dedicated hosts should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a dedicated host group with Ultra SSD support.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedHostGroup = new AzureNative.Compute.DedicatedHostGroup("dedicatedHostGroup", new()
+    ///     {
+    ///         AdditionalCapabilities = new AzureNative.Compute.Inputs.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs
+    ///         {
+    ///             UltraSSDEnabled = true,
+    ///         },
+    ///         HostGroupName = "myDedicatedHostGroup",
+    ///         Location = "westus",
+    ///         PlatformFaultDomainCount = 3,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SupportAutomaticPlacement = true,
+    ///         Tags = 
+    ///         {
+    ///             { "department", "finance" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a dedicated host group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedHostGroup = new AzureNative.Compute.DedicatedHostGroup("dedicatedHostGroup", new()
+    ///     {
+    ///         HostGroupName = "myDedicatedHostGroup",
+    ///         Location = "westus",
+    ///         PlatformFaultDomainCount = 3,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SupportAutomaticPlacement = true,
+    ///         Tags = 
+    ///         {
+    ///             { "department", "finance" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:DedicatedHostGroup myDedicatedHostGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/HostGroups/myDedicatedHostGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:DedicatedHostGroup")]
     public partial class DedicatedHostGroup : global::Pulumi.CustomResource

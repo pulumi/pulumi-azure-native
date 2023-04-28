@@ -114,6 +114,32 @@ class MediaService(pulumi.CustomResource):
         """
         The properties of a Media Service resource.
 
+        ## Example Usage
+        ### MediaServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_service = azure_native.media.v20151001.MediaService("mediaService",
+            location="West US",
+            media_service_name="contosmedia",
+            resource_group_name="contosoresources",
+            storage_accounts=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Storage/storageAccounts/contosostore",
+                "isPrimary": True,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20151001:MediaService myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaservices/{mediaServiceName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geographic location of the resource. This must be one of the supported and registered Azure Geo Regions (for example, West US, East US, Southeast Asia, and so forth).
@@ -130,6 +156,32 @@ class MediaService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The properties of a Media Service resource.
+
+        ## Example Usage
+        ### MediaServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_service = azure_native.media.v20151001.MediaService("mediaService",
+            location="West US",
+            media_service_name="contosmedia",
+            resource_group_name="contosoresources",
+            storage_accounts=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Storage/storageAccounts/contosostore",
+                "isPrimary": True,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20151001:MediaService myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaservices/{mediaServiceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MediaServiceArgs args: The arguments to use to populate this resource's properties.

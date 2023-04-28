@@ -95,6 +95,29 @@ class Role(pulumi.CustomResource):
         Represents a cluster role.
         API Version: 2022-11-08.
 
+        ## Example Usage
+        ### RoleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role = azure_native.dbforpostgresql.Role("role",
+            cluster_name="pgtestsvc4",
+            password="password",
+            resource_group_name="TestGroup",
+            role_name="role1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:Role role1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/pgtestsvc4/roles/role1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -111,6 +134,29 @@ class Role(pulumi.CustomResource):
         """
         Represents a cluster role.
         API Version: 2022-11-08.
+
+        ## Example Usage
+        ### RoleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role = azure_native.dbforpostgresql.Role("role",
+            cluster_name="pgtestsvc4",
+            password="password",
+            resource_group_name="TestGroup",
+            role_name="role1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:Role role1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/pgtestsvc4/roles/role1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RoleArgs args: The arguments to use to populate this resource's properties.

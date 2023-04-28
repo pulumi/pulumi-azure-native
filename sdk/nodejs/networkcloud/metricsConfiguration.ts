@@ -10,6 +10,43 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-12-12-preview.
  * Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Update metrics configuration of cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const metricsConfiguration = new azure_native.networkcloud.MetricsConfiguration("metricsConfiguration", {
+ *     clusterName: "clusterName",
+ *     collectionInterval: 15,
+ *     enabledMetrics: [
+ *         "metric1",
+ *         "metric2",
+ *     ],
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     metricsConfigurationName: "default",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:MetricsConfiguration default /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/metricsConfigurations/default 
+ * ```
  */
 export class MetricsConfiguration extends pulumi.CustomResource {
     /**

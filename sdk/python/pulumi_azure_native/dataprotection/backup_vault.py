@@ -150,6 +150,74 @@ class BackupVault(pulumi.CustomResource):
         API Version: 2023-01-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create BackupVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_vault = azure_native.dataprotection.BackupVault("backupVault",
+            identity=azure_native.dataprotection.DppIdentityDetailsArgs(
+                type="None",
+            ),
+            location="WestUS",
+            properties=azure_native.dataprotection.BackupVaultResponseArgs(
+                monitoring_settings={
+                    "azureMonitorAlertSettings": azure_native.dataprotection.AzureMonitorAlertSettingsArgs(
+                        alerts_for_all_job_failures="Enabled",
+                    ),
+                },
+                storage_settings=[azure_native.dataprotection.StorageSettingArgs(
+                    datastore_type="VaultStore",
+                    type="LocallyRedundant",
+                )],
+            ),
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="swaggerExample")
+
+        ```
+        ### Create BackupVault With MSI
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_vault = azure_native.dataprotection.BackupVault("backupVault",
+            identity=azure_native.dataprotection.DppIdentityDetailsArgs(
+                type="systemAssigned",
+            ),
+            location="WestUS",
+            properties=azure_native.dataprotection.BackupVaultResponseArgs(
+                monitoring_settings={
+                    "azureMonitorAlertSettings": azure_native.dataprotection.AzureMonitorAlertSettingsArgs(
+                        alerts_for_all_job_failures="Enabled",
+                    ),
+                },
+                storage_settings=[azure_native.dataprotection.StorageSettingArgs(
+                    datastore_type="VaultStore",
+                    type="LocallyRedundant",
+                )],
+            ),
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="swaggerExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:BackupVault swaggerExample /subscriptions/0b352192-dcac-4cc7-992e-a96190ccc68c/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/Backupvaults/swaggerExample 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
@@ -170,6 +238,74 @@ class BackupVault(pulumi.CustomResource):
         Backup Vault Resource
         API Version: 2023-01-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create BackupVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_vault = azure_native.dataprotection.BackupVault("backupVault",
+            identity=azure_native.dataprotection.DppIdentityDetailsArgs(
+                type="None",
+            ),
+            location="WestUS",
+            properties=azure_native.dataprotection.BackupVaultResponseArgs(
+                monitoring_settings={
+                    "azureMonitorAlertSettings": azure_native.dataprotection.AzureMonitorAlertSettingsArgs(
+                        alerts_for_all_job_failures="Enabled",
+                    ),
+                },
+                storage_settings=[azure_native.dataprotection.StorageSettingArgs(
+                    datastore_type="VaultStore",
+                    type="LocallyRedundant",
+                )],
+            ),
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="swaggerExample")
+
+        ```
+        ### Create BackupVault With MSI
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_vault = azure_native.dataprotection.BackupVault("backupVault",
+            identity=azure_native.dataprotection.DppIdentityDetailsArgs(
+                type="systemAssigned",
+            ),
+            location="WestUS",
+            properties=azure_native.dataprotection.BackupVaultResponseArgs(
+                monitoring_settings={
+                    "azureMonitorAlertSettings": azure_native.dataprotection.AzureMonitorAlertSettingsArgs(
+                        alerts_for_all_job_failures="Enabled",
+                    ),
+                },
+                storage_settings=[azure_native.dataprotection.StorageSettingArgs(
+                    datastore_type="VaultStore",
+                    type="LocallyRedundant",
+                )],
+            ),
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="swaggerExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:BackupVault swaggerExample /subscriptions/0b352192-dcac-4cc7-992e-a96190ccc68c/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/Backupvaults/swaggerExample 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackupVaultInitArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,63 @@ import * as utilities from "../../utilities";
 
 /**
  * Diagnostic details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateDiagnostic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const diagnostic = new azure_native.apimanagement.v20220801.Diagnostic("diagnostic", {
+ *     alwaysLog: "allErrors",
+ *     backend: {
+ *         request: {
+ *             body: {
+ *                 bytes: 512,
+ *             },
+ *             headers: ["Content-type"],
+ *         },
+ *         response: {
+ *             body: {
+ *                 bytes: 512,
+ *             },
+ *             headers: ["Content-type"],
+ *         },
+ *     },
+ *     diagnosticId: "applicationinsights",
+ *     frontend: {
+ *         request: {
+ *             body: {
+ *                 bytes: 512,
+ *             },
+ *             headers: ["Content-type"],
+ *         },
+ *         response: {
+ *             body: {
+ *                 bytes: 512,
+ *             },
+ *             headers: ["Content-type"],
+ *         },
+ *     },
+ *     loggerId: "/loggers/azuremonitor",
+ *     resourceGroupName: "rg1",
+ *     sampling: {
+ *         percentage: 50,
+ *         samplingType: "fixed",
+ *     },
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:Diagnostic applicationinsights /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/applicationinsights 
+ * ```
  */
 export class Diagnostic extends pulumi.CustomResource {
     /**

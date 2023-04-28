@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.AnalysisServices
     /// Represents an instance of an Analysis Services resource.
     /// API Version: 2017-08-01.
     /// Previous API Version: 2017-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a server.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverDetails = new AzureNative.AnalysisServices.ServerDetails("serverDetails", new()
+    ///     {
+    ///         AsAdministrators = new AzureNative.AnalysisServices.Inputs.ServerAdministratorsArgs
+    ///         {
+    ///             Members = new[]
+    ///             {
+    ///                 "azsdktest@microsoft.com",
+    ///                 "azsdktest2@microsoft.com",
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestRG",
+    ///         ServerName = "azsdktest",
+    ///         Sku = new AzureNative.AnalysisServices.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "S1",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testKey", "testValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:analysisservices:ServerDetails azsdktest /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:analysisservices:ServerDetails")]
     public partial class ServerDetails : global::Pulumi.CustomResource

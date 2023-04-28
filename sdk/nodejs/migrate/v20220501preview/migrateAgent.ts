@@ -9,6 +9,57 @@ import * as utilities from "../../utilities";
 
 /**
  * MigrateAgent model.
+ *
+ * ## Example Usage
+ * ### MigrateAgent_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const migrateAgent = new azure_native.migrate.v20220501preview.MigrateAgent("migrateAgent", {
+ *     agentName: "l",
+ *     modernizeProjectName: "rq1yec",
+ *     properties: {
+ *         authenticationIdentity: {
+ *             aadAuthority: "isbicanvfefdaci",
+ *             applicationId: "dibfqwjrnzikktkwe",
+ *             audience: "yrfxszjhkczoyfi",
+ *             objectId: "xfhhdosr",
+ *             tenantId: "uwceuawplakwjswbvllffbsz",
+ *         },
+ *         customProperties: {},
+ *         machineId: "sihoniqzqfz",
+ *         machineName: "glhejppirkiamgxxro",
+ *     },
+ *     resourceGroupName: "rgmigrateEngine",
+ *     tags: {
+ *         key5560: "jgffrfcgjrm",
+ *     },
+ * });
+ *
+ * ```
+ * ### MigrateAgent_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const migrateAgent = new azure_native.migrate.v20220501preview.MigrateAgent("migrateAgent", {
+ *     agentName: "e85v",
+ *     modernizeProjectName: "l77ak",
+ *     resourceGroupName: "rgmigrateEngine",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20220501preview:MigrateAgent icysfvhjjgwhxx bjmro 
+ * ```
  */
 export class MigrateAgent extends pulumi.CustomResource {
     /**

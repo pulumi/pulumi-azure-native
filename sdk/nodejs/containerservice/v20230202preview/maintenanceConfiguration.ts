@@ -9,6 +9,76 @@ import * as utilities from "../../utilities";
 
 /**
  * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+ *
+ * ## Example Usage
+ * ### Create/Update Maintenance Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const maintenanceConfiguration = new azure_native.containerservice.v20230202preview.MaintenanceConfiguration("maintenanceConfiguration", {
+ *     configName: "default",
+ *     notAllowedTime: [{
+ *         end: "2020-11-30T12:00:00Z",
+ *         start: "2020-11-26T03:00:00Z",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     timeInWeek: [{
+ *         day: "Monday",
+ *         hourSlots: [
+ *             1,
+ *             2,
+ *         ],
+ *     }],
+ * });
+ *
+ * ```
+ * ### Create/Update Maintenance Configuration with Maintenance Window
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const maintenanceConfiguration = new azure_native.containerservice.v20230202preview.MaintenanceConfiguration("maintenanceConfiguration", {
+ *     configName: "aksManagedAutoUpgradeSchedule",
+ *     maintenanceWindow: {
+ *         durationHours: 10,
+ *         notAllowedDates: [
+ *             {
+ *                 end: "2023-02-25",
+ *                 start: "2023-02-18",
+ *             },
+ *             {
+ *                 end: "2024-01-05",
+ *                 start: "2023-12-23",
+ *             },
+ *         ],
+ *         schedule: {
+ *             relativeMonthly: {
+ *                 dayOfWeek: "Monday",
+ *                 intervalMonths: 3,
+ *                 weekIndex: "First",
+ *             },
+ *         },
+ *         startDate: "2023-01-01",
+ *         startTime: "08:30",
+ *         utcOffset: "+05:30",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20230202preview:MaintenanceConfiguration aksManagedAutoUpgradeSchedule /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/maintenanceConfigurations/default 
+ * ```
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**

@@ -149,6 +149,56 @@ class Linker(pulumi.CustomResource):
         """
         Linker of source and target resource
 
+        ## Example Usage
+        ### PutLink
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linker = azure_native.servicelinker.v20211101preview.Linker("linker",
+            auth_info=azure_native.servicelinker.v20211101preview.SecretAuthInfoArgs(
+                auth_type="secret",
+                name="name",
+                secret="secret",
+            ),
+            linker_name="linkName",
+            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+            target_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db")
+
+        ```
+        ### PutLinkWithServiceEndpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linker = azure_native.servicelinker.v20211101preview.Linker("linker",
+            auth_info=azure_native.servicelinker.v20211101preview.SecretAuthInfoArgs(
+                auth_type="secret",
+                name="name",
+                secret="secret",
+            ),
+            linker_name="linkName",
+            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+            secret_store=azure_native.servicelinker.v20211101preview.SecretStoreArgs(
+                key_vault_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/test-kv",
+            ),
+            target_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+            v_net_solution=azure_native.servicelinker.v20211101preview.VNetSolutionArgs(
+                type="serviceEndpoint",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicelinker/v20211101preview:Linker linkName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]] auth_info: The authentication type.
@@ -167,6 +217,56 @@ class Linker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Linker of source and target resource
+
+        ## Example Usage
+        ### PutLink
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linker = azure_native.servicelinker.v20211101preview.Linker("linker",
+            auth_info=azure_native.servicelinker.v20211101preview.SecretAuthInfoArgs(
+                auth_type="secret",
+                name="name",
+                secret="secret",
+            ),
+            linker_name="linkName",
+            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+            target_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db")
+
+        ```
+        ### PutLinkWithServiceEndpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linker = azure_native.servicelinker.v20211101preview.Linker("linker",
+            auth_info=azure_native.servicelinker.v20211101preview.SecretAuthInfoArgs(
+                auth_type="secret",
+                name="name",
+                secret="secret",
+            ),
+            linker_name="linkName",
+            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+            secret_store=azure_native.servicelinker.v20211101preview.SecretStoreArgs(
+                key_vault_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/test-kv",
+            ),
+            target_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+            v_net_solution=azure_native.servicelinker.v20211101preview.VNetSolutionArgs(
+                type="serviceEndpoint",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicelinker/v20211101preview:Linker linkName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LinkerArgs args: The arguments to use to populate this resource's properties.

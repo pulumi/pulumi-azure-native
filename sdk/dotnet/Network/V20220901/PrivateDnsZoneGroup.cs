@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// Private dns zone group resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create private dns zone group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateDnsZoneGroup = new AzureNative.Network.V20220901.PrivateDnsZoneGroup("privateDnsZoneGroup", new()
+    ///     {
+    ///         PrivateDnsZoneConfigs = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.PrivateDnsZoneConfigArgs
+    ///             {
+    ///                 PrivateDnsZoneId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateDnsZones/zone1.com",
+    ///             },
+    ///         },
+    ///         PrivateDnsZoneGroupName = "testPdnsgroup",
+    ///         PrivateEndpointName = "testPe",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:PrivateDnsZoneGroup testPdnsgroup /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPe/privateDnsZoneGroups/testPdnsgroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:PrivateDnsZoneGroup")]
     public partial class PrivateDnsZoneGroup : global::Pulumi.CustomResource

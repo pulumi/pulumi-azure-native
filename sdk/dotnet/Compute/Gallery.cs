@@ -13,6 +13,115 @@ namespace Pulumi.AzureNative.Compute
     /// Specifies information about the Shared Image Gallery that you want to create or update.
     /// API Version: 2022-03-03.
     /// Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a community gallery.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gallery = new AzureNative.Compute.Gallery("gallery", new()
+    ///     {
+    ///         Description = "This is the gallery description.",
+    ///         GalleryName = "myGalleryName",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SharingProfile = new AzureNative.Compute.Inputs.SharingProfileArgs
+    ///         {
+    ///             CommunityGalleryInfo = new AzureNative.Compute.Inputs.CommunityGalleryInfoArgs
+    ///             {
+    ///                 Eula = "eula",
+    ///                 PublicNamePrefix = "PirPublic",
+    ///                 PublisherContact = "pir@microsoft.com",
+    ///                 PublisherUri = "uri",
+    ///             },
+    ///             Permissions = "Community",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a simple gallery with sharing profile.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gallery = new AzureNative.Compute.Gallery("gallery", new()
+    ///     {
+    ///         Description = "This is the gallery description.",
+    ///         GalleryName = "myGalleryName",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SharingProfile = new AzureNative.Compute.Inputs.SharingProfileArgs
+    ///         {
+    ///             Permissions = "Groups",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a simple gallery with soft deletion enabled.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gallery = new AzureNative.Compute.Gallery("gallery", new()
+    ///     {
+    ///         Description = "This is the gallery description.",
+    ///         GalleryName = "myGalleryName",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SoftDeletePolicy = new AzureNative.Compute.Inputs.SoftDeletePolicyArgs
+    ///         {
+    ///             IsSoftDeleteEnabled = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a simple gallery.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gallery = new AzureNative.Compute.Gallery("gallery", new()
+    ///     {
+    ///         Description = "This is the gallery description.",
+    ///         GalleryName = "myGalleryName",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:Gallery myGalleryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:Gallery")]
     public partial class Gallery : global::Pulumi.CustomResource

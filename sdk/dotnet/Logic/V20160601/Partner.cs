@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.Logic.V20160601
 {
     /// <summary>
     /// The integration account partner.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a partner
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var partner = new AzureNative.Logic.V20160601.Partner("partner", new()
+    ///     {
+    ///         Content = new AzureNative.Logic.V20160601.Inputs.PartnerContentArgs
+    ///         {
+    ///             B2b = new AzureNative.Logic.V20160601.Inputs.B2BPartnerContentArgs
+    ///             {
+    ///                 BusinessIdentities = new[]
+    ///                 {
+    ///                     new AzureNative.Logic.V20160601.Inputs.BusinessIdentityArgs
+    ///                     {
+    ///                         Qualifier = "AA",
+    ///                         Value = "ZZ",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         Metadata = null,
+    ///         PartnerName = "testPartner",
+    ///         PartnerType = AzureNative.Logic.V20160601.PartnerType.B2B,
+    ///         ResourceGroupName = "testResourceGroup",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic/v20160601:Partner testPartner /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/flowrg/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/partners/testPartner 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:Partner")]
     public partial class Partner : global::Pulumi.CustomResource

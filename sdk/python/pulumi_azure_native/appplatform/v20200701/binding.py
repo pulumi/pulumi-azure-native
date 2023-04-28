@@ -112,6 +112,37 @@ class Binding(pulumi.CustomResource):
         """
         Binding resource payload
 
+        ## Example Usage
+        ### Bindings_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        binding = azure_native.appplatform.v20200701.Binding("binding",
+            app_name="myapp",
+            binding_name="mybinding",
+            properties=azure_native.appplatform.v20200701.BindingResourcePropertiesArgs(
+                binding_parameters={
+                    "apiType": "SQL",
+                    "databaseName": "db1",
+                },
+                key="xxxx",
+                resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:Binding mybinding /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/bindings/mybinding 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.
@@ -128,6 +159,37 @@ class Binding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Binding resource payload
+
+        ## Example Usage
+        ### Bindings_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        binding = azure_native.appplatform.v20200701.Binding("binding",
+            app_name="myapp",
+            binding_name="mybinding",
+            properties=azure_native.appplatform.v20200701.BindingResourcePropertiesArgs(
+                binding_parameters={
+                    "apiType": "SQL",
+                    "databaseName": "db1",
+                },
+                key="xxxx",
+                resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:Binding mybinding /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/bindings/mybinding 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BindingArgs args: The arguments to use to populate this resource's properties.

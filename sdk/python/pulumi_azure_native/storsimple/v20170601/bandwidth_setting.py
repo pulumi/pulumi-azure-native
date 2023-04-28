@@ -113,6 +113,45 @@ class BandwidthSetting(pulumi.CustomResource):
         """
         The bandwidth setting.
 
+        ## Example Usage
+        ### BandwidthSettingsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bandwidth_setting = azure_native.storsimple.v20170601.BandwidthSetting("bandwidthSetting",
+            bandwidth_setting_name="BWSForTest",
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest",
+            schedules=[azure_native.storsimple.v20170601.BandwidthScheduleArgs(
+                days=[
+                    azure_native.storsimple/v20170601.DayOfWeek.SATURDAY,
+                    azure_native.storsimple/v20170601.DayOfWeek.SUNDAY,
+                ],
+                rate_in_mbps=10,
+                start=azure_native.storsimple.v20170601.TimeArgs(
+                    hours=10,
+                    minutes=0,
+                    seconds=0,
+                ),
+                stop=azure_native.storsimple.v20170601.TimeArgs(
+                    hours=20,
+                    minutes=0,
+                    seconds=0,
+                ),
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20170601:BandwidthSetting BWSForTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/bandwidthSettings/BWSForTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bandwidth_setting_name: The bandwidth setting name.
@@ -129,6 +168,45 @@ class BandwidthSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The bandwidth setting.
+
+        ## Example Usage
+        ### BandwidthSettingsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bandwidth_setting = azure_native.storsimple.v20170601.BandwidthSetting("bandwidthSetting",
+            bandwidth_setting_name="BWSForTest",
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest",
+            schedules=[azure_native.storsimple.v20170601.BandwidthScheduleArgs(
+                days=[
+                    azure_native.storsimple/v20170601.DayOfWeek.SATURDAY,
+                    azure_native.storsimple/v20170601.DayOfWeek.SUNDAY,
+                ],
+                rate_in_mbps=10,
+                start=azure_native.storsimple.v20170601.TimeArgs(
+                    hours=10,
+                    minutes=0,
+                    seconds=0,
+                ),
+                stop=azure_native.storsimple.v20170601.TimeArgs(
+                    hours=20,
+                    minutes=0,
+                    seconds=0,
+                ),
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20170601:BandwidthSetting BWSForTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/bandwidthSettings/BWSForTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BandwidthSettingArgs args: The arguments to use to populate this resource's properties.

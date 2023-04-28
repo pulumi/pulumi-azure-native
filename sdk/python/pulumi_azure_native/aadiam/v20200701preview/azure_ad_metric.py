@@ -96,6 +96,29 @@ class AzureADMetric(pulumi.CustomResource):
         """
         AzureADMetrics resource.
 
+        ## Example Usage
+        ### azureADMetricsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_ad_metric = azure_native.aadiam.v20200701preview.AzureADMetric("azureADMetric",
+            azure_ad_metrics_name="ddb1",
+            location="West US",
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aadiam/v20200701preview:azureADMetric ddb1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/rg1/providers/Microsoft.Aadiam/azureADMetrics/ddb1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_ad_metrics_name: Name of the azureADMetrics instance.
@@ -111,6 +134,29 @@ class AzureADMetric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AzureADMetrics resource.
+
+        ## Example Usage
+        ### azureADMetricsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_ad_metric = azure_native.aadiam.v20200701preview.AzureADMetric("azureADMetric",
+            azure_ad_metrics_name="ddb1",
+            location="West US",
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aadiam/v20200701preview:azureADMetric ddb1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/rg1/providers/Microsoft.Aadiam/azureADMetrics/ddb1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AzureADMetricArgs args: The arguments to use to populate this resource's properties.

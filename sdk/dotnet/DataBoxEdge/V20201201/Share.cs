@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
 {
     /// <summary>
     /// Represents a share on the  Data Box Edge/Gateway device.
+    /// 
+    /// ## Example Usage
+    /// ### SharePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var share = new AzureNative.DataBoxEdge.V20201201.Share("share", new()
+    ///     {
+    ///         AccessProtocol = "SMB",
+    ///         AzureContainerInfo = new AzureNative.DataBoxEdge.V20201201.Inputs.AzureContainerInfoArgs
+    ///         {
+    ///             ContainerName = "testContainerSMB",
+    ///             DataFormat = "BlockBlob",
+    ///             StorageAccountCredentialId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+    ///         },
+    ///         DataPolicy = "Cloud",
+    ///         Description = "",
+    ///         DeviceName = "testedgedevice",
+    ///         MonitoringStatus = "Enabled",
+    ///         Name = "smbshare",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         ShareStatus = "Online",
+    ///         UserAccessRights = new[]
+    ///         {
+    ///             new AzureNative.DataBoxEdge.V20201201.Inputs.UserAccessRightArgs
+    ///             {
+    ///                 AccessType = "Change",
+    ///                 UserId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20201201:Share smbshare /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/smbshare 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20201201:Share")]
     public partial class Share : global::Pulumi.CustomResource

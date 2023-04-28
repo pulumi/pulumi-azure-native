@@ -127,6 +127,31 @@ class WebPubSubCustomCertificate(pulumi.CustomResource):
         """
         A custom certificate.
 
+        ## Example Usage
+        ### WebPubSubCustomCertificates_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_custom_certificate = azure_native.webpubsub.v20230201.WebPubSubCustomCertificate("webPubSubCustomCertificate",
+            certificate_name="myCert",
+            key_vault_base_uri="https://myvault.keyvault.azure.net/",
+            key_vault_secret_name="mycert",
+            key_vault_secret_version="bb6a44b2743f47f68dad0d6cc9756432",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub/v20230201:WebPubSubCustomCertificate myCert /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: Custom certificate name
@@ -144,6 +169,31 @@ class WebPubSubCustomCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A custom certificate.
+
+        ## Example Usage
+        ### WebPubSubCustomCertificates_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_custom_certificate = azure_native.webpubsub.v20230201.WebPubSubCustomCertificate("webPubSubCustomCertificate",
+            certificate_name="myCert",
+            key_vault_base_uri="https://myvault.keyvault.azure.net/",
+            key_vault_secret_name="mycert",
+            key_vault_secret_version="bb6a44b2743f47f68dad0d6cc9756432",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub/v20230201:WebPubSubCustomCertificate myCert /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebPubSubCustomCertificateArgs args: The arguments to use to populate this resource's properties.

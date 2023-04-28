@@ -11,6 +11,589 @@ import * as utilities from "../utilities";
  * LoadBalancer resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create load balancer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+ *     backendAddressPools: [{
+ *         name: "be-lb",
+ *     }],
+ *     frontendIPConfigurations: [{
+ *         name: "fe-lb",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+ *         },
+ *     }],
+ *     inboundNatPools: [],
+ *     inboundNatRules: [{
+ *         backendPort: 3389,
+ *         enableFloatingIP: true,
+ *         enableTcpReset: false,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 3389,
+ *         idleTimeoutInMinutes: 15,
+ *         name: "in-nat-rule",
+ *         protocol: "Tcp",
+ *     }],
+ *     loadBalancerName: "lb",
+ *     loadBalancingRules: [{
+ *         backendAddressPool: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+ *         },
+ *         backendPort: 80,
+ *         enableFloatingIP: true,
+ *         enableTcpReset: false,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 80,
+ *         idleTimeoutInMinutes: 15,
+ *         loadDistribution: "Default",
+ *         name: "rulelb",
+ *         probe: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+ *         },
+ *         protocol: "Tcp",
+ *     }],
+ *     location: "eastus",
+ *     probes: [{
+ *         intervalInSeconds: 15,
+ *         name: "probe-lb",
+ *         numberOfProbes: 2,
+ *         port: 80,
+ *         probeThreshold: 1,
+ *         protocol: "Http",
+ *         requestPath: "healthcheck.aspx",
+ *     }],
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### Create load balancer with Frontend IP in Zone 1
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+ *     backendAddressPools: [{
+ *         name: "be-lb",
+ *     }],
+ *     frontendIPConfigurations: [{
+ *         name: "fe-lb",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+ *         },
+ *         zones: ["1"],
+ *     }],
+ *     inboundNatPools: [],
+ *     inboundNatRules: [{
+ *         backendPort: 3389,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 3389,
+ *         idleTimeoutInMinutes: 15,
+ *         name: "in-nat-rule",
+ *         protocol: "Tcp",
+ *     }],
+ *     loadBalancerName: "lb",
+ *     loadBalancingRules: [{
+ *         backendAddressPool: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+ *         },
+ *         backendPort: 80,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 80,
+ *         idleTimeoutInMinutes: 15,
+ *         loadDistribution: "Default",
+ *         name: "rulelb",
+ *         probe: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+ *         },
+ *         protocol: "Tcp",
+ *     }],
+ *     location: "eastus",
+ *     outboundRules: [],
+ *     probes: [{
+ *         intervalInSeconds: 15,
+ *         name: "probe-lb",
+ *         numberOfProbes: 2,
+ *         port: 80,
+ *         probeThreshold: 1,
+ *         protocol: "Http",
+ *         requestPath: "healthcheck.aspx",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create load balancer with Gateway Load Balancer Consumer configured
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+ *     backendAddressPools: [{
+ *         name: "be-lb",
+ *     }],
+ *     frontendIPConfigurations: [{
+ *         gatewayLoadBalancer: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb-provider",
+ *         },
+ *         name: "fe-lb",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+ *         },
+ *     }],
+ *     inboundNatPools: [],
+ *     inboundNatRules: [{
+ *         backendPort: 3389,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 3389,
+ *         idleTimeoutInMinutes: 15,
+ *         name: "in-nat-rule",
+ *         protocol: "Tcp",
+ *     }],
+ *     loadBalancerName: "lb",
+ *     loadBalancingRules: [{
+ *         backendAddressPool: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+ *         },
+ *         backendPort: 80,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 80,
+ *         idleTimeoutInMinutes: 15,
+ *         loadDistribution: "Default",
+ *         name: "rulelb",
+ *         probe: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+ *         },
+ *         protocol: "Tcp",
+ *     }],
+ *     location: "eastus",
+ *     outboundRules: [],
+ *     probes: [{
+ *         intervalInSeconds: 15,
+ *         name: "probe-lb",
+ *         numberOfProbes: 2,
+ *         port: 80,
+ *         probeThreshold: 1,
+ *         protocol: "Http",
+ *         requestPath: "healthcheck.aspx",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create load balancer with Gateway Load Balancer Provider configured with one Backend Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+ *     backendAddressPools: [{
+ *         name: "be-lb",
+ *         tunnelInterfaces: [
+ *             {
+ *                 identifier: 900,
+ *                 port: 15000,
+ *                 protocol: "VXLAN",
+ *                 type: "Internal",
+ *             },
+ *             {
+ *                 identifier: 901,
+ *                 port: 15001,
+ *                 protocol: "VXLAN",
+ *                 type: "Internal",
+ *             },
+ *         ],
+ *     }],
+ *     frontendIPConfigurations: [{
+ *         name: "fe-lb",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+ *         },
+ *     }],
+ *     inboundNatPools: [],
+ *     loadBalancerName: "lb",
+ *     loadBalancingRules: [{
+ *         backendAddressPools: [{
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+ *         }],
+ *         backendPort: 0,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 0,
+ *         idleTimeoutInMinutes: 15,
+ *         loadDistribution: "Default",
+ *         name: "rulelb",
+ *         probe: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+ *         },
+ *         protocol: "All",
+ *     }],
+ *     location: "eastus",
+ *     outboundRules: [],
+ *     probes: [{
+ *         intervalInSeconds: 15,
+ *         name: "probe-lb",
+ *         numberOfProbes: 2,
+ *         port: 80,
+ *         probeThreshold: 1,
+ *         protocol: "Http",
+ *         requestPath: "healthcheck.aspx",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Premium",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create load balancer with Gateway Load Balancer Provider configured with two Backend Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+ *     backendAddressPools: [
+ *         {
+ *             name: "be-lb1",
+ *         },
+ *         {
+ *             name: "be-lb2",
+ *         },
+ *     ],
+ *     frontendIPConfigurations: [{
+ *         name: "fe-lb",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+ *         },
+ *     }],
+ *     inboundNatPools: [],
+ *     loadBalancerName: "lb",
+ *     loadBalancingRules: [{
+ *         backendAddressPool: {},
+ *         backendAddressPools: [
+ *             {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb1",
+ *             },
+ *             {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb2",
+ *             },
+ *         ],
+ *         backendPort: 0,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 0,
+ *         idleTimeoutInMinutes: 15,
+ *         loadDistribution: "Default",
+ *         name: "rulelb",
+ *         probe: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+ *         },
+ *         protocol: "All",
+ *     }],
+ *     location: "eastus",
+ *     outboundRules: [],
+ *     probes: [{
+ *         intervalInSeconds: 15,
+ *         name: "probe-lb",
+ *         numberOfProbes: 2,
+ *         port: 80,
+ *         probeThreshold: 1,
+ *         protocol: "Http",
+ *         requestPath: "healthcheck.aspx",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Premium",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create load balancer with Global Tier and one regional load balancer in its backend pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+ *     backendAddressPools: [{
+ *         loadBalancerBackendAddresses: [{
+ *             loadBalancerFrontendIPConfiguration: {
+ *                 id: "/subscriptions/subid/resourceGroups/regional-lb-rg1/providers/Microsoft.Network/loadBalancers/regional-lb/frontendIPConfigurations/fe-rlb",
+ *             },
+ *             name: "regional-lb1-address",
+ *         }],
+ *         name: "be-lb",
+ *     }],
+ *     frontendIPConfigurations: [{
+ *         name: "fe-lb",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+ *         },
+ *     }],
+ *     loadBalancerName: "lb",
+ *     loadBalancingRules: [{
+ *         backendAddressPool: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+ *         },
+ *         backendPort: 80,
+ *         enableFloatingIP: false,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 80,
+ *         idleTimeoutInMinutes: 15,
+ *         loadDistribution: "Default",
+ *         name: "rulelb",
+ *         probe: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+ *         },
+ *         protocol: "Tcp",
+ *     }],
+ *     location: "eastus",
+ *     probes: [{
+ *         intervalInSeconds: 15,
+ *         name: "probe-lb",
+ *         numberOfProbes: 2,
+ *         port: 80,
+ *         probeThreshold: 1,
+ *         protocol: "Http",
+ *         requestPath: "healthcheck.aspx",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *         tier: "Global",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create load balancer with Standard SKU
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+ *     backendAddressPools: [{
+ *         name: "be-lb",
+ *     }],
+ *     frontendIPConfigurations: [{
+ *         name: "fe-lb",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+ *         },
+ *     }],
+ *     inboundNatPools: [],
+ *     inboundNatRules: [{
+ *         backendPort: 3389,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 3389,
+ *         idleTimeoutInMinutes: 15,
+ *         name: "in-nat-rule",
+ *         protocol: "Tcp",
+ *     }],
+ *     loadBalancerName: "lb",
+ *     loadBalancingRules: [{
+ *         backendAddressPool: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+ *         },
+ *         backendPort: 80,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 80,
+ *         idleTimeoutInMinutes: 15,
+ *         loadDistribution: "Default",
+ *         name: "rulelb",
+ *         probe: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+ *         },
+ *         protocol: "Tcp",
+ *     }],
+ *     location: "eastus",
+ *     outboundRules: [],
+ *     probes: [{
+ *         intervalInSeconds: 15,
+ *         name: "probe-lb",
+ *         numberOfProbes: 2,
+ *         port: 80,
+ *         probeThreshold: 1,
+ *         protocol: "Http",
+ *         requestPath: "healthcheck.aspx",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create load balancer with inbound nat pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+ *     backendAddressPools: [],
+ *     frontendIPConfigurations: [{
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
+ *         name: "test",
+ *         privateIPAllocationMethod: "Dynamic",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/lbvnet/subnets/lbsubnet",
+ *         },
+ *         zones: [],
+ *     }],
+ *     inboundNatPools: [{
+ *         backendPort: 8888,
+ *         enableFloatingIP: true,
+ *         enableTcpReset: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
+ *         },
+ *         frontendPortRangeEnd: 8085,
+ *         frontendPortRangeStart: 8080,
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/inboundNatPools/test",
+ *         idleTimeoutInMinutes: 10,
+ *         name: "test",
+ *         protocol: "Tcp",
+ *     }],
+ *     inboundNatRules: [],
+ *     loadBalancerName: "lb",
+ *     loadBalancingRules: [],
+ *     location: "eastus",
+ *     outboundRules: [],
+ *     probes: [],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create load balancer with outbound rules
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancer = new azure_native.network.LoadBalancer("loadBalancer", {
+ *     backendAddressPools: [{
+ *         name: "be-lb",
+ *     }],
+ *     frontendIPConfigurations: [{
+ *         name: "fe-lb",
+ *         publicIPAddress: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pip",
+ *         },
+ *     }],
+ *     inboundNatPools: [],
+ *     inboundNatRules: [{
+ *         backendPort: 3389,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 3389,
+ *         idleTimeoutInMinutes: 15,
+ *         name: "in-nat-rule",
+ *         protocol: "Tcp",
+ *     }],
+ *     loadBalancerName: "lb",
+ *     loadBalancingRules: [{
+ *         backendAddressPool: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+ *         },
+ *         backendPort: 80,
+ *         disableOutboundSnat: true,
+ *         enableFloatingIP: true,
+ *         frontendIPConfiguration: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         },
+ *         frontendPort: 80,
+ *         idleTimeoutInMinutes: 15,
+ *         loadDistribution: "Default",
+ *         name: "rulelb",
+ *         probe: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+ *         },
+ *         protocol: "Tcp",
+ *     }],
+ *     location: "eastus",
+ *     outboundRules: [{
+ *         backendAddressPool: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+ *         },
+ *         frontendIPConfigurations: [{
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *         }],
+ *         name: "rule1",
+ *         protocol: "All",
+ *     }],
+ *     probes: [{
+ *         intervalInSeconds: 15,
+ *         name: "probe-lb",
+ *         numberOfProbes: 2,
+ *         port: 80,
+ *         probeThreshold: 1,
+ *         protocol: "Http",
+ *         requestPath: "healthcheck.aspx",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:LoadBalancer lb /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb 
+ * ```
  */
 export class LoadBalancer extends pulumi.CustomResource {
     /**

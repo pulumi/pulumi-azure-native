@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents an export pipeline for a container registry.
+ *
+ * ## Example Usage
+ * ### ExportPipelineCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const exportPipeline = new azure_native.containerregistry.v20201101preview.ExportPipeline("exportPipeline", {
+ *     exportPipelineName: "myExportPipeline",
+ *     identity: {
+ *         type: azure_native.containerregistry.v20201101preview.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "westus",
+ *     options: ["OverwriteBlobs"],
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     target: {
+ *         keyVaultUri: "https://myvault.vault.azure.net/secrets/acrexportsas",
+ *         type: "AzureStorageBlobContainer",
+ *         uri: "https://accountname.blob.core.windows.net/containername",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20201101preview:ExportPipeline myExportPipeline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline 
+ * ```
  */
 export class ExportPipeline extends pulumi.CustomResource {
     /**

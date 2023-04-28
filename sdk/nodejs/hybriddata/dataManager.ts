@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * The DataManager resource.
  * API Version: 2019-06-01.
  * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### DataManagers_CreatePUT41
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataManager = new azure_native.hybriddata.DataManager("dataManager", {
+ *     dataManagerName: "TestAzureSDKOperations",
+ *     location: "westus",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybriddata:DataManager TestAzureSDKOperations /subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations 
+ * ```
  */
 export class DataManager extends pulumi.CustomResource {
     /**

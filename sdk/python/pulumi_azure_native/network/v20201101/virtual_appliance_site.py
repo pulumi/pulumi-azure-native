@@ -147,6 +147,36 @@ class VirtualApplianceSite(pulumi.CustomResource):
         """
         Virtual Appliance Site resource.
 
+        ## Example Usage
+        ### Create Network Virtual Appliance Site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_appliance_site = azure_native.network.v20201101.VirtualApplianceSite("virtualApplianceSite",
+            address_prefix="192.168.1.0/24",
+            network_virtual_appliance_name="nva",
+            o365_policy=azure_native.network.v20201101.Office365PolicyPropertiesResponseArgs(
+                break_out_categories=azure_native.network.v20201101.BreakOutCategoryPoliciesArgs(
+                    allow=True,
+                    default=True,
+                    optimize=True,
+                ),
+            ),
+            resource_group_name="rg1",
+            site_name="site1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:VirtualApplianceSite site1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkVirtualAppliances/nva/virtualApplianceSites/site1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address Prefix.
@@ -165,6 +195,36 @@ class VirtualApplianceSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Appliance Site resource.
+
+        ## Example Usage
+        ### Create Network Virtual Appliance Site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_appliance_site = azure_native.network.v20201101.VirtualApplianceSite("virtualApplianceSite",
+            address_prefix="192.168.1.0/24",
+            network_virtual_appliance_name="nva",
+            o365_policy=azure_native.network.v20201101.Office365PolicyPropertiesResponseArgs(
+                break_out_categories=azure_native.network.v20201101.BreakOutCategoryPoliciesArgs(
+                    allow=True,
+                    default=True,
+                    optimize=True,
+                ),
+            ),
+            resource_group_name="rg1",
+            site_name="site1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:VirtualApplianceSite site1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkVirtualAppliances/nva/virtualApplianceSites/site1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualApplianceSiteArgs args: The arguments to use to populate this resource's properties.

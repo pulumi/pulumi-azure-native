@@ -183,6 +183,36 @@ class SavedSearch(pulumi.CustomResource):
         """
         Value object for saved search results.
 
+        ## Example Usage
+        ### SavedSearchCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        saved_search = azure_native.operationalinsights.v20150320.SavedSearch("savedSearch",
+            category="Saved Search Test Category",
+            display_name="Create or Update Saved Search Test",
+            query="Heartbeat | summarize Count() by Computer",
+            resource_group_name="TestRG",
+            saved_search_id="00000000-0000-0000-0000-00000000000",
+            tags=[{
+                "name": "Group",
+                "value": "Computer",
+            }],
+            version=2,
+            workspace_name="TestWS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20150320:SavedSearch myresource1 subscriptions/00000000-0000-0000-0000-000000000005/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/AtlantisDemo/savedSearches/test-new-saved-search-id-2015 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: The category of the saved search. This helps the user to find a saved search faster. 
@@ -203,6 +233,36 @@ class SavedSearch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Value object for saved search results.
+
+        ## Example Usage
+        ### SavedSearchCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        saved_search = azure_native.operationalinsights.v20150320.SavedSearch("savedSearch",
+            category="Saved Search Test Category",
+            display_name="Create or Update Saved Search Test",
+            query="Heartbeat | summarize Count() by Computer",
+            resource_group_name="TestRG",
+            saved_search_id="00000000-0000-0000-0000-00000000000",
+            tags=[{
+                "name": "Group",
+                "value": "Computer",
+            }],
+            version=2,
+            workspace_name="TestWS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20150320:SavedSearch myresource1 subscriptions/00000000-0000-0000-0000-000000000005/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/AtlantisDemo/savedSearches/test-new-saved-search-id-2015 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SavedSearchArgs args: The arguments to use to populate this resource's properties.

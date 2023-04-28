@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20220401Preview
 {
     /// <summary>
     /// The order details.
+    /// 
+    /// ## Example Usage
+    /// ### OrderPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var order = new AzureNative.DataBoxEdge.V20220401Preview.Order("order", new()
+    ///     {
+    ///         ContactInformation = new AzureNative.DataBoxEdge.V20220401Preview.Inputs.ContactDetailsArgs
+    ///         {
+    ///             CompanyName = "Microsoft",
+    ///             ContactPerson = "John Mcclane",
+    ///             EmailList = new[]
+    ///             {
+    ///                 "john@microsoft.com",
+    ///             },
+    ///             Phone = "(800) 426-9400",
+    ///         },
+    ///         DeviceName = "testedgedevice",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         ShippingAddress = new AzureNative.DataBoxEdge.V20220401Preview.Inputs.AddressArgs
+    ///         {
+    ///             AddressLine1 = "Microsoft Corporation",
+    ///             AddressLine2 = "One Microsoft Way",
+    ///             AddressLine3 = "Redmond",
+    ///             City = "WA",
+    ///             Country = "USA",
+    ///             PostalCode = "98052",
+    ///             State = "WA",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20220401preview:Order default /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/orders/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20220401preview:Order")]
     public partial class Order : global::Pulumi.CustomResource

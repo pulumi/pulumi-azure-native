@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * RouteTable resource in a virtual hub.
+ *
+ * ## Example Usage
+ * ### RouteTablePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hubRouteTable = new azure_native.network.v20220901.HubRouteTable("hubRouteTable", {
+ *     labels: [
+ *         "label1",
+ *         "label2",
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     routeTableName: "hubRouteTable1",
+ *     routes: [{
+ *         destinationType: "CIDR",
+ *         destinations: [
+ *             "10.0.0.0/8",
+ *             "20.0.0.0/8",
+ *             "30.0.0.0/8",
+ *         ],
+ *         name: "route1",
+ *         nextHop: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azureFirewall1",
+ *         nextHopType: "ResourceId",
+ *     }],
+ *     virtualHubName: "virtualHub1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:HubRouteTable hubRouteTable1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1 
+ * ```
  */
 export class HubRouteTable extends pulumi.CustomResource {
     /**

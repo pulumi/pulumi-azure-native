@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Automation.V20151031
 {
     /// <summary>
     /// Definition of the webhook type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update webhook
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webhook = new AzureNative.Automation.V20151031.Webhook("webhook", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount33",
+    ///         ExpiryTime = "2018-03-29T22:18:13.7002872Z",
+    ///         IsEnabled = true,
+    ///         Name = "TestWebhook",
+    ///         ResourceGroupName = "rg",
+    ///         Runbook = new AzureNative.Automation.V20151031.Inputs.RunbookAssociationPropertyArgs
+    ///         {
+    ///             Name = "TestRunbook",
+    ///         },
+    ///         Uri = "&lt;uri&gt;",
+    ///         WebhookName = "TestWebhook",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20151031:Webhook TestWebhook /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/webhooks/TestWebhook 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20151031:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource

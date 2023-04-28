@@ -149,6 +149,38 @@ class AccessControlList(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### AccessControlLists_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_control_list = azure_native.managednetworkfabric.AccessControlList("accessControlList",
+            access_control_list_name="aclOne",
+            address_family="ipv4",
+            conditions=[azure_native.managednetworkfabric.AccessControlListPropertiesConditionsArgs(
+                action="allow",
+                destination_address="1.1.1.1",
+                destination_port="21",
+                protocol=6,
+                sequence_number=3,
+                source_address="2.2.2.2",
+                source_port="65000",
+            )],
+            location="EastUs",
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:AccessControlList aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_control_list_name: Name of the Access Control List
@@ -169,6 +201,38 @@ class AccessControlList(pulumi.CustomResource):
         The AccessControlList resource definition.
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### AccessControlLists_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_control_list = azure_native.managednetworkfabric.AccessControlList("accessControlList",
+            access_control_list_name="aclOne",
+            address_family="ipv4",
+            conditions=[azure_native.managednetworkfabric.AccessControlListPropertiesConditionsArgs(
+                action="allow",
+                destination_address="1.1.1.1",
+                destination_port="21",
+                protocol=6,
+                sequence_number=3,
+                source_address="2.2.2.2",
+                source_port="65000",
+            )],
+            location="EastUs",
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:AccessControlList aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccessControlListArgs args: The arguments to use to populate this resource's properties.

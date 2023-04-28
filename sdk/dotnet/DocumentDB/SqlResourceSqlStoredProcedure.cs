@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.DocumentDB
     /// An Azure Cosmos DB storedProcedure.
     /// API Version: 2022-11-15.
     /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlStoredProcedureCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlStoredProcedure = new AzureNative.DocumentDB.SqlResourceSqlStoredProcedure("sqlResourceSqlStoredProcedure", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ContainerName = "containerName",
+    ///         DatabaseName = "databaseName",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.Inputs.SqlStoredProcedureResourceArgs
+    ///         {
+    ///             Body = "body",
+    ///             Id = "storedProcedureName",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         StoredProcedureName = "storedProcedureName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb:SqlResourceSqlStoredProcedure storedProcedureName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlStoredProcedures/storedProcedureName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:SqlResourceSqlStoredProcedure")]
     public partial class SqlResourceSqlStoredProcedure : global::Pulumi.CustomResource

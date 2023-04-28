@@ -11,6 +11,357 @@ namespace Pulumi.AzureNative.Compute.V20221101
 {
     /// <summary>
     /// The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
+    /// 
+    /// ## Example Usage
+    /// ### Create a virtual machine image from a blob with DiskEncryptionSet resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.V20221101.Inputs.ImageStorageProfileArgs
+    ///         {
+    ///             OsDisk = new AzureNative.Compute.V20221101.Inputs.ImageOSDiskArgs
+    ///             {
+    ///                 BlobUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///                 DiskEncryptionSet = new AzureNative.Compute.V20221101.Inputs.DiskEncryptionSetParametersArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                 },
+    ///                 OsState = AzureNative.Compute.V20221101.OperatingSystemStateTypes.Generalized,
+    ///                 OsType = AzureNative.Compute.V20221101.OperatingSystemTypes.Linux,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a virtual machine image from a blob.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.V20221101.Inputs.ImageStorageProfileArgs
+    ///         {
+    ///             OsDisk = new AzureNative.Compute.V20221101.Inputs.ImageOSDiskArgs
+    ///             {
+    ///                 BlobUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///                 OsState = AzureNative.Compute.V20221101.OperatingSystemStateTypes.Generalized,
+    ///                 OsType = AzureNative.Compute.V20221101.OperatingSystemTypes.Linux,
+    ///             },
+    ///             ZoneResilient = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a virtual machine image from a managed disk with DiskEncryptionSet resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.V20221101.Inputs.ImageStorageProfileArgs
+    ///         {
+    ///             OsDisk = new AzureNative.Compute.V20221101.Inputs.ImageOSDiskArgs
+    ///             {
+    ///                 DiskEncryptionSet = new AzureNative.Compute.V20221101.Inputs.DiskEncryptionSetParametersArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                 },
+    ///                 OsState = AzureNative.Compute.V20221101.OperatingSystemStateTypes.Generalized,
+    ///                 OsType = AzureNative.Compute.V20221101.OperatingSystemTypes.Linux,
+    ///                 Snapshot = new AzureNative.Compute.V20221101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a virtual machine image from a managed disk.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.V20221101.Inputs.ImageStorageProfileArgs
+    ///         {
+    ///             OsDisk = new AzureNative.Compute.V20221101.Inputs.ImageOSDiskArgs
+    ///             {
+    ///                 ManagedDisk = new AzureNative.Compute.V20221101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+    ///                 },
+    ///                 OsState = AzureNative.Compute.V20221101.OperatingSystemStateTypes.Generalized,
+    ///                 OsType = AzureNative.Compute.V20221101.OperatingSystemTypes.Linux,
+    ///             },
+    ///             ZoneResilient = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a virtual machine image from a snapshot with DiskEncryptionSet resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.V20221101.Inputs.ImageStorageProfileArgs
+    ///         {
+    ///             OsDisk = new AzureNative.Compute.V20221101.Inputs.ImageOSDiskArgs
+    ///             {
+    ///                 DiskEncryptionSet = new AzureNative.Compute.V20221101.Inputs.DiskEncryptionSetParametersArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                 },
+    ///                 ManagedDisk = new AzureNative.Compute.V20221101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+    ///                 },
+    ///                 OsState = AzureNative.Compute.V20221101.OperatingSystemStateTypes.Generalized,
+    ///                 OsType = AzureNative.Compute.V20221101.OperatingSystemTypes.Linux,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a virtual machine image from a snapshot.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.V20221101.Inputs.ImageStorageProfileArgs
+    ///         {
+    ///             OsDisk = new AzureNative.Compute.V20221101.Inputs.ImageOSDiskArgs
+    ///             {
+    ///                 OsState = AzureNative.Compute.V20221101.OperatingSystemStateTypes.Generalized,
+    ///                 OsType = AzureNative.Compute.V20221101.OperatingSystemTypes.Linux,
+    ///                 Snapshot = new AzureNative.Compute.V20221101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+    ///                 },
+    ///             },
+    ///             ZoneResilient = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a virtual machine image from an existing virtual machine.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SourceVirtualMachine = new AzureNative.Compute.V20221101.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a virtual machine image that includes a data disk from a blob.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.V20221101.Inputs.ImageStorageProfileArgs
+    ///         {
+    ///             DataDisks = new[]
+    ///             {
+    ///                 new AzureNative.Compute.V20221101.Inputs.ImageDataDiskArgs
+    ///                 {
+    ///                     BlobUri = "https://mystorageaccount.blob.core.windows.net/dataimages/dataimage.vhd",
+    ///                     Lun = 1,
+    ///                 },
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.V20221101.Inputs.ImageOSDiskArgs
+    ///             {
+    ///                 BlobUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///                 OsState = AzureNative.Compute.V20221101.OperatingSystemStateTypes.Generalized,
+    ///                 OsType = AzureNative.Compute.V20221101.OperatingSystemTypes.Linux,
+    ///             },
+    ///             ZoneResilient = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a virtual machine image that includes a data disk from a managed disk.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.V20221101.Inputs.ImageStorageProfileArgs
+    ///         {
+    ///             DataDisks = new[]
+    ///             {
+    ///                 new AzureNative.Compute.V20221101.Inputs.ImageDataDiskArgs
+    ///                 {
+    ///                     Lun = 1,
+    ///                     ManagedDisk = new AzureNative.Compute.V20221101.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.V20221101.Inputs.ImageOSDiskArgs
+    ///             {
+    ///                 ManagedDisk = new AzureNative.Compute.V20221101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myManagedDisk",
+    ///                 },
+    ///                 OsState = AzureNative.Compute.V20221101.OperatingSystemStateTypes.Generalized,
+    ///                 OsType = AzureNative.Compute.V20221101.OperatingSystemTypes.Linux,
+    ///             },
+    ///             ZoneResilient = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a virtual machine image that includes a data disk from a snapshot.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var image = new AzureNative.Compute.V20221101.Image("image", new()
+    ///     {
+    ///         ImageName = "myImage",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.V20221101.Inputs.ImageStorageProfileArgs
+    ///         {
+    ///             DataDisks = new[]
+    ///             {
+    ///                 new AzureNative.Compute.V20221101.Inputs.ImageDataDiskArgs
+    ///                 {
+    ///                     Lun = 1,
+    ///                     Snapshot = new AzureNative.Compute.V20221101.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.V20221101.Inputs.ImageOSDiskArgs
+    ///             {
+    ///                 OsState = AzureNative.Compute.V20221101.OperatingSystemStateTypes.Generalized,
+    ///                 OsType = AzureNative.Compute.V20221101.OperatingSystemTypes.Linux,
+    ///                 Snapshot = new AzureNative.Compute.V20221101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+    ///                 },
+    ///             },
+    ///             ZoneResilient = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20221101:Image myImage /subscriptions/{subscription-id}/resourceGroups/disk/providers/Microsoft.Compute/images/myImage 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20221101:Image")]
     public partial class Image : global::Pulumi.CustomResource

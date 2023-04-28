@@ -251,6 +251,35 @@ class Workspace(pulumi.CustomResource):
         """
         The top level Workspace resource container.
 
+        ## Example Usage
+        ### WorkspacesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.operationalinsights.v20201001.Workspace("workspace",
+            location="australiasoutheast",
+            resource_group_name="oiautorest6685",
+            retention_in_days=30,
+            sku=azure_native.operationalinsights.v20201001.WorkspaceSkuResponseArgs(
+                name="PerGB2018",
+            ),
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="oiautorest6685")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20201001:Workspace AzTest2170 /subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/oiautorest6685/providers/microsoft.operationalinsights/workspaces/aztest2170 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: The ETag of the workspace.
@@ -275,6 +304,35 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The top level Workspace resource container.
+
+        ## Example Usage
+        ### WorkspacesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.operationalinsights.v20201001.Workspace("workspace",
+            location="australiasoutheast",
+            resource_group_name="oiautorest6685",
+            retention_in_days=30,
+            sku=azure_native.operationalinsights.v20201001.WorkspaceSkuResponseArgs(
+                name="PerGB2018",
+            ),
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="oiautorest6685")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20201001:Workspace AzTest2170 /subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/oiautorest6685/providers/microsoft.operationalinsights/workspaces/aztest2170 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

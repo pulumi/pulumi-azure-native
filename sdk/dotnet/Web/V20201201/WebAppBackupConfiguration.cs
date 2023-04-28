@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20201201
 {
     /// <summary>
     /// Description of a backup which will be performed.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201201:WebAppBackupConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/backup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:WebAppBackupConfiguration")]
     public partial class WebAppBackupConfiguration : global::Pulumi.CustomResource

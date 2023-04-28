@@ -103,7 +103,41 @@ class VMwareCollector(pulumi.CustomResource):
                  vm_ware_collector_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a VMwareCollector resource with the given unique name, props, and options.
+        ## Example Usage
+        ### VMwareCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        v_mware_collector = azure_native.migrate.v20191001.VMwareCollector("vMwareCollector",
+            e_tag="\\"01003d32-0000-0d00-0000-5d74d2e50000\\"",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties=azure_native.migrate.v20191001.CollectorPropertiesResponseArgs(
+                agent_properties={
+                    "spnDetails": azure_native.migrate.v20191001.CollectorBodyAgentSpnPropertiesArgs(
+                        application_id="fc717575-8173-4b21-92a5-658b655e613e",
+                        audience="https://72f988bf-86f1-41af-91ab-2d7cd011db47/PortalvCenterbc2fagentauthaadapp",
+                        authority="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                        object_id="29d94f38-db94-4980-aec0-0cfd55ab1cd0",
+                        tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    ),
+                },
+                discovery_site_id="/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westEurope/providers/Microsoft.OffAzure/VMwareSites/PortalvCenterbc2fsite",
+            ),
+            resource_group_name="abgoyal-westEurope",
+            vm_ware_collector_name="PortalvCenterbc2fcollector")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20191001:VMwareCollector PortalvCenterbc2fcollector /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abgoyalWEselfhostb72bproject/vmwarecollectors/PortalvCenterbc2fcollector 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] project_name: Name of the Azure Migrate project.
@@ -117,7 +151,41 @@ class VMwareCollector(pulumi.CustomResource):
                  args: VMwareCollectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a VMwareCollector resource with the given unique name, props, and options.
+        ## Example Usage
+        ### VMwareCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        v_mware_collector = azure_native.migrate.v20191001.VMwareCollector("vMwareCollector",
+            e_tag="\\"01003d32-0000-0d00-0000-5d74d2e50000\\"",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties=azure_native.migrate.v20191001.CollectorPropertiesResponseArgs(
+                agent_properties={
+                    "spnDetails": azure_native.migrate.v20191001.CollectorBodyAgentSpnPropertiesArgs(
+                        application_id="fc717575-8173-4b21-92a5-658b655e613e",
+                        audience="https://72f988bf-86f1-41af-91ab-2d7cd011db47/PortalvCenterbc2fagentauthaadapp",
+                        authority="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                        object_id="29d94f38-db94-4980-aec0-0cfd55ab1cd0",
+                        tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    ),
+                },
+                discovery_site_id="/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westEurope/providers/Microsoft.OffAzure/VMwareSites/PortalvCenterbc2fsite",
+            ),
+            resource_group_name="abgoyal-westEurope",
+            vm_ware_collector_name="PortalvCenterbc2fcollector")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20191001:VMwareCollector PortalvCenterbc2fcollector /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abgoyalWEselfhostb72bproject/vmwarecollectors/PortalvCenterbc2fcollector 
+        ```
+
         :param str resource_name: The name of the resource.
         :param VMwareCollectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

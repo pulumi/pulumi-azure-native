@@ -264,6 +264,82 @@ class ElasticPool(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update Hyperscale elastic pool with high availability replica count parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            high_availability_replica_count=2,
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku=azure_native.sql.SkuResponseArgs(
+                name="HS_Gen5_4",
+            ))
+
+        ```
+        ### Create or update elastic pool with all parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            per_database_settings=azure_native.sql.ElasticPoolPerDatabaseSettingsArgs(
+                max_capacity=2,
+                min_capacity=0.25,
+            ),
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku=azure_native.sql.SkuResponseArgs(
+                capacity=2,
+                name="GP_Gen4_2",
+                tier="GeneralPurpose",
+            ))
+
+        ```
+        ### Create or update elastic pool with maintenance configuration parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            maintenance_configuration_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_1",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+        ### Create or update elastic pool with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ElasticPool sqlcrudtest-8102 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-2369/providers/Microsoft.Sql/servers/sqlcrudtest-8069/elasticPools/sqlcrudtest-8102 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_pool_name: The name of the elastic pool.
@@ -296,6 +372,82 @@ class ElasticPool(pulumi.CustomResource):
         An elastic pool.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update Hyperscale elastic pool with high availability replica count parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            high_availability_replica_count=2,
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku=azure_native.sql.SkuResponseArgs(
+                name="HS_Gen5_4",
+            ))
+
+        ```
+        ### Create or update elastic pool with all parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            per_database_settings=azure_native.sql.ElasticPoolPerDatabaseSettingsArgs(
+                max_capacity=2,
+                min_capacity=0.25,
+            ),
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            sku=azure_native.sql.SkuResponseArgs(
+                capacity=2,
+                name="GP_Gen4_2",
+                tier="GeneralPurpose",
+            ))
+
+        ```
+        ### Create or update elastic pool with maintenance configuration parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            maintenance_configuration_id="/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_1",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+        ### Create or update elastic pool with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ElasticPool sqlcrudtest-8102 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-2369/providers/Microsoft.Sql/servers/sqlcrudtest-8069/elasticPools/sqlcrudtest-8102 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ElasticPoolArgs args: The arguments to use to populate this resource's properties.

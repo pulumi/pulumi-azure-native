@@ -11,6 +11,76 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A schedule.
+    /// 
+    /// ## Example Usage
+    /// ### ServiceFabricSchedules_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceFabricSchedule = new AzureNative.DevTestLab.V20180915.ServiceFabricSchedule("serviceFabricSchedule", new()
+    ///     {
+    ///         DailyRecurrence = new AzureNative.DevTestLab.V20180915.Inputs.DayDetailsArgs
+    ///         {
+    ///             Time = "19:00",
+    ///         },
+    ///         HourlyRecurrence = new AzureNative.DevTestLab.V20180915.Inputs.HourDetailsArgs
+    ///         {
+    ///             Minute = 0,
+    ///         },
+    ///         LabName = "{labName}",
+    ///         Location = "{location}",
+    ///         Name = "{scheduleName}",
+    ///         NotificationSettings = new AzureNative.DevTestLab.V20180915.Inputs.NotificationSettingsArgs
+    ///         {
+    ///             EmailRecipient = "{email}",
+    ///             NotificationLocale = "EN",
+    ///             Status = "{Enabled|Disabled}",
+    ///             TimeInMinutes = 15,
+    ///             WebhookUrl = "{webhoolUrl}",
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         ServiceFabricName = "{serviceFrabicName}",
+    ///         Status = "{Enabled|Disabled}",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///         TargetResourceId = "/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/users/{uniqueIdentifier}/servicefabrics/{serviceFrabicName}",
+    ///         TaskType = "{Unknown|LabVmsShutdownTask|LabVmsStartupTask|LabVmReclamationTask|ComputeVmShutdownTask}",
+    ///         TimeZoneId = "Pacific Standard Time",
+    ///         UserName = "@me",
+    ///         WeeklyRecurrence = new AzureNative.DevTestLab.V20180915.Inputs.WeekDetailsArgs
+    ///         {
+    ///             Time = "19:00",
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Monday",
+    ///                 "Tuesday",
+    ///                 "Wednesday",
+    ///                 "Thursday",
+    ///                 "Friday",
+    ///                 "Saturday",
+    ///                 "Sunday",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20180915:ServiceFabricSchedule {scheduleName} /subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/users/{uniqueIdentifier}/servicefabrics/{serviceFrabicName}/schedules/{scheduleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:ServiceFabricSchedule")]
     public partial class ServiceFabricSchedule : global::Pulumi.CustomResource

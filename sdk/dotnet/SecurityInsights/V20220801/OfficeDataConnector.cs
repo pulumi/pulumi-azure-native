@@ -11,6 +11,71 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801
 {
     /// <summary>
     /// Represents office data connector.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an Office365 data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var officeDataConnector = new AzureNative.SecurityInsights.V20220801.OfficeDataConnector("officeDataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         DataTypes = new AzureNative.SecurityInsights.V20220801.Inputs.OfficeDataConnectorDataTypesArgs
+    ///         {
+    ///             Exchange = new AzureNative.SecurityInsights.V20220801.Inputs.OfficeDataConnectorDataTypesExchangeArgs
+    ///             {
+    ///                 State = "Enabled",
+    ///             },
+    ///             SharePoint = new AzureNative.SecurityInsights.V20220801.Inputs.OfficeDataConnectorDataTypesSharePointArgs
+    ///             {
+    ///                 State = "Enabled",
+    ///             },
+    ///             Teams = new AzureNative.SecurityInsights.V20220801.Inputs.OfficeDataConnectorDataTypesTeamsArgs
+    ///             {
+    ///                 State = "Enabled",
+    ///             },
+    ///         },
+    ///         Kind = "Office365",
+    ///         ResourceGroupName = "myRg",
+    ///         TenantId = "2070ecc9-b4d5-4ae4-adaa-936fa1954fa8",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an Threat Intelligence Platform data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var officeDataConnector = new AzureNative.SecurityInsights.V20220801.OfficeDataConnector("officeDataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20220801:OfficeDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220801:OfficeDataConnector")]
     public partial class OfficeDataConnector : global::Pulumi.CustomResource

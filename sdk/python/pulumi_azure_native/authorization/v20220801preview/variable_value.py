@@ -79,6 +79,37 @@ class VariableValue(pulumi.CustomResource):
         """
         The variable value.
 
+        ## Example Usage
+        ### Create or update a variable value
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable_value = azure_native.authorization.v20220801preview.VariableValue("variableValue",
+            values=[
+                azure_native.authorization.v20220801preview.PolicyVariableValueColumnValueArgs(
+                    column_name="StringColumn",
+                    column_value="SampleValue",
+                ),
+                azure_native.authorization.v20220801preview.PolicyVariableValueColumnValueArgs(
+                    column_name="IntegerColumn",
+                    column_value=10,
+                ),
+            ],
+            variable_name="DemoTestVariable",
+            variable_value_name="TestValue")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220801preview:VariableValue TestValue /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/variables/DemoTestVariable/values/TestValue 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableValueColumnValueArgs']]]] values: Variable value column value array.
@@ -93,6 +124,37 @@ class VariableValue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The variable value.
+
+        ## Example Usage
+        ### Create or update a variable value
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable_value = azure_native.authorization.v20220801preview.VariableValue("variableValue",
+            values=[
+                azure_native.authorization.v20220801preview.PolicyVariableValueColumnValueArgs(
+                    column_name="StringColumn",
+                    column_value="SampleValue",
+                ),
+                azure_native.authorization.v20220801preview.PolicyVariableValueColumnValueArgs(
+                    column_name="IntegerColumn",
+                    column_value=10,
+                ),
+            ],
+            variable_name="DemoTestVariable",
+            variable_value_name="TestValue")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220801preview:VariableValue TestValue /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/variables/DemoTestVariable/values/TestValue 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VariableValueArgs args: The arguments to use to populate this resource's properties.

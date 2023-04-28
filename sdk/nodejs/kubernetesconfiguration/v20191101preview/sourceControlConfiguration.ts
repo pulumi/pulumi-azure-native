@@ -10,6 +10,42 @@ import * as utilities from "../../utilities";
 /**
  * The SourceControl Configuration object.
  *
+ * ## Example Usage
+ * ### Create Source Control Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sourceControlConfiguration = new azure_native.kubernetesconfiguration.v20191101preview.SourceControlConfiguration("sourceControlConfiguration", {
+ *     clusterName: "clusterName1",
+ *     clusterResourceName: "connectedClusters",
+ *     clusterRp: "Microsoft.Kubernetes",
+ *     enableHelmOperator: "true",
+ *     helmOperatorProperties: {
+ *         chartValues: "--set git.ssh.secretName=flux-git-deploy --set tillerNamespace=kube-system",
+ *         chartVersion: "0.3.0",
+ *     },
+ *     operatorInstanceName: "SRSGitHubFluxOp-01",
+ *     operatorNamespace: "SRS_Namespace",
+ *     operatorParams: "--git-email=xyzgituser@users.srs.github.com",
+ *     operatorScope: "namespace",
+ *     operatorType: "Flux",
+ *     repositoryUrl: "git@github.com:k8sdeveloper425/flux-get-started",
+ *     resourceGroupName: "rg1",
+ *     sourceControlConfigurationName: "SRS_GitHubConfig",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration SRS_GitHubConfig /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/SRS_GitHubConfig 
+ * ```
+ *
  * @deprecated Version 2019-11-01-preview will be removed in v2 of the provider.
  */
 export class SourceControlConfiguration extends pulumi.CustomResource {

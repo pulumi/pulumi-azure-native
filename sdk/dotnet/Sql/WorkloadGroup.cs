@@ -13,6 +13,65 @@ namespace Pulumi.AzureNative.Sql
     /// Workload group operations for a data warehouse
     /// API Version: 2021-11-01.
     /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a workload group with all properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadGroup = new AzureNative.Sql.WorkloadGroup("workloadGroup", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         Importance = "normal",
+    ///         MaxResourcePercent = 100,
+    ///         MaxResourcePercentPerRequest = 3,
+    ///         MinResourcePercent = 0,
+    ///         MinResourcePercentPerRequest = 3,
+    ///         QueryExecutionTimeout = 0,
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         WorkloadGroupName = "smallrc",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a workload group with the required properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadGroup = new AzureNative.Sql.WorkloadGroup("workloadGroup", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         MaxResourcePercent = 100,
+    ///         MinResourcePercent = 0,
+    ///         MinResourcePercentPerRequest = 3,
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         WorkloadGroupName = "smallrc",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:WorkloadGroup smallrc /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb/workloadGroups/smallrc 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:WorkloadGroup")]
     public partial class WorkloadGroup : global::Pulumi.CustomResource

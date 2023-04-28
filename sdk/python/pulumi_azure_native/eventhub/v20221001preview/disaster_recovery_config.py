@@ -112,6 +112,29 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
 
+        ## Example Usage
+        ### EHAliasCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disaster_recovery_config = azure_native.eventhub.v20221001preview.DisasterRecoveryConfig("disasterRecoveryConfig",
+            alias="sdk-DisasterRecovery-3814",
+            namespace_name="sdk-Namespace-8859",
+            partner_namespace="sdk-Namespace-37",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20221001preview:DisasterRecoveryConfig sdk-DisasterRecovery-3814 /subscriptions/exampleResourceGroup/resourceGroups/exampleResourceGroup/providers/Microsoft.EventHub/namespaces/sdk-Namespace-8859/disasterRecoveryConfig/sdk-DisasterRecovery-3814 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The Disaster Recovery configuration name
@@ -128,6 +151,29 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
+
+        ## Example Usage
+        ### EHAliasCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disaster_recovery_config = azure_native.eventhub.v20221001preview.DisasterRecoveryConfig("disasterRecoveryConfig",
+            alias="sdk-DisasterRecovery-3814",
+            namespace_name="sdk-Namespace-8859",
+            partner_namespace="sdk-Namespace-37",
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20221001preview:DisasterRecoveryConfig sdk-DisasterRecovery-3814 /subscriptions/exampleResourceGroup/resourceGroups/exampleResourceGroup/providers/Microsoft.EventHub/namespaces/sdk-Namespace-8859/disasterRecoveryConfig/sdk-DisasterRecovery-3814 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.

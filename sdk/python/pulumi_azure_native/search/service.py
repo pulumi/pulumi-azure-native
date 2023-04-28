@@ -278,6 +278,186 @@ class Service(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SearchCreateOrUpdateService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceAuthOptions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            auth_options=azure_native.search.DataPlaneAuthOptionsResponseArgs(
+                aad_or_api_key=azure_native.search.DataPlaneAadOrApiKeyAuthOptionArgs(
+                    aad_auth_failure_mode=azure_native.search.AadAuthFailureMode.HTTP401_WITH_BEARER_CHALLENGE,
+                ),
+            ),
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceDisableLocalAuth
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            disable_local_auth=True,
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            public_network_access=azure_native.search.PublicNetworkAccess.DISABLED,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            network_rule_set=azure_native.search.NetworkRuleSetResponseArgs(
+                ip_rules=[
+                    azure_native.search.IpRuleArgs(
+                        value="123.4.5.6",
+                    ),
+                    azure_native.search.IpRuleArgs(
+                        value="123.4.6.0/18",
+                    ),
+                ],
+            ),
+            partition_count=1,
+            replica_count=1,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceWithCmkEnforcement
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            encryption_with_cmk=azure_native.search.EncryptionWithCmkArgs(
+                enforcement=azure_native.search.SearchEncryptionWithCmk.ENABLED,
+            ),
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceWithIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            identity=azure_native.search.IdentityResponseArgs(
+                type=azure_native.search.IdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:search:Service mysearchservice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DataPlaneAuthOptionsArgs']] auth_options: Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
@@ -305,6 +485,186 @@ class Service(pulumi.CustomResource):
         Describes an Azure Cognitive Search service and its current state.
         API Version: 2022-09-01.
         Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SearchCreateOrUpdateService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceAuthOptions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            auth_options=azure_native.search.DataPlaneAuthOptionsResponseArgs(
+                aad_or_api_key=azure_native.search.DataPlaneAadOrApiKeyAuthOptionArgs(
+                    aad_auth_failure_mode=azure_native.search.AadAuthFailureMode.HTTP401_WITH_BEARER_CHALLENGE,
+                ),
+            ),
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceDisableLocalAuth
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            disable_local_auth=True,
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            public_network_access=azure_native.search.PublicNetworkAccess.DISABLED,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            network_rule_set=azure_native.search.NetworkRuleSetResponseArgs(
+                ip_rules=[
+                    azure_native.search.IpRuleArgs(
+                        value="123.4.5.6",
+                    ),
+                    azure_native.search.IpRuleArgs(
+                        value="123.4.6.0/18",
+                    ),
+                ],
+            ),
+            partition_count=1,
+            replica_count=1,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceWithCmkEnforcement
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            encryption_with_cmk=azure_native.search.EncryptionWithCmkArgs(
+                enforcement=azure_native.search.SearchEncryptionWithCmk.ENABLED,
+            ),
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+        ### SearchCreateOrUpdateServiceWithIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.search.Service("service",
+            hosting_mode=azure_native.search.HostingMode.DEFAULT,
+            identity=azure_native.search.IdentityResponseArgs(
+                type=azure_native.search.IdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="westus",
+            partition_count=1,
+            replica_count=3,
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            sku=azure_native.search.SkuArgs(
+                name=azure_native.search.SkuName.STANDARD,
+            ),
+            tags={
+                "app-name": "My e-commerce app",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:search:Service mysearchservice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

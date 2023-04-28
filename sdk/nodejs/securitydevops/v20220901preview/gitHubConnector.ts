@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
+ *
+ * ## Example Usage
+ * ### GitHubConnector_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gitHubConnector = new azure_native.securitydevops.v20220901preview.GitHubConnector("gitHubConnector", {
+ *     gitHubConnectorName: "testconnector",
+ *     location: "West US",
+ *     properties: {
+ *         code: "00000000000000000000",
+ *     },
+ *     resourceGroupName: "westusrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securitydevops/v20220901preview:GitHubConnector testconnector /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/westusrg/providers/Microsoft.SecurityDevOps/gitHubConnectors/testconnector 
+ * ```
  */
 export class GitHubConnector extends pulumi.CustomResource {
     /**

@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// User credentials used for publishing activity.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:WebAppDeployment myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/deployments/{id} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:WebAppDeployment")]
     public partial class WebAppDeployment : global::Pulumi.CustomResource

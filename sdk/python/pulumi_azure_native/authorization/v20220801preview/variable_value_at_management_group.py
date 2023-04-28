@@ -95,6 +95,38 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
         """
         The variable value.
 
+        ## Example Usage
+        ### Create or update a variable value at management group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable_value_at_management_group = azure_native.authorization.v20220801preview.VariableValueAtManagementGroup("variableValueAtManagementGroup",
+            management_group_id="DevOrg",
+            values=[
+                azure_native.authorization.v20220801preview.PolicyVariableValueColumnValueArgs(
+                    column_name="StringColumn",
+                    column_value="SampleValue",
+                ),
+                azure_native.authorization.v20220801preview.PolicyVariableValueColumnValueArgs(
+                    column_name="IntegerColumn",
+                    column_value=10,
+                ),
+            ],
+            variable_name="DemoTestVariable",
+            variable_value_name="TestValue")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220801preview:VariableValueAtManagementGroup TestValue /providers/Microsoft.Management/managementGroups/DevOrg/providers/Microsoft.Authorization/variables/DemoTestVariable/values/TestValue 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] management_group_id: The ID of the management group.
@@ -110,6 +142,38 @@ class VariableValueAtManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The variable value.
+
+        ## Example Usage
+        ### Create or update a variable value at management group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable_value_at_management_group = azure_native.authorization.v20220801preview.VariableValueAtManagementGroup("variableValueAtManagementGroup",
+            management_group_id="DevOrg",
+            values=[
+                azure_native.authorization.v20220801preview.PolicyVariableValueColumnValueArgs(
+                    column_name="StringColumn",
+                    column_value="SampleValue",
+                ),
+                azure_native.authorization.v20220801preview.PolicyVariableValueColumnValueArgs(
+                    column_name="IntegerColumn",
+                    column_value=10,
+                ),
+            ],
+            variable_name="DemoTestVariable",
+            variable_value_name="TestValue")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220801preview:VariableValueAtManagementGroup TestValue /providers/Microsoft.Management/managementGroups/DevOrg/providers/Microsoft.Authorization/variables/DemoTestVariable/values/TestValue 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VariableValueAtManagementGroupArgs args: The arguments to use to populate this resource's properties.

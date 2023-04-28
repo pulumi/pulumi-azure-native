@@ -11,6 +11,102 @@ namespace Pulumi.AzureNative.HardwareSecurityModules.V20181031Preview
 {
     /// <summary>
     /// Resource information with extended details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new or update an existing dedicated HSM
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedHsm = new AzureNative.HardwareSecurityModules.V20181031Preview.DedicatedHsm("dedicatedHsm", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Name = "hsm1",
+    ///         NetworkProfile = new AzureNative.HardwareSecurityModules.V20181031Preview.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.HardwareSecurityModules.V20181031Preview.Inputs.NetworkInterfaceArgs
+    ///                 {
+    ///                     PrivateIpAddress = "1.0.0.1",
+    ///                 },
+    ///             },
+    ///             Subnet = new AzureNative.HardwareSecurityModules.V20181031Preview.Inputs.ApiEntityReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "hsm-group",
+    ///         Sku = new AzureNative.HardwareSecurityModules.V20181031Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "SafeNet Luna Network HSM A790",
+    ///         },
+    ///         StampId = "stamp01",
+    ///         Tags = 
+    ///         {
+    ///             { "Dept", "hsm" },
+    ///             { "Environment", "dogfood" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new or update an existing payment HSM
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedHsm = new AzureNative.HardwareSecurityModules.V20181031Preview.DedicatedHsm("dedicatedHsm", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Name = "hsm1",
+    ///         NetworkProfile = new AzureNative.HardwareSecurityModules.V20181031Preview.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.HardwareSecurityModules.V20181031Preview.Inputs.NetworkInterfaceArgs
+    ///                 {
+    ///                     PrivateIpAddress = "1.0.0.1",
+    ///                 },
+    ///             },
+    ///             Subnet = new AzureNative.HardwareSecurityModules.V20181031Preview.Inputs.ApiEntityReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "hsm-group",
+    ///         Sku = new AzureNative.HardwareSecurityModules.V20181031Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "payShield10K_LMK1_CPS60",
+    ///         },
+    ///         StampId = "stamp01",
+    ///         Tags = 
+    ///         {
+    ///             { "Dept", "hsm" },
+    ///             { "Environment", "dogfood" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm hsm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm")]
     public partial class DedicatedHsm : global::Pulumi.CustomResource

@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The iSCSI disk.
+    /// 
+    /// ## Example Usage
+    /// ### IscsiDisksCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iscsiDisk = new AzureNative.StorSimple.V20161001.IscsiDisk("iscsiDisk", new()
+    ///     {
+    ///         AccessControlRecords = new[] {},
+    ///         DataPolicy = AzureNative.StorSimple.V20161001.DataPolicy.Tiered,
+    ///         Description = "Demo IscsiDisk for SDK Test Tiered",
+    ///         DeviceName = "HSDK-0NZI14MDTF",
+    ///         DiskName = "Auto-TestIscsiDisk1",
+    ///         DiskStatus = AzureNative.StorSimple.V20161001.DiskStatus.Online,
+    ///         IscsiServerName = "HSDK-0NZI14MDTF",
+    ///         ManagerName = "hAzureSDKOperations",
+    ///         MonitoringStatus = AzureNative.StorSimple.V20161001.MonitoringStatus.Enabled,
+    ///         ProvisionedCapacityInBytes = 536870912000,
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20161001:IscsiDisk Auto-TestIscsiDisk1 /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-0NZI14MDTF/iscsiServers/HSDK-0NZI14MDTF/disks/Auto-TestIscsiDisk1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:IscsiDisk")]

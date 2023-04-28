@@ -253,6 +253,35 @@ class Workspace(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### WorkspacesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.operationalinsights.Workspace("workspace",
+            location="australiasoutheast",
+            resource_group_name="oiautorest6685",
+            retention_in_days=30,
+            sku=azure_native.operationalinsights.WorkspaceSkuResponseArgs(
+                name="PerGB2018",
+            ),
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="oiautorest6685")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Workspace AzTest2170 /subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/oiautorest6685/providers/microsoft.operationalinsights/workspaces/aztest2170 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_data_collection_rule_resource_id: The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
@@ -279,6 +308,35 @@ class Workspace(pulumi.CustomResource):
         The top level Workspace resource container.
         API Version: 2022-10-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### WorkspacesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.operationalinsights.Workspace("workspace",
+            location="australiasoutheast",
+            resource_group_name="oiautorest6685",
+            retention_in_days=30,
+            sku=azure_native.operationalinsights.WorkspaceSkuResponseArgs(
+                name="PerGB2018",
+            ),
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="oiautorest6685")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Workspace AzTest2170 /subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/oiautorest6685/providers/microsoft.operationalinsights/workspaces/aztest2170 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

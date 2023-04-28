@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Sql.V20140401
 {
     /// <summary>
     /// Database Advisor.
+    /// 
+    /// ## Example Usage
+    /// ### Update server advisor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverAdvisor = new AzureNative.Sql.V20140401.ServerAdvisor("serverAdvisor", new()
+    ///     {
+    ///         AdvisorName = "CreateIndex",
+    ///         AutoExecuteValue = AzureNative.Sql.V20140401.AutoExecuteStatus.Disabled,
+    ///         ResourceGroupName = "workloadinsight-demos",
+    ///         ServerName = "misosisvr",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20140401:ServerAdvisor CreateIndex /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workloadinsight-demos/providers/Microsoft.Sql/servers/misosisvr/advisors/CreateIndex 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20140401:ServerAdvisor")]
     public partial class ServerAdvisor : global::Pulumi.CustomResource

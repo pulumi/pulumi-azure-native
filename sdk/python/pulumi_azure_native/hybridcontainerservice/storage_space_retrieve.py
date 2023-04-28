@@ -129,6 +129,39 @@ class StorageSpaceRetrieve(pulumi.CustomResource):
         API Version: 2022-09-01-preview.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PutStorageSpace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_space_retrieve = azure_native.hybridcontainerservice.StorageSpaceRetrieve("storageSpaceRetrieve",
+            extended_location=azure_native.hybridcontainerservice.StorageSpacesExtendedLocationArgs(
+                name="/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+                type="CustomLocation",
+            ),
+            location="westus",
+            properties=azure_native.hybridcontainerservice.StorageSpacesPropertiesResponseArgs(
+                hci_storage_profile=azure_native.hybridcontainerservice.StorageSpacesPropertiesHciStorageProfileArgs(
+                    moc_group="target-group",
+                    moc_location="MocLocation",
+                    moc_storage_container="WssdStorageContainer",
+                ),
+            ),
+            resource_group_name="test-arcappliance-resgrp",
+            storage_spaces_name="test-storage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:storageSpaceRetrieve test-storage /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/storageSpaces/test-storage 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -147,6 +180,39 @@ class StorageSpaceRetrieve(pulumi.CustomResource):
         The storageSpaces resource definition.
         API Version: 2022-09-01-preview.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PutStorageSpace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_space_retrieve = azure_native.hybridcontainerservice.StorageSpaceRetrieve("storageSpaceRetrieve",
+            extended_location=azure_native.hybridcontainerservice.StorageSpacesExtendedLocationArgs(
+                name="/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+                type="CustomLocation",
+            ),
+            location="westus",
+            properties=azure_native.hybridcontainerservice.StorageSpacesPropertiesResponseArgs(
+                hci_storage_profile=azure_native.hybridcontainerservice.StorageSpacesPropertiesHciStorageProfileArgs(
+                    moc_group="target-group",
+                    moc_location="MocLocation",
+                    moc_storage_container="WssdStorageContainer",
+                ),
+            ),
+            resource_group_name="test-arcappliance-resgrp",
+            storage_spaces_name="test-storage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:storageSpaceRetrieve test-storage /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/storageSpaces/test-storage 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageSpaceRetrieveArgs args: The arguments to use to populate this resource's properties.

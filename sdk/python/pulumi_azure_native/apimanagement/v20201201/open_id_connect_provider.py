@@ -159,6 +159,32 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         """
         OpenId Connect Provider details.
 
+        ## Example Usage
+        ### ApiManagementCreateOpenIdConnectProvider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_id_connect_provider = azure_native.apimanagement.v20201201.OpenIdConnectProvider("openIdConnectProvider",
+            client_id="oidprovidertemplate3",
+            client_secret="x",
+            display_name="templateoidprovider3",
+            metadata_endpoint="https://oidprovider-template3.net",
+            opid="templateOpenIdConnect3",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:OpenIdConnectProvider templateOpenIdConnect3 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/openidConnectProviders/templateOpenIdConnect3 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_id: Client ID of developer console which is the client application.
@@ -178,6 +204,32 @@ class OpenIdConnectProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         OpenId Connect Provider details.
+
+        ## Example Usage
+        ### ApiManagementCreateOpenIdConnectProvider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_id_connect_provider = azure_native.apimanagement.v20201201.OpenIdConnectProvider("openIdConnectProvider",
+            client_id="oidprovidertemplate3",
+            client_secret="x",
+            display_name="templateoidprovider3",
+            metadata_endpoint="https://oidprovider-template3.net",
+            opid="templateOpenIdConnect3",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:OpenIdConnectProvider templateOpenIdConnect3 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/openidConnectProviders/templateOpenIdConnect3 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OpenIdConnectProviderArgs args: The arguments to use to populate this resource's properties.

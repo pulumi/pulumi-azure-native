@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.DataLakeStore
     /// Data Lake Store virtual network rule information.
     /// API Version: 2016-11-01.
     /// Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkRule = new AzureNative.DataLakeStore.VirtualNetworkRule("virtualNetworkRule", new()
+    ///     {
+    ///         AccountName = "contosoadla",
+    ///         ResourceGroupName = "contosorg",
+    ///         SubnetId = "test_subnetId",
+    ///         VirtualNetworkRuleName = "test_virtual_network_rules_name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datalakestore:VirtualNetworkRule test_virtual_network_rules_name 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakestore:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : global::Pulumi.CustomResource

@@ -168,6 +168,56 @@ class Application(pulumi.CustomResource):
         API Version: 2018-09-01-preview.
         Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdateApplication
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.servicefabricmesh.Application("application",
+            application_resource_name="sampleApplication",
+            description="Service Fabric Mesh sample application.",
+            location="EastUS",
+            resource_group_name="sbz_demo",
+            services=[{
+                "codePackages": [{
+                    "endpoints": [azure_native.servicefabricmesh.EndpointPropertiesArgs(
+                        name="helloWorldListener",
+                        port=80,
+                    )],
+                    "image": "seabreeze/sbz-helloworld:1.0-alpine",
+                    "name": "helloWorldCode",
+                    "resources": {
+                        "requests": {
+                            "cpu": 1,
+                            "memoryInGB": 1,
+                        },
+                    },
+                }],
+                "description": "SeaBreeze Hello World Service.",
+                "name": "helloWorldService",
+                "networkRefs": [{
+                    "endpointRefs": [azure_native.servicefabricmesh.EndpointRefArgs(
+                        name="helloWorldListener",
+                    )],
+                    "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork",
+                }],
+                "osType": "Linux",
+                "replicaCount": 1,
+            }],
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh:Application sampleApplication /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/applications/sampleApplication 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_resource_name: The identity of the application.
@@ -189,6 +239,56 @@ class Application(pulumi.CustomResource):
         This type describes an application resource.
         API Version: 2018-09-01-preview.
         Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdateApplication
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.servicefabricmesh.Application("application",
+            application_resource_name="sampleApplication",
+            description="Service Fabric Mesh sample application.",
+            location="EastUS",
+            resource_group_name="sbz_demo",
+            services=[{
+                "codePackages": [{
+                    "endpoints": [azure_native.servicefabricmesh.EndpointPropertiesArgs(
+                        name="helloWorldListener",
+                        port=80,
+                    )],
+                    "image": "seabreeze/sbz-helloworld:1.0-alpine",
+                    "name": "helloWorldCode",
+                    "resources": {
+                        "requests": {
+                            "cpu": 1,
+                            "memoryInGB": 1,
+                        },
+                    },
+                }],
+                "description": "SeaBreeze Hello World Service.",
+                "name": "helloWorldService",
+                "networkRefs": [{
+                    "endpointRefs": [azure_native.servicefabricmesh.EndpointRefArgs(
+                        name="helloWorldListener",
+                    )],
+                    "name": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork",
+                }],
+                "osType": "Linux",
+                "replicaCount": 1,
+            }],
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh:Application sampleApplication /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/applications/sampleApplication 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

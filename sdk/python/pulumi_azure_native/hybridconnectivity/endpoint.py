@@ -199,6 +199,41 @@ class Endpoint(pulumi.CustomResource):
         API Version: 2022-05-01-preview.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### HybridConnectivityEndpointsPutCustom
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.hybridconnectivity.Endpoint("endpoint",
+            endpoint_name="custom",
+            resource_id="/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+            type="custom")
+
+        ```
+        ### HybridConnectivityEndpointsPutDefault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.hybridconnectivity.Endpoint("endpoint",
+            endpoint_name="default",
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+            type="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridconnectivity:Endpoint default /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
@@ -222,6 +257,41 @@ class Endpoint(pulumi.CustomResource):
         The endpoint for the target resource.
         API Version: 2022-05-01-preview.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### HybridConnectivityEndpointsPutCustom
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.hybridconnectivity.Endpoint("endpoint",
+            endpoint_name="custom",
+            resource_id="/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+            type="custom")
+
+        ```
+        ### HybridConnectivityEndpointsPutDefault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.hybridconnectivity.Endpoint("endpoint",
+            endpoint_name="default",
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+            type="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridconnectivity:Endpoint default /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

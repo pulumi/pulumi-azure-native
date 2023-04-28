@@ -145,6 +145,28 @@ class NspProfile(pulumi.CustomResource):
         """
         The network security perimeter profile resource
 
+        ## Example Usage
+        ### NspProfilesPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nsp_profile = azure_native.network.v20210201preview.NspProfile("nspProfile",
+            network_security_perimeter_name="nsp1",
+            profile_name="profile1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NspProfile profile1 /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/profile1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -163,6 +185,28 @@ class NspProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network security perimeter profile resource
+
+        ## Example Usage
+        ### NspProfilesPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nsp_profile = azure_native.network.v20210201preview.NspProfile("nspProfile",
+            network_security_perimeter_name="nsp1",
+            profile_name="profile1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NspProfile profile1 /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/profile1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NspProfileArgs args: The arguments to use to populate this resource's properties.

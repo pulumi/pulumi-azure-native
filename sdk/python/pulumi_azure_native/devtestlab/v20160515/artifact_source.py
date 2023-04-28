@@ -286,6 +286,13 @@ class ArtifactSource(pulumi.CustomResource):
                  __props__=None):
         """
         Properties of an artifact source.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20160515:ArtifactSource myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/artifactsources/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,6 +320,13 @@ class ArtifactSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of an artifact source.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20160515:ArtifactSource myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/artifactsources/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ArtifactSourceArgs args: The arguments to use to populate this resource's properties.

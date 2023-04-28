@@ -132,6 +132,43 @@ class Ledger(pulumi.CustomResource):
         """
         Confidential Ledger. Contains the properties of Confidential Ledger Resource.
 
+        ## Example Usage
+        ### ConfidentialLedgerCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ledger = azure_native.confidentialledger.v20230126preview.Ledger("ledger",
+            ledger_name="DummyLedgerName",
+            location="EastUS",
+            properties=azure_native.confidentialledger.v20230126preview.LedgerPropertiesResponseArgs(
+                aad_based_security_principals=[azure_native.confidentialledger.v20230126preview.AADBasedSecurityPrincipalArgs(
+                    ledger_role_name="Administrator",
+                    principal_id="34621747-6fc8-4771-a2eb-72f31c461f2e",
+                    tenant_id="bce123b9-2b7b-4975-8360-5ca0b9b1cd08",
+                )],
+                cert_based_security_principals=[azure_native.confidentialledger.v20230126preview.CertBasedSecurityPrincipalArgs(
+                    cert="-----BEGIN CERTIFICATE-----MIIBsjCCATigAwIBAgIUZWIbyG79TniQLd2UxJuU74tqrKcwCgYIKoZIzj0EAwMwEDEOMAwGA1UEAwwFdXNlcjAwHhcNMjEwMzE2MTgwNjExWhcNMjIwMzE2MTgwNjExWjAQMQ4wDAYDVQQDDAV1c2VyMDB2MBAGByqGSM49AgEGBSuBBAAiA2IABBiWSo/j8EFit7aUMm5lF+lUmCu+IgfnpFD+7QMgLKtxRJ3aGSqgS/GpqcYVGddnODtSarNE/HyGKUFUolLPQ5ybHcouUk0kyfA7XMeSoUA4lBz63Wha8wmXo+NdBRo39qNTMFEwHQYDVR0OBBYEFPtuhrwgGjDFHeUUT4nGsXaZn69KMB8GA1UdIwQYMBaAFPtuhrwgGjDFHeUUT4nGsXaZn69KMA8GA1UdEwEB/wQFMAMBAf8wCgYIKoZIzj0EAwMDaAAwZQIxAOnozm2CyqRwSSQLls5r+mUHRGRyXHXwYtM4Dcst/VEZdmS9fqvHRCHbjUlO/+HNfgIwMWZ4FmsjD3wnPxONOm9YdVn/PRD7SsPRPbOjwBiE4EBGaHDsLjYAGDSGi7NJnSkA-----END CERTIFICATE-----",
+                    ledger_role_name="Reader",
+                )],
+                ledger_type="Public",
+            ),
+            resource_group_name="DummyResourceGroupName",
+            tags={
+                "additionalProps1": "additional properties",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confidentialledger/v20230126preview:Ledger DummyLedgerName /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.ConfidentialLedger/ledgers/DummyLedgerName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ledger_name: Name of the Confidential Ledger
@@ -149,6 +186,43 @@ class Ledger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Confidential Ledger. Contains the properties of Confidential Ledger Resource.
+
+        ## Example Usage
+        ### ConfidentialLedgerCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ledger = azure_native.confidentialledger.v20230126preview.Ledger("ledger",
+            ledger_name="DummyLedgerName",
+            location="EastUS",
+            properties=azure_native.confidentialledger.v20230126preview.LedgerPropertiesResponseArgs(
+                aad_based_security_principals=[azure_native.confidentialledger.v20230126preview.AADBasedSecurityPrincipalArgs(
+                    ledger_role_name="Administrator",
+                    principal_id="34621747-6fc8-4771-a2eb-72f31c461f2e",
+                    tenant_id="bce123b9-2b7b-4975-8360-5ca0b9b1cd08",
+                )],
+                cert_based_security_principals=[azure_native.confidentialledger.v20230126preview.CertBasedSecurityPrincipalArgs(
+                    cert="-----BEGIN CERTIFICATE-----MIIBsjCCATigAwIBAgIUZWIbyG79TniQLd2UxJuU74tqrKcwCgYIKoZIzj0EAwMwEDEOMAwGA1UEAwwFdXNlcjAwHhcNMjEwMzE2MTgwNjExWhcNMjIwMzE2MTgwNjExWjAQMQ4wDAYDVQQDDAV1c2VyMDB2MBAGByqGSM49AgEGBSuBBAAiA2IABBiWSo/j8EFit7aUMm5lF+lUmCu+IgfnpFD+7QMgLKtxRJ3aGSqgS/GpqcYVGddnODtSarNE/HyGKUFUolLPQ5ybHcouUk0kyfA7XMeSoUA4lBz63Wha8wmXo+NdBRo39qNTMFEwHQYDVR0OBBYEFPtuhrwgGjDFHeUUT4nGsXaZn69KMB8GA1UdIwQYMBaAFPtuhrwgGjDFHeUUT4nGsXaZn69KMA8GA1UdEwEB/wQFMAMBAf8wCgYIKoZIzj0EAwMDaAAwZQIxAOnozm2CyqRwSSQLls5r+mUHRGRyXHXwYtM4Dcst/VEZdmS9fqvHRCHbjUlO/+HNfgIwMWZ4FmsjD3wnPxONOm9YdVn/PRD7SsPRPbOjwBiE4EBGaHDsLjYAGDSGi7NJnSkA-----END CERTIFICATE-----",
+                    ledger_role_name="Reader",
+                )],
+                ledger_type="Public",
+            ),
+            resource_group_name="DummyResourceGroupName",
+            tags={
+                "additionalProps1": "additional properties",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confidentialledger/v20230126preview:Ledger DummyLedgerName /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.ConfidentialLedger/ledgers/DummyLedgerName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LedgerArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Automation.V20220808
 {
     /// <summary>
     /// Definition of the variable.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a variable
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var variable = new AzureNative.Automation.V20220808.Variable("variable", new()
+    ///     {
+    ///         AutomationAccountName = "sampleAccount9",
+    ///         Description = "my description",
+    ///         IsEncrypted = false,
+    ///         Name = "sampleVariable",
+    ///         ResourceGroupName = "rg",
+    ///         Value = "\"ComputerName.domain.com\"",
+    ///         VariableName = "sampleVariable",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20220808:Variable sampleVariable /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/variables/sampleVariable 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20220808:Variable")]
     public partial class Variable : global::Pulumi.CustomResource

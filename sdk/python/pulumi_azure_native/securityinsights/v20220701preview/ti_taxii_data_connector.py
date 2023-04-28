@@ -265,6 +265,127 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
         """
         Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
 
+        ## Example Usage
+        ### Creates or updates a APIPolling data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Dynamics365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="c2541efb-c9a6-47fe-9501-87d1017d1512",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a GenericUI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Threat Intelligence Taxii data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            collection_id="135",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            data_types=azure_native.securityinsights.v20220701preview.TiTaxiiDataConnectorDataTypesArgs(
+                taxii_client=azure_native.securityinsights.v20220701preview.TiTaxiiDataConnectorDataTypesTaxiiClientArgs(
+                    state="Enabled",
+                ),
+            ),
+            friendly_name="testTaxii",
+            kind="ThreatIntelligenceTaxii",
+            password="--",
+            polling_frequency="OnceADay",
+            resource_group_name="myRg",
+            taxii_lookback_period="2020-01-01T13:00:30.123Z",
+            taxii_server="https://limo.anomali.com/api/v1/taxii2/feeds",
+            tenant_id="06b3ccb8-1384-4bcc-aec7-852f6d57161b",
+            user_name="--",
+            workspace_id="dd124572-4962-4495-9bd2-9dade12314b4",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office PowerBI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 Project data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220701preview:TiTaxiiDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collection_id: The collection id of the TAXII server.
@@ -291,6 +412,127 @@ class TiTaxiiDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
+
+        ## Example Usage
+        ### Creates or updates a APIPolling data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Dynamics365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="c2541efb-c9a6-47fe-9501-87d1017d1512",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a GenericUI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Threat Intelligence Taxii data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            collection_id="135",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            data_types=azure_native.securityinsights.v20220701preview.TiTaxiiDataConnectorDataTypesArgs(
+                taxii_client=azure_native.securityinsights.v20220701preview.TiTaxiiDataConnectorDataTypesTaxiiClientArgs(
+                    state="Enabled",
+                ),
+            ),
+            friendly_name="testTaxii",
+            kind="ThreatIntelligenceTaxii",
+            password="--",
+            polling_frequency="OnceADay",
+            resource_group_name="myRg",
+            taxii_lookback_period="2020-01-01T13:00:30.123Z",
+            taxii_server="https://limo.anomali.com/api/v1/taxii2/feeds",
+            tenant_id="06b3ccb8-1384-4bcc-aec7-852f6d57161b",
+            user_name="--",
+            workspace_id="dd124572-4962-4495-9bd2-9dade12314b4",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office PowerBI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 Project data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_taxii_data_connector = azure_native.securityinsights.v20220701preview.TiTaxiiDataConnector("tiTaxiiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220701preview:TiTaxiiDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TiTaxiiDataConnectorArgs args: The arguments to use to populate this resource's properties.

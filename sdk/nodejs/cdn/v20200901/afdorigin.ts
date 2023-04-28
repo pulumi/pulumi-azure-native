@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+ *
+ * ## Example Usage
+ * ### AFDOrigins_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const afdOrigin = new azure_native.cdn.v20200901.AFDOrigin("afdOrigin", {
+ *     enabledState: "Enabled",
+ *     hostName: "host1.blob.core.windows.net",
+ *     httpPort: 80,
+ *     httpsPort: 443,
+ *     originGroupName: "origingroup1",
+ *     originHostHeader: "host1.foo.com",
+ *     originName: "origin1",
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn/v20200901:AFDOrigin origin1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/origingroups/origingroup1/origins/origin1 
+ * ```
  */
 export class AFDOrigin extends pulumi.CustomResource {
     /**

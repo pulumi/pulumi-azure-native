@@ -11,6 +11,214 @@ namespace Pulumi.AzureNative.Logic.V20160601
 {
     /// <summary>
     /// The integration account agreement.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an agreement
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agreement = new AzureNative.Logic.V20160601.Agreement("agreement", new()
+    ///     {
+    ///         AgreementName = "testAgreement",
+    ///         AgreementType = AzureNative.Logic.V20160601.AgreementType.AS2,
+    ///         Content = new AzureNative.Logic.V20160601.Inputs.AgreementContentArgs
+    ///         {
+    ///             AS2 = new AzureNative.Logic.V20160601.Inputs.AS2AgreementContentArgs
+    ///             {
+    ///                 ReceiveAgreement = new AzureNative.Logic.V20160601.Inputs.AS2OneWayAgreementArgs
+    ///                 {
+    ///                     ProtocolSettings = new AzureNative.Logic.V20160601.Inputs.AS2ProtocolSettingsArgs
+    ///                     {
+    ///                         AcknowledgementConnectionSettings = new AzureNative.Logic.V20160601.Inputs.AS2AcknowledgementConnectionSettingsArgs
+    ///                         {
+    ///                             IgnoreCertificateNameMismatch = true,
+    ///                             KeepHttpConnectionAlive = true,
+    ///                             SupportHttpStatusCodeContinue = true,
+    ///                             UnfoldHttpHeaders = true,
+    ///                         },
+    ///                         EnvelopeSettings = new AzureNative.Logic.V20160601.Inputs.AS2EnvelopeSettingsArgs
+    ///                         {
+    ///                             AutogenerateFileName = true,
+    ///                             FileNameTemplate = "Test",
+    ///                             MessageContentType = "text/plain",
+    ///                             SuspendMessageOnFileNameGenerationError = true,
+    ///                             TransmitFileNameInMimeHeader = true,
+    ///                         },
+    ///                         ErrorSettings = new AzureNative.Logic.V20160601.Inputs.AS2ErrorSettingsArgs
+    ///                         {
+    ///                             ResendIfMdnNotReceived = true,
+    ///                             SuspendDuplicateMessage = true,
+    ///                         },
+    ///                         MdnSettings = new AzureNative.Logic.V20160601.Inputs.AS2MdnSettingsArgs
+    ///                         {
+    ///                             DispositionNotificationTo = "http://tempuri.org",
+    ///                             MdnText = "Sample",
+    ///                             MicHashingAlgorithm = AzureNative.Logic.V20160601.HashingAlgorithm.SHA1,
+    ///                             NeedMdn = true,
+    ///                             ReceiptDeliveryUrl = "http://tempuri.org",
+    ///                             SendInboundMdnToMessageBox = true,
+    ///                             SendMdnAsynchronously = true,
+    ///                             SignMdn = true,
+    ///                             SignOutboundMdnIfOptional = true,
+    ///                         },
+    ///                         MessageConnectionSettings = new AzureNative.Logic.V20160601.Inputs.AS2MessageConnectionSettingsArgs
+    ///                         {
+    ///                             IgnoreCertificateNameMismatch = true,
+    ///                             KeepHttpConnectionAlive = true,
+    ///                             SupportHttpStatusCodeContinue = true,
+    ///                             UnfoldHttpHeaders = true,
+    ///                         },
+    ///                         SecuritySettings = new AzureNative.Logic.V20160601.Inputs.AS2SecuritySettingsArgs
+    ///                         {
+    ///                             EnableNrrForInboundDecodedMessages = true,
+    ///                             EnableNrrForInboundEncodedMessages = true,
+    ///                             EnableNrrForInboundMdn = true,
+    ///                             EnableNrrForOutboundDecodedMessages = true,
+    ///                             EnableNrrForOutboundEncodedMessages = true,
+    ///                             EnableNrrForOutboundMdn = true,
+    ///                             OverrideGroupSigningCertificate = false,
+    ///                         },
+    ///                         ValidationSettings = new AzureNative.Logic.V20160601.Inputs.AS2ValidationSettingsArgs
+    ///                         {
+    ///                             CheckCertificateRevocationListOnReceive = true,
+    ///                             CheckCertificateRevocationListOnSend = true,
+    ///                             CheckDuplicateMessage = true,
+    ///                             CompressMessage = true,
+    ///                             EncryptMessage = false,
+    ///                             EncryptionAlgorithm = AzureNative.Logic.V20160601.EncryptionAlgorithm.AES128,
+    ///                             InterchangeDuplicatesValidityDays = 100,
+    ///                             OverrideMessageProperties = true,
+    ///                             SignMessage = false,
+    ///                         },
+    ///                     },
+    ///                     ReceiverBusinessIdentity = new AzureNative.Logic.V20160601.Inputs.BusinessIdentityArgs
+    ///                     {
+    ///                         Qualifier = "ZZ",
+    ///                         Value = "ZZ",
+    ///                     },
+    ///                     SenderBusinessIdentity = new AzureNative.Logic.V20160601.Inputs.BusinessIdentityArgs
+    ///                     {
+    ///                         Qualifier = "AA",
+    ///                         Value = "AA",
+    ///                     },
+    ///                 },
+    ///                 SendAgreement = new AzureNative.Logic.V20160601.Inputs.AS2OneWayAgreementArgs
+    ///                 {
+    ///                     ProtocolSettings = new AzureNative.Logic.V20160601.Inputs.AS2ProtocolSettingsArgs
+    ///                     {
+    ///                         AcknowledgementConnectionSettings = new AzureNative.Logic.V20160601.Inputs.AS2AcknowledgementConnectionSettingsArgs
+    ///                         {
+    ///                             IgnoreCertificateNameMismatch = true,
+    ///                             KeepHttpConnectionAlive = true,
+    ///                             SupportHttpStatusCodeContinue = true,
+    ///                             UnfoldHttpHeaders = true,
+    ///                         },
+    ///                         EnvelopeSettings = new AzureNative.Logic.V20160601.Inputs.AS2EnvelopeSettingsArgs
+    ///                         {
+    ///                             AutogenerateFileName = true,
+    ///                             FileNameTemplate = "Test",
+    ///                             MessageContentType = "text/plain",
+    ///                             SuspendMessageOnFileNameGenerationError = true,
+    ///                             TransmitFileNameInMimeHeader = true,
+    ///                         },
+    ///                         ErrorSettings = new AzureNative.Logic.V20160601.Inputs.AS2ErrorSettingsArgs
+    ///                         {
+    ///                             ResendIfMdnNotReceived = true,
+    ///                             SuspendDuplicateMessage = true,
+    ///                         },
+    ///                         MdnSettings = new AzureNative.Logic.V20160601.Inputs.AS2MdnSettingsArgs
+    ///                         {
+    ///                             DispositionNotificationTo = "http://tempuri.org",
+    ///                             MdnText = "Sample",
+    ///                             MicHashingAlgorithm = AzureNative.Logic.V20160601.HashingAlgorithm.SHA1,
+    ///                             NeedMdn = true,
+    ///                             ReceiptDeliveryUrl = "http://tempuri.org",
+    ///                             SendInboundMdnToMessageBox = true,
+    ///                             SendMdnAsynchronously = true,
+    ///                             SignMdn = true,
+    ///                             SignOutboundMdnIfOptional = true,
+    ///                         },
+    ///                         MessageConnectionSettings = new AzureNative.Logic.V20160601.Inputs.AS2MessageConnectionSettingsArgs
+    ///                         {
+    ///                             IgnoreCertificateNameMismatch = true,
+    ///                             KeepHttpConnectionAlive = true,
+    ///                             SupportHttpStatusCodeContinue = true,
+    ///                             UnfoldHttpHeaders = true,
+    ///                         },
+    ///                         SecuritySettings = new AzureNative.Logic.V20160601.Inputs.AS2SecuritySettingsArgs
+    ///                         {
+    ///                             EnableNrrForInboundDecodedMessages = true,
+    ///                             EnableNrrForInboundEncodedMessages = true,
+    ///                             EnableNrrForInboundMdn = true,
+    ///                             EnableNrrForOutboundDecodedMessages = true,
+    ///                             EnableNrrForOutboundEncodedMessages = true,
+    ///                             EnableNrrForOutboundMdn = true,
+    ///                             OverrideGroupSigningCertificate = false,
+    ///                         },
+    ///                         ValidationSettings = new AzureNative.Logic.V20160601.Inputs.AS2ValidationSettingsArgs
+    ///                         {
+    ///                             CheckCertificateRevocationListOnReceive = true,
+    ///                             CheckCertificateRevocationListOnSend = true,
+    ///                             CheckDuplicateMessage = true,
+    ///                             CompressMessage = true,
+    ///                             EncryptMessage = false,
+    ///                             EncryptionAlgorithm = AzureNative.Logic.V20160601.EncryptionAlgorithm.AES128,
+    ///                             InterchangeDuplicatesValidityDays = 100,
+    ///                             OverrideMessageProperties = true,
+    ///                             SignMessage = false,
+    ///                         },
+    ///                     },
+    ///                     ReceiverBusinessIdentity = new AzureNative.Logic.V20160601.Inputs.BusinessIdentityArgs
+    ///                     {
+    ///                         Qualifier = "AA",
+    ///                         Value = "AA",
+    ///                     },
+    ///                     SenderBusinessIdentity = new AzureNative.Logic.V20160601.Inputs.BusinessIdentityArgs
+    ///                     {
+    ///                         Qualifier = "ZZ",
+    ///                         Value = "ZZ",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         GuestIdentity = new AzureNative.Logic.V20160601.Inputs.BusinessIdentityArgs
+    ///         {
+    ///             Qualifier = "AA",
+    ///             Value = "AA",
+    ///         },
+    ///         GuestPartner = "GuestPartner",
+    ///         HostIdentity = new AzureNative.Logic.V20160601.Inputs.BusinessIdentityArgs
+    ///         {
+    ///             Qualifier = "ZZ",
+    ///             Value = "ZZ",
+    ///         },
+    ///         HostPartner = "HostPartner",
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         Metadata = null,
+    ///         ResourceGroupName = "testResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "IntegrationAccountAgreement", "&lt;IntegrationAccountAgreementName&gt;" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic/v20160601:Agreement &lt;IntegrationAccountAgreementName&gt; /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/IntegrationAccount4533/agreements/&lt;IntegrationAccountAgreementName&gt; 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:Agreement")]
     public partial class Agreement : global::Pulumi.CustomResource

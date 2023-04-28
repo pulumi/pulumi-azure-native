@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * App Service Environment ARM resource.
+ *
+ * ## Example Usage
+ * ### Create or update an App Service Environment.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const appServiceEnvironment = new azure_native.web.v20220901.AppServiceEnvironment("appServiceEnvironment", {
+ *     kind: "Asev3",
+ *     location: "South Central US",
+ *     name: "test-ase",
+ *     resourceGroupName: "test-rg",
+ *     virtualNetwork: {
+ *         id: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/delegated",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:AppServiceEnvironment test-ase /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase 
+ * ```
  */
 export class AppServiceEnvironment extends pulumi.CustomResource {
     /**

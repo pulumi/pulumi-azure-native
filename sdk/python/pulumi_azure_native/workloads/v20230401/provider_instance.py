@@ -114,6 +114,288 @@ class ProviderInstance(pulumi.CustomResource):
         """
         A provider instance associated with SAP monitor.
 
+        ## Example Usage
+        ### Create a Db2 provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.DB2ProviderInstancePropertiesArgs(
+                db_name="dbName",
+                db_password="password",
+                db_password_uri="",
+                db_port="dbPort",
+                db_username="username",
+                hostname="hostname",
+                provider_type="Db2",
+                sap_sid="SID",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a Db2 provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.DB2ProviderInstancePropertiesArgs(
+                db_name="dbName",
+                db_password="password",
+                db_password_uri="",
+                db_port="dbPort",
+                db_username="username",
+                hostname="hostname",
+                provider_type="Db2",
+                sap_sid="SID",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a MsSqlServer provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.MsSqlServerProviderInstancePropertiesArgs(
+                db_password="****",
+                db_password_uri="",
+                db_port="5912",
+                db_username="user",
+                hostname="hostname",
+                provider_type="MsSqlServer",
+                sap_sid="sid",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a MsSqlServer provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.MsSqlServerProviderInstancePropertiesArgs(
+                db_password="****",
+                db_password_uri="",
+                db_port="5912",
+                db_username="user",
+                hostname="hostname",
+                provider_type="MsSqlServer",
+                sap_sid="sid",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a OS provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.PrometheusOSProviderInstancePropertiesArgs(
+                prometheus_url="http://192.168.0.0:9090/metrics",
+                provider_type="PrometheusOS",
+                sap_sid="SID",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a OS provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.PrometheusOSProviderInstancePropertiesArgs(
+                prometheus_url="http://192.168.0.0:9090/metrics",
+                provider_type="PrometheusOS",
+                sap_sid="SID",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a PrometheusHaCluster provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.PrometheusHaClusterProviderInstancePropertiesArgs(
+                cluster_name="clusterName",
+                hostname="hostname",
+                prometheus_url="http://192.168.0.0:9090/metrics",
+                provider_type="PrometheusHaCluster",
+                sid="sid",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a PrometheusHaCluster provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.PrometheusHaClusterProviderInstancePropertiesArgs(
+                cluster_name="clusterName",
+                hostname="hostname",
+                prometheus_url="http://192.168.0.0:9090/metrics",
+                provider_type="PrometheusHaCluster",
+                sid="sid",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a SAP monitor Hana provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.HanaDbProviderInstancePropertiesArgs(
+                db_name="db",
+                db_password="****",
+                db_password_uri="",
+                db_username="user",
+                hostname="name",
+                instance_number="00",
+                provider_type="SapHana",
+                sap_sid="SID",
+                sql_port="0000",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_host_name_in_certificate="xyz.domain.com",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a SAP monitor Hana provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.HanaDbProviderInstancePropertiesArgs(
+                db_name="db",
+                db_password="****",
+                db_password_uri="",
+                db_username="user",
+                hostname="name",
+                instance_number="00",
+                provider_type="SapHana",
+                sap_sid="SID",
+                sql_port="0000",
+                ssl_host_name_in_certificate="xyz.domain.com",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a SAP monitor NetWeaver provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.SapNetWeaverProviderInstancePropertiesArgs(
+                provider_type="SapNetWeaver",
+                sap_client_id="111",
+                sap_host_file_entries=["127.0.0.1 name fqdn"],
+                sap_hostname="name",
+                sap_instance_nr="00",
+                sap_password="****",
+                sap_password_uri="",
+                sap_port_number="1234",
+                sap_sid="SID",
+                sap_username="username",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a SAP monitor NetWeaver provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.SapNetWeaverProviderInstancePropertiesArgs(
+                provider_type="SapNetWeaver",
+                sap_client_id="111",
+                sap_host_file_entries=["127.0.0.1 name fqdn"],
+                sap_hostname="name",
+                sap_instance_nr="00",
+                sap_password="****",
+                sap_password_uri="",
+                sap_port_number="1234",
+                sap_sid="SID",
+                sap_username="username",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads/v20230401:ProviderInstance myProviderInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/mySapMonitor/providerInstances/myProviderInstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['UserAssignedServiceIdentityArgs']] identity: [currently not in use] Managed service identity(user assigned identities)
@@ -130,6 +412,288 @@ class ProviderInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A provider instance associated with SAP monitor.
+
+        ## Example Usage
+        ### Create a Db2 provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.DB2ProviderInstancePropertiesArgs(
+                db_name="dbName",
+                db_password="password",
+                db_password_uri="",
+                db_port="dbPort",
+                db_username="username",
+                hostname="hostname",
+                provider_type="Db2",
+                sap_sid="SID",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a Db2 provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.DB2ProviderInstancePropertiesArgs(
+                db_name="dbName",
+                db_password="password",
+                db_password_uri="",
+                db_port="dbPort",
+                db_username="username",
+                hostname="hostname",
+                provider_type="Db2",
+                sap_sid="SID",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a MsSqlServer provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.MsSqlServerProviderInstancePropertiesArgs(
+                db_password="****",
+                db_password_uri="",
+                db_port="5912",
+                db_username="user",
+                hostname="hostname",
+                provider_type="MsSqlServer",
+                sap_sid="sid",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a MsSqlServer provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.MsSqlServerProviderInstancePropertiesArgs(
+                db_password="****",
+                db_password_uri="",
+                db_port="5912",
+                db_username="user",
+                hostname="hostname",
+                provider_type="MsSqlServer",
+                sap_sid="sid",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a OS provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.PrometheusOSProviderInstancePropertiesArgs(
+                prometheus_url="http://192.168.0.0:9090/metrics",
+                provider_type="PrometheusOS",
+                sap_sid="SID",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a OS provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.PrometheusOSProviderInstancePropertiesArgs(
+                prometheus_url="http://192.168.0.0:9090/metrics",
+                provider_type="PrometheusOS",
+                sap_sid="SID",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a PrometheusHaCluster provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.PrometheusHaClusterProviderInstancePropertiesArgs(
+                cluster_name="clusterName",
+                hostname="hostname",
+                prometheus_url="http://192.168.0.0:9090/metrics",
+                provider_type="PrometheusHaCluster",
+                sid="sid",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a PrometheusHaCluster provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.PrometheusHaClusterProviderInstancePropertiesArgs(
+                cluster_name="clusterName",
+                hostname="hostname",
+                prometheus_url="http://192.168.0.0:9090/metrics",
+                provider_type="PrometheusHaCluster",
+                sid="sid",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a SAP monitor Hana provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.HanaDbProviderInstancePropertiesArgs(
+                db_name="db",
+                db_password="****",
+                db_password_uri="",
+                db_username="user",
+                hostname="name",
+                instance_number="00",
+                provider_type="SapHana",
+                sap_sid="SID",
+                sql_port="0000",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_host_name_in_certificate="xyz.domain.com",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a SAP monitor Hana provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.HanaDbProviderInstancePropertiesArgs(
+                db_name="db",
+                db_password="****",
+                db_password_uri="",
+                db_username="user",
+                hostname="name",
+                instance_number="00",
+                provider_type="SapHana",
+                sap_sid="SID",
+                sql_port="0000",
+                ssl_host_name_in_certificate="xyz.domain.com",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a SAP monitor NetWeaver provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.SapNetWeaverProviderInstancePropertiesArgs(
+                provider_type="SapNetWeaver",
+                sap_client_id="111",
+                sap_host_file_entries=["127.0.0.1 name fqdn"],
+                sap_hostname="name",
+                sap_instance_nr="00",
+                sap_password="****",
+                sap_password_uri="",
+                sap_port_number="1234",
+                sap_sid="SID",
+                sap_username="username",
+                ssl_certificate_uri="https://storageaccount.blob.core.windows.net/containername/filename",
+                ssl_preference="ServerCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a SAP monitor NetWeaver provider with Root Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.workloads.v20230401.ProviderInstance("providerInstance",
+            monitor_name="mySapMonitor",
+            provider_instance_name="myProviderInstance",
+            provider_settings=azure_native.workloads.v20230401.SapNetWeaverProviderInstancePropertiesArgs(
+                provider_type="SapNetWeaver",
+                sap_client_id="111",
+                sap_host_file_entries=["127.0.0.1 name fqdn"],
+                sap_hostname="name",
+                sap_instance_nr="00",
+                sap_password="****",
+                sap_password_uri="",
+                sap_port_number="1234",
+                sap_sid="SID",
+                sap_username="username",
+                ssl_preference="RootCertificate",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads/v20230401:ProviderInstance myProviderInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/mySapMonitor/providerInstances/myProviderInstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProviderInstanceArgs args: The arguments to use to populate this resource's properties.

@@ -78,6 +78,28 @@ class ApplicationLiveView(pulumi.CustomResource):
         """
         Application Live View resource
 
+        ## Example Usage
+        ### ApplicationLiveViews_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_live_view = azure_native.appplatform.v20230301preview.ApplicationLiveView("applicationLiveView",
+            application_live_view_name="default",
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:ApplicationLiveView default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationLiveViews/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_live_view_name: The name of Application Live View.
@@ -92,6 +114,28 @@ class ApplicationLiveView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Application Live View resource
+
+        ## Example Usage
+        ### ApplicationLiveViews_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_live_view = azure_native.appplatform.v20230301preview.ApplicationLiveView("applicationLiveView",
+            application_live_view_name="default",
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:ApplicationLiveView default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationLiveViews/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationLiveViewArgs args: The arguments to use to populate this resource's properties.

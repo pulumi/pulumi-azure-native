@@ -95,6 +95,29 @@ class FleetMember(pulumi.CustomResource):
         """
         A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
 
+        ## Example Usage
+        ### Create a fleet member resource. Joins an existing cluster to the fleet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fleet_member = azure_native.containerservice.v20220902preview.FleetMember("fleetMember",
+            cluster_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster-1",
+            fleet_member_name="member-1",
+            fleet_name="fleet-1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20220902preview:FleetMember member-1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/fleets/fleet-1/members/member-1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_resource_id: The ARM resource id of the cluster that joins the Fleet. Must be a valid Azure resource id. e.g.: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{clusterName}'.
@@ -110,6 +133,29 @@ class FleetMember(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
+
+        ## Example Usage
+        ### Create a fleet member resource. Joins an existing cluster to the fleet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fleet_member = azure_native.containerservice.v20220902preview.FleetMember("fleetMember",
+            cluster_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster-1",
+            fleet_member_name="member-1",
+            fleet_name="fleet-1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20220902preview:FleetMember member-1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/fleets/fleet-1/members/member-1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FleetMemberArgs args: The arguments to use to populate this resource's properties.

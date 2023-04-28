@@ -9,6 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Logz.V20201001
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### subAccount_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subAccount = new AzureNative.Logz.V20201001.SubAccount("subAccount", new()
+    ///     {
+    ///         MonitorName = "myMonitor",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SubAccountName = "SubAccount1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logz/v20201001:SubAccount myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/accounts/SubAccount1 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:logz/v20201001:SubAccount")]
     public partial class SubAccount : global::Pulumi.CustomResource
     {

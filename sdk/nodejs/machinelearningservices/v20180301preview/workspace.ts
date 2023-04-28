@@ -10,6 +10,39 @@ import * as utilities from "../../utilities";
 /**
  * An object that represents a machine learning workspace.
  *
+ * ## Example Usage
+ * ### Create Workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.machinelearningservices.v20180301preview.Workspace("workspace", {
+ *     applicationInsights: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+ *     batchaiWorkspace: "/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/workspace-1234/providers/Microsoft.BatchAI/workspaces/testBatchAIWorkspace",
+ *     containerRegistry: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+ *     description: "test description",
+ *     friendlyName: "HelloName",
+ *     identity: {
+ *         type: azure_native.machinelearningservices.v20180301preview.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     keyVault: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+ *     location: "eastus2euap",
+ *     resourceGroupName: "workspace-1234",
+ *     storageAccount: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20180301preview:Workspace testworkspace /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace 
+ * ```
+ *
  * @deprecated Version 2018-03-01-preview will be removed in v2 of the provider.
  */
 export class Workspace extends pulumi.CustomResource {

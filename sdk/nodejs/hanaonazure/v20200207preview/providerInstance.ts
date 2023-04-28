@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * A provider instance associated with a SAP monitor.
+ *
+ * ## Example Usage
+ * ### Create a SAP Monitor
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.hanaonazure.v20200207preview.ProviderInstance("providerInstance", {
+ *     metadata: "{\"key\":\"value\"}",
+ *     properties: "{\"hostname\":\"10.0.0.6\",\"dbName\":\"SYSTEMDB\",\"sqlPort\":30013,\"dbUsername\":\"SYSTEM\",\"dbPassword\":\"PASSWORD\"}",
+ *     providerInstanceName: "myProviderInstance",
+ *     resourceGroupName: "myResourceGroup",
+ *     sapMonitorName: "mySapMonitor",
+ *     type: "hana",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hanaonazure/v20200207preview:ProviderInstance myProviderInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/sapMonitors/mySapMonitor/providerInstances/myProviderInstance 
+ * ```
  */
 export class ProviderInstance extends pulumi.CustomResource {
     /**

@@ -114,6 +114,34 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
         """
         REST model used to encapsulate the user visible state of a PrivateEndpoint.
 
+        ## Example Usage
+        ### PrivateEndpointConnection_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_controller_private_endpoint_connection = azure_native.migrate.v20200501.PrivateEndpointConnectionControllerPrivateEndpointConnection("privateEndpointConnectionControllerPrivateEndpointConnection",
+            migrate_project_name="proj567",
+            pe_connection_name="proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6",
+            properties=azure_native.migrate.v20200501.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.migrate.v20200501.PrivateLinkServiceConnectionStateArgs(
+                    actions_required="",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="pajindTest1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest1/providers/Microsoft.Migrate/MigrateProjects/proj567/privateEndpointConnections/proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Gets the tag for optimistic concurrency control.
@@ -130,6 +158,34 @@ class PrivateEndpointConnectionControllerPrivateEndpointConnection(pulumi.Custom
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         REST model used to encapsulate the user visible state of a PrivateEndpoint.
+
+        ## Example Usage
+        ### PrivateEndpointConnection_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_controller_private_endpoint_connection = azure_native.migrate.v20200501.PrivateEndpointConnectionControllerPrivateEndpointConnection("privateEndpointConnectionControllerPrivateEndpointConnection",
+            migrate_project_name="proj567",
+            pe_connection_name="proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6",
+            properties=azure_native.migrate.v20200501.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.migrate.v20200501.PrivateLinkServiceConnectionStateArgs(
+                    actions_required="",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="pajindTest1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest1/providers/Microsoft.Migrate/MigrateProjects/proj567/privateEndpointConnections/proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionControllerPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

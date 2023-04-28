@@ -149,6 +149,33 @@ class AssociationsInterface(pulumi.CustomResource):
         API Version: 2022-10-01-preview.
         Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Put Association
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        associations_interface = azure_native.servicenetworking.AssociationsInterface("associationsInterface",
+            association_name="as1",
+            association_type=azure_native.servicenetworking.AssociationType.SUBNETS,
+            location="NorthCentralUS",
+            resource_group_name="rg1",
+            subnet=azure_native.servicenetworking.AssociationSubnetResponseArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet-tc/subnets/tc-subnet",
+            ),
+            traffic_controller_name="tc1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicenetworking:AssociationsInterface associatedvnet-1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1/associations/as1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] association_name: Name of Association
@@ -169,6 +196,33 @@ class AssociationsInterface(pulumi.CustomResource):
         Association Subresource of Traffic Controller
         API Version: 2022-10-01-preview.
         Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Put Association
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        associations_interface = azure_native.servicenetworking.AssociationsInterface("associationsInterface",
+            association_name="as1",
+            association_type=azure_native.servicenetworking.AssociationType.SUBNETS,
+            location="NorthCentralUS",
+            resource_group_name="rg1",
+            subnet=azure_native.servicenetworking.AssociationSubnetResponseArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet-tc/subnets/tc-subnet",
+            ),
+            traffic_controller_name="tc1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicenetworking:AssociationsInterface associatedvnet-1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1/associations/as1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssociationsInterfaceArgs args: The arguments to use to populate this resource's properties.

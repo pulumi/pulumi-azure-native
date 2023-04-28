@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 {
     /// <summary>
     /// The marketplace gallery image resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutMarketplaceGalleryImage
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var marketplacegalleryimage = new AzureNative.AzureStackHCI.V20210901Preview.Marketplacegalleryimage("marketplacegalleryimage", new()
+    ///     {
+    ///         CloudInitDataSource = "Azure",
+    ///         ContainerName = "Default_Container",
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         HyperVGeneration = "V1",
+    ///         Identifier = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.GalleryImageIdentifierArgs
+    ///         {
+    ///             Offer = "myOfferName",
+    ///             Publisher = "myPublisherName",
+    ///             Sku = "mySkuName",
+    ///         },
+    ///         Location = "West US2",
+    ///         MarketplacegalleryimagesName = "test-marketplace-gallery-image",
+    ///         OsType = AzureNative.AzureStackHCI.V20210901Preview.OperatingSystemTypes.Windows,
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.GalleryImageVersionArgs
+    ///         {
+    ///             Name = "1.0.0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci/v20210901preview:marketplacegalleryimage test-marketplace-gallery-image /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplacegalleryimages/test-marketplace-gallery-image 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:marketplacegalleryimage")]
     public partial class Marketplacegalleryimage : global::Pulumi.CustomResource

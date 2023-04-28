@@ -11,6 +11,33 @@ namespace Pulumi.AzureNative.ManagementPartner.V20180201
 {
     /// <summary>
     /// this is the management partner operations response
+    /// 
+    /// ## Example Usage
+    /// ### PutPartnerDetails
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var partner = new AzureNative.ManagementPartner.V20180201.Partner("partner", new()
+    ///     {
+    ///         PartnerId = "123456",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managementpartner/v20180201:Partner 123456 /providers/microsoft.managementpartner/partners/123456 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managementpartner/v20180201:Partner")]
     public partial class Partner : global::Pulumi.CustomResource

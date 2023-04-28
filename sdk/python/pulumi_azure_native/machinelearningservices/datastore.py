@@ -114,6 +114,145 @@ class Datastore(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         API Version: 2022-10-01.
 
+        ## Example Usage
+        ### CreateOrUpdate datastore (Azure Data Lake Gen1 w/ ServicePrincipal).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.Datastore("datastore",
+            datastore_properties=azure_native.machinelearningservices.AzureDataLakeGen1DatastoreArgs(
+                credentials=azure_native.machinelearningservices.ServicePrincipalDatastoreCredentialsArgs(
+                    authority_url="string",
+                    client_id="00000000-1111-2222-3333-444444444444",
+                    credentials_type="ServicePrincipal",
+                    resource_url="string",
+                    secrets=azure_native.machinelearningservices.ServicePrincipalDatastoreSecretsArgs(
+                        client_secret="string",
+                        secrets_type="ServicePrincipal",
+                    ),
+                    tenant_id="00000000-1111-2222-3333-444444444444",
+                ),
+                datastore_type="AzureDataLakeGen1",
+                description="string",
+                store_name="string",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            skip_validation=False,
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure Data Lake Gen2 w/ Service Principal).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.Datastore("datastore",
+            datastore_properties=azure_native.machinelearningservices.AzureDataLakeGen2DatastoreArgs(
+                account_name="string",
+                credentials=azure_native.machinelearningservices.ServicePrincipalDatastoreCredentialsArgs(
+                    authority_url="string",
+                    client_id="00000000-1111-2222-3333-444444444444",
+                    credentials_type="ServicePrincipal",
+                    resource_url="string",
+                    secrets=azure_native.machinelearningservices.ServicePrincipalDatastoreSecretsArgs(
+                        client_secret="string",
+                        secrets_type="ServicePrincipal",
+                    ),
+                    tenant_id="00000000-1111-2222-3333-444444444444",
+                ),
+                datastore_type="AzureDataLakeGen2",
+                description="string",
+                endpoint="string",
+                filesystem="string",
+                protocol="string",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            skip_validation=False,
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure File store w/ AccountKey).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.Datastore("datastore",
+            datastore_properties=azure_native.machinelearningservices.AzureFileDatastoreArgs(
+                account_name="string",
+                credentials=azure_native.machinelearningservices.AccountKeyDatastoreCredentialsArgs(
+                    credentials_type="AccountKey",
+                    secrets=azure_native.machinelearningservices.AccountKeyDatastoreSecretsArgs(
+                        key="string",
+                        secrets_type="AccountKey",
+                    ),
+                ),
+                datastore_type="AzureFile",
+                description="string",
+                endpoint="string",
+                file_share_name="string",
+                protocol="string",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            skip_validation=False,
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate datastore (AzureBlob w/ AccountKey).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.Datastore("datastore",
+            datastore_properties=azure_native.machinelearningservices.AzureBlobDatastoreArgs(
+                account_name="string",
+                container_name="string",
+                credentials=azure_native.machinelearningservices.AccountKeyDatastoreCredentialsArgs(
+                    credentials_type="AccountKey",
+                    secrets=azure_native.machinelearningservices.AccountKeyDatastoreSecretsArgs(
+                        key="string",
+                        secrets_type="AccountKey",
+                    ),
+                ),
+                datastore_type="AzureBlob",
+                description="string",
+                endpoint="core.windows.net",
+                protocol="https",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            skip_validation=False,
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:Datastore string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AzureBlobDatastoreArgs'], pulumi.InputType['AzureDataLakeGen1DatastoreArgs'], pulumi.InputType['AzureDataLakeGen2DatastoreArgs'], pulumi.InputType['AzureFileDatastoreArgs']]] datastore_properties: [Required] Additional attributes of the entity.
@@ -131,6 +270,145 @@ class Datastore(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
         API Version: 2022-10-01.
+
+        ## Example Usage
+        ### CreateOrUpdate datastore (Azure Data Lake Gen1 w/ ServicePrincipal).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.Datastore("datastore",
+            datastore_properties=azure_native.machinelearningservices.AzureDataLakeGen1DatastoreArgs(
+                credentials=azure_native.machinelearningservices.ServicePrincipalDatastoreCredentialsArgs(
+                    authority_url="string",
+                    client_id="00000000-1111-2222-3333-444444444444",
+                    credentials_type="ServicePrincipal",
+                    resource_url="string",
+                    secrets=azure_native.machinelearningservices.ServicePrincipalDatastoreSecretsArgs(
+                        client_secret="string",
+                        secrets_type="ServicePrincipal",
+                    ),
+                    tenant_id="00000000-1111-2222-3333-444444444444",
+                ),
+                datastore_type="AzureDataLakeGen1",
+                description="string",
+                store_name="string",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            skip_validation=False,
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure Data Lake Gen2 w/ Service Principal).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.Datastore("datastore",
+            datastore_properties=azure_native.machinelearningservices.AzureDataLakeGen2DatastoreArgs(
+                account_name="string",
+                credentials=azure_native.machinelearningservices.ServicePrincipalDatastoreCredentialsArgs(
+                    authority_url="string",
+                    client_id="00000000-1111-2222-3333-444444444444",
+                    credentials_type="ServicePrincipal",
+                    resource_url="string",
+                    secrets=azure_native.machinelearningservices.ServicePrincipalDatastoreSecretsArgs(
+                        client_secret="string",
+                        secrets_type="ServicePrincipal",
+                    ),
+                    tenant_id="00000000-1111-2222-3333-444444444444",
+                ),
+                datastore_type="AzureDataLakeGen2",
+                description="string",
+                endpoint="string",
+                filesystem="string",
+                protocol="string",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            skip_validation=False,
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure File store w/ AccountKey).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.Datastore("datastore",
+            datastore_properties=azure_native.machinelearningservices.AzureFileDatastoreArgs(
+                account_name="string",
+                credentials=azure_native.machinelearningservices.AccountKeyDatastoreCredentialsArgs(
+                    credentials_type="AccountKey",
+                    secrets=azure_native.machinelearningservices.AccountKeyDatastoreSecretsArgs(
+                        key="string",
+                        secrets_type="AccountKey",
+                    ),
+                ),
+                datastore_type="AzureFile",
+                description="string",
+                endpoint="string",
+                file_share_name="string",
+                protocol="string",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            skip_validation=False,
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate datastore (AzureBlob w/ AccountKey).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.Datastore("datastore",
+            datastore_properties=azure_native.machinelearningservices.AzureBlobDatastoreArgs(
+                account_name="string",
+                container_name="string",
+                credentials=azure_native.machinelearningservices.AccountKeyDatastoreCredentialsArgs(
+                    credentials_type="AccountKey",
+                    secrets=azure_native.machinelearningservices.AccountKeyDatastoreSecretsArgs(
+                        key="string",
+                        secrets_type="AccountKey",
+                    ),
+                ),
+                datastore_type="AzureBlob",
+                description="string",
+                endpoint="core.windows.net",
+                protocol="https",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            skip_validation=False,
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:Datastore string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.

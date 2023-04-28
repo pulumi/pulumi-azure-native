@@ -169,6 +169,116 @@ class PolicyDefinition(pulumi.CustomResource):
         """
         The policy definition.
 
+        ## Example Usage
+        ### Create or update a policy definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_definition = azure_native.authorization.v20200901.PolicyDefinition("policyDefinition",
+            description="Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+            display_name="Enforce resource naming convention",
+            metadata={
+                "category": "Naming",
+            },
+            mode="All",
+            parameters={
+                "prefix": azure_native.authorization.v20200901.ParameterDefinitionsValueArgs(
+                    metadata=azure_native.authorization.v20200901.ParameterDefinitionsValueMetadataArgs(
+                        description="Resource name prefix",
+                        display_name="Prefix",
+                    ),
+                    type="String",
+                ),
+                "suffix": azure_native.authorization.v20200901.ParameterDefinitionsValueArgs(
+                    metadata=azure_native.authorization.v20200901.ParameterDefinitionsValueMetadataArgs(
+                        description="Resource name suffix",
+                        display_name="Suffix",
+                    ),
+                    type="String",
+                ),
+            },
+            policy_definition_name="ResourceNaming",
+            policy_rule={
+                "if": {
+                    "not": {
+                        "field": "name",
+                        "like": "[concat(parameters('prefix'), '*', parameters('suffix'))]",
+                    },
+                },
+                "then": {
+                    "effect": "deny",
+                },
+            })
+
+        ```
+        ### Create or update a policy definition with advanced parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_definition = azure_native.authorization.v20200901.PolicyDefinition("policyDefinition",
+            description="Audit enabling of logs and retain them up to a year. This enables recreation of activity trails for investigation purposes when a security incident occurs or your network is compromised",
+            display_name="Event Hubs should have diagnostic logging enabled",
+            metadata={
+                "category": "Event Hub",
+            },
+            mode="Indexed",
+            parameters={
+                "requiredRetentionDays": azure_native.authorization.v20200901.ParameterDefinitionsValueArgs(
+                    allowed_values=[
+                        0,
+                        30,
+                        90,
+                        180,
+                        365,
+                    ],
+                    default_value=365,
+                    metadata=azure_native.authorization.v20200901.ParameterDefinitionsValueMetadataArgs(
+                        description="The required diagnostic logs retention in days",
+                        display_name="Required retention (days)",
+                    ),
+                    type="Integer",
+                ),
+            },
+            policy_definition_name="EventHubDiagnosticLogs",
+            policy_rule={
+                "if": {
+                    "equals": "Microsoft.EventHub/namespaces",
+                    "field": "type",
+                },
+                "then": {
+                    "details": {
+                        "existenceCondition": {
+                            "allOf": [
+                                {
+                                    "equals": "true",
+                                    "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled",
+                                },
+                                {
+                                    "equals": "[parameters('requiredRetentionDays')]",
+                                    "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days",
+                                },
+                            ],
+                        },
+                        "type": "Microsoft.Insights/diagnosticSettings",
+                    },
+                    "effect": "AuditIfNotExists",
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20200901:PolicyDefinition ResourceNaming /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The policy definition description.
@@ -188,6 +298,116 @@ class PolicyDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy definition.
+
+        ## Example Usage
+        ### Create or update a policy definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_definition = azure_native.authorization.v20200901.PolicyDefinition("policyDefinition",
+            description="Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+            display_name="Enforce resource naming convention",
+            metadata={
+                "category": "Naming",
+            },
+            mode="All",
+            parameters={
+                "prefix": azure_native.authorization.v20200901.ParameterDefinitionsValueArgs(
+                    metadata=azure_native.authorization.v20200901.ParameterDefinitionsValueMetadataArgs(
+                        description="Resource name prefix",
+                        display_name="Prefix",
+                    ),
+                    type="String",
+                ),
+                "suffix": azure_native.authorization.v20200901.ParameterDefinitionsValueArgs(
+                    metadata=azure_native.authorization.v20200901.ParameterDefinitionsValueMetadataArgs(
+                        description="Resource name suffix",
+                        display_name="Suffix",
+                    ),
+                    type="String",
+                ),
+            },
+            policy_definition_name="ResourceNaming",
+            policy_rule={
+                "if": {
+                    "not": {
+                        "field": "name",
+                        "like": "[concat(parameters('prefix'), '*', parameters('suffix'))]",
+                    },
+                },
+                "then": {
+                    "effect": "deny",
+                },
+            })
+
+        ```
+        ### Create or update a policy definition with advanced parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_definition = azure_native.authorization.v20200901.PolicyDefinition("policyDefinition",
+            description="Audit enabling of logs and retain them up to a year. This enables recreation of activity trails for investigation purposes when a security incident occurs or your network is compromised",
+            display_name="Event Hubs should have diagnostic logging enabled",
+            metadata={
+                "category": "Event Hub",
+            },
+            mode="Indexed",
+            parameters={
+                "requiredRetentionDays": azure_native.authorization.v20200901.ParameterDefinitionsValueArgs(
+                    allowed_values=[
+                        0,
+                        30,
+                        90,
+                        180,
+                        365,
+                    ],
+                    default_value=365,
+                    metadata=azure_native.authorization.v20200901.ParameterDefinitionsValueMetadataArgs(
+                        description="The required diagnostic logs retention in days",
+                        display_name="Required retention (days)",
+                    ),
+                    type="Integer",
+                ),
+            },
+            policy_definition_name="EventHubDiagnosticLogs",
+            policy_rule={
+                "if": {
+                    "equals": "Microsoft.EventHub/namespaces",
+                    "field": "type",
+                },
+                "then": {
+                    "details": {
+                        "existenceCondition": {
+                            "allOf": [
+                                {
+                                    "equals": "true",
+                                    "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled",
+                                },
+                                {
+                                    "equals": "[parameters('requiredRetentionDays')]",
+                                    "field": "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days",
+                                },
+                            ],
+                        },
+                        "type": "Microsoft.Insights/diagnosticSettings",
+                    },
+                    "effect": "AuditIfNotExists",
+                },
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20200901:PolicyDefinition ResourceNaming /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyDefinitionArgs args: The arguments to use to populate this resource's properties.

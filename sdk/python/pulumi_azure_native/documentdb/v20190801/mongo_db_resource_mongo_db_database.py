@@ -150,6 +150,34 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
         """
         An Azure Cosmos DB MongoDB database.
 
+        ## Example Usage
+        ### CosmosDBMongoDBDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_db_database = azure_native.documentdb.v20190801.MongoDBResourceMongoDBDatabase("mongoDBResourceMongoDBDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            location="West US",
+            options={},
+            resource=azure_native.documentdb.v20190801.MongoDBDatabaseResourceArgs(
+                id="databaseName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20190801:MongoDBResourceMongoDBDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/mongodbDatabases/databaseName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -168,6 +196,34 @@ class MongoDBResourceMongoDBDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB MongoDB database.
+
+        ## Example Usage
+        ### CosmosDBMongoDBDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_db_database = azure_native.documentdb.v20190801.MongoDBResourceMongoDBDatabase("mongoDBResourceMongoDBDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            location="West US",
+            options={},
+            resource=azure_native.documentdb.v20190801.MongoDBDatabaseResourceArgs(
+                id="databaseName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20190801:MongoDBResourceMongoDBDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/mongodbDatabases/databaseName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MongoDBResourceMongoDBDatabaseArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.EventHub
     /// Single Event Hubs Cluster resource in List or Get operations.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ClusterPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.EventHub.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "testCluster",
+    ///         Location = "South Central US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.EventHub.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Dedicated",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:Cluster testCluster /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/myResourceGroup/providers/Microsoft.EventHub/clusters/testCluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

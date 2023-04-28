@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A notification.
+    /// 
+    /// ## Example Usage
+    /// ### NotificationChannels_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var notificationChannel = new AzureNative.DevTestLab.V20180915.NotificationChannel("notificationChannel", new()
+    ///     {
+    ///         Description = "Integration configured for auto-shutdown",
+    ///         EmailRecipient = "{email}",
+    ///         Events = new[]
+    ///         {
+    ///             new AzureNative.DevTestLab.V20180915.Inputs.EventArgs
+    ///             {
+    ///                 EventName = "AutoShutdown",
+    ///             },
+    ///         },
+    ///         LabName = "{labName}",
+    ///         Name = "{notificationChannelName}",
+    ///         NotificationLocale = "en",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         WebHookUrl = "{webhookUrl}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20180915:NotificationChannel {notificationChannelName} /subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/notificationChannels/{notificationChannelName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:NotificationChannel")]
     public partial class NotificationChannel : global::Pulumi.CustomResource

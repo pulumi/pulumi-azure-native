@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Authorization in an ExpressRouteCircuit resource.
+ *
+ * ## Example Usage
+ * ### Create ExpressRouteCircuit Authorization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteCircuitAuthorization = new azure_native.network.v20190601.ExpressRouteCircuitAuthorization("expressRouteCircuitAuthorization", {
+ *     authorizationKey: "authKey",
+ *     authorizationName: "authorizatinName",
+ *     authorizationUseStatus: "Available",
+ *     circuitName: "circuitName",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20190601:ExpressRouteCircuitAuthorization authorizationName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName/authorizations/authorizationName 
+ * ```
  */
 export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**

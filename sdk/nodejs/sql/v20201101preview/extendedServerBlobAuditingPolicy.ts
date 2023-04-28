@@ -9,6 +9,59 @@ import * as utilities from "../../utilities";
 
 /**
  * An extended server blob auditing policy.
+ *
+ * ## Example Usage
+ * ### Update a server's extended blob auditing policy with all parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const extendedServerBlobAuditingPolicy = new azure_native.sql.v20201101preview.ExtendedServerBlobAuditingPolicy("extendedServerBlobAuditingPolicy", {
+ *     auditActionsAndGroups: [
+ *         "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
+ *         "FAILED_DATABASE_AUTHENTICATION_GROUP",
+ *         "BATCH_COMPLETED_GROUP",
+ *     ],
+ *     blobAuditingPolicyName: "default",
+ *     isAzureMonitorTargetEnabled: true,
+ *     isStorageSecondaryKeyInUse: false,
+ *     predicateExpression: "object_name = 'SensitiveData'",
+ *     queueDelayMs: 4000,
+ *     resourceGroupName: "blobauditingtest-4799",
+ *     retentionDays: 6,
+ *     serverName: "blobauditingtest-6440",
+ *     state: azure_native.sql.v20201101preview.BlobAuditingPolicyState.Enabled,
+ *     storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+ *     storageAccountSubscriptionId: "00000000-1234-0000-5678-000000000000",
+ *     storageEndpoint: "https://mystorage.blob.core.windows.net",
+ * });
+ *
+ * ```
+ * ### Update a server's extended blob auditing policy with minimal parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const extendedServerBlobAuditingPolicy = new azure_native.sql.v20201101preview.ExtendedServerBlobAuditingPolicy("extendedServerBlobAuditingPolicy", {
+ *     blobAuditingPolicyName: "default",
+ *     resourceGroupName: "blobauditingtest-4799",
+ *     serverName: "blobauditingtest-6440",
+ *     state: azure_native.sql.v20201101preview.BlobAuditingPolicyState.Enabled,
+ *     storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+ *     storageEndpoint: "https://mystorage.blob.core.windows.net",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20201101preview:ExtendedServerBlobAuditingPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-4799/providers/Microsoft.Sql/servers/blobauditingtest-6440/extendedAuditingSettings/default 
+ * ```
  */
 export class ExtendedServerBlobAuditingPolicy extends pulumi.CustomResource {
     /**

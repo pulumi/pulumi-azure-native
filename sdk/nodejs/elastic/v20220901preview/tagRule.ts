@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
+ *
+ * ## Example Usage
+ * ### TagRules_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tagRule = new azure_native.elastic.v20220901preview.TagRule("tagRule", {
+ *     monitorName: "myMonitor",
+ *     resourceGroupName: "myResourceGroup",
+ *     ruleSetName: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:elastic/v20220901preview:TagRule default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Datadog/monitors/myMonitor/tagRules/default 
+ * ```
  */
 export class TagRule extends pulumi.CustomResource {
     /**

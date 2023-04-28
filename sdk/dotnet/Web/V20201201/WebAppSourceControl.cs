@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20201201
 {
     /// <summary>
     /// Source control configuration for an app.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201201:WebAppSourceControl myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/sourcecontrols/web 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:WebAppSourceControl")]
     public partial class WebAppSourceControl : global::Pulumi.CustomResource

@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  * API Version: 2022-10-01.
  * Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Component Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const componentVersion = new azure_native.machinelearningservices.ComponentVersion("componentVersion", {
+ *     componentVersionProperties: {
+ *         componentSpec: {
+ *             "8ced901b-d826-477d-bfef-329da9672513": undefined,
+ *         },
+ *         description: "string",
+ *         isAnonymous: false,
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices:ComponentVersion string string 
+ * ```
  */
 export class ComponentVersion extends pulumi.CustomResource {
     /**

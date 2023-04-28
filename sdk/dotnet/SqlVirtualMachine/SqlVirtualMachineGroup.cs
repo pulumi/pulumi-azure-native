@@ -13,6 +13,52 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     /// A SQL virtual machine group.
     /// API Version: 2022-02-01.
     /// Previous API Version: 2017-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a SQL virtual machine group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlVirtualMachineGroup = new AzureNative.SqlVirtualMachine.SqlVirtualMachineGroup("sqlVirtualMachineGroup", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "testrg",
+    ///         SqlImageOffer = "SQL2016-WS2016",
+    ///         SqlImageSku = "Enterprise",
+    ///         SqlVirtualMachineGroupName = "testvmgroup",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///         WsfcDomainProfile = new AzureNative.SqlVirtualMachine.Inputs.WsfcDomainProfileArgs
+    ///         {
+    ///             ClusterBootstrapAccount = "testrpadmin",
+    ///             ClusterOperatorAccount = "testrp@testdomain.com",
+    ///             ClusterSubnetType = "MultiSubnet",
+    ///             DomainFqdn = "testdomain.com",
+    ///             OuPath = "OU=WSCluster,DC=testdomain,DC=com",
+    ///             SqlServiceAccount = "sqlservice@testdomain.com",
+    ///             StorageAccountPrimaryKey = "&lt;primary storage access key&gt;",
+    ///             StorageAccountUrl = "https://storgact.blob.core.windows.net/",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sqlvirtualmachine:SqlVirtualMachineGroup testvmgroup /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachineGroup")]
     public partial class SqlVirtualMachineGroup : global::Pulumi.CustomResource

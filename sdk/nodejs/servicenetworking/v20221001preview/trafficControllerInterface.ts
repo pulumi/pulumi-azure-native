@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Concrete tracked resource types can be created by aliasing this type using a specific property type.
+ *
+ * ## Example Usage
+ * ### Put Traffic Controller
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const trafficControllerInterface = new azure_native.servicenetworking.v20221001preview.TrafficControllerInterface("trafficControllerInterface", {
+ *     location: "NorthCentralUS",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     trafficControllerName: "tc1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicenetworking/v20221001preview:TrafficControllerInterface tc1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1 
+ * ```
  */
 export class TrafficControllerInterface extends pulumi.CustomResource {
     /**

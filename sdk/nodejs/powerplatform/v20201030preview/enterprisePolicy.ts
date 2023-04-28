@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the EnterprisePolicy.
+ *
+ * ## Example Usage
+ * ### Create or update EnterprisePolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const enterprisePolicy = new azure_native.powerplatform.v20201030preview.EnterprisePolicy("enterprisePolicy", {
+ *     enterprisePolicyName: "enterprisePolicy",
+ *     identity: {
+ *         type: azure_native.powerplatform.v20201030preview.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     kind: "Lockbox",
+ *     location: "East US",
+ *     resourceGroupName: "resourceGroup",
+ *     tags: {
+ *         Organization: "Administration",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:powerplatform/v20201030preview:EnterprisePolicy enterprisePolicy /subscriptions/subid/resourceGroups/resourceGroup/providers/Microsoft.PowerPlatform/enterprisePolicies/enterprisePolicy 
+ * ```
  */
 export class EnterprisePolicy extends pulumi.CustomResource {
     /**

@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.AVS
     /// A vSphere Distributed Resource Scheduler (DRS) placement policy
     /// API Version: 2022-05-01.
     /// Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PlacementPolicies_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var placementPolicy = new AzureNative.AVS.PlacementPolicy("placementPolicy", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         PlacementPolicyName = "policy1",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.Inputs.VmHostPlacementPolicyPropertiesArgs
+    ///         {
+    ///             AffinityStrength = "Must",
+    ///             AffinityType = "AntiAffinity",
+    ///             AzureHybridBenefitType = "SqlHost",
+    ///             HostMembers = new[]
+    ///             {
+    ///                 "fakehost22.nyc1.kubernetes.center",
+    ///                 "fakehost23.nyc1.kubernetes.center",
+    ///                 "fakehost24.nyc1.kubernetes.center",
+    ///             },
+    ///             Type = "VmHost",
+    ///             VmMembers = new[]
+    ///             {
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs:PlacementPolicy policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/placementPolicies/policy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PlacementPolicy")]
     public partial class PlacementPolicy : global::Pulumi.CustomResource

@@ -513,6 +513,47 @@ class VirtualMachine(pulumi.CustomResource):
         """
         A virtual machine.
 
+        ## Example Usage
+        ### VirtualMachines_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.devtestlab.v20180915.VirtualMachine("virtualMachine",
+            allow_claim=True,
+            disallow_public_ip_address=True,
+            gallery_image_reference=azure_native.devtestlab.v20180915.GalleryImageReferenceArgs(
+                offer="UbuntuServer",
+                os_type="Linux",
+                publisher="Canonical",
+                sku="16.04-LTS",
+                version="Latest",
+            ),
+            lab_name="{labName}",
+            lab_subnet_name="{virtualNetworkName}Subnet",
+            lab_virtual_network_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName}",
+            location="{location}",
+            name="{vmName}",
+            password="{userPassword}",
+            resource_group_name="resourceGroupName",
+            size="Standard_A2_v2",
+            storage_type="Standard",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            user_name="{userName}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:VirtualMachine {vmName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
@@ -552,6 +593,47 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A virtual machine.
+
+        ## Example Usage
+        ### VirtualMachines_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.devtestlab.v20180915.VirtualMachine("virtualMachine",
+            allow_claim=True,
+            disallow_public_ip_address=True,
+            gallery_image_reference=azure_native.devtestlab.v20180915.GalleryImageReferenceArgs(
+                offer="UbuntuServer",
+                os_type="Linux",
+                publisher="Canonical",
+                sku="16.04-LTS",
+                version="Latest",
+            ),
+            lab_name="{labName}",
+            lab_subnet_name="{virtualNetworkName}Subnet",
+            lab_virtual_network_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName}",
+            location="{location}",
+            name="{vmName}",
+            password="{userPassword}",
+            resource_group_name="resourceGroupName",
+            size="Standard_A2_v2",
+            storage_type="Standard",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            user_name="{userName}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:VirtualMachine {vmName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

@@ -165,6 +165,58 @@ class ConfigurationStore(pulumi.CustomResource):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 
+        ## Example Usage
+        ### ConfigurationStores_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.v20200601.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.v20200601.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+        ### ConfigurationStores_Create_WithIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.v20200601.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            identity=azure_native.appconfiguration.v20200601.ResourceIdentityArgs(
+                type="SystemAssigned, UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
+                },
+            ),
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.v20200601.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appconfiguration/v20200601:ConfigurationStore contoso /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
@@ -184,6 +236,58 @@ class ConfigurationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+
+        ## Example Usage
+        ### ConfigurationStores_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.v20200601.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.v20200601.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+        ### ConfigurationStores_Create_WithIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.v20200601.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            identity=azure_native.appconfiguration.v20200601.ResourceIdentityArgs(
+                type="SystemAssigned, UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
+                },
+            ),
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.v20200601.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appconfiguration/v20200601:ConfigurationStore contoso /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationStoreArgs args: The arguments to use to populate this resource's properties.

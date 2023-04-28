@@ -80,6 +80,28 @@ class ServiceRegistry(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ServiceRegistries_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_registry = azure_native.appplatform.ServiceRegistry("serviceRegistry",
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            service_registry_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:ServiceRegistry default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -96,6 +118,28 @@ class ServiceRegistry(pulumi.CustomResource):
         Service Registry resource
         API Version: 2022-12-01.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ServiceRegistries_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_registry = azure_native.appplatform.ServiceRegistry("serviceRegistry",
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            service_registry_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:ServiceRegistry default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceRegistryArgs args: The arguments to use to populate this resource's properties.

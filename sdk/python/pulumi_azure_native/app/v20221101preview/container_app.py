@@ -234,6 +234,249 @@ class ContainerApp(pulumi.CustomResource):
         """
         Container App.
 
+        ## Example Usage
+        ### Create or Update Container App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.app.v20221101preview.ContainerApp("containerApp",
+            configuration=azure_native.app.v20221101preview.ConfigurationResponseArgs(
+                dapr=azure_native.app.v20221101preview.DaprArgs(
+                    app_port=3000,
+                    app_protocol="http",
+                    enable_api_logging=True,
+                    enabled=True,
+                    http_max_request_size=10,
+                    http_read_buffer_size=30,
+                    log_level="debug",
+                ),
+                ingress={
+                    "clientCertificateMode": "accept",
+                    "corsPolicy": azure_native.app.v20221101preview.CorsPolicyArgs(
+                        allow_credentials=True,
+                        allowed_headers=[
+                            "HEADER1",
+                            "HEADER2",
+                        ],
+                        allowed_methods=[
+                            "GET",
+                            "POST",
+                        ],
+                        allowed_origins=[
+                            "https://a.test.com",
+                            "https://b.test.com",
+                        ],
+                        expose_headers=[
+                            "HEADER3",
+                            "HEADER4",
+                        ],
+                        max_age=1234,
+                    ),
+                    "customDomains": [
+                        azure_native.app.v20221101preview.CustomDomainArgs(
+                            binding_type="SniEnabled",
+                            certificate_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
+                            name="www.my-name.com",
+                        ),
+                        azure_native.app.v20221101preview.CustomDomainArgs(
+                            binding_type="SniEnabled",
+                            certificate_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com",
+                            name="www.my-other-name.com",
+                        ),
+                    ],
+                    "external": True,
+                    "ipSecurityRestrictions": [
+                        azure_native.app.v20221101preview.IpSecurityRestrictionRuleArgs(
+                            action="Allow",
+                            description="Allowing all IP's within the subnet below to access containerapp",
+                            ip_address_range="192.168.1.1/32",
+                            name="Allow work IP A subnet",
+                        ),
+                        azure_native.app.v20221101preview.IpSecurityRestrictionRuleArgs(
+                            action="Allow",
+                            description="Allowing all IP's within the subnet below to access containerapp",
+                            ip_address_range="192.168.1.1/8",
+                            name="Allow work IP B subnet",
+                        ),
+                    ],
+                    "stickySessions": azure_native.app.v20221101preview.IngressStickySessionsArgs(
+                        affinity="sticky",
+                    ),
+                    "targetPort": 3000,
+                    "traffic": [azure_native.app.v20221101preview.TrafficWeightArgs(
+                        label="production",
+                        revision_name="testcontainerApp0-ab1234",
+                        weight=100,
+                    )],
+                },
+                max_inactive_revisions=10,
+            ),
+            container_app_name="testcontainerApp0",
+            environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            location="East US",
+            resource_group_name="rg",
+            template=azure_native.app.v20221101preview.TemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerApp0:v1",
+                    "name": "testcontainerApp0",
+                    "probes": [{
+                        "httpGet": azure_native.app.v20221101preview.ContainerAppProbeHttpGetArgs(
+                            http_headers=[azure_native.app.v20221101preview.ContainerAppProbeHttpHeadersArgs(
+                                name="Custom-Header",
+                                value="Awesome",
+                            )],
+                            path="/health",
+                            port=8080,
+                        ),
+                        "initialDelaySeconds": 3,
+                        "periodSeconds": 3,
+                        "type": "Liveness",
+                    }],
+                }],
+                init_containers=[{
+                    "args": [
+                        "-c",
+                        "while true; do echo hello; sleep 10;done",
+                    ],
+                    "command": ["/bin/sh"],
+                    "image": "repo/testcontainerApp0:v4",
+                    "name": "testinitcontainerApp0",
+                    "resources": azure_native.app.v20221101preview.ContainerResourcesArgs(
+                        cpu=0.2,
+                        memory="100Mi",
+                    ),
+                }],
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "custom": azure_native.app.v20221101preview.CustomScaleRuleArgs(
+                            metadata={
+                                "concurrentRequests": "50",
+                            },
+                            type="http",
+                        ),
+                        "name": "httpscalingrule",
+                    }],
+                },
+            ),
+            workload_profile_name="My-GP-01")
+
+        ```
+        ### Create or Update ManagedBy App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.app.v20221101preview.ContainerApp("containerApp",
+            configuration=azure_native.app.v20221101preview.ConfigurationResponseArgs(
+                ingress={
+                    "exposedPort": 4000,
+                    "external": True,
+                    "targetPort": 3000,
+                    "traffic": [azure_native.app.v20221101preview.TrafficWeightArgs(
+                        revision_name="testcontainerAppManagedBy-ab1234",
+                        weight=100,
+                    )],
+                    "transport": "tcp",
+                },
+            ),
+            container_app_name="testcontainerAppManagedBy",
+            environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            location="East US",
+            managed_by="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.AppPlatform/Spring/springapp",
+            resource_group_name="rg",
+            template=azure_native.app.v20221101preview.TemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerAppManagedBy:v1",
+                    "name": "testcontainerAppManagedBy",
+                    "probes": [{
+                        "initialDelaySeconds": 3,
+                        "periodSeconds": 3,
+                        "tcpSocket": azure_native.app.v20221101preview.ContainerAppProbeTcpSocketArgs(
+                            port=8080,
+                        ),
+                        "type": "Liveness",
+                    }],
+                }],
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "name": "tcpscalingrule",
+                        "tcp": azure_native.app.v20221101preview.TcpScaleRuleArgs(
+                            metadata={
+                                "concurrentConnections": "50",
+                            },
+                        ),
+                    }],
+                },
+            ))
+
+        ```
+        ### Create or Update Tcp App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.app.v20221101preview.ContainerApp("containerApp",
+            configuration=azure_native.app.v20221101preview.ConfigurationResponseArgs(
+                ingress={
+                    "exposedPort": 4000,
+                    "external": True,
+                    "targetPort": 3000,
+                    "traffic": [azure_native.app.v20221101preview.TrafficWeightArgs(
+                        revision_name="testcontainerAppTcp-ab1234",
+                        weight=100,
+                    )],
+                    "transport": "tcp",
+                },
+            ),
+            container_app_name="testcontainerAppTcp",
+            environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            location="East US",
+            resource_group_name="rg",
+            template=azure_native.app.v20221101preview.TemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerAppTcp:v1",
+                    "name": "testcontainerAppTcp",
+                    "probes": [{
+                        "initialDelaySeconds": 3,
+                        "periodSeconds": 3,
+                        "tcpSocket": azure_native.app.v20221101preview.ContainerAppProbeTcpSocketArgs(
+                            port=8080,
+                        ),
+                        "type": "Liveness",
+                    }],
+                }],
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "name": "tcpscalingrule",
+                        "tcp": azure_native.app.v20221101preview.TcpScaleRuleArgs(
+                            metadata={
+                                "concurrentConnections": "50",
+                            },
+                        ),
+                    }],
+                },
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221101preview:ContainerApp testcontainerAppTcp /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/testcontainerAppTcp 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigurationArgs']] configuration: Non versioned Container App configuration properties.
@@ -257,6 +500,249 @@ class ContainerApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App.
+
+        ## Example Usage
+        ### Create or Update Container App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.app.v20221101preview.ContainerApp("containerApp",
+            configuration=azure_native.app.v20221101preview.ConfigurationResponseArgs(
+                dapr=azure_native.app.v20221101preview.DaprArgs(
+                    app_port=3000,
+                    app_protocol="http",
+                    enable_api_logging=True,
+                    enabled=True,
+                    http_max_request_size=10,
+                    http_read_buffer_size=30,
+                    log_level="debug",
+                ),
+                ingress={
+                    "clientCertificateMode": "accept",
+                    "corsPolicy": azure_native.app.v20221101preview.CorsPolicyArgs(
+                        allow_credentials=True,
+                        allowed_headers=[
+                            "HEADER1",
+                            "HEADER2",
+                        ],
+                        allowed_methods=[
+                            "GET",
+                            "POST",
+                        ],
+                        allowed_origins=[
+                            "https://a.test.com",
+                            "https://b.test.com",
+                        ],
+                        expose_headers=[
+                            "HEADER3",
+                            "HEADER4",
+                        ],
+                        max_age=1234,
+                    ),
+                    "customDomains": [
+                        azure_native.app.v20221101preview.CustomDomainArgs(
+                            binding_type="SniEnabled",
+                            certificate_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
+                            name="www.my-name.com",
+                        ),
+                        azure_native.app.v20221101preview.CustomDomainArgs(
+                            binding_type="SniEnabled",
+                            certificate_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com",
+                            name="www.my-other-name.com",
+                        ),
+                    ],
+                    "external": True,
+                    "ipSecurityRestrictions": [
+                        azure_native.app.v20221101preview.IpSecurityRestrictionRuleArgs(
+                            action="Allow",
+                            description="Allowing all IP's within the subnet below to access containerapp",
+                            ip_address_range="192.168.1.1/32",
+                            name="Allow work IP A subnet",
+                        ),
+                        azure_native.app.v20221101preview.IpSecurityRestrictionRuleArgs(
+                            action="Allow",
+                            description="Allowing all IP's within the subnet below to access containerapp",
+                            ip_address_range="192.168.1.1/8",
+                            name="Allow work IP B subnet",
+                        ),
+                    ],
+                    "stickySessions": azure_native.app.v20221101preview.IngressStickySessionsArgs(
+                        affinity="sticky",
+                    ),
+                    "targetPort": 3000,
+                    "traffic": [azure_native.app.v20221101preview.TrafficWeightArgs(
+                        label="production",
+                        revision_name="testcontainerApp0-ab1234",
+                        weight=100,
+                    )],
+                },
+                max_inactive_revisions=10,
+            ),
+            container_app_name="testcontainerApp0",
+            environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            location="East US",
+            resource_group_name="rg",
+            template=azure_native.app.v20221101preview.TemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerApp0:v1",
+                    "name": "testcontainerApp0",
+                    "probes": [{
+                        "httpGet": azure_native.app.v20221101preview.ContainerAppProbeHttpGetArgs(
+                            http_headers=[azure_native.app.v20221101preview.ContainerAppProbeHttpHeadersArgs(
+                                name="Custom-Header",
+                                value="Awesome",
+                            )],
+                            path="/health",
+                            port=8080,
+                        ),
+                        "initialDelaySeconds": 3,
+                        "periodSeconds": 3,
+                        "type": "Liveness",
+                    }],
+                }],
+                init_containers=[{
+                    "args": [
+                        "-c",
+                        "while true; do echo hello; sleep 10;done",
+                    ],
+                    "command": ["/bin/sh"],
+                    "image": "repo/testcontainerApp0:v4",
+                    "name": "testinitcontainerApp0",
+                    "resources": azure_native.app.v20221101preview.ContainerResourcesArgs(
+                        cpu=0.2,
+                        memory="100Mi",
+                    ),
+                }],
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "custom": azure_native.app.v20221101preview.CustomScaleRuleArgs(
+                            metadata={
+                                "concurrentRequests": "50",
+                            },
+                            type="http",
+                        ),
+                        "name": "httpscalingrule",
+                    }],
+                },
+            ),
+            workload_profile_name="My-GP-01")
+
+        ```
+        ### Create or Update ManagedBy App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.app.v20221101preview.ContainerApp("containerApp",
+            configuration=azure_native.app.v20221101preview.ConfigurationResponseArgs(
+                ingress={
+                    "exposedPort": 4000,
+                    "external": True,
+                    "targetPort": 3000,
+                    "traffic": [azure_native.app.v20221101preview.TrafficWeightArgs(
+                        revision_name="testcontainerAppManagedBy-ab1234",
+                        weight=100,
+                    )],
+                    "transport": "tcp",
+                },
+            ),
+            container_app_name="testcontainerAppManagedBy",
+            environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            location="East US",
+            managed_by="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.AppPlatform/Spring/springapp",
+            resource_group_name="rg",
+            template=azure_native.app.v20221101preview.TemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerAppManagedBy:v1",
+                    "name": "testcontainerAppManagedBy",
+                    "probes": [{
+                        "initialDelaySeconds": 3,
+                        "periodSeconds": 3,
+                        "tcpSocket": azure_native.app.v20221101preview.ContainerAppProbeTcpSocketArgs(
+                            port=8080,
+                        ),
+                        "type": "Liveness",
+                    }],
+                }],
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "name": "tcpscalingrule",
+                        "tcp": azure_native.app.v20221101preview.TcpScaleRuleArgs(
+                            metadata={
+                                "concurrentConnections": "50",
+                            },
+                        ),
+                    }],
+                },
+            ))
+
+        ```
+        ### Create or Update Tcp App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.app.v20221101preview.ContainerApp("containerApp",
+            configuration=azure_native.app.v20221101preview.ConfigurationResponseArgs(
+                ingress={
+                    "exposedPort": 4000,
+                    "external": True,
+                    "targetPort": 3000,
+                    "traffic": [azure_native.app.v20221101preview.TrafficWeightArgs(
+                        revision_name="testcontainerAppTcp-ab1234",
+                        weight=100,
+                    )],
+                    "transport": "tcp",
+                },
+            ),
+            container_app_name="testcontainerAppTcp",
+            environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            location="East US",
+            resource_group_name="rg",
+            template=azure_native.app.v20221101preview.TemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerAppTcp:v1",
+                    "name": "testcontainerAppTcp",
+                    "probes": [{
+                        "initialDelaySeconds": 3,
+                        "periodSeconds": 3,
+                        "tcpSocket": azure_native.app.v20221101preview.ContainerAppProbeTcpSocketArgs(
+                            port=8080,
+                        ),
+                        "type": "Liveness",
+                    }],
+                }],
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "name": "tcpscalingrule",
+                        "tcp": azure_native.app.v20221101preview.TcpScaleRuleArgs(
+                            metadata={
+                                "concurrentConnections": "50",
+                            },
+                        ),
+                    }],
+                },
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221101preview:ContainerApp testcontainerAppTcp /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/testcontainerAppTcp 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerAppArgs args: The arguments to use to populate this resource's properties.

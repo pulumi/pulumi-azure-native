@@ -13,6 +13,94 @@ namespace Pulumi.AzureNative.Media
     /// An Asset Filter.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create an Asset Filter
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assetFilter = new AzureNative.Media.AssetFilter("assetFilter", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         AssetName = "ClimbingMountRainer",
+    ///         FilterName = "newAssetFilter",
+    ///         FirstQuality = new AzureNative.Media.Inputs.FirstQualityArgs
+    ///         {
+    ///             Bitrate = 128000,
+    ///         },
+    ///         PresentationTimeRange = new AzureNative.Media.Inputs.PresentationTimeRangeArgs
+    ///         {
+    ///             EndTimestamp = 170000000,
+    ///             ForceEndTimestamp = false,
+    ///             LiveBackoffDuration = 0,
+    ///             PresentationWindowDuration = 9223372036854774784,
+    ///             StartTimestamp = 0,
+    ///             Timescale = 10000000,
+    ///         },
+    ///         ResourceGroupName = "contosorg",
+    ///         Tracks = new[]
+    ///         {
+    ///             new AzureNative.Media.Inputs.FilterTrackSelectionArgs
+    ///             {
+    ///                 TrackSelections = new[]
+    ///                 {
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "Equal",
+    ///                         Property = "Type",
+    ///                         Value = "Audio",
+    ///                     },
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "NotEqual",
+    ///                         Property = "Language",
+    ///                         Value = "en",
+    ///                     },
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "NotEqual",
+    ///                         Property = "FourCC",
+    ///                         Value = "EC-3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Media.Inputs.FilterTrackSelectionArgs
+    ///             {
+    ///                 TrackSelections = new[]
+    ///                 {
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "Equal",
+    ///                         Property = "Type",
+    ///                         Value = "Video",
+    ///                     },
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "Equal",
+    ///                         Property = "Bitrate",
+    ///                         Value = "3000000-5000000",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media:AssetFilter newAssetFilter /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountRainer/assetFilters/newAssetFilter 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media:AssetFilter")]
     public partial class AssetFilter : global::Pulumi.CustomResource

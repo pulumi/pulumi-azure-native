@@ -9,6 +9,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Role definition.
+ *
+ * ## Example Usage
+ * ### Create role definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleDefinition = new azure_native.authorization.v20180101preview.RoleDefinition("roleDefinition", {
+ *     roleDefinitionId: "roleDefinitionId",
+ *     scope: "scope",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20180101preview:RoleDefinition roleDefinitionId /subscriptions/subID/providers/Microsoft.Authorization/roleDefinitions/roleDefinitionId 
+ * ```
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**

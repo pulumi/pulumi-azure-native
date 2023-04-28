@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Sql
     /// A sensitivity label.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Updates the sensitivity label of a given column with all parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sensitivityLabel = new AzureNative.Sql.SensitivityLabel("sensitivityLabel", new()
+    ///     {
+    ///         ColumnName = "myColumn",
+    ///         DatabaseName = "myDatabase",
+    ///         InformationType = "PhoneNumber",
+    ///         InformationTypeId = "d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
+    ///         LabelId = "bf91e08c-f4f0-478a-b016-25164b2a65ff",
+    ///         LabelName = "PII",
+    ///         Rank = AzureNative.Sql.SensitivityLabelRank.Low,
+    ///         ResourceGroupName = "myRG",
+    ///         SchemaName = "dbo",
+    ///         SensitivityLabelSource = "current",
+    ///         ServerName = "myServer",
+    ///         TableName = "myTable",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:SensitivityLabel current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myRG/providers/Microsoft.Sql/servers/myServer/databases/myDatabase/schemas/dbo/tables/myTable/columns/myColumn/sensitivityLabels/current 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:SensitivityLabel")]
     public partial class SensitivityLabel : global::Pulumi.CustomResource

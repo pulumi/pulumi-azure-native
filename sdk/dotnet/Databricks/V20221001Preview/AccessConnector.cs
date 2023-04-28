@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.Databricks.V20221001Preview
 {
     /// <summary>
     /// Information about azure databricks accessConnector.
+    /// 
+    /// ## Example Usage
+    /// ### Create an azure databricks accessConnector with SystemAssigned Identity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessConnector = new AzureNative.Databricks.V20221001Preview.AccessConnector("accessConnector", new()
+    ///     {
+    ///         ConnectorName = "myAccessConnector",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an azure databricks accessConnector with UserAssigned Identity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessConnector = new AzureNative.Databricks.V20221001Preview.AccessConnector("accessConnector", new()
+    ///     {
+    ///         ConnectorName = "myAccessConnector",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databricks/v20221001preview:AccessConnector myAccessConnector /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Databricks/accessConnectors/myAccessConnector2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks/v20221001preview:AccessConnector")]
     public partial class AccessConnector : global::Pulumi.CustomResource

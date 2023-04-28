@@ -147,6 +147,31 @@ class SqlServerRegistration(pulumi.CustomResource):
         """
         A SQL server registration.
 
+        ## Example Usage
+        ### Creates or updates a SQL Server registration.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_registration = azure_native.azuredata.v20190724preview.SqlServerRegistration("sqlServerRegistration",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_server_registration_name="testsqlregistration",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredata/v20190724preview:SqlServerRegistration testsqlregistration /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -165,6 +190,31 @@ class SqlServerRegistration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL server registration.
+
+        ## Example Usage
+        ### Creates or updates a SQL Server registration.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_registration = azure_native.azuredata.v20190724preview.SqlServerRegistration("sqlServerRegistration",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_server_registration_name="testsqlregistration",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredata/v20190724preview:SqlServerRegistration testsqlregistration /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlServerRegistrationArgs args: The arguments to use to populate this resource's properties.

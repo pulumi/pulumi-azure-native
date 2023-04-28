@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201
 {
     /// <summary>
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
+    /// 
+    /// ## Example Usage
+    /// ### RegisterAzure Storage ProtectionContainers
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionContainer = new AzureNative.RecoveryServices.V20210201.ProtectionContainer("protectionContainer", new()
+    ///     {
+    ///         ContainerName = "VMAppContainer;Compute;testRG;testSQL",
+    ///         FabricName = "Azure",
+    ///         Properties = new AzureNative.RecoveryServices.V20210201.Inputs.AzureVMAppContainerProtectionContainerArgs
+    ///         {
+    ///             BackupManagementType = "AzureWorkload",
+    ///             ContainerType = "VMAppContainer",
+    ///             FriendlyName = "testSQL",
+    ///             SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testSQL",
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         VaultName = "testvault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20210201:ProtectionContainer VMAppContainer;Compute;testRG;testSQL /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;testRG;testSQL 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20210201:ProtectionContainer")]
     public partial class ProtectionContainer : global::Pulumi.CustomResource

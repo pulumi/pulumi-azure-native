@@ -12,6 +12,45 @@ import * as utilities from "../../utilities";
  * represented in the status of this resource. All resources associated with this cloud services network will be part
  * of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
  * virtual machines and/or Hybrid AKS clusters.
+ *
+ * ## Example Usage
+ * ### Create or update cloud services network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudServicesNetwork = new azure_native.networkcloud.v20221212preview.CloudServicesNetwork("cloudServicesNetwork", {
+ *     additionalEgressEndpoints: [{
+ *         category: "azure-resource-management",
+ *         endpoints: [{
+ *             domainName: "https://storageaccountex.blob.core.windows.net",
+ *             port: 443,
+ *         }],
+ *     }],
+ *     cloudServicesNetworkName: "cloudServicesNetworkName",
+ *     enableDefaultEgressEndpoints: "False",
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud/v20221212preview:CloudServicesNetwork cloudServicesNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName 
+ * ```
  */
 export class CloudServicesNetwork extends pulumi.CustomResource {
     /**

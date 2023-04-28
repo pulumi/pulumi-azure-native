@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * VNETInfo contract. This contract is public and is a stripped down version of VNETInfoInternal
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20150801:SiteVNETConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/virtualNetworkConnections/{vnetName} 
+ * ```
  *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */

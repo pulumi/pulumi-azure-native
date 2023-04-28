@@ -194,6 +194,113 @@ class BlobDataSet(pulumi.CustomResource):
         API Version: 2021-08-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            container_name="C1",
+            data_set_name="Dataset1",
+            file_path="file21",
+            kind="Blob",
+            resource_group="SampleResourceGroup",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            storage_account_name="storage2",
+            subscription_id="433a8dfd-e5d5-4e77-ad86-90acdc75eb1a")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:BlobDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -218,6 +325,113 @@ class BlobDataSet(pulumi.CustomResource):
         An Azure storage blob data set.
         API Version: 2021-08-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            container_name="C1",
+            data_set_name="Dataset1",
+            file_path="file21",
+            kind="Blob",
+            resource_group="SampleResourceGroup",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            storage_account_name="storage2",
+            subscription_id="433a8dfd-e5d5-4e77-ad86-90acdc75eb1a")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set = azure_native.datashare.BlobDataSet("blobDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:BlobDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlobDataSetArgs args: The arguments to use to populate this resource's properties.

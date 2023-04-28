@@ -13,6 +13,76 @@ namespace Pulumi.AzureNative.ApiManagement
     /// API Operation details.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiOperation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiOperation = new AzureNative.ApiManagement.ApiOperation("apiOperation", new()
+    ///     {
+    ///         ApiId = "PetStoreTemplate2",
+    ///         Description = "This can only be done by the logged in user.",
+    ///         DisplayName = "createUser2",
+    ///         Method = "POST",
+    ///         OperationId = "newoperations",
+    ///         Request = new AzureNative.ApiManagement.Inputs.RequestContractArgs
+    ///         {
+    ///             Description = "Created user object",
+    ///             Headers = new[] {},
+    ///             QueryParameters = new[] {},
+    ///             Representations = new[]
+    ///             {
+    ///                 new AzureNative.ApiManagement.Inputs.RepresentationContractArgs
+    ///                 {
+    ///                     ContentType = "application/json",
+    ///                     SchemaId = "592f6c1d0af5840ca8897f0c",
+    ///                     TypeName = "User",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Responses = new[]
+    ///         {
+    ///             new AzureNative.ApiManagement.Inputs.ResponseContractArgs
+    ///             {
+    ///                 Description = "successful operation",
+    ///                 Headers = new[] {},
+    ///                 Representations = new[]
+    ///                 {
+    ///                     new AzureNative.ApiManagement.Inputs.RepresentationContractArgs
+    ///                     {
+    ///                         ContentType = "application/xml",
+    ///                     },
+    ///                     new AzureNative.ApiManagement.Inputs.RepresentationContractArgs
+    ///                     {
+    ///                         ContentType = "application/json",
+    ///                     },
+    ///                 },
+    ///                 StatusCode = 200,
+    ///             },
+    ///         },
+    ///         ServiceName = "apimService1",
+    ///         TemplateParameters = new[] {},
+    ///         UrlTemplate = "/user1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:ApiOperation newoperations /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/PetStoreTemplate2/operations/newoperations 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiOperation")]
     public partial class ApiOperation : global::Pulumi.CustomResource

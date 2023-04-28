@@ -11,6 +11,62 @@ import * as utilities from "../utilities";
  * An Azure resource which represents access to a suite of Maps REST APIs.
  * API Version: 2021-02-01.
  * Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Gen1 Account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.maps.Account("account", {
+ *     accountName: "myMapsAccount",
+ *     kind: "Gen1",
+ *     location: "global",
+ *     properties: {
+ *         disableLocalAuth: false,
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "S0",
+ *     },
+ *     tags: {
+ *         test: "true",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create Gen2 Account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.maps.Account("account", {
+ *     accountName: "myMapsAccount",
+ *     kind: "Gen2",
+ *     location: "global",
+ *     properties: {
+ *         disableLocalAuth: true,
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "G2",
+ *     },
+ *     tags: {
+ *         test: "true",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:maps:Account myMapsAccount /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

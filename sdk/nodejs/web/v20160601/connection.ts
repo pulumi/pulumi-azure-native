@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * API connection
+ *
+ * ## Example Usage
+ * ### Replace a connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connection = new azure_native.web.v20160601.Connection("connection", {
+ *     connectionName: "testManagedApi",
+ *     properties: {
+ *         api: {
+ *             id: "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+ *         },
+ *         customParameterValues: {},
+ *         displayName: "testManagedApi",
+ *         parameterValues: {},
+ *     },
+ *     resourceGroupName: "testResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20160601:Connection testManagedApi-1 /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1 
+ * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

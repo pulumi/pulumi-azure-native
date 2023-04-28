@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Custom domain resource payload.
+ *
+ * ## Example Usage
+ * ### CustomDomains_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customDomain = new azure_native.appplatform.v20230301preview.CustomDomain("customDomain", {
+ *     appName: "myapp",
+ *     domainName: "mydomain.com",
+ *     properties: {
+ *         certName: "mycert",
+ *         thumbprint: "934367bf1c97033f877db0f15cb1b586957d3133",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230301preview:CustomDomain mydomain.com /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/domains/mydomain.com 
+ * ```
  */
 export class CustomDomain extends pulumi.CustomResource {
     /**

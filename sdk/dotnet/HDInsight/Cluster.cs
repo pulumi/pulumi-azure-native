@@ -13,6 +13,1668 @@ namespace Pulumi.AzureNative.HDInsight
     /// The HDInsight cluster.
     /// API Version: 2021-06-01.
     /// Previous API Version: 2018-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create HDInsight cluster with Autoscale configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 ComponentVersion = 
+    ///                 {
+    ///                     { "Hadoop", "2.7" },
+    ///                 },
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "hadoop",
+    ///             },
+    ///             ClusterVersion = "3.6",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         AutoscaleConfiguration = new AzureNative.HDInsight.Inputs.AutoscaleArgs
+    ///                         {
+    ///                             Recurrence = new AzureNative.HDInsight.Inputs.AutoscaleRecurrenceArgs
+    ///                             {
+    ///                                 Schedule = new[]
+    ///                                 {
+    ///                                     new AzureNative.HDInsight.Inputs.AutoscaleScheduleArgs
+    ///                                     {
+    ///                                         Days = new[]
+    ///                                         {
+    ///                                             "Monday",
+    ///                                             "Tuesday",
+    ///                                             "Wednesday",
+    ///                                             "Thursday",
+    ///                                             "Friday",
+    ///                                         },
+    ///                                         TimeAndCapacity = new AzureNative.HDInsight.Inputs.AutoscaleTimeAndCapacityArgs
+    ///                                         {
+    ///                                             MaxInstanceCount = 3,
+    ///                                             MinInstanceCount = 3,
+    ///                                             Time = "09:00",
+    ///                                         },
+    ///                                     },
+    ///                                     new AzureNative.HDInsight.Inputs.AutoscaleScheduleArgs
+    ///                                     {
+    ///                                         Days = new[]
+    ///                                         {
+    ///                                             "Monday",
+    ///                                             "Tuesday",
+    ///                                             "Wednesday",
+    ///                                             "Thursday",
+    ///                                             "Friday",
+    ///                                         },
+    ///                                         TimeAndCapacity = new AzureNative.HDInsight.Inputs.AutoscaleTimeAndCapacityArgs
+    ///                                         {
+    ///                                             MaxInstanceCount = 6,
+    ///                                             MinInstanceCount = 6,
+    ///                                             Time = "18:00",
+    ///                                         },
+    ///                                     },
+    ///                                     new AzureNative.HDInsight.Inputs.AutoscaleScheduleArgs
+    ///                                     {
+    ///                                         Days = new[]
+    ///                                         {
+    ///                                             "Saturday",
+    ///                                             "Sunday",
+    ///                                         },
+    ///                                         TimeAndCapacity = new AzureNative.HDInsight.Inputs.AutoscaleTimeAndCapacityArgs
+    ///                                         {
+    ///                                             MaxInstanceCount = 2,
+    ///                                             MinInstanceCount = 2,
+    ///                                             Time = "09:00",
+    ///                                         },
+    ///                                     },
+    ///                                     new AzureNative.HDInsight.Inputs.AutoscaleScheduleArgs
+    ///                                     {
+    ///                                         Days = new[]
+    ///                                         {
+    ///                                             "Saturday",
+    ///                                             "Sunday",
+    ///                                         },
+    ///                                         TimeAndCapacity = new AzureNative.HDInsight.Inputs.AutoscaleTimeAndCapacityArgs
+    ///                                         {
+    ///                                             MaxInstanceCount = 4,
+    ///                                             MinInstanceCount = 4,
+    ///                                             Time = "18:00",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 TimeZone = "China Standard Time",
+    ///                             },
+    ///                         },
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D4_V2",
+    ///                         },
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         ScriptActions = new[] {},
+    ///                         TargetInstanceCount = 4,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "hdinsight-autoscale-tes-2019-06-18t05-49-16-591z",
+    ///                         IsDefault = true,
+    ///                         Key = "storagekey",
+    ///                         Name = "mystorage.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Standard",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Hadoop cluster with Azure Data Lake Storage Gen 2
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", "true" },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "Hadoop",
+    ///             },
+    ///             ClusterVersion = "3.6",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D3_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D3_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 4,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Small",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "zookeepernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         FileSystem = "default",
+    ///                         IsDefault = true,
+    ///                         Key = "storagekey",
+    ///                         Name = "mystorage.dfs.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Standard",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Hadoop on Linux cluster with SSH password
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", "true" },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "Hadoop",
+    ///             },
+    ///             ClusterVersion = "3.5",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D3_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D3_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 4,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Small",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "zookeepernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "containername",
+    ///                         IsDefault = true,
+    ///                         Key = "storagekey",
+    ///                         Name = "mystorage.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Standard",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Hadoop on Linux cluster with SSH public key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "Hadoop",
+    ///             },
+    ///             ClusterVersion = "3.5",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D3_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D3_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 4,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Small",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "zookeepernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "containername",
+    ///                         IsDefault = true,
+    ///                         Key = "storagekey",
+    ///                         Name = "mystorage.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Standard",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Kafka cluster with Kafka Rest Proxy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 ComponentVersion = 
+    ///                 {
+    ///                     { "Kafka", "2.1" },
+    ///                 },
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "kafka",
+    ///             },
+    ///             ClusterVersion = "4.0",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Large",
+    ///                         },
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         DataDisksGroups = new[]
+    ///                         {
+    ///                             new AzureNative.HDInsight.Inputs.DataDisksGroupsArgs
+    ///                             {
+    ///                                 DisksPerNode = 8,
+    ///                             },
+    ///                         },
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Large",
+    ///                         },
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Small",
+    ///                         },
+    ///                         Name = "zookeepernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D4_v2",
+    ///                         },
+    ///                         Name = "kafkamanagementnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "kafkauser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             KafkaRestProperties = new AzureNative.HDInsight.Inputs.KafkaRestPropertiesArgs
+    ///             {
+    ///                 ClientGroupInfo = new AzureNative.HDInsight.Inputs.ClientGroupInfoArgs
+    ///                 {
+    ///                     GroupId = "00000000-0000-0000-0000-111111111111",
+    ///                     GroupName = "Kafka security group name",
+    ///                 },
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "containername",
+    ///                         IsDefault = true,
+    ///                         Key = "storagekey",
+    ///                         Name = "mystorage.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Standard",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Secure Hadoop cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "Hadoop",
+    ///             },
+    ///             ClusterVersion = "3.5",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D3_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         ScriptActions = new[] {},
+    ///                         TargetInstanceCount = 2,
+    ///                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+    ///                             Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D3_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         ScriptActions = new[] {},
+    ///                         TargetInstanceCount = 4,
+    ///                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+    ///                             Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Small",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "zookeepernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         ScriptActions = new[] {},
+    ///                         TargetInstanceCount = 3,
+    ///                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+    ///                             Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsType = "Linux",
+    ///             SecurityProfile = new AzureNative.HDInsight.Inputs.SecurityProfileArgs
+    ///             {
+    ///                 ClusterUsersGroupDNs = new[]
+    ///                 {
+    ///                     "hdiusers",
+    ///                 },
+    ///                 DirectoryType = "ActiveDirectory",
+    ///                 Domain = "DomainName",
+    ///                 DomainUserPassword = "**********",
+    ///                 DomainUsername = "DomainUsername",
+    ///                 LdapsUrls = new[]
+    ///                 {
+    ///                     "ldaps://10.10.0.4:636",
+    ///                 },
+    ///                 OrganizationalUnitDN = "OU=Hadoop,DC=hdinsight,DC=test",
+    ///             },
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "containername",
+    ///                         IsDefault = true,
+    ///                         Key = "storage account key",
+    ///                         Name = "mystorage.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Premium",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Spark on Linux Cluster with SSH password
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 ComponentVersion = 
+    ///                 {
+    ///                     { "Spark", "2.0" },
+    ///                 },
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "Spark",
+    ///             },
+    ///             ClusterVersion = "3.5",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D12_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D4_V2",
+    ///                         },
+    ///                         MinInstanceCount = 1,
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 4,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "containername",
+    ///                         IsDefault = true,
+    ///                         Key = "storageapikey*",
+    ///                         Name = "mystorage.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Standard",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create cluster with TLS 1.2
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "Hadoop",
+    ///             },
+    ///             ClusterVersion = "3.6",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Large",
+    ///                         },
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Large",
+    ///                         },
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Small",
+    ///                         },
+    ///                         Name = "zookeepernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             MinSupportedTlsVersion = "1.2",
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "default8525",
+    ///                         IsDefault = true,
+    ///                         Key = "storagekey",
+    ///                         Name = "mystorage.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Standard",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create cluster with availability zones
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "ambari-conf", 
+    ///                     {
+    ///                         { "database-name", "{ambari database name}" },
+    ///                         { "database-server", "{sql server name}.database.windows.net" },
+    ///                         { "database-user-name", "**********" },
+    ///                         { "database-user-password", "**********" },
+    ///                     } },
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                     { "hive-env", 
+    ///                     {
+    ///                         { "hive_database", "Existing MSSQL Server database with SQL authentication" },
+    ///                         { "hive_database_name", "{hive metastore name}" },
+    ///                         { "hive_database_type", "mssql" },
+    ///                         { "hive_existing_mssql_server_database", "{hive metastore name}" },
+    ///                         { "hive_existing_mssql_server_host", "{sql server name}.database.windows.net" },
+    ///                         { "hive_hostname", "{sql server name}.database.windows.net" },
+    ///                     } },
+    ///                     { "hive-site", 
+    ///                     {
+    ///                         { "javax.jdo.option.ConnectionDriverName", "com.microsoft.sqlserver.jdbc.SQLServerDriver" },
+    ///                         { "javax.jdo.option.ConnectionPassword", "**********!" },
+    ///                         { "javax.jdo.option.ConnectionURL", "jdbc:sqlserver://{sql server name}.database.windows.net;database={hive metastore name};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300;sendStringParametersAsUnicode=true;prepareSQL=0" },
+    ///                         { "javax.jdo.option.ConnectionUserName", "**********" },
+    ///                     } },
+    ///                     { "oozie-env", 
+    ///                     {
+    ///                         { "oozie_database", "Existing MSSQL Server database with SQL authentication" },
+    ///                         { "oozie_database_name", "{oozie metastore name}" },
+    ///                         { "oozie_database_type", "mssql" },
+    ///                         { "oozie_existing_mssql_server_database", "{oozie metastore name}" },
+    ///                         { "oozie_existing_mssql_server_host", "{sql server name}.database.windows.net" },
+    ///                         { "oozie_hostname", "{sql server name}.database.windows.net" },
+    ///                     } },
+    ///                     { "oozie-site", 
+    ///                     {
+    ///                         { "oozie.db.schema.name", "oozie" },
+    ///                         { "oozie.service.JPAService.jdbc.driver", "com.microsoft.sqlserver.jdbc.SQLServerDriver" },
+    ///                         { "oozie.service.JPAService.jdbc.password", "**********" },
+    ///                         { "oozie.service.JPAService.jdbc.url", "jdbc:sqlserver://{sql server name}.database.windows.net;database={oozie metastore name};encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300;sendStringParametersAsUnicode=true;prepareSQL=0" },
+    ///                         { "oozie.service.JPAService.jdbc.username", "**********" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "hadoop",
+    ///             },
+    ///             ClusterVersion = "3.6",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "standard_d3",
+    ///                         },
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+    ///                             Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "standard_d3",
+    ///                         },
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+    ///                             Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "containername",
+    ///                         IsDefault = true,
+    ///                         Key = "storage account key",
+    ///                         Name = "mystorage",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create cluster with compute isolation properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "hadoop",
+    ///             },
+    ///             ClusterVersion = "3.6",
+    ///             ComputeIsolationProperties = new AzureNative.HDInsight.Inputs.ComputeIsolationPropertiesArgs
+    ///             {
+    ///                 EnableComputeIsolation = true,
+    ///             },
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "standard_d3",
+    ///                         },
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "standard_d3",
+    ///                         },
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "containername",
+    ///                         IsDefault = true,
+    ///                         Key = "storage account key",
+    ///                         Name = "mystorage",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create cluster with encryption at host
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "Hadoop",
+    ///             },
+    ///             ClusterVersion = "3.6",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_DS14_v2",
+    ///                         },
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_DS14_v2",
+    ///                         },
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_DS14_v2",
+    ///                         },
+    ///                         Name = "zookeepernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DiskEncryptionProperties = new AzureNative.HDInsight.Inputs.DiskEncryptionPropertiesArgs
+    ///             {
+    ///                 EncryptionAtHost = true,
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "default8525",
+    ///                         IsDefault = true,
+    ///                         Key = "storagekey",
+    ///                         Name = "mystorage.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Standard",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create cluster with encryption in transit
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "Hadoop",
+    ///             },
+    ///             ClusterVersion = "3.6",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Large",
+    ///                         },
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Large",
+    ///                         },
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Small",
+    ///                         },
+    ///                         Name = "zookeepernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 3,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             EncryptionInTransitProperties = new AzureNative.HDInsight.Inputs.EncryptionInTransitPropertiesArgs
+    ///             {
+    ///                 IsEncryptionInTransitEnabled = true,
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "default8525",
+    ///                         IsDefault = true,
+    ///                         Key = "storagekey",
+    ///                         Name = "mystorage.blob.core.windows.net",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Tier = "Standard",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create cluster with network properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.HDInsight.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ClusterCreatePropertiesArgs
+    ///         {
+    ///             ClusterDefinition = new AzureNative.HDInsight.Inputs.ClusterDefinitionArgs
+    ///             {
+    ///                 Configurations = 
+    ///                 {
+    ///                     { "gateway", 
+    ///                     {
+    ///                         { "restAuthCredential.isEnabled", true },
+    ///                         { "restAuthCredential.password", "**********" },
+    ///                         { "restAuthCredential.username", "admin" },
+    ///                     } },
+    ///                 },
+    ///                 Kind = "hadoop",
+    ///             },
+    ///             ClusterVersion = "3.6",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "standard_d3",
+    ///                         },
+    ///                         Name = "headnode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+    ///                             Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "standard_d3",
+    ///                         },
+    ///                         Name = "workernode",
+    ///                         OsProfile = new AzureNative.HDInsight.Inputs.OsProfileArgs
+    ///                         {
+    ///                             LinuxOperatingSystemProfile = new AzureNative.HDInsight.Inputs.LinuxOperatingSystemProfileArgs
+    ///                             {
+    ///                                 Password = "**********",
+    ///                                 SshProfile = new AzureNative.HDInsight.Inputs.SshProfileArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.HDInsight.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             CertificateData = "**********",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 Username = "sshuser",
+    ///                             },
+    ///                         },
+    ///                         TargetInstanceCount = 2,
+    ///                         VirtualNetworkProfile = new AzureNative.HDInsight.Inputs.VirtualNetworkProfileArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+    ///                             Subnet = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             NetworkProperties = new AzureNative.HDInsight.Inputs.NetworkPropertiesArgs
+    ///             {
+    ///                 PrivateLink = "Enabled",
+    ///                 ResourceProviderConnection = "Outbound",
+    ///             },
+    ///             OsType = "Linux",
+    ///             StorageProfile = new AzureNative.HDInsight.Inputs.StorageProfileArgs
+    ///             {
+    ///                 Storageaccounts = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         Container = "containername",
+    ///                         IsDefault = true,
+    ///                         Key = "storage account key",
+    ///                         Name = "mystorage",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hdinsight:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

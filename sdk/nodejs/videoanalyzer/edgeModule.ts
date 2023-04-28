@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * The representation of an edge module.
  * API Version: 2021-11-01-preview.
  * Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Registers an edge module.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const edgeModule = new azure_native.videoanalyzer.EdgeModule("edgeModule", {
+ *     accountName: "testaccount2",
+ *     edgeModuleName: "edgeModule1",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:videoanalyzer:EdgeModule edgeModule1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/edgeModules/edgeModule1 
+ * ```
  */
 export class EdgeModule extends pulumi.CustomResource {
     /**

@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20201201
 {
     /// <summary>
     /// Hybrid Connection contract. This is used to configure a Hybrid Connection.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201201:WebAppHybridConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:WebAppHybridConnection")]
     public partial class WebAppHybridConnection : global::Pulumi.CustomResource

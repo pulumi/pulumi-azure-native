@@ -144,6 +144,36 @@ class FileImport(pulumi.CustomResource):
         """
         Represents a file import in Azure Security Insights.
 
+        ## Example Usage
+        ### Create a file import.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_import = azure_native.securityinsights.v20230401preview.FileImport("fileImport",
+            content_type="StixIndicator",
+            file_import_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            import_file=azure_native.securityinsights.v20230401preview.FileMetadataArgs(
+                file_format="JSON",
+                file_name="myFile.json",
+                file_size=4653,
+            ),
+            ingestion_mode="IngestAnyValidRecords",
+            resource_group_name="myRg",
+            source="mySource",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:FileImport 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/FileImports/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'FileImportContentType']] content_type: The content type of this file.
@@ -162,6 +192,36 @@ class FileImport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a file import in Azure Security Insights.
+
+        ## Example Usage
+        ### Create a file import.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_import = azure_native.securityinsights.v20230401preview.FileImport("fileImport",
+            content_type="StixIndicator",
+            file_import_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            import_file=azure_native.securityinsights.v20230401preview.FileMetadataArgs(
+                file_format="JSON",
+                file_name="myFile.json",
+                file_size=4653,
+            ),
+            ingestion_mode="IngestAnyValidRecords",
+            resource_group_name="myRg",
+            source="mySource",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:FileImport 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/FileImports/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FileImportArgs args: The arguments to use to populate this resource's properties.

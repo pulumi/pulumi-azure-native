@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.AadIam
     /// PrivateLink Policy configuration object.
     /// API Version: 2020-03-01.
     /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### privateLinkPolicyCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkForAzureAd = new AzureNative.AadIam.PrivateLinkForAzureAd("privateLinkForAzureAd", new()
+    ///     {
+    ///         AllTenants = false,
+    ///         Name = "myOrgPrivateLinkPolicy",
+    ///         OwnerTenantId = "950f8bca-bf4d-4a41-ad10-034e792a243d",
+    ///         PolicyName = "ddb1",
+    ///         ResourceGroup = "myOrgVnetRG",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "myOrgVnetPrivateLink",
+    ///         SubscriptionId = "57849194-ea1f-470b-abda-d195b25634c1",
+    ///         Tenants = new[]
+    ///         {
+    ///             "3616657d-1c80-41ae-9d83-2a2776f2c9be",
+    ///             "727b6ef1-18ab-4627-ac95-3f9cd945ed87",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### privateLinkPolicyMinCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkForAzureAd = new AzureNative.AadIam.PrivateLinkForAzureAd("privateLinkForAzureAd", new()
+    ///     {
+    ///         AllTenants = false,
+    ///         Name = "myOrgPrivateLinkPolicy",
+    ///         OwnerTenantId = "950f8bca-bf4d-4a41-ad10-034e792a243d",
+    ///         PolicyName = "ddb1",
+    ///         ResourceGroup = "myOrgVnetRG",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "myOrgVnetPrivateLink",
+    ///         SubscriptionId = "57849194-ea1f-470b-abda-d195b25634c1",
+    ///         Tenants = new[]
+    ///         {
+    ///             "3616657d-1c80-41ae-9d83-2a2776f2c9be",
+    ///             "727b6ef1-18ab-4627-ac95-3f9cd945ed87",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:aadiam:privateLinkForAzureAd myOrgPrivateLinkPolicy /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam:privateLinkForAzureAd")]
     public partial class PrivateLinkForAzureAd : global::Pulumi.CustomResource

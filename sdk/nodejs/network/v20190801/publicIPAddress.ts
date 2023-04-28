@@ -9,6 +9,64 @@ import * as utilities from "../../utilities";
 
 /**
  * Public IP address resource.
+ *
+ * ## Example Usage
+ * ### Create public IP address DNS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publicIPAddress = new azure_native.network.v20190801.PublicIPAddress("publicIPAddress", {
+ *     dnsSettings: {
+ *         domainNameLabel: "dnslbl",
+ *     },
+ *     location: "eastus",
+ *     publicIpAddressName: "test-ip",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### Create public IP address allocation method
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publicIPAddress = new azure_native.network.v20190801.PublicIPAddress("publicIPAddress", {
+ *     idleTimeoutInMinutes: 10,
+ *     location: "eastus",
+ *     publicIPAddressVersion: "IPv4",
+ *     publicIPAllocationMethod: "Static",
+ *     publicIpAddressName: "test-ip",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create public IP address defaults
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publicIPAddress = new azure_native.network.v20190801.PublicIPAddress("publicIPAddress", {
+ *     location: "eastus",
+ *     publicIpAddressName: "test-ip",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20190801:PublicIPAddress testDNS-ip /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip 
+ * ```
  */
 export class PublicIPAddress extends pulumi.CustomResource {
     /**

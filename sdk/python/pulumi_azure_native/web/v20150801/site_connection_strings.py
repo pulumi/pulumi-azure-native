@@ -169,6 +169,13 @@ class SiteConnectionStrings(pulumi.CustomResource):
                  __props__=None):
         """
         String dictionary resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:SiteConnectionStrings myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/connectionstrings 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -189,6 +196,13 @@ class SiteConnectionStrings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         String dictionary resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:SiteConnectionStrings myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/connectionstrings 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SiteConnectionStringsArgs args: The arguments to use to populate this resource's properties.

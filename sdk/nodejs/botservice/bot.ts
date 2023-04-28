@@ -11,6 +11,60 @@ import * as utilities from "../utilities";
  * Bot resource definition
  * API Version: 2022-09-15.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Bot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bot = new azure_native.botservice.Bot("bot", {
+ *     kind: "sdk",
+ *     location: "West US",
+ *     properties: {
+ *         cmekKeyVaultUrl: "https://myCmekKey",
+ *         description: "The description of the bot",
+ *         developerAppInsightKey: "appinsightskey",
+ *         developerAppInsightsApiKey: "appinsightsapikey",
+ *         developerAppInsightsApplicationId: "appinsightsappid",
+ *         disableLocalAuth: true,
+ *         displayName: "The Name of the bot",
+ *         endpoint: "http://mybot.coffee",
+ *         iconUrl: "http://myicon",
+ *         isCmekEnabled: true,
+ *         luisAppIds: [
+ *             "luisappid1",
+ *             "luisappid2",
+ *         ],
+ *         luisKey: "luiskey",
+ *         msaAppId: "exampleappid",
+ *         msaAppMSIResourceId: "/subscriptions/foo/resourcegroups/bar/providers/microsoft.managedidentity/userassignedidentities/sampleId",
+ *         msaAppTenantId: "exampleapptenantid",
+ *         msaAppType: "UserAssignedMSI",
+ *         publicNetworkAccess: "Enabled",
+ *         schemaTransformationVersion: "1.0",
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ *     sku: {
+ *         name: "S1",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:botservice:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.BotService/botServices/samplebotname 
+ * ```
  */
 export class Bot extends pulumi.CustomResource {
     /**

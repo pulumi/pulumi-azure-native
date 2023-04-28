@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.StorSimple
     /// The backup schedule.
     /// API Version: 2017-06-01.
     /// Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### BackupSchedulesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupSchedule = new AzureNative.StorSimple.BackupSchedule("backupSchedule", new()
+    ///     {
+    ///         BackupPolicyName = "BkUpPolicy01ForSDKTest",
+    ///         BackupScheduleName = "schedule2",
+    ///         BackupType = AzureNative.StorSimple.BackupType.CloudSnapshot,
+    ///         DeviceName = "Device05ForSDKTest",
+    ///         Kind = AzureNative.StorSimple.Kind.Series8000,
+    ///         ManagerName = "ManagerForSDKTest1",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         RetentionCount = 1,
+    ///         ScheduleRecurrence = new AzureNative.StorSimple.Inputs.ScheduleRecurrenceArgs
+    ///         {
+    ///             RecurrenceType = AzureNative.StorSimple.RecurrenceType.Weekly,
+    ///             RecurrenceValue = 1,
+    ///             WeeklyDaysList = new[]
+    ///             {
+    ///                 AzureNative.StorSimple.DayOfWeek.Friday,
+    ///                 AzureNative.StorSimple.DayOfWeek.Thursday,
+    ///                 AzureNative.StorSimple.DayOfWeek.Monday,
+    ///             },
+    ///         },
+    ///         ScheduleStatus = AzureNative.StorSimple.ScheduleStatus.Enabled,
+    ///         StartTime = "2017-06-24T01:00:00Z",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple:BackupSchedule schedule2 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/backupPolicies/BkUpPolicy01ForSDKTest/schedules/schedule2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:BackupSchedule")]
     public partial class BackupSchedule : global::Pulumi.CustomResource

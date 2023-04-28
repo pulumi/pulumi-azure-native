@@ -182,6 +182,55 @@ class OnlineEndpoint(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdate Online Endpoint.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        online_endpoint = azure_native.machinelearningservices.OnlineEndpoint("onlineEndpoint",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            online_endpoint_properties=azure_native.machinelearningservices.OnlineEndpointArgs(
+                auth_mode="AMLToken",
+                compute="string",
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                traffic={
+                    "string": 1,
+                },
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:OnlineEndpoint string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Online Endpoint name.
@@ -203,6 +252,55 @@ class OnlineEndpoint(pulumi.CustomResource):
         """
         API Version: 2022-10-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdate Online Endpoint.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        online_endpoint = azure_native.machinelearningservices.OnlineEndpoint("onlineEndpoint",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            online_endpoint_properties=azure_native.machinelearningservices.OnlineEndpointArgs(
+                auth_mode="AMLToken",
+                compute="string",
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                traffic={
+                    "string": 1,
+                },
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:OnlineEndpoint string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OnlineEndpointInitArgs args: The arguments to use to populate this resource's properties.

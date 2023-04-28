@@ -167,6 +167,38 @@ class AutoScaleVCore(pulumi.CustomResource):
         API Version: 2021-01-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create auto scale v-core
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        auto_scale_v_core = azure_native.powerbidedicated.AutoScaleVCore("autoScaleVCore",
+            capacity_limit=10,
+            capacity_object_id="a28f00bd-5330-4572-88f1-fa883e074785",
+            location="West US",
+            resource_group_name="TestRG",
+            sku=azure_native.powerbidedicated.AutoScaleVCoreSkuArgs(
+                capacity=0,
+                name="AutoScale",
+                tier="AutoScale",
+            ),
+            tags={
+                "testKey": "testValue",
+            },
+            vcore_name="testvcore")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbidedicated:AutoScaleVCore testvcore /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.PowerBIDedicated/autoScaleVCores/testvcore 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] capacity_limit: The maximum capacity of an auto scale v-core resource.
@@ -188,6 +220,38 @@ class AutoScaleVCore(pulumi.CustomResource):
         Represents an instance of an auto scale v-core resource.
         API Version: 2021-01-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create auto scale v-core
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        auto_scale_v_core = azure_native.powerbidedicated.AutoScaleVCore("autoScaleVCore",
+            capacity_limit=10,
+            capacity_object_id="a28f00bd-5330-4572-88f1-fa883e074785",
+            location="West US",
+            resource_group_name="TestRG",
+            sku=azure_native.powerbidedicated.AutoScaleVCoreSkuArgs(
+                capacity=0,
+                name="AutoScale",
+                tier="AutoScale",
+            ),
+            tags={
+                "testKey": "testValue",
+            },
+            vcore_name="testvcore")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbidedicated:AutoScaleVCore testvcore /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.PowerBIDedicated/autoScaleVCores/testvcore 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AutoScaleVCoreArgs args: The arguments to use to populate this resource's properties.

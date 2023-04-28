@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.EventHub
     /// Properties of the PrivateEndpointConnection.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpacePrivateEndPointConnectionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.EventHub.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         NamespaceName = "sdk-Namespace-2924",
+    ///         PrivateEndpoint = new AzureNative.EventHub.Inputs.PrivateEndpointArgs
+    ///         {
+    ///             Id = "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-EventHub-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
+    ///         },
+    ///         PrivateEndpointConnectionName = "privateEndpointConnectionName",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.EventHub.Inputs.ConnectionStateArgs
+    ///         {
+    ///             Description = "testing",
+    ///             Status = "Rejected",
+    ///         },
+    ///         ProvisioningState = "Succeeded",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:PrivateEndpointConnection 928c44d5-b7c6-423b-b6fa-811e0c27b3e0 /subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-EventHub-4794/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5828/privateEndpointConnections/928c44d5-b7c6-423b-b6fa-811e0c27b3e0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

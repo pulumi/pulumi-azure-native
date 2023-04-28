@@ -183,6 +183,34 @@ class NetworkManager(pulumi.CustomResource):
         """
         The Managed Network resource
 
+        ## Example Usage
+        ### Put Network Manager
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_manager = azure_native.network.v20210201preview.NetworkManager("networkManager",
+            description="My Test Network Manager",
+            display_name="TestNetworkManager",
+            network_manager_name="TestNetworkManager",
+            network_manager_scope_accesses=["Connectivity"],
+            network_manager_scopes=azure_native.network.v20210201preview.NetworkManagerPropertiesNetworkManagerScopesArgs(
+                management_groups=["/Microsoft.Management/testmg"],
+                subscriptions=["/subscriptions/00000000-0000-0000-0000-000000000000"],
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NetworkManager TestNetworkManager /subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/TestNetworkManager 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the network manager.
@@ -203,6 +231,34 @@ class NetworkManager(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Managed Network resource
+
+        ## Example Usage
+        ### Put Network Manager
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_manager = azure_native.network.v20210201preview.NetworkManager("networkManager",
+            description="My Test Network Manager",
+            display_name="TestNetworkManager",
+            network_manager_name="TestNetworkManager",
+            network_manager_scope_accesses=["Connectivity"],
+            network_manager_scopes=azure_native.network.v20210201preview.NetworkManagerPropertiesNetworkManagerScopesArgs(
+                management_groups=["/Microsoft.Management/testmg"],
+                subscriptions=["/subscriptions/00000000-0000-0000-0000-000000000000"],
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NetworkManager TestNetworkManager /subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/TestNetworkManager 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkManagerArgs args: The arguments to use to populate this resource's properties.

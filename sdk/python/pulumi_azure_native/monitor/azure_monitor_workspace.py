@@ -98,6 +98,28 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
         API Version: 2021-06-03-preview.
         Previous API Version: 2021-06-03-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_monitor_workspace = azure_native.monitor.AzureMonitorWorkspace("azureMonitorWorkspace",
+            azure_monitor_workspace_name="myAzureMonitorWorkspace",
+            location="eastus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:AzureMonitorWorkspace myAzureMonitorWorkspace /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/myAzureMonitorWorkspace 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_monitor_workspace_name: The name of the Azure Monitor workspace.  The name is case insensitive
@@ -115,6 +137,28 @@ class AzureMonitorWorkspace(pulumi.CustomResource):
         An Azure Monitor Workspace definition
         API Version: 2021-06-03-preview.
         Previous API Version: 2021-06-03-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_monitor_workspace = azure_native.monitor.AzureMonitorWorkspace("azureMonitorWorkspace",
+            azure_monitor_workspace_name="myAzureMonitorWorkspace",
+            location="eastus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:monitor:AzureMonitorWorkspace myAzureMonitorWorkspace /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/myAzureMonitorWorkspace 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AzureMonitorWorkspaceArgs args: The arguments to use to populate this resource's properties.

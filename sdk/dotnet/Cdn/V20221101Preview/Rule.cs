@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
 {
     /// <summary>
     /// Friendly Rules name mapping to the any Rules or secret related information.
+    /// 
+    /// ## Example Usage
+    /// ### Rules_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rule = new AzureNative.Cdn.V20221101Preview.Rule("rule", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Cdn.V20221101Preview.Inputs.DeliveryRuleResponseHeaderActionArgs
+    ///             {
+    ///                 Name = "ModifyResponseHeader",
+    ///                 Parameters = new AzureNative.Cdn.V20221101Preview.Inputs.HeaderActionParametersArgs
+    ///                 {
+    ///                     HeaderAction = "Overwrite",
+    ///                     HeaderName = "X-CDN",
+    ///                     TypeName = "DeliveryRuleHeaderActionParameters",
+    ///                     Value = "MSFT",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Conditions = new[]
+    ///         {
+    ///             new AzureNative.Cdn.V20221101Preview.Inputs.DeliveryRuleRequestMethodConditionArgs
+    ///             {
+    ///                 Name = "RequestMethod",
+    ///                 Parameters = new AzureNative.Cdn.V20221101Preview.Inputs.RequestMethodMatchConditionParametersArgs
+    ///                 {
+    ///                     MatchValues = new[]
+    ///                     {
+    ///                         "GET",
+    ///                     },
+    ///                     NegateCondition = false,
+    ///                     Operator = "Equal",
+    ///                     TypeName = "DeliveryRuleRequestMethodConditionParameters",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Order = 1,
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         RuleName = "rule1",
+    ///         RuleSetName = "ruleSet1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20221101preview:Rule rule1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/rulesets/ruleSet1/rules/rule1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20221101preview:Rule")]
     public partial class Rule : global::Pulumi.CustomResource

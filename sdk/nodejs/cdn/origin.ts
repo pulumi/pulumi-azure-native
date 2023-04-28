@@ -11,6 +11,40 @@ import * as utilities from "../utilities";
  * CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
  * API Version: 2021-06-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Origins_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const origin = new azure_native.cdn.Origin("origin", {
+ *     enabled: true,
+ *     endpointName: "endpoint1",
+ *     hostName: "www.someDomain.net",
+ *     httpPort: 80,
+ *     httpsPort: 443,
+ *     originHostHeader: "www.someDomain.net",
+ *     originName: "www-someDomain-net",
+ *     priority: 1,
+ *     privateLinkApprovalMessage: "Please approve the connection request for this Private Link",
+ *     privateLinkLocation: "eastus",
+ *     privateLinkResourceId: "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     weight: 50,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:Origin www-someDomain-net /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/www-someDomain-net 
+ * ```
  */
 export class Origin extends pulumi.CustomResource {
     /**

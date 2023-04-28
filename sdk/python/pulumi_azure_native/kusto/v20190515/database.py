@@ -129,6 +129,30 @@ class Database(pulumi.CustomResource):
         """
         Class representing a Kusto database.
 
+        ## Example Usage
+        ### KustoDatabasesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.kusto.v20190515.Database("database",
+            cluster_name="KustoClusterRPTest4",
+            database_name="KustoDatabase8",
+            location="westus",
+            resource_group_name="kustorptest",
+            soft_delete_period="P1D")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20190515:Database KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -146,6 +170,30 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Kusto database.
+
+        ## Example Usage
+        ### KustoDatabasesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.kusto.v20190515.Database("database",
+            cluster_name="KustoClusterRPTest4",
+            database_name="KustoDatabase8",
+            location="westus",
+            resource_group_name="kustorptest",
+            soft_delete_period="P1D")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20190515:Database KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Billing.V20191001Preview
 {
     /// <summary>
     /// The role assignment
+    /// 
+    /// ## Example Usage
+    /// ### PutEnrollmentAdministratorRoleAssignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var billingRoleAssignmentByBillingAccount = new AzureNative.Billing.V20191001Preview.BillingRoleAssignmentByBillingAccount("billingRoleAssignmentByBillingAccount", new()
+    ///     {
+    ///         BillingAccountName = "{billingAccountName}",
+    ///         BillingRoleAssignmentName = "{billingRoleAssignmentName}",
+    ///         PrincipalId = "99a1a759-30dd-42c2-828c-db398826bb67",
+    ///         PrincipalTenantId = "7ca289b9-c32d-4f01-8566-7ff93261d76f",
+    ///         RoleDefinitionId = "/providers/Microsoft.Billing/billingAccounts/7898901/billingRoleDefinitions/9f1983cb-2574-400c-87e9-34cf8e2280db",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:billing/v20191001preview:BillingRoleAssignmentByBillingAccount 9dfd08c2-62a3-4d47-85bd-1cdba1408402 /providers/Microsoft.Billing/billingAccounts/7898901/billingRoleAssignments/9dfd08c2-62a3-4d47-85bd-1cdba1408402 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:billing/v20191001preview:BillingRoleAssignmentByBillingAccount")]
     public partial class BillingRoleAssignmentByBillingAccount : global::Pulumi.CustomResource

@@ -147,6 +147,41 @@ class AlertsSuppressionRule(pulumi.CustomResource):
         """
         Describes the suppression rule
 
+        ## Example Usage
+        ### Update or create suppression rule for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        alerts_suppression_rule = azure_native.security.v20190101preview.AlertsSuppressionRule("alertsSuppressionRule",
+            alert_type="IpAnomaly",
+            alerts_suppression_rule_name="dismissIpAnomalyAlerts",
+            comment="Test VM",
+            expiration_date_utc="2019-12-01T19:50:47.083633Z",
+            reason="FalsePositive",
+            state="Enabled",
+            suppression_alerts_scope=azure_native.security.v20190101preview.SuppressionAlertsScopeResponseArgs(
+                all_of=[
+                    azure_native.security.v20190101preview.ScopeElementArgs(
+                        field="entities.ip.address",
+                    ),
+                    azure_native.security.v20190101preview.ScopeElementArgs(
+                        field="entities.process.commandline",
+                    ),
+                ],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20190101preview:AlertsSuppressionRule dismissIpAnomalyAlerts /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/alertsSuppressionRules/dismissIpAnomalyAlerts 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_type: Type of the alert to automatically suppress. For all alert types, use '*'
@@ -165,6 +200,41 @@ class AlertsSuppressionRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes the suppression rule
+
+        ## Example Usage
+        ### Update or create suppression rule for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        alerts_suppression_rule = azure_native.security.v20190101preview.AlertsSuppressionRule("alertsSuppressionRule",
+            alert_type="IpAnomaly",
+            alerts_suppression_rule_name="dismissIpAnomalyAlerts",
+            comment="Test VM",
+            expiration_date_utc="2019-12-01T19:50:47.083633Z",
+            reason="FalsePositive",
+            state="Enabled",
+            suppression_alerts_scope=azure_native.security.v20190101preview.SuppressionAlertsScopeResponseArgs(
+                all_of=[
+                    azure_native.security.v20190101preview.ScopeElementArgs(
+                        field="entities.ip.address",
+                    ),
+                    azure_native.security.v20190101preview.ScopeElementArgs(
+                        field="entities.process.commandline",
+                    ),
+                ],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20190101preview:AlertsSuppressionRule dismissIpAnomalyAlerts /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/alertsSuppressionRules/dismissIpAnomalyAlerts 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AlertsSuppressionRuleArgs args: The arguments to use to populate this resource's properties.

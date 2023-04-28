@@ -165,6 +165,106 @@ class Blueprint(pulumi.CustomResource):
         """
         Represents a Blueprint definition.
 
+        ## Example Usage
+        ### ManagementGroupBlueprint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blueprint = azure_native.blueprint.v20181101preview.Blueprint("blueprint",
+            blueprint_name="simpleBlueprint",
+            description="blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+            parameters={
+                "costCenter": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="force cost center tag for all resources under given subscription.",
+                    type="string",
+                ),
+                "owners": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="assign owners to subscription along with blueprint assignment.",
+                    type="array",
+                ),
+                "storageAccountType": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="storage account type.",
+                    type="string",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.v20181101preview.ResourceGroupDefinitionArgs(
+                    description="Contains storageAccounts that collect all shoebox logs.",
+                    display_name="storage resource group",
+                ),
+            },
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+            target_scope="subscription")
+
+        ```
+        ### ResourceGroupWithTags
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blueprint = azure_native.blueprint.v20181101preview.Blueprint("blueprint",
+            blueprint_name="simpleBlueprint",
+            description="An example blueprint containing an RG with two tags.",
+            resource_groups={
+                "myRGName": azure_native.blueprint.v20181101preview.ResourceGroupDefinitionArgs(
+                    display_name="My Resource Group",
+                    location="westus",
+                    name="myRGName",
+                    tags={
+                        "costcenter": "123456",
+                        "nameOnlyTag": "",
+                    },
+                ),
+            },
+            resource_scope="providers/Microsoft.Management/managementGroups/{ManagementGroupId}",
+            target_scope="subscription")
+
+        ```
+        ### SubscriptionBlueprint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blueprint = azure_native.blueprint.v20181101preview.Blueprint("blueprint",
+            blueprint_name="simpleBlueprint",
+            description="blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+            parameters={
+                "costCenter": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="force cost center tag for all resources under given subscription.",
+                    type="string",
+                ),
+                "owners": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="assign owners to subscription along with blueprint assignment.",
+                    type="array",
+                ),
+                "storageAccountType": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="storage account type.",
+                    type="string",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.v20181101preview.ResourceGroupDefinitionArgs(
+                    description="Contains storageAccounts that collect all shoebox logs.",
+                    display_name="storage resource group",
+                ),
+            },
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000",
+            target_scope="subscription")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20181101preview:Blueprint simpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blueprint_name: Name of the blueprint definition.
@@ -184,6 +284,106 @@ class Blueprint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Blueprint definition.
+
+        ## Example Usage
+        ### ManagementGroupBlueprint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blueprint = azure_native.blueprint.v20181101preview.Blueprint("blueprint",
+            blueprint_name="simpleBlueprint",
+            description="blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+            parameters={
+                "costCenter": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="force cost center tag for all resources under given subscription.",
+                    type="string",
+                ),
+                "owners": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="assign owners to subscription along with blueprint assignment.",
+                    type="array",
+                ),
+                "storageAccountType": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="storage account type.",
+                    type="string",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.v20181101preview.ResourceGroupDefinitionArgs(
+                    description="Contains storageAccounts that collect all shoebox logs.",
+                    display_name="storage resource group",
+                ),
+            },
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+            target_scope="subscription")
+
+        ```
+        ### ResourceGroupWithTags
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blueprint = azure_native.blueprint.v20181101preview.Blueprint("blueprint",
+            blueprint_name="simpleBlueprint",
+            description="An example blueprint containing an RG with two tags.",
+            resource_groups={
+                "myRGName": azure_native.blueprint.v20181101preview.ResourceGroupDefinitionArgs(
+                    display_name="My Resource Group",
+                    location="westus",
+                    name="myRGName",
+                    tags={
+                        "costcenter": "123456",
+                        "nameOnlyTag": "",
+                    },
+                ),
+            },
+            resource_scope="providers/Microsoft.Management/managementGroups/{ManagementGroupId}",
+            target_scope="subscription")
+
+        ```
+        ### SubscriptionBlueprint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blueprint = azure_native.blueprint.v20181101preview.Blueprint("blueprint",
+            blueprint_name="simpleBlueprint",
+            description="blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+            parameters={
+                "costCenter": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="force cost center tag for all resources under given subscription.",
+                    type="string",
+                ),
+                "owners": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="assign owners to subscription along with blueprint assignment.",
+                    type="array",
+                ),
+                "storageAccountType": azure_native.blueprint.v20181101preview.ParameterDefinitionArgs(
+                    display_name="storage account type.",
+                    type="string",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.v20181101preview.ResourceGroupDefinitionArgs(
+                    description="Contains storageAccounts that collect all shoebox logs.",
+                    display_name="storage resource group",
+                ),
+            },
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000",
+            target_scope="subscription")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20181101preview:Blueprint simpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlueprintArgs args: The arguments to use to populate this resource's properties.

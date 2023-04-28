@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Insights.V20150501
 {
     /// <summary>
     /// Properties that define a Continuous Export configuration.
+    /// 
+    /// ## Example Usage
+    /// ### ExportConfigurationUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exportConfiguration = new AzureNative.Insights.V20150501.ExportConfiguration("exportConfiguration", new()
+    ///     {
+    ///         DestinationAccountId = "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.ClassicStorage/storageAccounts/mystorageblob",
+    ///         DestinationAddress = "https://mystorageblob.blob.core.windows.net/fchentest?sv=2015-04-05&amp;sr=c&amp;sig=token",
+    ///         DestinationStorageLocationId = "eastus",
+    ///         DestinationStorageSubscriptionId = "subid",
+    ///         DestinationType = "Blob",
+    ///         ExportId = "uGOoki0jQsyEs3IdQ83Q4QsNr4=",
+    ///         IsEnabled = "true",
+    ///         NotificationQueueEnabled = "false",
+    ///         NotificationQueueUri = "",
+    ///         RecordTypes = "Requests, Event, Exceptions, Metrics, PageViews, PageViewPerformance, Rdd, PerformanceCounters, Availability",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "my-component",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20150501:ExportConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20150501:ExportConfiguration")]
     public partial class ExportConfiguration : global::Pulumi.CustomResource

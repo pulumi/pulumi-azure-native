@@ -9,6 +9,50 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create or update rack
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rack = new AzureNative.NetworkCloud.V20221212Preview.Rack("rack", new()
+    ///     {
+    ///         AvailabilityZone = "1",
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         RackLocation = "Rack 28",
+    ///         RackName = "rackName",
+    ///         RackSerialNumber = "RACK_SERIAL_NUMBER",
+    ///         RackSkuId = "RACK-TYPE-1",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud/v20221212preview:Rack rackName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:Rack")]
     public partial class Rack : global::Pulumi.CustomResource
     {

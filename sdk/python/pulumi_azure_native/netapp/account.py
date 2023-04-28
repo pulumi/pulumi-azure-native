@@ -151,6 +151,52 @@ class Account(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Accounts_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.netapp.Account("account",
+            account_name="account1",
+            location="eastus",
+            resource_group_name="myRG")
+
+        ```
+        ### Accounts_CreateOrUpdateWithActiveDirectory
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.netapp.Account("account",
+            account_name="account1",
+            active_directories=[azure_native.netapp.ActiveDirectoryArgs(
+                aes_encryption=True,
+                dns="10.10.10.3, 10.10.10.4",
+                domain="10.10.10.3",
+                ldap_over_tls=False,
+                ldap_signing=False,
+                organizational_unit="OU=Engineering",
+                password="ad_password",
+                site="SiteName",
+                smb_server_name="SMBServer",
+                username="ad_user_name",
+            )],
+            location="eastus",
+            resource_group_name="myRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:Account account1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -171,6 +217,52 @@ class Account(pulumi.CustomResource):
         NetApp account resource
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Accounts_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.netapp.Account("account",
+            account_name="account1",
+            location="eastus",
+            resource_group_name="myRG")
+
+        ```
+        ### Accounts_CreateOrUpdateWithActiveDirectory
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.netapp.Account("account",
+            account_name="account1",
+            active_directories=[azure_native.netapp.ActiveDirectoryArgs(
+                aes_encryption=True,
+                dns="10.10.10.3, 10.10.10.4",
+                domain="10.10.10.3",
+                ldap_over_tls=False,
+                ldap_signing=False,
+                organizational_unit="OU=Engineering",
+                password="ad_password",
+                site="SiteName",
+                smb_server_name="SMBServer",
+                username="ad_user_name",
+            )],
+            location="eastus",
+            resource_group_name="myRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:Account account1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

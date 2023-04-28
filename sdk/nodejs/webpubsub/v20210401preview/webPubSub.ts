@@ -9,6 +9,93 @@ import * as utilities from "../../utilities";
 
 /**
  * A class represent a resource.
+ *
+ * ## Example Usage
+ * ### WebPubSub_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webPubSub = new azure_native.webpubsub.v20210401preview.WebPubSub("webPubSub", {
+ *     eventHandler: {
+ *         items: {
+ *             hub1: [{
+ *                 urlTemplate: "https://example.com/chat/api/hub1",
+ *                 userEventPattern: "*",
+ *             }],
+ *             hub2: [
+ *                 {
+ *                     urlTemplate: "https://example.com/chat/api/hub2/example1",
+ *                     userEventPattern: "example1",
+ *                 },
+ *                 {
+ *                     urlTemplate: "https://example.com/chat/api/hub2/example2",
+ *                     userEventPattern: "example2",
+ *                 },
+ *             ],
+ *         },
+ *     },
+ *     features: [
+ *         {
+ *             flag: "ServiceMode",
+ *             properties: {},
+ *             value: "Serverless",
+ *         },
+ *         {
+ *             flag: "EnableConnectivityLogs",
+ *             properties: {},
+ *             value: "True",
+ *         },
+ *         {
+ *             flag: "EnableMessagingLogs",
+ *             properties: {},
+ *             value: "False",
+ *         },
+ *         {
+ *             flag: "EnableLiveTrace",
+ *             properties: {},
+ *             value: "False",
+ *         },
+ *     ],
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "eastus",
+ *     networkACLs: {
+ *         defaultAction: "Deny",
+ *         privateEndpoints: [{
+ *             allow: ["ServerConnection"],
+ *             name: "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+ *         }],
+ *         publicNetwork: {
+ *             allow: ["ClientConnection"],
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myWebPubSubService",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Standard_S1",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     tls: {
+ *         clientCertEnabled: false,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:webpubsub/v20210401preview:WebPubSub myWebPubSubService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService 
+ * ```
  */
 export class WebPubSub extends pulumi.CustomResource {
     /**

@@ -252,6 +252,13 @@ class CertificateCsr(pulumi.CustomResource):
                  __props__=None):
         """
         Certificate signing request object
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:CertificateCsr myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/csrs/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -277,6 +284,13 @@ class CertificateCsr(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Certificate signing request object
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:CertificateCsr myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/csrs/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateCsrArgs args: The arguments to use to populate this resource's properties.

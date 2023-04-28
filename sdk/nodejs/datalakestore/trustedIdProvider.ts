@@ -8,6 +8,30 @@ import * as utilities from "../utilities";
  * Data Lake Store trusted identity provider information.
  * API Version: 2016-11-01.
  * Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const trustedIdProvider = new azure_native.datalakestore.TrustedIdProvider("trustedIdProvider", {
+ *     accountName: "contosoadla",
+ *     idProvider: "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+ *     resourceGroupName: "contosorg",
+ *     trustedIdProviderName: "test_trusted_id_provider_name",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datalakestore:TrustedIdProvider test_trusted_id_provider_name 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+ * ```
  */
 export class TrustedIdProvider extends pulumi.CustomResource {
     /**

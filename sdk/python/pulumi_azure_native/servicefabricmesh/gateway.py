@@ -183,6 +183,72 @@ class Gateway(pulumi.CustomResource):
         API Version: 2018-09-01-preview.
         Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdateGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway = azure_native.servicefabricmesh.Gateway("gateway",
+            description="Service Fabric Mesh sample gateway.",
+            destination_network=azure_native.servicefabricmesh.NetworkRefArgs(
+                name="helloWorldNetwork",
+            ),
+            gateway_resource_name="sampleGateway",
+            http=[{
+                "hosts": [{
+                    "name": "contoso.com",
+                    "routes": [{
+                        "destination": {
+                            "applicationName": "httpHelloWorldApp",
+                            "endpointName": "indexHttpEndpoint",
+                            "serviceName": "indexService",
+                        },
+                        "match": {
+                            "headers": [azure_native.servicefabricmesh.HttpRouteMatchHeaderArgs(
+                                name="accept",
+                                type="exact",
+                                value="application/json",
+                            )],
+                            "path": {
+                                "rewrite": "/",
+                                "type": "prefix",
+                                "value": "/index",
+                            },
+                        },
+                        "name": "index",
+                    }],
+                }],
+                "name": "contosoWebsite",
+                "port": 8081,
+            }],
+            location="EastUS",
+            resource_group_name="sbz_demo",
+            source_network=azure_native.servicefabricmesh.NetworkRefArgs(
+                name="Open",
+            ),
+            tags={},
+            tcp=[{
+                "destination": {
+                    "applicationName": "helloWorldApp",
+                    "endpointName": "helloWorldListener",
+                    "serviceName": "helloWorldService",
+                },
+                "name": "web",
+                "port": 80,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh:Gateway sampleGateway /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/gateways/sampleGateway 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: User readable description of the gateway.
@@ -205,6 +271,72 @@ class Gateway(pulumi.CustomResource):
         This type describes a gateway resource.
         API Version: 2018-09-01-preview.
         Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdateGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway = azure_native.servicefabricmesh.Gateway("gateway",
+            description="Service Fabric Mesh sample gateway.",
+            destination_network=azure_native.servicefabricmesh.NetworkRefArgs(
+                name="helloWorldNetwork",
+            ),
+            gateway_resource_name="sampleGateway",
+            http=[{
+                "hosts": [{
+                    "name": "contoso.com",
+                    "routes": [{
+                        "destination": {
+                            "applicationName": "httpHelloWorldApp",
+                            "endpointName": "indexHttpEndpoint",
+                            "serviceName": "indexService",
+                        },
+                        "match": {
+                            "headers": [azure_native.servicefabricmesh.HttpRouteMatchHeaderArgs(
+                                name="accept",
+                                type="exact",
+                                value="application/json",
+                            )],
+                            "path": {
+                                "rewrite": "/",
+                                "type": "prefix",
+                                "value": "/index",
+                            },
+                        },
+                        "name": "index",
+                    }],
+                }],
+                "name": "contosoWebsite",
+                "port": 8081,
+            }],
+            location="EastUS",
+            resource_group_name="sbz_demo",
+            source_network=azure_native.servicefabricmesh.NetworkRefArgs(
+                name="Open",
+            ),
+            tags={},
+            tcp=[{
+                "destination": {
+                    "applicationName": "helloWorldApp",
+                    "endpointName": "helloWorldListener",
+                    "serviceName": "helloWorldService",
+                },
+                "name": "web",
+                "port": 80,
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh:Gateway sampleGateway /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/gateways/sampleGateway 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

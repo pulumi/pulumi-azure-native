@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Network.V20150501Preview
 {
     /// <summary>
     /// ApplicationGateways resource
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20150501preview:ApplicationGateway myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20150501preview:ApplicationGateway")]

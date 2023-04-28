@@ -419,6 +419,36 @@ class AppServicePlan(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Or Update App Service plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_plan = azure_native.web.AppServicePlan("appServicePlan",
+            kind="app",
+            location="East US",
+            name="testsf6141",
+            resource_group_name="testrg123",
+            sku=azure_native.web.SkuDescriptionArgs(
+                capacity=1,
+                family="P",
+                name="P1",
+                size="P1",
+                tier="Premium",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:AppServicePlan testsf6141 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/testsf6141 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] elastic_scale_enabled: ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
@@ -456,6 +486,36 @@ class AppServicePlan(pulumi.CustomResource):
         App Service plan.
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Or Update App Service plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_plan = azure_native.web.AppServicePlan("appServicePlan",
+            kind="app",
+            location="East US",
+            name="testsf6141",
+            resource_group_name="testrg123",
+            sku=azure_native.web.SkuDescriptionArgs(
+                capacity=1,
+                family="P",
+                name="P1",
+                size="P1",
+                tier="Premium",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:AppServicePlan testsf6141 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/testsf6141 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppServicePlanArgs args: The arguments to use to populate this resource's properties.

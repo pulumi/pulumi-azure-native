@@ -166,6 +166,33 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_bgp_connection = azure_native.network.VirtualHubBgpConnection("virtualHubBgpConnection",
+            connection_name="conn1",
+            hub_virtual_network_connection=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubVirtualNetworkConnections/hubVnetConn1",
+            ),
+            peer_asn=20000,
+            peer_ip="192.168.1.5",
+            resource_group_name="rg1",
+            virtual_hub_name="hub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualHubBgpConnection conn1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/bgpConnections/conn1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the connection.
@@ -187,6 +214,33 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         Virtual Appliance Site resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_bgp_connection = azure_native.network.VirtualHubBgpConnection("virtualHubBgpConnection",
+            connection_name="conn1",
+            hub_virtual_network_connection=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubVirtualNetworkConnections/hubVnetConn1",
+            ),
+            peer_asn=20000,
+            peer_ip="192.168.1.5",
+            resource_group_name="rg1",
+            virtual_hub_name="hub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualHubBgpConnection conn1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/bgpConnections/conn1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualHubBgpConnectionArgs args: The arguments to use to populate this resource's properties.

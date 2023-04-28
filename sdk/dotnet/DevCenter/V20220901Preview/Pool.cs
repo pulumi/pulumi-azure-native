@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
 {
     /// <summary>
     /// A pool of Virtual Machines.
+    /// 
+    /// ## Example Usage
+    /// ### Pools_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.DevCenter.V20220901Preview.Pool("pool", new()
+    ///     {
+    ///         DevBoxDefinitionName = "WebDevBox",
+    ///         LicenseType = "Windows_Client",
+    ///         LocalAdministrator = "Enabled",
+    ///         Location = "centralus",
+    ///         NetworkConnectionName = "Network1-westus2",
+    ///         PoolName = "{poolName}",
+    ///         ProjectName = "{projectName}",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter/v20220901preview:Pool {poolName} /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/{projectName}/pools/{poolName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220901preview:Pool")]
     public partial class Pool : global::Pulumi.CustomResource

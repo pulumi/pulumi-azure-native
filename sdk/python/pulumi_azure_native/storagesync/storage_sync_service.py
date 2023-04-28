@@ -116,6 +116,30 @@ class StorageSyncService(pulumi.CustomResource):
         API Version: 2022-06-01.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### StorageSyncServices_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_sync_service = azure_native.storagesync.StorageSyncService("storageSyncService",
+            incoming_traffic_policy="AllowAllTraffic",
+            location="WestUS",
+            resource_group_name="SampleResourceGroup_1",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagesync:StorageSyncService SampleStorageSyncService_1 /subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'IncomingTrafficPolicy']] incoming_traffic_policy: Incoming Traffic Policy
@@ -134,6 +158,30 @@ class StorageSyncService(pulumi.CustomResource):
         Storage Sync Service object.
         API Version: 2022-06-01.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### StorageSyncServices_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_sync_service = azure_native.storagesync.StorageSyncService("storageSyncService",
+            incoming_traffic_policy="AllowAllTraffic",
+            location="WestUS",
+            resource_group_name="SampleResourceGroup_1",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagesync:StorageSyncService SampleStorageSyncService_1 /subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageSyncServiceArgs args: The arguments to use to populate this resource's properties.

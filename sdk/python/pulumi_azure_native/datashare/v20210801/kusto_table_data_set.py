@@ -145,6 +145,135 @@ class KustoTableDataSet(pulumi.CustomResource):
         """
         A kusto table data set.
 
+        ## Example Usage
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            kind="KustoTable",
+            kusto_database_resource_id="/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Kusto/clusters/Cluster1/databases/Database1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            table_level_sharing_properties=azure_native.datashare.v20210801.TableLevelSharingPropertiesArgs(
+                external_tables_to_exclude=[
+                    "test11",
+                    "test12",
+                ],
+                external_tables_to_include=[
+                    "test9",
+                    "test10",
+                ],
+                materialized_views_to_exclude=[
+                    "test7",
+                    "test8",
+                ],
+                materialized_views_to_include=[
+                    "test5",
+                    "test6",
+                ],
+                tables_to_exclude=[
+                    "test3",
+                    "test4",
+                ],
+                tables_to_include=[
+                    "test1",
+                    "test2",
+                ],
+            ))
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20210801:KustoTableDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -164,6 +293,135 @@ class KustoTableDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A kusto table data set.
+
+        ## Example Usage
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            kind="KustoTable",
+            kusto_database_resource_id="/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Kusto/clusters/Cluster1/databases/Database1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            table_level_sharing_properties=azure_native.datashare.v20210801.TableLevelSharingPropertiesArgs(
+                external_tables_to_exclude=[
+                    "test11",
+                    "test12",
+                ],
+                external_tables_to_include=[
+                    "test9",
+                    "test10",
+                ],
+                materialized_views_to_exclude=[
+                    "test7",
+                    "test8",
+                ],
+                materialized_views_to_include=[
+                    "test5",
+                    "test6",
+                ],
+                tables_to_exclude=[
+                    "test3",
+                    "test4",
+                ],
+                tables_to_include=[
+                    "test1",
+                    "test2",
+                ],
+            ))
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_table_data_set = azure_native.datashare.v20210801.KustoTableDataSet("kustoTableDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20210801:KustoTableDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param KustoTableDataSetArgs args: The arguments to use to populate this resource's properties.

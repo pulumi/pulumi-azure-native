@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
 {
     /// <summary>
     /// An Azure Database Migration Service (classic) resource
+    /// 
+    /// ## Example Usage
+    /// ### Services_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.DataMigration.V20220330Preview.Service("service", new()
+    ///     {
+    ///         GroupName = "DmsSdkRg",
+    ///         Location = "southcentralus",
+    ///         ServiceName = "DmsSdkService",
+    ///         Sku = new AzureNative.DataMigration.V20220330Preview.Inputs.ServiceSkuArgs
+    ///         {
+    ///             Name = "Basic_1vCore",
+    ///         },
+    ///         VirtualSubnetId = "/subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkTestNetwork/providers/Microsoft.Network/virtualNetworks/DmsSdkTestNetwork/subnets/default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datamigration/v20220330preview:Service DmsSdkService /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration/v20220330preview:Service")]
     public partial class Service : global::Pulumi.CustomResource

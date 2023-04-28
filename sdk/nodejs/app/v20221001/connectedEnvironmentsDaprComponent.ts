@@ -9,6 +9,59 @@ import * as utilities from "../../utilities";
 
 /**
  * Dapr Component.
+ *
+ * ## Example Usage
+ * ### Create or update dapr component
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectedEnvironmentsDaprComponent = new azure_native.app.v20221001.ConnectedEnvironmentsDaprComponent("connectedEnvironmentsDaprComponent", {
+ *     componentName: "reddog",
+ *     componentType: "state.azure.cosmosdb",
+ *     connectedEnvironmentName: "myenvironment",
+ *     ignoreErrors: false,
+ *     initTimeout: "50s",
+ *     metadata: [
+ *         {
+ *             name: "url",
+ *             value: "<COSMOS-URL>",
+ *         },
+ *         {
+ *             name: "database",
+ *             value: "itemsDB",
+ *         },
+ *         {
+ *             name: "collection",
+ *             value: "items",
+ *         },
+ *         {
+ *             name: "masterkey",
+ *             secretRef: "masterkey",
+ *         },
+ *     ],
+ *     resourceGroupName: "examplerg",
+ *     scopes: [
+ *         "container-app-1",
+ *         "container-app-2",
+ *     ],
+ *     secrets: [{
+ *         name: "masterkey",
+ *         value: "keyvalue",
+ *     }],
+ *     version: "v1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent reddog /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/jlaw-demo1/daprcomponents/reddog 
+ * ```
  */
 export class ConnectedEnvironmentsDaprComponent extends pulumi.CustomResource {
     /**

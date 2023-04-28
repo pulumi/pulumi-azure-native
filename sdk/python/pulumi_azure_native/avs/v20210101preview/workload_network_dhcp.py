@@ -128,6 +128,31 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
         """
         NSX DHCP
 
+        ## Example Usage
+        ### WorkloadNetworks_CreateDhcp
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_dhcp = azure_native.avs.v20210101preview.WorkloadNetworkDhcp("workloadNetworkDhcp",
+            dhcp_id="dhcp1",
+            dhcp_type="SERVER",
+            display_name="dhcpConfigurations1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20210101preview:WorkloadNetworkDhcp dhcp1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/dhcpConfigurations/dhcpConfigurations1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dhcp_id: NSX DHCP identifier. Generally the same as the DHCP display name
@@ -145,6 +170,31 @@ class WorkloadNetworkDhcp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NSX DHCP
+
+        ## Example Usage
+        ### WorkloadNetworks_CreateDhcp
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_dhcp = azure_native.avs.v20210101preview.WorkloadNetworkDhcp("workloadNetworkDhcp",
+            dhcp_id="dhcp1",
+            dhcp_type="SERVER",
+            display_name="dhcpConfigurations1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20210101preview:WorkloadNetworkDhcp dhcp1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/dhcpConfigurations/dhcpConfigurations1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkDhcpArgs args: The arguments to use to populate this resource's properties.

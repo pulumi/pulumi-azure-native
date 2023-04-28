@@ -9,6 +9,125 @@ import * as utilities from "../../utilities";
 
 /**
  * Php workload resource
+ *
+ * ## Example Usage
+ * ### Workloads
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const phpWorkload = new azure_native.workloads.v20211201preview.PhpWorkload("phpWorkload", {
+ *     adminUserProfile: {
+ *         sshPublicKey: "===SSH=PUBLIC=KEY===",
+ *         userName: "wpadmin",
+ *     },
+ *     appLocation: "eastus",
+ *     backupProfile: {
+ *         backupEnabled: "Disabled",
+ *     },
+ *     cacheProfile: {
+ *         capacity: 0,
+ *         family: "C",
+ *         name: "wp-cache",
+ *         skuName: "Basic",
+ *     },
+ *     controllerProfile: {
+ *         dataDisks: [{
+ *             sizeInGB: 100,
+ *             storageType: azure_native.workloads.v20211201preview.DiskStorageType.Premium_LRS,
+ *         }],
+ *         name: "contoller-vm",
+ *         nodeSku: "Standard_DS2_v2",
+ *         osDisk: {
+ *             storageType: azure_native.workloads.v20211201preview.DiskStorageType.Premium_LRS,
+ *         },
+ *         osImage: {
+ *             offer: "UbuntuServer",
+ *             publisher: "Canonical",
+ *             sku: "18.0-LTS",
+ *             version: "latest",
+ *         },
+ *     },
+ *     databaseProfile: {
+ *         backupRetentionDays: 7,
+ *         haEnabled: "Disabled",
+ *         serverName: "wp-db-server",
+ *         sku: "Standard_D32s_v4",
+ *         sslEnforcementEnabled: "Enabled",
+ *         storageInGB: 128,
+ *         storageIops: 200,
+ *         storageSku: "Premium_LRS",
+ *         tier: azure_native.workloads.v20211201preview.DatabaseTier.GeneralPurpose,
+ *         type: "MySql",
+ *         version: "5.7",
+ *     },
+ *     fileshareProfile: {
+ *         shareSizeInGB: 100,
+ *         shareType: "AzureFiles",
+ *         storageType: "Premium_LRS",
+ *     },
+ *     kind: "WordPress",
+ *     location: "eastus2",
+ *     managedResourceGroupConfiguration: {
+ *         name: "php-mrg-wp39",
+ *     },
+ *     networkProfile: {
+ *         azureFrontDoorEnabled: "Enabled",
+ *         loadBalancerSku: "Standard",
+ *         loadBalancerType: "LoadBalancer",
+ *     },
+ *     phpProfile: {
+ *         version: "7.3",
+ *     },
+ *     phpWorkloadName: "wp39",
+ *     resourceGroupName: "test-rg",
+ *     searchProfile: {
+ *         nodeSku: "Standard_DS2_v2",
+ *         osDisk: {
+ *             storageType: azure_native.workloads.v20211201preview.DiskStorageType.Premium_LRS,
+ *         },
+ *         osImage: {
+ *             offer: "UbuntuServer",
+ *             publisher: "Canonical",
+ *             sku: "18.0-LTS",
+ *             version: "latest",
+ *         },
+ *         searchType: "Elastic",
+ *     },
+ *     siteProfile: {
+ *         domainName: "www.example.com",
+ *     },
+ *     sku: {
+ *         name: "Large",
+ *     },
+ *     tags: {},
+ *     webNodesProfile: {
+ *         autoScaleMaxCount: 1,
+ *         autoScaleMinCount: 1,
+ *         name: "web-server",
+ *         nodeSku: "Standard_DS2_v2",
+ *         osDisk: {
+ *             storageType: azure_native.workloads.v20211201preview.DiskStorageType.Premium_LRS,
+ *         },
+ *         osImage: {
+ *             offer: "UbuntuServer",
+ *             publisher: "Canonical",
+ *             sku: "18.0-LTS",
+ *             version: "latest",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads/v20211201preview:PhpWorkload wp39 /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsot.Workloads/phpWorkloads/wp39 
+ * ```
  */
 export class PhpWorkload extends pulumi.CustomResource {
     /**

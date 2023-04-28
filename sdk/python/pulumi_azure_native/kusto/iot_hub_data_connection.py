@@ -283,6 +283,55 @@ class IotHubDataConnection(pulumi.CustomResource):
         API Version: 2022-12-29.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### KustoDataConnectionsCosmosDbCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_data_connection = azure_native.kusto.IotHubDataConnection("iotHubDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase1",
+            resource_group_name="kustorptest")
+
+        ```
+        ### KustoDataConnectionsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_data_connection = azure_native.kusto.IotHubDataConnection("iotHubDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+        ### KustoDataConnectionsEventGridCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_data_connection = azure_native.kusto.IotHubDataConnection("iotHubDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:IotHubDataConnection kustoCluster/KustoDatabase8/dataConnectionTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/KustoDatabase8/DataConnections/KustoDataConnection9 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -312,6 +361,55 @@ class IotHubDataConnection(pulumi.CustomResource):
         Class representing an iot hub data connection.
         API Version: 2022-12-29.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### KustoDataConnectionsCosmosDbCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_data_connection = azure_native.kusto.IotHubDataConnection("iotHubDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase1",
+            resource_group_name="kustorptest")
+
+        ```
+        ### KustoDataConnectionsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_data_connection = azure_native.kusto.IotHubDataConnection("iotHubDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+        ### KustoDataConnectionsEventGridCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_data_connection = azure_native.kusto.IotHubDataConnection("iotHubDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:IotHubDataConnection kustoCluster/KustoDatabase8/dataConnectionTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/KustoDatabase8/DataConnections/KustoDataConnection9 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IotHubDataConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * The Managed Network resource
+ *
+ * ## Example Usage
+ * ### Put Network Manager
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkManager = new azure_native.network.v20220901.NetworkManager("networkManager", {
+ *     description: "My Test Network Manager",
+ *     networkManagerName: "TestNetworkManager",
+ *     networkManagerScopeAccesses: ["Connectivity"],
+ *     networkManagerScopes: {
+ *         managementGroups: ["/Microsoft.Management/testmg"],
+ *         subscriptions: ["/subscriptions/00000000-0000-0000-0000-000000000000"],
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:NetworkManager TestNetworkManager /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/TestNetworkManager 
+ * ```
  */
 export class NetworkManager extends pulumi.CustomResource {
     /**

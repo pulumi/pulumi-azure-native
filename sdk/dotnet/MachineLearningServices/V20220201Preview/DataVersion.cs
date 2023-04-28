@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Data Version Base.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataVersion = new AzureNative.MachineLearningServices.V20220201Preview.DataVersion("dataVersion", new()
+    ///     {
+    ///         DataVersionBaseDetails = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.UriFileDataVersionArgs
+    ///         {
+    ///             DataType = "UriFile",
+    ///             DataUri = "string",
+    ///             Description = "string",
+    ///             IsAnonymous = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20220201preview:DataVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:DataVersion")]
     public partial class DataVersion : global::Pulumi.CustomResource

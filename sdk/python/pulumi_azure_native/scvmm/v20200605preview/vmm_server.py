@@ -163,6 +163,38 @@ class VmmServer(pulumi.CustomResource):
         """
         The VmmServers resource definition.
 
+        ## Example Usage
+        ### CreateVMMServer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vmm_server = azure_native.scvmm.v20200605preview.VmmServer("vmmServer",
+            credentials=azure_native.scvmm.v20200605preview.VMMServerPropertiesCredentialsArgs(
+                password="password",
+                username="testuser",
+            ),
+            extended_location=azure_native.scvmm.v20200605preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                type="customLocation",
+            ),
+            fqdn="VMM.contoso.com",
+            location="East US",
+            port=1234,
+            resource_group_name="testrg",
+            vmm_server_name="ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm/v20200605preview:VmmServer ContosoVMMServer /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VMMServerPropertiesCredentialsArgs']] credentials: Credentials to connect to VMMServer.
@@ -182,6 +214,38 @@ class VmmServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The VmmServers resource definition.
+
+        ## Example Usage
+        ### CreateVMMServer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vmm_server = azure_native.scvmm.v20200605preview.VmmServer("vmmServer",
+            credentials=azure_native.scvmm.v20200605preview.VMMServerPropertiesCredentialsArgs(
+                password="password",
+                username="testuser",
+            ),
+            extended_location=azure_native.scvmm.v20200605preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                type="customLocation",
+            ),
+            fqdn="VMM.contoso.com",
+            location="East US",
+            port=1234,
+            resource_group_name="testrg",
+            vmm_server_name="ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm/v20200605preview:VmmServer ContosoVMMServer /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VmmServerArgs args: The arguments to use to populate this resource's properties.

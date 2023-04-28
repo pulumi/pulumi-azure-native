@@ -113,6 +113,31 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
         """
         Definition of hybrid runbook worker group.
 
+        ## Example Usage
+        ### Create a hybrid worker group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_runbook_worker_group = azure_native.automation.v20220808.HybridRunbookWorkerGroup("hybridRunbookWorkerGroup",
+            automation_account_name="testaccount",
+            credential=azure_native.automation.v20220808.RunAsCredentialAssociationPropertyArgs(
+                name="myRunAsCredentialName",
+            ),
+            hybrid_runbook_worker_group_name="TestHybridGroup",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:HybridRunbookWorkerGroup TestHybridGroup /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/testaccount/hybridRunbookWorkerGroups/TestHybridGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -129,6 +154,31 @@ class HybridRunbookWorkerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of hybrid runbook worker group.
+
+        ## Example Usage
+        ### Create a hybrid worker group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_runbook_worker_group = azure_native.automation.v20220808.HybridRunbookWorkerGroup("hybridRunbookWorkerGroup",
+            automation_account_name="testaccount",
+            credential=azure_native.automation.v20220808.RunAsCredentialAssociationPropertyArgs(
+                name="myRunAsCredentialName",
+            ),
+            hybrid_runbook_worker_group_name="TestHybridGroup",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:HybridRunbookWorkerGroup TestHybridGroup /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/testaccount/hybridRunbookWorkerGroups/TestHybridGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HybridRunbookWorkerGroupArgs args: The arguments to use to populate this resource's properties.

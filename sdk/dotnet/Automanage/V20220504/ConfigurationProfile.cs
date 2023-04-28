@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.Automanage.V20220504
 {
     /// <summary>
     /// Definition of the configuration profile.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update configuration profile
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfile = new AzureNative.Automanage.V20220504.ConfigurationProfile("configurationProfile", new()
+    ///     {
+    ///         ConfigurationProfileName = "customConfigurationProfile",
+    ///         Location = "East US",
+    ///         Properties = new AzureNative.Automanage.V20220504.Inputs.ConfigurationProfilePropertiesArgs
+    ///         {
+    ///             Configuration = 
+    ///             {
+    ///                 { "Antimalware/Enable", false },
+    ///                 { "AzureSecurityCenter/Enable", true },
+    ///                 { "Backup/Enable", false },
+    ///                 { "BootDiagnostics/Enable", true },
+    ///                 { "ChangeTrackingAndInventory/Enable", true },
+    ///                 { "GuestConfiguration/Enable", true },
+    ///                 { "LogAnalytics/Enable", true },
+    ///                 { "UpdateManagement/Enable", true },
+    ///                 { "VMInsights/Enable", true },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "Organization", "Administration" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automanage/v20220504:ConfigurationProfile customConfigurationProfile /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfiles/customConfigurationProfile 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20220504:ConfigurationProfile")]
     public partial class ConfigurationProfile : global::Pulumi.CustomResource

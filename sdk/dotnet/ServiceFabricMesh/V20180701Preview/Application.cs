@@ -11,6 +11,71 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 {
     /// <summary>
     /// This type describes an application resource.
+    /// 
+    /// ## Example Usage
+    /// ### ApplicationCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.ServiceFabricMesh.V20180701Preview.Application("application", new()
+    ///     {
+    ///         ApplicationName = "helloWorldApp",
+    ///         Description = "SeaBreeze HelloWorld Application!",
+    ///         Location = "EastUS",
+    ///         ResourceGroupName = "sbz_demo",
+    ///         Services = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabricMesh.V20180701Preview.Inputs.ServiceResourceDescriptionArgs
+    ///             {
+    ///                 CodePackages = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabricMesh.V20180701Preview.Inputs.ContainerCodePackagePropertiesArgs
+    ///                     {
+    ///                         Endpoints = new[]
+    ///                         {
+    ///                             new AzureNative.ServiceFabricMesh.V20180701Preview.Inputs.EndpointPropertiesArgs
+    ///                             {
+    ///                                 Name = "helloWorldListener",
+    ///                                 Port = 80,
+    ///                             },
+    ///                         },
+    ///                         Image = "seabreeze/sbz-helloworld:1.0-alpine",
+    ///                         Name = "helloWorldCode",
+    ///                         Resources = new AzureNative.ServiceFabricMesh.V20180701Preview.Inputs.ResourceRequirementsArgs
+    ///                         {
+    ///                             Requests = new AzureNative.ServiceFabricMesh.V20180701Preview.Inputs.ResourceRequestsArgs
+    ///                             {
+    ///                                 Cpu = 1,
+    ///                                 MemoryInGB = 1,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Description = "SeaBreeze Hello World Service.",
+    ///                 Name = "helloWorldService",
+    ///                 OsType = "linux",
+    ///                 ReplicaCount = 1,
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabricmesh/v20180701preview:Application myHelloWorldApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/applications/myHelloWorldApp 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180701preview:Application")]

@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  * API Version: 2021-06-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### AFDOriginGroups_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const afdOriginGroup = new azure_native.cdn.AFDOriginGroup("afdOriginGroup", {
+ *     healthProbeSettings: {
+ *         probeIntervalInSeconds: 10,
+ *         probePath: "/path2",
+ *         probeProtocol: azure_native.cdn.ProbeProtocol.NotSet,
+ *         probeRequestType: azure_native.cdn.HealthProbeRequestType.NotSet,
+ *     },
+ *     loadBalancingSettings: {
+ *         additionalLatencyInMilliseconds: 1000,
+ *         sampleSize: 3,
+ *         successfulSamplesRequired: 3,
+ *     },
+ *     originGroupName: "origingroup1",
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     trafficRestorationTimeToHealedOrNewEndpointsInMinutes: 5,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:AFDOriginGroup origingroup1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/origingroups/origingroup1 
+ * ```
  */
 export class AFDOriginGroup extends pulumi.CustomResource {
     /**

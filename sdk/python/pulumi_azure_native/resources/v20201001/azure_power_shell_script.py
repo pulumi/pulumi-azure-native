@@ -339,6 +339,156 @@ class AzurePowerShellScript(pulumi.CustomResource):
         """
         Object model for the Azure PowerShell script.
 
+        ## Example Usage
+        ### DeploymentScriptsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            cleanup_preference="Always",
+            identity=azure_native.resources.v20201001.ManagedServiceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai": {},
+                },
+            ),
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="PT7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript",
+            supporting_script_uris=[
+                "https://uri1.to.supporting.script",
+                "https://uri2.to.supporting.script",
+            ],
+            timeout="PT1H")
+
+        ```
+        ### DeploymentScriptsCreateNoUserManagedIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            cleanup_preference="Always",
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="PT7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript",
+            supporting_script_uris=[
+                "https://uri1.to.supporting.script",
+                "https://uri2.to.supporting.script",
+            ],
+            timeout="PT1H")
+
+        ```
+        ### DeploymentScriptsCreate_MinCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            identity=azure_native.resources.v20201001.ManagedServiceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai": {},
+                },
+            ),
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="P7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingCustomACIName
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            cleanup_preference="Always",
+            container_settings=azure_native.resources.v20201001.ContainerConfigurationArgs(
+                container_group_name="contoso-aci",
+            ),
+            identity=azure_native.resources.v20201001.ManagedServiceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai": {},
+                },
+            ),
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="PT7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript",
+            supporting_script_uris=[
+                "https://uri1.to.supporting.script",
+                "https://uri2.to.supporting.script",
+            ],
+            timeout="PT1H")
+
+        ```
+        ### DeploymentScriptsCreate_UsingExistingStorageAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            cleanup_preference="Always",
+            identity=azure_native.resources.v20201001.ManagedServiceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai": {},
+                },
+            ),
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="PT7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript",
+            storage_account_settings=azure_native.resources.v20201001.StorageAccountConfigurationArgs(
+                storage_account_key="contosostoragekey",
+                storage_account_name="contosostorage",
+            ),
+            supporting_script_uris=[
+                "https://uri1.to.supporting.script",
+                "https://uri2.to.supporting.script",
+            ],
+            timeout="PT1H")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20201001:AzurePowerShellScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
@@ -369,6 +519,156 @@ class AzurePowerShellScript(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Object model for the Azure PowerShell script.
+
+        ## Example Usage
+        ### DeploymentScriptsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            cleanup_preference="Always",
+            identity=azure_native.resources.v20201001.ManagedServiceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai": {},
+                },
+            ),
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="PT7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript",
+            supporting_script_uris=[
+                "https://uri1.to.supporting.script",
+                "https://uri2.to.supporting.script",
+            ],
+            timeout="PT1H")
+
+        ```
+        ### DeploymentScriptsCreateNoUserManagedIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            cleanup_preference="Always",
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="PT7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript",
+            supporting_script_uris=[
+                "https://uri1.to.supporting.script",
+                "https://uri2.to.supporting.script",
+            ],
+            timeout="PT1H")
+
+        ```
+        ### DeploymentScriptsCreate_MinCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            identity=azure_native.resources.v20201001.ManagedServiceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai": {},
+                },
+            ),
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="P7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingCustomACIName
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            cleanup_preference="Always",
+            container_settings=azure_native.resources.v20201001.ContainerConfigurationArgs(
+                container_group_name="contoso-aci",
+            ),
+            identity=azure_native.resources.v20201001.ManagedServiceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai": {},
+                },
+            ),
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="PT7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript",
+            supporting_script_uris=[
+                "https://uri1.to.supporting.script",
+                "https://uri2.to.supporting.script",
+            ],
+            timeout="PT1H")
+
+        ```
+        ### DeploymentScriptsCreate_UsingExistingStorageAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_power_shell_script = azure_native.resources.v20201001.AzurePowerShellScript("azurePowerShellScript",
+            arguments="-Location 'westus' -Name \\"*rg2\\"",
+            az_power_shell_version="1.7.0",
+            cleanup_preference="Always",
+            identity=azure_native.resources.v20201001.ManagedServiceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai": {},
+                },
+            ),
+            kind="AzurePowerShell",
+            location="westus",
+            resource_group_name="script-rg",
+            retention_interval="PT7D",
+            script_content="Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+            script_name="MyDeploymentScript",
+            storage_account_settings=azure_native.resources.v20201001.StorageAccountConfigurationArgs(
+                storage_account_key="contosostoragekey",
+                storage_account_name="contosostorage",
+            ),
+            supporting_script_uris=[
+                "https://uri1.to.supporting.script",
+                "https://uri2.to.supporting.script",
+            ],
+            timeout="PT1H")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20201001:AzurePowerShellScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AzurePowerShellScriptArgs args: The arguments to use to populate this resource's properties.

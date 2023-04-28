@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230201
 {
     /// <summary>
     /// Base class for backup ProtectionIntent.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Azure Vm Protection Intent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionIntent = new AzureNative.RecoveryServices.V20230201.ProtectionIntent("protectionIntent", new()
+    ///     {
+    ///         FabricName = "Azure",
+    ///         IntentObjectName = "vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+    ///         Properties = new AzureNative.RecoveryServices.V20230201.Inputs.AzureResourceProtectionIntentArgs
+    ///         {
+    ///             PolicyId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupPolicies/myPolicy",
+    ///             ProtectionIntentItemType = "AzureResourceItem",
+    ///             SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/chamsrgtest/providers/Microsoft.Compute/virtualMachines/chamscandel",
+    ///         },
+    ///         ResourceGroupName = "myRG",
+    ///         VaultName = "myVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20230201:ProtectionIntent vm;iaasvmcontainerv2;chamsrgtest;chamscandel /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupFabrics/Azure/backupProtectionIntent/vm;iaasvmcontainerv2;chamsrgtest;chamscandel 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20230201:ProtectionIntent")]
     public partial class ProtectionIntent : global::Pulumi.CustomResource

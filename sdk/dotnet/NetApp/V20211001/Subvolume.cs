@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.NetApp.V20211001
 {
     /// <summary>
     /// Subvolume Information properties
+    /// 
+    /// ## Example Usage
+    /// ### Subvolumes_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subvolume = new AzureNative.NetApp.V20211001.Subvolume("subvolume", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         Path = "/subvolumePath",
+    ///         PoolName = "pool1",
+    ///         ResourceGroupName = "myRG",
+    ///         SubvolumeName = "subvolume1",
+    ///         VolumeName = "volume1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20211001:Subvolume account1/pool1/volume1/subvolume1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/subvolumes/subvolume1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp/v20211001:Subvolume")]
     public partial class Subvolume : global::Pulumi.CustomResource

@@ -234,6 +234,46 @@ class GalleryApplication(pulumi.CustomResource):
         API Version: 2022-03-03.
         Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a simple gallery Application.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_application = azure_native.compute.GalleryApplication("galleryApplication",
+            custom_actions=[{
+                "description": "This is the custom action description.",
+                "name": "myCustomAction",
+                "parameters": [azure_native.compute.GalleryApplicationCustomActionParameterArgs(
+                    default_value="default value of parameter.",
+                    description="This is the description of the parameter",
+                    name="myCustomActionParameter",
+                    required=False,
+                    type=azure_native.compute.GalleryApplicationCustomActionParameterType.STRING,
+                )],
+                "script": "myCustomActionScript",
+            }],
+            description="This is the gallery application description.",
+            eula="This is the gallery application EULA.",
+            gallery_application_name="myGalleryApplicationName",
+            gallery_name="myGalleryName",
+            location="West US",
+            privacy_statement_uri="myPrivacyStatementUri}",
+            release_note_uri="myReleaseNoteUri",
+            resource_group_name="myResourceGroup",
+            supported_os_type=azure_native.compute.OperatingSystemTypes.WINDOWS)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:GalleryApplication myGalleryApplicationName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/applications/myGalleryApplicationName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GalleryApplicationCustomActionArgs']]]] custom_actions: A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
@@ -259,6 +299,46 @@ class GalleryApplication(pulumi.CustomResource):
         Specifies information about the gallery Application Definition that you want to create or update.
         API Version: 2022-03-03.
         Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a simple gallery Application.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_application = azure_native.compute.GalleryApplication("galleryApplication",
+            custom_actions=[{
+                "description": "This is the custom action description.",
+                "name": "myCustomAction",
+                "parameters": [azure_native.compute.GalleryApplicationCustomActionParameterArgs(
+                    default_value="default value of parameter.",
+                    description="This is the description of the parameter",
+                    name="myCustomActionParameter",
+                    required=False,
+                    type=azure_native.compute.GalleryApplicationCustomActionParameterType.STRING,
+                )],
+                "script": "myCustomActionScript",
+            }],
+            description="This is the gallery application description.",
+            eula="This is the gallery application EULA.",
+            gallery_application_name="myGalleryApplicationName",
+            gallery_name="myGalleryName",
+            location="West US",
+            privacy_statement_uri="myPrivacyStatementUri}",
+            release_note_uri="myReleaseNoteUri",
+            resource_group_name="myResourceGroup",
+            supported_os_type=azure_native.compute.OperatingSystemTypes.WINDOWS)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:GalleryApplication myGalleryApplicationName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/applications/myGalleryApplicationName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationArgs args: The arguments to use to populate this resource's properties.

@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Content type contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateContentTypeContentItem
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const contentItem = new azure_native.apimanagement.v20201201.ContentItem("contentItem", {
+ *     contentItemId: "4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+ *     contentTypeId: "page",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:ContentItem 4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8 /contentTypes/page/contentItems/4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8 
+ * ```
  */
 export class ContentItem extends pulumi.CustomResource {
     /**

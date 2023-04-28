@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.DocumentDB
     /// A private endpoint connection
     /// API Version: 2022-11-15.
     /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Approve or reject a private endpoint connection with a given name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.DocumentDB.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         PrivateEndpointConnectionName = "privateEndpointConnectionName",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.DocumentDB.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
+    ///         {
+    ///             Description = "Approved by johndoe@contoso.com",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/rg1/providers/Microsoft.DocumentDb/databaseAccounts/ddb1/privateEndpointConnections/privateEndpointConnectionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

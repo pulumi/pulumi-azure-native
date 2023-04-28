@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230201
 {
     /// <summary>
     /// Represents MDATP (Microsoft Defender Advanced Threat Protection) data connector.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an Office365 data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mdatpDataConnector = new AzureNative.SecurityInsights.V20230201.MDATPDataConnector("mdatpDataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an Threat Intelligence Platform data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mdatpDataConnector = new AzureNative.SecurityInsights.V20230201.MDATPDataConnector("mdatpDataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230201:MDATPDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230201:MDATPDataConnector")]
     public partial class MDATPDataConnector : global::Pulumi.CustomResource

@@ -139,6 +139,49 @@ class SignalR(pulumi.CustomResource):
         """
         A class represent a SignalR service resource.
 
+        ## Example Usage
+        ### SignalR_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r = azure_native.signalrservice.v20181001.SignalR("signalR",
+            location="eastus",
+            properties=azure_native.signalrservice.v20181001.SignalRCreateOrUpdatePropertiesArgs(
+                cors=azure_native.signalrservice.v20181001.SignalRCorsSettingsArgs(
+                    allowed_origins=[
+                        "https://foo.com",
+                        "https://bar.com",
+                    ],
+                ),
+                features=[azure_native.signalrservice.v20181001.SignalRFeatureArgs(
+                    flag="ServiceMode",
+                    properties={},
+                    value="Serverless",
+                )],
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService",
+            sku=azure_native.signalrservice.v20181001.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Standard_S1",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20181001:SignalR mySignalRService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Azure GEO region: e.g. West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | etc. 
@@ -157,6 +200,49 @@ class SignalR(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a SignalR service resource.
+
+        ## Example Usage
+        ### SignalR_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r = azure_native.signalrservice.v20181001.SignalR("signalR",
+            location="eastus",
+            properties=azure_native.signalrservice.v20181001.SignalRCreateOrUpdatePropertiesArgs(
+                cors=azure_native.signalrservice.v20181001.SignalRCorsSettingsArgs(
+                    allowed_origins=[
+                        "https://foo.com",
+                        "https://bar.com",
+                    ],
+                ),
+                features=[azure_native.signalrservice.v20181001.SignalRFeatureArgs(
+                    flag="ServiceMode",
+                    properties={},
+                    value="Serverless",
+                )],
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService",
+            sku=azure_native.signalrservice.v20181001.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Standard_S1",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20181001:SignalR mySignalRService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SignalRArgs args: The arguments to use to populate this resource's properties.

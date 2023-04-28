@@ -130,6 +130,115 @@ class AuthorizationProvider(pulumi.CustomResource):
         """
         Authorization Provider contract.
 
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationProviderAADAuthCode
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_provider = azure_native.apimanagement.v20220801.AuthorizationProvider("authorizationProvider",
+            authorization_provider_id="aadwithauthcode",
+            display_name="aadwithauthcode",
+            identity_provider="aad",
+            oauth2=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2SettingsResponseArgs(
+                grant_types=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2GrantTypesArgs(
+                    authorization_code={
+                        "clientId": "59790825-fdd3-4b10-bc7a-4c3aaf25801d",
+                        "clientSecret": "Q3iPSaKQ~fZFcJk5vKmqzUAfJagcJ8",
+                        "resourceUri": "https://graph.microsoft.com",
+                        "scopes": "User.Read.All Group.Read.All",
+                    },
+                ),
+                redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateAuthorizationProviderAADClientCred
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_provider = azure_native.apimanagement.v20220801.AuthorizationProvider("authorizationProvider",
+            authorization_provider_id="aadwithclientcred",
+            display_name="aadwithclientcred",
+            identity_provider="aad",
+            oauth2=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2SettingsResponseArgs(
+                grant_types=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2GrantTypesArgs(
+                    authorization_code={
+                        "resourceUri": "https://graph.microsoft.com",
+                        "scopes": "User.Read.All Group.Read.All",
+                    },
+                ),
+                redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateAuthorizationProviderGenericOAuth2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_provider = azure_native.apimanagement.v20220801.AuthorizationProvider("authorizationProvider",
+            authorization_provider_id="eventbrite",
+            display_name="eventbrite",
+            identity_provider="oauth2",
+            oauth2=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2SettingsResponseArgs(
+                grant_types=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2GrantTypesArgs(
+                    authorization_code={
+                        "authorizationUrl": "https://www.eventbrite.com/oauth/authorize",
+                        "clientId": "ZYIJTBTABHOUQQDLZY",
+                        "clientSecret": "Q3iPSaKQ~fZFcJk5vKmqzUAfJagcJ8",
+                        "refreshUrl": "https://www.eventbrite.com/oauth/token",
+                        "scopes": None,
+                        "tokenUrl": "https://www.eventbrite.com/oauth/token",
+                    },
+                ),
+                redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateAuthorizationProviderOOBGoogle
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_provider = azure_native.apimanagement.v20220801.AuthorizationProvider("authorizationProvider",
+            authorization_provider_id="google",
+            display_name="google",
+            identity_provider="google",
+            oauth2=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2SettingsResponseArgs(
+                grant_types=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2GrantTypesArgs(
+                    authorization_code={
+                        "clientId": "508791967882-5qv6o2i99a75un7329vlegtk78kr766h.apps.googleusercontent.com",
+                        "clientSecret": "qDN0VyVFjU1OsOyT5Kz8ce",
+                        "scopes": "openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+                    },
+                ),
+                redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:AuthorizationProvider google /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/google 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_provider_id: Identifier of the authorization provider.
@@ -147,6 +256,115 @@ class AuthorizationProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Authorization Provider contract.
+
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationProviderAADAuthCode
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_provider = azure_native.apimanagement.v20220801.AuthorizationProvider("authorizationProvider",
+            authorization_provider_id="aadwithauthcode",
+            display_name="aadwithauthcode",
+            identity_provider="aad",
+            oauth2=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2SettingsResponseArgs(
+                grant_types=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2GrantTypesArgs(
+                    authorization_code={
+                        "clientId": "59790825-fdd3-4b10-bc7a-4c3aaf25801d",
+                        "clientSecret": "Q3iPSaKQ~fZFcJk5vKmqzUAfJagcJ8",
+                        "resourceUri": "https://graph.microsoft.com",
+                        "scopes": "User.Read.All Group.Read.All",
+                    },
+                ),
+                redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateAuthorizationProviderAADClientCred
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_provider = azure_native.apimanagement.v20220801.AuthorizationProvider("authorizationProvider",
+            authorization_provider_id="aadwithclientcred",
+            display_name="aadwithclientcred",
+            identity_provider="aad",
+            oauth2=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2SettingsResponseArgs(
+                grant_types=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2GrantTypesArgs(
+                    authorization_code={
+                        "resourceUri": "https://graph.microsoft.com",
+                        "scopes": "User.Read.All Group.Read.All",
+                    },
+                ),
+                redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateAuthorizationProviderGenericOAuth2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_provider = azure_native.apimanagement.v20220801.AuthorizationProvider("authorizationProvider",
+            authorization_provider_id="eventbrite",
+            display_name="eventbrite",
+            identity_provider="oauth2",
+            oauth2=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2SettingsResponseArgs(
+                grant_types=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2GrantTypesArgs(
+                    authorization_code={
+                        "authorizationUrl": "https://www.eventbrite.com/oauth/authorize",
+                        "clientId": "ZYIJTBTABHOUQQDLZY",
+                        "clientSecret": "Q3iPSaKQ~fZFcJk5vKmqzUAfJagcJ8",
+                        "refreshUrl": "https://www.eventbrite.com/oauth/token",
+                        "scopes": None,
+                        "tokenUrl": "https://www.eventbrite.com/oauth/token",
+                    },
+                ),
+                redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateAuthorizationProviderOOBGoogle
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_provider = azure_native.apimanagement.v20220801.AuthorizationProvider("authorizationProvider",
+            authorization_provider_id="google",
+            display_name="google",
+            identity_provider="google",
+            oauth2=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2SettingsResponseArgs(
+                grant_types=azure_native.apimanagement.v20220801.AuthorizationProviderOAuth2GrantTypesArgs(
+                    authorization_code={
+                        "clientId": "508791967882-5qv6o2i99a75un7329vlegtk78kr766h.apps.googleusercontent.com",
+                        "clientSecret": "qDN0VyVFjU1OsOyT5Kz8ce",
+                        "scopes": "openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email",
+                    },
+                ),
+                redirect_url="https://authorization-manager.consent.azure-apim.net/redirect/apim/apimService1",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:AuthorizationProvider google /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/google 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AuthorizationProviderArgs args: The arguments to use to populate this resource's properties.

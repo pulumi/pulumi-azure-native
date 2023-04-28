@@ -334,6 +334,116 @@ class Api(pulumi.CustomResource):
         """
         API details.
 
+        ## Example Usage
+        ### ApiManagementCreateApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20170301.AuthenticationSettingsContractResponseArgs(
+                o_auth2=azure_native.apimanagement.v20170301.OAuth2AuthenticationSettingsContractArgs(
+                    authorization_server_id="authorizationServerId2283",
+                    scope="oauth2scope2580",
+                ),
+            ),
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                azure_native.apimanagement/v20170301.Protocol.HTTPS,
+                azure_native.apimanagement/v20170301.Protocol.HTTP,
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://newechoapi.cloudapp.net/api",
+            subscription_key_parameter_names=azure_native.apimanagement.v20170301.SubscriptionKeyParameterNamesContractArgs(
+                header="header4520",
+                query="query3037",
+            ))
+
+        ```
+        ### ApiManagementCreateApiRevision
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="5a838fd48f33670ed070d77c;rev=4",
+            description="This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+            display_name="Swagger Petstore V2",
+            path="petstore2",
+            protocols=[azure_native.apimanagement/v20170301.Protocol.HTTPS],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://petstore.swagger.io/v4",
+            subscription_key_parameter_names=azure_native.apimanagement.v20170301.SubscriptionKeyParameterNamesContractArgs(
+                header="Ocp-Apim-Subscription-Key",
+                query="subscription-key",
+            ))
+
+        ```
+        ### ApiManagementCreateApiUsingSwaggerImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="petstore",
+            content_format="swagger-link-json",
+            content_value="http://petstore.swagger.io/v2/swagger.json",
+            path="petstore",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateApiUsingWadlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="petstore",
+            content_format="wadl-link-json",
+            content_value="https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl",
+            path="collector",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateApiUsingWsdlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="soapApi",
+            content_format="wsdl-link",
+            content_value="http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+            path="currency",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            wsdl_selector=azure_native.apimanagement.v20170301.ApiCreateOrUpdatePropertiesWsdlSelectorArgs(
+                wsdl_endpoint_name="CurrencyConvertorSoap",
+                wsdl_service_name="CurrencyConvertor",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:Api soapApi /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/soapApi 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -363,6 +473,116 @@ class Api(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         API details.
+
+        ## Example Usage
+        ### ApiManagementCreateApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20170301.AuthenticationSettingsContractResponseArgs(
+                o_auth2=azure_native.apimanagement.v20170301.OAuth2AuthenticationSettingsContractArgs(
+                    authorization_server_id="authorizationServerId2283",
+                    scope="oauth2scope2580",
+                ),
+            ),
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                azure_native.apimanagement/v20170301.Protocol.HTTPS,
+                azure_native.apimanagement/v20170301.Protocol.HTTP,
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://newechoapi.cloudapp.net/api",
+            subscription_key_parameter_names=azure_native.apimanagement.v20170301.SubscriptionKeyParameterNamesContractArgs(
+                header="header4520",
+                query="query3037",
+            ))
+
+        ```
+        ### ApiManagementCreateApiRevision
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="5a838fd48f33670ed070d77c;rev=4",
+            description="This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+            display_name="Swagger Petstore V2",
+            path="petstore2",
+            protocols=[azure_native.apimanagement/v20170301.Protocol.HTTPS],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://petstore.swagger.io/v4",
+            subscription_key_parameter_names=azure_native.apimanagement.v20170301.SubscriptionKeyParameterNamesContractArgs(
+                header="Ocp-Apim-Subscription-Key",
+                query="subscription-key",
+            ))
+
+        ```
+        ### ApiManagementCreateApiUsingSwaggerImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="petstore",
+            content_format="swagger-link-json",
+            content_value="http://petstore.swagger.io/v2/swagger.json",
+            path="petstore",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateApiUsingWadlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="petstore",
+            content_format="wadl-link-json",
+            content_value="https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl",
+            path="collector",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateApiUsingWsdlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20170301.Api("api",
+            api_id="soapApi",
+            content_format="wsdl-link",
+            content_value="http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+            path="currency",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            wsdl_selector=azure_native.apimanagement.v20170301.ApiCreateOrUpdatePropertiesWsdlSelectorArgs(
+                wsdl_endpoint_name="CurrencyConvertorSoap",
+                wsdl_service_name="CurrencyConvertor",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:Api soapApi /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/soapApi 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.

@@ -386,6 +386,35 @@ class ApplicationDefinition(pulumi.CustomResource):
         """
         Information about managed application definition.
 
+        ## Example Usage
+        ### Create or update managed application definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_definition = azure_native.solutions.v20210701.ApplicationDefinition("applicationDefinition",
+            application_definition_name="myManagedApplicationDef",
+            authorizations=[{
+                "principalId": "validprincipalguid",
+                "roleDefinitionId": "validroleguid",
+            }],
+            description="myManagedApplicationDef description",
+            display_name="myManagedApplicationDef",
+            lock_level=azure_native.solutions/v20210701.ApplicationLockLevel.NONE,
+            package_file_uri="https://path/to/packagezipfile",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions/v20210701:ApplicationDefinition myManagedApplicationDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_name: The name of the managed application definition.
@@ -418,6 +447,35 @@ class ApplicationDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about managed application definition.
+
+        ## Example Usage
+        ### Create or update managed application definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_definition = azure_native.solutions.v20210701.ApplicationDefinition("applicationDefinition",
+            application_definition_name="myManagedApplicationDef",
+            authorizations=[{
+                "principalId": "validprincipalguid",
+                "roleDefinitionId": "validroleguid",
+            }],
+            description="myManagedApplicationDef description",
+            display_name="myManagedApplicationDef",
+            lock_level=azure_native.solutions/v20210701.ApplicationLockLevel.NONE,
+            package_file_uri="https://path/to/packagezipfile",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions/v20210701:ApplicationDefinition myManagedApplicationDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationDefinitionArgs args: The arguments to use to populate this resource's properties.

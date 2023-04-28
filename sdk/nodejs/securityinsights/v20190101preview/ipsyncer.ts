@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Settings with single toggle.
+ *
+ * ## Example Usage
+ * ### Update EyesOn settings.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ipSyncer = new azure_native.securityinsights.v20190101preview.IPSyncer("ipSyncer", {
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     resourceGroupName: "myRg",
+ *     settingsName: "EyesOn",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20190101preview:IPSyncer EyesOn /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirInt/providers/Microsoft.SecurityInsights/settings/EyesOn 
+ * ```
  */
 export class IPSyncer extends pulumi.CustomResource {
     /**

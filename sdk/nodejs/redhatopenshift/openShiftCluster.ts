@@ -11,6 +11,66 @@ import * as utilities from "../utilities";
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
  * API Version: 2022-09-04.
  * Previous API Version: 2020-04-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates or updates a OpenShift cluster with the specified subscription, resource group and resource name.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const openShiftCluster = new azure_native.redhatopenshift.OpenShiftCluster("openShiftCluster", {
+ *     apiserverProfile: {
+ *         visibility: "Public",
+ *     },
+ *     clusterProfile: {
+ *         domain: "cluster.location.aroapp.io",
+ *         fipsValidatedModules: "Enabled",
+ *         pullSecret: "{\"auths\":{\"registry.connect.redhat.com\":{\"auth\":\"\"},\"registry.redhat.io\":{\"auth\":\"\"}}}",
+ *         resourceGroupId: "/subscriptions/subscriptionId/resourceGroups/clusterResourceGroup",
+ *     },
+ *     consoleProfile: {},
+ *     ingressProfiles: [{
+ *         name: "default",
+ *         visibility: "Public",
+ *     }],
+ *     location: "location",
+ *     masterProfile: {
+ *         encryptionAtHost: "Enabled",
+ *         subnetId: "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/master",
+ *         vmSize: "Standard_D8s_v3",
+ *     },
+ *     networkProfile: {
+ *         podCidr: "10.128.0.0/14",
+ *         serviceCidr: "172.30.0.0/16",
+ *     },
+ *     resourceGroupName: "resourceGroup",
+ *     resourceName: "resourceName",
+ *     servicePrincipalProfile: {
+ *         clientId: "clientId",
+ *         clientSecret: "clientSecret",
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     workerProfiles: [{
+ *         count: 3,
+ *         diskSizeGB: 128,
+ *         name: "worker",
+ *         subnetId: "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/worker",
+ *         vmSize: "Standard_D2s_v3",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:redhatopenshift:OpenShiftCluster resourceName /subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/resourceName 
+ * ```
  */
 export class OpenShiftCluster extends pulumi.CustomResource {
     /**

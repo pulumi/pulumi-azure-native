@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Automation.V20190601
 {
     /// <summary>
     /// Definition of the module type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a python 2 package
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var python2Package = new AzureNative.Automation.V20190601.Python2Package("python2Package", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount33",
+    ///         ContentLink = new AzureNative.Automation.V20190601.Inputs.ContentLinkArgs
+    ///         {
+    ///             ContentHash = new AzureNative.Automation.V20190601.Inputs.ContentHashArgs
+    ///             {
+    ///                 Algorithm = "sha265",
+    ///                 Value = "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+    ///             },
+    ///             Uri = "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+    ///             Version = "1.0.0.0",
+    ///         },
+    ///         PackageName = "OmsCompositeResources",
+    ///         ResourceGroupName = "rg",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20190601:Python2Package OmsCompositeResources /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/python2Packages/OmsCompositeResources 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:Python2Package")]
     public partial class Python2Package : global::Pulumi.CustomResource

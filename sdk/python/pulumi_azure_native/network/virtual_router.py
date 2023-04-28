@@ -184,6 +184,34 @@ class VirtualRouter(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create VirtualRouter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_router = azure_native.network.VirtualRouter("virtualRouter",
+            hosted_gateway=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vnetGateway",
+            ),
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_router_name="virtualRouter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualRouter virtualRouter /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualRouters/virtualRouter 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] hosted_gateway: The Gateway on which VirtualRouter is hosted.
@@ -206,6 +234,34 @@ class VirtualRouter(pulumi.CustomResource):
         VirtualRouter Resource.
         API Version: 2022-09-01.
         Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create VirtualRouter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_router = azure_native.network.VirtualRouter("virtualRouter",
+            hosted_gateway=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vnetGateway",
+            ),
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_router_name="virtualRouter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualRouter virtualRouter /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualRouters/virtualRouter 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualRouterArgs args: The arguments to use to populate this resource's properties.

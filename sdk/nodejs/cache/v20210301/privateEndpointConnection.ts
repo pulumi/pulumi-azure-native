@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * ## Example Usage
+ * ### RedisEnterprisePutPrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.cache.v20210301.PrivateEndpointConnection("privateEndpointConnection", {
+ *     clusterName: "cache1",
+ *     privateEndpointConnectionName: "pectest01",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Auto-Approved",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cache/v20210301:PrivateEndpointConnection pectest01 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/privateEndpointConnections/pectest01 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

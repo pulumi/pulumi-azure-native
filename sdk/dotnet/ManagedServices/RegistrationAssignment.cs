@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.ManagedServices
     /// The registration assignment.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Put Registration Assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registrationAssignment = new AzureNative.ManagedServices.RegistrationAssignment("registrationAssignment", new()
+    ///     {
+    ///         Properties = new AzureNative.ManagedServices.Inputs.RegistrationAssignmentPropertiesArgs
+    ///         {
+    ///             RegistrationDefinitionId = "/subscriptions/0afefe50-734e-4610-8a82-a144ahf49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-6e081c90ada2",
+    ///         },
+    ///         RegistrationAssignmentId = "26c128c2-fefa-4340-9bb1-6e081c90ada2",
+    ///         Scope = "subscription/0afefe50-734e-4610-8a82-a144ahf49dea",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managedservices:RegistrationAssignment 484a7d5f-9729-4b87-bc9b-26610985a013 /subscriptions/0afefe50-734e-4610-8c82-a144aff49dea/providers/Microsoft.ManagedServices/registrationAssignments/484a7d5f-9729-4b87-bc9b-26610985a013 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managedservices:RegistrationAssignment")]
     public partial class RegistrationAssignment : global::Pulumi.CustomResource

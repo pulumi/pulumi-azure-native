@@ -474,6 +474,53 @@ class HostPool(pulumi.CustomResource):
         """
         Represents a HostPool definition.
 
+        ## Example Usage
+        ### HostPool_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        host_pool = azure_native.desktopvirtualization.v20210201preview.HostPool("hostPool",
+            description="des1",
+            friendly_name="friendly",
+            host_pool_name="hostPool1",
+            host_pool_type="Pooled",
+            load_balancer_type="BreadthFirst",
+            location="centralus",
+            max_session_limit=999999,
+            migration_request=azure_native.desktopvirtualization.v20210201preview.MigrationRequestPropertiesArgs(
+                migration_path="TenantGroups/{defaultV1TenantGroup.Name}/Tenants/{defaultV1Tenant.Name}/HostPools/{sessionHostPool.Name}",
+                operation="Start",
+            ),
+            personal_desktop_assignment_type="Automatic",
+            preferred_app_group_type="Desktop",
+            registration_info=azure_native.desktopvirtualization.v20210201preview.RegistrationInfoArgs(
+                expiration_time="2020-10-01T14:01:54.9571247Z",
+                registration_token_operation="Update",
+            ),
+            resource_group_name="resourceGroup1",
+            sso_client_id="client",
+            sso_client_secret_key_vault_path="https://keyvault/secret",
+            sso_secret_type="SharedKey",
+            ssoadfs_authority="https://adfs",
+            start_vm_on_connect=False,
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            vm_template="{json:json}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization/v20210201preview:HostPool hostPool1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_rdp_property: Custom rdp property of HostPool.
@@ -509,6 +556,53 @@ class HostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a HostPool definition.
+
+        ## Example Usage
+        ### HostPool_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        host_pool = azure_native.desktopvirtualization.v20210201preview.HostPool("hostPool",
+            description="des1",
+            friendly_name="friendly",
+            host_pool_name="hostPool1",
+            host_pool_type="Pooled",
+            load_balancer_type="BreadthFirst",
+            location="centralus",
+            max_session_limit=999999,
+            migration_request=azure_native.desktopvirtualization.v20210201preview.MigrationRequestPropertiesArgs(
+                migration_path="TenantGroups/{defaultV1TenantGroup.Name}/Tenants/{defaultV1Tenant.Name}/HostPools/{sessionHostPool.Name}",
+                operation="Start",
+            ),
+            personal_desktop_assignment_type="Automatic",
+            preferred_app_group_type="Desktop",
+            registration_info=azure_native.desktopvirtualization.v20210201preview.RegistrationInfoArgs(
+                expiration_time="2020-10-01T14:01:54.9571247Z",
+                registration_token_operation="Update",
+            ),
+            resource_group_name="resourceGroup1",
+            sso_client_id="client",
+            sso_client_secret_key_vault_path="https://keyvault/secret",
+            sso_secret_type="SharedKey",
+            ssoadfs_authority="https://adfs",
+            start_vm_on_connect=False,
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            vm_template="{json:json}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization/v20210201preview:HostPool hostPool1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HostPoolArgs args: The arguments to use to populate this resource's properties.

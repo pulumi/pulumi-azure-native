@@ -163,6 +163,42 @@ class ConnectedRegistry(pulumi.CustomResource):
         """
         An object that represents a connected registry for a container registry.
 
+        ## Example Usage
+        ### ConnectedRegistryCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_registry = azure_native.containerregistry.v20230101preview.ConnectedRegistry("connectedRegistry",
+            client_token_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/client1Token"],
+            connected_registry_name="myConnectedRegistry",
+            mode="ReadWrite",
+            notifications_list=[
+                "hello-world:*:*",
+                "sample/repo/*:1.0:*",
+            ],
+            parent=azure_native.containerregistry.v20230101preview.ParentPropertiesResponseArgs(
+                sync_properties=azure_native.containerregistry.v20230101preview.SyncPropertiesArgs(
+                    message_ttl="P2D",
+                    schedule="0 9 * * *",
+                    sync_window="PT3H",
+                    token_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/syncToken",
+                ),
+            ),
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:ConnectedRegistry myConnectedRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/connectedRegistries/myConnectedRegistry 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_token_ids: The list of the ACR token resource IDs used to authenticate clients to the connected registry.
@@ -182,6 +218,42 @@ class ConnectedRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a connected registry for a container registry.
+
+        ## Example Usage
+        ### ConnectedRegistryCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_registry = azure_native.containerregistry.v20230101preview.ConnectedRegistry("connectedRegistry",
+            client_token_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/client1Token"],
+            connected_registry_name="myConnectedRegistry",
+            mode="ReadWrite",
+            notifications_list=[
+                "hello-world:*:*",
+                "sample/repo/*:1.0:*",
+            ],
+            parent=azure_native.containerregistry.v20230101preview.ParentPropertiesResponseArgs(
+                sync_properties=azure_native.containerregistry.v20230101preview.SyncPropertiesArgs(
+                    message_ttl="P2D",
+                    schedule="0 9 * * *",
+                    sync_window="PT3H",
+                    token_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/syncToken",
+                ),
+            ),
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:ConnectedRegistry myConnectedRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/connectedRegistries/myConnectedRegistry 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectedRegistryArgs args: The arguments to use to populate this resource's properties.

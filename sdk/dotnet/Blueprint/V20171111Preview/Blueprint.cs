@@ -11,6 +11,62 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Represents a Blueprint definition.
+    /// 
+    /// ## Example Usage
+    /// ### Blueprint
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blueprint = new AzureNative.Blueprint.V20171111Preview.Blueprint("blueprint", new()
+    ///     {
+    ///         BlueprintName = "simpleBlueprint",
+    ///         Description = "blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///         Parameters = 
+    ///         {
+    ///             { "costCenter", new AzureNative.Blueprint.V20171111Preview.Inputs.ParameterDefinitionArgs
+    ///             {
+    ///                 DisplayName = "force cost center tag for all resources under given subscription.",
+    ///                 Type = "string",
+    ///             } },
+    ///             { "owners", new AzureNative.Blueprint.V20171111Preview.Inputs.ParameterDefinitionArgs
+    ///             {
+    ///                 DisplayName = "assign owners to subscription along with blueprint assignment.",
+    ///                 Type = "array",
+    ///             } },
+    ///             { "storageAccountType", new AzureNative.Blueprint.V20171111Preview.Inputs.ParameterDefinitionArgs
+    ///             {
+    ///                 DisplayName = "storage account type.",
+    ///                 Type = "string",
+    ///             } },
+    ///         },
+    ///         ResourceGroups = 
+    ///         {
+    ///             { "storageRG", new AzureNative.Blueprint.V20171111Preview.Inputs.ResourceGroupDefinitionArgs
+    ///             {
+    ///                 Description = "Contains storageAccounts that collect all shoebox logs.",
+    ///                 DisplayName = "storage resource group",
+    ///             } },
+    ///         },
+    ///         TargetScope = "subscription",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blueprint/v20171111preview:Blueprint simpleBlueprint /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:Blueprint")]

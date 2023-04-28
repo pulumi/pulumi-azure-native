@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Single item in List or Get Migration Config operation
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### MigrationConfigurationsStartMigration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const migrationConfig = new azure_native.servicebus.MigrationConfig("migrationConfig", {
+ *     configName: `$default`,
+ *     namespaceName: "sdk-Namespace-41",
+ *     postMigrationName: "sdk-PostMigration-5919",
+ *     resourceGroupName: "ResourceGroup",
+ *     targetNamespace: "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus:MigrationConfig sdk-Namespace-41 /subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-41/migrationConfigs/$default 
+ * ```
  */
 export class MigrationConfig extends pulumi.CustomResource {
     /**

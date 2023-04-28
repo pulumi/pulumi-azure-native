@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
 {
     /// <summary>
     /// The Network Manager Connection resource
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Management Group Network Manager Connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementGroupNetworkManagerConnection = new AzureNative.Network.V20210501Preview.ManagementGroupNetworkManagerConnection("managementGroupNetworkManagerConnection", new()
+    ///     {
+    ///         ManagementGroupId = "managementGroupA",
+    ///         NetworkManagerConnectionName = "TestNMConnection",
+    ///         NetworkManagerId = "/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210501preview:ManagementGroupNetworkManagerConnection TestNMConnection /managementGroups/managementGroupA/providers/Microsoft.Network/networkManagerConnections/TestNMConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210501preview:ManagementGroupNetworkManagerConnection")]
     public partial class ManagementGroupNetworkManagerConnection : global::Pulumi.CustomResource

@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * The Fleet resource which contains multiple Kubernetes clusters as its members.
+ *
+ * ## Example Usage
+ * ### Creates or update a fleet resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fleet = new azure_native.containerservice.v20220902preview.Fleet("fleet", {
+ *     fleetName: "fleet-1",
+ *     hubProfile: {
+ *         dnsPrefix: "dnsprefix1",
+ *     },
+ *     location: "East US",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         archv2: "",
+ *         tier: "production",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20220902preview:Fleet fleet-1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/fleets/fleet-1 
+ * ```
  */
 export class Fleet extends pulumi.CustomResource {
     /**

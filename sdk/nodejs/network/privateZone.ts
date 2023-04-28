@@ -8,6 +8,32 @@ import * as utilities from "../utilities";
  * Describes a Private DNS zone.
  * API Version: 2020-06-01.
  * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PUT Private DNS Zone
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateZone = new azure_native.network.PrivateZone("privateZone", {
+ *     location: "Global",
+ *     privateZoneName: "privatezone1.com",
+ *     resourceGroupName: "resourceGroup1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:PrivateZone privatezone1.com /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com 
+ * ```
  */
 export class PrivateZone extends pulumi.CustomResource {
     /**

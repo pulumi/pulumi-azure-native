@@ -11,6 +11,111 @@ import * as utilities from "../utilities";
  * Resource information with extended details.
  * API Version: 2021-11-30.
  * Previous API Version: 2018-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a new or update an existing dedicated HSM
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dedicatedHsm = new azure_native.hardwaresecuritymodules.DedicatedHsm("dedicatedHsm", {
+ *     location: "westus",
+ *     name: "hsm1",
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             privateIpAddress: "1.0.0.1",
+ *         }],
+ *         subnet: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+ *         },
+ *     },
+ *     resourceGroupName: "hsm-group",
+ *     sku: {
+ *         name: "SafeNet Luna Network HSM A790",
+ *     },
+ *     stampId: "stamp01",
+ *     tags: {
+ *         Dept: "hsm",
+ *         Environment: "dogfood",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new or update an existing payment HSM
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dedicatedHsm = new azure_native.hardwaresecuritymodules.DedicatedHsm("dedicatedHsm", {
+ *     location: "westus",
+ *     name: "hsm1",
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             privateIpAddress: "1.0.0.1",
+ *         }],
+ *         subnet: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+ *         },
+ *     },
+ *     resourceGroupName: "hsm-group",
+ *     sku: {
+ *         name: "payShield10K_LMK1_CPS60",
+ *     },
+ *     stampId: "stamp01",
+ *     tags: {
+ *         Dept: "hsm",
+ *         Environment: "dogfood",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new or update an existing payment HSM with management profile
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dedicatedHsm = new azure_native.hardwaresecuritymodules.DedicatedHsm("dedicatedHsm", {
+ *     location: "westus",
+ *     managementNetworkProfile: {
+ *         networkInterfaces: [{
+ *             privateIpAddress: "1.0.0.2",
+ *         }],
+ *         subnet: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+ *         },
+ *     },
+ *     name: "hsm1",
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             privateIpAddress: "1.0.0.1",
+ *         }],
+ *         subnet: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+ *         },
+ *     },
+ *     resourceGroupName: "hsm-group",
+ *     sku: {
+ *         name: "payShield10K_LMK1_CPS60",
+ *     },
+ *     stampId: "stamp01",
+ *     tags: {
+ *         Dept: "hsm",
+ *         Environment: "dogfood",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hardwaresecuritymodules:DedicatedHsm hsm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1 
+ * ```
  */
 export class DedicatedHsm extends pulumi.CustomResource {
     /**

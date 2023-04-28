@@ -13,6 +13,116 @@ namespace Pulumi.AzureNative.TestBase
     /// The Test Base Package resource.
     /// API Version: 2022-04-01-preview.
     /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PackageCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var package = new AzureNative.TestBase.Package("package", new()
+    ///     {
+    ///         ApplicationName = "contoso-package2",
+    ///         BlobPath = "storageAccountPath/package.zip",
+    ///         FlightingRing = "Insider Beta Channel",
+    ///         Location = "westus",
+    ///         PackageName = "contoso-package2",
+    ///         ResourceGroupName = "contoso-rg1",
+    ///         Tags = null,
+    ///         TargetOSList = new[]
+    ///         {
+    ///             new AzureNative.TestBase.Inputs.TargetOSInfoArgs
+    ///             {
+    ///                 OsUpdateType = "Security updates",
+    ///                 TargetOSs = new[]
+    ///                 {
+    ///                     "Windows 10 2004",
+    ///                     "Windows 10 1903",
+    ///                 },
+    ///             },
+    ///         },
+    ///         TestBaseAccountName = "contoso-testBaseAccount1",
+    ///         Tests = new[]
+    ///         {
+    ///             new AzureNative.TestBase.Inputs.TestArgs
+    ///             {
+    ///                 Commands = new[]
+    ///                 {
+    ///                     new AzureNative.TestBase.Inputs.CommandArgs
+    ///                     {
+    ///                         Action = "Install",
+    ///                         AlwaysRun = true,
+    ///                         ApplyUpdateBefore = false,
+    ///                         Content = "app/scripts/install/job.ps1",
+    ///                         ContentType = "Path",
+    ///                         MaxRunTime = 1800,
+    ///                         Name = "Install",
+    ///                         RestartAfter = true,
+    ///                         RunAsInteractive = true,
+    ///                         RunElevated = true,
+    ///                     },
+    ///                     new AzureNative.TestBase.Inputs.CommandArgs
+    ///                     {
+    ///                         Action = "Launch",
+    ///                         AlwaysRun = false,
+    ///                         ApplyUpdateBefore = true,
+    ///                         Content = "app/scripts/launch/job.ps1",
+    ///                         ContentType = "Path",
+    ///                         MaxRunTime = 1800,
+    ///                         Name = "Launch",
+    ///                         RestartAfter = false,
+    ///                         RunAsInteractive = true,
+    ///                         RunElevated = true,
+    ///                     },
+    ///                     new AzureNative.TestBase.Inputs.CommandArgs
+    ///                     {
+    ///                         Action = "Close",
+    ///                         AlwaysRun = false,
+    ///                         ApplyUpdateBefore = false,
+    ///                         Content = "app/scripts/close/job.ps1",
+    ///                         ContentType = "Path",
+    ///                         MaxRunTime = 1800,
+    ///                         Name = "Close",
+    ///                         RestartAfter = false,
+    ///                         RunAsInteractive = true,
+    ///                         RunElevated = true,
+    ///                     },
+    ///                     new AzureNative.TestBase.Inputs.CommandArgs
+    ///                     {
+    ///                         Action = "Uninstall",
+    ///                         AlwaysRun = true,
+    ///                         ApplyUpdateBefore = false,
+    ///                         Content = "app/scripts/uninstall/job.ps1",
+    ///                         ContentType = "Path",
+    ///                         MaxRunTime = 1800,
+    ///                         Name = "Uninstall",
+    ///                         RestartAfter = false,
+    ///                         RunAsInteractive = true,
+    ///                         RunElevated = true,
+    ///                     },
+    ///                 },
+    ///                 IsActive = true,
+    ///                 TestType = "OutOfBoxTest",
+    ///             },
+    ///         },
+    ///         Version = "1.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:testbase:Package contoso-package2 /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/packages/contoso-package2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:Package")]
     public partial class Package : global::Pulumi.CustomResource

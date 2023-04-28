@@ -11,6 +11,58 @@ import * as utilities from "../utilities";
  * A web app, a mobile app backend, or an API app.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Clone web app
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webApp = new azure_native.web.WebApp("webApp", {
+ *     cloningInfo: {
+ *         appSettingsOverrides: {
+ *             Setting1: "NewValue1",
+ *             Setting3: "NewValue5",
+ *         },
+ *         cloneCustomHostNames: true,
+ *         cloneSourceControl: true,
+ *         configureLoadBalancing: false,
+ *         hostingEnvironment: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
+ *         overwrite: false,
+ *         sourceWebAppId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478",
+ *         sourceWebAppLocation: "West Europe",
+ *     },
+ *     kind: "app",
+ *     location: "East US",
+ *     name: "sitef6141",
+ *     resourceGroupName: "testrg123",
+ * });
+ *
+ * ```
+ * ### Create or Update web app
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webApp = new azure_native.web.WebApp("webApp", {
+ *     kind: "app",
+ *     location: "East US",
+ *     name: "sitef6141",
+ *     resourceGroupName: "testrg123",
+ *     serverFarmId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:WebApp sitef6141 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141 
+ * ```
  */
 export class WebApp extends pulumi.CustomResource {
     /**

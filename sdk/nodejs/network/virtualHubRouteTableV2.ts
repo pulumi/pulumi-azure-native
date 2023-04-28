@@ -11,6 +11,47 @@ import * as utilities from "../utilities";
  * VirtualHubRouteTableV2 Resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### VirtualHubRouteTableV2Put
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualHubRouteTableV2 = new azure_native.network.VirtualHubRouteTableV2("virtualHubRouteTableV2", {
+ *     attachedConnections: ["All_Vnets"],
+ *     resourceGroupName: "rg1",
+ *     routeTableName: "virtualHubRouteTable1a",
+ *     routes: [
+ *         {
+ *             destinationType: "CIDR",
+ *             destinations: [
+ *                 "20.10.0.0/16",
+ *                 "20.20.0.0/16",
+ *             ],
+ *             nextHopType: "IPAddress",
+ *             nextHops: ["10.0.0.68"],
+ *         },
+ *         {
+ *             destinationType: "CIDR",
+ *             destinations: ["0.0.0.0/0"],
+ *             nextHopType: "IPAddress",
+ *             nextHops: ["10.0.0.68"],
+ *         },
+ *     ],
+ *     virtualHubName: "virtualHub1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:VirtualHubRouteTableV2 virtualHubRouteTable1a /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeTables/virtualHubRouteTable1a 
+ * ```
  */
 export class VirtualHubRouteTableV2 extends pulumi.CustomResource {
     /**

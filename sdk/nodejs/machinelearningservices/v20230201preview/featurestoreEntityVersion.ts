@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Workspace Featurestore Entity Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const featurestoreEntityVersion = new azure_native.machinelearningservices.v20230201preview.FeaturestoreEntityVersion("featurestoreEntityVersion", {
+ *     featurestoreEntityVersionProperties: {
+ *         description: "string",
+ *         indexColumns: [{
+ *             columnName: "string",
+ *             dataType: "Datetime",
+ *         }],
+ *         isAnonymous: false,
+ *         isArchived: false,
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230201preview:FeaturestoreEntityVersion string string 
+ * ```
  */
 export class FeaturestoreEntityVersion extends pulumi.CustomResource {
     /**

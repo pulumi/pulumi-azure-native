@@ -166,6 +166,34 @@ class ProtectionIntent(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or Update Azure Vm Protection Intent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        protection_intent = azure_native.recoveryservices.ProtectionIntent("protectionIntent",
+            fabric_name="Azure",
+            intent_object_name="vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+            properties=azure_native.recoveryservices.AzureResourceProtectionIntentArgs(
+                policy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupPolicies/myPolicy",
+                protection_intent_item_type="AzureResourceItem",
+                source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/chamsrgtest/providers/Microsoft.Compute/virtualMachines/chamscandel",
+            ),
+            resource_group_name="myRG",
+            vault_name="myVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ProtectionIntent vm;iaasvmcontainerv2;chamsrgtest;chamscandel /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupFabrics/Azure/backupProtectionIntent/vm;iaasvmcontainerv2;chamsrgtest;chamscandel 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
@@ -187,6 +215,34 @@ class ProtectionIntent(pulumi.CustomResource):
         Base class for backup ProtectionIntent.
         API Version: 2023-02-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or Update Azure Vm Protection Intent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        protection_intent = azure_native.recoveryservices.ProtectionIntent("protectionIntent",
+            fabric_name="Azure",
+            intent_object_name="vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+            properties=azure_native.recoveryservices.AzureResourceProtectionIntentArgs(
+                policy_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupPolicies/myPolicy",
+                protection_intent_item_type="AzureResourceItem",
+                source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/chamsrgtest/providers/Microsoft.Compute/virtualMachines/chamscandel",
+            ),
+            resource_group_name="myRG",
+            vault_name="myVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ProtectionIntent vm;iaasvmcontainerv2;chamsrgtest;chamscandel /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupFabrics/Azure/backupProtectionIntent/vm;iaasvmcontainerv2;chamsrgtest;chamscandel 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProtectionIntentArgs args: The arguments to use to populate this resource's properties.

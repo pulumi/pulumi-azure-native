@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// The Private Endpoint Connection resource.
     /// API Version: 2022-12-01.
     /// Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### WorkspacePrivateEndpointConnection_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspacePrivateEndpointConnection = new AzureNative.HealthcareApis.WorkspacePrivateEndpointConnection("workspacePrivateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "myConnection",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.HealthcareApis.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Auto-Approved",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "testRG",
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthcareapis:WorkspacePrivateEndpointConnection myConnection /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/workspaces/workspace1/privateEndpointConnections/myConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:WorkspacePrivateEndpointConnection")]
     public partial class WorkspacePrivateEndpointConnection : global::Pulumi.CustomResource

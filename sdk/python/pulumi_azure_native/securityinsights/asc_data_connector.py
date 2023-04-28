@@ -134,6 +134,40 @@ class ASCDataConnector(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates an Office365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        asc_data_connector = azure_native.securityinsights.ASCDataConnector("ascDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        asc_data_connector = azure_native.securityinsights.ASCDataConnector("ascDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:ASCDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
@@ -154,6 +188,40 @@ class ASCDataConnector(pulumi.CustomResource):
         Represents ASC (Azure Security Center) data connector.
         API Version: 2023-02-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates an Office365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        asc_data_connector = azure_native.securityinsights.ASCDataConnector("ascDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        asc_data_connector = azure_native.securityinsights.ASCDataConnector("ascDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:ASCDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ASCDataConnectorArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,167 @@ namespace Pulumi.AzureNative.Authorization.V20200901
 {
     /// <summary>
     /// The policy set definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy set definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policySetDefinition = new AzureNative.Authorization.V20200901.PolicySetDefinition("policySetDefinition", new()
+    ///     {
+    ///         Description = "Policies to enforce low cost storage SKUs",
+    ///         DisplayName = "Cost Management",
+    ///         Metadata = 
+    ///         {
+    ///             { "category", "Cost Management" },
+    ///         },
+    ///         Parameters = 
+    ///         {
+    ///             { "namePrefix", new AzureNative.Authorization.V20200901.Inputs.ParameterDefinitionsValueArgs
+    ///             {
+    ///                 DefaultValue = "myPrefix",
+    ///                 Metadata = new AzureNative.Authorization.V20200901.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                 {
+    ///                     DisplayName = "Prefix to enforce on resource names",
+    ///                 },
+    ///                 Type = "String",
+    ///             } },
+    ///         },
+    ///         PolicyDefinitions = new[]
+    ///         {
+    ///             new AzureNative.Authorization.V20200901.Inputs.PolicyDefinitionReferenceArgs
+    ///             {
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "listOfAllowedSKUs", new AzureNative.Authorization.V20200901.Inputs.ParameterValuesValueArgs
+    ///                     {
+    ///                         Value = new[]
+    ///                         {
+    ///                             "Standard_GRS",
+    ///                             "Standard_LRS",
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///                 PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+    ///                 PolicyDefinitionReferenceId = "Limit_Skus",
+    ///             },
+    ///             new AzureNative.Authorization.V20200901.Inputs.PolicyDefinitionReferenceArgs
+    ///             {
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "prefix", new AzureNative.Authorization.V20200901.Inputs.ParameterValuesValueArgs
+    ///                     {
+    ///                         Value = "[parameters('namePrefix')]",
+    ///                     } },
+    ///                     { "suffix", new AzureNative.Authorization.V20200901.Inputs.ParameterValuesValueArgs
+    ///                     {
+    ///                         Value = "-LC",
+    ///                     } },
+    ///                 },
+    ///                 PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+    ///                 PolicyDefinitionReferenceId = "Resource_Naming",
+    ///             },
+    ///         },
+    ///         PolicySetDefinitionName = "CostManagement",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a policy set definition with groups
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policySetDefinition = new AzureNative.Authorization.V20200901.PolicySetDefinition("policySetDefinition", new()
+    ///     {
+    ///         Description = "Policies to enforce low cost storage SKUs",
+    ///         DisplayName = "Cost Management",
+    ///         Metadata = 
+    ///         {
+    ///             { "category", "Cost Management" },
+    ///         },
+    ///         PolicyDefinitionGroups = new[]
+    ///         {
+    ///             new AzureNative.Authorization.V20200901.Inputs.PolicyDefinitionGroupArgs
+    ///             {
+    ///                 Description = "Policies designed to control spend within a subscription.",
+    ///                 DisplayName = "Cost Management Policies",
+    ///                 Name = "CostSaving",
+    ///             },
+    ///             new AzureNative.Authorization.V20200901.Inputs.PolicyDefinitionGroupArgs
+    ///             {
+    ///                 Description = "Policies that help enforce resource organization standards within a subscription.",
+    ///                 DisplayName = "Organizational Policies",
+    ///                 Name = "Organizational",
+    ///             },
+    ///         },
+    ///         PolicyDefinitions = new[]
+    ///         {
+    ///             new AzureNative.Authorization.V20200901.Inputs.PolicyDefinitionReferenceArgs
+    ///             {
+    ///                 GroupNames = new[]
+    ///                 {
+    ///                     "CostSaving",
+    ///                 },
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "listOfAllowedSKUs", new AzureNative.Authorization.V20200901.Inputs.ParameterValuesValueArgs
+    ///                     {
+    ///                         Value = new[]
+    ///                         {
+    ///                             "Standard_GRS",
+    ///                             "Standard_LRS",
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///                 PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+    ///                 PolicyDefinitionReferenceId = "Limit_Skus",
+    ///             },
+    ///             new AzureNative.Authorization.V20200901.Inputs.PolicyDefinitionReferenceArgs
+    ///             {
+    ///                 GroupNames = new[]
+    ///                 {
+    ///                     "Organizational",
+    ///                 },
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "prefix", new AzureNative.Authorization.V20200901.Inputs.ParameterValuesValueArgs
+    ///                     {
+    ///                         Value = "DeptA",
+    ///                     } },
+    ///                     { "suffix", new AzureNative.Authorization.V20200901.Inputs.ParameterValuesValueArgs
+    ///                     {
+    ///                         Value = "-LC",
+    ///                     } },
+    ///                 },
+    ///                 PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+    ///                 PolicyDefinitionReferenceId = "Resource_Naming",
+    ///             },
+    ///         },
+    ///         PolicySetDefinitionName = "CostManagement",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20200901:PolicySetDefinition CostManagement /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20200901:PolicySetDefinition")]
     public partial class PolicySetDefinition : global::Pulumi.CustomResource

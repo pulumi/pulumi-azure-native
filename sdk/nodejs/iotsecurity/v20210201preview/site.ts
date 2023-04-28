@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * IoT site model
+ *
+ * ## Example Usage
+ * ### Create or update IoT site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const site = new azure_native.iotsecurity.v20210201preview.Site("site", {
+ *     displayName: "IoT site name",
+ *     scope: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotsecurity/v20210201preview:Site default subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub/providers/Microsoft.IoTSecurity/sites/default 
+ * ```
  */
 export class Site extends pulumi.CustomResource {
     /**

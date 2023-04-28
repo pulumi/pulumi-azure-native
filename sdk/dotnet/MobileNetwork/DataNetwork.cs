@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// Data network resource. Must be created in the same location as its parent mobile network.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create data network
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataNetwork = new AzureNative.MobileNetwork.DataNetwork("dataNetwork", new()
+    ///     {
+    ///         DataNetworkName = "testDataNetwork",
+    ///         Description = "myFavouriteDataNetwork",
+    ///         Location = "eastus",
+    ///         MobileNetworkName = "testMobileNetwork",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork:DataNetwork testDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testDataNetwork 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:DataNetwork")]
     public partial class DataNetwork : global::Pulumi.CustomResource

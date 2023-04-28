@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnServerConfigurationPolicyGroup Resource.
+ *
+ * ## Example Usage
+ * ### ConfigurationPolicyGroupPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationPolicyGroup = new azure_native.network.v20220101.ConfigurationPolicyGroup("configurationPolicyGroup", {
+ *     configurationPolicyGroupName: "policyGroup1",
+ *     isDefault: true,
+ *     policyMembers: [
+ *         {
+ *             attributeType: "RadiusAzureGroupId",
+ *             attributeValue: "6ad1bd08",
+ *             name: "policy1",
+ *         },
+ *         {
+ *             attributeType: "CertificateGroupId",
+ *             attributeValue: "red.com",
+ *             name: "policy2",
+ *         },
+ *     ],
+ *     priority: 0,
+ *     resourceGroupName: "rg1",
+ *     vpnServerConfigurationName: "vpnServerConfiguration1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220101:ConfigurationPolicyGroup policyGroup1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup1 
+ * ```
  */
 export class ConfigurationPolicyGroup extends pulumi.CustomResource {
     /**

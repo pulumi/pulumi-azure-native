@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
 {
     /// <summary>
     /// A custom domain
+    /// 
+    /// ## Example Usage
+    /// ### SignalRCustomDomains_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var signalRCustomDomain = new AzureNative.SignalRService.V20230201.SignalRCustomDomain("signalRCustomDomain", new()
+    ///     {
+    ///         CustomCertificate = new AzureNative.SignalRService.V20230201.Inputs.ResourceReferenceArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customCertificates/myCert",
+    ///         },
+    ///         DomainName = "example.com",
+    ///         Name = "myDomain",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "mySignalRService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:signalrservice/v20230201:SignalRCustomDomain myDomain /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customDomains/myDomain 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice/v20230201:SignalRCustomDomain")]
     public partial class SignalRCustomDomain : global::Pulumi.CustomResource

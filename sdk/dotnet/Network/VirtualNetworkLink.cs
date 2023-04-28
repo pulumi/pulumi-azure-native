@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.Network
     /// Describes a virtual network link.
     /// API Version: 2022-07-01.
     /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Upsert virtual network link to a DNS forwarding ruleset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkLink = new AzureNative.Network.VirtualNetworkLink("virtualNetworkLink", new()
+    ///     {
+    ///         DnsForwardingRulesetName = "sampleDnsForwardingRuleset",
+    ///         Metadata = 
+    ///         {
+    ///             { "additionalProp1", "value1" },
+    ///         },
+    ///         ResourceGroupName = "sampleResourceGroup",
+    ///         VirtualNetwork = new AzureNative.Network.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+    ///         },
+    ///         VirtualNetworkLinkName = "sampleVirtualNetworkLink",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VirtualNetworkLink sampleVirtualNetworkLink /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRuleset/sampleDnsForwardingRuleset/virtualNetworkLinks/sampleVirtualNetworkLink 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkLink")]
     public partial class VirtualNetworkLink : global::Pulumi.CustomResource

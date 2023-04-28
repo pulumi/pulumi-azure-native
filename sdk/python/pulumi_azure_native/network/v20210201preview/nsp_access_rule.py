@@ -283,6 +283,34 @@ class NspAccessRule(pulumi.CustomResource):
         """
         The NSP access rule resource
 
+        ## Example Usage
+        ### NspAccessRulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nsp_access_rule = azure_native.network.v20210201preview.NspAccessRule("nspAccessRule",
+            access_rule_name="accessRule1",
+            address_prefixes=[
+                "10.11.0.0/16",
+                "10.10.1.0/24",
+            ],
+            direction="Inbound",
+            network_security_perimeter_name="nsp1",
+            profile_name="profile1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NspAccessRule accessRule1 /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/profile1/accessRules/accessRule1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_rule_name: The name of the NSP access rule.
@@ -309,6 +337,34 @@ class NspAccessRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NSP access rule resource
+
+        ## Example Usage
+        ### NspAccessRulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nsp_access_rule = azure_native.network.v20210201preview.NspAccessRule("nspAccessRule",
+            access_rule_name="accessRule1",
+            address_prefixes=[
+                "10.11.0.0/16",
+                "10.10.1.0/24",
+            ],
+            direction="Inbound",
+            network_security_perimeter_name="nsp1",
+            profile_name="profile1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NspAccessRule accessRule1 /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/profile1/accessRules/accessRule1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NspAccessRuleArgs args: The arguments to use to populate this resource's properties.

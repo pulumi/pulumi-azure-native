@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of the EventHubConsumerGroupInfo object.
+ *
+ * ## Example Usage
+ * ### IotHubResource_CreateEventHubConsumerGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotHubResourceEventHubConsumerGroup = new azure_native.devices.v20221115preview.IotHubResourceEventHubConsumerGroup("iotHubResourceEventHubConsumerGroup", {
+ *     eventHubEndpointName: "events",
+ *     name: "test",
+ *     properties: {
+ *         name: "test",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "testHub",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devices/v20221115preview:IotHubResourceEventHubConsumerGroup test /subscriptions/cmd-sub-1/resourceGroups/cmd-rg-1/providers/Microsoft.Devices/IotHubs/test-hub-2/eventHubEndpoints/events/ConsumerGroups/%24Default 
+ * ```
  */
 export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
     /**

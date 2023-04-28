@@ -121,6 +121,34 @@ class WebAppPrivateEndpointConnectionSlot(pulumi.CustomResource):
         """
         Remote Private Endpoint Connection ARM resource.
 
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection for a site.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_private_endpoint_connection_slot = azure_native.web.v20201201.WebAppPrivateEndpointConnectionSlot("webAppPrivateEndpointConnectionSlot",
+            name="testSite",
+            private_endpoint_connection_name="connection",
+            private_link_service_connection_state=azure_native.web.v20201201.PrivateLinkConnectionStateArgs(
+                actions_required="",
+                description="Approved by admin.",
+                status="Approved",
+            ),
+            resource_group_name="rg",
+            slot="stage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -136,6 +164,34 @@ class WebAppPrivateEndpointConnectionSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Remote Private Endpoint Connection ARM resource.
+
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection for a site.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_private_endpoint_connection_slot = azure_native.web.v20201201.WebAppPrivateEndpointConnectionSlot("webAppPrivateEndpointConnectionSlot",
+            name="testSite",
+            private_endpoint_connection_name="connection",
+            private_link_service_connection_state=azure_native.web.v20201201.PrivateLinkConnectionStateArgs(
+                actions_required="",
+                description="Approved by admin.",
+                status="Approved",
+            ),
+            resource_group_name="rg",
+            slot="stage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201201:WebAppPrivateEndpointConnectionSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppPrivateEndpointConnectionSlotArgs args: The arguments to use to populate this resource's properties.

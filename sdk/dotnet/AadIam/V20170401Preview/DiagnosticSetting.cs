@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.AadIam.V20170401Preview
 {
     /// <summary>
     /// The diagnostic setting resource.
+    /// 
+    /// ## Example Usage
+    /// ### BatchAccountDelete
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diagnosticSetting = new AzureNative.AadIam.V20170401Preview.DiagnosticSetting("diagnosticSetting", new()
+    ///     {
+    ///         EventHubAuthorizationRuleId = "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+    ///         EventHubName = "myeventhub",
+    ///         Logs = new[]
+    ///         {
+    ///             new AzureNative.AadIam.V20170401Preview.Inputs.LogSettingsArgs
+    ///             {
+    ///                 Category = "AuditLogs",
+    ///                 Enabled = true,
+    ///                 RetentionPolicy = new AzureNative.AadIam.V20170401Preview.Inputs.RetentionPolicyArgs
+    ///                 {
+    ///                     Days = 0,
+    ///                     Enabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "mysetting",
+    ///         StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+    ///         WorkspaceId = "",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:aadiam/v20170401preview:DiagnosticSetting myresource1 /providers/microsoft.aadiam/diagnosticSettings/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam/v20170401preview:DiagnosticSetting")]
     public partial class DiagnosticSetting : global::Pulumi.CustomResource

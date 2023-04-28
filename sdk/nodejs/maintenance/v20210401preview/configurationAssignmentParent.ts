@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration Assignment
+ *
+ * ## Example Usage
+ * ### ConfigurationAssignments_CreateOrUpdateParent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationAssignmentParent = new azure_native.maintenance.v20210401preview.ConfigurationAssignmentParent("configurationAssignmentParent", {
+ *     configurationAssignmentName: "workervmPolicy",
+ *     maintenanceConfigurationId: "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/policy1",
+ *     providerName: "Microsoft.Compute",
+ *     resourceGroupName: "examplerg",
+ *     resourceName: "smdvm1",
+ *     resourceParentName: "smdtest1",
+ *     resourceParentType: "virtualMachineScaleSets",
+ *     resourceType: "virtualMachines",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent workervmPolicy /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Compute/virtualMachineScaleSets/smdtest1/virtualMachines/smdvm1/providers/Microsoft.Maintenance/configurationAssignments/workervmPolicy 
+ * ```
  */
 export class ConfigurationAssignmentParent extends pulumi.CustomResource {
     /**

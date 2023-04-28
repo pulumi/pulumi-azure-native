@@ -113,6 +113,52 @@ class Catalog(pulumi.CustomResource):
         """
         Represents a catalog.
 
+        ## Example Usage
+        ### Catalogs_CreateOrUpdateAdo
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        catalog = azure_native.devcenter.v20221111preview.Catalog("catalog",
+            ado_git=azure_native.devcenter.v20221111preview.GitCatalogArgs(
+                branch="main",
+                path="/templates",
+                secret_identifier="https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+                uri="https://contoso@dev.azure.com/contoso/contosoOrg/_git/centralrepo-fakecontoso",
+            ),
+            catalog_name="CentralCatalog",
+            dev_center_name="Contoso",
+            resource_group_name="rg1")
+
+        ```
+        ### Catalogs_CreateOrUpdateGitHub
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        catalog = azure_native.devcenter.v20221111preview.Catalog("catalog",
+            catalog_name="CentralCatalog",
+            dev_center_name="Contoso",
+            git_hub=azure_native.devcenter.v20221111preview.GitCatalogArgs(
+                branch="main",
+                path="/templates",
+                secret_identifier="https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+                uri="https://github.com/Contoso/centralrepo-fake.git",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20221111preview:Catalog CentralCatalog /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/catalogs/CentralCatalog 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['GitCatalogArgs']] ado_git: Properties for an Azure DevOps catalog type.
@@ -129,6 +175,52 @@ class Catalog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a catalog.
+
+        ## Example Usage
+        ### Catalogs_CreateOrUpdateAdo
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        catalog = azure_native.devcenter.v20221111preview.Catalog("catalog",
+            ado_git=azure_native.devcenter.v20221111preview.GitCatalogArgs(
+                branch="main",
+                path="/templates",
+                secret_identifier="https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+                uri="https://contoso@dev.azure.com/contoso/contosoOrg/_git/centralrepo-fakecontoso",
+            ),
+            catalog_name="CentralCatalog",
+            dev_center_name="Contoso",
+            resource_group_name="rg1")
+
+        ```
+        ### Catalogs_CreateOrUpdateGitHub
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        catalog = azure_native.devcenter.v20221111preview.Catalog("catalog",
+            catalog_name="CentralCatalog",
+            dev_center_name="Contoso",
+            git_hub=azure_native.devcenter.v20221111preview.GitCatalogArgs(
+                branch="main",
+                path="/templates",
+                secret_identifier="https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+                uri="https://github.com/Contoso/centralrepo-fake.git",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20221111preview:Catalog CentralCatalog /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/catalogs/CentralCatalog 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CatalogArgs args: The arguments to use to populate this resource's properties.

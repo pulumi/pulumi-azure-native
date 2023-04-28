@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * FirewallPolicy Resource.
+ *
+ * ## Example Usage
+ * ### Create FirewallPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallPolicy = new azure_native.network.v20200401.FirewallPolicy("firewallPolicy", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     threatIntelWhitelist: {
+ *         fqdns: ["*.microsoft.com"],
+ *         ipAddresses: ["20.3.4.5"],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20200401:FirewallPolicy firewallPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy 
+ * ```
  */
 export class FirewallPolicy extends pulumi.CustomResource {
     /**

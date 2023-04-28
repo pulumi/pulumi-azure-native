@@ -282,7 +282,14 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a IntegrationAccountAgreement resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20150801preview:IntegrationAccountAgreement myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/agreements/{agreementName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_name: The integration account agreement name.
@@ -308,7 +315,14 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  args: IntegrationAccountAgreementArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a IntegrationAccountAgreement resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20150801preview:IntegrationAccountAgreement myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/agreements/{agreementName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param IntegrationAccountAgreementArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

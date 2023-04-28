@@ -4,6 +4,47 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### QueueOperationPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const queue = new azure_native.storage.v20220901.Queue("queue", {
+ *     accountName: "sto328",
+ *     queueName: "queue6185",
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ * ### QueueOperationPutWithMetadata
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const queue = new azure_native.storage.v20220901.Queue("queue", {
+ *     accountName: "sto328",
+ *     metadata: {
+ *         sample1: "meta1",
+ *         sample2: "meta2",
+ *     },
+ *     queueName: "queue6185",
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20220901:Queue queue6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/queueServices/default/queues/queue6185 
+ * ```
+ */
 export class Queue extends pulumi.CustomResource {
     /**
      * Get an existing Queue resource's state with the given name, ID, and optional extra

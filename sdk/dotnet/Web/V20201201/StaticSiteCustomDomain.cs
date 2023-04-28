@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Web.V20201201
 {
     /// <summary>
     /// Static Site Custom Domain Overview ARM resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a custom domain for a static site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var staticSiteCustomDomain = new AzureNative.Web.V20201201.StaticSiteCustomDomain("staticSiteCustomDomain", new()
+    ///     {
+    ///         DomainName = "custom.domain.net",
+    ///         Name = "testStaticSite0",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201201:StaticSiteCustomDomain myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/customDomains/{domainName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:StaticSiteCustomDomain")]
     public partial class StaticSiteCustomDomain : global::Pulumi.CustomResource

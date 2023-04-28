@@ -150,6 +150,41 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
         API Version: 2022-11-15.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CosmosDBSqlRoleDefinitionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_role_definition = azure_native.documentdb.SqlResourceSqlRoleDefinition("sqlResourceSqlRoleDefinition",
+            account_name="myAccountName",
+            assignable_scopes=[
+                "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/sales",
+                "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases",
+            ],
+            permissions=[azure_native.documentdb.PermissionArgs(
+                data_actions=[
+                    "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create",
+                    "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+                ],
+                not_data_actions=[],
+            )],
+            resource_group_name="myResourceGroupName",
+            role_definition_id="myRoleDefinitionId",
+            role_name="myRoleName",
+            type=azure_native.documentdb.RoleDefinitionType.CUSTOM_ROLE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:SqlResourceSqlRoleDefinition myRoleDefinitionId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -170,6 +205,41 @@ class SqlResourceSqlRoleDefinition(pulumi.CustomResource):
         An Azure Cosmos DB SQL Role Definition.
         API Version: 2022-11-15.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CosmosDBSqlRoleDefinitionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_role_definition = azure_native.documentdb.SqlResourceSqlRoleDefinition("sqlResourceSqlRoleDefinition",
+            account_name="myAccountName",
+            assignable_scopes=[
+                "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/sales",
+                "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases",
+            ],
+            permissions=[azure_native.documentdb.PermissionArgs(
+                data_actions=[
+                    "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create",
+                    "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+                ],
+                not_data_actions=[],
+            )],
+            resource_group_name="myResourceGroupName",
+            role_definition_id="myRoleDefinitionId",
+            role_name="myRoleName",
+            type=azure_native.documentdb.RoleDefinitionType.CUSTOM_ROLE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:SqlResourceSqlRoleDefinition myRoleDefinitionId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlRoleDefinitionArgs args: The arguments to use to populate this resource's properties.

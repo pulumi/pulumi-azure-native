@@ -182,6 +182,114 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
         """
         The policy set definition.
 
+        ## Example Usage
+        ### Create or update a policy set definition at management group level
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_set_definition_at_management_group = azure_native.authorization.v20210601.PolicySetDefinitionAtManagementGroup("policySetDefinitionAtManagementGroup",
+            description="Policies to enforce low cost storage SKUs",
+            display_name="Cost Management",
+            management_group_id="MyManagementGroup",
+            metadata={
+                "category": "Cost Management",
+            },
+            policy_definitions=[
+                {
+                    "parameters": {
+                        "listOfAllowedSKUs": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value=[
+                                "Standard_GRS",
+                                "Standard_LRS",
+                            ],
+                        ),
+                    },
+                    "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+                    "policyDefinitionReferenceId": "Limit_Skus",
+                },
+                {
+                    "parameters": {
+                        "prefix": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value="DeptA",
+                        ),
+                        "suffix": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value="-LC",
+                        ),
+                    },
+                    "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "policyDefinitionReferenceId": "Resource_Naming",
+                },
+            ],
+            policy_set_definition_name="CostManagement")
+
+        ```
+        ### Create or update a policy set definition with groups at management group level
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_set_definition_at_management_group = azure_native.authorization.v20210601.PolicySetDefinitionAtManagementGroup("policySetDefinitionAtManagementGroup",
+            description="Policies to enforce low cost storage SKUs",
+            display_name="Cost Management",
+            management_group_id="MyManagementGroup",
+            metadata={
+                "category": "Cost Management",
+            },
+            policy_definition_groups=[
+                {
+                    "description": "Policies designed to control spend within a subscription.",
+                    "displayName": "Cost Management Policies",
+                    "name": "CostSaving",
+                },
+                {
+                    "description": "Policies that help enforce resource organization standards within a subscription.",
+                    "displayName": "Organizational Policies",
+                    "name": "Organizational",
+                },
+            ],
+            policy_definitions=[
+                {
+                    "groupNames": ["CostSaving"],
+                    "parameters": {
+                        "listOfAllowedSKUs": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value=[
+                                "Standard_GRS",
+                                "Standard_LRS",
+                            ],
+                        ),
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+                    "policyDefinitionReferenceId": "Limit_Skus",
+                },
+                {
+                    "groupNames": ["Organizational"],
+                    "parameters": {
+                        "prefix": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value="DeptA",
+                        ),
+                        "suffix": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value="-LC",
+                        ),
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "policyDefinitionReferenceId": "Resource_Naming",
+                },
+            ],
+            policy_set_definition_name="CostManagement")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup CostManagement /providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policySetDefinitions/CostManagement 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The policy set definition description.
@@ -202,6 +310,114 @@ class PolicySetDefinitionAtManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy set definition.
+
+        ## Example Usage
+        ### Create or update a policy set definition at management group level
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_set_definition_at_management_group = azure_native.authorization.v20210601.PolicySetDefinitionAtManagementGroup("policySetDefinitionAtManagementGroup",
+            description="Policies to enforce low cost storage SKUs",
+            display_name="Cost Management",
+            management_group_id="MyManagementGroup",
+            metadata={
+                "category": "Cost Management",
+            },
+            policy_definitions=[
+                {
+                    "parameters": {
+                        "listOfAllowedSKUs": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value=[
+                                "Standard_GRS",
+                                "Standard_LRS",
+                            ],
+                        ),
+                    },
+                    "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+                    "policyDefinitionReferenceId": "Limit_Skus",
+                },
+                {
+                    "parameters": {
+                        "prefix": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value="DeptA",
+                        ),
+                        "suffix": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value="-LC",
+                        ),
+                    },
+                    "policyDefinitionId": "/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "policyDefinitionReferenceId": "Resource_Naming",
+                },
+            ],
+            policy_set_definition_name="CostManagement")
+
+        ```
+        ### Create or update a policy set definition with groups at management group level
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_set_definition_at_management_group = azure_native.authorization.v20210601.PolicySetDefinitionAtManagementGroup("policySetDefinitionAtManagementGroup",
+            description="Policies to enforce low cost storage SKUs",
+            display_name="Cost Management",
+            management_group_id="MyManagementGroup",
+            metadata={
+                "category": "Cost Management",
+            },
+            policy_definition_groups=[
+                {
+                    "description": "Policies designed to control spend within a subscription.",
+                    "displayName": "Cost Management Policies",
+                    "name": "CostSaving",
+                },
+                {
+                    "description": "Policies that help enforce resource organization standards within a subscription.",
+                    "displayName": "Organizational Policies",
+                    "name": "Organizational",
+                },
+            ],
+            policy_definitions=[
+                {
+                    "groupNames": ["CostSaving"],
+                    "parameters": {
+                        "listOfAllowedSKUs": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value=[
+                                "Standard_GRS",
+                                "Standard_LRS",
+                            ],
+                        ),
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/7433c107-6db4-4ad1-b57a-a76dce0154a1",
+                    "policyDefinitionReferenceId": "Limit_Skus",
+                },
+                {
+                    "groupNames": ["Organizational"],
+                    "parameters": {
+                        "prefix": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value="DeptA",
+                        ),
+                        "suffix": azure_native.authorization.v20210601.ParameterValuesValueArgs(
+                            value="-LC",
+                        ),
+                    },
+                    "policyDefinitionId": "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+                    "policyDefinitionReferenceId": "Resource_Naming",
+                },
+            ],
+            policy_set_definition_name="CostManagement")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20210601:PolicySetDefinitionAtManagementGroup CostManagement /providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policySetDefinitions/CostManagement 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicySetDefinitionAtManagementGroupArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,70 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB container.
+ *
+ * ## Example Usage
+ * ### CosmosDBSqlContainerCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlResourceSqlContainer = new azure_native.documentdb.v20210315.SqlResourceSqlContainer("sqlResourceSqlContainer", {
+ *     accountName: "ddb1",
+ *     containerName: "containerName",
+ *     databaseName: "databaseName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         conflictResolutionPolicy: {
+ *             conflictResolutionPath: "/path",
+ *             mode: "LastWriterWins",
+ *         },
+ *         defaultTtl: 100,
+ *         id: "containerName",
+ *         indexingPolicy: {
+ *             automatic: true,
+ *             excludedPaths: [],
+ *             includedPaths: [{
+ *                 indexes: [
+ *                     {
+ *                         dataType: "String",
+ *                         kind: "Range",
+ *                         precision: -1,
+ *                     },
+ *                     {
+ *                         dataType: "Number",
+ *                         kind: "Range",
+ *                         precision: -1,
+ *                     },
+ *                 ],
+ *                 path: "/*",
+ *             }],
+ *             indexingMode: "consistent",
+ *         },
+ *         partitionKey: {
+ *             kind: "Hash",
+ *             paths: ["/AccountNumber"],
+ *         },
+ *         uniqueKeyPolicy: {
+ *             uniqueKeys: [{
+ *                 paths: ["/testPath"],
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20210315:SqlResourceSqlContainer containerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/containers/containerName 
+ * ```
  */
 export class SqlResourceSqlContainer extends pulumi.CustomResource {
     /**

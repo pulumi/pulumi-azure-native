@@ -11,6 +11,512 @@ import * as utilities from "../utilities";
  * Specifies information about the gallery image version that you want to create or update.
  * API Version: 2022-03-03.
  * Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a simple Gallery Image Version using VM as source.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         targetRegions: [
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "West US",
+ *                 regionalReplicaCount: 2,
+ *             },
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "East US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: "Standard_ZRS",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     safetyProfile: {
+ *         allowDeletionOfReplicatedLocations: false,
+ *     },
+ *     storageProfile: {
+ *         source: {
+ *             id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple Gallery Image Version using community gallery image as source.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         targetRegions: [
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "West US",
+ *                 regionalReplicaCount: 1,
+ *             },
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "East US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: "Standard_ZRS",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     safetyProfile: {
+ *         allowDeletionOfReplicatedLocations: false,
+ *     },
+ *     storageProfile: {
+ *         source: {
+ *             communityGalleryImageId: "/communityGalleries/{communityGalleryName}/images/{communityGalleryImageName}",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple Gallery Image Version using managed image as source.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         targetRegions: [
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "West US",
+ *                 regionalReplicaCount: 1,
+ *             },
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "East US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: "Standard_ZRS",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     safetyProfile: {
+ *         allowDeletionOfReplicatedLocations: false,
+ *     },
+ *     storageProfile: {
+ *         source: {
+ *             id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple Gallery Image Version using mix of disks and snapshots as a source.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         targetRegions: [
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [{
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                         lun: 1,
+ *                     }],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "West US",
+ *                 regionalReplicaCount: 1,
+ *             },
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [{
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                         lun: 1,
+ *                     }],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "East US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: "Standard_ZRS",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     safetyProfile: {
+ *         allowDeletionOfReplicatedLocations: false,
+ *     },
+ *     storageProfile: {
+ *         dataDiskImages: [{
+ *             hostCaching: azure_native.compute.HostCaching.None,
+ *             lun: 1,
+ *             source: {
+ *                 id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/disks/{dataDiskName}",
+ *             },
+ *         }],
+ *         osDiskImage: {
+ *             hostCaching: azure_native.compute.HostCaching.ReadOnly,
+ *             source: {
+ *                 id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/snapshots/{osSnapshotName}",
+ *             },
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple Gallery Image Version using shallow replication mode.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         replicationMode: "Shallow",
+ *         targetRegions: [{
+ *             excludeFromLatest: false,
+ *             name: "West US",
+ *             regionalReplicaCount: 1,
+ *         }],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     safetyProfile: {
+ *         allowDeletionOfReplicatedLocations: false,
+ *     },
+ *     storageProfile: {
+ *         source: {
+ *             id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple Gallery Image Version using shared image as source.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         targetRegions: [
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "West US",
+ *                 regionalReplicaCount: 1,
+ *             },
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "East US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: "Standard_ZRS",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     safetyProfile: {
+ *         allowDeletionOfReplicatedLocations: false,
+ *     },
+ *     storageProfile: {
+ *         source: {
+ *             id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageDefinitionName}/versions/{versionName}",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple Gallery Image Version using vhd as a source.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         targetRegions: [
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [{
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet",
+ *                         lun: 1,
+ *                     }],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "West US",
+ *                 regionalReplicaCount: 1,
+ *             },
+ *             {
+ *                 excludeFromLatest: false,
+ *                 name: "East US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: "Standard_ZRS",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     safetyProfile: {
+ *         allowDeletionOfReplicatedLocations: false,
+ *     },
+ *     storageProfile: {
+ *         dataDiskImages: [{
+ *             hostCaching: azure_native.compute.HostCaching.None,
+ *             lun: 1,
+ *             source: {
+ *                 id: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+ *                 uri: "https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+ *             },
+ *         }],
+ *         osDiskImage: {
+ *             hostCaching: azure_native.compute.HostCaching.ReadOnly,
+ *             source: {
+ *                 id: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+ *                 uri: "https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+ *             },
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple gallery image version with target extended locations specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImageVersion = new azure_native.compute.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         targetRegions: [
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "West US",
+ *                 regionalReplicaCount: 1,
+ *             },
+ *             {
+ *                 encryption: {
+ *                     dataDiskImages: [
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+ *                             lun: 0,
+ *                         },
+ *                         {
+ *                             diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                             lun: 1,
+ *                         },
+ *                     ],
+ *                     osDiskImage: {
+ *                         diskEncryptionSetId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+ *                     },
+ *                 },
+ *                 excludeFromLatest: false,
+ *                 name: "East US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: "Standard_ZRS",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     safetyProfile: {
+ *         allowDeletionOfReplicatedLocations: false,
+ *     },
+ *     storageProfile: {
+ *         source: {
+ *             id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:GalleryImageVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{galleryImageVersionName} 
+ * ```
  */
 export class GalleryImageVersion extends pulumi.CustomResource {
     /**

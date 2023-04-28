@@ -11,6 +11,78 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115Preview
 {
     /// <summary>
     /// Representation of a managed Cassandra cluster.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBManagedCassandraClusterCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cassandraCluster = new AzureNative.DocumentDB.V20221115Preview.CassandraCluster("cassandraCluster", new()
+    ///     {
+    ///         ClusterName = "cassandra-prod",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.DocumentDB.V20221115Preview.Inputs.ClusterResourcePropertiesArgs
+    ///         {
+    ///             AuthenticationMethod = "Cassandra",
+    ///             CassandraVersion = "3.11",
+    ///             ClientCertificates = new[]
+    ///             {
+    ///                 new AzureNative.DocumentDB.V20221115Preview.Inputs.CertificateArgs
+    ///                 {
+    ///                     Pem = @"-----BEGIN CERTIFICATE-----
+    /// ...Base64 encoded certificate...
+    /// -----END CERTIFICATE-----",
+    ///                 },
+    ///             },
+    ///             ClusterNameOverride = "ClusterNameIllegalForAzureResource",
+    ///             DelegatedManagementSubnetId = "/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management",
+    ///             ExternalGossipCertificates = new[]
+    ///             {
+    ///                 new AzureNative.DocumentDB.V20221115Preview.Inputs.CertificateArgs
+    ///                 {
+    ///                     Pem = @"-----BEGIN CERTIFICATE-----
+    /// ...Base64 encoded certificate...
+    /// -----END CERTIFICATE-----",
+    ///                 },
+    ///             },
+    ///             ExternalSeedNodes = new[]
+    ///             {
+    ///                 new AzureNative.DocumentDB.V20221115Preview.Inputs.SeedNodeArgs
+    ///                 {
+    ///                     IpAddress = "10.52.221.2",
+    ///                 },
+    ///                 new AzureNative.DocumentDB.V20221115Preview.Inputs.SeedNodeArgs
+    ///                 {
+    ///                     IpAddress = "10.52.221.3",
+    ///                 },
+    ///                 new AzureNative.DocumentDB.V20221115Preview.Inputs.SeedNodeArgs
+    ///                 {
+    ///                     IpAddress = "10.52.221.4",
+    ///                 },
+    ///             },
+    ///             HoursBetweenBackups = 24,
+    ///             InitialCassandraAdminPassword = "mypassword",
+    ///         },
+    ///         ResourceGroupName = "cassandra-prod-rg",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20221115preview:CassandraCluster cassandra-prod /subscriptions/subid/resourceGroups/cassandra-prod-rg/providers/Microsoft.DocumentDB/cassandraClusters/cassandra-prod 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20221115preview:CassandraCluster")]
     public partial class CassandraCluster : global::Pulumi.CustomResource

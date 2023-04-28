@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
 {
     /// <summary>
     /// IoT sensor model
+    /// 
+    /// ## Example Usage
+    /// ### Create or update IoT sensor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sensor = new AzureNative.IoTSecurity.V20210201Preview.Sensor("sensor", new()
+    ///     {
+    ///         Scope = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub",
+    ///         SensorName = "mySensor",
+    ///         SensorType = "Ot",
+    ///         TiAutomaticUpdates = true,
+    ///         Zone = "Zone Name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotsecurity/v20210201preview:Sensor mySensor /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub/providers/Microsoft.IoTSecurity/sensors/mySensor 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity/v20210201preview:Sensor")]
     public partial class Sensor : global::Pulumi.CustomResource

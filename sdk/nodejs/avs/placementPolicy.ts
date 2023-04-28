@@ -11,6 +11,45 @@ import * as utilities from "../utilities";
  * A vSphere Distributed Resource Scheduler (DRS) placement policy
  * API Version: 2022-05-01.
  * Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PlacementPolicies_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const placementPolicy = new azure_native.avs.PlacementPolicy("placementPolicy", {
+ *     clusterName: "cluster1",
+ *     placementPolicyName: "policy1",
+ *     privateCloudName: "cloud1",
+ *     properties: {
+ *         affinityStrength: "Must",
+ *         affinityType: "AntiAffinity",
+ *         azureHybridBenefitType: "SqlHost",
+ *         hostMembers: [
+ *             "fakehost22.nyc1.kubernetes.center",
+ *             "fakehost23.nyc1.kubernetes.center",
+ *             "fakehost24.nyc1.kubernetes.center",
+ *         ],
+ *         type: "VmHost",
+ *         vmMembers: [
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+ *         ],
+ *     },
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs:PlacementPolicy policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/placementPolicies/policy1 
+ * ```
  */
 export class PlacementPolicy extends pulumi.CustomResource {
     /**

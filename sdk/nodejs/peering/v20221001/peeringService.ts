@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Peering Service
+ *
+ * ## Example Usage
+ * ### Create a  peering service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const peeringService = new azure_native.peering.v20221001.PeeringService("peeringService", {
+ *     location: "eastus",
+ *     peeringServiceLocation: "state1",
+ *     peeringServiceName: "peeringServiceName",
+ *     peeringServiceProvider: "serviceProvider1",
+ *     providerBackupPeeringLocation: "peeringLocation2",
+ *     providerPrimaryPeeringLocation: "peeringLocation1",
+ *     resourceGroupName: "rgName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:peering/v20221001:PeeringService peeringServiceName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName 
+ * ```
  */
 export class PeeringService extends pulumi.CustomResource {
     /**

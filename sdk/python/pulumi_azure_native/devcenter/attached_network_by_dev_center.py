@@ -96,6 +96,29 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
         API Version: 2022-11-11-preview.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### AttachedNetworks_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attached_network_by_dev_center = azure_native.devcenter.AttachedNetworkByDevCenter("attachedNetworkByDevCenter",
+            attached_network_connection_name="network-uswest3",
+            dev_center_name="Contoso",
+            network_connection_id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/NetworkConnections/network-uswest3",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter:AttachedNetworkByDevCenter network-uswest3 /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/attachednetworks/network-uswest3 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attached_network_connection_name: The name of the attached NetworkConnection.
@@ -113,6 +136,29 @@ class AttachedNetworkByDevCenter(pulumi.CustomResource):
         Represents an attached NetworkConnection.
         API Version: 2022-11-11-preview.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### AttachedNetworks_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attached_network_by_dev_center = azure_native.devcenter.AttachedNetworkByDevCenter("attachedNetworkByDevCenter",
+            attached_network_connection_name="network-uswest3",
+            dev_center_name="Contoso",
+            network_connection_id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/NetworkConnections/network-uswest3",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter:AttachedNetworkByDevCenter network-uswest3 /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/attachednetworks/network-uswest3 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AttachedNetworkByDevCenterArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,123 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview
 {
     /// <summary>
     /// The manged cluster resource
+    /// 
+    /// ## Example Usage
+    /// ### Put a cluster with maximum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ServiceFabric.V20200101Preview.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AdminPassword = "{vm-password}",
+    ///         AdminUserName = "vmadmin",
+    ///         ClientConnectionPort = 19000,
+    ///         ClusterCodeVersion = "7.1.168.9494",
+    ///         ClusterName = "myCluster",
+    ///         DnsName = "myCluster",
+    ///         FabricSettings = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20200101Preview.Inputs.SettingsSectionDescriptionArgs
+    ///             {
+    ///                 Name = "ManagedIdentityTokenService",
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabric.V20200101Preview.Inputs.SettingsParameterDescriptionArgs
+    ///                     {
+    ///                         Name = "IsEnabled",
+    ///                         Value = "true",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         HttpGatewayConnectionPort = 19080,
+    ///         LoadBalancingRules = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20200101Preview.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendPort = 80,
+    ///                 FrontendPort = 80,
+    ///                 ProbeProtocol = "http",
+    ///                 Protocol = "http",
+    ///             },
+    ///             new AzureNative.ServiceFabric.V20200101Preview.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendPort = 443,
+    ///                 FrontendPort = 443,
+    ///                 ProbeProtocol = "http",
+    ///                 Protocol = "http",
+    ///             },
+    ///             new AzureNative.ServiceFabric.V20200101Preview.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendPort = 10000,
+    ///                 FrontendPort = 10000,
+    ///                 ProbeProtocol = "http",
+    ///                 Protocol = "tcp",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "resRg",
+    ///         Sku = new AzureNative.ServiceFabric.V20200101Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Basic",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put a cluster with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ServiceFabric.V20200101Preview.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AdminPassword = "{vm-password}",
+    ///         AdminUserName = "vmadmin",
+    ///         ClusterCodeVersion = "7.1.168.9494",
+    ///         ClusterName = "myCluster",
+    ///         DnsName = "myCluster",
+    ///         FabricSettings = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20200101Preview.Inputs.SettingsSectionDescriptionArgs
+    ///             {
+    ///                 Name = "ManagedIdentityTokenService",
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabric.V20200101Preview.Inputs.SettingsParameterDescriptionArgs
+    ///                     {
+    ///                         Name = "IsEnabled",
+    ///                         Value = "true",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "resRg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabric/v20200101preview:ManagedCluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20200101preview:ManagedCluster")]
     public partial class ManagedCluster : global::Pulumi.CustomResource

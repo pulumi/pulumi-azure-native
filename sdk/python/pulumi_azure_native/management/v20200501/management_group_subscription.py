@@ -62,6 +62,25 @@ class ManagementGroupSubscription(pulumi.CustomResource):
         """
         The details of subscription under management group.
 
+        ## Example Usage
+        ### AddSubscriptionToManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_subscription = azure_native.management.v20200501.ManagementGroupSubscription("managementGroupSubscription", group_id="Group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management/v20200501:ManagementGroupSubscription 728bcbe4-8d56-4510-86c2-4921b8beefbc  /providers/Microsoft.Management/managementGroups/Group/subscriptions/728bcbe4-8d56-4510-86c2-4921b8beefbc 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: Management Group ID.
@@ -75,6 +94,25 @@ class ManagementGroupSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The details of subscription under management group.
+
+        ## Example Usage
+        ### AddSubscriptionToManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_subscription = azure_native.management.v20200501.ManagementGroupSubscription("managementGroupSubscription", group_id="Group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management/v20200501:ManagementGroupSubscription 728bcbe4-8d56-4510-86c2-4921b8beefbc  /providers/Microsoft.Management/managementGroups/Group/subscriptions/728bcbe4-8d56-4510-86c2-4921b8beefbc 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupSubscriptionArgs args: The arguments to use to populate this resource's properties.

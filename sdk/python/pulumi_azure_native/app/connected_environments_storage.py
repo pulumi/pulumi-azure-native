@@ -98,6 +98,36 @@ class ConnectedEnvironmentsStorage(pulumi.CustomResource):
         Storage resource for connectedEnvironment.
         API Version: 2022-10-01.
 
+        ## Example Usage
+        ### Create or update environments storage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_environments_storage = azure_native.app.ConnectedEnvironmentsStorage("connectedEnvironmentsStorage",
+            connected_environment_name="env",
+            properties=azure_native.app.ConnectedEnvironmentStorageResponsePropertiesArgs(
+                azure_file=azure_native.app.AzureFilePropertiesArgs(
+                    access_mode="ReadOnly",
+                    account_key="key",
+                    account_name="account1",
+                    share_name="share1",
+                ),
+            ),
+            resource_group_name="examplerg",
+            storage_name="jlaw-demo1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ConnectedEnvironmentsStorage jlaw-demo1 /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/env/storages/jlaw-demo1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connected_environment_name: Name of the Environment.
@@ -114,6 +144,36 @@ class ConnectedEnvironmentsStorage(pulumi.CustomResource):
         """
         Storage resource for connectedEnvironment.
         API Version: 2022-10-01.
+
+        ## Example Usage
+        ### Create or update environments storage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_environments_storage = azure_native.app.ConnectedEnvironmentsStorage("connectedEnvironmentsStorage",
+            connected_environment_name="env",
+            properties=azure_native.app.ConnectedEnvironmentStorageResponsePropertiesArgs(
+                azure_file=azure_native.app.AzureFilePropertiesArgs(
+                    access_mode="ReadOnly",
+                    account_key="key",
+                    account_name="account1",
+                    share_name="share1",
+                ),
+            ),
+            resource_group_name="examplerg",
+            storage_name="jlaw-demo1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ConnectedEnvironmentsStorage jlaw-demo1 /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/env/storages/jlaw-demo1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentsStorageArgs args: The arguments to use to populate this resource's properties.

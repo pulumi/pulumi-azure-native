@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
     /// API Version: 2020-05-15.
     /// Previous API Version: 2020-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### EnvironmentsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gen1Environment = new AzureNative.TimeSeriesInsights.Gen1Environment("gen1Environment", new()
+    ///     {
+    ///         DataRetentionTime = "P31D",
+    ///         EnvironmentName = "env1",
+    ///         Kind = "Gen1",
+    ///         Location = "West US",
+    ///         PartitionKeyProperties = new[]
+    ///         {
+    ///             new AzureNative.TimeSeriesInsights.Inputs.TimeSeriesIdPropertyArgs
+    ///             {
+    ///                 Name = "DeviceId1",
+    ///                 Type = "String",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.TimeSeriesInsights.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "S1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights:Gen1Environment env1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:Gen1Environment")]
     public partial class Gen1Environment : global::Pulumi.CustomResource

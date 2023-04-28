@@ -94,6 +94,29 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
         """
         Single item in a List or Get VirtualNetworkRules operation
 
+        ## Example Usage
+        ### NameSpaceVirtualNetworkRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_virtual_network_rule = azure_native.eventhub.v20180101preview.NamespaceVirtualNetworkRule("namespaceVirtualNetworkRule",
+            namespace_name="sdk-Namespace-6019",
+            resource_group_name="ResourceGroup",
+            virtual_network_rule_name="sdk-VirtualNetworkRules-9191",
+            virtual_network_subnet_id="/subscriptions/Subscription/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule sdk-VirtualNetworkRules-9191 /subscriptions/Subscription/resourceGroups/ResourceGroup/providers/Microsoft.EventHub/namespaces/sdk-Namespace-6019/virtualnetworkrules/sdk-VirtualNetworkRules-9191 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] namespace_name: The Namespace name
@@ -109,6 +132,29 @@ class NamespaceVirtualNetworkRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get VirtualNetworkRules operation
+
+        ## Example Usage
+        ### NameSpaceVirtualNetworkRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_virtual_network_rule = azure_native.eventhub.v20180101preview.NamespaceVirtualNetworkRule("namespaceVirtualNetworkRule",
+            namespace_name="sdk-Namespace-6019",
+            resource_group_name="ResourceGroup",
+            virtual_network_rule_name="sdk-VirtualNetworkRules-9191",
+            virtual_network_subnet_id="/subscriptions/Subscription/resourceGroups/sbehvnettest/providers/Microsoft.Network/virtualNetworks/sbehvnettest/subnets/default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20180101preview:NamespaceVirtualNetworkRule sdk-VirtualNetworkRules-9191 /subscriptions/Subscription/resourceGroups/ResourceGroup/providers/Microsoft.EventHub/namespaces/sdk-Namespace-6019/virtualnetworkrules/sdk-VirtualNetworkRules-9191 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceVirtualNetworkRuleArgs args: The arguments to use to populate this resource's properties.

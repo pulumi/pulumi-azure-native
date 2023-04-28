@@ -10,6 +10,36 @@ import * as utilities from "../../utilities";
 /**
  * The resource representation of a rollout step.
  *
+ * ## Example Usage
+ * ### Create deployment step
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const step = new azure_native.deploymentmanager.v20180901preview.Step("step", {
+ *     location: "centralus",
+ *     properties: {
+ *         attributes: {
+ *             duration: "PT20M",
+ *         },
+ *         stepType: "Wait",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     stepName: "deploymentStep1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deploymentmanager/v20180901preview:Step deploymentStep1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/steps/{stepName} 
+ * ```
+ *
  * @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
  */
 export class Step extends pulumi.CustomResource {

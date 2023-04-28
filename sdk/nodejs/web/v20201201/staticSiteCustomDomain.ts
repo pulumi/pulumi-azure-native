@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Static Site Custom Domain Overview ARM resource.
+ *
+ * ## Example Usage
+ * ### Create or update a custom domain for a static site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const staticSiteCustomDomain = new azure_native.web.v20201201.StaticSiteCustomDomain("staticSiteCustomDomain", {
+ *     domainName: "custom.domain.net",
+ *     name: "testStaticSite0",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201201:StaticSiteCustomDomain myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/customDomains/{domainName} 
+ * ```
  */
 export class StaticSiteCustomDomain extends pulumi.CustomResource {
     /**

@@ -11,6 +11,70 @@ namespace Pulumi.AzureNative.VoiceServices.V20221201Preview
 {
     /// <summary>
     /// A CommunicationsGateway resource
+    /// 
+    /// ## Example Usage
+    /// ### CreateCommunicationsGatewayResource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var communicationsGateway = new AzureNative.VoiceServices.V20221201Preview.CommunicationsGateway("communicationsGateway", new()
+    ///     {
+    ///         Codecs = new[]
+    ///         {
+    ///             "PCMA",
+    ///         },
+    ///         CommunicationsGatewayName = "myname",
+    ///         Connectivity = "PublicAddress",
+    ///         E911Type = "Standard",
+    ///         Location = "useast",
+    ///         Platforms = new[]
+    ///         {
+    ///             "OperatorConnect",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         ServiceLocations = new[]
+    ///         {
+    ///             new AzureNative.VoiceServices.V20221201Preview.Inputs.ServiceRegionPropertiesArgs
+    ///             {
+    ///                 Name = "useast",
+    ///                 PrimaryRegionProperties = new AzureNative.VoiceServices.V20221201Preview.Inputs.PrimaryRegionPropertiesArgs
+    ///                 {
+    ///                     OperatorAddresses = new[]
+    ///                     {
+    ///                         "198.51.100.1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.VoiceServices.V20221201Preview.Inputs.ServiceRegionPropertiesArgs
+    ///             {
+    ///                 Name = "useast2",
+    ///                 PrimaryRegionProperties = new AzureNative.VoiceServices.V20221201Preview.Inputs.PrimaryRegionPropertiesArgs
+    ///                 {
+    ///                     OperatorAddresses = new[]
+    ///                     {
+    ///                         "198.51.100.2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:voiceservices/v20221201preview:CommunicationsGateway myname /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceService/communicationsGateway/myname 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:voiceservices/v20221201preview:CommunicationsGateway")]
     public partial class CommunicationsGateway : global::Pulumi.CustomResource

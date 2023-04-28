@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.IoTSecurity
     /// IoT Defender settings
     /// API Version: 2021-02-01-preview.
     /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update IoT Defender settings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var defenderSetting = new AzureNative.IoTSecurity.DefenderSetting("defenderSetting", new()
+    ///     {
+    ///         DeviceQuota = 2000,
+    ///         MdeIntegration = new AzureNative.IoTSecurity.Inputs.DefenderSettingsPropertiesMdeIntegrationArgs
+    ///         {
+    ///             Status = "Enabled",
+    ///         },
+    ///         OnboardingKind = "Default",
+    ///         SentinelWorkspaceResourceIds = new[]
+    ///         {
+    ///             "/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotsecurity:DefenderSetting default /subscriptions/{subscriptionId}/providers/Microsoft.IoTSecurity/defenderSettings/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity:DefenderSetting")]
     public partial class DefenderSetting : global::Pulumi.CustomResource

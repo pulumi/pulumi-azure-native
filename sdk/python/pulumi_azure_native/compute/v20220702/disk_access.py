@@ -115,6 +115,28 @@ class DiskAccess(pulumi.CustomResource):
         """
         disk access resource.
 
+        ## Example Usage
+        ### Create a disk access resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_access = azure_native.compute.v20220702.DiskAccess("diskAccess",
+            disk_access_name="myDiskAccess",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20220702:DiskAccess myDiskAccess /subscriptions/{subscription-id}/resourceGroups/myResourcegroup/providers/Microsoft.Compute/diskAccesses/myDiskAccess 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -131,6 +153,28 @@ class DiskAccess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         disk access resource.
+
+        ## Example Usage
+        ### Create a disk access resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_access = azure_native.compute.v20220702.DiskAccess("diskAccess",
+            disk_access_name="myDiskAccess",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20220702:DiskAccess myDiskAccess /subscriptions/{subscription-id}/resourceGroups/myResourcegroup/providers/Microsoft.Compute/diskAccesses/myDiskAccess 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiskAccessArgs args: The arguments to use to populate this resource's properties.

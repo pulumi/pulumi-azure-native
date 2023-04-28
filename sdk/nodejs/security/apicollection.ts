@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * An API collection as represented by Defender for APIs.
  * API Version: 2022-11-20-preview.
+ *
+ * ## Example Usage
+ * ### Onboard an Azure API Management API to Defender for APIs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiCollection = new azure_native.security.APICollection("apiCollection", {
+ *     apiCollectionId: "echo-api",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:APICollection echo-api /subscriptions/3fa85f64-5717-4562-b3fc-2c963f66afa6/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/providers/Microsoft.Security/apiCollections/echo-api 
+ * ```
  */
 export class APICollection extends pulumi.CustomResource {
     /**

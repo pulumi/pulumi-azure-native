@@ -112,6 +112,30 @@ class GeoBackupPolicy(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a database default Geo backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        geo_backup_policy = azure_native.sql.GeoBackupPolicy("geoBackupPolicy",
+            database_name="testdw",
+            geo_backup_policy_name="Default",
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-5961",
+            state=azure_native.sql.GeoBackupPolicyState.ENABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:GeoBackupPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/databases/testdw/geoBackupPolicies/Default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database.
@@ -130,6 +154,30 @@ class GeoBackupPolicy(pulumi.CustomResource):
         A Geo backup policy.
         API Version: 2021-11-01.
         Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a database default Geo backup policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        geo_backup_policy = azure_native.sql.GeoBackupPolicy("geoBackupPolicy",
+            database_name="testdw",
+            geo_backup_policy_name="Default",
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-5961",
+            state=azure_native.sql.GeoBackupPolicyState.ENABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:GeoBackupPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/databases/testdw/geoBackupPolicies/Default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GeoBackupPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -147,6 +147,29 @@ class TemplateSpec(pulumi.CustomResource):
         """
         Template Spec object.
 
+        ## Example Usage
+        ### TemplateSpecsCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_spec = azure_native.resources.v20220201.TemplateSpec("templateSpec",
+            description="A very simple Template Spec",
+            location="eastus",
+            resource_group_name="templateSpecRG",
+            template_spec_name="simpleTemplateSpec")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20220201:TemplateSpec simpleTemplateSpec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/simpleTemplateSpec 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Template Spec description.
@@ -165,6 +188,29 @@ class TemplateSpec(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Template Spec object.
+
+        ## Example Usage
+        ### TemplateSpecsCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_spec = azure_native.resources.v20220201.TemplateSpec("templateSpec",
+            description="A very simple Template Spec",
+            location="eastus",
+            resource_group_name="templateSpecRG",
+            template_spec_name="simpleTemplateSpec")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20220201:TemplateSpec simpleTemplateSpec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/simpleTemplateSpec 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TemplateSpecArgs args: The arguments to use to populate this resource's properties.

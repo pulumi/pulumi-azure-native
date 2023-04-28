@@ -13,6 +13,67 @@ namespace Pulumi.AzureNative.Security
     /// IoT Security solution configuration and resource information.
     /// API Version: 2019-08-01.
     /// Previous API Version: 2019-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a IoT security solution
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotSecuritySolution = new AzureNative.Security.IotSecuritySolution("iotSecuritySolution", new()
+    ///     {
+    ///         DisabledDataSources = new[] {},
+    ///         DisplayName = "Solution Default",
+    ///         Export = new[] {},
+    ///         IotHubs = new[]
+    ///         {
+    ///             "/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub",
+    ///         },
+    ///         Location = "East Us",
+    ///         RecommendationsConfiguration = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.RecommendationConfigurationPropertiesArgs
+    ///             {
+    ///                 RecommendationType = "IoT_OpenPorts",
+    ///                 Status = "Disabled",
+    ///             },
+    ///             new AzureNative.Security.Inputs.RecommendationConfigurationPropertiesArgs
+    ///             {
+    ///                 RecommendationType = "IoT_SharedCredentials",
+    ///                 Status = "Disabled",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "MyGroup",
+    ///         SolutionName = "default",
+    ///         Status = "Enabled",
+    ///         Tags = null,
+    ///         UnmaskedIpLoggingStatus = "Enabled",
+    ///         UserDefinedResources = new AzureNative.Security.Inputs.UserDefinedResourcesPropertiesArgs
+    ///         {
+    ///             Query = "where type != \"microsoft.devices/iothubs\" | where name contains \"iot\"",
+    ///             QuerySubscriptions = new[]
+    ///             {
+    ///                 "075423e9-7d33-4166-8bdf-3920b04e3735",
+    ///             },
+    ///         },
+    ///         Workspace = "/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:IotSecuritySolution default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/MyGroup/providers/Microsoft.Security/Locations/eastus/IoTSecuritySolutions/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:IotSecuritySolution")]
     public partial class IotSecuritySolution : global::Pulumi.CustomResource

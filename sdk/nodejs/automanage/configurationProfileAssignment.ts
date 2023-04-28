@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Configuration profile assignment is an association between a VM and automanage profile configuration.
  * API Version: 2022-05-04.
  * Previous API Version: 2020-06-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update configuration profile assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationProfileAssignment = new azure_native.automanage.ConfigurationProfileAssignment("configurationProfileAssignment", {
+ *     configurationProfileAssignmentName: "default",
+ *     properties: {
+ *         configurationProfile: "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+ *     },
+ *     resourceGroupName: "myResourceGroupName",
+ *     vmName: "myVMName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automanage:ConfigurationProfileAssignment default /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualMachines/myVMName/providers/Microsoft.Automanage/configurationProfileAssignments/default 
+ * ```
  */
 export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     /**

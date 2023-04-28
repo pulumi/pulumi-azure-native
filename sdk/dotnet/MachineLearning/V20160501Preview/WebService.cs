@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.MachineLearning.V20160501Preview
 {
     /// <summary>
     /// Instance of an Azure ML web service resource.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearning/v20160501preview:WebService myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/webServices/{webServiceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning/v20160501preview:WebService")]
     public partial class WebService : global::Pulumi.CustomResource

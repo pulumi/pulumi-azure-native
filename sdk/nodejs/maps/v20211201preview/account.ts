@@ -9,6 +9,117 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
+ *
+ * ## Example Usage
+ * ### Create Account with Managed Identities
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.maps.v20211201preview.Account("account", {
+ *     accountName: "myMapsAccount",
+ *     identity: {
+ *         type: azure_native.maps.v20211201preview.ResourceIdentityType.SystemAssigned_UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName": {},
+ *         },
+ *     },
+ *     kind: "Gen2",
+ *     location: "eastus",
+ *     properties: {
+ *         disableLocalAuth: false,
+ *         linkedResources: [
+ *             {
+ *                 id: "/subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Storage/accounts/mystorageacc",
+ *                 uniqueName: "myBatchStorageAccount",
+ *             },
+ *             {
+ *                 id: "/subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Storage/accounts/mystorageacc",
+ *                 uniqueName: "myBlobDataSource",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "G2",
+ *     },
+ *     tags: {
+ *         test: "true",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create Gen1 Account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.maps.v20211201preview.Account("account", {
+ *     accountName: "myMapsAccount",
+ *     kind: "Gen1",
+ *     location: "eastus",
+ *     properties: {
+ *         cors: {
+ *             corsRules: [{
+ *                 allowedOrigins: [
+ *                     "http://www.contoso.com",
+ *                     "http://www.fabrikam.com",
+ *                 ],
+ *             }],
+ *         },
+ *         disableLocalAuth: false,
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "S0",
+ *     },
+ *     tags: {
+ *         test: "true",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create Gen2 Account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.maps.v20211201preview.Account("account", {
+ *     accountName: "myMapsAccount",
+ *     kind: "Gen2",
+ *     location: "eastus",
+ *     properties: {
+ *         cors: {
+ *             corsRules: [{
+ *                 allowedOrigins: [
+ *                     "http://www.contoso.com",
+ *                     "http://www.fabrikam.com",
+ *                 ],
+ *             }],
+ *         },
+ *         disableLocalAuth: true,
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "G2",
+ *     },
+ *     tags: {
+ *         test: "true",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:maps/v20211201preview:Account myMapsAccount /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

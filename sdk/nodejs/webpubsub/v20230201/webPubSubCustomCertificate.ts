@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * A custom certificate.
+ *
+ * ## Example Usage
+ * ### WebPubSubCustomCertificates_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webPubSubCustomCertificate = new azure_native.webpubsub.v20230201.WebPubSubCustomCertificate("webPubSubCustomCertificate", {
+ *     certificateName: "myCert",
+ *     keyVaultBaseUri: "https://myvault.keyvault.azure.net/",
+ *     keyVaultSecretName: "mycert",
+ *     keyVaultSecretVersion: "bb6a44b2743f47f68dad0d6cc9756432",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myWebPubSubService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:webpubsub/v20230201:WebPubSubCustomCertificate myCert /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert 
+ * ```
  */
 export class WebPubSubCustomCertificate extends pulumi.CustomResource {
     /**

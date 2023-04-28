@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.HealthBot.V20201208
 {
     /// <summary>
     /// HealthBot resource definition
+    /// 
+    /// ## Example Usage
+    /// ### BotCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bot = new AzureNative.HealthBot.V20201208.Bot("bot", new()
+    ///     {
+    ///         BotName = "samplebotname",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "healthbotClient",
+    ///         Sku = new AzureNative.HealthBot.V20201208.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.HealthBot.V20201208.SkuName.F0,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthbot/v20201208:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthbot/v20201208:Bot")]
     public partial class Bot : global::Pulumi.CustomResource

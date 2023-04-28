@@ -13,6 +13,72 @@ namespace Pulumi.AzureNative.Web
     /// A web app, a mobile app backend, or an API app.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Clone web app
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webApp = new AzureNative.Web.WebApp("webApp", new()
+    ///     {
+    ///         CloningInfo = new AzureNative.Web.Inputs.CloningInfoArgs
+    ///         {
+    ///             AppSettingsOverrides = 
+    ///             {
+    ///                 { "Setting1", "NewValue1" },
+    ///                 { "Setting3", "NewValue5" },
+    ///             },
+    ///             CloneCustomHostNames = true,
+    ///             CloneSourceControl = true,
+    ///             ConfigureLoadBalancing = false,
+    ///             HostingEnvironment = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
+    ///             Overwrite = false,
+    ///             SourceWebAppId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478",
+    ///             SourceWebAppLocation = "West Europe",
+    ///         },
+    ///         Kind = "app",
+    ///         Location = "East US",
+    ///         Name = "sitef6141",
+    ///         ResourceGroupName = "testrg123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update web app
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webApp = new AzureNative.Web.WebApp("webApp", new()
+    ///     {
+    ///         Kind = "app",
+    ///         Location = "East US",
+    ///         Name = "sitef6141",
+    ///         ResourceGroupName = "testrg123",
+    ///         ServerFarmId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:WebApp sitef6141 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebApp")]
     public partial class WebApp : global::Pulumi.CustomResource

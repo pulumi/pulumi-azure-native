@@ -266,6 +266,16 @@ class ViewByScope(pulumi.CustomResource):
         """
         States and configurations of Cost Analysis.
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20221005preview:ViewByScope swaggerExample /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.CostManagement/views/swaggerExample 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AccumulatedType']] accumulated: Show costs accumulated over time.
@@ -291,6 +301,16 @@ class ViewByScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         States and configurations of Cost Analysis.
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20221005preview:ViewByScope swaggerExample /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.CostManagement/views/swaggerExample 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ViewByScopeArgs args: The arguments to use to populate this resource's properties.

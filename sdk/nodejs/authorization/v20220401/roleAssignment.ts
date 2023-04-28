@@ -9,6 +9,61 @@ import * as utilities from "../../utilities";
 
 /**
  * Role Assignments
+ *
+ * ## Example Usage
+ * ### Create role assignment for resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignment = new azure_native.authorization.v20220401.RoleAssignment("roleAssignment", {
+ *     principalId: "ce2ce14e-85d7-4629-bdbc-454d0519d987",
+ *     principalType: "User",
+ *     roleAssignmentName: "05c5a614-a7d6-4502-b150-c2fb455033ff",
+ *     roleDefinitionId: "/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleDefinitions/0b5fe924-9a61-425c-96af-cfe6e287ca2d",
+ *     scope: "subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg/providers/Microsoft.DocumentDb/databaseAccounts/test-db-account",
+ * });
+ *
+ * ```
+ * ### Create role assignment for resource group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignment = new azure_native.authorization.v20220401.RoleAssignment("roleAssignment", {
+ *     principalId: "ce2ce14e-85d7-4629-bdbc-454d0519d987",
+ *     principalType: "User",
+ *     roleAssignmentName: "05c5a614-a7d6-4502-b150-c2fb455033ff",
+ *     roleDefinitionId: "/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleDefinitions/0b5fe924-9a61-425c-96af-cfe6e287ca2d",
+ *     scope: "subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/resourceGroups/testrg",
+ * });
+ *
+ * ```
+ * ### Create role assignment for subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignment = new azure_native.authorization.v20220401.RoleAssignment("roleAssignment", {
+ *     principalId: "ce2ce14e-85d7-4629-bdbc-454d0519d987",
+ *     principalType: "User",
+ *     roleAssignmentName: "05c5a614-a7d6-4502-b150-c2fb455033ff",
+ *     roleDefinitionId: "/subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleDefinitions/0b5fe924-9a61-425c-96af-cfe6e287ca2d",
+ *     scope: "subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20220401:RoleAssignment 05c5a614-a7d6-4502-b150-c2fb455033ff /subscriptions/a925f2f7-5c63-4b7b-8799-25a5f97bc3b2/providers/Microsoft.Authorization/roleAssignments/05c5a614-a7d6-4502-b150-c2fb455033ff 
+ * ```
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**

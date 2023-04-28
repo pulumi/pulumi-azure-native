@@ -9,6 +9,64 @@ import * as utilities from "../../utilities";
 
 /**
  * Contains information about a certificate.
+ *
+ * ## Example Usage
+ * ### CreateCertificate - Full
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const certificate = new azure_native.batch.v20220601.Certificate("certificate", {
+ *     accountName: "sampleacct",
+ *     certificateName: "sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+ *     data: "MIIJsgIBAzCCCW4GCSqGSIb3DQE...",
+ *     format: azure_native.batch.v20220601.CertificateFormat.Pfx,
+ *     password: "<ExamplePassword>",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ *     thumbprint: "0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+ *     thumbprintAlgorithm: "sha1",
+ * });
+ *
+ * ```
+ * ### CreateCertificate - Minimal Cer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const certificate = new azure_native.batch.v20220601.Certificate("certificate", {
+ *     accountName: "sampleacct",
+ *     certificateName: "sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+ *     data: "MIICrjCCAZagAwI...",
+ *     format: azure_native.batch.v20220601.CertificateFormat.Cer,
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ * ### CreateCertificate - Minimal Pfx
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const certificate = new azure_native.batch.v20220601.Certificate("certificate", {
+ *     accountName: "sampleacct",
+ *     certificateName: "sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+ *     data: "MIIJsgIBAzCCCW4GCSqGSIb3DQE...",
+ *     password: "<ExamplePassword>",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:batch/v20220601:Certificate sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e /subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/samplecct/certificates/sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e 
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

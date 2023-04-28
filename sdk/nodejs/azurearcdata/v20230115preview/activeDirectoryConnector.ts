@@ -9,6 +9,58 @@ import * as utilities from "../../utilities";
 
 /**
  * Active directory connector resource
+ *
+ * ## Example Usage
+ * ### Create or update an Active Directory connector instance.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const activeDirectoryConnector = new azure_native.azurearcdata.v20230115preview.ActiveDirectoryConnector("activeDirectoryConnector", {
+ *     activeDirectoryConnectorName: "testADConnector",
+ *     dataControllerName: "testdataController",
+ *     properties: {
+ *         spec: {
+ *             activeDirectory: {
+ *                 domainControllers: {
+ *                     primaryDomainController: {
+ *                         hostname: "dc1.contoso.local",
+ *                     },
+ *                     secondaryDomainControllers: [
+ *                         {
+ *                             hostname: "dc2.contoso.local",
+ *                         },
+ *                         {
+ *                             hostname: "dc3.contoso.local",
+ *                         },
+ *                     ],
+ *                 },
+ *                 realm: "CONTOSO.LOCAL",
+ *                 serviceAccountProvisioning: "manual",
+ *             },
+ *             dns: {
+ *                 nameserverIPAddresses: [
+ *                     "11.11.111.111",
+ *                     "22.22.222.222",
+ *                 ],
+ *                 preferK8sDnsForPtrLookups: false,
+ *                 replicas: 1,
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata/v20230115preview:ActiveDirectoryConnector testADConnector /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/dataControllers/testdataController/activeDirectoryConnectors/testADConnector 
+ * ```
  */
 export class ActiveDirectoryConnector extends pulumi.CustomResource {
     /**

@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Recipient Email details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateNotificationRecipientEmail
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var notificationRecipientEmail = new AzureNative.ApiManagement.V20220801.NotificationRecipientEmail("notificationRecipientEmail", new()
+    ///     {
+    ///         Email = "foobar@live.com",
+    ///         NotificationName = "RequestPublisherNotificationMessage",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:NotificationRecipientEmail foobar@live.com /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/notifications/RequestPublisherNotificationMessage/recipientEmails/foobar@live.com 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:NotificationRecipientEmail")]
     public partial class NotificationRecipientEmail : global::Pulumi.CustomResource

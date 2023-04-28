@@ -11,6 +11,163 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// Defines web application firewall policy for Azure CDN.
+    /// 
+    /// ## Example Usage
+    /// ### Creates specific policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policy = new AzureNative.Cdn.V20200901.Policy("policy", new()
+    ///     {
+    ///         CustomRules = new AzureNative.Cdn.V20200901.Inputs.CustomRuleListArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Cdn.V20200901.Inputs.CustomRuleArgs
+    ///                 {
+    ///                     Action = "Block",
+    ///                     EnabledState = "Enabled",
+    ///                     MatchConditions = new[]
+    ///                     {
+    ///                         new AzureNative.Cdn.V20200901.Inputs.MatchConditionArgs
+    ///                         {
+    ///                             MatchValue = new[]
+    ///                             {
+    ///                                 "CH",
+    ///                             },
+    ///                             MatchVariable = "RemoteAddr",
+    ///                             NegateCondition = false,
+    ///                             Operator = "GeoMatch",
+    ///                             Transforms = new[] {},
+    ///                         },
+    ///                         new AzureNative.Cdn.V20200901.Inputs.MatchConditionArgs
+    ///                         {
+    ///                             MatchValue = new[]
+    ///                             {
+    ///                                 "windows",
+    ///                             },
+    ///                             MatchVariable = "RequestHeader",
+    ///                             NegateCondition = false,
+    ///                             Operator = "Contains",
+    ///                             Selector = "UserAgent",
+    ///                             Transforms = new[] {},
+    ///                         },
+    ///                         new AzureNative.Cdn.V20200901.Inputs.MatchConditionArgs
+    ///                         {
+    ///                             MatchValue = new[]
+    ///                             {
+    ///                                 "&lt;?php",
+    ///                                 "?&gt;",
+    ///                             },
+    ///                             MatchVariable = "QueryString",
+    ///                             NegateCondition = false,
+    ///                             Operator = "Contains",
+    ///                             Selector = "search",
+    ///                             Transforms = new[]
+    ///                             {
+    ///                                 "UrlDecode",
+    ///                                 "Lowercase",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "CustomRule1",
+    ///                     Priority = 2,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "WestUs",
+    ///         ManagedRules = new AzureNative.Cdn.V20200901.Inputs.ManagedRuleSetListArgs
+    ///         {
+    ///             ManagedRuleSets = new[]
+    ///             {
+    ///                 new AzureNative.Cdn.V20200901.Inputs.ManagedRuleSetArgs
+    ///                 {
+    ///                     RuleGroupOverrides = new[]
+    ///                     {
+    ///                         new AzureNative.Cdn.V20200901.Inputs.ManagedRuleGroupOverrideArgs
+    ///                         {
+    ///                             RuleGroupName = "Group1",
+    ///                             Rules = new[]
+    ///                             {
+    ///                                 new AzureNative.Cdn.V20200901.Inputs.ManagedRuleOverrideArgs
+    ///                                 {
+    ///                                     Action = "Redirect",
+    ///                                     EnabledState = "Enabled",
+    ///                                     RuleId = "GROUP1-0001",
+    ///                                 },
+    ///                                 new AzureNative.Cdn.V20200901.Inputs.ManagedRuleOverrideArgs
+    ///                                 {
+    ///                                     EnabledState = "Disabled",
+    ///                                     RuleId = "GROUP1-0002",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     RuleSetType = "DefaultRuleSet",
+    ///                     RuleSetVersion = "preview-1.0",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PolicyName = "MicrosoftCdnWafPolicy",
+    ///         PolicySettings = new AzureNative.Cdn.V20200901.Inputs.PolicySettingsArgs
+    ///         {
+    ///             DefaultCustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+    ///             DefaultCustomBlockResponseStatusCode = 200,
+    ///             DefaultRedirectUrl = "http://www.bing.com",
+    ///         },
+    ///         RateLimitRules = new AzureNative.Cdn.V20200901.Inputs.RateLimitRuleListArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Cdn.V20200901.Inputs.RateLimitRuleArgs
+    ///                 {
+    ///                     Action = "Block",
+    ///                     EnabledState = "Enabled",
+    ///                     MatchConditions = new[]
+    ///                     {
+    ///                         new AzureNative.Cdn.V20200901.Inputs.MatchConditionArgs
+    ///                         {
+    ///                             MatchValue = new[]
+    ///                             {
+    ///                                 "192.168.1.0/24",
+    ///                                 "10.0.0.0/24",
+    ///                             },
+    ///                             MatchVariable = "RemoteAddr",
+    ///                             NegateCondition = false,
+    ///                             Operator = "IPMatch",
+    ///                             Transforms = new[] {},
+    ///                         },
+    ///                     },
+    ///                     Name = "RateLimitRule1",
+    ///                     Priority = 1,
+    ///                     RateLimitDurationInMinutes = 0,
+    ///                     RateLimitThreshold = 1000,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Cdn.V20200901.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_Microsoft",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20200901:Policy MicrosoftCdnWafPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cdn/CdnWebApplicationFirewallPolicies/MicrosoftCdnWafPolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

@@ -198,6 +198,58 @@ class DaprComponent(pulumi.CustomResource):
         """
         Dapr Component.
 
+        ## Example Usage
+        ### Create or update dapr component
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_component = azure_native.app.v20220101preview.DaprComponent("daprComponent",
+            component_type="state.azure.cosmosdb",
+            environment_name="myenvironment",
+            ignore_errors=False,
+            init_timeout="50s",
+            metadata=[
+                azure_native.app.v20220101preview.DaprMetadataArgs(
+                    name="url",
+                    value="<COSMOS-URL>",
+                ),
+                azure_native.app.v20220101preview.DaprMetadataArgs(
+                    name="database",
+                    value="itemsDB",
+                ),
+                azure_native.app.v20220101preview.DaprMetadataArgs(
+                    name="collection",
+                    value="items",
+                ),
+                azure_native.app.v20220101preview.DaprMetadataArgs(
+                    name="masterkey",
+                    secret_ref="masterkey",
+                ),
+            ],
+            name="reddog",
+            resource_group_name="examplerg",
+            scopes=[
+                "container-app-1",
+                "container-app-2",
+            ],
+            secrets=[azure_native.app.v20220101preview.SecretArgs(
+                name="masterkey",
+                value="keyvalue",
+            )],
+            version="v1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20220101preview:DaprComponent reddog /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/jlaw-demo1/daprcomponents/reddog 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] component_type: Component type
@@ -219,6 +271,58 @@ class DaprComponent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Dapr Component.
+
+        ## Example Usage
+        ### Create or update dapr component
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_component = azure_native.app.v20220101preview.DaprComponent("daprComponent",
+            component_type="state.azure.cosmosdb",
+            environment_name="myenvironment",
+            ignore_errors=False,
+            init_timeout="50s",
+            metadata=[
+                azure_native.app.v20220101preview.DaprMetadataArgs(
+                    name="url",
+                    value="<COSMOS-URL>",
+                ),
+                azure_native.app.v20220101preview.DaprMetadataArgs(
+                    name="database",
+                    value="itemsDB",
+                ),
+                azure_native.app.v20220101preview.DaprMetadataArgs(
+                    name="collection",
+                    value="items",
+                ),
+                azure_native.app.v20220101preview.DaprMetadataArgs(
+                    name="masterkey",
+                    secret_ref="masterkey",
+                ),
+            ],
+            name="reddog",
+            resource_group_name="examplerg",
+            scopes=[
+                "container-app-1",
+                "container-app-2",
+            ],
+            secrets=[azure_native.app.v20220101preview.SecretArgs(
+                name="masterkey",
+                value="keyvalue",
+            )],
+            version="v1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20220101preview:DaprComponent reddog /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/jlaw-demo1/daprcomponents/reddog 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DaprComponentArgs args: The arguments to use to populate this resource's properties.

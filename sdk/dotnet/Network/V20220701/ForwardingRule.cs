@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.Network.V20220701
 {
     /// <summary>
     /// Describes a forwarding rule within a DNS forwarding ruleset.
+    /// 
+    /// ## Example Usage
+    /// ### Upsert forwarding rule in a DNS forwarding ruleset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var forwardingRule = new AzureNative.Network.V20220701.ForwardingRule("forwardingRule", new()
+    ///     {
+    ///         DnsForwardingRulesetName = "sampleDnsForwardingRuleset",
+    ///         DomainName = "contoso.com.",
+    ///         ForwardingRuleName = "sampleForwardingRule",
+    ///         ForwardingRuleState = "Enabled",
+    ///         Metadata = 
+    ///         {
+    ///             { "additionalProp1", "value1" },
+    ///         },
+    ///         ResourceGroupName = "sampleResourceGroup",
+    ///         TargetDnsServers = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220701.Inputs.TargetDnsServerArgs
+    ///             {
+    ///                 IpAddress = "10.0.0.1",
+    ///                 Port = 53,
+    ///             },
+    ///             new AzureNative.Network.V20220701.Inputs.TargetDnsServerArgs
+    ///             {
+    ///                 IpAddress = "10.0.0.2",
+    ///                 Port = 53,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220701:ForwardingRule sampleForwardingRule /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRulesets/sampleDnsForwardingRuleset/forwardingRules/sampleForwardingRule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220701:ForwardingRule")]
     public partial class ForwardingRule : global::Pulumi.CustomResource

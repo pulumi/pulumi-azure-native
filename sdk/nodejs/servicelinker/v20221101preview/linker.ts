@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * Linker of source and target resource
+ *
+ * ## Example Usage
+ * ### PutLinker
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linker = new azure_native.servicelinker.v20221101preview.Linker("linker", {
+ *     authInfo: {
+ *         authType: "secret",
+ *         name: "name",
+ *         secretInfo: {
+ *             secretType: "rawValue",
+ *             value: "secret",
+ *         },
+ *     },
+ *     linkerName: "linkName",
+ *     resourceUri: "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+ *     targetService: {
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DBforPostgreSQL/servers/test-pg/databases/test-db",
+ *         type: "AzureResource",
+ *     },
+ *     vNetSolution: {
+ *         type: "serviceEndpoint",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicelinker/v20221101preview:Linker linkName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName 
+ * ```
  */
 export class Linker extends pulumi.CustomResource {
     /**

@@ -6,6 +6,33 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account session.
+ *
+ * ## Example Usage
+ * ### SessionsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const session = new azure_native.logic.v20160601.Session("session", {
+ *     content: {
+ *         controlNumber: "1234",
+ *         controlNumberChangedTime: "2017-02-21T22:30:11.9923759Z",
+ *     },
+ *     integrationAccountName: "testia123",
+ *     resourceGroupName: "testrg123",
+ *     sessionName: "testsession123-ICN",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic/v20160601:Session testsession123-ICN /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/testsession123-ICN 
+ * ```
  */
 export class Session extends pulumi.CustomResource {
     /**

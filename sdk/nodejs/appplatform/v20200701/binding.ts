@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Binding resource payload
+ *
+ * ## Example Usage
+ * ### Bindings_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const binding = new azure_native.appplatform.v20200701.Binding("binding", {
+ *     appName: "myapp",
+ *     bindingName: "mybinding",
+ *     properties: {
+ *         bindingParameters: {
+ *             apiType: "SQL",
+ *             databaseName: "db1",
+ *         },
+ *         key: "xxxx",
+ *         resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20200701:Binding mybinding /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/bindings/mybinding 
+ * ```
  */
 export class Binding extends pulumi.CustomResource {
     /**

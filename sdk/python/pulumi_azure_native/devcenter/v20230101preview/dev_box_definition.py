@@ -180,6 +180,36 @@ class DevBoxDefinition(pulumi.CustomResource):
         """
         Represents a definition for a Developer Machine.
 
+        ## Example Usage
+        ### DevBoxDefinitions_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_box_definition = azure_native.devcenter.v20230101preview.DevBoxDefinition("devBoxDefinition",
+            dev_box_definition_name="WebDevBox",
+            dev_center_name="Contoso",
+            hibernate_support="Enabled",
+            image_reference=azure_native.devcenter.v20230101preview.ImageReferenceArgs(
+                id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/Example/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/contosogallery/images/exampleImage/version/1.0.0",
+            ),
+            location="centralus",
+            resource_group_name="rg1",
+            sku=azure_native.devcenter.v20230101preview.SkuArgs(
+                name="Preview",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:DevBoxDefinition WebDevBox /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/devboxdefinitions/devBoxDefinitionName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_box_definition_name: The name of the Dev Box definition.
@@ -200,6 +230,36 @@ class DevBoxDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a definition for a Developer Machine.
+
+        ## Example Usage
+        ### DevBoxDefinitions_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_box_definition = azure_native.devcenter.v20230101preview.DevBoxDefinition("devBoxDefinition",
+            dev_box_definition_name="WebDevBox",
+            dev_center_name="Contoso",
+            hibernate_support="Enabled",
+            image_reference=azure_native.devcenter.v20230101preview.ImageReferenceArgs(
+                id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/Example/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/contosogallery/images/exampleImage/version/1.0.0",
+            ),
+            location="centralus",
+            resource_group_name="rg1",
+            sku=azure_native.devcenter.v20230101preview.SkuArgs(
+                name="Preview",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:DevBoxDefinition WebDevBox /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/devboxdefinitions/devBoxDefinitionName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DevBoxDefinitionArgs args: The arguments to use to populate this resource's properties.

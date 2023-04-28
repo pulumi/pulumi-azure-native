@@ -11,6 +11,158 @@ namespace Pulumi.AzureNative.DataShare.V20210801
 {
     /// <summary>
     /// A kusto database data set.
+    /// 
+    /// ## Example Usage
+    /// ### DataSets_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoDatabaseDataSet = new AzureNative.DataShare.V20210801.KustoDatabaseDataSet("kustoDatabaseDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_KustoCluster_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoDatabaseDataSet = new AzureNative.DataShare.V20210801.KustoDatabaseDataSet("kustoDatabaseDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_KustoDatabase_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoDatabaseDataSet = new AzureNative.DataShare.V20210801.KustoDatabaseDataSet("kustoDatabaseDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         Kind = "KustoDatabase",
+    ///         KustoDatabaseResourceId = "/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Kusto/clusters/Cluster1/databases/Database1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_KustoTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoDatabaseDataSet = new AzureNative.DataShare.V20210801.KustoDatabaseDataSet("kustoDatabaseDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_SqlDBTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoDatabaseDataSet = new AzureNative.DataShare.V20210801.KustoDatabaseDataSet("kustoDatabaseDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_SqlDWTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoDatabaseDataSet = new AzureNative.DataShare.V20210801.KustoDatabaseDataSet("kustoDatabaseDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoDatabaseDataSet = new AzureNative.DataShare.V20210801.KustoDatabaseDataSet("kustoDatabaseDataSet", new()
+    ///     {
+    ///         AccountName = "sourceAccount",
+    ///         DataSetName = "dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare/v20210801:KustoDatabaseDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20210801:KustoDatabaseDataSet")]
     public partial class KustoDatabaseDataSet : global::Pulumi.CustomResource

@@ -11,6 +11,73 @@ namespace Pulumi.AzureNative.Migrate.V20220501Preview
 {
     /// <summary>
     /// Workload instance model.
+    /// 
+    /// ## Example Usage
+    /// ### WorkloadInstance_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadInstance = new AzureNative.Migrate.V20220501Preview.WorkloadInstance("workloadInstance", new()
+    ///     {
+    ///         ModernizeProjectName = "mx8",
+    ///         Properties = new AzureNative.Migrate.V20220501Preview.Inputs.WorkloadInstanceModelPropertiesArgs
+    ///         {
+    ///             CustomProperties = 
+    ///             {
+    ///                 { "instanceType", "IISWorkload" },
+    ///                 { "webAppArmId", "xseseqsrzdiga" },
+    ///                 { "webAppSiteName", "mirgzmy" },
+    ///             },
+    ///             DisplayName = "juoorbubchvk",
+    ///             MasterSiteName = "ubks",
+    ///             MigrateAgentId = "aqgzsxqbk",
+    ///             Name = "wonkuhgsafzviuwqerzdmme",
+    ///             SourceName = "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+    ///             SourcePlatform = "eh",
+    ///         },
+    ///         ResourceGroupName = "rgmigrateEngine",
+    ///         Tags = 
+    ///         {
+    ///             { "key2836", "biqip" },
+    ///         },
+    ///         WorkloadInstanceName = "m",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### WorkloadInstance_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadInstance = new AzureNative.Migrate.V20220501Preview.WorkloadInstance("workloadInstance", new()
+    ///     {
+    ///         ModernizeProjectName = "tv39",
+    ///         ResourceGroupName = "rgmigrateEngine",
+    ///         WorkloadInstanceName = "io",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20220501preview:WorkloadInstance piu tin 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20220501preview:WorkloadInstance")]
     public partial class WorkloadInstance : global::Pulumi.CustomResource

@@ -183,6 +183,37 @@ class ConnectionMonitor(pulumi.CustomResource):
         """
         Information about the connection monitor.
 
+        ## Example Usage
+        ### Create connection monitor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor = azure_native.network.v20190901.ConnectionMonitor("connectionMonitor",
+            connection_monitor_name="cm1",
+            destination=azure_native.network.v20190901.ConnectionMonitorDestinationArgs(
+                address="bing.com",
+                port=80,
+            ),
+            location="eastus",
+            monitoring_interval_in_seconds=60,
+            network_watcher_name="nw1",
+            resource_group_name="rg1",
+            source=azure_native.network.v20190901.ConnectionMonitorSourceArgs(
+                resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190901:ConnectionMonitor cm1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.
@@ -203,6 +234,37 @@ class ConnectionMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about the connection monitor.
+
+        ## Example Usage
+        ### Create connection monitor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor = azure_native.network.v20190901.ConnectionMonitor("connectionMonitor",
+            connection_monitor_name="cm1",
+            destination=azure_native.network.v20190901.ConnectionMonitorDestinationArgs(
+                address="bing.com",
+                port=80,
+            ),
+            location="eastus",
+            monitoring_interval_in_seconds=60,
+            network_watcher_name="nw1",
+            resource_group_name="rg1",
+            source=azure_native.network.v20190901.ConnectionMonitorSourceArgs(
+                resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190901:ConnectionMonitor cm1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionMonitorArgs args: The arguments to use to populate this resource's properties.

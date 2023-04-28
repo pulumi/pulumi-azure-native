@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.StorageSync
     /// Sync Group object.
     /// API Version: 2022-06-01.
     /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SyncGroups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var syncGroup = new AzureNative.StorageSync.SyncGroup("syncGroup", new()
+    ///     {
+    ///         ResourceGroupName = "SampleResourceGroup_1",
+    ///         StorageSyncServiceName = "SampleStorageSyncService_1",
+    ///         SyncGroupName = "SampleSyncGroup_1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagesync:SyncGroup SampleSyncGroup_1 /subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync:SyncGroup")]
     public partial class SyncGroup : global::Pulumi.CustomResource

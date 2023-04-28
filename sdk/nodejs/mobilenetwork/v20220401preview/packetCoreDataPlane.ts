@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Packet core data plane resource.
+ *
+ * ## Example Usage
+ * ### Create packet core data plane
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const packetCoreDataPlane = new azure_native.mobilenetwork.v20220401preview.PacketCoreDataPlane("packetCoreDataPlane", {
+ *     location: "eastus",
+ *     packetCoreControlPlaneName: "testPacketCoreCP",
+ *     packetCoreDataPlaneName: "testPacketCoreDP",
+ *     resourceGroupName: "rg1",
+ *     userPlaneAccessInterface: {
+ *         name: "N3",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane TestPacketCoreDP /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP 
+ * ```
  */
 export class PacketCoreDataPlane extends pulumi.CustomResource {
     /**

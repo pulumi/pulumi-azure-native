@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
     /// <summary>
     /// Represents a Package in Azure Security Insights.
+    /// 
+    /// ## Example Usage
+    /// ### Install a package to the workspace.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contentPackage = new AzureNative.SecurityInsights.V20230401Preview.ContentPackage("contentPackage", new()
+    ///     {
+    ///         ContentId = "str.azure-sentinel-solution-str",
+    ///         ContentKind = "Solution",
+    ///         DisplayName = "str",
+    ///         PackageId = "str.azure-sentinel-solution-str",
+    ///         ResourceGroupName = "myRg",
+    ///         Version = "2.0.0",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:ContentPackage str.azure-sentinel-solution-str /subscriptions/d0cfeab2-9ae0-4464-9919-dccaee2e48f0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/contentPackages/str.azure-sentinel-solution-str 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:ContentPackage")]
     public partial class ContentPackage : global::Pulumi.CustomResource

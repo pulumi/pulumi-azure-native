@@ -8,6 +8,30 @@ import * as utilities from "../utilities";
  * Customer subscription.
  * API Version: 2022-06-01.
  * Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates a new customer subscription under a registration.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customerSubscription = new azure_native.azurestack.CustomerSubscription("customerSubscription", {
+ *     customerSubscriptionName: "E09A4E93-29A7-4EBA-A6D4-76202383F07F",
+ *     registrationName: "testregistration",
+ *     resourceGroup: "azurestack",
+ *     tenantId: "dbab3982-796f-4d03-9908-044c08aef8a2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestack:CustomerSubscription myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionName} 
+ * ```
  */
 export class CustomerSubscription extends pulumi.CustomResource {
     /**

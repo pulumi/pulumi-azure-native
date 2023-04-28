@@ -11,6 +11,53 @@ import * as utilities from "../utilities";
  * The remediation definition.
  * API Version: 2021-10-01.
  * Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create remediation at subscription scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const remediationAtSubscription = new azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription", {
+ *     policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     remediationName: "storageRemediation",
+ * });
+ *
+ * ```
+ * ### Create remediation at subscription scope with all properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const remediationAtSubscription = new azure_native.policyinsights.RemediationAtSubscription("remediationAtSubscription", {
+ *     failureThreshold: {
+ *         percentage: 0.1,
+ *     },
+ *     filters: {
+ *         locations: [
+ *             "eastus",
+ *             "westus",
+ *         ],
+ *     },
+ *     parallelDeployments: 6,
+ *     policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     policyDefinitionReferenceId: "8c8fa9e4",
+ *     remediationName: "storageRemediation",
+ *     resourceCount: 42,
+ *     resourceDiscoveryMode: "ReEvaluateCompliance",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:policyinsights:RemediationAtSubscription storageRemediation /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.policyinsights/remediations/storageRemediation 
+ * ```
  */
 export class RemediationAtSubscription extends pulumi.CustomResource {
     /**

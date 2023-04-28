@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
 {
     /// <summary>
     /// The remediation definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create remediation at subscription scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var remediationAtSubscription = new AzureNative.PolicyInsights.V20180701Preview.RemediationAtSubscription("remediationAtSubscription", new()
+    ///     {
+    ///         PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///         RemediationName = "storageRemediation",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create remediation at subscription scope with all properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var remediationAtSubscription = new AzureNative.PolicyInsights.V20180701Preview.RemediationAtSubscription("remediationAtSubscription", new()
+    ///     {
+    ///         Filters = new AzureNative.PolicyInsights.V20180701Preview.Inputs.RemediationFiltersArgs
+    ///         {
+    ///             Locations = new[]
+    ///             {
+    ///                 "eastus",
+    ///                 "westus",
+    ///             },
+    ///         },
+    ///         PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///         PolicyDefinitionReferenceId = "8c8fa9e4",
+    ///         RemediationName = "storageRemediation",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:policyinsights/v20180701preview:RemediationAtSubscription storageRemediation /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.policyinsights/remediations/storageRemediation 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:policyinsights/v20180701preview:RemediationAtSubscription")]

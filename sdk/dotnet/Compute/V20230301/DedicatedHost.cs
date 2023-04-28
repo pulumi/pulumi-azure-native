@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Compute.V20230301
 {
     /// <summary>
     /// Specifies information about the Dedicated host.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a dedicated host .
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedHost = new AzureNative.Compute.V20230301.DedicatedHost("dedicatedHost", new()
+    ///     {
+    ///         HostGroupName = "myDedicatedHostGroup",
+    ///         HostName = "myDedicatedHost",
+    ///         Location = "westus",
+    ///         PlatformFaultDomain = 1,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Compute.V20230301.Inputs.SkuArgs
+    ///         {
+    ///             Name = "DSv3-Type1",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "department", "HR" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20230301:DedicatedHost myDedicatedHost /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/HostGroups/myDedicatedHostGroup/hosts/myDedicatedHost 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20230301:DedicatedHost")]
     public partial class DedicatedHost : global::Pulumi.CustomResource

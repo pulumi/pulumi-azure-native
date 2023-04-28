@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * A Media Services account.
+ *
+ * ## Example Usage
+ * ### Create a Media Services account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mediaService = new azure_native.media.v20200501.MediaService("mediaService", {
+ *     accountName: "contososports",
+ *     location: "South Central US",
+ *     resourceGroupName: "contoso",
+ *     storageAccounts: [{
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contososportsstore",
+ *         type: "Primary",
+ *     }],
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media/v20200501:MediaService contososports /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contososports 
+ * ```
  */
 export class MediaService extends pulumi.CustomResource {
     /**

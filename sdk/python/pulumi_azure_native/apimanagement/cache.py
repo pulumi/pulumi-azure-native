@@ -145,6 +145,32 @@ class Cache(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateCache
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.apimanagement.Cache("cache",
+            cache_id="c1",
+            connection_string="apim.redis.cache.windows.net:6380,password=xc,ssl=True,abortConnect=False",
+            description="Redis cache instances in West India",
+            resource_group_name="rg1",
+            resource_id="https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redis/apimservice1",
+            service_name="apimService1",
+            use_from_location="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Cache c1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/caches/c1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
@@ -165,6 +191,32 @@ class Cache(pulumi.CustomResource):
         Cache details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateCache
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.apimanagement.Cache("cache",
+            cache_id="c1",
+            connection_string="apim.redis.cache.windows.net:6380,password=xc,ssl=True,abortConnect=False",
+            description="Redis cache instances in West India",
+            resource_group_name="rg1",
+            resource_id="https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redis/apimservice1",
+            service_name="apimService1",
+            use_from_location="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Cache c1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/caches/c1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CacheArgs args: The arguments to use to populate this resource's properties.

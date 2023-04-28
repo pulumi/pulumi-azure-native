@@ -11,6 +11,97 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220515
 {
     /// <summary>
     /// The description of Fhir Service
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Fhir Service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fhirService = new AzureNative.HealthcareApis.V20220515.FhirService("fhirService", new()
+    ///     {
+    ///         AccessPolicies = new[]
+    ///         {
+    ///             new AzureNative.HealthcareApis.V20220515.Inputs.FhirServiceAccessPolicyEntryArgs
+    ///             {
+    ///                 ObjectId = "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+    ///             },
+    ///             new AzureNative.HealthcareApis.V20220515.Inputs.FhirServiceAccessPolicyEntryArgs
+    ///             {
+    ///                 ObjectId = "5b307da8-43d4-492b-8b66-b0294ade872f",
+    ///             },
+    ///         },
+    ///         AcrConfiguration = new AzureNative.HealthcareApis.V20220515.Inputs.FhirServiceAcrConfigurationArgs
+    ///         {
+    ///             LoginServers = new[]
+    ///             {
+    ///                 "test1.azurecr.io",
+    ///             },
+    ///         },
+    ///         AuthenticationConfiguration = new AzureNative.HealthcareApis.V20220515.Inputs.FhirServiceAuthenticationConfigurationArgs
+    ///         {
+    ///             Audience = "https://azurehealthcareapis.com",
+    ///             Authority = "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
+    ///             SmartProxyEnabled = true,
+    ///         },
+    ///         CorsConfiguration = new AzureNative.HealthcareApis.V20220515.Inputs.FhirServiceCorsConfigurationArgs
+    ///         {
+    ///             AllowCredentials = false,
+    ///             Headers = new[]
+    ///             {
+    ///                 "*",
+    ///             },
+    ///             MaxAge = 1440,
+    ///             Methods = new[]
+    ///             {
+    ///                 "DELETE",
+    ///                 "GET",
+    ///                 "OPTIONS",
+    ///                 "PATCH",
+    ///                 "POST",
+    ///                 "PUT",
+    ///             },
+    ///             Origins = new[]
+    ///             {
+    ///                 "*",
+    ///             },
+    ///         },
+    ///         ExportConfiguration = new AzureNative.HealthcareApis.V20220515.Inputs.FhirServiceExportConfigurationArgs
+    ///         {
+    ///             StorageAccountName = "existingStorageAccount",
+    ///         },
+    ///         FhirServiceName = "fhirservice1",
+    ///         Identity = new AzureNative.HealthcareApis.V20220515.Inputs.ServiceManagedIdentityIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Kind = "fhir-R4",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testRG",
+    ///         Tags = 
+    ///         {
+    ///             { "additionalProp1", "string" },
+    ///             { "additionalProp2", "string" },
+    ///             { "additionalProp3", "string" },
+    ///         },
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthcareapis/v20220515:FhirService fhirservice1 /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservice1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis/v20220515:FhirService")]
     public partial class FhirService : global::Pulumi.CustomResource

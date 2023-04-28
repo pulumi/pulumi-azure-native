@@ -113,6 +113,28 @@ class Extension(pulumi.CustomResource):
         """
         Extension resource.
 
+        ## Example Usage
+        ### Extensions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.agfoodplatform.v20210901preview.Extension("extension",
+            extension_id="provider.extension",
+            farm_beats_resource_name="examples-farmbeatsResourceName",
+            resource_group_name="examples-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agfoodplatform/v20210901preview:Extension provider.extension /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName/extensions/provider.extension 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[pulumi.InputType['ApiPropertiesArgs']]]] additional_api_properties: Additional Api Properties.
@@ -129,6 +151,28 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Extension resource.
+
+        ## Example Usage
+        ### Extensions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.agfoodplatform.v20210901preview.Extension("extension",
+            extension_id="provider.extension",
+            farm_beats_resource_name="examples-farmbeatsResourceName",
+            resource_group_name="examples-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agfoodplatform/v20210901preview:Extension provider.extension /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName/extensions/provider.extension 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

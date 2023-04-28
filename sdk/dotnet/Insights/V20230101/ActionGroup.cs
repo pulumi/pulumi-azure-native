@@ -11,6 +11,169 @@ namespace Pulumi.AzureNative.Insights.V20230101
 {
     /// <summary>
     /// An action group resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an action group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var actionGroup = new AzureNative.Insights.V20230101.ActionGroup("actionGroup", new()
+    ///     {
+    ///         ActionGroupName = "SampleActionGroup",
+    ///         ArmRoleReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.ArmRoleReceiverArgs
+    ///             {
+    ///                 Name = "Sample armRole",
+    ///                 RoleId = "8e3af657-a8ff-443c-a75c-2fe8c4bcb635",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///         AutomationRunbookReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.AutomationRunbookReceiverArgs
+    ///             {
+    ///                 AutomationAccountId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest",
+    ///                 IsGlobalRunbook = false,
+    ///                 Name = "testRunbook",
+    ///                 RunbookName = "Sample runbook",
+    ///                 ServiceUri = "&lt;serviceUri&gt;",
+    ///                 UseCommonAlertSchema = true,
+    ///                 WebhookResourceId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/runbookTest/providers/Microsoft.Automation/automationAccounts/runbooktest/webhooks/Alert1510184037084",
+    ///             },
+    ///         },
+    ///         AzureAppPushReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.AzureAppPushReceiverArgs
+    ///             {
+    ///                 EmailAddress = "johndoe@email.com",
+    ///                 Name = "Sample azureAppPush",
+    ///             },
+    ///         },
+    ///         AzureFunctionReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.AzureFunctionReceiverArgs
+    ///             {
+    ///                 FunctionAppResourceId = "/subscriptions/5def922a-3ed4-49c1-b9fd-05ec533819a3/resourceGroups/aznsTest/providers/Microsoft.Web/sites/testFunctionApp",
+    ///                 FunctionName = "HttpTriggerCSharp1",
+    ///                 HttpTriggerUrl = "http://test.me",
+    ///                 Name = "Sample azureFunction",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///         EmailReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.EmailReceiverArgs
+    ///             {
+    ///                 EmailAddress = "johndoe@email.com",
+    ///                 Name = "John Doe's email",
+    ///                 UseCommonAlertSchema = false,
+    ///             },
+    ///             new AzureNative.Insights.V20230101.Inputs.EmailReceiverArgs
+    ///             {
+    ///                 EmailAddress = "janesmith@email.com",
+    ///                 Name = "Jane Smith's email",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         EventHubReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.EventHubReceiverArgs
+    ///             {
+    ///                 EventHubName = "testEventHub",
+    ///                 EventHubNameSpace = "testEventHubNameSpace",
+    ///                 Name = "Sample eventHub",
+    ///                 SubscriptionId = "187f412d-1758-44d9-b052-169e2564721d",
+    ///                 TenantId = "68a4459a-ccb8-493c-b9da-dd30457d1b84",
+    ///             },
+    ///         },
+    ///         GroupShortName = "sample",
+    ///         ItsmReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.ItsmReceiverArgs
+    ///             {
+    ///                 ConnectionId = "a3b9076c-ce8e-434e-85b4-aff10cb3c8f1",
+    ///                 Name = "Sample itsm",
+    ///                 Region = "westcentralus",
+    ///                 TicketConfiguration = "{\"PayloadRevision\":0,\"WorkItemType\":\"Incident\",\"UseTemplate\":false,\"WorkItemData\":\"{}\",\"CreateOneWIPerCI\":false}",
+    ///                 WorkspaceId = "5def922a-3ed4-49c1-b9fd-05ec533819a3|55dfd1f8-7e59-4f89-bf56-4c82f5ace23c",
+    ///             },
+    ///         },
+    ///         Location = "Global",
+    ///         LogicAppReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.LogicAppReceiverArgs
+    ///             {
+    ///                 CallbackUrl = "https://prod-27.northcentralus.logic.azure.com/workflows/68e572e818e5457ba898763b7db90877/triggers/manual/paths/invoke/azns/test?api-version=2016-10-01&amp;sp=%2Ftriggers%2Fmanual%2Frun&amp;sv=1.0&amp;sig=Abpsb72UYJxPPvmDo937uzofupO5r_vIeWEx7KVHo7w",
+    ///                 Name = "Sample logicApp",
+    ///                 ResourceId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/LogicApp/providers/Microsoft.Logic/workflows/testLogicApp",
+    ///                 UseCommonAlertSchema = false,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "Default-NotificationRules",
+    ///         SmsReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.SmsReceiverArgs
+    ///             {
+    ///                 CountryCode = "1",
+    ///                 Name = "John Doe's mobile",
+    ///                 PhoneNumber = "1234567890",
+    ///             },
+    ///             new AzureNative.Insights.V20230101.Inputs.SmsReceiverArgs
+    ///             {
+    ///                 CountryCode = "1",
+    ///                 Name = "Jane Smith's mobile",
+    ///                 PhoneNumber = "0987654321",
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///         VoiceReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.VoiceReceiverArgs
+    ///             {
+    ///                 CountryCode = "1",
+    ///                 Name = "Sample voice",
+    ///                 PhoneNumber = "1234567890",
+    ///             },
+    ///         },
+    ///         WebhookReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230101.Inputs.WebhookReceiverArgs
+    ///             {
+    ///                 Name = "Sample webhook 1",
+    ///                 ServiceUri = "http://www.example.com/webhook1",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///             new AzureNative.Insights.V20230101.Inputs.WebhookReceiverArgs
+    ///             {
+    ///                 IdentifierUri = "http://someidentifier/d7811ba3-7996-4a93-99b6-6b2f3f355f8a",
+    ///                 Name = "Sample webhook 2",
+    ///                 ObjectId = "d3bb868c-fe44-452c-aa26-769a6538c808",
+    ///                 ServiceUri = "http://www.example.com/webhook2",
+    ///                 TenantId = "68a4459a-ccb8-493c-b9da-dd30457d1b84",
+    ///                 UseAadAuth = true,
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20230101:ActionGroup SampleActionGroup /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-NotificationRules/providers/microsoft.insights/actionGroups/SampleActionGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20230101:ActionGroup")]
     public partial class ActionGroup : global::Pulumi.CustomResource

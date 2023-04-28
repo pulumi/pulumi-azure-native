@@ -12,6 +12,55 @@ namespace Pulumi.AzureNative.Automanage
     /// <summary>
     /// Definition of the configuration profile.
     /// API Version: 2022-05-04.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update configuration profile version
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfilesVersion = new AzureNative.Automanage.ConfigurationProfilesVersion("configurationProfilesVersion", new()
+    ///     {
+    ///         ConfigurationProfileName = "customConfigurationProfile",
+    ///         Location = "East US",
+    ///         Properties = new AzureNative.Automanage.Inputs.ConfigurationProfilePropertiesArgs
+    ///         {
+    ///             Configuration = 
+    ///             {
+    ///                 { "Antimalware/Enable", false },
+    ///                 { "AzureSecurityCenter/Enable", true },
+    ///                 { "Backup/Enable", false },
+    ///                 { "BootDiagnostics/Enable", true },
+    ///                 { "ChangeTrackingAndInventory/Enable", true },
+    ///                 { "GuestConfiguration/Enable", true },
+    ///                 { "LogAnalytics/Enable", true },
+    ///                 { "UpdateManagement/Enable", true },
+    ///                 { "VMInsights/Enable", true },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "Organization", "Administration" },
+    ///         },
+    ///         VersionName = "version1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automanage:ConfigurationProfilesVersion customConfigurationProfile/version1 /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfiles/customConfigurationProfile/versions/version1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfilesVersion")]
     public partial class ConfigurationProfilesVersion : global::Pulumi.CustomResource

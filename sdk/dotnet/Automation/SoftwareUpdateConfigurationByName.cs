@@ -13,6 +13,143 @@ namespace Pulumi.AzureNative.Automation
     /// Software update configuration properties.
     /// API Version: 2019-06-01.
     /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create software update configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var softwareUpdateConfigurationByName = new AzureNative.Automation.SoftwareUpdateConfigurationByName("softwareUpdateConfigurationByName", new()
+    ///     {
+    ///         AutomationAccountName = "myaccount",
+    ///         ResourceGroupName = "mygroup",
+    ///         ScheduleInfo = new AzureNative.Automation.Inputs.SUCSchedulePropertiesArgs
+    ///         {
+    ///             AdvancedSchedule = new AzureNative.Automation.Inputs.AdvancedScheduleArgs
+    ///             {
+    ///                 WeekDays = new[]
+    ///                 {
+    ///                     "Monday",
+    ///                     "Thursday",
+    ///                 },
+    ///             },
+    ///             ExpiryTime = "2018-11-09T11:22:57+00:00",
+    ///             Frequency = "Hour",
+    ///             Interval = 1,
+    ///             StartTime = "2017-10-19T12:22:57+00:00",
+    ///             TimeZone = "America/Los_Angeles",
+    ///         },
+    ///         SoftwareUpdateConfigurationName = "testpatch",
+    ///         Tasks = new AzureNative.Automation.Inputs.SoftwareUpdateConfigurationTasksArgs
+    ///         {
+    ///             PostTask = new AzureNative.Automation.Inputs.TaskPropertiesArgs
+    ///             {
+    ///                 Source = "GetCache",
+    ///             },
+    ///             PreTask = new AzureNative.Automation.Inputs.TaskPropertiesArgs
+    ///             {
+    ///                 Parameters = 
+    ///                 {
+    ///                     { "COMPUTERNAME", "Computer1" },
+    ///                 },
+    ///                 Source = "HelloWorld",
+    ///             },
+    ///         },
+    ///         UpdateConfiguration = new AzureNative.Automation.Inputs.UpdateConfigurationArgs
+    ///         {
+    ///             AzureVirtualMachines = new[]
+    ///             {
+    ///                 "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+    ///                 "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+    ///                 "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03",
+    ///             },
+    ///             Duration = "PT2H0M",
+    ///             NonAzureComputerNames = new[]
+    ///             {
+    ///                 "box1.contoso.com",
+    ///                 "box2.contoso.com",
+    ///             },
+    ///             OperatingSystem = AzureNative.Automation.OperatingSystemType.Windows,
+    ///             Targets = new AzureNative.Automation.Inputs.TargetPropertiesArgs
+    ///             {
+    ///                 AzureQueries = new[]
+    ///                 {
+    ///                     new AzureNative.Automation.Inputs.AzureQueryPropertiesArgs
+    ///                     {
+    ///                         Locations = new[]
+    ///                         {
+    ///                             "Japan East",
+    ///                             "UK South",
+    ///                         },
+    ///                         Scope = new[]
+    ///                         {
+    ///                             "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+    ///                             "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
+    ///                         },
+    ///                         TagSettings = new AzureNative.Automation.Inputs.TagSettingsPropertiesArgs
+    ///                         {
+    ///                             FilterOperator = AzureNative.Automation.TagOperators.All,
+    ///                             Tags = 
+    ///                             {
+    ///                                 { "tag1", new[]
+    ///                                 {
+    ///                                     "tag1Value1",
+    ///                                     "tag1Value2",
+    ///                                     "tag1Value3",
+    ///                                 } },
+    ///                                 { "tag2", new[]
+    ///                                 {
+    ///                                     "tag2Value1",
+    ///                                     "tag2Value2",
+    ///                                     "tag2Value3",
+    ///                                 } },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 NonAzureQueries = new[]
+    ///                 {
+    ///                     new AzureNative.Automation.Inputs.NonAzureQueryPropertiesArgs
+    ///                     {
+    ///                         FunctionAlias = "SavedSearch1",
+    ///                         WorkspaceId = "WorkspaceId1",
+    ///                     },
+    ///                     new AzureNative.Automation.Inputs.NonAzureQueryPropertiesArgs
+    ///                     {
+    ///                         FunctionAlias = "SavedSearch2",
+    ///                         WorkspaceId = "WorkspaceId2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Windows = new AzureNative.Automation.Inputs.WindowsPropertiesArgs
+    ///             {
+    ///                 ExcludedKbNumbers = new[]
+    ///                 {
+    ///                     "168934",
+    ///                     "168973",
+    ///                 },
+    ///                 IncludedUpdateClassifications = "Critical",
+    ///                 RebootSetting = "IfRequired",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation:SoftwareUpdateConfigurationByName testpatch /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Automation/automationAccounts/myaccount/softwareUpdateConfigurations/testpatch 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:SoftwareUpdateConfigurationByName")]
     public partial class SoftwareUpdateConfigurationByName : global::Pulumi.CustomResource

@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
 {
     /// <summary>
     /// An object that represents a cache rule for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### CacheRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cacheRule = new AzureNative.ContainerRegistry.V20230101Preview.CacheRule("cacheRule", new()
+    ///     {
+    ///         CacheRuleName = "myCacheRule",
+    ///         CredentialSetResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SourceRepository = "docker.io/library/hello-world",
+    ///         TargetRepository = "cached-docker-hub/hello-world",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20230101preview:CacheRule myCacheRule /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/cacheRules/myCacheRule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20230101preview:CacheRule")]
     public partial class CacheRule : global::Pulumi.CustomResource

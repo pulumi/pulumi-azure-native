@@ -127,6 +127,31 @@ class Agent(pulumi.CustomResource):
         """
         The Agent resource.
 
+        ## Example Usage
+        ### Agents_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent = azure_native.storagemover.v20230301.Agent("agent",
+            agent_name="examples-agentName",
+            arc_resource_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
+            arc_vm_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+            description="Example Agent Description",
+            resource_group_name="examples-rg",
+            storage_mover_name="examples-storageMoverName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagemover/v20230301:Agent examples-agentName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/agents/examples-agentName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_name: The name of the Agent resource.
@@ -144,6 +169,31 @@ class Agent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Agent resource.
+
+        ## Example Usage
+        ### Agents_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent = azure_native.storagemover.v20230301.Agent("agent",
+            agent_name="examples-agentName",
+            arc_resource_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
+            arc_vm_uuid="3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+            description="Example Agent Description",
+            resource_group_name="examples-rg",
+            storage_mover_name="examples-storageMoverName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagemover/v20230301:Agent examples-agentName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/agents/examples-agentName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AgentArgs args: The arguments to use to populate this resource's properties.

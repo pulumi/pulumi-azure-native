@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the PrivateEndpointConnection.
+ *
+ * ## Example Usage
+ * ### NameSpacePrivateEndPointConnectionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.relay.v20211101.PrivateEndpointConnection("privateEndpointConnection", {
+ *     namespaceName: "example-RelayNamespace-5849",
+ *     privateEndpoint: {
+ *         id: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+ *     },
+ *     privateEndpointConnectionName: "{privateEndpointConnection name}",
+ *     privateLinkServiceConnectionState: {
+ *         description: "You may pass",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "resourcegroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:relay/v20211101:PrivateEndpointConnection {privateEndpointConnection name} /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/alitest/providers/Microsoft.Relay/namespaces/relay-private-endpoint-test/privateEndpointConnections/{privateEndpointConnection name} 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
 {
     /// <summary>
     /// The variable.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a variable
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var variable = new AzureNative.Authorization.V20220801Preview.Variable("variable", new()
+    ///     {
+    ///         Columns = new[]
+    ///         {
+    ///             new AzureNative.Authorization.V20220801Preview.Inputs.PolicyVariableColumnArgs
+    ///             {
+    ///                 ColumnName = "TestColumn",
+    ///             },
+    ///         },
+    ///         VariableName = "DemoTestVariable",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20220801preview:Variable DemoTestVariable /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/variables/DemoTestVariable 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20220801preview:Variable")]
     public partial class Variable : global::Pulumi.CustomResource

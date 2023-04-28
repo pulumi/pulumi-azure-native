@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.AzureData
     /// A SQL server.
     /// API Version: 2019-07-24-preview.
     /// Previous API Version: 2019-07-24-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a SQL Server in a Registration group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlServer = new AzureNative.AzureData.SqlServer("sqlServer", new()
+    ///     {
+    ///         Cores = 8,
+    ///         Edition = "Latin",
+    ///         PropertyBag = "",
+    ///         RegistrationID = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration",
+    ///         ResourceGroupName = "testrg",
+    ///         SqlServerName = "testsqlserver",
+    ///         SqlServerRegistrationName = "testsqlregistration",
+    ///         Version = "2008",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azuredata:SqlServer testsqlserver /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration/sqlServers/testsqlserver 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azuredata:SqlServer")]
     public partial class SqlServer : global::Pulumi.CustomResource

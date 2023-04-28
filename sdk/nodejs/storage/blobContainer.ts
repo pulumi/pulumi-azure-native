@@ -11,6 +11,60 @@ import * as utilities from "../utilities";
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PutContainerWithDefaultEncryptionScope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainer = new azure_native.storage.BlobContainer("blobContainer", {
+ *     accountName: "sto328",
+ *     containerName: "container6185",
+ *     defaultEncryptionScope: "encryptionscope185",
+ *     denyEncryptionScopeOverride: true,
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ * ### PutContainerWithObjectLevelWorm
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainer = new azure_native.storage.BlobContainer("blobContainer", {
+ *     accountName: "sto328",
+ *     containerName: "container6185",
+ *     immutableStorageWithVersioning: {
+ *         enabled: true,
+ *     },
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ * ### PutContainers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainer = new azure_native.storage.BlobContainer("blobContainer", {
+ *     accountName: "sto328",
+ *     containerName: "container6185",
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:BlobContainer container6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/blobServices/default/containers/container6185 
+ * ```
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**

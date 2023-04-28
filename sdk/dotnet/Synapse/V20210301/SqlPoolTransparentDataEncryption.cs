@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Synapse.V20210301
 {
     /// <summary>
     /// Represents a Sql pool transparent data encryption configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Sql pool's transparent data encryption configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlPoolTransparentDataEncryption = new AzureNative.Synapse.V20210301.SqlPoolTransparentDataEncryption("sqlPoolTransparentDataEncryption", new()
+    ///     {
+    ///         ResourceGroupName = "sqlcrudtest-6852",
+    ///         SqlPoolName = "sqlcrudtest-9187",
+    ///         Status = "Enabled",
+    ///         TransparentDataEncryptionName = "current",
+    ///         WorkspaceName = "sqlcrudtest-2080",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Synapse/workspaces/sqlcrudtest-2080/sqlPools/sqlcrudtest-9187/transparentDataEncryption/current 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption")]
     public partial class SqlPoolTransparentDataEncryption : global::Pulumi.CustomResource

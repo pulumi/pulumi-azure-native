@@ -230,6 +230,134 @@ class VirtualmachineRetrieve(pulumi.CustomResource):
         """
         The virtual machine resource definition.
 
+        ## Example Usage
+        ### PutVirtualMachineWithGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualmachine_retrieve = azure_native.azurestackhci.v20210901preview.VirtualmachineRetrieve("virtualmachineRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            hardware_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesHardwareProfileArgs(
+                vm_size="Default",
+            ),
+            location="West US2",
+            network_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseNetworkProfileArgs(
+                network_interfaces=[azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesNetworkInterfacesArgs(
+                    id="test-nic",
+                )],
+            ),
+            os_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesOsProfileArgs(
+                admin_password="password",
+                admin_username="localadmin",
+                computer_name="luamaster",
+            ),
+            resource_group_name="test-rg",
+            security_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseSecurityProfileArgs(
+                enable_tpm=True,
+                uefi_settings=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesUefiSettingsArgs(
+                    secure_boot_enabled=True,
+                ),
+            ),
+            storage_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseStorageProfileArgs(
+                image_reference=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesImageReferenceArgs(
+                    name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryimages/test-gallery-image",
+                ),
+                vm_config_container_name="Default_Container",
+            ),
+            virtualmachines_name="test-vm")
+
+        ```
+        ### PutVirtualMachineWithMarketplaceGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualmachine_retrieve = azure_native.azurestackhci.v20210901preview.VirtualmachineRetrieve("virtualmachineRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            hardware_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesHardwareProfileArgs(
+                vm_size="Default",
+            ),
+            location="West US2",
+            network_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseNetworkProfileArgs(
+                network_interfaces=[azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesNetworkInterfacesArgs(
+                    id="test-nic",
+                )],
+            ),
+            os_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesOsProfileArgs(
+                admin_password="password",
+                admin_username="localadmin",
+                computer_name="luamaster",
+            ),
+            resource_group_name="test-rg",
+            security_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseSecurityProfileArgs(
+                enable_tpm=True,
+                uefi_settings=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesUefiSettingsArgs(
+                    secure_boot_enabled=True,
+                ),
+            ),
+            storage_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseStorageProfileArgs(
+                image_reference=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesImageReferenceArgs(
+                    name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplacegalleryimages/test-marketplace-gallery-image",
+                ),
+                vm_config_container_name="Default_Container",
+            ),
+            virtualmachines_name="test-vm")
+
+        ```
+        ### PutVirtualMachineWithOsDisk
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualmachine_retrieve = azure_native.azurestackhci.v20210901preview.VirtualmachineRetrieve("virtualmachineRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            hardware_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesHardwareProfileArgs(
+                vm_size="Default",
+            ),
+            location="West US2",
+            network_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseNetworkProfileArgs(
+                network_interfaces=[azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesNetworkInterfacesArgs(
+                    id="test-nic",
+                )],
+            ),
+            resource_group_name="test-rg",
+            security_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseSecurityProfileArgs(
+                enable_tpm=True,
+                uefi_settings=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesUefiSettingsArgs(
+                    secure_boot_enabled=True,
+                ),
+            ),
+            storage_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseStorageProfileArgs(
+                os_disk=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesOsDiskArgs(
+                    id="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualharddisks/test-vhd",
+                ),
+                vm_config_container_name="Default_Container",
+            ),
+            virtualmachines_name="test-vm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve myresource1 /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualmachines/test-vm 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
@@ -252,6 +380,134 @@ class VirtualmachineRetrieve(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The virtual machine resource definition.
+
+        ## Example Usage
+        ### PutVirtualMachineWithGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualmachine_retrieve = azure_native.azurestackhci.v20210901preview.VirtualmachineRetrieve("virtualmachineRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            hardware_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesHardwareProfileArgs(
+                vm_size="Default",
+            ),
+            location="West US2",
+            network_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseNetworkProfileArgs(
+                network_interfaces=[azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesNetworkInterfacesArgs(
+                    id="test-nic",
+                )],
+            ),
+            os_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesOsProfileArgs(
+                admin_password="password",
+                admin_username="localadmin",
+                computer_name="luamaster",
+            ),
+            resource_group_name="test-rg",
+            security_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseSecurityProfileArgs(
+                enable_tpm=True,
+                uefi_settings=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesUefiSettingsArgs(
+                    secure_boot_enabled=True,
+                ),
+            ),
+            storage_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseStorageProfileArgs(
+                image_reference=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesImageReferenceArgs(
+                    name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryimages/test-gallery-image",
+                ),
+                vm_config_container_name="Default_Container",
+            ),
+            virtualmachines_name="test-vm")
+
+        ```
+        ### PutVirtualMachineWithMarketplaceGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualmachine_retrieve = azure_native.azurestackhci.v20210901preview.VirtualmachineRetrieve("virtualmachineRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            hardware_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesHardwareProfileArgs(
+                vm_size="Default",
+            ),
+            location="West US2",
+            network_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseNetworkProfileArgs(
+                network_interfaces=[azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesNetworkInterfacesArgs(
+                    id="test-nic",
+                )],
+            ),
+            os_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesOsProfileArgs(
+                admin_password="password",
+                admin_username="localadmin",
+                computer_name="luamaster",
+            ),
+            resource_group_name="test-rg",
+            security_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseSecurityProfileArgs(
+                enable_tpm=True,
+                uefi_settings=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesUefiSettingsArgs(
+                    secure_boot_enabled=True,
+                ),
+            ),
+            storage_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseStorageProfileArgs(
+                image_reference=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesImageReferenceArgs(
+                    name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplacegalleryimages/test-marketplace-gallery-image",
+                ),
+                vm_config_container_name="Default_Container",
+            ),
+            virtualmachines_name="test-vm")
+
+        ```
+        ### PutVirtualMachineWithOsDisk
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualmachine_retrieve = azure_native.azurestackhci.v20210901preview.VirtualmachineRetrieve("virtualmachineRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            hardware_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesHardwareProfileArgs(
+                vm_size="Default",
+            ),
+            location="West US2",
+            network_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseNetworkProfileArgs(
+                network_interfaces=[azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesNetworkInterfacesArgs(
+                    id="test-nic",
+                )],
+            ),
+            resource_group_name="test-rg",
+            security_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseSecurityProfileArgs(
+                enable_tpm=True,
+                uefi_settings=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesUefiSettingsArgs(
+                    secure_boot_enabled=True,
+                ),
+            ),
+            storage_profile=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesResponseStorageProfileArgs(
+                os_disk=azure_native.azurestackhci.v20210901preview.VirtualmachinesPropertiesOsDiskArgs(
+                    id="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualharddisks/test-vhd",
+                ),
+                vm_config_container_name="Default_Container",
+            ),
+            virtualmachines_name="test-vm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:virtualmachineRetrieve myresource1 /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualmachines/test-vm 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualmachineRetrieveArgs args: The arguments to use to populate this resource's properties.

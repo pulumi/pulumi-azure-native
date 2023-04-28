@@ -10,6 +10,32 @@ import * as utilities from "../../utilities";
 /**
  * Subscription Information with the alias.
  *
+ * ## Example Usage
+ * ### CreateAlias
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subscriptionAlias = new azure_native.subscription.v20191001preview.SubscriptionAlias("subscriptionAlias", {
+ *     aliasName: "aliasForNewSub",
+ *     properties: {
+ *         billingScope: "/providers/Microsoft.Billing/billingAccounts/e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31/billingProfiles/PE2Q-NOIT-BG7-TGB/invoiceSections/MTT4-OBS7-PJA-TGB",
+ *         displayName: "Contoso MCA subscription",
+ *         workload: "Production",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:subscription/v20191001preview:SubscriptionAlias aliasForNewSub /providers/Microsoft.Subscription/aliases/aliasForNewSub 
+ * ```
+ *
  * @deprecated Version 2019-10-01-preview will be removed in v2 of the provider.
  */
 export class SubscriptionAlias extends pulumi.CustomResource {

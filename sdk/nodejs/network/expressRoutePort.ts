@@ -11,6 +11,54 @@ import * as utilities from "../utilities";
  * ExpressRoutePort resource definition.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ExpressRoutePortCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRoutePort = new azure_native.network.ExpressRoutePort("expressRoutePort", {
+ *     bandwidthInGbps: 100,
+ *     billingType: "UnlimitedData",
+ *     encapsulation: "QinQ",
+ *     expressRoutePortName: "portName",
+ *     location: "westus",
+ *     peeringLocation: "peeringLocationName",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### ExpressRoutePortUpdateLink
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRoutePort = new azure_native.network.ExpressRoutePort("expressRoutePort", {
+ *     bandwidthInGbps: 100,
+ *     billingType: "UnlimitedData",
+ *     encapsulation: "QinQ",
+ *     expressRoutePortName: "portName",
+ *     links: [{
+ *         adminState: "Enabled",
+ *         name: "link1",
+ *     }],
+ *     location: "westus",
+ *     peeringLocation: "peeringLocationName",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:ExpressRoutePort portName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName 
+ * ```
  */
 export class ExpressRoutePort extends pulumi.CustomResource {
     /**

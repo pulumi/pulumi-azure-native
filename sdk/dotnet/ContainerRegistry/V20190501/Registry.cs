@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501
 {
     /// <summary>
     /// An object that represents a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### RegistryCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registry = new AzureNative.ContainerRegistry.V20190501.Registry("registry", new()
+    ///     {
+    ///         AdminUserEnabled = true,
+    ///         Location = "westus",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.ContainerRegistry.V20190501.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20190501:Registry myRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20190501:Registry")]
     public partial class Registry : global::Pulumi.CustomResource

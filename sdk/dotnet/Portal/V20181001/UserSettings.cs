@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.Portal.V20181001
 {
     /// <summary>
     /// Response to get user settings
+    /// 
+    /// ## Example Usage
+    /// ### PutUserSettings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var userSettings = new AzureNative.Portal.V20181001.UserSettings("userSettings", new()
+    ///     {
+    ///         Properties = new AzureNative.Portal.V20181001.Inputs.UserPropertiesArgs
+    ///         {
+    ///             PreferredLocation = "eastus",
+    ///             PreferredOsType = "Linux",
+    ///             PreferredShellType = "bash",
+    ///             StorageProfile = new AzureNative.Portal.V20181001.Inputs.StorageProfileArgs
+    ///             {
+    ///                 DiskSizeInGB = 5,
+    ///                 FileShareName = "string",
+    ///                 StorageAccountResourceId = "string",
+    ///             },
+    ///             TerminalSettings = new AzureNative.Portal.V20181001.Inputs.TerminalSettingsArgs
+    ///             {
+    ///                 FontSize = "Medium",
+    ///                 FontStyle = "Monospace",
+    ///             },
+    ///         },
+    ///         UserSettingsName = "cloudconsole",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:portal/v20181001:UserSettings myresource1 /providers/Microsoft.Portal/userSettings/{userSettingsName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:portal/v20181001:UserSettings")]
     public partial class UserSettings : global::Pulumi.CustomResource

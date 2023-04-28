@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.Confluent.V20200301
 {
     /// <summary>
     /// Organization resource.
+    /// 
+    /// ## Example Usage
+    /// ### Organization_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var organization = new AzureNative.Confluent.V20200301.Organization("organization", new()
+    ///     {
+    ///         Location = "West US",
+    ///         OfferDetail = new AzureNative.Confluent.V20200301.Inputs.OrganizationResourcePropertiesOfferDetailArgs
+    ///         {
+    ///             Id = "string",
+    ///             PlanId = "string",
+    ///             PlanName = "string",
+    ///             PublisherId = "string",
+    ///             TermUnit = "string",
+    ///         },
+    ///         OrganizationName = "myOrganization",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Dev" },
+    ///         },
+    ///         UserDetail = new AzureNative.Confluent.V20200301.Inputs.OrganizationResourcePropertiesUserDetailArgs
+    ///         {
+    ///             EmailAddress = "contoso@microsoft.com",
+    ///             FirstName = "string",
+    ///             LastName = "string",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:confluent/v20200301:Organization myOrganization /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Confluent/organizations/myOrganization 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent/v20200301:Organization")]
     public partial class Organization : global::Pulumi.CustomResource

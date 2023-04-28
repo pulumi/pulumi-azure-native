@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     /// Represents an instance of a DNC controller.
     /// API Version: 2021-03-15.
     /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create controller
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var controllerDetails = new AzureNative.DelegatedNetwork.ControllerDetails("controllerDetails", new()
+    ///     {
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestRG",
+    ///         ResourceName = "testcontroller",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:delegatednetwork:ControllerDetails testcontroller /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork:ControllerDetails")]
     public partial class ControllerDetails : global::Pulumi.CustomResource

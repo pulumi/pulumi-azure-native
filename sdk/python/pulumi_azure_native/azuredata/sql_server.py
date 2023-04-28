@@ -164,6 +164,33 @@ class SqlServer(pulumi.CustomResource):
         API Version: 2019-07-24-preview.
         Previous API Version: 2019-07-24-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates a SQL Server in a Registration group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server = azure_native.azuredata.SqlServer("sqlServer",
+            cores=8,
+            edition="Latin",
+            property_bag="",
+            registration_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration",
+            resource_group_name="testrg",
+            sql_server_name="testsqlserver",
+            sql_server_registration_name="testsqlregistration",
+            version="2008")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredata:SqlServer testsqlserver /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration/sqlServers/testsqlserver 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] cores: Cores of the Sql Server.
@@ -185,6 +212,33 @@ class SqlServer(pulumi.CustomResource):
         A SQL server.
         API Version: 2019-07-24-preview.
         Previous API Version: 2019-07-24-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates a SQL Server in a Registration group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server = azure_native.azuredata.SqlServer("sqlServer",
+            cores=8,
+            edition="Latin",
+            property_bag="",
+            registration_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration",
+            resource_group_name="testrg",
+            sql_server_name="testsqlserver",
+            sql_server_registration_name="testsqlregistration",
+            version="2008")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azuredata:SqlServer testsqlserver /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration/sqlServers/testsqlserver 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlServerArgs args: The arguments to use to populate this resource's properties.

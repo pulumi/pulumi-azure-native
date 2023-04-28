@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Compute.V20210301
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20210301:VirtualMachineExtension myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20210301:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : global::Pulumi.CustomResource

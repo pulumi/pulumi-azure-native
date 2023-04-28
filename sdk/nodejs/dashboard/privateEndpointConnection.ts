@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  * API Version: 2022-08-01.
  * Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnections_Approve
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.dashboard.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "myConnection",
+ *     resourceGroupName: "myResourceGroup",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dashboard:PrivateEndpointConnection myConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/Microsoft.Dashboard/grafana/myWorkspace/privateEndpointConnections/myConnection 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

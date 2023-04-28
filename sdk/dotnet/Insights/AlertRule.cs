@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.Insights
     /// The alert rule resource.
     /// API Version: 2016-03-01.
     /// Previous API Version: 2016-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an alert rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var alertRule = new AzureNative.Insights.AlertRule("alertRule", new()
+    ///     {
+    ///         Actions = new[] {},
+    ///         Condition = new AzureNative.Insights.Inputs.ThresholdRuleConditionArgs
+    ///         {
+    ///             DataSource = new AzureNative.Insights.Inputs.RuleMetricDataSourceArgs
+    ///             {
+    ///                 MetricName = "Requests",
+    ///                 OdataType = "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+    ///                 ResourceUri = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
+    ///             },
+    ///             OdataType = "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+    ///             Operator = AzureNative.Insights.ConditionOperator.GreaterThan,
+    ///             Threshold = 3,
+    ///             TimeAggregation = AzureNative.Insights.TimeAggregationOperator.Total,
+    ///             WindowSize = "PT5M",
+    ///         },
+    ///         Description = "Pura Vida",
+    ///         IsEnabled = true,
+    ///         Location = "West US",
+    ///         Name = "chiricutin",
+    ///         ResourceGroupName = "Rac46PostSwapRG",
+    ///         RuleName = "chiricutin",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights:AlertRule chiricutin /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/alertrules/chiricutin 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:AlertRule")]
     public partial class AlertRule : global::Pulumi.CustomResource

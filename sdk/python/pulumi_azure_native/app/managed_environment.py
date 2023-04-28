@@ -257,6 +257,68 @@ class ManagedEnvironment(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environment = azure_native.app.ManagedEnvironment("managedEnvironment",
+            app_logs_configuration=azure_native.app.AppLogsConfigurationResponseArgs(
+                log_analytics_configuration=azure_native.app.LogAnalyticsConfigurationArgs(
+                    customer_id="string",
+                    shared_key="string",
+                ),
+            ),
+            custom_domain_configuration=azure_native.app.CustomDomainConfigurationArgs(
+                certificate_password="private key password",
+                certificate_value="Y2VydA==",
+                dns_suffix="www.my-name.com",
+            ),
+            dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+            environment_name="testcontainerenv",
+            kind="serverless",
+            location="East US",
+            resource_group_name="examplerg",
+            sku=azure_native.app.EnvironmentSkuPropertiesResponseArgs(
+                name="Premium",
+            ),
+            vnet_configuration=azure_native.app.VnetConfigurationResponseArgs(
+                outbound_settings=azure_native.app.ManagedEnvironmentOutboundSettingsArgs(
+                    out_bound_type="UserDefinedRouting",
+                    virtual_network_appliance_ip="192.168.1.20",
+                ),
+            ),
+            workload_profiles=[
+                {
+                    "maximumCount": 12,
+                    "minimumCount": 3,
+                    "workloadProfileType": "GeneralPurpose",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "workloadProfileType": "MemoryOptimized",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "workloadProfileType": "ComputeOptimized",
+                },
+            ],
+            zone_redundant=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']] app_logs_configuration: Cluster configuration which enables the log daemon to export
@@ -285,6 +347,68 @@ class ManagedEnvironment(pulumi.CustomResource):
         An environment for hosting container apps
         API Version: 2022-10-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environment = azure_native.app.ManagedEnvironment("managedEnvironment",
+            app_logs_configuration=azure_native.app.AppLogsConfigurationResponseArgs(
+                log_analytics_configuration=azure_native.app.LogAnalyticsConfigurationArgs(
+                    customer_id="string",
+                    shared_key="string",
+                ),
+            ),
+            custom_domain_configuration=azure_native.app.CustomDomainConfigurationArgs(
+                certificate_password="private key password",
+                certificate_value="Y2VydA==",
+                dns_suffix="www.my-name.com",
+            ),
+            dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+            environment_name="testcontainerenv",
+            kind="serverless",
+            location="East US",
+            resource_group_name="examplerg",
+            sku=azure_native.app.EnvironmentSkuPropertiesResponseArgs(
+                name="Premium",
+            ),
+            vnet_configuration=azure_native.app.VnetConfigurationResponseArgs(
+                outbound_settings=azure_native.app.ManagedEnvironmentOutboundSettingsArgs(
+                    out_bound_type="UserDefinedRouting",
+                    virtual_network_appliance_ip="192.168.1.20",
+                ),
+            ),
+            workload_profiles=[
+                {
+                    "maximumCount": 12,
+                    "minimumCount": 3,
+                    "workloadProfileType": "GeneralPurpose",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "workloadProfileType": "MemoryOptimized",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "workloadProfileType": "ComputeOptimized",
+                },
+            ],
+            zone_redundant=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentArgs args: The arguments to use to populate this resource's properties.

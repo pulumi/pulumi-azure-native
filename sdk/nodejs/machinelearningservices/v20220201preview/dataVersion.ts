@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Data Version Base.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataVersion = new azure_native.machinelearningservices.v20220201preview.DataVersion("dataVersion", {
+ *     dataVersionBaseDetails: {
+ *         dataType: "UriFile",
+ *         dataUri: "string",
+ *         description: "string",
+ *         isAnonymous: false,
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20220201preview:DataVersion string string 
+ * ```
  */
 export class DataVersion extends pulumi.CustomResource {
     /**

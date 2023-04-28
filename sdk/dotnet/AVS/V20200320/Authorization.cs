@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.AVS.V20200320
 {
     /// <summary>
     /// ExpressRoute Circuit Authorization
+    /// 
+    /// ## Example Usage
+    /// ### Authorizations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var authorization = new AzureNative.AVS.V20200320.Authorization("authorization", new()
+    ///     {
+    ///         AuthorizationName = "authorization1",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20200320:Authorization authorization1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/authorizations/authorization1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200320:Authorization")]
     public partial class Authorization : global::Pulumi.CustomResource

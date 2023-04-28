@@ -12,6 +12,71 @@ namespace Pulumi.AzureNative.Workloads
     /// <summary>
     /// configuration associated with SAP Landscape Monitor Dashboard.
     /// API Version: 2023-04-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create for SAP Landscape monitor Dashboard
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapLandscapeMonitor = new AzureNative.Workloads.SapLandscapeMonitor("sapLandscapeMonitor", new()
+    ///     {
+    ///         Grouping = new AzureNative.Workloads.Inputs.SapLandscapeMonitorPropertiesGroupingArgs
+    ///         {
+    ///             Landscape = new[]
+    ///             {
+    ///                 new AzureNative.Workloads.Inputs.SapLandscapeMonitorSidMappingArgs
+    ///                 {
+    ///                     Name = "Prod",
+    ///                     TopSid = new[]
+    ///                     {
+    ///                         "SID1",
+    ///                         "SID2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SapApplication = new[]
+    ///             {
+    ///                 new AzureNative.Workloads.Inputs.SapLandscapeMonitorSidMappingArgs
+    ///                 {
+    ///                     Name = "ERP1",
+    ///                     TopSid = new[]
+    ///                     {
+    ///                         "SID1",
+    ///                         "SID2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         MonitorName = "mySapMonitor",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         TopMetricsThresholds = new[]
+    ///         {
+    ///             new AzureNative.Workloads.Inputs.SapLandscapeMonitorMetricThresholdsArgs
+    ///             {
+    ///                 Green = 90,
+    ///                 Name = "Instance Availability",
+    ///                 Red = 50,
+    ///                 Yellow = 75,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads:SapLandscapeMonitor default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/myMonitor/sapLandscapeMonitor/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SapLandscapeMonitor")]
     public partial class SapLandscapeMonitor : global::Pulumi.CustomResource

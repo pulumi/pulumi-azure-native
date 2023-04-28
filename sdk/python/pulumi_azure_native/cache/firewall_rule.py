@@ -111,6 +111,30 @@ class FirewallRule(pulumi.CustomResource):
         API Version: 2022-06-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RedisCacheFirewallRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.cache.FirewallRule("firewallRule",
+            cache_name="cache1",
+            end_ip="192.168.1.4",
+            resource_group_name="rg1",
+            rule_name="rule1",
+            start_ip="192.168.1.1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache:FirewallRule cache1/rule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/firewallRules/rule1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name of the Redis cache.
@@ -129,6 +153,30 @@ class FirewallRule(pulumi.CustomResource):
         A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
         API Version: 2022-06-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RedisCacheFirewallRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.cache.FirewallRule("firewallRule",
+            cache_name="cache1",
+            end_ip="192.168.1.4",
+            resource_group_name="rg1",
+            rule_name="rule1",
+            start_ip="192.168.1.1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache:FirewallRule cache1/rule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/firewallRules/rule1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

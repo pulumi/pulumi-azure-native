@@ -111,6 +111,30 @@ class GuestDiagnosticsSettingsAssociation(pulumi.CustomResource):
         """
         Virtual machine guest diagnostic settings resource.
 
+        ## Example Usage
+        ### Create or update an guest diagnostic settings association
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_diagnostics_settings_association = azure_native.insights.v20180601preview.GuestDiagnosticsSettingsAssociation("guestDiagnosticsSettingsAssociation",
+            association_name="healthSystemMachineConfigAssociation",
+            guest_diagnostic_settings_name="/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-Association-ResourceGroup/providers/providers/microsoft.insights/guestDiagnosticSettings/vmSettingForSecurity",
+            location="Global",
+            resource_uri="subscriptions/8498f01b-8064-4e37-856e-318f3c6c685f/resourceGroups/healthsystem/providers/Microsoft.Compute/virtualMachines/eastussojai",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation healthSystemMachineConfigAssociation /subscriptions/8498f01b-8064-4e37-856e-318f3c6c685f/resourceGroups/healthsystem/providers/Microsoft.Compute/virtualMachines/eastussojai/providers/microsoft.insights/guestDiagnosticSettingsAssociation/healthSystemMachineConfigAssociation 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] association_name: The name of the diagnostic settings association.
@@ -127,6 +151,30 @@ class GuestDiagnosticsSettingsAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual machine guest diagnostic settings resource.
+
+        ## Example Usage
+        ### Create or update an guest diagnostic settings association
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_diagnostics_settings_association = azure_native.insights.v20180601preview.GuestDiagnosticsSettingsAssociation("guestDiagnosticsSettingsAssociation",
+            association_name="healthSystemMachineConfigAssociation",
+            guest_diagnostic_settings_name="/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-Association-ResourceGroup/providers/providers/microsoft.insights/guestDiagnosticSettings/vmSettingForSecurity",
+            location="Global",
+            resource_uri="subscriptions/8498f01b-8064-4e37-856e-318f3c6c685f/resourceGroups/healthsystem/providers/Microsoft.Compute/virtualMachines/eastussojai",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation healthSystemMachineConfigAssociation /subscriptions/8498f01b-8064-4e37-856e-318f3c6c685f/resourceGroups/healthsystem/providers/Microsoft.Compute/virtualMachines/eastussojai/providers/microsoft.insights/guestDiagnosticSettingsAssociation/healthSystemMachineConfigAssociation 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GuestDiagnosticsSettingsAssociationArgs args: The arguments to use to populate this resource's properties.

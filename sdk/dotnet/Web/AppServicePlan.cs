@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Web
     /// App Service plan.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Or Update App Service plan
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appServicePlan = new AzureNative.Web.AppServicePlan("appServicePlan", new()
+    ///     {
+    ///         Kind = "app",
+    ///         Location = "East US",
+    ///         Name = "testsf6141",
+    ///         ResourceGroupName = "testrg123",
+    ///         Sku = new AzureNative.Web.Inputs.SkuDescriptionArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "P",
+    ///             Name = "P1",
+    ///             Size = "P1",
+    ///             Tier = "Premium",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:AppServicePlan testsf6141 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/testsf6141 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServicePlan")]
     public partial class AppServicePlan : global::Pulumi.CustomResource

@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
+    /// 
+    /// ## Example Usage
+    /// ### ExpressRouteCircuitConnectionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteCircuitConnection = new AzureNative.Network.V20220901.ExpressRouteCircuitConnection("expressRouteCircuitConnection", new()
+    ///     {
+    ///         AddressPrefix = "10.0.0.0/29",
+    ///         AuthorizationKey = "946a1918-b7a2-4917-b43c-8c4cdaee006a",
+    ///         CircuitName = "ExpressRouteARMCircuitA",
+    ///         ConnectionName = "circuitConnectionUSAUS",
+    ///         ExpressRouteCircuitPeering = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/dedharcktlocal/peerings/AzurePrivatePeering",
+    ///         },
+    ///         Ipv6CircuitConnectionConfig = new AzureNative.Network.V20220901.Inputs.Ipv6CircuitConnectionConfigArgs
+    ///         {
+    ///             AddressPrefix = "aa:bb::/125",
+    ///         },
+    ///         PeerExpressRouteCircuitPeering = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid2/resourceGroups/dedharcktpeer/providers/Microsoft.Network/expressRouteCircuits/dedharcktremote/peerings/AzurePrivatePeering",
+    ///         },
+    ///         PeeringName = "AzurePrivatePeering",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:ExpressRouteCircuitConnection circuitConnectionUSAUS /subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuitA/peerings/AzurePrivatePeering/connections/circuitConnectionUSAUS 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:ExpressRouteCircuitConnection")]
     public partial class ExpressRouteCircuitConnection : global::Pulumi.CustomResource

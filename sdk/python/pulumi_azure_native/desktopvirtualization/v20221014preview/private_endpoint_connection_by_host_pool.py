@@ -96,6 +96,33 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### PrivateEndpointConnection_UpdateByHostPool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_by_host_pool = azure_native.desktopvirtualization.v20221014preview.PrivateEndpointConnectionByHostPool("privateEndpointConnectionByHostPool",
+            host_pool_name="hostPool1",
+            private_endpoint_connection_name="hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b",
+            private_link_service_connection_state=azure_native.desktopvirtualization.v20221014preview.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                description="Approved by admin@consoto.com",
+                status="Approved",
+            ),
+            resource_group_name="resourceGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostpools/hostPool1/privateEndpointConnections/hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] host_pool_name: The name of the host pool within the specified resource group
@@ -111,6 +138,33 @@ class PrivateEndpointConnectionByHostPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
+
+        ## Example Usage
+        ### PrivateEndpointConnection_UpdateByHostPool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_by_host_pool = azure_native.desktopvirtualization.v20221014preview.PrivateEndpointConnectionByHostPool("privateEndpointConnectionByHostPool",
+            host_pool_name="hostPool1",
+            private_endpoint_connection_name="hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b",
+            private_link_service_connection_state=azure_native.desktopvirtualization.v20221014preview.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                description="Approved by admin@consoto.com",
+                status="Approved",
+            ),
+            resource_group_name="resourceGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostpools/hostPool1/privateEndpointConnections/hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionByHostPoolArgs args: The arguments to use to populate this resource's properties.

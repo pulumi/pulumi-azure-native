@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * A Contact resource
+ *
+ * ## Example Usage
+ * ### CreateContactResource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const contact = new azure_native.voiceservices.v20221201preview.Contact("contact", {
+ *     communicationsGatewayName: "myname",
+ *     contactName: "John Smith",
+ *     email: "johnsmith@example.com",
+ *     location: "useast",
+ *     phoneNumber: "+1-555-1234",
+ *     resourceGroupName: "testrg",
+ *     role: "Network Manager",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:voiceservices/v20221201preview:Contact name2 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceService/communicationsGateway/myname/contacts/name2 
+ * ```
  */
 export class Contact extends pulumi.CustomResource {
     /**

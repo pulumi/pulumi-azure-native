@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties for the database account.
+ *
+ * ## Example Usage
+ * ### DataTransferServiceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.documentdb.v20210401preview.Service("service", {
+ *     accountName: "ddb1",
+ *     instanceCount: 1,
+ *     instanceSize: "Cosmos.D4s",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "DataTransfer",
+ *     serviceType: "DataTransfer",
+ * });
+ *
+ * ```
+ * ### SqlDedicatedGatewayServiceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.documentdb.v20210401preview.Service("service", {
+ *     accountName: "ddb1",
+ *     instanceCount: 1,
+ *     instanceSize: "Cosmos.D4s",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "SqlDedicatedGateway",
+ *     serviceType: "SqlDedicatedGateway",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20210401preview:Service SqlDedicatedGateway /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/services/SqlDedicatedGateway 
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

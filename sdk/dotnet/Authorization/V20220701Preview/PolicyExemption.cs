@@ -11,6 +11,96 @@ namespace Pulumi.AzureNative.Authorization.V20220701Preview
 {
     /// <summary>
     /// The policy exemption.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy exemption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyExemption = new AzureNative.Authorization.V20220701Preview.PolicyExemption("policyExemption", new()
+    ///     {
+    ///         Description = "Exempt demo cluster from limit sku",
+    ///         DisplayName = "Exempt demo cluster",
+    ///         ExemptionCategory = "Waiver",
+    ///         Metadata = 
+    ///         {
+    ///             { "reason", "Temporary exemption for a expensive VM demo" },
+    ///         },
+    ///         PolicyAssignmentId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+    ///         PolicyDefinitionReferenceIds = new[]
+    ///         {
+    ///             "Limit_Skus",
+    ///         },
+    ///         PolicyExemptionName = "DemoExpensiveVM",
+    ///         Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a policy exemption with resource selectors
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyExemption = new AzureNative.Authorization.V20220701Preview.PolicyExemption("policyExemption", new()
+    ///     {
+    ///         AssignmentScopeValidation = "Default",
+    ///         Description = "Exempt demo cluster from limit sku",
+    ///         DisplayName = "Exempt demo cluster",
+    ///         ExemptionCategory = "Waiver",
+    ///         Metadata = 
+    ///         {
+    ///             { "reason", "Temporary exemption for a expensive VM demo" },
+    ///         },
+    ///         PolicyAssignmentId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+    ///         PolicyDefinitionReferenceIds = new[]
+    ///         {
+    ///             "Limit_Skus",
+    ///         },
+    ///         PolicyExemptionName = "DemoExpensiveVM",
+    ///         ResourceSelectors = new[]
+    ///         {
+    ///             new AzureNative.Authorization.V20220701Preview.Inputs.ResourceSelectorArgs
+    ///             {
+    ///                 Name = "SDPRegions",
+    ///                 Selectors = new[]
+    ///                 {
+    ///                     new AzureNative.Authorization.V20220701Preview.Inputs.SelectorArgs
+    ///                     {
+    ///                         In = new[]
+    ///                         {
+    ///                             "eastus2euap",
+    ///                             "centraluseuap",
+    ///                         },
+    ///                         Kind = "resourceLocation",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20220701preview:PolicyExemption DemoExpensiveVM /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster/providers/Microsoft.Authorization/policyExemptions/DemoExpensiveVM 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20220701preview:PolicyExemption")]
     public partial class PolicyExemption : global::Pulumi.CustomResource

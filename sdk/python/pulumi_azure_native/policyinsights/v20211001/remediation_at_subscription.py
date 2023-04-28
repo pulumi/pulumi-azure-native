@@ -167,6 +167,51 @@ class RemediationAtSubscription(pulumi.CustomResource):
         """
         The remediation definition.
 
+        ## Example Usage
+        ### Create remediation at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.v20211001.RemediationAtSubscription("remediationAtSubscription",
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            remediation_name="storageRemediation")
+
+        ```
+        ### Create remediation at subscription scope with all properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.v20211001.RemediationAtSubscription("remediationAtSubscription",
+            failure_threshold=azure_native.policyinsights.v20211001.RemediationPropertiesFailureThresholdArgs(
+                percentage=0.1,
+            ),
+            filters=azure_native.policyinsights.v20211001.RemediationFiltersArgs(
+                locations=[
+                    "eastus",
+                    "westus",
+                ],
+            ),
+            parallel_deployments=6,
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="8c8fa9e4",
+            remediation_name="storageRemediation",
+            resource_count=42,
+            resource_discovery_mode="ReEvaluateCompliance")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights/v20211001:RemediationAtSubscription storageRemediation /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.policyinsights/remediations/storageRemediation 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RemediationPropertiesFailureThresholdArgs']] failure_threshold: The remediation failure threshold settings
@@ -186,6 +231,51 @@ class RemediationAtSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The remediation definition.
+
+        ## Example Usage
+        ### Create remediation at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.v20211001.RemediationAtSubscription("remediationAtSubscription",
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            remediation_name="storageRemediation")
+
+        ```
+        ### Create remediation at subscription scope with all properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.v20211001.RemediationAtSubscription("remediationAtSubscription",
+            failure_threshold=azure_native.policyinsights.v20211001.RemediationPropertiesFailureThresholdArgs(
+                percentage=0.1,
+            ),
+            filters=azure_native.policyinsights.v20211001.RemediationFiltersArgs(
+                locations=[
+                    "eastus",
+                    "westus",
+                ],
+            ),
+            parallel_deployments=6,
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="8c8fa9e4",
+            remediation_name="storageRemediation",
+            resource_count=42,
+            resource_discovery_mode="ReEvaluateCompliance")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights/v20211001:RemediationAtSubscription storageRemediation /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.policyinsights/remediations/storageRemediation 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RemediationAtSubscriptionArgs args: The arguments to use to populate this resource's properties.

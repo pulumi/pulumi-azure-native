@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Configuration Assignment
  * API Version: 2022-11-01-preview.
  * Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ConfigurationAssignments_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationAssignment = new azure_native.maintenance.ConfigurationAssignment("configurationAssignment", {
+ *     configurationAssignmentName: "workervmConfiguration",
+ *     maintenanceConfigurationId: "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1",
+ *     providerName: "Microsoft.Compute",
+ *     resourceGroupName: "examplerg",
+ *     resourceName: "smdtest1",
+ *     resourceType: "virtualMachineScaleSets",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:maintenance:ConfigurationAssignment workervmConfiguration /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Compute/virtualMachineScaleSets/smdtest1/providers/Microsoft.Maintenance/configurationAssignments/workervmConfiguration 
+ * ```
  */
 export class ConfigurationAssignment extends pulumi.CustomResource {
     /**

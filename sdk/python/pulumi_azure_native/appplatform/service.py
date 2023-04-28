@@ -133,6 +133,90 @@ class Service(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Services_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.appplatform.Service("service",
+            location="eastus",
+            properties=azure_native.appplatform.ClusterResourcePropertiesArgs(),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.SkuArgs(
+                name="S0",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+        ### Services_CreateOrUpdate_Enterprise
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.appplatform.Service("service",
+            location="eastus",
+            properties=azure_native.appplatform.ClusterResourcePropertiesArgs(),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.SkuArgs(
+                name="E0",
+                tier="Enterprise",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+        ### Services_CreateOrUpdate_VNetInjection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.appplatform.Service("service",
+            location="eastus",
+            properties=azure_native.appplatform.ClusterResourcePropertiesResponseArgs(
+                network_profile={
+                    "appNetworkResourceGroup": "my-app-network-rg",
+                    "appSubnetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/apps",
+                    "ingressConfig": azure_native.appplatform.IngressConfigArgs(
+                        read_timeout_in_seconds=300,
+                    ),
+                    "serviceCidr": "10.8.0.0/16,10.244.0.0/16,10.245.0.1/16",
+                    "serviceRuntimeNetworkResourceGroup": "my-service-runtime-network-rg",
+                    "serviceRuntimeSubnetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/serviceRuntime",
+                },
+                vnet_addons=azure_native.appplatform.ServiceVNetAddonsArgs(
+                    log_stream_public_endpoint=True,
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.SkuArgs(
+                name="S0",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Service myservice /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The GEO location of the resource.
@@ -152,6 +236,90 @@ class Service(pulumi.CustomResource):
         Service resource
         API Version: 2022-12-01.
         Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Services_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.appplatform.Service("service",
+            location="eastus",
+            properties=azure_native.appplatform.ClusterResourcePropertiesArgs(),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.SkuArgs(
+                name="S0",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+        ### Services_CreateOrUpdate_Enterprise
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.appplatform.Service("service",
+            location="eastus",
+            properties=azure_native.appplatform.ClusterResourcePropertiesArgs(),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.SkuArgs(
+                name="E0",
+                tier="Enterprise",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+        ### Services_CreateOrUpdate_VNetInjection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.appplatform.Service("service",
+            location="eastus",
+            properties=azure_native.appplatform.ClusterResourcePropertiesResponseArgs(
+                network_profile={
+                    "appNetworkResourceGroup": "my-app-network-rg",
+                    "appSubnetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/apps",
+                    "ingressConfig": azure_native.appplatform.IngressConfigArgs(
+                        read_timeout_in_seconds=300,
+                    ),
+                    "serviceCidr": "10.8.0.0/16,10.244.0.0/16,10.245.0.1/16",
+                    "serviceRuntimeNetworkResourceGroup": "my-service-runtime-network-rg",
+                    "serviceRuntimeSubnetId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/serviceRuntime",
+                },
+                vnet_addons=azure_native.appplatform.ServiceVNetAddonsArgs(
+                    log_stream_public_endpoint=True,
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.SkuArgs(
+                name="S0",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Service myservice /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

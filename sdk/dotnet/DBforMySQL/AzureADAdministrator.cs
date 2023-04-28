@@ -12,6 +12,40 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// <summary>
     /// Represents a Administrator.
     /// API Version: 2022-01-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create an azure ad administrator
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureADAdministrator = new AzureNative.DBforMySQL.AzureADAdministrator("azureADAdministrator", new()
+    ///     {
+    ///         AdministratorName = "ActiveDirectory",
+    ///         AdministratorType = "ActiveDirectory",
+    ///         IdentityResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/test-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-umi",
+    ///         Login = "bob@contoso.com",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "mysqltestsvc4",
+    ///         Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///         TenantId = "c12b7025-bfe2-46c1-b463-993b5e4cd467",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformysql:AzureADAdministrator ActiveDirectory /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/mysqltestsvc4/administrators/ActiveDirectory 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:AzureADAdministrator")]
     public partial class AzureADAdministrator : global::Pulumi.CustomResource

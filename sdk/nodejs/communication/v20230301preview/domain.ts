@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * A class representing a Domains resource.
+ *
+ * ## Example Usage
+ * ### Create or update Domains resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const domain = new azure_native.communication.v20230301preview.Domain("domain", {
+ *     domainManagement: "CustomerManaged",
+ *     domainName: "mydomain.com",
+ *     emailServiceName: "MyEmailServiceResource",
+ *     location: "Global",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:communication/v20230301preview:Domain mydomain.com /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/EmailServices/MyEmailServiceResource/Domains/mydomain.com 
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

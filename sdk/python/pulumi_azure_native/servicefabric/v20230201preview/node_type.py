@@ -798,6 +798,272 @@ class NodeType(pulumi.CustomResource):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
 
+        ## Example Usage
+        ### Put a node type with auto-scale parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            capacities={
+                "ClientConnections": "65536",
+            },
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            data_disk_type="Premium_LRS",
+            is_primary=False,
+            is_stateless=True,
+            multiple_placement_groups=True,
+            node_type_name="BE",
+            placement_properties={
+                "HasSSD": "true",
+                "NodeColor": "green",
+                "SomeProperty": "5",
+            },
+            resource_group_name="resRg",
+            vm_extensions=[{
+                "autoUpgradeMinorVersion": True,
+                "name": "Microsoft.Azure.Geneva.GenevaMonitoring",
+                "publisher": "Microsoft.Azure.Geneva",
+                "settings": {},
+                "type": "GenevaMonitoring",
+                "typeHandlerVersion": "2.0",
+            }],
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2016-Datacenter-Server-Core",
+            vm_image_version="latest",
+            vm_instance_count=-1,
+            vm_managed_identity=azure_native.servicefabric.v20230201preview.VmManagedIdentityArgs(
+                user_assigned_identities=[
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+                ],
+            ),
+            vm_secrets=[{
+                "sourceVault": azure_native.servicefabric.v20230201preview.SubResourceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+                ),
+                "vaultCertificates": [{
+                    "certificateStore": "My",
+                    "certificateUrl": "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+                }],
+            }],
+            vm_size="Standard_DS3")
+
+        ```
+        ### Put a node type with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            additional_data_disks=[
+                {
+                    "diskLetter": "F",
+                    "diskSizeGB": 256,
+                    "diskType": "StandardSSD_LRS",
+                    "lun": 1,
+                },
+                {
+                    "diskLetter": "G",
+                    "diskSizeGB": 150,
+                    "diskType": "Premium_LRS",
+                    "lun": 2,
+                },
+            ],
+            capacities={
+                "ClientConnections": "65536",
+            },
+            cluster_name="myCluster",
+            data_disk_letter="S",
+            data_disk_size_gb=200,
+            data_disk_type="Premium_LRS",
+            enable_accelerated_networking=True,
+            enable_encryption_at_host=True,
+            enable_node_public_ip=True,
+            enable_over_provisioning=False,
+            eviction_policy="Deallocate",
+            frontend_configurations=[azure_native.servicefabric.v20230201preview.FrontendConfigurationArgs(
+                application_gateway_backend_address_pool_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/applicationGateways/appgw-test/backendAddressPools/appgwBepoolTest",
+                load_balancer_backend_address_pool_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/backendAddressPools/LoadBalancerBEAddressPool",
+                load_balancer_inbound_nat_pool_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/inboundNatPools/LoadBalancerNATPool",
+            )],
+            is_primary=False,
+            is_spot_vm=True,
+            is_stateless=True,
+            multiple_placement_groups=True,
+            node_type_name="BE",
+            placement_properties={
+                "HasSSD": "true",
+                "NodeColor": "green",
+                "SomeProperty": "5",
+            },
+            resource_group_name="resRg",
+            secure_boot_enabled=True,
+            security_type="TrustedLaunch",
+            spot_restore_timeout="PT30M",
+            subnet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            use_default_public_load_balancer=True,
+            use_ephemeral_os_disk=True,
+            vm_extensions=[{
+                "autoUpgradeMinorVersion": True,
+                "enableAutomaticUpgrade": True,
+                "forceUpdateTag": "v.1.0",
+                "name": "Microsoft.Azure.Geneva.GenevaMonitoring",
+                "publisher": "Microsoft.Azure.Geneva",
+                "settings": {},
+                "type": "GenevaMonitoring",
+                "typeHandlerVersion": "2.0",
+            }],
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2016-Datacenter-Server-Core",
+            vm_image_version="latest",
+            vm_instance_count=10,
+            vm_managed_identity=azure_native.servicefabric.v20230201preview.VmManagedIdentityArgs(
+                user_assigned_identities=[
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+                ],
+            ),
+            vm_secrets=[{
+                "sourceVault": azure_native.servicefabric.v20230201preview.SubResourceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+                ),
+                "vaultCertificates": [{
+                    "certificateStore": "My",
+                    "certificateUrl": "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+                }],
+            }],
+            vm_setup_actions=[
+                "EnableContainers",
+                "EnableHyperV",
+            ],
+            vm_size="Standard_DS3")
+
+        ```
+        ### Put a node type with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            is_primary=False,
+            node_type_name="BE",
+            resource_group_name="resRg",
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2016-Datacenter-Server-Core",
+            vm_image_version="latest",
+            vm_instance_count=10,
+            vm_size="Standard_D3")
+
+        ```
+        ### Put an stateless node type with temporary disk for service fabric
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            cluster_name="myCluster",
+            enable_encryption_at_host=True,
+            is_primary=False,
+            is_stateless=True,
+            multiple_placement_groups=True,
+            node_type_name="BE",
+            resource_group_name="resRg",
+            use_temp_data_disk=True,
+            vm_extensions=[{
+                "autoUpgradeMinorVersion": True,
+                "name": "Microsoft.Azure.Geneva.GenevaMonitoring",
+                "publisher": "Microsoft.Azure.Geneva",
+                "settings": {},
+                "type": "GenevaMonitoring",
+                "typeHandlerVersion": "2.0",
+            }],
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2016-Datacenter-Server-Core",
+            vm_image_version="latest",
+            vm_instance_count=10,
+            vm_size="Standard_DS3")
+
+        ```
+        ### Put node type with custom vm image
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            is_primary=False,
+            node_type_name="BE",
+            resource_group_name="resRg",
+            vm_image_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-custom-image/providers/Microsoft.Compute/galleries/myCustomImages/images/Win2019DC",
+            vm_instance_count=10,
+            vm_size="Standard_D3")
+
+        ```
+        ### Put node type with dedicated hosts
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            capacities={},
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            data_disk_type="StandardSSD_LRS",
+            host_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testhostgroupRG/providers/Microsoft.Compute/hostGroups/testHostGroup",
+            is_primary=False,
+            node_type_name="BE",
+            placement_properties={},
+            resource_group_name="resRg",
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2019-Datacenter",
+            vm_image_version="latest",
+            vm_instance_count=10,
+            vm_size="Standard_D8s_v3",
+            zones=["1"])
+
+        ```
+        ### Put node type with shared galleries custom vm image
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            is_primary=False,
+            node_type_name="BE",
+            resource_group_name="resRg",
+            vm_instance_count=10,
+            vm_shared_gallery_image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-custom-image/providers/Microsoft.Compute/sharedGalleries/35349201-a0b3-405e-8a23-9f1450984307-SFSHAREDGALLERY/images/TestNoProdContainerDImage/versions/latest",
+            vm_size="Standard_D3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20230201preview:NodeType BE /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster/nodeTypes/BE 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmssDataDiskArgs']]]] additional_data_disks: Additional managed data disks.
@@ -854,6 +1120,272 @@ class NodeType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+
+        ## Example Usage
+        ### Put a node type with auto-scale parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            capacities={
+                "ClientConnections": "65536",
+            },
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            data_disk_type="Premium_LRS",
+            is_primary=False,
+            is_stateless=True,
+            multiple_placement_groups=True,
+            node_type_name="BE",
+            placement_properties={
+                "HasSSD": "true",
+                "NodeColor": "green",
+                "SomeProperty": "5",
+            },
+            resource_group_name="resRg",
+            vm_extensions=[{
+                "autoUpgradeMinorVersion": True,
+                "name": "Microsoft.Azure.Geneva.GenevaMonitoring",
+                "publisher": "Microsoft.Azure.Geneva",
+                "settings": {},
+                "type": "GenevaMonitoring",
+                "typeHandlerVersion": "2.0",
+            }],
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2016-Datacenter-Server-Core",
+            vm_image_version="latest",
+            vm_instance_count=-1,
+            vm_managed_identity=azure_native.servicefabric.v20230201preview.VmManagedIdentityArgs(
+                user_assigned_identities=[
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+                ],
+            ),
+            vm_secrets=[{
+                "sourceVault": azure_native.servicefabric.v20230201preview.SubResourceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+                ),
+                "vaultCertificates": [{
+                    "certificateStore": "My",
+                    "certificateUrl": "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+                }],
+            }],
+            vm_size="Standard_DS3")
+
+        ```
+        ### Put a node type with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            additional_data_disks=[
+                {
+                    "diskLetter": "F",
+                    "diskSizeGB": 256,
+                    "diskType": "StandardSSD_LRS",
+                    "lun": 1,
+                },
+                {
+                    "diskLetter": "G",
+                    "diskSizeGB": 150,
+                    "diskType": "Premium_LRS",
+                    "lun": 2,
+                },
+            ],
+            capacities={
+                "ClientConnections": "65536",
+            },
+            cluster_name="myCluster",
+            data_disk_letter="S",
+            data_disk_size_gb=200,
+            data_disk_type="Premium_LRS",
+            enable_accelerated_networking=True,
+            enable_encryption_at_host=True,
+            enable_node_public_ip=True,
+            enable_over_provisioning=False,
+            eviction_policy="Deallocate",
+            frontend_configurations=[azure_native.servicefabric.v20230201preview.FrontendConfigurationArgs(
+                application_gateway_backend_address_pool_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/applicationGateways/appgw-test/backendAddressPools/appgwBepoolTest",
+                load_balancer_backend_address_pool_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/backendAddressPools/LoadBalancerBEAddressPool",
+                load_balancer_inbound_nat_pool_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/inboundNatPools/LoadBalancerNATPool",
+            )],
+            is_primary=False,
+            is_spot_vm=True,
+            is_stateless=True,
+            multiple_placement_groups=True,
+            node_type_name="BE",
+            placement_properties={
+                "HasSSD": "true",
+                "NodeColor": "green",
+                "SomeProperty": "5",
+            },
+            resource_group_name="resRg",
+            secure_boot_enabled=True,
+            security_type="TrustedLaunch",
+            spot_restore_timeout="PT30M",
+            subnet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            use_default_public_load_balancer=True,
+            use_ephemeral_os_disk=True,
+            vm_extensions=[{
+                "autoUpgradeMinorVersion": True,
+                "enableAutomaticUpgrade": True,
+                "forceUpdateTag": "v.1.0",
+                "name": "Microsoft.Azure.Geneva.GenevaMonitoring",
+                "publisher": "Microsoft.Azure.Geneva",
+                "settings": {},
+                "type": "GenevaMonitoring",
+                "typeHandlerVersion": "2.0",
+            }],
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2016-Datacenter-Server-Core",
+            vm_image_version="latest",
+            vm_instance_count=10,
+            vm_managed_identity=azure_native.servicefabric.v20230201preview.VmManagedIdentityArgs(
+                user_assigned_identities=[
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+                ],
+            ),
+            vm_secrets=[{
+                "sourceVault": azure_native.servicefabric.v20230201preview.SubResourceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+                ),
+                "vaultCertificates": [{
+                    "certificateStore": "My",
+                    "certificateUrl": "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+                }],
+            }],
+            vm_setup_actions=[
+                "EnableContainers",
+                "EnableHyperV",
+            ],
+            vm_size="Standard_DS3")
+
+        ```
+        ### Put a node type with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            is_primary=False,
+            node_type_name="BE",
+            resource_group_name="resRg",
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2016-Datacenter-Server-Core",
+            vm_image_version="latest",
+            vm_instance_count=10,
+            vm_size="Standard_D3")
+
+        ```
+        ### Put an stateless node type with temporary disk for service fabric
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            cluster_name="myCluster",
+            enable_encryption_at_host=True,
+            is_primary=False,
+            is_stateless=True,
+            multiple_placement_groups=True,
+            node_type_name="BE",
+            resource_group_name="resRg",
+            use_temp_data_disk=True,
+            vm_extensions=[{
+                "autoUpgradeMinorVersion": True,
+                "name": "Microsoft.Azure.Geneva.GenevaMonitoring",
+                "publisher": "Microsoft.Azure.Geneva",
+                "settings": {},
+                "type": "GenevaMonitoring",
+                "typeHandlerVersion": "2.0",
+            }],
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2016-Datacenter-Server-Core",
+            vm_image_version="latest",
+            vm_instance_count=10,
+            vm_size="Standard_DS3")
+
+        ```
+        ### Put node type with custom vm image
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            is_primary=False,
+            node_type_name="BE",
+            resource_group_name="resRg",
+            vm_image_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-custom-image/providers/Microsoft.Compute/galleries/myCustomImages/images/Win2019DC",
+            vm_instance_count=10,
+            vm_size="Standard_D3")
+
+        ```
+        ### Put node type with dedicated hosts
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            capacities={},
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            data_disk_type="StandardSSD_LRS",
+            host_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testhostgroupRG/providers/Microsoft.Compute/hostGroups/testHostGroup",
+            is_primary=False,
+            node_type_name="BE",
+            placement_properties={},
+            resource_group_name="resRg",
+            vm_image_offer="WindowsServer",
+            vm_image_publisher="MicrosoftWindowsServer",
+            vm_image_sku="2019-Datacenter",
+            vm_image_version="latest",
+            vm_instance_count=10,
+            vm_size="Standard_D8s_v3",
+            zones=["1"])
+
+        ```
+        ### Put node type with shared galleries custom vm image
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        node_type = azure_native.servicefabric.v20230201preview.NodeType("nodeType",
+            cluster_name="myCluster",
+            data_disk_size_gb=200,
+            is_primary=False,
+            node_type_name="BE",
+            resource_group_name="resRg",
+            vm_instance_count=10,
+            vm_shared_gallery_image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-custom-image/providers/Microsoft.Compute/sharedGalleries/35349201-a0b3-405e-8a23-9f1450984307-SFSHAREDGALLERY/images/TestNoProdContainerDImage/versions/latest",
+            vm_size="Standard_D3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20230201preview:NodeType BE /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster/nodeTypes/BE 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NodeTypeArgs args: The arguments to use to populate this resource's properties.

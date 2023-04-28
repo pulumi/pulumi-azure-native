@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Registry Data Version Base.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registryDataVersion = new azure_native.machinelearningservices.v20230201preview.RegistryDataVersion("registryDataVersion", {
+ *     dataVersionBaseProperties: {
+ *         dataType: "mltable",
+ *         dataUri: "string",
+ *         description: "string",
+ *         isAnonymous: false,
+ *         isArchived: false,
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         referencedUris: ["string"],
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     registryName: "registryName",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryDataVersion string string 
+ * ```
  */
 export class RegistryDataVersion extends pulumi.CustomResource {
     /**

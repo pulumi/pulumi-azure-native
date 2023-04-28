@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.DataMigration
     /// A task resource
     /// API Version: 2021-06-30.
     /// Previous API Version: 2018-04-19. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Tasks_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var task = new AzureNative.DataMigration.Task("task", new()
+    ///     {
+    ///         GroupName = "DmsSdkRg",
+    ///         ProjectName = "DmsSdkProject",
+    ///         Properties = new AzureNative.DataMigration.Inputs.ConnectToTargetSqlDbTaskPropertiesArgs
+    ///         {
+    ///             Input = new AzureNative.DataMigration.Inputs.ConnectToTargetSqlDbTaskInputArgs
+    ///             {
+    ///                 TargetConnectionInfo = new AzureNative.DataMigration.Inputs.SqlConnectionInfoArgs
+    ///                 {
+    ///                     Authentication = "SqlAuthentication",
+    ///                     DataSource = "ssma-test-server.database.windows.net",
+    ///                     EncryptConnection = true,
+    ///                     Password = "testpassword",
+    ///                     TrustServerCertificate = true,
+    ///                     Type = "SqlConnectionInfo",
+    ///                     UserName = "testuser",
+    ///                 },
+    ///             },
+    ///             TaskType = "ConnectToTarget.SqlDb",
+    ///         },
+    ///         ServiceName = "DmsSdkService",
+    ///         TaskName = "DmsSdkTask",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datamigration:Task DmsSdkTask /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject/tasks/DmsSdkTask 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Task")]
     public partial class Task : global::Pulumi.CustomResource

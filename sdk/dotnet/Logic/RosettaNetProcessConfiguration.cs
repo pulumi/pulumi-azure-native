@@ -13,6 +13,89 @@ namespace Pulumi.AzureNative.Logic
     /// The integration account RosettaNet process configuration.
     /// API Version: 2016-06-01.
     /// Previous API Version: 2016-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an RosettaNetProcessConfiguration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rosettaNetProcessConfiguration = new AzureNative.Logic.RosettaNetProcessConfiguration("rosettaNetProcessConfiguration", new()
+    ///     {
+    ///         ActivitySettings = new AzureNative.Logic.Inputs.RosettaNetPipActivitySettingsArgs
+    ///         {
+    ///             AcknowledgmentOfReceiptSettings = new AzureNative.Logic.Inputs.RosettaNetPipAcknowledgmentOfReceiptSettingsArgs
+    ///             {
+    ///                 IsNonRepudiationRequired = false,
+    ///                 TimeToAcknowledgeInSeconds = 600,
+    ///             },
+    ///             ActivityBehavior = new AzureNative.Logic.Inputs.RosettaNetPipActivityBehaviorArgs
+    ///             {
+    ///                 ActionType = AzureNative.Logic.RosettaNetActionType.DoubleAction,
+    ///                 IsAuthorizationRequired = false,
+    ///                 IsSecuredTransportRequired = false,
+    ///                 NonRepudiationOfOriginAndContent = false,
+    ///                 PersistentConfidentialityScope = AzureNative.Logic.RosettaNetPipConfidentialityScope.None,
+    ///                 ResponseType = AzureNative.Logic.RosettaNetResponseType.Async,
+    ///                 RetryCount = 2,
+    ///                 TimeToPerformInSeconds = 7200,
+    ///             },
+    ///             ActivityType = AzureNative.Logic.RosettaNetPipActivityType.RequestResponse,
+    ///         },
+    ///         Description = "Test description",
+    ///         InitiatorRoleSettings = new AzureNative.Logic.Inputs.RosettaNetPipRoleSettingsArgs
+    ///         {
+    ///             Action = "Purchase Order Request",
+    ///             BusinessDocument = new AzureNative.Logic.Inputs.RosettaNetPipBusinessDocumentArgs
+    ///             {
+    ///                 Description = "A request to accept a purchase order for fulfillment..",
+    ///                 Name = "Purchase Order Request",
+    ///                 Version = "V02.02.00",
+    ///             },
+    ///             Description = "This partner role creates a demand for a product or service.",
+    ///             Role = "Buyer",
+    ///             RoleType = AzureNative.Logic.RosettaNetPipRoleType.Functional,
+    ///             Service = "Buyer Service",
+    ///             ServiceClassification = "Business Service",
+    ///         },
+    ///         IntegrationAccountName = "testia123",
+    ///         ProcessCode = "3A4",
+    ///         ProcessName = "Request Purchase Order",
+    ///         ProcessVersion = "V02.02.00",
+    ///         ResourceGroupName = "testrg123",
+    ///         ResponderRoleSettings = new AzureNative.Logic.Inputs.RosettaNetPipRoleSettingsArgs
+    ///         {
+    ///             Action = "Purchase Order Confirmation Action",
+    ///             BusinessDocument = new AzureNative.Logic.Inputs.RosettaNetPipBusinessDocumentArgs
+    ///             {
+    ///                 Description = "Formally confirms the status of line item(s) in a Purchase Order. A Purchase Order line item may have one of the following states: accepted, rejected, or pending.",
+    ///                 Name = "Purchase Order Confirmation",
+    ///                 Version = "V02.02.00",
+    ///             },
+    ///             Description = "An organization that sells products to partners in the supply chain.",
+    ///             Role = "Seller",
+    ///             RoleType = AzureNative.Logic.RosettaNetPipRoleType.Organizational,
+    ///             Service = "Seller Service",
+    ///             ServiceClassification = "Business Service",
+    ///         },
+    ///         RosettaNetProcessConfigurationName = "3A4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic:RosettaNetProcessConfiguration 3A4 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/rosettaNetProcessConfigurations/3A4 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:RosettaNetProcessConfiguration")]
     public partial class RosettaNetProcessConfiguration : global::Pulumi.CustomResource

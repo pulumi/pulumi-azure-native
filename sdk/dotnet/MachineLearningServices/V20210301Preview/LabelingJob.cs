@@ -11,6 +11,119 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Labeling Job.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var labelingJob = new AzureNative.MachineLearningServices.V20210301Preview.LabelingJob("labelingJob", new()
+    ///     {
+    ///         Id = "testLabelingJob",
+    ///         Properties = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelingJobArgs
+    ///         {
+    ///             DatasetConfiguration = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelingDatasetConfigurationArgs
+    ///             {
+    ///                 AssetName = "myAsset",
+    ///                 DatasetVersion = "1",
+    ///                 IncrementalDatasetRefreshEnabled = true,
+    ///             },
+    ///             Description = "string",
+    ///             JobInstructions = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelingJobInstructionsArgs
+    ///             {
+    ///                 Uri = "link/to/instructions",
+    ///             },
+    ///             JobType = "Labeling",
+    ///             LabelCategories = 
+    ///             {
+    ///                 { "myCategory1", new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelCategoryArgs
+    ///                 {
+    ///                     AllowMultiSelect = true,
+    ///                     Classes = 
+    ///                     {
+    ///                         { "myLabelClass1", new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelClassArgs
+    ///                         {
+    ///                             DisplayName = "myLabelClass1",
+    ///                             Subclasses = null,
+    ///                         } },
+    ///                         { "myLabelClass2", new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelClassArgs
+    ///                         {
+    ///                             DisplayName = "myLabelClass2",
+    ///                             Subclasses = null,
+    ///                         } },
+    ///                     },
+    ///                     DisplayName = "myCategory1Title",
+    ///                 } },
+    ///                 { "myCategory2", new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelCategoryArgs
+    ///                 {
+    ///                     AllowMultiSelect = true,
+    ///                     Classes = 
+    ///                     {
+    ///                         { "myLabelClass1", new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelClassArgs
+    ///                         {
+    ///                             DisplayName = "myLabelClass1",
+    ///                             Subclasses = null,
+    ///                         } },
+    ///                         { "myLabelClass2", new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelClassArgs
+    ///                         {
+    ///                             DisplayName = "myLabelClass2",
+    ///                             Subclasses = null,
+    ///                         } },
+    ///                     },
+    ///                     DisplayName = "myCategory2Title",
+    ///                 } },
+    ///             },
+    ///             LabelingJobMediaProperties = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.LabelingJobImagePropertiesArgs
+    ///             {
+    ///                 MediaType = "Image",
+    ///             },
+    ///             MlAssistConfiguration = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.MLAssistConfigurationArgs
+    ///             {
+    ///                 InferencingComputeBinding = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.ComputeConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     Target = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/myscoringcompute",
+    ///                 },
+    ///                 MlAssistEnabled = true,
+    ///                 TrainingComputeBinding = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.ComputeConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     Target = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mytrainingcompute",
+    ///                 },
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "workspace-1234",
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20210301preview:LabelingJob testLabelingJob /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/labelingJobs/testLabelingJob 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:LabelingJob")]
     public partial class LabelingJob : global::Pulumi.CustomResource

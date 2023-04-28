@@ -12,6 +12,49 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// <summary>
     /// API Version: 2022-12-12-preview.
     /// Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update rack
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rack = new AzureNative.NetworkCloud.Rack("rack", new()
+    ///     {
+    ///         AvailabilityZone = "1",
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         RackLocation = "Rack 28",
+    ///         RackName = "rackName",
+    ///         RackSerialNumber = "RACK_SERIAL_NUMBER",
+    ///         RackSkuId = "RACK-TYPE-1",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud:Rack rackName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:Rack")]
     public partial class Rack : global::Pulumi.CustomResource

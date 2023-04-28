@@ -98,6 +98,32 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2022-07-02.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Approve a Private Endpoint Connection under a disk access resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_access_a_private_endpoint_connection = azure_native.compute.DiskAccessAPrivateEndpointConnection("diskAccessAPrivateEndpointConnection",
+            disk_access_name="myDiskAccess",
+            private_endpoint_connection_name="myPrivateEndpointConnection",
+            private_link_service_connection_state=azure_native.compute.PrivateLinkServiceConnectionStateArgs(
+                description="Approving myPrivateEndpointConnection",
+                status="Approved",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DiskAccessAPrivateEndpointConnection myPrivateEndpointConnectionName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/myDiskAccess/privateEndpoinConnections/myPrivateEndpointConnectionName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_access_name: The name of the disk access resource that is being created. The name can't be changed after the disk encryption set is created. Supported characters for the name are a-z, A-Z, 0-9, _ and -. The maximum name length is 80 characters.
@@ -115,6 +141,32 @@ class DiskAccessAPrivateEndpointConnection(pulumi.CustomResource):
         The Private Endpoint Connection resource.
         API Version: 2022-07-02.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Approve a Private Endpoint Connection under a disk access resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_access_a_private_endpoint_connection = azure_native.compute.DiskAccessAPrivateEndpointConnection("diskAccessAPrivateEndpointConnection",
+            disk_access_name="myDiskAccess",
+            private_endpoint_connection_name="myPrivateEndpointConnection",
+            private_link_service_connection_state=azure_native.compute.PrivateLinkServiceConnectionStateArgs(
+                description="Approving myPrivateEndpointConnection",
+                status="Approved",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DiskAccessAPrivateEndpointConnection myPrivateEndpointConnectionName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/myDiskAccess/privateEndpoinConnections/myPrivateEndpointConnectionName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiskAccessAPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

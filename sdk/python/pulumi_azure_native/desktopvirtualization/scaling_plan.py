@@ -293,6 +293,78 @@ class ScalingPlan(pulumi.CustomResource):
         API Version: 2022-09-09.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ScalingPlans_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scaling_plan = azure_native.desktopvirtualization.ScalingPlan("scalingPlan",
+            description="Description of Scaling Plan",
+            exclusion_tag="value",
+            friendly_name="Scaling Plan 1",
+            host_pool_references=[azure_native.desktopvirtualization.ScalingHostPoolReferenceArgs(
+                host_pool_arm_path="/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
+                scaling_plan_enabled=True,
+            )],
+            host_pool_type="Pooled",
+            location="centralus",
+            resource_group_name="resourceGroup1",
+            scaling_plan_name="scalingPlan1",
+            schedules=[azure_native.desktopvirtualization.ScalingScheduleArgs(
+                days_of_week=[
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                ],
+                name="schedule1",
+                off_peak_load_balancing_algorithm="DepthFirst",
+                off_peak_start_time=azure_native.desktopvirtualization.TimeArgs(
+                    hour=20,
+                    minute=0,
+                ),
+                peak_load_balancing_algorithm="BreadthFirst",
+                peak_start_time=azure_native.desktopvirtualization.TimeArgs(
+                    hour=8,
+                    minute=0,
+                ),
+                ramp_down_capacity_threshold_pct=50,
+                ramp_down_force_logoff_users=True,
+                ramp_down_load_balancing_algorithm="DepthFirst",
+                ramp_down_minimum_hosts_pct=20,
+                ramp_down_notification_message="message",
+                ramp_down_start_time=azure_native.desktopvirtualization.TimeArgs(
+                    hour=18,
+                    minute=0,
+                ),
+                ramp_down_wait_time_minutes=30,
+                ramp_up_capacity_threshold_pct=80,
+                ramp_up_load_balancing_algorithm="DepthFirst",
+                ramp_up_minimum_hosts_pct=20,
+                ramp_up_start_time=azure_native.desktopvirtualization.TimeArgs(
+                    hour=6,
+                    minute=0,
+                ),
+            )],
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            time_zone="Central Standard Time")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization:ScalingPlan scalingPlan1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/scalingPlan1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of scaling plan.
@@ -319,6 +391,78 @@ class ScalingPlan(pulumi.CustomResource):
         Represents a scaling plan definition.
         API Version: 2022-09-09.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ScalingPlans_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scaling_plan = azure_native.desktopvirtualization.ScalingPlan("scalingPlan",
+            description="Description of Scaling Plan",
+            exclusion_tag="value",
+            friendly_name="Scaling Plan 1",
+            host_pool_references=[azure_native.desktopvirtualization.ScalingHostPoolReferenceArgs(
+                host_pool_arm_path="/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
+                scaling_plan_enabled=True,
+            )],
+            host_pool_type="Pooled",
+            location="centralus",
+            resource_group_name="resourceGroup1",
+            scaling_plan_name="scalingPlan1",
+            schedules=[azure_native.desktopvirtualization.ScalingScheduleArgs(
+                days_of_week=[
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                ],
+                name="schedule1",
+                off_peak_load_balancing_algorithm="DepthFirst",
+                off_peak_start_time=azure_native.desktopvirtualization.TimeArgs(
+                    hour=20,
+                    minute=0,
+                ),
+                peak_load_balancing_algorithm="BreadthFirst",
+                peak_start_time=azure_native.desktopvirtualization.TimeArgs(
+                    hour=8,
+                    minute=0,
+                ),
+                ramp_down_capacity_threshold_pct=50,
+                ramp_down_force_logoff_users=True,
+                ramp_down_load_balancing_algorithm="DepthFirst",
+                ramp_down_minimum_hosts_pct=20,
+                ramp_down_notification_message="message",
+                ramp_down_start_time=azure_native.desktopvirtualization.TimeArgs(
+                    hour=18,
+                    minute=0,
+                ),
+                ramp_down_wait_time_minutes=30,
+                ramp_up_capacity_threshold_pct=80,
+                ramp_up_load_balancing_algorithm="DepthFirst",
+                ramp_up_minimum_hosts_pct=20,
+                ramp_up_start_time=azure_native.desktopvirtualization.TimeArgs(
+                    hour=6,
+                    minute=0,
+                ),
+            )],
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            time_zone="Central Standard Time")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization:ScalingPlan scalingPlan1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/scalingPlan1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScalingPlanArgs args: The arguments to use to populate this resource's properties.

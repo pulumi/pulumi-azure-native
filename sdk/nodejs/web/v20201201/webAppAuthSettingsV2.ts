@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201201:WebAppAuthSettingsV2 myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/authsettingsV2 
+ * ```
  */
 export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
     /**

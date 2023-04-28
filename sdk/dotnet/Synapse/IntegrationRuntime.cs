@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Synapse
     /// Integration runtime resource type.
     /// API Version: 2021-06-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create integration runtime
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationRuntime = new AzureNative.Synapse.IntegrationRuntime("integrationRuntime", new()
+    ///     {
+    ///         IntegrationRuntimeName = "exampleIntegrationRuntime",
+    ///         Properties = new AzureNative.Synapse.Inputs.SelfHostedIntegrationRuntimeArgs
+    ///         {
+    ///             Description = "A selfhosted integration runtime",
+    ///             Type = "SelfHosted",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         WorkspaceName = "exampleWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse:IntegrationRuntime exampleIntegrationRuntime /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Synapse/workspaces/exampleWorkspaceName/integrationruntimes/exampleIntegrationRuntime 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:IntegrationRuntime")]
     public partial class IntegrationRuntime : global::Pulumi.CustomResource

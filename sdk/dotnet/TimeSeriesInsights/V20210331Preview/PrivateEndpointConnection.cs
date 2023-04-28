@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20210331Preview
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnectionUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.TimeSeriesInsights.V20210331Preview.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         EnvironmentName = "myEnvironment",
+    ///         PrivateEndpointConnectionName = "myPrivateEndpointConnectionName",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.TimeSeriesInsights.V20210331Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Rejected for some reason",
+    ///             Status = "Rejected",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection myPrivateEndpointConnectionName /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.TimeSeriesInsights/Environments/myEnvironment/privateEndpointConnections/myPrivateEndpointConnectionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

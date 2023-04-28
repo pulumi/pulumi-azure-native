@@ -128,6 +128,47 @@ class ConnectionType(pulumi.CustomResource):
         """
         Definition of the connection type.
 
+        ## Example Usage
+        ### Create or update connection type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_type = azure_native.automation.v20220808.ConnectionType("connectionType",
+            automation_account_name="myAutomationAccount22",
+            connection_type_name="myCT",
+            field_definitions={
+                "myBoolField": azure_native.automation.v20220808.FieldDefinitionArgs(
+                    is_encrypted=False,
+                    is_optional=False,
+                    type="bool",
+                ),
+                "myStringField": azure_native.automation.v20220808.FieldDefinitionArgs(
+                    is_encrypted=False,
+                    is_optional=False,
+                    type="string",
+                ),
+                "myStringFieldEncrypted": azure_native.automation.v20220808.FieldDefinitionArgs(
+                    is_encrypted=True,
+                    is_optional=False,
+                    type="string",
+                ),
+            },
+            is_global=False,
+            name="myCT",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:ConnectionType myCT /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount22/connectionTypes/myCT 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -145,6 +186,47 @@ class ConnectionType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the connection type.
+
+        ## Example Usage
+        ### Create or update connection type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_type = azure_native.automation.v20220808.ConnectionType("connectionType",
+            automation_account_name="myAutomationAccount22",
+            connection_type_name="myCT",
+            field_definitions={
+                "myBoolField": azure_native.automation.v20220808.FieldDefinitionArgs(
+                    is_encrypted=False,
+                    is_optional=False,
+                    type="bool",
+                ),
+                "myStringField": azure_native.automation.v20220808.FieldDefinitionArgs(
+                    is_encrypted=False,
+                    is_optional=False,
+                    type="string",
+                ),
+                "myStringFieldEncrypted": azure_native.automation.v20220808.FieldDefinitionArgs(
+                    is_encrypted=True,
+                    is_optional=False,
+                    type="string",
+                ),
+            },
+            is_global=False,
+            name="myCT",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:ConnectionType myCT /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount22/connectionTypes/myCT 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionTypeArgs args: The arguments to use to populate this resource's properties.

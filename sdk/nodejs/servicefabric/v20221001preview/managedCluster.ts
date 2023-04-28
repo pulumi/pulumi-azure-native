@@ -9,6 +9,153 @@ import * as utilities from "../../utilities";
 
 /**
  * The manged cluster resource
+ *
+ * ## Example Usage
+ * ### Put a cluster with maximum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCluster = new azure_native.servicefabric.v20221001preview.ManagedCluster("managedCluster", {
+ *     addonFeatures: [
+ *         "DnsService",
+ *         "BackupRestoreService",
+ *         "ResourceMonitorService",
+ *     ],
+ *     adminPassword: "{vm-password}",
+ *     adminUserName: "vmadmin",
+ *     allowRdpAccess: true,
+ *     applicationTypeVersionsCleanupPolicy: {
+ *         maxUnusedVersionsToKeep: 3,
+ *     },
+ *     auxiliarySubnets: [{
+ *         enableIpv6: true,
+ *         name: "testSubnet1",
+ *         networkSecurityGroupId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/networkSecurityGroups/sn1",
+ *         privateEndpointNetworkPolicies: "enabled",
+ *         privateLinkServiceNetworkPolicies: "enabled",
+ *     }],
+ *     clientConnectionPort: 19000,
+ *     clusterCodeVersion: "7.1.168.9494",
+ *     clusterName: "myCluster",
+ *     clusterUpgradeMode: "Manual",
+ *     dnsName: "myCluster",
+ *     enableAutoOSUpgrade: true,
+ *     enableIpv6: true,
+ *     fabricSettings: [{
+ *         name: "ManagedIdentityTokenService",
+ *         parameters: [{
+ *             name: "IsEnabled",
+ *             value: "true",
+ *         }],
+ *     }],
+ *     httpGatewayConnectionPort: 19080,
+ *     ipTags: [{
+ *         ipTagType: "FirstPartyUsage",
+ *         tag: "SQL",
+ *     }],
+ *     loadBalancingRules: [
+ *         {
+ *             backendPort: 80,
+ *             frontendPort: 80,
+ *             probePort: 80,
+ *             probeProtocol: "http",
+ *             protocol: "http",
+ *         },
+ *         {
+ *             backendPort: 443,
+ *             frontendPort: 443,
+ *             probePort: 443,
+ *             probeProtocol: "http",
+ *             protocol: "http",
+ *         },
+ *         {
+ *             backendPort: 10000,
+ *             frontendPort: 10000,
+ *             loadDistribution: "Default",
+ *             probePort: 10000,
+ *             probeProtocol: "http",
+ *             protocol: "tcp",
+ *         },
+ *     ],
+ *     location: "eastus",
+ *     networkSecurityRules: [
+ *         {
+ *             access: "allow",
+ *             description: "Test description",
+ *             destinationAddressPrefixes: ["*"],
+ *             destinationPortRanges: ["*"],
+ *             direction: "inbound",
+ *             name: "TestName",
+ *             priority: 1010,
+ *             protocol: "tcp",
+ *             sourceAddressPrefixes: ["*"],
+ *             sourcePortRanges: ["*"],
+ *         },
+ *         {
+ *             access: "allow",
+ *             destinationAddressPrefix: "*",
+ *             destinationPortRange: "33500-33699",
+ *             direction: "inbound",
+ *             name: "AllowARM",
+ *             priority: 2002,
+ *             protocol: "*",
+ *             sourceAddressPrefix: "AzureResourceManager",
+ *             sourcePortRange: "*",
+ *         },
+ *     ],
+ *     resourceGroupName: "resRg",
+ *     serviceEndpoints: [{
+ *         locations: [
+ *             "eastus2",
+ *             "usnorth",
+ *         ],
+ *         service: "Microsoft.Storage",
+ *     }],
+ *     sku: {
+ *         name: "Basic",
+ *     },
+ *     tags: {},
+ *     useCustomVnet: true,
+ *     zonalResiliency: true,
+ *     zonalUpdateMode: "Fast",
+ * });
+ *
+ * ```
+ * ### Put a cluster with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCluster = new azure_native.servicefabric.v20221001preview.ManagedCluster("managedCluster", {
+ *     adminPassword: "{vm-password}",
+ *     adminUserName: "vmadmin",
+ *     clusterName: "myCluster",
+ *     clusterUpgradeCadence: "Wave1",
+ *     clusterUpgradeMode: "Automatic",
+ *     dnsName: "myCluster",
+ *     fabricSettings: [{
+ *         name: "ManagedIdentityTokenService",
+ *         parameters: [{
+ *             name: "IsEnabled",
+ *             value: "true",
+ *         }],
+ *     }],
+ *     location: "eastus",
+ *     resourceGroupName: "resRg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabric/v20221001preview:ManagedCluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster 
+ * ```
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**

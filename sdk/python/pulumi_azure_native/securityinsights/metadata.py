@@ -403,6 +403,126 @@ class Metadata(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create/update full metadata.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metadata = azure_native.securityinsights.Metadata("metadata",
+            author=azure_native.securityinsights.MetadataAuthorArgs(
+                email="email@microsoft.com",
+                name="User Name",
+            ),
+            categories=azure_native.securityinsights.MetadataCategoriesArgs(
+                domains=[
+                    "Application",
+                    "Security – Insider Threat",
+                ],
+                verticals=["Healthcare"],
+            ),
+            content_id="c00ee137-7475-47c8-9cce-ec6f0f1bedd0",
+            content_schema_version="2.0",
+            custom_version="1.0",
+            dependencies=azure_native.securityinsights.MetadataDependenciesResponseArgs(
+                criteria=[
+                    azure_native.securityinsights.MetadataDependenciesArgs(
+                        criteria=[
+                            azure_native.securityinsights.MetadataDependenciesArgs(
+                                content_id="045d06d0-ee72-4794-aba4-cf5646e4c756",
+                                kind="DataConnector",
+                                name="Microsoft Defender for Endpoint",
+                            ),
+                            azure_native.securityinsights.MetadataDependenciesArgs(
+                                content_id="dbfcb2cc-d782-40ef-8d94-fe7af58a6f2d",
+                                kind="DataConnector",
+                            ),
+                            azure_native.securityinsights.MetadataDependenciesArgs(
+                                content_id="de4dca9b-eb37-47d6-a56f-b8b06b261593",
+                                kind="DataConnector",
+                                version="2.0",
+                            ),
+                        ],
+                        operator="OR",
+                    ),
+                    azure_native.securityinsights.MetadataDependenciesArgs(
+                        content_id="31ee11cc-9989-4de8-b176-5e0ef5c4dbab",
+                        kind="Playbook",
+                        version="1.0",
+                    ),
+                    azure_native.securityinsights.MetadataDependenciesArgs(
+                        content_id="21ba424a-9438-4444-953a-7059539a7a1b",
+                        kind="Parser",
+                    ),
+                ],
+                operator="AND",
+            ),
+            first_publish_date="2021-05-18",
+            kind="AnalyticsRule",
+            last_publish_date="2021-05-18",
+            metadata_name="metadataName",
+            parent_id="/subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/ruleName",
+            preview_images=[
+                "firstImage.png",
+                "secondImage.jpeg",
+            ],
+            preview_images_dark=[
+                "firstImageDark.png",
+                "secondImageDark.jpeg",
+            ],
+            providers=[
+                "Amazon",
+                "Microsoft",
+            ],
+            resource_group_name="myRg",
+            source=azure_native.securityinsights.MetadataSourceResponseArgs(
+                kind="Solution",
+                name="Contoso Solution 1.0",
+                source_id="b688a130-76f4-4a07-bf57-762222a3cadf",
+            ),
+            support=azure_native.securityinsights.MetadataSupportResponseArgs(
+                email="support@microsoft.com",
+                link="https://support.microsoft.com/",
+                name="Microsoft",
+                tier="Partner",
+            ),
+            threat_analysis_tactics=[
+                "reconnaissance",
+                "commandandcontrol",
+            ],
+            threat_analysis_techniques=[
+                "T1548",
+                "T1548.001",
+            ],
+            version="1.0.0.0",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create/update minimal metadata.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metadata = azure_native.securityinsights.Metadata("metadata",
+            content_id="c00ee137-7475-47c8-9cce-ec6f0f1bedd0",
+            kind="AnalyticsRule",
+            metadata_name="metadataName",
+            parent_id="/subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/ruleName",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Metadata metadataName /subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/metadata/metadataName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MetadataAuthorArgs']] author: The creator of the content item.
@@ -438,6 +558,126 @@ class Metadata(pulumi.CustomResource):
         Metadata resource definition.
         API Version: 2023-02-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create/update full metadata.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metadata = azure_native.securityinsights.Metadata("metadata",
+            author=azure_native.securityinsights.MetadataAuthorArgs(
+                email="email@microsoft.com",
+                name="User Name",
+            ),
+            categories=azure_native.securityinsights.MetadataCategoriesArgs(
+                domains=[
+                    "Application",
+                    "Security – Insider Threat",
+                ],
+                verticals=["Healthcare"],
+            ),
+            content_id="c00ee137-7475-47c8-9cce-ec6f0f1bedd0",
+            content_schema_version="2.0",
+            custom_version="1.0",
+            dependencies=azure_native.securityinsights.MetadataDependenciesResponseArgs(
+                criteria=[
+                    azure_native.securityinsights.MetadataDependenciesArgs(
+                        criteria=[
+                            azure_native.securityinsights.MetadataDependenciesArgs(
+                                content_id="045d06d0-ee72-4794-aba4-cf5646e4c756",
+                                kind="DataConnector",
+                                name="Microsoft Defender for Endpoint",
+                            ),
+                            azure_native.securityinsights.MetadataDependenciesArgs(
+                                content_id="dbfcb2cc-d782-40ef-8d94-fe7af58a6f2d",
+                                kind="DataConnector",
+                            ),
+                            azure_native.securityinsights.MetadataDependenciesArgs(
+                                content_id="de4dca9b-eb37-47d6-a56f-b8b06b261593",
+                                kind="DataConnector",
+                                version="2.0",
+                            ),
+                        ],
+                        operator="OR",
+                    ),
+                    azure_native.securityinsights.MetadataDependenciesArgs(
+                        content_id="31ee11cc-9989-4de8-b176-5e0ef5c4dbab",
+                        kind="Playbook",
+                        version="1.0",
+                    ),
+                    azure_native.securityinsights.MetadataDependenciesArgs(
+                        content_id="21ba424a-9438-4444-953a-7059539a7a1b",
+                        kind="Parser",
+                    ),
+                ],
+                operator="AND",
+            ),
+            first_publish_date="2021-05-18",
+            kind="AnalyticsRule",
+            last_publish_date="2021-05-18",
+            metadata_name="metadataName",
+            parent_id="/subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/ruleName",
+            preview_images=[
+                "firstImage.png",
+                "secondImage.jpeg",
+            ],
+            preview_images_dark=[
+                "firstImageDark.png",
+                "secondImageDark.jpeg",
+            ],
+            providers=[
+                "Amazon",
+                "Microsoft",
+            ],
+            resource_group_name="myRg",
+            source=azure_native.securityinsights.MetadataSourceResponseArgs(
+                kind="Solution",
+                name="Contoso Solution 1.0",
+                source_id="b688a130-76f4-4a07-bf57-762222a3cadf",
+            ),
+            support=azure_native.securityinsights.MetadataSupportResponseArgs(
+                email="support@microsoft.com",
+                link="https://support.microsoft.com/",
+                name="Microsoft",
+                tier="Partner",
+            ),
+            threat_analysis_tactics=[
+                "reconnaissance",
+                "commandandcontrol",
+            ],
+            threat_analysis_techniques=[
+                "T1548",
+                "T1548.001",
+            ],
+            version="1.0.0.0",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create/update minimal metadata.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metadata = azure_native.securityinsights.Metadata("metadata",
+            content_id="c00ee137-7475-47c8-9cce-ec6f0f1bedd0",
+            kind="AnalyticsRule",
+            metadata_name="metadataName",
+            parent_id="/subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/ruleName",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Metadata metadataName /subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/metadata/metadataName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MetadataArgs args: The arguments to use to populate this resource's properties.

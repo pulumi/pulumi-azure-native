@@ -11,6 +11,119 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
 {
     /// <summary>
     /// Type of the Storage Target.
+    /// 
+    /// ## Example Usage
+    /// ### StorageTargets_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageTarget = new AzureNative.StorageCache.V20230301Preview.StorageTarget("storageTarget", new()
+    ///     {
+    ///         CacheName = "sc1",
+    ///         Junctions = new[]
+    ///         {
+    ///             new AzureNative.StorageCache.V20230301Preview.Inputs.NamespaceJunctionArgs
+    ///             {
+    ///                 NamespacePath = "/path/on/cache",
+    ///                 NfsAccessPolicy = "default",
+    ///                 NfsExport = "exp1",
+    ///                 TargetPath = "/path/on/exp1",
+    ///             },
+    ///             new AzureNative.StorageCache.V20230301Preview.Inputs.NamespaceJunctionArgs
+    ///             {
+    ///                 NamespacePath = "/path2/on/cache",
+    ///                 NfsAccessPolicy = "rootSquash",
+    ///                 NfsExport = "exp2",
+    ///                 TargetPath = "/path2/on/exp2",
+    ///             },
+    ///         },
+    ///         Nfs3 = new AzureNative.StorageCache.V20230301Preview.Inputs.Nfs3TargetArgs
+    ///         {
+    ///             Target = "10.0.44.44",
+    ///             UsageModel = "READ_ONLY",
+    ///             VerificationTimer = 30,
+    ///         },
+    ///         ResourceGroupName = "scgroup",
+    ///         StorageTargetName = "st1",
+    ///         TargetType = "nfs3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageTargets_CreateOrUpdate_BlobNfs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageTarget = new AzureNative.StorageCache.V20230301Preview.StorageTarget("storageTarget", new()
+    ///     {
+    ///         BlobNfs = new AzureNative.StorageCache.V20230301Preview.Inputs.BlobNfsTargetArgs
+    ///         {
+    ///             Target = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/blofnfs/blobServices/default/containers/blobnfs",
+    ///             UsageModel = "READ_WRITE",
+    ///             VerificationTimer = 28800,
+    ///             WriteBackTimer = 3600,
+    ///         },
+    ///         CacheName = "sc1",
+    ///         Junctions = new[]
+    ///         {
+    ///             new AzureNative.StorageCache.V20230301Preview.Inputs.NamespaceJunctionArgs
+    ///             {
+    ///                 NamespacePath = "/blobnfs",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "scgroup",
+    ///         StorageTargetName = "st1",
+    ///         TargetType = "blobNfs",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageTargets_CreateOrUpdate_NoJunctions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageTarget = new AzureNative.StorageCache.V20230301Preview.StorageTarget("storageTarget", new()
+    ///     {
+    ///         CacheName = "sc1",
+    ///         Nfs3 = new AzureNative.StorageCache.V20230301Preview.Inputs.Nfs3TargetArgs
+    ///         {
+    ///             Target = "10.0.44.44",
+    ///             UsageModel = "READ_ONLY",
+    ///             VerificationTimer = 30,
+    ///         },
+    ///         ResourceGroupName = "scgroup",
+    ///         StorageTargetName = "st1",
+    ///         TargetType = "nfs3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagecache/v20230301preview:StorageTarget st1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1/storagetargets/st1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache/v20230301preview:StorageTarget")]
     public partial class StorageTarget : global::Pulumi.CustomResource

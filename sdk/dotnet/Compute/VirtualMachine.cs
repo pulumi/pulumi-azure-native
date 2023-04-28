@@ -13,6 +13,2998 @@ namespace Pulumi.AzureNative.Compute
     /// Describes a Virtual Machine.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Linux vm with a patch setting assessmentMode of ImageDefault.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2s_v3",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             LinuxConfiguration = new AzureNative.Compute.Inputs.LinuxConfigurationArgs
+    ///             {
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.LinuxPatchSettingsArgs
+    ///                 {
+    ///                     AssessmentMode = "ImageDefault",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "UbuntuServer",
+    ///                 Publisher = "Canonical",
+    ///                 Sku = "16.04-LTS",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Linux vm with a patch setting patchMode of AutomaticByPlatform and AutomaticByPlatformSettings.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2s_v3",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             LinuxConfiguration = new AzureNative.Compute.Inputs.LinuxConfigurationArgs
+    ///             {
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.LinuxPatchSettingsArgs
+    ///                 {
+    ///                     AssessmentMode = "AutomaticByPlatform",
+    ///                     AutomaticByPlatformSettings = new AzureNative.Compute.Inputs.LinuxVMGuestPatchAutomaticByPlatformSettingsArgs
+    ///                     {
+    ///                         RebootSetting = "Never",
+    ///                     },
+    ///                     PatchMode = "AutomaticByPlatform",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "UbuntuServer",
+    ///                 Publisher = "Canonical",
+    ///                 Sku = "16.04-LTS",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Linux vm with a patch setting patchMode of ImageDefault.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2s_v3",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             LinuxConfiguration = new AzureNative.Compute.Inputs.LinuxConfigurationArgs
+    ///             {
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.LinuxPatchSettingsArgs
+    ///                 {
+    ///                     PatchMode = "ImageDefault",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "UbuntuServer",
+    ///                 Publisher = "Canonical",
+    ///                 Sku = "16.04-LTS",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Linux vm with a patch settings patchMode and assessmentMode set to AutomaticByPlatform.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2s_v3",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             LinuxConfiguration = new AzureNative.Compute.Inputs.LinuxConfigurationArgs
+    ///             {
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.LinuxPatchSettingsArgs
+    ///                 {
+    ///                     AssessmentMode = "AutomaticByPlatform",
+    ///                     PatchMode = "AutomaticByPlatform",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "UbuntuServer",
+    ///                 Publisher = "Canonical",
+    ///                 Sku = "16.04-LTS",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM from a community gallery image
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 CommunityGalleryImageId = "/CommunityGalleries/galleryPublicName/Images/communityGalleryImageName/Versions/communityGalleryImageVersionName",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM from a shared gallery image
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 SharedGalleryImageId = "/SharedGalleries/sharedGalleryName/Images/sharedGalleryImageName/Versions/sharedGalleryImageVersionName",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM with Disk Controller Type
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         DiagnosticsProfile = new AzureNative.Compute.Inputs.DiagnosticsProfileArgs
+    ///         {
+    ///             BootDiagnostics = new AzureNative.Compute.Inputs.BootDiagnosticsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///             },
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D4_v3",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             DiskControllerType = "NVMe",
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         UserData = "U29tZSBDdXN0b20gRGF0YQ==",
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM with HibernationEnabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         AdditionalCapabilities = new AzureNative.Compute.Inputs.AdditionalCapabilitiesArgs
+    ///         {
+    ///             HibernationEnabled = true,
+    ///         },
+    ///         DiagnosticsProfile = new AzureNative.Compute.Inputs.DiagnosticsProfileArgs
+    ///         {
+    ///             BootDiagnostics = new AzureNative.Compute.Inputs.BootDiagnosticsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///             },
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2s_v3",
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "{vm-name}",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2019-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "vmOSdisk",
+    ///             },
+    ///         },
+    ///         VmName = "{vm-name}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM with Uefi Settings of secureBoot and vTPM.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2s_v3",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SecurityProfile = new AzureNative.Compute.Inputs.SecurityProfileArgs
+    ///         {
+    ///             SecurityType = "TrustedLaunch",
+    ///             UefiSettings = new AzureNative.Compute.Inputs.UefiSettingsArgs
+    ///             {
+    ///                 SecureBootEnabled = true,
+    ///                 VTpmEnabled = true,
+    ///             },
+    ///         },
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "windowsserver-gen2preview-preview",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "windows10-tvm",
+    ///                 Version = "18363.592.2001092016",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadOnly,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "StandardSSD_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM with UserData
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         DiagnosticsProfile = new AzureNative.Compute.Inputs.DiagnosticsProfileArgs
+    ///         {
+    ///             BootDiagnostics = new AzureNative.Compute.Inputs.BootDiagnosticsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///             },
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "{vm-name}",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "vmOSdisk",
+    ///             },
+    ///         },
+    ///         UserData = "RXhhbXBsZSBVc2VyRGF0YQ==",
+    ///         VmName = "{vm-name}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM with VM Size Properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         DiagnosticsProfile = new AzureNative.Compute.Inputs.DiagnosticsProfileArgs
+    ///         {
+    ///             BootDiagnostics = new AzureNative.Compute.Inputs.BootDiagnosticsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///             },
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D4_v3",
+    ///             VmSizeProperties = new AzureNative.Compute.Inputs.VMSizePropertiesArgs
+    ///             {
+    ///                 VCPUsAvailable = 1,
+    ///                 VCPUsPerCore = 1,
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         UserData = "U29tZSBDdXN0b20gRGF0YQ==",
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM with network interface configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkApiVersion = "2020-11-01",
+    ///             NetworkInterfaceConfigurations = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.VirtualMachineNetworkInterfaceConfigurationArgs
+    ///                 {
+    ///                     DeleteOption = "Delete",
+    ///                     IpConfigurations = new[]
+    ///                     {
+    ///                         new AzureNative.Compute.Inputs.VirtualMachineNetworkInterfaceIPConfigurationArgs
+    ///                         {
+    ///                             Name = "{ip-config-name}",
+    ///                             Primary = true,
+    ///                             PublicIPAddressConfiguration = new AzureNative.Compute.Inputs.VirtualMachinePublicIPAddressConfigurationArgs
+    ///                             {
+    ///                                 DeleteOption = "Detach",
+    ///                                 Name = "{publicIP-config-name}",
+    ///                                 PublicIPAllocationMethod = "Static",
+    ///                                 Sku = new AzureNative.Compute.Inputs.PublicIPAddressSkuArgs
+    ///                                 {
+    ///                                     Name = "Basic",
+    ///                                     Tier = "Global",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "{nic-config-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM with securityType ConfidentialVM with Customer Managed Keys
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_DC2as_v5",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SecurityProfile = new AzureNative.Compute.Inputs.SecurityProfileArgs
+    ///         {
+    ///             SecurityType = "ConfidentialVM",
+    ///             UefiSettings = new AzureNative.Compute.Inputs.UefiSettingsArgs
+    ///             {
+    ///                 SecureBootEnabled = true,
+    ///                 VTpmEnabled = true,
+    ///             },
+    ///         },
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "2019-datacenter-cvm",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "windows-cvm",
+    ///                 Version = "17763.2183.2109130127",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadOnly,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     SecurityProfile = new AzureNative.Compute.Inputs.VMDiskSecurityProfileArgs
+    ///                     {
+    ///                         DiskEncryptionSet = new AzureNative.Compute.Inputs.DiskEncryptionSetParametersArgs
+    ///                         {
+    ///                             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                         },
+    ///                         SecurityEncryptionType = "DiskWithVMGuestState",
+    ///                     },
+    ///                     StorageAccountType = "StandardSSD_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a VM with securityType ConfidentialVM with Platform Managed Keys
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_DC2as_v5",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SecurityProfile = new AzureNative.Compute.Inputs.SecurityProfileArgs
+    ///         {
+    ///             SecurityType = "ConfidentialVM",
+    ///             UefiSettings = new AzureNative.Compute.Inputs.UefiSettingsArgs
+    ///             {
+    ///                 SecureBootEnabled = true,
+    ///                 VTpmEnabled = true,
+    ///             },
+    ///         },
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "2019-datacenter-cvm",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "windows-cvm",
+    ///                 Version = "17763.2183.2109130127",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadOnly,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     SecurityProfile = new AzureNative.Compute.Inputs.VMDiskSecurityProfileArgs
+    ///                     {
+    ///                         SecurityEncryptionType = "DiskWithVMGuestState",
+    ///                     },
+    ///                     StorageAccountType = "StandardSSD_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Windows vm with a patch setting assessmentMode of ImageDefault.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             WindowsConfiguration = new AzureNative.Compute.Inputs.WindowsConfigurationArgs
+    ///             {
+    ///                 EnableAutomaticUpdates = true,
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.PatchSettingsArgs
+    ///                 {
+    ///                     AssessmentMode = "ImageDefault",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Windows vm with a patch setting patchMode of AutomaticByOS.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/nsgExistingNic",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             WindowsConfiguration = new AzureNative.Compute.Inputs.WindowsConfigurationArgs
+    ///             {
+    ///                 EnableAutomaticUpdates = true,
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.PatchSettingsArgs
+    ///                 {
+    ///                     PatchMode = "AutomaticByOS",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Windows vm with a patch setting patchMode of AutomaticByPlatform and AutomaticByPlatformSettings.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             WindowsConfiguration = new AzureNative.Compute.Inputs.WindowsConfigurationArgs
+    ///             {
+    ///                 EnableAutomaticUpdates = true,
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.PatchSettingsArgs
+    ///                 {
+    ///                     AssessmentMode = "AutomaticByPlatform",
+    ///                     AutomaticByPlatformSettings = new AzureNative.Compute.Inputs.WindowsVMGuestPatchAutomaticByPlatformSettingsArgs
+    ///                     {
+    ///                         RebootSetting = "Never",
+    ///                     },
+    ///                     PatchMode = "AutomaticByPlatform",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Windows vm with a patch setting patchMode of AutomaticByPlatform and enableHotpatching set to true.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             WindowsConfiguration = new AzureNative.Compute.Inputs.WindowsConfigurationArgs
+    ///             {
+    ///                 EnableAutomaticUpdates = true,
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.PatchSettingsArgs
+    ///                 {
+    ///                     EnableHotpatching = true,
+    ///                     PatchMode = "AutomaticByPlatform",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Windows vm with a patch setting patchMode of Manual.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             WindowsConfiguration = new AzureNative.Compute.Inputs.WindowsConfigurationArgs
+    ///             {
+    ///                 EnableAutomaticUpdates = true,
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.PatchSettingsArgs
+    ///                 {
+    ///                     PatchMode = "Manual",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Windows vm with patch settings patchMode and assessmentMode set to AutomaticByPlatform.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             WindowsConfiguration = new AzureNative.Compute.Inputs.WindowsConfigurationArgs
+    ///             {
+    ///                 EnableAutomaticUpdates = true,
+    ///                 PatchSettings = new AzureNative.Compute.Inputs.PatchSettingsArgs
+    ///                 {
+    ///                     AssessmentMode = "AutomaticByPlatform",
+    ///                     PatchMode = "AutomaticByPlatform",
+    ///                 },
+    ///                 ProvisionVMAgent = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a custom-image vm from an unmanaged generalized os image.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 Image = new AzureNative.Compute.Inputs.VirtualHardDiskArgs
+    ///                 {
+    ///                     Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/{existing-generalized-os-image-blob-name}.vhd",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///                 OsType = AzureNative.Compute.OperatingSystemTypes.Windows,
+    ///                 Vhd = new AzureNative.Compute.Inputs.VirtualHardDiskArgs
+    ///                 {
+    ///                     Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+    ///                 },
+    ///             },
+    ///         },
+    ///         VmName = "{vm-name}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a platform-image vm with unmanaged os and data disks.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             DataDisks = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.DataDiskArgs
+    ///                 {
+    ///                     CreateOption = "Empty",
+    ///                     DiskSizeGB = 1023,
+    ///                     Lun = 0,
+    ///                     Vhd = new AzureNative.Compute.Inputs.VirtualHardDiskArgs
+    ///                     {
+    ///                         Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk0.vhd",
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Compute.Inputs.DataDiskArgs
+    ///                 {
+    ///                     CreateOption = "Empty",
+    ///                     DiskSizeGB = 1023,
+    ///                     Lun = 1,
+    ///                     Vhd = new AzureNative.Compute.Inputs.VirtualHardDiskArgs
+    ///                     {
+    ///                         Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk1.vhd",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 Name = "myVMosdisk",
+    ///                 Vhd = new AzureNative.Compute.Inputs.VirtualHardDiskArgs
+    ///                 {
+    ///                     Uri = "http://{existing-storage-account-name}.blob.core.windows.net/{existing-container-name}/myDisk.vhd",
+    ///                 },
+    ///             },
+    ///         },
+    ///         VmName = "{vm-name}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm from a custom image.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm from a generalized shared image.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/mySharedGallery/images/mySharedImage",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm from a specialized shared image.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/mySharedGallery/images/mySharedImage",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm in a Virtual Machine Scale Set with customer assigned platformFaultDomain.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         PlatformFaultDomain = 1,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VirtualMachineScaleSet = new AzureNative.Compute.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/{existing-flex-vmss-name-with-platformFaultDomainCount-greater-than-1}",
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm in an availability set.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         AvailabilitySet = new AzureNative.Compute.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/{existing-availability-set-name}",
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with Application Profile.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         ApplicationProfile = new AzureNative.Compute.Inputs.ApplicationProfileArgs
+    ///         {
+    ///             GalleryApplications = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.VMGalleryApplicationArgs
+    ///                 {
+    ///                     ConfigurationReference = "https://mystorageaccount.blob.core.windows.net/configurations/settings.config",
+    ///                     EnableAutomaticUpgrade = false,
+    ///                     Order = 1,
+    ///                     PackageReferenceId = "/subscriptions/32c17a9e-aa7b-4ba5-a45b-e324116b6fdb/resourceGroups/myresourceGroupName2/providers/Microsoft.Compute/galleries/myGallery1/applications/MyApplication1/versions/1.0",
+    ///                     Tags = "myTag1",
+    ///                     TreatFailureAsDeploymentFailure = false,
+    ///                 },
+    ///                 new AzureNative.Compute.Inputs.VMGalleryApplicationArgs
+    ///                 {
+    ///                     PackageReferenceId = "/subscriptions/32c17a9e-aa7b-4ba5-a45b-e324116b6fdg/resourceGroups/myresourceGroupName3/providers/Microsoft.Compute/galleries/myGallery2/applications/MyApplication2/versions/1.1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "{image_offer}",
+    ///                 Publisher = "{image_publisher}",
+    ///                 Sku = "{image_sku}",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with DiskEncryptionSet resource id in the os disk and data disk.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             DataDisks = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.DataDiskArgs
+    ///                 {
+    ///                     Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                     CreateOption = "Empty",
+    ///                     DiskSizeGB = 1023,
+    ///                     Lun = 0,
+    ///                     ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         DiskEncryptionSet = new AzureNative.Compute.Inputs.DiskEncryptionSetParametersArgs
+    ///                         {
+    ///                             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                         },
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Compute.Inputs.DataDiskArgs
+    ///                 {
+    ///                     Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                     CreateOption = "Attach",
+    ///                     DiskSizeGB = 1023,
+    ///                     Lun = 1,
+    ///                     ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                     {
+    ///                         DiskEncryptionSet = new AzureNative.Compute.Inputs.DiskEncryptionSetParametersArgs
+    ///                         {
+    ///                             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                         },
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/{existing-managed-disk-name}",
+    ///                         StorageAccountType = "Standard_LRS",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/{existing-custom-image-name}",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     DiskEncryptionSet = new AzureNative.Compute.Inputs.DiskEncryptionSetParametersArgs
+    ///                     {
+    ///                         Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///                     },
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with Host Encryption using encryptionAtHost property.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_DS1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         Plan = new AzureNative.Compute.Inputs.PlanArgs
+    ///         {
+    ///             Name = "windows2016",
+    ///             Product = "windows-data-science-vm",
+    ///             Publisher = "microsoft-ads",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SecurityProfile = new AzureNative.Compute.Inputs.SecurityProfileArgs
+    ///         {
+    ///             EncryptionAtHost = true,
+    ///         },
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///                 Sku = "windows2016",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadOnly,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with Scheduled Events Profile
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         DiagnosticsProfile = new AzureNative.Compute.Inputs.DiagnosticsProfileArgs
+    ///         {
+    ///             BootDiagnostics = new AzureNative.Compute.Inputs.BootDiagnosticsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///             },
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ScheduledEventsProfile = new AzureNative.Compute.Inputs.ScheduledEventsProfileArgs
+    ///         {
+    ///             OsImageNotificationProfile = new AzureNative.Compute.Inputs.OSImageNotificationProfileArgs
+    ///             {
+    ///                 Enable = true,
+    ///                 NotBeforeTimeout = "PT15M",
+    ///             },
+    ///             TerminateNotificationProfile = new AzureNative.Compute.Inputs.TerminateNotificationProfileArgs
+    ///             {
+    ///                 Enable = true,
+    ///                 NotBeforeTimeout = "PT10M",
+    ///             },
+    ///         },
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with a marketplace image plan.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         Plan = new AzureNative.Compute.Inputs.PlanArgs
+    ///         {
+    ///             Name = "windows2016",
+    ///             Product = "windows-data-science-vm",
+    ///             Publisher = "microsoft-ads",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///                 Sku = "windows2016",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with an extensions time budget.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         DiagnosticsProfile = new AzureNative.Compute.Inputs.DiagnosticsProfileArgs
+    ///         {
+    ///             BootDiagnostics = new AzureNative.Compute.Inputs.BootDiagnosticsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///             },
+    ///         },
+    ///         ExtensionsTimeBudget = "PT30M",
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with boot diagnostics.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         DiagnosticsProfile = new AzureNative.Compute.Inputs.DiagnosticsProfileArgs
+    ///         {
+    ///             BootDiagnostics = new AzureNative.Compute.Inputs.BootDiagnosticsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 StorageUri = "http://{existing-storage-account-name}.blob.core.windows.net",
+    ///             },
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with empty data disks.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             DataDisks = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.DataDiskArgs
+    ///                 {
+    ///                     CreateOption = "Empty",
+    ///                     DiskSizeGB = 1023,
+    ///                     Lun = 0,
+    ///                 },
+    ///                 new AzureNative.Compute.Inputs.DataDiskArgs
+    ///                 {
+    ///                     CreateOption = "Empty",
+    ///                     DiskSizeGB = 1023,
+    ///                     Lun = 1,
+    ///                 },
+    ///             },
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with ephemeral os disk provisioning in Cache disk using placement property.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_DS1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         Plan = new AzureNative.Compute.Inputs.PlanArgs
+    ///         {
+    ///             Name = "windows2016",
+    ///             Product = "windows-data-science-vm",
+    ///             Publisher = "microsoft-ads",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///                 Sku = "windows2016",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadOnly,
+    ///                 CreateOption = "FromImage",
+    ///                 DiffDiskSettings = new AzureNative.Compute.Inputs.DiffDiskSettingsArgs
+    ///                 {
+    ///                     Option = "Local",
+    ///                     Placement = "CacheDisk",
+    ///                 },
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with ephemeral os disk provisioning in Resource disk using placement property.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_DS1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         Plan = new AzureNative.Compute.Inputs.PlanArgs
+    ///         {
+    ///             Name = "windows2016",
+    ///             Product = "windows-data-science-vm",
+    ///             Publisher = "microsoft-ads",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///                 Sku = "windows2016",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadOnly,
+    ///                 CreateOption = "FromImage",
+    ///                 DiffDiskSettings = new AzureNative.Compute.Inputs.DiffDiskSettingsArgs
+    ///                 {
+    ///                     Option = "Local",
+    ///                     Placement = "ResourceDisk",
+    ///                 },
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with ephemeral os disk.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_DS1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         Plan = new AzureNative.Compute.Inputs.PlanArgs
+    ///         {
+    ///             Name = "windows2016",
+    ///             Product = "windows-data-science-vm",
+    ///             Publisher = "microsoft-ads",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///                 Sku = "windows2016",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadOnly,
+    ///                 CreateOption = "FromImage",
+    ///                 DiffDiskSettings = new AzureNative.Compute.Inputs.DiffDiskSettingsArgs
+    ///                 {
+    ///                     Option = "Local",
+    ///                 },
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with managed boot diagnostics.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         DiagnosticsProfile = new AzureNative.Compute.Inputs.DiagnosticsProfileArgs
+    ///         {
+    ///             BootDiagnostics = new AzureNative.Compute.Inputs.BootDiagnosticsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with password authentication.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with premium storage.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "MicrosoftWindowsServer",
+    ///                 Sku = "2016-Datacenter",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Premium_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a vm with ssh authentication.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///             LinuxConfiguration = new AzureNative.Compute.Inputs.LinuxConfigurationArgs
+    ///             {
+    ///                 DisablePasswordAuthentication = true,
+    ///                 Ssh = new AzureNative.Compute.Inputs.SshConfigurationArgs
+    ///                 {
+    ///                     PublicKeys = new[]
+    ///                     {
+    ///                         new AzureNative.Compute.Inputs.SshPublicKeyArgs
+    ///                         {
+    ///                             KeyData = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCeClRAk2ipUs/l5voIsDC5q9RI+YSRd1Bvd/O+axgY4WiBzG+4FwJWZm/mLLe5DoOdHQwmU2FrKXZSW4w2sYE70KeWnrFViCOX5MTVvJgPE8ClugNl8RWth/tU849DvM9sT7vFgfVSHcAS2yDRyDlueii+8nF2ym8XWAPltFVCyLHRsyBp5YPqK8JFYIa1eybKsY3hEAxRCA+/7bq8et+Gj3coOsuRmrehav7rE6N12Pb80I6ofa6SM5XNYq4Xk0iYNx7R3kdz0Jj9XgZYWjAHjJmT0gTRoOnt6upOuxK7xI/ykWrllgpXrCPu3Ymz+c+ujaqcxDopnAl2lmf69/J1",
+    ///                             Path = "/home/{your-username}/.ssh/authorized_keys",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "{image_offer}",
+    ///                 Publisher = "{image_publisher}",
+    ///                 Sku = "{image_sku}",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadWrite,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a VM with capacity reservation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.Compute.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         CapacityReservation = new AzureNative.Compute.Inputs.CapacityReservationProfileArgs
+    ///         {
+    ///             CapacityReservationGroup = new AzureNative.Compute.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/CapacityReservationGroups/{crgName}",
+    ///             },
+    ///         },
+    ///         HardwareProfile = new AzureNative.Compute.Inputs.HardwareProfileArgs
+    ///         {
+    ///             VmSize = "Standard_DS1_v2",
+    ///         },
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.Compute.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.NetworkInterfaceReferenceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/{existing-nic-name}",
+    ///                     Primary = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.Compute.Inputs.OSProfileArgs
+    ///         {
+    ///             AdminPassword = "{your-password}",
+    ///             AdminUsername = "{your-username}",
+    ///             ComputerName = "myVM",
+    ///         },
+    ///         Plan = new AzureNative.Compute.Inputs.PlanArgs
+    ///         {
+    ///             Name = "windows2016",
+    ///             Product = "windows-data-science-vm",
+    ///             Publisher = "microsoft-ads",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StorageProfile = new AzureNative.Compute.Inputs.StorageProfileArgs
+    ///         {
+    ///             ImageReference = new AzureNative.Compute.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "windows-data-science-vm",
+    ///                 Publisher = "microsoft-ads",
+    ///                 Sku = "windows2016",
+    ///                 Version = "latest",
+    ///             },
+    ///             OsDisk = new AzureNative.Compute.Inputs.OSDiskArgs
+    ///             {
+    ///                 Caching = AzureNative.Compute.CachingTypes.ReadOnly,
+    ///                 CreateOption = "FromImage",
+    ///                 ManagedDisk = new AzureNative.Compute.Inputs.ManagedDiskParametersArgs
+    ///                 {
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///                 Name = "myVMosdisk",
+    ///             },
+    ///         },
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:VirtualMachine myVM /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource

@@ -212,6 +212,36 @@ class IscsiDisk(pulumi.CustomResource):
         """
         The iSCSI disk.
 
+        ## Example Usage
+        ### IscsiDisksCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iscsi_disk = azure_native.storsimple.v20161001.IscsiDisk("iscsiDisk",
+            access_control_records=[],
+            data_policy=azure_native.storsimple/v20161001.DataPolicy.TIERED,
+            description="Demo IscsiDisk for SDK Test Tiered",
+            device_name="HSDK-0NZI14MDTF",
+            disk_name="Auto-TestIscsiDisk1",
+            disk_status=azure_native.storsimple/v20161001.DiskStatus.ONLINE,
+            iscsi_server_name="HSDK-0NZI14MDTF",
+            manager_name="hAzureSDKOperations",
+            monitoring_status=azure_native.storsimple/v20161001.MonitoringStatus.ENABLED,
+            provisioned_capacity_in_bytes=536870912000,
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:IscsiDisk Auto-TestIscsiDisk1 /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-0NZI14MDTF/iscsiServers/HSDK-0NZI14MDTF/disks/Auto-TestIscsiDisk1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_records: The access control records.
@@ -234,6 +264,36 @@ class IscsiDisk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The iSCSI disk.
+
+        ## Example Usage
+        ### IscsiDisksCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iscsi_disk = azure_native.storsimple.v20161001.IscsiDisk("iscsiDisk",
+            access_control_records=[],
+            data_policy=azure_native.storsimple/v20161001.DataPolicy.TIERED,
+            description="Demo IscsiDisk for SDK Test Tiered",
+            device_name="HSDK-0NZI14MDTF",
+            disk_name="Auto-TestIscsiDisk1",
+            disk_status=azure_native.storsimple/v20161001.DiskStatus.ONLINE,
+            iscsi_server_name="HSDK-0NZI14MDTF",
+            manager_name="hAzureSDKOperations",
+            monitoring_status=azure_native.storsimple/v20161001.MonitoringStatus.ENABLED,
+            provisioned_capacity_in_bytes=536870912000,
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:IscsiDisk Auto-TestIscsiDisk1 /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-0NZI14MDTF/iscsiServers/HSDK-0NZI14MDTF/disks/Auto-TestIscsiDisk1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IscsiDiskArgs args: The arguments to use to populate this resource's properties.

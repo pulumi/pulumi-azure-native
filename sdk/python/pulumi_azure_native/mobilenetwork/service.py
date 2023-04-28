@@ -165,6 +165,62 @@ class Service(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.mobilenetwork.Service("service",
+            location="eastus",
+            mobile_network_name="testMobileNetwork",
+            pcc_rules=[{
+                "ruleName": "default-rule",
+                "rulePrecedence": 255,
+                "ruleQosPolicy": azure_native.mobilenetwork.PccRuleQosPolicyArgs(
+                    allocation_and_retention_priority_level=9,
+                    five_qi=9,
+                    maximum_bit_rate=azure_native.mobilenetwork.AmbrArgs(
+                        downlink="1 Gbps",
+                        uplink="500 Mbps",
+                    ),
+                    preemption_capability="NotPreempt",
+                    preemption_vulnerability="Preemptable",
+                ),
+                "serviceDataFlowTemplates": [azure_native.mobilenetwork.ServiceDataFlowTemplateArgs(
+                    direction="Uplink",
+                    ports=[],
+                    protocol=["ip"],
+                    remote_ip_list=["10.3.4.0/24"],
+                    template_name="IP-to-server",
+                )],
+                "trafficControl": "Enabled",
+            }],
+            resource_group_name="rg1",
+            service_name="TestService",
+            service_precedence=255,
+            service_qos_policy=azure_native.mobilenetwork.QosPolicyResponseArgs(
+                allocation_and_retention_priority_level=9,
+                five_qi=9,
+                maximum_bit_rate={
+                    "downlink": "1 Gbps",
+                    "uplink": "500 Mbps",
+                },
+                preemption_capability="NotPreempt",
+                preemption_vulnerability="Preemptable",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:Service testPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/TestService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -186,6 +242,62 @@ class Service(pulumi.CustomResource):
         Service resource. Must be created in the same location as its parent mobile network.
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.mobilenetwork.Service("service",
+            location="eastus",
+            mobile_network_name="testMobileNetwork",
+            pcc_rules=[{
+                "ruleName": "default-rule",
+                "rulePrecedence": 255,
+                "ruleQosPolicy": azure_native.mobilenetwork.PccRuleQosPolicyArgs(
+                    allocation_and_retention_priority_level=9,
+                    five_qi=9,
+                    maximum_bit_rate=azure_native.mobilenetwork.AmbrArgs(
+                        downlink="1 Gbps",
+                        uplink="500 Mbps",
+                    ),
+                    preemption_capability="NotPreempt",
+                    preemption_vulnerability="Preemptable",
+                ),
+                "serviceDataFlowTemplates": [azure_native.mobilenetwork.ServiceDataFlowTemplateArgs(
+                    direction="Uplink",
+                    ports=[],
+                    protocol=["ip"],
+                    remote_ip_list=["10.3.4.0/24"],
+                    template_name="IP-to-server",
+                )],
+                "trafficControl": "Enabled",
+            }],
+            resource_group_name="rg1",
+            service_name="TestService",
+            service_precedence=255,
+            service_qos_policy=azure_native.mobilenetwork.QosPolicyResponseArgs(
+                allocation_and_retention_priority_level=9,
+                five_qi=9,
+                maximum_bit_rate={
+                    "downlink": "1 Gbps",
+                    "uplink": "500 Mbps",
+                },
+                preemption_capability="NotPreempt",
+                preemption_vulnerability="Preemptable",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:Service testPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/TestService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

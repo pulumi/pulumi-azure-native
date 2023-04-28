@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Search.V20200801
 {
     /// <summary>
     /// Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnectionUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Search.V20200801.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+    ///         Properties = new AzureNative.Search.V20200801.Inputs.PrivateEndpointConnectionPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.Search.V20200801.Inputs.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Rejected for some reason",
+    ///                 Status = AzureNative.Search.V20200801.PrivateLinkServiceConnectionStatus.Rejected,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SearchServiceName = "mysearchservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:search/v20200801:PrivateEndpointConnection testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice/privateEndpointConnections/testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:search/v20200801:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

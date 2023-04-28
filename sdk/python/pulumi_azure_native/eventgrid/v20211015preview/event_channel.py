@@ -168,6 +168,36 @@ class EventChannel(pulumi.CustomResource):
         """
         Event Channel.
 
+        ## Example Usage
+        ### EventChannels_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_channel = azure_native.eventgrid.v20211015preview.EventChannel("eventChannel",
+            destination=azure_native.eventgrid.v20211015preview.EventChannelDestinationArgs(
+                azure_subscription_id="5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+                partner_topic_name="examplePartnerTopic1",
+                resource_group="examplerg2",
+            ),
+            event_channel_name="exampleEventChannelName1",
+            partner_namespace_name="examplePartnerNamespaceName1",
+            resource_group_name="examplerg",
+            source=azure_native.eventgrid.v20211015preview.EventChannelSourceArgs(
+                source="ContosoCorp.Accounts.User1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20211015preview:EventChannel exampleEventChannelName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerNamespaces/partnerNamespace123/eventChannels/exampleEventChannelName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventChannelDestinationArgs']] destination: Represents the destination of an event channel.
@@ -189,6 +219,36 @@ class EventChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Channel.
+
+        ## Example Usage
+        ### EventChannels_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_channel = azure_native.eventgrid.v20211015preview.EventChannel("eventChannel",
+            destination=azure_native.eventgrid.v20211015preview.EventChannelDestinationArgs(
+                azure_subscription_id="5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+                partner_topic_name="examplePartnerTopic1",
+                resource_group="examplerg2",
+            ),
+            event_channel_name="exampleEventChannelName1",
+            partner_namespace_name="examplePartnerNamespaceName1",
+            resource_group_name="examplerg",
+            source=azure_native.eventgrid.v20211015preview.EventChannelSourceArgs(
+                source="ContosoCorp.Accounts.User1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20211015preview:EventChannel exampleEventChannelName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerNamespaces/partnerNamespace123/eventChannels/exampleEventChannelName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventChannelArgs args: The arguments to use to populate this resource's properties.

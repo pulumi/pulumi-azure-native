@@ -12,6 +12,37 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// Markdown documentation details.
     /// API Version: 2022-08-01.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateDocumentation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var documentation = new AzureNative.ApiManagement.Documentation("documentation", new()
+    ///     {
+    ///         Content = "content",
+    ///         DocumentationId = "57d1f7558aa04f15146d9d8a",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Title = "Title",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:Documentation 57d1f7558aa04f15146d9d8a /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/documentations/57d1f7558aa04f15146d9d8a 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Documentation")]
     public partial class Documentation : global::Pulumi.CustomResource

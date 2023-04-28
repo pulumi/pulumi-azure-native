@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
  * API Version: 2023-04-01.
  * Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a SAP monitor
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const monitor = new azure_native.workloads.Monitor("monitor", {
+ *     appLocation: "westus",
+ *     location: "westus",
+ *     logAnalyticsWorkspaceArmId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.operationalinsights/workspaces/myWorkspace",
+ *     managedResourceGroupConfiguration: {
+ *         name: "myManagedRg",
+ *     },
+ *     monitorName: "mySapMonitor",
+ *     monitorSubnet: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+ *     resourceGroupName: "myResourceGroup",
+ *     routingPreference: "RouteAll",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads:monitor mySapMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/mySapMonitor 
+ * ```
  */
 export class Monitor extends pulumi.CustomResource {
     /**

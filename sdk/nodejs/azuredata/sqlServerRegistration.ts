@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * A SQL server registration.
  * API Version: 2019-07-24-preview.
  * Previous API Version: 2019-07-24-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates or updates a SQL Server registration.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlServerRegistration = new azure_native.azuredata.SqlServerRegistration("sqlServerRegistration", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlServerRegistrationName: "testsqlregistration",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azuredata:SqlServerRegistration testsqlregistration /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration 
+ * ```
  */
 export class SqlServerRegistration extends pulumi.CustomResource {
     /**

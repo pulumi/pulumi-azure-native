@@ -151,6 +151,123 @@ class Vault(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or Update Recovery Services vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.recoveryservices.Vault("vault",
+            identity=azure_native.recoveryservices.IdentityDataResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            properties=azure_native.recoveryservices.VaultPropertiesArgs(
+                public_network_access="Enabled",
+            ),
+            resource_group_name="Default-RecoveryServices-ResourceGroup",
+            sku=azure_native.recoveryservices.SkuResponseArgs(
+                name="Standard",
+            ),
+            vault_name="swaggerExample")
+
+        ```
+        ### Create or Update Vault With Monitoring Setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.recoveryservices.Vault("vault",
+            identity=azure_native.recoveryservices.IdentityDataResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            properties=azure_native.recoveryservices.VaultPropertiesResponseArgs(
+                monitoring_settings={
+                    "azureMonitorAlertSettings": azure_native.recoveryservices.AzureMonitorAlertSettingsArgs(
+                        alerts_for_all_job_failures="Enabled",
+                    ),
+                    "classicAlertSettings": azure_native.recoveryservices.ClassicAlertSettingsArgs(
+                        alerts_for_critical_operations="Disabled",
+                    ),
+                },
+                public_network_access="Enabled",
+            ),
+            resource_group_name="Default-RecoveryServices-ResourceGroup",
+            sku=azure_native.recoveryservices.SkuResponseArgs(
+                name="Standard",
+            ),
+            vault_name="swaggerExample")
+
+        ```
+        ### Create or Update Vault with CustomerManagedKeys
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.recoveryservices.Vault("vault",
+            identity=azure_native.recoveryservices.IdentityDataResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi": {},
+                },
+            ),
+            location="West US",
+            properties=azure_native.recoveryservices.VaultPropertiesResponseArgs(
+                encryption={
+                    "infrastructureEncryption": "Enabled",
+                    "kekIdentity": azure_native.recoveryservices.CmkKekIdentityArgs(
+                        user_assigned_identity="/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi",
+                    ),
+                    "keyVaultProperties": azure_native.recoveryservices.CmkKeyVaultPropertiesArgs(
+                        key_uri="https://cmk2xkv.vault.azure.net/keys/Key1/0767b348bb1a4c07baa6c4ec0055d2b3",
+                    ),
+                },
+                public_network_access="Enabled",
+            ),
+            resource_group_name="Default-RecoveryServices-ResourceGroup",
+            sku=azure_native.recoveryservices.SkuResponseArgs(
+                name="Standard",
+            ),
+            vault_name="swaggerExample")
+
+        ```
+        ### Create or Update Vault with User Assigned Identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.recoveryservices.Vault("vault",
+            identity=azure_native.recoveryservices.IdentityDataResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi": {},
+                },
+            ),
+            location="West US",
+            properties=azure_native.recoveryservices.VaultPropertiesArgs(
+                public_network_access="Enabled",
+            ),
+            resource_group_name="Default-RecoveryServices-ResourceGroup",
+            sku=azure_native.recoveryservices.SkuResponseArgs(
+                name="Standard",
+            ),
+            vault_name="swaggerExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:Vault swaggerExample /subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/Default-RecoveryServices-ResourceGroup/providers/Microsoft.RecoveryServices/vaults/swaggerExample 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityDataArgs']] identity: Identity for the resource.
@@ -171,6 +288,123 @@ class Vault(pulumi.CustomResource):
         Resource information, as returned by the resource provider.
         API Version: 2023-02-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or Update Recovery Services vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.recoveryservices.Vault("vault",
+            identity=azure_native.recoveryservices.IdentityDataResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            properties=azure_native.recoveryservices.VaultPropertiesArgs(
+                public_network_access="Enabled",
+            ),
+            resource_group_name="Default-RecoveryServices-ResourceGroup",
+            sku=azure_native.recoveryservices.SkuResponseArgs(
+                name="Standard",
+            ),
+            vault_name="swaggerExample")
+
+        ```
+        ### Create or Update Vault With Monitoring Setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.recoveryservices.Vault("vault",
+            identity=azure_native.recoveryservices.IdentityDataResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            properties=azure_native.recoveryservices.VaultPropertiesResponseArgs(
+                monitoring_settings={
+                    "azureMonitorAlertSettings": azure_native.recoveryservices.AzureMonitorAlertSettingsArgs(
+                        alerts_for_all_job_failures="Enabled",
+                    ),
+                    "classicAlertSettings": azure_native.recoveryservices.ClassicAlertSettingsArgs(
+                        alerts_for_critical_operations="Disabled",
+                    ),
+                },
+                public_network_access="Enabled",
+            ),
+            resource_group_name="Default-RecoveryServices-ResourceGroup",
+            sku=azure_native.recoveryservices.SkuResponseArgs(
+                name="Standard",
+            ),
+            vault_name="swaggerExample")
+
+        ```
+        ### Create or Update Vault with CustomerManagedKeys
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.recoveryservices.Vault("vault",
+            identity=azure_native.recoveryservices.IdentityDataResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi": {},
+                },
+            ),
+            location="West US",
+            properties=azure_native.recoveryservices.VaultPropertiesResponseArgs(
+                encryption={
+                    "infrastructureEncryption": "Enabled",
+                    "kekIdentity": azure_native.recoveryservices.CmkKekIdentityArgs(
+                        user_assigned_identity="/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi",
+                    ),
+                    "keyVaultProperties": azure_native.recoveryservices.CmkKeyVaultPropertiesArgs(
+                        key_uri="https://cmk2xkv.vault.azure.net/keys/Key1/0767b348bb1a4c07baa6c4ec0055d2b3",
+                    ),
+                },
+                public_network_access="Enabled",
+            ),
+            resource_group_name="Default-RecoveryServices-ResourceGroup",
+            sku=azure_native.recoveryservices.SkuResponseArgs(
+                name="Standard",
+            ),
+            vault_name="swaggerExample")
+
+        ```
+        ### Create or Update Vault with User Assigned Identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.recoveryservices.Vault("vault",
+            identity=azure_native.recoveryservices.IdentityDataResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi": {},
+                },
+            ),
+            location="West US",
+            properties=azure_native.recoveryservices.VaultPropertiesArgs(
+                public_network_access="Enabled",
+            ),
+            resource_group_name="Default-RecoveryServices-ResourceGroup",
+            sku=azure_native.recoveryservices.SkuResponseArgs(
+                name="Standard",
+            ),
+            vault_name="swaggerExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:Vault swaggerExample /subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/Default-RecoveryServices-ResourceGroup/providers/Microsoft.RecoveryServices/vaults/swaggerExample 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.

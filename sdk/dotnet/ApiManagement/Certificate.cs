@@ -13,6 +13,61 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Certificate details.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateCertificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.ApiManagement.Certificate("certificate", new()
+    ///     {
+    ///         CertificateId = "tempcert",
+    ///         Data = "****************Base 64 Encoded Certificate *******************************",
+    ///         Password = "****Certificate Password******",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateCertificateWithKeyVault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.ApiManagement.Certificate("certificate", new()
+    ///     {
+    ///         CertificateId = "templateCertkv",
+    ///         KeyVault = new AzureNative.ApiManagement.Inputs.KeyVaultContractCreatePropertiesArgs
+    ///         {
+    ///             IdentityClientId = "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+    ///             SecretIdentifier = "https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:Certificate templateCertkv /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/templateCertkv 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

@@ -9,6 +9,65 @@ import * as utilities from "../../utilities";
 
 /**
  * Workload deployment model.
+ *
+ * ## Example Usage
+ * ### WorkloadDeployment_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadDeployment = new azure_native.migrate.v20220501preview.WorkloadDeployment("workloadDeployment", {
+ *     modernizeProjectName: "l6r8",
+ *     properties: {
+ *         customProperties: {
+ *             instanceType: "IISAKSWorkloadDeployment",
+ *         },
+ *         displayName: "wqe",
+ *         targetPlatform: "AzureKubernetesService",
+ *         workloadInstanceProperties: {
+ *             customProperties: {
+ *                 instanceType: "IISWorkload",
+ *                 webAppArmId: "xseseqsrzdiga",
+ *                 webAppSiteName: "mirgzmy",
+ *             },
+ *             displayName: "juoorbubchvk",
+ *             masterSiteName: "ubks",
+ *             migrateAgentId: "aqgzsxqbk",
+ *             name: "wonkuhgsafzviuwqerzdmme",
+ *             sourceName: "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+ *             sourcePlatform: "eh",
+ *         },
+ *     },
+ *     resourceGroupName: "rgmigrateEngine",
+ *     tags: {
+ *         key8241: "gcyxztzr",
+ *     },
+ *     workloadDeploymentName: "l4t",
+ * });
+ *
+ * ```
+ * ### WorkloadDeployment_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadDeployment = new azure_native.migrate.v20220501preview.WorkloadDeployment("workloadDeployment", {
+ *     modernizeProjectName: "tc",
+ *     resourceGroupName: "rgmigrateEngine",
+ *     workloadDeploymentName: "wo2rs4",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20220501preview:WorkloadDeployment obqwiueoajtezyusejl jvwgspagsnmigxvl 
+ * ```
  */
 export class WorkloadDeployment extends pulumi.CustomResource {
     /**

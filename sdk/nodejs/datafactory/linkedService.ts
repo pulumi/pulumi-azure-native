@@ -11,6 +11,57 @@ import * as utilities from "../utilities";
  * Linked service resource type.
  * API Version: 2018-06-01.
  * Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### LinkedServices_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedService = new azure_native.datafactory.LinkedService("linkedService", {
+ *     factoryName: "exampleFactoryName",
+ *     linkedServiceName: "exampleLinkedService",
+ *     properties: {
+ *         connectionString: {
+ *             type: "SecureString",
+ *             value: "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+ *         },
+ *         type: "AzureStorage",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ * ### LinkedServices_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedService = new azure_native.datafactory.LinkedService("linkedService", {
+ *     factoryName: "exampleFactoryName",
+ *     linkedServiceName: "exampleLinkedService",
+ *     properties: {
+ *         connectionString: {
+ *             type: "SecureString",
+ *             value: "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+ *         },
+ *         description: "Example description",
+ *         type: "AzureStorage",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datafactory:LinkedService exampleLinkedService /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/linkedservices/exampleLinkedService 
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Mobile network resource.
+ *
+ * ## Example Usage
+ * ### Create mobile network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mobileNetwork = new azure_native.mobilenetwork.v20221101.MobileNetwork("mobileNetwork", {
+ *     location: "eastus",
+ *     mobileNetworkName: "testMobileNetwork",
+ *     publicLandMobileNetworkIdentifier: {
+ *         mcc: "001",
+ *         mnc: "01",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork/v20221101:MobileNetwork testMobileNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork 
+ * ```
  */
 export class MobileNetwork extends pulumi.CustomResource {
     /**

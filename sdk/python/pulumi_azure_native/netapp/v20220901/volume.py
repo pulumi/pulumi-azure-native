@@ -803,6 +803,34 @@ class Volume(pulumi.CustomResource):
         """
         Volume resource
 
+        ## Example Usage
+        ### Volumes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.netapp.v20220901.Volume("volume",
+            account_name="account1",
+            creation_token="my-unique-file-path",
+            location="eastus",
+            pool_name="pool1",
+            resource_group_name="myRG",
+            service_level="Premium",
+            subnet_id="/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+            usage_threshold=107374182400,
+            volume_name="volume1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20220901:Volume account1/pool1/volume1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -857,6 +885,34 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Volume resource
+
+        ## Example Usage
+        ### Volumes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.netapp.v20220901.Volume("volume",
+            account_name="account1",
+            creation_token="my-unique-file-path",
+            location="eastus",
+            pool_name="pool1",
+            resource_group_name="myRG",
+            service_level="Premium",
+            subnet_id="/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+            usage_threshold=107374182400,
+            volume_name="volume1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20220901:Volume account1/pool1/volume1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

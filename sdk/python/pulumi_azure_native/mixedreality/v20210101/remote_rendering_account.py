@@ -183,6 +183,31 @@ class RemoteRenderingAccount(pulumi.CustomResource):
         """
         RemoteRenderingAccount Response.
 
+        ## Example Usage
+        ### Create remote rendering account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remote_rendering_account = azure_native.mixedreality.v20210101.RemoteRenderingAccount("remoteRenderingAccount",
+            account_name="MyAccount",
+            identity=azure_native.mixedreality.v20210101.IdentityArgs(
+                type=azure_native.mixedreality/v20210101.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mixedreality/v20210101:RemoteRenderingAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/remoteRenderingAccounts/MyAccount 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.
@@ -203,6 +228,31 @@ class RemoteRenderingAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         RemoteRenderingAccount Response.
+
+        ## Example Usage
+        ### Create remote rendering account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remote_rendering_account = azure_native.mixedreality.v20210101.RemoteRenderingAccount("remoteRenderingAccount",
+            account_name="MyAccount",
+            identity=azure_native.mixedreality.v20210101.IdentityArgs(
+                type=azure_native.mixedreality/v20210101.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mixedreality/v20210101:RemoteRenderingAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/remoteRenderingAccounts/MyAccount 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RemoteRenderingAccountArgs args: The arguments to use to populate this resource's properties.

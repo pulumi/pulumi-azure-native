@@ -113,6 +113,30 @@ class ServerKey(pulumi.CustomResource):
         API Version: 2020-01-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates a PostgreSQL Server key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_key = azure_native.dbforpostgresql.ServerKey("serverKey",
+            key_name="someVault_someKey_01234567890123456789012345678901",
+            resource_group_name="testrg",
+            server_key_type="AzureKeyVault",
+            server_name="testserver",
+            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:ServerKey omeVault_someKey_01234567890123456789012345678901 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/testserver/keys/someVault_someKey_01234567890123456789012345678901 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of the PostgreSQL Server key to be operated on (updated or created).
@@ -131,6 +155,30 @@ class ServerKey(pulumi.CustomResource):
         A PostgreSQL Server key.
         API Version: 2020-01-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates a PostgreSQL Server key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_key = azure_native.dbforpostgresql.ServerKey("serverKey",
+            key_name="someVault_someKey_01234567890123456789012345678901",
+            resource_group_name="testrg",
+            server_key_type="AzureKeyVault",
+            server_name="testserver",
+            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:ServerKey omeVault_someKey_01234567890123456789012345678901 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/testserver/keys/someVault_someKey_01234567890123456789012345678901 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerKeyArgs args: The arguments to use to populate this resource's properties.

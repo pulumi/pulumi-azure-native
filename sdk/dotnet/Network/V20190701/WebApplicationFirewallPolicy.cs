@@ -11,6 +11,105 @@ namespace Pulumi.AzureNative.Network.V20190701
 {
     /// <summary>
     /// Defines web application firewall policy.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a WAF policy within a resource group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webApplicationFirewallPolicy = new AzureNative.Network.V20190701.WebApplicationFirewallPolicy("webApplicationFirewallPolicy", new()
+    ///     {
+    ///         CustomRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20190701.Inputs.WebApplicationFirewallCustomRuleArgs
+    ///             {
+    ///                 Action = "Block",
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20190701.Inputs.MatchConditionArgs
+    ///                     {
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "192.168.1.0/24",
+    ///                             "10.0.0.0/24",
+    ///                         },
+    ///                         MatchVariables = new[]
+    ///                         {
+    ///                             new AzureNative.Network.V20190701.Inputs.MatchVariableArgs
+    ///                             {
+    ///                                 VariableName = "RemoteAddr",
+    ///                             },
+    ///                         },
+    ///                         Operator = "IPMatch",
+    ///                     },
+    ///                 },
+    ///                 Name = "Rule1",
+    ///                 Priority = 1,
+    ///                 RuleType = "MatchRule",
+    ///             },
+    ///             new AzureNative.Network.V20190701.Inputs.WebApplicationFirewallCustomRuleArgs
+    ///             {
+    ///                 Action = "Block",
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20190701.Inputs.MatchConditionArgs
+    ///                     {
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "192.168.1.0/24",
+    ///                         },
+    ///                         MatchVariables = new[]
+    ///                         {
+    ///                             new AzureNative.Network.V20190701.Inputs.MatchVariableArgs
+    ///                             {
+    ///                                 VariableName = "RemoteAddr",
+    ///                             },
+    ///                         },
+    ///                         Operator = "IPMatch",
+    ///                     },
+    ///                     new AzureNative.Network.V20190701.Inputs.MatchConditionArgs
+    ///                     {
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "Windows",
+    ///                         },
+    ///                         MatchVariables = new[]
+    ///                         {
+    ///                             new AzureNative.Network.V20190701.Inputs.MatchVariableArgs
+    ///                             {
+    ///                                 Selector = "UserAgent",
+    ///                                 VariableName = "RequestHeaders",
+    ///                             },
+    ///                         },
+    ///                         Operator = "Contains",
+    ///                     },
+    ///                 },
+    ///                 Name = "Rule2",
+    ///                 Priority = 2,
+    ///                 RuleType = "MatchRule",
+    ///             },
+    ///         },
+    ///         Location = "WestUs",
+    ///         PolicyName = "Policy1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190701:WebApplicationFirewallPolicy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/Policy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190701:WebApplicationFirewallPolicy")]
     public partial class WebApplicationFirewallPolicy : global::Pulumi.CustomResource

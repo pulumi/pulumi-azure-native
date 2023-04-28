@@ -9,6 +9,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource group information.
+ *
+ * ## Example Usage
+ * ### Create or update a resource group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceGroup = new azure_native.resources.v20190501.ResourceGroup("resourceGroup", {
+ *     location: "eastus",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources/v20190501:ResourceGroup myResourceGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup 
+ * ```
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**

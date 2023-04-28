@@ -9,6 +9,54 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a catalog.
+ *
+ * ## Example Usage
+ * ### Catalogs_CreateOrUpdateAdo
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const catalog = new azure_native.devcenter.v20220901preview.Catalog("catalog", {
+ *     adoGit: {
+ *         branch: "main",
+ *         path: "/templates",
+ *         secretIdentifier: "https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+ *         uri: "https://contoso@dev.azure.com/contoso/contosoOrg/_git/centralrepo-fakecontoso",
+ *     },
+ *     catalogName: "{catalogName}",
+ *     devCenterName: "Contoso",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### Catalogs_CreateOrUpdateGitHub
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const catalog = new azure_native.devcenter.v20220901preview.Catalog("catalog", {
+ *     catalogName: "{catalogName}",
+ *     devCenterName: "Contoso",
+ *     gitHub: {
+ *         branch: "main",
+ *         path: "/templates",
+ *         secretIdentifier: "https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+ *         uri: "https://github.com/Contoso/centralrepo-fake.git",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter/v20220901preview:Catalog {catalogName} /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/catalogs/{catalogName} 
+ * ```
  */
 export class Catalog extends pulumi.CustomResource {
     /**

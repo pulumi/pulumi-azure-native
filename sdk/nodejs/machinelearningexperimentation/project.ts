@@ -8,6 +8,36 @@ import * as utilities from "../utilities";
  * An object that represents a machine learning project.
  * API Version: 2017-05-01-preview.
  * Previous API Version: 2017-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateProject
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const project = new azure_native.machinelearningexperimentation.Project("project", {
+ *     accountName: "testaccount",
+ *     friendlyName: "testName",
+ *     gitrepo: "https://github/abc",
+ *     location: "East US",
+ *     projectName: "testProject",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         tagKey1: "TagValue1",
+ *     },
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningexperimentation:Project testProject /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningExperimentation/accounts/testaccount/workspaces/testworkspace/projects/testProject 
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

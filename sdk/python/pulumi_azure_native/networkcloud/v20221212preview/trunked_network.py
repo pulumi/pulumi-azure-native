@@ -180,7 +180,46 @@ class TrunkedNetwork(pulumi.CustomResource):
                  vlans: Optional[pulumi.Input[Sequence[pulumi.Input[float]]]] = None,
                  __props__=None):
         """
-        Create a TrunkedNetwork resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update trunked network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trunked_network = azure_native.networkcloud.v20221212preview.TrunkedNetwork("trunkedNetwork",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            hybrid_aks_plugin_type="DPDK",
+            interface_name="eth0",
+            isolation_domain_ids=[
+                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+            ],
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            trunked_network_name="trunkedNetworkName",
+            vlans=[
+                12,
+                14,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:TrunkedNetwork trunkedNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/trunkedNetworks/trunkedNetworkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
@@ -200,7 +239,46 @@ class TrunkedNetwork(pulumi.CustomResource):
                  args: TrunkedNetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a TrunkedNetwork resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update trunked network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trunked_network = azure_native.networkcloud.v20221212preview.TrunkedNetwork("trunkedNetwork",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            hybrid_aks_plugin_type="DPDK",
+            interface_name="eth0",
+            isolation_domain_ids=[
+                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+                "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+            ],
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            trunked_network_name="trunkedNetworkName",
+            vlans=[
+                12,
+                14,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:TrunkedNetwork trunkedNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/trunkedNetworks/trunkedNetworkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param TrunkedNetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

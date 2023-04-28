@@ -11,6 +11,16 @@ namespace Pulumi.AzureNative.CostManagement.V20190301Preview
 {
     /// <summary>
     /// The Connector model definition
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement/v20190301preview:CloudConnector aws-123456789012 /providers/Microsoft.CostManagement/cloudConnectors/aws-123456789012 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20190301preview:CloudConnector")]
     public partial class CloudConnector : global::Pulumi.CustomResource

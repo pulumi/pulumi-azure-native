@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Data Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataVersion = new AzureNative.MachineLearningServices.V20210301Preview.DataVersion("dataVersion", new()
+    ///     {
+    ///         Name = "dataset123",
+    ///         Properties = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.DataVersionArgs
+    ///         {
+    ///             DatasetType = "Simple",
+    ///             DatastoreId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/datastores/mydatastore",
+    ///             Description = "string",
+    ///             IsAnonymous = true,
+    ///             Path = "path/to/file.csv",
+    ///             Properties = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         Version = "1",
+    ///         WorkspaceName = "workspace123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20210301preview:DataVersion 1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/data/dataset123/versions/1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:DataVersion")]
     public partial class DataVersion : global::Pulumi.CustomResource

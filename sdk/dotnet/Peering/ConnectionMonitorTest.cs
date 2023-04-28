@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.Peering
     /// The Connection Monitor Test class.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2021-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Connection Monitor Test
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectionMonitorTest = new AzureNative.Peering.ConnectionMonitorTest("connectionMonitorTest", new()
+    ///     {
+    ///         ConnectionMonitorTestName = "connectionMonitorTestName",
+    ///         Destination = "Example Destination",
+    ///         DestinationPort = 443,
+    ///         PeeringServiceName = "peeringServiceName",
+    ///         ResourceGroupName = "rgName",
+    ///         SourceAgent = "Example Source Agent",
+    ///         TestFrequencyInSec = 30,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering:ConnectionMonitorTest connectionMonitorTestName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName/connectionMonitorTests/connectionMonitorTestName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:ConnectionMonitorTest")]
     public partial class ConnectionMonitorTest : global::Pulumi.CustomResource

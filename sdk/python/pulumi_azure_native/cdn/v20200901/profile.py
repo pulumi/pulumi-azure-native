@@ -114,6 +114,31 @@ class Profile(pulumi.CustomResource):
         """
         CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
 
+        ## Example Usage
+        ### Profiles_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.cdn.v20200901.Profile("profile",
+            location="WestCentralUs",
+            profile_name="profile1",
+            resource_group_name="RG",
+            sku=azure_native.cdn.v20200901.SkuArgs(
+                name="Standard_Verizon",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Profile profile1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.
@@ -130,6 +155,31 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+
+        ## Example Usage
+        ### Profiles_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.cdn.v20200901.Profile("profile",
+            location="WestCentralUs",
+            profile_name="profile1",
+            resource_group_name="RG",
+            sku=azure_native.cdn.v20200901.SkuArgs(
+                name="Standard_Verizon",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Profile profile1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

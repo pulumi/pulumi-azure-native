@@ -11,6 +11,83 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents an automation rule.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an automation rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var automationRule = new AzureNative.SecurityInsights.V20190101Preview.AutomationRule("automationRule", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.SecurityInsights.V20190101Preview.Inputs.AutomationRuleModifyPropertiesActionArgs
+    ///             {
+    ///                 ActionConfiguration = new AzureNative.SecurityInsights.V20190101Preview.Inputs.AutomationRuleModifyPropertiesActionActionConfigurationArgs
+    ///                 {
+    ///                     Severity = "High",
+    ///                 },
+    ///                 ActionType = "ModifyProperties",
+    ///                 Order = 1,
+    ///             },
+    ///             new AzureNative.SecurityInsights.V20190101Preview.Inputs.AutomationRuleRunPlaybookActionArgs
+    ///             {
+    ///                 ActionConfiguration = new AzureNative.SecurityInsights.V20190101Preview.Inputs.AutomationRuleRunPlaybookActionActionConfigurationArgs
+    ///                 {
+    ///                     LogicAppResourceId = "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/IncidentPlaybook",
+    ///                     TenantId = "ee48efaf-50c6-411b-9345-b2bdc3eb4abc",
+    ///                 },
+    ///                 ActionType = "RunPlaybook",
+    ///                 Order = 2,
+    ///             },
+    ///         },
+    ///         AutomationRuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         DisplayName = "High severity incidents escalation",
+    ///         OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///         Order = 1,
+    ///         ResourceGroupName = "myRg",
+    ///         TriggeringLogic = new AzureNative.SecurityInsights.V20190101Preview.Inputs.AutomationRuleTriggeringLogicArgs
+    ///         {
+    ///             Conditions = new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "conditionProperties", new AzureNative.SecurityInsights.V20190101Preview.Inputs.AutomationRulePropertyValuesConditionConditionPropertiesArgs
+    ///                     {
+    ///                         Operator = "Contains",
+    ///                         PropertyName = "IncidentRelatedAnalyticRuleIds",
+    ///                         PropertyValues = new[]
+    ///                         {
+    ///                             "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/fab3d2d4-747f-46a7-8ef0-9c0be8112bf7",
+    ///                             "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/8deb8303-e94d-46ff-96e0-5fd94b33df1a",
+    ///                         },
+    ///                     } },
+    ///                     { "conditionType", "Property" },
+    ///                 },
+    ///             },
+    ///             IsEnabled = true,
+    ///             TriggersOn = "Incidents",
+    ///             TriggersWhen = "Created",
+    ///         },
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20190101preview:AutomationRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:AutomationRule")]
     public partial class AutomationRule : global::Pulumi.CustomResource

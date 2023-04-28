@@ -14,6 +14,45 @@ import * as utilities from "../utilities";
  * virtual machines and/or Hybrid AKS clusters.
  * API Version: 2022-12-12-preview.
  * Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update cloud services network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudServicesNetwork = new azure_native.networkcloud.CloudServicesNetwork("cloudServicesNetwork", {
+ *     additionalEgressEndpoints: [{
+ *         category: "azure-resource-management",
+ *         endpoints: [{
+ *             domainName: "https://storageaccountex.blob.core.windows.net",
+ *             port: 443,
+ *         }],
+ *     }],
+ *     cloudServicesNetworkName: "cloudServicesNetworkName",
+ *     enableDefaultEgressEndpoints: "False",
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:CloudServicesNetwork cloudServicesNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName 
+ * ```
  */
 export class CloudServicesNetwork extends pulumi.CustomResource {
     /**

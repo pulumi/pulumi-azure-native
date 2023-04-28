@@ -13,6 +13,81 @@ namespace Pulumi.AzureNative.Network
     /// ExpressRouteConnection resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ExpressRouteConnectionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteConnection = new AzureNative.Network.ExpressRouteConnection("expressRouteConnection", new()
+    ///     {
+    ///         AuthorizationKey = "authorizationKey",
+    ///         ConnectionName = "connectionName",
+    ///         ExpressRouteCircuitPeering = new AzureNative.Network.Inputs.ExpressRouteCircuitPeeringIdArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+    ///         },
+    ///         ExpressRouteGatewayName = "gateway-2",
+    ///         Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName",
+    ///         Name = "connectionName",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         RoutingConfiguration = new AzureNative.Network.Inputs.RoutingConfigurationArgs
+    ///         {
+    ///             AssociatedRouteTable = new AzureNative.Network.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+    ///             },
+    ///             InboundRouteMap = new AzureNative.Network.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+    ///             },
+    ///             OutboundRouteMap = new AzureNative.Network.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+    ///             },
+    ///             PropagatedRouteTables = new AzureNative.Network.Inputs.PropagatedRouteTableArgs
+    ///             {
+    ///                 Ids = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable2",
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
+    ///                     },
+    ///                 },
+    ///                 Labels = new[]
+    ///                 {
+    ///                     "label1",
+    ///                     "label2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         RoutingWeight = 2,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:ExpressRouteConnection connectionName /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteConnection")]
     public partial class ExpressRouteConnection : global::Pulumi.CustomResource

@@ -98,6 +98,31 @@ class AzureTrafficCollector(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2022-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a traffic collector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_traffic_collector = azure_native.networkfunction.AzureTrafficCollector("azureTrafficCollector",
+            azure_traffic_collector_name="atc",
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkfunction:AzureTrafficCollector atc /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.NetworkFunction/azureTrafficCollectors/atc 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_traffic_collector_name: Azure Traffic Collector name
@@ -115,6 +140,31 @@ class AzureTrafficCollector(pulumi.CustomResource):
         Azure Traffic Collector resource.
         API Version: 2022-11-01.
         Previous API Version: 2022-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a traffic collector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_traffic_collector = azure_native.networkfunction.AzureTrafficCollector("azureTrafficCollector",
+            azure_traffic_collector_name="atc",
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkfunction:AzureTrafficCollector atc /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.NetworkFunction/azureTrafficCollectors/atc 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AzureTrafficCollectorArgs args: The arguments to use to populate this resource's properties.

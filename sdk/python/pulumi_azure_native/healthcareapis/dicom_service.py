@@ -150,6 +150,29 @@ class DicomService(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a Dicom Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dicom_service = azure_native.healthcareapis.DicomService("dicomService",
+            dicom_service_name="blue",
+            location="westus",
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis:DicomService blue /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CorsConfigurationArgs']] cors_configuration: Dicom Service Cors configuration.
@@ -170,6 +193,29 @@ class DicomService(pulumi.CustomResource):
         The description of Dicom Service
         API Version: 2022-12-01.
         Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a Dicom Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dicom_service = azure_native.healthcareapis.DicomService("dicomService",
+            dicom_service_name="blue",
+            location="westus",
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis:DicomService blue /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DicomServiceArgs args: The arguments to use to populate this resource's properties.

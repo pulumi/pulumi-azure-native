@@ -97,6 +97,45 @@ class DevToolPortal(pulumi.CustomResource):
         """
         Dev Tool Portal resource
 
+        ## Example Usage
+        ### DevToolPortals_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_tool_portal = azure_native.appplatform.v20230301preview.DevToolPortal("devToolPortal",
+            dev_tool_portal_name="default",
+            properties=azure_native.appplatform.v20230301preview.DevToolPortalPropertiesResponseArgs(
+                features={
+                    "applicationAccelerator": azure_native.appplatform.v20230301preview.DevToolPortalFeatureDetailArgs(
+                        state="Enabled",
+                    ),
+                    "applicationLiveView": azure_native.appplatform.v20230301preview.DevToolPortalFeatureDetailArgs(
+                        state="Enabled",
+                    ),
+                },
+                public=True,
+                sso_properties=azure_native.appplatform.v20230301preview.DevToolPortalSsoPropertiesArgs(
+                    client_id="00000000-0000-0000-0000-000000000000",
+                    client_secret="xxxxx",
+                    metadata_url="https://login.microsoft.com/00000000-0000-0000-0000-000000000000/v2.0/.well-known/openid-configuration",
+                    scopes=["openid"],
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:DevToolPortal default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationLiveViews/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_tool_portal_name: The name of Dev Tool Portal.
@@ -112,6 +151,45 @@ class DevToolPortal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Dev Tool Portal resource
+
+        ## Example Usage
+        ### DevToolPortals_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_tool_portal = azure_native.appplatform.v20230301preview.DevToolPortal("devToolPortal",
+            dev_tool_portal_name="default",
+            properties=azure_native.appplatform.v20230301preview.DevToolPortalPropertiesResponseArgs(
+                features={
+                    "applicationAccelerator": azure_native.appplatform.v20230301preview.DevToolPortalFeatureDetailArgs(
+                        state="Enabled",
+                    ),
+                    "applicationLiveView": azure_native.appplatform.v20230301preview.DevToolPortalFeatureDetailArgs(
+                        state="Enabled",
+                    ),
+                },
+                public=True,
+                sso_properties=azure_native.appplatform.v20230301preview.DevToolPortalSsoPropertiesArgs(
+                    client_id="00000000-0000-0000-0000-000000000000",
+                    client_secret="xxxxx",
+                    metadata_url="https://login.microsoft.com/00000000-0000-0000-0000-000000000000/v2.0/.well-known/openid-configuration",
+                    scopes=["openid"],
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:DevToolPortal default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationLiveViews/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DevToolPortalArgs args: The arguments to use to populate this resource's properties.

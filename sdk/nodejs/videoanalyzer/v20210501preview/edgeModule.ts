@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The representation of an edge module.
+ *
+ * ## Example Usage
+ * ### Registers an edge module.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const edgeModule = new azure_native.videoanalyzer.v20210501preview.EdgeModule("edgeModule", {
+ *     accountName: "testaccount2",
+ *     edgeModuleName: "edgeModule1",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:videoanalyzer/v20210501preview:EdgeModule edgeModule1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/edgeModules/edgeModule1 
+ * ```
  */
 export class EdgeModule extends pulumi.CustomResource {
     /**

@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.ApiManagement.V20160707
 {
     /// <summary>
     /// Description of an API Management service resource.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20160707:ApiManagementService myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-07-07 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:apimanagement/v20160707:ApiManagementService")]

@@ -13,6 +13,52 @@ namespace Pulumi.AzureNative.Insights
     /// The log profile resource.
     /// API Version: 2016-03-01.
     /// Previous API Version: 2016-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a log profile
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var logProfile = new AzureNative.Insights.LogProfile("logProfile", new()
+    ///     {
+    ///         Categories = new[]
+    ///         {
+    ///             "Write",
+    ///             "Delete",
+    ///             "Action",
+    ///         },
+    ///         Location = "",
+    ///         Locations = new[]
+    ///         {
+    ///             "global",
+    ///         },
+    ///         LogProfileName = "Rac46PostSwapRG",
+    ///         RetentionPolicy = new AzureNative.Insights.Inputs.RetentionPolicyArgs
+    ///         {
+    ///             Days = 3,
+    ///             Enabled = true,
+    ///         },
+    ///         ServiceBusRuleId = "",
+    ///         StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights:LogProfile default /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/providers/microsoft.insights/logprofiles/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:LogProfile")]
     public partial class LogProfile : global::Pulumi.CustomResource

@@ -111,6 +111,27 @@ class EnergyService(pulumi.CustomResource):
         API Version: 2022-04-04-preview.
         Previous API Version: 2022-04-04-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### OepResource_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        energy_service = azure_native.openenergyplatform.EnergyService("energyService",
+            resource_group_name="DummyResourceGroupName",
+            resource_name_="DummyResourceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:openenergyplatform:EnergyService DummyResourceName /subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/DummyResourceGroupName/providers/Microsoft.OEP/oepResource/DummyResourceName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Geo-location where the resource lives.
@@ -127,6 +148,27 @@ class EnergyService(pulumi.CustomResource):
         """
         API Version: 2022-04-04-preview.
         Previous API Version: 2022-04-04-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### OepResource_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        energy_service = azure_native.openenergyplatform.EnergyService("energyService",
+            resource_group_name="DummyResourceGroupName",
+            resource_name_="DummyResourceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:openenergyplatform:EnergyService DummyResourceName /subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/DummyResourceGroupName/providers/Microsoft.OEP/oepResource/DummyResourceName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnergyServiceArgs args: The arguments to use to populate this resource's properties.

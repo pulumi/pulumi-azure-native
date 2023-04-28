@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Network.V20190201
 {
     /// <summary>
     /// Interface endpoint resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create interface endpoint
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var interfaceEndpoint = new AzureNative.Network.V20190201.InterfaceEndpoint("interfaceEndpoint", new()
+    ///     {
+    ///         EndpointService = new AzureNative.Network.V20190201.Inputs.EndpointServiceArgs
+    ///         {
+    ///             Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Provider/resourceType/resourceName",
+    ///         },
+    ///         Fqdn = "uniqueIdentifier.fqdn.windows.net",
+    ///         InterfaceEndpointName = "testIe",
+    ///         ResourceGroupName = "rg1",
+    ///         Subnet = new AzureNative.Network.V20190201.Inputs.SubnetArgs
+    ///         {
+    ///             Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190201:InterfaceEndpoint testIe /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/interfaceEndpoints/testIe 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190201:InterfaceEndpoint")]
     public partial class InterfaceEndpoint : global::Pulumi.CustomResource

@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
 {
     /// <summary>
     /// A provider instance associated with a SAP monitor.
+    /// 
+    /// ## Example Usage
+    /// ### Create a SAP Monitor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.HanaOnAzure.V20200207Preview.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         Metadata = "{\"key\":\"value\"}",
+    ///         Properties = "{\"hostname\":\"10.0.0.6\",\"dbName\":\"SYSTEMDB\",\"sqlPort\":30013,\"dbUsername\":\"SYSTEM\",\"dbPassword\":\"PASSWORD\"}",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SapMonitorName = "mySapMonitor",
+    ///         Type = "hana",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hanaonazure/v20200207preview:ProviderInstance myProviderInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/sapMonitors/mySapMonitor/providerInstances/myProviderInstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hanaonazure/v20200207preview:ProviderInstance")]
     public partial class ProviderInstance : global::Pulumi.CustomResource

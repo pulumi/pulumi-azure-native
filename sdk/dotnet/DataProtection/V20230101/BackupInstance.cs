@@ -11,6 +11,90 @@ namespace Pulumi.AzureNative.DataProtection.V20230101
 {
     /// <summary>
     /// BackupInstance Resource
+    /// 
+    /// ## Example Usage
+    /// ### Create BackupInstance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupInstance = new AzureNative.DataProtection.V20230101.BackupInstance("backupInstance", new()
+    ///     {
+    ///         BackupInstanceName = "testInstance1",
+    ///         Properties = new AzureNative.DataProtection.V20230101.Inputs.BackupInstanceArgs
+    ///         {
+    ///             DataSourceInfo = new AzureNative.DataProtection.V20230101.Inputs.DatasourceArgs
+    ///             {
+    ///                 DatasourceType = "Microsoft.DBforPostgreSQL/servers/databases",
+    ///                 ObjectType = "Datasource",
+    ///                 ResourceID = "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+    ///                 ResourceLocation = "",
+    ///                 ResourceName = "testdb",
+    ///                 ResourceType = "Microsoft.DBforPostgreSQL/servers/databases",
+    ///                 ResourceUri = "",
+    ///             },
+    ///             DataSourceSetInfo = new AzureNative.DataProtection.V20230101.Inputs.DatasourceSetArgs
+    ///             {
+    ///                 DatasourceType = "Microsoft.DBforPostgreSQL/servers/databases",
+    ///                 ObjectType = "DatasourceSet",
+    ///                 ResourceID = "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+    ///                 ResourceLocation = "",
+    ///                 ResourceName = "viveksipgtest",
+    ///                 ResourceType = "Microsoft.DBforPostgreSQL/servers",
+    ///                 ResourceUri = "",
+    ///             },
+    ///             DatasourceAuthCredentials = 
+    ///             {
+    ///                 { "objectType", "SecretStoreBasedAuthCredentials" },
+    ///                 { "secretStoreResource", new AzureNative.DataProtection.V20230101.Inputs.SecretStoreResourceArgs
+    ///                 {
+    ///                     SecretStoreType = "AzureKeyVault",
+    ///                     Uri = "https://samplevault.vault.azure.net/secrets/credentials",
+    ///                 } },
+    ///             },
+    ///             FriendlyName = "harshitbi2",
+    ///             ObjectType = "BackupInstance",
+    ///             PolicyInfo = new AzureNative.DataProtection.V20230101.Inputs.PolicyInfoArgs
+    ///             {
+    ///                 PolicyId = "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+    ///                 PolicyParameters = new AzureNative.DataProtection.V20230101.Inputs.PolicyParametersArgs
+    ///                 {
+    ///                     DataStoreParametersList = new[]
+    ///                     {
+    ///                         
+    ///                         {
+    ///                             { "dataStoreType", "OperationalStore" },
+    ///                             { "objectType", "AzureOperationalStoreParameters" },
+    ///                             { "resourceGroupId", "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ValidationType = "ShallowValidation",
+    ///         },
+    ///         ResourceGroupName = "000pikumar",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///         VaultName = "PratikPrivatePreviewVault1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dataprotection/v20230101:BackupInstance harshitbi2 /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/backupVaults/PratikPrivatePreviewVault1/backupInstances/harshitbi2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection/v20230101:BackupInstance")]
     public partial class BackupInstance : global::Pulumi.CustomResource

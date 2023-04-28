@@ -10,6 +10,32 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2020-05-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a private link association, associate scope to rmpl.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateLinkAssociation = new azure_native.authorization.PrivateLinkAssociation("privateLinkAssociation", {
+ *     groupId: "my-management-group",
+ *     plaId: "00000000-0000-0000-0000-000000000000",
+ *     properties: {
+ *         privateLink: "00000000-0000-0000-0000-000000000000",
+ *         publicNetworkAccess: "Enabled",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization:PrivateLinkAssociation my-pla 00000000-0000-0000-0000-000000000000 
+ * ```
  */
 export class PrivateLinkAssociation extends pulumi.CustomResource {
     /**

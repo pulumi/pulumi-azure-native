@@ -11,6 +11,33 @@ namespace Pulumi.AzureNative.Management.V20200501
 {
     /// <summary>
     /// The details of subscription under management group.
+    /// 
+    /// ## Example Usage
+    /// ### AddSubscriptionToManagementGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementGroupSubscription = new AzureNative.Management.V20200501.ManagementGroupSubscription("managementGroupSubscription", new()
+    ///     {
+    ///         GroupId = "Group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:management/v20200501:ManagementGroupSubscription 728bcbe4-8d56-4510-86c2-4921b8beefbc  /providers/Microsoft.Management/managementGroups/Group/subscriptions/728bcbe4-8d56-4510-86c2-4921b8beefbc 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:management/v20200501:ManagementGroupSubscription")]
     public partial class ManagementGroupSubscription : global::Pulumi.CustomResource

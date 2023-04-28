@@ -512,6 +512,367 @@ class Api(pulumi.CustomResource):
         """
         API details.
 
+        ## Example Usage
+        ### ApiManagementCreateApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20220801.AuthenticationSettingsContractResponseArgs(
+                o_auth2=azure_native.apimanagement.v20220801.OAuth2AuthenticationSettingsContractArgs(
+                    authorization_server_id="authorizationServerId2283",
+                    scope="oauth2scope2580",
+                ),
+            ),
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                "https",
+                "http",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://newechoapi.cloudapp.net/api",
+            subscription_key_parameter_names=azure_native.apimanagement.v20220801.SubscriptionKeyParameterNamesContractArgs(
+                header="header4520",
+                query="query3037",
+            ))
+
+        ```
+        ### ApiManagementCreateApiClone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="echo-api2",
+            description="Copy of Existing Echo Api including Operations.",
+            display_name="Echo API2",
+            is_current=True,
+            path="echo2",
+            protocols=[
+                "http",
+                "https",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://echoapi.cloudapp.net/api",
+            source_api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/58a4aeac497000007d040001",
+            subscription_required=True)
+
+        ```
+        ### ApiManagementCreateApiNewVersionUsingExistingApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="echoapiv3",
+            api_version="v4",
+            api_version_set_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apiVersionSets/aa9c59e6-c0cd-4258-9356-9ca7d2f0b458",
+            description="Create Echo API into a new Version using Existing Version Set and Copy all Operations.",
+            display_name="Echo API2",
+            is_current=True,
+            path="echo2",
+            protocols=[
+                "http",
+                "https",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://echoapi.cloudapp.net/api",
+            source_api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echoPath",
+            subscription_required=True)
+
+        ```
+        ### ApiManagementCreateApiRevisionFromExistingApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="echo-api;rev=3",
+            api_revision_description="Creating a Revision of an existing API",
+            path="echo",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://echoapi.cloudapp.net/apiv3",
+            source_api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echo-api")
+
+        ```
+        ### ApiManagementCreateApiUsingImportOverrideServiceUrl
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="apidocs",
+            format="swagger-link",
+            path="petstoreapi123",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://petstore.swagger.wordnik.com/api",
+            value="http://apimpimportviaurl.azurewebsites.net/api/apidocs/")
+
+        ```
+        ### ApiManagementCreateApiUsingOai3Import
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="petstore",
+            format="openapi-link",
+            path="petstore",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml")
+
+        ```
+        ### ApiManagementCreateApiUsingOai3ImportWithTranslateRequiredQueryParametersConduct
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="petstore",
+            format="openapi-link",
+            path="petstore",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            translate_required_query_parameters_conduct="template",
+            value="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml")
+
+        ```
+        ### ApiManagementCreateApiUsingSwaggerImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="petstore",
+            format="swagger-link-json",
+            path="petstore",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="http://petstore.swagger.io/v2/swagger.json")
+
+        ```
+        ### ApiManagementCreateApiUsingWadlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="petstore",
+            format="wadl-link-json",
+            path="collector",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl")
+
+        ```
+        ### ApiManagementCreateApiWithMultipleAuthServers
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20220801.AuthenticationSettingsContractResponseArgs(
+                o_auth2_authentication_settings=[
+                    azure_native.apimanagement.v20220801.OAuth2AuthenticationSettingsContractArgs(
+                        authorization_server_id="authorizationServerId2283",
+                        scope="oauth2scope2580",
+                    ),
+                    azure_native.apimanagement.v20220801.OAuth2AuthenticationSettingsContractArgs(
+                        authorization_server_id="authorizationServerId2284",
+                        scope="oauth2scope2581",
+                    ),
+                ],
+            ),
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                "https",
+                "http",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://newechoapi.cloudapp.net/api",
+            subscription_key_parameter_names=azure_native.apimanagement.v20220801.SubscriptionKeyParameterNamesContractArgs(
+                header="header4520",
+                query="query3037",
+            ))
+
+        ```
+        ### ApiManagementCreateApiWithMultipleOpenIdConnectProviders
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20220801.AuthenticationSettingsContractResponseArgs(
+                openid_authentication_settings=[
+                    azure_native.apimanagement.v20220801.OpenIdAuthenticationSettingsContractArgs(
+                        bearer_token_sending_methods=["authorizationHeader"],
+                        openid_provider_id="openidProviderId2283",
+                    ),
+                    azure_native.apimanagement.v20220801.OpenIdAuthenticationSettingsContractArgs(
+                        bearer_token_sending_methods=["authorizationHeader"],
+                        openid_provider_id="openidProviderId2284",
+                    ),
+                ],
+            ),
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                "https",
+                "http",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://newechoapi.cloudapp.net/api",
+            subscription_key_parameter_names=azure_native.apimanagement.v20220801.SubscriptionKeyParameterNamesContractArgs(
+                header="header4520",
+                query="query3037",
+            ))
+
+        ```
+        ### ApiManagementCreateApiWithOpenIdConnect
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20220801.AuthenticationSettingsContractResponseArgs(
+                openid=azure_native.apimanagement.v20220801.OpenIdAuthenticationSettingsContractArgs(
+                    bearer_token_sending_methods=["authorizationHeader"],
+                    openid_provider_id="testopenid",
+                ),
+            ),
+            description="This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+            display_name="Swagger Petstore",
+            path="petstore",
+            protocols=["https"],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://petstore.swagger.io/v2",
+            subscription_key_parameter_names=azure_native.apimanagement.v20220801.SubscriptionKeyParameterNamesContractArgs(
+                header="Ocp-Apim-Subscription-Key",
+                query="subscription-key",
+            ))
+
+        ```
+        ### ApiManagementCreateGraphQLApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            api_type="graphql",
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="graphql-api",
+            protocols=[
+                "http",
+                "https",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="https://api.spacex.land/graphql")
+
+        ```
+        ### ApiManagementCreateSoapPassThroughApiUsingWsdlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="soapApi",
+            format="wsdl-link",
+            path="currency",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            soap_api_type="soap",
+            value="http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+            wsdl_selector=azure_native.apimanagement.v20220801.ApiCreateOrUpdatePropertiesWsdlSelectorArgs(
+                wsdl_endpoint_name="CurrencyConvertorSoap",
+                wsdl_service_name="CurrencyConvertor",
+            ))
+
+        ```
+        ### ApiManagementCreateSoapToRestApiUsingWsdlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="soapApi",
+            format="wsdl-link",
+            path="currency",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+            wsdl_selector=azure_native.apimanagement.v20220801.ApiCreateOrUpdatePropertiesWsdlSelectorArgs(
+                wsdl_endpoint_name="CurrencyConvertorSoap",
+                wsdl_service_name="CurrencyConvertor",
+            ))
+
+        ```
+        ### ApiManagementCreateWebSocketApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            api_type="websocket",
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                "wss",
+                "ws",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="wss://echo.websocket.org")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:Api apiid9419 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/apiid9419 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -555,6 +916,367 @@ class Api(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         API details.
+
+        ## Example Usage
+        ### ApiManagementCreateApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20220801.AuthenticationSettingsContractResponseArgs(
+                o_auth2=azure_native.apimanagement.v20220801.OAuth2AuthenticationSettingsContractArgs(
+                    authorization_server_id="authorizationServerId2283",
+                    scope="oauth2scope2580",
+                ),
+            ),
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                "https",
+                "http",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://newechoapi.cloudapp.net/api",
+            subscription_key_parameter_names=azure_native.apimanagement.v20220801.SubscriptionKeyParameterNamesContractArgs(
+                header="header4520",
+                query="query3037",
+            ))
+
+        ```
+        ### ApiManagementCreateApiClone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="echo-api2",
+            description="Copy of Existing Echo Api including Operations.",
+            display_name="Echo API2",
+            is_current=True,
+            path="echo2",
+            protocols=[
+                "http",
+                "https",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://echoapi.cloudapp.net/api",
+            source_api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/58a4aeac497000007d040001",
+            subscription_required=True)
+
+        ```
+        ### ApiManagementCreateApiNewVersionUsingExistingApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="echoapiv3",
+            api_version="v4",
+            api_version_set_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apiVersionSets/aa9c59e6-c0cd-4258-9356-9ca7d2f0b458",
+            description="Create Echo API into a new Version using Existing Version Set and Copy all Operations.",
+            display_name="Echo API2",
+            is_current=True,
+            path="echo2",
+            protocols=[
+                "http",
+                "https",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://echoapi.cloudapp.net/api",
+            source_api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echoPath",
+            subscription_required=True)
+
+        ```
+        ### ApiManagementCreateApiRevisionFromExistingApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="echo-api;rev=3",
+            api_revision_description="Creating a Revision of an existing API",
+            path="echo",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://echoapi.cloudapp.net/apiv3",
+            source_api_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echo-api")
+
+        ```
+        ### ApiManagementCreateApiUsingImportOverrideServiceUrl
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="apidocs",
+            format="swagger-link",
+            path="petstoreapi123",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://petstore.swagger.wordnik.com/api",
+            value="http://apimpimportviaurl.azurewebsites.net/api/apidocs/")
+
+        ```
+        ### ApiManagementCreateApiUsingOai3Import
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="petstore",
+            format="openapi-link",
+            path="petstore",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml")
+
+        ```
+        ### ApiManagementCreateApiUsingOai3ImportWithTranslateRequiredQueryParametersConduct
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="petstore",
+            format="openapi-link",
+            path="petstore",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            translate_required_query_parameters_conduct="template",
+            value="https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml")
+
+        ```
+        ### ApiManagementCreateApiUsingSwaggerImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="petstore",
+            format="swagger-link-json",
+            path="petstore",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="http://petstore.swagger.io/v2/swagger.json")
+
+        ```
+        ### ApiManagementCreateApiUsingWadlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="petstore",
+            format="wadl-link-json",
+            path="collector",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl")
+
+        ```
+        ### ApiManagementCreateApiWithMultipleAuthServers
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20220801.AuthenticationSettingsContractResponseArgs(
+                o_auth2_authentication_settings=[
+                    azure_native.apimanagement.v20220801.OAuth2AuthenticationSettingsContractArgs(
+                        authorization_server_id="authorizationServerId2283",
+                        scope="oauth2scope2580",
+                    ),
+                    azure_native.apimanagement.v20220801.OAuth2AuthenticationSettingsContractArgs(
+                        authorization_server_id="authorizationServerId2284",
+                        scope="oauth2scope2581",
+                    ),
+                ],
+            ),
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                "https",
+                "http",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://newechoapi.cloudapp.net/api",
+            subscription_key_parameter_names=azure_native.apimanagement.v20220801.SubscriptionKeyParameterNamesContractArgs(
+                header="header4520",
+                query="query3037",
+            ))
+
+        ```
+        ### ApiManagementCreateApiWithMultipleOpenIdConnectProviders
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20220801.AuthenticationSettingsContractResponseArgs(
+                openid_authentication_settings=[
+                    azure_native.apimanagement.v20220801.OpenIdAuthenticationSettingsContractArgs(
+                        bearer_token_sending_methods=["authorizationHeader"],
+                        openid_provider_id="openidProviderId2283",
+                    ),
+                    azure_native.apimanagement.v20220801.OpenIdAuthenticationSettingsContractArgs(
+                        bearer_token_sending_methods=["authorizationHeader"],
+                        openid_provider_id="openidProviderId2284",
+                    ),
+                ],
+            ),
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                "https",
+                "http",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://newechoapi.cloudapp.net/api",
+            subscription_key_parameter_names=azure_native.apimanagement.v20220801.SubscriptionKeyParameterNamesContractArgs(
+                header="header4520",
+                query="query3037",
+            ))
+
+        ```
+        ### ApiManagementCreateApiWithOpenIdConnect
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            authentication_settings=azure_native.apimanagement.v20220801.AuthenticationSettingsContractResponseArgs(
+                openid=azure_native.apimanagement.v20220801.OpenIdAuthenticationSettingsContractArgs(
+                    bearer_token_sending_methods=["authorizationHeader"],
+                    openid_provider_id="testopenid",
+                ),
+            ),
+            description="This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+            display_name="Swagger Petstore",
+            path="petstore",
+            protocols=["https"],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="http://petstore.swagger.io/v2",
+            subscription_key_parameter_names=azure_native.apimanagement.v20220801.SubscriptionKeyParameterNamesContractArgs(
+                header="Ocp-Apim-Subscription-Key",
+                query="subscription-key",
+            ))
+
+        ```
+        ### ApiManagementCreateGraphQLApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            api_type="graphql",
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="graphql-api",
+            protocols=[
+                "http",
+                "https",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="https://api.spacex.land/graphql")
+
+        ```
+        ### ApiManagementCreateSoapPassThroughApiUsingWsdlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="soapApi",
+            format="wsdl-link",
+            path="currency",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            soap_api_type="soap",
+            value="http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+            wsdl_selector=azure_native.apimanagement.v20220801.ApiCreateOrUpdatePropertiesWsdlSelectorArgs(
+                wsdl_endpoint_name="CurrencyConvertorSoap",
+                wsdl_service_name="CurrencyConvertor",
+            ))
+
+        ```
+        ### ApiManagementCreateSoapToRestApiUsingWsdlImport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="soapApi",
+            format="wsdl-link",
+            path="currency",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value="http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+            wsdl_selector=azure_native.apimanagement.v20220801.ApiCreateOrUpdatePropertiesWsdlSelectorArgs(
+                wsdl_endpoint_name="CurrencyConvertorSoap",
+                wsdl_service_name="CurrencyConvertor",
+            ))
+
+        ```
+        ### ApiManagementCreateWebSocketApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api = azure_native.apimanagement.v20220801.Api("api",
+            api_id="tempgroup",
+            api_type="websocket",
+            description="apidescription5200",
+            display_name="apiname1463",
+            path="newapiPath",
+            protocols=[
+                "wss",
+                "ws",
+            ],
+            resource_group_name="rg1",
+            service_name="apimService1",
+            service_url="wss://echo.websocket.org")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:Api apiid9419 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/apiid9419 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiArgs args: The arguments to use to populate this resource's properties.

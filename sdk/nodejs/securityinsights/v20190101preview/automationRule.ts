@@ -9,6 +9,65 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an automation rule.
+ *
+ * ## Example Usage
+ * ### Creates or updates an automation rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const automationRule = new azure_native.securityinsights.v20190101preview.AutomationRule("automationRule", {
+ *     actions: [
+ *         {
+ *             actionConfiguration: {
+ *                 severity: "High",
+ *             },
+ *             actionType: "ModifyProperties",
+ *             order: 1,
+ *         },
+ *         {
+ *             actionConfiguration: {
+ *                 logicAppResourceId: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/IncidentPlaybook",
+ *                 tenantId: "ee48efaf-50c6-411b-9345-b2bdc3eb4abc",
+ *             },
+ *             actionType: "RunPlaybook",
+ *             order: 2,
+ *         },
+ *     ],
+ *     automationRuleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     displayName: "High severity incidents escalation",
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     order: 1,
+ *     resourceGroupName: "myRg",
+ *     triggeringLogic: {
+ *         conditions: [{
+ *             conditionProperties: {
+ *                 operator: "Contains",
+ *                 propertyName: "IncidentRelatedAnalyticRuleIds",
+ *                 propertyValues: [
+ *                     "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/fab3d2d4-747f-46a7-8ef0-9c0be8112bf7",
+ *                     "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/8deb8303-e94d-46ff-96e0-5fd94b33df1a",
+ *                 ],
+ *             },
+ *             conditionType: "Property",
+ *         }],
+ *         isEnabled: true,
+ *         triggersOn: "Incidents",
+ *         triggersWhen: "Created",
+ *     },
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20190101preview:AutomationRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class AutomationRule extends pulumi.CustomResource {
     /**

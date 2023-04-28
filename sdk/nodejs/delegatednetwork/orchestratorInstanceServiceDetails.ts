@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * Represents an instance of a orchestrator.
  * API Version: 2021-03-15.
  * Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create orchestrator instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const orchestratorInstanceServiceDetails = new azure_native.delegatednetwork.OrchestratorInstanceServiceDetails("orchestratorInstanceServiceDetails", {
+ *     apiServerEndpoint: "https://testk8s.cloudapp.net",
+ *     clusterRootCA: "ddsadsad344mfdsfdl",
+ *     controllerDetails: {
+ *         id: "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller",
+ *     },
+ *     identity: {
+ *         type: azure_native.delegatednetwork.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     kind: "Kubernetes",
+ *     location: "West US",
+ *     orchestratorAppId: "546192d7-503f-477a-9cfe-4efc3ee2b6e1",
+ *     orchestratorTenantId: "da6192d7-503f-477a-9cfe-4efc3ee2b6c3",
+ *     privateLinkResourceId: "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/privateLinkServices/plresource1",
+ *     resourceGroupName: "TestRG",
+ *     resourceName: "testk8s1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:delegatednetwork:OrchestratorInstanceServiceDetails testk8s1 /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/orchestrators/testk8s1 
+ * ```
  */
 export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     /**

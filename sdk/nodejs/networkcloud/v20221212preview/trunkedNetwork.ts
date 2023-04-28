@@ -7,6 +7,48 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Create or update trunked network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const trunkedNetwork = new azure_native.networkcloud.v20221212preview.TrunkedNetwork("trunkedNetwork", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     hybridAksPluginType: "DPDK",
+ *     interfaceName: "eth0",
+ *     isolationDomainIds: [
+ *         "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+ *         "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+ *     ],
+ *     location: "location",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ *     trunkedNetworkName: "trunkedNetworkName",
+ *     vlans: [
+ *         12,
+ *         14,
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud/v20221212preview:TrunkedNetwork trunkedNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/trunkedNetworks/trunkedNetworkName 
+ * ```
+ */
 export class TrunkedNetwork extends pulumi.CustomResource {
     /**
      * Get an existing TrunkedNetwork resource's state with the given name, ID, and optional extra

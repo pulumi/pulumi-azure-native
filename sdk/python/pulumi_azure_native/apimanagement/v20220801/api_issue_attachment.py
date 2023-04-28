@@ -157,6 +157,33 @@ class ApiIssueAttachment(pulumi.CustomResource):
         """
         Issue Attachment Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiIssueAttachment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_issue_attachment = azure_native.apimanagement.v20220801.ApiIssueAttachment("apiIssueAttachment",
+            api_id="57d1f7558aa04f15146d9d8a",
+            attachment_id="57d2ef278aa04f0888cba3f3",
+            content="IEJhc2U2NA==",
+            content_format="image/jpeg",
+            issue_id="57d2ef278aa04f0ad01d6cdc",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            title="Issue attachment.")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:ApiIssueAttachment 57d2ef278aa04f0888cba3f3 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc/attachments/57d2ef278aa04f0888cba3f3 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
@@ -176,6 +203,33 @@ class ApiIssueAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Issue Attachment Contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiIssueAttachment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_issue_attachment = azure_native.apimanagement.v20220801.ApiIssueAttachment("apiIssueAttachment",
+            api_id="57d1f7558aa04f15146d9d8a",
+            attachment_id="57d2ef278aa04f0888cba3f3",
+            content="IEJhc2U2NA==",
+            content_format="image/jpeg",
+            issue_id="57d2ef278aa04f0ad01d6cdc",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            title="Issue attachment.")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:ApiIssueAttachment 57d2ef278aa04f0888cba3f3 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc/attachments/57d2ef278aa04f0888cba3f3 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiIssueAttachmentArgs args: The arguments to use to populate this resource's properties.

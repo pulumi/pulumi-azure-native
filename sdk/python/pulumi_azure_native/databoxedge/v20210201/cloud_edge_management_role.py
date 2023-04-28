@@ -115,6 +115,28 @@ class CloudEdgeManagementRole(pulumi.CustomResource):
         For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
         By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
 
+        ## Example Usage
+        ### RolePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_edge_management_role = azure_native.databoxedge.v20210201.CloudEdgeManagementRole("cloudEdgeManagementRole",
+            device_name="testedgedevice",
+            name="IoTRole1",
+            resource_group_name="GroupForEdgeAutomation")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20210201:CloudEdgeManagementRole IoTRole1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
@@ -134,6 +156,28 @@ class CloudEdgeManagementRole(pulumi.CustomResource):
         The preview of Virtual Machine Cloud Management from the Azure supports deploying and managing VMs on your Azure Stack Edge device from Azure Portal.
         For more information, refer to: https://docs.microsoft.com/en-us/azure/databox-online/azure-stack-edge-gpu-virtual-machine-overview
         By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/ for additional details.
+
+        ## Example Usage
+        ### RolePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_edge_management_role = azure_native.databoxedge.v20210201.CloudEdgeManagementRole("cloudEdgeManagementRole",
+            device_name="testedgedevice",
+            name="IoTRole1",
+            resource_group_name="GroupForEdgeAutomation")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20210201:CloudEdgeManagementRole IoTRole1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CloudEdgeManagementRoleArgs args: The arguments to use to populate this resource's properties.

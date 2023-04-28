@@ -10,6 +10,38 @@ import * as utilities from "../../utilities";
 /**
  * This type describes a network resource.
  *
+ * ## Example Usage
+ * ### Network_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const network = new azure_native.servicefabricmesh.v20180701preview.Network("network", {
+ *     addressPrefix: "10.0.0.4/22",
+ *     ingressConfig: {
+ *         layer4: [{
+ *             applicationName: "helloWorldAppWindows",
+ *             endpointName: "helloWorldListener",
+ *             publicPort: 80,
+ *             serviceName: "helloWorldService",
+ *         }],
+ *     },
+ *     location: "eastus",
+ *     networkName: "helloWorldNetworkWindows",
+ *     resourceGroupName: "sbz_demo",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabricmesh/v20180701preview:Network helloWorldNetworkWindows /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/helloWorldNetworkWindows 
+ * ```
+ *
  * @deprecated Version 2018-07-01-preview will be removed in v2 of the provider.
  */
 export class Network extends pulumi.CustomResource {

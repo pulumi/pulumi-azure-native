@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 {
     /// <summary>
     /// Factory resource type.
+    /// 
+    /// ## Example Usage
+    /// ### Factories_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var factory = new AzureNative.DataFactory.V20170901Preview.Factory("factory", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         VstsConfiguration = new AzureNative.DataFactory.V20170901Preview.Inputs.FactoryVSTSConfigurationArgs
+    ///         {
+    ///             AccountName = "msdata",
+    ///             CollaborationBranch = "master",
+    ///             LastCommitId = "",
+    ///             ProjectName = "datafactory",
+    ///             RepositoryName = "exampleRepo",
+    ///             RootFolder = "/",
+    ///             TenantId = "12f988bf-86d1-41af-91ab-2d7cd011db49",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory/v20170901preview:Factory exampleFactoryName /subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleresourcegroup/providers/Microsoft.DataFactory/factories/examplefactoryname 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datafactory/v20170901preview:Factory")]

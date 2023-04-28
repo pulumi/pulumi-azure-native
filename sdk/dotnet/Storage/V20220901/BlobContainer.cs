@@ -11,6 +11,79 @@ namespace Pulumi.AzureNative.Storage.V20220901
 {
     /// <summary>
     /// Properties of the blob container, including Id, resource name, resource type, Etag.
+    /// 
+    /// ## Example Usage
+    /// ### PutContainerWithDefaultEncryptionScope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobContainer = new AzureNative.Storage.V20220901.BlobContainer("blobContainer", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         ContainerName = "container6185",
+    ///         DefaultEncryptionScope = "encryptionscope185",
+    ///         DenyEncryptionScopeOverride = true,
+    ///         ResourceGroupName = "res3376",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutContainerWithObjectLevelWorm
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobContainer = new AzureNative.Storage.V20220901.BlobContainer("blobContainer", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         ContainerName = "container6185",
+    ///         ImmutableStorageWithVersioning = new AzureNative.Storage.V20220901.Inputs.ImmutableStorageWithVersioningArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///         ResourceGroupName = "res3376",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutContainers
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobContainer = new AzureNative.Storage.V20220901.BlobContainer("blobContainer", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         ContainerName = "container6185",
+    ///         ResourceGroupName = "res3376",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20220901:BlobContainer container6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/blobServices/default/containers/container6185 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20220901:BlobContainer")]
     public partial class BlobContainer : global::Pulumi.CustomResource

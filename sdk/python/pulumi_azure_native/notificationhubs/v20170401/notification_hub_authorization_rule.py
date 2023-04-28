@@ -112,6 +112,35 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
         """
         Description of a Namespace AuthorizationRules.
 
+        ## Example Usage
+        ### NotificationHubAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_hub_authorization_rule = azure_native.notificationhubs.v20170401.NotificationHubAuthorizationRule("notificationHubAuthorizationRule",
+            authorization_rule_name="DefaultListenSharedAccessSignature",
+            namespace_name="nh-sdk-ns",
+            notification_hub_name="nh-sdk-hub",
+            properties=azure_native.notificationhubs.v20170401.SharedAccessAuthorizationRulePropertiesArgs(
+                rights=[
+                    azure_native.notificationhubs/v20170401.AccessRights.LISTEN,
+                    azure_native.notificationhubs/v20170401.AccessRights.SEND,
+                ],
+            ),
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule DefaultListenSharedAccessSignature /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/5ktrial/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/NotificationHubs/nh-sdk-hub/AuthorizationRules/DefaultListenSharedAccessSignature 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: Authorization Rule Name.
@@ -128,6 +157,35 @@ class NotificationHubAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a Namespace AuthorizationRules.
+
+        ## Example Usage
+        ### NotificationHubAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_hub_authorization_rule = azure_native.notificationhubs.v20170401.NotificationHubAuthorizationRule("notificationHubAuthorizationRule",
+            authorization_rule_name="DefaultListenSharedAccessSignature",
+            namespace_name="nh-sdk-ns",
+            notification_hub_name="nh-sdk-hub",
+            properties=azure_native.notificationhubs.v20170401.SharedAccessAuthorizationRulePropertiesArgs(
+                rights=[
+                    azure_native.notificationhubs/v20170401.AccessRights.LISTEN,
+                    azure_native.notificationhubs/v20170401.AccessRights.SEND,
+                ],
+            ),
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule DefaultListenSharedAccessSignature /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/5ktrial/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/NotificationHubs/nh-sdk-hub/AuthorizationRules/DefaultListenSharedAccessSignature 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NotificationHubAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

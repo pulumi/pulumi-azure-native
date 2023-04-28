@@ -10,6 +10,46 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2020-11-20.
  * Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Skus_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const skus = new azure_native.providerhub.Skus("skus", {
+ *     properties: {
+ *         skuSettings: [
+ *             {
+ *                 kind: "Standard",
+ *                 name: "freeSku",
+ *                 tier: "Tier1",
+ *             },
+ *             {
+ *                 costs: [{
+ *                     meterId: "xxx",
+ *                 }],
+ *                 kind: "Premium",
+ *                 name: "premiumSku",
+ *                 tier: "Tier2",
+ *             },
+ *         ],
+ *     },
+ *     providerNamespace: "Microsoft.Contoso",
+ *     resourceType: "testResourceType",
+ *     sku: "testSku",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:providerhub:Skus Microsoft.Contoso/ /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/ 
+ * ```
  */
 export class Skus extends pulumi.CustomResource {
     /**

@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Network.V20190601
 {
     /// <summary>
     /// Authorization in an ExpressRouteCircuit resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create ExpressRouteCircuit Authorization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteCircuitAuthorization = new AzureNative.Network.V20190601.ExpressRouteCircuitAuthorization("expressRouteCircuitAuthorization", new()
+    ///     {
+    ///         AuthorizationKey = "authKey",
+    ///         AuthorizationName = "authorizatinName",
+    ///         AuthorizationUseStatus = "Available",
+    ///         CircuitName = "circuitName",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190601:ExpressRouteCircuitAuthorization authorizationName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName/authorizations/authorizationName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190601:ExpressRouteCircuitAuthorization")]
     public partial class ExpressRouteCircuitAuthorization : global::Pulumi.CustomResource

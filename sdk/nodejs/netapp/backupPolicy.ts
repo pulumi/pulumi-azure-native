@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Backup policy information
  * API Version: 2022-09-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### BackupPolicies_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const backupPolicy = new azure_native.netapp.BackupPolicy("backupPolicy", {
+ *     accountName: "account1",
+ *     backupPolicyName: "backupPolicyName",
+ *     dailyBackupsToKeep: 10,
+ *     enabled: true,
+ *     location: "westus",
+ *     monthlyBackupsToKeep: 10,
+ *     resourceGroupName: "myRG",
+ *     weeklyBackupsToKeep: 10,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp:BackupPolicy account1/backupPolicyName /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/backupPolocies/backupPolicyName 
+ * ```
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**

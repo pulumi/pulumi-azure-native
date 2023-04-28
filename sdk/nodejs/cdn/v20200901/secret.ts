@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Friendly Secret name mapping to the any Secret or secret related information.
+ *
+ * ## Example Usage
+ * ### Secrets_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const secret = new azure_native.cdn.v20200901.Secret("secret", {
+ *     parameters: {
+ *         certificateAuthority: "Symantec",
+ *         secretSource: {
+ *             id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.KeyVault/vault/kvName/certificate/certName",
+ *         },
+ *         secretVersion: "67c452f83c804aed80aa3a21e523c226",
+ *         subjectAlternativeNames: [
+ *             "foo.contoso.com",
+ *             "www3.foo.contoso.com",
+ *         ],
+ *         type: "CustomerCertificate",
+ *         useLatestVersion: false,
+ *     },
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     secretName: "secret1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn/v20200901:Secret secret1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1 
+ * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

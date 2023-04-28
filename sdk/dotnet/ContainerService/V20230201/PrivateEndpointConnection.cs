@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.ContainerService.V20230201
 {
     /// <summary>
     /// A private endpoint connection
+    /// 
+    /// ## Example Usage
+    /// ### Update Private Endpoint Connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.ContainerService.V20230201.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "privateendpointconnection1",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.ContainerService.V20230201.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20230201:PrivateEndpointConnection privateendpointconnection1 /subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/managedCluster/clustername1/privateEndpointConnections/privateendpointconnection1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20230201:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

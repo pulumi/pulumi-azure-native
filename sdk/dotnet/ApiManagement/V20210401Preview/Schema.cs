@@ -11,6 +11,82 @@ namespace Pulumi.AzureNative.ApiManagement.V20210401Preview
 {
     /// <summary>
     /// Schema Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateSchema1
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schema = new AzureNative.ApiManagement.V20210401Preview.Schema("schema", new()
+    ///     {
+    ///         Description = "sample schema description",
+    ///         ResourceGroupName = "rg1",
+    ///         SchemaId = "schema1",
+    ///         SchemaType = "xml",
+    ///         ServiceName = "apimService1",
+    ///         Value = @"&lt;xsd:schema xmlns:xsd=""http://www.w3.org/2001/XMLSchema""
+    ///            xmlns:tns=""http://tempuri.org/PurchaseOrderSchema.xsd""
+    ///            targetNamespace=""http://tempuri.org/PurchaseOrderSchema.xsd""
+    ///            elementFormDefault=""qualified""&gt;
+    ///  &lt;xsd:element name=""PurchaseOrder"" type=""tns:PurchaseOrderType""/&gt;
+    ///  &lt;xsd:complexType name=""PurchaseOrderType""&gt;
+    ///   &lt;xsd:sequence&gt;
+    ///    &lt;xsd:element name=""ShipTo"" type=""tns:USAddress"" maxOccurs=""2""/&gt;
+    ///    &lt;xsd:element name=""BillTo"" type=""tns:USAddress""/&gt;
+    ///   &lt;/xsd:sequence&gt;
+    ///   &lt;xsd:attribute name=""OrderDate"" type=""xsd:date""/&gt;
+    ///  &lt;/xsd:complexType&gt;
+    /// 
+    ///  &lt;xsd:complexType name=""USAddress""&gt;
+    ///   &lt;xsd:sequence&gt;
+    ///    &lt;xsd:element name=""name""   type=""xsd:string""/&gt;
+    ///    &lt;xsd:element name=""street"" type=""xsd:string""/&gt;
+    ///    &lt;xsd:element name=""city""   type=""xsd:string""/&gt;
+    ///    &lt;xsd:element name=""state""  type=""xsd:string""/&gt;
+    ///    &lt;xsd:element name=""zip""    type=""xsd:integer""/&gt;
+    ///   &lt;/xsd:sequence&gt;
+    ///   &lt;xsd:attribute name=""country"" type=""xsd:NMTOKEN"" fixed=""US""/&gt;
+    ///  &lt;/xsd:complexType&gt;
+    /// &lt;/xsd:schema&gt;",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateSchema2
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schema = new AzureNative.ApiManagement.V20210401Preview.Schema("schema", new()
+    ///     {
+    ///         Description = "sample schema description",
+    ///         ResourceGroupName = "rg1",
+    ///         SchemaId = "schema1",
+    ///         SchemaType = "json",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20210401preview:Schema schema1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/schemas/schema1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20210401preview:Schema")]
     public partial class Schema : global::Pulumi.CustomResource

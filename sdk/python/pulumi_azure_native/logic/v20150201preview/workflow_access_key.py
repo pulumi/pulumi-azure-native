@@ -126,7 +126,14 @@ class WorkflowAccessKey(pulumi.CustomResource):
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a WorkflowAccessKey resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20150201preview:WorkflowAccessKey myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/accessKeys/{accessKeyName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key_name: The workflow access key name.
@@ -143,7 +150,14 @@ class WorkflowAccessKey(pulumi.CustomResource):
                  args: WorkflowAccessKeyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a WorkflowAccessKey resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20150201preview:WorkflowAccessKey myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/accessKeys/{accessKeyName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param WorkflowAccessKeyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

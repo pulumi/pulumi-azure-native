@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * A single API Management service resource in List or Get response.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.v20161010.ApiManagementService("apiManagementService", {
+ *     location: "West US",
+ *     publisherEmail: "admin@live.com",
+ *     publisherName: "contoso",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.apimanagement.v20161010.SkuType.Premium,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20161010:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+ * ```
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**

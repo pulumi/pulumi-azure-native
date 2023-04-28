@@ -160,6 +160,33 @@ class Certificate(pulumi.CustomResource):
         """
         Definition of the certificate.
 
+        ## Example Usage
+        ### Create or update a certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.automation.v20190601.Certificate("certificate",
+            automation_account_name="myAutomationAccount18",
+            base64_value="base 64 value of cert",
+            certificate_name="testCert",
+            description="Sample Cert",
+            is_exportable=False,
+            name="testCert",
+            resource_group_name="rg",
+            thumbprint="thumbprint of cert")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20190601:Certificate testCert /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/certificates/testCert 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -179,6 +206,33 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the certificate.
+
+        ## Example Usage
+        ### Create or update a certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.automation.v20190601.Certificate("certificate",
+            automation_account_name="myAutomationAccount18",
+            base64_value="base 64 value of cert",
+            certificate_name="testCert",
+            description="Sample Cert",
+            is_exportable=False,
+            name="testCert",
+            resource_group_name="rg",
+            thumbprint="thumbprint of cert")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20190601:Certificate testCert /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/certificates/testCert 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

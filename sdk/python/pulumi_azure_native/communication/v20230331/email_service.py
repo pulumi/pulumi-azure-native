@@ -112,6 +112,29 @@ class EmailService(pulumi.CustomResource):
         """
         A class representing an EmailService resource.
 
+        ## Example Usage
+        ### Create or update EmailService resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        email_service = azure_native.communication.v20230331.EmailService("emailService",
+            data_location="United States",
+            email_service_name="MyEmailServiceResource",
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication/v20230331:EmailService MyEmailServiceResource /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/EmailServices/MyEmailServiceResource 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_location: The location where the email service stores its data at rest.
@@ -128,6 +151,29 @@ class EmailService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class representing an EmailService resource.
+
+        ## Example Usage
+        ### Create or update EmailService resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        email_service = azure_native.communication.v20230331.EmailService("emailService",
+            data_location="United States",
+            email_service_name="MyEmailServiceResource",
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication/v20230331:EmailService MyEmailServiceResource /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/EmailServices/MyEmailServiceResource 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EmailServiceArgs args: The arguments to use to populate this resource's properties.

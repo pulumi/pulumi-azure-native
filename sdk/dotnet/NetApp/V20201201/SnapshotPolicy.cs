@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.NetApp.V20201201
 {
     /// <summary>
     /// Snapshot policy information
+    /// 
+    /// ## Example Usage
+    /// ### SnapshotPolicies_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var snapshotPolicy = new AzureNative.NetApp.V20201201.SnapshotPolicy("snapshotPolicy", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         DailySchedule = new AzureNative.NetApp.V20201201.Inputs.DailyScheduleArgs
+    ///         {
+    ///             Hour = 14,
+    ///             Minute = 30,
+    ///             SnapshotsToKeep = 4,
+    ///         },
+    ///         HourlySchedule = new AzureNative.NetApp.V20201201.Inputs.HourlyScheduleArgs
+    ///         {
+    ///             Minute = 50,
+    ///             SnapshotsToKeep = 2,
+    ///         },
+    ///         Location = "eastus",
+    ///         MonthlySchedule = new AzureNative.NetApp.V20201201.Inputs.MonthlyScheduleArgs
+    ///         {
+    ///             DaysOfMonth = "10,11,12",
+    ///             Hour = 14,
+    ///             Minute = 15,
+    ///             SnapshotsToKeep = 5,
+    ///         },
+    ///         ResourceGroupName = "myRG",
+    ///         SnapshotPolicyName = "snapshotPolicyName",
+    ///         WeeklySchedule = new AzureNative.NetApp.V20201201.Inputs.WeeklyScheduleArgs
+    ///         {
+    ///             Day = "Wednesday",
+    ///             Hour = 14,
+    ///             Minute = 45,
+    ///             SnapshotsToKeep = 3,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20201201:SnapshotPolicy account1/snapshotPolicy1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotPolicy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp/v20201201:SnapshotPolicy")]
     public partial class SnapshotPolicy : global::Pulumi.CustomResource

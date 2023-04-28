@@ -9,6 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Logz.V20220101Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### metricsSource_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricsSource = new AzureNative.Logz.V20220101Preview.MetricsSource("metricsSource", new()
+    ///     {
+    ///         MetricsSourceName = "MetricsSource1",
+    ///         MonitorName = "myMonitor",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logz/v20220101preview:MetricsSource myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/metricsSource/MetricsSource1 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:logz/v20220101preview:MetricsSource")]
     public partial class MetricsSource : global::Pulumi.CustomResource
     {

@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20160430preview:VirtualMachineScaleSet myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName} 
+ * ```
  *
  * @deprecated Version 2016-04-30-preview will be removed in v2 of the provider.
  */

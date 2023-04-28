@@ -11,6 +11,160 @@ namespace Pulumi.AzureNative.KeyVault.V20230201
 {
     /// <summary>
     /// Resource information with extended details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new vault or update an existing vault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vault = new AzureNative.KeyVault.V20230201.Vault("vault", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.KeyVault.V20230201.Inputs.VaultPropertiesArgs
+    ///         {
+    ///             AccessPolicies = new[]
+    ///             {
+    ///                 new AzureNative.KeyVault.V20230201.Inputs.AccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///                     Permissions = new AzureNative.KeyVault.V20230201.Inputs.PermissionsArgs
+    ///                     {
+    ///                         Certificates = new[]
+    ///                         {
+    ///                             "get",
+    ///                             "list",
+    ///                             "delete",
+    ///                             "create",
+    ///                             "import",
+    ///                             "update",
+    ///                             "managecontacts",
+    ///                             "getissuers",
+    ///                             "listissuers",
+    ///                             "setissuers",
+    ///                             "deleteissuers",
+    ///                             "manageissuers",
+    ///                             "recover",
+    ///                             "purge",
+    ///                         },
+    ///                         Keys = new[]
+    ///                         {
+    ///                             "encrypt",
+    ///                             "decrypt",
+    ///                             "wrapKey",
+    ///                             "unwrapKey",
+    ///                             "sign",
+    ///                             "verify",
+    ///                             "get",
+    ///                             "list",
+    ///                             "create",
+    ///                             "update",
+    ///                             "import",
+    ///                             "delete",
+    ///                             "backup",
+    ///                             "restore",
+    ///                             "recover",
+    ///                             "purge",
+    ///                         },
+    ///                         Secrets = new[]
+    ///                         {
+    ///                             "get",
+    ///                             "list",
+    ///                             "set",
+    ///                             "delete",
+    ///                             "backup",
+    ///                             "restore",
+    ///                             "recover",
+    ///                             "purge",
+    ///                         },
+    ///                     },
+    ///                     TenantId = "00000000-0000-0000-0000-000000000000",
+    ///                 },
+    ///             },
+    ///             EnabledForDeployment = true,
+    ///             EnabledForDiskEncryption = true,
+    ///             EnabledForTemplateDeployment = true,
+    ///             PublicNetworkAccess = "Enabled",
+    ///             Sku = new AzureNative.KeyVault.V20230201.Inputs.SkuArgs
+    ///             {
+    ///                 Family = "A",
+    ///                 Name = AzureNative.KeyVault.V20230201.SkuName.Standard,
+    ///             },
+    ///             TenantId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         ResourceGroupName = "sample-resource-group",
+    ///         VaultName = "sample-vault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a vault with network acls
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vault = new AzureNative.KeyVault.V20230201.Vault("vault", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.KeyVault.V20230201.Inputs.VaultPropertiesArgs
+    ///         {
+    ///             EnabledForDeployment = true,
+    ///             EnabledForDiskEncryption = true,
+    ///             EnabledForTemplateDeployment = true,
+    ///             NetworkAcls = new AzureNative.KeyVault.V20230201.Inputs.NetworkRuleSetArgs
+    ///             {
+    ///                 Bypass = "AzureServices",
+    ///                 DefaultAction = "Deny",
+    ///                 IpRules = new[]
+    ///                 {
+    ///                     new AzureNative.KeyVault.V20230201.Inputs.IPRuleArgs
+    ///                     {
+    ///                         Value = "124.56.78.91",
+    ///                     },
+    ///                     new AzureNative.KeyVault.V20230201.Inputs.IPRuleArgs
+    ///                     {
+    ///                         Value = "'10.91.4.0/24'",
+    ///                     },
+    ///                 },
+    ///                 VirtualNetworkRules = new[]
+    ///                 {
+    ///                     new AzureNative.KeyVault.V20230201.Inputs.VirtualNetworkRuleArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Sku = new AzureNative.KeyVault.V20230201.Inputs.SkuArgs
+    ///             {
+    ///                 Family = "A",
+    ///                 Name = AzureNative.KeyVault.V20230201.SkuName.Standard,
+    ///             },
+    ///             TenantId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         ResourceGroupName = "sample-resource-group",
+    ///         VaultName = "sample-vault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:keyvault/v20230201:Vault sample-vault /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-resource-group/providers/Microsoft.KeyVault/vaults/sample-vault 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault/v20230201:Vault")]
     public partial class Vault : global::Pulumi.CustomResource

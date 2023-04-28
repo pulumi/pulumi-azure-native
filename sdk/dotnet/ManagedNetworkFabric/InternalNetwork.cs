@@ -13,6 +13,107 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// Defines the InternalNetwork item.
     /// API Version: 2023-02-01-preview.
     /// Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### InternalNetworks_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var internalNetwork = new AzureNative.ManagedNetworkFabric.InternalNetwork("internalNetwork", new()
+    ///     {
+    ///         BgpConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.InternalNetworkPatchablePropertiesBgpConfigurationArgs
+    ///         {
+    ///             AllowAS = 1,
+    ///             AllowASOverride = "Enable",
+    ///             DefaultRouteOriginate = "True",
+    ///             Ipv4ListenRangePrefixes = new[]
+    ///             {
+    ///                 "10.1.0.0/25",
+    ///             },
+    ///             Ipv4NeighborAddress = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetworkFabric.Inputs.InternalNetworkPatchablePropertiesIpv4NeighborAddressArgs
+    ///                 {
+    ///                     Address = "10.1.0.0",
+    ///                 },
+    ///             },
+    ///             Ipv6ListenRangePrefixes = new[]
+    ///             {
+    ///                 "2fff::/66",
+    ///             },
+    ///             Ipv6NeighborAddress = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetworkFabric.Inputs.InternalNetworkPatchablePropertiesIpv6NeighborAddressArgs
+    ///                 {
+    ///                     Address = "2fff::",
+    ///                 },
+    ///             },
+    ///             PeerASN = 6,
+    ///         },
+    ///         ConnectedIPv4Subnets = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.Inputs.InternalNetworkPatchablePropertiesConnectedIPv4SubnetsArgs
+    ///             {
+    ///                 Prefix = "10.0.0.0/24",
+    ///             },
+    ///         },
+    ///         ConnectedIPv6Subnets = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.Inputs.InternalNetworkPatchablePropertiesConnectedIPv6SubnetsArgs
+    ///             {
+    ///                 Prefix = "3FFE:FFFF:0:CD30::a0/29",
+    ///             },
+    ///         },
+    ///         ExportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+    ///         ImportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+    ///         InternalNetworkName = "example-internalnetwork",
+    ///         L3IsolationDomainName = "example-l3domain",
+    ///         Mtu = 1500,
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         StaticRouteConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.InternalNetworkPatchablePropertiesStaticRouteConfigurationArgs
+    ///         {
+    ///             Ipv4Routes = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetworkFabric.Inputs.InternalNetworkPatchablePropertiesIpv4RoutesArgs
+    ///                 {
+    ///                     NextHop = new[]
+    ///                     {
+    ///                         "10.0.0.1",
+    ///                     },
+    ///                     Prefix = "10.1.0.0/24",
+    ///                 },
+    ///             },
+    ///             Ipv6Routes = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetworkFabric.Inputs.InternalNetworkPatchablePropertiesIpv6RoutesArgs
+    ///                 {
+    ///                     NextHop = new[]
+    ///                     {
+    ///                         "2ffe::1",
+    ///                     },
+    ///                     Prefix = "2fff::/64",
+    ///                 },
+    ///             },
+    ///         },
+    ///         VlanId = 501,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric:InternalNetwork example-externalnetwork /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/example-l3domain/externalNetworks/example-externalnetwork 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:InternalNetwork")]
     public partial class InternalNetwork : global::Pulumi.CustomResource

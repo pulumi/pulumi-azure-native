@@ -13,6 +13,399 @@ namespace Pulumi.AzureNative.Network
     /// Application gateway resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Application Gateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationGateway = new AzureNative.Network.ApplicationGateway("applicationGateway", new()
+    ///     {
+    ///         ApplicationGatewayName = "appgw",
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayBackendAddressPoolArgs
+    ///             {
+    ///                 BackendAddresses = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.ApplicationGatewayBackendAddressArgs
+    ///                     {
+    ///                         IpAddress = "10.0.1.1",
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.ApplicationGatewayBackendAddressArgs
+    ///                     {
+    ///                         IpAddress = "10.0.1.2",
+    ///                     },
+    ///                 },
+    ///                 Name = "appgwpool",
+    ///             },
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayBackendAddressPoolArgs
+    ///             {
+    ///                 BackendAddresses = new[]
+    ///                 {
+    ///                     "10.0.0.1",
+    ///                     "10.0.0.2",
+    ///                 },
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool1",
+    ///                 Name = "appgwpool1",
+    ///             },
+    ///         },
+    ///         BackendHttpSettingsCollection = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayBackendHttpSettingsArgs
+    ///             {
+    ///                 CookieBasedAffinity = "Disabled",
+    ///                 Name = "appgwbhs",
+    ///                 Port = 80,
+    ///                 Protocol = "Http",
+    ///                 RequestTimeout = 30,
+    ///             },
+    ///         },
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayFrontendIPConfigurationArgs
+    ///             {
+    ///                 Name = "appgwfip",
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/appgwpip",
+    ///                 },
+    ///             },
+    ///         },
+    ///         FrontendPorts = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayFrontendPortArgs
+    ///             {
+    ///                 Name = "appgwfp",
+    ///                 Port = 443,
+    ///             },
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayFrontendPortArgs
+    ///             {
+    ///                 Name = "appgwfp80",
+    ///                 Port = 80,
+    ///             },
+    ///         },
+    ///         GatewayIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayIPConfigurationArgs
+    ///             {
+    ///                 Name = "appgwipc",
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet/subnets/appgwsubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         GlobalConfiguration = new AzureNative.Network.Inputs.ApplicationGatewayGlobalConfigurationArgs
+    ///         {
+    ///             EnableRequestBuffering = true,
+    ///             EnableResponseBuffering = true,
+    ///         },
+    ///         HttpListeners = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayHttpListenerArgs
+    ///             {
+    ///                 FrontendIPConfiguration = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendIPConfigurations/appgwfip",
+    ///                 },
+    ///                 FrontendPort = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendPorts/appgwfp",
+    ///                 },
+    ///                 Name = "appgwhl",
+    ///                 Protocol = "Https",
+    ///                 RequireServerNameIndication = false,
+    ///                 SslCertificate = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/sslCertificates/sslcert",
+    ///                 },
+    ///                 SslProfile = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/sslProfiles/sslProfile1",
+    ///                 },
+    ///             },
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayHttpListenerArgs
+    ///             {
+    ///                 FrontendIPConfiguration = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendIPConfigurations/appgwfip",
+    ///                 },
+    ///                 FrontendPort = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendPorts/appgwfp80",
+    ///                 },
+    ///                 Name = "appgwhttplistener",
+    ///                 Protocol = "Http",
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.Network.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Network.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1", null },
+    ///             },
+    ///         },
+    ///         LoadDistributionPolicies = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayLoadDistributionPolicyArgs
+    ///             {
+    ///                 LoadDistributionAlgorithm = "RoundRobin",
+    ///                 LoadDistributionTargets = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.ApplicationGatewayLoadDistributionTargetArgs
+    ///                     {
+    ///                         BackendAddressPool = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+    ///                         },
+    ///                         Name = "ld11",
+    ///                         WeightPerServer = 40,
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.ApplicationGatewayLoadDistributionTargetArgs
+    ///                     {
+    ///                         BackendAddressPool = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool1",
+    ///                         },
+    ///                         Name = "ld11",
+    ///                         WeightPerServer = 60,
+    ///                     },
+    ///                 },
+    ///                 Name = "ldp1",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         RequestRoutingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayRequestRoutingRuleArgs
+    ///             {
+    ///                 BackendAddressPool = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+    ///                 },
+    ///                 BackendHttpSettings = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+    ///                 },
+    ///                 HttpListener = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/httpListeners/appgwhl",
+    ///                 },
+    ///                 LoadDistributionPolicy = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/loadDistributionPolicies/ldp1",
+    ///                 },
+    ///                 Name = "appgwrule",
+    ///                 Priority = 10,
+    ///                 RewriteRuleSet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+    ///                 },
+    ///                 RuleType = "Basic",
+    ///             },
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayRequestRoutingRuleArgs
+    ///             {
+    ///                 HttpListener = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/httpListeners/appgwhttplistener",
+    ///                 },
+    ///                 Name = "appgwPathBasedRule",
+    ///                 Priority = 20,
+    ///                 RuleType = "PathBasedRouting",
+    ///                 UrlPathMap = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/urlPathMaps/pathMap1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         RewriteRuleSets = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayRewriteRuleSetArgs
+    ///             {
+    ///                 Name = "rewriteRuleSet1",
+    ///                 RewriteRules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.ApplicationGatewayRewriteRuleArgs
+    ///                     {
+    ///                         ActionSet = new AzureNative.Network.Inputs.ApplicationGatewayRewriteRuleActionSetArgs
+    ///                         {
+    ///                             RequestHeaderConfigurations = new[]
+    ///                             {
+    ///                                 new AzureNative.Network.Inputs.ApplicationGatewayHeaderConfigurationArgs
+    ///                                 {
+    ///                                     HeaderName = "X-Forwarded-For",
+    ///                                     HeaderValue = "{var_add_x_forwarded_for_proxy}",
+    ///                                 },
+    ///                             },
+    ///                             ResponseHeaderConfigurations = new[]
+    ///                             {
+    ///                                 new AzureNative.Network.Inputs.ApplicationGatewayHeaderConfigurationArgs
+    ///                                 {
+    ///                                     HeaderName = "Strict-Transport-Security",
+    ///                                     HeaderValue = "max-age=31536000",
+    ///                                 },
+    ///                             },
+    ///                             UrlConfiguration = new AzureNative.Network.Inputs.ApplicationGatewayUrlConfigurationArgs
+    ///                             {
+    ///                                 ModifiedPath = "/abc",
+    ///                             },
+    ///                         },
+    ///                         Conditions = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.ApplicationGatewayRewriteRuleConditionArgs
+    ///                             {
+    ///                                 IgnoreCase = true,
+    ///                                 Negate = false,
+    ///                                 Pattern = "^Bearer",
+    ///                                 Variable = "http_req_Authorization",
+    ///                             },
+    ///                         },
+    ///                         Name = "Set X-Forwarded-For",
+    ///                         RuleSequence = 102,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Sku = new AzureNative.Network.Inputs.ApplicationGatewaySkuArgs
+    ///         {
+    ///             Capacity = 3,
+    ///             Name = "Standard_v2",
+    ///             Tier = "Standard_v2",
+    ///         },
+    ///         SslCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewaySslCertificateArgs
+    ///             {
+    ///                 Data = "****",
+    ///                 Name = "sslcert",
+    ///                 Password = "****",
+    ///             },
+    ///             new AzureNative.Network.Inputs.ApplicationGatewaySslCertificateArgs
+    ///             {
+    ///                 KeyVaultSecretId = "https://kv/secret",
+    ///                 Name = "sslcert2",
+    ///             },
+    ///         },
+    ///         SslProfiles = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewaySslProfileArgs
+    ///             {
+    ///                 ClientAuthConfiguration = new AzureNative.Network.Inputs.ApplicationGatewayClientAuthConfigurationArgs
+    ///                 {
+    ///                     VerifyClientCertIssuerDN = true,
+    ///                 },
+    ///                 Name = "sslProfile1",
+    ///                 SslPolicy = new AzureNative.Network.Inputs.ApplicationGatewaySslPolicyArgs
+    ///                 {
+    ///                     CipherSuites = new[]
+    ///                     {
+    ///                         "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256",
+    ///                     },
+    ///                     MinProtocolVersion = "TLSv1_1",
+    ///                     PolicyType = "Custom",
+    ///                 },
+    ///                 TrustedClientCertificates = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/trustedClientCertificates/clientcert",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         TrustedClientCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayTrustedClientCertificateArgs
+    ///             {
+    ///                 Data = "****",
+    ///                 Name = "clientcert",
+    ///             },
+    ///         },
+    ///         TrustedRootCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayTrustedRootCertificateArgs
+    ///             {
+    ///                 Data = "****",
+    ///                 Name = "rootcert",
+    ///             },
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayTrustedRootCertificateArgs
+    ///             {
+    ///                 KeyVaultSecretId = "https://kv/secret",
+    ///                 Name = "rootcert1",
+    ///             },
+    ///         },
+    ///         UrlPathMaps = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationGatewayUrlPathMapArgs
+    ///             {
+    ///                 DefaultBackendAddressPool = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+    ///                 },
+    ///                 DefaultBackendHttpSettings = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+    ///                 },
+    ///                 DefaultLoadDistributionPolicy = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/loadDistributionPolicies/ldp1",
+    ///                 },
+    ///                 DefaultRewriteRuleSet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+    ///                 },
+    ///                 Name = "pathMap1",
+    ///                 PathRules = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.ApplicationGatewayPathRuleArgs
+    ///                     {
+    ///                         BackendAddressPool = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+    ///                         },
+    ///                         BackendHttpSettings = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+    ///                         },
+    ///                         LoadDistributionPolicy = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/loadDistributionPolicies/ldp1",
+    ///                         },
+    ///                         Name = "apiPaths",
+    ///                         Paths = new[]
+    ///                         {
+    ///                             "/api",
+    ///                             "/v1/api",
+    ///                         },
+    ///                         RewriteRuleSet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:ApplicationGateway appgw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ApplicationGateway")]
     public partial class ApplicationGateway : global::Pulumi.CustomResource

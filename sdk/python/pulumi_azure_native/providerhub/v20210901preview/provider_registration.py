@@ -59,7 +59,50 @@ class ProviderRegistration(pulumi.CustomResource):
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ProviderRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ProviderRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_registration = azure_native.providerhub.v20210901preview.ProviderRegistration("providerRegistration",
+            properties=azure_native.providerhub.v20210901preview.ProviderRegistrationResponsePropertiesArgs(
+                capabilities=[
+                    azure_native.providerhub.v20210901preview.ResourceProviderCapabilitiesArgs(
+                        effect="Allow",
+                        quota_id="CSP_2015-05-01",
+                    ),
+                    azure_native.providerhub.v20210901preview.ResourceProviderCapabilitiesArgs(
+                        effect="Allow",
+                        quota_id="CSP_MG_2017-12-01",
+                    ),
+                ],
+                management={
+                    "incidentContactEmail": "helpme@contoso.com",
+                    "incidentRoutingService": "Contoso Resource Provider",
+                    "incidentRoutingTeam": "Contoso Triage",
+                    "serviceTreeInfos": [azure_native.providerhub.v20210901preview.ServiceTreeInfoArgs(
+                        component_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        readiness="InDevelopment",
+                        service_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    )],
+                },
+                provider_type="Internal",
+                provider_version="2.0",
+            ),
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20210901preview:ProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -71,7 +114,50 @@ class ProviderRegistration(pulumi.CustomResource):
                  args: Optional[ProviderRegistrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ProviderRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ProviderRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_registration = azure_native.providerhub.v20210901preview.ProviderRegistration("providerRegistration",
+            properties=azure_native.providerhub.v20210901preview.ProviderRegistrationResponsePropertiesArgs(
+                capabilities=[
+                    azure_native.providerhub.v20210901preview.ResourceProviderCapabilitiesArgs(
+                        effect="Allow",
+                        quota_id="CSP_2015-05-01",
+                    ),
+                    azure_native.providerhub.v20210901preview.ResourceProviderCapabilitiesArgs(
+                        effect="Allow",
+                        quota_id="CSP_MG_2017-12-01",
+                    ),
+                ],
+                management={
+                    "incidentContactEmail": "helpme@contoso.com",
+                    "incidentRoutingService": "Contoso Resource Provider",
+                    "incidentRoutingTeam": "Contoso Triage",
+                    "serviceTreeInfos": [azure_native.providerhub.v20210901preview.ServiceTreeInfoArgs(
+                        component_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        readiness="InDevelopment",
+                        service_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    )],
+                },
+                provider_type="Internal",
+                provider_version="2.0",
+            ),
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20210901preview:ProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param ProviderRegistrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

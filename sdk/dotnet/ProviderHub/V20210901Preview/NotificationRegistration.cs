@@ -11,6 +11,64 @@ namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
 {
     /// <summary>
     /// The notification registration definition.
+    /// 
+    /// ## Example Usage
+    /// ### NotificationRegistrations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var notificationRegistration = new AzureNative.ProviderHub.V20210901Preview.NotificationRegistration("notificationRegistration", new()
+    ///     {
+    ///         NotificationRegistrationName = "fooNotificationRegistration",
+    ///         Properties = new AzureNative.ProviderHub.V20210901Preview.Inputs.NotificationRegistrationPropertiesArgs
+    ///         {
+    ///             IncludedEvents = new[]
+    ///             {
+    ///                 "*/write",
+    ///                 "Microsoft.Contoso/employees/delete",
+    ///             },
+    ///             MessageScope = "RegisteredSubscriptions",
+    ///             NotificationEndpoints = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.V20210901Preview.Inputs.NotificationEndpointArgs
+    ///                 {
+    ///                     Locations = new[]
+    ///                     {
+    ///                         "",
+    ///                         "East US",
+    ///                     },
+    ///                     NotificationDestination = "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
+    ///                 },
+    ///                 new AzureNative.ProviderHub.V20210901Preview.Inputs.NotificationEndpointArgs
+    ///                 {
+    ///                     Locations = new[]
+    ///                     {
+    ///                         "North Europe",
+    ///                     },
+    ///                     NotificationDestination = "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
+    ///                 },
+    ///             },
+    ///             NotificationMode = "EventHub",
+    ///         },
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub/v20210901preview:NotificationRegistration fooNotificationRegistration /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/notificationregistrations/fooNotificationRegistration 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub/v20210901preview:NotificationRegistration")]
     public partial class NotificationRegistration : global::Pulumi.CustomResource

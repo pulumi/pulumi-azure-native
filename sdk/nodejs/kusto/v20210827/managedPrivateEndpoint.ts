@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a managed private endpoint.
+ *
+ * ## Example Usage
+ * ### KustoManagedPrivateEndpointsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedPrivateEndpoint = new azure_native.kusto.v20210827.ManagedPrivateEndpoint("managedPrivateEndpoint", {
+ *     clusterName: "kustoclusterrptest4",
+ *     groupId: "blob",
+ *     managedPrivateEndpointName: "kustoManagedPrivateEndpoint1",
+ *     privateLinkResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Storage/storageAccounts/storageAccountTest",
+ *     requestMessage: "Please Approve.",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto/v20210827:ManagedPrivateEndpoint KustoClusterRPTest4/KustoDatabase8/kustomanagedPrivateEndpoint1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/ManagedPrivateEndpoints/kustoManagedPrivateEndpoint1 
+ * ```
  */
 export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**

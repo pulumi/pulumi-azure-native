@@ -72,7 +72,28 @@ class ResourceGuardProxy(pulumi.CustomResource):
                  vault_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ResourceGuardProxy resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create ResourceGuardProxy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_guard_proxy = azure_native.recoveryservices.v20210201preview.ResourceGuardProxy("resourceGuardProxy",
+            resource_group_name="SampleResourceGroup",
+            resource_guard_proxy_name="swaggerExample",
+            vault_name="sampleVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20210201preview:ResourceGuardProxy swaggerExample /backupmanagement/resources/sampleVault/backupResourceGuardProxies/swaggerExample 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group where the recovery services vault is present.
@@ -85,7 +106,28 @@ class ResourceGuardProxy(pulumi.CustomResource):
                  args: ResourceGuardProxyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ResourceGuardProxy resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create ResourceGuardProxy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_guard_proxy = azure_native.recoveryservices.v20210201preview.ResourceGuardProxy("resourceGuardProxy",
+            resource_group_name="SampleResourceGroup",
+            resource_guard_proxy_name="swaggerExample",
+            vault_name="sampleVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20210201preview:ResourceGuardProxy swaggerExample /backupmanagement/resources/sampleVault/backupResourceGuardProxies/swaggerExample 
+        ```
+
         :param str resource_name: The name of the resource.
         :param ResourceGuardProxyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

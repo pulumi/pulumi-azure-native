@@ -9,6 +9,77 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### CreateOrUpdate Batch Endpoint.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var batchEndpoint = new AzureNative.MachineLearningServices.V20210301Preview.BatchEndpoint("batchEndpoint", new()
+    ///     {
+    ///         EndpointName = "testBatchEndpoint",
+    ///         Identity = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.ResourceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuseridentity", new AzureNative.MachineLearningServices.V20210301Preview.Inputs.UserAssignedIdentityMetaArgs
+    ///                 {
+    ///                     ClientId = "string",
+    ///                     PrincipalId = "string",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         Properties = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.BatchEndpointArgs
+    ///         {
+    ///             AuthMode = "AMLToken",
+    ///             Description = "string",
+    ///             Keys = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.EndpointAuthKeysArgs
+    ///             {
+    ///                 PrimaryKey = "string",
+    ///                 SecondaryKey = "string",
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///             Traffic = 
+    ///             {
+    ///                 { "myDeployment1", 0 },
+    ///                 { "myDeployment2", 1 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "resourceGroup-1234",
+    ///         Tags = 
+    ///         {
+    ///             { "additionalProp1", "string" },
+    ///             { "additionalProp2", "string" },
+    ///             { "additionalProp3", "string" },
+    ///         },
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20210301preview:BatchEndpoint testBatchEndpoint /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/batchEndpoints/testBatchEndpoint 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:BatchEndpoint")]
     public partial class BatchEndpoint : global::Pulumi.CustomResource
     {

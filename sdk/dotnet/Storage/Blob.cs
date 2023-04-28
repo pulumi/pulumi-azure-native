@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Storage
 {
     /// <summary>
     /// Manages a Blob within a Storage Container.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:Blob myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName}/blobServices/default/containers/{containerName}/blobs/{blobName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Blob")]
     public partial class Blob : global::Pulumi.CustomResource

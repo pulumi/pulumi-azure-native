@@ -97,6 +97,39 @@ class Deployment(pulumi.CustomResource):
         """
         Cognitive Services account deployment.
 
+        ## Example Usage
+        ### PutDeployment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.cognitiveservices.v20221201.Deployment("deployment",
+            account_name="accountName",
+            deployment_name="deploymentName",
+            properties=azure_native.cognitiveservices.v20221201.DeploymentPropertiesResponseArgs(
+                model=azure_native.cognitiveservices.v20221201.DeploymentModelArgs(
+                    format="OpenAI",
+                    name="ada",
+                    version="1",
+                ),
+                scale_settings=azure_native.cognitiveservices.v20221201.DeploymentScaleSettingsArgs(
+                    capacity=1,
+                    scale_type="Manual",
+                ),
+            ),
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices/v20221201:Deployment deploymentName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName/deployments/deploymentName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
@@ -112,6 +145,39 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services account deployment.
+
+        ## Example Usage
+        ### PutDeployment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.cognitiveservices.v20221201.Deployment("deployment",
+            account_name="accountName",
+            deployment_name="deploymentName",
+            properties=azure_native.cognitiveservices.v20221201.DeploymentPropertiesResponseArgs(
+                model=azure_native.cognitiveservices.v20221201.DeploymentModelArgs(
+                    format="OpenAI",
+                    name="ada",
+                    version="1",
+                ),
+                scale_settings=azure_native.cognitiveservices.v20221201.DeploymentScaleSettingsArgs(
+                    capacity=1,
+                    scale_type="Manual",
+                ),
+            ),
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices/v20221201:Deployment deploymentName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName/deployments/deploymentName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

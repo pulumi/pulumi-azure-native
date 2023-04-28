@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.DevTestLab.V20160515
 {
     /// <summary>
     /// A formula for creating a VM, specifying an image base and other parameters
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20160515:Formula myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/formulas/{name} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-05-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devtestlab/v20160515:Formula")]

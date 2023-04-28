@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Compute.V20201201
 {
     /// <summary>
     /// Specifies information about the proximity placement group.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a proximity placement group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var proximityPlacementGroup = new AzureNative.Compute.V20201201.ProximityPlacementGroup("proximityPlacementGroup", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ProximityPlacementGroupName = "myProximityPlacementGroup",
+    ///         ProximityPlacementGroupType = "Standard",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20201201:ProximityPlacementGroup myProximityPlacementGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myProximityPlacementGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20201201:ProximityPlacementGroup")]
     public partial class ProximityPlacementGroup : global::Pulumi.CustomResource

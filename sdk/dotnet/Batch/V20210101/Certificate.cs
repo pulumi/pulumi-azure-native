@@ -11,6 +11,82 @@ namespace Pulumi.AzureNative.Batch.V20210101
 {
     /// <summary>
     /// Contains information about a certificate.
+    /// 
+    /// ## Example Usage
+    /// ### CreateCertificate - Full
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.Batch.V20210101.Certificate("certificate", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         CertificateName = "sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+    ///         Data = "MIIJsgIBAzCCCW4GCSqGSIb3DQE...",
+    ///         Format = AzureNative.Batch.V20210101.CertificateFormat.Pfx,
+    ///         Password = "&lt;ExamplePassword&gt;",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         Thumbprint = "0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+    ///         ThumbprintAlgorithm = "sha1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateCertificate - Minimal Cer
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.Batch.V20210101.Certificate("certificate", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         CertificateName = "sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+    ///         Data = "MIICrjCCAZagAwI...",
+    ///         Format = AzureNative.Batch.V20210101.CertificateFormat.Cer,
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateCertificate - Minimal Pfx
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.Batch.V20210101.Certificate("certificate", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         CertificateName = "sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+    ///         Data = "MIIJsgIBAzCCCW4GCSqGSIb3DQE...",
+    ///         Password = "&lt;ExamplePassword&gt;",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:batch/v20210101:Certificate sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e /subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/samplecct/certificates/sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:batch/v20210101:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

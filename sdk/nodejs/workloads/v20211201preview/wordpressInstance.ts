@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * WordPress instance resource
+ *
+ * ## Example Usage
+ * ### Workloads
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const wordpressInstance = new azure_native.workloads.v20211201preview.WordpressInstance("wordpressInstance", {
+ *     databaseName: "wpdb",
+ *     databaseUser: "wpuser",
+ *     phpWorkloadName: "wp39",
+ *     resourceGroupName: "test-rg",
+ *     version: "5.4.2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads/v20211201preview:WordpressInstance default /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsot.Workloads/phpWorkloads/wp39/wordpressInstances/default 
+ * ```
  */
 export class WordpressInstance extends pulumi.CustomResource {
     /**

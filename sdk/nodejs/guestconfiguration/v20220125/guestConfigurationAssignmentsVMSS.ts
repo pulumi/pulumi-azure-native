@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
+ *
+ * ## Example Usage
+ * ### Create or update guest configuration assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const guestConfigurationAssignmentsVMSS = new azure_native.guestconfiguration.v20220125.GuestConfigurationAssignmentsVMSS("guestConfigurationAssignmentsVMSS", {
+ *     location: "westcentralus",
+ *     name: "NotInstalledApplicationForWindows",
+ *     properties: {
+ *         context: "Azure policy",
+ *         guestConfiguration: {
+ *             assignmentType: "ApplyAndAutoCorrect",
+ *             configurationParameter: [{
+ *                 name: "[InstalledApplication]NotInstalledApplicationResource1;Name",
+ *                 value: "NotePad,sql",
+ *             }],
+ *             contentHash: "123contenthash",
+ *             contentUri: "https://thisisfake/pacakge",
+ *             name: "NotInstalledApplicationForWindows",
+ *             version: "1.0.0.3",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroupName",
+ *     vmssName: "myVMSSName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS NotInstalledApplicationForWindows /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualmachinescalesets/myvmssname/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows 
+ * ```
  */
 export class GuestConfigurationAssignmentsVMSS extends pulumi.CustomResource {
     /**

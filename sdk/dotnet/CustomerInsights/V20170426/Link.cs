@@ -11,6 +11,64 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The link resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Links_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var link = new AzureNative.CustomerInsights.V20170426.Link("link", new()
+    ///     {
+    ///         Description = 
+    ///         {
+    ///             { "en-us", "Link Description" },
+    ///         },
+    ///         DisplayName = 
+    ///         {
+    ///             { "en-us", "Link DisplayName" },
+    ///         },
+    ///         HubName = "sdkTestHub",
+    ///         LinkName = "linkTest4806",
+    ///         Mappings = new[]
+    ///         {
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.TypePropertiesMappingArgs
+    ///             {
+    ///                 LinkType = AzureNative.CustomerInsights.V20170426.LinkTypes.UpdateAlways,
+    ///                 SourcePropertyName = "testInteraction1949",
+    ///                 TargetPropertyName = "testProfile1446",
+    ///             },
+    ///         },
+    ///         ParticipantPropertyReferences = new[]
+    ///         {
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.ParticipantPropertyReferenceArgs
+    ///             {
+    ///                 SourcePropertyName = "testInteraction1949",
+    ///                 TargetPropertyName = "ProfileId",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestHubRG",
+    ///         SourceEntityType = AzureNative.CustomerInsights.V20170426.EntityType.Interaction,
+    ///         SourceEntityTypeName = "testInteraction1949",
+    ///         TargetEntityType = AzureNative.CustomerInsights.V20170426.EntityType.Profile,
+    ///         TargetEntityTypeName = "testProfile1446",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170426:Link azSdkTestHub/linkTest4806 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/links/linkTest4806 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Link")]
     public partial class Link : global::Pulumi.CustomResource

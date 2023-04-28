@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20230315
 {
     /// <summary>
     /// The endpoint for the target resource.
+    /// 
+    /// ## Example Usage
+    /// ### HybridConnectivityEndpointsPutCustom
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.HybridConnectivity.V20230315.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "custom",
+    ///         Properties = new AzureNative.HybridConnectivity.V20230315.Inputs.EndpointPropertiesArgs
+    ///         {
+    ///             ResourceId = "/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
+    ///             Type = "custom",
+    ///         },
+    ///         ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### HybridConnectivityEndpointsPutDefault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.HybridConnectivity.V20230315.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "default",
+    ///         Properties = new AzureNative.HybridConnectivity.V20230315.Inputs.EndpointPropertiesArgs
+    ///         {
+    ///             Type = "default",
+    ///         },
+    ///         ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridconnectivity/v20230315:Endpoint default /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity/v20230315:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource

@@ -6,6 +6,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Service Endpoint policy definitions.
+ *
+ * ## Example Usage
+ * ### Create service endpoint policy definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceEndpointPolicyDefinition = new azure_native.network.v20201101.ServiceEndpointPolicyDefinition("serviceEndpointPolicyDefinition", {
+ *     description: "Storage Service EndpointPolicy Definition",
+ *     resourceGroupName: "rg1",
+ *     service: "Microsoft.Storage",
+ *     serviceEndpointPolicyDefinitionName: "testDefinition",
+ *     serviceEndpointPolicyName: "testPolicy",
+ *     serviceResources: [
+ *         "/subscriptions/subid1",
+ *         "/subscriptions/subid1/resourceGroups/storageRg",
+ *         "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:ServiceEndpointPolicyDefinition testDefinition /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/serviceEndpointPolicies/testPolicy/serviceEndpointPolicyDefinitions/testDefinition 
+ * ```
  */
 export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
     /**

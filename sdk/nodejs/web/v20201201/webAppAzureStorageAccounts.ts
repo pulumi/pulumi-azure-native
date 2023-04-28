@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * AzureStorageInfo dictionary resource.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201201:WebAppAzureStorageAccounts myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/azurestorageaccounts 
+ * ```
  */
 export class WebAppAzureStorageAccounts extends pulumi.CustomResource {
     /**

@@ -11,6 +11,54 @@ import * as utilities from "../utilities";
  * Represents a devcenter resource.
  * API Version: 2022-11-11-preview.
  * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### DevCenters_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const devCenter = new azure_native.devcenter.DevCenter("devCenter", {
+ *     devCenterName: "Contoso",
+ *     location: "centralus",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         CostCode: "12345",
+ *     },
+ * });
+ *
+ * ```
+ * ### DevCenters_CreateWithUserIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const devCenter = new azure_native.devcenter.DevCenter("devCenter", {
+ *     devCenterName: "Contoso",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1": {},
+ *         },
+ *     },
+ *     location: "centralus",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         CostCode: "12345",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter:DevCenter Contoso /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso 
+ * ```
  */
 export class DevCenter extends pulumi.CustomResource {
     /**

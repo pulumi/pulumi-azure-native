@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
 {
     /// <summary>
     /// The representation of an edge module.
+    /// 
+    /// ## Example Usage
+    /// ### Registers an edge module.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var edgeModule = new AzureNative.VideoAnalyzer.V20210501Preview.EdgeModule("edgeModule", new()
+    ///     {
+    ///         AccountName = "testaccount2",
+    ///         EdgeModuleName = "edgeModule1",
+    ///         ResourceGroupName = "testrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer/v20210501preview:EdgeModule edgeModule1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/edgeModules/edgeModule1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20210501preview:EdgeModule")]
     public partial class EdgeModule : global::Pulumi.CustomResource

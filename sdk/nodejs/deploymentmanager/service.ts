@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
  * The resource representation of a service in a service topology.
  * API Version: 2019-11-01-preview.
  * Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.deploymentmanager.Service("service", {
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myService",
+ *     serviceTopologyName: "myTopology",
+ *     tags: {},
+ *     targetLocation: "centralus",
+ *     targetSubscriptionId: "600c95c5-3ee5-44fe-b190-ca38a19adcd7",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deploymentmanager:Service myService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/serviceTopologies/{serviceTopologyName}/services/{serviceName} 
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

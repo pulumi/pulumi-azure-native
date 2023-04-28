@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.EventHub.V20150801
 {
     /// <summary>
     /// Single item in List or Get Consumer group operation
+    /// 
+    /// ## Example Usage
+    /// ### ConsumerGroupCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var consumerGroup = new AzureNative.EventHub.V20150801.ConsumerGroup("consumerGroup", new()
+    ///     {
+    ///         ConsumerGroupName = "sdk-ConsumerGroup115",
+    ///         EventHubName = "sdk-EventHub5290",
+    ///         Location = "West US",
+    ///         NamespaceName = "sdk-Namespace736",
+    ///         ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20150801:ConsumerGroup sdk-ConsumerGroup115 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace736/eventhubs/sdk-EventHub5290/consumergroups/sdk-ConsumerGroup115 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:eventhub/v20150801:ConsumerGroup")]

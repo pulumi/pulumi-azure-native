@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
     /// <summary>
     /// Action for alert rule.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an action of alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var action = new AzureNative.SecurityInsights.V20210301Preview.Action("action", new()
+    ///     {
+    ///         ActionId = "912bec42-cb66-4c03-ac63-1761b6898c3e",
+    ///         LogicAppResourceId = "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/MyAlerts",
+    ///         OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         TriggerUri = "https://prod-31.northcentralus.logic.azure.com:443/workflows/cd3765391efd48549fd7681ded1d48d7/triggers/manual/paths/invoke?api-version=2016-10-01&amp;sp=%2Ftriggers%2Fmanual%2Frun&amp;sv=1.0&amp;sig=signature",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20210301preview:Action 912bec42-cb66-4c03-ac63-1761b6898c3e /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5/actions/912bec42-cb66-4c03-ac63-1761b6898c3e 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20210301preview:Action")]
     public partial class Action : global::Pulumi.CustomResource

@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.PolicyInsights
     /// The remediation definition.
     /// API Version: 2021-10-01.
     /// Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create remediation at management group scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var remediationAtManagementGroup = new AzureNative.PolicyInsights.RemediationAtManagementGroup("remediationAtManagementGroup", new()
+    ///     {
+    ///         ManagementGroupId = "financeMg",
+    ///         ManagementGroupsNamespace = "Microsoft.Management",
+    ///         PolicyAssignmentId = "/providers/microsoft.management/managementGroups/financeMg/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///         RemediationName = "storageRemediation",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:policyinsights:RemediationAtManagementGroup storageRemediation /providers/microsoft.management/managementGroups/financeMg/providers/microsoft.policyinsights/remediations/storageRemediation 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights:RemediationAtManagementGroup")]
     public partial class RemediationAtManagementGroup : global::Pulumi.CustomResource

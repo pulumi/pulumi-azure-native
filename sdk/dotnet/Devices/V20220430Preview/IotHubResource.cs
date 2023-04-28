@@ -11,6 +11,132 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview
 {
     /// <summary>
     /// The description of the IoT hub.
+    /// 
+    /// ## Example Usage
+    /// ### IotHubResource_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotHubResource = new AzureNative.Devices.V20220430Preview.IotHubResource("iotHubResource", new()
+    ///     {
+    ///         Location = "centraluseuap",
+    ///         Properties = new AzureNative.Devices.V20220430Preview.Inputs.IotHubPropertiesArgs
+    ///         {
+    ///             CloudToDevice = new AzureNative.Devices.V20220430Preview.Inputs.CloudToDevicePropertiesArgs
+    ///             {
+    ///                 DefaultTtlAsIso8601 = "PT1H",
+    ///                 Feedback = new AzureNative.Devices.V20220430Preview.Inputs.FeedbackPropertiesArgs
+    ///                 {
+    ///                     LockDurationAsIso8601 = "PT1M",
+    ///                     MaxDeliveryCount = 10,
+    ///                     TtlAsIso8601 = "PT1H",
+    ///                 },
+    ///                 MaxDeliveryCount = 10,
+    ///             },
+    ///             EnableDataResidency = true,
+    ///             EnableFileUploadNotifications = false,
+    ///             EventHubEndpoints = 
+    ///             {
+    ///                 { "events", new AzureNative.Devices.V20220430Preview.Inputs.EventHubPropertiesArgs
+    ///                 {
+    ///                     PartitionCount = 2,
+    ///                     RetentionTimeInDays = 1,
+    ///                 } },
+    ///             },
+    ///             Features = "None",
+    ///             IpFilterRules = new[] {},
+    ///             MessagingEndpoints = 
+    ///             {
+    ///                 { "fileNotifications", new AzureNative.Devices.V20220430Preview.Inputs.MessagingEndpointPropertiesArgs
+    ///                 {
+    ///                     LockDurationAsIso8601 = "PT1M",
+    ///                     MaxDeliveryCount = 10,
+    ///                     TtlAsIso8601 = "PT1H",
+    ///                 } },
+    ///             },
+    ///             MinTlsVersion = "1.2",
+    ///             NetworkRuleSets = new AzureNative.Devices.V20220430Preview.Inputs.NetworkRuleSetPropertiesArgs
+    ///             {
+    ///                 ApplyToBuiltInEventHubEndpoint = true,
+    ///                 DefaultAction = "Deny",
+    ///                 IpRules = new[]
+    ///                 {
+    ///                     new AzureNative.Devices.V20220430Preview.Inputs.NetworkRuleSetIpRuleArgs
+    ///                     {
+    ///                         Action = "Allow",
+    ///                         FilterName = "rule1",
+    ///                         IpMask = "131.117.159.53",
+    ///                     },
+    ///                     new AzureNative.Devices.V20220430Preview.Inputs.NetworkRuleSetIpRuleArgs
+    ///                     {
+    ///                         Action = "Allow",
+    ///                         FilterName = "rule2",
+    ///                         IpMask = "157.55.59.128/25",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             RootCertificate = new AzureNative.Devices.V20220430Preview.Inputs.RootCertificatePropertiesArgs
+    ///             {
+    ///                 EnableRootCertificateV2 = true,
+    ///             },
+    ///             Routing = new AzureNative.Devices.V20220430Preview.Inputs.RoutingPropertiesArgs
+    ///             {
+    ///                 Endpoints = new AzureNative.Devices.V20220430Preview.Inputs.RoutingEndpointsArgs
+    ///                 {
+    ///                     EventHubs = new[] {},
+    ///                     ServiceBusQueues = new[] {},
+    ///                     ServiceBusTopics = new[] {},
+    ///                     StorageContainers = new[] {},
+    ///                 },
+    ///                 FallbackRoute = new AzureNative.Devices.V20220430Preview.Inputs.FallbackRoutePropertiesArgs
+    ///                 {
+    ///                     Condition = "true",
+    ///                     EndpointNames = new[]
+    ///                     {
+    ///                         "events",
+    ///                     },
+    ///                     IsEnabled = true,
+    ///                     Name = "$fallback",
+    ///                     Source = "DeviceMessages",
+    ///                 },
+    ///                 Routes = new[] {},
+    ///             },
+    ///             StorageEndpoints = 
+    ///             {
+    ///                 { "$default", new AzureNative.Devices.V20220430Preview.Inputs.StorageEndpointPropertiesArgs
+    ///                 {
+    ///                     ConnectionString = "",
+    ///                     ContainerName = "",
+    ///                     SasTtlAsIso8601 = "PT1H",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "testHub",
+    ///         Sku = new AzureNative.Devices.V20220430Preview.Inputs.IotHubSkuInfoArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "S1",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devices/v20220430preview:IotHubResource testHub /subscriptions/ae24ff83-d2ca-4fc8-9717-05dae4bba489/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/testHub 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devices/v20220430preview:IotHubResource")]
     public partial class IotHubResource : global::Pulumi.CustomResource

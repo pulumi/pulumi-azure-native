@@ -193,6 +193,33 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
         """
         Configuration Assignment
 
+        ## Example Usage
+        ### ConfigurationAssignments_CreateOrUpdateParent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_assignment_parent = azure_native.maintenance.v20210401preview.ConfigurationAssignmentParent("configurationAssignmentParent",
+            configuration_assignment_name="workervmPolicy",
+            maintenance_configuration_id="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/policy1",
+            provider_name="Microsoft.Compute",
+            resource_group_name="examplerg",
+            resource_name_="smdvm1",
+            resource_parent_name="smdtest1",
+            resource_parent_type="virtualMachineScaleSets",
+            resource_type="virtualMachines")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent workervmPolicy /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Compute/virtualMachineScaleSets/smdtest1/virtualMachines/smdvm1/providers/Microsoft.Maintenance/configurationAssignments/workervmPolicy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_assignment_name: Configuration assignment name
@@ -214,6 +241,33 @@ class ConfigurationAssignmentParent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration Assignment
+
+        ## Example Usage
+        ### ConfigurationAssignments_CreateOrUpdateParent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_assignment_parent = azure_native.maintenance.v20210401preview.ConfigurationAssignmentParent("configurationAssignmentParent",
+            configuration_assignment_name="workervmPolicy",
+            maintenance_configuration_id="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/policy1",
+            provider_name="Microsoft.Compute",
+            resource_group_name="examplerg",
+            resource_name_="smdvm1",
+            resource_parent_name="smdtest1",
+            resource_parent_type="virtualMachineScaleSets",
+            resource_type="virtualMachines")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent workervmPolicy /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Compute/virtualMachineScaleSets/smdtest1/virtualMachines/smdvm1/providers/Microsoft.Maintenance/configurationAssignments/workervmPolicy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationAssignmentParentArgs args: The arguments to use to populate this resource's properties.

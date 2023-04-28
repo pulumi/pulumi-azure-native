@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// Configuration of App Service site logs.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/logs 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:WebAppDiagnosticLogsConfiguration")]
     public partial class WebAppDiagnosticLogsConfiguration : global::Pulumi.CustomResource

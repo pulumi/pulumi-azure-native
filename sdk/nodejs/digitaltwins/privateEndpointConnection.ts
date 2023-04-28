@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * The private endpoint connection of a Digital Twin.
  * API Version: 2023-01-31.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Update the status of a private endpoint connection with the given name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.digitaltwins.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "myPrivateConnection",
+ *     properties: {
+ *         privateLinkServiceConnectionState: {
+ *             description: "Approved by johndoe@company.com.",
+ *             status: "Approved",
+ *         },
+ *     },
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:digitaltwins:PrivateEndpointConnection myPrivateConnection /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/privateEndpointConnections/myPrivateConnection 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

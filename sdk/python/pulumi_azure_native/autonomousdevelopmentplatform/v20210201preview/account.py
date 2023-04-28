@@ -96,6 +96,28 @@ class Account(pulumi.CustomResource):
         """
         ADP account
 
+        ## Example Usage
+        ### Put account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.autonomousdevelopmentplatform.v20210201preview.Account("account",
+            account_name="sampleacct",
+            location="Global",
+            resource_group_name="adpClient")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:autonomousdevelopmentplatform/v20210201preview:Account adp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.AutonomousDevelopmentPlatform/accounts/adp1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the ADP account
@@ -111,6 +133,28 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ADP account
+
+        ## Example Usage
+        ### Put account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.autonomousdevelopmentplatform.v20210201preview.Account("account",
+            account_name="sampleacct",
+            location="Global",
+            resource_group_name="adpClient")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:autonomousdevelopmentplatform/v20210201preview:Account adp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.AutonomousDevelopmentPlatform/accounts/adp1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

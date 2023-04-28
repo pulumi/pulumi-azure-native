@@ -9,6 +9,47 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the Shared Image Gallery that you want to create or update.
+ *
+ * ## Example Usage
+ * ### Create or update a simple gallery with sharing profile.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gallery = new azure_native.compute.v20200930.Gallery("gallery", {
+ *     description: "This is the gallery description.",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sharingProfile: {
+ *         permissions: "Groups",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple gallery.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gallery = new azure_native.compute.v20200930.Gallery("gallery", {
+ *     description: "This is the gallery description.",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20200930:Gallery myGalleryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName} 
+ * ```
  */
 export class Gallery extends pulumi.CustomResource {
     /**

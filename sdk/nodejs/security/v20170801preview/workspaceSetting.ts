@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Configures where to store the OMS agent data for workspaces under a scope
+ *
+ * ## Example Usage
+ * ### Create a workspace setting data for subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceSetting = new azure_native.security.v20170801preview.WorkspaceSetting("workspaceSetting", {
+ *     scope: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+ *     workspaceId: "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
+ *     workspaceSettingName: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20170801preview:WorkspaceSetting default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/workspaceSettings/default 
+ * ```
  */
 export class WorkspaceSetting extends pulumi.CustomResource {
     /**

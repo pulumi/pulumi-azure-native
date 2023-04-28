@@ -182,6 +182,50 @@ class Authorization(pulumi.CustomResource):
         Authorization contract.
         API Version: 2022-08-01.
 
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationAADAuthCode
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization = azure_native.apimanagement.Authorization("authorization",
+            authorization_id="authz2",
+            authorization_provider_id="aadwithauthcode",
+            authorization_type="OAuth2",
+            o_auth2_grant_type="AuthorizationCode",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateAuthorizationAADClientCred
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization = azure_native.apimanagement.Authorization("authorization",
+            authorization_id="authz1",
+            authorization_provider_id="aadwithclientcred",
+            authorization_type="OAuth2",
+            o_auth2_grant_type="AuthorizationCode",
+            parameters={
+                "clientId": "53790925-fdd3-4b80-bc7a-4c3aaf25801d",
+                "clientSecret": "FcJkQ3iPSaKAQRA7Ft8Q~fZ1X5vKmqzUAfJagcJ8",
+            },
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Authorization authz1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/aadwithclientcred/authorizations/authz1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_id: Identifier of the authorization.
@@ -203,6 +247,50 @@ class Authorization(pulumi.CustomResource):
         """
         Authorization contract.
         API Version: 2022-08-01.
+
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationAADAuthCode
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization = azure_native.apimanagement.Authorization("authorization",
+            authorization_id="authz2",
+            authorization_provider_id="aadwithauthcode",
+            authorization_type="OAuth2",
+            o_auth2_grant_type="AuthorizationCode",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateAuthorizationAADClientCred
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization = azure_native.apimanagement.Authorization("authorization",
+            authorization_id="authz1",
+            authorization_provider_id="aadwithclientcred",
+            authorization_type="OAuth2",
+            o_auth2_grant_type="AuthorizationCode",
+            parameters={
+                "clientId": "53790925-fdd3-4b80-bc7a-4c3aaf25801d",
+                "clientSecret": "FcJkQ3iPSaKAQRA7Ft8Q~fZ1X5vKmqzUAfJagcJ8",
+            },
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Authorization authz1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/aadwithclientcred/authorizations/authz1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AuthorizationArgs args: The arguments to use to populate this resource's properties.

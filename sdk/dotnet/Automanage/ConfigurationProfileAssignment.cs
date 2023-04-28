@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.Automanage
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// API Version: 2022-05-04.
     /// Previous API Version: 2020-06-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update configuration profile assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfileAssignment = new AzureNative.Automanage.ConfigurationProfileAssignment("configurationProfileAssignment", new()
+    ///     {
+    ///         ConfigurationProfileAssignmentName = "default",
+    ///         Properties = new AzureNative.Automanage.Inputs.ConfigurationProfileAssignmentPropertiesArgs
+    ///         {
+    ///             ConfigurationProfile = "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         VmName = "myVMName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automanage:ConfigurationProfileAssignment default /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualMachines/myVMName/providers/Microsoft.Automanage/configurationProfileAssignments/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfileAssignment")]
     public partial class ConfigurationProfileAssignment : global::Pulumi.CustomResource

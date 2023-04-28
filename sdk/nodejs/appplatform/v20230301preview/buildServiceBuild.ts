@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Build resource payload
+ *
+ * ## Example Usage
+ * ### BuildService_CreateOrUpdateBuild
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const buildServiceBuild = new azure_native.appplatform.v20230301preview.BuildServiceBuild("buildServiceBuild", {
+ *     buildName: "mybuild",
+ *     buildServiceName: "default",
+ *     properties: {
+ *         agentPool: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default",
+ *         builder: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default",
+ *         env: {
+ *             environmentVariable: "test",
+ *         },
+ *         relativePath: "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855-20210601-3ed9f4a2-986b-4bbd-b833-a42dccb2f777",
+ *         resourceRequests: {
+ *             cpu: "1",
+ *             memory: "2Gi",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230301preview:BuildServiceBuild mybuild /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builds/mybuild 
+ * ```
  */
 export class BuildServiceBuild extends pulumi.CustomResource {
     /**

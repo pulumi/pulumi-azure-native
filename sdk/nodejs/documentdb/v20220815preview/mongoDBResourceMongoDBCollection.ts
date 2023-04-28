@@ -9,6 +9,81 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB MongoDB collection.
+ *
+ * ## Example Usage
+ * ### CosmosDBMongoDBCollectionCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoDBResourceMongoDBCollection = new azure_native.documentdb.v20220815preview.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection", {
+ *     accountName: "ddb1",
+ *     collectionName: "collectionName",
+ *     databaseName: "databaseName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         analyticalStorageTtl: 500,
+ *         id: "collectionName",
+ *         indexes: [
+ *             {
+ *                 key: {
+ *                     keys: ["_ts"],
+ *                 },
+ *                 options: {
+ *                     expireAfterSeconds: 100,
+ *                     unique: true,
+ *                 },
+ *             },
+ *             {
+ *                 key: {
+ *                     keys: ["_id"],
+ *                 },
+ *             },
+ *         ],
+ *         shardKey: {
+ *             testKey: "Hash",
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### CosmosDBMongoDBCollectionRestore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoDBResourceMongoDBCollection = new azure_native.documentdb.v20220815preview.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection", {
+ *     accountName: "ddb1",
+ *     collectionName: "collectionName",
+ *     databaseName: "databaseName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         createMode: "Restore",
+ *         id: "collectionName",
+ *         restoreParameters: {
+ *             restoreSource: "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+ *             restoreTimestampInUtc: "2022-07-20T18:28:00Z",
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection collectionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/mongodbDatabases/databaseName/mongodbCollections/collectionName 
+ * ```
  */
 export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {
     /**

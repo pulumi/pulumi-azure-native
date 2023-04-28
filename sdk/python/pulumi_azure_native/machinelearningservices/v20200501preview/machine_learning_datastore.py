@@ -609,6 +609,147 @@ class MachineLearningDatastore(pulumi.CustomResource):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
 
+        ## Example Usage
+        ### Create ADLS  Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            client_id="233d7008-b157-4354-88d1-ba191f06a900",
+            client_secret="vdvgdvdvdv",
+            data_store_type="adls",
+            datastore_name="adlsDatastore",
+            resource_group_name="acjain-mleastUS2",
+            store_name="stanley",
+            tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create ADLS Gen2 Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            account_name="nicksadlsgen2storage",
+            client_id="233d7008-b157-4354-88d1-ba191f06a900",
+            client_secret="vdegbvedgeg",
+            data_store_type="adls-gen2",
+            datastore_name="adlsgen2Datastore",
+            file_system="testfs1",
+            resource_group_name="acjain-mleastUS2",
+            tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create Blob Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            account_key="wddrfewfewsgewgrrwegwreg",
+            account_name="acjainmleastus9484093746",
+            container_name="azureml-blobstore-5da947c5-53aa-41a5-bb2b-074074e73b7",
+            data_store_type="blob",
+            datastore_name="blobDatastore",
+            resource_group_name="acjain-mleastUS2",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create Databricks File System Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            data_store_type="dbfs",
+            datastore_name="blobDatastore",
+            resource_group_name="acjain-mleastUS2",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create File Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            account_key="wddrfewfewsgewgrrwegwreg",
+            account_name="acjainmleastus9484093746",
+            data_store_type="file",
+            datastore_name="fileDatastore",
+            resource_group_name="acjain-mleastUS2",
+            share_name="azureml-filestore-5da947c5-53aa-41a5-bb2b-074074e73b76",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create MySQL Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            data_store_type="mysqldb",
+            database_name="dataset",
+            datastore_name="mySqlDatastore",
+            password="<password>",
+            resource_group_name="acjain-mleastUS2",
+            server_name="dataset-mysql-srv",
+            user_id="demo_user@dataset-mysql-srv",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create PostgreSQL Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            data_store_type="psqldb",
+            database_name="dataset",
+            datastore_name="postgreSqlDatastore",
+            password="<password>",
+            resource_group_name="acjain-mleastUS2",
+            server_name="dataset-pgsql-srv",
+            user_id="demo_user@dataset-pgsql-srv",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create SQL Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            data_store_type="sqldb",
+            database_name="dataset",
+            datastore_name="sqlDatastore",
+            password="<password>",
+            resource_group_name="acjain-mleastUS2",
+            server_name="dataset-azsql-srv",
+            user_name="demo_user",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore sqlDatastore /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/acjain-mleastUS2/providers/Microsoft.MachineLearningServices/workspaces/acjain-mleastUS2/datastores/sqlDatastore 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_key: Account Key of storage account.
@@ -654,6 +795,147 @@ class MachineLearningDatastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning datastore object wrapped into ARM resource envelope.
+
+        ## Example Usage
+        ### Create ADLS  Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            client_id="233d7008-b157-4354-88d1-ba191f06a900",
+            client_secret="vdvgdvdvdv",
+            data_store_type="adls",
+            datastore_name="adlsDatastore",
+            resource_group_name="acjain-mleastUS2",
+            store_name="stanley",
+            tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create ADLS Gen2 Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            account_name="nicksadlsgen2storage",
+            client_id="233d7008-b157-4354-88d1-ba191f06a900",
+            client_secret="vdegbvedgeg",
+            data_store_type="adls-gen2",
+            datastore_name="adlsgen2Datastore",
+            file_system="testfs1",
+            resource_group_name="acjain-mleastUS2",
+            tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create Blob Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            account_key="wddrfewfewsgewgrrwegwreg",
+            account_name="acjainmleastus9484093746",
+            container_name="azureml-blobstore-5da947c5-53aa-41a5-bb2b-074074e73b7",
+            data_store_type="blob",
+            datastore_name="blobDatastore",
+            resource_group_name="acjain-mleastUS2",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create Databricks File System Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            data_store_type="dbfs",
+            datastore_name="blobDatastore",
+            resource_group_name="acjain-mleastUS2",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create File Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            account_key="wddrfewfewsgewgrrwegwreg",
+            account_name="acjainmleastus9484093746",
+            data_store_type="file",
+            datastore_name="fileDatastore",
+            resource_group_name="acjain-mleastUS2",
+            share_name="azureml-filestore-5da947c5-53aa-41a5-bb2b-074074e73b76",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create MySQL Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            data_store_type="mysqldb",
+            database_name="dataset",
+            datastore_name="mySqlDatastore",
+            password="<password>",
+            resource_group_name="acjain-mleastUS2",
+            server_name="dataset-mysql-srv",
+            user_id="demo_user@dataset-mysql-srv",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create PostgreSQL Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            data_store_type="psqldb",
+            database_name="dataset",
+            datastore_name="postgreSqlDatastore",
+            password="<password>",
+            resource_group_name="acjain-mleastUS2",
+            server_name="dataset-pgsql-srv",
+            user_id="demo_user@dataset-pgsql-srv",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+        ### Create SQL Datastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_datastore = azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore",
+            data_store_type="sqldb",
+            database_name="dataset",
+            datastore_name="sqlDatastore",
+            password="<password>",
+            resource_group_name="acjain-mleastUS2",
+            server_name="dataset-azsql-srv",
+            user_name="demo_user",
+            workspace_name="acjain-mleastUS2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore sqlDatastore /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/acjain-mleastUS2/providers/Microsoft.MachineLearningServices/workspaces/acjain-mleastUS2/datastores/sqlDatastore 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MachineLearningDatastoreArgs args: The arguments to use to populate this resource's properties.

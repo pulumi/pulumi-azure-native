@@ -147,6 +147,36 @@ class ExpressRouteGateway(pulumi.CustomResource):
         """
         ExpressRoute gateway resource.
 
+        ## Example Usage
+        ### ExpressRouteGatewayCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_gateway = azure_native.network.v20201101.ExpressRouteGateway("expressRouteGateway",
+            auto_scale_configuration=azure_native.network.v20201101.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationArgs(
+                bounds=azure_native.network.v20201101.ExpressRouteGatewayPropertiesBoundsArgs(
+                    min=3,
+                ),
+            ),
+            express_route_gateway_name="gateway-2",
+            location="westus",
+            resource_group_name="resourceGroupName",
+            virtual_hub=azure_native.network.v20201101.VirtualHubIdArgs(
+                id="/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:ExpressRouteGateway gateway-2 /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs']] auto_scale_configuration: Configuration for auto scaling.
@@ -165,6 +195,36 @@ class ExpressRouteGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoute gateway resource.
+
+        ## Example Usage
+        ### ExpressRouteGatewayCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_gateway = azure_native.network.v20201101.ExpressRouteGateway("expressRouteGateway",
+            auto_scale_configuration=azure_native.network.v20201101.ExpressRouteGatewayPropertiesResponseAutoScaleConfigurationArgs(
+                bounds=azure_native.network.v20201101.ExpressRouteGatewayPropertiesBoundsArgs(
+                    min=3,
+                ),
+            ),
+            express_route_gateway_name="gateway-2",
+            location="westus",
+            resource_group_name="resourceGroupName",
+            virtual_hub=azure_native.network.v20201101.VirtualHubIdArgs(
+                id="/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:ExpressRouteGateway gateway-2 /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteGatewayArgs args: The arguments to use to populate this resource's properties.

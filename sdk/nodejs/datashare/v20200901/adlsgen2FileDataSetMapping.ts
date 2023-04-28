@@ -9,6 +9,94 @@ import * as utilities from "../../utilities";
 
 /**
  * An ADLS Gen2 file data set mapping.
+ *
+ * ## Example Usage
+ * ### DataSetMappings_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FileDataSetMapping = new azure_native.datashare.v20200901.ADLSGen2FileDataSetMapping("adlsGen2FileDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDB_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FileDataSetMapping = new azure_native.datashare.v20200901.ADLSGen2FileDataSetMapping("adlsGen2FileDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FileDataSetMapping = new azure_native.datashare.v20200901.ADLSGen2FileDataSetMapping("adlsGen2FileDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetId: "a08f184b-0567-4b11-ba22-a1199336d226",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     filePath: "file21",
+ *     fileSystem: "fileSystem",
+ *     kind: "AdlsGen2File",
+ *     outputType: "Csv",
+ *     resourceGroup: "SampleResourceGroup",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ *     storageAccountName: "storage2",
+ *     subscriptionId: "433a8dfd-e5d5-4e77-ad86-90acdc75eb1a",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDW_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FileDataSetMapping = new azure_native.datashare.v20200901.ADLSGen2FileDataSetMapping("adlsGen2FileDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FileDataSetMapping = new azure_native.datashare.v20200901.ADLSGen2FileDataSetMapping("adlsGen2FileDataSetMapping", {
+ *     accountName: "consumerAccount",
+ *     dataSetMappingName: "datasetMappingName1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20200901:ADLSGen2FileDataSetMapping datasetMappingName /subscriptions/4e745bb7-c420-479b-b0d6-a0f92d48a227/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/consumerAccount/shareSubscriptions/ShareSubscription1/dataSetMappings/datasetMappingName1 
+ * ```
  */
 export class ADLSGen2FileDataSetMapping extends pulumi.CustomResource {
     /**

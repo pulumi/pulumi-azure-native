@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource definition of this association.
+ *
+ * ## Example Usage
+ * ### Create or update an association
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const association = new azure_native.customproviders.v20180901preview.Association("association", {
+ *     associationName: "associationName",
+ *     scope: "scope",
+ *     targetResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/appRG/providers/Microsoft.Solutions/applications/applicationName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customproviders/v20180901preview:Association associationName /scope/providers/Microsoft.CustomProviders/associations/associationName 
+ * ```
  */
 export class Association extends pulumi.CustomResource {
     /**

@@ -225,6 +225,75 @@ class BlobDataSetMapping(pulumi.CustomResource):
         """
         A Blob data set mapping.
 
+        ## Example Usage
+        ### DataSetMappings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set_mapping = azure_native.datashare.v20181101preview.BlobDataSetMapping("blobDataSetMapping",
+            account_name="Account1",
+            container_name="C1",
+            data_set_id="a08f184b-0567-4b11-ba22-a1199336d226",
+            data_set_mapping_name="DatasetMapping1",
+            file_path="file21",
+            kind="Blob",
+            resource_group="SampleResourceGroup",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1",
+            storage_account_name="storage2",
+            subscription_id="433a8dfd-e5d5-4e77-ad86-90acdc75eb1a")
+
+        ```
+        ### DataSetMappings_SqlDB_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set_mapping = azure_native.datashare.v20181101preview.BlobDataSetMapping("blobDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set_mapping = azure_native.datashare.v20181101preview.BlobDataSetMapping("blobDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDW_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set_mapping = azure_native.datashare.v20181101preview.BlobDataSetMapping("blobDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20181101preview:BlobDataSetMapping DatasetMapping1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shareSubscriptions/ShareSubscription1/dataSetMappings/DatasetMapping1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -249,6 +318,75 @@ class BlobDataSetMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Blob data set mapping.
+
+        ## Example Usage
+        ### DataSetMappings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set_mapping = azure_native.datashare.v20181101preview.BlobDataSetMapping("blobDataSetMapping",
+            account_name="Account1",
+            container_name="C1",
+            data_set_id="a08f184b-0567-4b11-ba22-a1199336d226",
+            data_set_mapping_name="DatasetMapping1",
+            file_path="file21",
+            kind="Blob",
+            resource_group="SampleResourceGroup",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1",
+            storage_account_name="storage2",
+            subscription_id="433a8dfd-e5d5-4e77-ad86-90acdc75eb1a")
+
+        ```
+        ### DataSetMappings_SqlDB_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set_mapping = azure_native.datashare.v20181101preview.BlobDataSetMapping("blobDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set_mapping = azure_native.datashare.v20181101preview.BlobDataSetMapping("blobDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDW_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_data_set_mapping = azure_native.datashare.v20181101preview.BlobDataSetMapping("blobDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20181101preview:BlobDataSetMapping DatasetMapping1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shareSubscriptions/ShareSubscription1/dataSetMappings/DatasetMapping1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlobDataSetMappingArgs args: The arguments to use to populate this resource's properties.

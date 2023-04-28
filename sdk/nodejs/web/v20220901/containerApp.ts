@@ -9,6 +9,60 @@ import * as utilities from "../../utilities";
 
 /**
  * Container App.
+ *
+ * ## Example Usage
+ * ### Create or Update Container App
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerApp = new azure_native.web.v20220901.ContainerApp("containerApp", {
+ *     configuration: {
+ *         ingress: {
+ *             external: true,
+ *             targetPort: 3000,
+ *         },
+ *     },
+ *     kind: "containerApp",
+ *     kubeEnvironmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/kubeEnvironments/demokube",
+ *     location: "East US",
+ *     name: "testcontainerApp0",
+ *     resourceGroupName: "rg",
+ *     template: {
+ *         containers: [{
+ *             image: "repo/testcontainerApp0:v1",
+ *             name: "testcontainerApp0",
+ *         }],
+ *         dapr: {
+ *             appPort: 3000,
+ *             enabled: true,
+ *         },
+ *         scale: {
+ *             maxReplicas: 5,
+ *             minReplicas: 1,
+ *             rules: [{
+ *                 custom: {
+ *                     metadata: {
+ *                         concurrentRequests: "50",
+ *                     },
+ *                     type: "http",
+ *                 },
+ *                 name: "httpscalingrule",
+ *             }],
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:ContainerApp testcontainerApp0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/containerApps/testcontainerApp0 
+ * ```
  */
 export class ContainerApp extends pulumi.CustomResource {
     /**

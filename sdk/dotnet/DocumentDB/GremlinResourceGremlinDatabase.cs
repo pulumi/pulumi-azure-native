@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.DocumentDB
     /// An Azure Cosmos DB Gremlin database.
     /// API Version: 2022-11-15.
     /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBGremlinDatabaseCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gremlinResourceGremlinDatabase = new AzureNative.DocumentDB.GremlinResourceGremlinDatabase("gremlinResourceGremlinDatabase", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.Inputs.GremlinDatabaseResourceArgs
+    ///         {
+    ///             Id = "databaseName",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb:GremlinResourceGremlinDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:GremlinResourceGremlinDatabase")]
     public partial class GremlinResourceGremlinDatabase : global::Pulumi.CustomResource

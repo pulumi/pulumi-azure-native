@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Base class for container with backup items. Containers with specific workloads are derived from this class.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### RegisterAzure Storage ProtectionContainers
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionContainer = new AzureNative.RecoveryServices.ProtectionContainer("protectionContainer", new()
+    ///     {
+    ///         ContainerName = "StorageContainer;Storage;SwaggerTestRg;swaggertestsa",
+    ///         FabricName = "Azure",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.AzureStorageContainerArgs
+    ///         {
+    ///             AcquireStorageAccountLock = "Acquire",
+    ///             BackupManagementType = "AzureStorage",
+    ///             ContainerType = "StorageContainer",
+    ///             FriendlyName = "swaggertestsa",
+    ///             SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/SwaggerTestRg/providers/Microsoft.Storage/storageAccounts/swaggertestsa",
+    ///         },
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "swaggertestvault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices:ProtectionContainer StorageContainer;Storage;SwaggerTestRg;swaggertestsa /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/swaggertestvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;SwaggerTestRg;swaggertestsa 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ProtectionContainer")]
     public partial class ProtectionContainer : global::Pulumi.CustomResource

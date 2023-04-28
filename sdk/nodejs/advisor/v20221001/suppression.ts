@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+ *
+ * ## Example Usage
+ * ### CreateSuppression
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const suppression = new azure_native.advisor.v20221001.Suppression("suppression", {
+ *     name: "suppressionName1",
+ *     recommendationId: "recommendationId",
+ *     resourceUri: "resourceUri",
+ *     ttl: "07:00:00:00",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:advisor/v20221001:Suppression suppressionName1 /resourceUri/providers/Microsoft.Advisor/recommendations/recommendationId/suppressions/suppressionName1 
+ * ```
  */
 export class Suppression extends pulumi.CustomResource {
     /**

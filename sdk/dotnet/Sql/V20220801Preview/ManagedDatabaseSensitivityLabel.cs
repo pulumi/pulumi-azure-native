@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// A sensitivity label.
+    /// 
+    /// ## Example Usage
+    /// ### Updates or creates a sensitivity label of a given column with all parameters in a managed database
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedDatabaseSensitivityLabel = new AzureNative.Sql.V20220801Preview.ManagedDatabaseSensitivityLabel("managedDatabaseSensitivityLabel", new()
+    ///     {
+    ///         ColumnName = "myColumn",
+    ///         DatabaseName = "myDatabase",
+    ///         InformationType = "PhoneNumber",
+    ///         InformationTypeId = "d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
+    ///         LabelId = "bf91e08c-f4f0-478a-b016-25164b2a65ff",
+    ///         LabelName = "PII",
+    ///         ManagedInstanceName = "myManagedInstanceName",
+    ///         Rank = AzureNative.Sql.V20220801Preview.SensitivityLabelRank.High,
+    ///         ResourceGroupName = "myRG",
+    ///         SchemaName = "dbo",
+    ///         SensitivityLabelSource = "current",
+    ///         TableName = "myTable",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myRG/providers/Microsoft.Sql/managedInstances/myManagedInstanceName/databases/myDatabase/schemas/dbo/tables/myTable/columns/myColumn/sensitivityLabels/current 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:ManagedDatabaseSensitivityLabel")]
     public partial class ManagedDatabaseSensitivityLabel : global::Pulumi.CustomResource

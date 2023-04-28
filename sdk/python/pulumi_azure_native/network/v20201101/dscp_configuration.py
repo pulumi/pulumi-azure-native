@@ -217,6 +217,73 @@ class DscpConfiguration(pulumi.CustomResource):
         """
         DSCP Configuration in a resource group.
 
+        ## Example Usage
+        ### Create DSCP Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dscp_configuration = azure_native.network.v20201101.DscpConfiguration("dscpConfiguration",
+            destination_ip_ranges=[
+                azure_native.network.v20201101.QosIpRangeArgs(
+                    end_ip="127.0.10.2",
+                    start_ip="127.0.10.1",
+                ),
+                azure_native.network.v20201101.QosIpRangeArgs(
+                    end_ip="127.0.11.2",
+                    start_ip="127.0.11.1",
+                ),
+            ],
+            destination_port_ranges=[
+                azure_native.network.v20201101.QosPortRangeArgs(
+                    end=15,
+                    start=15,
+                ),
+                azure_native.network.v20201101.QosPortRangeArgs(
+                    end=27,
+                    start=26,
+                ),
+            ],
+            dscp_configuration_name="mydscpconfig",
+            location="eastus",
+            markings=[
+                46,
+                10,
+            ],
+            protocol="Tcp",
+            resource_group_name="rg1",
+            source_ip_ranges=[
+                azure_native.network.v20201101.QosIpRangeArgs(
+                    end_ip="127.0.0.2",
+                    start_ip="127.0.0.1",
+                ),
+                azure_native.network.v20201101.QosIpRangeArgs(
+                    end_ip="127.0.1.2",
+                    start_ip="127.0.1.1",
+                ),
+            ],
+            source_port_ranges=[
+                azure_native.network.v20201101.QosPortRangeArgs(
+                    end=11,
+                    start=10,
+                ),
+                azure_native.network.v20201101.QosPortRangeArgs(
+                    end=21,
+                    start=20,
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:DscpConfiguration mydscpConfig /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dscpConfiguration/mydscpConfig 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]] destination_ip_ranges: Destination IP ranges.
@@ -239,6 +306,73 @@ class DscpConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         DSCP Configuration in a resource group.
+
+        ## Example Usage
+        ### Create DSCP Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dscp_configuration = azure_native.network.v20201101.DscpConfiguration("dscpConfiguration",
+            destination_ip_ranges=[
+                azure_native.network.v20201101.QosIpRangeArgs(
+                    end_ip="127.0.10.2",
+                    start_ip="127.0.10.1",
+                ),
+                azure_native.network.v20201101.QosIpRangeArgs(
+                    end_ip="127.0.11.2",
+                    start_ip="127.0.11.1",
+                ),
+            ],
+            destination_port_ranges=[
+                azure_native.network.v20201101.QosPortRangeArgs(
+                    end=15,
+                    start=15,
+                ),
+                azure_native.network.v20201101.QosPortRangeArgs(
+                    end=27,
+                    start=26,
+                ),
+            ],
+            dscp_configuration_name="mydscpconfig",
+            location="eastus",
+            markings=[
+                46,
+                10,
+            ],
+            protocol="Tcp",
+            resource_group_name="rg1",
+            source_ip_ranges=[
+                azure_native.network.v20201101.QosIpRangeArgs(
+                    end_ip="127.0.0.2",
+                    start_ip="127.0.0.1",
+                ),
+                azure_native.network.v20201101.QosIpRangeArgs(
+                    end_ip="127.0.1.2",
+                    start_ip="127.0.1.1",
+                ),
+            ],
+            source_port_ranges=[
+                azure_native.network.v20201101.QosPortRangeArgs(
+                    end=11,
+                    start=10,
+                ),
+                azure_native.network.v20201101.QosPortRangeArgs(
+                    end=21,
+                    start=20,
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:DscpConfiguration mydscpConfig /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dscpConfiguration/mydscpConfig 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DscpConfigurationArgs args: The arguments to use to populate this resource's properties.

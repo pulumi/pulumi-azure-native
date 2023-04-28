@@ -152,6 +152,34 @@ class ManagedEnvironment(pulumi.CustomResource):
         """
         An environment for hosting container apps
 
+        ## Example Usage
+        ### Create environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environment = azure_native.app.v20220101preview.ManagedEnvironment("managedEnvironment",
+            app_logs_configuration=azure_native.app.v20220101preview.AppLogsConfigurationResponseArgs(
+                log_analytics_configuration=azure_native.app.v20220101preview.LogAnalyticsConfigurationArgs(
+                    customer_id="string",
+                    shared_key="string",
+                ),
+            ),
+            location="East US",
+            name="testcontainerenv",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20220101preview:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']] app_logs_configuration: Cluster configuration which enables the log daemon to export
@@ -172,6 +200,34 @@ class ManagedEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment for hosting container apps
+
+        ## Example Usage
+        ### Create environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environment = azure_native.app.v20220101preview.ManagedEnvironment("managedEnvironment",
+            app_logs_configuration=azure_native.app.v20220101preview.AppLogsConfigurationResponseArgs(
+                log_analytics_configuration=azure_native.app.v20220101preview.LogAnalyticsConfigurationArgs(
+                    customer_id="string",
+                    shared_key="string",
+                ),
+            ),
+            location="East US",
+            name="testcontainerenv",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20220101preview:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentArgs args: The arguments to use to populate this resource's properties.

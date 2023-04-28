@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Workspace definition.
+ *
+ * ## Example Usage
+ * ### Workspace_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.desktopvirtualization.v20221014preview.Workspace("workspace", {
+ *     description: "des1",
+ *     friendlyName: "friendly",
+ *     location: "centralus",
+ *     resourceGroupName: "resourceGroup1",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization/v20221014preview:Workspace workspace1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/workspaces/workspace1 
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

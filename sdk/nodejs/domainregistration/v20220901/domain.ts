@@ -9,6 +9,107 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about a domain.
+ *
+ * ## Example Usage
+ * ### Create App Service Domain
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const domain = new azure_native.domainregistration.v20220901.Domain("domain", {
+ *     authCode: "exampleAuthCode",
+ *     autoRenew: true,
+ *     consent: {
+ *         agreedAt: "2021-09-10T19:30:53Z",
+ *         agreedBy: "192.0.2.1",
+ *         agreementKeys: ["agreementKey1"],
+ *     },
+ *     contactAdmin: {
+ *         addressMailing: {
+ *             address1: "3400 State St",
+ *             city: "Chicago",
+ *             country: "United States",
+ *             postalCode: "67098",
+ *             state: "IL",
+ *         },
+ *         email: "admin@email.com",
+ *         fax: "1-245-534-2242",
+ *         jobTitle: "Admin",
+ *         nameFirst: "John",
+ *         nameLast: "Doe",
+ *         nameMiddle: "",
+ *         organization: "Microsoft Inc.",
+ *         phone: "1-245-534-2242",
+ *     },
+ *     contactBilling: {
+ *         addressMailing: {
+ *             address1: "3400 State St",
+ *             city: "Chicago",
+ *             country: "United States",
+ *             postalCode: "67098",
+ *             state: "IL",
+ *         },
+ *         email: "billing@email.com",
+ *         fax: "1-245-534-2242",
+ *         jobTitle: "Billing",
+ *         nameFirst: "John",
+ *         nameLast: "Doe",
+ *         nameMiddle: "",
+ *         organization: "Microsoft Inc.",
+ *         phone: "1-245-534-2242",
+ *     },
+ *     contactRegistrant: {
+ *         addressMailing: {
+ *             address1: "3400 State St",
+ *             city: "Chicago",
+ *             country: "United States",
+ *             postalCode: "67098",
+ *             state: "IL",
+ *         },
+ *         email: "registrant@email.com",
+ *         fax: "1-245-534-2242",
+ *         jobTitle: "Registrant",
+ *         nameFirst: "John",
+ *         nameLast: "Doe",
+ *         nameMiddle: "",
+ *         organization: "Microsoft Inc.",
+ *         phone: "1-245-534-2242",
+ *     },
+ *     contactTech: {
+ *         addressMailing: {
+ *             address1: "3400 State St",
+ *             city: "Chicago",
+ *             country: "United States",
+ *             postalCode: "67098",
+ *             state: "IL",
+ *         },
+ *         email: "tech@email.com",
+ *         fax: "1-245-534-2242",
+ *         jobTitle: "Tech",
+ *         nameFirst: "John",
+ *         nameLast: "Doe",
+ *         nameMiddle: "",
+ *         organization: "Microsoft Inc.",
+ *         phone: "1-245-534-2242",
+ *     },
+ *     dnsType: azure_native.domainregistration.v20220901.DnsType.DefaultDomainRegistrarDns,
+ *     domainName: "example.com",
+ *     location: "global",
+ *     privacy: false,
+ *     resourceGroupName: "testrg123",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:domainregistration/v20220901:Domain example.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.DomainRegistration/domains/example.com 
+ * ```
  */
 export class Domain extends pulumi.CustomResource {
     /**

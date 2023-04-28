@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.DeviceUpdate
     /// Device Update account details.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates Account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.DeviceUpdate.Account("account", new()
+    ///     {
+    ///         AccountName = "contoso",
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deviceupdate:Account contoso /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:Account")]
     public partial class Account : global::Pulumi.CustomResource

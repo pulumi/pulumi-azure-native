@@ -112,6 +112,34 @@ class BuildServiceAgentPool(pulumi.CustomResource):
         """
         The build service agent pool resource
 
+        ## Example Usage
+        ### BuildServiceAgentPool_UpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        build_service_agent_pool = azure_native.appplatform.v20230101preview.BuildServiceAgentPool("buildServiceAgentPool",
+            agent_pool_name="default",
+            build_service_name="default",
+            properties=azure_native.appplatform.v20230101preview.BuildServiceAgentPoolPropertiesResponseArgs(
+                pool_size=azure_native.appplatform.v20230101preview.BuildServiceAgentPoolSizePropertiesArgs(
+                    name="S3",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230101preview:BuildServiceAgentPool default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the build service agent pool resource.
@@ -128,6 +156,34 @@ class BuildServiceAgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The build service agent pool resource
+
+        ## Example Usage
+        ### BuildServiceAgentPool_UpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        build_service_agent_pool = azure_native.appplatform.v20230101preview.BuildServiceAgentPool("buildServiceAgentPool",
+            agent_pool_name="default",
+            build_service_name="default",
+            properties=azure_native.appplatform.v20230101preview.BuildServiceAgentPoolPropertiesResponseArgs(
+                pool_size=azure_native.appplatform.v20230101preview.BuildServiceAgentPoolSizePropertiesArgs(
+                    name="S3",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230101preview:BuildServiceAgentPool default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BuildServiceAgentPoolArgs args: The arguments to use to populate this resource's properties.

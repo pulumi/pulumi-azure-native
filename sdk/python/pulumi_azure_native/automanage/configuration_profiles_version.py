@@ -131,6 +131,45 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
         Definition of the configuration profile.
         API Version: 2022-05-04.
 
+        ## Example Usage
+        ### Create or update configuration profile version
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profiles_version = azure_native.automanage.ConfigurationProfilesVersion("configurationProfilesVersion",
+            configuration_profile_name="customConfigurationProfile",
+            location="East US",
+            properties=azure_native.automanage.ConfigurationProfilePropertiesArgs(
+                configuration={
+                    "Antimalware/Enable": False,
+                    "AzureSecurityCenter/Enable": True,
+                    "Backup/Enable": False,
+                    "BootDiagnostics/Enable": True,
+                    "ChangeTrackingAndInventory/Enable": True,
+                    "GuestConfiguration/Enable": True,
+                    "LogAnalytics/Enable": True,
+                    "UpdateManagement/Enable": True,
+                    "VMInsights/Enable": True,
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            tags={
+                "Organization": "Administration",
+            },
+            version_name="version1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage:ConfigurationProfilesVersion customConfigurationProfile/version1 /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfiles/customConfigurationProfile/versions/version1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_profile_name: Name of the configuration profile.
@@ -149,6 +188,45 @@ class ConfigurationProfilesVersion(pulumi.CustomResource):
         """
         Definition of the configuration profile.
         API Version: 2022-05-04.
+
+        ## Example Usage
+        ### Create or update configuration profile version
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profiles_version = azure_native.automanage.ConfigurationProfilesVersion("configurationProfilesVersion",
+            configuration_profile_name="customConfigurationProfile",
+            location="East US",
+            properties=azure_native.automanage.ConfigurationProfilePropertiesArgs(
+                configuration={
+                    "Antimalware/Enable": False,
+                    "AzureSecurityCenter/Enable": True,
+                    "Backup/Enable": False,
+                    "BootDiagnostics/Enable": True,
+                    "ChangeTrackingAndInventory/Enable": True,
+                    "GuestConfiguration/Enable": True,
+                    "LogAnalytics/Enable": True,
+                    "UpdateManagement/Enable": True,
+                    "VMInsights/Enable": True,
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            tags={
+                "Organization": "Administration",
+            },
+            version_name="version1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage:ConfigurationProfilesVersion customConfigurationProfile/version1 /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfiles/customConfigurationProfile/versions/version1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfilesVersionArgs args: The arguments to use to populate this resource's properties.

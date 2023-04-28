@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate resource payload.
+ *
+ * ## Example Usage
+ * ### Certificates_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const certificate = new azure_native.appplatform.v20230301preview.Certificate("certificate", {
+ *     certificateName: "mycertificate",
+ *     properties: {
+ *         certVersion: "08a219d06d874795a96db47e06fbb01e",
+ *         keyVaultCertName: "mycert",
+ *         type: "KeyVaultCertificate",
+ *         vaultUri: "https://myvault.vault.azure.net",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230301preview:Certificate mycertificate /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycertificate 
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

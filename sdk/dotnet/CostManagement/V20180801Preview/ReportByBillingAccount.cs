@@ -11,6 +11,16 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
     /// <summary>
     /// A report resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement/v20180801preview:ReportByBillingAccount TestReport providers/Microsoft.Billing/billingAccounts/{billingAccount-Id}/providers/Microsoft.CostManagement/reports/TestReport 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20180801preview:ReportByBillingAccount")]
     public partial class ReportByBillingAccount : global::Pulumi.CustomResource

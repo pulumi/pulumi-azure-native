@@ -11,6 +11,62 @@ import * as utilities from "../utilities";
  * The description of the DigitalTwins service.
  * API Version: 2023-01-31.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Put a DigitalTwinsInstance resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwin = new azure_native.digitaltwins.DigitalTwin("digitalTwin", {
+ *     location: "WestUS2",
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ * ### Put a DigitalTwinsInstance resource with identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwin = new azure_native.digitaltwins.DigitalTwin("digitalTwin", {
+ *     identity: {
+ *         type: "SystemAssigned,UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity": {},
+ *         },
+ *     },
+ *     location: "WestUS2",
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ * ### Put a DigitalTwinsInstance resource with publicNetworkAccess property
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwin = new azure_native.digitaltwins.DigitalTwin("digitalTwin", {
+ *     location: "WestUS2",
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:digitaltwins:DigitalTwin myDigitalTwinsService /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService 
+ * ```
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**

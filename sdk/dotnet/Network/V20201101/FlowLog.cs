@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// A flow log resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update flow log
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var flowLog = new AzureNative.Network.V20201101.FlowLog("flowLog", new()
+    ///     {
+    ///         Enabled = true,
+    ///         FlowLogName = "fl",
+    ///         Format = new AzureNative.Network.V20201101.Inputs.FlowLogFormatParametersArgs
+    ///         {
+    ///             Type = "JSON",
+    ///             Version = 1,
+    ///         },
+    ///         Location = "centraluseuap",
+    ///         NetworkWatcherName = "nw1",
+    ///         ResourceGroupName = "rg1",
+    ///         StorageId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
+    ///         TargetResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:FlowLog Microsoft.Networkdesmond-rgdesmondcentral-nsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw/FlowLogs/fl 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:FlowLog")]
     public partial class FlowLog : global::Pulumi.CustomResource

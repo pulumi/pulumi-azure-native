@@ -9,6 +9,52 @@ import * as utilities from "../../utilities";
 
 /**
  * Authorization contract.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateAuthorizationAADAuthCode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const authorization = new azure_native.apimanagement.v20220801.Authorization("authorization", {
+ *     authorizationId: "authz2",
+ *     authorizationProviderId: "aadwithauthcode",
+ *     authorizationType: "OAuth2",
+ *     oAuth2GrantType: "AuthorizationCode",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateAuthorizationAADClientCred
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const authorization = new azure_native.apimanagement.v20220801.Authorization("authorization", {
+ *     authorizationId: "authz1",
+ *     authorizationProviderId: "aadwithclientcred",
+ *     authorizationType: "OAuth2",
+ *     oAuth2GrantType: "AuthorizationCode",
+ *     parameters: {
+ *         clientId: "53790925-fdd3-4b80-bc7a-4c3aaf25801d",
+ *         clientSecret: "FcJkQ3iPSaKAQRA7Ft8Q~fZ1X5vKmqzUAfJagcJ8",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:Authorization authz1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/aadwithclientcred/authorizations/authz1 
+ * ```
  */
 export class Authorization extends pulumi.CustomResource {
     /**

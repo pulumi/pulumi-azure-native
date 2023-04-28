@@ -96,6 +96,28 @@ class Secret(pulumi.CustomResource):
         Secret represents a secret.
         API Version: 2022-09-04.
 
+        ## Example Usage
+        ### Creates or updates a Secret with the specified subscription, resource group and resource name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.redhatopenshift.Secret("secret",
+            child_resource_name="childResourceName",
+            resource_group_name="resourceGroup",
+            resource_name_="resourceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redhatopenshift:Secret mySecret /subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/resourceName/secret/mySecret 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] child_resource_name: The name of the Secret resource.
@@ -112,6 +134,28 @@ class Secret(pulumi.CustomResource):
         """
         Secret represents a secret.
         API Version: 2022-09-04.
+
+        ## Example Usage
+        ### Creates or updates a Secret with the specified subscription, resource group and resource name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.redhatopenshift.Secret("secret",
+            child_resource_name="childResourceName",
+            resource_group_name="resourceGroup",
+            resource_name_="resourceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redhatopenshift:Secret mySecret /subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/resourceName/secret/mySecret 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

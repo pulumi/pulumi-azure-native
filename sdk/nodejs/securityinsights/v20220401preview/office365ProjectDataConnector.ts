@@ -9,6 +9,127 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Office Microsoft Project data connector.
+ *
+ * ## Example Usage
+ * ### Creates or updates a APIPolling data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const office365ProjectDataConnector = new azure_native.securityinsights.v20220401preview.Office365ProjectDataConnector("office365ProjectDataConnector", {
+ *     dataConnectorId: "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Dynamics365 data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const office365ProjectDataConnector = new azure_native.securityinsights.v20220401preview.Office365ProjectDataConnector("office365ProjectDataConnector", {
+ *     dataConnectorId: "c2541efb-c9a6-47fe-9501-87d1017d1512",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a GenericUI data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const office365ProjectDataConnector = new azure_native.securityinsights.v20220401preview.Office365ProjectDataConnector("office365ProjectDataConnector", {
+ *     dataConnectorId: "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Threat Intelligence Taxii data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const office365ProjectDataConnector = new azure_native.securityinsights.v20220401preview.Office365ProjectDataConnector("office365ProjectDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office PowerBI data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const office365ProjectDataConnector = new azure_native.securityinsights.v20220401preview.Office365ProjectDataConnector("office365ProjectDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office365 Project data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const office365ProjectDataConnector = new azure_native.securityinsights.v20220401preview.Office365ProjectDataConnector("office365ProjectDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     dataTypes: {
+ *         logs: {
+ *             state: "Enabled",
+ *         },
+ *     },
+ *     kind: "Office365Project",
+ *     resourceGroupName: "myRg",
+ *     tenantId: "2070ecc9-b4d5-4ae4-adaa-936fa1954fa8",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office365 data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const office365ProjectDataConnector = new azure_native.securityinsights.v20220401preview.Office365ProjectDataConnector("office365ProjectDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Threat Intelligence Platform data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const office365ProjectDataConnector = new azure_native.securityinsights.v20220401preview.Office365ProjectDataConnector("office365ProjectDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20220401preview:Office365ProjectDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class Office365ProjectDataConnector extends pulumi.CustomResource {
     /**

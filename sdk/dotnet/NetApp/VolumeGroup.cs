@@ -13,6 +13,82 @@ namespace Pulumi.AzureNative.NetApp
     /// Volume group resource for create
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### VolumeGroups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volumeGroup = new AzureNative.NetApp.VolumeGroup("volumeGroup", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         GroupMetaData = new AzureNative.NetApp.Inputs.VolumeGroupMetaDataArgs
+    ///         {
+    ///             ApplicationIdentifier = "DEV",
+    ///             ApplicationType = "SAP-HANA",
+    ///             DeploymentSpecId = "20542149-bfca-5618-1879-9863dc6767f1",
+    ///             GroupDescription = "Volume group",
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myRG",
+    ///         VolumeGroupName = "group1",
+    ///         Volumes = new[]
+    ///         {
+    ///             new AzureNative.NetApp.Inputs.VolumeGroupVolumePropertiesArgs
+    ///             {
+    ///                 CapacityPoolResourceId = "/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1",
+    ///                 CreationToken = "test-data-mnt00001",
+    ///                 Name = "test-data-mnt00001",
+    ///                 ProximityPlacementGroup = "/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/cys_sjain_fcp_rg/providers/Microsoft.Compute/proximityPlacementGroups/svlqa_sjain_multivolume_ppg",
+    ///                 ServiceLevel = "Premium",
+    ///                 SubnetId = "/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+    ///                 ThroughputMibps = 10,
+    ///                 UsageThreshold = 107374182400,
+    ///                 VolumeSpecName = "data",
+    ///             },
+    ///             new AzureNative.NetApp.Inputs.VolumeGroupVolumePropertiesArgs
+    ///             {
+    ///                 CapacityPoolResourceId = "/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1",
+    ///                 CreationToken = "test-log-mnt00001",
+    ///                 Name = "test-log-mnt00001",
+    ///                 ProximityPlacementGroup = "/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/cys_sjain_fcp_rg/providers/Microsoft.Compute/proximityPlacementGroups/svlqa_sjain_multivolume_ppg",
+    ///                 ServiceLevel = "Premium",
+    ///                 SubnetId = "/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+    ///                 ThroughputMibps = 10,
+    ///                 UsageThreshold = 107374182400,
+    ///                 VolumeSpecName = "log",
+    ///             },
+    ///             new AzureNative.NetApp.Inputs.VolumeGroupVolumePropertiesArgs
+    ///             {
+    ///                 CapacityPoolResourceId = "/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1",
+    ///                 CreationToken = "test-shared",
+    ///                 Name = "test-shared",
+    ///                 ProximityPlacementGroup = "/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/cys_sjain_fcp_rg/providers/Microsoft.Compute/proximityPlacementGroups/svlqa_sjain_multivolume_ppg",
+    ///                 ServiceLevel = "Premium",
+    ///                 SubnetId = "/subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+    ///                 ThroughputMibps = 10,
+    ///                 UsageThreshold = 107374182400,
+    ///                 VolumeSpecName = "shared",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp:VolumeGroup group1 /subscriptions/d633cc2e-722b-4ae1-b636-bbd9e4c60ed9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/volumeGroups/group1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:VolumeGroup")]
     public partial class VolumeGroup : global::Pulumi.CustomResource

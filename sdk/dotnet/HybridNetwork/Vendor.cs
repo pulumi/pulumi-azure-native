@@ -13,6 +13,33 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// Vendor resource.
     /// API Version: 2021-05-01.
     /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Vendor resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vendor = new AzureNative.HybridNetwork.Vendor("vendor", new()
+    ///     {
+    ///         VendorName = "TestVendor",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork:Vendor TestVendor /subscriptions/subid/providers/Microsoft.HybridNetwork/vendors/TestVendor 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:Vendor")]
     public partial class Vendor : global::Pulumi.CustomResource

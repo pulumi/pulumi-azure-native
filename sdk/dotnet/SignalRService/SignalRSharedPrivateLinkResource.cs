@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.SignalRService
     /// Describes a Shared Private Link Resource
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SignalRSharedPrivateLinkResources_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var signalRSharedPrivateLinkResource = new AzureNative.SignalRService.SignalRSharedPrivateLinkResource("signalRSharedPrivateLinkResource", new()
+    ///     {
+    ///         GroupId = "sites",
+    ///         PrivateLinkResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp",
+    ///         RequestMessage = "Please approve",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "mySignalRService",
+    ///         SharedPrivateLinkResourceName = "upstream",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:signalrservice:SignalRSharedPrivateLinkResource upstream /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/privateEndpointConnections/upstream 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalRSharedPrivateLinkResource")]
     public partial class SignalRSharedPrivateLinkResource : global::Pulumi.CustomResource

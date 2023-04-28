@@ -166,6 +166,68 @@ class Account(pulumi.CustomResource):
         """
         Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
 
+        ## Example Usage
+        ### Create Account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.cognitiveservices.v20221201.Account("account",
+            account_name="testCreate1",
+            identity=azure_native.cognitiveservices.v20221201.IdentityArgs(
+                type=azure_native.cognitiveservices/v20221201.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            kind="Emotion",
+            location="West US",
+            properties=azure_native.cognitiveservices.v20221201.AccountPropertiesResponseArgs(
+                encryption={
+                    "keySource": "Microsoft.KeyVault",
+                    "keyVaultProperties": azure_native.cognitiveservices.v20221201.KeyVaultPropertiesArgs(
+                        key_name="KeyName",
+                        key_vault_uri="https://pltfrmscrts-use-pc-dev.vault.azure.net/",
+                        key_version="891CF236-D241-4738-9462-D506AF493DFA",
+                    ),
+                },
+                user_owned_storage=[azure_native.cognitiveservices.v20221201.UserOwnedStorageArgs(
+                    resource_id="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+                )],
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.cognitiveservices.v20221201.SkuResponseArgs(
+                name="S0",
+            ))
+
+        ```
+        ### Create Account Min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.cognitiveservices.v20221201.Account("account",
+            account_name="testCreate1",
+            identity=azure_native.cognitiveservices.v20221201.IdentityArgs(
+                type=azure_native.cognitiveservices/v20221201.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            kind="CognitiveServices",
+            location="West US",
+            properties=azure_native.cognitiveservices.v20221201.AccountPropertiesArgs(),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.cognitiveservices.v20221201.SkuResponseArgs(
+                name="S0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices/v20221201:Account testCreate1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.CognitiveServices/accounts/testCreate1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
@@ -185,6 +247,68 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
+
+        ## Example Usage
+        ### Create Account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.cognitiveservices.v20221201.Account("account",
+            account_name="testCreate1",
+            identity=azure_native.cognitiveservices.v20221201.IdentityArgs(
+                type=azure_native.cognitiveservices/v20221201.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            kind="Emotion",
+            location="West US",
+            properties=azure_native.cognitiveservices.v20221201.AccountPropertiesResponseArgs(
+                encryption={
+                    "keySource": "Microsoft.KeyVault",
+                    "keyVaultProperties": azure_native.cognitiveservices.v20221201.KeyVaultPropertiesArgs(
+                        key_name="KeyName",
+                        key_vault_uri="https://pltfrmscrts-use-pc-dev.vault.azure.net/",
+                        key_version="891CF236-D241-4738-9462-D506AF493DFA",
+                    ),
+                },
+                user_owned_storage=[azure_native.cognitiveservices.v20221201.UserOwnedStorageArgs(
+                    resource_id="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+                )],
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.cognitiveservices.v20221201.SkuResponseArgs(
+                name="S0",
+            ))
+
+        ```
+        ### Create Account Min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.cognitiveservices.v20221201.Account("account",
+            account_name="testCreate1",
+            identity=azure_native.cognitiveservices.v20221201.IdentityArgs(
+                type=azure_native.cognitiveservices/v20221201.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            kind="CognitiveServices",
+            location="West US",
+            properties=azure_native.cognitiveservices.v20221201.AccountPropertiesArgs(),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.cognitiveservices.v20221201.SkuResponseArgs(
+                name="S0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices/v20221201:Account testCreate1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.CognitiveServices/accounts/testCreate1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

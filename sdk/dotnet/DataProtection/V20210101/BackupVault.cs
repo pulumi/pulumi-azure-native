@@ -11,6 +11,92 @@ namespace Pulumi.AzureNative.DataProtection.V20210101
 {
     /// <summary>
     /// Backup Vault Resource
+    /// 
+    /// ## Example Usage
+    /// ### Create BackupVault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupVault = new AzureNative.DataProtection.V20210101.BackupVault("backupVault", new()
+    ///     {
+    ///         Identity = new AzureNative.DataProtection.V20210101.Inputs.DppIdentityDetailsArgs
+    ///         {
+    ///             Type = "None",
+    ///         },
+    ///         Location = "WestUS",
+    ///         Properties = new AzureNative.DataProtection.V20210101.Inputs.BackupVaultArgs
+    ///         {
+    ///             StorageSettings = new[]
+    ///             {
+    ///                 new AzureNative.DataProtection.V20210101.Inputs.StorageSettingArgs
+    ///                 {
+    ///                     DatastoreType = "VaultStore",
+    ///                     Type = "LocallyRedundant",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///         VaultName = "swaggerExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create BackupVault With MSI
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupVault = new AzureNative.DataProtection.V20210101.BackupVault("backupVault", new()
+    ///     {
+    ///         Identity = new AzureNative.DataProtection.V20210101.Inputs.DppIdentityDetailsArgs
+    ///         {
+    ///             Type = "systemAssigned",
+    ///         },
+    ///         Location = "WestUS",
+    ///         Properties = new AzureNative.DataProtection.V20210101.Inputs.BackupVaultArgs
+    ///         {
+    ///             StorageSettings = new[]
+    ///             {
+    ///                 new AzureNative.DataProtection.V20210101.Inputs.StorageSettingArgs
+    ///                 {
+    ///                     DatastoreType = "VaultStore",
+    ///                     Type = "LocallyRedundant",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///         VaultName = "swaggerExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dataprotection/v20210101:BackupVault swaggerExample /subscriptions/0b352192-dcac-4cc7-992e-a96190ccc68c/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/Backupvaults/swaggerExample 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection/v20210101:BackupVault")]
     public partial class BackupVault : global::Pulumi.CustomResource

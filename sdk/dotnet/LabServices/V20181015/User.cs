@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
 {
     /// <summary>
     /// The User registered to a lab
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:labservices/v20181015:User myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labaccounts/{labAccountName}/labs/{labName}/users/{userName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices/v20181015:User")]
     public partial class User : global::Pulumi.CustomResource

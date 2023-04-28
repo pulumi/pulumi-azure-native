@@ -146,6 +146,36 @@ class FileEventTrigger(pulumi.CustomResource):
         """
         Trigger details.
 
+        ## Example Usage
+        ### TriggerPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_event_trigger = azure_native.databoxedge.v20190801.FileEventTrigger("fileEventTrigger",
+            custom_context_tag="CustomContextTags-1235346475",
+            device_name="testedgedevice",
+            kind="FileEvent",
+            name="trigger1",
+            resource_group_name="GroupForEdgeAutomation",
+            sink_info=azure_native.databoxedge.v20190801.RoleSinkInfoArgs(
+                role_id="/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/role1",
+            ),
+            source_info=azure_native.databoxedge.v20190801.FileSourceInfoArgs(
+                share_id="/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/share1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20190801:FileEventTrigger trigger1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/triggers/trigger1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_context_tag: A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
@@ -165,6 +195,36 @@ class FileEventTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Trigger details.
+
+        ## Example Usage
+        ### TriggerPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_event_trigger = azure_native.databoxedge.v20190801.FileEventTrigger("fileEventTrigger",
+            custom_context_tag="CustomContextTags-1235346475",
+            device_name="testedgedevice",
+            kind="FileEvent",
+            name="trigger1",
+            resource_group_name="GroupForEdgeAutomation",
+            sink_info=azure_native.databoxedge.v20190801.RoleSinkInfoArgs(
+                role_id="/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/role1",
+            ),
+            source_info=azure_native.databoxedge.v20190801.FileSourceInfoArgs(
+                share_id="/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/share1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20190801:FileEventTrigger trigger1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/triggers/trigger1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FileEventTriggerArgs args: The arguments to use to populate this resource's properties.

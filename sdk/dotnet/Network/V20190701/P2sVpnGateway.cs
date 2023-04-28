@@ -11,6 +11,62 @@ namespace Pulumi.AzureNative.Network.V20190701
 {
     /// <summary>
     /// P2SVpnGateway Resource.
+    /// 
+    /// ## Example Usage
+    /// ### P2SVpnGatewayPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var p2sVpnGateway = new AzureNative.Network.V20190701.P2sVpnGateway("p2sVpnGateway", new()
+    ///     {
+    ///         CustomRoutes = new AzureNative.Network.V20190701.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "101.168.0.6/32",
+    ///             },
+    ///         },
+    ///         GatewayName = "p2sVpnGateway1",
+    ///         Location = "West US",
+    ///         P2SVpnServerConfiguration = new AzureNative.Network.V20190701.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1/p2sVpnServerConfigurations/p2sVpnServerConfiguration1",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualHub = new AzureNative.Network.V20190701.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+    ///         },
+    ///         VpnClientAddressPool = new AzureNative.Network.V20190701.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "101.3.0.0/16",
+    ///             },
+    ///         },
+    ///         VpnGatewayScaleUnit = 1,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190701:P2sVpnGateway p2sVpnGateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/P2SvpnGateways/p2sVpnGateway1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190701:P2sVpnGateway")]
     public partial class P2sVpnGateway : global::Pulumi.CustomResource

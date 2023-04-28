@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Linked service.
+ *
+ * ## Example Usage
+ * ### CreateLinkedService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedService = new azure_native.machinelearningservices.v20200901preview.LinkedService("linkedService", {
+ *     identity: {
+ *         type: azure_native.machinelearningservices.v20200901preview.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     linkName: "link-1",
+ *     location: "westus",
+ *     name: "link-1",
+ *     properties: {
+ *         linkedServiceResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/Syn-1",
+ *     },
+ *     resourceGroupName: "resourceGroup-1",
+ *     workspaceName: "workspace-1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20200901preview:LinkedService link-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/linkedServices/link-1 
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

@@ -387,6 +387,80 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
+        ## Example Usage
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20200701preview.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="<administratorLoginPassword>",
+            create_mode="Default",
+            location="westus",
+            resource_group_name="testrg",
+            server_name="mysqltestsvc4",
+            sku=azure_native.dbformysql.v20200701preview.SkuResponseArgs(
+                name="Standard_D14_v2",
+                tier="GeneralPurpose",
+            ),
+            ssl_enforcement="Enabled",
+            storage_profile=azure_native.dbformysql.v20200701preview.StorageProfileArgs(
+                backup_retention_days=7,
+                storage_iops=200,
+                storage_mb=128000,
+            ),
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20200701preview.Server("server",
+            create_mode="Replica",
+            location="westus",
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/PrimaryResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/primaryserver")
+
+        ```
+        ### Create a server as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20200701preview.Server("server",
+            create_mode="PointInTimeRestore",
+            location="brazilsouth",
+            resource_group_name="TargetResourceGroup",
+            restore_point_in_time="2017-12-14T00:00:37.467Z",
+            server_name="targetserver",
+            sku=azure_native.dbformysql.v20200701preview.SkuResponseArgs(
+                name="Standard_D14_v2",
+                tier="GeneralPurpose",
+            ),
+            source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql/v20200701preview:Server targetserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/targetserver 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -419,6 +493,80 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
+
+        ## Example Usage
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20200701preview.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="<administratorLoginPassword>",
+            create_mode="Default",
+            location="westus",
+            resource_group_name="testrg",
+            server_name="mysqltestsvc4",
+            sku=azure_native.dbformysql.v20200701preview.SkuResponseArgs(
+                name="Standard_D14_v2",
+                tier="GeneralPurpose",
+            ),
+            ssl_enforcement="Enabled",
+            storage_profile=azure_native.dbformysql.v20200701preview.StorageProfileArgs(
+                backup_retention_days=7,
+                storage_iops=200,
+                storage_mb=128000,
+            ),
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20200701preview.Server("server",
+            create_mode="Replica",
+            location="westus",
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/PrimaryResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/primaryserver")
+
+        ```
+        ### Create a server as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20200701preview.Server("server",
+            create_mode="PointInTimeRestore",
+            location="brazilsouth",
+            resource_group_name="TargetResourceGroup",
+            restore_point_in_time="2017-12-14T00:00:37.467Z",
+            server_name="targetserver",
+            sku=azure_native.dbformysql.v20200701preview.SkuResponseArgs(
+                name="Standard_D14_v2",
+                tier="GeneralPurpose",
+            ),
+            source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql/v20200701preview:Server targetserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/targetserver 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

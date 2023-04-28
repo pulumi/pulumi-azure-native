@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * A share data transfer object.
+ *
+ * ## Example Usage
+ * ### Shares_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const share = new azure_native.datashare.v20210801.Share("share", {
+ *     accountName: "Account1",
+ *     description: "share description",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareKind: "CopyBased",
+ *     shareName: "Share1",
+ *     terms: "Confidential",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20210801:Share Share1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1 
+ * ```
  */
 export class Share extends pulumi.CustomResource {
     /**

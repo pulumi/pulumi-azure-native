@@ -145,6 +145,30 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
         """
         Virtual Appliance Site resource.
 
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_bgp_connection = azure_native.network.v20201101.VirtualHubBgpConnection("virtualHubBgpConnection",
+            connection_name="conn1",
+            peer_asn=20000,
+            peer_ip="192.168.1.5",
+            resource_group_name="rg1",
+            virtual_hub_name="hub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:VirtualHubBgpConnection conn1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/bgpConnections/conn1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the connection.
@@ -163,6 +187,30 @@ class VirtualHubBgpConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Appliance Site resource.
+
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_bgp_connection = azure_native.network.v20201101.VirtualHubBgpConnection("virtualHubBgpConnection",
+            connection_name="conn1",
+            peer_asn=20000,
+            peer_ip="192.168.1.5",
+            resource_group_name="rg1",
+            virtual_hub_name="hub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:VirtualHubBgpConnection conn1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/bgpConnections/conn1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualHubBgpConnectionArgs args: The arguments to use to populate this resource's properties.

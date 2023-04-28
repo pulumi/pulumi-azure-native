@@ -111,6 +111,40 @@ class ServerTrustGroup(pulumi.CustomResource):
         """
         A server trust group.
 
+        ## Example Usage
+        ### Create server trust group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_trust_group = azure_native.sql.v20220801preview.ServerTrustGroup("serverTrustGroup",
+            group_members=[
+                azure_native.sql.v20220801preview.ServerInfoArgs(
+                    server_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-1",
+                ),
+                azure_native.sql.v20220801preview.ServerInfoArgs(
+                    server_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-2",
+                ),
+            ],
+            location_name="Japan East",
+            resource_group_name="Default",
+            server_trust_group_name="server-trust-group-test",
+            trust_scopes=[
+                "GlobalTransactions",
+                "ServiceBroker",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerTrustGroup server-trust-group-test /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/locations/Japan East/serverTrustGroups/server-trust-group-test 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServerInfoArgs']]]] group_members: Group members information for the server trust group.
@@ -127,6 +161,40 @@ class ServerTrustGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A server trust group.
+
+        ## Example Usage
+        ### Create server trust group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_trust_group = azure_native.sql.v20220801preview.ServerTrustGroup("serverTrustGroup",
+            group_members=[
+                azure_native.sql.v20220801preview.ServerInfoArgs(
+                    server_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-1",
+                ),
+                azure_native.sql.v20220801preview.ServerInfoArgs(
+                    server_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-2",
+                ),
+            ],
+            location_name="Japan East",
+            resource_group_name="Default",
+            server_trust_group_name="server-trust-group-test",
+            trust_scopes=[
+                "GlobalTransactions",
+                "ServiceBroker",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerTrustGroup server-trust-group-test /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/locations/Japan East/serverTrustGroups/server-trust-group-test 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerTrustGroupArgs args: The arguments to use to populate this resource's properties.

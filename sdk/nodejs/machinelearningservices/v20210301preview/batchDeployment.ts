@@ -7,6 +7,93 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### CreateOrUpdate Batch Deployment.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchDeployment = new azure_native.machinelearningservices.v20210301preview.BatchDeployment("batchDeployment", {
+ *     deploymentName: "testBatchDeployment",
+ *     endpointName: "testBatchEndpoint",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuseridentity": {
+ *                 clientId: "string",
+ *                 principalId: "string",
+ *             },
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     properties: {
+ *         codeConfiguration: {
+ *             codeId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/testcode/versions/1",
+ *             scoringScript: "score.py",
+ *         },
+ *         compute: {
+ *             instanceCount: 0,
+ *             instanceType: "string",
+ *             isLocal: false,
+ *             location: "string",
+ *             properties: {
+ *                 additionalProp1: "string",
+ *                 additionalProp2: "string",
+ *                 additionalProp3: "string",
+ *             },
+ *             target: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/testcompute",
+ *         },
+ *         description: "string",
+ *         environmentId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/myenv",
+ *         environmentVariables: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         errorThreshold: 0,
+ *         loggingLevel: "Info",
+ *         miniBatchSize: 0,
+ *         model: {
+ *             assetId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/models/testmodel/versions/1",
+ *             referenceType: "Id",
+ *         },
+ *         outputConfiguration: {
+ *             appendRowFileName: "string",
+ *             outputAction: "SummaryOnly",
+ *         },
+ *         partitionKeys: ["string"],
+ *         properties: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         retrySettings: {
+ *             maxRetries: 0,
+ *             timeout: "PT1M",
+ *         },
+ *     },
+ *     resourceGroupName: "resourceGroup-1234",
+ *     tags: {
+ *         additionalProp1: "string",
+ *         additionalProp2: "string",
+ *         additionalProp3: "string",
+ *     },
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20210301preview:BatchDeployment testBatchDeployment /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/batchEndpoints/testBatchEndpoint/deployments/testBatchDeployment 
+ * ```
+ */
 export class BatchDeployment extends pulumi.CustomResource {
     /**
      * Get an existing BatchDeployment resource's state with the given name, ID, and optional extra

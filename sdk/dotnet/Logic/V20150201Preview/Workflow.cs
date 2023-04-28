@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Logic.V20150201Preview
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic/v20150201preview:Workflow myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName} 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20150201preview:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
     {

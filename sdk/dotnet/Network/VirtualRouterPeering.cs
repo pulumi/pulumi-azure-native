@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.Network
     /// Virtual Router Peering resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Virtual Router Peering
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualRouterPeering = new AzureNative.Network.VirtualRouterPeering("virtualRouterPeering", new()
+    ///     {
+    ///         PeerAsn = 20000,
+    ///         PeerIp = "192.168.1.5",
+    ///         PeeringName = "peering1",
+    ///         ResourceGroupName = "rg1",
+    ///         VirtualRouterName = "virtualRouter",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VirtualRouterPeering peering1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualRouters/virtualRouter/peerings/peering1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualRouterPeering")]
     public partial class VirtualRouterPeering : global::Pulumi.CustomResource

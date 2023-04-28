@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the connection.
+ *
+ * ## Example Usage
+ * ### Create or update connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connection = new azure_native.automation.v20190601.Connection("connection", {
+ *     automationAccountName: "myAutomationAccount28",
+ *     connectionName: "mysConnection",
+ *     connectionType: {
+ *         name: "Azure",
+ *     },
+ *     description: "my description goes here",
+ *     fieldDefinitionValues: {
+ *         AutomationCertificateName: "mysCertificateName",
+ *         SubscriptionID: "subid",
+ *     },
+ *     name: "mysConnection",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation/v20190601:Connection mysConnection /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount28/connections/mysConnection 
+ * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

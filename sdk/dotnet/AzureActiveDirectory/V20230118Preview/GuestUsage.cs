@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.AzureActiveDirectory.V20230118Preview
 {
     /// <summary>
     /// Guest Usages Resource
+    /// 
+    /// ## Example Usage
+    /// ### GuestUsages_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestUsage = new AzureNative.AzureActiveDirectory.V20230118Preview.GuestUsage("guestUsage", new()
+    ///     {
+    ///         ResourceGroupName = "contosoResourceGroup",
+    ///         ResourceName = "contoso.onmicrosoft.com",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azureactivedirectory/v20230118preview:GuestUsage contoso.onmicrosoft.com /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/guestUsages/contoso.onmicrosoft.com 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory/v20230118preview:GuestUsage")]
     public partial class GuestUsage : global::Pulumi.CustomResource

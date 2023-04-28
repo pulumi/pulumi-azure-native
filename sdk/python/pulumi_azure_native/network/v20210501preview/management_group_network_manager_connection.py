@@ -96,6 +96,28 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
         """
         The Network Manager Connection resource
 
+        ## Example Usage
+        ### Create or Update Management Group Network Manager Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_network_manager_connection = azure_native.network.v20210501preview.ManagementGroupNetworkManagerConnection("managementGroupNetworkManagerConnection",
+            management_group_id="managementGroupA",
+            network_manager_connection_name="TestNMConnection",
+            network_manager_id="/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210501preview:ManagementGroupNetworkManagerConnection TestNMConnection /managementGroups/managementGroupA/providers/Microsoft.Network/networkManagerConnections/TestNMConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the scope connection.
@@ -111,6 +133,28 @@ class ManagementGroupNetworkManagerConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Network Manager Connection resource
+
+        ## Example Usage
+        ### Create or Update Management Group Network Manager Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_network_manager_connection = azure_native.network.v20210501preview.ManagementGroupNetworkManagerConnection("managementGroupNetworkManagerConnection",
+            management_group_id="managementGroupA",
+            network_manager_connection_name="TestNMConnection",
+            network_manager_id="/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210501preview:ManagementGroupNetworkManagerConnection TestNMConnection /managementGroups/managementGroupA/providers/Microsoft.Network/networkManagerConnections/TestNMConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupNetworkManagerConnectionArgs args: The arguments to use to populate this resource's properties.

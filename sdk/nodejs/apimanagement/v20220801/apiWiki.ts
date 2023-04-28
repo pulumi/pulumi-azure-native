@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Wiki properties
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiWiki
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiWiki = new azure_native.apimanagement.v20220801.ApiWiki("apiWiki", {
+ *     apiId: "57d1f7558aa04f15146d9d8a",
+ *     documents: [
+ *         {
+ *             documentationId: "docId1",
+ *         },
+ *         {
+ *             documentationId: "docId2",
+ *         },
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:ApiWiki default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/wikis/default 
+ * ```
  */
 export class ApiWiki extends pulumi.CustomResource {
     /**

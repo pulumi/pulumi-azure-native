@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Relay.V20211101
 {
     /// <summary>
     /// Description of the WCF relay resource.
+    /// 
+    /// ## Example Usage
+    /// ### RelayCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var wcfRelay = new AzureNative.Relay.V20211101.WCFRelay("wcfRelay", new()
+    ///     {
+    ///         NamespaceName = "example-RelayNamespace-9953",
+    ///         RelayName = "example-Relay-Wcf-1194",
+    ///         RelayType = AzureNative.Relay.V20211101.Relaytype.NetTcp,
+    ///         RequiresClientAuthorization = true,
+    ///         RequiresTransportSecurity = true,
+    ///         ResourceGroupName = "resourcegroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relay/v20211101:WCFRelay example-Relay-Wcf-1194 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-9953/WcfRelays/example-Relay-Wcf-1194 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relay/v20211101:WCFRelay")]
     public partial class WCFRelay : global::Pulumi.CustomResource

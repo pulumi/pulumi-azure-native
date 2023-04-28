@@ -252,6 +252,33 @@ class VirtualharddiskRetrieve(pulumi.CustomResource):
         """
         The virtual hard disk resource definition.
 
+        ## Example Usage
+        ### PutVirtualHardDisk
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualharddisk_retrieve = azure_native.azurestackhci.v20210901preview.VirtualharddiskRetrieve("virtualharddiskRetrieve",
+            disk_size_bytes=32,
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            location="West US2",
+            resource_group_name="test-rg",
+            virtualharddisks_name="test-vhd")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve test-vhd /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualharddisks/test-vhd 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_id: Storage ContainerID of the storage container to be used for VHD
@@ -273,6 +300,33 @@ class VirtualharddiskRetrieve(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The virtual hard disk resource definition.
+
+        ## Example Usage
+        ### PutVirtualHardDisk
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualharddisk_retrieve = azure_native.azurestackhci.v20210901preview.VirtualharddiskRetrieve("virtualharddiskRetrieve",
+            disk_size_bytes=32,
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            location="West US2",
+            resource_group_name="test-rg",
+            virtualharddisks_name="test-vhd")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve test-vhd /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualharddisks/test-vhd 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualharddiskRetrieveArgs args: The arguments to use to populate this resource's properties.

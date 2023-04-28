@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * A Invitation data transfer object.
+ *
+ * ## Example Usage
+ * ### Invitations_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const invitation = new azure_native.datashare.v20210801.Invitation("invitation", {
+ *     accountName: "Account1",
+ *     expirationDate: "2020-08-26T22:33:24.5785265Z",
+ *     invitationName: "Invitation1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ *     targetEmail: "receiver@microsoft.com",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20210801:Invitation Invitation1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1/invitations/Invitation1 
+ * ```
  */
 export class Invitation extends pulumi.CustomResource {
     /**

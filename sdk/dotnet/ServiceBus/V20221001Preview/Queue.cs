@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
 {
     /// <summary>
     /// Description of queue Resource.
+    /// 
+    /// ## Example Usage
+    /// ### QueueCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queue = new AzureNative.ServiceBus.V20221001Preview.Queue("queue", new()
+    ///     {
+    ///         EnablePartitioning = true,
+    ///         NamespaceName = "sdk-Namespace-3174",
+    ///         QueueName = "sdk-Queues-5647",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20221001preview:Queue sdk-Queues-5647 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-3174/queues/sdk-Queues-5647 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20221001preview:Queue")]
     public partial class Queue : global::Pulumi.CustomResource

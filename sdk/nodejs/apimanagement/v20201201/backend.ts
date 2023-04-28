@@ -9,6 +9,87 @@ import * as utilities from "../../utilities";
 
 /**
  * Backend details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateBackendProxyBackend
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const backend = new azure_native.apimanagement.v20201201.Backend("backend", {
+ *     backendId: "proxybackend",
+ *     credentials: {
+ *         authorization: {
+ *             parameter: "opensesma",
+ *             scheme: "Basic",
+ *         },
+ *         header: {
+ *             "x-my-1": [
+ *                 "val1",
+ *                 "val2",
+ *             ],
+ *         },
+ *         query: {
+ *             sv: [
+ *                 "xx",
+ *                 "bb",
+ *                 "cc",
+ *             ],
+ *         },
+ *     },
+ *     description: "description5308",
+ *     protocol: "http",
+ *     proxy: {
+ *         password: "<password>",
+ *         url: "http://192.168.1.1:8080",
+ *         username: "Contoso\\admin",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     tls: {
+ *         validateCertificateChain: true,
+ *         validateCertificateName: true,
+ *     },
+ *     url: "https://backendname2644/",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateBackendServiceFabric
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const backend = new azure_native.apimanagement.v20201201.Backend("backend", {
+ *     backendId: "sfbackend",
+ *     description: "Service Fabric Test App 1",
+ *     properties: {
+ *         serviceFabricCluster: {
+ *             clientCertificateId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+ *             managementEndpoints: ["https://somecluster.com"],
+ *             maxPartitionResolutionRetries: 5,
+ *             serverX509Names: [{
+ *                 issuerCertificateThumbprint: "IssuerCertificateThumbprint1",
+ *                 name: "ServerCommonName1",
+ *             }],
+ *         },
+ *     },
+ *     protocol: "http",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     url: "fabric:/mytestapp/mytestservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:Backend sfbackend /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/backends/sfbackend 
+ * ```
  */
 export class Backend extends pulumi.CustomResource {
     /**

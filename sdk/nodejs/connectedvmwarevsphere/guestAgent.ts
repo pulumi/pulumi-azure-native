@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Defines the GuestAgent.
  * API Version: 2022-07-15-preview.
  * Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateGuestAgent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const guestAgent = new azure_native.connectedvmwarevsphere.GuestAgent("guestAgent", {
+ *     credentials: {
+ *         password: "<password>",
+ *         username: "tempuser",
+ *     },
+ *     httpProxyConfig: {
+ *         httpsProxy: "http://192.1.2.3:8080",
+ *     },
+ *     name: "default",
+ *     provisioningAction: "install",
+ *     resourceGroupName: "testrg",
+ *     virtualMachineName: "ContosoVm",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:connectedvmwarevsphere:GuestAgent default /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VitualMachines/ContosoVm/guestAgents/default 
+ * ```
  */
 export class GuestAgent extends pulumi.CustomResource {
     /**

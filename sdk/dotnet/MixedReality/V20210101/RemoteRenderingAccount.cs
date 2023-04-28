@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.MixedReality.V20210101
 {
     /// <summary>
     /// RemoteRenderingAccount Response.
+    /// 
+    /// ## Example Usage
+    /// ### Create remote rendering account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var remoteRenderingAccount = new AzureNative.MixedReality.V20210101.RemoteRenderingAccount("remoteRenderingAccount", new()
+    ///     {
+    ///         AccountName = "MyAccount",
+    ///         Identity = new AzureNative.MixedReality.V20210101.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.MixedReality.V20210101.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mixedreality/v20210101:RemoteRenderingAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/remoteRenderingAccounts/MyAccount 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mixedreality/v20210101:RemoteRenderingAccount")]
     public partial class RemoteRenderingAccount : global::Pulumi.CustomResource

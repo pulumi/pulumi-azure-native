@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Settings with single toggle.
+ *
+ * ## Example Usage
+ * ### Update EyesOn settings.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const entityAnalytics = new azure_native.securityinsights.v20210901preview.EntityAnalytics("entityAnalytics", {
+ *     resourceGroupName: "myRg",
+ *     settingsName: "EyesOn",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20210901preview:EntityAnalytics EyesOn /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirInt/providers/Microsoft.SecurityInsights/settings/EyesOn 
+ * ```
  */
 export class EntityAnalytics extends pulumi.CustomResource {
     /**

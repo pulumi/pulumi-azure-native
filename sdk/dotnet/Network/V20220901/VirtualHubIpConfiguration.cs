@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// IpConfigurations.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualHubIpConfigurationPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualHubIpConfiguration = new AzureNative.Network.V20220901.VirtualHubIpConfiguration("virtualHubIpConfiguration", new()
+    ///     {
+    ///         IpConfigName = "ipconfig1",
+    ///         ResourceGroupName = "rg1",
+    ///         Subnet = new AzureNative.Network.V20220901.Inputs.SubnetArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    ///         },
+    ///         VirtualHubName = "hub1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:VirtualHubIpConfiguration ipconfig1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/ipConfigurations/ipconfig1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:VirtualHubIpConfiguration")]
     public partial class VirtualHubIpConfiguration : global::Pulumi.CustomResource

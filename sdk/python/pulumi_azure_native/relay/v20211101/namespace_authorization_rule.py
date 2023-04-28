@@ -95,6 +95,32 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
+        ## Example Usage
+        ### RelayNameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_authorization_rule = azure_native.relay.v20211101.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="example-RelayAuthRules-01",
+            namespace_name="example-RelayNamespace-01",
+            resource_group_name="resourcegroup",
+            rights=[
+                "Listen",
+                "Send",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay/v20211101:NamespaceAuthorizationRule example-RelayAuthRules-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01/AuthorizationRules/example-RelayAuthRules-01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
@@ -110,6 +136,32 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get AuthorizationRule operation
+
+        ## Example Usage
+        ### RelayNameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_authorization_rule = azure_native.relay.v20211101.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="example-RelayAuthRules-01",
+            namespace_name="example-RelayNamespace-01",
+            resource_group_name="resourcegroup",
+            rights=[
+                "Listen",
+                "Send",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay/v20211101:NamespaceAuthorizationRule example-RelayAuthRules-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01/AuthorizationRules/example-RelayAuthRules-01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

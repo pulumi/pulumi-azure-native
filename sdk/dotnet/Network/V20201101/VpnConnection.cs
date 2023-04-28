@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// VpnConnection Resource.
+    /// 
+    /// ## Example Usage
+    /// ### VpnConnectionPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpnConnection = new AzureNative.Network.V20201101.VpnConnection("vpnConnection", new()
+    ///     {
+    ///         ConnectionName = "vpnConnection1",
+    ///         GatewayName = "gateway1",
+    ///         RemoteVpnSite = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         TrafficSelectorPolicies = new[] {},
+    ///         VpnLinkConnections = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.VpnSiteLinkConnectionArgs
+    ///             {
+    ///                 ConnectionBandwidth = 200,
+    ///                 Name = "Connection-Link1",
+    ///                 SharedKey = "key",
+    ///                 UsePolicyBasedTrafficSelectors = false,
+    ///                 VpnConnectionProtocolType = "IKEv2",
+    ///                 VpnLinkConnectionMode = "Default",
+    ///                 VpnSiteLink = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:VpnConnection vpnConnection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:VpnConnection")]
     public partial class VpnConnection : global::Pulumi.CustomResource

@@ -115,6 +115,34 @@ class DnsResolver(pulumi.CustomResource):
         API Version: 2022-07-01.
         Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Upsert DNS resolver
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dns_resolver = azure_native.network.DnsResolver("dnsResolver",
+            dns_resolver_name="sampleDnsResolver",
+            location="westus2",
+            resource_group_name="sampleResourceGroup",
+            tags={
+                "key1": "value1",
+            },
+            virtual_network=azure_native.network.SubResourceArgs(
+                id="/subscriptions/cbb1387e-4b03-44f2-ad41-58d4677b9873/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DnsResolver sampleDnsResolver /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_resolver_name: The name of the DNS resolver.
@@ -133,6 +161,34 @@ class DnsResolver(pulumi.CustomResource):
         Describes a DNS resolver.
         API Version: 2022-07-01.
         Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Upsert DNS resolver
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dns_resolver = azure_native.network.DnsResolver("dnsResolver",
+            dns_resolver_name="sampleDnsResolver",
+            location="westus2",
+            resource_group_name="sampleResourceGroup",
+            tags={
+                "key1": "value1",
+            },
+            virtual_network=azure_native.network.SubResourceArgs(
+                id="/subscriptions/cbb1387e-4b03-44f2-ad41-58d4677b9873/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DnsResolver sampleDnsResolver /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DnsResolverArgs args: The arguments to use to populate this resource's properties.

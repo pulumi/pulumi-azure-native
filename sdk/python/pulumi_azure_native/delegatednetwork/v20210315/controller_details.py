@@ -95,6 +95,28 @@ class ControllerDetails(pulumi.CustomResource):
         """
         Represents an instance of a DNC controller.
 
+        ## Example Usage
+        ### Create controller
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        controller_details = azure_native.delegatednetwork.v20210315.ControllerDetails("controllerDetails",
+            location="West US",
+            resource_group_name="TestRG",
+            resource_name_="testcontroller")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:delegatednetwork/v20210315:ControllerDetails testcontroller /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource.
@@ -110,6 +132,28 @@ class ControllerDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of a DNC controller.
+
+        ## Example Usage
+        ### Create controller
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        controller_details = azure_native.delegatednetwork.v20210315.ControllerDetails("controllerDetails",
+            location="West US",
+            resource_group_name="TestRG",
+            resource_name_="testcontroller")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:delegatednetwork/v20210315:ControllerDetails testcontroller /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ControllerDetailsInitArgs args: The arguments to use to populate this resource's properties.

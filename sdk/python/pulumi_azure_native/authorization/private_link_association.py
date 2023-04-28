@@ -82,6 +82,31 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         API Version: 2020-05-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a private link association, associate scope to rmpl.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_association = azure_native.authorization.PrivateLinkAssociation("privateLinkAssociation",
+            group_id="my-management-group",
+            pla_id="00000000-0000-0000-0000-000000000000",
+            properties=azure_native.authorization.PrivateLinkAssociationPropertiesArgs(
+                private_link="00000000-0000-0000-0000-000000000000",
+                public_network_access="Enabled",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:PrivateLinkAssociation my-pla 00000000-0000-0000-0000-000000000000 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: The management group ID.
@@ -97,6 +122,31 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         """
         API Version: 2020-05-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a private link association, associate scope to rmpl.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_association = azure_native.authorization.PrivateLinkAssociation("privateLinkAssociation",
+            group_id="my-management-group",
+            pla_id="00000000-0000-0000-0000-000000000000",
+            properties=azure_native.authorization.PrivateLinkAssociationPropertiesArgs(
+                private_link="00000000-0000-0000-0000-000000000000",
+                public_network_access="Enabled",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization:PrivateLinkAssociation my-pla 00000000-0000-0000-0000-000000000000 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkAssociationArgs args: The arguments to use to populate this resource's properties.

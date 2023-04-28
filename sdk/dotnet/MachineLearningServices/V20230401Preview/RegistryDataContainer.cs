@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Registry Data Container.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registryDataContainer = new AzureNative.MachineLearningServices.V20230401Preview.RegistryDataContainer("registryDataContainer", new()
+    ///     {
+    ///         DataContainerProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.DataContainerArgs
+    ///         {
+    ///             DataType = "uri_folder",
+    ///             Description = "string",
+    ///             IsArchived = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         RegistryName = "registryName",
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryDataContainer string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:RegistryDataContainer")]
     public partial class RegistryDataContainer : global::Pulumi.CustomResource

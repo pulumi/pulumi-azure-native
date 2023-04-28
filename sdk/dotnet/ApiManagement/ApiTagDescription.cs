@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Contract details.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiTagDescription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiTagDescription = new AzureNative.ApiManagement.ApiTagDescription("apiTagDescription", new()
+    ///     {
+    ///         ApiId = "5931a75ae4bbd512a88c680b",
+    ///         Description = "Some description that will be displayed for operation's tag if the tag is assigned to operation of the API",
+    ///         ExternalDocsDescription = "Description of the external docs resource",
+    ///         ExternalDocsUrl = "http://some.url/additionaldoc",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         TagDescriptionId = "tagId1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:ApiTagDescription tagId1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/5931a75ae4bbd512a88c680b/tagDescriptions/tagId1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiTagDescription")]
     public partial class ApiTagDescription : global::Pulumi.CustomResource

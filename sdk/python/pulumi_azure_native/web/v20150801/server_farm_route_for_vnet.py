@@ -245,6 +245,13 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
                  __props__=None):
         """
         VnetRoute contract used to pass routing information for a vnet.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:ServerFarmRouteForVnet myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,6 +282,13 @@ class ServerFarmRouteForVnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VnetRoute contract used to pass routing information for a vnet.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:ServerFarmRouteForVnet myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerFarmRouteForVnetArgs args: The arguments to use to populate this resource's properties.

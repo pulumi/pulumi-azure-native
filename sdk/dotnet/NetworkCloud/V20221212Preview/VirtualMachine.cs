@@ -9,6 +9,107 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create or update virtual machine
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.NetworkCloud.V20221212Preview.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         AdminUsername = "username",
+    ///         BootMethod = "UEFI",
+    ///         CloudServicesNetworkAttachment = new AzureNative.NetworkCloud.V20221212Preview.Inputs.NetworkAttachmentArgs
+    ///         {
+    ///             AttachedNetworkId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName",
+    ///             IpAllocationMethod = "Dynamic",
+    ///         },
+    ///         CpuCores = 2,
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         MemorySizeGB = 8,
+    ///         NetworkAttachments = new[]
+    ///         {
+    ///             new AzureNative.NetworkCloud.V20221212Preview.Inputs.NetworkAttachmentArgs
+    ///             {
+    ///                 AttachedNetworkId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
+    ///                 DefaultGateway = "True",
+    ///                 IpAllocationMethod = "Dynamic",
+    ///                 Ipv4Address = "198.51.100.1",
+    ///                 Ipv6Address = "2001:0db8:0000:0000:0000:0000:0000:0000",
+    ///                 NetworkAttachmentName = "netAttachName01",
+    ///             },
+    ///         },
+    ///         NetworkData = "bmV0d29ya0RhdGVTYW1wbGU=",
+    ///         PlacementHints = new[]
+    ///         {
+    ///             new AzureNative.NetworkCloud.V20221212Preview.Inputs.VirtualMachinePlacementHintArgs
+    ///             {
+    ///                 HintType = "Affinity",
+    ///                 ResourceId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+    ///                 SchedulingExecution = "Hard",
+    ///                 Scope = "",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SshPublicKeys = new[]
+    ///         {
+    ///             new AzureNative.NetworkCloud.V20221212Preview.Inputs.SshPublicKeyArgs
+    ///             {
+    ///                 KeyData = "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+    ///             },
+    ///         },
+    ///         StorageProfile = new AzureNative.NetworkCloud.V20221212Preview.Inputs.StorageProfileArgs
+    ///         {
+    ///             OsDisk = new AzureNative.NetworkCloud.V20221212Preview.Inputs.OsDiskArgs
+    ///             {
+    ///                 CreateOption = "Ephemeral",
+    ///                 DeleteOption = "Delete",
+    ///                 DiskSizeGB = 120,
+    ///             },
+    ///             VolumeAttachments = new[]
+    ///             {
+    ///                 "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/volumes/volumeName",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///         UserData = "dXNlckRhdGVTYW1wbGU=",
+    ///         VirtualMachineName = "virtualMachineName",
+    ///         VmDeviceModel = "T2",
+    ///         VmImage = "myacr.azurecr.io/foobar:latest",
+    ///         VmImageRepositoryCredentials = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ImageRepositoryCredentialsArgs
+    ///         {
+    ///             Password = "{password}",
+    ///             RegistryUrl = "myacr.azurecr.io",
+    ///             Username = "myuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud/v20221212preview:VirtualMachine virtualMachineName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/virtualMachines/virtualMachineName 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource
     {

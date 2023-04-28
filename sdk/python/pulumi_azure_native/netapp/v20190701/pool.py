@@ -151,6 +151,31 @@ class Pool(pulumi.CustomResource):
         """
         Capacity pool resource
 
+        ## Example Usage
+        ### Pools_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pool = azure_native.netapp.v20190701.Pool("pool",
+            account_name="accountName",
+            location="eastus",
+            pool_name="poolName",
+            resource_group_name="resourceGroup",
+            service_level="Premium",
+            size=4398046511104)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20190701:Pool myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -169,6 +194,31 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Capacity pool resource
+
+        ## Example Usage
+        ### Pools_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pool = azure_native.netapp.v20190701.Pool("pool",
+            account_name="accountName",
+            location="eastus",
+            pool_name="poolName",
+            resource_group_name="resourceGroup",
+            service_level="Premium",
+            size=4398046511104)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20190701:Pool myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

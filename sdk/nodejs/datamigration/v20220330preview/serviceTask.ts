@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * A task resource
+ *
+ * ## Example Usage
+ * ### Tasks_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceTask = new azure_native.datamigration.v20220330preview.ServiceTask("serviceTask", {
+ *     groupName: "DmsSdkRg",
+ *     properties: {
+ *         input: {
+ *             serverVersion: "NA",
+ *         },
+ *         taskType: "Service.Check.OCI",
+ *     },
+ *     serviceName: "DmsSdkService",
+ *     taskName: "DmsSdkTask",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration/v20220330preview:ServiceTask DmsSdkTask /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/serviceTasks/DmsSdkTask 
+ * ```
  */
 export class ServiceTask extends pulumi.CustomResource {
     /**

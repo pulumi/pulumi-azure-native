@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.DevCenter
     /// Represents a Schedule to execute a task.
     /// API Version: 2022-11-11-preview.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Schedules_CreateDailyShutdownPoolSchedule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schedule = new AzureNative.DevCenter.Schedule("schedule", new()
+    ///     {
+    ///         Frequency = "Daily",
+    ///         PoolName = "DevPool",
+    ///         ProjectName = "DevProject",
+    ///         ResourceGroupName = "rg1",
+    ///         ScheduleName = "autoShutdown",
+    ///         State = "Enabled",
+    ///         Time = "17:30",
+    ///         TimeZone = "America/Los_Angeles",
+    ///         Type = "StopDevBox",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter:Schedule autoShutdown /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/TestProject/pools/DevPool/schedules/autoShutdown 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

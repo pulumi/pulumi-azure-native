@@ -318,6 +318,251 @@ class RecordSet(pulumi.CustomResource):
         API Version: 2018-05-01.
         Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create A recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            a_records=[azure_native.network.ARecordArgs(
+                ipv4_address="127.0.0.1",
+            )],
+            metadata={
+                "key1": "value1",
+            },
+            record_type="A",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create A recordset with alias target resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            record_type="A",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            target_resource=azure_native.network.SubResourceArgs(
+                id="/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2",
+            ),
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create AAAA recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            aaaa_records=[azure_native.network.AaaaRecordArgs(
+                ipv6_address="::1",
+            )],
+            metadata={
+                "key1": "value1",
+            },
+            record_type="AAAA",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create CAA recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            caa_records=[azure_native.network.CaaRecordArgs(
+                flags=0,
+                tag="issue",
+                value="ca.contoso.com",
+            )],
+            metadata={
+                "key1": "value1",
+            },
+            record_type="CAA",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create CNAME recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            cname_record=azure_native.network.CnameRecordArgs(
+                cname="contoso.com",
+            ),
+            metadata={
+                "key1": "value1",
+            },
+            record_type="CNAME",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create MX recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            mx_records=[azure_native.network.MxRecordArgs(
+                exchange="mail.contoso.com",
+                preference=0,
+            )],
+            record_type="MX",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create NS recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            ns_records=[azure_native.network.NsRecordArgs(
+                nsdname="ns1.contoso.com",
+            )],
+            record_type="NS",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create PTR recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            ptr_records=[azure_native.network.PtrRecordArgs(
+                ptrdname="localhost",
+            )],
+            record_type="PTR",
+            relative_record_set_name="1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="0.0.127.in-addr.arpa")
+
+        ```
+        ### Create SOA recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            record_type="SOA",
+            relative_record_set_name="@",
+            resource_group_name="rg1",
+            soa_record=azure_native.network.SoaRecordArgs(
+                email="hostmaster.contoso.com",
+                expire_time=2419200,
+                host="ns1.contoso.com",
+                minimum_ttl=300,
+                refresh_time=3600,
+                retry_time=300,
+                serial_number=1,
+            ),
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create SRV recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            record_type="SRV",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            srv_records=[azure_native.network.SrvRecordArgs(
+                port=80,
+                priority=0,
+                target="contoso.com",
+                weight=10,
+            )],
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create TXT recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            record_type="TXT",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            txt_records=[azure_native.network.TxtRecordArgs(
+                value=[
+                    "string1",
+                    "string2",
+                ],
+            )],
+            zone_name="zone1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:RecordSet record1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/TXT/record1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ARecordArgs']]]] a_records: The list of A records in the record set.
@@ -348,6 +593,251 @@ class RecordSet(pulumi.CustomResource):
         Describes a DNS record set (a collection of DNS records with the same name and type).
         API Version: 2018-05-01.
         Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create A recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            a_records=[azure_native.network.ARecordArgs(
+                ipv4_address="127.0.0.1",
+            )],
+            metadata={
+                "key1": "value1",
+            },
+            record_type="A",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create A recordset with alias target resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            record_type="A",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            target_resource=azure_native.network.SubResourceArgs(
+                id="/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2",
+            ),
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create AAAA recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            aaaa_records=[azure_native.network.AaaaRecordArgs(
+                ipv6_address="::1",
+            )],
+            metadata={
+                "key1": "value1",
+            },
+            record_type="AAAA",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create CAA recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            caa_records=[azure_native.network.CaaRecordArgs(
+                flags=0,
+                tag="issue",
+                value="ca.contoso.com",
+            )],
+            metadata={
+                "key1": "value1",
+            },
+            record_type="CAA",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create CNAME recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            cname_record=azure_native.network.CnameRecordArgs(
+                cname="contoso.com",
+            ),
+            metadata={
+                "key1": "value1",
+            },
+            record_type="CNAME",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create MX recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            mx_records=[azure_native.network.MxRecordArgs(
+                exchange="mail.contoso.com",
+                preference=0,
+            )],
+            record_type="MX",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create NS recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            ns_records=[azure_native.network.NsRecordArgs(
+                nsdname="ns1.contoso.com",
+            )],
+            record_type="NS",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create PTR recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            ptr_records=[azure_native.network.PtrRecordArgs(
+                ptrdname="localhost",
+            )],
+            record_type="PTR",
+            relative_record_set_name="1",
+            resource_group_name="rg1",
+            ttl=3600,
+            zone_name="0.0.127.in-addr.arpa")
+
+        ```
+        ### Create SOA recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            record_type="SOA",
+            relative_record_set_name="@",
+            resource_group_name="rg1",
+            soa_record=azure_native.network.SoaRecordArgs(
+                email="hostmaster.contoso.com",
+                expire_time=2419200,
+                host="ns1.contoso.com",
+                minimum_ttl=300,
+                refresh_time=3600,
+                retry_time=300,
+                serial_number=1,
+            ),
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create SRV recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            record_type="SRV",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            srv_records=[azure_native.network.SrvRecordArgs(
+                port=80,
+                priority=0,
+                target="contoso.com",
+                weight=10,
+            )],
+            ttl=3600,
+            zone_name="zone1")
+
+        ```
+        ### Create TXT recordset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        record_set = azure_native.network.RecordSet("recordSet",
+            metadata={
+                "key1": "value1",
+            },
+            record_type="TXT",
+            relative_record_set_name="record1",
+            resource_group_name="rg1",
+            ttl=3600,
+            txt_records=[azure_native.network.TxtRecordArgs(
+                value=[
+                    "string1",
+                    "string2",
+                ],
+            )],
+            zone_name="zone1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:RecordSet record1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/TXT/record1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RecordSetArgs args: The arguments to use to populate this resource's properties.

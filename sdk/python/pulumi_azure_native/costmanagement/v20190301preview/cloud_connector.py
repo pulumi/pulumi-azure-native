@@ -183,6 +183,16 @@ class CloudConnector(pulumi.CustomResource):
         """
         The Connector model definition
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20190301preview:CloudConnector aws-123456789012 /providers/Microsoft.CostManagement/cloudConnectors/aws-123456789012 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ConnectorBillingModel']] billing_model: Connector billing model
@@ -203,6 +213,16 @@ class CloudConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Connector model definition
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20190301preview:CloudConnector aws-123456789012 /providers/Microsoft.CostManagement/cloudConnectors/aws-123456789012 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CloudConnectorArgs args: The arguments to use to populate this resource's properties.

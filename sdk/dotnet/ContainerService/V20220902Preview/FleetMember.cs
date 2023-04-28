@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ContainerService.V20220902Preview
 {
     /// <summary>
     /// A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
+    /// 
+    /// ## Example Usage
+    /// ### Create a fleet member resource. Joins an existing cluster to the fleet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fleetMember = new AzureNative.ContainerService.V20220902Preview.FleetMember("fleetMember", new()
+    ///     {
+    ///         ClusterResourceId = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster-1",
+    ///         FleetMemberName = "member-1",
+    ///         FleetName = "fleet-1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20220902preview:FleetMember member-1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/fleets/fleet-1/members/member-1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20220902preview:FleetMember")]
     public partial class FleetMember : global::Pulumi.CustomResource

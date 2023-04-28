@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Subscription details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateSubscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subscription = new azure_native.apimanagement.Subscription("subscription", {
+ *     displayName: "testsub",
+ *     ownerId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7",
+ *     resourceGroupName: "rg1",
+ *     scope: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b59475ff190048060002",
+ *     serviceName: "apimService1",
+ *     sid: "testsub",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:Subscription testsub /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/subscriptions/testsub 
+ * ```
  */
 export class Subscription extends pulumi.CustomResource {
     /**

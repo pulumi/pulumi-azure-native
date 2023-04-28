@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.CognitiveServices.V20211001
 {
     /// <summary>
     /// Cognitive Services account deployment.
+    /// 
+    /// ## Example Usage
+    /// ### PutDeployment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deployment = new AzureNative.CognitiveServices.V20211001.Deployment("deployment", new()
+    ///     {
+    ///         AccountName = "accountName",
+    ///         DeploymentName = "deploymentName",
+    ///         Properties = new AzureNative.CognitiveServices.V20211001.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Model = new AzureNative.CognitiveServices.V20211001.Inputs.DeploymentModelArgs
+    ///             {
+    ///                 Format = "OpenAI",
+    ///                 Name = "ada",
+    ///                 Version = "1",
+    ///             },
+    ///             ScaleSettings = new AzureNative.CognitiveServices.V20211001.Inputs.DeploymentScaleSettingsArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 ScaleType = "Manual",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices/v20211001:Deployment deploymentName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName/deployments/deploymentName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices/v20211001:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

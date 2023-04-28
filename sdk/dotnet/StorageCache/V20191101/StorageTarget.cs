@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.StorageCache.V20191101
 {
     /// <summary>
     /// A storage system being cached by a Cache.
+    /// 
+    /// ## Example Usage
+    /// ### StorageTargets_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageTarget = new AzureNative.StorageCache.V20191101.StorageTarget("storageTarget", new()
+    ///     {
+    ///         CacheName = "sc1",
+    ///         Junctions = new[]
+    ///         {
+    ///             new AzureNative.StorageCache.V20191101.Inputs.NamespaceJunctionArgs
+    ///             {
+    ///                 NamespacePath = "/path/on/cache",
+    ///                 NfsExport = "exp1",
+    ///                 TargetPath = "/path/on/exp1",
+    ///             },
+    ///             new AzureNative.StorageCache.V20191101.Inputs.NamespaceJunctionArgs
+    ///             {
+    ///                 NamespacePath = "/path2/on/cache",
+    ///                 NfsExport = "exp2",
+    ///                 TargetPath = "/path2/on/exp2",
+    ///             },
+    ///         },
+    ///         Nfs3 = new AzureNative.StorageCache.V20191101.Inputs.Nfs3TargetArgs
+    ///         {
+    ///             Target = "10.0.44.44",
+    ///             UsageModel = "READ_HEAVY_INFREQ",
+    ///         },
+    ///         ResourceGroupName = "scgroup",
+    ///         StorageTargetName = "st1",
+    ///         TargetType = "nfs3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagecache/v20191101:StorageTarget st1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1/storagetargets/st1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagecache/v20191101:StorageTarget")]

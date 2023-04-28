@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Nat Gateway resource.
+ *
+ * ## Example Usage
+ * ### Create nat gateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const natGateway = new azure_native.network.v20220901.NatGateway("natGateway", {
+ *     location: "westus",
+ *     natGatewayName: "test-natgateway",
+ *     publicIpAddresses: [{
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+ *     }],
+ *     publicIpPrefixes: [{
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:NatGateway test-natGateway /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/natGateways/test-natGateway 
+ * ```
  */
 export class NatGateway extends pulumi.CustomResource {
     /**

@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20191101Preview
 {
     /// <summary>
     /// The SourceControl Configuration object.
+    /// 
+    /// ## Example Usage
+    /// ### Create Source Control Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sourceControlConfiguration = new AzureNative.KubernetesConfiguration.V20191101Preview.SourceControlConfiguration("sourceControlConfiguration", new()
+    ///     {
+    ///         ClusterName = "clusterName1",
+    ///         ClusterResourceName = "connectedClusters",
+    ///         ClusterRp = "Microsoft.Kubernetes",
+    ///         EnableHelmOperator = "true",
+    ///         HelmOperatorProperties = new AzureNative.KubernetesConfiguration.V20191101Preview.Inputs.HelmOperatorPropertiesArgs
+    ///         {
+    ///             ChartValues = "--set git.ssh.secretName=flux-git-deploy --set tillerNamespace=kube-system",
+    ///             ChartVersion = "0.3.0",
+    ///         },
+    ///         OperatorInstanceName = "SRSGitHubFluxOp-01",
+    ///         OperatorNamespace = "SRS_Namespace",
+    ///         OperatorParams = "--git-email=xyzgituser@users.srs.github.com",
+    ///         OperatorScope = "namespace",
+    ///         OperatorType = "Flux",
+    ///         RepositoryUrl = "git@github.com:k8sdeveloper425/flux-get-started",
+    ///         ResourceGroupName = "rg1",
+    ///         SourceControlConfigurationName = "SRS_GitHubConfig",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration SRS_GitHubConfig /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/SRS_GitHubConfig 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-11-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration")]

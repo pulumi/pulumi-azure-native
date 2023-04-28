@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * An environment for hosting container apps
+ *
+ * ## Example Usage
+ * ### Create environments
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedEnvironment = new azure_native.app.v20220101preview.ManagedEnvironment("managedEnvironment", {
+ *     appLogsConfiguration: {
+ *         logAnalyticsConfiguration: {
+ *             customerId: "string",
+ *             sharedKey: "string",
+ *         },
+ *     },
+ *     location: "East US",
+ *     name: "testcontainerenv",
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20220101preview:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+ * ```
  */
 export class ManagedEnvironment extends pulumi.CustomResource {
     /**

@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * A sensitivity label.
+ *
+ * ## Example Usage
+ * ### Updates the sensitivity label of a given column with all parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlPoolSensitivityLabel = new azure_native.synapse.v20210301.SqlPoolSensitivityLabel("sqlPoolSensitivityLabel", {
+ *     columnName: "myColumn",
+ *     informationType: "PhoneNumber",
+ *     informationTypeId: "d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
+ *     labelId: "bf91e08c-f4f0-478a-b016-25164b2a65ff",
+ *     labelName: "PII",
+ *     resourceGroupName: "myRG",
+ *     schemaName: "dbo",
+ *     sensitivityLabelSource: "current",
+ *     sqlPoolName: "myDatabase",
+ *     tableName: "myTable",
+ *     workspaceName: "myServer",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse/v20210301:SqlPoolSensitivityLabel current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myRG/providers/Microsoft.Synapse/workspaces/myServer/sqlPools/myDatabase/schemas/dbo/tables/myTable/columns/myColumn/sensitivityLabels/current 
+ * ```
  */
 export class SqlPoolSensitivityLabel extends pulumi.CustomResource {
     /**

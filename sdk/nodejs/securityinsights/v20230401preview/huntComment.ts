@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Hunt Comment in Azure Security Insights
+ *
+ * ## Example Usage
+ * ### Creates or updates a hunt comment.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const huntComment = new azure_native.securityinsights.v20230401preview.HuntComment("huntComment", {
+ *     huntCommentId: "2216d0e1-91e3-4902-89fd-d2df8c535096",
+ *     huntId: "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+ *     message: "This is a test comment.",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:HuntComment 2216d0e1-91e3-4902-89fd-d2df8c123456 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f/comments/2216d0e1-91e3-4902-89fd-d2df8c123456 
+ * ```
  */
 export class HuntComment extends pulumi.CustomResource {
     /**

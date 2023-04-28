@@ -10,6 +10,30 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the proximity placement group.
  *
+ * ## Example Usage
+ * ### Create or Update a proximity placement group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const proximityPlacementGroup = new azure_native.compute.v20190301.ProximityPlacementGroup("proximityPlacementGroup", {
+ *     location: "westus",
+ *     proximityPlacementGroupName: "myProximityPlacementGroup",
+ *     proximityPlacementGroupType: "Standard",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20190301:ProximityPlacementGroup myProximityPlacementGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myProximityPlacementGroup 
+ * ```
+ *
  * @deprecated Version 2019-03-01 will be removed in v2 of the provider.
  */
 export class ProximityPlacementGroup extends pulumi.CustomResource {

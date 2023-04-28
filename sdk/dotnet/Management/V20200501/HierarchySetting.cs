@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Management.V20200501
 {
     /// <summary>
     /// Settings defined at the Management Group scope.
+    /// 
+    /// ## Example Usage
+    /// ### GetGroupSettings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hierarchySetting = new AzureNative.Management.V20200501.HierarchySetting("hierarchySetting", new()
+    ///     {
+    ///         DefaultManagementGroup = "/providers/Microsoft.Management/managementGroups/DefaultGroup",
+    ///         GroupId = "root",
+    ///         RequireAuthorizationForGroupCreation = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:management/v20200501:HierarchySetting root /providers/Microsoft.Management/managementGroups/root/settings/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:management/v20200501:HierarchySetting")]
     public partial class HierarchySetting : global::Pulumi.CustomResource

@@ -98,6 +98,35 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
         API Version: 2015-05-01.
         Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ComponentCurrentBillingFeaturesUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component_current_billing_feature = azure_native.insights.ComponentCurrentBillingFeature("componentCurrentBillingFeature",
+            current_billing_features=[
+                "Basic",
+                "Application Insights Enterprise",
+            ],
+            data_volume_cap=azure_native.insights.ApplicationInsightsComponentDataVolumeCapArgs(
+                cap=100,
+                stop_send_notification_when_hit_cap=True,
+            ),
+            resource_group_name="my-resource-group",
+            resource_name_="my-component")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights:ComponentCurrentBillingFeature myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] current_billing_features: Current enabled pricing plan. When the component is in the Enterprise plan, this will list both 'Basic' and 'Application Insights Enterprise'.
@@ -115,6 +144,35 @@ class ComponentCurrentBillingFeature(pulumi.CustomResource):
         An Application Insights component billing features
         API Version: 2015-05-01.
         Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ComponentCurrentBillingFeaturesUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component_current_billing_feature = azure_native.insights.ComponentCurrentBillingFeature("componentCurrentBillingFeature",
+            current_billing_features=[
+                "Basic",
+                "Application Insights Enterprise",
+            ],
+            data_volume_cap=azure_native.insights.ApplicationInsightsComponentDataVolumeCapArgs(
+                cap=100,
+                stop_send_notification_when_hit_cap=True,
+            ),
+            resource_group_name="my-resource-group",
+            resource_name_="my-component")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights:ComponentCurrentBillingFeature myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/currentbillingfeatures 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ComponentCurrentBillingFeatureArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,114 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure storage blob container data set.
+ *
+ * ## Example Usage
+ * ### DataSets_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerDataSet = new azure_native.datashare.v20210801.BlobContainerDataSet("blobContainerDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoCluster_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerDataSet = new azure_native.datashare.v20210801.BlobContainerDataSet("blobContainerDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoDatabase_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerDataSet = new azure_native.datashare.v20210801.BlobContainerDataSet("blobContainerDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerDataSet = new azure_native.datashare.v20210801.BlobContainerDataSet("blobContainerDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDBTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerDataSet = new azure_native.datashare.v20210801.BlobContainerDataSet("blobContainerDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDWTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerDataSet = new azure_native.datashare.v20210801.BlobContainerDataSet("blobContainerDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerDataSet = new azure_native.datashare.v20210801.BlobContainerDataSet("blobContainerDataSet", {
+ *     accountName: "sourceAccount",
+ *     dataSetName: "dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "share1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20210801:BlobContainerDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+ * ```
  */
 export class BlobContainerDataSet extends pulumi.CustomResource {
     /**

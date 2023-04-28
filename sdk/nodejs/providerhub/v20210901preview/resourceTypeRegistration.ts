@@ -7,6 +7,78 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### ResourceTypeRegistrations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceTypeRegistration = new azure_native.providerhub.v20210901preview.ResourceTypeRegistration("resourceTypeRegistration", {
+ *     properties: {
+ *         endpoints: [{
+ *             apiVersions: ["2020-06-01-preview"],
+ *             locations: [
+ *                 "West US",
+ *                 "East US",
+ *                 "North Europe",
+ *             ],
+ *             requiredFeatures: ["<feature flag>"],
+ *         }],
+ *         management: {
+ *             incidentContactEmail: "helpme@contoso.com",
+ *             incidentRoutingService: "",
+ *             incidentRoutingTeam: "",
+ *             manifestOwners: ["SPARTA-PlatformServiceAdministrator"],
+ *             resourceAccessPolicy: "NotSpecified",
+ *             serviceTreeInfos: [{
+ *                 componentId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+ *                 readiness: "InDevelopment",
+ *                 serviceId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+ *             }],
+ *         },
+ *         openApiConfiguration: {
+ *             validation: {
+ *                 allowNoncompliantCollectionResponse: true,
+ *             },
+ *         },
+ *         regionality: "Regional",
+ *         resourceConcurrencyControlOptions: {
+ *             patch: {
+ *                 policy: "SynchronizeBeginExtension",
+ *             },
+ *             post: {
+ *                 policy: "SynchronizeBeginExtension",
+ *             },
+ *             put: {
+ *                 policy: "SynchronizeBeginExtension",
+ *             },
+ *         },
+ *         resourceGraphConfiguration: {
+ *             apiVersion: "2019-01-01",
+ *             enabled: true,
+ *         },
+ *         routingType: "Default",
+ *         swaggerSpecifications: [{
+ *             apiVersions: ["2020-06-01-preview"],
+ *             swaggerSpecFolderUri: "https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+ *         }],
+ *     },
+ *     providerNamespace: "Microsoft.Contoso",
+ *     resourceType: "employees",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:providerhub/v20210901preview:ResourceTypeRegistration employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+ * ```
+ */
 export class ResourceTypeRegistration extends pulumi.CustomResource {
     /**
      * Get an existing ResourceTypeRegistration resource's state with the given name, ID, and optional extra

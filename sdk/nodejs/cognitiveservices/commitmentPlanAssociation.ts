@@ -10,6 +10,30 @@ import * as utilities from "../utilities";
 /**
  * The commitment plan association.
  * API Version: 2022-12-01.
+ *
+ * ## Example Usage
+ * ### PutCommitmentPlan
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const commitmentPlanAssociation = new azure_native.cognitiveservices.CommitmentPlanAssociation("commitmentPlanAssociation", {
+ *     accountId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName",
+ *     commitmentPlanAssociationName: "commitmentPlanAssociationName",
+ *     commitmentPlanName: "commitmentPlanName",
+ *     resourceGroupName: "resourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices:CommitmentPlanAssociation commitmentPlanAssociationName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/commitmentPlans/commitmentPlanName/accountAssociations/commitmentPlanAssociationName 
+ * ```
  */
 export class CommitmentPlanAssociation extends pulumi.CustomResource {
     /**

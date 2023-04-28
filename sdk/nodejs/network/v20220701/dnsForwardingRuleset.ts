@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS forwarding ruleset.
+ *
+ * ## Example Usage
+ * ### Upsert DNS forwarding ruleset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dnsForwardingRuleset = new azure_native.network.v20220701.DnsForwardingRuleset("dnsForwardingRuleset", {
+ *     dnsForwardingRulesetName: "samplednsForwardingRuleset",
+ *     dnsResolverOutboundEndpoints: [
+ *         {
+ *             id: "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint0",
+ *         },
+ *         {
+ *             id: "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint1",
+ *         },
+ *     ],
+ *     location: "westus2",
+ *     resourceGroupName: "sampleResourceGroup",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220701:DnsForwardingRuleset sampleDnsForwardingRuleset /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRulesets/sampleDnsForwardingRuleset 
+ * ```
  */
 export class DnsForwardingRuleset extends pulumi.CustomResource {
     /**

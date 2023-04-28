@@ -160,6 +160,64 @@ class AutomationRule(pulumi.CustomResource):
         """
         Represents an automation rule.
 
+        ## Example Usage
+        ### Creates or updates an automation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        automation_rule = azure_native.securityinsights.v20190101preview.AutomationRule("automationRule",
+            actions=[
+                azure_native.securityinsights.v20190101preview.AutomationRuleModifyPropertiesActionArgs(
+                    action_configuration=azure_native.securityinsights.v20190101preview.AutomationRuleModifyPropertiesActionActionConfigurationArgs(
+                        severity="High",
+                    ),
+                    action_type="ModifyProperties",
+                    order=1,
+                ),
+                azure_native.securityinsights.v20190101preview.AutomationRuleRunPlaybookActionArgs(
+                    action_configuration=azure_native.securityinsights.v20190101preview.AutomationRuleRunPlaybookActionActionConfigurationArgs(
+                        logic_app_resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/IncidentPlaybook",
+                        tenant_id="ee48efaf-50c6-411b-9345-b2bdc3eb4abc",
+                    ),
+                    action_type="RunPlaybook",
+                    order=2,
+                ),
+            ],
+            automation_rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            display_name="High severity incidents escalation",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            order=1,
+            resource_group_name="myRg",
+            triggering_logic=azure_native.securityinsights.v20190101preview.AutomationRuleTriggeringLogicResponseArgs(
+                conditions=[azure_native.securityinsights.v20190101preview.AutomationRulePropertyValuesConditionResponseArgs(
+                    condition_properties=azure_native.securityinsights.v20190101preview.AutomationRulePropertyValuesConditionConditionPropertiesArgs(
+                        operator="Contains",
+                        property_name="IncidentRelatedAnalyticRuleIds",
+                        property_values=[
+                            "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/fab3d2d4-747f-46a7-8ef0-9c0be8112bf7",
+                            "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/8deb8303-e94d-46ff-96e0-5fd94b33df1a",
+                        ],
+                    ),
+                    condition_type="Property",
+                )],
+                is_enabled=True,
+                triggers_on="Incidents",
+                triggers_when="Created",
+            ),
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20190101preview:AutomationRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AutomationRuleModifyPropertiesActionArgs'], pulumi.InputType['AutomationRuleRunPlaybookActionArgs']]]]] actions: The actions to execute when the automation rule is triggered
@@ -179,6 +237,64 @@ class AutomationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an automation rule.
+
+        ## Example Usage
+        ### Creates or updates an automation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        automation_rule = azure_native.securityinsights.v20190101preview.AutomationRule("automationRule",
+            actions=[
+                azure_native.securityinsights.v20190101preview.AutomationRuleModifyPropertiesActionArgs(
+                    action_configuration=azure_native.securityinsights.v20190101preview.AutomationRuleModifyPropertiesActionActionConfigurationArgs(
+                        severity="High",
+                    ),
+                    action_type="ModifyProperties",
+                    order=1,
+                ),
+                azure_native.securityinsights.v20190101preview.AutomationRuleRunPlaybookActionArgs(
+                    action_configuration=azure_native.securityinsights.v20190101preview.AutomationRuleRunPlaybookActionActionConfigurationArgs(
+                        logic_app_resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.Logic/workflows/IncidentPlaybook",
+                        tenant_id="ee48efaf-50c6-411b-9345-b2bdc3eb4abc",
+                    ),
+                    action_type="RunPlaybook",
+                    order=2,
+                ),
+            ],
+            automation_rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            display_name="High severity incidents escalation",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            order=1,
+            resource_group_name="myRg",
+            triggering_logic=azure_native.securityinsights.v20190101preview.AutomationRuleTriggeringLogicResponseArgs(
+                conditions=[azure_native.securityinsights.v20190101preview.AutomationRulePropertyValuesConditionResponseArgs(
+                    condition_properties=azure_native.securityinsights.v20190101preview.AutomationRulePropertyValuesConditionConditionPropertiesArgs(
+                        operator="Contains",
+                        property_name="IncidentRelatedAnalyticRuleIds",
+                        property_values=[
+                            "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/fab3d2d4-747f-46a7-8ef0-9c0be8112bf7",
+                            "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/8deb8303-e94d-46ff-96e0-5fd94b33df1a",
+                        ],
+                    ),
+                    condition_type="Property",
+                )],
+                is_enabled=True,
+                triggers_on="Incidents",
+                triggers_when="Created",
+            ),
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20190101preview:AutomationRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AutomationRuleArgs args: The arguments to use to populate this resource's properties.

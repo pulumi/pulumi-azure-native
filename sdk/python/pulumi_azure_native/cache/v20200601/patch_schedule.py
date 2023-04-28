@@ -96,6 +96,39 @@ class PatchSchedule(pulumi.CustomResource):
         """
         Response to put/get patch schedules for Redis cache.
 
+        ## Example Usage
+        ### RedisCachePatchSchedulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        patch_schedule = azure_native.cache.v20200601.PatchSchedule("patchSchedule",
+            default="default",
+            name="cache1",
+            resource_group_name="rg1",
+            schedule_entries=[
+                azure_native.cache.v20200601.ScheduleEntryArgs(
+                    day_of_week=azure_native.cache/v20200601.DayOfWeek.MONDAY,
+                    maintenance_window="PT5H",
+                    start_hour_utc=12,
+                ),
+                azure_native.cache.v20200601.ScheduleEntryArgs(
+                    day_of_week=azure_native.cache/v20200601.DayOfWeek.TUESDAY,
+                    start_hour_utc=12,
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache/v20200601:PatchSchedule default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/patchSchedules/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default: Default string modeled as parameter for auto generation to work correctly.
@@ -111,6 +144,39 @@ class PatchSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response to put/get patch schedules for Redis cache.
+
+        ## Example Usage
+        ### RedisCachePatchSchedulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        patch_schedule = azure_native.cache.v20200601.PatchSchedule("patchSchedule",
+            default="default",
+            name="cache1",
+            resource_group_name="rg1",
+            schedule_entries=[
+                azure_native.cache.v20200601.ScheduleEntryArgs(
+                    day_of_week=azure_native.cache/v20200601.DayOfWeek.MONDAY,
+                    maintenance_window="PT5H",
+                    start_hour_utc=12,
+                ),
+                azure_native.cache.v20200601.ScheduleEntryArgs(
+                    day_of_week=azure_native.cache/v20200601.DayOfWeek.TUESDAY,
+                    start_hour_utc=12,
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache/v20200601:PatchSchedule default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/patchSchedules/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PatchScheduleArgs args: The arguments to use to populate this resource's properties.

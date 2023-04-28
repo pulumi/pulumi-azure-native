@@ -6,6 +6,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the certificate.
+ *
+ * ## Example Usage
+ * ### Create or update a certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const certificate = new azure_native.automation.v20220808.Certificate("certificate", {
+ *     automationAccountName: "myAutomationAccount18",
+ *     base64Value: "base 64 value of cert",
+ *     certificateName: "testCert",
+ *     description: "Sample Cert",
+ *     isExportable: false,
+ *     name: "testCert",
+ *     resourceGroupName: "rg",
+ *     thumbprint: "thumbprint of cert",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation/v20220808:Certificate testCert /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/certificates/testCert 
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

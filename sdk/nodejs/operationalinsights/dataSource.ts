@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Datasources under OMS Workspace.
  * API Version: 2020-08-01.
  * Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### DataSourcesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataSource = new azure_native.operationalinsights.DataSource("dataSource", {
+ *     dataSourceName: "AzTestDS774",
+ *     kind: "AzureActivityLog",
+ *     properties: {
+ *         LinkedResourceId: "/subscriptions/00000000-0000-0000-0000-00000000000/providers/microsoft.insights/eventtypes/management",
+ *     },
+ *     resourceGroupName: "OIAutoRest5123",
+ *     workspaceName: "AzTest9724",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights:DataSource AzTestDS774 /subscriptions/00000000-0000-0000-0000-000000000005/resourceGroups/OIAutoRest5123/providers/Microsoft.OperationalInsights/workspaces/AzTest9724/datasources/AzTestDS774 
+ * ```
  */
 export class DataSource extends pulumi.CustomResource {
     /**

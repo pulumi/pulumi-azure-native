@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
 {
     /// <summary>
     /// Site resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create mobile network site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var site = new AzureNative.MobileNetwork.V20220401Preview.Site("site", new()
+    ///     {
+    ///         Location = "testLocation",
+    ///         MobileNetworkName = "testMobileNetwork",
+    ///         NetworkFunctions = new[]
+    ///         {
+    ///             new AzureNative.MobileNetwork.V20220401Preview.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/networkFunctions/testNf",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SiteName = "testSite",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork/v20220401preview:Site testSite /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220401preview:Site")]
     public partial class Site : global::Pulumi.CustomResource

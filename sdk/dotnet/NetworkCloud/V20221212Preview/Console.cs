@@ -9,6 +9,53 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create or update virtual machine console
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var console = new AzureNative.NetworkCloud.V20221212Preview.Console("console", new()
+    ///     {
+    ///         ConsoleName = "default",
+    ///         Enabled = "True",
+    ///         Expiration = "2022-06-01T01:27:03.008Z",
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SshPublicKey = new AzureNative.NetworkCloud.V20221212Preview.Inputs.SshPublicKeyArgs
+    ///         {
+    ///             KeyData = "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///         VirtualMachineName = "virtualMachineName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud/v20221212preview:Console default /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/virtualMachines/virtualMachineName/consoles/default 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:Console")]
     public partial class Console : global::Pulumi.CustomResource
     {

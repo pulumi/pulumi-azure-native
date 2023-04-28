@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.NetApp.V20190701
 {
     /// <summary>
     /// Capacity pool resource
+    /// 
+    /// ## Example Usage
+    /// ### Pools_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.NetApp.V20190701.Pool("pool", new()
+    ///     {
+    ///         AccountName = "accountName",
+    ///         Location = "eastus",
+    ///         PoolName = "poolName",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         ServiceLevel = "Premium",
+    ///         Size = 4398046511104,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20190701:Pool myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20190701:Pool")]

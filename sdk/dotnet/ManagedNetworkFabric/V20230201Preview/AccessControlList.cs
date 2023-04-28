@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 {
     /// <summary>
     /// The AccessControlList resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### AccessControlLists_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessControlList = new AzureNative.ManagedNetworkFabric.V20230201Preview.AccessControlList("accessControlList", new()
+    ///     {
+    ///         AccessControlListName = "aclOne",
+    ///         AddressFamily = "ipv4",
+    ///         Conditions = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.AccessControlListPropertiesConditionsArgs
+    ///             {
+    ///                 Action = "allow",
+    ///                 DestinationAddress = "1.1.1.1",
+    ///                 DestinationPort = "21",
+    ///                 Protocol = 6,
+    ///                 SequenceNumber = 3,
+    ///                 SourceAddress = "2.2.2.2",
+    ///                 SourcePort = "65000",
+    ///             },
+    ///         },
+    ///         Location = "EastUs",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric/v20230201preview:AccessControlList aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric/v20230201preview:AccessControlList")]
     public partial class AccessControlList : global::Pulumi.CustomResource

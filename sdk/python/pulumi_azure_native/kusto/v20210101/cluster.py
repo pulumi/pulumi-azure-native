@@ -311,6 +311,39 @@ class Cluster(pulumi.CustomResource):
         """
         Class representing a Kusto cluster.
 
+        ## Example Usage
+        ### KustoClustersCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.kusto.v20210101.Cluster("cluster",
+            cluster_name="kustoclusterrptest4",
+            enable_double_encryption=False,
+            enable_purge=True,
+            enable_streaming_ingest=True,
+            identity=azure_native.kusto.v20210101.IdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="westus",
+            resource_group_name="kustorptest",
+            sku=azure_native.kusto.v20210101.AzureSkuArgs(
+                capacity=2,
+                name="Standard_L8s",
+                tier="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210101:Cluster KustoClusterRPTest4 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -338,6 +371,39 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Kusto cluster.
+
+        ## Example Usage
+        ### KustoClustersCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.kusto.v20210101.Cluster("cluster",
+            cluster_name="kustoclusterrptest4",
+            enable_double_encryption=False,
+            enable_purge=True,
+            enable_streaming_ingest=True,
+            identity=azure_native.kusto.v20210101.IdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="westus",
+            resource_group_name="kustorptest",
+            sku=azure_native.kusto.v20210101.AzureSkuArgs(
+                capacity=2,
+                name="Standard_L8s",
+                tier="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210101:Cluster KustoClusterRPTest4 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

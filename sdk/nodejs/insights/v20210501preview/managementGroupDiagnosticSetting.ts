@@ -9,6 +9,64 @@ import * as utilities from "../../utilities";
 
 /**
  * The management group diagnostic setting resource.
+ *
+ * ## Example Usage
+ * ### Creates or Updates the management group diagnostic setting
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementGroupDiagnosticSetting = new azure_native.insights.v20210501preview.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting", {
+ *     eventHubAuthorizationRuleId: "/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+ *     eventHubName: "myeventhub",
+ *     logs: [{
+ *         categoryGroup: "allLogs",
+ *         enabled: true,
+ *     }],
+ *     managementGroupId: "testChildMG7",
+ *     marketplacePartnerId: "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+ *     name: "setting1",
+ *     storageAccountId: "/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+ *     workspaceId: "/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or Updates the management group diagnostic setting for category
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementGroupDiagnosticSetting = new azure_native.insights.v20210501preview.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting", {
+ *     eventHubAuthorizationRuleId: "/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+ *     eventHubName: "myeventhub",
+ *     logs: [
+ *         {
+ *             category: "Administrative",
+ *             enabled: true,
+ *         },
+ *         {
+ *             category: "Policy",
+ *             enabled: true,
+ *         },
+ *     ],
+ *     managementGroupId: "testChildMG7",
+ *     marketplacePartnerId: "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+ *     name: "setting1",
+ *     storageAccountId: "/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+ *     workspaceId: "/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting setting1 providers/Microsoft.Management/managementGroups/testChildMG7/providers/microsoft.insights/diagnosticSettings/setting1 
+ * ```
  */
 export class ManagementGroupDiagnosticSetting extends pulumi.CustomResource {
     /**

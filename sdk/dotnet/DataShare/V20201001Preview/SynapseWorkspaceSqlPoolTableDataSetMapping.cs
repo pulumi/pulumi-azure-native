@@ -11,6 +11,159 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
     /// <summary>
     /// A Synapse Workspace Sql Pool Table data set mapping
+    /// 
+    /// ## Example Usage
+    /// ### DataSetMappings_ADLSGen2StorageAccount_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var synapseWorkspaceSqlPoolTableDataSetMapping = new AzureNative.DataShare.V20201001Preview.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_BlobStorageAccount_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var synapseWorkspaceSqlPoolTableDataSetMapping = new AzureNative.DataShare.V20201001Preview.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var synapseWorkspaceSqlPoolTableDataSetMapping = new AzureNative.DataShare.V20201001Preview.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SqlDB_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var synapseWorkspaceSqlPoolTableDataSetMapping = new AzureNative.DataShare.V20201001Preview.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var synapseWorkspaceSqlPoolTableDataSetMapping = new AzureNative.DataShare.V20201001Preview.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SqlDW_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var synapseWorkspaceSqlPoolTableDataSetMapping = new AzureNative.DataShare.V20201001Preview.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var synapseWorkspaceSqlPoolTableDataSetMapping = new AzureNative.DataShare.V20201001Preview.SynapseWorkspaceSqlPoolTableDataSetMapping("synapseWorkspaceSqlPoolTableDataSetMapping", new()
+    ///     {
+    ///         AccountName = "consumerAccount",
+    ///         DataSetId = "3dc64e49-1fc3-4186-b3dc-d388c4d3076a",
+    ///         DataSetMappingName = "datasetMappingName1",
+    ///         Kind = "SynapseWorkspaceSqlPoolTable",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///         SynapseWorkspaceSqlPoolTableResourceId = "/subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/sqlPools/ExampleSqlPool/schemas/dbo/tables/table1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping datasetMappingName /subscriptions/4e745bb7-c420-479b-b0d6-a0f92d48a227/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/consumerAccount/shareSubscriptions/ShareSubscription1/dataSetMappings/datasetMappingName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20201001preview:SynapseWorkspaceSqlPoolTableDataSetMapping")]
     public partial class SynapseWorkspaceSqlPoolTableDataSetMapping : global::Pulumi.CustomResource

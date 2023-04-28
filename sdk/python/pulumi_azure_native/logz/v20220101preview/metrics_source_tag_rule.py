@@ -109,6 +109,29 @@ class MetricsSourceTagRule(pulumi.CustomResource):
         """
         Capture metrics of Azure resources based on ARM tags.
 
+        ## Example Usage
+        ### MetricsSourceTagRules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metrics_source_tag_rule = azure_native.logz.v20220101preview.MetricsSourceTagRule("metricsSourceTagRule",
+            metrics_source_name="MetricsSource1",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            rule_set_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logz/v20220101preview:MetricsSourceTagRule default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Logz/monitors/myMonitor/metricsSource/MetricsSource1/tagRules/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metrics_source_name: Metrics Account resource name
@@ -124,6 +147,29 @@ class MetricsSourceTagRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Capture metrics of Azure resources based on ARM tags.
+
+        ## Example Usage
+        ### MetricsSourceTagRules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metrics_source_tag_rule = azure_native.logz.v20220101preview.MetricsSourceTagRule("metricsSourceTagRule",
+            metrics_source_name="MetricsSource1",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            rule_set_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logz/v20220101preview:MetricsSourceTagRule default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Logz/monitors/myMonitor/metricsSource/MetricsSource1/tagRules/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MetricsSourceTagRuleArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Base class for backup ProtectionIntent.
  * API Version: 2023-02-01.
  * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or Update Azure Vm Protection Intent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionIntent = new azure_native.recoveryservices.ProtectionIntent("protectionIntent", {
+ *     fabricName: "Azure",
+ *     intentObjectName: "vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+ *     properties: {
+ *         policyId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupPolicies/myPolicy",
+ *         protectionIntentItemType: "AzureResourceItem",
+ *         sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/chamsrgtest/providers/Microsoft.Compute/virtualMachines/chamscandel",
+ *     },
+ *     resourceGroupName: "myRG",
+ *     vaultName: "myVault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ProtectionIntent vm;iaasvmcontainerv2;chamsrgtest;chamscandel /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupFabrics/Azure/backupProtectionIntent/vm;iaasvmcontainerv2;chamsrgtest;chamscandel 
+ * ```
  */
 export class ProtectionIntent extends pulumi.CustomResource {
     /**

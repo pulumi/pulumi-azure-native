@@ -119,6 +119,35 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
 
+        ## Example Usage
+        ### PrivateEndpointConnectionUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.search.v20191001preview.PrivateEndpointConnection("privateEndpointConnection",
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice/privateEndpointConnections/testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+            private_endpoint_connection_name="testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+            properties=azure_native.search.v20191001preview.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.search.v20191001preview.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs(
+                    description="Rejected for some reason",
+                    status=azure_native.search/v20191001preview.PrivateLinkServiceConnectionStatus.REJECTED,
+                ),
+            ),
+            resource_group_name="rg1",
+            search_service_name="mysearchservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:search/v20191001preview:PrivateEndpointConnection testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice/privateEndpointConnections/testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: The ID of the private endpoint connection. This can be used with the Azure Resource Manager to link resources together.
@@ -135,6 +164,35 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
+
+        ## Example Usage
+        ### PrivateEndpointConnectionUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.search.v20191001preview.PrivateEndpointConnection("privateEndpointConnection",
+            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice/privateEndpointConnections/testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+            private_endpoint_connection_name="testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+            properties=azure_native.search.v20191001preview.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.search.v20191001preview.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs(
+                    description="Rejected for some reason",
+                    status=azure_native.search/v20191001preview.PrivateLinkServiceConnectionStatus.REJECTED,
+                ),
+            ),
+            resource_group_name="rg1",
+            search_service_name="mysearchservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:search/v20191001preview:PrivateEndpointConnection testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice/privateEndpointConnections/testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

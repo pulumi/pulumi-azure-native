@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
     /// API Version: 2022-03-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### UserPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var user = new AzureNative.DataBoxEdge.User("user", new()
+    ///     {
+    ///         DeviceName = "testedgedevice",
+    ///         EncryptedPassword = new AzureNative.DataBoxEdge.Inputs.AsymmetricEncryptedSecretArgs
+    ///         {
+    ///             EncryptionAlgorithm = "None",
+    ///             EncryptionCertThumbprint = "blah",
+    ///             Value = "&lt;value&gt;",
+    ///         },
+    ///         Name = "user1",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         UserType = "Share",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:User user1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:User")]
     public partial class User : global::Pulumi.CustomResource

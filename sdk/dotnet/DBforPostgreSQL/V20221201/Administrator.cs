@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
 {
     /// <summary>
     /// Represents an Active Directory administrator.
+    /// 
+    /// ## Example Usage
+    /// ### Adds an Active DIrectory Administrator for the server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var administrator = new AzureNative.DBforPostgreSQL.V20221201.Administrator("administrator", new()
+    ///     {
+    ///         ObjectId = "oooooooo-oooo-oooo-oooo-oooooooooooo",
+    ///         PrincipalName = "testuser1@microsoft.com",
+    ///         PrincipalType = "User",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "testserver",
+    ///         TenantId = "tttttttt-tttt-tttt-tttt-tttttttttttt",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20221201:Administrator testuser1@microsoft.com /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/administrators/oooooooo-oooo-oooo-oooo-oooooooooooo 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221201:Administrator")]
     public partial class Administrator : global::Pulumi.CustomResource

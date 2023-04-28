@@ -11,6 +11,44 @@ import * as utilities from "../utilities";
  * EventGrid Topic
  * API Version: 2022-06-15.
  * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Topics_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const topic = new azure_native.eventgrid.Topic("topic", {
+ *     inboundIpRules: [
+ *         {
+ *             action: "Allow",
+ *             ipMask: "12.18.30.15",
+ *         },
+ *         {
+ *             action: "Allow",
+ *             ipMask: "12.18.176.1",
+ *         },
+ *     ],
+ *     location: "westus2",
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "examplerg",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     topicName: "exampletopic1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid:Topic exampletopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1 
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

@@ -10,6 +10,41 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-09-01-preview.
  * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### AzureDevOpsConnector_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureDevOpsConnector = new azure_native.securitydevops.AzureDevOpsConnector("azureDevOpsConnector", {
+ *     azureDevOpsConnectorName: "testconnector",
+ *     location: "West US",
+ *     properties: {
+ *         authorization: {
+ *             code: "00000000000000000000",
+ *         },
+ *         orgs: [{
+ *             name: "testOrg",
+ *             projects: [{
+ *                 name: "testProject",
+ *                 repos: ["testRepo"],
+ *             }],
+ *         }],
+ *     },
+ *     resourceGroupName: "westusrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securitydevops:AzureDevOpsConnector testconnector /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/westusrg/providers/Microsoft.SecurityDevOps/azureDevOpsConnectors/testconnector 
+ * ```
  */
 export class AzureDevOpsConnector extends pulumi.CustomResource {
     /**

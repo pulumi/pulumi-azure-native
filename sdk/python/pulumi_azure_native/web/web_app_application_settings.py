@@ -96,6 +96,31 @@ class WebAppApplicationSettings(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update App Settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_application_settings = azure_native.web.WebAppApplicationSettings("webAppApplicationSettings",
+            name="sitef6141",
+            properties={
+                "Setting1": "Value1",
+                "Setting2": "Value2",
+            },
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:WebAppApplicationSettings appsettings /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/appsettings 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -113,6 +138,31 @@ class WebAppApplicationSettings(pulumi.CustomResource):
         String dictionary resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update App Settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_application_settings = azure_native.web.WebAppApplicationSettings("webAppApplicationSettings",
+            name="sitef6141",
+            properties={
+                "Setting1": "Value1",
+                "Setting2": "Value2",
+            },
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:WebAppApplicationSettings appsettings /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/appsettings 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppApplicationSettingsArgs args: The arguments to use to populate this resource's properties.

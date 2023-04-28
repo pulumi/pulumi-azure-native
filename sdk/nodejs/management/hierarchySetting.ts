@@ -8,6 +8,29 @@ import * as utilities from "../utilities";
  * Settings defined at the Management Group scope.
  * API Version: 2021-04-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### GetGroupSettings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hierarchySetting = new azure_native.management.HierarchySetting("hierarchySetting", {
+ *     defaultManagementGroup: "/providers/Microsoft.Management/managementGroups/DefaultGroup",
+ *     groupId: "root",
+ *     requireAuthorizationForGroupCreation: true,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:management:HierarchySetting root /providers/Microsoft.Management/managementGroups/root/settings/default 
+ * ```
  */
 export class HierarchySetting extends pulumi.CustomResource {
     /**

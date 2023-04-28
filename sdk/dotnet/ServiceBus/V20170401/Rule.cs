@@ -11,6 +11,92 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
 {
     /// <summary>
     /// Description of Rule Resource.
+    /// 
+    /// ## Example Usage
+    /// ### RulesCreateCorrelationFilter
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rule = new AzureNative.ServiceBus.V20170401.Rule("rule", new()
+    ///     {
+    ///         CorrelationFilter = new AzureNative.ServiceBus.V20170401.Inputs.CorrelationFilterArgs
+    ///         {
+    ///             Properties = 
+    ///             {
+    ///                 { "topicHint", "Crop" },
+    ///             },
+    ///         },
+    ///         FilterType = AzureNative.ServiceBus.V20170401.FilterType.CorrelationFilter,
+    ///         NamespaceName = "sdk-Namespace-1319",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         RuleName = "sdk-Rules-6571",
+    ///         SubscriptionName = "sdk-Subscriptions-8691",
+    ///         TopicName = "sdk-Topics-2081",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RulesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rule = new AzureNative.ServiceBus.V20170401.Rule("rule", new()
+    ///     {
+    ///         NamespaceName = "sdk-Namespace-1319",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         RuleName = "sdk-Rules-6571",
+    ///         SubscriptionName = "sdk-Subscriptions-8691",
+    ///         TopicName = "sdk-Topics-2081",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RulesCreateSqlFilter
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rule = new AzureNative.ServiceBus.V20170401.Rule("rule", new()
+    ///     {
+    ///         FilterType = AzureNative.ServiceBus.V20170401.FilterType.SqlFilter,
+    ///         NamespaceName = "sdk-Namespace-1319",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         RuleName = "sdk-Rules-6571",
+    ///         SqlFilter = new AzureNative.ServiceBus.V20170401.Inputs.SqlFilterArgs
+    ///         {
+    ///             SqlExpression = "myproperty=test",
+    ///         },
+    ///         SubscriptionName = "sdk-Subscriptions-8691",
+    ///         TopicName = "sdk-Topics-2081",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20170401:Rule sdk-Rules-6571 /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1319/topics/sdk-Topics-2081/subscriptions/sdk-Subscriptions-8691/rules/sdk-Rules-6571 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20170401:Rule")]
     public partial class Rule : global::Pulumi.CustomResource

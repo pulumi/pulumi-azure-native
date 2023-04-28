@@ -164,6 +164,34 @@ class GraphResourceGraph(pulumi.CustomResource):
         """
         An Azure Cosmos DB Graph resource.
 
+        ## Example Usage
+        ### CosmosDBGraphCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        graph_resource_graph = azure_native.documentdb.v20230301preview.GraphResourceGraph("graphResourceGraph",
+            account_name="ddb1",
+            graph_name="graphName",
+            location="West US",
+            options=azure_native.documentdb.v20230301preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20230301preview.GraphResourceArgs(
+                id="graphName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20230301preview:GraphResourceGraph graphName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/graphs/graphName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -183,6 +211,34 @@ class GraphResourceGraph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Graph resource.
+
+        ## Example Usage
+        ### CosmosDBGraphCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        graph_resource_graph = azure_native.documentdb.v20230301preview.GraphResourceGraph("graphResourceGraph",
+            account_name="ddb1",
+            graph_name="graphName",
+            location="West US",
+            options=azure_native.documentdb.v20230301preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20230301preview.GraphResourceArgs(
+                id="graphName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20230301preview:GraphResourceGraph graphName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/graphs/graphName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GraphResourceGraphArgs args: The arguments to use to populate this resource's properties.

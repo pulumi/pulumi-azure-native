@@ -101,6 +101,45 @@ class PeerAsn(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a peer ASN
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peer_asn = azure_native.peering.PeerAsn("peerAsn",
+            peer_asn=65000,
+            peer_asn_name="peerAsnName",
+            peer_contact_detail=[
+                azure_native.peering.ContactDetailArgs(
+                    email="noc@contoso.com",
+                    phone="+1 (234) 567-8999",
+                    role="Noc",
+                ),
+                azure_native.peering.ContactDetailArgs(
+                    email="abc@contoso.com",
+                    phone="+1 (234) 567-8900",
+                    role="Policy",
+                ),
+                azure_native.peering.ContactDetailArgs(
+                    email="xyz@contoso.com",
+                    phone="+1 (234) 567-8900",
+                    role="Technical",
+                ),
+            ],
+            peer_name="Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering:PeerAsn peerAsnName /subscriptions/subId/providers/Microsoft.Peering/peerAsns/peerAsnName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] peer_asn: The Autonomous System Number (ASN) of the peer.
@@ -118,6 +157,45 @@ class PeerAsn(pulumi.CustomResource):
         The essential information related to the peer's ASN.
         API Version: 2022-10-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a peer ASN
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peer_asn = azure_native.peering.PeerAsn("peerAsn",
+            peer_asn=65000,
+            peer_asn_name="peerAsnName",
+            peer_contact_detail=[
+                azure_native.peering.ContactDetailArgs(
+                    email="noc@contoso.com",
+                    phone="+1 (234) 567-8999",
+                    role="Noc",
+                ),
+                azure_native.peering.ContactDetailArgs(
+                    email="abc@contoso.com",
+                    phone="+1 (234) 567-8900",
+                    role="Policy",
+                ),
+                azure_native.peering.ContactDetailArgs(
+                    email="xyz@contoso.com",
+                    phone="+1 (234) 567-8900",
+                    role="Technical",
+                ),
+            ],
+            peer_name="Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering:PeerAsn peerAsnName /subscriptions/subId/providers/Microsoft.Peering/peerAsns/peerAsnName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PeerAsnArgs args: The arguments to use to populate this resource's properties.

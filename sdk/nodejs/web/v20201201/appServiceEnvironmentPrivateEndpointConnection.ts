@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Remote Private Endpoint Connection ARM resource.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class AppServiceEnvironmentPrivateEndpointConnection extends pulumi.CustomResource {
     /**

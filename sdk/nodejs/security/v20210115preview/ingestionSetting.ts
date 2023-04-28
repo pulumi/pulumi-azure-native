@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Configures how to correlate scan data and logs with resources associated with the subscription.
+ *
+ * ## Example Usage
+ * ### Create an ingestion setting for subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ingestionSetting = new azure_native.security.v20210115preview.IngestionSetting("ingestionSetting", {ingestionSettingName: "default"});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20210115preview:IngestionSetting default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/ingestionSettings/default 
+ * ```
  */
 export class IngestionSetting extends pulumi.CustomResource {
     /**

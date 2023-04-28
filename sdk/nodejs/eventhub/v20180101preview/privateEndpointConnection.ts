@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the PrivateEndpointConnection.
+ *
+ * ## Example Usage
+ * ### NameSpacePrivateEndPointConnectionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.eventhub.v20180101preview.PrivateEndpointConnection("privateEndpointConnection", {
+ *     namespaceName: "sdk-Namespace-2924",
+ *     privateEndpoint: {
+ *         id: "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-EventHub-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
+ *     },
+ *     privateEndpointConnectionName: "privateEndpointConnectionName",
+ *     privateLinkServiceConnectionState: {
+ *         description: "testing",
+ *         status: "Rejected",
+ *     },
+ *     provisioningState: "Succeeded",
+ *     resourceGroupName: "ArunMonocle",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub/v20180101preview:PrivateEndpointConnection 928c44d5-b7c6-423b-b6fa-811e0c27b3e0 /subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-EventHub-4794/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5828/privateEndpointConnections/928c44d5-b7c6-423b-b6fa-811e0c27b3e0 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

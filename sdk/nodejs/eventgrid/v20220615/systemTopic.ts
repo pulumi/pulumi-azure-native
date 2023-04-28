@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * EventGrid System Topic.
+ *
+ * ## Example Usage
+ * ### SystemTopics_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const systemTopic = new azure_native.eventgrid.v20220615.SystemTopic("systemTopic", {
+ *     location: "westus2",
+ *     resourceGroupName: "examplerg",
+ *     source: "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/azureeventgridrunnerrgcentraluseuap/providers/microsoft.storage/storageaccounts/pubstgrunnerb71cd29e",
+ *     systemTopicName: "exampleSystemTopic1",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     topicType: "microsoft.storage.storageaccounts",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid/v20220615:SystemTopic exampleSystemTopic2 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/systemTopics/exampleSystemTopic2 
+ * ```
  */
 export class SystemTopic extends pulumi.CustomResource {
     /**

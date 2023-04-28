@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.Compute
     /// Specifies information about the gallery image definition that you want to create or update.
     /// API Version: 2022-03-03.
     /// Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery image.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var galleryImage = new AzureNative.Compute.GalleryImage("galleryImage", new()
+    ///     {
+    ///         GalleryImageName = "myGalleryImageName",
+    ///         GalleryName = "myGalleryName",
+    ///         HyperVGeneration = "V1",
+    ///         Identifier = new AzureNative.Compute.Inputs.GalleryImageIdentifierArgs
+    ///         {
+    ///             Offer = "myOfferName",
+    ///             Publisher = "myPublisherName",
+    ///             Sku = "mySkuName",
+    ///         },
+    ///         Location = "West US",
+    ///         OsState = AzureNative.Compute.OperatingSystemStateTypes.Generalized,
+    ///         OsType = AzureNative.Compute.OperatingSystemTypes.Windows,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:GalleryImage myGalleryImageName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource

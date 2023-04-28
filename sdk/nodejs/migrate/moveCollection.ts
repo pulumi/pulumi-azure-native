@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Define the move collection.
  * API Version: 2022-08-01.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### MoveCollections_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const moveCollection = new azure_native.migrate.MoveCollection("moveCollection", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "eastus2",
+ *     moveCollectionName: "movecollection1",
+ *     properties: {
+ *         sourceRegion: "eastus",
+ *         targetRegion: "westus",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:MoveCollection movecollection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Migrate/MoveCollections/movecollection1 
+ * ```
  */
 export class MoveCollection extends pulumi.CustomResource {
     /**

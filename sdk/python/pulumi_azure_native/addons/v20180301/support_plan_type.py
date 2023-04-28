@@ -61,6 +61,27 @@ class SupportPlanType(pulumi.CustomResource):
         """
         The status of the Canonical support plan.
 
+        ## Example Usage
+        ### SupportPlanTypes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        support_plan_type = azure_native.addons.v20180301.SupportPlanType("supportPlanType",
+            plan_type_name="Standard",
+            provider_name="Canonical")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:addons/v20180301:SupportPlanType Standard subscriptions/d18d258f-bdba-4de1-8b51-e79d6c181d5e/providers/Microsoft.Addons/supportProviders/canonical/supportPlanTypes/Standard 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] plan_type_name: The Canonical support plan type.
@@ -74,6 +95,27 @@ class SupportPlanType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The status of the Canonical support plan.
+
+        ## Example Usage
+        ### SupportPlanTypes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        support_plan_type = azure_native.addons.v20180301.SupportPlanType("supportPlanType",
+            plan_type_name="Standard",
+            provider_name="Canonical")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:addons/v20180301:SupportPlanType Standard subscriptions/d18d258f-bdba-4de1-8b51-e79d6c181d5e/providers/Microsoft.Addons/supportProviders/canonical/supportPlanTypes/Standard 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SupportPlanTypeArgs args: The arguments to use to populate this resource's properties.

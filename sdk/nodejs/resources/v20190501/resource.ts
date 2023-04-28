@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources/v20190501:Resource myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName} 
+ * ```
  */
 export class Resource extends pulumi.CustomResource {
     /**

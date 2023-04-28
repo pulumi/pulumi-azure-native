@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Migrate.V20220801
 {
     /// <summary>
     /// Define the move collection.
+    /// 
+    /// ## Example Usage
+    /// ### MoveCollections_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var moveCollection = new AzureNative.Migrate.V20220801.MoveCollection("moveCollection", new()
+    ///     {
+    ///         Identity = new AzureNative.Migrate.V20220801.Inputs.IdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "eastus2",
+    ///         MoveCollectionName = "movecollection1",
+    ///         Properties = new AzureNative.Migrate.V20220801.Inputs.MoveCollectionPropertiesArgs
+    ///         {
+    ///             SourceRegion = "eastus",
+    ///             TargetRegion = "westus",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20220801:MoveCollection movecollection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Migrate/MoveCollections/movecollection1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20220801:MoveCollection")]
     public partial class MoveCollection : global::Pulumi.CustomResource

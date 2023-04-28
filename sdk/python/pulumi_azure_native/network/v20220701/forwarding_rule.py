@@ -146,6 +146,43 @@ class ForwardingRule(pulumi.CustomResource):
         """
         Describes a forwarding rule within a DNS forwarding ruleset.
 
+        ## Example Usage
+        ### Upsert forwarding rule in a DNS forwarding ruleset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        forwarding_rule = azure_native.network.v20220701.ForwardingRule("forwardingRule",
+            dns_forwarding_ruleset_name="sampleDnsForwardingRuleset",
+            domain_name="contoso.com.",
+            forwarding_rule_name="sampleForwardingRule",
+            forwarding_rule_state="Enabled",
+            metadata={
+                "additionalProp1": "value1",
+            },
+            resource_group_name="sampleResourceGroup",
+            target_dns_servers=[
+                azure_native.network.v20220701.TargetDnsServerArgs(
+                    ip_address="10.0.0.1",
+                    port=53,
+                ),
+                azure_native.network.v20220701.TargetDnsServerArgs(
+                    ip_address="10.0.0.2",
+                    port=53,
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220701:ForwardingRule sampleForwardingRule /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRulesets/sampleDnsForwardingRuleset/forwardingRules/sampleForwardingRule 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -164,6 +201,43 @@ class ForwardingRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a forwarding rule within a DNS forwarding ruleset.
+
+        ## Example Usage
+        ### Upsert forwarding rule in a DNS forwarding ruleset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        forwarding_rule = azure_native.network.v20220701.ForwardingRule("forwardingRule",
+            dns_forwarding_ruleset_name="sampleDnsForwardingRuleset",
+            domain_name="contoso.com.",
+            forwarding_rule_name="sampleForwardingRule",
+            forwarding_rule_state="Enabled",
+            metadata={
+                "additionalProp1": "value1",
+            },
+            resource_group_name="sampleResourceGroup",
+            target_dns_servers=[
+                azure_native.network.v20220701.TargetDnsServerArgs(
+                    ip_address="10.0.0.1",
+                    port=53,
+                ),
+                azure_native.network.v20220701.TargetDnsServerArgs(
+                    ip_address="10.0.0.2",
+                    port=53,
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220701:ForwardingRule sampleForwardingRule /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRulesets/sampleDnsForwardingRuleset/forwardingRules/sampleForwardingRule 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ForwardingRuleArgs args: The arguments to use to populate this resource's properties.

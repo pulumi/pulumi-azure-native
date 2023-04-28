@@ -9,6 +9,146 @@ import * as utilities from "../../utilities";
 
 /**
  * Rule Collection Group resource.
+ *
+ * ## Example Usage
+ * ### Create FirewallPolicyNatRuleCollectionGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallPolicyRuleCollectionGroup = new azure_native.network.v20201101.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 100,
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionGroupName: "ruleCollectionGroup1",
+ *     ruleCollections: [{
+ *         action: {
+ *             type: "DNAT",
+ *         },
+ *         name: "Example-Nat-Rule-Collection",
+ *         priority: 100,
+ *         ruleCollectionType: "FirewallPolicyNatRuleCollection",
+ *         rules: [{
+ *             destinationAddresses: ["152.23.32.23"],
+ *             destinationPorts: ["8080"],
+ *             ipProtocols: [
+ *                 "TCP",
+ *                 "UDP",
+ *             ],
+ *             name: "nat-rule1",
+ *             ruleType: "NatRule",
+ *             sourceAddresses: ["2.2.2.2"],
+ *             sourceIpGroups: [],
+ *             translatedFqdn: "internalhttp.server.net",
+ *             translatedPort: "8080",
+ *         }],
+ *     }],
+ * });
+ *
+ * ```
+ * ### Create FirewallPolicyRuleCollectionGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallPolicyRuleCollectionGroup = new azure_native.network.v20201101.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 100,
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionGroupName: "ruleCollectionGroup1",
+ *     ruleCollections: [{
+ *         action: {
+ *             type: "Deny",
+ *         },
+ *         name: "Example-Filter-Rule-Collection",
+ *         priority: 100,
+ *         ruleCollectionType: "FirewallPolicyFilterRuleCollection",
+ *         rules: [{
+ *             destinationAddresses: ["*"],
+ *             destinationPorts: ["*"],
+ *             ipProtocols: ["TCP"],
+ *             name: "network-rule1",
+ *             ruleType: "NetworkRule",
+ *             sourceAddresses: ["10.1.25.0/24"],
+ *         }],
+ *     }],
+ * });
+ *
+ * ```
+ * ### Create FirewallPolicyRuleCollectionGroup With IpGroups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallPolicyRuleCollectionGroup = new azure_native.network.v20201101.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 110,
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionGroupName: "ruleCollectionGroup1",
+ *     ruleCollections: [{
+ *         action: {
+ *             type: "Deny",
+ *         },
+ *         name: "Example-Filter-Rule-Collection",
+ *         ruleCollectionType: "FirewallPolicyFilterRuleCollection",
+ *         rules: [{
+ *             destinationIpGroups: ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2"],
+ *             destinationPorts: ["*"],
+ *             ipProtocols: ["TCP"],
+ *             name: "network-1",
+ *             ruleType: "NetworkRule",
+ *             sourceIpGroups: ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1"],
+ *         }],
+ *     }],
+ * });
+ *
+ * ```
+ * ### Create FirewallPolicyRuleCollectionGroup With Web Categories
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallPolicyRuleCollectionGroup = new azure_native.network.v20201101.FirewallPolicyRuleCollectionGroup("firewallPolicyRuleCollectionGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 110,
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionGroupName: "ruleCollectionGroup1",
+ *     ruleCollections: [{
+ *         action: {
+ *             type: "Deny",
+ *         },
+ *         name: "Example-Filter-Rule-Collection",
+ *         ruleCollectionType: "FirewallPolicyFilterRuleCollection",
+ *         rules: [{
+ *             description: "Deny inbound rule",
+ *             name: "rule1",
+ *             protocols: [{
+ *                 port: 443,
+ *                 protocolType: "Https",
+ *             }],
+ *             ruleType: "ApplicationRule",
+ *             sourceAddresses: [
+ *                 "216.58.216.164",
+ *                 "10.0.0.0/24",
+ *             ],
+ *             webCategories: ["Hacking"],
+ *         }],
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:FirewallPolicyRuleCollectionGroup ruleCollectionGroup1 /subscriptions/e747cc13-97d4-4a79-b463-42d7f4e558f2/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy/ruleCollectionGroups/ruleCollectionGroup1 
+ * ```
  */
 export class FirewallPolicyRuleCollectionGroup extends pulumi.CustomResource {
     /**

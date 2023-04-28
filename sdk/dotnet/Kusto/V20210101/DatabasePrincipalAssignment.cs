@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Kusto.V20210101
 {
     /// <summary>
     /// Class representing a database principal assignment.
+    /// 
+    /// ## Example Usage
+    /// ### KustoDatabasePrincipalAssignmentsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databasePrincipalAssignment = new AzureNative.Kusto.V20210101.DatabasePrincipalAssignment("databasePrincipalAssignment", new()
+    ///     {
+    ///         ClusterName = "kustoclusterrptest4",
+    ///         DatabaseName = "Kustodatabase8",
+    ///         PrincipalAssignmentName = "kustoprincipal1",
+    ///         PrincipalId = "87654321-1234-1234-1234-123456789123",
+    ///         PrincipalType = "App",
+    ///         ResourceGroupName = "kustorptest",
+    ///         Role = "Admin",
+    ///         TenantId = "12345678-1234-1234-1234-123456789123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto/v20210101:DatabasePrincipalAssignment kustoclusterrptest4/Kustodatabase8/kustoprincipal1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoclusterrptest4/Databases/Kustodatabase8/PrincipalAssignments/kustoprincipal1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20210101:DatabasePrincipalAssignment")]
     public partial class DatabasePrincipalAssignment : global::Pulumi.CustomResource

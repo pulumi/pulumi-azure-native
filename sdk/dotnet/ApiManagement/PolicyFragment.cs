@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Policy fragment contract details.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreatePolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyFragment = new AzureNative.ApiManagement.PolicyFragment("policyFragment", new()
+    ///     {
+    ///         Description = "A policy fragment example",
+    ///         Format = "xml",
+    ///         Id = "policyFragment1",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = "&lt;fragment&gt;&lt;json-to-xml apply=\"always\" consider-accept-header=\"false\" /&gt;&lt;/fragment&gt;",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:PolicyFragment policyFragment1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/policyFragments/policyFragment1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:PolicyFragment")]
     public partial class PolicyFragment : global::Pulumi.CustomResource

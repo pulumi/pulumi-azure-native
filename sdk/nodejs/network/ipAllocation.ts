@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * IpAllocation resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create IpAllocation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ipAllocation = new azure_native.network.IpAllocation("ipAllocation", {
+ *     allocationTags: {
+ *         VNetID: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1",
+ *     },
+ *     ipAllocationName: "test-ipallocation",
+ *     location: "centraluseuap",
+ *     prefix: "3.2.5.0/24",
+ *     resourceGroupName: "rg1",
+ *     type: "Hypernet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:IpAllocation test-ipallocation /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/IpAllocations/test-ipallocation 
+ * ```
  */
 export class IpAllocation extends pulumi.CustomResource {
     /**

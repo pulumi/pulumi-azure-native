@@ -173,7 +173,32 @@ class IncidentTask(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a IncidentTask resource with the given unique name, props, and options.
+        ## Example Usage
+        ### IncidentTasks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        incident_task = azure_native.securityinsights.v20230301preview.IncidentTask("incidentTask",
+            description="Task description",
+            incident_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            incident_task_id="4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+            resource_group_name="myRg",
+            status="New",
+            title="Task title",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230301preview:IncidentTask 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5/tasks/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ClientInfoArgs']] created_by: Information on the client (user or application) that made some action
@@ -192,7 +217,32 @@ class IncidentTask(pulumi.CustomResource):
                  args: IncidentTaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a IncidentTask resource with the given unique name, props, and options.
+        ## Example Usage
+        ### IncidentTasks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        incident_task = azure_native.securityinsights.v20230301preview.IncidentTask("incidentTask",
+            description="Task description",
+            incident_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            incident_task_id="4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+            resource_group_name="myRg",
+            status="New",
+            title="Task title",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230301preview:IncidentTask 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5/tasks/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+        ```
+
         :param str resource_name: The name of the resource.
         :param IncidentTaskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

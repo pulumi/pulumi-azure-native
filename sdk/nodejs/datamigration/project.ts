@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * A project resource
  * API Version: 2021-06-30.
  * Previous API Version: 2018-04-19. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Projects_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const project = new azure_native.datamigration.Project("project", {
+ *     groupName: "DmsSdkRg",
+ *     location: "southcentralus",
+ *     projectName: "DmsSdkProject",
+ *     serviceName: "DmsSdkService",
+ *     sourcePlatform: "SQL",
+ *     targetPlatform: "SQLDB",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration:Project DmsSdkProject /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject 
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

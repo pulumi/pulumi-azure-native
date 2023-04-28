@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * The virtual network resource definition.
+ *
+ * ## Example Usage
+ * ### PutVirtualNetwork
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualnetworkRetrieve = new azure_native.azurestackhci.v20210901preview.VirtualnetworkRetrieve("virtualnetworkRetrieve", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "West US2",
+ *     networkType: "Transparent",
+ *     resourceGroupName: "test-rg",
+ *     virtualnetworksName: "test-vnet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve test-vnet /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualnetworks/test-vnet 
+ * ```
  */
 export class VirtualnetworkRetrieve extends pulumi.CustomResource {
     /**

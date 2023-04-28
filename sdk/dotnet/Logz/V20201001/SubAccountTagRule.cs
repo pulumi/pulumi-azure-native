@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Logz.V20201001
 {
     /// <summary>
     /// Capture logs and metrics of Azure resources based on ARM tags.
+    /// 
+    /// ## Example Usage
+    /// ### SubAccountTagRules_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subAccountTagRule = new AzureNative.Logz.V20201001.SubAccountTagRule("subAccountTagRule", new()
+    ///     {
+    ///         MonitorName = "myMonitor",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RuleSetName = "default",
+    ///         SubAccountName = "SubAccount1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logz/v20201001:SubAccountTagRule default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Logz/monitors/myMonitor/accounts/SubAccount1/tagRules/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logz/v20201001:SubAccountTagRule")]
     public partial class SubAccountTagRule : global::Pulumi.CustomResource

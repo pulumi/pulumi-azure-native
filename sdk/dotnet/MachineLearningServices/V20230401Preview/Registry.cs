@@ -9,6 +9,237 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### CreateOrUpdate Registry with system created accounts.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registry = new AzureNative.MachineLearningServices.V20230401Preview.Registry("registry", new()
+    ///     {
+    ///         Identity = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "None",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "string", null },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         RegistryName = "string",
+    ///         RegistryProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryArgs
+    ///         {
+    ///             DiscoveryUrl = "string",
+    ///             IntellectualPropertyPublisher = "string",
+    ///             ManagedResourceGroup = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ArmResourceIdArgs
+    ///             {
+    ///                 ResourceId = "string",
+    ///             },
+    ///             MlFlowRegistryUri = "string",
+    ///             PublicNetworkAccess = "string",
+    ///             RegionDetails = new[]
+    ///             {
+    ///                 new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryRegionArmDetailsArgs
+    ///                 {
+    ///                     AcrDetails = new[]
+    ///                     {
+    ///                         new AzureNative.MachineLearningServices.V20230401Preview.Inputs.AcrDetailsArgs
+    ///                         {
+    ///                             SystemCreatedAcrAccount = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.SystemCreatedAcrAccountArgs
+    ///                             {
+    ///                                 AcrAccountName = "string",
+    ///                                 AcrAccountSku = "string",
+    ///                                 ArmResourceId = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ArmResourceIdArgs
+    ///                                 {
+    ///                                     ResourceId = "string",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Location = "string",
+    ///                     StorageAccountDetails = new[]
+    ///                     {
+    ///                         new AzureNative.MachineLearningServices.V20230401Preview.Inputs.StorageAccountDetailsArgs
+    ///                         {
+    ///                             SystemCreatedStorageAccount = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.SystemCreatedStorageAccountArgs
+    ///                             {
+    ///                                 AllowBlobPublicAccess = false,
+    ///                                 ArmResourceId = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ArmResourceIdArgs
+    ///                                 {
+    ///                                     ResourceId = "string",
+    ///                                 },
+    ///                                 StorageAccountHnsEnabled = false,
+    ///                                 StorageAccountName = "string",
+    ///                                 StorageAccountType = "string",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             RegistryPrivateEndpointConnections = new[]
+    ///             {
+    ///                 new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryPrivateEndpointConnectionArgs
+    ///                 {
+    ///                     Id = "string",
+    ///                     Location = "string",
+    ///                     Properties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryPrivateEndpointConnectionPropertiesArgs
+    ///                     {
+    ///                         GroupIds = new[]
+    ///                         {
+    ///                             "string",
+    ///                         },
+    ///                         PrivateEndpoint = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.PrivateEndpointResourceArgs
+    ///                         {
+    ///                             SubnetArmId = "string",
+    ///                         },
+    ///                         ProvisioningState = "string",
+    ///                         RegistryPrivateLinkServiceConnectionState = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryPrivateLinkServiceConnectionStateArgs
+    ///                         {
+    ///                             ActionsRequired = "string",
+    ///                             Description = "string",
+    ///                             Status = "Approved",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         Sku = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "string",
+    ///             Name = "string",
+    ///             Size = "string",
+    ///             Tier = AzureNative.MachineLearningServices.V20230401Preview.SkuTier.Free,
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrUpdate Registry with user created accounts.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registry = new AzureNative.MachineLearningServices.V20230401Preview.Registry("registry", new()
+    ///     {
+    ///         Identity = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "None",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "string", null },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         RegistryName = "string",
+    ///         RegistryProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryArgs
+    ///         {
+    ///             DiscoveryUrl = "string",
+    ///             IntellectualPropertyPublisher = "string",
+    ///             ManagedResourceGroup = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ArmResourceIdArgs
+    ///             {
+    ///                 ResourceId = "string",
+    ///             },
+    ///             MlFlowRegistryUri = "string",
+    ///             PublicNetworkAccess = "string",
+    ///             RegionDetails = new[]
+    ///             {
+    ///                 new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryRegionArmDetailsArgs
+    ///                 {
+    ///                     AcrDetails = new[]
+    ///                     {
+    ///                         new AzureNative.MachineLearningServices.V20230401Preview.Inputs.AcrDetailsArgs
+    ///                         {
+    ///                             UserCreatedAcrAccount = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.UserCreatedAcrAccountArgs
+    ///                             {
+    ///                                 ArmResourceId = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ArmResourceIdArgs
+    ///                                 {
+    ///                                     ResourceId = "string",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Location = "string",
+    ///                     StorageAccountDetails = new[]
+    ///                     {
+    ///                         new AzureNative.MachineLearningServices.V20230401Preview.Inputs.StorageAccountDetailsArgs
+    ///                         {
+    ///                             UserCreatedStorageAccount = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.UserCreatedStorageAccountArgs
+    ///                             {
+    ///                                 ArmResourceId = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ArmResourceIdArgs
+    ///                                 {
+    ///                                     ResourceId = "string",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             RegistryPrivateEndpointConnections = new[]
+    ///             {
+    ///                 new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryPrivateEndpointConnectionArgs
+    ///                 {
+    ///                     Id = "string",
+    ///                     Location = "string",
+    ///                     Properties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryPrivateEndpointConnectionPropertiesArgs
+    ///                     {
+    ///                         GroupIds = new[]
+    ///                         {
+    ///                             "string",
+    ///                         },
+    ///                         PrivateEndpoint = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.PrivateEndpointResourceArgs
+    ///                         {
+    ///                             SubnetArmId = "string",
+    ///                         },
+    ///                         ProvisioningState = "string",
+    ///                         RegistryPrivateLinkServiceConnectionState = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RegistryPrivateLinkServiceConnectionStateArgs
+    ///                         {
+    ///                             ActionsRequired = "string",
+    ///                             Description = "string",
+    ///                             Status = "Approved",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         Sku = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "string",
+    ///             Name = "string",
+    ///             Size = "string",
+    ///             Tier = AzureNative.MachineLearningServices.V20230401Preview.SkuTier.Free,
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:Registry string string 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:Registry")]
     public partial class Registry : global::Pulumi.CustomResource
     {

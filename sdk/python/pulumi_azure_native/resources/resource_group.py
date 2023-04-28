@@ -99,6 +99,27 @@ class ResourceGroup(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a resource group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_group = azure_native.resources.ResourceGroup("resourceGroup",
+            location="eastus",
+            resource_group_name="my-resource-group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:ResourceGroup my-resource-group /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource group. It cannot be changed after the resource group has been created. It must be one of the supported Azure locations.
@@ -116,6 +137,27 @@ class ResourceGroup(pulumi.CustomResource):
         Resource group information.
         API Version: 2022-09-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a resource group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_group = azure_native.resources.ResourceGroup("resourceGroup",
+            location="eastus",
+            resource_group_name="my-resource-group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:ResourceGroup my-resource-group /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceGroupArgs args: The arguments to use to populate this resource's properties.

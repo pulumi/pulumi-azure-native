@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.MixedReality.V20190228Preview
 {
     /// <summary>
     /// SpatialAnchorsAccount Response.
+    /// 
+    /// ## Example Usage
+    /// ### ResourceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var spatialAnchorsAccount = new AzureNative.MixedReality.V20190228Preview.SpatialAnchorsAccount("spatialAnchorsAccount", new()
+    ///     {
+    ///         Location = "eastus2euap",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///         SpatialAnchorsAccountName = "MyAccount",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/SpatialAnchorsAccounts/MyAccount 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-02-28-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount")]

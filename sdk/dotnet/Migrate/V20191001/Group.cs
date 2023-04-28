@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Migrate.V20191001
 {
     /// <summary>
     /// A group created in a Migration project.
+    /// 
+    /// ## Example Usage
+    /// ### Groups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @group = new AzureNative.Migrate.V20191001.Group("group", new()
+    ///     {
+    ///         ETag = "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+    ///         GroupName = "Group2",
+    ///         ProjectName = "abgoyalWEselfhostb72bproject",
+    ///         Properties = null,
+    ///         ResourceGroupName = "abgoyal-westEurope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20191001:Group Group2 /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abgoyalWEselfhostb72bproject/groups/Group2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20191001:Group")]
     public partial class Group : global::Pulumi.CustomResource

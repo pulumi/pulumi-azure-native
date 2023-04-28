@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * Network security default user rule.
+ *
+ * ## Example Usage
+ * ### Create a default user rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const defaultUserRule = new azure_native.network.v20220401preview.DefaultUserRule("defaultUserRule", {
+ *     configurationName: "myTestSecurityConfig",
+ *     flag: "AllowVnetInbound",
+ *     kind: "Default",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ *     ruleName: "SampleDefaultUserRule",
+ * });
+ *
+ * ```
+ * ### Create a user rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const defaultUserRule = new azure_native.network.v20220401preview.DefaultUserRule("defaultUserRule", {
+ *     configurationName: "myTestSecurityConfig",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ *     ruleName: "SampleUserRule",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220401preview:DefaultUserRule SampleUserRule /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/SecurityUserConfigurations/Policy1/ruleCollections/testRuleCollection/rules/SampleUserRule 
+ * ```
  */
 export class DefaultUserRule extends pulumi.CustomResource {
     /**

@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Cluster details.
  * API Version: 2023-02-01.
  * Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.azurestackhci.Cluster("cluster", {
+ *     aadClientId: "24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
+ *     aadTenantId: "7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
+ *     cloudManagementEndpoint: "https://98294836-31be-4668-aeae-698667faf99b.waconazure.com",
+ *     clusterName: "myCluster",
+ *     location: "East US",
+ *     resourceGroupName: "test-rg",
+ *     type: "SystemAssigned",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:Cluster myCluster /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

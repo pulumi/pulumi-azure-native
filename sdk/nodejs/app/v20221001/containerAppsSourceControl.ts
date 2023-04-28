@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Container App SourceControl.
+ *
+ * ## Example Usage
+ * ### Create or Update Container App SourceControl
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerAppsSourceControl = new azure_native.app.v20221001.ContainerAppsSourceControl("containerAppsSourceControl", {
+ *     branch: "master",
+ *     containerAppName: "testcanadacentral",
+ *     githubActionConfiguration: {
+ *         azureCredentials: {
+ *             clientId: "<clientid>",
+ *             clientSecret: "<clientsecret>",
+ *             tenantId: "<tenantid>",
+ *         },
+ *         contextPath: "./",
+ *         image: "image/tag",
+ *         registryInfo: {
+ *             registryPassword: "<registrypassword>",
+ *             registryUrl: "xwang971reg.azurecr.io",
+ *             registryUserName: "xwang971reg",
+ *         },
+ *     },
+ *     repoUrl: "https://github.com/xwang971/ghatest",
+ *     resourceGroupName: "workerapps-rg-xj",
+ *     sourceControlName: "current",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20221001:ContainerAppsSourceControl current /subscriptions/651f8027-33e8-4ec4-97b4-f6e9f3dc8744/resourceGroups/workerapps-rg-xj/providers/Microsoft.App/containerApps/myapp/sourcecontrols/current 
+ * ```
  */
 export class ContainerAppsSourceControl extends pulumi.CustomResource {
     /**

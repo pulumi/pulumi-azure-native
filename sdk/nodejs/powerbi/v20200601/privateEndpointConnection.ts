@@ -7,6 +7,38 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Updates status of private endpoint connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.powerbi.v20200601.PrivateEndpointConnection("privateEndpointConnection", {
+ *     azureResourceName: "azureResourceName",
+ *     privateEndpoint: {
+ *         id: "/subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpointName",
+ *     },
+ *     privateEndpointName: "myPrivateEndpointName",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "None",
+ *         description: "",
+ *         status: "Approved ",
+ *     },
+ *     resourceGroupName: "resourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:powerbi/v20200601:PrivateEndpointConnection myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 /subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/azureResourceName/privateEndpointConnections/myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 
+ * ```
+ */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * Get an existing PrivateEndpointConnection resource's state with the given name, ID, and optional extra

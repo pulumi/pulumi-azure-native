@@ -59,7 +59,45 @@ class ProviderRegistration(pulumi.CustomResource):
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ProviderRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ProviderRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_registration = azure_native.providerhub.v20201120.ProviderRegistration("providerRegistration",
+            properties=azure_native.providerhub.v20201120.ProviderRegistrationResponsePropertiesArgs(
+                capabilities=[
+                    azure_native.providerhub.v20201120.ResourceProviderCapabilitiesArgs(
+                        effect="Allow",
+                        quota_id="CSP_2015-05-01",
+                    ),
+                    azure_native.providerhub.v20201120.ResourceProviderCapabilitiesArgs(
+                        effect="Allow",
+                        quota_id="CSP_MG_2017-12-01",
+                    ),
+                ],
+                management=azure_native.providerhub.v20201120.ResourceProviderManifestPropertiesManagementArgs(
+                    incident_contact_email="helpme@contoso.com",
+                    incident_routing_service="Contoso Resource Provider",
+                    incident_routing_team="Contoso Triage",
+                ),
+                provider_type="Internal",
+                provider_version="2.0",
+            ),
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20201120:ProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -71,7 +109,45 @@ class ProviderRegistration(pulumi.CustomResource):
                  args: Optional[ProviderRegistrationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ProviderRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ProviderRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_registration = azure_native.providerhub.v20201120.ProviderRegistration("providerRegistration",
+            properties=azure_native.providerhub.v20201120.ProviderRegistrationResponsePropertiesArgs(
+                capabilities=[
+                    azure_native.providerhub.v20201120.ResourceProviderCapabilitiesArgs(
+                        effect="Allow",
+                        quota_id="CSP_2015-05-01",
+                    ),
+                    azure_native.providerhub.v20201120.ResourceProviderCapabilitiesArgs(
+                        effect="Allow",
+                        quota_id="CSP_MG_2017-12-01",
+                    ),
+                ],
+                management=azure_native.providerhub.v20201120.ResourceProviderManifestPropertiesManagementArgs(
+                    incident_contact_email="helpme@contoso.com",
+                    incident_routing_service="Contoso Resource Provider",
+                    incident_routing_team="Contoso Triage",
+                ),
+                provider_type="Internal",
+                provider_version="2.0",
+            ),
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20201120:ProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param ProviderRegistrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

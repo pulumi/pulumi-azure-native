@@ -336,6 +336,69 @@ class ManagedCluster(pulumi.CustomResource):
         """
         Managed cluster.
 
+        ## Example Usage
+        ### Create/Update Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.v20190601.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.v20190601.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.v20190601.ContainerServiceNetworkProfileArgs(
+                load_balancer_sku="basic",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.v20190601.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.v20190601.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20190601:ManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: Profile of Azure Active Directory configuration.
@@ -365,6 +428,69 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed cluster.
+
+        ## Example Usage
+        ### Create/Update Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.v20190601.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.v20190601.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.v20190601.ContainerServiceNetworkProfileArgs(
+                load_balancer_sku="basic",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.v20190601.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.v20190601.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20190601:ManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.

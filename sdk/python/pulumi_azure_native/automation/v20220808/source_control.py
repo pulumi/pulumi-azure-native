@@ -215,6 +215,39 @@ class SourceControl(pulumi.CustomResource):
         """
         Definition of the source control.
 
+        ## Example Usage
+        ### Create or update a source control
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        source_control = azure_native.automation.v20220808.SourceControl("sourceControl",
+            auto_sync=True,
+            automation_account_name="sampleAccount9",
+            branch="master",
+            description="my description",
+            folder_path="/folderOne/folderTwo",
+            publish_runbook=True,
+            repo_url="https://sampleUser.visualstudio.com/myProject/_git/myRepository",
+            resource_group_name="rg",
+            security_token=azure_native.automation.v20220808.SourceControlSecurityTokenPropertiesArgs(
+                access_token="******",
+                token_type="PersonalAccessToken",
+            ),
+            source_control_name="sampleSourceControl",
+            source_type="VsoGit")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:SourceControl sampleSourceControl /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/sourcecontrols/sampleSourceControl 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_sync: The auto async of the source control. Default is false.
@@ -237,6 +270,39 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the source control.
+
+        ## Example Usage
+        ### Create or update a source control
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        source_control = azure_native.automation.v20220808.SourceControl("sourceControl",
+            auto_sync=True,
+            automation_account_name="sampleAccount9",
+            branch="master",
+            description="my description",
+            folder_path="/folderOne/folderTwo",
+            publish_runbook=True,
+            repo_url="https://sampleUser.visualstudio.com/myProject/_git/myRepository",
+            resource_group_name="rg",
+            security_token=azure_native.automation.v20220808.SourceControlSecurityTokenPropertiesArgs(
+                access_token="******",
+                token_type="PersonalAccessToken",
+            ),
+            source_control_name="sampleSourceControl",
+            source_type="VsoGit")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:SourceControl sampleSourceControl /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/sourcecontrols/sampleSourceControl 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SourceControlArgs args: The arguments to use to populate this resource's properties.

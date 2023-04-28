@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * A member of the Fleet. It contains a reference to an existing Kubernetes cluster on Azure.
+ *
+ * ## Example Usage
+ * ### Create a fleet member resource. Joins an existing cluster to the fleet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fleetMember = new azure_native.containerservice.v20220902preview.FleetMember("fleetMember", {
+ *     clusterResourceId: "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster-1",
+ *     fleetMemberName: "member-1",
+ *     fleetName: "fleet-1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20220902preview:FleetMember member-1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/fleets/fleet-1/members/member-1 
+ * ```
  */
 export class FleetMember extends pulumi.CustomResource {
     /**

@@ -166,6 +166,39 @@ class ConnectedEnvironment(pulumi.CustomResource):
         """
         An environment for Kubernetes cluster specialized for web workloads by Azure App Service
 
+        ## Example Usage
+        ### Create kube environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_environment = azure_native.app.v20221001.ConnectedEnvironment("connectedEnvironment",
+            connected_environment_name="testenv",
+            custom_domain_configuration=azure_native.app.v20221001.CustomDomainConfigurationArgs(
+                certificate_password="private key password",
+                certificate_value="Y2VydA==",
+                dns_suffix="www.my-name.com",
+            ),
+            dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+            extended_location=azure_native.app.v20221001.ExtendedLocationArgs(
+                name="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
+                type="CustomLocation",
+            ),
+            location="East US",
+            resource_group_name="examplerg",
+            static_ip="1.2.3.4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221001:ConnectedEnvironment testenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/testenv 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connected_environment_name: Name of the connectedEnvironment.
@@ -185,6 +218,39 @@ class ConnectedEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment for Kubernetes cluster specialized for web workloads by Azure App Service
+
+        ## Example Usage
+        ### Create kube environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_environment = azure_native.app.v20221001.ConnectedEnvironment("connectedEnvironment",
+            connected_environment_name="testenv",
+            custom_domain_configuration=azure_native.app.v20221001.CustomDomainConfigurationArgs(
+                certificate_password="private key password",
+                certificate_value="Y2VydA==",
+                dns_suffix="www.my-name.com",
+            ),
+            dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+            extended_location=azure_native.app.v20221001.ExtendedLocationArgs(
+                name="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
+                type="CustomLocation",
+            ),
+            location="East US",
+            resource_group_name="examplerg",
+            static_ip="1.2.3.4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221001:ConnectedEnvironment testenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/testenv 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentArgs args: The arguments to use to populate this resource's properties.

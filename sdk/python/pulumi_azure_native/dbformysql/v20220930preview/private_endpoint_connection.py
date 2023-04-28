@@ -92,6 +92,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The private endpoint connection resource.
 
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.dbformysql.v20220930preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="private-endpoint-connection-name",
+            private_link_service_connection_state=azure_native.dbformysql.v20220930preview.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="Default",
+            server_name="test-svr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql/v20220930preview:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.DBforMySQL/servers/test-svr/privateEndpointConnections/private-endpoint-connection-name 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
@@ -106,6 +132,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection resource.
+
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.dbformysql.v20220930preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="private-endpoint-connection-name",
+            private_link_service_connection_state=azure_native.dbformysql.v20220930preview.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="Default",
+            server_name="test-svr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql/v20220930preview:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.DBforMySQL/servers/test-svr/privateEndpointConnections/private-endpoint-connection-name 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

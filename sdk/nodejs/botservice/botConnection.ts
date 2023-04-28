@@ -11,6 +11,46 @@ import * as utilities from "../utilities";
  * Bot channel resource definition
  * API Version: 2022-09-15.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Connection Setting
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const botConnection = new azure_native.botservice.BotConnection("botConnection", {
+ *     connectionName: "sampleConnection",
+ *     location: "West US",
+ *     properties: {
+ *         clientId: "sampleclientid",
+ *         clientSecret: "samplesecret",
+ *         parameters: [
+ *             {
+ *                 key: "key1",
+ *                 value: "value1",
+ *             },
+ *             {
+ *                 key: "key2",
+ *                 value: "value2",
+ *             },
+ *         ],
+ *         scopes: "samplescope",
+ *         serviceProviderId: "serviceproviderid",
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "samplebotname",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:botservice:BotConnection sampleConnection /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.BotService/botServices/samplebotname/connections/sampleConnection 
+ * ```
  */
 export class BotConnection extends pulumi.CustomResource {
     /**

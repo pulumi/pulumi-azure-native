@@ -133,6 +133,44 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
         API Version: 2022-01-25.
         Previous API Version: 2020-06-25. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update guest configuration assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_configuration_connected_v_mwarev_sphere_assignment = azure_native.guestconfiguration.GuestConfigurationConnectedVMwarevSphereAssignment("guestConfigurationConnectedVMwarevSphereAssignment",
+            guest_configuration_assignment_name="NotInstalledApplicationForWindows",
+            location="westcentralus",
+            name="NotInstalledApplicationForWindows",
+            properties=azure_native.guestconfiguration.GuestConfigurationAssignmentPropertiesResponseArgs(
+                context="Azure policy",
+                guest_configuration={
+                    "assignmentType": "ApplyAndAutoCorrect",
+                    "configurationParameter": [azure_native.guestconfiguration.ConfigurationParameterArgs(
+                        name="[InstalledApplication]NotInstalledApplicationResource1;Name",
+                        value="NotePad,sql",
+                    )],
+                    "contentHash": "123contenthash",
+                    "contentUri": "https://thisisfake/pacakge",
+                    "name": "NotInstalledApplicationForWindows",
+                    "version": "1.0.0.0",
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            vm_name="myVMName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment NotInstalledApplicationForWindows /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/microsoft.ConnectedVMwarevSphere/virtualmachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] guest_configuration_assignment_name: Name of the guest configuration assignment.
@@ -152,6 +190,44 @@ class GuestConfigurationConnectedVMwarevSphereAssignment(pulumi.CustomResource):
         Guest configuration assignment is an association between a machine and guest configuration.
         API Version: 2022-01-25.
         Previous API Version: 2020-06-25. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update guest configuration assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_configuration_connected_v_mwarev_sphere_assignment = azure_native.guestconfiguration.GuestConfigurationConnectedVMwarevSphereAssignment("guestConfigurationConnectedVMwarevSphereAssignment",
+            guest_configuration_assignment_name="NotInstalledApplicationForWindows",
+            location="westcentralus",
+            name="NotInstalledApplicationForWindows",
+            properties=azure_native.guestconfiguration.GuestConfigurationAssignmentPropertiesResponseArgs(
+                context="Azure policy",
+                guest_configuration={
+                    "assignmentType": "ApplyAndAutoCorrect",
+                    "configurationParameter": [azure_native.guestconfiguration.ConfigurationParameterArgs(
+                        name="[InstalledApplication]NotInstalledApplicationResource1;Name",
+                        value="NotePad,sql",
+                    )],
+                    "contentHash": "123contenthash",
+                    "contentUri": "https://thisisfake/pacakge",
+                    "name": "NotInstalledApplicationForWindows",
+                    "version": "1.0.0.0",
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            vm_name="myVMName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:guestconfiguration:GuestConfigurationConnectedVMwarevSphereAssignment NotInstalledApplicationForWindows /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/microsoft.ConnectedVMwarevSphere/virtualmachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GuestConfigurationConnectedVMwarevSphereAssignmentArgs args: The arguments to use to populate this resource's properties.

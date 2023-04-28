@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
  * API Version: 2023-02-01.
  * Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates network mapping.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationNetworkMapping = new azure_native.recoveryservices.ReplicationNetworkMapping("replicationNetworkMapping", {
+ *     fabricName: "b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac",
+ *     networkMappingName: "corpe2amap",
+ *     networkName: "e2267b5c-2650-49bd-ab3f-d66aae694c06",
+ *     properties: {
+ *         fabricSpecificDetails: {
+ *             instanceType: "VmmToAzure",
+ *         },
+ *         recoveryFabricName: "Microsoft Azure",
+ *         recoveryNetworkId: "/subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/siterecoveryProd1/providers/Microsoft.Network/virtualNetworks/vnetavrai",
+ *     },
+ *     resourceGroupName: "srcBvte2a14C27",
+ *     resourceName: "srce2avaultbvtaC27",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ReplicationNetworkMapping corpe2amap /Subscriptions/9112a37f-0f3e-46ec-9c00-060c6edca071/resourceGroups/srcBvte2a14C27/providers/Microsoft.RecoveryServices/vaults/srce2avaultbvtaC27/replicationFabrics/b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac/replicationNetworks/e2267b5c-2650-49bd-ab3f-d66aae694c06/replicationNetworkMappings/corpe2amap 
+ * ```
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**

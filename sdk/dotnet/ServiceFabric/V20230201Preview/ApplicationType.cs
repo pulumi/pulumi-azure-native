@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ServiceFabric.V20230201Preview
 {
     /// <summary>
     /// The application type name resource
+    /// 
+    /// ## Example Usage
+    /// ### Put an application type
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationType = new AzureNative.ServiceFabric.V20230201Preview.ApplicationType("applicationType", new()
+    ///     {
+    ///         ApplicationTypeName = "myAppType",
+    ///         ClusterName = "myCluster",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "resRg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabric/v20230201preview:ApplicationType myAppType /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20230201preview:ApplicationType")]
     public partial class ApplicationType : global::Pulumi.CustomResource

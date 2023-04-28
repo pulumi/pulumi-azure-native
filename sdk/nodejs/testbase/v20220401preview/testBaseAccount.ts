@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * The Test Base Account resource.
+ *
+ * ## Example Usage
+ * ### TestBaseAccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const testBaseAccount = new azure_native.testbase.v20220401preview.TestBaseAccount("testBaseAccount", {
+ *     location: "westus",
+ *     resourceGroupName: "contoso-rg1",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ *     testBaseAccountName: "contoso-testBaseAccount1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase/v20220401preview:TestBaseAccount contoso-testBaseAccount1 /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1 
+ * ```
  */
 export class TestBaseAccount extends pulumi.CustomResource {
     /**

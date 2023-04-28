@@ -9,6 +9,71 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server.
+ *
+ * ## Example Usage
+ * ### Create a database as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.v20210615privatepreview.Server("server", {
+ *     createMode: "PointInTimeRestore",
+ *     location: "westus",
+ *     pointInTimeUTC: "2021-06-27T00:04:59.4078005+00:00",
+ *     resourceGroupName: "testrg",
+ *     serverName: "pgtestsvc5",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername",
+ * });
+ *
+ * ```
+ * ### Create a new server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.v20210615privatepreview.Server("server", {
+ *     administratorLogin: "cloudsa",
+ *     administratorLoginPassword: "password",
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ *     createMode: "Create",
+ *     highAvailability: {
+ *         mode: "ZoneRedundant",
+ *     },
+ *     location: "westus",
+ *     network: {
+ *         delegatedSubnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+ *         privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     serverName: "pgtestsvc4",
+ *     sku: {
+ *         name: "Standard_D4s_v3",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storage: {
+ *         storageSizeGB: 512,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ *     version: "12",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20210615privatepreview:Server pgtestsvc4 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4 
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

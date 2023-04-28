@@ -132,6 +132,33 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
         """
         EnterpriseKnowledgeGraph resource definition
 
+        ## Example Usage
+        ### Create EnterpriseKnowledgeGraph
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_knowledge_graph = azure_native.enterpriseknowledgegraph.v20181203.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph",
+            location="West US",
+            properties=azure_native.enterpriseknowledgegraph.v20181203.EnterpriseKnowledgeGraphPropertiesArgs(),
+            resource_group_name="OneResourceGroupName",
+            resource_name_="sampleekgname",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph samplename someid 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
@@ -149,6 +176,33 @@ class EnterpriseKnowledgeGraph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EnterpriseKnowledgeGraph resource definition
+
+        ## Example Usage
+        ### Create EnterpriseKnowledgeGraph
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_knowledge_graph = azure_native.enterpriseknowledgegraph.v20181203.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph",
+            location="West US",
+            properties=azure_native.enterpriseknowledgegraph.v20181203.EnterpriseKnowledgeGraphPropertiesArgs(),
+            resource_group_name="OneResourceGroupName",
+            resource_name_="sampleekgname",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph samplename someid 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnterpriseKnowledgeGraphArgs args: The arguments to use to populate this resource's properties.

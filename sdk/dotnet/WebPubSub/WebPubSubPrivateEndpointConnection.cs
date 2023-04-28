@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.WebPubSub
     /// A private endpoint connection to an azure resource
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### WebPubSubPrivateEndpointConnections_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webPubSubPrivateEndpointConnection = new AzureNative.WebPubSub.WebPubSubPrivateEndpointConnection("webPubSubPrivateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpoint = new AzureNative.WebPubSub.Inputs.PrivateEndpointArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+    ///         },
+    ///         PrivateEndpointConnectionName = "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.WebPubSub.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "myWebPubSubService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:webpubsub:WebPubSubPrivateEndpointConnection mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/privateEndpointConnections/mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubPrivateEndpointConnection")]
     public partial class WebPubSubPrivateEndpointConnection : global::Pulumi.CustomResource

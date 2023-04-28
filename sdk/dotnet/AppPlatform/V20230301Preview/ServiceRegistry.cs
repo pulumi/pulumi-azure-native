@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.AppPlatform.V20230301Preview
 {
     /// <summary>
     /// Service Registry resource
+    /// 
+    /// ## Example Usage
+    /// ### ServiceRegistries_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceRegistry = new AzureNative.AppPlatform.V20230301Preview.ServiceRegistry("serviceRegistry", new()
+    ///     {
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         ServiceRegistryName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230301preview:ServiceRegistry default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230301preview:ServiceRegistry")]
     public partial class ServiceRegistry : global::Pulumi.CustomResource

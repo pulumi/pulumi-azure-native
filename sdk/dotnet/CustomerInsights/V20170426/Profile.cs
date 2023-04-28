@@ -11,6 +11,99 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The profile resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Profiles_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.CustomerInsights.V20170426.Profile("profile", new()
+    ///     {
+    ///         ApiEntitySetName = "TestProfileType396",
+    ///         Fields = new[]
+    ///         {
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.PropertyDefinitionArgs
+    ///             {
+    ///                 FieldName = "Id",
+    ///                 FieldType = "Edm.String",
+    ///                 IsArray = false,
+    ///                 IsRequired = true,
+    ///             },
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.PropertyDefinitionArgs
+    ///             {
+    ///                 FieldName = "ProfileId",
+    ///                 FieldType = "Edm.String",
+    ///                 IsArray = false,
+    ///                 IsRequired = true,
+    ///             },
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.PropertyDefinitionArgs
+    ///             {
+    ///                 FieldName = "LastName",
+    ///                 FieldType = "Edm.String",
+    ///                 IsArray = false,
+    ///                 IsRequired = true,
+    ///             },
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.PropertyDefinitionArgs
+    ///             {
+    ///                 FieldName = "TestProfileType396",
+    ///                 FieldType = "Edm.String",
+    ///                 IsArray = false,
+    ///                 IsRequired = true,
+    ///             },
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.PropertyDefinitionArgs
+    ///             {
+    ///                 FieldName = "SavingAccountBalance",
+    ///                 FieldType = "Edm.Int32",
+    ///                 IsArray = false,
+    ///                 IsRequired = true,
+    ///             },
+    ///         },
+    ///         HubName = "sdkTestHub",
+    ///         LargeImage = "\\\\Images\\\\LargeImage",
+    ///         MediumImage = "\\\\Images\\\\MediumImage",
+    ///         ProfileName = "TestProfileType396",
+    ///         ResourceGroupName = "TestHubRG",
+    ///         SchemaItemTypeLink = "SchemaItemTypeLink",
+    ///         SmallImage = "\\\\Images\\\\smallImage",
+    ///         StrongIds = new[]
+    ///         {
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.StrongIdArgs
+    ///             {
+    ///                 KeyPropertyNames = new[]
+    ///                 {
+    ///                     "Id",
+    ///                     "SavingAccountBalance",
+    ///                 },
+    ///                 StrongIdName = "Id",
+    ///             },
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.StrongIdArgs
+    ///             {
+    ///                 KeyPropertyNames = new[]
+    ///                 {
+    ///                     "ProfileId",
+    ///                     "LastName",
+    ///                 },
+    ///                 StrongIdName = "ProfileId",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170426:Profile azSdkTestHub/TestProfileType396 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/profiles/TestProfileType396 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Profile")]
     public partial class Profile : global::Pulumi.CustomResource

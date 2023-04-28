@@ -12,6 +12,45 @@ namespace Pulumi.AzureNative.PowerBI
     /// <summary>
     /// API Version: 2020-06-01.
     /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Updates status of private endpoint connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.PowerBI.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         AzureResourceName = "azureResourceName",
+    ///         PrivateEndpoint = new AzureNative.PowerBI.Inputs.PrivateEndpointArgs
+    ///         {
+    ///             Id = "/subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpointName",
+    ///         },
+    ///         PrivateEndpointName = "myPrivateEndpointName",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.PowerBI.Inputs.ConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Description = "",
+    ///             Status = "Approved ",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:powerbi:PrivateEndpointConnection myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 /subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/azureResourceName/privateEndpointConnections/myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbi:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

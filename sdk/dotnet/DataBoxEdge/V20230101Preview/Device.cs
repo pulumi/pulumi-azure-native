@@ -11,6 +11,70 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
 {
     /// <summary>
     /// The Data Box Edge/Gateway device.
+    /// 
+    /// ## Example Usage
+    /// ### DataBoxEdgeDevicePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var device = new AzureNative.DataBoxEdge.V20230101Preview.Device("device", new()
+    ///     {
+    ///         DeviceName = "testedgedevice",
+    ///         Location = "WUS",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         Sku = new AzureNative.DataBoxEdge.V20230101Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Edge",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataBoxEdgeDevicePutWithDataResidency
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var device = new AzureNative.DataBoxEdge.V20230101Preview.Device("device", new()
+    ///     {
+    ///         DataResidency = new AzureNative.DataBoxEdge.V20230101Preview.Inputs.DataResidencyArgs
+    ///         {
+    ///             Type = "ZoneReplication",
+    ///         },
+    ///         DeviceName = "testedgedevice",
+    ///         Location = "WUS",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         Sku = new AzureNative.DataBoxEdge.V20230101Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Edge",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20230101preview:Device testedgedevice /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/DataBoxEdgeDevices/testedgedevice 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20230101preview:Device")]
     public partial class Device : global::Pulumi.CustomResource

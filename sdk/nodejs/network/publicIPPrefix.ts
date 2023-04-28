@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  * Public IP prefix resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create public IP prefix allocation method
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publicIPPrefix = new azure_native.network.PublicIPPrefix("publicIPPrefix", {
+ *     location: "westus",
+ *     prefixLength: 30,
+ *     publicIPAddressVersion: "IPv4",
+ *     publicIpPrefixName: "test-ipprefix",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *         tier: "Regional",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create public IP prefix defaults
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publicIPPrefix = new azure_native.network.PublicIPPrefix("publicIPPrefix", {
+ *     location: "westus",
+ *     prefixLength: 30,
+ *     publicIpPrefixName: "test-ipprefix",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:PublicIPPrefix test-ipprefix /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/test-ipprefix 
+ * ```
  */
 export class PublicIPPrefix extends pulumi.CustomResource {
     /**

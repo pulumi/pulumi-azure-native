@@ -12,6 +12,46 @@ namespace Pulumi.AzureNative.Automation
     /// <summary>
     /// Definition of the module type.
     /// API Version: 2022-08-08.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a python 3 package
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var python3Package = new AzureNative.Automation.Python3Package("python3Package", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount33",
+    ///         ContentLink = new AzureNative.Automation.Inputs.ContentLinkArgs
+    ///         {
+    ///             ContentHash = new AzureNative.Automation.Inputs.ContentHashArgs
+    ///             {
+    ///                 Algorithm = "sha265",
+    ///                 Value = "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+    ///             },
+    ///             Uri = "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+    ///             Version = "1.0.0.0",
+    ///         },
+    ///         PackageName = "OmsCompositeResources",
+    ///         ResourceGroupName = "rg",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation:Python3Package OmsCompositeResources /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/python3Packages/OmsCompositeResources 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Python3Package")]
     public partial class Python3Package : global::Pulumi.CustomResource

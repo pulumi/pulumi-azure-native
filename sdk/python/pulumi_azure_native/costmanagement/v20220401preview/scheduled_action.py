@@ -179,6 +179,16 @@ class ScheduledAction(pulumi.CustomResource):
         """
         Scheduled action definition.
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20220401preview:ScheduledAction monthlyCostByResource providers/Microsoft.CostManagement/scheduledActions/monthlyCostByResource 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Scheduled action name.
@@ -199,6 +209,16 @@ class ScheduledAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Scheduled action definition.
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20220401preview:ScheduledAction monthlyCostByResource providers/Microsoft.CostManagement/scheduledActions/monthlyCostByResource 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.

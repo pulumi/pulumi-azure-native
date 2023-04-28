@@ -11,6 +11,45 @@ import * as utilities from "../utilities";
  * The NetworkToNetworkInterconnect resource definition.
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### NetworkToNetworkInterconnects_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkToNetworkInterconnect = new azure_native.managednetworkfabric.NetworkToNetworkInterconnect("networkToNetworkInterconnect", {
+ *     isManagementType: "True",
+ *     layer2Configuration: {
+ *         mtu: 1500,
+ *         portCount: 10,
+ *     },
+ *     layer3Configuration: {
+ *         exportRoutePolicyId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+ *         importRoutePolicyId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+ *         peerASN: 50272,
+ *         primaryIpv4Prefix: "172.31.0.0/31",
+ *         primaryIpv6Prefix: "3FFE:FFFF:0:CD30::a0/126",
+ *         secondaryIpv4Prefix: "172.31.0.20/31",
+ *         secondaryIpv6Prefix: "3FFE:FFFF:0:CD30::a4/126",
+ *         vlanId: 2064,
+ *     },
+ *     networkFabricName: "FabricName",
+ *     networkToNetworkInterconnectName: "DefaultNNI",
+ *     resourceGroupName: "resourceGroupName",
+ *     useOptionB: "False",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:NetworkToNetworkInterconnect DefaultNNI /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName/networkToNetworkInterconnect/DefaultNNI 
+ * ```
  */
 export class NetworkToNetworkInterconnect extends pulumi.CustomResource {
     /**

@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
     /// <summary>
     /// API details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateProductApi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var productApi = new AzureNative.ApiManagement.V20170301.ProductApi("productApi", new()
+    ///     {
+    ///         ApiId = "echo-api",
+    ///         ProductId = "testproduct",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20170301:ProductApi 5931a75ae4bbd512a88c680b /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/5931a75ae4bbd512a88c680b 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:ProductApi")]
     public partial class ProductApi : global::Pulumi.CustomResource

@@ -9,6 +9,221 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy assignment.
+ *
+ * ## Example Usage
+ * ### Create or update a policy assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignment = new azure_native.authorization.v20220601.PolicyAssignment("policyAssignment", {
+ *     description: "Force resource names to begin with given DeptA and end with -LC",
+ *     displayName: "Enforce resource naming rules",
+ *     metadata: {
+ *         assignedBy: "Special Someone",
+ *     },
+ *     nonComplianceMessages: [{
+ *         message: "Resource names must start with 'DeptA' and end with '-LC'.",
+ *     }],
+ *     parameters: {
+ *         prefix: {
+ *             value: "DeptA",
+ *         },
+ *         suffix: {
+ *             value: "-LC",
+ *         },
+ *     },
+ *     policyAssignmentName: "EnforceNaming",
+ *     policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+ *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+ * });
+ *
+ * ```
+ * ### Create or update a policy assignment with a system assigned identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignment = new azure_native.authorization.v20220601.PolicyAssignment("policyAssignment", {
+ *     description: "Force resource names to begin with given DeptA and end with -LC",
+ *     displayName: "Enforce resource naming rules",
+ *     enforcementMode: "Default",
+ *     identity: {
+ *         type: azure_native.authorization.v20220601.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "eastus",
+ *     metadata: {
+ *         assignedBy: "Foo Bar",
+ *     },
+ *     parameters: {
+ *         prefix: {
+ *             value: "DeptA",
+ *         },
+ *         suffix: {
+ *             value: "-LC",
+ *         },
+ *     },
+ *     policyAssignmentName: "EnforceNaming",
+ *     policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+ *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+ * });
+ *
+ * ```
+ * ### Create or update a policy assignment with a user assigned identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignment = new azure_native.authorization.v20220601.PolicyAssignment("policyAssignment", {
+ *     description: "Force resource names to begin with given DeptA and end with -LC",
+ *     displayName: "Enforce resource naming rules",
+ *     enforcementMode: "Default",
+ *     identity: {
+ *         type: azure_native.authorization.v20220601.ResourceIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/testResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     metadata: {
+ *         assignedBy: "Foo Bar",
+ *     },
+ *     parameters: {
+ *         prefix: {
+ *             value: "DeptA",
+ *         },
+ *         suffix: {
+ *             value: "-LC",
+ *         },
+ *     },
+ *     policyAssignmentName: "EnforceNaming",
+ *     policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+ *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+ * });
+ *
+ * ```
+ * ### Create or update a policy assignment with multiple non-compliance messages
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignment = new azure_native.authorization.v20220601.PolicyAssignment("policyAssignment", {
+ *     displayName: "Enforce security policies",
+ *     nonComplianceMessages: [
+ *         {
+ *             message: "Resources must comply with all internal security policies. See <internal site URL> for more info.",
+ *         },
+ *         {
+ *             message: "Resource names must start with 'DeptA' and end with '-LC'.",
+ *             policyDefinitionReferenceId: "10420126870854049575",
+ *         },
+ *         {
+ *             message: "Storage accounts must have firewall rules configured.",
+ *             policyDefinitionReferenceId: "8572513655450389710",
+ *         },
+ *     ],
+ *     policyAssignmentName: "securityInitAssignment",
+ *     policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/securityInitiative",
+ *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+ * });
+ *
+ * ```
+ * ### Create or update a policy assignment with overrides
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignment = new azure_native.authorization.v20220601.PolicyAssignment("policyAssignment", {
+ *     description: "Limit the resource location and resource SKU",
+ *     displayName: "Limit the resource location and resource SKU",
+ *     metadata: {
+ *         assignedBy: "Special Someone",
+ *     },
+ *     overrides: [{
+ *         kind: "policyEffect",
+ *         selectors: [{
+ *             "in": [
+ *                 "Limit_Skus",
+ *                 "Limit_Locations",
+ *             ],
+ *             kind: "policyDefinitionReferenceId",
+ *         }],
+ *         value: "Audit",
+ *     }],
+ *     policyAssignmentName: "CostManagement",
+ *     policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+ *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+ * });
+ *
+ * ```
+ * ### Create or update a policy assignment with resource selectors
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignment = new azure_native.authorization.v20220601.PolicyAssignment("policyAssignment", {
+ *     description: "Limit the resource location and resource SKU",
+ *     displayName: "Limit the resource location and resource SKU",
+ *     metadata: {
+ *         assignedBy: "Special Someone",
+ *     },
+ *     policyAssignmentName: "CostManagement",
+ *     policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/CostManagement",
+ *     resourceSelectors: [{
+ *         name: "SDPRegions",
+ *         selectors: [{
+ *             "in": [
+ *                 "eastus2euap",
+ *                 "centraluseuap",
+ *             ],
+ *             kind: "resourceLocation",
+ *         }],
+ *     }],
+ *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+ * });
+ *
+ * ```
+ * ### Create or update a policy assignment without enforcing policy effect during resource creation or update.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignment = new azure_native.authorization.v20220601.PolicyAssignment("policyAssignment", {
+ *     description: "Force resource names to begin with given DeptA and end with -LC",
+ *     displayName: "Enforce resource naming rules",
+ *     enforcementMode: "DoNotEnforce",
+ *     metadata: {
+ *         assignedBy: "Special Someone",
+ *     },
+ *     parameters: {
+ *         prefix: {
+ *             value: "DeptA",
+ *         },
+ *         suffix: {
+ *             value: "-LC",
+ *         },
+ *     },
+ *     policyAssignmentName: "EnforceNaming",
+ *     policyDefinitionId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+ *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20220601:PolicyAssignment EnforceNaming /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming 
+ * ```
  */
 export class PolicyAssignment extends pulumi.CustomResource {
     /**

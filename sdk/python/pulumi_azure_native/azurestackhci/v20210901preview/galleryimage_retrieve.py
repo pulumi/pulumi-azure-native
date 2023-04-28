@@ -251,6 +251,34 @@ class GalleryimageRetrieve(pulumi.CustomResource):
         """
         The gallery image resource definition.
 
+        ## Example Usage
+        ### PutGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        galleryimage_retrieve = azure_native.azurestackhci.v20210901preview.GalleryimageRetrieve("galleryimageRetrieve",
+            container_name="Default_Container",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            galleryimages_name="test-gallery-image",
+            image_path="C:\\\\test.vhdx",
+            location="West US2",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:galleryimageRetrieve test-gallery-image /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryimages/test-gallery-image 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'CloudInitDataSource']] cloud_init_data_source: Datasource for the gallery image when provisioning with cloud-init (Azure or NoCloud)
@@ -275,6 +303,34 @@ class GalleryimageRetrieve(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The gallery image resource definition.
+
+        ## Example Usage
+        ### PutGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        galleryimage_retrieve = azure_native.azurestackhci.v20210901preview.GalleryimageRetrieve("galleryimageRetrieve",
+            container_name="Default_Container",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            galleryimages_name="test-gallery-image",
+            image_path="C:\\\\test.vhdx",
+            location="West US2",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:galleryimageRetrieve test-gallery-image /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryimages/test-gallery-image 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GalleryimageRetrieveArgs args: The arguments to use to populate this resource's properties.

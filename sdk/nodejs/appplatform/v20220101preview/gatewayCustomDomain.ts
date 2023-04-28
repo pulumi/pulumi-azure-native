@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Custom domain of the Spring Cloud Gateway
+ *
+ * ## Example Usage
+ * ### GatewayCustomDomains_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gatewayCustomDomain = new azure_native.appplatform.v20220101preview.GatewayCustomDomain("gatewayCustomDomain", {
+ *     domainName: "myDomainName",
+ *     gatewayName: "default",
+ *     properties: {
+ *         thumbprint: "*",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20220101preview:GatewayCustomDomain myDomainName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default/domains/myDomainName 
+ * ```
  */
 export class GatewayCustomDomain extends pulumi.CustomResource {
     /**

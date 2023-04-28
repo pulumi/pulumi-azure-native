@@ -339,6 +339,58 @@ class Subnet(pulumi.CustomResource):
         """
         Subnet in a virtual network resource.
 
+        ## Example Usage
+        ### Create subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.v20220701.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with a delegation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.v20220701.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with service endpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.v20220701.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            service_endpoints=[azure_native.network.v20220701.ServiceEndpointPropertiesFormatArgs(
+                service="Microsoft.Storage",
+            )],
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220701:Subnet subnet1 /subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
@@ -368,6 +420,58 @@ class Subnet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subnet in a virtual network resource.
+
+        ## Example Usage
+        ### Create subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.v20220701.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with a delegation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.v20220701.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with service endpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.v20220701.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            service_endpoints=[azure_native.network.v20220701.ServiceEndpointPropertiesFormatArgs(
+                service="Microsoft.Storage",
+            )],
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220701:Subnet subnet1 /subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubnetArgs args: The arguments to use to populate this resource's properties.

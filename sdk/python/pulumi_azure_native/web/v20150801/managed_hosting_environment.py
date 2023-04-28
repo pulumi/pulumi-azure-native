@@ -664,6 +664,13 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
                  __props__=None):
         """
         Description of an hostingEnvironment (App Service Environment)
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:ManagedHostingEnvironment myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/managedHostingEnvironments/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -714,6 +721,13 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of an hostingEnvironment (App Service Environment)
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:ManagedHostingEnvironment myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/managedHostingEnvironments/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedHostingEnvironmentArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * IoT sensor model
  * API Version: 2021-02-01-preview.
  * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update IoT sensor
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sensor = new azure_native.iotsecurity.Sensor("sensor", {
+ *     scope: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub",
+ *     sensorName: "mySensor",
+ *     sensorType: "Ot",
+ *     tiAutomaticUpdates: true,
+ *     zone: "Zone Name",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotsecurity:Sensor mySensor /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub/providers/Microsoft.IoTSecurity/sensors/mySensor 
+ * ```
  */
 export class Sensor extends pulumi.CustomResource {
     /**

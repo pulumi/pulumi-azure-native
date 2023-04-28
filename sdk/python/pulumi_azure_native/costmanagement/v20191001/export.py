@@ -130,6 +130,16 @@ class Export(pulumi.CustomResource):
         """
         A export resource.
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20191001:Export TestExport subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/exports/TestExport 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['QueryDefinitionArgs']] definition: Has definition for the export.
@@ -147,6 +157,16 @@ class Export(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A export resource.
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20191001:Export TestExport subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/exports/TestExport 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExportArgs args: The arguments to use to populate this resource's properties.

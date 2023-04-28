@@ -96,6 +96,43 @@ class PrivateLinkScope(pulumi.CustomResource):
         """
         An Azure Monitor PrivateLinkScope definition.
 
+        ## Example Usage
+        ### PrivateLinkScopeCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_scope = azure_native.insights.v20191017preview.PrivateLinkScope("privateLinkScope",
+            location="Global",
+            resource_group_name="my-resource-group",
+            scope_name="my-privatelinkscope")
+
+        ```
+        ### PrivateLinkScopeUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_scope = azure_native.insights.v20191017preview.PrivateLinkScope("privateLinkScope",
+            location="Global",
+            resource_group_name="my-resource-group",
+            scope_name="my-privatelinkscope",
+            tags={
+                "Tag1": "Value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20191017preview:PrivateLinkScope my-privatelinkscope /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4919/resourceGroups/my-resource-group/providers/microsoft.insights/privateLinkScopes/my-privatelinkscope 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
@@ -111,6 +148,43 @@ class PrivateLinkScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Monitor PrivateLinkScope definition.
+
+        ## Example Usage
+        ### PrivateLinkScopeCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_scope = azure_native.insights.v20191017preview.PrivateLinkScope("privateLinkScope",
+            location="Global",
+            resource_group_name="my-resource-group",
+            scope_name="my-privatelinkscope")
+
+        ```
+        ### PrivateLinkScopeUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_scope = azure_native.insights.v20191017preview.PrivateLinkScope("privateLinkScope",
+            location="Global",
+            resource_group_name="my-resource-group",
+            scope_name="my-privatelinkscope",
+            tags={
+                "Tag1": "Value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20191017preview:PrivateLinkScope my-privatelinkscope /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4919/resourceGroups/my-resource-group/providers/microsoft.insights/privateLinkScopes/my-privatelinkscope 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkScopeArgs args: The arguments to use to populate this resource's properties.

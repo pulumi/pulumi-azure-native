@@ -241,6 +241,74 @@ class ConfigurationStore(pulumi.CustomResource):
         API Version: 2022-05-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ConfigurationStores_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+        ### ConfigurationStores_Create_With_Identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            identity=azure_native.appconfiguration.ResourceIdentityArgs(
+                type="SystemAssigned, UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
+                },
+            ),
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+        ### ConfigurationStores_Create_With_Local_Auth_Disabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            disable_local_auth=True,
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.SkuArgs(
+                name="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appconfiguration:ConfigurationStore contoso /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
@@ -266,6 +334,74 @@ class ConfigurationStore(pulumi.CustomResource):
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
         API Version: 2022-05-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ConfigurationStores_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+        ### ConfigurationStores_Create_With_Identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            identity=azure_native.appconfiguration.ResourceIdentityArgs(
+                type="SystemAssigned, UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
+                },
+            ),
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+        ### ConfigurationStores_Create_With_Local_Auth_Disabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.ConfigurationStore("configurationStore",
+            config_store_name="contoso",
+            disable_local_auth=True,
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.appconfiguration.SkuArgs(
+                name="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appconfiguration:ConfigurationStore contoso /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationStoreArgs args: The arguments to use to populate this resource's properties.

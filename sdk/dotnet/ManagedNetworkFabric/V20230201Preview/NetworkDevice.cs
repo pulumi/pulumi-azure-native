@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 {
     /// <summary>
     /// The NetworkDevice resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkDevices_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkDevice = new AzureNative.ManagedNetworkFabric.V20230201Preview.NetworkDevice("networkDevice", new()
+    ///     {
+    ///         Annotation = "null",
+    ///         HostName = "networkDeviceName",
+    ///         Location = "eastus",
+    ///         NetworkDeviceName = "networkDeviceName",
+    ///         NetworkDeviceRole = "CE",
+    ///         NetworkDeviceSku = "DefaultSku",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SerialNumber = "Arista;DCS-7280PR3-24;12.05;JPE21330382",
+    ///         Tags = 
+    ///         {
+    ///             { "keyID", "keyValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkDevice networkDeviceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/networkDeviceName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric/v20230201preview:NetworkDevice")]
     public partial class NetworkDevice : global::Pulumi.CustomResource

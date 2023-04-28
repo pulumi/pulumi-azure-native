@@ -113,6 +113,29 @@ class StorageSyncService(pulumi.CustomResource):
         """
         Storage Sync Service object.
 
+        ## Example Usage
+        ### StorageSyncServices_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_sync_service = azure_native.storagesync.v20191001.StorageSyncService("storageSyncService",
+            location="WestUS",
+            resource_group_name="SampleResourceGroup_1",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagesync/v20191001:StorageSyncService SampleStorageSyncService_1 /subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Required. Gets or sets the location of the resource. This will be one of the supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.). The geo region of a resource cannot be changed once it is created, but if an identical geo region is specified on update, the request will succeed.
@@ -128,6 +151,29 @@ class StorageSyncService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Storage Sync Service object.
+
+        ## Example Usage
+        ### StorageSyncServices_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_sync_service = azure_native.storagesync.v20191001.StorageSyncService("storageSyncService",
+            location="WestUS",
+            resource_group_name="SampleResourceGroup_1",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagesync/v20191001:StorageSyncService SampleStorageSyncService_1 /subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageSyncServiceArgs args: The arguments to use to populate this resource's properties.

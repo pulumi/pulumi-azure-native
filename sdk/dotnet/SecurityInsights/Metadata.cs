@@ -13,6 +13,162 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Metadata resource definition.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create/update full metadata.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metadata = new AzureNative.SecurityInsights.Metadata("metadata", new()
+    ///     {
+    ///         Author = new AzureNative.SecurityInsights.Inputs.MetadataAuthorArgs
+    ///         {
+    ///             Email = "email@microsoft.com",
+    ///             Name = "User Name",
+    ///         },
+    ///         Categories = new AzureNative.SecurityInsights.Inputs.MetadataCategoriesArgs
+    ///         {
+    ///             Domains = new[]
+    ///             {
+    ///                 "Application",
+    ///                 "Security – Insider Threat",
+    ///             },
+    ///             Verticals = new[]
+    ///             {
+    ///                 "Healthcare",
+    ///             },
+    ///         },
+    ///         ContentId = "c00ee137-7475-47c8-9cce-ec6f0f1bedd0",
+    ///         ContentSchemaVersion = "2.0",
+    ///         CustomVersion = "1.0",
+    ///         Dependencies = new AzureNative.SecurityInsights.Inputs.MetadataDependenciesArgs
+    ///         {
+    ///             Criteria = new[]
+    ///             {
+    ///                 new AzureNative.SecurityInsights.Inputs.MetadataDependenciesArgs
+    ///                 {
+    ///                     Criteria = new[]
+    ///                     {
+    ///                         new AzureNative.SecurityInsights.Inputs.MetadataDependenciesArgs
+    ///                         {
+    ///                             ContentId = "045d06d0-ee72-4794-aba4-cf5646e4c756",
+    ///                             Kind = "DataConnector",
+    ///                             Name = "Microsoft Defender for Endpoint",
+    ///                         },
+    ///                         new AzureNative.SecurityInsights.Inputs.MetadataDependenciesArgs
+    ///                         {
+    ///                             ContentId = "dbfcb2cc-d782-40ef-8d94-fe7af58a6f2d",
+    ///                             Kind = "DataConnector",
+    ///                         },
+    ///                         new AzureNative.SecurityInsights.Inputs.MetadataDependenciesArgs
+    ///                         {
+    ///                             ContentId = "de4dca9b-eb37-47d6-a56f-b8b06b261593",
+    ///                             Kind = "DataConnector",
+    ///                             Version = "2.0",
+    ///                         },
+    ///                     },
+    ///                     Operator = "OR",
+    ///                 },
+    ///                 new AzureNative.SecurityInsights.Inputs.MetadataDependenciesArgs
+    ///                 {
+    ///                     ContentId = "31ee11cc-9989-4de8-b176-5e0ef5c4dbab",
+    ///                     Kind = "Playbook",
+    ///                     Version = "1.0",
+    ///                 },
+    ///                 new AzureNative.SecurityInsights.Inputs.MetadataDependenciesArgs
+    ///                 {
+    ///                     ContentId = "21ba424a-9438-4444-953a-7059539a7a1b",
+    ///                     Kind = "Parser",
+    ///                 },
+    ///             },
+    ///             Operator = "AND",
+    ///         },
+    ///         FirstPublishDate = "2021-05-18",
+    ///         Kind = "AnalyticsRule",
+    ///         LastPublishDate = "2021-05-18",
+    ///         MetadataName = "metadataName",
+    ///         ParentId = "/subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/ruleName",
+    ///         PreviewImages = new[]
+    ///         {
+    ///             "firstImage.png",
+    ///             "secondImage.jpeg",
+    ///         },
+    ///         PreviewImagesDark = new[]
+    ///         {
+    ///             "firstImageDark.png",
+    ///             "secondImageDark.jpeg",
+    ///         },
+    ///         Providers = new[]
+    ///         {
+    ///             "Amazon",
+    ///             "Microsoft",
+    ///         },
+    ///         ResourceGroupName = "myRg",
+    ///         Source = new AzureNative.SecurityInsights.Inputs.MetadataSourceArgs
+    ///         {
+    ///             Kind = "Solution",
+    ///             Name = "Contoso Solution 1.0",
+    ///             SourceId = "b688a130-76f4-4a07-bf57-762222a3cadf",
+    ///         },
+    ///         Support = new AzureNative.SecurityInsights.Inputs.MetadataSupportArgs
+    ///         {
+    ///             Email = "support@microsoft.com",
+    ///             Link = "https://support.microsoft.com/",
+    ///             Name = "Microsoft",
+    ///             Tier = "Partner",
+    ///         },
+    ///         ThreatAnalysisTactics = new[]
+    ///         {
+    ///             "reconnaissance",
+    ///             "commandandcontrol",
+    ///         },
+    ///         ThreatAnalysisTechniques = new[]
+    ///         {
+    ///             "T1548",
+    ///             "T1548.001",
+    ///         },
+    ///         Version = "1.0.0.0",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/update minimal metadata.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metadata = new AzureNative.SecurityInsights.Metadata("metadata", new()
+    ///     {
+    ///         ContentId = "c00ee137-7475-47c8-9cce-ec6f0f1bedd0",
+    ///         Kind = "AnalyticsRule",
+    ///         MetadataName = "metadataName",
+    ///         ParentId = "/subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/ruleName",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:Metadata metadataName /subscriptions/2e1dc338-d04d-4443-b721-037eff4fdcac/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/metadata/metadataName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Metadata")]
     public partial class Metadata : global::Pulumi.CustomResource

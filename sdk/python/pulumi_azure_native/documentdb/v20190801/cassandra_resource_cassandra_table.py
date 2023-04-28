@@ -166,6 +166,49 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
         """
         An Azure Cosmos DB Cassandra table.
 
+        ## Example Usage
+        ### CosmosDBCassandraTableCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_resource_cassandra_table = azure_native.documentdb.v20190801.CassandraResourceCassandraTable("cassandraResourceCassandraTable",
+            account_name="ddb1",
+            keyspace_name="keyspaceName",
+            location="West US",
+            options={},
+            resource=azure_native.documentdb.v20190801.CassandraTableGetPropertiesResponseResourceArgs(
+                default_ttl=100,
+                id="tableName",
+                schema={
+                    "clusterKeys": [azure_native.documentdb.v20190801.ClusterKeyArgs(
+                        name="columnA",
+                        order_by="Asc",
+                    )],
+                    "columns": [azure_native.documentdb.v20190801.ColumnArgs(
+                        name="columnA",
+                        type="Ascii",
+                    )],
+                    "partitionKeys": [azure_native.documentdb.v20190801.CassandraPartitionKeyArgs(
+                        name="columnA",
+                    )],
+                },
+            ),
+            resource_group_name="rg1",
+            table_name="tableName",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20190801:CassandraResourceCassandraTable tableName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspaceName/cassandraTables/tableName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -185,6 +228,49 @@ class CassandraResourceCassandraTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Cassandra table.
+
+        ## Example Usage
+        ### CosmosDBCassandraTableCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_resource_cassandra_table = azure_native.documentdb.v20190801.CassandraResourceCassandraTable("cassandraResourceCassandraTable",
+            account_name="ddb1",
+            keyspace_name="keyspaceName",
+            location="West US",
+            options={},
+            resource=azure_native.documentdb.v20190801.CassandraTableGetPropertiesResponseResourceArgs(
+                default_ttl=100,
+                id="tableName",
+                schema={
+                    "clusterKeys": [azure_native.documentdb.v20190801.ClusterKeyArgs(
+                        name="columnA",
+                        order_by="Asc",
+                    )],
+                    "columns": [azure_native.documentdb.v20190801.ColumnArgs(
+                        name="columnA",
+                        type="Ascii",
+                    )],
+                    "partitionKeys": [azure_native.documentdb.v20190801.CassandraPartitionKeyArgs(
+                        name="columnA",
+                    )],
+                },
+            ),
+            resource_group_name="rg1",
+            table_name="tableName",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20190801:CassandraResourceCassandraTable tableName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspaceName/cassandraTables/tableName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CassandraResourceCassandraTableArgs args: The arguments to use to populate this resource's properties.

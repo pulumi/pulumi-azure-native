@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL Analytics pool
+ *
+ * ## Example Usage
+ * ### Create a SQL Analytics pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlPool = new azure_native.synapse.v20210301.SqlPool("sqlPool", {
+ *     collation: "",
+ *     createMode: "",
+ *     location: "Southeast Asia",
+ *     maxSizeBytes: 0,
+ *     recoverableDatabaseId: "",
+ *     resourceGroupName: "ExampleResourceGroup",
+ *     sku: {
+ *         name: "",
+ *         tier: "",
+ *     },
+ *     sourceDatabaseId: "",
+ *     sqlPoolName: "ExampleSqlPool",
+ *     storageAccountType: "LRS",
+ *     tags: {},
+ *     workspaceName: "ExampleWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse/v20210301:SqlPool ExampleSqlPool /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspaces/sqlPools/ExampleSqlPool 
+ * ```
  */
 export class SqlPool extends pulumi.CustomResource {
     /**

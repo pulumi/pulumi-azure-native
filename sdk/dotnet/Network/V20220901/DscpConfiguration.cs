@@ -11,6 +11,123 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// Differentiated Services Code Point configuration for any given network interface
+    /// 
+    /// ## Example Usage
+    /// ### Create DSCP Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dscpConfiguration = new AzureNative.Network.V20220901.DscpConfiguration("dscpConfiguration", new()
+    ///     {
+    ///         DscpConfigurationName = "mydscpconfig",
+    ///         Location = "eastus",
+    ///         QosDefinitionCollection = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.QosDefinitionArgs
+    ///             {
+    ///                 DestinationIpRanges = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.QosIpRangeArgs
+    ///                     {
+    ///                         EndIP = "127.0.10.2",
+    ///                         StartIP = "127.0.10.1",
+    ///                     },
+    ///                 },
+    ///                 DestinationPortRanges = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.QosPortRangeArgs
+    ///                     {
+    ///                         End = 15,
+    ///                         Start = 15,
+    ///                     },
+    ///                 },
+    ///                 Markings = new[]
+    ///                 {
+    ///                     1,
+    ///                 },
+    ///                 Protocol = "Tcp",
+    ///                 SourceIpRanges = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.QosIpRangeArgs
+    ///                     {
+    ///                         EndIP = "127.0.0.2",
+    ///                         StartIP = "127.0.0.1",
+    ///                     },
+    ///                 },
+    ///                 SourcePortRanges = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.QosPortRangeArgs
+    ///                     {
+    ///                         End = 11,
+    ///                         Start = 10,
+    ///                     },
+    ///                     new AzureNative.Network.V20220901.Inputs.QosPortRangeArgs
+    ///                     {
+    ///                         End = 21,
+    ///                         Start = 20,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Network.V20220901.Inputs.QosDefinitionArgs
+    ///             {
+    ///                 DestinationIpRanges = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.QosIpRangeArgs
+    ///                     {
+    ///                         EndIP = "12.0.10.2",
+    ///                         StartIP = "12.0.10.1",
+    ///                     },
+    ///                 },
+    ///                 DestinationPortRanges = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.QosPortRangeArgs
+    ///                     {
+    ///                         End = 52,
+    ///                         Start = 51,
+    ///                     },
+    ///                 },
+    ///                 Markings = new[]
+    ///                 {
+    ///                     2,
+    ///                 },
+    ///                 Protocol = "Udp",
+    ///                 SourceIpRanges = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.QosIpRangeArgs
+    ///                     {
+    ///                         EndIP = "12.0.0.2",
+    ///                         StartIP = "12.0.0.1",
+    ///                     },
+    ///                 },
+    ///                 SourcePortRanges = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.QosPortRangeArgs
+    ///                     {
+    ///                         End = 12,
+    ///                         Start = 11,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:DscpConfiguration mydscpConfig /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dscpConfiguration/mydscpConfig 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:DscpConfiguration")]
     public partial class DscpConfiguration : global::Pulumi.CustomResource

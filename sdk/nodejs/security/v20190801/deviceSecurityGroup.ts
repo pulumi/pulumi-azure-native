@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The device security group resource
+ *
+ * ## Example Usage
+ * ### Create or update a device security group for the specified IoT hub resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deviceSecurityGroup = new azure_native.security.v20190801.DeviceSecurityGroup("deviceSecurityGroup", {
+ *     deviceSecurityGroupName: "samplesecuritygroup",
+ *     resourceId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub",
+ *     timeWindowRules: [{}],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20190801:DeviceSecurityGroup samplesecuritygroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub/providers/Microsoft.Security/deviceSecurityGroups/samplesecuritygroup 
+ * ```
  */
 export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**

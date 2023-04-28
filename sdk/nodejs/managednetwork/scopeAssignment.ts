@@ -8,6 +8,29 @@ import * as utilities from "../utilities";
  * The Managed Network resource
  * API Version: 2019-06-01-preview.
  * Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ScopeAssignmentsPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scopeAssignment = new azure_native.managednetwork.ScopeAssignment("scopeAssignment", {
+ *     assignedManagedNetwork: "/subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork",
+ *     scope: "subscriptions/subscriptionC",
+ *     scopeAssignmentName: "subscriptionCAssignment",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetwork:ScopeAssignment subscriptionCAssignment /subscriptions/subscriptionC/providers/Microsoft.ManagedNetwork/scopeAssignments/subscriptionCAssignment 
+ * ```
  */
 export class ScopeAssignment extends pulumi.CustomResource {
     /**

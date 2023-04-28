@@ -352,6 +352,29 @@ class Topic(pulumi.CustomResource):
         """
         Description of topic resource.
 
+        ## Example Usage
+        ### TopicCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.servicebus.v20150801.Topic("topic",
+            location="West US",
+            namespace_name="sdk-Namespace4191",
+            resource_group_name="Default-ServiceBus-WestUS",
+            topic_name="sdk-Topics1377")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20150801:Topic sdk-Topics1377 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace4191/topics/sdk-Topics1377 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: TimeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
@@ -381,6 +404,29 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of topic resource.
+
+        ## Example Usage
+        ### TopicCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.servicebus.v20150801.Topic("topic",
+            location="West US",
+            namespace_name="sdk-Namespace4191",
+            resource_group_name="Default-ServiceBus-WestUS",
+            topic_name="sdk-Topics1377")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20150801:Topic sdk-Topics1377 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace4191/topics/sdk-Topics1377 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

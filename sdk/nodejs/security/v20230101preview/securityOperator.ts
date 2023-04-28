@@ -9,6 +9,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Security operator under a given subscription and pricing
+ *
+ * ## Example Usage
+ * ### Create a security operator on the given scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityOperator = new azure_native.security.v20230101preview.SecurityOperator("securityOperator", {
+ *     pricingName: "CloudPosture",
+ *     securityOperatorName: "DefenderCSPMSecurityOperator",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20230101preview:SecurityOperator DefenderCSPMSecurityOperator /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator 
+ * ```
  */
 export class SecurityOperator extends pulumi.CustomResource {
     /**

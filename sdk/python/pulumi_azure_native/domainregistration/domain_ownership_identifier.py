@@ -113,6 +113,29 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create App Service Domain OwnershipIdentifier
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_ownership_identifier = azure_native.domainregistration.DomainOwnershipIdentifier("domainOwnershipIdentifier",
+            domain_name="example.com",
+            name="SampleOwnershipId",
+            ownership_id="SampleOwnershipId",
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:domainregistration:DomainOwnershipIdentifier SampleOwnershipId /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.DomainRegistration/domains/example.com/domainownershipidentifiers/SampleOwnershipId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Name of domain.
@@ -131,6 +154,29 @@ class DomainOwnershipIdentifier(pulumi.CustomResource):
         Domain ownership Identifier.
         API Version: 2022-09-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create App Service Domain OwnershipIdentifier
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_ownership_identifier = azure_native.domainregistration.DomainOwnershipIdentifier("domainOwnershipIdentifier",
+            domain_name="example.com",
+            name="SampleOwnershipId",
+            ownership_id="SampleOwnershipId",
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:domainregistration:DomainOwnershipIdentifier SampleOwnershipId /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.DomainRegistration/domains/example.com/domainownershipidentifiers/SampleOwnershipId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainOwnershipIdentifierArgs args: The arguments to use to populate this resource's properties.

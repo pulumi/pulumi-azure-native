@@ -9,6 +9,46 @@ import * as utilities from "../../utilities";
 
 /**
  * Response for iSCSI target requests.
+ *
+ * ## Example Usage
+ * ### Create or Update iSCSI target
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iscsiTarget = new azure_native.storagepool.v20200315preview.IscsiTarget("iscsiTarget", {
+ *     diskPoolName: "myDiskPool",
+ *     iscsiTargetName: "myIscsiTarget",
+ *     resourceGroupName: "myResourceGroup",
+ *     targetIqn: "iqn.2005-03.org.iscsi:server1",
+ *     tpgs: [{
+ *         acls: [{
+ *             initiatorIqn: "iqn.2005-03.org.iscsi:client",
+ *             mappedLuns: ["lun0"],
+ *             password: "some_password",
+ *             username: "some_username",
+ *         }],
+ *         attributes: {
+ *             authentication: true,
+ *             prodModeWriteProtect: false,
+ *         },
+ *         luns: [{
+ *             managedDiskAzureResourceId: "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+ *             name: "lun0",
+ *         }],
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagepool/v20200315preview:IscsiTarget myIscsiTarget /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool/iscsiTargets/myIscsiTarget 
+ * ```
  */
 export class IscsiTarget extends pulumi.CustomResource {
     /**

@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
 {
     /// <summary>
     /// The Customer Notification Event resource.
+    /// 
+    /// ## Example Usage
+    /// ### CustomerEventCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customerEvent = new AzureNative.TestBase.V20220401Preview.CustomerEvent("customerEvent", new()
+    ///     {
+    ///         CustomerEventName = "WeeklySummary",
+    ///         EventName = "WeeklySummary",
+    ///         Receivers = new[]
+    ///         {
+    ///             new AzureNative.TestBase.V20220401Preview.Inputs.NotificationEventReceiverArgs
+    ///             {
+    ///                 ReceiverType = "UserObjects",
+    ///                 ReceiverValue = new AzureNative.TestBase.V20220401Preview.Inputs.NotificationReceiverValueArgs
+    ///                 {
+    ///                     UserObjectReceiverValue = new AzureNative.TestBase.V20220401Preview.Inputs.UserObjectReceiverValueArgs
+    ///                     {
+    ///                         UserObjectIds = new[]
+    ///                         {
+    ///                             "245245245245325",
+    ///                             "365365365363565",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.TestBase.V20220401Preview.Inputs.NotificationEventReceiverArgs
+    ///             {
+    ///                 ReceiverType = "DistributionGroup",
+    ///                 ReceiverValue = new AzureNative.TestBase.V20220401Preview.Inputs.NotificationReceiverValueArgs
+    ///                 {
+    ///                     DistributionGroupListReceiverValue = new AzureNative.TestBase.V20220401Preview.Inputs.DistributionGroupListReceiverValueArgs
+    ///                     {
+    ///                         DistributionGroups = new[]
+    ///                         {
+    ///                             "test@microsoft.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contoso-rg1",
+    ///         TestBaseAccountName = "contoso-testBaseAccount1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:testbase/v20220401preview:CustomerEvent WeeklySummary /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/customerEvents/WeeklySummary 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase/v20220401preview:CustomerEvent")]
     public partial class CustomerEvent : global::Pulumi.CustomResource

@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview
 {
     /// <summary>
     /// The private endpoint connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnections_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.IoTCentral.V20211101Preview.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "myIoTCentralAppEndpoint",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.IoTCentral.V20211101Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Description = "Auto-approved",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myIoTCentralApp",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotcentral/v20211101preview:PrivateEndpointConnection myIoTCentralAppEndpoint.a791c6b5-874d-4f03-9092-718490d33770 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.IoTCentral/iotApps/myIoTCentralApp/PrivateEndpointConnections/myIoTCentralAppEndpoint.a791c6b5-874d-4f03-9092-718490d33770 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotcentral/v20211101preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

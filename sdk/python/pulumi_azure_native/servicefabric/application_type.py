@@ -114,6 +114,29 @@ class ApplicationType(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Put an application type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_type = azure_native.servicefabric.ApplicationType("applicationType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ApplicationType myAppType /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_type_name: The name of the application type name resource.
@@ -132,6 +155,29 @@ class ApplicationType(pulumi.CustomResource):
         The application type name resource
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Put an application type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_type = azure_native.servicefabric.ApplicationType("applicationType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ApplicationType myAppType /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationTypeArgs args: The arguments to use to populate this resource's properties.

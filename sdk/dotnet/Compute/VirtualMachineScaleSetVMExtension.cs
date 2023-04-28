@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Compute
     /// Describes a VMSS VM Extension.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create VirtualMachineScaleSet VM extension.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineScaleSetVMExtension = new AzureNative.Compute.VirtualMachineScaleSetVMExtension("virtualMachineScaleSetVMExtension", new()
+    ///     {
+    ///         AutoUpgradeMinorVersion = true,
+    ///         InstanceId = "0",
+    ///         Publisher = "extPublisher",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Settings = 
+    ///         {
+    ///             { "UserName", "xyz@microsoft.com" },
+    ///         },
+    ///         Type = "extType",
+    ///         TypeHandlerVersion = "1.2",
+    ///         VmExtensionName = "myVMExtension",
+    ///         VmScaleSetName = "myvmScaleSet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:VirtualMachineScaleSetVMExtension myVMExtension /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myvmScaleSet/virtualMachines/0/extensions/myVMExtension 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVMExtension")]
     public partial class VirtualMachineScaleSetVMExtension : global::Pulumi.CustomResource

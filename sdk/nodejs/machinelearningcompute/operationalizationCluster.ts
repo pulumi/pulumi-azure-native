@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  * Instance of an Azure ML Operationalization Cluster resource.
  * API Version: 2017-08-01-preview.
  * Previous API Version: 2017-08-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PUT Operationalization Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const operationalizationCluster = new azure_native.machinelearningcompute.OperationalizationCluster("operationalizationCluster", {
+ *     clusterName: "myCluster",
+ *     clusterType: "ACS",
+ *     containerService: {
+ *         orchestratorProperties: {
+ *             servicePrincipal: {
+ *                 clientId: "abcdefghijklmnopqrt",
+ *                 secret: "<secret>",
+ *             },
+ *         },
+ *         orchestratorType: "Kubernetes",
+ *     },
+ *     description: "My Operationalization Cluster",
+ *     globalServiceConfiguration: {
+ *         ssl: {
+ *             cert: "afjdklq2131casfakld=",
+ *             cname: "foo.bar.com",
+ *             key: "flksdafkldsajf=",
+ *             status: "Enabled",
+ *         },
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key1: "alpha",
+ *         key2: "beta",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningcompute:OperationalizationCluster MyCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningCompute/operationalizationClusters/MyCluster 
+ * ```
  */
 export class OperationalizationCluster extends pulumi.CustomResource {
     /**

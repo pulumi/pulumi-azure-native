@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * The marketplace gallery image resource definition.
+ *
+ * ## Example Usage
+ * ### PutMarketplaceGalleryImage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const marketplacegalleryimage = new azure_native.azurestackhci.v20210901preview.Marketplacegalleryimage("marketplacegalleryimage", {
+ *     cloudInitDataSource: "Azure",
+ *     containerName: "Default_Container",
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: "CustomLocation",
+ *     },
+ *     hyperVGeneration: "V1",
+ *     identifier: {
+ *         offer: "myOfferName",
+ *         publisher: "myPublisherName",
+ *         sku: "mySkuName",
+ *     },
+ *     location: "West US2",
+ *     marketplacegalleryimagesName: "test-marketplace-gallery-image",
+ *     osType: azure_native.azurestackhci.v20210901preview.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "test-rg",
+ *     version: {
+ *         name: "1.0.0",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci/v20210901preview:marketplacegalleryimage test-marketplace-gallery-image /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplacegalleryimages/test-marketplace-gallery-image 
+ * ```
  */
 export class Marketplacegalleryimage extends pulumi.CustomResource {
     /**

@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.AlertsManagement.V20230401Preview
 {
     /// <summary>
     /// A Tenant Activity Log Alert rule resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Tenant Activity Log Alert rule for tenant level events
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tenantActivityLogAlert = new AzureNative.AlertsManagement.V20230401Preview.TenantActivityLogAlert("tenantActivityLogAlert", new()
+    ///     {
+    ///         Actions = new AzureNative.AlertsManagement.V20230401Preview.Inputs.ActionListArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 new AzureNative.AlertsManagement.V20230401Preview.Inputs.ActionGroupArgs
+    ///                 {
+    ///                     ActionGroupId = "/providers/Microsoft.Management/ManagementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+    ///                     ActionProperties = 
+    ///                     {
+    ///                         { "Email.Title", "my email title" },
+    ///                     },
+    ///                     WebhookProperties = 
+    ///                     {
+    ///                         { "sampleWebhookProperty", "SamplePropertyValue" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         AlertRuleName = "SampleActivityLogAlertSHRuleOnTenantLevel",
+    ///         Condition = new AzureNative.AlertsManagement.V20230401Preview.Inputs.AlertRuleAllOfConditionArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.AlertsManagement.V20230401Preview.Inputs.AlertRuleAnyOfOrLeafConditionArgs
+    ///                 {
+    ///                     Equals = "ServiceHealth",
+    ///                     Field = "category",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "Description of sample Activity Log Alert service health rule on tenant level events.",
+    ///         Enabled = true,
+    ///         Location = "Global",
+    ///         ManagementGroupName = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///         Tags = null,
+    ///         TenantScope = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:alertsmanagement/v20230401preview:TenantActivityLogAlert SampleActivityLogAlertSHRuleOnTenantLevel /providers/Microsoft.Management/ManagementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.AlertsManagement/TenantActivityLogAlerts/SampleActivityLogAlertSHRuleOnTenantLevel 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement/v20230401preview:TenantActivityLogAlert")]
     public partial class TenantActivityLogAlert : global::Pulumi.CustomResource

@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnectionsAdtAPI = new AzureNative.SecurityAndCompliance.V20210308.PrivateEndpointConnectionsAdtAPI("privateEndpointConnectionsAdtAPI", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "myConnection",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.SecurityAndCompliance.V20210308.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Auto-Approved",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "rgname",
+    ///         ResourceName = "service1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI myConnection /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForO365ManagementActivityAPI/service1/privateEndpointConnections/myConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsAdtAPI")]
     public partial class PrivateEndpointConnectionsAdtAPI : global::Pulumi.CustomResource

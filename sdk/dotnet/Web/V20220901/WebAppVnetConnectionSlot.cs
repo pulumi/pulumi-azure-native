@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// Virtual Network information ARM resource.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:WebAppVnetConnectionSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/virtualNetworkConnections/{vnetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:WebAppVnetConnectionSlot")]
     public partial class WebAppVnetConnectionSlot : global::Pulumi.CustomResource

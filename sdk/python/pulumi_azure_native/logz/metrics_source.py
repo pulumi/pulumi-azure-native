@@ -137,6 +137,28 @@ class MetricsSource(pulumi.CustomResource):
         API Version: 2022-01-01-preview.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### metricsSource_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metrics_source = azure_native.logz.MetricsSource("metricsSource",
+            metrics_source_name="MetricsSource1",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logz:MetricsSource myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/metricsSource/MetricsSource1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metrics_source_name: Metrics Account resource name
@@ -153,6 +175,28 @@ class MetricsSource(pulumi.CustomResource):
         """
         API Version: 2022-01-01-preview.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### metricsSource_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metrics_source = azure_native.logz.MetricsSource("metricsSource",
+            metrics_source_name="MetricsSource1",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logz:MetricsSource myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/metricsSource/MetricsSource1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MetricsSourceArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,146 @@ namespace Pulumi.AzureNative.DocumentDB.V20210315
 {
     /// <summary>
     /// An Azure Cosmos DB database account.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBDatabaseAccountCreateMax
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccount = new AzureNative.DocumentDB.V20210315.DatabaseAccount("databaseAccount", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ApiProperties = new AzureNative.DocumentDB.V20210315.Inputs.ApiPropertiesArgs
+    ///         {
+    ///             ServerVersion = "3.2",
+    ///         },
+    ///         BackupPolicy = new AzureNative.DocumentDB.V20210315.Inputs.PeriodicModeBackupPolicyArgs
+    ///         {
+    ///             PeriodicModeProperties = new AzureNative.DocumentDB.V20210315.Inputs.PeriodicModePropertiesArgs
+    ///             {
+    ///                 BackupIntervalInMinutes = 240,
+    ///                 BackupRetentionIntervalInHours = 8,
+    ///             },
+    ///             Type = "Periodic",
+    ///         },
+    ///         ConsistencyPolicy = new AzureNative.DocumentDB.V20210315.Inputs.ConsistencyPolicyArgs
+    ///         {
+    ///             DefaultConsistencyLevel = AzureNative.DocumentDB.V20210315.DefaultConsistencyLevel.BoundedStaleness,
+    ///             MaxIntervalInSeconds = 10,
+    ///             MaxStalenessPrefix = 200,
+    ///         },
+    ///         Cors = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20210315.Inputs.CorsPolicyArgs
+    ///             {
+    ///                 AllowedOrigins = "https://test",
+    ///             },
+    ///         },
+    ///         DatabaseAccountOfferType = AzureNative.DocumentDB.V20210315.DatabaseAccountOfferType.Standard,
+    ///         DefaultIdentity = "FirstPartyIdentity",
+    ///         EnableAnalyticalStorage = true,
+    ///         EnableFreeTier = false,
+    ///         Identity = new AzureNative.DocumentDB.V20210315.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.DocumentDB.V20210315.ResourceIdentityType.SystemAssigned_UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/eu2cgroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", null },
+    ///             },
+    ///         },
+    ///         IpRules = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20210315.Inputs.IpAddressOrRangeArgs
+    ///             {
+    ///                 IpAddressOrRange = "23.43.230.120",
+    ///             },
+    ///             new AzureNative.DocumentDB.V20210315.Inputs.IpAddressOrRangeArgs
+    ///             {
+    ///                 IpAddressOrRange = "110.12.240.0/12",
+    ///             },
+    ///         },
+    ///         IsVirtualNetworkFilterEnabled = true,
+    ///         KeyVaultKeyUri = "https://myKeyVault.vault.azure.net",
+    ///         Kind = "MongoDB",
+    ///         Location = "westus",
+    ///         Locations = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20210315.Inputs.LocationArgs
+    ///             {
+    ///                 FailoverPriority = 0,
+    ///                 IsZoneRedundant = false,
+    ///                 LocationName = "southcentralus",
+    ///             },
+    ///             new AzureNative.DocumentDB.V20210315.Inputs.LocationArgs
+    ///             {
+    ///                 FailoverPriority = 1,
+    ///                 IsZoneRedundant = false,
+    ///                 LocationName = "eastus",
+    ///             },
+    ///         },
+    ///         NetworkAclBypass = AzureNative.DocumentDB.V20210315.NetworkAclBypass.AzureServices,
+    ///         NetworkAclBypassResourceIds = new[]
+    ///         {
+    ///             "/subscriptions/subId/resourcegroups/rgName/providers/Microsoft.Synapse/workspaces/workspaceName",
+    ///         },
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///         VirtualNetworkRules = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20210315.Inputs.VirtualNetworkRuleArgs
+    ///             {
+    ///                 Id = "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    ///                 IgnoreMissingVNetServiceEndpoint = false,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CosmosDBDatabaseAccountCreateMin
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccount = new AzureNative.DocumentDB.V20210315.DatabaseAccount("databaseAccount", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseAccountOfferType = AzureNative.DocumentDB.V20210315.DatabaseAccountOfferType.Standard,
+    ///         Location = "westus",
+    ///         Locations = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20210315.Inputs.LocationArgs
+    ///             {
+    ///                 FailoverPriority = 0,
+    ///                 IsZoneRedundant = false,
+    ///                 LocationName = "southcentralus",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20210315:DatabaseAccount ddb1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20210315:DatabaseAccount")]
     public partial class DatabaseAccount : global::Pulumi.CustomResource

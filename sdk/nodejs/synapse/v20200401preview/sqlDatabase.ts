@@ -10,6 +10,38 @@ import * as utilities from "../../utilities";
 /**
  * A sql database resource.
  *
+ * ## Example Usage
+ * ### Creates a sqldatabase.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDatabase = new azure_native.synapse.v20200401preview.SqlDatabase("sqlDatabase", {
+ *     dataRetention: {
+ *         dropRetentionPeriod: "P3D",
+ *         retentionPeriod: "PT0S",
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "rg_bfd258ab-71bb-4a86-bf48-076df66c8640",
+ *     sqlDatabaseName: "113a9eb2-7d40-4009-9dcb-b42daade3760",
+ *     storageRedundancy: "Geo",
+ *     tags: {
+ *         tag1: "val1",
+ *     },
+ *     workspaceName: "srv_b33229ec-42a0-4929-9883-7f46e1b75c2f",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse/v20200401preview:SqlDatabase 113a9eb2-7d40-4009-9dcb-b42daade3760 /subscriptions/e682b8de-be70-4b81-a931-1699b27e2a92/resourceGroups/rg_bfd258ab-71bb-4a86-bf48-076df66c8640/providers/Microsoft.Synapse/workspaces/srv_b33229ec-42a0-4929-9883-7f46e1b75c2f/sqlDatabases/113a9eb2-7d40-4009-9dcb-b42daade3760 
+ * ```
+ *
  * @deprecated Version 2020-04-01-preview will be removed in v2 of the provider.
  */
 export class SqlDatabase extends pulumi.CustomResource {

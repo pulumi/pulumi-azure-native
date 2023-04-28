@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
  * API Version: 2022-10-01.
  * Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or Update Container App AuthConfig
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerAppsAuthConfig = new azure_native.app.ContainerAppsAuthConfig("containerAppsAuthConfig", {
+ *     authConfigName: "current",
+ *     containerAppName: "testcanadacentral",
+ *     globalValidation: {
+ *         unauthenticatedClientAction: azure_native.app.UnauthenticatedClientActionV2.AllowAnonymous,
+ *     },
+ *     identityProviders: {
+ *         facebook: {
+ *             registration: {
+ *                 appId: "123",
+ *                 appSecretSettingName: "facebook-secret",
+ *             },
+ *         },
+ *     },
+ *     platform: {
+ *         enabled: true,
+ *     },
+ *     resourceGroupName: "workerapps-rg-xj",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app:ContainerAppsAuthConfig current /subscriptions/651f8027-33e8-4ec4-97b4-f6e9f3dc8744/resourceGroups/workerapps-rg-xj/providers/Microsoft.App/containerApps/myapp/authconfigs/current 
+ * ```
  */
 export class ContainerAppsAuthConfig extends pulumi.CustomResource {
     /**

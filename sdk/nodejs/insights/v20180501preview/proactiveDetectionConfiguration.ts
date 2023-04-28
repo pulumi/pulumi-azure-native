@@ -9,6 +9,47 @@ import * as utilities from "../../utilities";
 
 /**
  * A ProactiveDetection configuration definition.
+ *
+ * ## Example Usage
+ * ### ProactiveDetectionConfigurationUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const proactiveDetectionConfiguration = new azure_native.insights.v20180501preview.ProactiveDetectionConfiguration("proactiveDetectionConfiguration", {
+ *     configurationId: "slowpageloadtime",
+ *     customEmails: [
+ *         "foo@microsoft.com",
+ *         "foo2@microsoft.com",
+ *     ],
+ *     enabled: true,
+ *     location: "South Central US",
+ *     name: "slowpageloadtime",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "my-component",
+ *     ruleDefinitions: {
+ *         description: "Smart Detection rules notify you of performance anomaly issues.",
+ *         displayName: "Slow page load time",
+ *         helpUrl: "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+ *         isEnabledByDefault: true,
+ *         isHidden: false,
+ *         isInPreview: false,
+ *         name: "slowpageloadtime",
+ *         supportsEmailNotifications: true,
+ *     },
+ *     sendEmailsToSubscriptionOwners: true,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20180501preview:ProactiveDetectionConfiguration slowpageloadtime /subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/ProactiveDetectionConfigs/slowpageloadtime 
+ * ```
  */
 export class ProactiveDetectionConfiguration extends pulumi.CustomResource {
     /**

@@ -10,6 +10,29 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-01-01-preview.
  * Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### metricsSource_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const metricsSource = new azure_native.logz.MetricsSource("metricsSource", {
+ *     metricsSourceName: "MetricsSource1",
+ *     monitorName: "myMonitor",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logz:MetricsSource myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/metricsSource/MetricsSource1 
+ * ```
  */
 export class MetricsSource extends pulumi.CustomResource {
     /**

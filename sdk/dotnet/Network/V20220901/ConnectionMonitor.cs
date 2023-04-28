@@ -11,6 +11,172 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// Information about the connection monitor.
+    /// 
+    /// ## Example Usage
+    /// ### Create connection monitor V1
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectionMonitor = new AzureNative.Network.V20220901.ConnectionMonitor("connectionMonitor", new()
+    ///     {
+    ///         ConnectionMonitorName = "cm1",
+    ///         Endpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorEndpointArgs
+    ///             {
+    ///                 Name = "source",
+    ///                 ResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/ct1",
+    ///             },
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorEndpointArgs
+    ///             {
+    ///                 Address = "bing.com",
+    ///                 Name = "destination",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         NetworkWatcherName = "nw1",
+    ///         ResourceGroupName = "rg1",
+    ///         TestConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorTestConfigurationArgs
+    ///             {
+    ///                 Name = "tcp",
+    ///                 Protocol = "Tcp",
+    ///                 TcpConfiguration = new AzureNative.Network.V20220901.Inputs.ConnectionMonitorTcpConfigurationArgs
+    ///                 {
+    ///                     Port = 80,
+    ///                 },
+    ///                 TestFrequencySec = 60,
+    ///             },
+    ///         },
+    ///         TestGroups = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorTestGroupArgs
+    ///             {
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "destination",
+    ///                 },
+    ///                 Name = "tg",
+    ///                 Sources = new[]
+    ///                 {
+    ///                     "source",
+    ///                 },
+    ///                 TestConfigurations = new[]
+    ///                 {
+    ///                     "tcp",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create connection monitor V2
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectionMonitor = new AzureNative.Network.V20220901.ConnectionMonitor("connectionMonitor", new()
+    ///     {
+    ///         ConnectionMonitorName = "cm1",
+    ///         Endpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorEndpointArgs
+    ///             {
+    ///                 Name = "vm1",
+    ///                 ResourceId = "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/NwRgIrinaCentralUSEUAP/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///             },
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorEndpointArgs
+    ///             {
+    ///                 Filter = new AzureNative.Network.V20220901.Inputs.ConnectionMonitorEndpointFilterArgs
+    ///                 {
+    ///                     Items = new[]
+    ///                     {
+    ///                         new AzureNative.Network.V20220901.Inputs.ConnectionMonitorEndpointFilterItemArgs
+    ///                         {
+    ///                             Address = "npmuser",
+    ///                             Type = "AgentAddress",
+    ///                         },
+    ///                     },
+    ///                     Type = "Include",
+    ///                 },
+    ///                 Name = "CanaryWorkspaceVamshi",
+    ///                 ResourceId = "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/vasamudrRG/providers/Microsoft.OperationalInsights/workspaces/vasamudrWorkspace",
+    ///             },
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorEndpointArgs
+    ///             {
+    ///                 Address = "bing.com",
+    ///                 Name = "bing",
+    ///             },
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorEndpointArgs
+    ///             {
+    ///                 Address = "google.com",
+    ///                 Name = "google",
+    ///             },
+    ///         },
+    ///         NetworkWatcherName = "nw1",
+    ///         Outputs = new[] {},
+    ///         ResourceGroupName = "rg1",
+    ///         TestConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorTestConfigurationArgs
+    ///             {
+    ///                 Name = "testConfig1",
+    ///                 Protocol = "Tcp",
+    ///                 TcpConfiguration = new AzureNative.Network.V20220901.Inputs.ConnectionMonitorTcpConfigurationArgs
+    ///                 {
+    ///                     DisableTraceRoute = false,
+    ///                     Port = 80,
+    ///                 },
+    ///                 TestFrequencySec = 60,
+    ///             },
+    ///         },
+    ///         TestGroups = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ConnectionMonitorTestGroupArgs
+    ///             {
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "bing",
+    ///                     "google",
+    ///                 },
+    ///                 Disable = false,
+    ///                 Name = "test1",
+    ///                 Sources = new[]
+    ///                 {
+    ///                     "vm1",
+    ///                     "CanaryWorkspaceVamshi",
+    ///                 },
+    ///                 TestConfigurations = new[]
+    ///                 {
+    ///                     "testConfig1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:ConnectionMonitor cm1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:ConnectionMonitor")]
     public partial class ConnectionMonitor : global::Pulumi.CustomResource

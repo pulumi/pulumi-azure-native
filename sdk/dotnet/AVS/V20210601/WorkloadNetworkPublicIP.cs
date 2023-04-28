@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.AVS.V20210601
 {
     /// <summary>
     /// NSX Public IP Block
+    /// 
+    /// ## Example Usage
+    /// ### WorkloadNetworks_CreatePublicIP
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadNetworkPublicIP = new AzureNative.AVS.V20210601.WorkloadNetworkPublicIP("workloadNetworkPublicIP", new()
+    ///     {
+    ///         DisplayName = "publicIP1",
+    ///         NumberOfPublicIPs = 32,
+    ///         PrivateCloudName = "cloud1",
+    ///         PublicIPId = "publicIP1",
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20210601:WorkloadNetworkPublicIP publicIP1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/publicIPs/publicIP1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20210601:WorkloadNetworkPublicIP")]
     public partial class WorkloadNetworkPublicIP : global::Pulumi.CustomResource

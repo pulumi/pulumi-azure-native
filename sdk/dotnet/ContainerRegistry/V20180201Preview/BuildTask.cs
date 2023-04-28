@@ -11,6 +11,59 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
 {
     /// <summary>
     /// The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+    /// 
+    /// ## Example Usage
+    /// ### BuildTasks_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var buildTask = new AzureNative.ContainerRegistry.V20180201Preview.BuildTask("buildTask", new()
+    ///     {
+    ///         Alias = "myalias",
+    ///         BuildTaskName = "myBuildTask",
+    ///         Location = "eastus",
+    ///         Platform = new AzureNative.ContainerRegistry.V20180201Preview.Inputs.PlatformPropertiesArgs
+    ///         {
+    ///             Cpu = 2,
+    ///             OsType = "Linux",
+    ///         },
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SourceRepository = new AzureNative.ContainerRegistry.V20180201Preview.Inputs.SourceRepositoryPropertiesArgs
+    ///         {
+    ///             IsCommitTriggerEnabled = true,
+    ///             RepositoryUrl = "https://github.com/Azure/azure-rest-api-specs",
+    ///             SourceControlAuthProperties = new AzureNative.ContainerRegistry.V20180201Preview.Inputs.SourceControlAuthInfoArgs
+    ///             {
+    ///                 Scope = "repo",
+    ///                 Token = "xxxxxx",
+    ///                 TokenType = "OAuth",
+    ///             },
+    ///             SourceControlType = "Github",
+    ///         },
+    ///         Status = "Enabled",
+    ///         Tags = 
+    ///         {
+    ///             { "testkey", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20180201preview:BuildTask myBuildTask /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/buildTasks/myBuildTask 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20180201preview:BuildTask")]
     public partial class BuildTask : global::Pulumi.CustomResource

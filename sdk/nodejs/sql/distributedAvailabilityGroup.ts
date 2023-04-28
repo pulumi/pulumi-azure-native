@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Distributed availability group between box and Sql Managed Instance.
  * API Version: 2021-11-01.
  * Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a distributed availability group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const distributedAvailabilityGroup = new azure_native.sql.DistributedAvailabilityGroup("distributedAvailabilityGroup", {
+ *     distributedAvailabilityGroupName: "dag",
+ *     managedInstanceName: "testcl",
+ *     primaryAvailabilityGroupName: "BoxLocalAg1",
+ *     resourceGroupName: "testrg",
+ *     secondaryAvailabilityGroupName: "testcl",
+ *     sourceEndpoint: "TCP://SERVER:7022",
+ *     targetDatabase: "testdb",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:DistributedAvailabilityGroup dag /subscriptions/f2669dff-5f08-45dd-b857-b2a60b72cdc9/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testcl/distributedAvailabilityGroups/dag 
+ * ```
  */
 export class DistributedAvailabilityGroup extends pulumi.CustomResource {
     /**

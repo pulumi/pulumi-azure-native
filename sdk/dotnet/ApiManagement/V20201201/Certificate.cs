@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Certificate details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateCertificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.ApiManagement.V20201201.Certificate("certificate", new()
+    ///     {
+    ///         CertificateId = "tempcert",
+    ///         Data = "****************Base 64 Encoded Certificate *******************************",
+    ///         Password = "****Certificate Password******",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateCertificateWithKeyVault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.ApiManagement.V20201201.Certificate("certificate", new()
+    ///     {
+    ///         CertificateId = "templateCertkv",
+    ///         KeyVault = new AzureNative.ApiManagement.V20201201.Inputs.KeyVaultContractCreatePropertiesArgs
+    ///         {
+    ///             IdentityClientId = "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+    ///             SecretIdentifier = "https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:Certificate templateCertkv /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/templateCertkv 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

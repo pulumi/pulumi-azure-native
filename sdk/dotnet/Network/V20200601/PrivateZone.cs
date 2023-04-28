@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Network.V20200601
 {
     /// <summary>
     /// Describes a Private DNS zone.
+    /// 
+    /// ## Example Usage
+    /// ### PUT Private DNS Zone
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateZone = new AzureNative.Network.V20200601.PrivateZone("privateZone", new()
+    ///     {
+    ///         Location = "Global",
+    ///         PrivateZoneName = "privatezone1.com",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20200601:PrivateZone privatezone1.com /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200601:PrivateZone")]
     public partial class PrivateZone : global::Pulumi.CustomResource

@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// OpenId Connect Provider details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateOpenIdConnectProvider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var openIdConnectProvider = new AzureNative.ApiManagement.V20201201.OpenIdConnectProvider("openIdConnectProvider", new()
+    ///     {
+    ///         ClientId = "oidprovidertemplate3",
+    ///         ClientSecret = "x",
+    ///         DisplayName = "templateoidprovider3",
+    ///         MetadataEndpoint = "https://oidprovider-template3.net",
+    ///         Opid = "templateOpenIdConnect3",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:OpenIdConnectProvider templateOpenIdConnect3 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/openidConnectProviders/templateOpenIdConnect3 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:OpenIdConnectProvider")]
     public partial class OpenIdConnectProvider : global::Pulumi.CustomResource

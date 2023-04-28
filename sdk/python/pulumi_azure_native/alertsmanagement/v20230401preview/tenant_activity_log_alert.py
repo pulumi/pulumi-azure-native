@@ -201,6 +201,49 @@ class TenantActivityLogAlert(pulumi.CustomResource):
         """
         A Tenant Activity Log Alert rule resource.
 
+        ## Example Usage
+        ### Create or update a Tenant Activity Log Alert rule for tenant level events
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tenant_activity_log_alert = azure_native.alertsmanagement.v20230401preview.TenantActivityLogAlert("tenantActivityLogAlert",
+            actions=azure_native.alertsmanagement.v20230401preview.ActionListResponseArgs(
+                action_groups=[azure_native.alertsmanagement.v20230401preview.ActionGroupArgs(
+                    action_group_id="/providers/Microsoft.Management/ManagementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+                    action_properties={
+                        "Email.Title": "my email title",
+                    },
+                    webhook_properties={
+                        "sampleWebhookProperty": "SamplePropertyValue",
+                    },
+                )],
+            ),
+            alert_rule_name="SampleActivityLogAlertSHRuleOnTenantLevel",
+            condition=azure_native.alertsmanagement.v20230401preview.AlertRuleAllOfConditionResponseArgs(
+                all_of=[azure_native.alertsmanagement.v20230401preview.AlertRuleAnyOfOrLeafConditionArgs(
+                    equals="ServiceHealth",
+                    field="category",
+                )],
+            ),
+            description="Description of sample Activity Log Alert service health rule on tenant level events.",
+            enabled=True,
+            location="Global",
+            management_group_name="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            tags={},
+            tenant_scope="72f988bf-86f1-41af-91ab-2d7cd011db47")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:alertsmanagement/v20230401preview:TenantActivityLogAlert SampleActivityLogAlertSHRuleOnTenantLevel /providers/Microsoft.Management/ManagementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.AlertsManagement/TenantActivityLogAlerts/SampleActivityLogAlertSHRuleOnTenantLevel 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActionListArgs']] actions: The actions that will activate when the condition is met.
@@ -222,6 +265,49 @@ class TenantActivityLogAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Tenant Activity Log Alert rule resource.
+
+        ## Example Usage
+        ### Create or update a Tenant Activity Log Alert rule for tenant level events
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tenant_activity_log_alert = azure_native.alertsmanagement.v20230401preview.TenantActivityLogAlert("tenantActivityLogAlert",
+            actions=azure_native.alertsmanagement.v20230401preview.ActionListResponseArgs(
+                action_groups=[azure_native.alertsmanagement.v20230401preview.ActionGroupArgs(
+                    action_group_id="/providers/Microsoft.Management/ManagementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+                    action_properties={
+                        "Email.Title": "my email title",
+                    },
+                    webhook_properties={
+                        "sampleWebhookProperty": "SamplePropertyValue",
+                    },
+                )],
+            ),
+            alert_rule_name="SampleActivityLogAlertSHRuleOnTenantLevel",
+            condition=azure_native.alertsmanagement.v20230401preview.AlertRuleAllOfConditionResponseArgs(
+                all_of=[azure_native.alertsmanagement.v20230401preview.AlertRuleAnyOfOrLeafConditionArgs(
+                    equals="ServiceHealth",
+                    field="category",
+                )],
+            ),
+            description="Description of sample Activity Log Alert service health rule on tenant level events.",
+            enabled=True,
+            location="Global",
+            management_group_name="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            tags={},
+            tenant_scope="72f988bf-86f1-41af-91ab-2d7cd011db47")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:alertsmanagement/v20230401preview:TenantActivityLogAlert SampleActivityLogAlertSHRuleOnTenantLevel /providers/Microsoft.Management/ManagementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.AlertsManagement/TenantActivityLogAlerts/SampleActivityLogAlertSHRuleOnTenantLevel 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TenantActivityLogAlertArgs args: The arguments to use to populate this resource's properties.

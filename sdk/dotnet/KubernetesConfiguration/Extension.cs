@@ -13,6 +13,86 @@ namespace Pulumi.AzureNative.KubernetesConfiguration
     /// The Extension object.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2020-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Extension
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extension = new AzureNative.KubernetesConfiguration.Extension("extension", new()
+    ///     {
+    ///         AutoUpgradeMinorVersion = true,
+    ///         ClusterName = "clusterName1",
+    ///         ClusterResourceName = "connectedClusters",
+    ///         ClusterRp = "Microsoft.Kubernetes",
+    ///         ConfigurationProtectedSettings = 
+    ///         {
+    ///             { "omsagent.secret.key", "secretKeyValue01" },
+    ///         },
+    ///         ConfigurationSettings = 
+    ///         {
+    ///             { "omsagent.env.clusterName", "clusterName1" },
+    ///             { "omsagent.secret.wsid", "a38cef99-5a89-52ed-b6db-22095c23664b" },
+    ///         },
+    ///         ExtensionName = "ClusterMonitor",
+    ///         ExtensionType = "azuremonitor-containers",
+    ///         ReleaseTrain = "Preview",
+    ///         ResourceGroupName = "rg1",
+    ///         Scope = new AzureNative.KubernetesConfiguration.Inputs.ScopeArgs
+    ///         {
+    ///             Cluster = new AzureNative.KubernetesConfiguration.Inputs.ScopeClusterArgs
+    ///             {
+    ///                 ReleaseNamespace = "kube-system",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Extension with Plan
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extension = new AzureNative.KubernetesConfiguration.Extension("extension", new()
+    ///     {
+    ///         AutoUpgradeMinorVersion = true,
+    ///         ClusterName = "clusterName1",
+    ///         ClusterResourceName = "connectedClusters",
+    ///         ClusterRp = "Microsoft.Kubernetes",
+    ///         ExtensionName = "azureVote",
+    ///         ExtensionType = "azure-vote",
+    ///         Plan = new AzureNative.KubernetesConfiguration.Inputs.PlanArgs
+    ///         {
+    ///             Name = "azure-vote-standard",
+    ///             Product = "azure-vote-standard-offer-id",
+    ///             Publisher = "Microsoft",
+    ///         },
+    ///         ReleaseTrain = "Preview",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kubernetesconfiguration:Extension azureVote /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/extensions/azureVote 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kubernetesconfiguration:Extension")]
     public partial class Extension : global::Pulumi.CustomResource

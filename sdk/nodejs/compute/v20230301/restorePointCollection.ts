@@ -9,6 +9,54 @@ import * as utilities from "../../utilities";
 
 /**
  * Create or update Restore Point collection parameters.
+ *
+ * ## Example Usage
+ * ### Create or update a restore point collection for cross region copy.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const restorePointCollection = new azure_native.compute.v20230301.RestorePointCollection("restorePointCollection", {
+ *     location: "norwayeast",
+ *     resourceGroupName: "myResourceGroup",
+ *     restorePointCollectionName: "myRpc",
+ *     source: {
+ *         id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName",
+ *     },
+ *     tags: {
+ *         myTag1: "tagValue1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a restore point collection.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const restorePointCollection = new azure_native.compute.v20230301.RestorePointCollection("restorePointCollection", {
+ *     location: "norwayeast",
+ *     resourceGroupName: "myResourceGroup",
+ *     restorePointCollectionName: "myRpc",
+ *     source: {
+ *         id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+ *     },
+ *     tags: {
+ *         myTag1: "tagValue1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20230301:RestorePointCollection myRpc /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/myRpc 
+ * ```
  */
 export class RestorePointCollection extends pulumi.CustomResource {
     /**

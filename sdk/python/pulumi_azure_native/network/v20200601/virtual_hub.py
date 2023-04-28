@@ -352,6 +352,36 @@ class VirtualHub(pulumi.CustomResource):
         """
         VirtualHub Resource.
 
+        ## Example Usage
+        ### VirtualHubPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub = azure_native.network.v20200601.VirtualHub("virtualHub",
+            address_prefix="10.168.0.0/24",
+            location="West US",
+            resource_group_name="rg1",
+            sku="Basic",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub_name="virtualHub2",
+            virtual_wan=azure_native.network.v20200601.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200601:VirtualHub virtualHub2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: Address-prefix for this VirtualHub.
@@ -382,6 +412,36 @@ class VirtualHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VirtualHub Resource.
+
+        ## Example Usage
+        ### VirtualHubPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub = azure_native.network.v20200601.VirtualHub("virtualHub",
+            address_prefix="10.168.0.0/24",
+            location="West US",
+            resource_group_name="rg1",
+            sku="Basic",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub_name="virtualHub2",
+            virtual_wan=azure_native.network.v20200601.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200601:VirtualHub virtualHub2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualHubArgs args: The arguments to use to populate this resource's properties.

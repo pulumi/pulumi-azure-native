@@ -131,6 +131,34 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
         """
         Represents an instance of a orchestrator.
 
+        ## Example Usage
+        ### put delegated subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        delegated_subnet_service_details = azure_native.delegatednetwork.v20210315.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails",
+            controller_details=azure_native.delegatednetwork.v20210315.ControllerDetailsArgs(
+                id="/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
+            ),
+            location="West US",
+            resource_group_name="TestRG",
+            resource_name_="delegated1",
+            subnet_details=azure_native.delegatednetwork.v20210315.SubnetDetailsArgs(
+                id="/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails delegated1 /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/delegatedSubnets/delegated1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ControllerDetailsArgs']] controller_details: Properties of the controller.
@@ -148,6 +176,34 @@ class DelegatedSubnetServiceDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of a orchestrator.
+
+        ## Example Usage
+        ### put delegated subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        delegated_subnet_service_details = azure_native.delegatednetwork.v20210315.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails",
+            controller_details=azure_native.delegatednetwork.v20210315.ControllerDetailsArgs(
+                id="/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
+            ),
+            location="West US",
+            resource_group_name="TestRG",
+            resource_name_="delegated1",
+            subnet_details=azure_native.delegatednetwork.v20210315.SubnetDetailsArgs(
+                id="/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails delegated1 /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/delegatedSubnets/delegated1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DelegatedSubnetServiceDetailsArgs args: The arguments to use to populate this resource's properties.

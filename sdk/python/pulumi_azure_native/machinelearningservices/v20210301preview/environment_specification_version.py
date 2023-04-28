@@ -112,6 +112,51 @@ class EnvironmentSpecificationVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Environment Specification Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment_specification_version = azure_native.machinelearningservices.v20210301preview.EnvironmentSpecificationVersion("environmentSpecificationVersion",
+            name="testEnvironment",
+            properties=azure_native.machinelearningservices.v20210301preview.EnvironmentSpecificationVersionResponseArgs(
+                conda_file=\"\"\"channels:
+        - defaults
+        dependencies:
+        - python=3.7.7
+        name: my-env\"\"\",
+                description="string",
+                docker=azure_native.machinelearningservices.v20210301preview.DockerBuildArgs(
+                    docker_specification_type="Build",
+                    dockerfile="FROM myimage",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            version="1",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion 1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/testEnvironment/versions/1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Name of EnvironmentSpecificationVersion.
@@ -128,6 +173,51 @@ class EnvironmentSpecificationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Environment Specification Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment_specification_version = azure_native.machinelearningservices.v20210301preview.EnvironmentSpecificationVersion("environmentSpecificationVersion",
+            name="testEnvironment",
+            properties=azure_native.machinelearningservices.v20210301preview.EnvironmentSpecificationVersionResponseArgs(
+                conda_file=\"\"\"channels:
+        - defaults
+        dependencies:
+        - python=3.7.7
+        name: my-env\"\"\",
+                description="string",
+                docker=azure_native.machinelearningservices.v20210301preview.DockerBuildArgs(
+                    docker_specification_type="Build",
+                    dockerfile="FROM myimage",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            version="1",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion 1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/testEnvironment/versions/1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentSpecificationVersionInitArgs args: The arguments to use to populate this resource's properties.

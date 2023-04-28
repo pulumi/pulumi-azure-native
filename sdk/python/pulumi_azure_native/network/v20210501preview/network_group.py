@@ -128,6 +128,31 @@ class NetworkGroup(pulumi.CustomResource):
         """
         The network group resource
 
+        ## Example Usage
+        ### NetworkGroupsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_group = azure_native.network.v20210501preview.NetworkGroup("networkGroup",
+            description="A sample group",
+            display_name="My Network Group",
+            member_type="VirtualNetwork",
+            network_group_name="testNetworkGroup",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210501preview:NetworkGroup testNetworkGroup /subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testNetworkGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the network group.
@@ -145,6 +170,31 @@ class NetworkGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network group resource
+
+        ## Example Usage
+        ### NetworkGroupsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_group = azure_native.network.v20210501preview.NetworkGroup("networkGroup",
+            description="A sample group",
+            display_name="My Network Group",
+            member_type="VirtualNetwork",
+            network_group_name="testNetworkGroup",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210501preview:NetworkGroup testNetworkGroup /subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testNetworkGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkGroupArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,66 @@ namespace Pulumi.AzureNative.Resources
     /// Wrapper resource for tags API requests and responses.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update tags on a resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tagAtScope = new AzureNative.Resources.TagAtScope("tagAtScope", new()
+    ///     {
+    ///         Properties = new AzureNative.Resources.Inputs.TagsArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "tagKey1", "tag-value-1" },
+    ///                 { "tagKey2", "tag-value-2" },
+    ///             },
+    ///         },
+    ///         Scope = "subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/myPRNameSpace/VM/myVm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update tags on a subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tagAtScope = new AzureNative.Resources.TagAtScope("tagAtScope", new()
+    ///     {
+    ///         Properties = new AzureNative.Resources.Inputs.TagsArgs
+    ///         {
+    ///             Tags = 
+    ///             {
+    ///                 { "tagKey1", "tag-value-1" },
+    ///                 { "tagKey2", "tag-value-2" },
+    ///             },
+    ///         },
+    ///         Scope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:TagAtScope myresource1 subscriptions/00000000-0000-0000-0000-000000000000 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:TagAtScope")]
     public partial class TagAtScope : global::Pulumi.CustomResource

@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.Chaos
     /// Model that represents a Target resource.
     /// API Version: 2022-10-01-preview.
     /// Previous API Version: 2021-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create/update a Target that extends a virtual machine resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var target = new AzureNative.Chaos.Target("target", new()
+    ///     {
+    ///         ParentProviderNamespace = "Microsoft.Compute",
+    ///         ParentResourceName = "exampleVM",
+    ///         ParentResourceType = "virtualMachines",
+    ///         Properties = 
+    ///         {
+    ///             { "identities", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "subject", "CN=example.subject" },
+    ///                     { "type", "CertificateSubjectIssuer" },
+    ///                 },
+    ///             } },
+    ///         },
+    ///         ResourceGroupName = "exampleRG",
+    ///         TargetName = "Microsoft-Agent",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:chaos:Target Microsoft-Agent /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-Agent 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos:Target")]
     public partial class Target : global::Pulumi.CustomResource

@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * The variable value.
+ *
+ * ## Example Usage
+ * ### Create or update a variable value
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const variableValue = new azure_native.authorization.v20220801preview.VariableValue("variableValue", {
+ *     values: [
+ *         {
+ *             columnName: "StringColumn",
+ *             columnValue: "SampleValue",
+ *         },
+ *         {
+ *             columnName: "IntegerColumn",
+ *             columnValue: 10,
+ *         },
+ *     ],
+ *     variableName: "DemoTestVariable",
+ *     variableValueName: "TestValue",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20220801preview:VariableValue TestValue /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/variables/DemoTestVariable/values/TestValue 
+ * ```
  */
 export class VariableValue extends pulumi.CustomResource {
     /**

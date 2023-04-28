@@ -116,6 +116,33 @@ class BackupScheduleGroup(pulumi.CustomResource):
         """
         The Backup Schedule Group
 
+        ## Example Usage
+        ### BackupScheduleGroupsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_schedule_group = azure_native.storsimple.v20161001.BackupScheduleGroup("backupScheduleGroup",
+            device_name="HSDK-4XY4FI2IVG",
+            manager_name="hAzureSDKOperations",
+            resource_group_name="ResourceGroupForSDKTest",
+            schedule_group_name="BackupSchGroupForSDKTest",
+            start_time=azure_native.storsimple.v20161001.TimeArgs(
+                hour=17,
+                minute=38,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:BackupScheduleGroup BackupSchGroupForSDKTest /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/backupScheduleGroups/BackupSchGroupForSDKTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The name of the device.
@@ -132,6 +159,33 @@ class BackupScheduleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Backup Schedule Group
+
+        ## Example Usage
+        ### BackupScheduleGroupsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_schedule_group = azure_native.storsimple.v20161001.BackupScheduleGroup("backupScheduleGroup",
+            device_name="HSDK-4XY4FI2IVG",
+            manager_name="hAzureSDKOperations",
+            resource_group_name="ResourceGroupForSDKTest",
+            schedule_group_name="BackupSchGroupForSDKTest",
+            start_time=azure_native.storsimple.v20161001.TimeArgs(
+                hour=17,
+                minute=38,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:BackupScheduleGroup BackupSchGroupForSDKTest /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/backupScheduleGroups/BackupSchGroupForSDKTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackupScheduleGroupArgs args: The arguments to use to populate this resource's properties.

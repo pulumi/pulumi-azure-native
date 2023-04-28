@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.Portal.V20181001
 {
     /// <summary>
     /// Cloud shell console
+    /// 
+    /// ## Example Usage
+    /// ### PutConsole
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var consoleWithLocation = new AzureNative.Portal.V20181001.ConsoleWithLocation("consoleWithLocation", new()
+    ///     {
+    ///         ConsoleName = "default",
+    ///         Location = "eastus",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:portal/v20181001:ConsoleWithLocation myresource1 /providers/Microsoft.Portal/locations/{location}/consoles/{consoleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:portal/v20181001:ConsoleWithLocation")]
     public partial class ConsoleWithLocation : global::Pulumi.CustomResource

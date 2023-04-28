@@ -128,6 +128,31 @@ class SenderUsername(pulumi.CustomResource):
         A class representing a SenderUsername resource.
         API Version: 2023-03-01-preview.
 
+        ## Example Usage
+        ### Create or update SenderUsernames resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sender_username = azure_native.communication.SenderUsername("senderUsername",
+            display_name="Contoso News Alerts",
+            domain_name="contoso.com",
+            email_service_name="contosoEmailService",
+            resource_group_name="contosoResourceGroup",
+            sender_username="contosoNewsAlerts",
+            username="contosoNewsAlerts")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication:SenderUsername contoso.com /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/contosoResourceGroup/providers/Microsoft.Communication/EmailServices/contosoEmailService/Domains/contoso.com/senderUsernames/contosoNewsAlerts 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name for the senderUsername.
@@ -146,6 +171,31 @@ class SenderUsername(pulumi.CustomResource):
         """
         A class representing a SenderUsername resource.
         API Version: 2023-03-01-preview.
+
+        ## Example Usage
+        ### Create or update SenderUsernames resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sender_username = azure_native.communication.SenderUsername("senderUsername",
+            display_name="Contoso News Alerts",
+            domain_name="contoso.com",
+            email_service_name="contosoEmailService",
+            resource_group_name="contosoResourceGroup",
+            sender_username="contosoNewsAlerts",
+            username="contosoNewsAlerts")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication:SenderUsername contoso.com /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/contosoResourceGroup/providers/Microsoft.Communication/EmailServices/contosoEmailService/Domains/contoso.com/senderUsernames/contosoNewsAlerts 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SenderUsernameArgs args: The arguments to use to populate this resource's properties.

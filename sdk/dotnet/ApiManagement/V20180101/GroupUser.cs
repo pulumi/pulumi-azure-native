@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// User details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGroupUser
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var groupUser = new AzureNative.ApiManagement.V20180101.GroupUser("groupUser", new()
+    ///     {
+    ///         GroupId = "tempgroup",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Uid = "59307d350af58404d8a26300",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20180101:GroupUser 59307d350af58404d8a26300 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/59307d350af58404d8a26300 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:GroupUser")]
     public partial class GroupUser : global::Pulumi.CustomResource

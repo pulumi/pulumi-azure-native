@@ -11,6 +11,47 @@ import * as utilities from "../utilities";
  * Single Namespace item in List or Get Operation
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### NamespaceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespace = new azure_native.eventhub.Namespace("namespace", {
+ *     clusterArmId: "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/clusters/enc-test",
+ *     encryption: {
+ *         keySource: azure_native.eventhub.KeySource.Microsoft_KeyVault,
+ *         keyVaultProperties: [{
+ *             identity: {
+ *                 userAssignedIdentity: "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1",
+ *             },
+ *             keyName: "Samplekey",
+ *             keyVaultUri: "https://aprao-keyvault-user.vault-int.azure-int.net/",
+ *         }],
+ *     },
+ *     identity: {
+ *         type: azure_native.eventhub.ManagedServiceIdentityType.SystemAssigned_UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1": {},
+ *             "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud2": {},
+ *         },
+ *     },
+ *     location: "East US",
+ *     namespaceName: "NamespaceSample",
+ *     resourceGroupName: "ResurceGroupSample",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub:Namespace NamespaceSample /subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/namespaces/NamespaceSample 
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

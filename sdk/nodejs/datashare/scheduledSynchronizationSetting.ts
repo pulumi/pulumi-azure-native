@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * A type of synchronization setting based on schedule
  * API Version: 2021-08-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### SynchronizationSettings_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scheduledSynchronizationSetting = new azure_native.datashare.ScheduledSynchronizationSetting("scheduledSynchronizationSetting", {
+ *     accountName: "Account1",
+ *     kind: "ScheduleBased",
+ *     recurrenceInterval: "Day",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ *     synchronizationSettingName: "Dataset1",
+ *     synchronizationTime: "2018-11-14T04:47:52.9614956Z",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare:ScheduledSynchronizationSetting SynchronizationSetting1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1/synchronizationSettings/SynchronizationSetting1 
+ * ```
  */
 export class ScheduledSynchronizationSetting extends pulumi.CustomResource {
     /**

@@ -133,6 +133,116 @@ class FileServiceProperties(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PutFileServices
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_service_properties = azure_native.storage.FileServiceProperties("fileServiceProperties",
+            account_name="sto8607",
+            cors=azure_native.storage.CorsRulesArgs(
+                cors_rules=[
+                    azure_native.storage.CorsRuleArgs(
+                        allowed_headers=[
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        allowed_methods=[
+                            "GET",
+                            "HEAD",
+                            "POST",
+                            "OPTIONS",
+                            "MERGE",
+                            "PUT",
+                        ],
+                        allowed_origins=[
+                            "http://www.contoso.com",
+                            "http://www.fabrikam.com",
+                        ],
+                        exposed_headers=["x-ms-meta-*"],
+                        max_age_in_seconds=100,
+                    ),
+                    azure_native.storage.CorsRuleArgs(
+                        allowed_headers=["*"],
+                        allowed_methods=["GET"],
+                        allowed_origins=["*"],
+                        exposed_headers=["*"],
+                        max_age_in_seconds=2,
+                    ),
+                    azure_native.storage.CorsRuleArgs(
+                        allowed_headers=["x-ms-meta-12345675754564*"],
+                        allowed_methods=[
+                            "GET",
+                            "PUT",
+                        ],
+                        allowed_origins=[
+                            "http://www.abc23.com",
+                            "https://www.fabrikam.com/*",
+                        ],
+                        exposed_headers=[
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        max_age_in_seconds=2000,
+                    ),
+                ],
+            ),
+            file_services_name="default",
+            resource_group_name="res4410")
+
+        ```
+        ### PutFileServices_EnableSMBMultichannel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_service_properties = azure_native.storage.FileServiceProperties("fileServiceProperties",
+            account_name="sto8607",
+            file_services_name="default",
+            protocol_settings=azure_native.storage.ProtocolSettingsResponseArgs(
+                smb={
+                    "multichannel": azure_native.storage.MultichannelArgs(
+                        enabled=True,
+                    ),
+                },
+            ),
+            resource_group_name="res4410")
+
+        ```
+        ### PutFileServices_EnableSecureSmbFeatures
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_service_properties = azure_native.storage.FileServiceProperties("fileServiceProperties",
+            account_name="sto8607",
+            file_services_name="default",
+            protocol_settings=azure_native.storage.ProtocolSettingsResponseArgs(
+                smb=azure_native.storage.SmbSettingArgs(
+                    authentication_methods="NTLMv2;Kerberos",
+                    channel_encryption="AES-128-CCM;AES-128-GCM;AES-256-GCM",
+                    kerberos_ticket_encryption="RC4-HMAC;AES-256",
+                    versions="SMB2.1;SMB3.0;SMB3.1.1",
+                ),
+            ),
+            resource_group_name="res4410")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:FileServiceProperties default /subscriptions/{subscription-id}/resourceGroups/res4410/providers/Microsoft.Storage/storageAccounts/sto8607/fileServices/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -152,6 +262,116 @@ class FileServiceProperties(pulumi.CustomResource):
         The properties of File services in storage account.
         API Version: 2022-09-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PutFileServices
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_service_properties = azure_native.storage.FileServiceProperties("fileServiceProperties",
+            account_name="sto8607",
+            cors=azure_native.storage.CorsRulesArgs(
+                cors_rules=[
+                    azure_native.storage.CorsRuleArgs(
+                        allowed_headers=[
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        allowed_methods=[
+                            "GET",
+                            "HEAD",
+                            "POST",
+                            "OPTIONS",
+                            "MERGE",
+                            "PUT",
+                        ],
+                        allowed_origins=[
+                            "http://www.contoso.com",
+                            "http://www.fabrikam.com",
+                        ],
+                        exposed_headers=["x-ms-meta-*"],
+                        max_age_in_seconds=100,
+                    ),
+                    azure_native.storage.CorsRuleArgs(
+                        allowed_headers=["*"],
+                        allowed_methods=["GET"],
+                        allowed_origins=["*"],
+                        exposed_headers=["*"],
+                        max_age_in_seconds=2,
+                    ),
+                    azure_native.storage.CorsRuleArgs(
+                        allowed_headers=["x-ms-meta-12345675754564*"],
+                        allowed_methods=[
+                            "GET",
+                            "PUT",
+                        ],
+                        allowed_origins=[
+                            "http://www.abc23.com",
+                            "https://www.fabrikam.com/*",
+                        ],
+                        exposed_headers=[
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        max_age_in_seconds=2000,
+                    ),
+                ],
+            ),
+            file_services_name="default",
+            resource_group_name="res4410")
+
+        ```
+        ### PutFileServices_EnableSMBMultichannel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_service_properties = azure_native.storage.FileServiceProperties("fileServiceProperties",
+            account_name="sto8607",
+            file_services_name="default",
+            protocol_settings=azure_native.storage.ProtocolSettingsResponseArgs(
+                smb={
+                    "multichannel": azure_native.storage.MultichannelArgs(
+                        enabled=True,
+                    ),
+                },
+            ),
+            resource_group_name="res4410")
+
+        ```
+        ### PutFileServices_EnableSecureSmbFeatures
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_service_properties = azure_native.storage.FileServiceProperties("fileServiceProperties",
+            account_name="sto8607",
+            file_services_name="default",
+            protocol_settings=azure_native.storage.ProtocolSettingsResponseArgs(
+                smb=azure_native.storage.SmbSettingArgs(
+                    authentication_methods="NTLMv2;Kerberos",
+                    channel_encryption="AES-128-CCM;AES-128-GCM;AES-256-GCM",
+                    kerberos_ticket_encryption="RC4-HMAC;AES-256",
+                    versions="SMB2.1;SMB3.0;SMB3.1.1",
+                ),
+            ),
+            resource_group_name="res4410")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:FileServiceProperties default /subscriptions/{subscription-id}/resourceGroups/res4410/providers/Microsoft.Storage/storageAccounts/sto8607/fileServices/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FileServicePropertiesArgs args: The arguments to use to populate this resource's properties.

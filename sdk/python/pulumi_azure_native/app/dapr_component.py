@@ -219,6 +219,97 @@ class DaprComponent(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update dapr component with secret store component
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_component = azure_native.app.DaprComponent("daprComponent",
+            component_name="reddog",
+            component_type="state.azure.cosmosdb",
+            environment_name="myenvironment",
+            ignore_errors=False,
+            init_timeout="50s",
+            metadata=[
+                azure_native.app.DaprMetadataArgs(
+                    name="url",
+                    value="<COSMOS-URL>",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="database",
+                    value="itemsDB",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="collection",
+                    value="items",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="masterkey",
+                    secret_ref="masterkey",
+                ),
+            ],
+            resource_group_name="examplerg",
+            scopes=[
+                "container-app-1",
+                "container-app-2",
+            ],
+            secret_store_component="my-secret-store",
+            version="v1")
+
+        ```
+        ### Create or update dapr component with secrets
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_component = azure_native.app.DaprComponent("daprComponent",
+            component_name="reddog",
+            component_type="state.azure.cosmosdb",
+            environment_name="myenvironment",
+            ignore_errors=False,
+            init_timeout="50s",
+            metadata=[
+                azure_native.app.DaprMetadataArgs(
+                    name="url",
+                    value="<COSMOS-URL>",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="database",
+                    value="itemsDB",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="collection",
+                    value="items",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="masterkey",
+                    secret_ref="masterkey",
+                ),
+            ],
+            resource_group_name="examplerg",
+            scopes=[
+                "container-app-1",
+                "container-app-2",
+            ],
+            secrets=[azure_native.app.SecretArgs(
+                name="masterkey",
+                value="keyvalue",
+            )],
+            version="v1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:DaprComponent reddog /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/jlaw-demo1/daprcomponents/reddog 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] component_name: Name of the Dapr Component.
@@ -243,6 +334,97 @@ class DaprComponent(pulumi.CustomResource):
         Dapr Component.
         API Version: 2022-10-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update dapr component with secret store component
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_component = azure_native.app.DaprComponent("daprComponent",
+            component_name="reddog",
+            component_type="state.azure.cosmosdb",
+            environment_name="myenvironment",
+            ignore_errors=False,
+            init_timeout="50s",
+            metadata=[
+                azure_native.app.DaprMetadataArgs(
+                    name="url",
+                    value="<COSMOS-URL>",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="database",
+                    value="itemsDB",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="collection",
+                    value="items",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="masterkey",
+                    secret_ref="masterkey",
+                ),
+            ],
+            resource_group_name="examplerg",
+            scopes=[
+                "container-app-1",
+                "container-app-2",
+            ],
+            secret_store_component="my-secret-store",
+            version="v1")
+
+        ```
+        ### Create or update dapr component with secrets
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dapr_component = azure_native.app.DaprComponent("daprComponent",
+            component_name="reddog",
+            component_type="state.azure.cosmosdb",
+            environment_name="myenvironment",
+            ignore_errors=False,
+            init_timeout="50s",
+            metadata=[
+                azure_native.app.DaprMetadataArgs(
+                    name="url",
+                    value="<COSMOS-URL>",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="database",
+                    value="itemsDB",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="collection",
+                    value="items",
+                ),
+                azure_native.app.DaprMetadataArgs(
+                    name="masterkey",
+                    secret_ref="masterkey",
+                ),
+            ],
+            resource_group_name="examplerg",
+            scopes=[
+                "container-app-1",
+                "container-app-2",
+            ],
+            secrets=[azure_native.app.SecretArgs(
+                name="masterkey",
+                value="keyvalue",
+            )],
+            version="v1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:DaprComponent reddog /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/jlaw-demo1/daprcomponents/reddog 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DaprComponentArgs args: The arguments to use to populate this resource's properties.

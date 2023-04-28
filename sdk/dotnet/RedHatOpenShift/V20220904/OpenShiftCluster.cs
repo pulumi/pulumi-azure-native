@@ -11,6 +11,86 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20220904
 {
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a OpenShift cluster with the specified subscription, resource group and resource name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var openShiftCluster = new AzureNative.RedHatOpenShift.V20220904.OpenShiftCluster("openShiftCluster", new()
+    ///     {
+    ///         ApiserverProfile = new AzureNative.RedHatOpenShift.V20220904.Inputs.APIServerProfileArgs
+    ///         {
+    ///             Visibility = "Public",
+    ///         },
+    ///         ClusterProfile = new AzureNative.RedHatOpenShift.V20220904.Inputs.ClusterProfileArgs
+    ///         {
+    ///             Domain = "cluster.location.aroapp.io",
+    ///             FipsValidatedModules = "Enabled",
+    ///             PullSecret = "{\"auths\":{\"registry.connect.redhat.com\":{\"auth\":\"\"},\"registry.redhat.io\":{\"auth\":\"\"}}}",
+    ///             ResourceGroupId = "/subscriptions/subscriptionId/resourceGroups/clusterResourceGroup",
+    ///         },
+    ///         ConsoleProfile = null,
+    ///         IngressProfiles = new[]
+    ///         {
+    ///             new AzureNative.RedHatOpenShift.V20220904.Inputs.IngressProfileArgs
+    ///             {
+    ///                 Name = "default",
+    ///                 Visibility = "Public",
+    ///             },
+    ///         },
+    ///         Location = "location",
+    ///         MasterProfile = new AzureNative.RedHatOpenShift.V20220904.Inputs.MasterProfileArgs
+    ///         {
+    ///             EncryptionAtHost = "Enabled",
+    ///             SubnetId = "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/master",
+    ///             VmSize = "Standard_D8s_v3",
+    ///         },
+    ///         NetworkProfile = new AzureNative.RedHatOpenShift.V20220904.Inputs.NetworkProfileArgs
+    ///         {
+    ///             PodCidr = "10.128.0.0/14",
+    ///             ServiceCidr = "172.30.0.0/16",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup",
+    ///         ResourceName = "resourceName",
+    ///         ServicePrincipalProfile = new AzureNative.RedHatOpenShift.V20220904.Inputs.ServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientId",
+    ///             ClientSecret = "clientSecret",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///         WorkerProfiles = new[]
+    ///         {
+    ///             new AzureNative.RedHatOpenShift.V20220904.Inputs.WorkerProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 DiskSizeGB = 128,
+    ///                 Name = "worker",
+    ///                 SubnetId = "/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/worker",
+    ///                 VmSize = "Standard_D2s_v3",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:redhatopenshift/v20220904:OpenShiftCluster resourceName /subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/resourceName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift/v20220904:OpenShiftCluster")]
     public partial class OpenShiftCluster : global::Pulumi.CustomResource

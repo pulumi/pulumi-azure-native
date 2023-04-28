@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// Define the virtualMachineTemplate.
     /// API Version: 2022-07-15-preview.
     /// Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualMachineTemplate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineTemplate = new AzureNative.ConnectedVMwarevSphere.VirtualMachineTemplate("virtualMachineTemplate", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.ConnectedVMwarevSphere.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+    ///             Type = "customLocation",
+    ///         },
+    ///         Location = "East US",
+    ///         MoRefId = "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    ///         ResourceGroupName = "testrg",
+    ///         VCenterId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+    ///         VirtualMachineTemplateName = "WebFrontEndTemplate",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:connectedvmwarevsphere:VirtualMachineTemplate WebFrontEndTemplate /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualMachineTemplates/WebFrontEndTemplate 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:VirtualMachineTemplate")]
     public partial class VirtualMachineTemplate : global::Pulumi.CustomResource

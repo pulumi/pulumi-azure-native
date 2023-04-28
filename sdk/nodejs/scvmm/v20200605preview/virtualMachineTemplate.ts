@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The VirtualMachineTemplates resource definition.
+ *
+ * ## Example Usage
+ * ### CreateVirtualMachineTemplate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineTemplate = new azure_native.scvmm.v20200605preview.VirtualMachineTemplate("virtualMachineTemplate", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+ *         type: "customLocation",
+ *     },
+ *     location: "East US",
+ *     resourceGroupName: "testrg",
+ *     uuid: "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+ *     virtualMachineTemplateName: "HRVirtualMachineTemplate",
+ *     vmmServerId: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:scvmm/v20200605preview:VirtualMachineTemplate HRVirtualMachineTemplate /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachineTemplates/HRVirtualMachineTemplate 
+ * ```
  */
 export class VirtualMachineTemplate extends pulumi.CustomResource {
     /**

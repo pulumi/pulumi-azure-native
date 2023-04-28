@@ -149,6 +149,43 @@ class Grafana(pulumi.CustomResource):
         """
         The grafana resource type.
 
+        ## Example Usage
+        ### Grafana_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        grafana = azure_native.dashboard.v20220501preview.Grafana("grafana",
+            identity=azure_native.dashboard.v20220501preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            properties=azure_native.dashboard.v20220501preview.ManagedGrafanaPropertiesArgs(
+                api_key="Enabled",
+                deterministic_outbound_ip="Enabled",
+                public_network_access="Enabled",
+                zone_redundancy="Enabled",
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.dashboard.v20220501preview.ResourceSkuResponseArgs(
+                name="Standard",
+            ),
+            tags={
+                "Environment": "Dev",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dashboard/v20220501preview:Grafana myWorkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/grafana/myWorkspace 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The managed identity of the grafana resource.
@@ -167,6 +204,43 @@ class Grafana(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The grafana resource type.
+
+        ## Example Usage
+        ### Grafana_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        grafana = azure_native.dashboard.v20220501preview.Grafana("grafana",
+            identity=azure_native.dashboard.v20220501preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            properties=azure_native.dashboard.v20220501preview.ManagedGrafanaPropertiesArgs(
+                api_key="Enabled",
+                deterministic_outbound_ip="Enabled",
+                public_network_access="Enabled",
+                zone_redundancy="Enabled",
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.dashboard.v20220501preview.ResourceSkuResponseArgs(
+                name="Standard",
+            ),
+            tags={
+                "Environment": "Dev",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dashboard/v20220501preview:Grafana myWorkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/grafana/myWorkspace 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GrafanaArgs args: The arguments to use to populate this resource's properties.

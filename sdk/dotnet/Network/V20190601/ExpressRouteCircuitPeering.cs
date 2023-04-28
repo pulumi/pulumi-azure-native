@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Network.V20190601
 {
     /// <summary>
     /// Peering in an ExpressRouteCircuit resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create ExpressRouteCircuit Peerings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteCircuitPeering = new AzureNative.Network.V20190601.ExpressRouteCircuitPeering("expressRouteCircuitPeering", new()
+    ///     {
+    ///         AzureASN = 12076,
+    ///         CircuitName = "circuitName",
+    ///         PeerASN = 200,
+    ///         PeeringName = "AzurePrivatePeering",
+    ///         PrimaryPeerAddressPrefix = "192.168.16.252/30",
+    ///         ResourceGroupName = "rg1",
+    ///         SecondaryPeerAddressPrefix = "192.168.18.252/30",
+    ///         VlanId = 200,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190601:ExpressRouteCircuitPeering AzurePrivatePeering /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190601:ExpressRouteCircuitPeering")]
     public partial class ExpressRouteCircuitPeering : global::Pulumi.CustomResource

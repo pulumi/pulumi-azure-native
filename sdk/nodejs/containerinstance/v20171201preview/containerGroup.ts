@@ -10,6 +10,91 @@ import * as utilities from "../../utilities";
 /**
  * A container group.
  *
+ * ## Example Usage
+ * ### ContainerGroupsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerGroup = new azure_native.containerinstance.v20171201preview.ContainerGroup("containerGroup", {
+ *     containerGroupName: "demo1",
+ *     containers: [{
+ *         command: [],
+ *         environmentVariables: [],
+ *         image: "nginx",
+ *         name: "demo1",
+ *         ports: [{
+ *             port: 80,
+ *         }],
+ *         resources: {
+ *             requests: {
+ *                 cpu: 1,
+ *                 memoryInGB: 1.5,
+ *             },
+ *         },
+ *         volumeMounts: [
+ *             {
+ *                 mountPath: "/mnt/volume1",
+ *                 name: "volume1",
+ *                 readOnly: false,
+ *             },
+ *             {
+ *                 mountPath: "/mnt/volume2",
+ *                 name: "volume2",
+ *                 readOnly: false,
+ *             },
+ *             {
+ *                 mountPath: "/mnt/volume3",
+ *                 name: "volume3",
+ *                 readOnly: true,
+ *             },
+ *         ],
+ *     }],
+ *     imageRegistryCredentials: [],
+ *     ipAddress: {
+ *         ports: [{
+ *             port: 80,
+ *             protocol: "TCP",
+ *         }],
+ *         type: "Public",
+ *     },
+ *     location: "west us",
+ *     osType: "Linux",
+ *     resourceGroupName: "demo",
+ *     volumes: [
+ *         {
+ *             azureFile: {
+ *                 shareName: "shareName",
+ *                 storageAccountKey: "accountKey",
+ *                 storageAccountName: "accountName",
+ *             },
+ *             name: "volume1",
+ *         },
+ *         {
+ *             emptyDir: {},
+ *             name: "volume2",
+ *         },
+ *         {
+ *             name: "volume3",
+ *             secret: {
+ *                 secretKey1: "SecretValue1InBase64",
+ *                 secretKey2: "SecretValue2InBase64",
+ *             },
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerinstance/v20171201preview:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+ * ```
+ *
  * @deprecated Version 2017-12-01-preview will be removed in v2 of the provider.
  */
 export class ContainerGroup extends pulumi.CustomResource {

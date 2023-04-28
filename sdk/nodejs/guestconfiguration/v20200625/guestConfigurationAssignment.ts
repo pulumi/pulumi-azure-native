@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
+ *
+ * ## Example Usage
+ * ### Create or update guest configuration assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const guestConfigurationAssignment = new azure_native.guestconfiguration.v20200625.GuestConfigurationAssignment("guestConfigurationAssignment", {
+ *     guestConfigurationAssignmentName: "WhitelistedApplication",
+ *     location: "westcentralus",
+ *     name: "WhitelistedApplication",
+ *     properties: {
+ *         context: "Azure policy",
+ *         guestConfiguration: {
+ *             assignmentType: "ApplyAndAutoCorrect",
+ *             configurationParameter: [{
+ *                 name: "[InstalledApplication]bwhitelistedapp;Name",
+ *                 value: "NotePad,sql",
+ *             }],
+ *             contentHash: "123contenthash",
+ *             contentUri: "https://thisisfake/pacakge",
+ *             name: "WhitelistedApplication",
+ *             version: "1.*",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroupName",
+ *     vmName: "myVMName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment WhitelistedApplication /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualMachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/WhitelistedApplication 
+ * ```
  */
 export class GuestConfigurationAssignment extends pulumi.CustomResource {
     /**

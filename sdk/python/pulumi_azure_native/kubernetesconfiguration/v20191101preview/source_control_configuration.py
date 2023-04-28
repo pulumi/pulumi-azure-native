@@ -257,6 +257,41 @@ class SourceControlConfiguration(pulumi.CustomResource):
         """
         The SourceControl Configuration object.
 
+        ## Example Usage
+        ### Create Source Control Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        source_control_configuration = azure_native.kubernetesconfiguration.v20191101preview.SourceControlConfiguration("sourceControlConfiguration",
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            enable_helm_operator="true",
+            helm_operator_properties=azure_native.kubernetesconfiguration.v20191101preview.HelmOperatorPropertiesArgs(
+                chart_values="--set git.ssh.secretName=flux-git-deploy --set tillerNamespace=kube-system",
+                chart_version="0.3.0",
+            ),
+            operator_instance_name="SRSGitHubFluxOp-01",
+            operator_namespace="SRS_Namespace",
+            operator_params="--git-email=xyzgituser@users.srs.github.com",
+            operator_scope="namespace",
+            operator_type="Flux",
+            repository_url="git@github.com:k8sdeveloper425/flux-get-started",
+            resource_group_name="rg1",
+            source_control_configuration_name="SRS_GitHubConfig")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration SRS_GitHubConfig /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/SRS_GitHubConfig 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the kubernetes cluster.
@@ -281,6 +316,41 @@ class SourceControlConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The SourceControl Configuration object.
+
+        ## Example Usage
+        ### Create Source Control Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        source_control_configuration = azure_native.kubernetesconfiguration.v20191101preview.SourceControlConfiguration("sourceControlConfiguration",
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            enable_helm_operator="true",
+            helm_operator_properties=azure_native.kubernetesconfiguration.v20191101preview.HelmOperatorPropertiesArgs(
+                chart_values="--set git.ssh.secretName=flux-git-deploy --set tillerNamespace=kube-system",
+                chart_version="0.3.0",
+            ),
+            operator_instance_name="SRSGitHubFluxOp-01",
+            operator_namespace="SRS_Namespace",
+            operator_params="--git-email=xyzgituser@users.srs.github.com",
+            operator_scope="namespace",
+            operator_type="Flux",
+            repository_url="git@github.com:k8sdeveloper425/flux-get-started",
+            resource_group_name="rg1",
+            source_control_configuration_name="SRS_GitHubConfig")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesconfiguration/v20191101preview:SourceControlConfiguration SRS_GitHubConfig /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/SRS_GitHubConfig 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SourceControlConfigurationArgs args: The arguments to use to populate this resource's properties.

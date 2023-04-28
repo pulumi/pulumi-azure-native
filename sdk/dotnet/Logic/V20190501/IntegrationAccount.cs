@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Logic.V20190501
 {
     /// <summary>
     /// The integration account.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an integration account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationAccount = new AzureNative.Logic.V20190501.IntegrationAccount("integrationAccount", new()
+    ///     {
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testResourceGroup",
+    ///         Sku = new AzureNative.Logic.V20190501.Inputs.IntegrationAccountSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic/v20190501:IntegrationAccount testIntegrationAccount /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationAccount")]
     public partial class IntegrationAccount : global::Pulumi.CustomResource

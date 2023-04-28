@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a link to virtual network for a Private DNS zone.
+ *
+ * ## Example Usage
+ * ### PUT Private DNS Zone Virtual Network Link
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetworkLink = new azure_native.network.v20200601.VirtualNetworkLink("virtualNetworkLink", {
+ *     location: "Global",
+ *     privateZoneName: "privatezone1.com",
+ *     registrationEnabled: false,
+ *     resourceGroupName: "resourceGroup1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualNetwork: {
+ *         id: "/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
+ *     },
+ *     virtualNetworkLinkName: "virtualNetworkLink1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20200601:VirtualNetworkLink virtualNetworkLink1 /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com/virtualNetworkLinks/virtualNetworkLink1 
+ * ```
  */
 export class VirtualNetworkLink extends pulumi.CustomResource {
     /**

@@ -325,6 +325,188 @@ class VirtualNetwork(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create virtual network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            flow_timeout_in_minutes=10,
+            location="eastus",
+            resource_group_name="rg1",
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with Bgp Communities
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            bgp_communities=azure_native.network.VirtualNetworkBgpCommunitiesResponseArgs(
+                virtual_network_community="12076:20000",
+            ),
+            location="eastus",
+            resource_group_name="rg1",
+            subnets=[azure_native.network.SubnetArgs(
+                address_prefix="10.0.0.0/24",
+                name="test-1",
+            )],
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with delegated subnets
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="westcentralus",
+            resource_group_name="rg1",
+            subnets=[{
+                "addressPrefix": "10.0.0.0/24",
+                "delegations": [azure_native.network.DelegationArgs(
+                    name="myDelegation",
+                    service_name="Microsoft.Sql/managedInstances",
+                )],
+                "name": "test-1",
+            }],
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with encryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            encryption=azure_native.network.VirtualNetworkEncryptionResponseArgs(
+                enabled=True,
+                enforcement="AllowUnencrypted",
+            ),
+            location="eastus",
+            resource_group_name="rg1",
+            subnets=[azure_native.network.SubnetArgs(
+                address_prefix="10.0.0.0/24",
+                name="test-1",
+            )],
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with service endpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="eastus",
+            resource_group_name="vnetTest",
+            subnets=[{
+                "addressPrefix": "10.0.0.0/16",
+                "name": "test-1",
+                "serviceEndpoints": [azure_native.network.ServiceEndpointPropertiesFormatArgs(
+                    service="Microsoft.Storage",
+                )],
+            }],
+            virtual_network_name="vnet1")
+
+        ```
+        ### Create virtual network with service endpoints and service endpoint policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="eastus2euap",
+            resource_group_name="vnetTest",
+            subnets=[{
+                "addressPrefix": "10.0.0.0/16",
+                "name": "test-1",
+                "serviceEndpointPolicies": [azure_native.network.ServiceEndpointPolicyArgs(
+                    id="/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/serviceEndpointPolicies/ServiceEndpointPolicy1",
+                )],
+                "serviceEndpoints": [azure_native.network.ServiceEndpointPropertiesFormatArgs(
+                    service="Microsoft.Storage",
+                )],
+            }],
+            virtual_network_name="vnet1")
+
+        ```
+        ### Create virtual network with subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="eastus",
+            resource_group_name="rg1",
+            subnets=[azure_native.network.SubnetArgs(
+                address_prefix="10.0.0.0/24",
+                name="test-1",
+            )],
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with subnet containing address prefixes
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="eastus",
+            resource_group_name="rg1",
+            subnets=[azure_native.network.SubnetArgs(
+                address_prefixes=[
+                    "10.0.0.0/28",
+                    "10.0.1.0/28",
+                ],
+                name="test-2",
+            )],
+            virtual_network_name="test-vnet")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetwork test-vnet /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] address_space: The AddressSpace that contains an array of IP address ranges that can be used by subnets.
@@ -355,6 +537,188 @@ class VirtualNetwork(pulumi.CustomResource):
         Virtual Network resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create virtual network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            flow_timeout_in_minutes=10,
+            location="eastus",
+            resource_group_name="rg1",
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with Bgp Communities
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            bgp_communities=azure_native.network.VirtualNetworkBgpCommunitiesResponseArgs(
+                virtual_network_community="12076:20000",
+            ),
+            location="eastus",
+            resource_group_name="rg1",
+            subnets=[azure_native.network.SubnetArgs(
+                address_prefix="10.0.0.0/24",
+                name="test-1",
+            )],
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with delegated subnets
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="westcentralus",
+            resource_group_name="rg1",
+            subnets=[{
+                "addressPrefix": "10.0.0.0/24",
+                "delegations": [azure_native.network.DelegationArgs(
+                    name="myDelegation",
+                    service_name="Microsoft.Sql/managedInstances",
+                )],
+                "name": "test-1",
+            }],
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with encryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            encryption=azure_native.network.VirtualNetworkEncryptionResponseArgs(
+                enabled=True,
+                enforcement="AllowUnencrypted",
+            ),
+            location="eastus",
+            resource_group_name="rg1",
+            subnets=[azure_native.network.SubnetArgs(
+                address_prefix="10.0.0.0/24",
+                name="test-1",
+            )],
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with service endpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="eastus",
+            resource_group_name="vnetTest",
+            subnets=[{
+                "addressPrefix": "10.0.0.0/16",
+                "name": "test-1",
+                "serviceEndpoints": [azure_native.network.ServiceEndpointPropertiesFormatArgs(
+                    service="Microsoft.Storage",
+                )],
+            }],
+            virtual_network_name="vnet1")
+
+        ```
+        ### Create virtual network with service endpoints and service endpoint policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="eastus2euap",
+            resource_group_name="vnetTest",
+            subnets=[{
+                "addressPrefix": "10.0.0.0/16",
+                "name": "test-1",
+                "serviceEndpointPolicies": [azure_native.network.ServiceEndpointPolicyArgs(
+                    id="/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/serviceEndpointPolicies/ServiceEndpointPolicy1",
+                )],
+                "serviceEndpoints": [azure_native.network.ServiceEndpointPropertiesFormatArgs(
+                    service="Microsoft.Storage",
+                )],
+            }],
+            virtual_network_name="vnet1")
+
+        ```
+        ### Create virtual network with subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="eastus",
+            resource_group_name="rg1",
+            subnets=[azure_native.network.SubnetArgs(
+                address_prefix="10.0.0.0/24",
+                name="test-1",
+            )],
+            virtual_network_name="test-vnet")
+
+        ```
+        ### Create virtual network with subnet containing address prefixes
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.network.VirtualNetwork("virtualNetwork",
+            address_space=azure_native.network.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            location="eastus",
+            resource_group_name="rg1",
+            subnets=[azure_native.network.SubnetArgs(
+                address_prefixes=[
+                    "10.0.0.0/28",
+                    "10.0.1.0/28",
+                ],
+                name="test-2",
+            )],
+            virtual_network_name="test-vnet")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetwork test-vnet /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.

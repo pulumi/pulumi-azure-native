@@ -115,6 +115,45 @@ class ManagedCCF(pulumi.CustomResource):
         """
         Managed CCF. Contains the properties of Managed CCF Resource.
 
+        ## Example Usage
+        ### ManagedCCFCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_ccf = azure_native.confidentialledger.v20230126preview.ManagedCCF("managedCCF",
+            app_name="DummyMccfAppName",
+            location="EastUS",
+            properties=azure_native.confidentialledger.v20230126preview.ManagedCCFPropertiesResponseArgs(
+                deployment_type=azure_native.confidentialledger.v20230126preview.DeploymentTypeArgs(
+                    app_source_uri="https://myaccount.blob.core.windows.net/storage/mccfsource?sv=2022-02-11%st=2022-03-11",
+                    language_runtime="CPP",
+                ),
+                member_identity_certificates=[{
+                    "certificate": "-----BEGIN CERTIFICATE-----MIIBsjCCATigAwIBAgIUZWIbyG79TniQLd2UxJuU74tqrKcwCgYIKoZIzj0EAwMwEDEOMAwGA1UEAwwFdXNlcjAwHhcNMjEwMzE2MTgwNjExWhcNMjIwMzE2MTgwNjExWjAQMQ4wDAYDVQQDDAV1c2VyMDB2MBAGByqGSM49AgEGBSuBBAAiA2IABBiWSo/j8EFit7aUMm5lF+lUmCu+IgfnpFD+7QMgLKtxRJ3aGSqgS/GpqcYVGddnODtSarNE/HyGKUFUolLPQ5ybHcouUk0kyfA7XMeSoUA4lBz63Wha8wmXo+NdBRo39qNTMFEwHQYDVR0OBBYEFPtuhrwgGjDFHeUUT4nGsXaZn69KMB8GA1UdIwQYMBaAFPtuhrwgGjDFHeUUT4nGsXaZn69KMA8GA1UdEwEB/wQFMAMBAf8wCgYIKoZIzj0EAwMDaAAwZQIxAOnozm2CyqRwSSQLls5r+mUHRGRyXHXwYtM4Dcst/VEZdmS9fqvHRCHbjUlO/+HNfgIwMWZ4FmsjD3wnPxONOm9YdVn/PRD7SsPRPbOjwBiE4EBGaHDsLjYAGDSGi7NJnSkA-----END CERTIFICATE-----",
+                    "encryptionkey": "ledgerencryptionkey",
+                    "tags": {
+                        "additionalProps1": "additional properties",
+                    },
+                }],
+                node_count=5,
+            ),
+            resource_group_name="DummyResourceGroupName",
+            tags={
+                "additionalProps1": "additional properties",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confidentialledger/v20230126preview:ManagedCCF DummyLedgerName /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.ConfidentialLedger/ledgers/DummyLedgerName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: Name of the Managed CCF
@@ -131,6 +170,45 @@ class ManagedCCF(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed CCF. Contains the properties of Managed CCF Resource.
+
+        ## Example Usage
+        ### ManagedCCFCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_ccf = azure_native.confidentialledger.v20230126preview.ManagedCCF("managedCCF",
+            app_name="DummyMccfAppName",
+            location="EastUS",
+            properties=azure_native.confidentialledger.v20230126preview.ManagedCCFPropertiesResponseArgs(
+                deployment_type=azure_native.confidentialledger.v20230126preview.DeploymentTypeArgs(
+                    app_source_uri="https://myaccount.blob.core.windows.net/storage/mccfsource?sv=2022-02-11%st=2022-03-11",
+                    language_runtime="CPP",
+                ),
+                member_identity_certificates=[{
+                    "certificate": "-----BEGIN CERTIFICATE-----MIIBsjCCATigAwIBAgIUZWIbyG79TniQLd2UxJuU74tqrKcwCgYIKoZIzj0EAwMwEDEOMAwGA1UEAwwFdXNlcjAwHhcNMjEwMzE2MTgwNjExWhcNMjIwMzE2MTgwNjExWjAQMQ4wDAYDVQQDDAV1c2VyMDB2MBAGByqGSM49AgEGBSuBBAAiA2IABBiWSo/j8EFit7aUMm5lF+lUmCu+IgfnpFD+7QMgLKtxRJ3aGSqgS/GpqcYVGddnODtSarNE/HyGKUFUolLPQ5ybHcouUk0kyfA7XMeSoUA4lBz63Wha8wmXo+NdBRo39qNTMFEwHQYDVR0OBBYEFPtuhrwgGjDFHeUUT4nGsXaZn69KMB8GA1UdIwQYMBaAFPtuhrwgGjDFHeUUT4nGsXaZn69KMA8GA1UdEwEB/wQFMAMBAf8wCgYIKoZIzj0EAwMDaAAwZQIxAOnozm2CyqRwSSQLls5r+mUHRGRyXHXwYtM4Dcst/VEZdmS9fqvHRCHbjUlO/+HNfgIwMWZ4FmsjD3wnPxONOm9YdVn/PRD7SsPRPbOjwBiE4EBGaHDsLjYAGDSGi7NJnSkA-----END CERTIFICATE-----",
+                    "encryptionkey": "ledgerencryptionkey",
+                    "tags": {
+                        "additionalProps1": "additional properties",
+                    },
+                }],
+                node_count=5,
+            ),
+            resource_group_name="DummyResourceGroupName",
+            tags={
+                "additionalProps1": "additional properties",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confidentialledger/v20230126preview:ManagedCCF DummyLedgerName /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.ConfidentialLedger/ledgers/DummyLedgerName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedCCFArgs args: The arguments to use to populate this resource's properties.

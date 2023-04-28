@@ -165,6 +165,32 @@ class Service(pulumi.CustomResource):
         API Version: 2019-06-01.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Service_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.windowsiot.Service("service",
+            admin_domain_name="d.e.f",
+            billing_domain_name="a.b.c",
+            device_name="service4445",
+            location="East US",
+            notes="blah",
+            quantity=1000000,
+            resource_group_name="res9101")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:windowsiot:Service myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsIoT/deviceServices/{deviceName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_domain_name: Windows IoT Device Service OEM AAD domain
@@ -186,6 +212,32 @@ class Service(pulumi.CustomResource):
         The description of the Windows IoT Device Service.
         API Version: 2019-06-01.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Service_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.windowsiot.Service("service",
+            admin_domain_name="d.e.f",
+            billing_domain_name="a.b.c",
+            device_name="service4445",
+            location="East US",
+            notes="blah",
+            quantity=1000000,
+            resource_group_name="res9101")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:windowsiot:Service myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsIoT/deviceServices/{deviceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

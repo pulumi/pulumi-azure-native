@@ -161,6 +161,32 @@ class StaticSiteDatabaseConnection(pulumi.CustomResource):
         """
         Static Site Database Connection resource.
 
+        ## Example Usage
+        ### Create or update a database connection for a static site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site_database_connection = azure_native.web.v20220901.StaticSiteDatabaseConnection("staticSiteDatabaseConnection",
+            connection_identity="SystemAssigned",
+            connection_string="AccountEndpoint=https://exampleDatabaseName.documents.azure.com:443/;Database=mydb;",
+            database_connection_name="default",
+            name="testStaticSite0",
+            region="West US 2",
+            resource_group_name="rg",
+            resource_id="/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/databaseRG/providers/Microsoft.DocumentDB/databaseAccounts/exampleDatabaseName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:StaticSiteDatabaseConnection default /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/databaseConnections/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_identity: If present, the identity is used in conjunction with connection string to connect to the database. Use of the system-assigned managed identity is indicated with the string 'SystemAssigned', while use of a user-assigned managed identity is indicated with the resource id of the managed identity resource.
@@ -180,6 +206,32 @@ class StaticSiteDatabaseConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Static Site Database Connection resource.
+
+        ## Example Usage
+        ### Create or update a database connection for a static site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site_database_connection = azure_native.web.v20220901.StaticSiteDatabaseConnection("staticSiteDatabaseConnection",
+            connection_identity="SystemAssigned",
+            connection_string="AccountEndpoint=https://exampleDatabaseName.documents.azure.com:443/;Database=mydb;",
+            database_connection_name="default",
+            name="testStaticSite0",
+            region="West US 2",
+            resource_group_name="rg",
+            resource_id="/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/databaseRG/providers/Microsoft.DocumentDB/databaseAccounts/exampleDatabaseName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:StaticSiteDatabaseConnection default /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/databaseConnections/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StaticSiteDatabaseConnectionArgs args: The arguments to use to populate this resource's properties.

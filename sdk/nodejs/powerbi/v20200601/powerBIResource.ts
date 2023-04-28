@@ -7,6 +7,35 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Creates or updates private link service resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const powerBIResource = new azure_native.powerbi.v20200601.PowerBIResource("powerBIResource", {
+ *     azureResourceName: "azureResourceName",
+ *     location: "global",
+ *     resourceGroupName: "resourceGroup",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     tenantId: "ac2bc297-8a3e-46f3-972d-87c2b4ae6e2f",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:powerbi/v20200601:PowerBIResource myPrivateLinkServiceResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/{azureResourceName} 
+ * ```
+ */
 export class PowerBIResource extends pulumi.CustomResource {
     /**
      * Get an existing PowerBIResource resource's state with the given name, ID, and optional extra

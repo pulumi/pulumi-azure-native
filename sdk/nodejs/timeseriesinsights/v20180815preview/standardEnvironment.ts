@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Standard environments have data retention limits.
+ *
+ * ## Example Usage
+ * ### EnvironmentsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const standardEnvironment = new azure_native.timeseriesinsights.v20180815preview.StandardEnvironment("standardEnvironment", {
+ *     dataRetentionTime: "P31D",
+ *     environmentName: "env1",
+ *     kind: "Standard",
+ *     location: "West US",
+ *     partitionKeyProperties: [{
+ *         name: "DeviceId1",
+ *         type: "String",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:timeseriesinsights/v20180815preview:StandardEnvironment env1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1 
+ * ```
  */
 export class StandardEnvironment extends pulumi.CustomResource {
     /**

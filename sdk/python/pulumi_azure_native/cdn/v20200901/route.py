@@ -305,6 +305,55 @@ class Route(pulumi.CustomResource):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
 
+        ## Example Usage
+        ### Routes_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route = azure_native.cdn.v20200901.Route("route",
+            compression_settings=azure_native.cdn.v20200901.CompressionSettingsArgs(
+                content_types_to_compress=[
+                    "text/html",
+                    "application/octet-stream",
+                ],
+                is_compression_enabled=True,
+            ),
+            custom_domains=[azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/domain1",
+            )],
+            enabled_state="Enabled",
+            endpoint_name="endpoint1",
+            forwarding_protocol="MatchRequest",
+            https_redirect="Enabled",
+            link_to_default_domain="Enabled",
+            origin_group=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1",
+            ),
+            patterns_to_match=["/*"],
+            profile_name="profile1",
+            query_string_caching_behavior=azure_native.cdn/v20200901.AfdQueryStringCachingBehavior.IGNORE_QUERY_STRING,
+            resource_group_name="RG",
+            route_name="route1",
+            rule_sets=[azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1",
+            )],
+            supported_protocols=[
+                "Https",
+                "Http",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Route route1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afdendpoints/endpoint1/routes/route1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CompressionSettingsArgs']] compression_settings: compression settings.
@@ -332,6 +381,55 @@ class Route(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
+
+        ## Example Usage
+        ### Routes_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route = azure_native.cdn.v20200901.Route("route",
+            compression_settings=azure_native.cdn.v20200901.CompressionSettingsArgs(
+                content_types_to_compress=[
+                    "text/html",
+                    "application/octet-stream",
+                ],
+                is_compression_enabled=True,
+            ),
+            custom_domains=[azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/domain1",
+            )],
+            enabled_state="Enabled",
+            endpoint_name="endpoint1",
+            forwarding_protocol="MatchRequest",
+            https_redirect="Enabled",
+            link_to_default_domain="Enabled",
+            origin_group=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1",
+            ),
+            patterns_to_match=["/*"],
+            profile_name="profile1",
+            query_string_caching_behavior=azure_native.cdn/v20200901.AfdQueryStringCachingBehavior.IGNORE_QUERY_STRING,
+            resource_group_name="RG",
+            route_name="route1",
+            rule_sets=[azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1",
+            )],
+            supported_protocols=[
+                "Https",
+                "Http",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Route route1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afdendpoints/endpoint1/routes/route1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

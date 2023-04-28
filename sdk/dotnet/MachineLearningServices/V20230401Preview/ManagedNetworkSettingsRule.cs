@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Outbound Rule Basic Resource for the managed network of a machine learning workspace.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate ManagedNetworkSettingsRule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedNetworkSettingsRule = new AzureNative.MachineLearningServices.V20230401Preview.ManagedNetworkSettingsRule("managedNetworkSettingsRule", new()
+    ///     {
+    ///         Properties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.FqdnOutboundRuleArgs
+    ///         {
+    ///             Category = "UserDefined",
+    ///             Destination = "some_string",
+    ///             Status = "Active",
+    ///             Type = "FQDN",
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         RuleName = "some_string",
+    ///         WorkspaceName = "aml-workspace-name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule some_string some_string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule")]
     public partial class ManagedNetworkSettingsRule : global::Pulumi.CustomResource

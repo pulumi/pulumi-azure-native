@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
 {
     /// <summary>
     /// Monitoring Setting resource
+    /// 
+    /// ## Example Usage
+    /// ### MonitoringSettings_UpdatePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitoringSetting = new AzureNative.AppPlatform.V20230101Preview.MonitoringSetting("monitoringSetting", new()
+    ///     {
+    ///         Properties = new AzureNative.AppPlatform.V20230101Preview.Inputs.MonitoringSettingPropertiesArgs
+    ///         {
+    ///             AppInsightsInstrumentationKey = "00000000-0000-0000-0000-000000000000",
+    ///             AppInsightsSamplingRate = 10,
+    ///             TraceEnabled = true,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230101preview:MonitoringSetting default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/monitoringSettings/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230101preview:MonitoringSetting")]
     public partial class MonitoringSetting : global::Pulumi.CustomResource

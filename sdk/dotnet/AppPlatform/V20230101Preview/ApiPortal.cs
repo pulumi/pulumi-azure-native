@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
 {
     /// <summary>
     /// API portal resource
+    /// 
+    /// ## Example Usage
+    /// ### ApiPortals_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiPortal = new AzureNative.AppPlatform.V20230101Preview.ApiPortal("apiPortal", new()
+    ///     {
+    ///         ApiPortalName = "default",
+    ///         Properties = new AzureNative.AppPlatform.V20230101Preview.Inputs.ApiPortalPropertiesArgs
+    ///         {
+    ///             GatewayIds = new[]
+    ///             {
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default",
+    ///             },
+    ///             Public = true,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.V20230101Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "E0",
+    ///             Tier = "Enterprise",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230101preview:ApiPortal default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apiPortals/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230101preview:ApiPortal")]
     public partial class ApiPortal : global::Pulumi.CustomResource

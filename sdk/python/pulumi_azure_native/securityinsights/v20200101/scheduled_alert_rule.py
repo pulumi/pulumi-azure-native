@@ -307,6 +307,68 @@ class ScheduledAlertRule(pulumi.CustomResource):
         """
         Represents scheduled alert rule.
 
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20200101.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20200101.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20200101.ScheduledAlertRule("scheduledAlertRule",
+            description="",
+            display_name="Rule2",
+            enabled=True,
+            kind="Scheduled",
+            query="ProtectionStatus | extend HostCustomEntity = Computer | extend IPCustomEntity = ComputerIP_Hidden",
+            query_frequency="PT1H",
+            query_period="P2DT1H30M",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            severity="High",
+            suppression_duration="PT1H",
+            suppression_enabled=False,
+            tactics=[
+                "Persistence",
+                "LateralMovement",
+            ],
+            trigger_operator=azure_native.securityinsights/v20200101.TriggerOperator.GREATER_THAN,
+            trigger_threshold=0,
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20200101:ScheduledAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
@@ -336,6 +398,68 @@ class ScheduledAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents scheduled alert rule.
+
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20200101.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20200101.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20200101.ScheduledAlertRule("scheduledAlertRule",
+            description="",
+            display_name="Rule2",
+            enabled=True,
+            kind="Scheduled",
+            query="ProtectionStatus | extend HostCustomEntity = Computer | extend IPCustomEntity = ComputerIP_Hidden",
+            query_frequency="PT1H",
+            query_period="P2DT1H30M",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            severity="High",
+            suppression_duration="PT1H",
+            suppression_enabled=False,
+            tactics=[
+                "Persistence",
+                "LateralMovement",
+            ],
+            trigger_operator=azure_native.securityinsights/v20200101.TriggerOperator.GREATER_THAN,
+            trigger_threshold=0,
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20200101:ScheduledAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduledAlertRuleArgs args: The arguments to use to populate this resource's properties.

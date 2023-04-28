@@ -9,6 +9,103 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### CreateOrUpdate Batch Deployment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var batchDeployment = new AzureNative.MachineLearningServices.V20220201Preview.BatchDeployment("batchDeployment", new()
+    ///     {
+    ///         BatchDeploymentDetails = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.BatchDeploymentArgs
+    ///         {
+    ///             CodeConfiguration = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.CodeConfigurationArgs
+    ///             {
+    ///                 CodeId = "string",
+    ///                 ScoringScript = "string",
+    ///             },
+    ///             Compute = "string",
+    ///             Description = "string",
+    ///             EnvironmentId = "string",
+    ///             EnvironmentVariables = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             ErrorThreshold = 1,
+    ///             LoggingLevel = "Info",
+    ///             MaxConcurrencyPerInstance = 1,
+    ///             MiniBatchSize = 1,
+    ///             Model = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.IdAssetReferenceArgs
+    ///             {
+    ///                 AssetId = "string",
+    ///                 ReferenceType = "Id",
+    ///             },
+    ///             OutputAction = "SummaryOnly",
+    ///             OutputFileName = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Resources = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.ResourceConfigurationArgs
+    ///             {
+    ///                 InstanceCount = 1,
+    ///                 InstanceType = "string",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "string", 
+    ///                     {
+    ///                         { "cd3c37dc-2876-4ca4-8a54-21bd7619724a", null },
+    ///                     } },
+    ///                 },
+    ///             },
+    ///             RetrySettings = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.BatchRetrySettingsArgs
+    ///             {
+    ///                 MaxRetries = 1,
+    ///                 Timeout = "PT5M",
+    ///             },
+    ///         },
+    ///         DeploymentName = "testDeploymentName",
+    ///         EndpointName = "testEndpointName",
+    ///         Identity = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "string", null },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Sku = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "string",
+    ///             Name = "string",
+    ///             Size = "string",
+    ///             Tier = AzureNative.MachineLearningServices.V20220201Preview.SkuTier.Free,
+    ///         },
+    ///         Tags = null,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20220201preview:BatchDeployment string string 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:BatchDeployment")]
     public partial class BatchDeployment : global::Pulumi.CustomResource
     {

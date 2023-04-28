@@ -97,6 +97,36 @@ class CommitmentPlan(pulumi.CustomResource):
         """
         Cognitive Services account commitment plan.
 
+        ## Example Usage
+        ### PutCommitmentPlan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        commitment_plan = azure_native.cognitiveservices.v20211001.CommitmentPlan("commitmentPlan",
+            account_name="accountName",
+            commitment_plan_name="commitmentPlanName",
+            properties=azure_native.cognitiveservices.v20211001.CommitmentPlanPropertiesResponseArgs(
+                auto_renew=True,
+                current=azure_native.cognitiveservices.v20211001.CommitmentPeriodArgs(
+                    tier="T1",
+                ),
+                hosting_model="Web",
+                plan_type="Speech2Text",
+            ),
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices/v20211001:CommitmentPlan commitmentPlanName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName/commitmentPlans/commitmentPlanName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
@@ -112,6 +142,36 @@ class CommitmentPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services account commitment plan.
+
+        ## Example Usage
+        ### PutCommitmentPlan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        commitment_plan = azure_native.cognitiveservices.v20211001.CommitmentPlan("commitmentPlan",
+            account_name="accountName",
+            commitment_plan_name="commitmentPlanName",
+            properties=azure_native.cognitiveservices.v20211001.CommitmentPlanPropertiesResponseArgs(
+                auto_renew=True,
+                current=azure_native.cognitiveservices.v20211001.CommitmentPeriodArgs(
+                    tier="T1",
+                ),
+                hosting_model="Web",
+                plan_type="Speech2Text",
+            ),
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices/v20211001:CommitmentPlan commitmentPlanName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName/commitmentPlans/commitmentPlanName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CommitmentPlanArgs args: The arguments to use to populate this resource's properties.

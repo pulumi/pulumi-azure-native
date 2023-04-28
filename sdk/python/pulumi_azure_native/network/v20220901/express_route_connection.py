@@ -231,6 +231,63 @@ class ExpressRouteConnection(pulumi.CustomResource):
         """
         ExpressRouteConnection resource.
 
+        ## Example Usage
+        ### ExpressRouteConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_connection = azure_native.network.v20220901.ExpressRouteConnection("expressRouteConnection",
+            authorization_key="authorizationKey",
+            connection_name="connectionName",
+            express_route_circuit_peering=azure_native.network.v20220901.ExpressRouteCircuitPeeringIdArgs(
+                id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+            ),
+            express_route_gateway_name="gateway-2",
+            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName",
+            name="connectionName",
+            resource_group_name="resourceGroupName",
+            routing_configuration=azure_native.network.v20220901.RoutingConfigurationResponseArgs(
+                associated_route_table=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+                ),
+                inbound_route_map=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+                ),
+                outbound_route_map=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+                ),
+                propagated_route_tables={
+                    "ids": [
+                        azure_native.network.v20220901.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+                        ),
+                        azure_native.network.v20220901.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable2",
+                        ),
+                        azure_native.network.v20220901.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
+                        ),
+                    ],
+                    "labels": [
+                        "label1",
+                        "label2",
+                    ],
+                },
+            ),
+            routing_weight=2)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:ExpressRouteConnection connectionName /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: Authorization key to establish the connection.
@@ -254,6 +311,63 @@ class ExpressRouteConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRouteConnection resource.
+
+        ## Example Usage
+        ### ExpressRouteConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_connection = azure_native.network.v20220901.ExpressRouteConnection("expressRouteConnection",
+            authorization_key="authorizationKey",
+            connection_name="connectionName",
+            express_route_circuit_peering=azure_native.network.v20220901.ExpressRouteCircuitPeeringIdArgs(
+                id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+            ),
+            express_route_gateway_name="gateway-2",
+            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName",
+            name="connectionName",
+            resource_group_name="resourceGroupName",
+            routing_configuration=azure_native.network.v20220901.RoutingConfigurationResponseArgs(
+                associated_route_table=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+                ),
+                inbound_route_map=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+                ),
+                outbound_route_map=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+                ),
+                propagated_route_tables={
+                    "ids": [
+                        azure_native.network.v20220901.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+                        ),
+                        azure_native.network.v20220901.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable2",
+                        ),
+                        azure_native.network.v20220901.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
+                        ),
+                    ],
+                    "labels": [
+                        "label1",
+                        "label2",
+                    ],
+                },
+            ),
+            routing_weight=2)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:ExpressRouteConnection connectionName /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteConnectionInitArgs args: The arguments to use to populate this resource's properties.

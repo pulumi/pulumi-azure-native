@@ -11,6 +11,45 @@ import * as utilities from "../utilities";
  * An Azure Arc PrivateLinkScope definition.
  * API Version: 2022-11-10.
  * Previous API Version: 2021-03-25-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PrivateLinkScopeCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateLinkScope = new azure_native.hybridcompute.PrivateLinkScope("privateLinkScope", {
+ *     location: "westus",
+ *     resourceGroupName: "my-resource-group",
+ *     scopeName: "my-privatelinkscope",
+ * });
+ *
+ * ```
+ * ### PrivateLinkScopeUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateLinkScope = new azure_native.hybridcompute.PrivateLinkScope("privateLinkScope", {
+ *     location: "westus",
+ *     resourceGroupName: "my-resource-group",
+ *     scopeName: "my-privatelinkscope",
+ *     tags: {
+ *         Tag1: "Value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcompute:PrivateLinkScope my-privatelinkscope /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4919/resourceGroups/my-resource-group/providers/microsoft.hybridCompute/privateLinkScopes/my-privatelinkscope 
+ * ```
  */
 export class PrivateLinkScope extends pulumi.CustomResource {
     /**

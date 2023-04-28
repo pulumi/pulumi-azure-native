@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.Subscription
     /// Subscription Information with the alias.
     /// API Version: 2021-10-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateAlias
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @alias = new AzureNative.Subscription.Alias("alias", new()
+    ///     {
+    ///         AliasName = "aliasForNewSub",
+    ///         Properties = new AzureNative.Subscription.Inputs.PutAliasRequestPropertiesArgs
+    ///         {
+    ///             AdditionalProperties = new AzureNative.Subscription.Inputs.PutAliasRequestAdditionalPropertiesArgs
+    ///             {
+    ///                 SubscriptionOwnerId = "f09b39eb-c496-482c-9ab9-afd799572f4c",
+    ///                 SubscriptionTenantId = "66f6e4d6-07dc-4aea-94ea-e12d3026a3c8",
+    ///                 Tags = 
+    ///                 {
+    ///                     { "tag1", "Messi" },
+    ///                     { "tag2", "Ronaldo" },
+    ///                     { "tag3", "Lebron" },
+    ///                 },
+    ///             },
+    ///             BillingScope = "/billingAccounts/af6231a7-7f8d-4fcc-a993-dd8466108d07:c663dac6-a9a5-405a-8938-cd903e12ab5b_2019_05_31/billingProfiles/QWDQ-QWHI-AUW-SJDO-DJH/invoiceSections/FEUF-EUHE-ISJ-SKDW-DJH",
+    ///             DisplayName = "Test Subscription",
+    ///             Workload = "Production",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:subscription:Alias string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:subscription:Alias")]
     public partial class Alias : global::Pulumi.CustomResource

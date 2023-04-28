@@ -165,6 +165,37 @@ class Schedule(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### putSchedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.labservices.Schedule("schedule",
+            lab_name="testlab",
+            notes="Schedule 1 for students",
+            recurrence_pattern=azure_native.labservices.RecurrencePatternResponseArgs(
+                expiration_date="2020-08-14T23:59:59Z",
+                frequency=azure_native.labservices.RecurrenceFrequency.DAILY,
+                interval=2,
+            ),
+            resource_group_name="testrg123",
+            schedule_name="schedule1",
+            start_at="2020-05-26T12:00:00Z",
+            stop_at="2020-05-26T18:00:00Z",
+            time_zone_id="America/Los_Angeles")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices:Schedule schedule1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labs/testlab/schedules/schedule1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lab_name: The name of the lab that uniquely identifies it within containing lab plan. Used in resource URIs.
@@ -186,6 +217,37 @@ class Schedule(pulumi.CustomResource):
         Schedule for automatically turning virtual machines in a lab on and off at specified times.
         API Version: 2022-08-01.
         Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### putSchedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.labservices.Schedule("schedule",
+            lab_name="testlab",
+            notes="Schedule 1 for students",
+            recurrence_pattern=azure_native.labservices.RecurrencePatternResponseArgs(
+                expiration_date="2020-08-14T23:59:59Z",
+                frequency=azure_native.labservices.RecurrenceFrequency.DAILY,
+                interval=2,
+            ),
+            resource_group_name="testrg123",
+            schedule_name="schedule1",
+            start_at="2020-05-26T12:00:00Z",
+            stop_at="2020-05-26T18:00:00Z",
+            time_zone_id="America/Los_Angeles")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices:Schedule schedule1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labs/testlab/schedules/schedule1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

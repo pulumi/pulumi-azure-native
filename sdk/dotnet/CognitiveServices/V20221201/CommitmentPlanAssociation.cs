@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.CognitiveServices.V20221201
 {
     /// <summary>
     /// The commitment plan association.
+    /// 
+    /// ## Example Usage
+    /// ### PutCommitmentPlan
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var commitmentPlanAssociation = new AzureNative.CognitiveServices.V20221201.CommitmentPlanAssociation("commitmentPlanAssociation", new()
+    ///     {
+    ///         AccountId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName",
+    ///         CommitmentPlanAssociationName = "commitmentPlanAssociationName",
+    ///         CommitmentPlanName = "commitmentPlanName",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation commitmentPlanAssociationName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/commitmentPlans/commitmentPlanName/accountAssociations/commitmentPlanAssociationName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices/v20221201:CommitmentPlanAssociation")]
     public partial class CommitmentPlanAssociation : global::Pulumi.CustomResource

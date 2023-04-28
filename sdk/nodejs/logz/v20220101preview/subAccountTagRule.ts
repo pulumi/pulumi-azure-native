@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Capture logs and metrics of Azure resources based on ARM tags.
+ *
+ * ## Example Usage
+ * ### SubAccountTagRules_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subAccountTagRule = new azure_native.logz.v20220101preview.SubAccountTagRule("subAccountTagRule", {
+ *     monitorName: "myMonitor",
+ *     resourceGroupName: "myResourceGroup",
+ *     ruleSetName: "default",
+ *     subAccountName: "SubAccount1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logz/v20220101preview:SubAccountTagRule default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Logz/monitors/myMonitor/accounts/SubAccount1/tagRules/default 
+ * ```
  */
 export class SubAccountTagRule extends pulumi.CustomResource {
     /**

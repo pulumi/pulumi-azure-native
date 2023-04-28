@@ -63,6 +63,27 @@ class SupportPlanType(pulumi.CustomResource):
         API Version: 2018-03-01.
         Previous API Version: 2018-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SupportPlanTypes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        support_plan_type = azure_native.addons.SupportPlanType("supportPlanType",
+            plan_type_name="Standard",
+            provider_name="Canonical")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:addons:SupportPlanType Standard subscriptions/d18d258f-bdba-4de1-8b51-e79d6c181d5e/providers/Microsoft.Addons/supportProviders/canonical/supportPlanTypes/Standard 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] plan_type_name: The Canonical support plan type.
@@ -78,6 +99,27 @@ class SupportPlanType(pulumi.CustomResource):
         The status of the Canonical support plan.
         API Version: 2018-03-01.
         Previous API Version: 2018-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SupportPlanTypes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        support_plan_type = azure_native.addons.SupportPlanType("supportPlanType",
+            plan_type_name="Standard",
+            provider_name="Canonical")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:addons:SupportPlanType Standard subscriptions/d18d258f-bdba-4de1-8b51-e79d6c181d5e/providers/Microsoft.Addons/supportProviders/canonical/supportPlanTypes/Standard 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SupportPlanTypeArgs args: The arguments to use to populate this resource's properties.

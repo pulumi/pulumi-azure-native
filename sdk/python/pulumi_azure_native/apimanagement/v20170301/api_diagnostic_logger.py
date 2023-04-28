@@ -110,6 +110,30 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
         """
         Logger details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiDiagnosticLogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_diagnostic_logger = azure_native.apimanagement.v20170301.ApiDiagnosticLogger("apiDiagnosticLogger",
+            api_id="57d1f7558aa04f15146d9d8a",
+            diagnostic_id="default",
+            loggerid="applicationinsights",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:ApiDiagnosticLogger applicationinsights /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/diagnostics/default/loggers/applicationinsights 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
@@ -126,6 +150,30 @@ class ApiDiagnosticLogger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Logger details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiDiagnosticLogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_diagnostic_logger = azure_native.apimanagement.v20170301.ApiDiagnosticLogger("apiDiagnosticLogger",
+            api_id="57d1f7558aa04f15146d9d8a",
+            diagnostic_id="default",
+            loggerid="applicationinsights",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:ApiDiagnosticLogger applicationinsights /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/diagnostics/default/loggers/applicationinsights 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiDiagnosticLoggerArgs args: The arguments to use to populate this resource's properties.

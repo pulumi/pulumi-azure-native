@@ -11,6 +11,44 @@ import * as utilities from "../utilities";
  * SSL certificate purchase order.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Certificate order
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const appServiceCertificateOrder = new azure_native.certificateregistration.AppServiceCertificateOrder("appServiceCertificateOrder", {
+ *     autoRenew: true,
+ *     certificateOrderName: "SampleCertificateOrderName",
+ *     certificates: {
+ *         SampleCertName1: {
+ *             keyVaultId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+ *             keyVaultSecretName: "SampleSecretName1",
+ *         },
+ *         SampleCertName2: {
+ *             keyVaultId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+ *             keyVaultSecretName: "SampleSecretName2",
+ *         },
+ *     },
+ *     distinguishedName: "CN=SampleCustomDomain.com",
+ *     keySize: 2048,
+ *     location: "Global",
+ *     productType: azure_native.certificateregistration.CertificateProductType.StandardDomainValidatedSsl,
+ *     resourceGroupName: "testrg123",
+ *     validityInYears: 2,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:certificateregistration:AppServiceCertificateOrder SampleCertificateOrderName /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.CertificateRegistration/certificateOrders/SampleCertificateOrderName 
+ * ```
  */
 export class AppServiceCertificateOrder extends pulumi.CustomResource {
     /**

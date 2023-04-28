@@ -9,6 +9,63 @@ import * as utilities from "../../utilities";
 
 /**
  * An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+ *
+ * ## Example Usage
+ * ### amlFilesystems_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const amlFilesystem = new azure_native.storagecache.v20230301preview.AmlFilesystem("amlFilesystem", {
+ *     amlFilesystemName: "fs1",
+ *     encryptionSettings: {
+ *         keyEncryptionKey: {
+ *             keyUrl: "https://examplekv.vault.azure.net/keys/kvk/3540a47df75541378d3518c6a4bdf5af",
+ *             sourceVault: {
+ *                 id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+ *             },
+ *         },
+ *     },
+ *     filesystemSubnet: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/fsSub",
+ *     hsm: {
+ *         settings: {
+ *             container: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/storageaccountname/blobServices/default/containers/containername",
+ *             importPrefix: "/",
+ *             loggingContainer: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/storageaccountname/blobServices/default/containers/loggingcontainername",
+ *         },
+ *     },
+ *     identity: {
+ *         type: azure_native.storagecache.v20230301preview.AmlFilesystemIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     maintenanceWindow: {
+ *         dayOfWeek: azure_native.storagecache.v20230301preview.MaintenanceDayOfWeekType.Friday,
+ *         timeOfDayUTC: "22:00",
+ *     },
+ *     resourceGroupName: "scgroup",
+ *     sku: {
+ *         name: "AMLFS-Durable-Premium-250",
+ *     },
+ *     storageCapacityTiB: 16,
+ *     tags: {
+ *         Dept: "ContosoAds",
+ *     },
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagecache/v20230301preview:amlFilesystem fs1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/amlFilesystems/fs1 
+ * ```
  */
 export class AmlFilesystem extends pulumi.CustomResource {
     /**

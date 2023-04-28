@@ -10,6 +10,39 @@ import * as utilities from "../../utilities";
 /**
  * The storage account credential
  *
+ * ## Example Usage
+ * ### StorageAccountCredentialsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccountCredential = new azure_native.storsimple.v20161001.StorageAccountCredential("storageAccountCredential", {
+ *     accessKey: {
+ *         encryptionAlgorithm: azure_native.storsimple.v20161001.EncryptionAlgorithm.RSAES_PKCS1_v_1_5,
+ *         encryptionCertificateThumbprint: "D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+ *         value: "Ev1tm0QBmpGGm4a58GkqLqx8veJEEgQtg5K3Jizpmy7JdSv9dlcRwk59THw6KIdMDlEHcS8mPyneBtOEQsh4wkcFB7qrmQz+KsRAyIhEm6bwPEm3qN8+aDDzNcXn/6vu/sqV0AP7zit9/s7SxXGxjKrz4zKnOy16/DbzRRmUHNO+HO6JUM0cUfHXTX0mEecbsXqBq0A8IEG8z+bJgXX1EhoGkzE6yVsObm4S1AcKrLiwWjqmSLji5Q8gGO+y4KTTmC3p45h5GHHXjJyOccHhySWDAffxnTzUD/sOoh+aD2VkAYrL3DdnkVzhAdfcZfVI4soONx7tYMloZIVsfW1M2Q==",
+ *     },
+ *     cloudType: azure_native.storsimple.v20161001.CloudType.Azure,
+ *     credentialName: "DummySacForSDKTest",
+ *     enableSSL: azure_native.storsimple.v20161001.SslStatus.Enabled,
+ *     endPoint: "blob.core.windows.net",
+ *     location: "West US",
+ *     login: "SacForSDKTest",
+ *     managerName: "hAzureSDKOperations",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple/v20161001:StorageAccountCredential sacforsdktest /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageAccountCredentials/sacforsdktest 
+ * ```
+ *
  * @deprecated Version 2016-10-01 will be removed in v2 of the provider.
  */
 export class StorageAccountCredential extends pulumi.CustomResource {

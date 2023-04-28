@@ -11,6 +11,28 @@ import * as utilities from "../utilities";
  * Monitor resource.
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Monitors_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const monitor = new azure_native.elastic.Monitor("monitor", {
+ *     monitorName: "myMonitor",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:elastic:Monitor myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor 
+ * ```
  */
 export class Monitor extends pulumi.CustomResource {
     /**

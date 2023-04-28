@@ -131,6 +131,43 @@ class Organization(pulumi.CustomResource):
         """
         Organization resource.
 
+        ## Example Usage
+        ### Organization_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        organization = azure_native.confluent.v20200301.Organization("organization",
+            location="West US",
+            offer_detail=azure_native.confluent.v20200301.OrganizationResourcePropertiesOfferDetailArgs(
+                id="string",
+                plan_id="string",
+                plan_name="string",
+                publisher_id="string",
+                term_unit="string",
+            ),
+            organization_name="myOrganization",
+            resource_group_name="myResourceGroup",
+            tags={
+                "Environment": "Dev",
+            },
+            user_detail=azure_native.confluent.v20200301.OrganizationResourcePropertiesUserDetailArgs(
+                email_address="contoso@microsoft.com",
+                first_name="string",
+                last_name="string",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent/v20200301:Organization myOrganization /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Confluent/organizations/myOrganization 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of Organization resource
@@ -148,6 +185,43 @@ class Organization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Organization resource.
+
+        ## Example Usage
+        ### Organization_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        organization = azure_native.confluent.v20200301.Organization("organization",
+            location="West US",
+            offer_detail=azure_native.confluent.v20200301.OrganizationResourcePropertiesOfferDetailArgs(
+                id="string",
+                plan_id="string",
+                plan_name="string",
+                publisher_id="string",
+                term_unit="string",
+            ),
+            organization_name="myOrganization",
+            resource_group_name="myResourceGroup",
+            tags={
+                "Environment": "Dev",
+            },
+            user_detail=azure_native.confluent.v20200301.OrganizationResourcePropertiesUserDetailArgs(
+                email_address="contoso@microsoft.com",
+                first_name="string",
+                last_name="string",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:confluent/v20200301:Organization myOrganization /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Confluent/organizations/myOrganization 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OrganizationArgs args: The arguments to use to populate this resource's properties.

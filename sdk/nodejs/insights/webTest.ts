@@ -11,6 +11,114 @@ import * as utilities from "../utilities";
  * An Application Insights WebTest definition.
  * API Version: 2022-06-15.
  * Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### webTestCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webTest = new azure_native.insights.WebTest("webTest", {
+ *     configuration: {
+ *         webTest: "<WebTest Name=\"my-webtest\" Id=\"678ddf96-1ab8-44c8-9274-123456789abc\" Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"120\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\" ><Items><Request Method=\"GET\" Guid=\"a4162485-9114-fcfc-e086-123456789abc\" Version=\"1.1\" Url=\"http://my-component.azurewebsites.net\" ThinkTime=\"0\" Timeout=\"120\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"200\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" /></Items></WebTest>",
+ *     },
+ *     description: "Ping web test alert for mytestwebapp",
+ *     enabled: true,
+ *     frequency: 900,
+ *     kind: azure_native.insights.WebTestKind.Ping,
+ *     location: "South Central US",
+ *     locations: [{
+ *         location: "us-fl-mia-edge",
+ *     }],
+ *     resourceGroupName: "my-resource-group",
+ *     retryEnabled: true,
+ *     syntheticMonitorId: "my-webtest-my-component",
+ *     timeout: 120,
+ *     webTestKind: azure_native.insights.WebTestKind.Ping,
+ *     webTestName: "my-webtest-my-component",
+ * });
+ *
+ * ```
+ * ### webTestCreateStandard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webTest = new azure_native.insights.WebTest("webTest", {
+ *     description: "Ping web test alert for mytestwebapp",
+ *     enabled: true,
+ *     frequency: 900,
+ *     location: "South Central US",
+ *     locations: [{
+ *         location: "us-fl-mia-edge",
+ *     }],
+ *     request: {
+ *         headers: [
+ *             {
+ *                 headerFieldName: "Content-Language",
+ *                 headerFieldValue: "de-DE",
+ *             },
+ *             {
+ *                 headerFieldName: "Accept-Language",
+ *                 headerFieldValue: "de-DE",
+ *             },
+ *         ],
+ *         httpVerb: "POST",
+ *         requestBody: "SGVsbG8gd29ybGQ=",
+ *         requestUrl: "https://bing.com",
+ *     },
+ *     resourceGroupName: "my-resource-group",
+ *     retryEnabled: true,
+ *     syntheticMonitorId: "my-webtest-my-component",
+ *     timeout: 120,
+ *     validationRules: {
+ *         sSLCertRemainingLifetimeCheck: 100,
+ *         sSLCheck: true,
+ *     },
+ *     webTestKind: azure_native.insights.WebTestKind.Standard,
+ *     webTestName: "my-webtest-my-component",
+ * });
+ *
+ * ```
+ * ### webTestUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webTest = new azure_native.insights.WebTest("webTest", {
+ *     configuration: {
+ *         webTest: "<WebTest Name=\"my-webtest\" Id=\"678ddf96-1ab8-44c8-9274-123456789abc\" Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"30\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\" ><Items><Request Method=\"GET\" Guid=\"a4162485-9114-fcfc-e086-123456789abc\" Version=\"1.1\" Url=\"http://my-component.azurewebsites.net\" ThinkTime=\"0\" Timeout=\"30\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"200\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" /></Items></WebTest>",
+ *     },
+ *     frequency: 600,
+ *     kind: azure_native.insights.WebTestKind.Ping,
+ *     location: "South Central US",
+ *     locations: [
+ *         {
+ *             location: "us-fl-mia-edge",
+ *         },
+ *         {
+ *             location: "apac-hk-hkn-azr",
+ *         },
+ *     ],
+ *     resourceGroupName: "my-resource-group",
+ *     syntheticMonitorId: "my-webtest-my-component",
+ *     timeout: 30,
+ *     webTestKind: azure_native.insights.WebTestKind.Ping,
+ *     webTestName: "my-webtest-my-component",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights:WebTest my-webtest-my-component /subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component 
+ * ```
  */
 export class WebTest extends pulumi.CustomResource {
     /**

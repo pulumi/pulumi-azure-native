@@ -337,6 +337,81 @@ class Profile(pulumi.CustomResource):
         API Version: 2017-04-26.
         Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Profiles_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.customerinsights.Profile("profile",
+            api_entity_set_name="TestProfileType396",
+            fields=[
+                {
+                    "fieldName": "Id",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "ProfileId",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "LastName",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "TestProfileType396",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "SavingAccountBalance",
+                    "fieldType": "Edm.Int32",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+            ],
+            hub_name="sdkTestHub",
+            large_image="\\\\\\\\Images\\\\\\\\LargeImage",
+            medium_image="\\\\\\\\Images\\\\\\\\MediumImage",
+            profile_name="TestProfileType396",
+            resource_group_name="TestHubRG",
+            schema_item_type_link="SchemaItemTypeLink",
+            small_image="\\\\\\\\Images\\\\\\\\smallImage",
+            strong_ids=[
+                {
+                    "keyPropertyNames": [
+                        "Id",
+                        "SavingAccountBalance",
+                    ],
+                    "strongIdName": "Id",
+                },
+                {
+                    "keyPropertyNames": [
+                        "ProfileId",
+                        "LastName",
+                    ],
+                    "strongIdName": "ProfileId",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:Profile azSdkTestHub/TestProfileType396 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/profiles/TestProfileType396 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_entity_set_name: The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
@@ -368,6 +443,81 @@ class Profile(pulumi.CustomResource):
         The profile resource format.
         API Version: 2017-04-26.
         Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Profiles_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.customerinsights.Profile("profile",
+            api_entity_set_name="TestProfileType396",
+            fields=[
+                {
+                    "fieldName": "Id",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "ProfileId",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "LastName",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "TestProfileType396",
+                    "fieldType": "Edm.String",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+                {
+                    "fieldName": "SavingAccountBalance",
+                    "fieldType": "Edm.Int32",
+                    "isArray": False,
+                    "isRequired": True,
+                },
+            ],
+            hub_name="sdkTestHub",
+            large_image="\\\\\\\\Images\\\\\\\\LargeImage",
+            medium_image="\\\\\\\\Images\\\\\\\\MediumImage",
+            profile_name="TestProfileType396",
+            resource_group_name="TestHubRG",
+            schema_item_type_link="SchemaItemTypeLink",
+            small_image="\\\\\\\\Images\\\\\\\\smallImage",
+            strong_ids=[
+                {
+                    "keyPropertyNames": [
+                        "Id",
+                        "SavingAccountBalance",
+                    ],
+                    "strongIdName": "Id",
+                },
+                {
+                    "keyPropertyNames": [
+                        "ProfileId",
+                        "LastName",
+                    ],
+                    "strongIdName": "ProfileId",
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:Profile azSdkTestHub/TestProfileType396 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/profiles/TestProfileType396 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

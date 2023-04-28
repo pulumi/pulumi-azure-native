@@ -8,6 +8,49 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
+ * ## Example Usage
+ * ### Create an Image Template.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineImageTemplate = new azure_native.virtualmachineimages.v20180201preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", {
+ *     customize: [{
+ *         name: "Shell Customizer Example",
+ *         script: "https://example.com/path/to/script.sh",
+ *         type: "shell",
+ *     }],
+ *     distribute: [{
+ *         imageId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+ *         location: "1_location",
+ *         runOutputName: "image_it_pir_1",
+ *         type: "managedImage",
+ *     }],
+ *     imageTemplateName: "myImageTemplate",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     source: {
+ *         sha256Checksum: "120acbca7b3d55465eb9f8ef53ad7365f2997d42d4f83d7cc285bf5c71e1131f",
+ *         sourceURI: "http://redhat.com/path/to/installation.iso",
+ *         type: "ISO",
+ *     },
+ *     tags: {
+ *         imagetemplate_tag1: "IT_T1",
+ *         imagetemplate_tag2: "IT_T2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate 
+ * ```
+ *
  * @deprecated Version 2018-02-01-preview will be removed in v2 of the provider.
  */
 export class VirtualMachineImageTemplate extends pulumi.CustomResource {

@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Network.V20210301
 {
     /// <summary>
     /// ExpressRoute gateway resource.
+    /// 
+    /// ## Example Usage
+    /// ### ExpressRouteGatewayCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteGateway = new AzureNative.Network.V20210301.ExpressRouteGateway("expressRouteGateway", new()
+    ///     {
+    ///         AutoScaleConfiguration = new AzureNative.Network.V20210301.Inputs.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs
+    ///         {
+    ///             Bounds = new AzureNative.Network.V20210301.Inputs.ExpressRouteGatewayPropertiesBoundsArgs
+    ///             {
+    ///                 Min = 3,
+    ///             },
+    ///         },
+    ///         ExpressRouteGatewayName = "gateway-2",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         VirtualHub = new AzureNative.Network.V20210301.Inputs.VirtualHubIdArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210301:ExpressRouteGateway gateway-2 /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210301:ExpressRouteGateway")]
     public partial class ExpressRouteGateway : global::Pulumi.CustomResource

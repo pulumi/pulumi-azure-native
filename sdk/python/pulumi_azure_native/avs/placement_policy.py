@@ -115,6 +115,44 @@ class PlacementPolicy(pulumi.CustomResource):
         API Version: 2022-05-01.
         Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PlacementPolicies_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        placement_policy = azure_native.avs.PlacementPolicy("placementPolicy",
+            cluster_name="cluster1",
+            placement_policy_name="policy1",
+            private_cloud_name="cloud1",
+            properties=azure_native.avs.VmHostPlacementPolicyPropertiesArgs(
+                affinity_strength="Must",
+                affinity_type="AntiAffinity",
+                azure_hybrid_benefit_type="SqlHost",
+                host_members=[
+                    "fakehost22.nyc1.kubernetes.center",
+                    "fakehost23.nyc1.kubernetes.center",
+                    "fakehost24.nyc1.kubernetes.center",
+                ],
+                type="VmHost",
+                vm_members=[
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+                ],
+            ),
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:PlacementPolicy policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/placementPolicies/policy1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
@@ -133,6 +171,44 @@ class PlacementPolicy(pulumi.CustomResource):
         A vSphere Distributed Resource Scheduler (DRS) placement policy
         API Version: 2022-05-01.
         Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PlacementPolicies_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        placement_policy = azure_native.avs.PlacementPolicy("placementPolicy",
+            cluster_name="cluster1",
+            placement_policy_name="policy1",
+            private_cloud_name="cloud1",
+            properties=azure_native.avs.VmHostPlacementPolicyPropertiesArgs(
+                affinity_strength="Must",
+                affinity_type="AntiAffinity",
+                azure_hybrid_benefit_type="SqlHost",
+                host_members=[
+                    "fakehost22.nyc1.kubernetes.center",
+                    "fakehost23.nyc1.kubernetes.center",
+                    "fakehost24.nyc1.kubernetes.center",
+                ],
+                type="VmHost",
+                vm_members=[
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+                ],
+            ),
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:PlacementPolicy policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/placementPolicies/policy1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PlacementPolicyArgs args: The arguments to use to populate this resource's properties.

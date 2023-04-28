@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * VirtualWAN Resource.
+ *
+ * ## Example Usage
+ * ### VirtualWANCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualWan = new azure_native.network.v20190701.VirtualWan("virtualWan", {
+ *     disableVpnEncryption: false,
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualWANName: "wan1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20190701:VirtualWan wan1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1 
+ * ```
  */
 export class VirtualWan extends pulumi.CustomResource {
     /**

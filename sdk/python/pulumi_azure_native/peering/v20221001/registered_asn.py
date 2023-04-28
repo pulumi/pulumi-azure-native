@@ -94,6 +94,29 @@ class RegisteredAsn(pulumi.CustomResource):
         """
         The customer's ASN that is registered by the peering service provider.
 
+        ## Example Usage
+        ### Create or update a registered ASN for the peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registered_asn = azure_native.peering.v20221001.RegisteredAsn("registeredAsn",
+            asn=65000,
+            peering_name="peeringName",
+            registered_asn_name="registeredAsnName",
+            resource_group_name="rgName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20221001:RegisteredAsn registeredAsnName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName/registeredAsns/registeredAsnName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] asn: The customer's ASN from which traffic originates.
@@ -109,6 +132,29 @@ class RegisteredAsn(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The customer's ASN that is registered by the peering service provider.
+
+        ## Example Usage
+        ### Create or update a registered ASN for the peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registered_asn = azure_native.peering.v20221001.RegisteredAsn("registeredAsn",
+            asn=65000,
+            peering_name="peeringName",
+            registered_asn_name="registeredAsnName",
+            resource_group_name="rgName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20221001:RegisteredAsn registeredAsnName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName/registeredAsns/registeredAsnName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegisteredAsnArgs args: The arguments to use to populate this resource's properties.

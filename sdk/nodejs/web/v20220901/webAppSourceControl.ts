@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Source control configuration for an app.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:WebAppSourceControl myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/sourcecontrols/web 
+ * ```
  */
 export class WebAppSourceControl extends pulumi.CustomResource {
     /**

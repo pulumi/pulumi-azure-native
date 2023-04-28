@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Web.V20160601
 {
     /// <summary>
     /// The gateway definition
+    /// 
+    /// ## Example Usage
+    /// ### Replace a connection gateway definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectionGateway = new AzureNative.Web.V20160601.ConnectionGateway("connectionGateway", new()
+    ///     {
+    ///         ConnectionGatewayName = "test123",
+    ///         Properties = new AzureNative.Web.V20160601.Inputs.ConnectionGatewayDefinitionPropertiesArgs
+    ///         {
+    ///             BackendUri = "https://WABI-WEST-US-redirect.analysis.windows.net",
+    ///             ConnectionGatewayInstallation = new AzureNative.Web.V20160601.Inputs.ConnectionGatewayReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+    ///             },
+    ///             ContactInformation = new[]
+    ///             {
+    ///                 "test123@microsoft.com",
+    ///             },
+    ///             DisplayName = "test123",
+    ///             MachineName = "TEST123",
+    ///             Status = "Installed",
+    ///         },
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20160601:ConnectionGateway test123 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20160601:ConnectionGateway")]
     public partial class ConnectionGateway : global::Pulumi.CustomResource

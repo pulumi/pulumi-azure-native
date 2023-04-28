@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration of Azure web site
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20150801:SiteLogsConfig myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/logs 
+ * ```
  *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */

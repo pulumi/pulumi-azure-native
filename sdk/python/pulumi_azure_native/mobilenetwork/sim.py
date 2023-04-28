@@ -199,6 +199,47 @@ class Sim(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create SIM
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sim = azure_native.mobilenetwork.Sim("sim",
+            authentication_key="00000000000000000000000000000000",
+            device_type="Video camera",
+            integrated_circuit_card_identifier="8900000000000000000",
+            international_mobile_subscriber_identity="00000",
+            operator_key_code="00000000000000000000000000000000",
+            resource_group_name="rg1",
+            sim_group_name="testSimGroup",
+            sim_name="testSim",
+            sim_policy=azure_native.mobilenetwork.SimPolicyResourceIdResponseArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy",
+            ),
+            static_ip_configuration=[{
+                "attachedDataNetwork": azure_native.mobilenetwork.AttachedDataNetworkResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
+                ),
+                "slice": azure_native.mobilenetwork.SliceResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+                ),
+                "staticIp": azure_native.mobilenetwork.SimStaticIpPropertiesStaticIpArgs(
+                    ipv4_address="2.4.0.1",
+                ),
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:Sim testSim /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simGroups/testSimGroup/sims/testSim 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_key: The Ki value for the SIM.
@@ -222,6 +263,47 @@ class Sim(pulumi.CustomResource):
         SIM resource.
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create SIM
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sim = azure_native.mobilenetwork.Sim("sim",
+            authentication_key="00000000000000000000000000000000",
+            device_type="Video camera",
+            integrated_circuit_card_identifier="8900000000000000000",
+            international_mobile_subscriber_identity="00000",
+            operator_key_code="00000000000000000000000000000000",
+            resource_group_name="rg1",
+            sim_group_name="testSimGroup",
+            sim_name="testSim",
+            sim_policy=azure_native.mobilenetwork.SimPolicyResourceIdResponseArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy",
+            ),
+            static_ip_configuration=[{
+                "attachedDataNetwork": azure_native.mobilenetwork.AttachedDataNetworkResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
+                ),
+                "slice": azure_native.mobilenetwork.SliceResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+                ),
+                "staticIp": azure_native.mobilenetwork.SimStaticIpPropertiesStaticIpArgs(
+                    ipv4_address="2.4.0.1",
+                ),
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:Sim testSim /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simGroups/testSimGroup/sims/testSim 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SimArgs args: The arguments to use to populate this resource's properties.

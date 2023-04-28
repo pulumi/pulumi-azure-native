@@ -11,6 +11,119 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
 {
     /// <summary>
     /// Virtual machine guest diagnostics settings resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a guest diagnostic settings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestDiagnosticsSetting = new AzureNative.Insights.V20180601Preview.GuestDiagnosticsSetting("guestDiagnosticsSetting", new()
+    ///     {
+    ///         DataSources = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20180601Preview.Inputs.DataSourceArgs
+    ///             {
+    ///                 Configuration = new AzureNative.Insights.V20180601Preview.Inputs.DataSourceConfigurationArgs
+    ///                 {
+    ///                     PerfCounters = new[]
+    ///                     {
+    ///                         new AzureNative.Insights.V20180601Preview.Inputs.PerformanceCounterConfigurationArgs
+    ///                         {
+    ///                             Name = "\\Process(_Total)\\%Processor Time",
+    ///                             SamplingPeriod = "PT1M",
+    ///                         },
+    ///                         new AzureNative.Insights.V20180601Preview.Inputs.PerformanceCounterConfigurationArgs
+    ///                         {
+    ///                             Name = "\\Process(_Total)\\Working Set",
+    ///                             SamplingPeriod = "PT1M",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Kind = "PerformanceCounter",
+    ///                 Sinks = new[]
+    ///                 {
+    ///                     new AzureNative.Insights.V20180601Preview.Inputs.SinkConfigurationArgs
+    ///                     {
+    ///                         Kind = "LogAnalytics",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Insights.V20180601Preview.Inputs.DataSourceArgs
+    ///             {
+    ///                 Configuration = new AzureNative.Insights.V20180601Preview.Inputs.DataSourceConfigurationArgs
+    ///                 {
+    ///                     Providers = new[]
+    ///                     {
+    ///                         new AzureNative.Insights.V20180601Preview.Inputs.EtwProviderConfigurationArgs
+    ///                         {
+    ///                             Id = "1",
+    ///                         },
+    ///                         new AzureNative.Insights.V20180601Preview.Inputs.EtwProviderConfigurationArgs
+    ///                         {
+    ///                             Id = "2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Kind = "ETWProviders",
+    ///                 Sinks = new[]
+    ///                 {
+    ///                     new AzureNative.Insights.V20180601Preview.Inputs.SinkConfigurationArgs
+    ///                     {
+    ///                         Kind = "LogAnalytics",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Insights.V20180601Preview.Inputs.DataSourceArgs
+    ///             {
+    ///                 Configuration = new AzureNative.Insights.V20180601Preview.Inputs.DataSourceConfigurationArgs
+    ///                 {
+    ///                     EventLogs = new[]
+    ///                     {
+    ///                         new AzureNative.Insights.V20180601Preview.Inputs.EventLogConfigurationArgs
+    ///                         {
+    ///                             Filter = "SourceName == Xyz AND EventId = \"100\" AND  $Xpath/Column=\"DCName\" = \"CatWoman\"",
+    ///                             LogName = "Application",
+    ///                         },
+    ///                         new AzureNative.Insights.V20180601Preview.Inputs.EventLogConfigurationArgs
+    ///                         {
+    ///                             Filter = "SourceName == Xyz AND EventId = \"100\" AND  $Xpath/Column=\"DCName\" = \"BatMan\"",
+    ///                             LogName = "Application",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Kind = "WindowsEventLogs",
+    ///                 Sinks = new[]
+    ///                 {
+    ///                     new AzureNative.Insights.V20180601Preview.Inputs.SinkConfigurationArgs
+    ///                     {
+    ///                         Kind = "LogAnalytics",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         DiagnosticSettingsName = "SampleDiagSetting",
+    ///         Location = "Global",
+    ///         OsType = "Windows",
+    ///         ResourceGroupName = "Default-ResourceGroup",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20180601preview:guestDiagnosticsSetting productionMachineSetting /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ResourceGroup/providers/microsoft.insights/guestDiagnosticSettings/SampleDiagSetting 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20180601preview:guestDiagnosticsSetting")]
     public partial class GuestDiagnosticsSetting : global::Pulumi.CustomResource

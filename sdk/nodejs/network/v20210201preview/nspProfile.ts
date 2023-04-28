@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The network security perimeter profile resource
+ *
+ * ## Example Usage
+ * ### NspProfilesPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nspProfile = new azure_native.network.v20210201preview.NspProfile("nspProfile", {
+ *     networkSecurityPerimeterName: "nsp1",
+ *     profileName: "profile1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210201preview:NspProfile profile1 /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/profile1 
+ * ```
  */
 export class NspProfile extends pulumi.CustomResource {
     /**

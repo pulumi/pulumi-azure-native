@@ -201,6 +201,51 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         API Version: 2022-11-11-preview.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ProjectEnvironmentTypes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project_environment_type = azure_native.devcenter.ProjectEnvironmentType("projectEnvironmentType",
+            creator_role_assignment=azure_native.devcenter.ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs(
+                roles={
+                    "4cbf0b6c-e750-441c-98a7-10da8387e4d6": {},
+                },
+            ),
+            deployment_target_id="/subscriptions/00000000-0000-0000-0000-000000000000",
+            environment_type_name="DevTest",
+            identity=azure_native.devcenter.ManagedServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1": {},
+                },
+            ),
+            project_name="ContosoProj",
+            resource_group_name="rg1",
+            status="Enabled",
+            tags={
+                "CostCenter": "RnD",
+            },
+            user_role_assignments={
+                "e45e3m7c-176e-416a-b466-0c5ec8298f8a": azure_native.devcenter.UserRoleAssignmentArgs(
+                    roles={
+                        "4cbf0b6c-e750-441c-98a7-10da8387e4d6": {},
+                    },
+                ),
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter:ProjectEnvironmentType DevTest /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/ContosoProj/environmentTypes/DevTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs']] creator_role_assignment: The role definition assigned to the environment creator on backing resources.
@@ -224,6 +269,51 @@ class ProjectEnvironmentType(pulumi.CustomResource):
         Represents an environment type.
         API Version: 2022-11-11-preview.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ProjectEnvironmentTypes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project_environment_type = azure_native.devcenter.ProjectEnvironmentType("projectEnvironmentType",
+            creator_role_assignment=azure_native.devcenter.ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs(
+                roles={
+                    "4cbf0b6c-e750-441c-98a7-10da8387e4d6": {},
+                },
+            ),
+            deployment_target_id="/subscriptions/00000000-0000-0000-0000-000000000000",
+            environment_type_name="DevTest",
+            identity=azure_native.devcenter.ManagedServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1": {},
+                },
+            ),
+            project_name="ContosoProj",
+            resource_group_name="rg1",
+            status="Enabled",
+            tags={
+                "CostCenter": "RnD",
+            },
+            user_role_assignments={
+                "e45e3m7c-176e-416a-b466-0c5ec8298f8a": azure_native.devcenter.UserRoleAssignmentArgs(
+                    roles={
+                        "4cbf0b6c-e750-441c-98a7-10da8387e4d6": {},
+                    },
+                ),
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter:ProjectEnvironmentType DevTest /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/ContosoProj/environmentTypes/DevTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProjectEnvironmentTypeArgs args: The arguments to use to populate this resource's properties.

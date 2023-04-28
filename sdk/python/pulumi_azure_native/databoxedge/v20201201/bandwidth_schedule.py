@@ -143,6 +143,35 @@ class BandwidthSchedule(pulumi.CustomResource):
         """
         The bandwidth schedule details.
 
+        ## Example Usage
+        ### BandwidthSchedulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bandwidth_schedule = azure_native.databoxedge.v20201201.BandwidthSchedule("bandwidthSchedule",
+            days=[
+                "Sunday",
+                "Monday",
+            ],
+            device_name="testedgedevice",
+            name="bandwidth-1",
+            rate_in_mbps=100,
+            resource_group_name="GroupForEdgeAutomation",
+            start="0:0:0",
+            stop="13:59:0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20201201:BandwidthSchedule bandwidth-1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/bandwidthSchedules/bandwidth-1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DayOfWeek']]]] days: The days of the week when this schedule is applicable.
@@ -161,6 +190,35 @@ class BandwidthSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The bandwidth schedule details.
+
+        ## Example Usage
+        ### BandwidthSchedulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bandwidth_schedule = azure_native.databoxedge.v20201201.BandwidthSchedule("bandwidthSchedule",
+            days=[
+                "Sunday",
+                "Monday",
+            ],
+            device_name="testedgedevice",
+            name="bandwidth-1",
+            rate_in_mbps=100,
+            resource_group_name="GroupForEdgeAutomation",
+            start="0:0:0",
+            stop="13:59:0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20201201:BandwidthSchedule bandwidth-1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/bandwidthSchedules/bandwidth-1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BandwidthScheduleArgs args: The arguments to use to populate this resource's properties.

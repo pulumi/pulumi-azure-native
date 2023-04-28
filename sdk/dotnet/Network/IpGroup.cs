@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.Network
     /// The IpGroups resource information.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate_IpGroups
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipGroup = new AzureNative.Network.IpGroup("ipGroup", new()
+    ///     {
+    ///         IpAddresses = new[]
+    ///         {
+    ///             "13.64.39.16/32",
+    ///             "40.74.146.80/31",
+    ///             "40.74.147.32/28",
+    ///         },
+    ///         IpGroupsName = "ipGroups1",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:IpGroup ipGroups1 /subscriptions/subId/providers/Microsoft.Network/resourceGroup/myResourceGroup/ipGroups/ipGroups1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:IpGroup")]
     public partial class IpGroup : global::Pulumi.CustomResource

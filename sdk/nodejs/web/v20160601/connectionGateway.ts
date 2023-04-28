@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * The gateway definition
+ *
+ * ## Example Usage
+ * ### Replace a connection gateway definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectionGateway = new azure_native.web.v20160601.ConnectionGateway("connectionGateway", {
+ *     connectionGatewayName: "test123",
+ *     properties: {
+ *         backendUri: "https://WABI-WEST-US-redirect.analysis.windows.net",
+ *         connectionGatewayInstallation: {
+ *             id: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+ *         },
+ *         contactInformation: ["test123@microsoft.com"],
+ *         displayName: "test123",
+ *         machineName: "TEST123",
+ *         status: "Installed",
+ *     },
+ *     resourceGroupName: "testResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20160601:ConnectionGateway test123 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123 
+ * ```
  */
 export class ConnectionGateway extends pulumi.CustomResource {
     /**

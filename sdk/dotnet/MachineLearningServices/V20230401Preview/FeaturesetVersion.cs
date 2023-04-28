@@ -11,6 +11,110 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Workspace Featureset Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var featuresetVersion = new AzureNative.MachineLearningServices.V20230401Preview.FeaturesetVersion("featuresetVersion", new()
+    ///     {
+    ///         FeaturesetVersionProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.FeaturesetVersionArgs
+    ///         {
+    ///             Description = "string",
+    ///             Entities = new[]
+    ///             {
+    ///                 "string",
+    ///             },
+    ///             IsAnonymous = false,
+    ///             IsArchived = false,
+    ///             MaterializationSettings = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.MaterializationSettingsArgs
+    ///             {
+    ///                 Notification = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.NotificationSettingArgs
+    ///                 {
+    ///                     EmailOn = new[]
+    ///                     {
+    ///                         "JobFailed",
+    ///                     },
+    ///                     Emails = new[]
+    ///                     {
+    ///                         "string",
+    ///                     },
+    ///                 },
+    ///                 Resource = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.MaterializationComputeResourceArgs
+    ///                 {
+    ///                     InstanceType = "string",
+    ///                 },
+    ///                 Schedule = 
+    ///                 {
+    ///                     { "endTime", "string" },
+    ///                     { "frequency", "Day" },
+    ///                     { "interval", 1 },
+    ///                     { "schedule", new AzureNative.MachineLearningServices.V20230401Preview.Inputs.RecurrenceScheduleArgs
+    ///                     {
+    ///                         Hours = new[]
+    ///                         {
+    ///                             1,
+    ///                         },
+    ///                         Minutes = new[]
+    ///                         {
+    ///                             1,
+    ///                         },
+    ///                         MonthDays = new[]
+    ///                         {
+    ///                             1,
+    ///                         },
+    ///                         WeekDays = new[]
+    ///                         {
+    ///                             "Monday",
+    ///                         },
+    ///                     } },
+    ///                     { "startTime", "string" },
+    ///                     { "timeZone", "string" },
+    ///                     { "triggerType", "Recurrence" },
+    ///                 },
+    ///                 SparkConfiguration = 
+    ///                 {
+    ///                     { "string", "string" },
+    ///                 },
+    ///                 StoreType = "Online",
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Specification = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.FeaturesetSpecificationArgs
+    ///             {
+    ///                 Path = "string",
+    ///             },
+    ///             Stage = "string",
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:FeaturesetVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:FeaturesetVersion")]
     public partial class FeaturesetVersion : global::Pulumi.CustomResource

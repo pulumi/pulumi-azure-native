@@ -12,6 +12,36 @@ namespace Pulumi.AzureNative.RedHatOpenShift
     /// <summary>
     /// SyncSet represents a SyncSet for an Azure Red Hat OpenShift Cluster.
     /// API Version: 2022-09-04.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a SyncSet with the specified subscription, resource group and resource name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var syncSet = new AzureNative.RedHatOpenShift.SyncSet("syncSet", new()
+    ///     {
+    ///         ChildResourceName = "childResourceName",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         ResourceName = "resourceName",
+    ///         Resources = "eyAKICAiYXBpVmVyc2lvbiI6ICJoaXZlLm9wZW5zaGlmdC5pby92MSIsCiAgImtpbmQiOiAiU3luY1NldCIsCiAgIm1ldGFkYXRhIjogewogICAgIm5hbWUiOiAic2FtcGxlIiwKICAgICJuYW1lc3BhY2UiOiAiYXJvLWY2MGFlOGEyLWJjYTEtNDk4Ny05MDU2LWYyZjZhMTgzN2NhYSIKICB9LAogICJzcGVjIjogewogICAgImNsdXN0ZXJEZXBsb3ltZW50UmVmcyI6IFtdLAogICAgInJlc291cmNlcyI6IFsKICAgICAgewogICAgICAgICJhcGlWZXJzaW9uIjogInYxIiwKICAgICAgICAia2luZCI6ICJDb25maWdNYXAiLAogICAgICAgICJtZXRhZGF0YSI6IHsKICAgICAgICAgICJuYW1lIjogIm15Y29uZmlnbWFwIgogICAgICAgIH0KICAgICAgfQogICAgXQogIH0KfQo=",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:redhatopenshift:SyncSet mySyncSet /subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/resourceName/syncSets/mySyncSet 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:SyncSet")]
     public partial class SyncSet : global::Pulumi.CustomResource

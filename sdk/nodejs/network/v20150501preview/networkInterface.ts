@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * A NetworkInterface in a resource group
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20150501preview:NetworkInterface myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkInterfaces/{networkInterfaceName} 
+ * ```
  *
  * @deprecated Version 2015-05-01-preview will be removed in v2 of the provider.
  */

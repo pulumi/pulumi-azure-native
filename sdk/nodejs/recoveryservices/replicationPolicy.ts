@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Protection profile details.
  * API Version: 2023-02-01.
  * Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates the policy.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationPolicy = new azure_native.recoveryservices.ReplicationPolicy("replicationPolicy", {
+ *     policyName: "protectionprofile1",
+ *     properties: {
+ *         providerSpecificInput: {
+ *             instanceType: "HyperVReplicaAzure",
+ *         },
+ *     },
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ReplicationPolicy protectionprofile1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1 
+ * ```
  */
 export class ReplicationPolicy extends pulumi.CustomResource {
     /**

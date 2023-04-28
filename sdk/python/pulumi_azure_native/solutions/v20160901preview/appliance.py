@@ -255,6 +255,31 @@ class Appliance(pulumi.CustomResource):
         """
         Information about appliance.
 
+        ## Example Usage
+        ### Create or update appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        appliance = azure_native.solutions.v20160901preview.Appliance("appliance",
+            appliance_definition_id="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myAppDef",
+            appliance_name="myAppliance",
+            kind="ServiceCatalog",
+            location="East US 2",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions/v20160901preview:Appliance myAppliance /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/appliances/myAppliance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] appliance_definition_id: The fully qualified path of appliance definition Id.
@@ -279,6 +304,31 @@ class Appliance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about appliance.
+
+        ## Example Usage
+        ### Create or update appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        appliance = azure_native.solutions.v20160901preview.Appliance("appliance",
+            appliance_definition_id="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myAppDef",
+            appliance_name="myAppliance",
+            kind="ServiceCatalog",
+            location="East US 2",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions/v20160901preview:Appliance myAppliance /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/appliances/myAppliance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplianceArgs args: The arguments to use to populate this resource's properties.

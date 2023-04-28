@@ -9,6 +9,127 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information, as returned by the resource provider.
+ *
+ * ## Example Usage
+ * ### Create or Update Recovery Services vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vault = new azure_native.recoveryservices.v20230201.Vault("vault", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "West US",
+ *     properties: {
+ *         publicNetworkAccess: "Enabled",
+ *     },
+ *     resourceGroupName: "Default-RecoveryServices-ResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     vaultName: "swaggerExample",
+ * });
+ *
+ * ```
+ * ### Create or Update Vault With Monitoring Setting
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vault = new azure_native.recoveryservices.v20230201.Vault("vault", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "West US",
+ *     properties: {
+ *         monitoringSettings: {
+ *             azureMonitorAlertSettings: {
+ *                 alertsForAllJobFailures: "Enabled",
+ *             },
+ *             classicAlertSettings: {
+ *                 alertsForCriticalOperations: "Disabled",
+ *             },
+ *         },
+ *         publicNetworkAccess: "Enabled",
+ *     },
+ *     resourceGroupName: "Default-RecoveryServices-ResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     vaultName: "swaggerExample",
+ * });
+ *
+ * ```
+ * ### Create or Update Vault with CustomerManagedKeys
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vault = new azure_native.recoveryservices.v20230201.Vault("vault", {
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi": {},
+ *         },
+ *     },
+ *     location: "West US",
+ *     properties: {
+ *         encryption: {
+ *             infrastructureEncryption: "Enabled",
+ *             kekIdentity: {
+ *                 userAssignedIdentity: "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi",
+ *             },
+ *             keyVaultProperties: {
+ *                 keyUri: "https://cmk2xkv.vault.azure.net/keys/Key1/0767b348bb1a4c07baa6c4ec0055d2b3",
+ *             },
+ *         },
+ *         publicNetworkAccess: "Enabled",
+ *     },
+ *     resourceGroupName: "Default-RecoveryServices-ResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     vaultName: "swaggerExample",
+ * });
+ *
+ * ```
+ * ### Create or Update Vault with User Assigned Identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vault = new azure_native.recoveryservices.v20230201.Vault("vault", {
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/85bf5e8c-3084-4f42-add2-746ebb7e97b2/resourcegroups/defaultrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/examplemsi": {},
+ *         },
+ *     },
+ *     location: "West US",
+ *     properties: {
+ *         publicNetworkAccess: "Enabled",
+ *     },
+ *     resourceGroupName: "Default-RecoveryServices-ResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     vaultName: "swaggerExample",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20230201:Vault swaggerExample /subscriptions/77777777-b0c6-47a2-b37c-d8e65a629c18/resourceGroups/Default-RecoveryServices-ResourceGroup/providers/Microsoft.RecoveryServices/vaults/swaggerExample 
+ * ```
  */
 export class Vault extends pulumi.CustomResource {
     /**

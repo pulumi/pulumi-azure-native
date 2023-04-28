@@ -11,6 +11,186 @@ namespace Pulumi.AzureNative.Security.V20190101Preview
 {
     /// <summary>
     /// The security automation resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a security automation for all assessments (including all severities)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var automation = new AzureNative.Security.V20190101Preview.Automation("automation", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Security.V20190101Preview.Inputs.AutomationActionLogicAppArgs
+    ///             {
+    ///                 ActionType = "LogicApp",
+    ///                 LogicAppResourceId = "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+    ///                 Uri = "https://exampleTriggerUri1.com",
+    ///             },
+    ///         },
+    ///         AutomationName = "exampleAutomation",
+    ///         Description = "An example of a security automation that triggers one LogicApp resource (myTest1) on any security assessment",
+    ///         IsEnabled = true,
+    ///         Location = "Central US",
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         Scopes = new[]
+    ///         {
+    ///             new AzureNative.Security.V20190101Preview.Inputs.AutomationScopeArgs
+    ///             {
+    ///                 Description = "A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+    ///                 ScopePath = "/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+    ///             },
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new AzureNative.Security.V20190101Preview.Inputs.AutomationSourceArgs
+    ///             {
+    ///                 EventSource = "Assessments",
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a security automation for all high severity assessments
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var automation = new AzureNative.Security.V20190101Preview.Automation("automation", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Security.V20190101Preview.Inputs.AutomationActionLogicAppArgs
+    ///             {
+    ///                 ActionType = "LogicApp",
+    ///                 LogicAppResourceId = "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+    ///                 Uri = "https://exampleTriggerUri1.com",
+    ///             },
+    ///         },
+    ///         AutomationName = "exampleAutomation",
+    ///         Description = "An example of a security automation that triggers one LogicApp resource (myTest1) on any high severity security assessment",
+    ///         IsEnabled = true,
+    ///         Location = "Central US",
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         Scopes = new[]
+    ///         {
+    ///             new AzureNative.Security.V20190101Preview.Inputs.AutomationScopeArgs
+    ///             {
+    ///                 Description = "A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+    ///                 ScopePath = "/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+    ///             },
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new AzureNative.Security.V20190101Preview.Inputs.AutomationSourceArgs
+    ///             {
+    ///                 EventSource = "Assessments",
+    ///                 RuleSets = new[]
+    ///                 {
+    ///                     new AzureNative.Security.V20190101Preview.Inputs.AutomationRuleSetArgs
+    ///                     {
+    ///                         Rules = new[]
+    ///                         {
+    ///                             new AzureNative.Security.V20190101Preview.Inputs.AutomationTriggeringRuleArgs
+    ///                             {
+    ///                                 ExpectedValue = "High",
+    ///                                 Operator = "Equals",
+    ///                                 PropertyJPath = "properties.metadata.severity",
+    ///                                 PropertyType = "String",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Disable or enable a security automation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var automation = new AzureNative.Security.V20190101Preview.Automation("automation", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.Security.V20190101Preview.Inputs.AutomationActionLogicAppArgs
+    ///             {
+    ///                 ActionType = "LogicApp",
+    ///                 LogicAppResourceId = "/subscriptions/e54a4a18-5b94-4f90-9471-bd3decad8a2e/resourceGroups/sample/providers/Microsoft.Logic/workflows/MyTest1",
+    ///                 Uri = "https://exampleTriggerUri1.com",
+    ///             },
+    ///         },
+    ///         AutomationName = "exampleAutomation",
+    ///         Description = "An example of a security automation that triggers one LogicApp resource (myTest1) on any security assessment of type customAssessment",
+    ///         IsEnabled = false,
+    ///         Location = "Central US",
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         Scopes = new[]
+    ///         {
+    ///             new AzureNative.Security.V20190101Preview.Inputs.AutomationScopeArgs
+    ///             {
+    ///                 Description = "A description that helps to identify this scope - for example: security assessments that relate to the resource group myResourceGroup within the subscription a5caac9c-5c04-49af-b3d0-e204f40345d5",
+    ///                 ScopePath = "/subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/myResourceGroup",
+    ///             },
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new AzureNative.Security.V20190101Preview.Inputs.AutomationSourceArgs
+    ///             {
+    ///                 EventSource = "Assessments",
+    ///                 RuleSets = new[]
+    ///                 {
+    ///                     new AzureNative.Security.V20190101Preview.Inputs.AutomationRuleSetArgs
+    ///                     {
+    ///                         Rules = new[]
+    ///                         {
+    ///                             new AzureNative.Security.V20190101Preview.Inputs.AutomationTriggeringRuleArgs
+    ///                             {
+    ///                                 ExpectedValue = "customAssessment",
+    ///                                 Operator = "Equals",
+    ///                                 PropertyJPath = "$.Entity.AssessmentType",
+    ///                                 PropertyType = "String",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20190101preview:Automation exampleAutomation /subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/exampleResourceGroup/providers/Microsoft.Security/automations/exampleAutomation 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20190101preview:Automation")]
     public partial class Automation : global::Pulumi.CustomResource

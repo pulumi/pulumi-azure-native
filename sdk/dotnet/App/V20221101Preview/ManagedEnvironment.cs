@@ -11,6 +11,153 @@ namespace Pulumi.AzureNative.App.V20221101Preview
 {
     /// <summary>
     /// An environment for hosting container apps
+    /// 
+    /// ## Example Usage
+    /// ### Create environment with custom infrastructureResourceGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedEnvironment = new AzureNative.App.V20221101Preview.ManagedEnvironment("managedEnvironment", new()
+    ///     {
+    ///         AppLogsConfiguration = new AzureNative.App.V20221101Preview.Inputs.AppLogsConfigurationArgs
+    ///         {
+    ///             LogAnalyticsConfiguration = new AzureNative.App.V20221101Preview.Inputs.LogAnalyticsConfigurationArgs
+    ///             {
+    ///                 CustomerId = "string",
+    ///                 SharedKey = "string",
+    ///             },
+    ///         },
+    ///         CustomDomainConfiguration = new AzureNative.App.V20221101Preview.Inputs.CustomDomainConfigurationArgs
+    ///         {
+    ///             CertificatePassword = "1234",
+    ///             CertificateValue = "Y2VydA==",
+    ///             DnsSuffix = "www.my-name.com",
+    ///         },
+    ///         DaprAIConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+    ///         EnvironmentName = "testcontainerenv",
+    ///         InfrastructureResourceGroup = "myInfrastructureRgName",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "examplerg",
+    ///         VnetConfiguration = new AzureNative.App.V20221101Preview.Inputs.VnetConfigurationArgs
+    ///         {
+    ///             InfrastructureSubnetId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1",
+    ///         },
+    ///         WorkloadProfiles = new[]
+    ///         {
+    ///             new AzureNative.App.V20221101Preview.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 MaximumCount = 12,
+    ///                 MinimumCount = 3,
+    ///                 Name = "My-GP-01",
+    ///                 WorkloadProfileType = "GeneralPurpose",
+    ///             },
+    ///             new AzureNative.App.V20221101Preview.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 MaximumCount = 6,
+    ///                 MinimumCount = 3,
+    ///                 Name = "My-MO-01",
+    ///                 WorkloadProfileType = "MemoryOptimized",
+    ///             },
+    ///             new AzureNative.App.V20221101Preview.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 MaximumCount = 6,
+    ///                 MinimumCount = 3,
+    ///                 Name = "My-CO-01",
+    ///                 WorkloadProfileType = "ComputeOptimized",
+    ///             },
+    ///             new AzureNative.App.V20221101Preview.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 Name = "My-consumption-01",
+    ///                 WorkloadProfileType = "Consumption",
+    ///             },
+    ///         },
+    ///         ZoneRedundant = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create environments
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedEnvironment = new AzureNative.App.V20221101Preview.ManagedEnvironment("managedEnvironment", new()
+    ///     {
+    ///         AppLogsConfiguration = new AzureNative.App.V20221101Preview.Inputs.AppLogsConfigurationArgs
+    ///         {
+    ///             LogAnalyticsConfiguration = new AzureNative.App.V20221101Preview.Inputs.LogAnalyticsConfigurationArgs
+    ///             {
+    ///                 CustomerId = "string",
+    ///                 SharedKey = "string",
+    ///             },
+    ///         },
+    ///         CustomDomainConfiguration = new AzureNative.App.V20221101Preview.Inputs.CustomDomainConfigurationArgs
+    ///         {
+    ///             CertificatePassword = "1234",
+    ///             CertificateValue = "Y2VydA==",
+    ///             DnsSuffix = "www.my-name.com",
+    ///         },
+    ///         DaprAIConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+    ///         EnvironmentName = "testcontainerenv",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "examplerg",
+    ///         VnetConfiguration = new AzureNative.App.V20221101Preview.Inputs.VnetConfigurationArgs
+    ///         {
+    ///             InfrastructureSubnetId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1",
+    ///         },
+    ///         WorkloadProfiles = new[]
+    ///         {
+    ///             new AzureNative.App.V20221101Preview.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 MaximumCount = 12,
+    ///                 MinimumCount = 3,
+    ///                 Name = "My-GP-01",
+    ///                 WorkloadProfileType = "GeneralPurpose",
+    ///             },
+    ///             new AzureNative.App.V20221101Preview.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 MaximumCount = 6,
+    ///                 MinimumCount = 3,
+    ///                 Name = "My-MO-01",
+    ///                 WorkloadProfileType = "MemoryOptimized",
+    ///             },
+    ///             new AzureNative.App.V20221101Preview.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 MaximumCount = 6,
+    ///                 MinimumCount = 3,
+    ///                 Name = "My-CO-01",
+    ///                 WorkloadProfileType = "ComputeOptimized",
+    ///             },
+    ///             new AzureNative.App.V20221101Preview.Inputs.WorkloadProfileArgs
+    ///             {
+    ///                 Name = "My-consumption-01",
+    ///                 WorkloadProfileType = "Consumption",
+    ///             },
+    ///         },
+    ///         ZoneRedundant = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20221101preview:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20221101preview:ManagedEnvironment")]
     public partial class ManagedEnvironment : global::Pulumi.CustomResource

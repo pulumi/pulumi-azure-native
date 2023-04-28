@@ -111,6 +111,29 @@ class DedicatedCloudService(pulumi.CustomResource):
         """
         Dedicated cloud service model
 
+        ## Example Usage
+        ### CreateDedicatedCloudService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_cloud_service = azure_native.vmwarecloudsimple.v20190401.DedicatedCloudService("dedicatedCloudService",
+            dedicated_cloud_service_name="myService",
+            gateway_subnet="10.0.0.0",
+            location="westus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService myService /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/myService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dedicated_cloud_service_name: dedicated cloud Service name
@@ -127,6 +150,29 @@ class DedicatedCloudService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Dedicated cloud service model
+
+        ## Example Usage
+        ### CreateDedicatedCloudService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_cloud_service = azure_native.vmwarecloudsimple.v20190401.DedicatedCloudService("dedicatedCloudService",
+            dedicated_cloud_service_name="myService",
+            gateway_subnet="10.0.0.0",
+            location="westus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService myService /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/myService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DedicatedCloudServiceArgs args: The arguments to use to populate this resource's properties.

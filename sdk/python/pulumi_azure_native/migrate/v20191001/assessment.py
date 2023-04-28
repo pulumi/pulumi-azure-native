@@ -129,6 +129,65 @@ class Assessment(pulumi.CustomResource):
         """
         An assessment created for a group in the Migration project.
 
+        ## Example Usage
+        ### Assessments_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.migrate.v20191001.Assessment("assessment",
+            assessment_name="assessment_5_14_2019_16_48_47",
+            e_tag="\\"1e000c2c-0000-0d00-0000-5cdaa4190000\\"",
+            group_name="Group2",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties=azure_native.migrate.v20191001.AssessmentPropertiesResponseArgs(
+                azure_disk_type="StandardOrPremium",
+                azure_hybrid_use_benefit="Yes",
+                azure_location="NorthEurope",
+                azure_offer_code="MSAZR0003P",
+                azure_pricing_tier="Standard",
+                azure_storage_redundancy="LocallyRedundant",
+                azure_vm_families=[
+                    "Dv2_series",
+                    "F_series",
+                    "Dv3_series",
+                    "DS_series",
+                    "DSv2_series",
+                    "Fs_series",
+                    "Dsv3_series",
+                    "Ev3_series",
+                    "Esv3_series",
+                    "D_series",
+                    "M_series",
+                    "Fsv2_series",
+                    "H_series",
+                ],
+                currency="USD",
+                discount_percentage=100,
+                percentile="Percentile95",
+                reserved_instance="RI3Year",
+                scaling_factor=1,
+                sizing_criterion="PerformanceBased",
+                stage="InProgress",
+                time_range="Day",
+                vm_uptime=azure_native.migrate.v20191001.VmUptimeArgs(
+                    days_per_month=31,
+                    hours_per_day=24,
+                ),
+            ),
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20191001:Assessment assessment_5_14_2019_16_48_47 /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abgoyalWEselfhostb72bproject/groups/Group2/assessments/assessment_5_14_2019_16_48_47 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_name: Unique name of an assessment within a project.
@@ -146,6 +205,65 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An assessment created for a group in the Migration project.
+
+        ## Example Usage
+        ### Assessments_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.migrate.v20191001.Assessment("assessment",
+            assessment_name="assessment_5_14_2019_16_48_47",
+            e_tag="\\"1e000c2c-0000-0d00-0000-5cdaa4190000\\"",
+            group_name="Group2",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties=azure_native.migrate.v20191001.AssessmentPropertiesResponseArgs(
+                azure_disk_type="StandardOrPremium",
+                azure_hybrid_use_benefit="Yes",
+                azure_location="NorthEurope",
+                azure_offer_code="MSAZR0003P",
+                azure_pricing_tier="Standard",
+                azure_storage_redundancy="LocallyRedundant",
+                azure_vm_families=[
+                    "Dv2_series",
+                    "F_series",
+                    "Dv3_series",
+                    "DS_series",
+                    "DSv2_series",
+                    "Fs_series",
+                    "Dsv3_series",
+                    "Ev3_series",
+                    "Esv3_series",
+                    "D_series",
+                    "M_series",
+                    "Fsv2_series",
+                    "H_series",
+                ],
+                currency="USD",
+                discount_percentage=100,
+                percentile="Percentile95",
+                reserved_instance="RI3Year",
+                scaling_factor=1,
+                sizing_criterion="PerformanceBased",
+                stage="InProgress",
+                time_range="Day",
+                vm_uptime=azure_native.migrate.v20191001.VmUptimeArgs(
+                    days_per_month=31,
+                    hours_per_day=24,
+                ),
+            ),
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20191001:Assessment assessment_5_14_2019_16_48_47 /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abgoyalWEselfhostb72bproject/groups/Group2/assessments/assessment_5_14_2019_16_48_47 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

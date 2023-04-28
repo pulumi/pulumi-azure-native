@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The container for solution.
+ *
+ * ## Example Usage
+ * ### ManagementConfigurationCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementConfiguration = new azure_native.operationsmanagement.v20151101preview.ManagementConfiguration("managementConfiguration", {
+ *     location: "East US",
+ *     managementConfigurationName: "managementConfiguration1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationsmanagement/v20151101preview:ManagementConfiguration managementConfiguration1 subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationsManagement/ManagementConfigurations/managementConfiguration1 
+ * ```
  */
 export class ManagementConfiguration extends pulumi.CustomResource {
     /**

@@ -165,6 +165,29 @@ class InventoryItem(pulumi.CustomResource):
         API Version: 2022-07-15-preview.
         Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.connectedvmwarevsphere.InventoryItem("inventoryItem",
+            inventory_item_name="testItem",
+            inventory_type="ResourcePool",
+            resource_group_name="testrg",
+            vcenter_name="ContosoVCenter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere:InventoryItem testItem /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter/InventoryItems/testItem 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] inventory_item_name: Name of the inventoryItem.
@@ -186,6 +209,29 @@ class InventoryItem(pulumi.CustomResource):
         Defines the inventory item.
         API Version: 2022-07-15-preview.
         Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.connectedvmwarevsphere.InventoryItem("inventoryItem",
+            inventory_item_name="testItem",
+            inventory_type="ResourcePool",
+            resource_group_name="testrg",
+            vcenter_name="ContosoVCenter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere:InventoryItem testItem /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter/InventoryItems/testItem 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.

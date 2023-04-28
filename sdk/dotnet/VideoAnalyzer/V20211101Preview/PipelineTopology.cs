@@ -16,6 +16,105 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
     ///   - Sources: list of one or more data sources nodes such as an RTSP source which allows for content to be ingested from cameras.
     ///   - Processors: list of nodes which perform data analysis or transformations.
     ///   - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a pipeline topology with an Rtsp source and video sink.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipelineTopology = new AzureNative.VideoAnalyzer.V20211101Preview.PipelineTopology("pipelineTopology", new()
+    ///     {
+    ///         AccountName = "testaccount2",
+    ///         Description = "Pipeline Topology 1 Description",
+    ///         Kind = "Live",
+    ///         Parameters = new[]
+    ///         {
+    ///             new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.ParameterDeclarationArgs
+    ///             {
+    ///                 Default = "rtsp://microsoft.com/video.mp4",
+    ///                 Description = "rtsp source url parameter",
+    ///                 Name = "rtspUrlParameter",
+    ///                 Type = "String",
+    ///             },
+    ///             new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.ParameterDeclarationArgs
+    ///             {
+    ///                 Default = "password",
+    ///                 Description = "rtsp source password parameter",
+    ///                 Name = "rtspPasswordParameter",
+    ///                 Type = "SecretString",
+    ///             },
+    ///         },
+    ///         PipelineTopologyName = "pipelineTopology1",
+    ///         ResourceGroupName = "testrg",
+    ///         Sinks = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "inputs", new[]
+    ///                 {
+    ///                     new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.NodeInputArgs
+    ///                     {
+    ///                         NodeName = "rtspSource",
+    ///                     },
+    ///                 } },
+    ///                 { "name", "videoSink" },
+    ///                 { "type", "#Microsoft.VideoAnalyzer.VideoSink" },
+    ///                 { "videoCreationProperties", new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.VideoCreationPropertiesArgs
+    ///                 {
+    ///                     Description = "Parking lot south entrance",
+    ///                     SegmentLength = "PT30S",
+    ///                     Title = "Parking Lot (Camera 1)",
+    ///                 } },
+    ///                 { "videoName", "camera001" },
+    ///                 { "videoPublishingOptions", new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.VideoPublishingOptionsArgs
+    ///                 {
+    ///                     DisableArchive = "false",
+    ///                     DisableRtspPublishing = "true",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Sku = new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Live_S1",
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.RtspSourceArgs
+    ///             {
+    ///                 Endpoint = new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.UnsecuredEndpointArgs
+    ///                 {
+    ///                     Credentials = new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.UsernamePasswordCredentialsArgs
+    ///                     {
+    ///                         Password = "${rtspPasswordParameter}",
+    ///                         Type = "#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
+    ///                         Username = "username",
+    ///                     },
+    ///                     Type = "#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
+    ///                     Url = "${rtspUrlParameter}",
+    ///                 },
+    ///                 Name = "rtspSource",
+    ///                 Transport = "Http",
+    ///                 Type = "#Microsoft.VideoAnalyzer.RtspSource",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer/v20211101preview:PipelineTopology pipelineTopology1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/pipelineTopologies/pipelineTopology1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20211101preview:PipelineTopology")]
     public partial class PipelineTopology : global::Pulumi.CustomResource

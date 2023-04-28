@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * A private endpoint connection
  * API Version: 2021-11-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Approve or reject a private endpoint connection with a given name.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstancePrivateEndpointConnection = new azure_native.sql.ManagedInstancePrivateEndpointConnection("managedInstancePrivateEndpointConnection", {
+ *     managedInstanceName: "test-cl",
+ *     privateEndpointConnectionName: "private-endpoint-connection-name",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Approved by johndoe@contoso.com",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "Default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:ManagedInstancePrivateEndpointConnection private-endpoint-connection-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/test-cl/privateEndpointConnections/private-endpoint-connection-name 
+ * ```
  */
 export class ManagedInstancePrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * User details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateUser
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const user = new azure_native.apimanagement.User("user", {
+ *     confirmation: "signup",
+ *     email: "foobar@outlook.com",
+ *     firstName: "foo",
+ *     lastName: "bar",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     userId: "5931a75ae4bbd512288c680b",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:User 5931a75ae4bbd512288c680b /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/5931a75ae4bbd512288c680b 
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

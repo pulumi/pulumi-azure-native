@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
 {
     /// <summary>
     /// Represents an instance of a orchestrator.
+    /// 
+    /// ## Example Usage
+    /// ### put delegated subnet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var delegatedSubnetServiceDetails = new AzureNative.DelegatedNetwork.V20210315.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails", new()
+    ///     {
+    ///         ControllerDetails = new AzureNative.DelegatedNetwork.V20210315.Inputs.ControllerDetailsArgs
+    ///         {
+    ///             Id = "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestRG",
+    ///         ResourceName = "delegated1",
+    ///         SubnetDetails = new AzureNative.DelegatedNetwork.V20210315.Inputs.SubnetDetailsArgs
+    ///         {
+    ///             Id = "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails delegated1 /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/delegatedSubnets/delegated1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails")]
     public partial class DelegatedSubnetServiceDetails : global::Pulumi.CustomResource

@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Represents a share on the  Data Box Edge/Gateway device.
     /// API Version: 2022-03-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SharePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var share = new AzureNative.DataBoxEdge.Share("share", new()
+    ///     {
+    ///         AccessProtocol = "SMB",
+    ///         AzureContainerInfo = new AzureNative.DataBoxEdge.Inputs.AzureContainerInfoArgs
+    ///         {
+    ///             ContainerName = "testContainerSMB",
+    ///             DataFormat = "BlockBlob",
+    ///             StorageAccountCredentialId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+    ///         },
+    ///         DataPolicy = "Cloud",
+    ///         Description = "",
+    ///         DeviceName = "testedgedevice",
+    ///         MonitoringStatus = "Enabled",
+    ///         Name = "smbshare",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         ShareStatus = "Online",
+    ///         UserAccessRights = new[]
+    ///         {
+    ///             new AzureNative.DataBoxEdge.Inputs.UserAccessRightArgs
+    ///             {
+    ///                 AccessType = "Change",
+    ///                 UserId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:Share smbshare /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/smbshare 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Share")]
     public partial class Share : global::Pulumi.CustomResource

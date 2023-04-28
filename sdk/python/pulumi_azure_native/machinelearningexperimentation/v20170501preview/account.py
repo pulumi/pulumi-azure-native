@@ -196,6 +196,37 @@ class Account(pulumi.CustomResource):
         """
         An object that represents a machine learning team account.
 
+        ## Example Usage
+        ### AccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.machinelearningexperimentation.v20170501preview.Account("account",
+            account_name="accountcrud5678",
+            key_vault_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.KeyVault/vaults/testkv",
+            location="East US",
+            resource_group_name="accountcrud-1234",
+            storage_account=azure_native.machinelearningexperimentation.v20170501preview.StorageAccountPropertiesArgs(
+                access_key="key",
+                storage_account_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            ),
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            vso_account_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/microsoft.visualstudio/account/vsotest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningexperimentation/v20170501preview:Account accountcrud5678 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.MachineLearningExperimentation/accounts/accountcrud5678 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the machine learning team account.
@@ -217,6 +248,37 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a machine learning team account.
+
+        ## Example Usage
+        ### AccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.machinelearningexperimentation.v20170501preview.Account("account",
+            account_name="accountcrud5678",
+            key_vault_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.KeyVault/vaults/testkv",
+            location="East US",
+            resource_group_name="accountcrud-1234",
+            storage_account=azure_native.machinelearningexperimentation.v20170501preview.StorageAccountPropertiesArgs(
+                access_key="key",
+                storage_account_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            ),
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            vso_account_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/microsoft.visualstudio/account/vsotest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningexperimentation/v20170501preview:Account accountcrud5678 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.MachineLearningExperimentation/accounts/accountcrud5678 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

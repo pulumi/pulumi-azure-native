@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra keyspace.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBCassandraKeyspaceCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cassandraResourceCassandraKeyspace = new AzureNative.DocumentDB.V20190801.CassandraResourceCassandraKeyspace("cassandraResourceCassandraKeyspace", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         KeyspaceName = "keyspaceName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20190801.Inputs.CassandraKeyspaceResourceArgs
+    ///         {
+    ///             Id = "keyspaceName",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace keyspaceName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspaceName 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20190801:CassandraResourceCassandraKeyspace")]

@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### Update private endpoint connection.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.VideoAnalyzer.V20211101Preview.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         AccountName = "contososports",
+    ///         Name = "10000000-0000-0000-0000-000000000000",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Test description.",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection 10000000-0000-0000-0000-000000000000 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fabrikam/providers/Microsoft.Media/videoanalyzers/contososports/privateEndpointConnections/10000000-0000-0000-0000-000000000000 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

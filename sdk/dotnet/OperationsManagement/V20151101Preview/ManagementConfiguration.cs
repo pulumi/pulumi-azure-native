@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
 {
     /// <summary>
     /// The container for solution.
+    /// 
+    /// ## Example Usage
+    /// ### ManagementConfigurationCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementConfiguration = new AzureNative.OperationsManagement.V20151101Preview.ManagementConfiguration("managementConfiguration", new()
+    ///     {
+    ///         Location = "East US",
+    ///         ManagementConfigurationName = "managementConfiguration1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationsmanagement/v20151101preview:ManagementConfiguration managementConfiguration1 subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationsManagement/ManagementConfigurations/managementConfiguration1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationsmanagement/v20151101preview:ManagementConfiguration")]
     public partial class ManagementConfiguration : global::Pulumi.CustomResource

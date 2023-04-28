@@ -267,6 +267,52 @@ class Migration(pulumi.CustomResource):
         """
         Represents a migration resource.
 
+        ## Example Usage
+        ### Migrations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.v20210615privatepreview.Migration("migration",
+            d_bs_to_migrate=[
+                "db1",
+                "db2",
+                "db3",
+                "db4",
+            ],
+            location="westus",
+            migration_name="testmigration",
+            migration_resource_group=azure_native.dbforpostgresql.v20210615privatepreview.MigrationResourceGroupArgs(
+                resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg",
+                subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/default",
+            ),
+            secret_parameters=azure_native.dbforpostgresql.v20210615privatepreview.MigrationSecretParametersResponseArgs(
+                aad_app={
+                    "aadSecret": "testaadsecret",
+                    "clientId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+                    "tenantId": "tttttttt-tttt-tttt-tttt-tttttttttttt",
+                },
+                admin_credentials=azure_native.dbforpostgresql.v20210615privatepreview.AdminCredentialsArgs(
+                    source_server_password="testsourcepassword",
+                    target_server_password="testtargetpassword",
+                ),
+            ),
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+            target_db_server_name="testtarget",
+            target_db_server_resource_group_name="testrg",
+            target_db_server_subscription_id="ffffffff-ffff-ffff-ffff-ffffffffffff")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20210615privatepreview:Migration mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -286,6 +332,52 @@ class Migration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a migration resource.
+
+        ## Example Usage
+        ### Migrations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.v20210615privatepreview.Migration("migration",
+            d_bs_to_migrate=[
+                "db1",
+                "db2",
+                "db3",
+                "db4",
+            ],
+            location="westus",
+            migration_name="testmigration",
+            migration_resource_group=azure_native.dbforpostgresql.v20210615privatepreview.MigrationResourceGroupArgs(
+                resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg",
+                subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/default",
+            ),
+            secret_parameters=azure_native.dbforpostgresql.v20210615privatepreview.MigrationSecretParametersResponseArgs(
+                aad_app={
+                    "aadSecret": "testaadsecret",
+                    "clientId": "cccccccc-cccc-cccc-cccc-cccccccccccc",
+                    "tenantId": "tttttttt-tttt-tttt-tttt-tttttttttttt",
+                },
+                admin_credentials=azure_native.dbforpostgresql.v20210615privatepreview.AdminCredentialsArgs(
+                    source_server_password="testsourcepassword",
+                    target_server_password="testtargetpassword",
+                ),
+            ),
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+            target_db_server_name="testtarget",
+            target_db_server_resource_group_name="testrg",
+            target_db_server_subscription_id="ffffffff-ffff-ffff-ffff-ffffffffffff")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20210615privatepreview:Migration mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MigrationArgs args: The arguments to use to populate this resource's properties.

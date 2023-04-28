@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a mongo cluster firewall rule.
+ *
+ * ## Example Usage
+ * ### Create a firewall rule of the mongo cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoClusterFirewallRule = new azure_native.documentdb.v20230301preview.MongoClusterFirewallRule("mongoClusterFirewallRule", {
+ *     endIpAddress: "255.255.255.255",
+ *     firewallRuleName: "rule1",
+ *     mongoClusterName: "myMongoCluster",
+ *     resourceGroupName: "TestGroup",
+ *     startIpAddress: "0.0.0.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20230301preview:MongoClusterFirewallRule rule1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster/firewallRules/rule1 
+ * ```
  */
 export class MongoClusterFirewallRule extends pulumi.CustomResource {
     /**

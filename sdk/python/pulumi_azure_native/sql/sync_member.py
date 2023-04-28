@@ -248,6 +248,54 @@ class SyncMember(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a new sync member
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sync_member = azure_native.sql.SyncMember("syncMember",
+            database_name="syncgroupcrud-7421",
+            database_type="AzureSqlDatabase",
+            resource_group_name="syncgroupcrud-65440",
+            server_name="syncgroupcrud-3379.database.windows.net",
+            sync_direction="Bidirectional",
+            sync_group_name="syncgroupcrud-3187",
+            sync_member_azure_database_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+            sync_member_name="syncmembercrud-4879",
+            use_private_link_connection=True,
+            user_name="myUser")
+
+        ```
+        ### Update a sync member
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sync_member = azure_native.sql.SyncMember("syncMember",
+            database_name="syncgroupcrud-4328",
+            database_type="AzureSqlDatabase",
+            resource_group_name="syncgroupcrud-65440",
+            server_name="syncgroupcrud-8475",
+            sync_direction="Bidirectional",
+            sync_group_name="syncgroupcrud-3187",
+            sync_member_azure_database_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+            sync_member_name="syncmembercrud-4879",
+            use_private_link_connection=True,
+            user_name="myUser")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:SyncMember syncmembercrud-4879 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncmembercrud-4879 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: Database name of the member database in the sync member.
@@ -274,6 +322,54 @@ class SyncMember(pulumi.CustomResource):
         An Azure SQL Database sync member.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a new sync member
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sync_member = azure_native.sql.SyncMember("syncMember",
+            database_name="syncgroupcrud-7421",
+            database_type="AzureSqlDatabase",
+            resource_group_name="syncgroupcrud-65440",
+            server_name="syncgroupcrud-3379.database.windows.net",
+            sync_direction="Bidirectional",
+            sync_group_name="syncgroupcrud-3187",
+            sync_member_azure_database_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+            sync_member_name="syncmembercrud-4879",
+            use_private_link_connection=True,
+            user_name="myUser")
+
+        ```
+        ### Update a sync member
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sync_member = azure_native.sql.SyncMember("syncMember",
+            database_name="syncgroupcrud-4328",
+            database_type="AzureSqlDatabase",
+            resource_group_name="syncgroupcrud-65440",
+            server_name="syncgroupcrud-8475",
+            sync_direction="Bidirectional",
+            sync_group_name="syncgroupcrud-3187",
+            sync_member_azure_database_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+            sync_member_name="syncmembercrud-4879",
+            use_private_link_connection=True,
+            user_name="myUser")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:SyncMember syncmembercrud-4879 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncmembercrud-4879 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SyncMemberArgs args: The arguments to use to populate this resource's properties.

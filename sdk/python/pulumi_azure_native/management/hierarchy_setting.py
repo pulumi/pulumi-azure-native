@@ -80,6 +80,28 @@ class HierarchySetting(pulumi.CustomResource):
         API Version: 2021-04-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### GetGroupSettings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hierarchy_setting = azure_native.management.HierarchySetting("hierarchySetting",
+            default_management_group="/providers/Microsoft.Management/managementGroups/DefaultGroup",
+            group_id="root",
+            require_authorization_for_group_creation=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management:HierarchySetting root /providers/Microsoft.Management/managementGroups/root/settings/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_management_group: Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
@@ -96,6 +118,28 @@ class HierarchySetting(pulumi.CustomResource):
         Settings defined at the Management Group scope.
         API Version: 2021-04-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### GetGroupSettings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hierarchy_setting = azure_native.management.HierarchySetting("hierarchySetting",
+            default_management_group="/providers/Microsoft.Management/managementGroups/DefaultGroup",
+            group_id="root",
+            require_authorization_for_group_creation=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management:HierarchySetting root /providers/Microsoft.Management/managementGroups/root/settings/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HierarchySettingArgs args: The arguments to use to populate this resource's properties.

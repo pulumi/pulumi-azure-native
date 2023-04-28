@@ -130,6 +130,30 @@ class GlobalReachConnection(pulumi.CustomResource):
         API Version: 2022-05-01.
         Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### GlobalReachConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_reach_connection = azure_native.avs.GlobalReachConnection("globalReachConnection",
+            authorization_key="01010101-0101-0101-0101-010101010101",
+            global_reach_connection_name="connection1",
+            peer_express_route_circuit="/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.Network/expressRouteCircuits/mypeer",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:GlobalReachConnection connection1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/globalReachConnections/connection1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: Authorization key from the peer express route used for the global reach connection
@@ -149,6 +173,30 @@ class GlobalReachConnection(pulumi.CustomResource):
         A global reach connection resource
         API Version: 2022-05-01.
         Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### GlobalReachConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_reach_connection = azure_native.avs.GlobalReachConnection("globalReachConnection",
+            authorization_key="01010101-0101-0101-0101-010101010101",
+            global_reach_connection_name="connection1",
+            peer_express_route_circuit="/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.Network/expressRouteCircuits/mypeer",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:GlobalReachConnection connection1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/globalReachConnections/connection1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GlobalReachConnectionArgs args: The arguments to use to populate this resource's properties.

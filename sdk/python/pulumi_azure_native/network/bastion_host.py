@@ -280,6 +280,36 @@ class BastionHost(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Bastion Host
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bastion_host = azure_native.network.BastionHost("bastionHost",
+            bastion_host_name="bastionhosttenant",
+            ip_configurations=[{
+                "name": "bastionHostIpConfiguration",
+                "publicIPAddress": azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                ),
+                "subnet": azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/BastionHostSubnet",
+                ),
+            }],
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:BastionHost bastionhost /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/bastionHosts/bastionhosttenant' 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bastion_host_name: The name of the Bastion Host.
@@ -307,6 +337,36 @@ class BastionHost(pulumi.CustomResource):
         Bastion Host resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Bastion Host
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bastion_host = azure_native.network.BastionHost("bastionHost",
+            bastion_host_name="bastionhosttenant",
+            ip_configurations=[{
+                "name": "bastionHostIpConfiguration",
+                "publicIPAddress": azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+                ),
+                "subnet": azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/BastionHostSubnet",
+                ),
+            }],
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:BastionHost bastionhost /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/bastionHosts/bastionhosttenant' 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BastionHostArgs args: The arguments to use to populate this resource's properties.

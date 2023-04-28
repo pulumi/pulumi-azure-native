@@ -265,6 +265,36 @@ class Application(pulumi.CustomResource):
         """
         Schema for Application properties.
 
+        ## Example Usage
+        ### Application_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.desktopvirtualization.v20221014preview.Application("application",
+            application_group_name="applicationGroup1",
+            application_name="application1",
+            command_line_arguments="arguments",
+            command_line_setting="Allow",
+            description="des1",
+            file_path="path",
+            friendly_name="friendly",
+            icon_index=1,
+            icon_path="icon",
+            resource_group_name="resourceGroup1",
+            show_in_portal=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization/v20221014preview:Application applicationGroup1/application1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/applicationGroup1/applications/application1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_group_name: The name of the application group
@@ -290,6 +320,36 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema for Application properties.
+
+        ## Example Usage
+        ### Application_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.desktopvirtualization.v20221014preview.Application("application",
+            application_group_name="applicationGroup1",
+            application_name="application1",
+            command_line_arguments="arguments",
+            command_line_setting="Allow",
+            description="des1",
+            file_path="path",
+            friendly_name="friendly",
+            icon_index=1,
+            icon_path="icon",
+            resource_group_name="resourceGroup1",
+            show_in_portal=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization/v20221014preview:Application applicationGroup1/application1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/applicationGroup1/applications/application1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

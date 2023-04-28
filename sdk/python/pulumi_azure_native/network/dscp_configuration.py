@@ -236,6 +236,76 @@ class DscpConfiguration(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create DSCP Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dscp_configuration = azure_native.network.DscpConfiguration("dscpConfiguration",
+            dscp_configuration_name="mydscpconfig",
+            location="eastus",
+            qos_definition_collection=[
+                {
+                    "destinationIpRanges": [azure_native.network.QosIpRangeArgs(
+                        end_ip="127.0.10.2",
+                        start_ip="127.0.10.1",
+                    )],
+                    "destinationPortRanges": [azure_native.network.QosPortRangeArgs(
+                        end=15,
+                        start=15,
+                    )],
+                    "markings": [1],
+                    "protocol": "Tcp",
+                    "sourceIpRanges": [azure_native.network.QosIpRangeArgs(
+                        end_ip="127.0.0.2",
+                        start_ip="127.0.0.1",
+                    )],
+                    "sourcePortRanges": [
+                        azure_native.network.QosPortRangeArgs(
+                            end=11,
+                            start=10,
+                        ),
+                        azure_native.network.QosPortRangeArgs(
+                            end=21,
+                            start=20,
+                        ),
+                    ],
+                },
+                {
+                    "destinationIpRanges": [azure_native.network.QosIpRangeArgs(
+                        end_ip="12.0.10.2",
+                        start_ip="12.0.10.1",
+                    )],
+                    "destinationPortRanges": [azure_native.network.QosPortRangeArgs(
+                        end=52,
+                        start=51,
+                    )],
+                    "markings": [2],
+                    "protocol": "Udp",
+                    "sourceIpRanges": [azure_native.network.QosIpRangeArgs(
+                        end_ip="12.0.0.2",
+                        start_ip="12.0.0.1",
+                    )],
+                    "sourcePortRanges": [azure_native.network.QosPortRangeArgs(
+                        end=12,
+                        start=11,
+                    )],
+                },
+            ],
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DscpConfiguration mydscpConfig /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dscpConfiguration/mydscpConfig 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['QosIpRangeArgs']]]] destination_ip_ranges: Destination IP ranges.
@@ -261,6 +331,76 @@ class DscpConfiguration(pulumi.CustomResource):
         Differentiated Services Code Point configuration for any given network interface
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create DSCP Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dscp_configuration = azure_native.network.DscpConfiguration("dscpConfiguration",
+            dscp_configuration_name="mydscpconfig",
+            location="eastus",
+            qos_definition_collection=[
+                {
+                    "destinationIpRanges": [azure_native.network.QosIpRangeArgs(
+                        end_ip="127.0.10.2",
+                        start_ip="127.0.10.1",
+                    )],
+                    "destinationPortRanges": [azure_native.network.QosPortRangeArgs(
+                        end=15,
+                        start=15,
+                    )],
+                    "markings": [1],
+                    "protocol": "Tcp",
+                    "sourceIpRanges": [azure_native.network.QosIpRangeArgs(
+                        end_ip="127.0.0.2",
+                        start_ip="127.0.0.1",
+                    )],
+                    "sourcePortRanges": [
+                        azure_native.network.QosPortRangeArgs(
+                            end=11,
+                            start=10,
+                        ),
+                        azure_native.network.QosPortRangeArgs(
+                            end=21,
+                            start=20,
+                        ),
+                    ],
+                },
+                {
+                    "destinationIpRanges": [azure_native.network.QosIpRangeArgs(
+                        end_ip="12.0.10.2",
+                        start_ip="12.0.10.1",
+                    )],
+                    "destinationPortRanges": [azure_native.network.QosPortRangeArgs(
+                        end=52,
+                        start=51,
+                    )],
+                    "markings": [2],
+                    "protocol": "Udp",
+                    "sourceIpRanges": [azure_native.network.QosIpRangeArgs(
+                        end_ip="12.0.0.2",
+                        start_ip="12.0.0.1",
+                    )],
+                    "sourcePortRanges": [azure_native.network.QosPortRangeArgs(
+                        end=12,
+                        start=11,
+                    )],
+                },
+            ],
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DscpConfiguration mydscpConfig /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dscpConfiguration/mydscpConfig 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DscpConfigurationArgs args: The arguments to use to populate this resource's properties.

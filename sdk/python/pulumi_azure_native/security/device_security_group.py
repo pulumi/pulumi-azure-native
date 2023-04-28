@@ -133,6 +133,28 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         API Version: 2019-08-01.
         Previous API Version: 2019-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a device security group for the specified IoT hub resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device_security_group = azure_native.security.DeviceSecurityGroup("deviceSecurityGroup",
+            device_security_group_name="samplesecuritygroup",
+            resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub",
+            time_window_rules=[azure_native.security.TimeWindowCustomAlertRuleArgs()])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:DeviceSecurityGroup samplesecuritygroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub/providers/Microsoft.Security/deviceSecurityGroups/samplesecuritygroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AllowlistCustomAlertRuleArgs']]]] allowlist_rules: The allow-list custom alert rules.
@@ -152,6 +174,28 @@ class DeviceSecurityGroup(pulumi.CustomResource):
         The device security group resource
         API Version: 2019-08-01.
         Previous API Version: 2019-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a device security group for the specified IoT hub resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device_security_group = azure_native.security.DeviceSecurityGroup("deviceSecurityGroup",
+            device_security_group_name="samplesecuritygroup",
+            resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub",
+            time_window_rules=[azure_native.security.TimeWindowCustomAlertRuleArgs()])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:DeviceSecurityGroup samplesecuritygroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub/providers/Microsoft.Security/deviceSecurityGroups/samplesecuritygroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeviceSecurityGroupArgs args: The arguments to use to populate this resource's properties.

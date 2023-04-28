@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * The container for solution.
  * API Version: 2015-11-01-preview.
  * Previous API Version: 2015-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### SolutionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementAssociation = new azure_native.operationsmanagement.ManagementAssociation("managementAssociation", {
+ *     location: "East US",
+ *     managementAssociationName: "managementAssociation1",
+ *     properties: {
+ *         applicationId: "/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.Appliance/Appliances/appliance1",
+ *     },
+ *     providerName: "providerName",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "resourceName",
+ *     resourceType: "resourceType",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationsmanagement:ManagementAssociation managementAssociation1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/ws1/Microsoft.OperationsManagement/ManagementAssociations/managementAssociation1 
+ * ```
  */
 export class ManagementAssociation extends pulumi.CustomResource {
     /**

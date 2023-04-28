@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
 {
     /// <summary>
     /// EventGrid Partner Namespace.
+    /// 
+    /// ## Example Usage
+    /// ### PartnerNamespaces_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var partnerNamespace = new AzureNative.EventGrid.V20220615.PartnerNamespace("partnerNamespace", new()
+    ///     {
+    ///         Location = "westus",
+    ///         PartnerNamespaceName = "examplePartnerNamespaceName1",
+    ///         PartnerRegistrationFullyQualifiedId = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerRegistrations/ContosoCorpAccount1",
+    ///         ResourceGroupName = "examplerg",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20220615:PartnerNamespace examplePartnerNamespaceName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerNamespaces/examplePartnerNamespaceName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20220615:PartnerNamespace")]
     public partial class PartnerNamespace : global::Pulumi.CustomResource

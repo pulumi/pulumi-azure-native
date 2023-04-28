@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Easm.V20220401Preview
 {
     /// <summary>
     /// Workspace details.
+    /// 
+    /// ## Example Usage
+    /// ### Workspaces
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Easm.V20220401Preview.Workspace("workspace", new()
+    ///     {
+    ///         Location = "West US",
+    ///         ResourceGroupName = "dummyrg",
+    ///         WorkspaceName = "ThisisaWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:easm/v20220401preview:Workspace ThisisaWorkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/dummyrg/providers/Microsoft.Easm/workspaces/ThisisaWorkspace 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:easm/v20220401preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

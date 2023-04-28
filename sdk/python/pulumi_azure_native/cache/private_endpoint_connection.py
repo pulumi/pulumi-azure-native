@@ -98,6 +98,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2022-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RedisCachePutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.cache.PrivateEndpointConnection("privateEndpointConnection",
+            cache_name="cachetest01",
+            private_endpoint_connection_name="pectest01",
+            private_link_service_connection_state=azure_native.cache.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="rgtest01")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache:PrivateEndpointConnection pectest01 /subscriptions/{subscriptionId}/resourceGroups/rgtest01/providers/Microsoft.Cache/Redis/cachetest01/privateEndpointConnections/pectest01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: The name of the Redis cache.
@@ -115,6 +141,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The Private Endpoint Connection resource.
         API Version: 2022-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RedisCachePutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.cache.PrivateEndpointConnection("privateEndpointConnection",
+            cache_name="cachetest01",
+            private_endpoint_connection_name="pectest01",
+            private_link_service_connection_state=azure_native.cache.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="rgtest01")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache:PrivateEndpointConnection pectest01 /subscriptions/{subscriptionId}/resourceGroups/rgtest01/providers/Microsoft.Cache/Redis/cachetest01/privateEndpointConnections/pectest01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

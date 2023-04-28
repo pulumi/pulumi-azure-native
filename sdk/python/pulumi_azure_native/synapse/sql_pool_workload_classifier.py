@@ -212,6 +212,51 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a workload classifier with all properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool_workload_classifier = azure_native.synapse.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier",
+            context="test_context",
+            end_time="14:00",
+            importance="high",
+            label="test_label",
+            member_name="dbo",
+            resource_group_name="sqlcrudtest-6852",
+            sql_pool_name="sqlcrudtest-9187",
+            start_time="12:00",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup",
+            workspace_name="sqlcrudtest-2080")
+
+        ```
+        ### Create a workload classifier with the required properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool_workload_classifier = azure_native.synapse.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier",
+            member_name="dbo",
+            resource_group_name="sqlcrudtest-6852",
+            sql_pool_name="sqlcrudtest-9187",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup",
+            workspace_name="sqlcrudtest-2080")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:SqlPoolWorkloadClassifier wlm_workloadclassifier /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Synapse/workspaces/sqlcrudtest-2080/sqlPools/sqlcrudtest-9187/workloadGroups/wlm_workloadgroup/workloadClassifiers/wlm_workloadclassifier 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] context: The workload classifier context.
@@ -236,6 +281,51 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         Workload classifier operations for a data warehouse
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a workload classifier with all properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool_workload_classifier = azure_native.synapse.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier",
+            context="test_context",
+            end_time="14:00",
+            importance="high",
+            label="test_label",
+            member_name="dbo",
+            resource_group_name="sqlcrudtest-6852",
+            sql_pool_name="sqlcrudtest-9187",
+            start_time="12:00",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup",
+            workspace_name="sqlcrudtest-2080")
+
+        ```
+        ### Create a workload classifier with the required properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool_workload_classifier = azure_native.synapse.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier",
+            member_name="dbo",
+            resource_group_name="sqlcrudtest-6852",
+            sql_pool_name="sqlcrudtest-9187",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup",
+            workspace_name="sqlcrudtest-2080")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:SqlPoolWorkloadClassifier wlm_workloadclassifier /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Synapse/workspaces/sqlcrudtest-2080/sqlPools/sqlcrudtest-9187/workloadGroups/wlm_workloadgroup/workloadClassifiers/wlm_workloadclassifier 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlPoolWorkloadClassifierArgs args: The arguments to use to populate this resource's properties.

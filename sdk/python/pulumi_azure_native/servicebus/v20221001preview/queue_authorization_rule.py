@@ -111,6 +111,33 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         """
         Description of a namespace authorization rule.
 
+        ## Example Usage
+        ### QueueAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue_authorization_rule = azure_native.servicebus.v20221001preview.QueueAuthorizationRule("queueAuthorizationRule",
+            authorization_rule_name="sdk-AuthRules-5800",
+            namespace_name="sdk-Namespace-7982",
+            queue_name="sdk-Queues-2317",
+            resource_group_name="ArunMonocle",
+            rights=[
+                azure_native.servicebus/v20221001preview.AccessRights.LISTEN,
+                azure_native.servicebus/v20221001preview.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20221001preview:QueueAuthorizationRule sdk-AuthRules-5800 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-7982/queues/sdk-Queues-2317/authorizationRules/sdk-AuthRules-5800 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
@@ -127,6 +154,33 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a namespace authorization rule.
+
+        ## Example Usage
+        ### QueueAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue_authorization_rule = azure_native.servicebus.v20221001preview.QueueAuthorizationRule("queueAuthorizationRule",
+            authorization_rule_name="sdk-AuthRules-5800",
+            namespace_name="sdk-Namespace-7982",
+            queue_name="sdk-Queues-2317",
+            resource_group_name="ArunMonocle",
+            rights=[
+                azure_native.servicebus/v20221001preview.AccessRights.LISTEN,
+                azure_native.servicebus/v20221001preview.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20221001preview:QueueAuthorizationRule sdk-AuthRules-5800 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-7982/queues/sdk-Queues-2317/authorizationRules/sdk-AuthRules-5800 
+        ```
 
         :param str resource_name: The name of the resource.
         :param QueueAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

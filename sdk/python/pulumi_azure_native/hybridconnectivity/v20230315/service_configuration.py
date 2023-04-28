@@ -231,6 +231,44 @@ class ServiceConfiguration(pulumi.CustomResource):
         """
         The service configuration details associated with the target resource.
 
+        ## Example Usage
+        ### ServiceConfigurationsPutSSH
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_configuration = azure_native.hybridconnectivity.v20230315.ServiceConfiguration("serviceConfiguration",
+            endpoint_name="default",
+            port=22,
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
+            service_configuration_name="SSH",
+            service_name="SSH")
+
+        ```
+        ### ServiceConfigurationsPutWAC
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_configuration = azure_native.hybridconnectivity.v20230315.ServiceConfiguration("serviceConfiguration",
+            endpoint_name="default",
+            port=6516,
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
+            service_configuration_name="WAC",
+            service_name="WAC")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridconnectivity/v20230315:ServiceConfiguration myresource1 /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/WAC 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
@@ -254,6 +292,44 @@ class ServiceConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The service configuration details associated with the target resource.
+
+        ## Example Usage
+        ### ServiceConfigurationsPutSSH
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_configuration = azure_native.hybridconnectivity.v20230315.ServiceConfiguration("serviceConfiguration",
+            endpoint_name="default",
+            port=22,
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
+            service_configuration_name="SSH",
+            service_name="SSH")
+
+        ```
+        ### ServiceConfigurationsPutWAC
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_configuration = azure_native.hybridconnectivity.v20230315.ServiceConfiguration("serviceConfiguration",
+            endpoint_name="default",
+            port=6516,
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
+            service_configuration_name="WAC",
+            service_name="WAC")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridconnectivity/v20230315:ServiceConfiguration myresource1 /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/WAC 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceConfigurationArgs args: The arguments to use to populate this resource's properties.

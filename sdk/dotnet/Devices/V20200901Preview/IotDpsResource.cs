@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.Devices.V20200901Preview
 {
     /// <summary>
     /// The description of the provisioning service.
+    /// 
+    /// ## Example Usage
+    /// ### DPSCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotDpsResource = new AzureNative.Devices.V20200901Preview.IotDpsResource("iotDpsResource", new()
+    ///     {
+    ///         Location = "East US",
+    ///         Properties = null,
+    ///         ProvisioningServiceName = "myFirstProvisioningService",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Devices.V20200901Preview.Inputs.IotDpsSkuInfoArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "S1",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devices/v20200901preview:IotDpsResource myFirstProvisioningService /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups//providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devices/v20200901preview:IotDpsResource")]
     public partial class IotDpsResource : global::Pulumi.CustomResource

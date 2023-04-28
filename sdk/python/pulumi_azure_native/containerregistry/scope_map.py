@@ -117,6 +117,33 @@ class ScopeMap(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ScopeMapCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_map = azure_native.containerregistry.ScopeMap("scopeMap",
+            actions=[
+                "repositories/myrepository/contentWrite",
+                "repositories/myrepository/delete",
+            ],
+            description="Developer Scopes",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            scope_map_name="myScopeMap")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:ScopeMap myScopeMap /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/scopeMaps/myScopeMap 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: The list of scoped permissions for registry artifacts.
@@ -137,6 +164,33 @@ class ScopeMap(pulumi.CustomResource):
         An object that represents a scope map for a container registry.
         API Version: 2022-12-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ScopeMapCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_map = azure_native.containerregistry.ScopeMap("scopeMap",
+            actions=[
+                "repositories/myrepository/contentWrite",
+                "repositories/myrepository/delete",
+            ],
+            description="Developer Scopes",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            scope_map_name="myScopeMap")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:ScopeMap myScopeMap /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/scopeMaps/myScopeMap 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScopeMapArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20201201
 {
     /// <summary>
     /// Remote Private Endpoint Connection ARM resource.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:AppServiceEnvironmentPrivateEndpointConnection")]
     public partial class AppServiceEnvironmentPrivateEndpointConnection : global::Pulumi.CustomResource

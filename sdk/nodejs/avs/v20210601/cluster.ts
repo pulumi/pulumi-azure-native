@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * A cluster resource
+ *
+ * ## Example Usage
+ * ### Clusters_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.avs.v20210601.Cluster("cluster", {
+ *     clusterName: "cluster1",
+ *     clusterSize: 3,
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     sku: {
+ *         name: "AV20",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20210601:Cluster cluster1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

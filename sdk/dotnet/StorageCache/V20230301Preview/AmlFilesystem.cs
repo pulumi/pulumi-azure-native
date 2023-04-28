@@ -11,6 +11,82 @@ namespace Pulumi.AzureNative.StorageCache.V20230301Preview
 {
     /// <summary>
     /// An AML file system instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+    /// 
+    /// ## Example Usage
+    /// ### amlFilesystems_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var amlFilesystem = new AzureNative.StorageCache.V20230301Preview.AmlFilesystem("amlFilesystem", new()
+    ///     {
+    ///         AmlFilesystemName = "fs1",
+    ///         EncryptionSettings = new AzureNative.StorageCache.V20230301Preview.Inputs.AmlFilesystemEncryptionSettingsArgs
+    ///         {
+    ///             KeyEncryptionKey = new AzureNative.StorageCache.V20230301Preview.Inputs.KeyVaultKeyReferenceArgs
+    ///             {
+    ///                 KeyUrl = "https://examplekv.vault.azure.net/keys/kvk/3540a47df75541378d3518c6a4bdf5af",
+    ///                 SourceVault = new AzureNative.StorageCache.V20230301Preview.Inputs.KeyVaultKeyReferenceSourceVaultArgs
+    ///                 {
+    ///                     Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+    ///                 },
+    ///             },
+    ///         },
+    ///         FilesystemSubnet = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/fsSub",
+    ///         Hsm = new AzureNative.StorageCache.V20230301Preview.Inputs.AmlFilesystemHsmArgs
+    ///         {
+    ///             Settings = new AzureNative.StorageCache.V20230301Preview.Inputs.AmlFilesystemHsmSettingsArgs
+    ///             {
+    ///                 Container = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/storageaccountname/blobServices/default/containers/containername",
+    ///                 ImportPrefix = "/",
+    ///                 LoggingContainer = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/storageaccountname/blobServices/default/containers/loggingcontainername",
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.StorageCache.V20230301Preview.Inputs.AmlFilesystemIdentityArgs
+    ///         {
+    ///             Type = AzureNative.StorageCache.V20230301Preview.AmlFilesystemIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1", null },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         MaintenanceWindow = new AzureNative.StorageCache.V20230301Preview.Inputs.AmlFilesystemMaintenanceWindowArgs
+    ///         {
+    ///             DayOfWeek = AzureNative.StorageCache.V20230301Preview.MaintenanceDayOfWeekType.Friday,
+    ///             TimeOfDayUTC = "22:00",
+    ///         },
+    ///         ResourceGroupName = "scgroup",
+    ///         Sku = new AzureNative.StorageCache.V20230301Preview.Inputs.SkuNameArgs
+    ///         {
+    ///             Name = "AMLFS-Durable-Premium-250",
+    ///         },
+    ///         StorageCapacityTiB = 16,
+    ///         Tags = 
+    ///         {
+    ///             { "Dept", "ContosoAds" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagecache/v20230301preview:amlFilesystem fs1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/amlFilesystems/fs1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagecache/v20230301preview:amlFilesystem")]
     public partial class AmlFilesystem : global::Pulumi.CustomResource

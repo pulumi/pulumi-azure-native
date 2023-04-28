@@ -9,6 +9,49 @@ import * as utilities from "../../utilities";
 
 /**
  * The build task that has the resource properties and all build items. The build task will have all information to schedule a build against it.
+ *
+ * ## Example Usage
+ * ### BuildTasks_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const buildTask = new azure_native.containerregistry.v20180201preview.BuildTask("buildTask", {
+ *     alias: "myalias",
+ *     buildTaskName: "myBuildTask",
+ *     location: "eastus",
+ *     platform: {
+ *         cpu: 2,
+ *         osType: "Linux",
+ *     },
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     sourceRepository: {
+ *         isCommitTriggerEnabled: true,
+ *         repositoryUrl: "https://github.com/Azure/azure-rest-api-specs",
+ *         sourceControlAuthProperties: {
+ *             scope: "repo",
+ *             token: "xxxxxx",
+ *             tokenType: "OAuth",
+ *         },
+ *         sourceControlType: "Github",
+ *     },
+ *     status: "Enabled",
+ *     tags: {
+ *         testkey: "value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20180201preview:BuildTask myBuildTask /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/buildTasks/myBuildTask 
+ * ```
  */
 export class BuildTask extends pulumi.CustomResource {
     /**

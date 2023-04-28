@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * The bandwidth schedule details.
+ *
+ * ## Example Usage
+ * ### BandwidthSchedulePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bandwidthSchedule = new azure_native.databoxedge.v20201201.BandwidthSchedule("bandwidthSchedule", {
+ *     days: [
+ *         "Sunday",
+ *         "Monday",
+ *     ],
+ *     deviceName: "testedgedevice",
+ *     name: "bandwidth-1",
+ *     rateInMbps: 100,
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     start: "0:0:0",
+ *     stop: "13:59:0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge/v20201201:BandwidthSchedule bandwidth-1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/bandwidthSchedules/bandwidth-1 
+ * ```
  */
 export class BandwidthSchedule extends pulumi.CustomResource {
     /**

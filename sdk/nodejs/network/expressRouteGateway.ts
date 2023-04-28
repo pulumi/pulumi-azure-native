@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * ExpressRoute gateway resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ExpressRouteGatewayCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteGateway = new azure_native.network.ExpressRouteGateway("expressRouteGateway", {
+ *     allowNonVirtualWanTraffic: false,
+ *     autoScaleConfiguration: {
+ *         bounds: {
+ *             min: 3,
+ *         },
+ *     },
+ *     expressRouteGatewayName: "gateway-2",
+ *     location: "westus",
+ *     resourceGroupName: "resourceGroupName",
+ *     virtualHub: {
+ *         id: "/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:ExpressRouteGateway gateway-2 /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2 
+ * ```
  */
 export class ExpressRouteGateway extends pulumi.CustomResource {
     /**

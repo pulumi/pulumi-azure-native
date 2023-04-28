@@ -9,6 +9,46 @@ import * as utilities from "../../utilities";
 
 /**
  * The SourceControl Configuration object returned in Get & Put response.
+ *
+ * ## Example Usage
+ * ### Create Source Control Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sourceControlConfiguration = new azure_native.kubernetesconfiguration.v20221101.SourceControlConfiguration("sourceControlConfiguration", {
+ *     clusterName: "clusterName1",
+ *     clusterResourceName: "connectedClusters",
+ *     clusterRp: "Microsoft.Kubernetes",
+ *     configurationProtectedSettings: {
+ *         protectedSetting1Key: "protectedSetting1Value",
+ *     },
+ *     enableHelmOperator: true,
+ *     helmOperatorProperties: {
+ *         chartValues: "--set git.ssh.secretName=flux-git-deploy --set tillerNamespace=kube-system",
+ *         chartVersion: "0.3.0",
+ *     },
+ *     operatorInstanceName: "SRSGitHubFluxOp-01",
+ *     operatorNamespace: "SRS_Namespace",
+ *     operatorParams: "--git-email=xyzgituser@users.srs.github.com",
+ *     operatorScope: "namespace",
+ *     operatorType: "Flux",
+ *     repositoryUrl: "git@github.com:k8sdeveloper425/flux-get-started",
+ *     resourceGroupName: "rg1",
+ *     sourceControlConfigurationName: "SRS_GitHubConfig",
+ *     sshKnownHostsContents: "c3NoLmRldi5henVyZS5jb20gc3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCQVFDN0hyMW9UV3FOcU9sekdKT2ZHSjROYWtWeUl6ZjFyWFlkNGQ3d282akJsa0x2Q0E0b2RCbEwwbURVeVowL1FVZlRUcWV1K3RtMjJnT3N2K1ZyVlRNazZ2d1JVNzVnWS95OXV0NU1iM2JSNUJWNThkS1h5cTlBOVVlQjVDYWtlaG41WmdtNngxbUtvVnlmK0ZGbjI2aVlxWEpSZ3pJWlpjWjVWNmhyRTBRZzM5a1ptNGF6NDhvMEFVYmY2U3A0U0xkdm51TWEyc1ZOd0hCYm9TN0VKa201N1hRUFZVMy9RcHlOTEhiV0Rkend0cmxTK2V6MzBTM0FkWWhMS0VPeEFHOHdlT255cnRMSkFVZW45bVRrb2w4b0lJMWVkZjdtV1diV1ZmMG5CbWx5MjErblpjbUNUSVNRQnRkY3lQYUVubzdmRlFNREQyNi9zMGxmS29iNEt3OEg=",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kubernetesconfiguration/v20221101:SourceControlConfiguration SRS_GitHubConfig /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/SRS_GitHubConfig 
+ * ```
  */
 export class SourceControlConfiguration extends pulumi.CustomResource {
     /**

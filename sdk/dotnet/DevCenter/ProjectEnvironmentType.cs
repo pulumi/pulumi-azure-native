@@ -13,6 +13,66 @@ namespace Pulumi.AzureNative.DevCenter
     /// Represents an environment type.
     /// API Version: 2022-11-11-preview.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ProjectEnvironmentTypes_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var projectEnvironmentType = new AzureNative.DevCenter.ProjectEnvironmentType("projectEnvironmentType", new()
+    ///     {
+    ///         CreatorRoleAssignment = new AzureNative.DevCenter.Inputs.ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs
+    ///         {
+    ///             Roles = 
+    ///             {
+    ///                 { "4cbf0b6c-e750-441c-98a7-10da8387e4d6", null },
+    ///             },
+    ///         },
+    ///         DeploymentTargetId = "/subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         EnvironmentTypeName = "DevTest",
+    ///         Identity = new AzureNative.DevCenter.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1", null },
+    ///             },
+    ///         },
+    ///         ProjectName = "ContosoProj",
+    ///         ResourceGroupName = "rg1",
+    ///         Status = "Enabled",
+    ///         Tags = 
+    ///         {
+    ///             { "CostCenter", "RnD" },
+    ///         },
+    ///         UserRoleAssignments = 
+    ///         {
+    ///             { "e45e3m7c-176e-416a-b466-0c5ec8298f8a", new AzureNative.DevCenter.Inputs.UserRoleAssignmentArgs
+    ///             {
+    ///                 Roles = 
+    ///                 {
+    ///                     { "4cbf0b6c-e750-441c-98a7-10da8387e4d6", null },
+    ///                 },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter:ProjectEnvironmentType DevTest /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/ContosoProj/environmentTypes/DevTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:ProjectEnvironmentType")]
     public partial class ProjectEnvironmentType : global::Pulumi.CustomResource

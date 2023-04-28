@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20220701
 {
     /// <summary>
     /// Represents a trigger that can invoke an image template build.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a source image type trigger
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var trigger = new AzureNative.VirtualMachineImages.V20220701.Trigger("trigger", new()
+    ///     {
+    ///         ImageTemplateName = "myImageTemplate",
+    ///         Kind = "SourceImage",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         TriggerName = "source",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:virtualmachineimages/v20220701:Trigger source /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate/triggers/source 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:virtualmachineimages/v20220701:Trigger")]
     public partial class Trigger : global::Pulumi.CustomResource

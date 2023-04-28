@@ -114,6 +114,31 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
         """
         Migrate project.
 
+        ## Example Usage
+        ### MigrateProject_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migrate_projects_controller_migrate_project = azure_native.migrate.v20200501.MigrateProjectsControllerMigrateProject("migrateProjectsControllerMigrateProject",
+            location="eastus",
+            migrate_project_name="projTest1",
+            properties=azure_native.migrate.v20200501.MigrateProjectPropertiesArgs(
+                public_network_access="Enabled",
+            ),
+            resource_group_name="pajindTest1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject proj90 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest1/providers/Microsoft.Migrate/MigrateProjects/proj90 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
@@ -130,6 +155,31 @@ class MigrateProjectsControllerMigrateProject(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Migrate project.
+
+        ## Example Usage
+        ### MigrateProject_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migrate_projects_controller_migrate_project = azure_native.migrate.v20200501.MigrateProjectsControllerMigrateProject("migrateProjectsControllerMigrateProject",
+            location="eastus",
+            migrate_project_name="projTest1",
+            properties=azure_native.migrate.v20200501.MigrateProjectPropertiesArgs(
+                public_network_access="Enabled",
+            ),
+            resource_group_name="pajindTest1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20200501:MigrateProjectsControllerMigrateProject proj90 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest1/providers/Microsoft.Migrate/MigrateProjects/proj90 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MigrateProjectsControllerMigrateProjectArgs args: The arguments to use to populate this resource's properties.

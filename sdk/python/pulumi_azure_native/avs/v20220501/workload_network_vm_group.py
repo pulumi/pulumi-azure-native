@@ -128,6 +128,31 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
         """
         NSX VM Group
 
+        ## Example Usage
+        ### WorkloadNetworks_CreateVMGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_vm_group = azure_native.avs.v20220501.WorkloadNetworkVMGroup("workloadNetworkVMGroup",
+            display_name="vmGroup1",
+            members=["564d43da-fefc-2a3b-1d92-42855622fa50"],
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            vm_group_id="vmGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20220501:WorkloadNetworkVMGroup vmGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/vmGroups/vmGroup1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Display name of the VM group.
@@ -145,6 +170,31 @@ class WorkloadNetworkVMGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NSX VM Group
+
+        ## Example Usage
+        ### WorkloadNetworks_CreateVMGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_vm_group = azure_native.avs.v20220501.WorkloadNetworkVMGroup("workloadNetworkVMGroup",
+            display_name="vmGroup1",
+            members=["564d43da-fefc-2a3b-1d92-42855622fa50"],
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            vm_group_id="vmGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20220501:WorkloadNetworkVMGroup vmGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/vmGroups/vmGroup1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkVMGroupArgs args: The arguments to use to populate this resource's properties.

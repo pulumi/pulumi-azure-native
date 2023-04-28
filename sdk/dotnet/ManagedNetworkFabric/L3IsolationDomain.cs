@@ -13,6 +13,60 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// The L3IsolationDomain resource definition.
     /// API Version: 2023-02-01-preview.
     /// Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### L3IsolationDomains_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var l3IsolationDomain = new AzureNative.ManagedNetworkFabric.L3IsolationDomain("l3IsolationDomain", new()
+    ///     {
+    ///         AggregateRouteConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs
+    ///         {
+    ///             Ipv4Routes = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetworkFabric.Inputs.L3IsolationDomainPatchPropertiesIpv4RoutesArgs
+    ///                 {
+    ///                     Prefix = "10.0.0.0/24",
+    ///                 },
+    ///             },
+    ///             Ipv6Routes = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetworkFabric.Inputs.L3IsolationDomainPatchPropertiesIpv6RoutesArgs
+    ///                 {
+    ///                     Prefix = "10.0.0.1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ConnectedSubnetRoutePolicy = new AzureNative.ManagedNetworkFabric.Inputs.L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs
+    ///         {
+    ///             ExportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+    ///         },
+    ///         Description = "creating L3 isolation domain",
+    ///         L3IsolationDomainName = "example-l3domain",
+    ///         Location = "eastus",
+    ///         NetworkFabricId = "/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+    ///         RedistributeConnectedSubnets = "True",
+    ///         RedistributeStaticRoutes = "False",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric:L3IsolationDomain example-l3domain /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:L3IsolationDomain")]
     public partial class L3IsolationDomain : global::Pulumi.CustomResource

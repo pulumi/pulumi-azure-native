@@ -251,6 +251,34 @@ class SimGroup(pulumi.CustomResource):
         """
         SIM group resource.
 
+        ## Example Usage
+        ### Create SIM group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sim_group = azure_native.mobilenetwork.v20220401preview.SimGroup("simGroup",
+            encryption_key=azure_native.mobilenetwork.v20220401preview.KeyVaultKeyArgs(
+                key_url="https://contosovault.vault.azure.net/keys/azureKey",
+            ),
+            location="eastus",
+            mobile_network=azure_native.mobilenetwork.v20220401preview.MobileNetworkResourceIdResponseArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork",
+            ),
+            resource_group_name="rg1",
+            sim_group_name="testSimGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork/v20220401preview:SimGroup testSimGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simGroups/testSimGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
@@ -275,6 +303,34 @@ class SimGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SIM group resource.
+
+        ## Example Usage
+        ### Create SIM group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sim_group = azure_native.mobilenetwork.v20220401preview.SimGroup("simGroup",
+            encryption_key=azure_native.mobilenetwork.v20220401preview.KeyVaultKeyArgs(
+                key_url="https://contosovault.vault.azure.net/keys/azureKey",
+            ),
+            location="eastus",
+            mobile_network=azure_native.mobilenetwork.v20220401preview.MobileNetworkResourceIdResponseArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork",
+            ),
+            resource_group_name="rg1",
+            sim_group_name="testSimGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork/v20220401preview:SimGroup testSimGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simGroups/testSimGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SimGroupArgs args: The arguments to use to populate this resource's properties.

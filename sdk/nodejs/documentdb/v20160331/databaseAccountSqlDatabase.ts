@@ -10,6 +10,33 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB SQL database.
  *
+ * ## Example Usage
+ * ### CosmosDBSqlDatabaseCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccountSqlDatabase = new azure_native.documentdb.v20160331.DatabaseAccountSqlDatabase("databaseAccountSqlDatabase", {
+ *     accountName: "ddb1",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         id: "databaseName",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase databaseName databaseName 
+ * ```
+ *
  * @deprecated Version 2016-03-31 will be removed in v2 of the provider.
  */
 export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {

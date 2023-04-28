@@ -11,6 +11,63 @@ namespace Pulumi.AzureNative.LabServices.V20220801
 {
     /// <summary>
     /// Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
+    /// 
+    /// ## Example Usage
+    /// ### putLabPlan
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var labPlan = new AzureNative.LabServices.V20220801.LabPlan("labPlan", new()
+    ///     {
+    ///         DefaultAutoShutdownProfile = new AzureNative.LabServices.V20220801.Inputs.AutoShutdownProfileArgs
+    ///         {
+    ///             DisconnectDelay = "PT5M",
+    ///             IdleDelay = "PT5M",
+    ///             NoConnectDelay = "PT5M",
+    ///             ShutdownOnDisconnect = AzureNative.LabServices.V20220801.EnableState.Enabled,
+    ///             ShutdownOnIdle = AzureNative.LabServices.V20220801.ShutdownOnIdleMode.UserAbsence,
+    ///             ShutdownWhenNotConnected = AzureNative.LabServices.V20220801.EnableState.Enabled,
+    ///         },
+    ///         DefaultConnectionProfile = new AzureNative.LabServices.V20220801.Inputs.ConnectionProfileArgs
+    ///         {
+    ///             ClientRdpAccess = AzureNative.LabServices.V20220801.ConnectionType.Public,
+    ///             ClientSshAccess = AzureNative.LabServices.V20220801.ConnectionType.Public,
+    ///             WebRdpAccess = AzureNative.LabServices.V20220801.ConnectionType.None,
+    ///             WebSshAccess = AzureNative.LabServices.V20220801.ConnectionType.None,
+    ///         },
+    ///         DefaultNetworkProfile = new AzureNative.LabServices.V20220801.Inputs.LabPlanNetworkProfileArgs
+    ///         {
+    ///             SubnetId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+    ///         },
+    ///         LabPlanName = "testlabplan",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testrg123",
+    ///         SharedGalleryId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Compute/galleries/testsig",
+    ///         SupportInfo = new AzureNative.LabServices.V20220801.Inputs.SupportInfoArgs
+    ///         {
+    ///             Email = "help@contoso.com",
+    ///             Instructions = "Contact support for help.",
+    ///             Phone = "+1-202-555-0123",
+    ///             Url = "help.contoso.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:labservices/v20220801:LabPlan testlabplan /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labPlans/testlabplan 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices/v20220801:LabPlan")]
     public partial class LabPlan : global::Pulumi.CustomResource

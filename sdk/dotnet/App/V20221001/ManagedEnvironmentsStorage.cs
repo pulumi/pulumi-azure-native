@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.App.V20221001
 {
     /// <summary>
     /// Storage resource for managedEnvironment.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update environments storage
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedEnvironmentsStorage = new AzureNative.App.V20221001.ManagedEnvironmentsStorage("managedEnvironmentsStorage", new()
+    ///     {
+    ///         EnvironmentName = "managedEnv",
+    ///         Properties = new AzureNative.App.V20221001.Inputs.ManagedEnvironmentStoragePropertiesArgs
+    ///         {
+    ///             AzureFile = new AzureNative.App.V20221001.Inputs.AzureFilePropertiesArgs
+    ///             {
+    ///                 AccessMode = "ReadOnly",
+    ///                 AccountKey = "key",
+    ///                 AccountName = "account1",
+    ///                 ShareName = "share1",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///         StorageName = "jlaw-demo1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20221001:ManagedEnvironmentsStorage jlaw-demo1 /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/managedEnv/storages/jlaw-demo1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20221001:ManagedEnvironmentsStorage")]
     public partial class ManagedEnvironmentsStorage : global::Pulumi.CustomResource

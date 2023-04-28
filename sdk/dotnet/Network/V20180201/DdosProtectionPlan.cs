@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Network.V20180201
 {
     /// <summary>
     /// A DDoS protection plan in a resource group.
+    /// 
+    /// ## Example Usage
+    /// ### Create DDoS protection plan
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ddosProtectionPlan = new AzureNative.Network.V20180201.DdosProtectionPlan("ddosProtectionPlan", new()
+    ///     {
+    ///         DdosProtectionPlanName = "test-plan",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180201:DdosProtectionPlan test-plan /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ddosProtectionPlans/test-plan 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180201:DdosProtectionPlan")]

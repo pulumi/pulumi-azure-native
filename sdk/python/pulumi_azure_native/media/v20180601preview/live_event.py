@@ -249,6 +249,48 @@ class LiveEvent(pulumi.CustomResource):
         """
         The Live Event.
 
+        ## Example Usage
+        ### Create a LiveEvent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        live_event = azure_native.media.v20180601preview.LiveEvent("liveEvent",
+            account_name="slitestmedia10",
+            description="test event 1",
+            input=azure_native.media.v20180601preview.LiveEventInputArgs(
+                key_frame_interval_duration="PT2S",
+                streaming_protocol=azure_native.media/v20180601preview.LiveEventInputProtocol.RTMP,
+            ),
+            live_event_name="myLiveEvent1",
+            location="West US",
+            preview=azure_native.media.v20180601preview.LiveEventPreviewResponseArgs(
+                access_control={
+                    "ip": {
+                        "allow": [azure_native.media.v20180601preview.IPRangeArgs(
+                            address="0.0.0.0",
+                            name="AllowAll",
+                        )],
+                    },
+                },
+            ),
+            resource_group_name="mediaresources",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20180601preview:LiveEvent myLiveEvent1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/liveevents/myLiveEvent1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -273,6 +315,48 @@ class LiveEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Live Event.
+
+        ## Example Usage
+        ### Create a LiveEvent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        live_event = azure_native.media.v20180601preview.LiveEvent("liveEvent",
+            account_name="slitestmedia10",
+            description="test event 1",
+            input=azure_native.media.v20180601preview.LiveEventInputArgs(
+                key_frame_interval_duration="PT2S",
+                streaming_protocol=azure_native.media/v20180601preview.LiveEventInputProtocol.RTMP,
+            ),
+            live_event_name="myLiveEvent1",
+            location="West US",
+            preview=azure_native.media.v20180601preview.LiveEventPreviewResponseArgs(
+                access_control={
+                    "ip": {
+                        "allow": [azure_native.media.v20180601preview.IPRangeArgs(
+                            address="0.0.0.0",
+                            name="AllowAll",
+                        )],
+                    },
+                },
+            ),
+            resource_group_name="mediaresources",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20180601preview:LiveEvent myLiveEvent1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/liveevents/myLiveEvent1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LiveEventArgs args: The arguments to use to populate this resource's properties.

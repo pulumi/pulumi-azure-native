@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.HealthcareApis.V20230228
 {
     /// <summary>
     /// The description of Dicom Service
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Dicom Service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dicomService = new AzureNative.HealthcareApis.V20230228.DicomService("dicomService", new()
+    ///     {
+    ///         DicomServiceName = "blue",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testRG",
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthcareapis/v20230228:DicomService blue /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis/v20230228:DicomService")]
     public partial class DicomService : global::Pulumi.CustomResource

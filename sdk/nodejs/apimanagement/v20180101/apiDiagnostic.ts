@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Diagnostic details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiDiagnostic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiDiagnostic = new azure_native.apimanagement.v20180101.ApiDiagnostic("apiDiagnostic", {
+ *     apiId: "57d1f7558aa04f15146d9d8a",
+ *     diagnosticId: "default",
+ *     enabled: true,
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20180101:ApiDiagnostic default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/diagnostics/default 
+ * ```
  */
 export class ApiDiagnostic extends pulumi.CustomResource {
     /**

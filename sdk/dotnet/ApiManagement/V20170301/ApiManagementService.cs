@@ -11,6 +11,143 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20170301.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         AdditionalLocations = new[]
+    ///         {
+    ///             new AzureNative.ApiManagement.V20170301.Inputs.AdditionalLocationArgs
+    ///             {
+    ///                 Location = "West US",
+    ///                 Sku = new AzureNative.ApiManagement.V20170301.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///                 {
+    ///                     Capacity = 1,
+    ///                     Name = "Premium",
+    ///                 },
+    ///                 VirtualNetworkConfiguration = new AzureNative.ApiManagement.V20170301.Inputs.VirtualNetworkConfigurationArgs
+    ///                 {
+    ///                     SubnetResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/westUsVirtualNetwork/subnets/apimSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         HostnameConfigurations = new[]
+    ///         {
+    ///             new AzureNative.ApiManagement.V20170301.Inputs.HostnameConfigurationArgs
+    ///             {
+    ///                 CertificatePassword = "**************Password of the Certificate************************************************",
+    ///                 EncodedCertificate = "************Base 64 Encoded Pfx Certificate************************",
+    ///                 HostName = "proxyhostname1.contoso.com",
+    ///                 Type = AzureNative.ApiManagement.V20170301.HostnameType.Proxy,
+    ///             },
+    ///             new AzureNative.ApiManagement.V20170301.Inputs.HostnameConfigurationArgs
+    ///             {
+    ///                 CertificatePassword = "**************Password of the Certificate************************************************",
+    ///                 EncodedCertificate = "************Base 64 Encoded Pfx Certificate************************",
+    ///                 HostName = "proxyhostname2.contoso.com",
+    ///                 NegotiateClientCertificate = true,
+    ///                 Type = AzureNative.ApiManagement.V20170301.HostnameType.Proxy,
+    ///             },
+    ///             new AzureNative.ApiManagement.V20170301.Inputs.HostnameConfigurationArgs
+    ///             {
+    ///                 CertificatePassword = "**************Password of the Certificate************************************************",
+    ///                 EncodedCertificate = "************Base 64 Encoded Pfx Certificate************************",
+    ///                 HostName = "portalhostname1.contoso.com",
+    ///                 Type = AzureNative.ApiManagement.V20170301.HostnameType.Portal,
+    ///             },
+    ///         },
+    ///         Location = "Central US",
+    ///         PublisherEmail = "admin@live.com",
+    ///         PublisherName = "contoso",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20170301.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Premium",
+    ///         },
+    ///         VirtualNetworkConfiguration = new AzureNative.ApiManagement.V20170301.Inputs.VirtualNetworkConfigurationArgs
+    ///         {
+    ///             SubnetResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/centralUsVirtualNetwork/subnets/apimSubnet",
+    ///         },
+    ///         VirtualNetworkType = "External",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateService
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20170301.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Location = "West US",
+    ///         PublisherEmail = "admin@live.com",
+    ///         PublisherName = "contoso",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20170301.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Premium",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateServiceHavingMsi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20170301.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Identity = new AzureNative.ApiManagement.V20170301.Inputs.ApiManagementServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "Japan East",
+    ///         PublisherEmail = "admin@contoso.com",
+    ///         PublisherName = "Contoso",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20170301.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Name = "Developer",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20170301:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:ApiManagementService")]
     public partial class ApiManagementService : global::Pulumi.CustomResource

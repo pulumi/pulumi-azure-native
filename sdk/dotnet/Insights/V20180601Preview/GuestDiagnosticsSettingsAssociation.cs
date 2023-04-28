@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Insights.V20180601Preview
 {
     /// <summary>
     /// Virtual machine guest diagnostic settings resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an guest diagnostic settings association
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestDiagnosticsSettingsAssociation = new AzureNative.Insights.V20180601Preview.GuestDiagnosticsSettingsAssociation("guestDiagnosticsSettingsAssociation", new()
+    ///     {
+    ///         AssociationName = "healthSystemMachineConfigAssociation",
+    ///         GuestDiagnosticSettingsName = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-Association-ResourceGroup/providers/providers/microsoft.insights/guestDiagnosticSettings/vmSettingForSecurity",
+    ///         Location = "Global",
+    ///         ResourceUri = "subscriptions/8498f01b-8064-4e37-856e-318f3c6c685f/resourceGroups/healthsystem/providers/Microsoft.Compute/virtualMachines/eastussojai",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation healthSystemMachineConfigAssociation /subscriptions/8498f01b-8064-4e37-856e-318f3c6c685f/resourceGroups/healthsystem/providers/Microsoft.Compute/virtualMachines/eastussojai/providers/microsoft.insights/guestDiagnosticSettingsAssociation/healthSystemMachineConfigAssociation 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20180601preview:GuestDiagnosticsSettingsAssociation")]
     public partial class GuestDiagnosticsSettingsAssociation : global::Pulumi.CustomResource

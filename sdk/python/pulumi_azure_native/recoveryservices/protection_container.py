@@ -166,6 +166,36 @@ class ProtectionContainer(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RegisterAzure Storage ProtectionContainers
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        protection_container = azure_native.recoveryservices.ProtectionContainer("protectionContainer",
+            container_name="StorageContainer;Storage;SwaggerTestRg;swaggertestsa",
+            fabric_name="Azure",
+            properties=azure_native.recoveryservices.AzureStorageContainerArgs(
+                acquire_storage_account_lock="Acquire",
+                backup_management_type="AzureStorage",
+                container_type="StorageContainer",
+                friendly_name="swaggertestsa",
+                source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/SwaggerTestRg/providers/Microsoft.Storage/storageAccounts/swaggertestsa",
+            ),
+            resource_group_name="SwaggerTestRg",
+            vault_name="swaggertestvault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ProtectionContainer StorageContainer;Storage;SwaggerTestRg;swaggertestsa /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/swaggertestvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;SwaggerTestRg;swaggertestsa 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: Name of the container to be registered.
@@ -187,6 +217,36 @@ class ProtectionContainer(pulumi.CustomResource):
         Base class for container with backup items. Containers with specific workloads are derived from this class.
         API Version: 2023-02-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RegisterAzure Storage ProtectionContainers
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        protection_container = azure_native.recoveryservices.ProtectionContainer("protectionContainer",
+            container_name="StorageContainer;Storage;SwaggerTestRg;swaggertestsa",
+            fabric_name="Azure",
+            properties=azure_native.recoveryservices.AzureStorageContainerArgs(
+                acquire_storage_account_lock="Acquire",
+                backup_management_type="AzureStorage",
+                container_type="StorageContainer",
+                friendly_name="swaggertestsa",
+                source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/SwaggerTestRg/providers/Microsoft.Storage/storageAccounts/swaggertestsa",
+            ),
+            resource_group_name="SwaggerTestRg",
+            vault_name="swaggertestvault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ProtectionContainer StorageContainer;Storage;SwaggerTestRg;swaggertestsa /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/swaggertestvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;SwaggerTestRg;swaggertestsa 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProtectionContainerArgs args: The arguments to use to populate this resource's properties.

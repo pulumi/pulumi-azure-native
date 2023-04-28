@@ -216,6 +216,36 @@ class PrivateCloud(pulumi.CustomResource):
         """
         A private cloud resource
 
+        ## Example Usage
+        ### PrivateClouds_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_cloud = azure_native.avs.v20200320.PrivateCloud("privateCloud",
+            location="eastus2",
+            management_cluster=azure_native.avs.v20200320.ManagementClusterArgs(
+                cluster_size=4,
+            ),
+            network_block="192.168.48.0/22",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            sku=azure_native.avs.v20200320.SkuArgs(
+                name="AV36",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20200320:PrivateCloud cloud1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['IdentitySourceArgs']]]] identity_sources: vCenter Single Sign On Identity Sources
@@ -238,6 +268,36 @@ class PrivateCloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private cloud resource
+
+        ## Example Usage
+        ### PrivateClouds_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_cloud = azure_native.avs.v20200320.PrivateCloud("privateCloud",
+            location="eastus2",
+            management_cluster=azure_native.avs.v20200320.ManagementClusterArgs(
+                cluster_size=4,
+            ),
+            network_block="192.168.48.0/22",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            sku=azure_native.avs.v20200320.SkuArgs(
+                name="AV36",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20200320:PrivateCloud cloud1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateCloudArgs args: The arguments to use to populate this resource's properties.

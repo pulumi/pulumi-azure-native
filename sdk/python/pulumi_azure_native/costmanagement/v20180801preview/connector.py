@@ -199,6 +199,16 @@ class Connector(pulumi.CustomResource):
         """
         The Connector model definition
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20180801preview:Connector AWSBillingAccount /subscriptions/01234567-89ab-cdef-0123-456789abcdef/resourceGroups/rg1/providers/Microsoft.CostManagement/connectors/AWSBillingAccount 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connector_name: Connector Name.
@@ -220,6 +230,16 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Connector model definition
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20180801preview:Connector AWSBillingAccount /subscriptions/01234567-89ab-cdef-0123-456789abcdef/resourceGroups/rg1/providers/Microsoft.CostManagement/connectors/AWSBillingAccount 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

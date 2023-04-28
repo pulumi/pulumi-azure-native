@@ -8,6 +8,29 @@ import * as utilities from "../utilities";
  * The resource definition of this association.
  * API Version: 2018-09-01-preview.
  * Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update an association
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const association = new azure_native.customproviders.Association("association", {
+ *     associationName: "associationName",
+ *     scope: "scope",
+ *     targetResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/appRG/providers/Microsoft.Solutions/applications/applicationName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customproviders:Association associationName /scope/providers/Microsoft.CustomProviders/associations/associationName 
+ * ```
  */
 export class Association extends pulumi.CustomResource {
     /**

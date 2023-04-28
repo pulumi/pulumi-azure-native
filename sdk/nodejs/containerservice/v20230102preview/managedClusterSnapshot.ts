@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * A managed cluster snapshot resource.
+ *
+ * ## Example Usage
+ * ### Create/Update Managed Cluster Snapshot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedClusterSnapshot = new azure_native.containerservice.v20230102preview.ManagedClusterSnapshot("managedClusterSnapshot", {
+ *     creationData: {
+ *         sourceResourceId: "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "snapshot1",
+ *     tags: {
+ *         key1: "val1",
+ *         key2: "val2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20230102preview:ManagedClusterSnapshot snapshot1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedclustersnapshots/snapshot1 
+ * ```
  */
 export class ManagedClusterSnapshot extends pulumi.CustomResource {
     /**

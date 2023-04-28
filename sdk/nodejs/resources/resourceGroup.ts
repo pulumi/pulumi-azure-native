@@ -11,6 +11,28 @@ import * as utilities from "../utilities";
  * Resource group information.
  * API Version: 2022-09-01.
  * Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a resource group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceGroup = new azure_native.resources.ResourceGroup("resourceGroup", {
+ *     location: "eastus",
+ *     resourceGroupName: "my-resource-group",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:ResourceGroup my-resource-group /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group 
+ * ```
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**

@@ -9,6 +9,85 @@ import * as utilities from "../../utilities";
 
 /**
  * Container App.
+ *
+ * ## Example Usage
+ * ### Create or Update Container App
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerApp = new azure_native.app.v20220101preview.ContainerApp("containerApp", {
+ *     configuration: {
+ *         dapr: {
+ *             appPort: 3000,
+ *             appProtocol: "http",
+ *             enabled: true,
+ *         },
+ *         ingress: {
+ *             customDomains: [
+ *                 {
+ *                     bindingType: "SniEnabled",
+ *                     certificateId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
+ *                     name: "www.my-name.com",
+ *                 },
+ *                 {
+ *                     bindingType: "SniEnabled",
+ *                     certificateId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com",
+ *                     name: "www.my-other-name.com",
+ *                 },
+ *             ],
+ *             external: true,
+ *             targetPort: 3000,
+ *         },
+ *     },
+ *     location: "East US",
+ *     managedEnvironmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+ *     name: "testcontainerApp0",
+ *     resourceGroupName: "rg",
+ *     template: {
+ *         containers: [{
+ *             image: "repo/testcontainerApp0:v1",
+ *             name: "testcontainerApp0",
+ *             probes: [{
+ *                 httpGet: {
+ *                     httpHeaders: [{
+ *                         name: "Custom-Header",
+ *                         value: "Awesome",
+ *                     }],
+ *                     path: "/health",
+ *                     port: 8080,
+ *                 },
+ *                 initialDelaySeconds: 3,
+ *                 periodSeconds: 3,
+ *                 type: "Liveness",
+ *             }],
+ *         }],
+ *         scale: {
+ *             maxReplicas: 5,
+ *             minReplicas: 1,
+ *             rules: [{
+ *                 custom: {
+ *                     metadata: {
+ *                         concurrentRequests: "50",
+ *                     },
+ *                     type: "http",
+ *                 },
+ *                 name: "httpscalingrule",
+ *             }],
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20220101preview:ContainerApp testcontainerApp0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/testcontainerApp0 
+ * ```
  */
 export class ContainerApp extends pulumi.CustomResource {
     /**

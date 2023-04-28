@@ -9,6 +9,69 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### CreateOrUpdate Online Endpoint.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var onlineEndpoint = new AzureNative.MachineLearningServices.V20220201Preview.OnlineEndpoint("onlineEndpoint", new()
+    ///     {
+    ///         EndpointName = "testEndpointName",
+    ///         Identity = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "string", null },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         OnlineEndpointDetails = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.OnlineEndpointArgs
+    ///         {
+    ///             AuthMode = "AMLToken",
+    ///             Compute = "string",
+    ///             Description = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Traffic = 
+    ///             {
+    ///                 { "string", 1 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         Sku = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "string",
+    ///             Name = "string",
+    ///             Size = "string",
+    ///             Tier = AzureNative.MachineLearningServices.V20220201Preview.SkuTier.Free,
+    ///         },
+    ///         Tags = null,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20220201preview:OnlineEndpoint string string 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:OnlineEndpoint")]
     public partial class OnlineEndpoint : global::Pulumi.CustomResource
     {

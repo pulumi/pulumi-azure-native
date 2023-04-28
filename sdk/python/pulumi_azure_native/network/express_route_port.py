@@ -219,6 +219,52 @@ class ExpressRoutePort(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ExpressRoutePortCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_port = azure_native.network.ExpressRoutePort("expressRoutePort",
+            bandwidth_in_gbps=100,
+            billing_type="UnlimitedData",
+            encapsulation="QinQ",
+            express_route_port_name="portName",
+            location="westus",
+            peering_location="peeringLocationName",
+            resource_group_name="rg1")
+
+        ```
+        ### ExpressRoutePortUpdateLink
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_port = azure_native.network.ExpressRoutePort("expressRoutePort",
+            bandwidth_in_gbps=100,
+            billing_type="UnlimitedData",
+            encapsulation="QinQ",
+            express_route_port_name="portName",
+            links=[azure_native.network.ExpressRouteLinkArgs(
+                admin_state="Enabled",
+                name="link1",
+            )],
+            location="westus",
+            peering_location="peeringLocationName",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRoutePort portName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bandwidth_in_gbps: Bandwidth of procured ports in Gbps.
@@ -243,6 +289,52 @@ class ExpressRoutePort(pulumi.CustomResource):
         ExpressRoutePort resource definition.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ExpressRoutePortCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_port = azure_native.network.ExpressRoutePort("expressRoutePort",
+            bandwidth_in_gbps=100,
+            billing_type="UnlimitedData",
+            encapsulation="QinQ",
+            express_route_port_name="portName",
+            location="westus",
+            peering_location="peeringLocationName",
+            resource_group_name="rg1")
+
+        ```
+        ### ExpressRoutePortUpdateLink
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_port = azure_native.network.ExpressRoutePort("expressRoutePort",
+            bandwidth_in_gbps=100,
+            billing_type="UnlimitedData",
+            encapsulation="QinQ",
+            express_route_port_name="portName",
+            links=[azure_native.network.ExpressRouteLinkArgs(
+                admin_state="Enabled",
+                name="link1",
+            )],
+            location="westus",
+            peering_location="peeringLocationName",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRoutePort portName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRoutePortArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.Orbital.V20221101
 {
     /// <summary>
     /// Customer creates a contact resource for a spacecraft resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create a contact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contact = new AzureNative.Orbital.V20221101.Contact("contact", new()
+    ///     {
+    ///         ContactName = "contact1",
+    ///         ContactProfile = new AzureNative.Orbital.V20221101.Inputs.ContactsPropertiesContactProfileArgs
+    ///         {
+    ///             Id = "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP",
+    ///         },
+    ///         GroundStationName = "EASTUS2_0",
+    ///         ReservationEndTime = "2023-02-22T11:10:45Z",
+    ///         ReservationStartTime = "2023-02-22T10:58:30Z",
+    ///         ResourceGroupName = "contoso-Rgp",
+    ///         SpacecraftName = "CONTOSO_SAT",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:orbital/v20221101:Contact contact1 /subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/spacecrafts/CONTOSO_SAT/contacts/contact1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital/v20221101:Contact")]
     public partial class Contact : global::Pulumi.CustomResource

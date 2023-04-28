@@ -7,6 +7,42 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Create or update rack
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rack = new azure_native.networkcloud.v20221212preview.Rack("rack", {
+ *     availabilityZone: "1",
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     rackLocation: "Rack 28",
+ *     rackName: "rackName",
+ *     rackSerialNumber: "RACK_SERIAL_NUMBER",
+ *     rackSkuId: "RACK-TYPE-1",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud/v20221212preview:Rack rackName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName 
+ * ```
+ */
 export class Rack extends pulumi.CustomResource {
     /**
      * Get an existing Rack resource's state with the given name, ID, and optional extra

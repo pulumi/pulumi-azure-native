@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * API Connection
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20150801preview:Connection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connectionName} 
+ * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

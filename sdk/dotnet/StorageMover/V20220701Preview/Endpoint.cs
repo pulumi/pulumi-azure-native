@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
 {
     /// <summary>
     /// The Endpoint resource, which contains information about file sources and targets.
+    /// 
+    /// ## Example Usage
+    /// ### Endpoints_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.StorageMover.V20220701Preview.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "examples-endpointName",
+    ///         Properties = new AzureNative.StorageMover.V20220701Preview.Inputs.AzureStorageBlobContainerEndpointPropertiesArgs
+    ///         {
+    ///             BlobContainerName = "examples-blobContainerName",
+    ///             Description = "Example Storage Container Endpoint Description",
+    ///             EndpointType = "AzureStorageBlobContainer",
+    ///             StorageAccountResourceId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.Storage/storageAccounts/examples-storageAccountName/",
+    ///         },
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagemover/v20220701preview:Endpoint examples-endpointName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/endpoints/examples-endpointName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource

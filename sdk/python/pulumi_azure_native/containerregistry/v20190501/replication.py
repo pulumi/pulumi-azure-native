@@ -112,6 +112,32 @@ class Replication(pulumi.CustomResource):
         """
         An object that represents a replication for a container registry.
 
+        ## Example Usage
+        ### ReplicationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication = azure_native.containerregistry.v20190501.Replication("replication",
+            location="eastus",
+            registry_name="myRegistry",
+            replication_name="myReplication",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20190501:Replication myReplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/replications/myReplication 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
@@ -128,6 +154,32 @@ class Replication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a replication for a container registry.
+
+        ## Example Usage
+        ### ReplicationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication = azure_native.containerregistry.v20190501.Replication("replication",
+            location="eastus",
+            registry_name="myRegistry",
+            replication_name="myReplication",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20190501:Replication myReplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/replications/myReplication 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationArgs args: The arguments to use to populate this resource's properties.

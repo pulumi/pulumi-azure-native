@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * The VirtualNetworks resource definition.
  * API Version: 2020-06-05-preview.
  * Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateVirtualNetwork
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.scvmm.VirtualNetwork("virtualNetwork", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+ *         type: "customLocation",
+ *     },
+ *     location: "East US",
+ *     resourceGroupName: "testrg",
+ *     uuid: "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+ *     virtualNetworkName: "HRVirtualNetwork",
+ *     vmmServerId: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:scvmm:VirtualNetwork HRVirtualNetwork /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualNetworks/HRVirtualNetwork 
+ * ```
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**

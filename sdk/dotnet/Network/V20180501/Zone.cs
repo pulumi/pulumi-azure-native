@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Network.V20180501
 {
     /// <summary>
     /// Describes a DNS zone.
+    /// 
+    /// ## Example Usage
+    /// ### Create zone
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var zone = new AzureNative.Network.V20180501.Zone("zone", new()
+    ///     {
+    ///         Location = "Global",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180501:Zone zone1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180501:Zone")]
     public partial class Zone : global::Pulumi.CustomResource

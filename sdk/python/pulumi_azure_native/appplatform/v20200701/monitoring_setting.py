@@ -79,6 +79,31 @@ class MonitoringSetting(pulumi.CustomResource):
         """
         Monitoring Setting resource
 
+        ## Example Usage
+        ### MonitoringSettings_UpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        monitoring_setting = azure_native.appplatform.v20200701.MonitoringSetting("monitoringSetting",
+            properties=azure_native.appplatform.v20200701.MonitoringSettingPropertiesArgs(
+                app_insights_instrumentation_key="00000000-0000-0000-0000-000000000000",
+                trace_enabled=True,
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:MonitoringSetting default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/monitoringSettings/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MonitoringSettingPropertiesArgs']] properties: Properties of the Monitoring Setting resource
@@ -93,6 +118,31 @@ class MonitoringSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Monitoring Setting resource
+
+        ## Example Usage
+        ### MonitoringSettings_UpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        monitoring_setting = azure_native.appplatform.v20200701.MonitoringSetting("monitoringSetting",
+            properties=azure_native.appplatform.v20200701.MonitoringSettingPropertiesArgs(
+                app_insights_instrumentation_key="00000000-0000-0000-0000-000000000000",
+                trace_enabled=True,
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:MonitoringSetting default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/monitoringSettings/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MonitoringSettingArgs args: The arguments to use to populate this resource's properties.

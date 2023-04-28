@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * EnterpriseKnowledgeGraph resource definition
+ *
+ * ## Example Usage
+ * ### Create EnterpriseKnowledgeGraph
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const enterpriseKnowledgeGraph = new azure_native.enterpriseknowledgegraph.v20181203.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph", {
+ *     location: "West US",
+ *     properties: {},
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "sampleekgname",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph samplename someid 
+ * ```
  */
 export class EnterpriseKnowledgeGraph extends pulumi.CustomResource {
     /**

@@ -82,6 +82,41 @@ class UserSettingsWithLocation(pulumi.CustomResource):
         API Version: 2018-10-01.
         Previous API Version: 2018-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PutUserSettings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_settings_with_location = azure_native.portal.UserSettingsWithLocation("userSettingsWithLocation",
+            location="eastus",
+            properties=azure_native.portal.UserPropertiesResponseArgs(
+                preferred_location="eastus",
+                preferred_os_type="Linux",
+                preferred_shell_type="bash",
+                storage_profile=azure_native.portal.StorageProfileArgs(
+                    disk_size_in_gb=5,
+                    file_share_name="string",
+                    storage_account_resource_id="string",
+                ),
+                terminal_settings=azure_native.portal.TerminalSettingsArgs(
+                    font_size="Medium",
+                    font_style="Monospace",
+                ),
+            ),
+            user_settings_name="cloudconsole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal:UserSettingsWithLocation myresource1 /providers/Microsoft.Portal/locations/{location}/userSettings/{userSettingsName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The provider location
@@ -98,6 +133,41 @@ class UserSettingsWithLocation(pulumi.CustomResource):
         Response to get user settings
         API Version: 2018-10-01.
         Previous API Version: 2018-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PutUserSettings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_settings_with_location = azure_native.portal.UserSettingsWithLocation("userSettingsWithLocation",
+            location="eastus",
+            properties=azure_native.portal.UserPropertiesResponseArgs(
+                preferred_location="eastus",
+                preferred_os_type="Linux",
+                preferred_shell_type="bash",
+                storage_profile=azure_native.portal.StorageProfileArgs(
+                    disk_size_in_gb=5,
+                    file_share_name="string",
+                    storage_account_resource_id="string",
+                ),
+                terminal_settings=azure_native.portal.TerminalSettingsArgs(
+                    font_size="Medium",
+                    font_style="Monospace",
+                ),
+            ),
+            user_settings_name="cloudconsole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal:UserSettingsWithLocation myresource1 /providers/Microsoft.Portal/locations/{location}/userSettings/{userSettingsName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserSettingsWithLocationArgs args: The arguments to use to populate this resource's properties.

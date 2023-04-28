@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Private endpoint connection resource.
+ *
+ * ## Example Usage
+ * ### KeyVaultPutPrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.keyvault.v20190901.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "sample-pec",
+ *     privateLinkServiceConnectionState: {
+ *         description: "My name is Joe and I'm approving this.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "sample-group",
+ *     vaultName: "sample-vault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:keyvault/v20190901:PrivateEndpointConnection sample-pec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/privateEndpointConnections/sample-pec 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.ScVmm
     /// The VmmServers resource definition.
     /// API Version: 2020-06-05-preview.
     /// Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateVMMServer
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vmmServer = new AzureNative.ScVmm.VmmServer("vmmServer", new()
+    ///     {
+    ///         Credentials = new AzureNative.ScVmm.Inputs.VMMServerPropertiesCredentialsArgs
+    ///         {
+    ///             Password = "password",
+    ///             Username = "testuser",
+    ///         },
+    ///         ExtendedLocation = new AzureNative.ScVmm.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+    ///             Type = "customLocation",
+    ///         },
+    ///         Fqdn = "VMM.contoso.com",
+    ///         Location = "East US",
+    ///         Port = 1234,
+    ///         ResourceGroupName = "testrg",
+    ///         VmmServerName = "ContosoVMMServer",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scvmm:VmmServer ContosoVMMServer /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VmmServer")]
     public partial class VmmServer : global::Pulumi.CustomResource

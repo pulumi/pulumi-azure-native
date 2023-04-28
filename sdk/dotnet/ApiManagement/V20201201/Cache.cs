@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Cache details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateCache
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cache = new AzureNative.ApiManagement.V20201201.Cache("cache", new()
+    ///     {
+    ///         CacheId = "c1",
+    ///         ConnectionString = "apim.redis.cache.windows.net:6380,password=xc,ssl=True,abortConnect=False",
+    ///         Description = "Redis cache instances in West India",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceId = "https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redis/apimservice1",
+    ///         ServiceName = "apimService1",
+    ///         UseFromLocation = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:Cache c1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/caches/c1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:Cache")]
     public partial class Cache : global::Pulumi.CustomResource

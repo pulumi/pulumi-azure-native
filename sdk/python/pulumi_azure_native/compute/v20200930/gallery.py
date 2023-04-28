@@ -132,6 +132,45 @@ class Gallery(pulumi.CustomResource):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
 
+        ## Example Usage
+        ### Create or update a simple gallery with sharing profile.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery = azure_native.compute.v20200930.Gallery("gallery",
+            description="This is the gallery description.",
+            gallery_name="myGalleryName",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            sharing_profile=azure_native.compute.v20200930.SharingProfileArgs(
+                permissions="Groups",
+            ))
+
+        ```
+        ### Create or update a simple gallery.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery = azure_native.compute.v20200930.Gallery("gallery",
+            description="This is the gallery description.",
+            gallery_name="myGalleryName",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20200930:Gallery myGalleryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this Shared Image Gallery resource. This property is updatable.
@@ -149,6 +188,45 @@ class Gallery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the Shared Image Gallery that you want to create or update.
+
+        ## Example Usage
+        ### Create or update a simple gallery with sharing profile.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery = azure_native.compute.v20200930.Gallery("gallery",
+            description="This is the gallery description.",
+            gallery_name="myGalleryName",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            sharing_profile=azure_native.compute.v20200930.SharingProfileArgs(
+                permissions="Groups",
+            ))
+
+        ```
+        ### Create or update a simple gallery.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery = azure_native.compute.v20200930.Gallery("gallery",
+            description="This is the gallery description.",
+            gallery_name="myGalleryName",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20200930:Gallery myGalleryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GalleryArgs args: The arguments to use to populate this resource's properties.

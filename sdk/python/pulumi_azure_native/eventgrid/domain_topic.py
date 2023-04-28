@@ -80,6 +80,28 @@ class DomainTopic(pulumi.CustomResource):
         API Version: 2022-06-15.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### DomainTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_topic = azure_native.eventgrid.DomainTopic("domainTopic",
+            domain_name="exampledomain1",
+            domain_topic_name="exampledomaintopic1",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:DomainTopic exampledomaintopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1/topics/exampledomaintopic1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Name of the domain.
@@ -96,6 +118,28 @@ class DomainTopic(pulumi.CustomResource):
         Domain Topic.
         API Version: 2022-06-15.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### DomainTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_topic = azure_native.eventgrid.DomainTopic("domainTopic",
+            domain_name="exampledomain1",
+            domain_topic_name="exampledomaintopic1",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:DomainTopic exampledomaintopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1/topics/exampledomaintopic1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainTopicArgs args: The arguments to use to populate this resource's properties.

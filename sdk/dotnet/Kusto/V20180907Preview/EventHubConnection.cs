@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
 {
     /// <summary>
     /// Class representing an event hub connection.
+    /// 
+    /// ## Example Usage
+    /// ### KustoEventHubConnectionsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHubConnection = new AzureNative.Kusto.V20180907Preview.EventHubConnection("eventHubConnection", new()
+    ///     {
+    ///         ClusterName = "KustoClusterRPTest4",
+    ///         ConsumerGroup = "testConsumerGroup1",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         EventHubConnectionName = "kustoeventhubconnection1",
+    ///         EventHubResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto/v20180907preview:EventHubConnection KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20180907preview:EventHubConnection")]
     public partial class EventHubConnection : global::Pulumi.CustomResource

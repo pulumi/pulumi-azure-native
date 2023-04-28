@@ -9,6 +9,49 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Workspace Model Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const modelVersion = new azure_native.machinelearningservices.v20221201preview.ModelVersion("modelVersion", {
+ *     modelVersionProperties: {
+ *         description: "string",
+ *         flavors: {
+ *             string: {
+ *                 data: {
+ *                     string: "string",
+ *                 },
+ *             },
+ *         },
+ *         isAnonymous: false,
+ *         modelType: "CustomModel",
+ *         modelUri: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20221201preview:ModelVersion string string 
+ * ```
  */
 export class ModelVersion extends pulumi.CustomResource {
     /**

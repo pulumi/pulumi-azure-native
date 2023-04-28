@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Maintenance.V20221101Preview
 {
     /// <summary>
     /// Configuration Assignment
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationAssignments_CreateOrUpdateParent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationAssignmentParent = new AzureNative.Maintenance.V20221101Preview.ConfigurationAssignmentParent("configurationAssignmentParent", new()
+    ///     {
+    ///         ConfigurationAssignmentName = "workervmPolicy",
+    ///         MaintenanceConfigurationId = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/policy1",
+    ///         ProviderName = "Microsoft.Compute",
+    ///         ResourceGroupName = "examplerg",
+    ///         ResourceName = "smdvm1",
+    ///         ResourceParentName = "smdtest1",
+    ///         ResourceParentType = "virtualMachineScaleSets",
+    ///         ResourceType = "virtualMachines",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent workervmPolicy /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Compute/virtualMachineScaleSets/smdtest1/virtualMachines/smdvm1/providers/Microsoft.Maintenance/configurationAssignments/workervmPolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance/v20221101preview:ConfigurationAssignmentParent")]
     public partial class ConfigurationAssignmentParent : global::Pulumi.CustomResource

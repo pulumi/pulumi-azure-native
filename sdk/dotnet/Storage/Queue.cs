@@ -12,6 +12,59 @@ namespace Pulumi.AzureNative.Storage
     /// <summary>
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### QueueOperationPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queue = new AzureNative.Storage.Queue("queue", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         QueueName = "queue6185",
+    ///         ResourceGroupName = "res3376",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### QueueOperationPutWithMetadata
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queue = new AzureNative.Storage.Queue("queue", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         Metadata = 
+    ///         {
+    ///             { "sample1", "meta1" },
+    ///             { "sample2", "meta2" },
+    ///         },
+    ///         QueueName = "queue6185",
+    ///         ResourceGroupName = "res3376",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:Queue queue6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/queueServices/default/queues/queue6185 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:Queue")]
     public partial class Queue : global::Pulumi.CustomResource

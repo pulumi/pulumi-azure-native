@@ -200,6 +200,78 @@ class PipelineTopology(pulumi.CustomResource):
           - Processors: list of nodes which perform data analysis or transformations.
           - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
 
+        ## Example Usage
+        ### Create or update a pipeline topology with an Rtsp source and video sink.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pipeline_topology = azure_native.videoanalyzer.v20211101preview.PipelineTopology("pipelineTopology",
+            account_name="testaccount2",
+            description="Pipeline Topology 1 Description",
+            kind="Live",
+            parameters=[
+                {
+                    "default": "rtsp://microsoft.com/video.mp4",
+                    "description": "rtsp source url parameter",
+                    "name": "rtspUrlParameter",
+                    "type": "String",
+                },
+                {
+                    "default": "password",
+                    "description": "rtsp source password parameter",
+                    "name": "rtspPasswordParameter",
+                    "type": "SecretString",
+                },
+            ],
+            pipeline_topology_name="pipelineTopology1",
+            resource_group_name="testrg",
+            sinks=[azure_native.videoanalyzer.v20211101preview.VideoSinkResponseArgs(
+                inputs=[azure_native.videoanalyzer.v20211101preview.NodeInputArgs(
+                    node_name="rtspSource",
+                )],
+                name="videoSink",
+                type="#Microsoft.VideoAnalyzer.VideoSink",
+                video_creation_properties=azure_native.videoanalyzer.v20211101preview.VideoCreationPropertiesArgs(
+                    description="Parking lot south entrance",
+                    segment_length="PT30S",
+                    title="Parking Lot (Camera 1)",
+                ),
+                video_name="camera001",
+                video_publishing_options=azure_native.videoanalyzer.v20211101preview.VideoPublishingOptionsArgs(
+                    disable_archive="false",
+                    disable_rtsp_publishing="true",
+                ),
+            )],
+            sku=azure_native.videoanalyzer.v20211101preview.SkuArgs(
+                name="Live_S1",
+            ),
+            sources=[azure_native.videoanalyzer.v20211101preview.RtspSourceArgs(
+                endpoint=azure_native.videoanalyzer.v20211101preview.UnsecuredEndpointArgs(
+                    credentials=azure_native.videoanalyzer.v20211101preview.UsernamePasswordCredentialsArgs(
+                        password="${rtspPasswordParameter}",
+                        type="#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
+                        username="username",
+                    ),
+                    type="#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
+                    url="${rtspUrlParameter}",
+                ),
+                name="rtspSource",
+                transport="Http",
+                type="#Microsoft.VideoAnalyzer.RtspSource",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer/v20211101preview:PipelineTopology pipelineTopology1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/pipelineTopologies/pipelineTopology1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
@@ -226,6 +298,78 @@ class PipelineTopology(pulumi.CustomResource):
           - Sources: list of one or more data sources nodes such as an RTSP source which allows for content to be ingested from cameras.
           - Processors: list of nodes which perform data analysis or transformations.
           - Sinks: list of one or more data sinks which allow for data to be stored or exported to other destinations.
+
+        ## Example Usage
+        ### Create or update a pipeline topology with an Rtsp source and video sink.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pipeline_topology = azure_native.videoanalyzer.v20211101preview.PipelineTopology("pipelineTopology",
+            account_name="testaccount2",
+            description="Pipeline Topology 1 Description",
+            kind="Live",
+            parameters=[
+                {
+                    "default": "rtsp://microsoft.com/video.mp4",
+                    "description": "rtsp source url parameter",
+                    "name": "rtspUrlParameter",
+                    "type": "String",
+                },
+                {
+                    "default": "password",
+                    "description": "rtsp source password parameter",
+                    "name": "rtspPasswordParameter",
+                    "type": "SecretString",
+                },
+            ],
+            pipeline_topology_name="pipelineTopology1",
+            resource_group_name="testrg",
+            sinks=[azure_native.videoanalyzer.v20211101preview.VideoSinkResponseArgs(
+                inputs=[azure_native.videoanalyzer.v20211101preview.NodeInputArgs(
+                    node_name="rtspSource",
+                )],
+                name="videoSink",
+                type="#Microsoft.VideoAnalyzer.VideoSink",
+                video_creation_properties=azure_native.videoanalyzer.v20211101preview.VideoCreationPropertiesArgs(
+                    description="Parking lot south entrance",
+                    segment_length="PT30S",
+                    title="Parking Lot (Camera 1)",
+                ),
+                video_name="camera001",
+                video_publishing_options=azure_native.videoanalyzer.v20211101preview.VideoPublishingOptionsArgs(
+                    disable_archive="false",
+                    disable_rtsp_publishing="true",
+                ),
+            )],
+            sku=azure_native.videoanalyzer.v20211101preview.SkuArgs(
+                name="Live_S1",
+            ),
+            sources=[azure_native.videoanalyzer.v20211101preview.RtspSourceArgs(
+                endpoint=azure_native.videoanalyzer.v20211101preview.UnsecuredEndpointArgs(
+                    credentials=azure_native.videoanalyzer.v20211101preview.UsernamePasswordCredentialsArgs(
+                        password="${rtspPasswordParameter}",
+                        type="#Microsoft.VideoAnalyzer.UsernamePasswordCredentials",
+                        username="username",
+                    ),
+                    type="#Microsoft.VideoAnalyzer.UnsecuredEndpoint",
+                    url="${rtspUrlParameter}",
+                ),
+                name="rtspSource",
+                transport="Http",
+                type="#Microsoft.VideoAnalyzer.RtspSource",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer/v20211101preview:PipelineTopology pipelineTopology1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/pipelineTopologies/pipelineTopology1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PipelineTopologyArgs args: The arguments to use to populate this resource's properties.

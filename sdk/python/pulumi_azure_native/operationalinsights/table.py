@@ -184,6 +184,37 @@ class Table(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### TablesUpsert
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.operationalinsights.Table("table",
+            resource_group_name="oiautorest6685",
+            retention_in_days=45,
+            schema=azure_native.operationalinsights.SchemaResponseArgs(
+                columns=[azure_native.operationalinsights.ColumnArgs(
+                    name="MyNewColumn",
+                    type="guid",
+                )],
+                name="AzureNetworkFlow",
+            ),
+            table_name="AzureNetworkFlow",
+            total_retention_in_days=70,
+            workspace_name="oiautorest6685")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Table AzureNetworkFlow /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/oiautorest6685/providers/Microsoft.OperationalInsights/workspaces/oiautorest6685/tables/AzureNetworkFlow 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'TablePlanEnum']] plan: Instruct the system how to handle and charge the logs ingested to this table.
@@ -206,6 +237,37 @@ class Table(pulumi.CustomResource):
         Workspace data table definition.
         API Version: 2022-10-01.
         Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### TablesUpsert
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.operationalinsights.Table("table",
+            resource_group_name="oiautorest6685",
+            retention_in_days=45,
+            schema=azure_native.operationalinsights.SchemaResponseArgs(
+                columns=[azure_native.operationalinsights.ColumnArgs(
+                    name="MyNewColumn",
+                    type="guid",
+                )],
+                name="AzureNetworkFlow",
+            ),
+            table_name="AzureNetworkFlow",
+            total_retention_in_days=70,
+            workspace_name="oiautorest6685")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Table AzureNetworkFlow /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/oiautorest6685/providers/Microsoft.OperationalInsights/workspaces/oiautorest6685/tables/AzureNetworkFlow 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

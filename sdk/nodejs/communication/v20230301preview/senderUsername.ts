@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * A class representing a SenderUsername resource.
+ *
+ * ## Example Usage
+ * ### Create or update SenderUsernames resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const senderUsername = new azure_native.communication.v20230301preview.SenderUsername("senderUsername", {
+ *     displayName: "Contoso News Alerts",
+ *     domainName: "contoso.com",
+ *     emailServiceName: "contosoEmailService",
+ *     resourceGroupName: "contosoResourceGroup",
+ *     senderUsername: "contosoNewsAlerts",
+ *     username: "contosoNewsAlerts",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:communication/v20230301preview:SenderUsername contoso.com /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/contosoResourceGroup/providers/Microsoft.Communication/EmailServices/contosoEmailService/Domains/contoso.com/senderUsernames/contosoNewsAlerts 
+ * ```
  */
 export class SenderUsername extends pulumi.CustomResource {
     /**

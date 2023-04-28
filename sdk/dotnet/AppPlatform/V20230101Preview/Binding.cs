@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
 {
     /// <summary>
     /// Binding resource payload
+    /// 
+    /// ## Example Usage
+    /// ### Bindings_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var binding = new AzureNative.AppPlatform.V20230101Preview.Binding("binding", new()
+    ///     {
+    ///         AppName = "myapp",
+    ///         BindingName = "mybinding",
+    ///         Properties = new AzureNative.AppPlatform.V20230101Preview.Inputs.BindingResourcePropertiesArgs
+    ///         {
+    ///             BindingParameters = 
+    ///             {
+    ///                 { "apiType", "SQL" },
+    ///                 { "databaseName", "db1" },
+    ///             },
+    ///             Key = "xxxx",
+    ///             ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230101preview:Binding mybinding /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/bindings/mybinding 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230101preview:Binding")]
     public partial class Binding : global::Pulumi.CustomResource

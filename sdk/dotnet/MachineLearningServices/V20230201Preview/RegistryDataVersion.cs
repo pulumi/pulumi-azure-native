@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Registry Data Version Base.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registryDataVersion = new AzureNative.MachineLearningServices.V20230201Preview.RegistryDataVersion("registryDataVersion", new()
+    ///     {
+    ///         DataVersionBaseProperties = new AzureNative.MachineLearningServices.V20230201Preview.Inputs.MLTableDataArgs
+    ///         {
+    ///             DataType = "mltable",
+    ///             DataUri = "string",
+    ///             Description = "string",
+    ///             IsAnonymous = false,
+    ///             IsArchived = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             ReferencedUris = new[]
+    ///             {
+    ///                 "string",
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         RegistryName = "registryName",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryDataVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230201preview:RegistryDataVersion")]
     public partial class RegistryDataVersion : global::Pulumi.CustomResource

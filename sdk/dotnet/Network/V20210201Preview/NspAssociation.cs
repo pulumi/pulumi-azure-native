@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 {
     /// <summary>
     /// The NSP resource association resource
+    /// 
+    /// ## Example Usage
+    /// ### NspAssociationPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nspAssociation = new AzureNative.Network.V20210201Preview.NspAssociation("nspAssociation", new()
+    ///     {
+    ///         AccessMode = "Enforced",
+    ///         AssociationName = "association1",
+    ///         NetworkSecurityPerimeterName = "nsp1",
+    ///         PrivateLinkResource = new AzureNative.Network.V20210201Preview.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/{paasSubscriptionId}/resourceGroups/{paasResourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}",
+    ///         },
+    ///         Profile = new AzureNative.Network.V20210201Preview.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/{profileName}",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210201preview:NspAssociation association1 /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/resourceAssociations/association1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210201preview:NspAssociation")]
     public partial class NspAssociation : global::Pulumi.CustomResource

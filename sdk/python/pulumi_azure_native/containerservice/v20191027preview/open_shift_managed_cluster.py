@@ -250,6 +250,148 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         """
         OpenShift Managed cluster.
 
+        ## Example Usage
+        ### Create/Update OpenShift Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_shift_managed_cluster = azure_native.containerservice.v20191027preview.OpenShiftManagedCluster("openShiftManagedCluster",
+            agent_pool_profiles=[
+                {
+                    "count": 3,
+                    "name": "infra",
+                    "osType": "Linux",
+                    "role": "infra",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+                {
+                    "count": 4,
+                    "name": "compute",
+                    "osType": "Linux",
+                    "role": "compute",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+            ],
+            auth_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterAuthProfileResponseArgs(
+                identity_providers=[{
+                    "name": "Azure AD",
+                    "provider": azure_native.containerservice.v20191027preview.OpenShiftManagedClusterAADIdentityProviderResponseArgs(
+                        client_id="clientId",
+                        customer_admin_group_id="customerAdminGroupId",
+                        kind="AADIdentityProvider",
+                        secret="secret",
+                        tenant_id="tenantId",
+                    ),
+                }],
+            ),
+            location="location1",
+            master_pool_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterMasterPoolProfileResponseArgs(
+                api_properties=azure_native.containerservice.v20191027preview.OpenShiftAPIPropertiesArgs(
+                    private_api_server=False,
+                ),
+                count=3,
+                subnet_cidr="10.0.0.0/24",
+                vm_size="Standard_D4s_v3",
+            ),
+            monitor_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterMonitorProfileArgs(
+                enabled=True,
+                workspace_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+            ),
+            network_profile=azure_native.containerservice.v20191027preview.NetworkProfileArgs(
+                vnet_cidr="10.0.0.0/8",
+            ),
+            open_shift_version="v3.11",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            router_profiles=[azure_native.containerservice.v20191027preview.OpenShiftRouterProfileArgs(
+                name="default",
+            )],
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+        ### Create/Update Private OpenShift Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_shift_managed_cluster = azure_native.containerservice.v20191027preview.OpenShiftManagedCluster("openShiftManagedCluster",
+            agent_pool_profiles=[
+                {
+                    "count": 3,
+                    "name": "infra",
+                    "osType": "Linux",
+                    "role": "infra",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+                {
+                    "count": 4,
+                    "name": "compute",
+                    "osType": "Linux",
+                    "role": "compute",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+            ],
+            auth_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterAuthProfileResponseArgs(
+                identity_providers=[{
+                    "name": "Azure AD",
+                    "provider": azure_native.containerservice.v20191027preview.OpenShiftManagedClusterAADIdentityProviderResponseArgs(
+                        client_id="clientId",
+                        customer_admin_group_id="customerAdminGroupId",
+                        kind="AADIdentityProvider",
+                        secret="secret",
+                        tenant_id="tenantId",
+                    ),
+                }],
+            ),
+            location="location1",
+            master_pool_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterMasterPoolProfileResponseArgs(
+                api_properties=azure_native.containerservice.v20191027preview.OpenShiftAPIPropertiesArgs(
+                    private_api_server=True,
+                ),
+                count=3,
+                subnet_cidr="10.0.0.0/24",
+                vm_size="Standard_D4s_v3",
+            ),
+            monitor_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterMonitorProfileArgs(
+                enabled=True,
+                workspace_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+            ),
+            network_profile=azure_native.containerservice.v20191027preview.NetworkProfileArgs(
+                management_subnet_cidr="10.0.1.0/24",
+                vnet_cidr="10.0.0.0/8",
+            ),
+            open_shift_version="v3.11",
+            refresh_cluster=True,
+            resource_group_name="rg1",
+            resource_name_="privateclustername1",
+            router_profiles=[azure_native.containerservice.v20191027preview.OpenShiftRouterProfileArgs(
+                name="default",
+            )],
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20191027preview:OpenShiftManagedCluster privateclustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/openShiftManagedClusters/privateclustername1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Configuration of OpenShift cluster VMs.
@@ -274,6 +416,148 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         OpenShift Managed cluster.
+
+        ## Example Usage
+        ### Create/Update OpenShift Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_shift_managed_cluster = azure_native.containerservice.v20191027preview.OpenShiftManagedCluster("openShiftManagedCluster",
+            agent_pool_profiles=[
+                {
+                    "count": 3,
+                    "name": "infra",
+                    "osType": "Linux",
+                    "role": "infra",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+                {
+                    "count": 4,
+                    "name": "compute",
+                    "osType": "Linux",
+                    "role": "compute",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+            ],
+            auth_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterAuthProfileResponseArgs(
+                identity_providers=[{
+                    "name": "Azure AD",
+                    "provider": azure_native.containerservice.v20191027preview.OpenShiftManagedClusterAADIdentityProviderResponseArgs(
+                        client_id="clientId",
+                        customer_admin_group_id="customerAdminGroupId",
+                        kind="AADIdentityProvider",
+                        secret="secret",
+                        tenant_id="tenantId",
+                    ),
+                }],
+            ),
+            location="location1",
+            master_pool_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterMasterPoolProfileResponseArgs(
+                api_properties=azure_native.containerservice.v20191027preview.OpenShiftAPIPropertiesArgs(
+                    private_api_server=False,
+                ),
+                count=3,
+                subnet_cidr="10.0.0.0/24",
+                vm_size="Standard_D4s_v3",
+            ),
+            monitor_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterMonitorProfileArgs(
+                enabled=True,
+                workspace_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+            ),
+            network_profile=azure_native.containerservice.v20191027preview.NetworkProfileArgs(
+                vnet_cidr="10.0.0.0/8",
+            ),
+            open_shift_version="v3.11",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            router_profiles=[azure_native.containerservice.v20191027preview.OpenShiftRouterProfileArgs(
+                name="default",
+            )],
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+        ### Create/Update Private OpenShift Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_shift_managed_cluster = azure_native.containerservice.v20191027preview.OpenShiftManagedCluster("openShiftManagedCluster",
+            agent_pool_profiles=[
+                {
+                    "count": 3,
+                    "name": "infra",
+                    "osType": "Linux",
+                    "role": "infra",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+                {
+                    "count": 4,
+                    "name": "compute",
+                    "osType": "Linux",
+                    "role": "compute",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+            ],
+            auth_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterAuthProfileResponseArgs(
+                identity_providers=[{
+                    "name": "Azure AD",
+                    "provider": azure_native.containerservice.v20191027preview.OpenShiftManagedClusterAADIdentityProviderResponseArgs(
+                        client_id="clientId",
+                        customer_admin_group_id="customerAdminGroupId",
+                        kind="AADIdentityProvider",
+                        secret="secret",
+                        tenant_id="tenantId",
+                    ),
+                }],
+            ),
+            location="location1",
+            master_pool_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterMasterPoolProfileResponseArgs(
+                api_properties=azure_native.containerservice.v20191027preview.OpenShiftAPIPropertiesArgs(
+                    private_api_server=True,
+                ),
+                count=3,
+                subnet_cidr="10.0.0.0/24",
+                vm_size="Standard_D4s_v3",
+            ),
+            monitor_profile=azure_native.containerservice.v20191027preview.OpenShiftManagedClusterMonitorProfileArgs(
+                enabled=True,
+                workspace_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+            ),
+            network_profile=azure_native.containerservice.v20191027preview.NetworkProfileArgs(
+                management_subnet_cidr="10.0.1.0/24",
+                vnet_cidr="10.0.0.0/8",
+            ),
+            open_shift_version="v3.11",
+            refresh_cluster=True,
+            resource_group_name="rg1",
+            resource_name_="privateclustername1",
+            router_profiles=[azure_native.containerservice.v20191027preview.OpenShiftRouterProfileArgs(
+                name="default",
+            )],
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20191027preview:OpenShiftManagedCluster privateclustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/openShiftManagedClusters/privateclustername1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OpenShiftManagedClusterArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20171001
 {
     /// <summary>
     /// Represents an instance of a Dedicated Capacity resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create capacity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var capacityDetails = new AzureNative.PowerBIDedicated.V20171001.CapacityDetails("capacityDetails", new()
+    ///     {
+    ///         Administration = new AzureNative.PowerBIDedicated.V20171001.Inputs.DedicatedCapacityAdministratorsArgs
+    ///         {
+    ///             Members = new[]
+    ///             {
+    ///                 "azsdktest@microsoft.com",
+    ///                 "azsdktest2@microsoft.com",
+    ///             },
+    ///         },
+    ///         DedicatedCapacityName = "azsdktest",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestRG",
+    ///         Sku = new AzureNative.PowerBIDedicated.V20171001.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Name = "A1",
+    ///             Tier = "PBIE_Azure",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testKey", "testValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:powerbidedicated/v20171001:CapacityDetails azsdktest /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.PowerBIDedicated/capacities/azsdktest 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:powerbidedicated/v20171001:CapacityDetails")]

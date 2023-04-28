@@ -115,6 +115,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2022-09-15.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Put Private Endpoint Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.botservice.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            private_link_service_connection_state=azure_native.botservice.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="res7687",
+            resource_name_="sto9699")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.BotService/botServices/sto288/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: Group ids
@@ -133,6 +159,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The Private Endpoint Connection resource.
         API Version: 2022-09-15.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Put Private Endpoint Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.botservice.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            private_link_service_connection_state=azure_native.botservice.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="res7687",
+            resource_name_="sto9699")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.BotService/botServices/sto288/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

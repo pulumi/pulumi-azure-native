@@ -11,6 +11,57 @@ import * as utilities from "../utilities";
  * Represents a Watchlist in Azure Security Insights.
  * API Version: 2023-02-01.
  * Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a watchlist and bulk creates watchlist items.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const watchlist = new azure_native.securityinsights.Watchlist("watchlist", {
+ *     contentType: "text/csv",
+ *     description: "Watchlist from CSV content",
+ *     displayName: "High Value Assets Watchlist",
+ *     itemsSearchKey: "header1",
+ *     numberOfLinesToSkip: 1,
+ *     provider: "Microsoft",
+ *     rawContent: `This line will be skipped
+ * header1,header2
+ * value1,value2`,
+ *     resourceGroupName: "myRg",
+ *     source: "Local file",
+ *     watchlistAlias: "highValueAsset",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Create or update a watchlist.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const watchlist = new azure_native.securityinsights.Watchlist("watchlist", {
+ *     description: "Watchlist from CSV content",
+ *     displayName: "High Value Assets Watchlist",
+ *     itemsSearchKey: "header1",
+ *     provider: "Microsoft",
+ *     resourceGroupName: "myRg",
+ *     source: "Local file",
+ *     watchlistAlias: "highValueAsset",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights:Watchlist highValueAsset /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/watchlists/highValueAsset 
+ * ```
  */
 export class Watchlist extends pulumi.CustomResource {
     /**

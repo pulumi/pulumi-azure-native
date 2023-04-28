@@ -183,6 +183,32 @@ class CloudEndpoint(pulumi.CustomResource):
         """
         Cloud Endpoint object.
 
+        ## Example Usage
+        ### CloudEndpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_endpoint = azure_native.storagesync.v20180402.CloudEndpoint("cloudEndpoint",
+            cloud_endpoint_name="SampleCloudEndpoint_1",
+            resource_group_name="SampleResourceGroup_1",
+            storage_account_resource_id="",
+            storage_account_share_name="",
+            storage_account_tenant_id="\\"a4d1b191-c1af-4cef-a14b-f670e0beea52\\"",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            sync_group_name="SampleSyncGroup_1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagesync/v20180402:CloudEndpoint SampleCloudEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/10.91.86.47/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/cloudEndpoints/SampleCloudEndpoint_1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_endpoint_name: Name of Cloud Endpoint object.
@@ -203,6 +229,32 @@ class CloudEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cloud Endpoint object.
+
+        ## Example Usage
+        ### CloudEndpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_endpoint = azure_native.storagesync.v20180402.CloudEndpoint("cloudEndpoint",
+            cloud_endpoint_name="SampleCloudEndpoint_1",
+            resource_group_name="SampleResourceGroup_1",
+            storage_account_resource_id="",
+            storage_account_share_name="",
+            storage_account_tenant_id="\\"a4d1b191-c1af-4cef-a14b-f670e0beea52\\"",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            sync_group_name="SampleSyncGroup_1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagesync/v20180402:CloudEndpoint SampleCloudEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/10.91.86.47/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/cloudEndpoints/SampleCloudEndpoint_1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CloudEndpointArgs args: The arguments to use to populate this resource's properties.

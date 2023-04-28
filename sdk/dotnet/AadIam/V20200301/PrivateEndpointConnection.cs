@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.AadIam.V20200301
 {
     /// <summary>
     /// Private endpoint connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### AadiamPutPrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.AadIam.V20200301.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PolicyName = "example-policy-5849",
+    ///         PrivateEndpoint = new AzureNative.AadIam.V20200301.Inputs.PrivateEndpointArgs
+    ///         {
+    ///             Id = "subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/microsoft.aadiam/privateLinkForAzureAD/ddb1/privateLinkConnections/{privateEndpointConnection name}",
+    ///         },
+    ///         PrivateEndpointConnectionName = "{privateEndpointConnection name}",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.AadIam.V20200301.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Description = "You may pass",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "resourcegroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:aadiam/v20200301:PrivateEndpointConnection {privateEndpointConnection name} subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/microsoft.aadiam/privateLinkForAzureAD/ddb1/privateLinkConnections/{privateEndpointConnection name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam/v20200301:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

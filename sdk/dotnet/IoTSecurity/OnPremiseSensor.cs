@@ -13,6 +13,33 @@ namespace Pulumi.AzureNative.IoTSecurity
     /// On-premise IoT sensor
     /// API Version: 2021-02-01-preview.
     /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update on-premise IoT sensor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var onPremiseSensor = new AzureNative.IoTSecurity.OnPremiseSensor("onPremiseSensor", new()
+    ///     {
+    ///         OnPremiseSensorName = "mySensor",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotsecurity:OnPremiseSensor mySensor /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.IoTSecurity/sensors/mySensor 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity:OnPremiseSensor")]
     public partial class OnPremiseSensor : global::Pulumi.CustomResource

@@ -146,6 +146,110 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
         """
         Software update configuration properties.
 
+        ## Example Usage
+        ### Create software update configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        software_update_configuration_by_name = azure_native.automation.v20190601.SoftwareUpdateConfigurationByName("softwareUpdateConfigurationByName",
+            automation_account_name="myaccount",
+            resource_group_name="mygroup",
+            schedule_info=azure_native.automation.v20190601.SUCSchedulePropertiesResponseArgs(
+                advanced_schedule=azure_native.automation.v20190601.AdvancedScheduleArgs(
+                    week_days=[
+                        "Monday",
+                        "Thursday",
+                    ],
+                ),
+                expiry_time="2018-11-09T11:22:57+00:00",
+                frequency="Hour",
+                interval=1,
+                start_time="2017-10-19T12:22:57+00:00",
+                time_zone="America/Los_Angeles",
+            ),
+            software_update_configuration_name="testpatch",
+            tasks=azure_native.automation.v20190601.SoftwareUpdateConfigurationTasksResponseArgs(
+                post_task=azure_native.automation.v20190601.TaskPropertiesArgs(
+                    source="GetCache",
+                ),
+                pre_task=azure_native.automation.v20190601.TaskPropertiesArgs(
+                    parameters={
+                        "COMPUTERNAME": "Computer1",
+                    },
+                    source="HelloWorld",
+                ),
+            ),
+            update_configuration=azure_native.automation.v20190601.UpdateConfigurationResponseArgs(
+                azure_virtual_machines=[
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03",
+                ],
+                duration="PT2H0M",
+                non_azure_computer_names=[
+                    "box1.contoso.com",
+                    "box2.contoso.com",
+                ],
+                operating_system=azure_native.automation/v20190601.OperatingSystemType.WINDOWS,
+                targets={
+                    "azureQueries": [{
+                        "locations": [
+                            "Japan East",
+                            "UK South",
+                        ],
+                        "scope": [
+                            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+                            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
+                        ],
+                        "tagSettings": azure_native.automation.v20190601.TagSettingsPropertiesArgs(
+                            filter_operator=azure_native.automation/v20190601.TagOperators.ALL,
+                            tags={
+                                "tag1": [
+                                    "tag1Value1",
+                                    "tag1Value2",
+                                    "tag1Value3",
+                                ],
+                                "tag2": [
+                                    "tag2Value1",
+                                    "tag2Value2",
+                                    "tag2Value3",
+                                ],
+                            },
+                        ),
+                    }],
+                    "nonAzureQueries": [
+                        azure_native.automation.v20190601.NonAzureQueryPropertiesArgs(
+                            function_alias="SavedSearch1",
+                            workspace_id="WorkspaceId1",
+                        ),
+                        azure_native.automation.v20190601.NonAzureQueryPropertiesArgs(
+                            function_alias="SavedSearch2",
+                            workspace_id="WorkspaceId2",
+                        ),
+                    ],
+                },
+                windows=azure_native.automation.v20190601.WindowsPropertiesArgs(
+                    excluded_kb_numbers=[
+                        "168934",
+                        "168973",
+                    ],
+                    included_update_classifications="Critical",
+                    reboot_setting="IfRequired",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20190601:SoftwareUpdateConfigurationByName testpatch /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Automation/automationAccounts/myaccount/softwareUpdateConfigurations/testpatch 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -164,6 +268,110 @@ class SoftwareUpdateConfigurationByName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Software update configuration properties.
+
+        ## Example Usage
+        ### Create software update configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        software_update_configuration_by_name = azure_native.automation.v20190601.SoftwareUpdateConfigurationByName("softwareUpdateConfigurationByName",
+            automation_account_name="myaccount",
+            resource_group_name="mygroup",
+            schedule_info=azure_native.automation.v20190601.SUCSchedulePropertiesResponseArgs(
+                advanced_schedule=azure_native.automation.v20190601.AdvancedScheduleArgs(
+                    week_days=[
+                        "Monday",
+                        "Thursday",
+                    ],
+                ),
+                expiry_time="2018-11-09T11:22:57+00:00",
+                frequency="Hour",
+                interval=1,
+                start_time="2017-10-19T12:22:57+00:00",
+                time_zone="America/Los_Angeles",
+            ),
+            software_update_configuration_name="testpatch",
+            tasks=azure_native.automation.v20190601.SoftwareUpdateConfigurationTasksResponseArgs(
+                post_task=azure_native.automation.v20190601.TaskPropertiesArgs(
+                    source="GetCache",
+                ),
+                pre_task=azure_native.automation.v20190601.TaskPropertiesArgs(
+                    parameters={
+                        "COMPUTERNAME": "Computer1",
+                    },
+                    source="HelloWorld",
+                ),
+            ),
+            update_configuration=azure_native.automation.v20190601.UpdateConfigurationResponseArgs(
+                azure_virtual_machines=[
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+                    "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03",
+                ],
+                duration="PT2H0M",
+                non_azure_computer_names=[
+                    "box1.contoso.com",
+                    "box2.contoso.com",
+                ],
+                operating_system=azure_native.automation/v20190601.OperatingSystemType.WINDOWS,
+                targets={
+                    "azureQueries": [{
+                        "locations": [
+                            "Japan East",
+                            "UK South",
+                        ],
+                        "scope": [
+                            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+                            "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
+                        ],
+                        "tagSettings": azure_native.automation.v20190601.TagSettingsPropertiesArgs(
+                            filter_operator=azure_native.automation/v20190601.TagOperators.ALL,
+                            tags={
+                                "tag1": [
+                                    "tag1Value1",
+                                    "tag1Value2",
+                                    "tag1Value3",
+                                ],
+                                "tag2": [
+                                    "tag2Value1",
+                                    "tag2Value2",
+                                    "tag2Value3",
+                                ],
+                            },
+                        ),
+                    }],
+                    "nonAzureQueries": [
+                        azure_native.automation.v20190601.NonAzureQueryPropertiesArgs(
+                            function_alias="SavedSearch1",
+                            workspace_id="WorkspaceId1",
+                        ),
+                        azure_native.automation.v20190601.NonAzureQueryPropertiesArgs(
+                            function_alias="SavedSearch2",
+                            workspace_id="WorkspaceId2",
+                        ),
+                    ],
+                },
+                windows=azure_native.automation.v20190601.WindowsPropertiesArgs(
+                    excluded_kb_numbers=[
+                        "168934",
+                        "168973",
+                    ],
+                    included_update_classifications="Critical",
+                    reboot_setting="IfRequired",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20190601:SoftwareUpdateConfigurationByName testpatch /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Automation/automationAccounts/myaccount/softwareUpdateConfigurations/testpatch 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SoftwareUpdateConfigurationByNameArgs args: The arguments to use to populate this resource's properties.

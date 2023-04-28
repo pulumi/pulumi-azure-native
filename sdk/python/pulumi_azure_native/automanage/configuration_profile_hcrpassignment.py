@@ -97,6 +97,31 @@ class ConfigurationProfileHCRPAssignment(pulumi.CustomResource):
         Configuration profile assignment is an association between a VM and automanage profile configuration.
         API Version: 2022-05-04.
 
+        ## Example Usage
+        ### Create or update HCRP configuration profile assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile_hcrpassignment = azure_native.automanage.ConfigurationProfileHCRPAssignment("configurationProfileHCRPAssignment",
+            configuration_profile_assignment_name="default",
+            machine_name="myMachineName",
+            properties=azure_native.automanage.ConfigurationProfileAssignmentPropertiesArgs(
+                configuration_profile="/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+            ),
+            resource_group_name="myResourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage:ConfigurationProfileHCRPAssignment default /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.HybridCompute/machines/myMachineName/providers/Microsoft.Automanage/configurationProfileAssignments/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_profile_assignment_name: Name of the configuration profile assignment. Only default is supported.
@@ -113,6 +138,31 @@ class ConfigurationProfileHCRPAssignment(pulumi.CustomResource):
         """
         Configuration profile assignment is an association between a VM and automanage profile configuration.
         API Version: 2022-05-04.
+
+        ## Example Usage
+        ### Create or update HCRP configuration profile assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile_hcrpassignment = azure_native.automanage.ConfigurationProfileHCRPAssignment("configurationProfileHCRPAssignment",
+            configuration_profile_assignment_name="default",
+            machine_name="myMachineName",
+            properties=azure_native.automanage.ConfigurationProfileAssignmentPropertiesArgs(
+                configuration_profile="/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+            ),
+            resource_group_name="myResourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage:ConfigurationProfileHCRPAssignment default /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.HybridCompute/machines/myMachineName/providers/Microsoft.Automanage/configurationProfileAssignments/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileHCRPAssignmentArgs args: The arguments to use to populate this resource's properties.

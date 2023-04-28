@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 {
     /// <summary>
     /// The network security perimeter profile resource
+    /// 
+    /// ## Example Usage
+    /// ### NspProfilesPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nspProfile = new AzureNative.Network.V20210201Preview.NspProfile("nspProfile", new()
+    ///     {
+    ///         NetworkSecurityPerimeterName = "nsp1",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210201preview:NspProfile profile1 /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/profile1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210201preview:NspProfile")]
     public partial class NspProfile : global::Pulumi.CustomResource

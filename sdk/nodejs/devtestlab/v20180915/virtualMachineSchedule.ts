@@ -9,6 +9,59 @@ import * as utilities from "../../utilities";
 
 /**
  * A schedule.
+ *
+ * ## Example Usage
+ * ### VirtualMachineSchedules_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineSchedule = new azure_native.devtestlab.v20180915.VirtualMachineSchedule("virtualMachineSchedule", {
+ *     dailyRecurrence: {
+ *         time: "1900",
+ *     },
+ *     hourlyRecurrence: {
+ *         minute: 30,
+ *     },
+ *     labName: "{labName}",
+ *     location: "{location}",
+ *     name: "LabVmsShutdown",
+ *     notificationSettings: {
+ *         emailRecipient: "{email}",
+ *         notificationLocale: "EN",
+ *         status: "Enabled",
+ *         timeInMinutes: 30,
+ *         webhookUrl: "{webhookUrl}",
+ *     },
+ *     resourceGroupName: "resourceGroupName",
+ *     status: "Enabled",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ *     targetResourceId: "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualMachines/{vmName}",
+ *     taskType: "LabVmsShutdownTask",
+ *     timeZoneId: "Pacific Standard Time",
+ *     virtualMachineName: "{vmName}",
+ *     weeklyRecurrence: {
+ *         time: "1700",
+ *         weekdays: [
+ *             "Friday",
+ *             "Saturday",
+ *             "Sunday",
+ *         ],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:VirtualMachineSchedule LabVmsShutdown /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualMachines/{vmName}/schedules/LabVmsShutdown 
+ * ```
  */
 export class VirtualMachineSchedule extends pulumi.CustomResource {
     /**

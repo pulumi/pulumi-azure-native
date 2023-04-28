@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Sql
     /// A managed server DNS alias.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create managed server DNS alias
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedServerDnsAlias = new AzureNative.Sql.ManagedServerDnsAlias("managedServerDnsAlias", new()
+    ///     {
+    ///         DnsAliasName = "dns-alias-mi",
+    ///         ManagedInstanceName = "dns-mi",
+    ///         ResourceGroupName = "Default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:ManagedServerDnsAlias dns-alias-mi /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/dns-mi/dnsAliases/dns-alias-mi 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ManagedServerDnsAlias")]
     public partial class ManagedServerDnsAlias : global::Pulumi.CustomResource

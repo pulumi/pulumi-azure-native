@@ -180,6 +180,69 @@ class Rollout(pulumi.CustomResource):
         API Version: 2019-11-01-preview.
         Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update rollout
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rollout = azure_native.deploymentmanager.Rollout("rollout",
+            artifact_source_id="/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/artifactSources/myArtifactSource",
+            build_version="1.0.0.1",
+            identity=azure_native.deploymentmanager.IdentityArgs(
+                identity_ids=["/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userassignedidentities/myuseridentity"],
+                type="userAssigned",
+            ),
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            rollout_name="myRollout",
+            step_groups=[
+                azure_native.deploymentmanager.StepGroupArgs(
+                    deployment_target_id="Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit1'",
+                    name="FirstRegion",
+                    post_deployment_steps=[azure_native.deploymentmanager.PrePostStepArgs(
+                        step_id="Microsoft.DeploymentManager/steps/postDeployStep1",
+                    )],
+                    pre_deployment_steps=[
+                        azure_native.deploymentmanager.PrePostStepArgs(
+                            step_id="Microsoft.DeploymentManager/steps/preDeployStep1",
+                        ),
+                        azure_native.deploymentmanager.PrePostStepArgs(
+                            step_id="Microsoft.DeploymentManager/steps/preDeployStep2",
+                        ),
+                    ],
+                ),
+                azure_native.deploymentmanager.StepGroupArgs(
+                    depends_on_step_groups=["FirstRegion"],
+                    deployment_target_id="Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit2'",
+                    name="SecondRegion",
+                    post_deployment_steps=[azure_native.deploymentmanager.PrePostStepArgs(
+                        step_id="Microsoft.DeploymentManager/steps/postDeployStep5",
+                    )],
+                    pre_deployment_steps=[
+                        azure_native.deploymentmanager.PrePostStepArgs(
+                            step_id="Microsoft.DeploymentManager/steps/preDeployStep3",
+                        ),
+                        azure_native.deploymentmanager.PrePostStepArgs(
+                            step_id="Microsoft.DeploymentManager/steps/preDeployStep4",
+                        ),
+                    ],
+                ),
+            ],
+            tags={},
+            target_service_topology_id="/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/serviceTopologies/myTopology")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager:Rollout myRollout /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/rollouts/{rolloutName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_source_id: The reference to the artifact source resource Id where the payload is located.
@@ -202,6 +265,69 @@ class Rollout(pulumi.CustomResource):
         Defines the PUT rollout request body.
         API Version: 2019-11-01-preview.
         Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update rollout
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rollout = azure_native.deploymentmanager.Rollout("rollout",
+            artifact_source_id="/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/artifactSources/myArtifactSource",
+            build_version="1.0.0.1",
+            identity=azure_native.deploymentmanager.IdentityArgs(
+                identity_ids=["/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userassignedidentities/myuseridentity"],
+                type="userAssigned",
+            ),
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            rollout_name="myRollout",
+            step_groups=[
+                azure_native.deploymentmanager.StepGroupArgs(
+                    deployment_target_id="Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit1'",
+                    name="FirstRegion",
+                    post_deployment_steps=[azure_native.deploymentmanager.PrePostStepArgs(
+                        step_id="Microsoft.DeploymentManager/steps/postDeployStep1",
+                    )],
+                    pre_deployment_steps=[
+                        azure_native.deploymentmanager.PrePostStepArgs(
+                            step_id="Microsoft.DeploymentManager/steps/preDeployStep1",
+                        ),
+                        azure_native.deploymentmanager.PrePostStepArgs(
+                            step_id="Microsoft.DeploymentManager/steps/preDeployStep2",
+                        ),
+                    ],
+                ),
+                azure_native.deploymentmanager.StepGroupArgs(
+                    depends_on_step_groups=["FirstRegion"],
+                    deployment_target_id="Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit2'",
+                    name="SecondRegion",
+                    post_deployment_steps=[azure_native.deploymentmanager.PrePostStepArgs(
+                        step_id="Microsoft.DeploymentManager/steps/postDeployStep5",
+                    )],
+                    pre_deployment_steps=[
+                        azure_native.deploymentmanager.PrePostStepArgs(
+                            step_id="Microsoft.DeploymentManager/steps/preDeployStep3",
+                        ),
+                        azure_native.deploymentmanager.PrePostStepArgs(
+                            step_id="Microsoft.DeploymentManager/steps/preDeployStep4",
+                        ),
+                    ],
+                ),
+            ],
+            tags={},
+            target_service_topology_id="/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/serviceTopologies/myTopology")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager:Rollout myRollout /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/rollouts/{rolloutName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RolloutArgs args: The arguments to use to populate this resource's properties.

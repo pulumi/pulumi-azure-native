@@ -295,6 +295,49 @@ class Prediction(pulumi.CustomResource):
         API Version: 2017-04-26.
         Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Predictions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        prediction = azure_native.customerinsights.Prediction("prediction",
+            auto_analyze=True,
+            description={
+                "en-us": "sdktest",
+            },
+            display_name={
+                "en-us": "sdktest",
+            },
+            grades=[],
+            hub_name="sdkTestHub",
+            involved_interaction_types=[],
+            involved_kpi_types=[],
+            involved_relationships=[],
+            mappings=azure_native.customerinsights.PredictionMappingsArgs(
+                grade="sdktest_Grade",
+                reason="sdktest_Reason",
+                score="sdktest_Score",
+            ),
+            negative_outcome_expression="Customers.FirstName = 'Mike'",
+            positive_outcome_expression="Customers.FirstName = 'David'",
+            prediction_name="sdktest",
+            primary_profile_type="Customers",
+            resource_group_name="TestHubRG",
+            scope_expression="*",
+            score_label="score label")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:Prediction sdkTestHub/sdktest /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/predictions/sdktest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_analyze: Whether do auto analyze.
@@ -324,6 +367,49 @@ class Prediction(pulumi.CustomResource):
         The prediction resource format.
         API Version: 2017-04-26.
         Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Predictions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        prediction = azure_native.customerinsights.Prediction("prediction",
+            auto_analyze=True,
+            description={
+                "en-us": "sdktest",
+            },
+            display_name={
+                "en-us": "sdktest",
+            },
+            grades=[],
+            hub_name="sdkTestHub",
+            involved_interaction_types=[],
+            involved_kpi_types=[],
+            involved_relationships=[],
+            mappings=azure_native.customerinsights.PredictionMappingsArgs(
+                grade="sdktest_Grade",
+                reason="sdktest_Reason",
+                score="sdktest_Score",
+            ),
+            negative_outcome_expression="Customers.FirstName = 'Mike'",
+            positive_outcome_expression="Customers.FirstName = 'David'",
+            prediction_name="sdktest",
+            primary_profile_type="Customers",
+            resource_group_name="TestHubRG",
+            scope_expression="*",
+            score_label="score label")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:Prediction sdkTestHub/sdktest /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/predictions/sdktest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PredictionArgs args: The arguments to use to populate this resource's properties.

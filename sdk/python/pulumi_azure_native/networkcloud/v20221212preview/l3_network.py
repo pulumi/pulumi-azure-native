@@ -256,7 +256,44 @@ class L3Network(pulumi.CustomResource):
                  vlan: Optional[pulumi.Input[float]] = None,
                  __props__=None):
         """
-        Create a L3Network resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update L3 network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l3_network = azure_native.networkcloud.v20221212preview.L3Network("l3Network",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            hybrid_aks_ipam_enabled="True",
+            hybrid_aks_plugin_type="DPDK",
+            interface_name="eth0",
+            ip_allocation_type="DualStack",
+            ipv4_connected_prefix="198.51.100.0/24",
+            ipv6_connected_prefix="2001:db8::/64",
+            l3_isolation_domain_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+            l3_network_name="l3NetworkName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            vlan=12)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:L3Network l3NetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
@@ -282,7 +319,44 @@ class L3Network(pulumi.CustomResource):
                  args: L3NetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a L3Network resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update L3 network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l3_network = azure_native.networkcloud.v20221212preview.L3Network("l3Network",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            hybrid_aks_ipam_enabled="True",
+            hybrid_aks_plugin_type="DPDK",
+            interface_name="eth0",
+            ip_allocation_type="DualStack",
+            ipv4_connected_prefix="198.51.100.0/24",
+            ipv6_connected_prefix="2001:db8::/64",
+            l3_isolation_domain_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+            l3_network_name="l3NetworkName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            vlan=12)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:L3Network l3NetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param L3NetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

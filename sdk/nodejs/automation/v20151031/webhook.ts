@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the webhook type.
+ *
+ * ## Example Usage
+ * ### Create or update webhook
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webhook = new azure_native.automation.v20151031.Webhook("webhook", {
+ *     automationAccountName: "myAutomationAccount33",
+ *     expiryTime: "2018-03-29T22:18:13.7002872Z",
+ *     isEnabled: true,
+ *     name: "TestWebhook",
+ *     resourceGroupName: "rg",
+ *     runbook: {
+ *         name: "TestRunbook",
+ *     },
+ *     uri: "<uri>",
+ *     webhookName: "TestWebhook",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation/v20151031:Webhook TestWebhook /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/webhooks/TestWebhook 
+ * ```
  */
 export class Webhook extends pulumi.CustomResource {
     /**

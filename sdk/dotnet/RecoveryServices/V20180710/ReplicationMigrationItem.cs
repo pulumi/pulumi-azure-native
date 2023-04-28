@@ -11,6 +11,60 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
 {
     /// <summary>
     /// Migration item.
+    /// 
+    /// ## Example Usage
+    /// ### Enables migration.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replicationMigrationItem = new AzureNative.RecoveryServices.V20180710.ReplicationMigrationItem("replicationMigrationItem", new()
+    ///     {
+    ///         FabricName = "vmwarefabric1",
+    ///         MigrationItemName = "virtualmachine1",
+    ///         Properties = new AzureNative.RecoveryServices.V20180710.Inputs.EnableMigrationInputPropertiesArgs
+    ///         {
+    ///             PolicyId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationPolicies/vmwarepolicy1",
+    ///             ProviderSpecificDetails = 
+    ///             {
+    ///                 { "dataMoverRunAsAccountId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/dataMoverRunAsAccount1" },
+    ///                 { "disksToInclude", new[]
+    ///                 {
+    ///                     new AzureNative.RecoveryServices.V20180710.Inputs.VMwareCbtDiskInputArgs
+    ///                     {
+    ///                         DiskId = "disk1",
+    ///                         IsOSDisk = "true",
+    ///                         LogStorageAccountId = "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.Storage/storageAccounts/logStorageAccount1",
+    ///                         LogStorageAccountSasSecretName = "logStorageSas",
+    ///                     },
+    ///                 } },
+    ///                 { "instanceType", "VMwareCbt" },
+    ///                 { "snapshotRunAsAccountId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/runasaccounts/snapshotRunAsAccount1" },
+    ///                 { "targetNetworkId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.Network/virtualNetworks/virtualNetwork1" },
+    ///                 { "targetResourceGroupId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1" },
+    ///                 { "vmwareMachineId", "/Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.OffAzure/VMwareSites/vmwaresite1/machines/virtualmachine1" },
+    ///             },
+    ///         },
+    ///         ProtectionContainerName = "vmwareContainer1",
+    ///         ResourceGroupName = "resourcegroup1",
+    ///         ResourceName = "migrationvault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20180710:ReplicationMigrationItem virtualmachine1 /Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationFabrics/vmwarefabric1/replicationProtectionContainers/vmwareContainer1/replicationMigrationItems/virtualmachine1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20180710:ReplicationMigrationItem")]
     public partial class ReplicationMigrationItem : global::Pulumi.CustomResource

@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.Storage.V20181101
 {
     /// <summary>
     /// The storage account.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAccount = new AzureNative.Storage.V20181101.StorageAccount("storageAccount", new()
+    ///     {
+    ///         AccountName = "sto4445",
+    ///         EnableAzureFilesAadIntegration = true,
+    ///         IsHnsEnabled = true,
+    ///         Kind = AzureNative.Storage.V20181101.Kind.Storage,
+    ///         Location = "eastus2euap",
+    ///         ResourceGroupName = "res9101",
+    ///         Sku = new AzureNative.Storage.V20181101.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.Storage.V20181101.SkuName.Standard_GRS,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20181101:StorageAccount sto4445 /subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20181101:StorageAccount")]

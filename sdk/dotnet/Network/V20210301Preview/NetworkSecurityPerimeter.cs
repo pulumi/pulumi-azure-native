@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Network.V20210301Preview
 {
     /// <summary>
     /// The Network Security Perimeter resource
+    /// 
+    /// ## Example Usage
+    /// ### Put Network Security Perimeter
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkSecurityPerimeter = new AzureNative.Network.V20210301Preview.NetworkSecurityPerimeter("networkSecurityPerimeter", new()
+    ///     {
+    ///         Description = "Description of TestNetworkSecurityPerimeter",
+    ///         DisplayName = "TestNetworkSecurityPerimeter",
+    ///         NetworkSecurityPerimeterName = "nsp1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210301preview:NetworkSecurityPerimeter TestNetworkSecurityPerimeter /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/TestNetworkSecurityPerimeter 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210301preview:NetworkSecurityPerimeter")]
     public partial class NetworkSecurityPerimeter : global::Pulumi.CustomResource

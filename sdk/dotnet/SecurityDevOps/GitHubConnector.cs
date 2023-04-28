@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.SecurityDevOps
     /// Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
     /// API Version: 2022-09-01-preview.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### GitHubConnector_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gitHubConnector = new AzureNative.SecurityDevOps.GitHubConnector("gitHubConnector", new()
+    ///     {
+    ///         GitHubConnectorName = "testconnector",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.SecurityDevOps.Inputs.GitHubConnectorPropertiesArgs
+    ///         {
+    ///             Code = "00000000000000000000",
+    ///         },
+    ///         ResourceGroupName = "westusrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securitydevops:GitHubConnector testconnector /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/westusrg/providers/Microsoft.SecurityDevOps/gitHubConnectors/testconnector 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securitydevops:GitHubConnector")]
     public partial class GitHubConnector : global::Pulumi.CustomResource

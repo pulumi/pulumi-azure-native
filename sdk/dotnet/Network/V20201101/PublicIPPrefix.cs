@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// Public IP prefix resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create public IP prefix allocation method
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var publicIPPrefix = new AzureNative.Network.V20201101.PublicIPPrefix("publicIPPrefix", new()
+    ///     {
+    ///         Location = "westus",
+    ///         PrefixLength = 30,
+    ///         PublicIPAddressVersion = "IPv4",
+    ///         PublicIpPrefixName = "test-ipprefix",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20201101.Inputs.PublicIPPrefixSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///             Tier = "Regional",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create public IP prefix defaults
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var publicIPPrefix = new AzureNative.Network.V20201101.PublicIPPrefix("publicIPPrefix", new()
+    ///     {
+    ///         Location = "westus",
+    ///         PrefixLength = 30,
+    ///         PublicIpPrefixName = "test-ipprefix",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20201101.Inputs.PublicIPPrefixSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:PublicIPPrefix test-ipprefix /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/test-ipprefix 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:PublicIPPrefix")]
     public partial class PublicIPPrefix : global::Pulumi.CustomResource

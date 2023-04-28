@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Define the virtualMachineTemplate.
+ *
+ * ## Example Usage
+ * ### CreateVirtualMachineTemplate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineTemplate = new azure_native.connectedvmwarevsphere.v20220715preview.VirtualMachineTemplate("virtualMachineTemplate", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+ *         type: "customLocation",
+ *     },
+ *     location: "East US",
+ *     moRefId: "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+ *     resourceGroupName: "testrg",
+ *     vCenterId: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+ *     virtualMachineTemplateName: "WebFrontEndTemplate",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachineTemplate WebFrontEndTemplate /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualMachineTemplates/WebFrontEndTemplate 
+ * ```
  */
 export class VirtualMachineTemplate extends pulumi.CustomResource {
     /**

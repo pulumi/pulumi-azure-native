@@ -166,6 +166,13 @@ class SiteAppSettings(pulumi.CustomResource):
                  __props__=None):
         """
         String dictionary resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:SiteAppSettings myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/appsettings 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,6 +193,13 @@ class SiteAppSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         String dictionary resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:SiteAppSettings myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/appsettings 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SiteAppSettingsArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,62 @@ namespace Pulumi.AzureNative.NetApp
     /// Snapshot policy information
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SnapshotPolicies_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var snapshotPolicy = new AzureNative.NetApp.SnapshotPolicy("snapshotPolicy", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         DailySchedule = new AzureNative.NetApp.Inputs.DailyScheduleArgs
+    ///         {
+    ///             Hour = 14,
+    ///             Minute = 30,
+    ///             SnapshotsToKeep = 4,
+    ///         },
+    ///         Enabled = true,
+    ///         HourlySchedule = new AzureNative.NetApp.Inputs.HourlyScheduleArgs
+    ///         {
+    ///             Minute = 50,
+    ///             SnapshotsToKeep = 2,
+    ///         },
+    ///         Location = "eastus",
+    ///         MonthlySchedule = new AzureNative.NetApp.Inputs.MonthlyScheduleArgs
+    ///         {
+    ///             DaysOfMonth = "10,11,12",
+    ///             Hour = 14,
+    ///             Minute = 15,
+    ///             SnapshotsToKeep = 5,
+    ///         },
+    ///         ResourceGroupName = "myRG",
+    ///         SnapshotPolicyName = "snapshotPolicyName",
+    ///         WeeklySchedule = new AzureNative.NetApp.Inputs.WeeklyScheduleArgs
+    ///         {
+    ///             Day = "Wednesday",
+    ///             Hour = 14,
+    ///             Minute = 45,
+    ///             SnapshotsToKeep = 3,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp:SnapshotPolicy account1/snapshotPolicy1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotPolicy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:SnapshotPolicy")]
     public partial class SnapshotPolicy : global::Pulumi.CustomResource

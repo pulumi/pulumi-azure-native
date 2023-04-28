@@ -225,6 +225,53 @@ class AttachedDataNetwork(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create attached data network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attached_data_network = azure_native.mobilenetwork.AttachedDataNetwork("attachedDataNetwork",
+            attached_data_network_name="TestAttachedDataNetwork",
+            dns_addresses=["1.1.1.1"],
+            location="eastus",
+            napt_configuration=azure_native.mobilenetwork.NaptConfigurationResponseArgs(
+                enabled="Enabled",
+                pinhole_limits=65536,
+                pinhole_timeouts=azure_native.mobilenetwork.PinholeTimeoutsArgs(
+                    icmp=30,
+                    tcp=180,
+                    udp=30,
+                ),
+                port_range=azure_native.mobilenetwork.PortRangeArgs(
+                    max_port=49999,
+                    min_port=1024,
+                ),
+                port_reuse_hold_time=azure_native.mobilenetwork.PortReuseHoldTimesArgs(
+                    tcp=120,
+                    udp=60,
+                ),
+            ),
+            packet_core_control_plane_name="TestPacketCoreCP",
+            packet_core_data_plane_name="TestPacketCoreDP",
+            resource_group_name="rg1",
+            user_equipment_address_pool_prefix=["2.2.0.0/16"],
+            user_equipment_static_address_pool_prefix=["2.4.0.0/16"],
+            user_plane_data_interface=azure_native.mobilenetwork.InterfacePropertiesArgs(
+                name="N6",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:AttachedDataNetwork TestAttachedDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attached_data_network_name: The name of the attached data network.
@@ -254,6 +301,53 @@ class AttachedDataNetwork(pulumi.CustomResource):
         Attached data network resource. Must be created in the same location as its parent packet core data plane.
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create attached data network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attached_data_network = azure_native.mobilenetwork.AttachedDataNetwork("attachedDataNetwork",
+            attached_data_network_name="TestAttachedDataNetwork",
+            dns_addresses=["1.1.1.1"],
+            location="eastus",
+            napt_configuration=azure_native.mobilenetwork.NaptConfigurationResponseArgs(
+                enabled="Enabled",
+                pinhole_limits=65536,
+                pinhole_timeouts=azure_native.mobilenetwork.PinholeTimeoutsArgs(
+                    icmp=30,
+                    tcp=180,
+                    udp=30,
+                ),
+                port_range=azure_native.mobilenetwork.PortRangeArgs(
+                    max_port=49999,
+                    min_port=1024,
+                ),
+                port_reuse_hold_time=azure_native.mobilenetwork.PortReuseHoldTimesArgs(
+                    tcp=120,
+                    udp=60,
+                ),
+            ),
+            packet_core_control_plane_name="TestPacketCoreCP",
+            packet_core_data_plane_name="TestPacketCoreDP",
+            resource_group_name="rg1",
+            user_equipment_address_pool_prefix=["2.2.0.0/16"],
+            user_equipment_static_address_pool_prefix=["2.4.0.0/16"],
+            user_plane_data_interface=azure_native.mobilenetwork.InterfacePropertiesArgs(
+                name="N6",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:AttachedDataNetwork TestAttachedDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AttachedDataNetworkArgs args: The arguments to use to populate this resource's properties.

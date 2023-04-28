@@ -96,6 +96,31 @@ class DppResourceGuardProxy(pulumi.CustomResource):
         """
         ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
 
+        ## Example Usage
+        ### Create ResourceGuardProxy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dpp_resource_guard_proxy = azure_native.dataprotection.v20230101.DppResourceGuardProxy("dppResourceGuardProxy",
+            properties=azure_native.dataprotection.v20230101.ResourceGuardProxyBaseArgs(
+                resource_guard_resource_id="/subscriptions/f9e67185-f313-4e79-aa71-6458d429369d/resourceGroups/ResourceGuardSecurityAdminRG/providers/Microsoft.DataProtection/resourceGuards/ResourceGuardTestResource",
+            ),
+            resource_group_name="SampleResourceGroup",
+            resource_guard_proxy_name="swaggerExample",
+            vault_name="sampleVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection/v20230101:DppResourceGuardProxy swaggerExample /subscriptions/5e13b949-1218-4d18-8b99-7e12155ec4f7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/backupVaults/sampleVault/backupResourceGuardProxies/swaggerExample 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceGuardProxyBaseArgs']] properties: ResourceGuardProxyBaseResource properties
@@ -111,6 +136,31 @@ class DppResourceGuardProxy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
+
+        ## Example Usage
+        ### Create ResourceGuardProxy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dpp_resource_guard_proxy = azure_native.dataprotection.v20230101.DppResourceGuardProxy("dppResourceGuardProxy",
+            properties=azure_native.dataprotection.v20230101.ResourceGuardProxyBaseArgs(
+                resource_guard_resource_id="/subscriptions/f9e67185-f313-4e79-aa71-6458d429369d/resourceGroups/ResourceGuardSecurityAdminRG/providers/Microsoft.DataProtection/resourceGuards/ResourceGuardTestResource",
+            ),
+            resource_group_name="SampleResourceGroup",
+            resource_guard_proxy_name="swaggerExample",
+            vault_name="sampleVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection/v20230101:DppResourceGuardProxy swaggerExample /subscriptions/5e13b949-1218-4d18-8b99-7e12155ec4f7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/backupVaults/sampleVault/backupResourceGuardProxies/swaggerExample 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DppResourceGuardProxyArgs args: The arguments to use to populate this resource's properties.

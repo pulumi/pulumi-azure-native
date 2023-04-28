@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * A Policy.
+ *
+ * ## Example Usage
+ * ### Policies_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policy = new azure_native.devtestlab.v20180915.Policy("policy", {
+ *     description: "{policyDescription}",
+ *     evaluatorType: "{policyEvaluatorType}",
+ *     factData: "{policyFactData}",
+ *     factName: "{policyFactName}",
+ *     labName: "{labName}",
+ *     location: "{location}",
+ *     name: "{policyName}",
+ *     policySetName: "{policySetName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     status: "{policyStatus}",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ *     threshold: "{policyThreshold}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:Policy {labName} /subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/policysets/{policySetName}/policies/{policyName} 
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

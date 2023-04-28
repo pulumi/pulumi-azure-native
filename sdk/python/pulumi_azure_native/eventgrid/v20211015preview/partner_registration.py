@@ -334,6 +334,40 @@ class PartnerRegistration(pulumi.CustomResource):
         """
         Information about a partner registration.
 
+        ## Example Usage
+        ### PartnerRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner_registration = azure_native.eventgrid.v20211015preview.PartnerRegistration("partnerRegistration",
+            authorized_azure_subscription_ids=["d48566a8-2428-4a6c-8347-9675d09fb851"],
+            location="global",
+            logo_uri="https://www.example.com/logo.png",
+            partner_name="ContosoCorp",
+            partner_registration_name="examplePartnerRegistrationName1",
+            partner_resource_type_description="ContocoCorp Accounts Description Text",
+            partner_resource_type_display_name="ContocoCorp Accounts DisplayName Text",
+            partner_resource_type_name="ContosoCorp.Accounts",
+            resource_group_name="examplerg",
+            setup_uri="https://www.example.com/setup.html",
+            tags={
+                "key1": "value1",
+                "key2": "Value2",
+                "key3": "Value3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20211015preview:PartnerRegistration examplePartnerRegistrationName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerRegistrations/examplePartnerRegistrationName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_azure_subscription_ids: List of Azure subscription Ids that are authorized to create a partner namespace
@@ -370,6 +404,40 @@ class PartnerRegistration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about a partner registration.
+
+        ## Example Usage
+        ### PartnerRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner_registration = azure_native.eventgrid.v20211015preview.PartnerRegistration("partnerRegistration",
+            authorized_azure_subscription_ids=["d48566a8-2428-4a6c-8347-9675d09fb851"],
+            location="global",
+            logo_uri="https://www.example.com/logo.png",
+            partner_name="ContosoCorp",
+            partner_registration_name="examplePartnerRegistrationName1",
+            partner_resource_type_description="ContocoCorp Accounts Description Text",
+            partner_resource_type_display_name="ContocoCorp Accounts DisplayName Text",
+            partner_resource_type_name="ContosoCorp.Accounts",
+            resource_group_name="examplerg",
+            setup_uri="https://www.example.com/setup.html",
+            tags={
+                "key1": "value1",
+                "key2": "Value2",
+                "key3": "Value3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20211015preview:PartnerRegistration examplePartnerRegistrationName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerRegistrations/examplePartnerRegistrationName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PartnerRegistrationArgs args: The arguments to use to populate this resource's properties.

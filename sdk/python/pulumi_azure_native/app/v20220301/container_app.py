@@ -166,6 +166,89 @@ class ContainerApp(pulumi.CustomResource):
         """
         Container App.
 
+        ## Example Usage
+        ### Create or Update Container App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.app.v20220301.ContainerApp("containerApp",
+            configuration=azure_native.app.v20220301.ConfigurationResponseArgs(
+                dapr=azure_native.app.v20220301.DaprArgs(
+                    app_port=3000,
+                    app_protocol="http",
+                    enabled=True,
+                ),
+                ingress={
+                    "customDomains": [
+                        azure_native.app.v20220301.CustomDomainArgs(
+                            binding_type="SniEnabled",
+                            certificate_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
+                            name="www.my-name.com",
+                        ),
+                        azure_native.app.v20220301.CustomDomainArgs(
+                            binding_type="SniEnabled",
+                            certificate_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com",
+                            name="www.my-other-name.com",
+                        ),
+                    ],
+                    "external": True,
+                    "targetPort": 3000,
+                    "traffic": [azure_native.app.v20220301.TrafficWeightArgs(
+                        label="production",
+                        revision_name="testcontainerApp0-ab1234",
+                        weight=100,
+                    )],
+                },
+            ),
+            container_app_name="testcontainerApp0",
+            location="East US",
+            managed_environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            resource_group_name="rg",
+            template=azure_native.app.v20220301.TemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerApp0:v1",
+                    "name": "testcontainerApp0",
+                    "probes": [{
+                        "httpGet": azure_native.app.v20220301.ContainerAppProbeHttpGetArgs(
+                            http_headers=[azure_native.app.v20220301.ContainerAppProbeHttpHeadersArgs(
+                                name="Custom-Header",
+                                value="Awesome",
+                            )],
+                            path="/health",
+                            port=8080,
+                        ),
+                        "initialDelaySeconds": 3,
+                        "periodSeconds": 3,
+                        "type": "Liveness",
+                    }],
+                }],
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "custom": azure_native.app.v20220301.CustomScaleRuleArgs(
+                            metadata={
+                                "concurrentRequests": "50",
+                            },
+                            type="http",
+                        ),
+                        "name": "httpscalingrule",
+                    }],
+                },
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20220301:ContainerApp testcontainerApp0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/testcontainerApp0 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigurationArgs']] configuration: Non versioned Container App configuration properties.
@@ -185,6 +268,89 @@ class ContainerApp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App.
+
+        ## Example Usage
+        ### Create or Update Container App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.app.v20220301.ContainerApp("containerApp",
+            configuration=azure_native.app.v20220301.ConfigurationResponseArgs(
+                dapr=azure_native.app.v20220301.DaprArgs(
+                    app_port=3000,
+                    app_protocol="http",
+                    enabled=True,
+                ),
+                ingress={
+                    "customDomains": [
+                        azure_native.app.v20220301.CustomDomainArgs(
+                            binding_type="SniEnabled",
+                            certificate_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
+                            name="www.my-name.com",
+                        ),
+                        azure_native.app.v20220301.CustomDomainArgs(
+                            binding_type="SniEnabled",
+                            certificate_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com",
+                            name="www.my-other-name.com",
+                        ),
+                    ],
+                    "external": True,
+                    "targetPort": 3000,
+                    "traffic": [azure_native.app.v20220301.TrafficWeightArgs(
+                        label="production",
+                        revision_name="testcontainerApp0-ab1234",
+                        weight=100,
+                    )],
+                },
+            ),
+            container_app_name="testcontainerApp0",
+            location="East US",
+            managed_environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            resource_group_name="rg",
+            template=azure_native.app.v20220301.TemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerApp0:v1",
+                    "name": "testcontainerApp0",
+                    "probes": [{
+                        "httpGet": azure_native.app.v20220301.ContainerAppProbeHttpGetArgs(
+                            http_headers=[azure_native.app.v20220301.ContainerAppProbeHttpHeadersArgs(
+                                name="Custom-Header",
+                                value="Awesome",
+                            )],
+                            path="/health",
+                            port=8080,
+                        ),
+                        "initialDelaySeconds": 3,
+                        "periodSeconds": 3,
+                        "type": "Liveness",
+                    }],
+                }],
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "custom": azure_native.app.v20220301.CustomScaleRuleArgs(
+                            metadata={
+                                "concurrentRequests": "50",
+                            },
+                            type="http",
+                        ),
+                        "name": "httpscalingrule",
+                    }],
+                },
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20220301:ContainerApp testcontainerApp0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/testcontainerApp0 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerAppArgs args: The arguments to use to populate this resource's properties.

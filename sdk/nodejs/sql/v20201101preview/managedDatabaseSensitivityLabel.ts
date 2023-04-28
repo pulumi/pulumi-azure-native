@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * A sensitivity label.
+ *
+ * ## Example Usage
+ * ### Updates or creates a sensitivity label of a given column with all parameters in a managed database
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedDatabaseSensitivityLabel = new azure_native.sql.v20201101preview.ManagedDatabaseSensitivityLabel("managedDatabaseSensitivityLabel", {
+ *     columnName: "myColumn",
+ *     databaseName: "myDatabase",
+ *     informationType: "PhoneNumber",
+ *     informationTypeId: "d22fa6e9-5ee4-3bde-4c2b-a409604c4646",
+ *     labelId: "bf91e08c-f4f0-478a-b016-25164b2a65ff",
+ *     labelName: "PII",
+ *     managedInstanceName: "myManagedInstanceName",
+ *     rank: azure_native.sql.v20201101preview.SensitivityLabelRank.High,
+ *     resourceGroupName: "myRG",
+ *     schemaName: "dbo",
+ *     sensitivityLabelSource: "current",
+ *     tableName: "myTable",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20201101preview:ManagedDatabaseSensitivityLabel current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myRG/providers/Microsoft.Sql/managedInstances/myManagedInstanceName/databases/myDatabase/schemas/dbo/tables/myTable/columns/myColumn/sensitivityLabels/current 
+ * ```
  */
 export class ManagedDatabaseSensitivityLabel extends pulumi.CustomResource {
     /**

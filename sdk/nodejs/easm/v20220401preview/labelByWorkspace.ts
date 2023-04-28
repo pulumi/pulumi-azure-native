@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Label details
+ *
+ * ## Example Usage
+ * ### Labels
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const labelByWorkspace = new azure_native.easm.v20220401preview.LabelByWorkspace("labelByWorkspace", {
+ *     labelName: "ThisisaLabel",
+ *     resourceGroupName: "dummyrg",
+ *     workspaceName: "ThisisaWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:easm/v20220401preview:LabelByWorkspace ThisisaLabel /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/dummyrg/providers/Microsoft.Easm/workspaces/ThisisaWorkspace/labels/ThisisaLabel 
+ * ```
  */
 export class LabelByWorkspace extends pulumi.CustomResource {
     /**

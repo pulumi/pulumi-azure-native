@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * A custom image.
+ *
+ * ## Example Usage
+ * ### CustomImages_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customImage = new azure_native.devtestlab.v20180915.CustomImage("customImage", {
+ *     description: "My Custom Image",
+ *     labName: "{labName}",
+ *     name: "{customImageName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ *     vm: {
+ *         linuxOsInfo: {
+ *             linuxOsState: "NonDeprovisioned",
+ *         },
+ *         sourceVmId: "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName}",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:CustomImage {customImageName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/customimages/{customImageName} 
+ * ```
  */
 export class CustomImage extends pulumi.CustomResource {
     /**

@@ -6,6 +6,13 @@ import * as utilities from "../../utilities";
 
 /**
  * iOS Policy entity for Intune MAM.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:intune/v20150114preview:IoMAMPolicyByName myresource1 /providers/Microsoft.Intune/locations/{hostName}/iosPolicies/{policyName} 
+ * ```
  */
 export class IoMAMPolicyByName extends pulumi.CustomResource {
     /**

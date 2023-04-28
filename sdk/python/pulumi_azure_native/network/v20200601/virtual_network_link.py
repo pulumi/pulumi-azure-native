@@ -147,6 +147,36 @@ class VirtualNetworkLink(pulumi.CustomResource):
         """
         Describes a link to virtual network for a Private DNS zone.
 
+        ## Example Usage
+        ### PUT Private DNS Zone Virtual Network Link
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_link = azure_native.network.v20200601.VirtualNetworkLink("virtualNetworkLink",
+            location="Global",
+            private_zone_name="privatezone1.com",
+            registration_enabled=False,
+            resource_group_name="resourceGroup1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_network=azure_native.network.v20200601.SubResourceArgs(
+                id="/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
+            ),
+            virtual_network_link_name="virtualNetworkLink1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200601:VirtualNetworkLink virtualNetworkLink1 /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com/virtualNetworkLinks/virtualNetworkLink1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
@@ -165,6 +195,36 @@ class VirtualNetworkLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a link to virtual network for a Private DNS zone.
+
+        ## Example Usage
+        ### PUT Private DNS Zone Virtual Network Link
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_link = azure_native.network.v20200601.VirtualNetworkLink("virtualNetworkLink",
+            location="Global",
+            private_zone_name="privatezone1.com",
+            registration_enabled=False,
+            resource_group_name="resourceGroup1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_network=azure_native.network.v20200601.SubResourceArgs(
+                id="/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
+            ),
+            virtual_network_link_name="virtualNetworkLink1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200601:VirtualNetworkLink virtualNetworkLink1 /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com/virtualNetworkLinks/virtualNetworkLink1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.

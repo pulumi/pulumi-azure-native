@@ -10,6 +10,47 @@ import * as utilities from "../../utilities";
 /**
  * The link resource format.
  *
+ * ## Example Usage
+ * ### Links_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const link = new azure_native.customerinsights.v20170101.Link("link", {
+ *     description: {
+ *         "en-us": "Link Description",
+ *     },
+ *     displayName: {
+ *         "en-us": "Link DisplayName",
+ *     },
+ *     hubName: "sdkTestHub",
+ *     linkName: "linkTest4806",
+ *     mappings: [{
+ *         interactionTypePropertyName: "testInteraction1949",
+ *         isProfileTypeId: true,
+ *         linkType: azure_native.customerinsights.v20170101.LinkTypes.UpdateAlways,
+ *         profileTypePropertyName: "testProfile1446",
+ *     }],
+ *     participantPropertyReferences: [{
+ *         interactionPropertyName: "testInteraction1949",
+ *         profilePropertyName: "ProfileId",
+ *     }],
+ *     resourceGroupName: "TestHubRG",
+ *     sourceInteractionType: "testInteraction1949",
+ *     targetProfileType: "testProfile1446",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights/v20170101:Link azSdkTestHub/linkTest4806 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/links/linkTest4806 
+ * ```
+ *
  * @deprecated Version 2017-01-01 will be removed in v2 of the provider.
  */
 export class Link extends pulumi.CustomResource {

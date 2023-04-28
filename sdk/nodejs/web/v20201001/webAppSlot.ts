@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * A web app, a mobile app backend, or an API app.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201001:WebAppSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot} 
+ * ```
  */
 export class WebAppSlot extends pulumi.CustomResource {
     /**

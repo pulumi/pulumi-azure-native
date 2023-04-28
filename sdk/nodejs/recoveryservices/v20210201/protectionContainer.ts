@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
+ *
+ * ## Example Usage
+ * ### RegisterAzure Storage ProtectionContainers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionContainer = new azure_native.recoveryservices.v20210201.ProtectionContainer("protectionContainer", {
+ *     containerName: "VMAppContainer;Compute;testRG;testSQL",
+ *     fabricName: "Azure",
+ *     properties: {
+ *         backupManagementType: "AzureWorkload",
+ *         containerType: "VMAppContainer",
+ *         friendlyName: "testSQL",
+ *         sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testSQL",
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     vaultName: "testvault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20210201:ProtectionContainer VMAppContainer;Compute;testRG;testSQL /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;testRG;testSQL 
+ * ```
  */
 export class ProtectionContainer extends pulumi.CustomResource {
     /**

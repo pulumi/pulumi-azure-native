@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.AVS.V20210601
 {
     /// <summary>
     /// A cloud link resource
+    /// 
+    /// ## Example Usage
+    /// ### CloudLinks_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cloudLink = new AzureNative.AVS.V20210601.CloudLink("cloudLink", new()
+    ///     {
+    ///         CloudLinkName = "cloudLink1",
+    ///         LinkedCloud = "/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.AVS/privateClouds/cloud2",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20210601:CloudLink cloudLink1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/cloudLinks/cloudLink1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20210601:CloudLink")]
     public partial class CloudLink : global::Pulumi.CustomResource

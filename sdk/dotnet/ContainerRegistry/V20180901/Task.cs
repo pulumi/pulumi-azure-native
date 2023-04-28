@@ -12,6 +12,85 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180901
     /// <summary>
     /// The task that has the ARM resource and task properties.
     /// The task will have all information to schedule a run against it.
+    /// 
+    /// ## Example Usage
+    /// ### Tasks_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var task = new AzureNative.ContainerRegistry.V20180901.Task("task", new()
+    ///     {
+    ///         AgentConfiguration = new AzureNative.ContainerRegistry.V20180901.Inputs.AgentPropertiesArgs
+    ///         {
+    ///             Cpu = 2,
+    ///         },
+    ///         Location = "eastus",
+    ///         Platform = new AzureNative.ContainerRegistry.V20180901.Inputs.PlatformPropertiesArgs
+    ///         {
+    ///             Architecture = "amd64",
+    ///             Os = "Linux",
+    ///         },
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Status = "Enabled",
+    ///         Step = new AzureNative.ContainerRegistry.V20180901.Inputs.TaskStepPropertiesArgs
+    ///         {
+    ///             ContextPath = "dockerfiles",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testkey", "value" },
+    ///         },
+    ///         TaskName = "mytTask",
+    ///         Trigger = new AzureNative.ContainerRegistry.V20180901.Inputs.TriggerPropertiesArgs
+    ///         {
+    ///             BaseImageTrigger = new AzureNative.ContainerRegistry.V20180901.Inputs.BaseImageTriggerArgs
+    ///             {
+    ///                 BaseImageTriggerType = "Runtime",
+    ///                 Name = "myBaseImageTrigger",
+    ///             },
+    ///             SourceTriggers = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20180901.Inputs.SourceTriggerArgs
+    ///                 {
+    ///                     Name = "mySourceTrigger",
+    ///                     SourceRepository = new AzureNative.ContainerRegistry.V20180901.Inputs.SourcePropertiesArgs
+    ///                     {
+    ///                         Branch = "master",
+    ///                         RepositoryUrl = "https://github.com/Azure/azure-rest-api-specs",
+    ///                         SourceControlAuthProperties = new AzureNative.ContainerRegistry.V20180901.Inputs.AuthInfoArgs
+    ///                         {
+    ///                             Token = "xxxxx",
+    ///                             TokenType = "PAT",
+    ///                         },
+    ///                         SourceControlType = "Github",
+    ///                     },
+    ///                     SourceTriggerEvents = new[]
+    ///                     {
+    ///                         "commit",
+    ///                     },
+    ///                     Status = "Enabled",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20180901:Task myTask /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tasks/myTask 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20180901:Task")]
     public partial class Task : global::Pulumi.CustomResource

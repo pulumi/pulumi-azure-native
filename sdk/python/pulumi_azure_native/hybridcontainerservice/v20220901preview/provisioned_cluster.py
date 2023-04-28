@@ -145,6 +145,85 @@ class ProvisionedCluster(pulumi.CustomResource):
         """
         The provisionedClusters resource definition.
 
+        ## Example Usage
+        ### PutProvisionedCluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provisioned_cluster = azure_native.hybridcontainerservice.v20220901preview.ProvisionedCluster("provisionedCluster",
+            extended_location=azure_native.hybridcontainerservice.v20220901preview.ProvisionedClustersExtendedLocationArgs(
+                name="/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+                type="CustomLocation",
+            ),
+            location="westus",
+            properties=azure_native.hybridcontainerservice.v20220901preview.ProvisionedClustersResponsePropertiesResponseArgs(
+                agent_pool_profiles=[azure_native.hybridcontainerservice.v20220901preview.NamedAgentPoolProfileArgs(
+                    count=1,
+                    name="default-nodepool-1",
+                    os_type="Linux",
+                    vm_size="Standard_A4_v2",
+                )],
+                cloud_provider_profile={
+                    "infraNetworkProfile": azure_native.hybridcontainerservice.v20220901preview.CloudProviderProfileInfraNetworkProfileArgs(
+                        vnet_subnet_ids=["/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/virtualNetworks/test-vnet-static"],
+                    ),
+                    "infraStorageProfile": azure_native.hybridcontainerservice.v20220901preview.CloudProviderProfileInfraStorageProfileArgs(
+                        storage_space_ids=["/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/storageSpaces/test-storage"],
+                    ),
+                },
+                control_plane={
+                    "count": 1,
+                    "linuxProfile": {
+                        "ssh": {
+                            "publicKeys": [azure_native.hybridcontainerservice.v20220901preview.LinuxProfilePropertiesPublicKeysArgs(
+                                key_data="ssh-rsa AAAAB1NzaC1yc2EAAAADAQABAAACAQCY......",
+                            )],
+                        },
+                    },
+                    "osType": "Linux",
+                    "vmSize": "Standard_A4_v2",
+                },
+                kubernetes_version="v1.20.5",
+                linux_profile={
+                    "ssh": {
+                        "publicKeys": [azure_native.hybridcontainerservice.v20220901preview.LinuxProfilePropertiesPublicKeysArgs(
+                            key_data="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCY.......",
+                        )],
+                    },
+                },
+                network_profile={
+                    "loadBalancerProfile": {
+                        "count": 1,
+                        "linuxProfile": {
+                            "ssh": {
+                                "publicKeys": [azure_native.hybridcontainerservice.v20220901preview.LinuxProfilePropertiesPublicKeysArgs(
+                                    key_data="ssh-rsa AAAAB2NzaC1yc2EAAAADAQABAAACAQCY......",
+                                )],
+                            },
+                        },
+                        "osType": "Linux",
+                        "vmSize": "Standard_K8S3_v1",
+                    },
+                    "loadBalancerSku": "unstacked-haproxy",
+                    "networkPolicy": "calico",
+                    "podCidr": "10.244.0.0/16",
+                },
+            ),
+            resource_group_name="test-arcappliance-resgrp",
+            resource_name_="test-hybridakscluster")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice/v20220901preview:ProvisionedCluster test-hybridakscluster /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/provisionedClusters/test-hybridakscluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ProvisionedClusterIdentityArgs']] identity: Identity for the Provisioned cluster.
@@ -162,6 +241,85 @@ class ProvisionedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The provisionedClusters resource definition.
+
+        ## Example Usage
+        ### PutProvisionedCluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provisioned_cluster = azure_native.hybridcontainerservice.v20220901preview.ProvisionedCluster("provisionedCluster",
+            extended_location=azure_native.hybridcontainerservice.v20220901preview.ProvisionedClustersExtendedLocationArgs(
+                name="/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+                type="CustomLocation",
+            ),
+            location="westus",
+            properties=azure_native.hybridcontainerservice.v20220901preview.ProvisionedClustersResponsePropertiesResponseArgs(
+                agent_pool_profiles=[azure_native.hybridcontainerservice.v20220901preview.NamedAgentPoolProfileArgs(
+                    count=1,
+                    name="default-nodepool-1",
+                    os_type="Linux",
+                    vm_size="Standard_A4_v2",
+                )],
+                cloud_provider_profile={
+                    "infraNetworkProfile": azure_native.hybridcontainerservice.v20220901preview.CloudProviderProfileInfraNetworkProfileArgs(
+                        vnet_subnet_ids=["/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/virtualNetworks/test-vnet-static"],
+                    ),
+                    "infraStorageProfile": azure_native.hybridcontainerservice.v20220901preview.CloudProviderProfileInfraStorageProfileArgs(
+                        storage_space_ids=["/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/storageSpaces/test-storage"],
+                    ),
+                },
+                control_plane={
+                    "count": 1,
+                    "linuxProfile": {
+                        "ssh": {
+                            "publicKeys": [azure_native.hybridcontainerservice.v20220901preview.LinuxProfilePropertiesPublicKeysArgs(
+                                key_data="ssh-rsa AAAAB1NzaC1yc2EAAAADAQABAAACAQCY......",
+                            )],
+                        },
+                    },
+                    "osType": "Linux",
+                    "vmSize": "Standard_A4_v2",
+                },
+                kubernetes_version="v1.20.5",
+                linux_profile={
+                    "ssh": {
+                        "publicKeys": [azure_native.hybridcontainerservice.v20220901preview.LinuxProfilePropertiesPublicKeysArgs(
+                            key_data="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCY.......",
+                        )],
+                    },
+                },
+                network_profile={
+                    "loadBalancerProfile": {
+                        "count": 1,
+                        "linuxProfile": {
+                            "ssh": {
+                                "publicKeys": [azure_native.hybridcontainerservice.v20220901preview.LinuxProfilePropertiesPublicKeysArgs(
+                                    key_data="ssh-rsa AAAAB2NzaC1yc2EAAAADAQABAAACAQCY......",
+                                )],
+                            },
+                        },
+                        "osType": "Linux",
+                        "vmSize": "Standard_K8S3_v1",
+                    },
+                    "loadBalancerSku": "unstacked-haproxy",
+                    "networkPolicy": "calico",
+                    "podCidr": "10.244.0.0/16",
+                },
+            ),
+            resource_group_name="test-arcappliance-resgrp",
+            resource_name_="test-hybridakscluster")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice/v20220901preview:ProvisionedCluster test-hybridakscluster /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/provisionedClusters/test-hybridakscluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProvisionedClusterArgs args: The arguments to use to populate this resource's properties.

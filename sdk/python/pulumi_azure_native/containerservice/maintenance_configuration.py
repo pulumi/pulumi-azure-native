@@ -116,6 +116,39 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         API Version: 2023-01-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create/Update Maintenance Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        maintenance_configuration = azure_native.containerservice.MaintenanceConfiguration("maintenanceConfiguration",
+            config_name="default",
+            not_allowed_time=[azure_native.containerservice.TimeSpanArgs(
+                end="2020-11-30T12:00:00Z",
+                start="2020-11-26T03:00:00Z",
+            )],
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            time_in_week=[azure_native.containerservice.TimeInWeekArgs(
+                day="Monday",
+                hour_slots=[
+                    1,
+                    2,
+                ],
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice:MaintenanceConfiguration default /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/maintenanceConfigurations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_name: The name of the maintenance configuration.
@@ -134,6 +167,39 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
         API Version: 2023-01-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create/Update Maintenance Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        maintenance_configuration = azure_native.containerservice.MaintenanceConfiguration("maintenanceConfiguration",
+            config_name="default",
+            not_allowed_time=[azure_native.containerservice.TimeSpanArgs(
+                end="2020-11-30T12:00:00Z",
+                start="2020-11-26T03:00:00Z",
+            )],
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            time_in_week=[azure_native.containerservice.TimeInWeekArgs(
+                day="Monday",
+                hour_slots=[
+                    1,
+                    2,
+                ],
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice:MaintenanceConfiguration default /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/maintenanceConfigurations/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MaintenanceConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,49 @@ namespace Pulumi.AzureNative.Compute
     /// Specifies information about the capacity reservation.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2021-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a capacity reservation .
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var capacityReservation = new AzureNative.Compute.CapacityReservation("capacityReservation", new()
+    ///     {
+    ///         CapacityReservationGroupName = "myCapacityReservationGroup",
+    ///         CapacityReservationName = "myCapacityReservation",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Compute.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 4,
+    ///             Name = "Standard_DS1_v2",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "department", "HR" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:CapacityReservation myCapacityReservation /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup/capacityReservations/myCapacityReservation 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CapacityReservation")]
     public partial class CapacityReservation : global::Pulumi.CustomResource

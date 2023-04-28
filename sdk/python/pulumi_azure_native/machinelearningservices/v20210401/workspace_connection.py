@@ -180,6 +180,33 @@ class WorkspaceConnection(pulumi.CustomResource):
         """
         Workspace connection.
 
+        ## Example Usage
+        ### CreateWorkspaceConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_connection = azure_native.machinelearningservices.v20210401.WorkspaceConnection("workspaceConnection",
+            auth_type="PAT",
+            category="ACR",
+            connection_name="connection-1",
+            name="connection-1",
+            resource_group_name="resourceGroup-1",
+            target="www.facebook.com",
+            value="secrets",
+            workspace_name="workspace-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210401:WorkspaceConnection connection-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/connections/connection-1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_type: Authorization type of the workspace connection.
@@ -200,6 +227,33 @@ class WorkspaceConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace connection.
+
+        ## Example Usage
+        ### CreateWorkspaceConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_connection = azure_native.machinelearningservices.v20210401.WorkspaceConnection("workspaceConnection",
+            auth_type="PAT",
+            category="ACR",
+            connection_name="connection-1",
+            name="connection-1",
+            resource_group_name="resourceGroup-1",
+            target="www.facebook.com",
+            value="secrets",
+            workspace_name="workspace-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210401:WorkspaceConnection connection-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/connections/connection-1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceConnectionArgs args: The arguments to use to populate this resource's properties.

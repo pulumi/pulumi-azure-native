@@ -233,6 +233,85 @@ class Backend(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateBackendProxyBackend
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backend = azure_native.apimanagement.Backend("backend",
+            backend_id="proxybackend",
+            credentials=azure_native.apimanagement.BackendCredentialsContractArgs(
+                authorization=azure_native.apimanagement.BackendAuthorizationHeaderCredentialsArgs(
+                    parameter="opensesma",
+                    scheme="Basic",
+                ),
+                header={
+                    "x-my-1": [
+                        "val1",
+                        "val2",
+                    ],
+                },
+                query={
+                    "sv": [
+                        "xx",
+                        "bb",
+                        "cc",
+                    ],
+                },
+            ),
+            description="description5308",
+            protocol="http",
+            proxy=azure_native.apimanagement.BackendProxyContractResponseArgs(
+                password="<password>",
+                url="http://192.168.1.1:8080",
+                username="Contoso\\\\admin",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tls=azure_native.apimanagement.BackendTlsPropertiesArgs(
+                validate_certificate_chain=True,
+                validate_certificate_name=True,
+            ),
+            url="https://backendname2644/")
+
+        ```
+        ### ApiManagementCreateBackendServiceFabric
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backend = azure_native.apimanagement.Backend("backend",
+            backend_id="sfbackend",
+            description="Service Fabric Test App 1",
+            properties=azure_native.apimanagement.BackendPropertiesResponseArgs(
+                service_fabric_cluster={
+                    "clientCertificateId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+                    "managementEndpoints": ["https://somecluster.com"],
+                    "maxPartitionResolutionRetries": 5,
+                    "serverX509Names": [azure_native.apimanagement.X509CertificateNameArgs(
+                        issuer_certificate_thumbprint="IssuerCertificateThumbprint1",
+                        name="ServerCommonName1",
+                    )],
+                },
+            ),
+            protocol="http",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            url="fabric:/mytestapp/mytestservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Backend sfbackend /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/backends/sfbackend 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
@@ -258,6 +337,85 @@ class Backend(pulumi.CustomResource):
         Backend details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateBackendProxyBackend
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backend = azure_native.apimanagement.Backend("backend",
+            backend_id="proxybackend",
+            credentials=azure_native.apimanagement.BackendCredentialsContractArgs(
+                authorization=azure_native.apimanagement.BackendAuthorizationHeaderCredentialsArgs(
+                    parameter="opensesma",
+                    scheme="Basic",
+                ),
+                header={
+                    "x-my-1": [
+                        "val1",
+                        "val2",
+                    ],
+                },
+                query={
+                    "sv": [
+                        "xx",
+                        "bb",
+                        "cc",
+                    ],
+                },
+            ),
+            description="description5308",
+            protocol="http",
+            proxy=azure_native.apimanagement.BackendProxyContractResponseArgs(
+                password="<password>",
+                url="http://192.168.1.1:8080",
+                username="Contoso\\\\admin",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tls=azure_native.apimanagement.BackendTlsPropertiesArgs(
+                validate_certificate_chain=True,
+                validate_certificate_name=True,
+            ),
+            url="https://backendname2644/")
+
+        ```
+        ### ApiManagementCreateBackendServiceFabric
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backend = azure_native.apimanagement.Backend("backend",
+            backend_id="sfbackend",
+            description="Service Fabric Test App 1",
+            properties=azure_native.apimanagement.BackendPropertiesResponseArgs(
+                service_fabric_cluster={
+                    "clientCertificateId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+                    "managementEndpoints": ["https://somecluster.com"],
+                    "maxPartitionResolutionRetries": 5,
+                    "serverX509Names": [azure_native.apimanagement.X509CertificateNameArgs(
+                        issuer_certificate_thumbprint="IssuerCertificateThumbprint1",
+                        name="ServerCommonName1",
+                    )],
+                },
+            ),
+            protocol="http",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            url="fabric:/mytestapp/mytestservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Backend sfbackend /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/backends/sfbackend 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackendArgs args: The arguments to use to populate this resource's properties.

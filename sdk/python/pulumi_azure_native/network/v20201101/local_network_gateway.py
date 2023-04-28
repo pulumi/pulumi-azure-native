@@ -182,6 +182,33 @@ class LocalNetworkGateway(pulumi.CustomResource):
         """
         A common class for general resource information.
 
+        ## Example Usage
+        ### CreateLocalNetworkGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_network_gateway = azure_native.network.v20201101.LocalNetworkGateway("localNetworkGateway",
+            fqdn="site1.contoso.com",
+            gateway_ip_address="11.12.13.14",
+            local_network_address_space=azure_native.network.v20201101.AddressSpaceArgs(
+                address_prefixes=["10.1.0.0/16"],
+            ),
+            local_network_gateway_name="localgw",
+            location="Central US",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:LocalNetworkGateway localgw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.
@@ -202,6 +229,33 @@ class LocalNetworkGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information.
+
+        ## Example Usage
+        ### CreateLocalNetworkGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_network_gateway = azure_native.network.v20201101.LocalNetworkGateway("localNetworkGateway",
+            fqdn="site1.contoso.com",
+            gateway_ip_address="11.12.13.14",
+            local_network_address_space=azure_native.network.v20201101.AddressSpaceArgs(
+                address_prefixes=["10.1.0.0/16"],
+            ),
+            local_network_gateway_name="localgw",
+            location="Central US",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:LocalNetworkGateway localgw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LocalNetworkGatewayInitArgs args: The arguments to use to populate this resource's properties.

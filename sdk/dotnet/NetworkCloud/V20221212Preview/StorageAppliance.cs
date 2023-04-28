@@ -9,6 +9,55 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create or update storage appliance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAppliance = new AzureNative.NetworkCloud.V20221212Preview.StorageAppliance("storageAppliance", new()
+    ///     {
+    ///         AdministratorCredentials = new AzureNative.NetworkCloud.V20221212Preview.Inputs.AdministrativeCredentialsArgs
+    ///         {
+    ///             Password = "{password}",
+    ///             Username = "adminUser",
+    ///         },
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         RackId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+    ///         RackSlot = 1,
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SerialNumber = "BM1219XXX",
+    ///         StorageApplianceName = "storageApplianceName",
+    ///         StorageApplianceSkuId = "684E-3B16-399E",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud/v20221212preview:StorageAppliance storageApplianceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/storageAppliances/storageApplianceName 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:StorageAppliance")]
     public partial class StorageAppliance : global::Pulumi.CustomResource
     {

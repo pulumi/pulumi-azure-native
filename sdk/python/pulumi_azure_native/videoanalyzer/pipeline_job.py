@@ -131,6 +131,40 @@ class PipelineJob(pulumi.CustomResource):
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a pipeline job
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pipeline_job = azure_native.videoanalyzer.PipelineJob("pipelineJob",
+            account_name="testaccount2",
+            description="Pipeline Job 1 Dsecription",
+            parameters=[
+                {
+                    "name": "timesequences",
+                    "value": "[[\\"2020-10-05T03:30:00Z\\", \\"2020-10-05T04:30:00Z\\"]]",
+                },
+                {
+                    "name": "videoSourceName",
+                    "value": "camera001",
+                },
+            ],
+            pipeline_job_name="pipelineJob1",
+            resource_group_name="testrg",
+            topology_name="pipelinetopology1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer:PipelineJob pipelineJob1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/pipelineJobs/pipelineJob1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
@@ -150,6 +184,40 @@ class PipelineJob(pulumi.CustomResource):
         Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a pipeline job
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pipeline_job = azure_native.videoanalyzer.PipelineJob("pipelineJob",
+            account_name="testaccount2",
+            description="Pipeline Job 1 Dsecription",
+            parameters=[
+                {
+                    "name": "timesequences",
+                    "value": "[[\\"2020-10-05T03:30:00Z\\", \\"2020-10-05T04:30:00Z\\"]]",
+                },
+                {
+                    "name": "videoSourceName",
+                    "value": "camera001",
+                },
+            ],
+            pipeline_job_name="pipelineJob1",
+            resource_group_name="testrg",
+            topology_name="pipelinetopology1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer:PipelineJob pipelineJob1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/pipelineJobs/pipelineJob1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PipelineJobArgs args: The arguments to use to populate this resource's properties.

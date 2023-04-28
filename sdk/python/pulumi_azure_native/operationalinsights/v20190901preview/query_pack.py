@@ -95,6 +95,43 @@ class QueryPack(pulumi.CustomResource):
         """
         An Log Analytics QueryPack definition.
 
+        ## Example Usage
+        ### QueryPackCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        query_pack = azure_native.operationalinsights.v20190901preview.QueryPack("queryPack",
+            location="South Central US",
+            query_pack_name="my-querypack",
+            resource_group_name="my-resource-group")
+
+        ```
+        ### QueryPackUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        query_pack = azure_native.operationalinsights.v20190901preview.QueryPack("queryPack",
+            location="South Central US",
+            query_pack_name="my-querypack",
+            resource_group_name="my-resource-group",
+            tags={
+                "Tag1": "Value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20190901preview:QueryPack my-querypack /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4919/resourceGroups/my-resource-group/providers/microsoft.operationalinsights/queryPacks/my-querypack 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
@@ -110,6 +147,43 @@ class QueryPack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Log Analytics QueryPack definition.
+
+        ## Example Usage
+        ### QueryPackCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        query_pack = azure_native.operationalinsights.v20190901preview.QueryPack("queryPack",
+            location="South Central US",
+            query_pack_name="my-querypack",
+            resource_group_name="my-resource-group")
+
+        ```
+        ### QueryPackUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        query_pack = azure_native.operationalinsights.v20190901preview.QueryPack("queryPack",
+            location="South Central US",
+            query_pack_name="my-querypack",
+            resource_group_name="my-resource-group",
+            tags={
+                "Tag1": "Value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20190901preview:QueryPack my-querypack /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4919/resourceGroups/my-resource-group/providers/microsoft.operationalinsights/queryPacks/my-querypack 
+        ```
 
         :param str resource_name: The name of the resource.
         :param QueryPackArgs args: The arguments to use to populate this resource's properties.

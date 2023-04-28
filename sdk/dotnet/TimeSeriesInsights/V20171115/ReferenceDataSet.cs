@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 {
     /// <summary>
     /// A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+    /// 
+    /// ## Example Usage
+    /// ### ReferenceDataSetsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var referenceDataSet = new AzureNative.TimeSeriesInsights.V20171115.ReferenceDataSet("referenceDataSet", new()
+    ///     {
+    ///         EnvironmentName = "env1",
+    ///         KeyProperties = new[]
+    ///         {
+    ///             new AzureNative.TimeSeriesInsights.V20171115.Inputs.ReferenceDataSetKeyPropertyArgs
+    ///             {
+    ///                 Name = "DeviceId1",
+    ///                 Type = AzureNative.TimeSeriesInsights.V20171115.ReferenceDataKeyPropertyType.String,
+    ///             },
+    ///             new AzureNative.TimeSeriesInsights.V20171115.Inputs.ReferenceDataSetKeyPropertyArgs
+    ///             {
+    ///                 Name = "DeviceFloor",
+    ///                 Type = AzureNative.TimeSeriesInsights.V20171115.ReferenceDataKeyPropertyType.Double,
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         ReferenceDataSetName = "rds1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights/v20171115:ReferenceDataSet rds1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/referenceDataSets/rds1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-11-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20171115:ReferenceDataSet")]

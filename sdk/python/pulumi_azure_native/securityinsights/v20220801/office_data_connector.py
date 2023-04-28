@@ -132,6 +132,53 @@ class OfficeDataConnector(pulumi.CustomResource):
         """
         Represents office data connector.
 
+        ## Example Usage
+        ### Creates or updates an Office365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        office_data_connector = azure_native.securityinsights.v20220801.OfficeDataConnector("officeDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            data_types=azure_native.securityinsights.v20220801.OfficeDataConnectorDataTypesResponseArgs(
+                exchange=azure_native.securityinsights.v20220801.OfficeDataConnectorDataTypesExchangeArgs(
+                    state="Enabled",
+                ),
+                share_point=azure_native.securityinsights.v20220801.OfficeDataConnectorDataTypesSharePointArgs(
+                    state="Enabled",
+                ),
+                teams=azure_native.securityinsights.v20220801.OfficeDataConnectorDataTypesTeamsArgs(
+                    state="Enabled",
+                ),
+            ),
+            kind="Office365",
+            resource_group_name="myRg",
+            tenant_id="2070ecc9-b4d5-4ae4-adaa-936fa1954fa8",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        office_data_connector = azure_native.securityinsights.v20220801.OfficeDataConnector("officeDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220801:OfficeDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
@@ -150,6 +197,53 @@ class OfficeDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents office data connector.
+
+        ## Example Usage
+        ### Creates or updates an Office365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        office_data_connector = azure_native.securityinsights.v20220801.OfficeDataConnector("officeDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            data_types=azure_native.securityinsights.v20220801.OfficeDataConnectorDataTypesResponseArgs(
+                exchange=azure_native.securityinsights.v20220801.OfficeDataConnectorDataTypesExchangeArgs(
+                    state="Enabled",
+                ),
+                share_point=azure_native.securityinsights.v20220801.OfficeDataConnectorDataTypesSharePointArgs(
+                    state="Enabled",
+                ),
+                teams=azure_native.securityinsights.v20220801.OfficeDataConnectorDataTypesTeamsArgs(
+                    state="Enabled",
+                ),
+            ),
+            kind="Office365",
+            resource_group_name="myRg",
+            tenant_id="2070ecc9-b4d5-4ae4-adaa-936fa1954fa8",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        office_data_connector = azure_native.securityinsights.v20220801.OfficeDataConnector("officeDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220801:OfficeDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OfficeDataConnectorArgs args: The arguments to use to populate this resource's properties.

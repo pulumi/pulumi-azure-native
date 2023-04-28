@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.OperationalInsights.V20190901
 {
     /// <summary>
     /// An Log Analytics QueryPack definition.
+    /// 
+    /// ## Example Usage
+    /// ### QueryPackCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queryPack = new AzureNative.OperationalInsights.V20190901.QueryPack("queryPack", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         QueryPackName = "my-querypack",
+    ///         ResourceGroupName = "my-resource-group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### QueryPackUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queryPack = new AzureNative.OperationalInsights.V20190901.QueryPack("queryPack", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         QueryPackName = "my-querypack",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights/v20190901:QueryPack my-querypack /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4919/resourceGroups/my-resource-group/providers/microsoft.operationalinsights/queryPacks/my-querypack 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20190901:QueryPack")]
     public partial class QueryPack : global::Pulumi.CustomResource

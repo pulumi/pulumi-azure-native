@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Customer creates a contact resource for a spacecraft resource.
+ *
+ * ## Example Usage
+ * ### Create a contact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const contact = new azure_native.orbital.v20221101.Contact("contact", {
+ *     contactName: "contact1",
+ *     contactProfile: {
+ *         id: "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP",
+ *     },
+ *     groundStationName: "EASTUS2_0",
+ *     reservationEndTime: "2023-02-22T11:10:45Z",
+ *     reservationStartTime: "2023-02-22T10:58:30Z",
+ *     resourceGroupName: "contoso-Rgp",
+ *     spacecraftName: "CONTOSO_SAT",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:orbital/v20221101:Contact contact1 /subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/spacecrafts/CONTOSO_SAT/contacts/contact1 
+ * ```
  */
 export class Contact extends pulumi.CustomResource {
     /**

@@ -9,6 +9,58 @@ import * as utilities from "../../utilities";
 
 /**
  * A schedule.
+ *
+ * ## Example Usage
+ * ### Schedules_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const schedule = new azure_native.devtestlab.v20180915.Schedule("schedule", {
+ *     dailyRecurrence: {
+ *         time: "{timeOfTheDayTheScheduleWillOccurEveryDay}",
+ *     },
+ *     hourlyRecurrence: {
+ *         minute: 30,
+ *     },
+ *     labName: "{labName}",
+ *     location: "{location}",
+ *     name: "{scheduleName}",
+ *     notificationSettings: {
+ *         emailRecipient: "{email}",
+ *         notificationLocale: "EN",
+ *         status: "{Enabled|Disabled}",
+ *         timeInMinutes: 15,
+ *         webhookUrl: "{webhookUrl}",
+ *     },
+ *     resourceGroupName: "resourceGroupName",
+ *     status: "{Enabled|Disabled}",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ *     targetResourceId: "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}",
+ *     taskType: "{myLabVmTaskType}",
+ *     timeZoneId: "Pacific Standard Time",
+ *     weeklyRecurrence: {
+ *         time: "{timeOfTheDayTheScheduleWillOccurOnThoseDays}",
+ *         weekdays: [
+ *             "Monday",
+ *             "Wednesday",
+ *             "Friday",
+ *         ],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:Schedule {scheduleName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/schedules/{scheduleName} 
+ * ```
  */
 export class Schedule extends pulumi.CustomResource {
     /**

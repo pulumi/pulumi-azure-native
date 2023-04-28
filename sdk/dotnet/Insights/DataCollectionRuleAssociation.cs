@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Insights
     /// Definition of generic ARM proxy resource.
     /// API Version: 2022-06-01.
     /// Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update association
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataCollectionRuleAssociation = new AzureNative.Insights.DataCollectionRuleAssociation("dataCollectionRuleAssociation", new()
+    ///     {
+    ///         AssociationName = "myAssociation",
+    ///         DataCollectionRuleId = "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule",
+    ///         ResourceUri = "subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights:DataCollectionRuleAssociation myAssociation /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm/providers/Microsoft.Insights/dataCollectionRuleAssociations/myAssociation 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:DataCollectionRuleAssociation")]
     public partial class DataCollectionRuleAssociation : global::Pulumi.CustomResource

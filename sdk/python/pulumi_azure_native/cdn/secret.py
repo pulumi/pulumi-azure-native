@@ -98,6 +98,36 @@ class Secret(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Secrets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.cdn.Secret("secret",
+            parameters=azure_native.cdn.CustomerCertificateParametersArgs(
+                secret_source=azure_native.cdn.ResourceReferenceArgs(
+                    id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.KeyVault/vault/kvName/secrets/certificatename",
+                ),
+                secret_version="abcdef1234578900abcdef1234567890",
+                type="CustomerCertificate",
+                use_latest_version=False,
+            ),
+            profile_name="profile1",
+            resource_group_name="RG",
+            secret_name="secret1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:Secret secret1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AzureFirstPartyManagedCertificateParametersArgs'], pulumi.InputType['CustomerCertificateParametersArgs'], pulumi.InputType['ManagedCertificateParametersArgs'], pulumi.InputType['UrlSigningKeyParametersArgs']]] parameters: object which contains secret parameters
@@ -115,6 +145,36 @@ class Secret(pulumi.CustomResource):
         Friendly Secret name mapping to the any Secret or secret related information.
         API Version: 2021-06-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Secrets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.cdn.Secret("secret",
+            parameters=azure_native.cdn.CustomerCertificateParametersArgs(
+                secret_source=azure_native.cdn.ResourceReferenceArgs(
+                    id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.KeyVault/vault/kvName/secrets/certificatename",
+                ),
+                secret_version="abcdef1234578900abcdef1234567890",
+                type="CustomerCertificate",
+                use_latest_version=False,
+            ),
+            profile_name="profile1",
+            resource_group_name="RG",
+            secret_name="secret1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:Secret secret1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

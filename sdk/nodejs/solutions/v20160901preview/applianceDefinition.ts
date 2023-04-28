@@ -10,6 +10,37 @@ import * as utilities from "../../utilities";
 /**
  * Information about appliance definition.
  *
+ * ## Example Usage
+ * ### Create or update appliance definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applianceDefinition = new azure_native.solutions.v20160901preview.ApplianceDefinition("applianceDefinition", {
+ *     applianceDefinitionName: "myApplianceDef",
+ *     authorizations: [{
+ *         principalId: "validprincipalguid",
+ *         roleDefinitionId: "validroleguid",
+ *     }],
+ *     description: "myApplianceDef description",
+ *     displayName: "myApplianceDef",
+ *     location: "East US 2",
+ *     lockLevel: azure_native.solutions.v20160901preview.ApplianceLockLevel.None,
+ *     packageFileUri: "https://path/to/packagezipfile",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:solutions/v20160901preview:ApplianceDefinition myApplianceDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myApplianceDef 
+ * ```
+ *
  * @deprecated Version 2016-09-01-preview will be removed in v2 of the provider.
  */
 export class ApplianceDefinition extends pulumi.CustomResource {

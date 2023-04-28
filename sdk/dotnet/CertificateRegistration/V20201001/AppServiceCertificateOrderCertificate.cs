@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20201001
 {
     /// <summary>
     /// Key Vault container ARM resource for a certificate that is purchased through Azure.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate")]
     public partial class AppServiceCertificateOrderCertificate : global::Pulumi.CustomResource

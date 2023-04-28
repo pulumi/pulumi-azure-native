@@ -11,6 +11,96 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBGremlinGraphCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccountGremlinGraph = new AzureNative.DocumentDB.V20160331.DatabaseAccountGremlinGraph("databaseAccountGremlinGraph", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseName = "databaseName",
+    ///         GraphName = "graphName",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20160331.Inputs.GremlinGraphResourceArgs
+    ///         {
+    ///             ConflictResolutionPolicy = new AzureNative.DocumentDB.V20160331.Inputs.ConflictResolutionPolicyArgs
+    ///             {
+    ///                 ConflictResolutionPath = "/path",
+    ///                 Mode = "LastWriterWins",
+    ///             },
+    ///             DefaultTtl = 100,
+    ///             Id = "graphName",
+    ///             IndexingPolicy = new AzureNative.DocumentDB.V20160331.Inputs.IndexingPolicyArgs
+    ///             {
+    ///                 Automatic = true,
+    ///                 ExcludedPaths = new[] {},
+    ///                 IncludedPaths = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20160331.Inputs.IncludedPathArgs
+    ///                     {
+    ///                         Indexes = new[]
+    ///                         {
+    ///                             new AzureNative.DocumentDB.V20160331.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = "String",
+    ///                                 Kind = "Range",
+    ///                                 Precision = -1,
+    ///                             },
+    ///                             new AzureNative.DocumentDB.V20160331.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = "Number",
+    ///                                 Kind = "Range",
+    ///                                 Precision = -1,
+    ///                             },
+    ///                         },
+    ///                         Path = "/*",
+    ///                     },
+    ///                 },
+    ///                 IndexingMode = "Consistent",
+    ///             },
+    ///             PartitionKey = new AzureNative.DocumentDB.V20160331.Inputs.ContainerPartitionKeyArgs
+    ///             {
+    ///                 Kind = "Hash",
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/AccountNumber",
+    ///                 },
+    ///             },
+    ///             UniqueKeyPolicy = new AzureNative.DocumentDB.V20160331.Inputs.UniqueKeyPolicyArgs
+    ///             {
+    ///                 UniqueKeys = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20160331.Inputs.UniqueKeyArgs
+    ///                     {
+    ///                         Paths = new[]
+    ///                         {
+    ///                             "/testPath",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph graphName graphName 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-03-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20160331:DatabaseAccountGremlinGraph")]

@@ -9,6 +9,66 @@ import * as utilities from "../../utilities";
 
 /**
  * A private cloud resource
+ *
+ * ## Example Usage
+ * ### PrivateClouds_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateCloud = new azure_native.avs.v20220501.PrivateCloud("privateCloud", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "eastus2",
+ *     managementCluster: {
+ *         clusterSize: 4,
+ *     },
+ *     networkBlock: "192.168.48.0/22",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     sku: {
+ *         name: "AV36",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### PrivateClouds_CreateOrUpdate_Stretched
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateCloud = new azure_native.avs.v20220501.PrivateCloud("privateCloud", {
+ *     availability: {
+ *         secondaryZone: 2,
+ *         strategy: "DualZone",
+ *         zone: 1,
+ *     },
+ *     location: "eastus2",
+ *     managementCluster: {
+ *         clusterSize: 4,
+ *     },
+ *     networkBlock: "192.168.48.0/22",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     sku: {
+ *         name: "AV36",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20220501:PrivateCloud cloud1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1 
+ * ```
  */
 export class PrivateCloud extends pulumi.CustomResource {
     /**

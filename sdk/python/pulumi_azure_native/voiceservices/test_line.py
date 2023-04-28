@@ -147,6 +147,31 @@ class TestLine(pulumi.CustomResource):
         API Version: 2023-01-31.
         Previous API Version: 2022-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateTestLineResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        test_line = azure_native.voiceservices.TestLine("testLine",
+            communications_gateway_name="myname",
+            location="useast",
+            phone_number="+1-555-1234",
+            purpose="Automated",
+            resource_group_name="testrg",
+            test_line_name="myline")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:voiceservices:TestLine myline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceServices/communicationsGateways/myname/TestLines/myline 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] communications_gateway_name: Unique identifier for this deployment
@@ -167,6 +192,31 @@ class TestLine(pulumi.CustomResource):
         A TestLine resource
         API Version: 2023-01-31.
         Previous API Version: 2022-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateTestLineResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        test_line = azure_native.voiceservices.TestLine("testLine",
+            communications_gateway_name="myname",
+            location="useast",
+            phone_number="+1-555-1234",
+            purpose="Automated",
+            resource_group_name="testrg",
+            test_line_name="myline")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:voiceservices:TestLine myline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceServices/communicationsGateways/myname/TestLines/myline 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TestLineArgs args: The arguments to use to populate this resource's properties.

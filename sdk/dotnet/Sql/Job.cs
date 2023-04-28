@@ -13,6 +13,65 @@ namespace Pulumi.AzureNative.Sql
     /// A job.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a job with all properties specified
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.Sql.Job("job", new()
+    ///     {
+    ///         Description = "my favourite job",
+    ///         JobAgentName = "agent1",
+    ///         JobName = "job1",
+    ///         ResourceGroupName = "group1",
+    ///         Schedule = new AzureNative.Sql.Inputs.JobScheduleArgs
+    ///         {
+    ///             Enabled = true,
+    ///             EndTime = "2015-09-24T23:59:59Z",
+    ///             Interval = "PT5M",
+    ///             StartTime = "2015-09-24T18:30:01Z",
+    ///             Type = AzureNative.Sql.JobScheduleType.Recurring,
+    ///         },
+    ///         ServerName = "server1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a job with default properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.Sql.Job("job", new()
+    ///     {
+    ///         JobAgentName = "agent1",
+    ///         JobName = "job1",
+    ///         ResourceGroupName = "group1",
+    ///         ServerName = "server1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:Job job1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/jobs/job1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:Job")]
     public partial class Job : global::Pulumi.CustomResource

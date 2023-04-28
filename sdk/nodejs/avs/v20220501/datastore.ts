@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * A datastore resource
+ *
+ * ## Example Usage
+ * ### Datastores_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const datastore = new azure_native.avs.v20220501.Datastore("datastore", {
+ *     clusterName: "cluster1",
+ *     datastoreName: "datastore1",
+ *     netAppVolume: {
+ *         id: "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.NetApp/netAppAccounts/NetAppAccount1/capacityPools/CapacityPool1/volumes/NFSVol1",
+ *     },
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20220501:Datastore datastore1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/datastores/datastore1 
+ * ```
  */
 export class Datastore extends pulumi.CustomResource {
     /**

@@ -6,6 +6,48 @@ import * as utilities from "../../utilities";
 
 /**
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateImmutabilityPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerImmutabilityPolicy = new azure_native.storage.v20220901.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", {
+ *     accountName: "sto7069",
+ *     allowProtectedAppendWrites: true,
+ *     containerName: "container6397",
+ *     immutabilityPeriodSinceCreationInDays: 3,
+ *     immutabilityPolicyName: "default",
+ *     resourceGroupName: "res1782",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdateImmutabilityPolicyWithAllowProtectedAppendWritesAll
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerImmutabilityPolicy = new azure_native.storage.v20220901.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", {
+ *     accountName: "sto7069",
+ *     allowProtectedAppendWritesAll: true,
+ *     containerName: "container6397",
+ *     immutabilityPeriodSinceCreationInDays: 3,
+ *     immutabilityPolicyName: "default",
+ *     resourceGroupName: "res1782",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20220901:BlobContainerImmutabilityPolicy default /subscriptions/{subscription-id}/resourceGroups/res1782/providers/Microsoft.Storage/storageAccounts/sto7069/blobServices/default/containers/container6397/immutabilityPolicies/default 
+ * ```
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**

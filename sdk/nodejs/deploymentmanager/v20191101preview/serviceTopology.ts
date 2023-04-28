@@ -6,6 +6,45 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource representation of a service topology.
+ *
+ * ## Example Usage
+ * ### Create a topology with Artifact Source
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceTopology = new azure_native.deploymentmanager.v20191101preview.ServiceTopology("serviceTopology", {
+ *     artifactSourceId: "Microsoft.DeploymentManager/artifactSources/myArtifactSource",
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceTopologyName: "myTopology",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create a topology without Artifact Source
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceTopology = new azure_native.deploymentmanager.v20191101preview.ServiceTopology("serviceTopology", {
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceTopologyName: "myTopology",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deploymentmanager/v20191101preview:ServiceTopology myTopology /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/serviceTopologies/{serviceTopologyName} 
+ * ```
  */
 export class ServiceTopology extends pulumi.CustomResource {
     /**

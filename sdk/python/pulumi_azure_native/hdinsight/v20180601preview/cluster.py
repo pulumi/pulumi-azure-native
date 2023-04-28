@@ -132,6 +132,1074 @@ class Cluster(pulumi.CustomResource):
         """
         The HDInsight cluster.
 
+        ## Example Usage
+        ### Create HDInsight cluster with Autoscale configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    component_version={
+                        "Hadoop": "2.7",
+                    },
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [{
+                        "autoscaleConfiguration": {
+                            "recurrence": {
+                                "schedule": [
+                                    {
+                                        "days": [
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.MONDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.TUESDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.WEDNESDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.THURSDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.FRIDAY,
+                                        ],
+                                        "timeAndCapacity": azure_native.hdinsight.v20180601preview.AutoscaleTimeAndCapacityArgs(
+                                            max_instance_count=3,
+                                            min_instance_count=3,
+                                            time="09:00",
+                                        ),
+                                    },
+                                    {
+                                        "days": [
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.MONDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.TUESDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.WEDNESDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.THURSDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.FRIDAY,
+                                        ],
+                                        "timeAndCapacity": azure_native.hdinsight.v20180601preview.AutoscaleTimeAndCapacityArgs(
+                                            max_instance_count=6,
+                                            min_instance_count=6,
+                                            time="18:00",
+                                        ),
+                                    },
+                                    {
+                                        "days": [
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.SATURDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.SUNDAY,
+                                        ],
+                                        "timeAndCapacity": azure_native.hdinsight.v20180601preview.AutoscaleTimeAndCapacityArgs(
+                                            max_instance_count=2,
+                                            min_instance_count=2,
+                                            time="09:00",
+                                        ),
+                                    },
+                                    {
+                                        "days": [
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.SATURDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.SUNDAY,
+                                        ],
+                                        "timeAndCapacity": azure_native.hdinsight.v20180601preview.AutoscaleTimeAndCapacityArgs(
+                                            max_instance_count=4,
+                                            min_instance_count=4,
+                                            time="18:00",
+                                        ),
+                                    },
+                                ],
+                                "timeZone": "China Standard Time",
+                            },
+                        },
+                        "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                            vm_size="Standard_D4_V2",
+                        ),
+                        "name": "workernode",
+                        "osProfile": {
+                            "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                password="**********",
+                                username="sshuser",
+                            ),
+                        },
+                        "scriptActions": [],
+                        "targetInstanceCount": 4,
+                    }],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="hdinsight-autoscale-tes-2019-06-18t05-49-16-591z",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create Hadoop cluster with Azure Data Lake Storage Gen 2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": "true",
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 4,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        file_system="default",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.dfs.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create Hadoop on Linux cluster with SSH password
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": "true",
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.5",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 4,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create Hadoop on Linux cluster with SSH public key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.5",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 4,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create Kafka cluster with Kafka Rest Proxy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    component_version={
+                        "Kafka": "2.1",
+                    },
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="kafka",
+                ),
+                cluster_version="4.0",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "dataDisksGroups": [azure_native.hdinsight.v20180601preview.DataDisksGroupsArgs(
+                                disks_per_node=8,
+                            )],
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D4_v2",
+                            ),
+                            "name": "kafkamanagementnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="kafkauser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                    ],
+                },
+                kafka_rest_properties={
+                    "clientGroupInfo": azure_native.hdinsight.v20180601preview.ClientGroupInfoArgs(
+                        group_id="00000000-0000-0000-0000-111111111111",
+                        group_name="Kafka security group name",
+                    ),
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create Secure Hadoop cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.5",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "scriptActions": [],
+                            "targetInstanceCount": 2,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "scriptActions": [],
+                            "targetInstanceCount": 4,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "scriptActions": [],
+                            "targetInstanceCount": 3,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                security_profile=azure_native.hdinsight.v20180601preview.SecurityProfileArgs(
+                    cluster_users_group_dns=["hdiusers"],
+                    directory_type=azure_native.hdinsight/v20180601preview.DirectoryType.ACTIVE_DIRECTORY,
+                    domain="DomainName",
+                    domain_user_password="**********",
+                    domain_username="DomainUsername",
+                    ldaps_urls=["ldaps://10.10.0.4:636"],
+                    organizational_unit_dn="OU=Hadoop,DC=hdinsight,DC=test",
+                ),
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storage account key",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.PREMIUM,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create Spark on Linux Cluster with SSH password
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    component_version={
+                        "Spark": "2.0",
+                    },
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Spark",
+                ),
+                cluster_version="3.5",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D12_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D4_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 4,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storageapikey*",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create cluster with TLS 1.2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                min_supported_tls_version="1.2",
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="default8525",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create cluster with compute isolation properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="hadoop",
+                ),
+                cluster_version="3.6",
+                compute_isolation_properties=azure_native.hdinsight.v20180601preview.ComputeIsolationPropertiesArgs(
+                    enable_compute_isolation=True,
+                ),
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="standard_d3",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="standard_d3",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storage account key",
+                        name="mystorage",
+                    )],
+                },
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create cluster with encryption at host
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_DS14_v2",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_DS14_v2",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_DS14_v2",
+                            ),
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                disk_encryption_properties=azure_native.hdinsight.v20180601preview.DiskEncryptionPropertiesArgs(
+                    encryption_at_host=True,
+                ),
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="default8525",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create cluster with encryption in transit
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                encryption_in_transit_properties=azure_native.hdinsight.v20180601preview.EncryptionInTransitPropertiesArgs(
+                    is_encryption_in_transit_enabled=True,
+                ),
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="default8525",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create cluster with network properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="standard_d3",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="standard_d3",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                    ],
+                },
+                network_properties=azure_native.hdinsight.v20180601preview.NetworkPropertiesArgs(
+                    private_link="Enabled",
+                    resource_provider_connection="Outbound",
+                ),
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storage account key",
+                        name="mystorage",
+                    )],
+                },
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hdinsight/v20180601preview:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -149,6 +1217,1074 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The HDInsight cluster.
+
+        ## Example Usage
+        ### Create HDInsight cluster with Autoscale configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    component_version={
+                        "Hadoop": "2.7",
+                    },
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [{
+                        "autoscaleConfiguration": {
+                            "recurrence": {
+                                "schedule": [
+                                    {
+                                        "days": [
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.MONDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.TUESDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.WEDNESDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.THURSDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.FRIDAY,
+                                        ],
+                                        "timeAndCapacity": azure_native.hdinsight.v20180601preview.AutoscaleTimeAndCapacityArgs(
+                                            max_instance_count=3,
+                                            min_instance_count=3,
+                                            time="09:00",
+                                        ),
+                                    },
+                                    {
+                                        "days": [
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.MONDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.TUESDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.WEDNESDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.THURSDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.FRIDAY,
+                                        ],
+                                        "timeAndCapacity": azure_native.hdinsight.v20180601preview.AutoscaleTimeAndCapacityArgs(
+                                            max_instance_count=6,
+                                            min_instance_count=6,
+                                            time="18:00",
+                                        ),
+                                    },
+                                    {
+                                        "days": [
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.SATURDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.SUNDAY,
+                                        ],
+                                        "timeAndCapacity": azure_native.hdinsight.v20180601preview.AutoscaleTimeAndCapacityArgs(
+                                            max_instance_count=2,
+                                            min_instance_count=2,
+                                            time="09:00",
+                                        ),
+                                    },
+                                    {
+                                        "days": [
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.SATURDAY,
+                                            azure_native.hdinsight/v20180601preview.DaysOfWeek.SUNDAY,
+                                        ],
+                                        "timeAndCapacity": azure_native.hdinsight.v20180601preview.AutoscaleTimeAndCapacityArgs(
+                                            max_instance_count=4,
+                                            min_instance_count=4,
+                                            time="18:00",
+                                        ),
+                                    },
+                                ],
+                                "timeZone": "China Standard Time",
+                            },
+                        },
+                        "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                            vm_size="Standard_D4_V2",
+                        ),
+                        "name": "workernode",
+                        "osProfile": {
+                            "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                password="**********",
+                                username="sshuser",
+                            ),
+                        },
+                        "scriptActions": [],
+                        "targetInstanceCount": 4,
+                    }],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="hdinsight-autoscale-tes-2019-06-18t05-49-16-591z",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create Hadoop cluster with Azure Data Lake Storage Gen 2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": "true",
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 4,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        file_system="default",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.dfs.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create Hadoop on Linux cluster with SSH password
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": "true",
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.5",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 4,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create Hadoop on Linux cluster with SSH public key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.5",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 4,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create Kafka cluster with Kafka Rest Proxy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    component_version={
+                        "Kafka": "2.1",
+                    },
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="kafka",
+                ),
+                cluster_version="4.0",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "dataDisksGroups": [azure_native.hdinsight.v20180601preview.DataDisksGroupsArgs(
+                                disks_per_node=8,
+                            )],
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D4_v2",
+                            ),
+                            "name": "kafkamanagementnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="kafkauser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                    ],
+                },
+                kafka_rest_properties={
+                    "clientGroupInfo": azure_native.hdinsight.v20180601preview.ClientGroupInfoArgs(
+                        group_id="00000000-0000-0000-0000-111111111111",
+                        group_name="Kafka security group name",
+                    ),
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create Secure Hadoop cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.5",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "scriptActions": [],
+                            "targetInstanceCount": 2,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D3_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "scriptActions": [],
+                            "targetInstanceCount": 4,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "scriptActions": [],
+                            "targetInstanceCount": 3,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                security_profile=azure_native.hdinsight.v20180601preview.SecurityProfileArgs(
+                    cluster_users_group_dns=["hdiusers"],
+                    directory_type=azure_native.hdinsight/v20180601preview.DirectoryType.ACTIVE_DIRECTORY,
+                    domain="DomainName",
+                    domain_user_password="**********",
+                    domain_username="DomainUsername",
+                    ldaps_urls=["ldaps://10.10.0.4:636"],
+                    organizational_unit_dn="OU=Hadoop,DC=hdinsight,DC=test",
+                ),
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storage account key",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.PREMIUM,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create Spark on Linux Cluster with SSH password
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    component_version={
+                        "Spark": "2.0",
+                    },
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Spark",
+                ),
+                cluster_version="3.5",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D12_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_D4_V2",
+                            ),
+                            "minInstanceCount": 1,
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 4,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storageapikey*",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+        ### Create cluster with TLS 1.2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                min_supported_tls_version="1.2",
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="default8525",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create cluster with compute isolation properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="hadoop",
+                ),
+                cluster_version="3.6",
+                compute_isolation_properties=azure_native.hdinsight.v20180601preview.ComputeIsolationPropertiesArgs(
+                    enable_compute_isolation=True,
+                ),
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="standard_d3",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="standard_d3",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                    ],
+                },
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storage account key",
+                        name="mystorage",
+                    )],
+                },
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create cluster with encryption at host
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_DS14_v2",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_DS14_v2",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Standard_DS14_v2",
+                            ),
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                disk_encryption_properties=azure_native.hdinsight.v20180601preview.DiskEncryptionPropertiesArgs(
+                    encryption_at_host=True,
+                ),
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="default8525",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create cluster with encryption in transit
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="Hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 2,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Large",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="Small",
+                            ),
+                            "name": "zookeepernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": azure_native.hdinsight.v20180601preview.LinuxOperatingSystemProfileArgs(
+                                    password="**********",
+                                    username="sshuser",
+                                ),
+                            },
+                            "targetInstanceCount": 3,
+                        },
+                    ],
+                },
+                encryption_in_transit_properties=azure_native.hdinsight.v20180601preview.EncryptionInTransitPropertiesArgs(
+                    is_encryption_in_transit_enabled=True,
+                ),
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="default8525",
+                        is_default=True,
+                        key="storagekey",
+                        name="mystorage.blob.core.windows.net",
+                    )],
+                },
+                tier=azure_native.hdinsight/v20180601preview.Tier.STANDARD,
+            ),
+            resource_group_name="rg1")
+
+        ```
+        ### Create cluster with network properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.hdinsight.v20180601preview.Cluster("cluster",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ClusterGetPropertiesResponseArgs(
+                cluster_definition=azure_native.hdinsight.v20180601preview.ClusterDefinitionArgs(
+                    configurations={
+                        "gateway": {
+                            "restAuthCredential.isEnabled": True,
+                            "restAuthCredential.password": "**********",
+                            "restAuthCredential.username": "admin",
+                        },
+                    },
+                    kind="hadoop",
+                ),
+                cluster_version="3.6",
+                compute_profile={
+                    "roles": [
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="standard_d3",
+                            ),
+                            "name": "headnode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                        {
+                            "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                                vm_size="standard_d3",
+                            ),
+                            "name": "workernode",
+                            "osProfile": {
+                                "linuxOperatingSystemProfile": {
+                                    "password": "**********",
+                                    "sshProfile": {
+                                        "publicKeys": [azure_native.hdinsight.v20180601preview.SshPublicKeyArgs(
+                                            certificate_data="**********",
+                                        )],
+                                    },
+                                    "username": "sshuser",
+                                },
+                            },
+                            "targetInstanceCount": 2,
+                            "virtualNetworkProfile": azure_native.hdinsight.v20180601preview.VirtualNetworkProfileArgs(
+                                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname",
+                                subnet="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/vnetsubnet",
+                            ),
+                        },
+                    ],
+                },
+                network_properties=azure_native.hdinsight.v20180601preview.NetworkPropertiesArgs(
+                    private_link="Enabled",
+                    resource_provider_connection="Outbound",
+                ),
+                os_type=azure_native.hdinsight/v20180601preview.OSType.LINUX,
+                storage_profile={
+                    "storageaccounts": [azure_native.hdinsight.v20180601preview.StorageAccountArgs(
+                        container="containername",
+                        is_default=True,
+                        key="storage account key",
+                        name="mystorage",
+                    )],
+                },
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hdinsight/v20180601preview:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

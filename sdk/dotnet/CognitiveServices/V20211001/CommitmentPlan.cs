@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.CognitiveServices.V20211001
 {
     /// <summary>
     /// Cognitive Services account commitment plan.
+    /// 
+    /// ## Example Usage
+    /// ### PutCommitmentPlan
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var commitmentPlan = new AzureNative.CognitiveServices.V20211001.CommitmentPlan("commitmentPlan", new()
+    ///     {
+    ///         AccountName = "accountName",
+    ///         CommitmentPlanName = "commitmentPlanName",
+    ///         Properties = new AzureNative.CognitiveServices.V20211001.Inputs.CommitmentPlanPropertiesArgs
+    ///         {
+    ///             AutoRenew = true,
+    ///             Current = new AzureNative.CognitiveServices.V20211001.Inputs.CommitmentPeriodArgs
+    ///             {
+    ///                 Tier = "T1",
+    ///             },
+    ///             HostingModel = "Web",
+    ///             PlanType = "Speech2Text",
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices/v20211001:CommitmentPlan commitmentPlanName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName/commitmentPlans/commitmentPlanName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices/v20211001:CommitmentPlan")]
     public partial class CommitmentPlan : global::Pulumi.CustomResource

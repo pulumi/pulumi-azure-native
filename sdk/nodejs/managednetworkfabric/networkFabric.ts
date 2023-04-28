@@ -11,6 +11,61 @@ import * as utilities from "../utilities";
  * The NetworkFabric resource definition.
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### NetworkFabrics_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkFabric = new azure_native.managednetworkfabric.NetworkFabric("networkFabric", {
+ *     fabricASN: 29249,
+ *     ipv4Prefix: "10.18.0.0/19",
+ *     ipv6Prefix: "3FFE:FFFF:0:CD40::/59",
+ *     location: "eastus",
+ *     managementNetworkConfiguration: {
+ *         infrastructureVpnConfiguration: {
+ *             optionBProperties: {
+ *                 exportRouteTargets: ["65046:10039"],
+ *                 importRouteTargets: ["65046:10039"],
+ *             },
+ *             peeringOption: "OptionA",
+ *         },
+ *         workloadVpnConfiguration: {
+ *             optionBProperties: {
+ *                 exportRouteTargets: ["65046:10050"],
+ *                 importRouteTargets: ["65046:10050"],
+ *             },
+ *             peeringOption: "OptionA",
+ *         },
+ *     },
+ *     networkFabricControllerId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+ *     networkFabricName: "FabricName",
+ *     networkFabricSku: "M4-A400-A100-C16-aa",
+ *     rackCount: 4,
+ *     resourceGroupName: "resourceGroupName",
+ *     serverCountPerRack: 8,
+ *     terminalServerConfiguration: {
+ *         password: "xxxx",
+ *         primaryIpv4Prefix: "20.0.0.12/30",
+ *         primaryIpv6Prefix: "3FFE:FFFF:0:CD30::a8/126",
+ *         secondaryIpv4Prefix: "20.0.0.13/30",
+ *         secondaryIpv6Prefix: "3FFE:FFFF:0:CD30::ac/126",
+ *         serialNumber: "123456",
+ *         username: "username",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:NetworkFabric FabricName /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName 
+ * ```
  */
 export class NetworkFabric extends pulumi.CustomResource {
     /**

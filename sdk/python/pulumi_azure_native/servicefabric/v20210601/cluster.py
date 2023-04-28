@@ -567,6 +567,242 @@ class Cluster(pulumi.CustomResource):
         """
         The cluster resource
 
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.servicefabric.v20210601.Cluster("cluster",
+            add_on_features=[
+                "RepairManager",
+                "DnsService",
+                "BackupRestoreService",
+                "ResourceMonitorService",
+            ],
+            application_type_versions_cleanup_policy=azure_native.servicefabric.v20210601.ApplicationTypeVersionsCleanupPolicyResponseArgs(
+                max_unused_versions_to_keep=2,
+            ),
+            azure_active_directory=azure_native.servicefabric.v20210601.AzureActiveDirectoryArgs(
+                client_application="d151ad89-4bce-4ae8-b3d1-1dc79679fa75",
+                cluster_application="5886372e-7bf4-4878-a497-8098aba608ae",
+                tenant_id="6abcc6a0-8666-43f1-87b8-172cf86a9f9c",
+            ),
+            certificate_common_names=azure_native.servicefabric.v20210601.ServerCertificateCommonNamesArgs(
+                common_names=[azure_native.servicefabric.v20210601.ServerCertificateCommonNameArgs(
+                    certificate_common_name="abc.com",
+                    certificate_issuer_thumbprint="12599211F8F14C90AFA9532AD79A6F2CA1C00622",
+                )],
+                x509_store_name="My",
+            ),
+            client_certificate_common_names=[{
+                "certificateCommonName": "abc.com",
+                "certificateIssuerThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": True,
+            }],
+            client_certificate_thumbprints=[{
+                "certificateThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": True,
+            }],
+            cluster_code_version="7.0.470.9590",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config=azure_native.servicefabric.v20210601.DiagnosticsStorageAccountConfigResponseArgs(
+                blob_endpoint="https://diag.blob.core.windows.net/",
+                protected_account_key_name="StorageAccountKey1",
+                queue_endpoint="https://diag.queue.core.windows.net/",
+                storage_account_name="diag",
+                table_endpoint="https://diag.table.core.windows.net/",
+            ),
+            event_store_service_enabled=True,
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            infrastructure_service_manager=True,
+            location="eastus",
+            management_endpoint="https://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[azure_native.servicefabric.v20210601.NodeTypeDescriptionArgs(
+                application_ports=azure_native.servicefabric.v20210601.EndpointRangeDescriptionArgs(
+                    end_port=30000,
+                    start_port=20000,
+                ),
+                client_connection_endpoint_port=19000,
+                durability_level="Silver",
+                ephemeral_ports=azure_native.servicefabric.v20210601.EndpointRangeDescriptionArgs(
+                    end_port=64000,
+                    start_port=49000,
+                ),
+                http_gateway_endpoint_port=19007,
+                is_primary=True,
+                is_stateless=False,
+                multiple_availability_zones=True,
+                name="nt1vm",
+                vm_instance_count=5,
+            )],
+            notifications=[
+                {
+                    "isEnabled": True,
+                    "notificationCategory": "WaveProgress",
+                    "notificationLevel": "Critical",
+                    "notificationTargets": [
+                        {
+                            "notificationChannel": "EmailUser",
+                            "receivers": [
+                                "****@microsoft.com",
+                                "****@microsoft.com",
+                            ],
+                        },
+                        {
+                            "notificationChannel": "EmailSubscription",
+                            "receivers": [
+                                "Owner",
+                                "AccountAdmin",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    "isEnabled": True,
+                    "notificationCategory": "WaveProgress",
+                    "notificationLevel": "All",
+                    "notificationTargets": [
+                        {
+                            "notificationChannel": "EmailUser",
+                            "receivers": [
+                                "****@microsoft.com",
+                                "****@microsoft.com",
+                            ],
+                        },
+                        {
+                            "notificationChannel": "EmailSubscription",
+                            "receivers": [
+                                "Owner",
+                                "AccountAdmin",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            reliability_level="Platinum",
+            resource_group_name="resRg",
+            reverse_proxy_certificate_common_names=azure_native.servicefabric.v20210601.ServerCertificateCommonNamesArgs(
+                common_names=[azure_native.servicefabric.v20210601.ServerCertificateCommonNameArgs(
+                    certificate_common_name="abc.com",
+                    certificate_issuer_thumbprint="12599211F8F14C90AFA9532AD79A6F2CA1C00622",
+                )],
+                x509_store_name="My",
+            ),
+            sf_zonal_upgrade_mode="Hierarchical",
+            tags={},
+            upgrade_description=azure_native.servicefabric.v20210601.ClusterUpgradePolicyResponseArgs(
+                delta_health_policy={
+                    "applicationDeltaHealthPolicies": {
+                        "fabric:/myApp1": azure_native.servicefabric.v20210601.ApplicationDeltaHealthPolicyArgs(
+                            default_service_type_delta_health_policy=azure_native.servicefabric.v20210601.ServiceTypeDeltaHealthPolicyArgs(
+                                max_percent_delta_unhealthy_services=0,
+                            ),
+                            service_type_delta_health_policies={
+                                "myServiceType1": azure_native.servicefabric.v20210601.ServiceTypeDeltaHealthPolicyArgs(
+                                    max_percent_delta_unhealthy_services=0,
+                                ),
+                            },
+                        ),
+                    },
+                    "maxPercentDeltaUnhealthyApplications": 0,
+                    "maxPercentDeltaUnhealthyNodes": 0,
+                    "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0,
+                },
+                force_restart=False,
+                health_check_retry_timeout="00:05:00",
+                health_check_stable_duration="00:00:30",
+                health_check_wait_duration="00:00:30",
+                health_policy={
+                    "applicationHealthPolicies": {
+                        "fabric:/myApp1": azure_native.servicefabric.v20210601.ApplicationHealthPolicyArgs(
+                            default_service_type_health_policy=azure_native.servicefabric.v20210601.ServiceTypeHealthPolicyArgs(
+                                max_percent_unhealthy_services=0,
+                            ),
+                            service_type_health_policies={
+                                "myServiceType1": azure_native.servicefabric.v20210601.ServiceTypeHealthPolicyArgs(
+                                    max_percent_unhealthy_services=100,
+                                ),
+                            },
+                        ),
+                    },
+                    "maxPercentUnhealthyApplications": 0,
+                    "maxPercentUnhealthyNodes": 0,
+                },
+                upgrade_domain_timeout="00:15:00",
+                upgrade_replica_set_check_timeout="00:10:00",
+                upgrade_timeout="01:00:00",
+            ),
+            upgrade_mode="Manual",
+            upgrade_pause_end_timestamp_utc="2021-06-25T22:00:00Z",
+            upgrade_pause_start_timestamp_utc="2021-06-21T22:00:00Z",
+            upgrade_wave="Wave1",
+            vm_image="Windows",
+            vmss_zonal_upgrade_mode="Parallel")
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.servicefabric.v20210601.Cluster("cluster",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config=azure_native.servicefabric.v20210601.DiagnosticsStorageAccountConfigResponseArgs(
+                blob_endpoint="https://diag.blob.core.windows.net/",
+                protected_account_key_name="StorageAccountKey1",
+                queue_endpoint="https://diag.queue.core.windows.net/",
+                storage_account_name="diag",
+                table_endpoint="https://diag.table.core.windows.net/",
+            ),
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            location="eastus",
+            management_endpoint="http://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[azure_native.servicefabric.v20210601.NodeTypeDescriptionArgs(
+                application_ports=azure_native.servicefabric.v20210601.EndpointRangeDescriptionArgs(
+                    end_port=30000,
+                    start_port=20000,
+                ),
+                client_connection_endpoint_port=19000,
+                durability_level="Bronze",
+                ephemeral_ports=azure_native.servicefabric.v20210601.EndpointRangeDescriptionArgs(
+                    end_port=64000,
+                    start_port=49000,
+                ),
+                http_gateway_endpoint_port=19007,
+                is_primary=True,
+                name="nt1vm",
+                vm_instance_count=5,
+            )],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            tags={},
+            upgrade_mode="Automatic")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20210601:Cluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/clusters/myCluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] add_on_features: The list of add-on features to enable in the cluster.
@@ -615,6 +851,242 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The cluster resource
+
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.servicefabric.v20210601.Cluster("cluster",
+            add_on_features=[
+                "RepairManager",
+                "DnsService",
+                "BackupRestoreService",
+                "ResourceMonitorService",
+            ],
+            application_type_versions_cleanup_policy=azure_native.servicefabric.v20210601.ApplicationTypeVersionsCleanupPolicyResponseArgs(
+                max_unused_versions_to_keep=2,
+            ),
+            azure_active_directory=azure_native.servicefabric.v20210601.AzureActiveDirectoryArgs(
+                client_application="d151ad89-4bce-4ae8-b3d1-1dc79679fa75",
+                cluster_application="5886372e-7bf4-4878-a497-8098aba608ae",
+                tenant_id="6abcc6a0-8666-43f1-87b8-172cf86a9f9c",
+            ),
+            certificate_common_names=azure_native.servicefabric.v20210601.ServerCertificateCommonNamesArgs(
+                common_names=[azure_native.servicefabric.v20210601.ServerCertificateCommonNameArgs(
+                    certificate_common_name="abc.com",
+                    certificate_issuer_thumbprint="12599211F8F14C90AFA9532AD79A6F2CA1C00622",
+                )],
+                x509_store_name="My",
+            ),
+            client_certificate_common_names=[{
+                "certificateCommonName": "abc.com",
+                "certificateIssuerThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": True,
+            }],
+            client_certificate_thumbprints=[{
+                "certificateThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": True,
+            }],
+            cluster_code_version="7.0.470.9590",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config=azure_native.servicefabric.v20210601.DiagnosticsStorageAccountConfigResponseArgs(
+                blob_endpoint="https://diag.blob.core.windows.net/",
+                protected_account_key_name="StorageAccountKey1",
+                queue_endpoint="https://diag.queue.core.windows.net/",
+                storage_account_name="diag",
+                table_endpoint="https://diag.table.core.windows.net/",
+            ),
+            event_store_service_enabled=True,
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            infrastructure_service_manager=True,
+            location="eastus",
+            management_endpoint="https://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[azure_native.servicefabric.v20210601.NodeTypeDescriptionArgs(
+                application_ports=azure_native.servicefabric.v20210601.EndpointRangeDescriptionArgs(
+                    end_port=30000,
+                    start_port=20000,
+                ),
+                client_connection_endpoint_port=19000,
+                durability_level="Silver",
+                ephemeral_ports=azure_native.servicefabric.v20210601.EndpointRangeDescriptionArgs(
+                    end_port=64000,
+                    start_port=49000,
+                ),
+                http_gateway_endpoint_port=19007,
+                is_primary=True,
+                is_stateless=False,
+                multiple_availability_zones=True,
+                name="nt1vm",
+                vm_instance_count=5,
+            )],
+            notifications=[
+                {
+                    "isEnabled": True,
+                    "notificationCategory": "WaveProgress",
+                    "notificationLevel": "Critical",
+                    "notificationTargets": [
+                        {
+                            "notificationChannel": "EmailUser",
+                            "receivers": [
+                                "****@microsoft.com",
+                                "****@microsoft.com",
+                            ],
+                        },
+                        {
+                            "notificationChannel": "EmailSubscription",
+                            "receivers": [
+                                "Owner",
+                                "AccountAdmin",
+                            ],
+                        },
+                    ],
+                },
+                {
+                    "isEnabled": True,
+                    "notificationCategory": "WaveProgress",
+                    "notificationLevel": "All",
+                    "notificationTargets": [
+                        {
+                            "notificationChannel": "EmailUser",
+                            "receivers": [
+                                "****@microsoft.com",
+                                "****@microsoft.com",
+                            ],
+                        },
+                        {
+                            "notificationChannel": "EmailSubscription",
+                            "receivers": [
+                                "Owner",
+                                "AccountAdmin",
+                            ],
+                        },
+                    ],
+                },
+            ],
+            reliability_level="Platinum",
+            resource_group_name="resRg",
+            reverse_proxy_certificate_common_names=azure_native.servicefabric.v20210601.ServerCertificateCommonNamesArgs(
+                common_names=[azure_native.servicefabric.v20210601.ServerCertificateCommonNameArgs(
+                    certificate_common_name="abc.com",
+                    certificate_issuer_thumbprint="12599211F8F14C90AFA9532AD79A6F2CA1C00622",
+                )],
+                x509_store_name="My",
+            ),
+            sf_zonal_upgrade_mode="Hierarchical",
+            tags={},
+            upgrade_description=azure_native.servicefabric.v20210601.ClusterUpgradePolicyResponseArgs(
+                delta_health_policy={
+                    "applicationDeltaHealthPolicies": {
+                        "fabric:/myApp1": azure_native.servicefabric.v20210601.ApplicationDeltaHealthPolicyArgs(
+                            default_service_type_delta_health_policy=azure_native.servicefabric.v20210601.ServiceTypeDeltaHealthPolicyArgs(
+                                max_percent_delta_unhealthy_services=0,
+                            ),
+                            service_type_delta_health_policies={
+                                "myServiceType1": azure_native.servicefabric.v20210601.ServiceTypeDeltaHealthPolicyArgs(
+                                    max_percent_delta_unhealthy_services=0,
+                                ),
+                            },
+                        ),
+                    },
+                    "maxPercentDeltaUnhealthyApplications": 0,
+                    "maxPercentDeltaUnhealthyNodes": 0,
+                    "maxPercentUpgradeDomainDeltaUnhealthyNodes": 0,
+                },
+                force_restart=False,
+                health_check_retry_timeout="00:05:00",
+                health_check_stable_duration="00:00:30",
+                health_check_wait_duration="00:00:30",
+                health_policy={
+                    "applicationHealthPolicies": {
+                        "fabric:/myApp1": azure_native.servicefabric.v20210601.ApplicationHealthPolicyArgs(
+                            default_service_type_health_policy=azure_native.servicefabric.v20210601.ServiceTypeHealthPolicyArgs(
+                                max_percent_unhealthy_services=0,
+                            ),
+                            service_type_health_policies={
+                                "myServiceType1": azure_native.servicefabric.v20210601.ServiceTypeHealthPolicyArgs(
+                                    max_percent_unhealthy_services=100,
+                                ),
+                            },
+                        ),
+                    },
+                    "maxPercentUnhealthyApplications": 0,
+                    "maxPercentUnhealthyNodes": 0,
+                },
+                upgrade_domain_timeout="00:15:00",
+                upgrade_replica_set_check_timeout="00:10:00",
+                upgrade_timeout="01:00:00",
+            ),
+            upgrade_mode="Manual",
+            upgrade_pause_end_timestamp_utc="2021-06-25T22:00:00Z",
+            upgrade_pause_start_timestamp_utc="2021-06-21T22:00:00Z",
+            upgrade_wave="Wave1",
+            vm_image="Windows",
+            vmss_zonal_upgrade_mode="Parallel")
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.servicefabric.v20210601.Cluster("cluster",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config=azure_native.servicefabric.v20210601.DiagnosticsStorageAccountConfigResponseArgs(
+                blob_endpoint="https://diag.blob.core.windows.net/",
+                protected_account_key_name="StorageAccountKey1",
+                queue_endpoint="https://diag.queue.core.windows.net/",
+                storage_account_name="diag",
+                table_endpoint="https://diag.table.core.windows.net/",
+            ),
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            location="eastus",
+            management_endpoint="http://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[azure_native.servicefabric.v20210601.NodeTypeDescriptionArgs(
+                application_ports=azure_native.servicefabric.v20210601.EndpointRangeDescriptionArgs(
+                    end_port=30000,
+                    start_port=20000,
+                ),
+                client_connection_endpoint_port=19000,
+                durability_level="Bronze",
+                ephemeral_ports=azure_native.servicefabric.v20210601.EndpointRangeDescriptionArgs(
+                    end_port=64000,
+                    start_port=49000,
+                ),
+                http_gateway_endpoint_port=19007,
+                is_primary=True,
+                name="nt1vm",
+                vm_instance_count=5,
+            )],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            tags={},
+            upgrade_mode="Automatic")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20210601:Cluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/clusters/myCluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

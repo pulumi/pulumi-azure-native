@@ -474,6 +474,55 @@ class Cluster(pulumi.CustomResource):
         API Version: 2022-12-29.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### KustoClustersCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.kusto.Cluster("cluster",
+            allowed_ip_range_list=["0.0.0.0/0"],
+            cluster_name="kustoCluster",
+            enable_auto_stop=True,
+            enable_double_encryption=False,
+            enable_purge=True,
+            enable_streaming_ingest=True,
+            identity=azure_native.kusto.IdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            language_extensions=azure_native.kusto.LanguageExtensionsListResponseArgs(
+                value=[
+                    azure_native.kusto.LanguageExtensionArgs(
+                        language_extension_image_name="Python3_10_8",
+                        language_extension_name="PYTHON",
+                    ),
+                    azure_native.kusto.LanguageExtensionArgs(
+                        language_extension_image_name="R",
+                        language_extension_name="R",
+                    ),
+                ],
+            ),
+            location="westus",
+            public_ip_type="DualStack",
+            public_network_access="Enabled",
+            resource_group_name="kustorptest",
+            sku=azure_native.kusto.AzureSkuArgs(
+                capacity=2,
+                name="Standard_L16as_v3",
+                tier="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:Cluster kustoCluster /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AcceptedAudiencesArgs']]]] accepted_audiences: The cluster's accepted audiences.
@@ -512,6 +561,55 @@ class Cluster(pulumi.CustomResource):
         Class representing a Kusto cluster.
         API Version: 2022-12-29.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### KustoClustersCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.kusto.Cluster("cluster",
+            allowed_ip_range_list=["0.0.0.0/0"],
+            cluster_name="kustoCluster",
+            enable_auto_stop=True,
+            enable_double_encryption=False,
+            enable_purge=True,
+            enable_streaming_ingest=True,
+            identity=azure_native.kusto.IdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            language_extensions=azure_native.kusto.LanguageExtensionsListResponseArgs(
+                value=[
+                    azure_native.kusto.LanguageExtensionArgs(
+                        language_extension_image_name="Python3_10_8",
+                        language_extension_name="PYTHON",
+                    ),
+                    azure_native.kusto.LanguageExtensionArgs(
+                        language_extension_image_name="R",
+                        language_extension_name="R",
+                    ),
+                ],
+            ),
+            location="westus",
+            public_ip_type="DualStack",
+            public_network_access="Enabled",
+            resource_group_name="kustorptest",
+            sku=azure_native.kusto.AzureSkuArgs(
+                capacity=2,
+                name="Standard_L16as_v3",
+                tier="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:Cluster kustoCluster /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

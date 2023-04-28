@@ -9,6 +9,64 @@ import * as utilities from "../../utilities";
 
 /**
  * The Flux Configuration object returned in Get & Put response.
+ *
+ * ## Example Usage
+ * ### Create Flux Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fluxConfiguration = new azure_native.kubernetesconfiguration.v20211101preview.FluxConfiguration("fluxConfiguration", {
+ *     clusterName: "clusterName1",
+ *     clusterResourceName: "connectedClusters",
+ *     clusterRp: "Microsoft.Kubernetes",
+ *     fluxConfigurationName: "srs-fluxconfig",
+ *     gitRepository: {
+ *         httpsCAFile: "ZXhhbXBsZWNlcnRpZmljYXRl",
+ *         repositoryRef: {
+ *             branch: "master",
+ *         },
+ *         syncIntervalInSeconds: 600,
+ *         timeoutInSeconds: 600,
+ *         url: "https://github.com/Azure/arc-k8s-demo",
+ *     },
+ *     kustomizations: {
+ *         "srs-kustomization1": {
+ *             dependsOn: [],
+ *             path: "./test/path",
+ *             syncIntervalInSeconds: 600,
+ *             timeoutInSeconds: 600,
+ *             validation: "none",
+ *         },
+ *         "srs-kustomization2": {
+ *             dependsOn: [{
+ *                 kustomizationName: "srs-kustomization1",
+ *             }],
+ *             path: "./other/test/path",
+ *             prune: false,
+ *             retryIntervalInSeconds: 600,
+ *             syncIntervalInSeconds: 600,
+ *             timeoutInSeconds: 600,
+ *             validation: "none",
+ *         },
+ *     },
+ *     namespace: "srs-namespace",
+ *     resourceGroupName: "rg1",
+ *     scope: "cluster",
+ *     sourceKind: "GitRepository",
+ *     suspend: false,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration srs-fluxconfig /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/srs-fluxconfig 
+ * ```
  */
 export class FluxConfiguration extends pulumi.CustomResource {
     /**

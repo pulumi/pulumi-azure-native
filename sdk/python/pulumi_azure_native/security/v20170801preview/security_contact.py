@@ -111,6 +111,43 @@ class SecurityContact(pulumi.CustomResource):
         """
         Contact details for security issues
 
+        ## Example Usage
+        ### Create security contact data full
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_contact = azure_native.security.v20170801preview.SecurityContact("securityContact",
+            alert_notifications="On",
+            alerts_to_admins="On",
+            email="john@contoso.com",
+            phone="(214)275-4038",
+            security_contact_name="default1")
+
+        ```
+        ### Create security contact data minimal
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_contact = azure_native.security.v20170801preview.SecurityContact("securityContact",
+            alert_notifications="On",
+            alerts_to_admins="On",
+            email="chen@contoso.com",
+            security_contact_name="default2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20170801preview:SecurityContact default2 /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/securityContacts/default2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AlertNotifications']] alert_notifications: Whether to send security alerts notifications to the security contact
@@ -127,6 +164,43 @@ class SecurityContact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contact details for security issues
+
+        ## Example Usage
+        ### Create security contact data full
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_contact = azure_native.security.v20170801preview.SecurityContact("securityContact",
+            alert_notifications="On",
+            alerts_to_admins="On",
+            email="john@contoso.com",
+            phone="(214)275-4038",
+            security_contact_name="default1")
+
+        ```
+        ### Create security contact data minimal
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_contact = azure_native.security.v20170801preview.SecurityContact("securityContact",
+            alert_notifications="On",
+            alerts_to_admins="On",
+            email="chen@contoso.com",
+            security_contact_name="default2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20170801preview:SecurityContact default2 /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/securityContacts/default2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityContactArgs args: The arguments to use to populate this resource's properties.

@@ -183,6 +183,45 @@ class Endpoint(pulumi.CustomResource):
         """
         The endpoint for the target resource.
 
+        ## Example Usage
+        ### HybridConnectivityEndpointsPutCustom
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.hybridconnectivity.v20230315.Endpoint("endpoint",
+            endpoint_name="custom",
+            properties=azure_native.hybridconnectivity.v20230315.EndpointPropertiesResponseArgs(
+                resource_id="/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
+                type="custom",
+            ),
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine")
+
+        ```
+        ### HybridConnectivityEndpointsPutDefault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.hybridconnectivity.v20230315.Endpoint("endpoint",
+            endpoint_name="default",
+            properties=azure_native.hybridconnectivity.v20230315.EndpointPropertiesResponseArgs(
+                type="default",
+            ),
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridconnectivity/v20230315:Endpoint default /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
@@ -203,6 +242,45 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The endpoint for the target resource.
+
+        ## Example Usage
+        ### HybridConnectivityEndpointsPutCustom
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.hybridconnectivity.v20230315.Endpoint("endpoint",
+            endpoint_name="custom",
+            properties=azure_native.hybridconnectivity.v20230315.EndpointPropertiesResponseArgs(
+                resource_id="/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
+                type="custom",
+            ),
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine")
+
+        ```
+        ### HybridConnectivityEndpointsPutDefault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.hybridconnectivity.v20230315.Endpoint("endpoint",
+            endpoint_name="default",
+            properties=azure_native.hybridconnectivity.v20230315.EndpointPropertiesResponseArgs(
+                type="default",
+            ),
+            resource_uri="subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridconnectivity/v20230315:Endpoint default /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

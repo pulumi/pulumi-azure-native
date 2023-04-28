@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine Extension.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20210301:VirtualMachineExtension myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName} 
+ * ```
  */
 export class VirtualMachineExtension extends pulumi.CustomResource {
     /**

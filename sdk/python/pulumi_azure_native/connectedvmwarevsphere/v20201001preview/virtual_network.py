@@ -182,6 +182,34 @@ class VirtualNetwork(pulumi.CustomResource):
         """
         Define the virtualNetwork.
 
+        ## Example Usage
+        ### CreateVirtualNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.connectedvmwarevsphere.v20201001preview.VirtualNetwork("virtualNetwork",
+            extended_location=azure_native.connectedvmwarevsphere.v20201001preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                type="customLocation",
+            ),
+            location="East US",
+            mo_ref_id="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            resource_group_name="testrg",
+            v_center_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+            virtual_network_name="ProdNetwork")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20201001preview:VirtualNetwork ProdNetwork /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualNetworks/ProdNetwork 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: Gets or sets the extended location.
@@ -202,6 +230,34 @@ class VirtualNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the virtualNetwork.
+
+        ## Example Usage
+        ### CreateVirtualNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.connectedvmwarevsphere.v20201001preview.VirtualNetwork("virtualNetwork",
+            extended_location=azure_native.connectedvmwarevsphere.v20201001preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                type="customLocation",
+            ),
+            location="East US",
+            mo_ref_id="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            resource_group_name="testrg",
+            v_center_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+            virtual_network_name="ProdNetwork")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20201001preview:VirtualNetwork ProdNetwork /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualNetworks/ProdNetwork 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
 {
     /// <summary>
     /// A SqlServerInstance.
+    /// 
+    /// ## Example Usage
+    /// ### Updates a SQL Server Instance tags.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlServerInstance = new AzureNative.AzureArcData.V20210601Preview.SqlServerInstance("sqlServerInstance", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         Properties = new AzureNative.AzureArcData.V20210601Preview.Inputs.SqlServerInstancePropertiesArgs
+    ///         {
+    ///             Collation = "collation",
+    ///             ContainerResourceId = "Arc Machine Name",
+    ///             CurrentVersion = "2008 R2",
+    ///             Edition = "Developer",
+    ///             InstanceName = "name of instance",
+    ///             LicenseType = "Free",
+    ///             PatchLevel = "patchlevel",
+    ///             ProductId = "sql id",
+    ///             Status = "Connected",
+    ///             TcpDynamicPorts = "1433",
+    ///             TcpStaticPorts = "1433",
+    ///             VCore = "4",
+    ///             Version = "SQL Server 2017",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SqlServerInstanceName = "testsqlServerInstance",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata/v20210601preview:SqlServerInstance testsqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/SqlServerInstances/testsqlServerInstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20210601preview:SqlServerInstance")]
     public partial class SqlServerInstance : global::Pulumi.CustomResource

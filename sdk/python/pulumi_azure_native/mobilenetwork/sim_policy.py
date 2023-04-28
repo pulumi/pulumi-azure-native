@@ -200,6 +200,64 @@ class SimPolicy(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create SIM policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sim_policy = azure_native.mobilenetwork.SimPolicy("simPolicy",
+            default_slice=azure_native.mobilenetwork.SliceResourceIdArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+            ),
+            location="eastus",
+            mobile_network_name="testMobileNetwork",
+            registration_timer=3240,
+            resource_group_name="rg1",
+            sim_policy_name="testPolicy",
+            slice_configurations=[{
+                "dataNetworkConfigurations": [azure_native.mobilenetwork.DataNetworkConfigurationArgs(
+                    additional_allowed_session_types=[],
+                    allocation_and_retention_priority_level=9,
+                    allowed_services=[azure_native.mobilenetwork.ServiceResourceIdArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/testService",
+                    )],
+                    data_network=azure_native.mobilenetwork.DataNetworkResourceIdArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+                    ),
+                    default_session_type="IPv4",
+                    five_qi=9,
+                    maximum_number_of_buffered_packets=200,
+                    preemption_capability="NotPreempt",
+                    preemption_vulnerability="Preemptable",
+                    session_ambr=azure_native.mobilenetwork.AmbrArgs(
+                        downlink="1 Gbps",
+                        uplink="500 Mbps",
+                    ),
+                )],
+                "defaultDataNetwork": azure_native.mobilenetwork.DataNetworkResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+                ),
+                "slice": azure_native.mobilenetwork.SliceResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+                ),
+            }],
+            ue_ambr=azure_native.mobilenetwork.AmbrArgs(
+                downlink="1 Gbps",
+                uplink="500 Mbps",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:SimPolicy testPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/testPolicy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SliceResourceIdArgs']] default_slice: The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
@@ -223,6 +281,64 @@ class SimPolicy(pulumi.CustomResource):
         SIM policy resource.
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create SIM policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sim_policy = azure_native.mobilenetwork.SimPolicy("simPolicy",
+            default_slice=azure_native.mobilenetwork.SliceResourceIdArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+            ),
+            location="eastus",
+            mobile_network_name="testMobileNetwork",
+            registration_timer=3240,
+            resource_group_name="rg1",
+            sim_policy_name="testPolicy",
+            slice_configurations=[{
+                "dataNetworkConfigurations": [azure_native.mobilenetwork.DataNetworkConfigurationArgs(
+                    additional_allowed_session_types=[],
+                    allocation_and_retention_priority_level=9,
+                    allowed_services=[azure_native.mobilenetwork.ServiceResourceIdArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/testService",
+                    )],
+                    data_network=azure_native.mobilenetwork.DataNetworkResourceIdArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+                    ),
+                    default_session_type="IPv4",
+                    five_qi=9,
+                    maximum_number_of_buffered_packets=200,
+                    preemption_capability="NotPreempt",
+                    preemption_vulnerability="Preemptable",
+                    session_ambr=azure_native.mobilenetwork.AmbrArgs(
+                        downlink="1 Gbps",
+                        uplink="500 Mbps",
+                    ),
+                )],
+                "defaultDataNetwork": azure_native.mobilenetwork.DataNetworkResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+                ),
+                "slice": azure_native.mobilenetwork.SliceResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+                ),
+            }],
+            ue_ambr=azure_native.mobilenetwork.AmbrArgs(
+                downlink="1 Gbps",
+                uplink="500 Mbps",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:SimPolicy testPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/testPolicy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SimPolicyArgs args: The arguments to use to populate this resource's properties.

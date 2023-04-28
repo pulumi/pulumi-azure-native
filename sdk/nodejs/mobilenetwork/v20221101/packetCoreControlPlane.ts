@@ -9,6 +9,57 @@ import * as utilities from "../../utilities";
 
 /**
  * Packet core control plane resource.
+ *
+ * ## Example Usage
+ * ### Create packet core control plane
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const packetCoreControlPlane = new azure_native.mobilenetwork.v20221101.PacketCoreControlPlane("packetCoreControlPlane", {
+ *     controlPlaneAccessInterface: {
+ *         name: "N2",
+ *     },
+ *     coreNetworkTechnology: "5GC",
+ *     localDiagnosticsAccess: {
+ *         authenticationType: "AAD",
+ *         httpsServerCertificate: {
+ *             certificateUrl: "https://contosovault.vault.azure.net/certificates/ingress",
+ *         },
+ *     },
+ *     location: "eastus",
+ *     packetCoreControlPlaneName: "TestPacketCoreCP",
+ *     platform: {
+ *         azureStackEdgeDevice: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/TestAzureStackEdgeDevice",
+ *         },
+ *         connectedCluster: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/TestConnectedCluster",
+ *         },
+ *         customLocation: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/TestCustomLocation",
+ *         },
+ *         type: "AKS-HCI",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     sites: [{
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite",
+ *     }],
+ *     sku: "G0",
+ *     ueMtu: 1600,
+ *     version: "0.2.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork/v20221101:PacketCoreControlPlane TestPacketCoreCP /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP 
+ * ```
  */
 export class PacketCoreControlPlane extends pulumi.CustomResource {
     /**

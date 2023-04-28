@@ -112,6 +112,30 @@ class GatewayApiEntityTag(pulumi.CustomResource):
         """
         API details.
 
+        ## Example Usage
+        ### ApiManagementCreateGatewayApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway_api_entity_tag = azure_native.apimanagement.v20220801.GatewayApiEntityTag("gatewayApiEntityTag",
+            api_id="echo-api",
+            gateway_id="gw1",
+            provisioning_state=azure_native.apimanagement/v20220801.ProvisioningState.CREATED,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:GatewayApiEntityTag echo-api /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/apis/echo-api 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
@@ -128,6 +152,30 @@ class GatewayApiEntityTag(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         API details.
+
+        ## Example Usage
+        ### ApiManagementCreateGatewayApi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway_api_entity_tag = azure_native.apimanagement.v20220801.GatewayApiEntityTag("gatewayApiEntityTag",
+            api_id="echo-api",
+            gateway_id="gw1",
+            provisioning_state=azure_native.apimanagement/v20220801.ProvisioningState.CREATED,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:GatewayApiEntityTag echo-api /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/apis/echo-api 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GatewayApiEntityTagArgs args: The arguments to use to populate this resource's properties.

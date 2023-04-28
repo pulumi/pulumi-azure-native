@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.DelegatedNetwork.V20210315
 {
     /// <summary>
     /// Represents an instance of a orchestrator.
+    /// 
+    /// ## Example Usage
+    /// ### Create orchestrator instance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var orchestratorInstanceServiceDetails = new AzureNative.DelegatedNetwork.V20210315.OrchestratorInstanceServiceDetails("orchestratorInstanceServiceDetails", new()
+    ///     {
+    ///         ApiServerEndpoint = "https://testk8s.cloudapp.net",
+    ///         ClusterRootCA = "ddsadsad344mfdsfdl",
+    ///         ControllerDetails = new AzureNative.DelegatedNetwork.V20210315.Inputs.ControllerDetailsArgs
+    ///         {
+    ///             Id = "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller",
+    ///         },
+    ///         Identity = new AzureNative.DelegatedNetwork.V20210315.Inputs.OrchestratorIdentityArgs
+    ///         {
+    ///             Type = AzureNative.DelegatedNetwork.V20210315.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Kind = "Kubernetes",
+    ///         Location = "West US",
+    ///         OrchestratorAppId = "546192d7-503f-477a-9cfe-4efc3ee2b6e1",
+    ///         OrchestratorTenantId = "da6192d7-503f-477a-9cfe-4efc3ee2b6c3",
+    ///         PrivateLinkResourceId = "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/privateLinkServices/plresource1",
+    ///         ResourceGroupName = "TestRG",
+    ///         ResourceName = "testk8s1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails testk8s1 /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/orchestrators/testk8s1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork/v20210315:OrchestratorInstanceServiceDetails")]
     public partial class OrchestratorInstanceServiceDetails : global::Pulumi.CustomResource

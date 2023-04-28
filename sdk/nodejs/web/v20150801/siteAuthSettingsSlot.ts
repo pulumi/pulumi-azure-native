@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20150801:SiteAuthSettingsSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettings 
+ * ```
  *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */

@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The connector resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Connectors_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connector = new AzureNative.CustomerInsights.V20170426.Connector("connector", new()
+    ///     {
+    ///         ConnectorName = "testConnector",
+    ///         ConnectorProperties = 
+    ///         {
+    ///             { "connectionKeyVaultUrl", 
+    ///             {
+    ///                 { "organizationId", "XXX" },
+    ///                 { "organizationUrl", "https://XXX.crmlivetie.com/" },
+    ///             } },
+    ///         },
+    ///         ConnectorType = "AzureBlob",
+    ///         Description = "Test connector",
+    ///         DisplayName = "testConnector",
+    ///         HubName = "sdkTestHub",
+    ///         ResourceGroupName = "TestHubRG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170426:Connector sdkTestHub/testConnector /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/connectors/testConnector 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

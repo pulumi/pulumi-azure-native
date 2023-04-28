@@ -111,6 +111,45 @@ class CodeVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Code Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        code_version = azure_native.machinelearningservices.v20210301preview.CodeVersion("codeVersion",
+            name="testContainer",
+            properties=azure_native.machinelearningservices.v20210301preview.CodeVersionArgs(
+                datastore_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/datastores/mydatastore",
+                description="string",
+                is_anonymous=True,
+                path="path/to/file.py",
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            version="1",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:CodeVersion 1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/testContainer/versions/1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Container name.
@@ -127,6 +166,45 @@ class CodeVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Code Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        code_version = azure_native.machinelearningservices.v20210301preview.CodeVersion("codeVersion",
+            name="testContainer",
+            properties=azure_native.machinelearningservices.v20210301preview.CodeVersionArgs(
+                datastore_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/datastores/mydatastore",
+                description="string",
+                is_anonymous=True,
+                path="path/to/file.py",
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            version="1",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:CodeVersion 1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/testContainer/versions/1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CodeVersionInitArgs args: The arguments to use to populate this resource's properties.

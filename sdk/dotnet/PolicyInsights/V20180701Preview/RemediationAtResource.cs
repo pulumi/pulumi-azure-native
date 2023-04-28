@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.PolicyInsights.V20180701Preview
 {
     /// <summary>
     /// The remediation definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create remediation at individual resource scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var remediationAtResource = new AzureNative.PolicyInsights.V20180701Preview.RemediationAtResource("remediationAtResource", new()
+    ///     {
+    ///         PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/rg1/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///         RemediationName = "storageRemediation",
+    ///         ResourceId = "subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourcegroups/rg1/providers/microsoft.storage/storageaccounts/storAc1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:policyinsights/v20180701preview:RemediationAtResource storageRemediation /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourcegroups/rg1/providers/microsoft.storage/storageaccounts/storAc1/providers/microsoft.policyinsights/remediations/storageRemediation 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:policyinsights/v20180701preview:RemediationAtResource")]

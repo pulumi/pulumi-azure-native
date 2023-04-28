@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
     /// <summary>
     /// Property details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateProperty
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var property = new AzureNative.ApiManagement.V20190101.Property("property", new()
+    ///     {
+    ///         DisplayName = "prop3name",
+    ///         PropId = "testprop2",
+    ///         ResourceGroupName = "rg1",
+    ///         Secret = true,
+    ///         ServiceName = "apimService1",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo",
+    ///             "bar",
+    ///         },
+    ///         Value = "propValue",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20190101:Property testprop2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/properties/testprop2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20190101:Property")]
     public partial class Property : global::Pulumi.CustomResource

@@ -9,6 +9,46 @@ import * as utilities from "../../utilities";
 
 /**
  * The bandwidth setting.
+ *
+ * ## Example Usage
+ * ### BandwidthSettingsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bandwidthSetting = new azure_native.storsimple.v20170601.BandwidthSetting("bandwidthSetting", {
+ *     bandwidthSettingName: "BWSForTest",
+ *     managerName: "ManagerForSDKTest1",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     schedules: [{
+ *         days: [
+ *             azure_native.storsimple.v20170601.DayOfWeek.Saturday,
+ *             azure_native.storsimple.v20170601.DayOfWeek.Sunday,
+ *         ],
+ *         rateInMbps: 10,
+ *         start: {
+ *             hours: 10,
+ *             minutes: 0,
+ *             seconds: 0,
+ *         },
+ *         stop: {
+ *             hours: 20,
+ *             minutes: 0,
+ *             seconds: 0,
+ *         },
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple/v20170601:BandwidthSetting BWSForTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/bandwidthSettings/BWSForTest 
+ * ```
  */
 export class BandwidthSetting extends pulumi.CustomResource {
     /**

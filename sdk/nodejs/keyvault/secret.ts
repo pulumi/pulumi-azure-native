@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Resource information with extended details.
  * API Version: 2023-02-01.
  * Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a secret
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const secret = new azure_native.keyvault.Secret("secret", {
+ *     properties: {
+ *         value: "secret-value",
+ *     },
+ *     resourceGroupName: "sample-group",
+ *     secretName: "secret-name",
+ *     vaultName: "sample-vault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:keyvault:Secret secret-name /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/secrets/secret-name 
+ * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

@@ -9,6 +9,54 @@ import * as utilities from "../../utilities";
 
 /**
  * DigitalTwinsInstance endpoint resource.
+ *
+ * ## Example Usage
+ * ### Put a DigitalTwinsInstance resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwinsEndpoint = new azure_native.digitaltwins.v20201201.DigitalTwinsEndpoint("digitalTwinsEndpoint", {
+ *     endpointName: "myServiceBus",
+ *     properties: {
+ *         authenticationType: "KeyBased",
+ *         endpointType: "ServiceBus",
+ *         primaryConnectionString: "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+ *         secondaryConnectionString: "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ * ### Put a DigitalTwinsInstance resource with identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwinsEndpoint = new azure_native.digitaltwins.v20201201.DigitalTwinsEndpoint("digitalTwinsEndpoint", {
+ *     endpointName: "myServiceBus",
+ *     properties: {
+ *         authenticationType: "IdentityBased",
+ *         endpointType: "ServiceBus",
+ *         endpointUri: "sb://mysb.servicebus.windows.net/",
+ *         entityPath: "mysbtopic",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint myServiceBus /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/endpoints/myServiceBus 
+ * ```
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {
     /**

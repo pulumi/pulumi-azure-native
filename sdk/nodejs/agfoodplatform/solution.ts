@@ -10,6 +10,37 @@ import * as utilities from "../utilities";
 /**
  * Solution resource.
  * API Version: 2021-09-01-preview.
+ *
+ * ## Example Usage
+ * ### Solutions_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const solution = new azure_native.agfoodplatform.Solution("solution", {
+ *     farmBeatsResourceName: "examples-farmbeatsResourceName",
+ *     properties: {
+ *         marketplacePublisherId: "publisherId",
+ *         offerId: "offerId",
+ *         planId: "planId",
+ *         saasSubscriptionId: "123",
+ *         saasSubscriptionName: "name",
+ *         termId: "termId",
+ *     },
+ *     resourceGroupName: "examples-rg",
+ *     solutionId: "abc.partner",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:agfoodplatform:Solution string /subscriptions/ff57165d-e71f-4a0e-8e9b-3cd461dc0f38/resourceGroups/bugbash-instances-westus2/providers/Microsoft.AgFoodPlatform/farmBeats/bb-df-wus2-1/solutions/string 
+ * ```
  */
 export class Solution extends pulumi.CustomResource {
     /**

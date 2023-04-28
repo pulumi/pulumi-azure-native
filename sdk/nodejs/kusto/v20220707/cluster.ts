@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Kusto cluster.
+ *
+ * ## Example Usage
+ * ### KustoClustersCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.kusto.v20220707.Cluster("cluster", {
+ *     allowedIpRangeList: ["0.0.0.0/0"],
+ *     clusterName: "kustoCluster",
+ *     enableAutoStop: true,
+ *     enableDoubleEncryption: false,
+ *     enablePurge: true,
+ *     enableStreamingIngest: true,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "westus",
+ *     publicIPType: "DualStack",
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "kustorptest",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "Standard_L8s",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto/v20220707:Cluster kustoCluster /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

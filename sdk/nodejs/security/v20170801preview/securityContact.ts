@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Contact details for security issues
+ *
+ * ## Example Usage
+ * ### Create security contact data full
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityContact = new azure_native.security.v20170801preview.SecurityContact("securityContact", {
+ *     alertNotifications: "On",
+ *     alertsToAdmins: "On",
+ *     email: "john@contoso.com",
+ *     phone: "(214)275-4038",
+ *     securityContactName: "default1",
+ * });
+ *
+ * ```
+ * ### Create security contact data minimal
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityContact = new azure_native.security.v20170801preview.SecurityContact("securityContact", {
+ *     alertNotifications: "On",
+ *     alertsToAdmins: "On",
+ *     email: "chen@contoso.com",
+ *     securityContactName: "default2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20170801preview:SecurityContact default2 /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/securityContacts/default2 
+ * ```
  */
 export class SecurityContact extends pulumi.CustomResource {
     /**

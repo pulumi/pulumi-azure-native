@@ -200,6 +200,51 @@ class SnapshotPolicy(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SnapshotPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot_policy = azure_native.netapp.SnapshotPolicy("snapshotPolicy",
+            account_name="account1",
+            daily_schedule=azure_native.netapp.DailyScheduleArgs(
+                hour=14,
+                minute=30,
+                snapshots_to_keep=4,
+            ),
+            enabled=True,
+            hourly_schedule=azure_native.netapp.HourlyScheduleArgs(
+                minute=50,
+                snapshots_to_keep=2,
+            ),
+            location="eastus",
+            monthly_schedule=azure_native.netapp.MonthlyScheduleArgs(
+                days_of_month="10,11,12",
+                hour=14,
+                minute=15,
+                snapshots_to_keep=5,
+            ),
+            resource_group_name="myRG",
+            snapshot_policy_name="snapshotPolicyName",
+            weekly_schedule=azure_native.netapp.WeeklyScheduleArgs(
+                day="Wednesday",
+                hour=14,
+                minute=45,
+                snapshots_to_keep=3,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:SnapshotPolicy account1/snapshotPolicy1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotPolicy1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -223,6 +268,51 @@ class SnapshotPolicy(pulumi.CustomResource):
         Snapshot policy information
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SnapshotPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot_policy = azure_native.netapp.SnapshotPolicy("snapshotPolicy",
+            account_name="account1",
+            daily_schedule=azure_native.netapp.DailyScheduleArgs(
+                hour=14,
+                minute=30,
+                snapshots_to_keep=4,
+            ),
+            enabled=True,
+            hourly_schedule=azure_native.netapp.HourlyScheduleArgs(
+                minute=50,
+                snapshots_to_keep=2,
+            ),
+            location="eastus",
+            monthly_schedule=azure_native.netapp.MonthlyScheduleArgs(
+                days_of_month="10,11,12",
+                hour=14,
+                minute=15,
+                snapshots_to_keep=5,
+            ),
+            resource_group_name="myRG",
+            snapshot_policy_name="snapshotPolicyName",
+            weekly_schedule=azure_native.netapp.WeeklyScheduleArgs(
+                day="Wednesday",
+                hour=14,
+                minute=45,
+                snapshots_to_keep=3,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:SnapshotPolicy account1/snapshotPolicy1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotPolicy1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnapshotPolicyArgs args: The arguments to use to populate this resource's properties.

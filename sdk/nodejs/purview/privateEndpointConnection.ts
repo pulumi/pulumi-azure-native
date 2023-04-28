@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * A private endpoint connection class.
  * API Version: 2021-07-01.
  * Previous API Version: 2020-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnections_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.purview.PrivateEndpointConnection("privateEndpointConnection", {
+ *     accountName: "account1",
+ *     privateEndpointConnectionName: "privateEndpointConnection1",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Approved by johndoe@company.com",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "SampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:purview:PrivateEndpointConnection privateEndpointConnection1 /subscriptions/12345678-1234-1234-12345678abc/resourceGroups/SampleResourceGroup/providers/Microsoft.Purview/accounts/account1/privateEndpointConnections/privateEndpointConnection1 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

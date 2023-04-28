@@ -11,6 +11,588 @@ import * as utilities from "../utilities";
  * The storage account.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### NfsV3AccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     enableHttpsTrafficOnly: false,
+ *     enableNfsV3: true,
+ *     isHnsEnabled: true,
+ *     kind: "BlockBlobStorage",
+ *     location: "eastus",
+ *     networkRuleSet: {
+ *         bypass: "AzureServices",
+ *         defaultAction: azure_native.storage.DefaultAction.Allow,
+ *         ipRules: [],
+ *         virtualNetworkRules: [{
+ *             virtualNetworkResourceId: "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Network/virtualNetworks/net123/subnets/subnet12",
+ *         }],
+ *     },
+ *     resourceGroupName: "res9101",
+ *     sku: {
+ *         name: "Premium_LRS",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowBlobPublicAccess: false,
+ *     allowSharedKeyAccess: true,
+ *     defaultToOAuthAuthentication: false,
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     extendedLocation: {
+ *         name: "losangeles001",
+ *         type: "EdgeZone",
+ *     },
+ *     isHnsEnabled: true,
+ *     isSftpEnabled: true,
+ *     keyPolicy: {
+ *         keyExpirationPeriodInDays: 20,
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     resourceGroupName: "res9101",
+ *     routingPreference: {
+ *         publishInternetEndpoints: true,
+ *         publishMicrosoftEndpoints: true,
+ *         routingChoice: "MicrosoftRouting",
+ *     },
+ *     sasPolicy: {
+ *         expirationAction: "Log",
+ *         sasExpirationPeriod: "1.15:59:59",
+ *     },
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateAllowedCopyScopeToAAD
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowBlobPublicAccess: false,
+ *     allowSharedKeyAccess: true,
+ *     allowedCopyScope: "AAD",
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     isHnsEnabled: true,
+ *     keyPolicy: {
+ *         keyExpirationPeriodInDays: 20,
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     resourceGroupName: "res9101",
+ *     routingPreference: {
+ *         publishInternetEndpoints: true,
+ *         publishMicrosoftEndpoints: true,
+ *         routingChoice: "MicrosoftRouting",
+ *     },
+ *     sasPolicy: {
+ *         expirationAction: "Log",
+ *         sasExpirationPeriod: "1.15:59:59",
+ *     },
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateAllowedCopyScopeToPrivateLink
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowBlobPublicAccess: false,
+ *     allowSharedKeyAccess: true,
+ *     allowedCopyScope: "PrivateLink",
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     isHnsEnabled: true,
+ *     keyPolicy: {
+ *         keyExpirationPeriodInDays: 20,
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     resourceGroupName: "res9101",
+ *     routingPreference: {
+ *         publishInternetEndpoints: true,
+ *         publishMicrosoftEndpoints: true,
+ *         routingChoice: "MicrosoftRouting",
+ *     },
+ *     sasPolicy: {
+ *         expirationAction: "Log",
+ *         sasExpirationPeriod: "1.15:59:59",
+ *     },
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateDisallowPublicNetworkAccess
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowBlobPublicAccess: false,
+ *     allowSharedKeyAccess: true,
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     extendedLocation: {
+ *         name: "losangeles001",
+ *         type: "EdgeZone",
+ *     },
+ *     isHnsEnabled: true,
+ *     keyPolicy: {
+ *         keyExpirationPeriodInDays: 20,
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     publicNetworkAccess: "Disabled",
+ *     resourceGroupName: "res9101",
+ *     routingPreference: {
+ *         publishInternetEndpoints: true,
+ *         publishMicrosoftEndpoints: true,
+ *         routingChoice: "MicrosoftRouting",
+ *     },
+ *     sasPolicy: {
+ *         expirationAction: "Log",
+ *         sasExpirationPeriod: "1.15:59:59",
+ *     },
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateDnsEndpointTypeToAzureDnsZone
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowBlobPublicAccess: false,
+ *     allowSharedKeyAccess: true,
+ *     defaultToOAuthAuthentication: false,
+ *     dnsEndpointType: "AzureDnsZone",
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     extendedLocation: {
+ *         name: "losangeles001",
+ *         type: "EdgeZone",
+ *     },
+ *     isHnsEnabled: true,
+ *     isSftpEnabled: true,
+ *     keyPolicy: {
+ *         keyExpirationPeriodInDays: 20,
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     resourceGroupName: "res9101",
+ *     routingPreference: {
+ *         publishInternetEndpoints: true,
+ *         publishMicrosoftEndpoints: true,
+ *         routingChoice: "MicrosoftRouting",
+ *     },
+ *     sasPolicy: {
+ *         expirationAction: "Log",
+ *         sasExpirationPeriod: "1.15:59:59",
+ *     },
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateDnsEndpointTypeToStandard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowBlobPublicAccess: false,
+ *     allowSharedKeyAccess: true,
+ *     defaultToOAuthAuthentication: false,
+ *     dnsEndpointType: "Standard",
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     extendedLocation: {
+ *         name: "losangeles001",
+ *         type: "EdgeZone",
+ *     },
+ *     isHnsEnabled: true,
+ *     isSftpEnabled: true,
+ *     keyPolicy: {
+ *         keyExpirationPeriodInDays: 20,
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     resourceGroupName: "res9101",
+ *     routingPreference: {
+ *         publishInternetEndpoints: true,
+ *         publishMicrosoftEndpoints: true,
+ *         routingChoice: "MicrosoftRouting",
+ *     },
+ *     sasPolicy: {
+ *         expirationAction: "Log",
+ *         sasExpirationPeriod: "1.15:59:59",
+ *     },
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateEnablePublicNetworkAccess
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowBlobPublicAccess: false,
+ *     allowSharedKeyAccess: true,
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     extendedLocation: {
+ *         name: "losangeles001",
+ *         type: "EdgeZone",
+ *     },
+ *     isHnsEnabled: true,
+ *     keyPolicy: {
+ *         keyExpirationPeriodInDays: 20,
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "res9101",
+ *     routingPreference: {
+ *         publishInternetEndpoints: true,
+ *         publishMicrosoftEndpoints: true,
+ *         routingChoice: "MicrosoftRouting",
+ *     },
+ *     sasPolicy: {
+ *         expirationAction: "Log",
+ *         sasExpirationPeriod: "1.15:59:59",
+ *     },
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreatePremiumBlockBlobStorage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowSharedKeyAccess: true,
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     kind: "BlockBlobStorage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     resourceGroupName: "res9101",
+ *     sku: {
+ *         name: "Premium_LRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateUserAssignedEncryptionIdentityWithCMK
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     encryption: {
+ *         encryptionIdentity: {
+ *             encryptionUserAssignedIdentity: "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}",
+ *         },
+ *         keySource: "Microsoft.Keyvault",
+ *         keyVaultProperties: {
+ *             keyName: "wrappingKey",
+ *             keyVaultUri: "https://myvault8569.vault.azure.net",
+ *             keyVersion: "",
+ *         },
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}": {},
+ *         },
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     resourceGroupName: "res9101",
+ *     sku: {
+ *         name: "Standard_LRS",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateUserAssignedIdentityWithFederatedIdentityClientId.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto131918",
+ *     encryption: {
+ *         encryptionIdentity: {
+ *             encryptionFederatedIdentityClientId: "f83c6b1b-4d34-47e4-bb34-9d83df58b540",
+ *             encryptionUserAssignedIdentity: "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}",
+ *         },
+ *         keySource: "Microsoft.Keyvault",
+ *         keyVaultProperties: {
+ *             keyName: "wrappingKey",
+ *             keyVaultUri: "https://myvault8569.vault.azure.net",
+ *             keyVersion: "",
+ *         },
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}": {},
+ *         },
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     resourceGroupName: "res131918",
+ *     sku: {
+ *         name: "Standard_LRS",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateWithImmutabilityPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     extendedLocation: {
+ *         name: "losangeles001",
+ *         type: "EdgeZone",
+ *     },
+ *     immutableStorageWithVersioning: {
+ *         enabled: true,
+ *         immutabilityPolicy: {
+ *             allowProtectedAppendWrites: true,
+ *             immutabilityPeriodSinceCreationInDays: 15,
+ *             state: "Unlocked",
+ *         },
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     resourceGroupName: "res9101",
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:StorageAccount sto4445 /subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445 
+ * ```
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**

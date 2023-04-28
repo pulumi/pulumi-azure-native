@@ -115,6 +115,31 @@ class Bot(pulumi.CustomResource):
         """
         HealthBot resource definition
 
+        ## Example Usage
+        ### BotCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot = azure_native.healthbot.v20201208preview.Bot("bot",
+            bot_name="samplebotname",
+            location="East US",
+            resource_group_name="healthbotClient",
+            sku=azure_native.healthbot.v20201208preview.SkuResponseArgs(
+                name=azure_native.healthbot/v20201208preview.SkuName.F0,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthbot/v20201208preview:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot resource.
@@ -131,6 +156,31 @@ class Bot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         HealthBot resource definition
+
+        ## Example Usage
+        ### BotCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot = azure_native.healthbot.v20201208preview.Bot("bot",
+            bot_name="samplebotname",
+            location="East US",
+            resource_group_name="healthbotClient",
+            sku=azure_native.healthbot.v20201208preview.SkuResponseArgs(
+                name=azure_native.healthbot/v20201208preview.SkuName.F0,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthbot/v20201208preview:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.

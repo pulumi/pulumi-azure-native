@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.Security
     /// The security connector resource.
     /// API Version: 2022-08-01-preview.
     /// Previous API Version: 2021-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a security connector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityConnector = new AzureNative.Security.SecurityConnector("securityConnector", new()
+    ///     {
+    ///         EnvironmentData = new AzureNative.Security.Inputs.AwsEnvironmentDataArgs
+    ///         {
+    ///             EnvironmentType = "AwsAccount",
+    ///         },
+    ///         EnvironmentName = "AWS",
+    ///         HierarchyIdentifier = "exampleHierarchyId",
+    ///         Location = "Central US",
+    ///         Offerings = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.CspmMonitorAwsOfferingArgs
+    ///             {
+    ///                 NativeCloudConnection = new AzureNative.Security.Inputs.CspmMonitorAwsOfferingNativeCloudConnectionArgs
+    ///                 {
+    ///                     CloudRoleArn = "arn:aws:iam::00000000:role/ASCMonitor",
+    ///                 },
+    ///                 OfferingType = "CspmMonitorAws",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         SecurityConnectorName = "exampleSecurityConnectorName",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:SecurityConnector exampleSecurityConnectorName /subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/exampleResourceGroup/providers/Microsoft.Security/securityConnectors/exampleSecurityConnectorName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:SecurityConnector")]
     public partial class SecurityConnector : global::Pulumi.CustomResource

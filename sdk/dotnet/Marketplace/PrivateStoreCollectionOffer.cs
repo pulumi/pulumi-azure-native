@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.Marketplace
     /// The privateStore offer data structure.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateStoreOffer_update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateStoreCollectionOffer = new AzureNative.Marketplace.PrivateStoreCollectionOffer("privateStoreCollectionOffer", new()
+    ///     {
+    ///         CollectionId = "56a1a02d-8cf8-45df-bf37-d5f7120fcb3d",
+    ///         ETag = "\"9301f4fd-0000-0100-0000-5e248b350666\"",
+    ///         OfferId = "marketplacetestthirdparty.md-test-third-party-2",
+    ///         PrivateStoreId = "a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+    ///         SpecificPlanIdsLimitation = new[]
+    ///         {
+    ///             "0001",
+    ///             "0002",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:marketplace:PrivateStoreCollectionOffer marketplacetestthirdparty.md-test-third-party-2 /providers/Microsoft.Marketplace/privateStores/a0e28e55-90c4-41d8-8e34-bb7ef7775406/collections/56a1a02d-8cf8-45df-bf37-d5f7120fcb3d/offers/marketplacetestthirdparty.md-test-third-party-2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollectionOffer")]
     public partial class PrivateStoreCollectionOffer : global::Pulumi.CustomResource

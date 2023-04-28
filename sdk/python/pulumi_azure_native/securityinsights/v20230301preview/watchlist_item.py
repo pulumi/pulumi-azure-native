@@ -247,6 +247,37 @@ class WatchlistItem(pulumi.CustomResource):
         """
         Represents a Watchlist item in Azure Security Insights.
 
+        ## Example Usage
+        ### Creates or updates a watchlist item.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist_item = azure_native.securityinsights.v20230301preview.WatchlistItem("watchlistItem",
+            items_key_value={
+                "Business tier": "10.0.2.0/24",
+                "Data tier": "10.0.2.0/24",
+                "Gateway subnet": "10.0.255.224/27",
+                "Private DMZ in": "10.0.0.0/27",
+                "Public DMZ out": "10.0.0.96/27",
+                "Web Tier": "10.0.1.0/24",
+            },
+            resource_group_name="myRg",
+            watchlist_alias="highValueAsset",
+            watchlist_item_id="82ba292c-dc97-4dfc-969d-d4dd9e666842",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230301preview:WatchlistItem myresource1 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/Watchlists/highValueAsset/WatchlistItems/82ba292c-dc97-4dfc-969d-d4dd9e666842 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created: The time the watchlist item was created
@@ -271,6 +302,37 @@ class WatchlistItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Watchlist item in Azure Security Insights.
+
+        ## Example Usage
+        ### Creates or updates a watchlist item.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist_item = azure_native.securityinsights.v20230301preview.WatchlistItem("watchlistItem",
+            items_key_value={
+                "Business tier": "10.0.2.0/24",
+                "Data tier": "10.0.2.0/24",
+                "Gateway subnet": "10.0.255.224/27",
+                "Private DMZ in": "10.0.0.0/27",
+                "Public DMZ out": "10.0.0.96/27",
+                "Web Tier": "10.0.1.0/24",
+            },
+            resource_group_name="myRg",
+            watchlist_alias="highValueAsset",
+            watchlist_item_id="82ba292c-dc97-4dfc-969d-d4dd9e666842",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230301preview:WatchlistItem myresource1 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/Watchlists/highValueAsset/WatchlistItems/82ba292c-dc97-4dfc-969d-d4dd9e666842 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WatchlistItemArgs args: The arguments to use to populate this resource's properties.

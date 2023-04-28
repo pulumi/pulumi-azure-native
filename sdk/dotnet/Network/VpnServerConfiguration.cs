@@ -13,6 +13,133 @@ namespace Pulumi.AzureNative.Network
     /// VpnServerConfiguration Resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### VpnServerConfigurationCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpnServerConfiguration = new AzureNative.Network.VpnServerConfiguration("vpnServerConfiguration", new()
+    ///     {
+    ///         ConfigurationPolicyGroups = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VpnServerConfigurationPolicyGroupArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup1",
+    ///                 IsDefault = true,
+    ///                 Name = "policyGroup1",
+    ///                 PolicyMembers = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnServerConfigurationPolicyGroupMemberArgs
+    ///                     {
+    ///                         AttributeType = "RadiusAzureGroupId",
+    ///                         AttributeValue = "6ad1bd08",
+    ///                         Name = "policy1",
+    ///                     },
+    ///                 },
+    ///                 Priority = 0,
+    ///             },
+    ///             new AzureNative.Network.Inputs.VpnServerConfigurationPolicyGroupArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup2",
+    ///                 IsDefault = true,
+    ///                 Name = "policyGroup2",
+    ///                 PolicyMembers = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.VpnServerConfigurationPolicyGroupMemberArgs
+    ///                     {
+    ///                         AttributeType = "CertificateGroupId",
+    ///                         AttributeValue = "red.com",
+    ///                         Name = "policy2",
+    ///                     },
+    ///                 },
+    ///                 Priority = 0,
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         RadiusClientRootCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VpnServerConfigRadiusClientRootCertificateArgs
+    ///             {
+    ///                 Name = "vpnServerConfigRadiusClientRootCert1",
+    ///                 Thumbprint = "83FFBFC8848B5A5836C94D0112367E16148A286F",
+    ///             },
+    ///         },
+    ///         RadiusServerRootCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VpnServerConfigRadiusServerRootCertificateArgs
+    ///             {
+    ///                 Name = "vpnServerConfigRadiusServerRootCer1",
+    ///                 PublicCertData = "MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuM",
+    ///             },
+    ///         },
+    ///         RadiusServers = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.RadiusServerArgs
+    ///             {
+    ///                 RadiusServerAddress = "10.0.0.0",
+    ///                 RadiusServerScore = 25,
+    ///                 RadiusServerSecret = "radiusServerSecret",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VpnClientIpsecPolicies = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.IpsecPolicyArgs
+    ///             {
+    ///                 DhGroup = "DHGroup14",
+    ///                 IkeEncryption = "AES256",
+    ///                 IkeIntegrity = "SHA384",
+    ///                 IpsecEncryption = "AES256",
+    ///                 IpsecIntegrity = "SHA256",
+    ///                 PfsGroup = "PFS14",
+    ///                 SaDataSizeKilobytes = 429497,
+    ///                 SaLifeTimeSeconds = 86472,
+    ///             },
+    ///         },
+    ///         VpnClientRevokedCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VpnServerConfigVpnClientRevokedCertificateArgs
+    ///             {
+    ///                 Name = "vpnServerConfigVpnClientRevokedCert1",
+    ///                 Thumbprint = "83FFBFC8848B5A5836C94D0112367E16148A286F",
+    ///             },
+    ///         },
+    ///         VpnClientRootCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VpnServerConfigVpnClientRootCertificateArgs
+    ///             {
+    ///                 Name = "vpnServerConfigVpnClientRootCert1",
+    ///                 PublicCertData = "MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuN",
+    ///             },
+    ///         },
+    ///         VpnProtocols = new[]
+    ///         {
+    ///             "IkeV2",
+    ///         },
+    ///         VpnServerConfigurationName = "vpnServerConfiguration1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VpnServerConfiguration vpnServerConfiguration1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VpnServerConfiguration")]
     public partial class VpnServerConfiguration : global::Pulumi.CustomResource

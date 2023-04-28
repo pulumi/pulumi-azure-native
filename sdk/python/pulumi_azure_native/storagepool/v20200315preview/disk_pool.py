@@ -180,6 +180,42 @@ class DiskPool(pulumi.CustomResource):
         """
         Response for Disk pool request.
 
+        ## Example Usage
+        ### Create or Update Disk pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_pool = azure_native.storagepool.v20200315preview.DiskPool("diskPool",
+            availability_zones=["1"],
+            disk_pool_name="myDiskPool",
+            disks=[
+                {
+                    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_0",
+                },
+                {
+                    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+                },
+            ],
+            location="westus",
+            resource_group_name="myResourceGroup",
+            subnet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet",
+            tags={
+                "key": "value",
+            },
+            tier="Basic")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagepool/v20200315preview:DiskPool myDiskPool /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] additional_capabilities: List of additional capabilities for a Disk pool.
@@ -200,6 +236,42 @@ class DiskPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response for Disk pool request.
+
+        ## Example Usage
+        ### Create or Update Disk pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_pool = azure_native.storagepool.v20200315preview.DiskPool("diskPool",
+            availability_zones=["1"],
+            disk_pool_name="myDiskPool",
+            disks=[
+                {
+                    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_0",
+                },
+                {
+                    "id": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+                },
+            ],
+            location="westus",
+            resource_group_name="myResourceGroup",
+            subnet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet",
+            tags={
+                "key": "value",
+            },
+            tier="Basic")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagepool/v20200315preview:DiskPool myDiskPool /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiskPoolArgs args: The arguments to use to populate this resource's properties.

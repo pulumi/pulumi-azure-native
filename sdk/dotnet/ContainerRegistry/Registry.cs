@@ -13,6 +13,72 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// An object that represents a container registry.
     /// API Version: 2022-12-01.
     /// Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### RegistryCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registry = new AzureNative.ContainerRegistry.Registry("registry", new()
+    ///     {
+    ///         AdminUserEnabled = true,
+    ///         Location = "westus",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.ContainerRegistry.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RegistryCreateZoneRedundant
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registry = new AzureNative.ContainerRegistry.Registry("registry", new()
+    ///     {
+    ///         Location = "westus",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.ContainerRegistry.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///         ZoneRedundancy = "Enabled",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry:Registry myRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Registry")]
     public partial class Registry : global::Pulumi.CustomResource

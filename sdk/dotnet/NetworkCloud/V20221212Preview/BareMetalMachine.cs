@@ -9,6 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create or update bare metal machine
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bareMetalMachine = new AzureNative.NetworkCloud.V20221212Preview.BareMetalMachine("bareMetalMachine", new()
+    ///     {
+    ///         BareMetalMachineName = "bareMetalMachineName",
+    ///         BmcConnectionString = "bmcconnectionstring",
+    ///         BmcCredentials = new AzureNative.NetworkCloud.V20221212Preview.Inputs.AdministrativeCredentialsArgs
+    ///         {
+    ///             Password = "{password}",
+    ///             Username = "bmcuser",
+    ///         },
+    ///         BmcMacAddress = "00:00:4f:00:57:00",
+    ///         BootMacAddress = "00:00:4e:00:58:af",
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         MachineDetails = "User-provided machine details.",
+    ///         MachineName = "r01c001",
+    ///         MachineSkuId = "684E-3B16-399E",
+    ///         RackId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+    ///         RackSlot = 1,
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SerialNumber = "BM1219XXX",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud/v20221212preview:BareMetalMachine bareMetalMachineName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/bareMetalMachines/bareMetalMachineName 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:BareMetalMachine")]
     public partial class BareMetalMachine : global::Pulumi.CustomResource
     {

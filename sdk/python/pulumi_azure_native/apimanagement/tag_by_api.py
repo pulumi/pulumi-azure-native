@@ -95,6 +95,29 @@ class TagByApi(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateApiTag
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_by_api = azure_native.apimanagement.TagByApi("tagByApi",
+            api_id="5931a75ae4bbd512a88c680b",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tag_id="tagId1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:TagByApi tagId1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/tagId1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -112,6 +135,29 @@ class TagByApi(pulumi.CustomResource):
         Tag Contract details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateApiTag
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_by_api = azure_native.apimanagement.TagByApi("tagByApi",
+            api_id="5931a75ae4bbd512a88c680b",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tag_id="tagId1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:TagByApi tagId1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/tagId1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TagByApiArgs args: The arguments to use to populate this resource's properties.

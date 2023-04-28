@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * Value object for saved search results.
  * API Version: 2020-08-01.
  * Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### SavedSearchCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const savedSearch = new azure_native.operationalinsights.SavedSearch("savedSearch", {
+ *     category: "Saved Search Test Category",
+ *     displayName: "Create or Update Saved Search Test",
+ *     functionAlias: "heartbeat_func",
+ *     functionParameters: "a:int=1",
+ *     query: "Heartbeat | summarize Count() by Computer | take a",
+ *     resourceGroupName: "TestRG",
+ *     savedSearchId: "00000000-0000-0000-0000-00000000000",
+ *     tags: [{
+ *         name: "Group",
+ *         value: "Computer",
+ *     }],
+ *     version: 2,
+ *     workspaceName: "TestWS",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights:SavedSearch myresource1 subscriptions/00000000-0000-0000-0000-000000000005/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/AtlantisDemo/savedSearches/test-new-saved-search-id-2015 
+ * ```
  */
 export class SavedSearch extends pulumi.CustomResource {
     /**

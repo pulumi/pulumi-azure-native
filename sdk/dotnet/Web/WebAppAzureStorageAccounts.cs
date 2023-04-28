@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.Web
     /// AzureStorageInfo dictionary resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update Azure Storage Accounts
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppAzureStorageAccounts = new AzureNative.Web.WebAppAzureStorageAccounts("webAppAzureStorageAccounts", new()
+    ///     {
+    ///         Name = "sitef6141",
+    ///         Properties = 
+    ///         {
+    ///             { "account1", new AzureNative.Web.Inputs.AzureStorageInfoValueArgs
+    ///             {
+    ///                 AccessKey = "26515^%@#*",
+    ///                 AccountName = "testsa",
+    ///                 MountPath = "/mounts/a/files",
+    ///                 ShareName = "web",
+    ///                 Type = AzureNative.Web.AzureStorageType.AzureFiles,
+    ///             } },
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:WebAppAzureStorageAccounts web /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/web 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppAzureStorageAccounts")]
     public partial class WebAppAzureStorageAccounts : global::Pulumi.CustomResource

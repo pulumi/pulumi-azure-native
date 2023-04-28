@@ -9,6 +9,147 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+ *
+ * ## Example Usage
+ * ### Put a node type with auto-scale parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nodeType = new azure_native.servicefabric.v20210901privatepreview.NodeType("nodeType", {
+ *     capacities: {
+ *         ClientConnections: "65536",
+ *     },
+ *     clusterName: "myCluster",
+ *     dataDiskSizeGB: 200,
+ *     dataDiskType: "Premium_LRS",
+ *     isPrimary: false,
+ *     isStateless: true,
+ *     multiplePlacementGroups: true,
+ *     nodeTypeName: "BE",
+ *     placementProperties: {
+ *         HasSSD: "true",
+ *         NodeColor: "green",
+ *         SomeProperty: "5",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     vmExtensions: [{
+ *         autoUpgradeMinorVersion: true,
+ *         name: "Microsoft.Azure.Geneva.GenevaMonitoring",
+ *         publisher: "Microsoft.Azure.Geneva",
+ *         settings: {},
+ *         type: "GenevaMonitoring",
+ *         typeHandlerVersion: "2.0",
+ *     }],
+ *     vmImageOffer: "WindowsServer",
+ *     vmImagePublisher: "MicrosoftWindowsServer",
+ *     vmImageSku: "2016-Datacenter-Server-Core",
+ *     vmImageVersion: "latest",
+ *     vmInstanceCount: -1,
+ *     vmManagedIdentity: {
+ *         userAssignedIdentities: [
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+ *         ],
+ *     },
+ *     vmSecrets: [{
+ *         sourceVault: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+ *         },
+ *         vaultCertificates: [{
+ *             certificateStore: "My",
+ *             certificateUrl: "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+ *         }],
+ *     }],
+ *     vmSize: "Standard_DS3",
+ * });
+ *
+ * ```
+ * ### Put a node type with maximum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nodeType = new azure_native.servicefabric.v20210901privatepreview.NodeType("nodeType", {
+ *     capacities: {
+ *         ClientConnections: "65536",
+ *     },
+ *     clusterName: "myCluster",
+ *     dataDiskSizeGB: 200,
+ *     dataDiskType: "Premium_LRS",
+ *     isPrimary: false,
+ *     isStateless: true,
+ *     multiplePlacementGroups: true,
+ *     nodeTypeName: "BE",
+ *     placementProperties: {
+ *         HasSSD: "true",
+ *         NodeColor: "green",
+ *         SomeProperty: "5",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     vmExtensions: [{
+ *         autoUpgradeMinorVersion: true,
+ *         name: "Microsoft.Azure.Geneva.GenevaMonitoring",
+ *         publisher: "Microsoft.Azure.Geneva",
+ *         settings: {},
+ *         type: "GenevaMonitoring",
+ *         typeHandlerVersion: "2.0",
+ *     }],
+ *     vmImageOffer: "WindowsServer",
+ *     vmImagePublisher: "MicrosoftWindowsServer",
+ *     vmImageSku: "2016-Datacenter-Server-Core",
+ *     vmImageVersion: "latest",
+ *     vmInstanceCount: 10,
+ *     vmManagedIdentity: {
+ *         userAssignedIdentities: [
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+ *         ],
+ *     },
+ *     vmSecrets: [{
+ *         sourceVault: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+ *         },
+ *         vaultCertificates: [{
+ *             certificateStore: "My",
+ *             certificateUrl: "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+ *         }],
+ *     }],
+ *     vmSize: "Standard_DS3",
+ * });
+ *
+ * ```
+ * ### Put a node type with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nodeType = new azure_native.servicefabric.v20210901privatepreview.NodeType("nodeType", {
+ *     clusterName: "myCluster",
+ *     dataDiskSizeGB: 200,
+ *     isPrimary: false,
+ *     nodeTypeName: "BE",
+ *     resourceGroupName: "resRg",
+ *     vmImageOffer: "WindowsServer",
+ *     vmImagePublisher: "MicrosoftWindowsServer",
+ *     vmImageSku: "2016-Datacenter-Server-Core",
+ *     vmImageVersion: "latest",
+ *     vmInstanceCount: 10,
+ *     vmSize: "Standard_D3",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabric/v20210901privatepreview:NodeType BE /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster/nodeTypes/BE 
+ * ```
  */
 export class NodeType extends pulumi.CustomResource {
     /**

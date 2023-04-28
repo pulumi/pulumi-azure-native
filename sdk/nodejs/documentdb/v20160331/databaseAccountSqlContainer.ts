@@ -10,6 +10,68 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB container.
  *
+ * ## Example Usage
+ * ### CosmosDBSqlContainerCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccountSqlContainer = new azure_native.documentdb.v20160331.DatabaseAccountSqlContainer("databaseAccountSqlContainer", {
+ *     accountName: "ddb1",
+ *     containerName: "containerName",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         conflictResolutionPolicy: {
+ *             conflictResolutionPath: "/path",
+ *             mode: "LastWriterWins",
+ *         },
+ *         defaultTtl: 100,
+ *         id: "containerName",
+ *         indexingPolicy: {
+ *             automatic: true,
+ *             excludedPaths: [],
+ *             includedPaths: [{
+ *                 indexes: [
+ *                     {
+ *                         dataType: "String",
+ *                         kind: "Range",
+ *                         precision: -1,
+ *                     },
+ *                     {
+ *                         dataType: "Number",
+ *                         kind: "Range",
+ *                         precision: -1,
+ *                     },
+ *                 ],
+ *                 path: "/*",
+ *             }],
+ *             indexingMode: "Consistent",
+ *         },
+ *         partitionKey: {
+ *             kind: "Hash",
+ *             paths: ["/AccountNumber"],
+ *         },
+ *         uniqueKeyPolicy: {
+ *             uniqueKeys: [{
+ *                 paths: ["/testPath"],
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountSqlContainer containerName containerName 
+ * ```
+ *
  * @deprecated Version 2016-03-31 will be removed in v2 of the provider.
  */
 export class DatabaseAccountSqlContainer extends pulumi.CustomResource {

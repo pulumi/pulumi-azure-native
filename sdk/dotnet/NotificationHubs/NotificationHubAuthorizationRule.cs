@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.NotificationHubs
     /// Description of a Namespace AuthorizationRules.
     /// API Version: 2017-04-01.
     /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### NotificationHubAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var notificationHubAuthorizationRule = new AzureNative.NotificationHubs.NotificationHubAuthorizationRule("notificationHubAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "DefaultListenSharedAccessSignature",
+    ///         NamespaceName = "nh-sdk-ns",
+    ///         NotificationHubName = "nh-sdk-hub",
+    ///         Properties = new AzureNative.NotificationHubs.Inputs.SharedAccessAuthorizationRulePropertiesArgs
+    ///         {
+    ///             Rights = new[]
+    ///             {
+    ///                 AzureNative.NotificationHubs.AccessRights.Listen,
+    ///                 AzureNative.NotificationHubs.AccessRights.Send,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "5ktrial",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:notificationhubs:NotificationHubAuthorizationRule DefaultListenSharedAccessSignature /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/5ktrial/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/NotificationHubs/nh-sdk-hub/AuthorizationRules/DefaultListenSharedAccessSignature 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs:NotificationHubAuthorizationRule")]
     public partial class NotificationHubAuthorizationRule : global::Pulumi.CustomResource

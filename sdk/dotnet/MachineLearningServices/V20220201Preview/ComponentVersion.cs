@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Component Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var componentVersion = new AzureNative.MachineLearningServices.V20220201Preview.ComponentVersion("componentVersion", new()
+    ///     {
+    ///         ComponentVersionDetails = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.ComponentVersionArgs
+    ///         {
+    ///             ComponentSpec = 
+    ///             {
+    ///                 { "8ced901b-d826-477d-bfef-329da9672513", null },
+    ///             },
+    ///             Description = "string",
+    ///             IsAnonymous = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20220201preview:ComponentVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:ComponentVersion")]
     public partial class ComponentVersion : global::Pulumi.CustomResource

@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Server communication link.
+ *
+ * ## Example Usage
+ * ### Create a server communication link
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverCommunicationLink = new azure_native.sql.v20140401.ServerCommunicationLink("serverCommunicationLink", {
+ *     communicationLinkName: "link1",
+ *     partnerServer: "sqldcrudtest-test",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverName: "sqlcrudtest-4645",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20140401:ServerCommunicationLink link1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/communicationLinks/link1 
+ * ```
  */
 export class ServerCommunicationLink extends pulumi.CustomResource {
     /**

@@ -132,6 +132,35 @@ class Snapshot(pulumi.CustomResource):
         """
         A node pool snapshot resource.
 
+        ## Example Usage
+        ### Create/Update Snapshot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.containerservice.v20230202preview.Snapshot("snapshot",
+            creation_data=azure_native.containerservice.v20230202preview.CreationDataArgs(
+                source_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool0",
+            ),
+            location="westus",
+            resource_group_name="rg1",
+            resource_name_="snapshot1",
+            tags={
+                "key1": "val1",
+                "key2": "val2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20230202preview:Snapshot snapshot1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: CreationData to be used to specify the source agent pool resource ID to create this snapshot.
@@ -149,6 +178,35 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A node pool snapshot resource.
+
+        ## Example Usage
+        ### Create/Update Snapshot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.containerservice.v20230202preview.Snapshot("snapshot",
+            creation_data=azure_native.containerservice.v20230202preview.CreationDataArgs(
+                source_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool0",
+            ),
+            location="westus",
+            resource_group_name="rg1",
+            resource_name_="snapshot1",
+            tags={
+                "key1": "val1",
+                "key2": "val2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20230202preview:Snapshot snapshot1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

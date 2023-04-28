@@ -11,6 +11,130 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Blueprint artifact deploys Azure resource manager template.
+    /// 
+    /// ## Example Usage
+    /// ### ARMTemplateArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateArtifact = new AzureNative.Blueprint.V20171111Preview.TemplateArtifact("templateArtifact", new()
+    ///     {
+    ///         ArtifactName = "storageTemplate",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         Kind = "template",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///         Parameters = 
+    ///         {
+    ///             { "storageAccountType", null },
+    ///         },
+    ///         ResourceGroup = "storageRG",
+    ///         Template = 
+    ///         {
+    ///             { "contentVersion", "1.0.0.0" },
+    ///             { "outputs", 
+    ///             {
+    ///                 { "storageAccountName", 
+    ///                 {
+    ///                     { "type", "string" },
+    ///                     { "value", "[variables('storageAccountName')]" },
+    ///                 } },
+    ///             } },
+    ///             { "parameters", 
+    ///             {
+    ///                 { "storageAccountType", 
+    ///                 {
+    ///                     { "allowedValues", new[]
+    ///                     {
+    ///                         "Standard_LRS",
+    ///                         "Standard_GRS",
+    ///                         "Standard_ZRS",
+    ///                         "Premium_LRS",
+    ///                     } },
+    ///                     { "defaultValue", "Standard_LRS" },
+    ///                     { "metadata", 
+    ///                     {
+    ///                         { "description", "Storage Account type" },
+    ///                     } },
+    ///                     { "type", "string" },
+    ///                 } },
+    ///             } },
+    ///             { "resources", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "apiVersion", "2016-01-01" },
+    ///                     { "kind", "Storage" },
+    ///                     { "location", "[resourceGroup().location]" },
+    ///                     { "name", "[variables('storageAccountName')]" },
+    ///                     { "properties", null },
+    ///                     { "sku", 
+    ///                     {
+    ///                         { "name", "[parameters('storageAccountType')]" },
+    ///                     } },
+    ///                     { "type", "Microsoft.Storage/storageAccounts" },
+    ///                 },
+    ///             } },
+    ///             { "variables", 
+    ///             {
+    ///                 { "storageAccountName", "[concat(uniquestring(resourceGroup().id), 'standardsa')]" },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PolicyAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateArtifact = new AzureNative.Blueprint.V20171111Preview.TemplateArtifact("templateArtifact", new()
+    ///     {
+    ///         ArtifactName = "costCenterPolicy",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RoleAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateArtifact = new AzureNative.Blueprint.V20171111Preview.TemplateArtifact("templateArtifact", new()
+    ///     {
+    ///         ArtifactName = "ownerAssignment",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blueprint/v20171111preview:TemplateArtifact ownerAssignment /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:TemplateArtifact")]
     public partial class TemplateArtifact : global::Pulumi.CustomResource

@@ -115,6 +115,37 @@ class DataPool(pulumi.CustomResource):
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Put Data Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_pool = azure_native.autonomousdevelopmentplatform.DataPool("dataPool",
+            account_name="sampleacct",
+            data_pool_name="sampledp",
+            locations=[{
+                "encryption": azure_native.autonomousdevelopmentplatform.DataPoolEncryptionArgs(
+                    key_name="key1",
+                    key_vault_uri="https://vaulturi",
+                    key_version="123",
+                    user_assigned_identity="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+                ),
+                "name": "westus",
+            }],
+            resource_group_name="adpClient")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:autonomousdevelopmentplatform:DataPool dp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.AutonomousDevelopmentPlatform/accounts/adp1/dataPools/dp1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the ADP account
@@ -133,6 +164,37 @@ class DataPool(pulumi.CustomResource):
         ADP Data Pool
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Put Data Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_pool = azure_native.autonomousdevelopmentplatform.DataPool("dataPool",
+            account_name="sampleacct",
+            data_pool_name="sampledp",
+            locations=[{
+                "encryption": azure_native.autonomousdevelopmentplatform.DataPoolEncryptionArgs(
+                    key_name="key1",
+                    key_vault_uri="https://vaulturi",
+                    key_version="123",
+                    user_assigned_identity="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+                ),
+                "name": "westus",
+            }],
+            resource_group_name="adpClient")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:autonomousdevelopmentplatform:DataPool dp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.AutonomousDevelopmentPlatform/accounts/adp1/dataPools/dp1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataPoolArgs args: The arguments to use to populate this resource's properties.

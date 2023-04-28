@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210315Preview
 {
     /// <summary>
     /// Custom Locations definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Custom Location
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customLocation = new AzureNative.ExtendedLocation.V20210315Preview.CustomLocation("customLocation", new()
+    ///     {
+    ///         Authentication = new AzureNative.ExtendedLocation.V20210315Preview.Inputs.CustomLocationPropertiesAuthenticationArgs
+    ///         {
+    ///             Type = "KubeConfig",
+    ///             Value = "&lt;base64 KubeConfig&gt;",
+    ///         },
+    ///         ClusterExtensionIds = new[]
+    ///         {
+    ///             "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedCluster/someCluster/Microsoft.KubernetesConfiguration/clusterExtensions/fooExtension",
+    ///         },
+    ///         DisplayName = "customLocationLocation01",
+    ///         HostResourceId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ContainerService/managedClusters/cluster01",
+    ///         Location = "West US",
+    ///         Namespace = "namespace01",
+    ///         ResourceGroupName = "testresourcegroup",
+    ///         ResourceName = "customLocation01",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:extendedlocation/v20210315preview:CustomLocation customLocation01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/customLocation01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:extendedlocation/v20210315preview:CustomLocation")]
     public partial class CustomLocation : global::Pulumi.CustomResource

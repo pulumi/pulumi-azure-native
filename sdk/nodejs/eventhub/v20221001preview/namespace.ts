@@ -9,6 +9,47 @@ import * as utilities from "../../utilities";
 
 /**
  * Single Namespace item in List or Get Operation
+ *
+ * ## Example Usage
+ * ### NamespaceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespace = new azure_native.eventhub.v20221001preview.Namespace("namespace", {
+ *     clusterArmId: "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/clusters/enc-test",
+ *     encryption: {
+ *         keySource: azure_native.eventhub.v20221001preview.KeySource.Microsoft_KeyVault,
+ *         keyVaultProperties: [{
+ *             identity: {
+ *                 userAssignedIdentity: "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1",
+ *             },
+ *             keyName: "Samplekey",
+ *             keyVaultUri: "https://aprao-keyvault-user.vault-int.azure-int.net/",
+ *         }],
+ *     },
+ *     identity: {
+ *         type: azure_native.eventhub.v20221001preview.ManagedServiceIdentityType.SystemAssigned_UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1": {},
+ *             "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud2": {},
+ *         },
+ *     },
+ *     location: "East US",
+ *     namespaceName: "NamespaceSample",
+ *     resourceGroupName: "ResurceGroupSample",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub/v20221001preview:Namespace NamespaceSample /subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/namespaces/NamespaceSample 
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

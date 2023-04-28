@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * The relationship resource format.
+ *
+ * ## Example Usage
+ * ### Relationships_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const relationship = new azure_native.customerinsights.v20170426.Relationship("relationship", {
+ *     cardinality: azure_native.customerinsights.v20170426.CardinalityTypes.OneToOne,
+ *     description: {
+ *         "en-us": "Relationship Description",
+ *     },
+ *     displayName: {
+ *         "en-us": "Relationship DisplayName",
+ *     },
+ *     fields: [],
+ *     hubName: "sdkTestHub",
+ *     profileType: "testProfile2326994",
+ *     relatedProfileType: "testProfile2326994",
+ *     relationshipName: "SomeRelationship",
+ *     resourceGroupName: "TestHubRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights/v20170426:Relationship sdkTestHub/testProfile2326994 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/relationships/SomeRelationship 
+ * ```
  */
 export class Relationship extends pulumi.CustomResource {
     /**

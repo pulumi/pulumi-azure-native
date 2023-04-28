@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.Network.V20220701
 {
     /// <summary>
     /// Describes a DNS forwarding ruleset.
+    /// 
+    /// ## Example Usage
+    /// ### Upsert DNS forwarding ruleset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dnsForwardingRuleset = new AzureNative.Network.V20220701.DnsForwardingRuleset("dnsForwardingRuleset", new()
+    ///     {
+    ///         DnsForwardingRulesetName = "samplednsForwardingRuleset",
+    ///         DnsResolverOutboundEndpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220701.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint0",
+    ///             },
+    ///             new AzureNative.Network.V20220701.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint1",
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "sampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220701:DnsForwardingRuleset sampleDnsForwardingRuleset /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRulesets/sampleDnsForwardingRuleset 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220701:DnsForwardingRuleset")]
     public partial class DnsForwardingRuleset : global::Pulumi.CustomResource

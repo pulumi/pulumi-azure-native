@@ -96,6 +96,28 @@ class DdosProtectionPlan(pulumi.CustomResource):
         """
         A DDoS protection plan in a resource group.
 
+        ## Example Usage
+        ### Create DDoS protection plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ddos_protection_plan = azure_native.network.v20220501.DdosProtectionPlan("ddosProtectionPlan",
+            ddos_protection_plan_name="test-plan",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220501:DdosProtectionPlan test-plan /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ddosProtectionPlans/test-plan 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ddos_protection_plan_name: The name of the DDoS protection plan.
@@ -111,6 +133,28 @@ class DdosProtectionPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A DDoS protection plan in a resource group.
+
+        ## Example Usage
+        ### Create DDoS protection plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ddos_protection_plan = azure_native.network.v20220501.DdosProtectionPlan("ddosProtectionPlan",
+            ddos_protection_plan_name="test-plan",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220501:DdosProtectionPlan test-plan /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ddosProtectionPlans/test-plan 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DdosProtectionPlanArgs args: The arguments to use to populate this resource's properties.

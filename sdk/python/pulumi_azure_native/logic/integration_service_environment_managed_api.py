@@ -149,6 +149,29 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
         API Version: 2019-05-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Gets the integration service environment managed Apis
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_service_environment_managed_api = azure_native.logic.IntegrationServiceEnvironmentManagedApi("integrationServiceEnvironmentManagedApi",
+            api_name="servicebus",
+            integration_service_environment_name="testIntegrationServiceEnvironment",
+            location="brazilsouth",
+            resource_group="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationServiceEnvironmentManagedApi servicebus /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga/managedApis/servicebus 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_name: The api name.
@@ -169,6 +192,29 @@ class IntegrationServiceEnvironmentManagedApi(pulumi.CustomResource):
         The integration service environment managed api.
         API Version: 2019-05-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Gets the integration service environment managed Apis
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_service_environment_managed_api = azure_native.logic.IntegrationServiceEnvironmentManagedApi("integrationServiceEnvironmentManagedApi",
+            api_name="servicebus",
+            integration_service_environment_name="testIntegrationServiceEnvironment",
+            location="brazilsouth",
+            resource_group="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationServiceEnvironmentManagedApi servicebus /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga/managedApis/servicebus 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IntegrationServiceEnvironmentManagedApiArgs args: The arguments to use to populate this resource's properties.

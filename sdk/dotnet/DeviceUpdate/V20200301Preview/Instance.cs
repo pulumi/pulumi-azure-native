@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
 {
     /// <summary>
     /// Device Update instance details.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates Instance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var instance = new AzureNative.DeviceUpdate.V20200301Preview.Instance("instance", new()
+    ///     {
+    ///         AccountName = "contoso",
+    ///         DiagnosticStorageProperties = new AzureNative.DeviceUpdate.V20200301Preview.Inputs.DiagnosticStoragePropertiesArgs
+    ///         {
+    ///             AuthenticationType = "KeyBased",
+    ///             ConnectionString = "string",
+    ///             ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/adu-resource-group/providers/Microsoft.Storage/storageAccounts/testAccount",
+    ///         },
+    ///         EnableDiagnostics = false,
+    ///         InstanceName = "blue",
+    ///         IotHubs = new[]
+    ///         {
+    ///             new AzureNative.DeviceUpdate.V20200301Preview.Inputs.IotHubSettingsArgs
+    ///             {
+    ///                 EventHubConnectionString = "string",
+    ///                 IoTHubConnectionString = "string",
+    ///                 ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub",
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deviceupdate/v20200301preview:Instance blue /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso/instances/blue 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate/v20200301preview:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

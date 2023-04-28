@@ -96,6 +96,13 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
                  __props__=None):
         """
         AzureStorageInfo dictionary resource.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:WebAppAzureStorageAccounts myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/azurestorageaccounts 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,6 +119,13 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AzureStorageInfo dictionary resource.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:WebAppAzureStorageAccounts myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/azurestorageaccounts 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppAzureStorageAccountsArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20200101PrivatePreview
 {
     /// <summary>
     /// A MariaDB Server key.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a MariaDB Server key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverKey = new AzureNative.DBforMariaDB.V20200101PrivatePreview.ServerKey("serverKey", new()
+    ///     {
+    ///         KeyName = "someVault_someKey_01234567890123456789012345678901",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerKeyType = "AzureKeyVault",
+    ///         ServerName = "testserver",
+    ///         Uri = "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformariadb/v20200101privatepreview:ServerKey omeVault_someKey_01234567890123456789012345678901 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMariaDB/servers/testserver/keys/someVault_someKey_01234567890123456789012345678901 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb/v20200101privatepreview:ServerKey")]
     public partial class ServerKey : global::Pulumi.CustomResource

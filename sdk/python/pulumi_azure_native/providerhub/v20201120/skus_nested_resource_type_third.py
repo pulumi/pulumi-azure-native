@@ -139,7 +139,48 @@ class SkusNestedResourceTypeThird(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a SkusNestedResourceTypeThird resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Skus_CreateOrUpdateNestedResourceTypeThird
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        skus_nested_resource_type_third = azure_native.providerhub.v20201120.SkusNestedResourceTypeThird("skusNestedResourceTypeThird",
+            nested_resource_type_first="nestedResourceTypeFirst",
+            nested_resource_type_second="nestedResourceTypeSecond",
+            nested_resource_type_third="nestedResourceTypeThird",
+            properties=azure_native.providerhub.v20201120.SkuResourceResponsePropertiesArgs(
+                sku_settings=[
+                    {
+                        "kind": "Standard",
+                        "name": "freeSku",
+                        "tier": "Tier1",
+                    },
+                    {
+                        "costs": [azure_native.providerhub.v20201120.SkuCostArgs(
+                            meter_id="xxx",
+                        )],
+                        "kind": "Premium",
+                        "name": "premiumSku",
+                        "tier": "Tier2",
+                    },
+                ],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="testResourceType",
+            sku="testSku")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20201120:SkusNestedResourceTypeThird Microsoft.Contoso/ /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/ 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] nested_resource_type_first: The first child resource type.
@@ -156,7 +197,48 @@ class SkusNestedResourceTypeThird(pulumi.CustomResource):
                  args: SkusNestedResourceTypeThirdArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SkusNestedResourceTypeThird resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Skus_CreateOrUpdateNestedResourceTypeThird
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        skus_nested_resource_type_third = azure_native.providerhub.v20201120.SkusNestedResourceTypeThird("skusNestedResourceTypeThird",
+            nested_resource_type_first="nestedResourceTypeFirst",
+            nested_resource_type_second="nestedResourceTypeSecond",
+            nested_resource_type_third="nestedResourceTypeThird",
+            properties=azure_native.providerhub.v20201120.SkuResourceResponsePropertiesArgs(
+                sku_settings=[
+                    {
+                        "kind": "Standard",
+                        "name": "freeSku",
+                        "tier": "Tier1",
+                    },
+                    {
+                        "costs": [azure_native.providerhub.v20201120.SkuCostArgs(
+                            meter_id="xxx",
+                        )],
+                        "kind": "Premium",
+                        "name": "premiumSku",
+                        "tier": "Tier2",
+                    },
+                ],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="testResourceType",
+            sku="testSku")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20201120:SkusNestedResourceTypeThird Microsoft.Contoso/ /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/ 
+        ```
+
         :param str resource_name: The name of the resource.
         :param SkusNestedResourceTypeThirdArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

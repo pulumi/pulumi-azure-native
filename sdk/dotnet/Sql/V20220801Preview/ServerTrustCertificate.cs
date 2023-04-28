@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+    /// 
+    /// ## Example Usage
+    /// ### Create server trust certificate.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverTrustCertificate = new AzureNative.Sql.V20220801Preview.ServerTrustCertificate("serverTrustCertificate", new()
+    ///     {
+    ///         CertificateName = "customerCertificateName",
+    ///         ManagedInstanceName = "testcl",
+    ///         PublicBlob = "308203AE30820296A0030201020210",
+    ///         ResourceGroupName = "testrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:ServerTrustCertificate customerCertificateName /subscriptions/0574222d-5c7f-489c-a172-b3013eafab53/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testcl/serverTrustCertificates/customerCertificateName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:ServerTrustCertificate")]
     public partial class ServerTrustCertificate : global::Pulumi.CustomResource

@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
 {
     /// <summary>
     /// The resource representation of a rollout step.
+    /// 
+    /// ## Example Usage
+    /// ### Create deployment step
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var step = new AzureNative.DeploymentManager.V20180901Preview.Step("step", new()
+    ///     {
+    ///         Location = "centralus",
+    ///         Properties = new AzureNative.DeploymentManager.V20180901Preview.Inputs.WaitStepPropertiesArgs
+    ///         {
+    ///             Attributes = new AzureNative.DeploymentManager.V20180901Preview.Inputs.WaitStepAttributesArgs
+    ///             {
+    ///                 Duration = "PT20M",
+    ///             },
+    ///             StepType = "Wait",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StepName = "deploymentStep1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deploymentmanager/v20180901preview:Step deploymentStep1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/steps/{stepName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:Step")]

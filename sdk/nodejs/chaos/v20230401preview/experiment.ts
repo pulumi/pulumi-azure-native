@@ -9,6 +9,58 @@ import * as utilities from "../../utilities";
 
 /**
  * Model that represents a Experiment resource.
+ *
+ * ## Example Usage
+ * ### Create/update a Experiment in a resource group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const experiment = new azure_native.chaos.v20230401preview.Experiment("experiment", {
+ *     experimentName: "exampleExperiment",
+ *     identity: {
+ *         type: azure_native.chaos.v20230401preview.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "eastus2euap",
+ *     properties: {
+ *         selectors: [{
+ *             id: "selector1",
+ *             targets: [{
+ *                 id: "/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine",
+ *                 type: azure_native.chaos.v20230401preview.TargetReferenceType.ChaosTarget,
+ *             }],
+ *             type: azure_native.chaos.v20230401preview.SelectorType.List,
+ *         }],
+ *         steps: [{
+ *             branches: [{
+ *                 actions: [{
+ *                     duration: "PT10M",
+ *                     name: "urn:csci:microsoft:virtualMachine:shutdown/1.0",
+ *                     parameters: [{
+ *                         key: "abruptShutdown",
+ *                         value: "false",
+ *                     }],
+ *                     selectorId: "selector1",
+ *                     type: "continuous",
+ *                 }],
+ *                 name: "branch1",
+ *             }],
+ *             name: "step1",
+ *         }],
+ *     },
+ *     resourceGroupName: "exampleRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:chaos/v20230401preview:Experiment exampleExperiment /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment 
+ * ```
  */
 export class Experiment extends pulumi.CustomResource {
     /**

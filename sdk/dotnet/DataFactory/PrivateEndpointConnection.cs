@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.DataFactory
     /// Private Endpoint Connection ARM resource.
     /// API Version: 2018-06-01.
     /// Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Approves or rejects a private endpoint connection for a factory.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.DataFactory.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         PrivateEndpointConnectionName = "connection",
+    ///         Properties = new AzureNative.DataFactory.Inputs.PrivateLinkConnectionApprovalRequestArgs
+    ///         {
+    ///             PrivateEndpoint = new AzureNative.DataFactory.Inputs.PrivateEndpointArgs
+    ///             {
+    ///                 Id = "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/privateEndpoints/myPrivateEndpoint",
+    ///             },
+    ///             PrivateLinkServiceConnectionState = new AzureNative.DataFactory.Inputs.PrivateLinkConnectionStateArgs
+    ///             {
+    ///                 ActionsRequired = "",
+    ///                 Description = "Approved by admin.",
+    ///                 Status = "Approved",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory:PrivateEndpointConnection exampleFactoryName /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

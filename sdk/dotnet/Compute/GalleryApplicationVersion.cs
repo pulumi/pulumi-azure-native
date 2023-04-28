@@ -13,6 +13,86 @@ namespace Pulumi.AzureNative.Compute
     /// Specifies information about the gallery Application Version that you want to create or update.
     /// API Version: 2022-03-03.
     /// Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery Application Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var galleryApplicationVersion = new AzureNative.Compute.GalleryApplicationVersion("galleryApplicationVersion", new()
+    ///     {
+    ///         GalleryApplicationName = "myGalleryApplicationName",
+    ///         GalleryApplicationVersionName = "1.0.0",
+    ///         GalleryName = "myGalleryName",
+    ///         Location = "West US",
+    ///         PublishingProfile = new AzureNative.Compute.Inputs.GalleryApplicationVersionPublishingProfileArgs
+    ///         {
+    ///             CustomActions = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.GalleryApplicationCustomActionArgs
+    ///                 {
+    ///                     Description = "This is the custom action description.",
+    ///                     Name = "myCustomAction",
+    ///                     Parameters = new[]
+    ///                     {
+    ///                         new AzureNative.Compute.Inputs.GalleryApplicationCustomActionParameterArgs
+    ///                         {
+    ///                             DefaultValue = "default value of parameter.",
+    ///                             Description = "This is the description of the parameter",
+    ///                             Name = "myCustomActionParameter",
+    ///                             Required = false,
+    ///                             Type = AzureNative.Compute.GalleryApplicationCustomActionParameterType.String,
+    ///                         },
+    ///                     },
+    ///                     Script = "myCustomActionScript",
+    ///                 },
+    ///             },
+    ///             EndOfLifeDate = "2019-07-01T07:00:00Z",
+    ///             ManageActions = new AzureNative.Compute.Inputs.UserArtifactManageArgs
+    ///             {
+    ///                 Install = "powershell -command \"Expand-Archive -Path package.zip -DestinationPath C:\\package\"",
+    ///                 Remove = "del C:\\package ",
+    ///             },
+    ///             ReplicaCount = 1,
+    ///             Source = new AzureNative.Compute.Inputs.UserArtifactSourceArgs
+    ///             {
+    ///                 MediaLink = "https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}",
+    ///             },
+    ///             StorageAccountType = "Standard_LRS",
+    ///             TargetRegions = new[]
+    ///             {
+    ///                 new AzureNative.Compute.Inputs.TargetRegionArgs
+    ///                 {
+    ///                     ExcludeFromLatest = false,
+    ///                     Name = "West US",
+    ///                     RegionalReplicaCount = 1,
+    ///                     StorageAccountType = "Standard_LRS",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SafetyProfile = new AzureNative.Compute.Inputs.GalleryApplicationVersionSafetyProfileArgs
+    ///         {
+    ///             AllowDeletionOfReplicatedLocations = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:GalleryApplicationVersion 1.0.0 /subscriptions/01523d7c-60da-455e-adef-521b547922c4/resourceGroups/galleryPsTestRg98/providers/Microsoft.Compute/galleries/galleryPsTestGallery6165/applications/galleryPsTestGalleryApplication7825/versions/1.0.0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:GalleryApplicationVersion")]
     public partial class GalleryApplicationVersion : global::Pulumi.CustomResource

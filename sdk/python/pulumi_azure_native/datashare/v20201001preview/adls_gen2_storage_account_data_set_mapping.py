@@ -193,6 +193,113 @@ class ADLSGen2StorageAccountDataSetMapping(pulumi.CustomResource):
         """
         ADLSGen2 storage account data set mapping.
 
+        ## Example Usage
+        ### DataSetMappings_ADLSGen2StorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            container_name="Container1",
+            data_set_id="a08f184b-0567-4b11-ba22-a1199336d226",
+            data_set_mapping_name="DatasetMapping1",
+            folder="destinationFolder",
+            kind="AdlsGen2StorageAccount",
+            mount_path="foldera/folderd1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1",
+            storage_account_resource_id="/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Storage/storageaccounts/storageaccount1")
+
+        ```
+        ### DataSetMappings_BlobStorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDB_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDW_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="consumerAccount",
+            data_set_mapping_name="datasetMappingName1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping datasetMappingName /subscriptions/4e745bb7-c420-479b-b0d6-a0f92d48a227/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/consumerAccount/shareSubscriptions/ShareSubscription1/dataSetMappings/datasetMappingName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -215,6 +322,113 @@ class ADLSGen2StorageAccountDataSetMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ADLSGen2 storage account data set mapping.
+
+        ## Example Usage
+        ### DataSetMappings_ADLSGen2StorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            container_name="Container1",
+            data_set_id="a08f184b-0567-4b11-ba22-a1199336d226",
+            data_set_mapping_name="DatasetMapping1",
+            folder="destinationFolder",
+            kind="AdlsGen2StorageAccount",
+            mount_path="foldera/folderd1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1",
+            storage_account_resource_id="/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Storage/storageaccounts/storageaccount1")
+
+        ```
+        ### DataSetMappings_BlobStorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDB_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDW_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_storage_account_data_set_mapping = azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping",
+            account_name="consumerAccount",
+            data_set_mapping_name="datasetMappingName1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping datasetMappingName /subscriptions/4e745bb7-c420-479b-b0d6-a0f92d48a227/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/consumerAccount/shareSubscriptions/ShareSubscription1/dataSetMappings/datasetMappingName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ADLSGen2StorageAccountDataSetMappingArgs args: The arguments to use to populate this resource's properties.

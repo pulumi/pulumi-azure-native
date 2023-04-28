@@ -9,6 +9,85 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot resource.
+ *
+ * ## Example Usage
+ * ### Create a snapshot by importing an unmanaged blob from a different subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const snapshot = new azure_native.compute.v20220702.Snapshot("snapshot", {
+ *     creationData: {
+ *         createOption: "Import",
+ *         sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+ *         storageAccountId: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     snapshotName: "mySnapshot1",
+ * });
+ *
+ * ```
+ * ### Create a snapshot by importing an unmanaged blob from the same subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const snapshot = new azure_native.compute.v20220702.Snapshot("snapshot", {
+ *     creationData: {
+ *         createOption: "Import",
+ *         sourceUri: "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     snapshotName: "mySnapshot1",
+ * });
+ *
+ * ```
+ * ### Create a snapshot from an existing snapshot in the same or a different subscription in a different region.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const snapshot = new azure_native.compute.v20220702.Snapshot("snapshot", {
+ *     creationData: {
+ *         createOption: "CopyStart",
+ *         sourceResourceId: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     snapshotName: "mySnapshot2",
+ * });
+ *
+ * ```
+ * ### Create a snapshot from an existing snapshot in the same or a different subscription.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const snapshot = new azure_native.compute.v20220702.Snapshot("snapshot", {
+ *     creationData: {
+ *         createOption: "Copy",
+ *         sourceResourceId: "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     snapshotName: "mySnapshot2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20220702:Snapshot mySnapshot2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/snapshots/{snapshotName} 
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

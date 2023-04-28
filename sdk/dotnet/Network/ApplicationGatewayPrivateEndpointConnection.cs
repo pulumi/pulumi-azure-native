@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.Network
     /// Private Endpoint connection on an application gateway.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update Application Gateway Private Endpoint Connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationGatewayPrivateEndpointConnection = new AzureNative.Network.ApplicationGatewayPrivateEndpointConnection("applicationGatewayPrivateEndpointConnection", new()
+    ///     {
+    ///         ApplicationGatewayName = "appgw",
+    ///         ConnectionName = "connection1",
+    ///         Name = "connection1",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Network.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "approved it for some reason.",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:ApplicationGatewayPrivateEndpointConnection testPlePeConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/privateEndpointConnections/{connectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ApplicationGatewayPrivateEndpointConnection")]
     public partial class ApplicationGatewayPrivateEndpointConnection : global::Pulumi.CustomResource

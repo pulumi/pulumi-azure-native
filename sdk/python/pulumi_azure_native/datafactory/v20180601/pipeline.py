@@ -233,6 +233,16 @@ class Pipeline(pulumi.CustomResource):
         """
         Pipeline resource type.
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory/v20180601:Pipeline examplePipeline /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/pipelines/examplePipeline 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['AppendVariableActivityArgs'], pulumi.InputType['AzureDataExplorerCommandActivityArgs'], pulumi.InputType['AzureFunctionActivityArgs'], pulumi.InputType['AzureMLBatchExecutionActivityArgs'], pulumi.InputType['AzureMLExecutePipelineActivityArgs'], pulumi.InputType['AzureMLUpdateResourceActivityArgs'], pulumi.InputType['ControlActivityArgs'], pulumi.InputType['CopyActivityArgs'], pulumi.InputType['CustomActivityArgs'], pulumi.InputType['DataLakeAnalyticsUSQLActivityArgs'], pulumi.InputType['DatabricksNotebookActivityArgs'], pulumi.InputType['DatabricksSparkJarActivityArgs'], pulumi.InputType['DatabricksSparkPythonActivityArgs'], pulumi.InputType['DeleteActivityArgs'], pulumi.InputType['ExecuteDataFlowActivityArgs'], pulumi.InputType['ExecutePipelineActivityArgs'], pulumi.InputType['ExecuteSSISPackageActivityArgs'], pulumi.InputType['ExecuteWranglingDataflowActivityArgs'], pulumi.InputType['ExecutionActivityArgs'], pulumi.InputType['FailActivityArgs'], pulumi.InputType['FilterActivityArgs'], pulumi.InputType['ForEachActivityArgs'], pulumi.InputType['GetMetadataActivityArgs'], pulumi.InputType['HDInsightHiveActivityArgs'], pulumi.InputType['HDInsightMapReduceActivityArgs'], pulumi.InputType['HDInsightPigActivityArgs'], pulumi.InputType['HDInsightSparkActivityArgs'], pulumi.InputType['HDInsightStreamingActivityArgs'], pulumi.InputType['IfConditionActivityArgs'], pulumi.InputType['LookupActivityArgs'], pulumi.InputType['ScriptActivityArgs'], pulumi.InputType['SetVariableActivityArgs'], pulumi.InputType['SqlServerStoredProcedureActivityArgs'], pulumi.InputType['SwitchActivityArgs'], pulumi.InputType['SynapseNotebookActivityArgs'], pulumi.InputType['SynapseSparkJobDefinitionActivityArgs'], pulumi.InputType['UntilActivityArgs'], pulumi.InputType['ValidationActivityArgs'], pulumi.InputType['WaitActivityArgs'], pulumi.InputType['WebActivityArgs'], pulumi.InputType['WebHookActivityArgs']]]]] activities: List of activities in pipeline.
@@ -256,6 +266,16 @@ class Pipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Pipeline resource type.
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory/v20180601:Pipeline examplePipeline /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/pipelines/examplePipeline 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PipelineArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.Cdn
     /// A profile is a logical grouping of endpoints that share the same settings.
     /// API Version: 2021-06-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Profiles_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Cdn.Profile("profile", new()
+    ///     {
+    ///         Location = "global",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         Sku = new AzureNative.Cdn.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Premium_AzureFrontDoor",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:Profile profile1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Profile")]
     public partial class Profile : global::Pulumi.CustomResource

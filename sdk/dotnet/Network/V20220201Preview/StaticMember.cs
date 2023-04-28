@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
 {
     /// <summary>
     /// StaticMember Item.
+    /// 
+    /// ## Example Usage
+    /// ### StaticMemberPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var staticMember = new AzureNative.Network.V20220201Preview.StaticMember("staticMember", new()
+    ///     {
+    ///         NetworkGroupName = "testNetworkGroup",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceId = "/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/virtualnetworks/vnet1",
+    ///         StaticMemberName = "testStaticMember",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220201preview:StaticMember testStaticMember /subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testNetworkGroup/staticMembers/testStaticMember 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220201preview:StaticMember")]
     public partial class StaticMember : global::Pulumi.CustomResource

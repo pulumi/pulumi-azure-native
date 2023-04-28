@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * ## Example Usage
+ * ### PutPrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.cognitiveservices.v20170418.PrivateEndpointConnection("privateEndpointConnection", {
+ *     accountName: "sto9699",
+ *     privateEndpointConnectionName: "{privateEndpointConnectionName}",
+ *     properties: {
+ *         privateLinkServiceConnectionState: {
+ *             description: "Auto-Approved",
+ *             status: "Approved",
+ *         },
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices/v20170418:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.CognitiveServices/accounts/sto288/privateEndpointConnections/{privateEndpointConnectionName} 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

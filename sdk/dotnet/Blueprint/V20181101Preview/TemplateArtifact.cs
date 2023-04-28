@@ -11,6 +11,250 @@ namespace Pulumi.AzureNative.Blueprint.V20181101Preview
 {
     /// <summary>
     /// Blueprint artifact that deploys a Resource Manager template.
+    /// 
+    /// ## Example Usage
+    /// ### MG-ARMTemplateArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateArtifact = new AzureNative.Blueprint.V20181101Preview.TemplateArtifact("templateArtifact", new()
+    ///     {
+    ///         ArtifactName = "storageTemplate",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         Kind = "template",
+    ///         Parameters = 
+    ///         {
+    ///             { "storageAccountType", new AzureNative.Blueprint.V20181101Preview.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "[parameters('storageAccountType')]",
+    ///             } },
+    ///         },
+    ///         ResourceGroup = "storageRG",
+    ///         ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///         Template = 
+    ///         {
+    ///             { "contentVersion", "1.0.0.0" },
+    ///             { "outputs", 
+    ///             {
+    ///                 { "storageAccountName", 
+    ///                 {
+    ///                     { "type", "string" },
+    ///                     { "value", "[variables('storageAccountName')]" },
+    ///                 } },
+    ///             } },
+    ///             { "parameters", 
+    ///             {
+    ///                 { "storageAccountType", 
+    ///                 {
+    ///                     { "allowedValues", new[]
+    ///                     {
+    ///                         "Standard_LRS",
+    ///                         "Standard_GRS",
+    ///                         "Standard_ZRS",
+    ///                         "Premium_LRS",
+    ///                     } },
+    ///                     { "defaultValue", "Standard_LRS" },
+    ///                     { "metadata", 
+    ///                     {
+    ///                         { "description", "Storage Account type" },
+    ///                     } },
+    ///                     { "type", "string" },
+    ///                 } },
+    ///             } },
+    ///             { "resources", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "apiVersion", "2016-01-01" },
+    ///                     { "kind", "Storage" },
+    ///                     { "location", "[resourceGroup().location]" },
+    ///                     { "name", "[variables('storageAccountName')]" },
+    ///                     { "properties", null },
+    ///                     { "sku", 
+    ///                     {
+    ///                         { "name", "[parameters('storageAccountType')]" },
+    ///                     } },
+    ///                     { "type", "Microsoft.Storage/storageAccounts" },
+    ///                 },
+    ///             } },
+    ///             { "variables", 
+    ///             {
+    ///                 { "storageAccountName", "[concat(uniquestring(resourceGroup().id), 'standardsa')]" },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### MG-PolicyAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateArtifact = new AzureNative.Blueprint.V20181101Preview.TemplateArtifact("templateArtifact", new()
+    ///     {
+    ///         ArtifactName = "costCenterPolicy",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### MG-RoleAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateArtifact = new AzureNative.Blueprint.V20181101Preview.TemplateArtifact("templateArtifact", new()
+    ///     {
+    ///         ArtifactName = "ownerAssignment",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ResourceScope = "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Sub-ARMTemplateArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateArtifact = new AzureNative.Blueprint.V20181101Preview.TemplateArtifact("templateArtifact", new()
+    ///     {
+    ///         ArtifactName = "storageTemplate",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         Kind = "template",
+    ///         Parameters = 
+    ///         {
+    ///             { "storageAccountType", new AzureNative.Blueprint.V20181101Preview.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "[parameters('storageAccountType')]",
+    ///             } },
+    ///         },
+    ///         ResourceGroup = "storageRG",
+    ///         ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         Template = 
+    ///         {
+    ///             { "contentVersion", "1.0.0.0" },
+    ///             { "outputs", 
+    ///             {
+    ///                 { "storageAccountName", 
+    ///                 {
+    ///                     { "type", "string" },
+    ///                     { "value", "[variables('storageAccountName')]" },
+    ///                 } },
+    ///             } },
+    ///             { "parameters", 
+    ///             {
+    ///                 { "storageAccountType", 
+    ///                 {
+    ///                     { "allowedValues", new[]
+    ///                     {
+    ///                         "Standard_LRS",
+    ///                         "Standard_GRS",
+    ///                         "Standard_ZRS",
+    ///                         "Premium_LRS",
+    ///                     } },
+    ///                     { "defaultValue", "Standard_LRS" },
+    ///                     { "metadata", 
+    ///                     {
+    ///                         { "description", "Storage Account type" },
+    ///                     } },
+    ///                     { "type", "string" },
+    ///                 } },
+    ///             } },
+    ///             { "resources", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "apiVersion", "2016-01-01" },
+    ///                     { "kind", "Storage" },
+    ///                     { "location", "[resourceGroup().location]" },
+    ///                     { "name", "[variables('storageAccountName')]" },
+    ///                     { "properties", null },
+    ///                     { "sku", 
+    ///                     {
+    ///                         { "name", "[parameters('storageAccountType')]" },
+    ///                     } },
+    ///                     { "type", "Microsoft.Storage/storageAccounts" },
+    ///                 },
+    ///             } },
+    ///             { "variables", 
+    ///             {
+    ///                 { "storageAccountName", "[concat(uniquestring(resourceGroup().id), 'standardsa')]" },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Sub-PolicyAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateArtifact = new AzureNative.Blueprint.V20181101Preview.TemplateArtifact("templateArtifact", new()
+    ///     {
+    ///         ArtifactName = "costCenterPolicy",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Sub-RoleAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateArtifact = new AzureNative.Blueprint.V20181101Preview.TemplateArtifact("templateArtifact", new()
+    ///     {
+    ///         ArtifactName = "ownerAssignment",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blueprint/v20181101preview:TemplateArtifact ownerAssignment /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint/v20181101preview:TemplateArtifact")]
     public partial class TemplateArtifact : global::Pulumi.CustomResource

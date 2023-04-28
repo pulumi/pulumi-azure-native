@@ -165,6 +165,45 @@ class BotConnection(pulumi.CustomResource):
         """
         Bot channel resource definition
 
+        ## Example Usage
+        ### Create Connection Setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot_connection = azure_native.botservice.v20220915.BotConnection("botConnection",
+            connection_name="sampleConnection",
+            location="West US",
+            properties=azure_native.botservice.v20220915.ConnectionSettingPropertiesResponseArgs(
+                client_id="sampleclientid",
+                client_secret="samplesecret",
+                parameters=[
+                    azure_native.botservice.v20220915.ConnectionSettingParameterArgs(
+                        key="key1",
+                        value="value1",
+                    ),
+                    azure_native.botservice.v20220915.ConnectionSettingParameterArgs(
+                        key="key2",
+                        value="value2",
+                    ),
+                ],
+                scopes="samplescope",
+                service_provider_id="serviceproviderid",
+            ),
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice/v20220915:BotConnection sampleConnection /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.BotService/botServices/samplebotname/connections/sampleConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the Bot Service Connection Setting resource.
@@ -184,6 +223,45 @@ class BotConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Bot channel resource definition
+
+        ## Example Usage
+        ### Create Connection Setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot_connection = azure_native.botservice.v20220915.BotConnection("botConnection",
+            connection_name="sampleConnection",
+            location="West US",
+            properties=azure_native.botservice.v20220915.ConnectionSettingPropertiesResponseArgs(
+                client_id="sampleclientid",
+                client_secret="samplesecret",
+                parameters=[
+                    azure_native.botservice.v20220915.ConnectionSettingParameterArgs(
+                        key="key1",
+                        value="value1",
+                    ),
+                    azure_native.botservice.v20220915.ConnectionSettingParameterArgs(
+                        key="key2",
+                        value="value2",
+                    ),
+                ],
+                scopes="samplescope",
+                service_provider_id="serviceproviderid",
+            ),
+            resource_group_name="OneResourceGroupName",
+            resource_name_="samplebotname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice/v20220915:BotConnection sampleConnection /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.BotService/botServices/samplebotname/connections/sampleConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BotConnectionArgs args: The arguments to use to populate this resource's properties.

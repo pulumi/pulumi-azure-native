@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL managed instance administrator.
+ *
+ * ## Example Usage
+ * ### Create administrator of managed instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstanceAdministrator = new azure_native.sql.v20220801preview.ManagedInstanceAdministrator("managedInstanceAdministrator", {
+ *     administratorName: "ActiveDirectory",
+ *     administratorType: "ActiveDirectory",
+ *     login: "bob@contoso.com",
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     sid: "44444444-3333-2222-1111-000000000000",
+ *     tenantId: "55555555-4444-3333-2222-111111111111",
+ * });
+ *
+ * ```
+ * ### Update administrator of managed instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstanceAdministrator = new azure_native.sql.v20220801preview.ManagedInstanceAdministrator("managedInstanceAdministrator", {
+ *     administratorName: "ActiveDirectory",
+ *     administratorType: "ActiveDirectory",
+ *     login: "bob@contoso.com",
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     sid: "44444444-3333-2222-1111-000000000000",
+ *     tenantId: "55555555-4444-3333-2222-111111111111",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:ManagedInstanceAdministrator ActiveDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/managedInstance/administrators/ActiveDirectory 
+ * ```
  */
 export class ManagedInstanceAdministrator extends pulumi.CustomResource {
     /**

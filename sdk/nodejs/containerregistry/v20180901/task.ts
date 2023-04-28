@@ -10,6 +10,64 @@ import * as utilities from "../../utilities";
 /**
  * The task that has the ARM resource and task properties.
  * The task will have all information to schedule a run against it.
+ *
+ * ## Example Usage
+ * ### Tasks_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const task = new azure_native.containerregistry.v20180901.Task("task", {
+ *     agentConfiguration: {
+ *         cpu: 2,
+ *     },
+ *     location: "eastus",
+ *     platform: {
+ *         architecture: "amd64",
+ *         os: "Linux",
+ *     },
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     status: "Enabled",
+ *     step: {
+ *         contextPath: "dockerfiles",
+ *     },
+ *     tags: {
+ *         testkey: "value",
+ *     },
+ *     taskName: "mytTask",
+ *     trigger: {
+ *         baseImageTrigger: {
+ *             baseImageTriggerType: "Runtime",
+ *             name: "myBaseImageTrigger",
+ *         },
+ *         sourceTriggers: [{
+ *             name: "mySourceTrigger",
+ *             sourceRepository: {
+ *                 branch: "master",
+ *                 repositoryUrl: "https://github.com/Azure/azure-rest-api-specs",
+ *                 sourceControlAuthProperties: {
+ *                     token: "xxxxx",
+ *                     tokenType: "PAT",
+ *                 },
+ *                 sourceControlType: "Github",
+ *             },
+ *             sourceTriggerEvents: ["commit"],
+ *             status: "Enabled",
+ *         }],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20180901:Task myTask /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tasks/myTask 
+ * ```
  */
 export class Task extends pulumi.CustomResource {
     /**

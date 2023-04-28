@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL virtual machine group.
+ *
+ * ## Example Usage
+ * ### Creates or updates a SQL virtual machine group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlVirtualMachineGroup = new azure_native.sqlvirtualmachine.v20170301preview.SqlVirtualMachineGroup("sqlVirtualMachineGroup", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlImageOffer: "SQL2016-WS2016",
+ *     sqlImageSku: "Enterprise",
+ *     sqlVirtualMachineGroupName: "testvmgroup",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ *     wsfcDomainProfile: {
+ *         clusterBootstrapAccount: "testrpadmin",
+ *         clusterOperatorAccount: "testrp@testdomain.com",
+ *         domainFqdn: "testdomain.com",
+ *         ouPath: "OU=WSCluster,DC=testdomain,DC=com",
+ *         sqlServiceAccount: "sqlservice@testdomain.com",
+ *         storageAccountPrimaryKey: "<primary storage access key>",
+ *         storageAccountUrl: "https://storgact.blob.core.windows.net/",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sqlvirtualmachine/v20170301preview:SqlVirtualMachineGroup testvmgroup /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup 
+ * ```
  */
 export class SqlVirtualMachineGroup extends pulumi.CustomResource {
     /**

@@ -12,6 +12,57 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// <summary>
     /// API Version: 2022-12-12-preview.
     /// Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update trunked network
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var trunkedNetwork = new AzureNative.NetworkCloud.TrunkedNetwork("trunkedNetwork", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         HybridAksPluginType = "DPDK",
+    ///         InterfaceName = "eth0",
+    ///         IsolationDomainIds = new[]
+    ///         {
+    ///             "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+    ///             "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+    ///         },
+    ///         Location = "location",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///         TrunkedNetworkName = "trunkedNetworkName",
+    ///         Vlans = new[]
+    ///         {
+    ///             12,
+    ///             14,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud:TrunkedNetwork trunkedNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/trunkedNetworks/trunkedNetworkName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:TrunkedNetwork")]
     public partial class TrunkedNetwork : global::Pulumi.CustomResource

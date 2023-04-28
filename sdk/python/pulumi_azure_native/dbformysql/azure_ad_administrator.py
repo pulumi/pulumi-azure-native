@@ -165,6 +165,33 @@ class AzureADAdministrator(pulumi.CustomResource):
         Represents a Administrator.
         API Version: 2022-01-01.
 
+        ## Example Usage
+        ### Create an azure ad administrator
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_ad_administrator = azure_native.dbformysql.AzureADAdministrator("azureADAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            identity_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/test-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-umi",
+            login="bob@contoso.com",
+            resource_group_name="testrg",
+            server_name="mysqltestsvc4",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c12b7025-bfe2-46c1-b463-993b5e4cd467")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:AzureADAdministrator ActiveDirectory /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/mysqltestsvc4/administrators/ActiveDirectory 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_name: The name of the Azure AD Administrator.
@@ -185,6 +212,33 @@ class AzureADAdministrator(pulumi.CustomResource):
         """
         Represents a Administrator.
         API Version: 2022-01-01.
+
+        ## Example Usage
+        ### Create an azure ad administrator
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_ad_administrator = azure_native.dbformysql.AzureADAdministrator("azureADAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            identity_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/test-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-umi",
+            login="bob@contoso.com",
+            resource_group_name="testrg",
+            server_name="mysqltestsvc4",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c12b7025-bfe2-46c1-b463-993b5e4cd467")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:AzureADAdministrator ActiveDirectory /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/mysqltestsvc4/administrators/ActiveDirectory 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AzureADAdministratorArgs args: The arguments to use to populate this resource's properties.

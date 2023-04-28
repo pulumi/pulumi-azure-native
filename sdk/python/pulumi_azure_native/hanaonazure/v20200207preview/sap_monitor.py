@@ -180,6 +180,36 @@ class SapMonitor(pulumi.CustomResource):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
 
+        ## Example Usage
+        ### Create a SAP Monitor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_monitor = azure_native.hanaonazure.v20200207preview.SapMonitor("sapMonitor",
+            enable_customer_analytics=True,
+            location="westus",
+            log_analytics_workspace_arm_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.operationalinsights/workspaces/myWorkspace",
+            log_analytics_workspace_id="00000000-0000-0000-0000-000000000000",
+            log_analytics_workspace_shared_key="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000==",
+            monitor_subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            resource_group_name="myResourceGroup",
+            sap_monitor_name="mySapMonitor",
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hanaonazure/v20200207preview:SapMonitor myHanaInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_customer_analytics: The value indicating whether to send analytics to Microsoft
@@ -200,6 +230,36 @@ class SapMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SAP monitor info on Azure (ARM properties and SAP monitor properties)
+
+        ## Example Usage
+        ### Create a SAP Monitor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_monitor = azure_native.hanaonazure.v20200207preview.SapMonitor("sapMonitor",
+            enable_customer_analytics=True,
+            location="westus",
+            log_analytics_workspace_arm_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.operationalinsights/workspaces/myWorkspace",
+            log_analytics_workspace_id="00000000-0000-0000-0000-000000000000",
+            log_analytics_workspace_shared_key="00000000000000000000000000000000000000000000000000000000000000000000000000000000000000==",
+            monitor_subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            resource_group_name="myResourceGroup",
+            sap_monitor_name="mySapMonitor",
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hanaonazure/v20200207preview:SapMonitor myHanaInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SapMonitorArgs args: The arguments to use to populate this resource's properties.

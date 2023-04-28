@@ -180,6 +180,71 @@ class WorkbookTemplate(pulumi.CustomResource):
         """
         An Application Insights workbook template definition.
 
+        ## Example Usage
+        ### WorkbookTemplateAdd
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workbook_template = azure_native.insights.v20201120.WorkbookTemplate("workbookTemplate",
+            author="Contoso",
+            galleries=[azure_native.insights.v20201120.WorkbookTemplateGalleryArgs(
+                category="Failures",
+                name="Simple Template",
+                order=100,
+                resource_type="microsoft.insights/components",
+                type="tsg",
+            )],
+            location="west us",
+            priority=1,
+            resource_group_name="my-resource-group",
+            resource_name_="testtemplate2",
+            template_data={
+                "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                "items": [
+                    {
+                        "content": {
+                            "json": \"\"\"## New workbook
+        ---
+
+        Welcome to your new workbook.  This area will display text formatted as markdown.
+
+
+        We've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\"\"\",
+                        },
+                        "name": "text - 2",
+                        "type": 1,
+                    },
+                    {
+                        "content": {
+                            "exportToExcelOptions": "visible",
+                            "query": \"\"\"union withsource=TableName *
+        | summarize Count=count() by TableName
+        | render barchart\"\"\",
+                            "queryType": 0,
+                            "resourceType": "microsoft.operationalinsights/workspaces",
+                            "size": 1,
+                            "version": "KqlItem/1.0",
+                        },
+                        "name": "query - 2",
+                        "type": 3,
+                    },
+                ],
+                "styleSettings": {},
+                "version": "Notebook/1.0",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20201120:WorkbookTemplate testtemplate2 /subscriptions/50359d91-7b9d-4823-85af-eb298a61ba95/resourceGroups/testrg/providers/microsoft.insights/workbooktemplates/testtemplate2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] author: Information about the author of the workbook template.
@@ -200,6 +265,71 @@ class WorkbookTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Application Insights workbook template definition.
+
+        ## Example Usage
+        ### WorkbookTemplateAdd
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workbook_template = azure_native.insights.v20201120.WorkbookTemplate("workbookTemplate",
+            author="Contoso",
+            galleries=[azure_native.insights.v20201120.WorkbookTemplateGalleryArgs(
+                category="Failures",
+                name="Simple Template",
+                order=100,
+                resource_type="microsoft.insights/components",
+                type="tsg",
+            )],
+            location="west us",
+            priority=1,
+            resource_group_name="my-resource-group",
+            resource_name_="testtemplate2",
+            template_data={
+                "$schema": "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json",
+                "items": [
+                    {
+                        "content": {
+                            "json": \"\"\"## New workbook
+        ---
+
+        Welcome to your new workbook.  This area will display text formatted as markdown.
+
+
+        We've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\"\"\",
+                        },
+                        "name": "text - 2",
+                        "type": 1,
+                    },
+                    {
+                        "content": {
+                            "exportToExcelOptions": "visible",
+                            "query": \"\"\"union withsource=TableName *
+        | summarize Count=count() by TableName
+        | render barchart\"\"\",
+                            "queryType": 0,
+                            "resourceType": "microsoft.operationalinsights/workspaces",
+                            "size": 1,
+                            "version": "KqlItem/1.0",
+                        },
+                        "name": "query - 2",
+                        "type": 3,
+                    },
+                ],
+                "styleSettings": {},
+                "version": "Notebook/1.0",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20201120:WorkbookTemplate testtemplate2 /subscriptions/50359d91-7b9d-4823-85af-eb298a61ba95/resourceGroups/testrg/providers/microsoft.insights/workbooktemplates/testtemplate2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkbookTemplateArgs args: The arguments to use to populate this resource's properties.

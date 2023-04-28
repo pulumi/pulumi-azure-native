@@ -11,6 +11,77 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221101
 {
     /// <summary>
     /// Represents MicrosoftSecurityIncidentCreation rule.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a Fusion alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var microsoftSecurityIncidentCreationAlertRule = new AzureNative.SecurityInsights.V20221101.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "myFirstFusionRule",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var microsoftSecurityIncidentCreationAlertRule = new AzureNative.SecurityInsights.V20221101.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule", new()
+    ///     {
+    ///         DisplayName = "testing displayname",
+    ///         Enabled = true,
+    ///         Kind = "MicrosoftSecurityIncidentCreation",
+    ///         ProductFilter = "Microsoft Cloud App Security",
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "microsoftSecurityIncidentCreationRuleExample",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Scheduled alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var microsoftSecurityIncidentCreationAlertRule = new AzureNative.SecurityInsights.V20221101.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20221101:MicrosoftSecurityIncidentCreationAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20221101:MicrosoftSecurityIncidentCreationAlertRule")]
     public partial class MicrosoftSecurityIncidentCreationAlertRule : global::Pulumi.CustomResource

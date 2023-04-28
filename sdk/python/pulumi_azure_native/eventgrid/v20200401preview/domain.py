@@ -223,6 +223,43 @@ class Domain(pulumi.CustomResource):
         """
         EventGrid Domain.
 
+        ## Example Usage
+        ### Domains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain = azure_native.eventgrid.v20200401preview.Domain("domain",
+            domain_name="exampledomain1",
+            inbound_ip_rules=[
+                azure_native.eventgrid.v20200401preview.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.30.15",
+                ),
+                azure_native.eventgrid.v20200401preview.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.176.1",
+                ),
+            ],
+            location="westus2",
+            public_network_access="Enabled",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20200401preview:Domain exampledomain1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Name of the domain.
@@ -246,6 +283,43 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid Domain.
+
+        ## Example Usage
+        ### Domains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain = azure_native.eventgrid.v20200401preview.Domain("domain",
+            domain_name="exampledomain1",
+            inbound_ip_rules=[
+                azure_native.eventgrid.v20200401preview.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.30.15",
+                ),
+                azure_native.eventgrid.v20200401preview.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.176.1",
+                ),
+            ],
+            location="westus2",
+            public_network_access="Enabled",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20200401preview:Domain exampledomain1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

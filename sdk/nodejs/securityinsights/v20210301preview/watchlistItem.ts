@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Watchlist item in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Creates or updates a watchlist item.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const watchlistItem = new azure_native.securityinsights.v20210301preview.WatchlistItem("watchlistItem", {
+ *     itemsKeyValue: {
+ *         "Business tier": "10.0.2.0/24",
+ *         "Data tier": "10.0.2.0/24",
+ *         "Gateway subnet": "10.0.255.224/27",
+ *         "Private DMZ in": "10.0.0.0/27",
+ *         "Public DMZ out": "10.0.0.96/27",
+ *         "Web Tier": "10.0.1.0/24",
+ *     },
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     resourceGroupName: "myRg",
+ *     watchlistAlias: "highValueAsset",
+ *     watchlistItemId: "82ba292c-dc97-4dfc-969d-d4dd9e666842",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20210301preview:WatchlistItem myresource1 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/Watchlists/highValueAsset/WatchlistItems/82ba292c-dc97-4dfc-969d-d4dd9e666842 
+ * ```
  */
 export class WatchlistItem extends pulumi.CustomResource {
     /**

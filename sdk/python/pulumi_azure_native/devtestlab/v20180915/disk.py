@@ -264,6 +264,32 @@ class Disk(pulumi.CustomResource):
         """
         A Disk.
 
+        ## Example Usage
+        ### Disks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.devtestlab.v20180915.Disk("disk",
+            disk_size_gi_b=1023,
+            disk_type="Standard",
+            lab_name="{labName}",
+            leased_by_lab_vm_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/vmName",
+            name="{diskName}",
+            resource_group_name="resourceGroupName",
+            user_name="{userId}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:Disk {diskName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/l{labName}/users/{userId}/disks/{diskName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_blob_name: When backed by a blob, the name of the VHD blob without extension.
@@ -289,6 +315,32 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Disk.
+
+        ## Example Usage
+        ### Disks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.devtestlab.v20180915.Disk("disk",
+            disk_size_gi_b=1023,
+            disk_type="Standard",
+            lab_name="{labName}",
+            leased_by_lab_vm_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/vmName",
+            name="{diskName}",
+            resource_group_name="resourceGroupName",
+            user_name="{userId}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:Disk {diskName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/l{labName}/users/{userId}/disks/{diskName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiskArgs args: The arguments to use to populate this resource's properties.

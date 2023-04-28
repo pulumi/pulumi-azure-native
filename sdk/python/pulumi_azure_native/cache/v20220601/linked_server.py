@@ -126,6 +126,31 @@ class LinkedServer(pulumi.CustomResource):
         """
         Response to put/get linked server (with properties) for Redis cache.
 
+        ## Example Usage
+        ### LinkedServer_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_server = azure_native.cache.v20220601.LinkedServer("linkedServer",
+            linked_redis_cache_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
+            linked_redis_cache_location="West US",
+            linked_server_name="cache2",
+            name="cache1",
+            resource_group_name="rg1",
+            server_role=azure_native.cache/v20220601.ReplicationRole.SECONDARY)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache/v20220601:LinkedServer cache2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/linkedServers/cache2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
@@ -143,6 +168,31 @@ class LinkedServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response to put/get linked server (with properties) for Redis cache.
+
+        ## Example Usage
+        ### LinkedServer_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_server = azure_native.cache.v20220601.LinkedServer("linkedServer",
+            linked_redis_cache_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
+            linked_redis_cache_location="West US",
+            linked_server_name="cache2",
+            name="cache1",
+            resource_group_name="rg1",
+            server_role=azure_native.cache/v20220601.ReplicationRole.SECONDARY)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache/v20220601:LinkedServer cache2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/linkedServers/cache2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LinkedServerArgs args: The arguments to use to populate this resource's properties.

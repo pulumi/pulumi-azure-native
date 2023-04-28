@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB Gremlin database.
  * API Version: 2022-11-15.
  * Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CosmosDBGremlinDatabaseCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gremlinResourceGremlinDatabase = new azure_native.documentdb.GremlinResourceGremlinDatabase("gremlinResourceGremlinDatabase", {
+ *     accountName: "ddb1",
+ *     databaseName: "databaseName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         id: "databaseName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb:GremlinResourceGremlinDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName 
+ * ```
  */
 export class GremlinResourceGremlinDatabase extends pulumi.CustomResource {
     /**

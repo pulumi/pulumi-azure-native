@@ -9,6 +9,58 @@ import * as utilities from "../../utilities";
 
 /**
  * Arc Sql Server Availability Group Database
+ *
+ * ## Example Usage
+ * ### Create a Arc availability group database.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlAvailabilityGroupDatabase = new azure_native.azurearcdata.v20230315preview.SqlAvailabilityGroupDatabase("sqlAvailabilityGroupDatabase", {
+ *     location: "southeastasia",
+ *     properties: {
+ *         groupDatabaseId: "00000000-1111-2222-3333-444444444444",
+ *         value: [
+ *             {
+ *                 databaseStateDesc: "ONLINE",
+ *                 isCommitParticipant: true,
+ *                 isLocal: true,
+ *                 isPrimaryReplica: true,
+ *                 isSuspended: false,
+ *                 replicaName: "sqlServer1",
+ *                 synchronizationHealthDesc: "HEALTHY",
+ *                 synchronizationStateDesc: "SYNCHRONIZED",
+ *             },
+ *             {
+ *                 databaseStateDesc: "ONLINE",
+ *                 isCommitParticipant: true,
+ *                 isLocal: false,
+ *                 isPrimaryReplica: false,
+ *                 isSuspended: false,
+ *                 replicaName: "sqlServer2",
+ *                 synchronizationHealthDesc: "HEALTHY",
+ *                 synchronizationStateDesc: "SYNCHRONIZED",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlAvailabilityGroupDatabaseName: "testSqlDatabase",
+ *     sqlAvailabilityGroupName: "testAG",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata/v20230315preview:SqlAvailabilityGroupDatabase testSqlDatabase /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlAvailabilityGroups/testsAG/databases/testSqlDatabase 
+ * ```
  */
 export class SqlAvailabilityGroupDatabase extends pulumi.CustomResource {
     /**

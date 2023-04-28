@@ -127,6 +127,31 @@ class ServerAdministrator(pulumi.CustomResource):
         API Version: 2017-12-01.
         Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ServerAdministratorCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_administrator = azure_native.dbformysql.ServerAdministrator("serverAdministrator",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            resource_group_name="testrg",
+            server_name="mysqltestsvc4",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:ServerAdministrator activeDirectory /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/servers/mysqltestsvc4/administrators/activeDirectory 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AdministratorType']] administrator_type: The type of administrator.
@@ -146,6 +171,31 @@ class ServerAdministrator(pulumi.CustomResource):
         Represents a and external administrator to be created.
         API Version: 2017-12-01.
         Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ServerAdministratorCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_administrator = azure_native.dbformysql.ServerAdministrator("serverAdministrator",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            resource_group_name="testrg",
+            server_name="mysqltestsvc4",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:ServerAdministrator activeDirectory /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/servers/mysqltestsvc4/administrators/activeDirectory 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerAdministratorArgs args: The arguments to use to populate this resource's properties.

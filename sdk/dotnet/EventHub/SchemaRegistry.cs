@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.EventHub
     /// Single item in List or Get Schema Group operation
     /// API Version: 2021-11-01.
     /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SchemaRegistryCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schemaRegistry = new AzureNative.EventHub.SchemaRegistry("schemaRegistry", new()
+    ///     {
+    ///         GroupProperties = null,
+    ///         NamespaceName = "ali-ua-test-eh-system-1",
+    ///         ResourceGroupName = "alitest",
+    ///         SchemaCompatibility = "Forward",
+    ///         SchemaGroupName = "testSchemaGroup1",
+    ///         SchemaType = "Avro",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:SchemaRegistry testSchemaGroup1 /subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/alitest/providers/Microsoft.EventHub/namespaces/ali-ua-test-eh-system-1/schemagroups/testSchemaGroup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:SchemaRegistry")]
     public partial class SchemaRegistry : global::Pulumi.CustomResource

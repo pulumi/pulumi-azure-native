@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
 {
     /// <summary>
     /// Private endpoint connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### ManagedHsmPutPrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mhsmPrivateEndpointConnection = new AzureNative.KeyVault.V20210601Preview.MHSMPrivateEndpointConnection("mhsmPrivateEndpointConnection", new()
+    ///     {
+    ///         Name = "sample-mhsm",
+    ///         PrivateEndpointConnectionName = "sample-pec",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.KeyVault.V20210601Preview.Inputs.MHSMPrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "My name is Joe and I'm approving this.",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "sample-group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection sample-pec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/managedhsms/sample-mhsm/privateEndpointConnections/sample-pec 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection")]
     public partial class MHSMPrivateEndpointConnection : global::Pulumi.CustomResource

@@ -11,6 +11,134 @@ namespace Pulumi.AzureNative.DevHub.V20221011Preview
 {
     /// <summary>
     /// Resource representation of a workflow
+    /// 
+    /// ## Example Usage
+    /// ### Create Workflow
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workflow = new AzureNative.DevHub.V20221011Preview.Workflow("workflow", new()
+    ///     {
+    ///         Acr = new AzureNative.DevHub.V20221011Preview.Inputs.ACRArgs
+    ///         {
+    ///             AcrRegistryName = "registry1",
+    ///             AcrRepositoryName = "repo1",
+    ///             AcrResourceGroup = "resourceGroup1",
+    ///             AcrSubscriptionId = "subscriptionId1",
+    ///         },
+    ///         AksResourceId = "/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+    ///         BranchName = "branch1",
+    ///         DeploymentProperties = new AzureNative.DevHub.V20221011Preview.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             KubeManifestLocations = new[]
+    ///             {
+    ///                 "/src/manifests/",
+    ///             },
+    ///             ManifestType = "kube",
+    ///             Overrides = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         },
+    ///         DockerBuildContext = "repo1/src/",
+    ///         Dockerfile = "repo1/images/Dockerfile",
+    ///         Location = "location1",
+    ///         Namespace = "namespace1",
+    ///         OidcCredentials = new AzureNative.DevHub.V20221011Preview.Inputs.GitHubWorkflowProfileOidcCredentialsArgs
+    ///         {
+    ///             AzureClientId = "12345678-3456-7890-5678-012345678901",
+    ///             AzureTenantId = "66666666-3456-7890-5678-012345678901",
+    ///         },
+    ///         RepositoryName = "repo1",
+    ///         RepositoryOwner = "owner1",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Tags = 
+    ///         {
+    ///             { "appname", "testApp" },
+    ///         },
+    ///         WorkflowName = "workflow1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Workflow With Artifact Generation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workflow = new AzureNative.DevHub.V20221011Preview.Workflow("workflow", new()
+    ///     {
+    ///         Acr = new AzureNative.DevHub.V20221011Preview.Inputs.ACRArgs
+    ///         {
+    ///             AcrRegistryName = "registry1",
+    ///             AcrRepositoryName = "repo1",
+    ///             AcrResourceGroup = "resourceGroup1",
+    ///             AcrSubscriptionId = "subscriptionId1",
+    ///         },
+    ///         AksResourceId = "/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+    ///         AppName = "my-app",
+    ///         BranchName = "branch1",
+    ///         DeploymentProperties = new AzureNative.DevHub.V20221011Preview.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             KubeManifestLocations = new[]
+    ///             {
+    ///                 "/src/manifests/",
+    ///             },
+    ///             ManifestType = "kube",
+    ///             Overrides = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         },
+    ///         DockerBuildContext = "repo1/src/",
+    ///         Dockerfile = "repo1/images/Dockerfile",
+    ///         DockerfileGenerationMode = "enabled",
+    ///         DockerfileOutputDirectory = "./",
+    ///         GenerationLanguage = "javascript",
+    ///         ImageName = "myimage",
+    ///         ImageTag = "latest",
+    ///         LanguageVersion = "14",
+    ///         Location = "location1",
+    ///         ManifestGenerationMode = "enabled",
+    ///         ManifestOutputDirectory = "./",
+    ///         ManifestType = "kube",
+    ///         OidcCredentials = new AzureNative.DevHub.V20221011Preview.Inputs.GitHubWorkflowProfileOidcCredentialsArgs
+    ///         {
+    ///             AzureClientId = "12345678-3456-7890-5678-012345678901",
+    ///             AzureTenantId = "66666666-3456-7890-5678-012345678901",
+    ///         },
+    ///         Port = "80",
+    ///         RepositoryName = "repo1",
+    ///         RepositoryOwner = "owner1",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Tags = 
+    ///         {
+    ///             { "appname", "testApp" },
+    ///         },
+    ///         WorkflowName = "workflow1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devhub/v20221011preview:Workflow workflow1 /subscription/subscriptionId1/resourceGroups/resourceGroup1/providers/Microsoft.DevHub/workflow/workflow1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devhub/v20221011preview:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource

@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     /// A PostgreSQL Server key.
     /// API Version: 2020-01-01.
     /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a PostgreSQL Server key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverKey = new AzureNative.DBforPostgreSQL.ServerKey("serverKey", new()
+    ///     {
+    ///         KeyName = "someVault_someKey_01234567890123456789012345678901",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerKeyType = "AzureKeyVault",
+    ///         ServerName = "testserver",
+    ///         Uri = "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql:ServerKey omeVault_someKey_01234567890123456789012345678901 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/testserver/keys/someVault_someKey_01234567890123456789012345678901 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:ServerKey")]
     public partial class ServerKey : global::Pulumi.CustomResource

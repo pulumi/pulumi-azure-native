@@ -130,6 +130,55 @@ class FusionAlertRule(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fusion_alert_rule = azure_native.securityinsights.FusionAlertRule("fusionAlertRule",
+            alert_rule_template_name="f71aba3d-28fb-450b-b192-4e76a83015c8",
+            enabled=True,
+            kind="Fusion",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fusion_alert_rule = azure_native.securityinsights.FusionAlertRule("fusionAlertRule",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fusion_alert_rule = azure_native.securityinsights.FusionAlertRule("fusionAlertRule",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:FusionAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
@@ -150,6 +199,55 @@ class FusionAlertRule(pulumi.CustomResource):
         Represents Fusion alert rule.
         API Version: 2023-02-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fusion_alert_rule = azure_native.securityinsights.FusionAlertRule("fusionAlertRule",
+            alert_rule_template_name="f71aba3d-28fb-450b-b192-4e76a83015c8",
+            enabled=True,
+            kind="Fusion",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fusion_alert_rule = azure_native.securityinsights.FusionAlertRule("fusionAlertRule",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fusion_alert_rule = azure_native.securityinsights.FusionAlertRule("fusionAlertRule",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:FusionAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FusionAlertRuleArgs args: The arguments to use to populate this resource's properties.

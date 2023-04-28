@@ -13,6 +13,46 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// Complete information about the private endpoint.
     /// API Version: 2020-03-01.
     /// Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a private endpoint
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpoint = new AzureNative.StreamAnalytics.PrivateEndpoint("privateEndpoint", new()
+    ///     {
+    ///         ClusterName = "testcluster",
+    ///         ManualPrivateLinkServiceConnections = new[]
+    ///         {
+    ///             new AzureNative.StreamAnalytics.Inputs.PrivateLinkServiceConnectionArgs
+    ///             {
+    ///                 GroupIds = new[]
+    ///                 {
+    ///                     "groupIdFromResource",
+    ///                 },
+    ///                 PrivateLinkServiceId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+    ///             },
+    ///         },
+    ///         PrivateEndpointName = "testpe",
+    ///         ResourceGroupName = "sjrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:streamanalytics:PrivateEndpoint An Example Private Endpoint /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/sjrg/providers/Microsoft.StreamAnalytics/clusters/testcluster/privateEndpoints/AnExamplePrivateEndpoint 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:PrivateEndpoint")]
     public partial class PrivateEndpoint : global::Pulumi.CustomResource

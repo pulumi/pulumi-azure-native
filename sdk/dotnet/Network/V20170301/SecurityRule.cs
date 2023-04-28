@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Network.V20170301
 {
     /// <summary>
     /// Network security rule.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20170301:SecurityRule myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName}/securityRules/{securityRuleName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20170301:SecurityRule")]

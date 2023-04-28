@@ -199,6 +199,75 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
         """
         HubVirtualNetworkConnection Resource.
 
+        ## Example Usage
+        ### HubVirtualNetworkConnectionPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hub_virtual_network_connection = azure_native.network.v20220901.HubVirtualNetworkConnection("hubVirtualNetworkConnection",
+            connection_name="connection1",
+            enable_internet_security=False,
+            remote_virtual_network=azure_native.network.v20220901.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/SpokeVnet1",
+            ),
+            resource_group_name="rg1",
+            routing_configuration=azure_native.network.v20220901.RoutingConfigurationResponseArgs(
+                associated_route_table=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                ),
+                inbound_route_map=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+                ),
+                outbound_route_map=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+                ),
+                propagated_route_tables={
+                    "ids": [azure_native.network.v20220901.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                    )],
+                    "labels": [
+                        "label1",
+                        "label2",
+                    ],
+                },
+                vnet_routes={
+                    "staticRoutes": [
+                        azure_native.network.v20220901.StaticRouteArgs(
+                            address_prefixes=[
+                                "10.1.0.0/16",
+                                "10.2.0.0/16",
+                            ],
+                            name="route1",
+                            next_hop_ip_address="10.0.0.68",
+                        ),
+                        azure_native.network.v20220901.StaticRouteArgs(
+                            address_prefixes=[
+                                "10.3.0.0/16",
+                                "10.4.0.0/16",
+                            ],
+                            name="route2",
+                            next_hop_ip_address="10.0.0.65",
+                        ),
+                    ],
+                    "staticRoutesConfig": azure_native.network.v20220901.StaticRoutesConfigArgs(
+                        vnet_local_route_override_criteria="Equal",
+                    ),
+                },
+            ),
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:HubVirtualNetworkConnection connection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubVirtualNetworkConnections/connection1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_hub_to_remote_vnet_transit: Deprecated: VirtualHub to RemoteVnet transit to enabled or not.
@@ -220,6 +289,75 @@ class HubVirtualNetworkConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         HubVirtualNetworkConnection Resource.
+
+        ## Example Usage
+        ### HubVirtualNetworkConnectionPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hub_virtual_network_connection = azure_native.network.v20220901.HubVirtualNetworkConnection("hubVirtualNetworkConnection",
+            connection_name="connection1",
+            enable_internet_security=False,
+            remote_virtual_network=azure_native.network.v20220901.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/SpokeVnet1",
+            ),
+            resource_group_name="rg1",
+            routing_configuration=azure_native.network.v20220901.RoutingConfigurationResponseArgs(
+                associated_route_table=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                ),
+                inbound_route_map=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+                ),
+                outbound_route_map=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+                ),
+                propagated_route_tables={
+                    "ids": [azure_native.network.v20220901.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                    )],
+                    "labels": [
+                        "label1",
+                        "label2",
+                    ],
+                },
+                vnet_routes={
+                    "staticRoutes": [
+                        azure_native.network.v20220901.StaticRouteArgs(
+                            address_prefixes=[
+                                "10.1.0.0/16",
+                                "10.2.0.0/16",
+                            ],
+                            name="route1",
+                            next_hop_ip_address="10.0.0.68",
+                        ),
+                        azure_native.network.v20220901.StaticRouteArgs(
+                            address_prefixes=[
+                                "10.3.0.0/16",
+                                "10.4.0.0/16",
+                            ],
+                            name="route2",
+                            next_hop_ip_address="10.0.0.65",
+                        ),
+                    ],
+                    "staticRoutesConfig": azure_native.network.v20220901.StaticRoutesConfigArgs(
+                        vnet_local_route_override_criteria="Equal",
+                    ),
+                },
+            ),
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:HubVirtualNetworkConnection connection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubVirtualNetworkConnections/connection1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HubVirtualNetworkConnectionArgs args: The arguments to use to populate this resource's properties.

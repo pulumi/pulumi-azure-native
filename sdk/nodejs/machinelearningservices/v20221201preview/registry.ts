@@ -7,6 +7,129 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### CreateOrUpdate Registry with system created accounts.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registry = new azure_native.machinelearningservices.v20221201preview.Registry("registry", {
+ *     identity: {
+ *         type: "None",
+ *         userAssignedIdentities: {
+ *             string: {},
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     registryName: "string",
+ *     registryProperties: {
+ *         description: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         regionDetails: [{
+ *             acrDetails: [{
+ *                 systemCreatedAcrAccount: {
+ *                     acrAccountSku: "string",
+ *                     armResourceId: {
+ *                         resourceId: "string",
+ *                     },
+ *                 },
+ *             }],
+ *             location: "string",
+ *             storageAccountDetails: [{
+ *                 systemCreatedStorageAccount: {
+ *                     allowBlobPublicAccess: false,
+ *                     armResourceId: {
+ *                         resourceId: "string",
+ *                     },
+ *                     storageAccountHnsEnabled: false,
+ *                     storageAccountType: "string",
+ *                 },
+ *             }],
+ *         }],
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "string",
+ *         name: "string",
+ *         size: "string",
+ *         tier: azure_native.machinelearningservices.v20221201preview.SkuTier.Basic,
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### CreateOrUpdate Registry with user created accounts.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registry = new azure_native.machinelearningservices.v20221201preview.Registry("registry", {
+ *     identity: {
+ *         type: "None",
+ *         userAssignedIdentities: {
+ *             string: {},
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     registryName: "string",
+ *     registryProperties: {
+ *         description: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         regionDetails: [{
+ *             acrDetails: [{
+ *                 userCreatedAcrAccount: {
+ *                     armResourceId: {
+ *                         resourceId: "string",
+ *                     },
+ *                 },
+ *             }],
+ *             location: "string",
+ *             storageAccountDetails: [{
+ *                 userCreatedStorageAccount: {
+ *                     armResourceId: {
+ *                         resourceId: "string",
+ *                     },
+ *                 },
+ *             }],
+ *         }],
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "string",
+ *         name: "string",
+ *         size: "string",
+ *         tier: azure_native.machinelearningservices.v20221201preview.SkuTier.Basic,
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20221201preview:Registry string string 
+ * ```
+ */
 export class Registry extends pulumi.CustomResource {
     /**
      * Get an existing Registry resource's state with the given name, ID, and optional extra

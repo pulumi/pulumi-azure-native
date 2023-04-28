@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * A schedule.
+ *
+ * ## Example Usage
+ * ### GlobalSchedules_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const globalSchedule = new azure_native.devtestlab.v20180915.GlobalSchedule("globalSchedule", {
+ *     name: "labvmautostart",
+ *     resourceGroupName: "resourceGroupName",
+ *     status: "Enabled",
+ *     taskType: "LabVmsStartupTask",
+ *     timeZoneId: "Hawaiian Standard Time",
+ *     weeklyRecurrence: {
+ *         time: "0700",
+ *         weekdays: [
+ *             "Monday",
+ *             "Tuesday",
+ *             "Wednesday",
+ *             "Thursday",
+ *             "Friday",
+ *             "Saturday",
+ *         ],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:GlobalSchedule LabVmAutoStart /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/schedules/labvmautostart 
+ * ```
  */
 export class GlobalSchedule extends pulumi.CustomResource {
     /**

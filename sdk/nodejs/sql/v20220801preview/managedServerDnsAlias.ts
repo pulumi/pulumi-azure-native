@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * A managed server DNS alias.
+ *
+ * ## Example Usage
+ * ### Create managed server DNS alias
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedServerDnsAlias = new azure_native.sql.v20220801preview.ManagedServerDnsAlias("managedServerDnsAlias", {
+ *     dnsAliasName: "dns-alias-mi",
+ *     managedInstanceName: "dns-mi",
+ *     resourceGroupName: "Default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:ManagedServerDnsAlias dns-alias-mi /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/dns-mi/dnsAliases/dns-alias-mi 
+ * ```
  */
 export class ManagedServerDnsAlias extends pulumi.CustomResource {
     /**

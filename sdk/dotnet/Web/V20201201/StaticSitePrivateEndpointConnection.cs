@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.Web.V20201201
 {
     /// <summary>
     /// Remote Private Endpoint Connection ARM resource.
+    /// 
+    /// ## Example Usage
+    /// ### Approves or rejects a private endpoint connection for a site.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var staticSitePrivateEndpointConnection = new AzureNative.Web.V20201201.StaticSitePrivateEndpointConnection("staticSitePrivateEndpointConnection", new()
+    ///     {
+    ///         Name = "testSite",
+    ///         PrivateEndpointConnectionName = "connection",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Web.V20201201.Inputs.PrivateLinkConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "",
+    ///             Description = "Approved by admin.",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201201:StaticSitePrivateEndpointConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/staticSites/{name}/privateEndpointConnections/{privateEndpointConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:StaticSitePrivateEndpointConnection")]
     public partial class StaticSitePrivateEndpointConnection : global::Pulumi.CustomResource

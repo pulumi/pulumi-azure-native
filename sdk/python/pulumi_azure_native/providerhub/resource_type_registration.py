@@ -78,6 +78,44 @@ class ResourceTypeRegistration(pulumi.CustomResource):
         API Version: 2020-11-20.
         Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ResourceTypeRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.ResourceTypeRegistration("resourceTypeRegistration",
+            properties=azure_native.providerhub.ResourceTypeRegistrationResponsePropertiesArgs(
+                endpoints=[azure_native.providerhub.ResourceTypeEndpointArgs(
+                    api_versions=["2020-06-01-preview"],
+                    locations=[
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    required_features=["<feature flag>"],
+                )],
+                regionality="Regional",
+                routing_type="Default",
+                swagger_specifications=[azure_native.providerhub.SwaggerSpecificationArgs(
+                    api_versions=["2020-06-01-preview"],
+                    swagger_spec_folder_uri="https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                )],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:ResourceTypeRegistration employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -92,6 +130,44 @@ class ResourceTypeRegistration(pulumi.CustomResource):
         """
         API Version: 2020-11-20.
         Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ResourceTypeRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.ResourceTypeRegistration("resourceTypeRegistration",
+            properties=azure_native.providerhub.ResourceTypeRegistrationResponsePropertiesArgs(
+                endpoints=[azure_native.providerhub.ResourceTypeEndpointArgs(
+                    api_versions=["2020-06-01-preview"],
+                    locations=[
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    required_features=["<feature flag>"],
+                )],
+                regionality="Regional",
+                routing_type="Default",
+                swagger_specifications=[azure_native.providerhub.SwaggerSpecificationArgs(
+                    api_versions=["2020-06-01-preview"],
+                    swagger_spec_folder_uri="https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                )],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:ResourceTypeRegistration employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceTypeRegistrationInitArgs args: The arguments to use to populate this resource's properties.

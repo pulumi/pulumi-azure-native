@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the security admin configuration
+ *
+ * ## Example Usage
+ * ### Create network manager security admin configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityAdminConfiguration = new azure_native.network.v20220901.SecurityAdminConfiguration("securityAdminConfiguration", {
+ *     applyOnNetworkIntentPolicyBasedServices: ["None"],
+ *     configurationName: "myTestSecurityConfig",
+ *     description: "A sample policy",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:SecurityAdminConfiguration myTestSecurityConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig 
+ * ```
  */
 export class SecurityAdminConfiguration extends pulumi.CustomResource {
     /**

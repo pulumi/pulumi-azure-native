@@ -95,6 +95,29 @@ class Tag(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateTag
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag = azure_native.apimanagement.Tag("tag",
+            display_name="tag1",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tag_id="tagId1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Tag tagId1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/tagId1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Tag name.
@@ -112,6 +135,29 @@ class Tag(pulumi.CustomResource):
         Tag Contract details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateTag
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag = azure_native.apimanagement.Tag("tag",
+            display_name="tag1",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tag_id="tagId1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Tag tagId1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/tagId1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TagArgs args: The arguments to use to populate this resource's properties.

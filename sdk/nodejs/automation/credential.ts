@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
  * Definition of the credential.
  * API Version: 2022-08-08.
  * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a credential
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const credential = new azure_native.automation.Credential("credential", {
+ *     automationAccountName: "myAutomationAccount18",
+ *     credentialName: "myCredential",
+ *     description: "my description goes here",
+ *     name: "myCredential",
+ *     password: "<password>",
+ *     resourceGroupName: "rg",
+ *     userName: "mylingaiah",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:Credential myCredential /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount18/credentials/myCredential 
+ * ```
  */
 export class Credential extends pulumi.CustomResource {
     /**

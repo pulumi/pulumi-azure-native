@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
 {
     /// <summary>
     /// Payload of the transaction node which is the request/response of the resource provider.
+    /// 
+    /// ## Example Usage
+    /// ### TransactionNodes_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var transactionNode = new AzureNative.Blockchain.V20180601Preview.TransactionNode("transactionNode", new()
+    ///     {
+    ///         BlockchainMemberName = "contosemember1",
+    ///         Location = "southeastasia",
+    ///         Password = "&lt;password&gt;",
+    ///         ResourceGroupName = "mygroup",
+    ///         TransactionNodeName = "txnode2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blockchain/v20180601preview:TransactionNode txnode2 /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Blockchain/blockchainMembers/contosemember1/transactionNodes/txnode2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:blockchain/v20180601preview:TransactionNode")]
     public partial class TransactionNode : global::Pulumi.CustomResource

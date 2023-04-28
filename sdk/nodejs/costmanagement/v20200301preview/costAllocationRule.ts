@@ -9,6 +9,16 @@ import * as utilities from "../../utilities";
 
 /**
  * The cost allocation rule model definition
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement/v20200301preview:CostAllocationRule testRule providers/Microsoft.Billing/billingAccounts/100/providers/Microsoft.CostManagement/costAllocationRules/testRule 
+ * ```
  */
 export class CostAllocationRule extends pulumi.CustomResource {
     /**

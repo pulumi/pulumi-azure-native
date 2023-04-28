@@ -158,6 +158,33 @@ class ApiIssueComment(pulumi.CustomResource):
         """
         Issue Comment Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiIssueComment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_issue_comment = azure_native.apimanagement.v20201201.ApiIssueComment("apiIssueComment",
+            api_id="57d1f7558aa04f15146d9d8a",
+            comment_id="599e29ab193c3c0bd0b3e2fb",
+            created_date="2018-02-01T22:21:20.467Z",
+            issue_id="57d2ef278aa04f0ad01d6cdc",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            text="Issue comment.",
+            user_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:ApiIssueComment 599e29ab193c3c0bd0b3e2fb /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc/comments/599e29ab193c3c0bd0b3e2fb 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
@@ -177,6 +204,33 @@ class ApiIssueComment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Issue Comment Contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiIssueComment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_issue_comment = azure_native.apimanagement.v20201201.ApiIssueComment("apiIssueComment",
+            api_id="57d1f7558aa04f15146d9d8a",
+            comment_id="599e29ab193c3c0bd0b3e2fb",
+            created_date="2018-02-01T22:21:20.467Z",
+            issue_id="57d2ef278aa04f0ad01d6cdc",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            text="Issue comment.",
+            user_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:ApiIssueComment 599e29ab193c3c0bd0b3e2fb /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc/comments/599e29ab193c3c0bd0b3e2fb 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiIssueCommentArgs args: The arguments to use to populate this resource's properties.

@@ -97,6 +97,37 @@ class ComponentContainer(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdate Component Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component_container = azure_native.machinelearningservices.ComponentContainer("componentContainer",
+            component_container_properties=azure_native.machinelearningservices.ComponentContainerArgs(
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:ComponentContainer string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ComponentContainerArgs']] component_container_properties: [Required] Additional attributes of the entity.
@@ -114,6 +145,37 @@ class ComponentContainer(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         API Version: 2022-10-01.
         Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdate Component Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component_container = azure_native.machinelearningservices.ComponentContainer("componentContainer",
+            component_container_properties=azure_native.machinelearningservices.ComponentContainerArgs(
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:ComponentContainer string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ComponentContainerInitArgs args: The arguments to use to populate this resource's properties.

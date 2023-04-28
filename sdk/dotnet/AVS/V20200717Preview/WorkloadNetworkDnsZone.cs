@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
 {
     /// <summary>
     /// NSX DNS Zone
+    /// 
+    /// ## Example Usage
+    /// ### WorkloadNetworks_CreateDnsZone
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadNetworkDnsZone = new AzureNative.AVS.V20200717Preview.WorkloadNetworkDnsZone("workloadNetworkDnsZone", new()
+    ///     {
+    ///         DisplayName = "dnsZone1",
+    ///         DnsServerIps = new[]
+    ///         {
+    ///             "1.1.1.1",
+    ///         },
+    ///         DnsZoneId = "dnsZone1",
+    ///         Domain = new[] {},
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Revision = 1,
+    ///         SourceIp = "8.8.8.8",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20200717preview:WorkloadNetworkDnsZone dnsZone1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/dnsZones/dnsZone1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200717preview:WorkloadNetworkDnsZone")]
     public partial class WorkloadNetworkDnsZone : global::Pulumi.CustomResource

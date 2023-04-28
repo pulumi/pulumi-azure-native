@@ -7,6 +7,34 @@ import * as utilities from "../../utilities";
 /**
  * The file server.
  *
+ * ## Example Usage
+ * ### FileServersCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileServer = new azure_native.storsimple.v20161001.FileServer("fileServer", {
+ *     backupScheduleGroupId: "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/backupScheduleGroups/BackupSchGroupForSDKTest",
+ *     description: "Demo FileServer for SDK Test",
+ *     deviceName: "HSDK-4XY4FI2IVG",
+ *     domainName: "fareast.corp.microsoft.com",
+ *     fileServerName: "HSDK-4XY4FI2IVG",
+ *     managerName: "hAzureSDKOperations",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     storageDomainId: "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/sd-fs-HSDK-4XY4FI2IVG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple/v20161001:FileServer HSDK-4XY4FI2IVG /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/fileServers/HSDK-4XY4FI2IVG 
+ * ```
+ *
  * @deprecated Version 2016-10-01 will be removed in v2 of the provider.
  */
 export class FileServer extends pulumi.CustomResource {

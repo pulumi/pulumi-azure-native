@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
 {
     /// <summary>
     /// A virtual network rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a virtual network rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkRule = new AzureNative.DBforPostgreSQL.V20171201.VirtualNetworkRule("virtualNetworkRule", new()
+    ///     {
+    ///         IgnoreMissingVnetServiceEndpoint = false,
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "vnet-test-svr",
+    ///         VirtualNetworkRuleName = "vnet-firewall-rule",
+    ///         VirtualNetworkSubnetId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20171201:VirtualNetworkRule vnet-firewall-rule /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/vnet-test-svr/virtualNetworkRules/vnet-firewall-rule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20171201:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : global::Pulumi.CustomResource

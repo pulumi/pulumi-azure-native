@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
 {
     /// <summary>
     /// The variable.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a variable at management group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var variableAtManagementGroup = new AzureNative.Authorization.V20220801Preview.VariableAtManagementGroup("variableAtManagementGroup", new()
+    ///     {
+    ///         Columns = new[]
+    ///         {
+    ///             new AzureNative.Authorization.V20220801Preview.Inputs.PolicyVariableColumnArgs
+    ///             {
+    ///                 ColumnName = "TestColumn",
+    ///             },
+    ///         },
+    ///         ManagementGroupId = "DevOrg",
+    ///         VariableName = "DemoTestVariable",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20220801preview:VariableAtManagementGroup DemoTestVariable /providers/Microsoft.Management/managementGroups/DevOrg/providers/Microsoft.Authorization/variables/DemoTestVariable 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20220801preview:VariableAtManagementGroup")]
     public partial class VariableAtManagementGroup : global::Pulumi.CustomResource

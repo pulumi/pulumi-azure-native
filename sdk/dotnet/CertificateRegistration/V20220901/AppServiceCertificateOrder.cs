@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20220901
 {
     /// <summary>
     /// SSL certificate purchase order.
+    /// 
+    /// ## Example Usage
+    /// ### Create Certificate order
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appServiceCertificateOrder = new AzureNative.CertificateRegistration.V20220901.AppServiceCertificateOrder("appServiceCertificateOrder", new()
+    ///     {
+    ///         AutoRenew = true,
+    ///         CertificateOrderName = "SampleCertificateOrderName",
+    ///         Certificates = 
+    ///         {
+    ///             { "SampleCertName1", new AzureNative.CertificateRegistration.V20220901.Inputs.AppServiceCertificateArgs
+    ///             {
+    ///                 KeyVaultId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+    ///                 KeyVaultSecretName = "SampleSecretName1",
+    ///             } },
+    ///             { "SampleCertName2", new AzureNative.CertificateRegistration.V20220901.Inputs.AppServiceCertificateArgs
+    ///             {
+    ///                 KeyVaultId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+    ///                 KeyVaultSecretName = "SampleSecretName2",
+    ///             } },
+    ///         },
+    ///         DistinguishedName = "CN=SampleCustomDomain.com",
+    ///         KeySize = 2048,
+    ///         Location = "Global",
+    ///         ProductType = AzureNative.CertificateRegistration.V20220901.CertificateProductType.StandardDomainValidatedSsl,
+    ///         ResourceGroupName = "testrg123",
+    ///         ValidityInYears = 2,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:certificateregistration/v20220901:AppServiceCertificateOrder SampleCertificateOrderName /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.CertificateRegistration/certificateOrders/SampleCertificateOrderName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration/v20220901:AppServiceCertificateOrder")]
     public partial class AppServiceCertificateOrder : global::Pulumi.CustomResource

@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.CognitiveServices.V20221201
 {
     /// <summary>
     /// Cognitive Services account commitment plan.
+    /// 
+    /// ## Example Usage
+    /// ### Create Commitment Plan
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var commitmentPlan = new AzureNative.CognitiveServices.V20221201.CommitmentPlan("commitmentPlan", new()
+    ///     {
+    ///         CommitmentPlanName = "commitmentPlanName",
+    ///         Kind = "SpeechServices",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.CognitiveServices.V20221201.Inputs.CommitmentPlanPropertiesArgs
+    ///         {
+    ///             AutoRenew = true,
+    ///             Current = new AzureNative.CognitiveServices.V20221201.Inputs.CommitmentPeriodArgs
+    ///             {
+    ///                 Tier = "T1",
+    ///             },
+    ///             HostingModel = "Web",
+    ///             PlanType = "STT",
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Sku = new AzureNative.CognitiveServices.V20221201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices/v20221201:CommitmentPlan commitmentPlanName /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/commitmentPlans/commitmentPlanName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices/v20221201:CommitmentPlan")]
     public partial class CommitmentPlan : global::Pulumi.CustomResource

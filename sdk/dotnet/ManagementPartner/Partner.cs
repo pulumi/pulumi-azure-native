@@ -13,6 +13,33 @@ namespace Pulumi.AzureNative.ManagementPartner
     /// this is the management partner operations response
     /// API Version: 2018-02-01.
     /// Previous API Version: 2018-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PutPartnerDetails
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var partner = new AzureNative.ManagementPartner.Partner("partner", new()
+    ///     {
+    ///         PartnerId = "123456",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managementpartner:Partner 123456 /providers/microsoft.managementpartner/partners/123456 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managementpartner:Partner")]
     public partial class Partner : global::Pulumi.CustomResource

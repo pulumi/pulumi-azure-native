@@ -11,6 +11,65 @@ import * as utilities from "../utilities";
  * Represents a HostPool definition.
  * API Version: 2022-09-09.
  * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### HostPool_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hostPool = new azure_native.desktopvirtualization.HostPool("hostPool", {
+ *     agentUpdate: {
+ *         maintenanceWindowTimeZone: "Alaskan Standard Time",
+ *         maintenanceWindows: [
+ *             {
+ *                 dayOfWeek: azure_native.desktopvirtualization.DayOfWeek.Friday,
+ *                 hour: 7,
+ *             },
+ *             {
+ *                 dayOfWeek: azure_native.desktopvirtualization.DayOfWeek.Saturday,
+ *                 hour: 8,
+ *             },
+ *         ],
+ *         type: "Scheduled",
+ *         useSessionHostLocalTime: false,
+ *     },
+ *     description: "des1",
+ *     friendlyName: "friendly",
+ *     hostPoolName: "hostPool1",
+ *     hostPoolType: "Pooled",
+ *     loadBalancerType: "BreadthFirst",
+ *     location: "centralus",
+ *     maxSessionLimit: 999999,
+ *     personalDesktopAssignmentType: "Automatic",
+ *     preferredAppGroupType: "Desktop",
+ *     registrationInfo: {
+ *         expirationTime: "2020-10-01T14:01:54.9571247Z",
+ *         registrationTokenOperation: "Update",
+ *     },
+ *     resourceGroupName: "resourceGroup1",
+ *     ssoClientId: "client",
+ *     ssoClientSecretKeyVaultPath: "https://keyvault/secret",
+ *     ssoSecretType: "SharedKey",
+ *     ssoadfsAuthority: "https://adfs",
+ *     startVMOnConnect: false,
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     vmTemplate: "{json:json}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization:HostPool hostPool1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1 
+ * ```
  */
 export class HostPool extends pulumi.CustomResource {
     /**

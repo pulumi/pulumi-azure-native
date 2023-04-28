@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * VpnGatewayNatRule Resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### NatRulePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const natRule = new azure_native.network.NatRule("natRule", {
+ *     externalMappings: [{
+ *         addressSpace: "192.168.21.0/24",
+ *     }],
+ *     gatewayName: "gateway1",
+ *     internalMappings: [{
+ *         addressSpace: "10.4.0.0/24",
+ *     }],
+ *     ipConfigurationId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/cloudnet1-VNG/ipConfigurations/default",
+ *     mode: "EgressSnat",
+ *     natRuleName: "natRule1",
+ *     resourceGroupName: "rg1",
+ *     type: "Static",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:NatRule natRule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/natRules/natRule1 
+ * ```
  */
 export class NatRule extends pulumi.CustomResource {
     /**

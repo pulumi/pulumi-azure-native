@@ -176,6 +176,120 @@ class ADLSGen1FileDataSet(pulumi.CustomResource):
         """
         An ADLS Gen 1 file data set.
 
+        ## Example Usage
+        ### DataSets_ADLSGen2StorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_BlobStorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20201001preview:ADLSGen1FileDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The ADLS account name.
@@ -197,6 +311,120 @@ class ADLSGen1FileDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An ADLS Gen 1 file data set.
+
+        ## Example Usage
+        ### DataSets_ADLSGen2StorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_BlobStorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen1_file_data_set = azure_native.datashare.v20201001preview.ADLSGen1FileDataSet("adlsGen1FileDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20201001preview:ADLSGen1FileDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ADLSGen1FileDataSetArgs args: The arguments to use to populate this resource's properties.

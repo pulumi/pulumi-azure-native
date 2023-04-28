@@ -95,6 +95,38 @@ class FeaturesetContainerEntity(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Workspace Featureset Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        featureset_container_entity = azure_native.machinelearningservices.v20230401preview.FeaturesetContainerEntity("featuresetContainerEntity",
+            featureset_container_properties=azure_native.machinelearningservices.v20230401preview.FeaturesetContainerArgs(
+                description="string",
+                is_archived=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:FeaturesetContainerEntity string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FeaturesetContainerArgs']] featureset_container_properties: [Required] Additional attributes of the entity.
@@ -110,6 +142,38 @@ class FeaturesetContainerEntity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Workspace Featureset Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        featureset_container_entity = azure_native.machinelearningservices.v20230401preview.FeaturesetContainerEntity("featuresetContainerEntity",
+            featureset_container_properties=azure_native.machinelearningservices.v20230401preview.FeaturesetContainerArgs(
+                description="string",
+                is_archived=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:FeaturesetContainerEntity string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FeaturesetContainerEntityArgs args: The arguments to use to populate this resource's properties.

@@ -99,6 +99,28 @@ class TagRule(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### TagRules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_rule = azure_native.elastic.TagRule("tagRule",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            rule_set_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elastic:TagRule default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Datadog/monitors/myMonitor/tagRules/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_name: Monitor resource name
@@ -116,6 +138,28 @@ class TagRule(pulumi.CustomResource):
         Capture logs and metrics of Azure resources based on ARM tags.
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### TagRules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_rule = azure_native.elastic.TagRule("tagRule",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            rule_set_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elastic:TagRule default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Datadog/monitors/myMonitor/tagRules/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TagRuleArgs args: The arguments to use to populate this resource's properties.

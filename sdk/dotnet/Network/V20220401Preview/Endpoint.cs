@@ -11,6 +11,171 @@ namespace Pulumi.AzureNative.Network.V20220401Preview
 {
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
+    /// 
+    /// ## Example Usage
+    /// ### Endpoint-PUT-External-WithAlwaysServe
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.Network.V20220401Preview.Endpoint("endpoint", new()
+    ///     {
+    ///         AlwaysServe = "Enabled",
+    ///         EndpointLocation = "North Europe",
+    ///         EndpointName = "azsmnet7187",
+    ///         EndpointStatus = "Enabled",
+    ///         EndpointType = "ExternalEndpoints",
+    ///         Name = "azsmnet7187",
+    ///         ProfileName = "azsmnet6386",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///         Target = "foobar.contoso.com",
+    ///         Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Endpoint-PUT-External-WithCustomHeaders
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.Network.V20220401Preview.Endpoint("endpoint", new()
+    ///     {
+    ///         CustomHeaders = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220401Preview.Inputs.EndpointPropertiesCustomHeadersArgs
+    ///             {
+    ///                 Name = "header-1",
+    ///                 Value = "value-1",
+    ///             },
+    ///             new AzureNative.Network.V20220401Preview.Inputs.EndpointPropertiesCustomHeadersArgs
+    ///             {
+    ///                 Name = "header-2",
+    ///                 Value = "value-2",
+    ///             },
+    ///         },
+    ///         EndpointLocation = "North Europe",
+    ///         EndpointName = "azsmnet7187",
+    ///         EndpointStatus = "Enabled",
+    ///         EndpointType = "ExternalEndpoints",
+    ///         Name = "azsmnet7187",
+    ///         ProfileName = "azsmnet6386",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///         Target = "foobar.contoso.com",
+    ///         Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Endpoint-PUT-External-WithGeoMapping
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.Network.V20220401Preview.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "My%20external%20endpoint",
+    ///         EndpointStatus = "Enabled",
+    ///         EndpointType = "ExternalEndpoints",
+    ///         GeoMapping = new[]
+    ///         {
+    ///             "GEO-AS",
+    ///             "GEO-AF",
+    ///         },
+    ///         Name = "My external endpoint",
+    ///         ProfileName = "azuresdkfornetautoresttrafficmanager8224",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager2191",
+    ///         Target = "foobar.contoso.com",
+    ///         Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Endpoint-PUT-External-WithLocation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.Network.V20220401Preview.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointLocation = "North Europe",
+    ///         EndpointName = "azsmnet7187",
+    ///         EndpointStatus = "Enabled",
+    ///         EndpointType = "ExternalEndpoints",
+    ///         Name = "azsmnet7187",
+    ///         ProfileName = "azsmnet6386",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///         Target = "foobar.contoso.com",
+    ///         Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Endpoint-PUT-External-WithSubnetMapping
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.Network.V20220401Preview.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "My%20external%20endpoint",
+    ///         EndpointStatus = "Enabled",
+    ///         EndpointType = "ExternalEndpoints",
+    ///         Name = "My external endpoint",
+    ///         ProfileName = "azuresdkfornetautoresttrafficmanager8224",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager2191",
+    ///         Subnets = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220401Preview.Inputs.EndpointPropertiesSubnetsArgs
+    ///             {
+    ///                 First = "1.2.3.0",
+    ///                 Scope = 24,
+    ///             },
+    ///             new AzureNative.Network.V20220401Preview.Inputs.EndpointPropertiesSubnetsArgs
+    ///             {
+    ///                 First = "25.26.27.28",
+    ///                 Last = "29.30.31.32",
+    ///             },
+    ///         },
+    ///         Target = "foobar.contoso.com",
+    ///         Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220401preview:Endpoint My external endpoint /subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220401preview:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource

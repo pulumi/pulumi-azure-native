@@ -11,6 +11,735 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
 {
     /// <summary>
     /// Represents Fusion alert rule.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a Fusion alert rule with scenario exclusion pattern.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fusionAlertRule = new AzureNative.SecurityInsights.V20211001Preview.FusionAlertRule("fusionAlertRule", new()
+    ///     {
+    ///         AlertRuleTemplateName = "f71aba3d-28fb-450b-b192-4e76a83015c8",
+    ///         Enabled = true,
+    ///         Kind = "Fusion",
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "myFirstFusionRule",
+    ///         SourceSettings = new[]
+    ///         {
+    ///             new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSettingsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 SourceName = "Anomalies",
+    ///             },
+    ///             new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSettingsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 SourceName = "Alert providers",
+    ///                 SourceSubTypes = new[]
+    ///                 {
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Azure Active Directory Identity Protection",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Azure Defender",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Azure Defender for IoT",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft 365 Defender",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft Cloud App Security",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft Defender for Endpoint",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft Defender for Identity",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft Defender for Office 365",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Azure Sentinel scheduled analytics rules",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSettingsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 SourceName = "Raw logs from other sources",
+    ///                 SourceSubTypes = new[]
+    ///                 {
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = null,
+    ///                         SourceSubTypeName = "Palo Alto Networks",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Fusion alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fusionAlertRule = new AzureNative.SecurityInsights.V20211001Preview.FusionAlertRule("fusionAlertRule", new()
+    ///     {
+    ///         AlertRuleTemplateName = "f71aba3d-28fb-450b-b192-4e76a83015c8",
+    ///         Enabled = true,
+    ///         Kind = "Fusion",
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "myFirstFusionRule",
+    ///         SourceSettings = new[]
+    ///         {
+    ///             new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSettingsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 SourceName = "Anomalies",
+    ///             },
+    ///             new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSettingsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 SourceName = "Alert providers",
+    ///                 SourceSubTypes = new[]
+    ///                 {
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Azure Active Directory Identity Protection",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Azure Defender",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Azure Defender for IoT",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft 365 Defender",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft Cloud App Security",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft Defender for Endpoint",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft Defender for Identity",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Microsoft Defender for Office 365",
+    ///                     },
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFilterArgs
+    ///                         {
+    ///                             Filters = new[]
+    ///                             {
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "High",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Medium",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Low",
+    ///                                 },
+    ///                                 new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSubTypeSeverityFiltersItemArgs
+    ///                                 {
+    ///                                     Enabled = true,
+    ///                                     Severity = "Informational",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         SourceSubTypeName = "Azure Sentinel scheduled analytics rules",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSettingsArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 SourceName = "Raw logs from other sources",
+    ///                 SourceSubTypes = new[]
+    ///                 {
+    ///                     new AzureNative.SecurityInsights.V20211001Preview.Inputs.FusionSourceSubTypeSettingArgs
+    ///                     {
+    ///                         Enabled = true,
+    ///                         SeverityFilters = null,
+    ///                         SourceSubTypeName = "Palo Alto Networks",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fusionAlertRule = new AzureNative.SecurityInsights.V20211001Preview.FusionAlertRule("fusionAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "microsoftSecurityIncidentCreationRuleExample",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Nrt alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fusionAlertRule = new AzureNative.SecurityInsights.V20211001Preview.FusionAlertRule("fusionAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Scheduled alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fusionAlertRule = new AzureNative.SecurityInsights.V20211001Preview.FusionAlertRule("fusionAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20211001preview:FusionAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20211001preview:FusionAlertRule")]
     public partial class FusionAlertRule : global::Pulumi.CustomResource

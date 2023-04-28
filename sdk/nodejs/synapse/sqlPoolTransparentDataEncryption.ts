@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Represents a Sql pool transparent data encryption configuration.
  * API Version: 2021-06-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a Sql pool's transparent data encryption configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlPoolTransparentDataEncryption = new azure_native.synapse.SqlPoolTransparentDataEncryption("sqlPoolTransparentDataEncryption", {
+ *     resourceGroupName: "sqlcrudtest-6852",
+ *     sqlPoolName: "sqlcrudtest-9187",
+ *     status: "Enabled",
+ *     transparentDataEncryptionName: "current",
+ *     workspaceName: "sqlcrudtest-2080",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:SqlPoolTransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Synapse/workspaces/sqlcrudtest-2080/sqlPools/sqlcrudtest-9187/transparentDataEncryption/current 
+ * ```
  */
 export class SqlPoolTransparentDataEncryption extends pulumi.CustomResource {
     /**

@@ -112,6 +112,40 @@ class CodeVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Workspace Code Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        code_version = azure_native.machinelearningservices.v20230401preview.CodeVersion("codeVersion",
+            code_version_properties=azure_native.machinelearningservices.v20230401preview.CodeVersionArgs(
+                code_uri="https://blobStorage/folderName",
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:CodeVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CodeVersionArgs']] code_version_properties: [Required] Additional attributes of the entity.
@@ -128,6 +162,40 @@ class CodeVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Workspace Code Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        code_version = azure_native.machinelearningservices.v20230401preview.CodeVersion("codeVersion",
+            code_version_properties=azure_native.machinelearningservices.v20230401preview.CodeVersionArgs(
+                code_uri="https://blobStorage/folderName",
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:CodeVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CodeVersionInitArgs args: The arguments to use to populate this resource's properties.

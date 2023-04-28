@@ -167,6 +167,50 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create service endpoint policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint_policy = azure_native.network.ServiceEndpointPolicy("serviceEndpointPolicy",
+            location="westus",
+            resource_group_name="rg1",
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+        ### Create service endpoint policy with definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint_policy = azure_native.network.ServiceEndpointPolicy("serviceEndpointPolicy",
+            location="westus",
+            resource_group_name="rg1",
+            service_endpoint_policy_definitions=[azure_native.network.ServiceEndpointPolicyDefinitionArgs(
+                description="Storage Service EndpointPolicy Definition",
+                name="StorageServiceEndpointPolicyDefinition",
+                service="Microsoft.Storage",
+                service_resources=[
+                    "/subscriptions/subid1",
+                    "/subscriptions/subid1/resourceGroups/storageRg",
+                    "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
+                ],
+            )],
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ServiceEndpointPolicy testnsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ServiceEndpointPolicies/testpolicy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] contextual_service_endpoint_policies: A collection of contextual service endpoint policy.
@@ -188,6 +232,50 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         Service End point policy resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create service endpoint policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint_policy = azure_native.network.ServiceEndpointPolicy("serviceEndpointPolicy",
+            location="westus",
+            resource_group_name="rg1",
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+        ### Create service endpoint policy with definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint_policy = azure_native.network.ServiceEndpointPolicy("serviceEndpointPolicy",
+            location="westus",
+            resource_group_name="rg1",
+            service_endpoint_policy_definitions=[azure_native.network.ServiceEndpointPolicyDefinitionArgs(
+                description="Storage Service EndpointPolicy Definition",
+                name="StorageServiceEndpointPolicyDefinition",
+                service="Microsoft.Storage",
+                service_resources=[
+                    "/subscriptions/subid1",
+                    "/subscriptions/subid1/resourceGroups/storageRg",
+                    "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
+                ],
+            )],
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ServiceEndpointPolicy testnsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ServiceEndpointPolicies/testpolicy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointPolicyInitArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a file import in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Create a file import.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileImport = new azure_native.securityinsights.v20230301preview.FileImport("fileImport", {
+ *     contentType: "StixIndicator",
+ *     fileImportId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     importFile: {
+ *         fileFormat: "JSON",
+ *         fileName: "myFile.json",
+ *         fileSize: 4653,
+ *     },
+ *     ingestionMode: "IngestAnyValidRecords",
+ *     resourceGroupName: "myRg",
+ *     source: "mySource",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230301preview:FileImport 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/FileImports/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class FileImport extends pulumi.CustomResource {
     /**

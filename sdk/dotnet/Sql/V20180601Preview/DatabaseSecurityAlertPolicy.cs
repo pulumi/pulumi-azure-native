@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.Sql.V20180601Preview
 {
     /// <summary>
     /// A database security alert policy.
+    /// 
+    /// ## Example Usage
+    /// ### Update a database's threat detection policy with all parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseSecurityAlertPolicy = new AzureNative.Sql.V20180601Preview.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         ResourceGroupName = "securityalert-4799",
+    ///         SecurityAlertPolicyName = "default",
+    ///         ServerName = "securityalert-6440",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update a database's threat detection policy with minimal parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseSecurityAlertPolicy = new AzureNative.Sql.V20180601Preview.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         ResourceGroupName = "securityalert-4799",
+    ///         SecurityAlertPolicyName = "default",
+    ///         ServerName = "securityalert-6440",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.Sql/servers/securityalert-6440/databases/testdb 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy")]
     public partial class DatabaseSecurityAlertPolicy : global::Pulumi.CustomResource

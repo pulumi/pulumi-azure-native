@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * A flow log resource.
+ *
+ * ## Example Usage
+ * ### Create or update flow log
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const flowLog = new azure_native.network.v20220901.FlowLog("flowLog", {
+ *     enabled: true,
+ *     flowLogName: "fl",
+ *     format: {
+ *         type: "JSON",
+ *         version: 1,
+ *     },
+ *     location: "centraluseuap",
+ *     networkWatcherName: "nw1",
+ *     resourceGroupName: "rg1",
+ *     storageId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
+ *     targetResourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:FlowLog Microsoft.Networkdesmond-rgdesmondcentral-nsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw/FlowLogs/fl 
+ * ```
  */
 export class FlowLog extends pulumi.CustomResource {
     /**

@@ -254,6 +254,13 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  __props__=None):
         """
         ExpressRouteCircuit resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20150501preview:ExpressRouteCircuit myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/ 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -279,6 +286,13 @@ class ExpressRouteCircuit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRouteCircuit resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20150501preview:ExpressRouteCircuit myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/ 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitArgs args: The arguments to use to populate this resource's properties.

@@ -228,6 +228,57 @@ class ApiOperation(pulumi.CustomResource):
         """
         API Operation details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiOperation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_operation = azure_native.apimanagement.v20220801.ApiOperation("apiOperation",
+            api_id="PetStoreTemplate2",
+            description="This can only be done by the logged in user.",
+            display_name="createUser2",
+            method="POST",
+            operation_id="newoperations",
+            request=azure_native.apimanagement.v20220801.RequestContractResponseArgs(
+                description="Created user object",
+                headers=[],
+                query_parameters=[],
+                representations=[azure_native.apimanagement.v20220801.RepresentationContractArgs(
+                    content_type="application/json",
+                    schema_id="592f6c1d0af5840ca8897f0c",
+                    type_name="User",
+                )],
+            ),
+            resource_group_name="rg1",
+            responses=[{
+                "description": "successful operation",
+                "headers": [],
+                "representations": [
+                    azure_native.apimanagement.v20220801.RepresentationContractArgs(
+                        content_type="application/xml",
+                    ),
+                    azure_native.apimanagement.v20220801.RepresentationContractArgs(
+                        content_type="application/json",
+                    ),
+                ],
+                "statusCode": 200,
+            }],
+            service_name="apimService1",
+            template_parameters=[],
+            url_template="/user1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:ApiOperation newoperations /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/PetStoreTemplate2/operations/newoperations 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -251,6 +302,57 @@ class ApiOperation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         API Operation details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiOperation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_operation = azure_native.apimanagement.v20220801.ApiOperation("apiOperation",
+            api_id="PetStoreTemplate2",
+            description="This can only be done by the logged in user.",
+            display_name="createUser2",
+            method="POST",
+            operation_id="newoperations",
+            request=azure_native.apimanagement.v20220801.RequestContractResponseArgs(
+                description="Created user object",
+                headers=[],
+                query_parameters=[],
+                representations=[azure_native.apimanagement.v20220801.RepresentationContractArgs(
+                    content_type="application/json",
+                    schema_id="592f6c1d0af5840ca8897f0c",
+                    type_name="User",
+                )],
+            ),
+            resource_group_name="rg1",
+            responses=[{
+                "description": "successful operation",
+                "headers": [],
+                "representations": [
+                    azure_native.apimanagement.v20220801.RepresentationContractArgs(
+                        content_type="application/xml",
+                    ),
+                    azure_native.apimanagement.v20220801.RepresentationContractArgs(
+                        content_type="application/json",
+                    ),
+                ],
+                "statusCode": 200,
+            }],
+            service_name="apimService1",
+            template_parameters=[],
+            url_template="/user1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:ApiOperation newoperations /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/PetStoreTemplate2/operations/newoperations 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiOperationArgs args: The arguments to use to populate this resource's properties.

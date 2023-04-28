@@ -11,6 +11,16 @@ namespace Pulumi.AzureNative.CostManagement.V20221005Preview
 {
     /// <summary>
     /// States and configurations of Cost Analysis.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement/v20221005preview:View swaggerExample /providers/Microsoft.CostManagement/views/swaggerExample 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20221005preview:View")]
     public partial class View : global::Pulumi.CustomResource

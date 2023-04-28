@@ -119,6 +119,13 @@ class ActionRuleByName(pulumi.CustomResource):
                  __props__=None):
         """
         Action rule object containing target scope, conditions and suppression logic
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AlertsManagement/actionRules/{actionRuleName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -136,6 +143,13 @@ class ActionRuleByName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Action rule object containing target scope, conditions and suppression logic
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:alertsmanagement/v20181102privatepreview:ActionRuleByName myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AlertsManagement/actionRules/{actionRuleName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ActionRuleByNameArgs args: The arguments to use to populate this resource's properties.

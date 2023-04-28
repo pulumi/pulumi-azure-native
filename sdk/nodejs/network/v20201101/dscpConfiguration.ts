@@ -9,6 +9,74 @@ import * as utilities from "../../utilities";
 
 /**
  * DSCP Configuration in a resource group.
+ *
+ * ## Example Usage
+ * ### Create DSCP Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dscpConfiguration = new azure_native.network.v20201101.DscpConfiguration("dscpConfiguration", {
+ *     destinationIpRanges: [
+ *         {
+ *             endIP: "127.0.10.2",
+ *             startIP: "127.0.10.1",
+ *         },
+ *         {
+ *             endIP: "127.0.11.2",
+ *             startIP: "127.0.11.1",
+ *         },
+ *     ],
+ *     destinationPortRanges: [
+ *         {
+ *             end: 15,
+ *             start: 15,
+ *         },
+ *         {
+ *             end: 27,
+ *             start: 26,
+ *         },
+ *     ],
+ *     dscpConfigurationName: "mydscpconfig",
+ *     location: "eastus",
+ *     markings: [
+ *         46,
+ *         10,
+ *     ],
+ *     protocol: "Tcp",
+ *     resourceGroupName: "rg1",
+ *     sourceIpRanges: [
+ *         {
+ *             endIP: "127.0.0.2",
+ *             startIP: "127.0.0.1",
+ *         },
+ *         {
+ *             endIP: "127.0.1.2",
+ *             startIP: "127.0.1.1",
+ *         },
+ *     ],
+ *     sourcePortRanges: [
+ *         {
+ *             end: 11,
+ *             start: 10,
+ *         },
+ *         {
+ *             end: 21,
+ *             start: 20,
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:DscpConfiguration mydscpConfig /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dscpConfiguration/mydscpConfig 
+ * ```
  */
 export class DscpConfiguration extends pulumi.CustomResource {
     /**

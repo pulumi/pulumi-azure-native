@@ -11,6 +11,370 @@ namespace Pulumi.AzureNative.Sql.V20190601Preview
 {
     /// <summary>
     /// A database resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a VCore database by specifying service objective name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Family = "Gen4",
+    ///             Name = "BC",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a VCore database by specifying sku name and capacity.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "BC_Gen4",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a data warehouse by specifying service objective name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         DatabaseName = "testdw",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "DW1000c",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a data warehouse database as a cross-subscription restore from a backup of a dropped database.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         CreateMode = "Restore",
+    ///         DatabaseName = "testdw",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         SourceResourceId = "/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/srcsvr/restorableDroppedDatabases/srcdw,131403269876900000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a data warehouse database as a cross-subscription restore from a geo-backup.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         CreateMode = "Recovery",
+    ///         DatabaseName = "testdw",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "Default-SQL-WestUS",
+    ///         ServerName = "testsvr",
+    ///         SourceResourceId = "/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-EastUS/providers/Microsoft.Sql/servers/srcsvr/recoverabledatabases/srcdw",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a data warehouse database as a cross-subscription restore from a restore point of an existing database.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         CreateMode = "PointInTimeRestore",
+    ///         DatabaseName = "testdw",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         RestorePointInTime = "2022-01-22T05:35:31.503Z",
+    ///         ServerName = "testsvr",
+    ///         SourceResourceId = "/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/srcsvr/databases/srcdw",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a database as a copy.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         CreateMode = "Copy",
+    ///         DatabaseName = "dbcopy",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a database as an on-line secondary.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         CreateMode = "Secondary",
+    ///         DatabaseName = "testdb",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a database from PointInTimeRestore.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         CreateMode = "PointInTimeRestore",
+    ///         DatabaseName = "dbpitr",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         RestorePointInTime = "2017-07-14T05:35:31.503Z",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a database from recoverableDatabaseId.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         CreateMode = "Restore",
+    ///         DatabaseName = "dbrestore",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         RestorableDroppedDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/restorableDroppedDatabases/testdb2,131444841315030000",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a database from restore with database deletion time.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         CreateMode = "Restore",
+    ///         DatabaseName = "dbrestore",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         SourceDatabaseDeletionDate = "2017-07-14T06:41:06.613Z",
+    ///         SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a database from restore with restorableDroppedDatabaseId.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         CreateMode = "Copy",
+    ///         DatabaseName = "dbcopy",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a database with default mode.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         CreateMode = "Default",
+    ///         DatabaseName = "testdb",
+    ///         Location = "southeastasia",
+    ///         MaxSizeBytes = 1073741824,
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         Sku = new AzureNative.Sql.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a database with minimum number of parameters.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Sql.V20190601Preview.Database("database", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20190601preview:Database testdb /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20190601preview:Database")]
     public partial class Database : global::Pulumi.CustomResource

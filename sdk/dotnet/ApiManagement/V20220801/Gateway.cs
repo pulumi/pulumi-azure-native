@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Gateway details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gateway = new AzureNative.ApiManagement.V20220801.Gateway("gateway", new()
+    ///     {
+    ///         Description = "my gateway 1",
+    ///         GatewayId = "gw1",
+    ///         LocationData = new AzureNative.ApiManagement.V20220801.Inputs.ResourceLocationDataContractArgs
+    ///         {
+    ///             Name = "my location",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:Gateway a1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource

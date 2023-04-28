@@ -165,6 +165,78 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CosmosDBSqlContainerCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_container = azure_native.documentdb.SqlResourceSqlContainer("sqlResourceSqlContainer",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.SqlContainerGetPropertiesResponseResourceArgs(
+                client_encryption_policy=azure_native.documentdb.ClientEncryptionPolicyArgs(
+                    included_paths=[azure_native.documentdb.ClientEncryptionIncludedPathArgs(
+                        client_encryption_key_id="keyId",
+                        encryption_algorithm="AEAD_AES_256_CBC_HMAC_SHA256",
+                        encryption_type="Deterministic",
+                        path="/path",
+                    )],
+                    policy_format_version=2,
+                ),
+                conflict_resolution_policy=azure_native.documentdb.ConflictResolutionPolicyArgs(
+                    conflict_resolution_path="/path",
+                    mode="LastWriterWins",
+                ),
+                default_ttl=100,
+                id="containerName",
+                indexing_policy={
+                    "automatic": True,
+                    "excludedPaths": [],
+                    "includedPaths": [{
+                        "indexes": [
+                            azure_native.documentdb.IndexesArgs(
+                                data_type="String",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                            azure_native.documentdb.IndexesArgs(
+                                data_type="Number",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                        ],
+                        "path": "/*",
+                    }],
+                    "indexingMode": "consistent",
+                },
+                partition_key=azure_native.documentdb.ContainerPartitionKeyArgs(
+                    kind="Hash",
+                    paths=["/AccountNumber"],
+                ),
+                unique_key_policy={
+                    "uniqueKeys": [azure_native.documentdb.UniqueKeyArgs(
+                        paths=["/testPath"],
+                    )],
+                },
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:SqlResourceSqlContainer containerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/containers/containerName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -186,6 +258,78 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
         An Azure Cosmos DB container.
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CosmosDBSqlContainerCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_container = azure_native.documentdb.SqlResourceSqlContainer("sqlResourceSqlContainer",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.SqlContainerGetPropertiesResponseResourceArgs(
+                client_encryption_policy=azure_native.documentdb.ClientEncryptionPolicyArgs(
+                    included_paths=[azure_native.documentdb.ClientEncryptionIncludedPathArgs(
+                        client_encryption_key_id="keyId",
+                        encryption_algorithm="AEAD_AES_256_CBC_HMAC_SHA256",
+                        encryption_type="Deterministic",
+                        path="/path",
+                    )],
+                    policy_format_version=2,
+                ),
+                conflict_resolution_policy=azure_native.documentdb.ConflictResolutionPolicyArgs(
+                    conflict_resolution_path="/path",
+                    mode="LastWriterWins",
+                ),
+                default_ttl=100,
+                id="containerName",
+                indexing_policy={
+                    "automatic": True,
+                    "excludedPaths": [],
+                    "includedPaths": [{
+                        "indexes": [
+                            azure_native.documentdb.IndexesArgs(
+                                data_type="String",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                            azure_native.documentdb.IndexesArgs(
+                                data_type="Number",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                        ],
+                        "path": "/*",
+                    }],
+                    "indexingMode": "consistent",
+                },
+                partition_key=azure_native.documentdb.ContainerPartitionKeyArgs(
+                    kind="Hash",
+                    paths=["/AccountNumber"],
+                ),
+                unique_key_policy={
+                    "uniqueKeys": [azure_native.documentdb.UniqueKeyArgs(
+                        paths=["/testPath"],
+                    )],
+                },
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:SqlResourceSqlContainer containerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/containers/containerName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlContainerArgs args: The arguments to use to populate this resource's properties.

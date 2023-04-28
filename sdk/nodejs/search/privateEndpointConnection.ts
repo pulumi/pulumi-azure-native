@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Describes an existing Private Endpoint connection to the Azure Cognitive Search service.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnectionUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.search.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546",
+ *     properties: {
+ *         privateLinkServiceConnectionState: {
+ *             description: "Rejected for some reason",
+ *             status: azure_native.search.PrivateLinkServiceConnectionStatus.Rejected,
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     searchServiceName: "mysearchservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:search:PrivateEndpointConnection testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice/privateEndpointConnections/testEndpoint.50bf4fbe-d7c1-4b48-a642-4f5892642546 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

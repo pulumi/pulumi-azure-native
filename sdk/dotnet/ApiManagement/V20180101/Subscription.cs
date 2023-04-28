@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// Subscription details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateSubscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subscription = new AzureNative.ApiManagement.V20180101.Subscription("subscription", new()
+    ///     {
+    ///         DisplayName = "testsub",
+    ///         ProductId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b59475ff190048060002",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sid = "testsub",
+    ///         UserId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20180101:Subscription testsub /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/subscriptions/testsub 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource

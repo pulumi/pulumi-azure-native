@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220501Preview
 {
     /// <summary>
     /// The storageSpaces resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutStorageSpace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageSpaceRetrieve = new AzureNative.HybridContainerService.V20220501Preview.StorageSpaceRetrieve("storageSpaceRetrieve", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.HybridContainerService.V20220501Preview.Inputs.StorageSpacesExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.HybridContainerService.V20220501Preview.Inputs.StorageSpacesPropertiesArgs
+    ///         {
+    ///             HciStorageProfile = new AzureNative.HybridContainerService.V20220501Preview.Inputs.StorageSpacesPropertiesHciStorageProfileArgs
+    ///             {
+    ///                 MocGroup = "target-group",
+    ///                 MocLocation = "MocLocation",
+    ///                 MocStorageContainer = "WssdStorageContainer",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-arcappliance-resgrp",
+    ///         StorageSpacesName = "test-storage",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcontainerservice/v20220501preview:storageSpaceRetrieve test-storage /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/storageSpaces/test-storage 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice/v20220501preview:storageSpaceRetrieve")]
     public partial class StorageSpaceRetrieve : global::Pulumi.CustomResource

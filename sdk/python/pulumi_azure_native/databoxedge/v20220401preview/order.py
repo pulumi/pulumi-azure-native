@@ -114,6 +114,42 @@ class Order(pulumi.CustomResource):
         """
         The order details.
 
+        ## Example Usage
+        ### OrderPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        order = azure_native.databoxedge.v20220401preview.Order("order",
+            contact_information=azure_native.databoxedge.v20220401preview.ContactDetailsResponseArgs(
+                company_name="Microsoft",
+                contact_person="John Mcclane",
+                email_list=["john@microsoft.com"],
+                phone="(800) 426-9400",
+            ),
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            shipping_address=azure_native.databoxedge.v20220401preview.AddressResponseArgs(
+                address_line1="Microsoft Corporation",
+                address_line2="One Microsoft Way",
+                address_line3="Redmond",
+                city="WA",
+                country="USA",
+                postal_code="98052",
+                state="WA",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20220401preview:Order default /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/orders/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ContactDetailsArgs']] contact_information: The contact details.
@@ -130,6 +166,42 @@ class Order(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The order details.
+
+        ## Example Usage
+        ### OrderPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        order = azure_native.databoxedge.v20220401preview.Order("order",
+            contact_information=azure_native.databoxedge.v20220401preview.ContactDetailsResponseArgs(
+                company_name="Microsoft",
+                contact_person="John Mcclane",
+                email_list=["john@microsoft.com"],
+                phone="(800) 426-9400",
+            ),
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            shipping_address=azure_native.databoxedge.v20220401preview.AddressResponseArgs(
+                address_line1="Microsoft Corporation",
+                address_line2="One Microsoft Way",
+                address_line3="Redmond",
+                city="WA",
+                country="USA",
+                postal_code="98052",
+                state="WA",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20220401preview:Order default /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/orders/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OrderArgs args: The arguments to use to populate this resource's properties.

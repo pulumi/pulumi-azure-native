@@ -130,6 +130,31 @@ class Administrator(pulumi.CustomResource):
         """
         Represents an Active Directory administrator.
 
+        ## Example Usage
+        ### Adds an Active DIrectory Administrator for the server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        administrator = azure_native.dbforpostgresql.v20221201.Administrator("administrator",
+            object_id="oooooooo-oooo-oooo-oooo-oooooooooooo",
+            principal_name="testuser1@microsoft.com",
+            principal_type="User",
+            resource_group_name="testrg",
+            server_name="testserver",
+            tenant_id="tttttttt-tttt-tttt-tttt-tttttttttttt")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221201:Administrator testuser1@microsoft.com /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/administrators/oooooooo-oooo-oooo-oooo-oooooooooooo 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] object_id: Guid of the objectId for the administrator.
@@ -147,6 +172,31 @@ class Administrator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an Active Directory administrator.
+
+        ## Example Usage
+        ### Adds an Active DIrectory Administrator for the server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        administrator = azure_native.dbforpostgresql.v20221201.Administrator("administrator",
+            object_id="oooooooo-oooo-oooo-oooo-oooooooooooo",
+            principal_name="testuser1@microsoft.com",
+            principal_type="User",
+            resource_group_name="testrg",
+            server_name="testserver",
+            tenant_id="tttttttt-tttt-tttt-tttt-tttttttttttt")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221201:Administrator testuser1@microsoft.com /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/administrators/oooooooo-oooo-oooo-oooo-oooooooooooo 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AdministratorArgs args: The arguments to use to populate this resource's properties.

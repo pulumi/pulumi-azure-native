@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * vCenter definition.
+ *
+ * ## Example Usage
+ * ### Add vCenter.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationvCenter = new azure_native.recoveryservices.v20210301.ReplicationvCenter("replicationvCenter", {
+ *     fabricName: "MadhaviFabric",
+ *     properties: {
+ *         friendlyName: "esx-78",
+ *         ipAddress: "inmtest78",
+ *         port: "443",
+ *         processServerId: "5A720CAB-39CB-F445-BD1662B0B33164B5",
+ *         runAsAccountId: "2",
+ *     },
+ *     resourceGroupName: "MadhaviVRG",
+ *     resourceName: "MadhaviVault",
+ *     vCenterName: "esx-78",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20210301:ReplicationvCenter esx-78 /Subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/MadhaviVRG/providers/Microsoft.RecoveryServices/vaults/MadhaviVault/replicationFabrics/239f778f368e34f78216d81f030725cdf2033174b47879b9f2eeede06fdd9c4d/replicationvCenters/esx-78 
+ * ```
  */
 export class ReplicationvCenter extends pulumi.CustomResource {
     /**

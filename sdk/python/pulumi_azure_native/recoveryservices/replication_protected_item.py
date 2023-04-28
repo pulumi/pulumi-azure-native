@@ -131,6 +131,37 @@ class ReplicationProtectedItem(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Enables protection.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_protected_item = azure_native.recoveryservices.ReplicationProtectedItem("replicationProtectedItem",
+            fabric_name="cloud1",
+            properties=azure_native.recoveryservices.ReplicationProtectedItemPropertiesResponseArgs(
+                policy_id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
+                protectable_item_id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectableItems/f8491e4f-817a-40dd-a90c-af773978c75b",
+                provider_specific_details=azure_native.recoveryservices.HyperVReplicaAzureEnableProtectionInputArgs(
+                    instance_type="HyperVReplicaAzure",
+                ),
+            ),
+            protection_container_name="cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+            replicated_protected_item_name="f8491e4f-817a-40dd-a90c-af773978c75b",
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationProtectedItem f8491e4f-817a-40dd-a90c-af773978c75b /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Name of the fabric.
@@ -150,6 +181,37 @@ class ReplicationProtectedItem(pulumi.CustomResource):
         Replication protected item.
         API Version: 2023-02-01.
         Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Enables protection.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_protected_item = azure_native.recoveryservices.ReplicationProtectedItem("replicationProtectedItem",
+            fabric_name="cloud1",
+            properties=azure_native.recoveryservices.ReplicationProtectedItemPropertiesResponseArgs(
+                policy_id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
+                protectable_item_id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectableItems/f8491e4f-817a-40dd-a90c-af773978c75b",
+                provider_specific_details=azure_native.recoveryservices.HyperVReplicaAzureEnableProtectionInputArgs(
+                    instance_type="HyperVReplicaAzure",
+                ),
+            ),
+            protection_container_name="cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+            replicated_protected_item_name="f8491e4f-817a-40dd-a90c-af773978c75b",
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationProtectedItem f8491e4f-817a-40dd-a90c-af773978c75b /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationProtectedItemArgs args: The arguments to use to populate this resource's properties.

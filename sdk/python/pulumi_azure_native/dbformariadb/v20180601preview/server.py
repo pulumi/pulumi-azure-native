@@ -131,6 +131,115 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
+        ## Example Usage
+        ### Create a database as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformariadb.v20180601preview.Server("server",
+            location="brazilsouth",
+            properties=azure_native.dbformariadb.v20180601preview.ServerPropertiesForRestoreArgs(
+                create_mode="PointInTimeRestore",
+                restore_point_in_time="2017-12-14T00:00:37.467Z",
+                source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMariaDB/servers/sourceserver",
+            ),
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku=azure_native.dbformariadb.v20180601preview.SkuResponseArgs(
+                capacity=2,
+                family="Gen5",
+                name="GP_Gen5_2",
+                tier="GeneralPurpose",
+            ),
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformariadb.v20180601preview.Server("server",
+            location="westus",
+            properties=azure_native.dbformariadb.v20180601preview.ServerPropertiesForDefaultCreateArgs(
+                administrator_login="cloudsa",
+                administrator_login_password="<administratorLoginPassword>",
+                create_mode="Default",
+                ssl_enforcement=azure_native.dbformariadb/v20180601preview.SslEnforcementEnum.ENABLED,
+                storage_profile=azure_native.dbformariadb.v20180601preview.StorageProfileArgs(
+                    backup_retention_days=7,
+                    geo_redundant_backup="Enabled",
+                    storage_mb=128000,
+                ),
+            ),
+            resource_group_name="testrg",
+            server_name="mariadbtestsvc4",
+            sku=azure_native.dbformariadb.v20180601preview.SkuResponseArgs(
+                capacity=2,
+                family="Gen5",
+                name="GP_Gen5_2",
+                tier="GeneralPurpose",
+            ),
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformariadb.v20180601preview.Server("server",
+            location="westus",
+            properties=azure_native.dbformariadb.v20180601preview.ServerPropertiesForReplicaArgs(
+                create_mode="Replica",
+                source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/MasterResourceGroup/providers/Microsoft.DBforMariaDB/servers/masterserver",
+            ),
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver")
+
+        ```
+        ### Create a server as a geo restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformariadb.v20180601preview.Server("server",
+            location="westus",
+            properties=azure_native.dbformariadb.v20180601preview.ServerPropertiesForGeoRestoreArgs(
+                create_mode="GeoRestore",
+                source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMariaDB/servers/sourceserver",
+            ),
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku=azure_native.dbformariadb.v20180601preview.SkuResponseArgs(
+                capacity=2,
+                family="Gen5",
+                name="GP_Gen5_2",
+                tier="GeneralPurpose",
+            ),
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformariadb/v20180601preview:Server targetserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMariaDB/servers/targetserver 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location the resource resides in.
@@ -148,6 +257,115 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
+
+        ## Example Usage
+        ### Create a database as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformariadb.v20180601preview.Server("server",
+            location="brazilsouth",
+            properties=azure_native.dbformariadb.v20180601preview.ServerPropertiesForRestoreArgs(
+                create_mode="PointInTimeRestore",
+                restore_point_in_time="2017-12-14T00:00:37.467Z",
+                source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMariaDB/servers/sourceserver",
+            ),
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku=azure_native.dbformariadb.v20180601preview.SkuResponseArgs(
+                capacity=2,
+                family="Gen5",
+                name="GP_Gen5_2",
+                tier="GeneralPurpose",
+            ),
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformariadb.v20180601preview.Server("server",
+            location="westus",
+            properties=azure_native.dbformariadb.v20180601preview.ServerPropertiesForDefaultCreateArgs(
+                administrator_login="cloudsa",
+                administrator_login_password="<administratorLoginPassword>",
+                create_mode="Default",
+                ssl_enforcement=azure_native.dbformariadb/v20180601preview.SslEnforcementEnum.ENABLED,
+                storage_profile=azure_native.dbformariadb.v20180601preview.StorageProfileArgs(
+                    backup_retention_days=7,
+                    geo_redundant_backup="Enabled",
+                    storage_mb=128000,
+                ),
+            ),
+            resource_group_name="testrg",
+            server_name="mariadbtestsvc4",
+            sku=azure_native.dbformariadb.v20180601preview.SkuResponseArgs(
+                capacity=2,
+                family="Gen5",
+                name="GP_Gen5_2",
+                tier="GeneralPurpose",
+            ),
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformariadb.v20180601preview.Server("server",
+            location="westus",
+            properties=azure_native.dbformariadb.v20180601preview.ServerPropertiesForReplicaArgs(
+                create_mode="Replica",
+                source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/MasterResourceGroup/providers/Microsoft.DBforMariaDB/servers/masterserver",
+            ),
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver")
+
+        ```
+        ### Create a server as a geo restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformariadb.v20180601preview.Server("server",
+            location="westus",
+            properties=azure_native.dbformariadb.v20180601preview.ServerPropertiesForGeoRestoreArgs(
+                create_mode="GeoRestore",
+                source_server_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMariaDB/servers/sourceserver",
+            ),
+            resource_group_name="TargetResourceGroup",
+            server_name="targetserver",
+            sku=azure_native.dbformariadb.v20180601preview.SkuResponseArgs(
+                capacity=2,
+                family="Gen5",
+                name="GP_Gen5_2",
+                tier="GeneralPurpose",
+            ),
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformariadb/v20180601preview:Server targetserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMariaDB/servers/targetserver 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

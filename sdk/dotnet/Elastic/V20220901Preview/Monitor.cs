@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.Elastic.V20220901Preview
 {
     /// <summary>
     /// Monitor resource.
+    /// 
+    /// ## Example Usage
+    /// ### Monitors_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new AzureNative.Elastic.V20220901Preview.Monitor("monitor", new()
+    ///     {
+    ///         MonitorName = "myMonitor",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:elastic/v20220901preview:Monitor myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic/v20220901preview:Monitor")]
     public partial class Monitor : global::Pulumi.CustomResource

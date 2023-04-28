@@ -287,6 +287,46 @@ class Namespace(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### NamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.eventhub.Namespace("namespace",
+            cluster_arm_id="/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/clusters/enc-test",
+            encryption=azure_native.eventhub.EncryptionResponseArgs(
+                key_source=azure_native.eventhub.KeySource.MICROSOFT_KEY_VAULT,
+                key_vault_properties=[{
+                    "identity": azure_native.eventhub.UserAssignedIdentityPropertiesArgs(
+                        user_assigned_identity="/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1",
+                    ),
+                    "keyName": "Samplekey",
+                    "keyVaultUri": "https://aprao-keyvault-user.vault-int.azure-int.net/",
+                }],
+            ),
+            identity=azure_native.eventhub.IdentityArgs(
+                type=azure_native.eventhub.ManagedServiceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1": {},
+                    "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud2": {},
+                },
+            ),
+            location="East US",
+            namespace_name="NamespaceSample",
+            resource_group_name="ResurceGroupSample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:Namespace NamespaceSample /subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/namespaces/NamespaceSample 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alternate_name: Alternate name specified when alias and namespace names are same.
@@ -315,6 +355,46 @@ class Namespace(pulumi.CustomResource):
         Single Namespace item in List or Get Operation
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### NamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.eventhub.Namespace("namespace",
+            cluster_arm_id="/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/clusters/enc-test",
+            encryption=azure_native.eventhub.EncryptionResponseArgs(
+                key_source=azure_native.eventhub.KeySource.MICROSOFT_KEY_VAULT,
+                key_vault_properties=[{
+                    "identity": azure_native.eventhub.UserAssignedIdentityPropertiesArgs(
+                        user_assigned_identity="/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1",
+                    ),
+                    "keyName": "Samplekey",
+                    "keyVaultUri": "https://aprao-keyvault-user.vault-int.azure-int.net/",
+                }],
+            ),
+            identity=azure_native.eventhub.IdentityArgs(
+                type=azure_native.eventhub.ManagedServiceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1": {},
+                    "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud2": {},
+                },
+            ),
+            location="East US",
+            namespace_name="NamespaceSample",
+            resource_group_name="ResurceGroupSample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:Namespace NamespaceSample /subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/namespaces/NamespaceSample 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

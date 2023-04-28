@@ -9,6 +9,90 @@ import * as utilities from "../../utilities";
 
 /**
  * The manged cluster resource
+ *
+ * ## Example Usage
+ * ### Put a cluster with maximum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCluster = new azure_native.servicefabric.v20200101preview.ManagedCluster("managedCluster", {
+ *     adminPassword: "{vm-password}",
+ *     adminUserName: "vmadmin",
+ *     clientConnectionPort: 19000,
+ *     clusterCodeVersion: "7.1.168.9494",
+ *     clusterName: "myCluster",
+ *     dnsName: "myCluster",
+ *     fabricSettings: [{
+ *         name: "ManagedIdentityTokenService",
+ *         parameters: [{
+ *             name: "IsEnabled",
+ *             value: "true",
+ *         }],
+ *     }],
+ *     httpGatewayConnectionPort: 19080,
+ *     loadBalancingRules: [
+ *         {
+ *             backendPort: 80,
+ *             frontendPort: 80,
+ *             probeProtocol: "http",
+ *             protocol: "http",
+ *         },
+ *         {
+ *             backendPort: 443,
+ *             frontendPort: 443,
+ *             probeProtocol: "http",
+ *             protocol: "http",
+ *         },
+ *         {
+ *             backendPort: 10000,
+ *             frontendPort: 10000,
+ *             probeProtocol: "http",
+ *             protocol: "tcp",
+ *         },
+ *     ],
+ *     location: "eastus",
+ *     resourceGroupName: "resRg",
+ *     sku: {
+ *         name: "Basic",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Put a cluster with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCluster = new azure_native.servicefabric.v20200101preview.ManagedCluster("managedCluster", {
+ *     adminPassword: "{vm-password}",
+ *     adminUserName: "vmadmin",
+ *     clusterCodeVersion: "7.1.168.9494",
+ *     clusterName: "myCluster",
+ *     dnsName: "myCluster",
+ *     fabricSettings: [{
+ *         name: "ManagedIdentityTokenService",
+ *         parameters: [{
+ *             name: "IsEnabled",
+ *             value: "true",
+ *         }],
+ *     }],
+ *     location: "eastus",
+ *     resourceGroupName: "resRg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabric/v20200101preview:ManagedCluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster 
+ * ```
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**

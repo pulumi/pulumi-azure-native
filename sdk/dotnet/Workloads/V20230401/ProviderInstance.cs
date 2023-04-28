@@ -11,6 +11,390 @@ namespace Pulumi.AzureNative.Workloads.V20230401
 {
     /// <summary>
     /// A provider instance associated with SAP monitor.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Db2 provider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.DB2ProviderInstancePropertiesArgs
+    ///         {
+    ///             DbName = "dbName",
+    ///             DbPassword = "password",
+    ///             DbPasswordUri = "",
+    ///             DbPort = "dbPort",
+    ///             DbUsername = "username",
+    ///             Hostname = "hostname",
+    ///             ProviderType = "Db2",
+    ///             SapSid = "SID",
+    ///             SslCertificateUri = "https://storageaccount.blob.core.windows.net/containername/filename",
+    ///             SslPreference = "ServerCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Db2 provider with Root Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.DB2ProviderInstancePropertiesArgs
+    ///         {
+    ///             DbName = "dbName",
+    ///             DbPassword = "password",
+    ///             DbPasswordUri = "",
+    ///             DbPort = "dbPort",
+    ///             DbUsername = "username",
+    ///             Hostname = "hostname",
+    ///             ProviderType = "Db2",
+    ///             SapSid = "SID",
+    ///             SslPreference = "RootCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a MsSqlServer provider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.MsSqlServerProviderInstancePropertiesArgs
+    ///         {
+    ///             DbPassword = "****",
+    ///             DbPasswordUri = "",
+    ///             DbPort = "5912",
+    ///             DbUsername = "user",
+    ///             Hostname = "hostname",
+    ///             ProviderType = "MsSqlServer",
+    ///             SapSid = "sid",
+    ///             SslCertificateUri = "https://storageaccount.blob.core.windows.net/containername/filename",
+    ///             SslPreference = "ServerCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a MsSqlServer provider with Root Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.MsSqlServerProviderInstancePropertiesArgs
+    ///         {
+    ///             DbPassword = "****",
+    ///             DbPasswordUri = "",
+    ///             DbPort = "5912",
+    ///             DbUsername = "user",
+    ///             Hostname = "hostname",
+    ///             ProviderType = "MsSqlServer",
+    ///             SapSid = "sid",
+    ///             SslPreference = "RootCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a OS provider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.PrometheusOSProviderInstancePropertiesArgs
+    ///         {
+    ///             PrometheusUrl = "http://192.168.0.0:9090/metrics",
+    ///             ProviderType = "PrometheusOS",
+    ///             SapSid = "SID",
+    ///             SslCertificateUri = "https://storageaccount.blob.core.windows.net/containername/filename",
+    ///             SslPreference = "ServerCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a OS provider with Root Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.PrometheusOSProviderInstancePropertiesArgs
+    ///         {
+    ///             PrometheusUrl = "http://192.168.0.0:9090/metrics",
+    ///             ProviderType = "PrometheusOS",
+    ///             SapSid = "SID",
+    ///             SslPreference = "RootCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a PrometheusHaCluster provider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.PrometheusHaClusterProviderInstancePropertiesArgs
+    ///         {
+    ///             ClusterName = "clusterName",
+    ///             Hostname = "hostname",
+    ///             PrometheusUrl = "http://192.168.0.0:9090/metrics",
+    ///             ProviderType = "PrometheusHaCluster",
+    ///             Sid = "sid",
+    ///             SslCertificateUri = "https://storageaccount.blob.core.windows.net/containername/filename",
+    ///             SslPreference = "ServerCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a PrometheusHaCluster provider with Root Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.PrometheusHaClusterProviderInstancePropertiesArgs
+    ///         {
+    ///             ClusterName = "clusterName",
+    ///             Hostname = "hostname",
+    ///             PrometheusUrl = "http://192.168.0.0:9090/metrics",
+    ///             ProviderType = "PrometheusHaCluster",
+    ///             Sid = "sid",
+    ///             SslPreference = "RootCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a SAP monitor Hana provider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.HanaDbProviderInstancePropertiesArgs
+    ///         {
+    ///             DbName = "db",
+    ///             DbPassword = "****",
+    ///             DbPasswordUri = "",
+    ///             DbUsername = "user",
+    ///             Hostname = "name",
+    ///             InstanceNumber = "00",
+    ///             ProviderType = "SapHana",
+    ///             SapSid = "SID",
+    ///             SqlPort = "0000",
+    ///             SslCertificateUri = "https://storageaccount.blob.core.windows.net/containername/filename",
+    ///             SslHostNameInCertificate = "xyz.domain.com",
+    ///             SslPreference = "ServerCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a SAP monitor Hana provider with Root Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.HanaDbProviderInstancePropertiesArgs
+    ///         {
+    ///             DbName = "db",
+    ///             DbPassword = "****",
+    ///             DbPasswordUri = "",
+    ///             DbUsername = "user",
+    ///             Hostname = "name",
+    ///             InstanceNumber = "00",
+    ///             ProviderType = "SapHana",
+    ///             SapSid = "SID",
+    ///             SqlPort = "0000",
+    ///             SslHostNameInCertificate = "xyz.domain.com",
+    ///             SslPreference = "RootCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a SAP monitor NetWeaver provider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.SapNetWeaverProviderInstancePropertiesArgs
+    ///         {
+    ///             ProviderType = "SapNetWeaver",
+    ///             SapClientId = "111",
+    ///             SapHostFileEntries = new[]
+    ///             {
+    ///                 "127.0.0.1 name fqdn",
+    ///             },
+    ///             SapHostname = "name",
+    ///             SapInstanceNr = "00",
+    ///             SapPassword = "****",
+    ///             SapPasswordUri = "",
+    ///             SapPortNumber = "1234",
+    ///             SapSid = "SID",
+    ///             SapUsername = "username",
+    ///             SslCertificateUri = "https://storageaccount.blob.core.windows.net/containername/filename",
+    ///             SslPreference = "ServerCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a SAP monitor NetWeaver provider with Root Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerInstance = new AzureNative.Workloads.V20230401.ProviderInstance("providerInstance", new()
+    ///     {
+    ///         MonitorName = "mySapMonitor",
+    ///         ProviderInstanceName = "myProviderInstance",
+    ///         ProviderSettings = new AzureNative.Workloads.V20230401.Inputs.SapNetWeaverProviderInstancePropertiesArgs
+    ///         {
+    ///             ProviderType = "SapNetWeaver",
+    ///             SapClientId = "111",
+    ///             SapHostFileEntries = new[]
+    ///             {
+    ///                 "127.0.0.1 name fqdn",
+    ///             },
+    ///             SapHostname = "name",
+    ///             SapInstanceNr = "00",
+    ///             SapPassword = "****",
+    ///             SapPasswordUri = "",
+    ///             SapPortNumber = "1234",
+    ///             SapSid = "SID",
+    ///             SapUsername = "username",
+    ///             SslPreference = "RootCertificate",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads/v20230401:ProviderInstance myProviderInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/mySapMonitor/providerInstances/myProviderInstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20230401:ProviderInstance")]
     public partial class ProviderInstance : global::Pulumi.CustomResource

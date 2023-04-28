@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * NSX DNS Service
+ *
+ * ## Example Usage
+ * ### WorkloadNetworks_CreateDnsService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadNetworkDnsService = new azure_native.avs.v20200717preview.WorkloadNetworkDnsService("workloadNetworkDnsService", {
+ *     defaultDnsZone: "defaultDnsZone1",
+ *     displayName: "dnsService1",
+ *     dnsServiceId: "dnsService1",
+ *     dnsServiceIp: "5.5.5.5",
+ *     fqdnZones: ["fqdnZone1"],
+ *     logLevel: "INFO",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     revision: 1,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20200717preview:WorkloadNetworkDnsService dnsService1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/dnsServices/dnsService1 
+ * ```
  */
 export class WorkloadNetworkDnsService extends pulumi.CustomResource {
     /**

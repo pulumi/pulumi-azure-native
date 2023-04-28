@@ -13,6 +13,321 @@ namespace Pulumi.AzureNative.Network
     /// Class representing a Traffic Manager profile.
     /// API Version: 2018-08-01.
     /// Previous API Version: 2018-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Profile-PUT-MultiValue
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Network.Profile("profile", new()
+    ///     {
+    ///         DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+    ///         {
+    ///             RelativeName = "azsmnet6386",
+    ///             Ttl = 35,
+    ///         },
+    ///         Location = "global",
+    ///         MaxReturn = 2,
+    ///         MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+    ///         {
+    ///             Path = "/testpath.aspx",
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///         },
+    ///         ProfileName = "azsmnet6386",
+    ///         ProfileStatus = "Enabled",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///         TrafficRoutingMethod = "MultiValue",
+    ///         TrafficViewEnrollmentStatus = "Disabled",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Profile-PUT-NoEndpoints
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Network.Profile("profile", new()
+    ///     {
+    ///         DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+    ///         {
+    ///             RelativeName = "azsmnet6386",
+    ///             Ttl = 35,
+    ///         },
+    ///         Location = "global",
+    ///         MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+    ///         {
+    ///             Path = "/testpath.aspx",
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///         },
+    ///         ProfileName = "azsmnet6386",
+    ///         ProfileStatus = "Enabled",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///         TrafficRoutingMethod = "Performance",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Profile-PUT-WithAliasing
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Network.Profile("profile", new()
+    ///     {
+    ///         AllowedEndpointRecordTypes = new[]
+    ///         {
+    ///             "DomainName",
+    ///         },
+    ///         DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+    ///         {
+    ///             RelativeName = "azuresdkfornetautoresttrafficmanager6192",
+    ///             Ttl = 35,
+    ///         },
+    ///         Endpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.EndpointArgs
+    ///             {
+    ///                 EndpointLocation = "North Europe",
+    ///                 EndpointStatus = "Enabled",
+    ///                 Name = "My external endpoint",
+    ///                 Target = "foobar.contoso.com",
+    ///                 Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///             },
+    ///         },
+    ///         Location = "global",
+    ///         MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+    ///         {
+    ///             IntervalInSeconds = 10,
+    ///             Path = "/testpath.aspx",
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             TimeoutInSeconds = 5,
+    ///             ToleratedNumberOfFailures = 2,
+    ///         },
+    ///         ProfileName = "azuresdkfornetautoresttrafficmanager6192",
+    ///         ProfileStatus = "Enabled",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager2583",
+    ///         TrafficRoutingMethod = "Performance",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Profile-PUT-WithCustomHeaders
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Network.Profile("profile", new()
+    ///     {
+    ///         DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+    ///         {
+    ///             RelativeName = "azuresdkfornetautoresttrafficmanager6192",
+    ///             Ttl = 35,
+    ///         },
+    ///         Endpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.EndpointArgs
+    ///             {
+    ///                 CustomHeaders = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.EndpointPropertiesCustomHeadersArgs
+    ///                     {
+    ///                         Name = "header-2",
+    ///                         Value = "value-2-overridden",
+    ///                     },
+    ///                 },
+    ///                 EndpointLocation = "North Europe",
+    ///                 EndpointStatus = "Enabled",
+    ///                 Name = "My external endpoint",
+    ///                 Target = "foobar.contoso.com",
+    ///                 Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///             },
+    ///         },
+    ///         Location = "global",
+    ///         MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+    ///         {
+    ///             CustomHeaders = new[]
+    ///             {
+    ///                 new AzureNative.Network.Inputs.MonitorConfigCustomHeadersArgs
+    ///                 {
+    ///                     Name = "header-1",
+    ///                     Value = "value-1",
+    ///                 },
+    ///                 new AzureNative.Network.Inputs.MonitorConfigCustomHeadersArgs
+    ///                 {
+    ///                     Name = "header-2",
+    ///                     Value = "value-2",
+    ///                 },
+    ///             },
+    ///             ExpectedStatusCodeRanges = new[]
+    ///             {
+    ///                 new AzureNative.Network.Inputs.MonitorConfigExpectedStatusCodeRangesArgs
+    ///                 {
+    ///                     Max = 205,
+    ///                     Min = 200,
+    ///                 },
+    ///                 new AzureNative.Network.Inputs.MonitorConfigExpectedStatusCodeRangesArgs
+    ///                 {
+    ///                     Max = 410,
+    ///                     Min = 400,
+    ///                 },
+    ///             },
+    ///             IntervalInSeconds = 10,
+    ///             Path = "/testpath.aspx",
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             TimeoutInSeconds = 5,
+    ///             ToleratedNumberOfFailures = 2,
+    ///         },
+    ///         ProfileName = "azuresdkfornetautoresttrafficmanager6192",
+    ///         ProfileStatus = "Enabled",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager2583",
+    ///         TrafficRoutingMethod = "Performance",
+    ///         TrafficViewEnrollmentStatus = "Disabled",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Profile-PUT-WithEndpoints
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Network.Profile("profile", new()
+    ///     {
+    ///         DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+    ///         {
+    ///             RelativeName = "azuresdkfornetautoresttrafficmanager6192",
+    ///             Ttl = 35,
+    ///         },
+    ///         Endpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.EndpointArgs
+    ///             {
+    ///                 EndpointLocation = "North Europe",
+    ///                 EndpointStatus = "Enabled",
+    ///                 Name = "My external endpoint",
+    ///                 Target = "foobar.contoso.com",
+    ///                 Type = "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+    ///             },
+    ///         },
+    ///         Location = "global",
+    ///         MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+    ///         {
+    ///             IntervalInSeconds = 10,
+    ///             Path = "/testpath.aspx",
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             TimeoutInSeconds = 5,
+    ///             ToleratedNumberOfFailures = 2,
+    ///         },
+    ///         ProfileName = "azuresdkfornetautoresttrafficmanager6192",
+    ///         ProfileStatus = "Enabled",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager2583",
+    ///         TrafficRoutingMethod = "Performance",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Profile-PUT-WithNestedEndpoints
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Network.Profile("profile", new()
+    ///     {
+    ///         DnsConfig = new AzureNative.Network.Inputs.DnsConfigArgs
+    ///         {
+    ///             RelativeName = "parentprofile",
+    ///             Ttl = 35,
+    ///         },
+    ///         Endpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.EndpointArgs
+    ///             {
+    ///                 EndpointStatus = "Enabled",
+    ///                 MinChildEndpoints = 2,
+    ///                 MinChildEndpointsIPv4 = 1,
+    ///                 MinChildEndpointsIPv6 = 2,
+    ///                 Name = "MyFirstNestedEndpoint",
+    ///                 Priority = 1,
+    ///                 Target = "firstnestedprofile.tmpreview.watmtest.azure-test.net",
+    ///                 Type = "Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+    ///                 Weight = 1,
+    ///             },
+    ///             new AzureNative.Network.Inputs.EndpointArgs
+    ///             {
+    ///                 EndpointStatus = "Enabled",
+    ///                 MinChildEndpoints = 2,
+    ///                 MinChildEndpointsIPv4 = 2,
+    ///                 MinChildEndpointsIPv6 = 1,
+    ///                 Name = "MySecondNestedEndpoint",
+    ///                 Priority = 2,
+    ///                 Target = "secondnestedprofile.tmpreview.watmtest.azure-test.net",
+    ///                 Type = "Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+    ///                 Weight = 1,
+    ///             },
+    ///         },
+    ///         Location = "global",
+    ///         MonitorConfig = new AzureNative.Network.Inputs.MonitorConfigArgs
+    ///         {
+    ///             IntervalInSeconds = 10,
+    ///             Path = "/testpath.aspx",
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             TimeoutInSeconds = 5,
+    ///             ToleratedNumberOfFailures = 2,
+    ///         },
+    ///         ProfileName = "parentprofile",
+    ///         ProfileStatus = "Enabled",
+    ///         ResourceGroupName = "myresourcegroup",
+    ///         TrafficRoutingMethod = "Priority",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:Profile parentprofile /subscriptions/{subscription-id}/resourceGroups/myresourcegroup/providers/Microsoft.Network/trafficManagerProfiles/parentprofile 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Profile")]
     public partial class Profile : global::Pulumi.CustomResource

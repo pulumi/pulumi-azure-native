@@ -97,6 +97,51 @@ class RegistrationDefinition(pulumi.CustomResource):
         """
         Registration definition.
 
+        ## Example Usage
+        ### Put Registration Definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registration_definition = azure_native.managedservices.v20190901.RegistrationDefinition("registrationDefinition",
+            plan=azure_native.managedservices.v20190901.PlanResponseArgs(
+                name="addesai-plan",
+                product="test",
+                publisher="marketplace-test",
+                version="1.0.0",
+            ),
+            properties=azure_native.managedservices.v20190901.RegistrationDefinitionPropertiesResponseArgs(
+                authorizations=[
+                    {
+                        "principalId": "f98d86a2-4cc4-4e9d-ad47-b3e80a1bcdfc",
+                        "principalIdDisplayName": "Support User",
+                        "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                    },
+                    {
+                        "delegatedRoleDefinitionIds": ["b24988ac-6180-42a0-ab88-20f7382dd24c"],
+                        "principalId": "f98d86a2-4cc4-4e9d-ad47-b3e80a1bcdfc",
+                        "principalIdDisplayName": "User Access Administrator",
+                        "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+                    },
+                ],
+                description="Tes1t",
+                managed_by_tenant_id="83abe5cd-bcc3-441a-bd86-e6a75360cecc",
+                registration_definition_name="DefinitionName",
+            ),
+            registration_definition_id="26c128c2-fefa-4340-9bb1-6e081c90ada2",
+            scope="subscription/0afefe50-734e-4610-8a82-a144ahf49dea")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedservices/v20190901:RegistrationDefinition 26c128c2-fefa-4340-9bb1-6e081c90ada2 /subscriptions/0afefe50-734e-4610-8a82-a144ahf49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-6e081c90ada2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PlanArgs']] plan: Plan details for the managed services.
@@ -112,6 +157,51 @@ class RegistrationDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Registration definition.
+
+        ## Example Usage
+        ### Put Registration Definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registration_definition = azure_native.managedservices.v20190901.RegistrationDefinition("registrationDefinition",
+            plan=azure_native.managedservices.v20190901.PlanResponseArgs(
+                name="addesai-plan",
+                product="test",
+                publisher="marketplace-test",
+                version="1.0.0",
+            ),
+            properties=azure_native.managedservices.v20190901.RegistrationDefinitionPropertiesResponseArgs(
+                authorizations=[
+                    {
+                        "principalId": "f98d86a2-4cc4-4e9d-ad47-b3e80a1bcdfc",
+                        "principalIdDisplayName": "Support User",
+                        "roleDefinitionId": "acdd72a7-3385-48ef-bd42-f606fba81ae7",
+                    },
+                    {
+                        "delegatedRoleDefinitionIds": ["b24988ac-6180-42a0-ab88-20f7382dd24c"],
+                        "principalId": "f98d86a2-4cc4-4e9d-ad47-b3e80a1bcdfc",
+                        "principalIdDisplayName": "User Access Administrator",
+                        "roleDefinitionId": "18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+                    },
+                ],
+                description="Tes1t",
+                managed_by_tenant_id="83abe5cd-bcc3-441a-bd86-e6a75360cecc",
+                registration_definition_name="DefinitionName",
+            ),
+            registration_definition_id="26c128c2-fefa-4340-9bb1-6e081c90ada2",
+            scope="subscription/0afefe50-734e-4610-8a82-a144ahf49dea")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedservices/v20190901:RegistrationDefinition 26c128c2-fefa-4340-9bb1-6e081c90ada2 /subscriptions/0afefe50-734e-4610-8a82-a144ahf49dea/providers/Microsoft.ManagedServices/registrationDefinitions/26c128c2-fefa-4340-9bb1-6e081c90ada2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistrationDefinitionArgs args: The arguments to use to populate this resource's properties.

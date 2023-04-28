@@ -10,6 +10,33 @@ import * as utilities from "../utilities";
 /**
  * A custom domain
  * API Version: 2023-02-01.
+ *
+ * ## Example Usage
+ * ### WebPubSubCustomDomains_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webPubSubCustomDomain = new azure_native.webpubsub.WebPubSubCustomDomain("webPubSubCustomDomain", {
+ *     customCertificate: {
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert",
+ *     },
+ *     domainName: "example.com",
+ *     name: "myDomain",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myWebPubSubService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:webpubsub:WebPubSubCustomDomain myDomain /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customDomains/myDomain 
+ * ```
  */
 export class WebPubSubCustomDomain extends pulumi.CustomResource {
     /**

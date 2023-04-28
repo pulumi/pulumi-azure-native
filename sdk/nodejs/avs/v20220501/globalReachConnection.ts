@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * A global reach connection resource
+ *
+ * ## Example Usage
+ * ### GlobalReachConnections_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const globalReachConnection = new azure_native.avs.v20220501.GlobalReachConnection("globalReachConnection", {
+ *     authorizationKey: "01010101-0101-0101-0101-010101010101",
+ *     globalReachConnectionName: "connection1",
+ *     peerExpressRouteCircuit: "/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.Network/expressRouteCircuits/mypeer",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20220501:GlobalReachConnection connection1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/globalReachConnections/connection1 
+ * ```
  */
 export class GlobalReachConnection extends pulumi.CustomResource {
     /**

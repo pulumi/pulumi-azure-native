@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Registry Component Container.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registryComponentContainer = new AzureNative.MachineLearningServices.V20230201Preview.RegistryComponentContainer("registryComponentContainer", new()
+    ///     {
+    ///         ComponentContainerProperties = new AzureNative.MachineLearningServices.V20230201Preview.Inputs.ComponentContainerArgs
+    ///         {
+    ///             Description = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         ComponentName = "string",
+    ///         RegistryName = "my-aml-registry",
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryComponentContainer string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230201preview:RegistryComponentContainer")]
     public partial class RegistryComponentContainer : global::Pulumi.CustomResource

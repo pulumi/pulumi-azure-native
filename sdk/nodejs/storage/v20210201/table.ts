@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the table, including Id, resource name, resource type.
+ *
+ * ## Example Usage
+ * ### TableOperationPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const table = new azure_native.storage.v20210201.Table("table", {
+ *     accountName: "sto328",
+ *     resourceGroupName: "res3376",
+ *     tableName: "table6185",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20210201:Table table6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/tableServices/default/tables/table6185 
+ * ```
  */
 export class Table extends pulumi.CustomResource {
     /**

@@ -11,6 +11,133 @@ namespace Pulumi.AzureNative.ServiceFabric.V20230201Preview
 {
     /// <summary>
     /// The service resource.
+    /// 
+    /// ## Example Usage
+    /// ### Put a service with maximum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.ServiceFabric.V20230201Preview.Service("service", new()
+    ///     {
+    ///         ApplicationName = "myApp",
+    ///         ClusterName = "myCluster",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.ServiceFabric.V20230201Preview.Inputs.StatelessServicePropertiesArgs
+    ///         {
+    ///             CorrelationScheme = new[]
+    ///             {
+    ///                 new AzureNative.ServiceFabric.V20230201Preview.Inputs.ServiceCorrelationArgs
+    ///                 {
+    ///                     Scheme = "AlignedAffinity",
+    ///                     ServiceName = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService1",
+    ///                 },
+    ///             },
+    ///             DefaultMoveCost = "Medium",
+    ///             InstanceCount = 5,
+    ///             MinInstanceCount = 3,
+    ///             MinInstancePercentage = 30,
+    ///             PartitionDescription = new AzureNative.ServiceFabric.V20230201Preview.Inputs.SingletonPartitionSchemeArgs
+    ///             {
+    ///                 PartitionScheme = "Singleton",
+    ///             },
+    ///             PlacementConstraints = "NodeType==frontend",
+    ///             ScalingPolicies = new[]
+    ///             {
+    ///                 new AzureNative.ServiceFabric.V20230201Preview.Inputs.ScalingPolicyArgs
+    ///                 {
+    ///                     ScalingMechanism = new AzureNative.ServiceFabric.V20230201Preview.Inputs.PartitionInstanceCountScaleMechanismArgs
+    ///                     {
+    ///                         Kind = "ScalePartitionInstanceCount",
+    ///                         MaxInstanceCount = 9,
+    ///                         MinInstanceCount = 3,
+    ///                         ScaleIncrement = 2,
+    ///                     },
+    ///                     ScalingTrigger = new AzureNative.ServiceFabric.V20230201Preview.Inputs.AveragePartitionLoadScalingTriggerArgs
+    ///                     {
+    ///                         Kind = "AveragePartitionLoadTrigger",
+    ///                         LowerLoadThreshold = 2,
+    ///                         MetricName = "metricName",
+    ///                         ScaleInterval = "00:01:00",
+    ///                         UpperLoadThreshold = 8,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ServiceDnsName = "myservicednsname.myApp",
+    ///             ServiceKind = "Stateless",
+    ///             ServiceLoadMetrics = new[]
+    ///             {
+    ///                 new AzureNative.ServiceFabric.V20230201Preview.Inputs.ServiceLoadMetricArgs
+    ///                 {
+    ///                     DefaultLoad = 3,
+    ///                     Name = "metric1",
+    ///                     Weight = "Low",
+    ///                 },
+    ///             },
+    ///             ServicePackageActivationMode = "SharedProcess",
+    ///             ServicePlacementPolicies = new[]
+    ///             {
+    ///                 new AzureNative.ServiceFabric.V20230201Preview.Inputs.ServicePlacementNonPartiallyPlaceServicePolicyArgs
+    ///                 {
+    ///                     Type = "NonPartiallyPlaceService",
+    ///                 },
+    ///             },
+    ///             ServiceTypeName = "myServiceType",
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ServiceName = "myService",
+    ///         Tags = 
+    ///         {
+    ///             { "a", "b" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put a service with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.ServiceFabric.V20230201Preview.Service("service", new()
+    ///     {
+    ///         ApplicationName = "myApp",
+    ///         ClusterName = "myCluster",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.ServiceFabric.V20230201Preview.Inputs.StatelessServicePropertiesArgs
+    ///         {
+    ///             InstanceCount = 1,
+    ///             PartitionDescription = new AzureNative.ServiceFabric.V20230201Preview.Inputs.SingletonPartitionSchemeArgs
+    ///             {
+    ///                 PartitionScheme = "Singleton",
+    ///             },
+    ///             ServiceKind = "Stateless",
+    ///             ServiceTypeName = "myServiceType",
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ServiceName = "myService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabric/v20230201preview:Service myService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20230201preview:Service")]
     public partial class Service : global::Pulumi.CustomResource

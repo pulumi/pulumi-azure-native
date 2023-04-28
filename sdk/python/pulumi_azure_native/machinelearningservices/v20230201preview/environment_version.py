@@ -112,6 +112,59 @@ class EnvironmentVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Workspace Environment Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment_version = azure_native.machinelearningservices.v20230201preview.EnvironmentVersion("environmentVersion",
+            environment_version_properties=azure_native.machinelearningservices.v20230201preview.EnvironmentVersionResponseArgs(
+                build=azure_native.machinelearningservices.v20230201preview.BuildContextArgs(
+                    context_uri="https://storage-account.blob.core.windows.net/azureml/DockerBuildContext/95ddede6b9b8c4e90472db3acd0a8d28/",
+                    dockerfile_path="prod/Dockerfile",
+                ),
+                conda_file="string",
+                description="string",
+                image="docker.io/tensorflow/serving:latest",
+                inference_config=azure_native.machinelearningservices.v20230201preview.InferenceContainerPropertiesArgs(
+                    liveness_route=azure_native.machinelearningservices.v20230201preview.RouteArgs(
+                        path="string",
+                        port=1,
+                    ),
+                    readiness_route=azure_native.machinelearningservices.v20230201preview.RouteArgs(
+                        path="string",
+                        port=1,
+                    ),
+                    scoring_route=azure_native.machinelearningservices.v20230201preview.RouteArgs(
+                        path="string",
+                        port=1,
+                    ),
+                ),
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:EnvironmentVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EnvironmentVersionArgs']] environment_version_properties: [Required] Additional attributes of the entity.
@@ -128,6 +181,59 @@ class EnvironmentVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Workspace Environment Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment_version = azure_native.machinelearningservices.v20230201preview.EnvironmentVersion("environmentVersion",
+            environment_version_properties=azure_native.machinelearningservices.v20230201preview.EnvironmentVersionResponseArgs(
+                build=azure_native.machinelearningservices.v20230201preview.BuildContextArgs(
+                    context_uri="https://storage-account.blob.core.windows.net/azureml/DockerBuildContext/95ddede6b9b8c4e90472db3acd0a8d28/",
+                    dockerfile_path="prod/Dockerfile",
+                ),
+                conda_file="string",
+                description="string",
+                image="docker.io/tensorflow/serving:latest",
+                inference_config=azure_native.machinelearningservices.v20230201preview.InferenceContainerPropertiesArgs(
+                    liveness_route=azure_native.machinelearningservices.v20230201preview.RouteArgs(
+                        path="string",
+                        port=1,
+                    ),
+                    readiness_route=azure_native.machinelearningservices.v20230201preview.RouteArgs(
+                        path="string",
+                        port=1,
+                    ),
+                    scoring_route=azure_native.machinelearningservices.v20230201preview.RouteArgs(
+                        path="string",
+                        port=1,
+                    ),
+                ),
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:EnvironmentVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentVersionInitArgs args: The arguments to use to populate this resource's properties.

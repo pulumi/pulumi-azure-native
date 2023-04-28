@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// The top level Linked service resource container.
     /// API Version: 2020-08-01.
     /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### LinkedServicesCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linkedService = new AzureNative.OperationalInsights.LinkedService("linkedService", new()
+    ///     {
+    ///         LinkedServiceName = "Cluster",
+    ///         ResourceGroupName = "mms-eus",
+    ///         WorkspaceName = "TestLinkWS",
+    ///         WriteAccessResourceId = "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/clusters/testcluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights:LinkedService TestLinkWS/Cluster /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/testlinkws/linkedservices/cluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:LinkedService")]
     public partial class LinkedService : global::Pulumi.CustomResource

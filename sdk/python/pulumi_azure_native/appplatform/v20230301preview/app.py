@@ -131,6 +131,162 @@ class App(pulumi.CustomResource):
         """
         App resource payload
 
+        ## Example Usage
+        ### Apps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app = azure_native.appplatform.v20230301preview.App("app",
+            app_name="myapp",
+            identity=azure_native.appplatform.v20230301preview.ManagedIdentityPropertiesArgs(
+                type="SystemAssigned,UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {
+                        "clientId": None,
+                        "principalId": None,
+                    },
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {
+                        "clientId": None,
+                        "principalId": None,
+                    },
+                },
+            ),
+            location="eastus",
+            properties=azure_native.appplatform.v20230301preview.AppResourcePropertiesResponseArgs(
+                addon_configs={
+                    "ApplicationConfigurationService": {
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/myacs",
+                    },
+                    "ServiceRegistry": {
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/myServiceRegistry",
+                    },
+                },
+                custom_persistent_disks=[{
+                    "customPersistentDiskProperties": azure_native.appplatform.v20230301preview.AzureFileVolumeResponseArgs(
+                        enable_sub_path=True,
+                        mount_options=[
+                            "uid=0",
+                            "gid=0",
+                            "dir_mode=0777",
+                            "file_mode=0777",
+                        ],
+                        mount_path="/mypath1/mypath2",
+                        share_name="myFileShare",
+                        type="AzureFileVolume",
+                    ),
+                    "storageId": "myASCStorageID",
+                }],
+                enable_end_to_end_tls=False,
+                https_only=False,
+                loaded_certificates=[
+                    azure_native.appplatform.v20230301preview.LoadedCertificateArgs(
+                        load_trust_store=False,
+                        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+                    ),
+                    azure_native.appplatform.v20230301preview.LoadedCertificateArgs(
+                        load_trust_store=True,
+                        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+                    ),
+                ],
+                persistent_disk=azure_native.appplatform.v20230301preview.PersistentDiskArgs(
+                    mount_path="/mypersistentdisk",
+                    size_in_gb=2,
+                ),
+                public=True,
+                temporary_disk=azure_native.appplatform.v20230301preview.TemporaryDiskArgs(
+                    mount_path="/mytemporarydisk",
+                    size_in_gb=2,
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+        ### Apps_CreateOrUpdate_VNetInjection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app = azure_native.appplatform.v20230301preview.App("app",
+            app_name="myapp",
+            identity=azure_native.appplatform.v20230301preview.ManagedIdentityPropertiesArgs(
+                type="SystemAssigned,UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {
+                        "clientId": None,
+                        "principalId": None,
+                    },
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {
+                        "clientId": None,
+                        "principalId": None,
+                    },
+                },
+            ),
+            location="eastus",
+            properties=azure_native.appplatform.v20230301preview.AppResourcePropertiesResponseArgs(
+                addon_configs={
+                    "ApplicationConfigurationService": {
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/myacs",
+                    },
+                    "ServiceRegistry": {
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/myServiceRegistry",
+                    },
+                },
+                custom_persistent_disks=[{
+                    "customPersistentDiskProperties": azure_native.appplatform.v20230301preview.AzureFileVolumeResponseArgs(
+                        mount_options=[
+                            "uid=0",
+                            "gid=0",
+                            "dir_mode=0777",
+                            "file_mode=0777",
+                        ],
+                        mount_path="/mypath1/mypath2",
+                        share_name="myFileShare",
+                        type="AzureFileVolume",
+                    ),
+                    "storageId": "myASCStorageID",
+                }],
+                enable_end_to_end_tls=False,
+                https_only=False,
+                loaded_certificates=[
+                    azure_native.appplatform.v20230301preview.LoadedCertificateArgs(
+                        load_trust_store=False,
+                        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+                    ),
+                    azure_native.appplatform.v20230301preview.LoadedCertificateArgs(
+                        load_trust_store=True,
+                        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+                    ),
+                ],
+                persistent_disk=azure_native.appplatform.v20230301preview.PersistentDiskArgs(
+                    mount_path="/mypersistentdisk",
+                    size_in_gb=2,
+                ),
+                public=True,
+                temporary_disk=azure_native.appplatform.v20230301preview.TemporaryDiskArgs(
+                    mount_path="/mytemporarydisk",
+                    size_in_gb=2,
+                ),
+                vnet_addons=azure_native.appplatform.v20230301preview.AppVNetAddonsArgs(
+                    public_endpoint=True,
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:App myapp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.
@@ -148,6 +304,162 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         App resource payload
+
+        ## Example Usage
+        ### Apps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app = azure_native.appplatform.v20230301preview.App("app",
+            app_name="myapp",
+            identity=azure_native.appplatform.v20230301preview.ManagedIdentityPropertiesArgs(
+                type="SystemAssigned,UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {
+                        "clientId": None,
+                        "principalId": None,
+                    },
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {
+                        "clientId": None,
+                        "principalId": None,
+                    },
+                },
+            ),
+            location="eastus",
+            properties=azure_native.appplatform.v20230301preview.AppResourcePropertiesResponseArgs(
+                addon_configs={
+                    "ApplicationConfigurationService": {
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/myacs",
+                    },
+                    "ServiceRegistry": {
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/myServiceRegistry",
+                    },
+                },
+                custom_persistent_disks=[{
+                    "customPersistentDiskProperties": azure_native.appplatform.v20230301preview.AzureFileVolumeResponseArgs(
+                        enable_sub_path=True,
+                        mount_options=[
+                            "uid=0",
+                            "gid=0",
+                            "dir_mode=0777",
+                            "file_mode=0777",
+                        ],
+                        mount_path="/mypath1/mypath2",
+                        share_name="myFileShare",
+                        type="AzureFileVolume",
+                    ),
+                    "storageId": "myASCStorageID",
+                }],
+                enable_end_to_end_tls=False,
+                https_only=False,
+                loaded_certificates=[
+                    azure_native.appplatform.v20230301preview.LoadedCertificateArgs(
+                        load_trust_store=False,
+                        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+                    ),
+                    azure_native.appplatform.v20230301preview.LoadedCertificateArgs(
+                        load_trust_store=True,
+                        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+                    ),
+                ],
+                persistent_disk=azure_native.appplatform.v20230301preview.PersistentDiskArgs(
+                    mount_path="/mypersistentdisk",
+                    size_in_gb=2,
+                ),
+                public=True,
+                temporary_disk=azure_native.appplatform.v20230301preview.TemporaryDiskArgs(
+                    mount_path="/mytemporarydisk",
+                    size_in_gb=2,
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+        ### Apps_CreateOrUpdate_VNetInjection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app = azure_native.appplatform.v20230301preview.App("app",
+            app_name="myapp",
+            identity=azure_native.appplatform.v20230301preview.ManagedIdentityPropertiesArgs(
+                type="SystemAssigned,UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {
+                        "clientId": None,
+                        "principalId": None,
+                    },
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {
+                        "clientId": None,
+                        "principalId": None,
+                    },
+                },
+            ),
+            location="eastus",
+            properties=azure_native.appplatform.v20230301preview.AppResourcePropertiesResponseArgs(
+                addon_configs={
+                    "ApplicationConfigurationService": {
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/myacs",
+                    },
+                    "ServiceRegistry": {
+                        "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/myServiceRegistry",
+                    },
+                },
+                custom_persistent_disks=[{
+                    "customPersistentDiskProperties": azure_native.appplatform.v20230301preview.AzureFileVolumeResponseArgs(
+                        mount_options=[
+                            "uid=0",
+                            "gid=0",
+                            "dir_mode=0777",
+                            "file_mode=0777",
+                        ],
+                        mount_path="/mypath1/mypath2",
+                        share_name="myFileShare",
+                        type="AzureFileVolume",
+                    ),
+                    "storageId": "myASCStorageID",
+                }],
+                enable_end_to_end_tls=False,
+                https_only=False,
+                loaded_certificates=[
+                    azure_native.appplatform.v20230301preview.LoadedCertificateArgs(
+                        load_trust_store=False,
+                        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+                    ),
+                    azure_native.appplatform.v20230301preview.LoadedCertificateArgs(
+                        load_trust_store=True,
+                        resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+                    ),
+                ],
+                persistent_disk=azure_native.appplatform.v20230301preview.PersistentDiskArgs(
+                    mount_path="/mypersistentdisk",
+                    size_in_gb=2,
+                ),
+                public=True,
+                temporary_disk=azure_native.appplatform.v20230301preview.TemporaryDiskArgs(
+                    mount_path="/mytemporarydisk",
+                    size_in_gb=2,
+                ),
+                vnet_addons=azure_native.appplatform.v20230301preview.AppVNetAddonsArgs(
+                    public_endpoint=True,
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:App myapp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.

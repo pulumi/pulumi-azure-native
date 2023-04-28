@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 {
     /// <summary>
     /// The NetworkRack resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkRacks_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkRack = new AzureNative.ManagedNetworkFabric.V20230201Preview.NetworkRack("networkRack", new()
+    ///     {
+    ///         Annotation = "null",
+    ///         Location = "eastus",
+    ///         NetworkFabricId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/networkFabricName",
+    ///         NetworkRackName = "networkRackName",
+    ///         NetworkRackSku = "RackSKU",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "keyID", "keyValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkRack networkRackName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric/v20230201preview:NetworkRack")]
     public partial class NetworkRack : global::Pulumi.CustomResource

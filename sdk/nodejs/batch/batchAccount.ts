@@ -11,6 +11,115 @@ import * as utilities from "../utilities";
  * Contains information about an Azure Batch account.
  * API Version: 2022-10-01.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### BatchAccountCreate_BYOS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     keyVaultReference: {
+ *         id: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+ *         url: "http://sample.vault.azure.net/",
+ *     },
+ *     location: "japaneast",
+ *     poolAllocationMode: azure_native.batch.PoolAllocationMode.UserSubscription,
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ * ### BatchAccountCreate_Default
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     location: "japaneast",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ * ### BatchAccountCreate_SystemAssignedIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     identity: {
+ *         type: azure_native.batch.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "japaneast",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ * ### BatchAccountCreate_UserAssignedIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     identity: {
+ *         type: azure_native.batch.ResourceIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+ *         },
+ *     },
+ *     location: "japaneast",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ * ### PrivateBatchAccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchAccount = new azure_native.batch.BatchAccount("batchAccount", {
+ *     accountName: "sampleacct",
+ *     autoStorage: {
+ *         storageAccountId: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+ *     },
+ *     keyVaultReference: {
+ *         id: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+ *         url: "http://sample.vault.azure.net/",
+ *     },
+ *     location: "japaneast",
+ *     publicNetworkAccess: azure_native.batch.PublicNetworkAccessType.Disabled,
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:batch:BatchAccount sampleacct /subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct 
+ * ```
  */
 export class BatchAccount extends pulumi.CustomResource {
     /**

@@ -148,6 +148,34 @@ class GremlinResourceGremlinDatabase(pulumi.CustomResource):
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CosmosDBGremlinDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gremlin_resource_gremlin_database = azure_native.documentdb.GremlinResourceGremlinDatabase("gremlinResourceGremlinDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.GremlinDatabaseResourceArgs(
+                id="databaseName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:GremlinResourceGremlinDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -168,6 +196,34 @@ class GremlinResourceGremlinDatabase(pulumi.CustomResource):
         An Azure Cosmos DB Gremlin database.
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CosmosDBGremlinDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gremlin_resource_gremlin_database = azure_native.documentdb.GremlinResourceGremlinDatabase("gremlinResourceGremlinDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.GremlinDatabaseResourceArgs(
+                id="databaseName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:GremlinResourceGremlinDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GremlinResourceGremlinDatabaseArgs args: The arguments to use to populate this resource's properties.

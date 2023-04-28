@@ -13,6 +13,61 @@ namespace Pulumi.AzureNative.DocumentDB
     /// An Azure Cosmos DB Mongo Role Definition.
     /// API Version: 2022-11-15.
     /// Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBRoleDefinitionCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoDBResourceMongoRoleDefinition = new AzureNative.DocumentDB.MongoDBResourceMongoRoleDefinition("mongoDBResourceMongoRoleDefinition", new()
+    ///     {
+    ///         AccountName = "myAccountName",
+    ///         DatabaseName = "sales",
+    ///         MongoRoleDefinitionId = "myMongoRoleDefinitionId",
+    ///         Privileges = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.Inputs.PrivilegeArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "insert",
+    ///                     "find",
+    ///                 },
+    ///                 Resource = new AzureNative.DocumentDB.Inputs.PrivilegeResourceArgs
+    ///                 {
+    ///                     Collection = "sales",
+    ///                     Db = "sales",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         RoleName = "myRoleName",
+    ///         Roles = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.Inputs.RoleArgs
+    ///             {
+    ///                 Db = "sales",
+    ///                 Role = "myInheritedRole",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb:MongoDBResourceMongoRoleDefinition myMongoDbRoleDefinitionId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbRoleDefinitions/myMongoDbRoleDefinitionId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:MongoDBResourceMongoRoleDefinition")]
     public partial class MongoDBResourceMongoRoleDefinition : global::Pulumi.CustomResource

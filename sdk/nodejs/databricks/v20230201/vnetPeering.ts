@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Peerings in a VirtualNetwork resource
+ *
+ * ## Example Usage
+ * ### Create vNet Peering for Workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vNetPeering = new azure_native.databricks.v20230201.VNetPeering("vNetPeering", {
+ *     allowForwardedTraffic: false,
+ *     allowGatewayTransit: false,
+ *     allowVirtualNetworkAccess: true,
+ *     peeringName: "vNetPeeringTest",
+ *     remoteVirtualNetwork: {
+ *         id: "/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
+ *     },
+ *     resourceGroupName: "rg",
+ *     useRemoteGateways: false,
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databricks/v20230201:vNetPeering vNetPeeringTest /subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Databricks/workspaces/adbworkspace/virtualNetworkPeerings/vNetPeeringTest 
+ * ```
  */
 export class VNetPeering extends pulumi.CustomResource {
     /**

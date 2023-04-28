@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Definition of the module type.
  * API Version: 2022-08-08.
  * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a module
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const module = new azure_native.automation.Module("module", {
+ *     automationAccountName: "myAutomationAccount33",
+ *     contentLink: {
+ *         contentHash: {
+ *             algorithm: "sha265",
+ *             value: "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+ *         },
+ *         uri: "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+ *         version: "1.0.0.0",
+ *     },
+ *     moduleName: "OmsCompositeResources",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:Module OmsCompositeResources /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/modules/OmsCompositeResources 
+ * ```
  */
 export class Module extends pulumi.CustomResource {
     /**

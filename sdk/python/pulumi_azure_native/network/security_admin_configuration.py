@@ -115,6 +115,30 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create network manager security admin configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_admin_configuration = azure_native.network.SecurityAdminConfiguration("securityAdminConfiguration",
+            apply_on_network_intent_policy_based_services=["None"],
+            configuration_name="myTestSecurityConfig",
+            description="A sample policy",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:SecurityAdminConfiguration myTestSecurityConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'NetworkIntentPolicyBasedService']]]] apply_on_network_intent_policy_based_services: Enum list of network intent policy based services.
@@ -133,6 +157,30 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         Defines the security admin configuration
         API Version: 2022-09-01.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create network manager security admin configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_admin_configuration = azure_native.network.SecurityAdminConfiguration("securityAdminConfiguration",
+            apply_on_network_intent_policy_based_services=["None"],
+            configuration_name="myTestSecurityConfig",
+            description="A sample policy",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:SecurityAdminConfiguration myTestSecurityConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityAdminConfigurationArgs args: The arguments to use to populate this resource's properties.

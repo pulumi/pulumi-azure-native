@@ -144,6 +144,84 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
         """
         Virtual machine guest diagnostics settings resource.
 
+        ## Example Usage
+        ### Create or update a guest diagnostic settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_diagnostics_setting = azure_native.insights.v20180601preview.GuestDiagnosticsSetting("guestDiagnosticsSetting",
+            data_sources=[
+                {
+                    "configuration": {
+                        "perfCounters": [
+                            azure_native.insights.v20180601preview.PerformanceCounterConfigurationArgs(
+                                name="\\\\Process(_Total)\\\\%Processor Time",
+                                sampling_period="PT1M",
+                            ),
+                            azure_native.insights.v20180601preview.PerformanceCounterConfigurationArgs(
+                                name="\\\\Process(_Total)\\\\Working Set",
+                                sampling_period="PT1M",
+                            ),
+                        ],
+                    },
+                    "kind": "PerformanceCounter",
+                    "sinks": [{
+                        "kind": "LogAnalytics",
+                    }],
+                },
+                {
+                    "configuration": {
+                        "providers": [
+                            azure_native.insights.v20180601preview.EtwProviderConfigurationArgs(
+                                id="1",
+                            ),
+                            azure_native.insights.v20180601preview.EtwProviderConfigurationArgs(
+                                id="2",
+                            ),
+                        ],
+                    },
+                    "kind": "ETWProviders",
+                    "sinks": [{
+                        "kind": "LogAnalytics",
+                    }],
+                },
+                {
+                    "configuration": {
+                        "eventLogs": [
+                            azure_native.insights.v20180601preview.EventLogConfigurationArgs(
+                                filter="SourceName == Xyz AND EventId = \\"100\\" AND  $Xpath/Column=\\"DCName\\" = \\"CatWoman\\"",
+                                log_name="Application",
+                            ),
+                            azure_native.insights.v20180601preview.EventLogConfigurationArgs(
+                                filter="SourceName == Xyz AND EventId = \\"100\\" AND  $Xpath/Column=\\"DCName\\" = \\"BatMan\\"",
+                                log_name="Application",
+                            ),
+                        ],
+                    },
+                    "kind": "WindowsEventLogs",
+                    "sinks": [{
+                        "kind": "LogAnalytics",
+                    }],
+                },
+            ],
+            diagnostic_settings_name="SampleDiagSetting",
+            location="Global",
+            os_type="Windows",
+            resource_group_name="Default-ResourceGroup",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20180601preview:guestDiagnosticsSetting productionMachineSetting /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ResourceGroup/providers/microsoft.insights/guestDiagnosticSettings/SampleDiagSetting 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourceArgs']]]] data_sources: the array of data source object which are configured to collect and send data
@@ -161,6 +239,84 @@ class GuestDiagnosticsSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual machine guest diagnostics settings resource.
+
+        ## Example Usage
+        ### Create or update a guest diagnostic settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_diagnostics_setting = azure_native.insights.v20180601preview.GuestDiagnosticsSetting("guestDiagnosticsSetting",
+            data_sources=[
+                {
+                    "configuration": {
+                        "perfCounters": [
+                            azure_native.insights.v20180601preview.PerformanceCounterConfigurationArgs(
+                                name="\\\\Process(_Total)\\\\%Processor Time",
+                                sampling_period="PT1M",
+                            ),
+                            azure_native.insights.v20180601preview.PerformanceCounterConfigurationArgs(
+                                name="\\\\Process(_Total)\\\\Working Set",
+                                sampling_period="PT1M",
+                            ),
+                        ],
+                    },
+                    "kind": "PerformanceCounter",
+                    "sinks": [{
+                        "kind": "LogAnalytics",
+                    }],
+                },
+                {
+                    "configuration": {
+                        "providers": [
+                            azure_native.insights.v20180601preview.EtwProviderConfigurationArgs(
+                                id="1",
+                            ),
+                            azure_native.insights.v20180601preview.EtwProviderConfigurationArgs(
+                                id="2",
+                            ),
+                        ],
+                    },
+                    "kind": "ETWProviders",
+                    "sinks": [{
+                        "kind": "LogAnalytics",
+                    }],
+                },
+                {
+                    "configuration": {
+                        "eventLogs": [
+                            azure_native.insights.v20180601preview.EventLogConfigurationArgs(
+                                filter="SourceName == Xyz AND EventId = \\"100\\" AND  $Xpath/Column=\\"DCName\\" = \\"CatWoman\\"",
+                                log_name="Application",
+                            ),
+                            azure_native.insights.v20180601preview.EventLogConfigurationArgs(
+                                filter="SourceName == Xyz AND EventId = \\"100\\" AND  $Xpath/Column=\\"DCName\\" = \\"BatMan\\"",
+                                log_name="Application",
+                            ),
+                        ],
+                    },
+                    "kind": "WindowsEventLogs",
+                    "sinks": [{
+                        "kind": "LogAnalytics",
+                    }],
+                },
+            ],
+            diagnostic_settings_name="SampleDiagSetting",
+            location="Global",
+            os_type="Windows",
+            resource_group_name="Default-ResourceGroup",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20180601preview:guestDiagnosticsSetting productionMachineSetting /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ResourceGroup/providers/microsoft.insights/guestDiagnosticSettings/SampleDiagSetting 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GuestDiagnosticsSettingArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateProductGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var productGroup = new AzureNative.ApiManagement.V20201201.ProductGroup("productGroup", new()
+    ///     {
+    ///         GroupId = "templateGroup",
+    ///         ProductId = "testproduct",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:ProductGroup templateGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/groups/templateGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:ProductGroup")]
     public partial class ProductGroup : global::Pulumi.CustomResource

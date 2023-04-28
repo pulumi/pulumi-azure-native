@@ -11,6 +11,63 @@ import * as utilities from "../utilities";
  * Service resource. Must be created in the same location as its parent mobile network.
  * API Version: 2022-11-01.
  * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.mobilenetwork.Service("service", {
+ *     location: "eastus",
+ *     mobileNetworkName: "testMobileNetwork",
+ *     pccRules: [{
+ *         ruleName: "default-rule",
+ *         rulePrecedence: 255,
+ *         ruleQosPolicy: {
+ *             allocationAndRetentionPriorityLevel: 9,
+ *             fiveQi: 9,
+ *             maximumBitRate: {
+ *                 downlink: "1 Gbps",
+ *                 uplink: "500 Mbps",
+ *             },
+ *             preemptionCapability: "NotPreempt",
+ *             preemptionVulnerability: "Preemptable",
+ *         },
+ *         serviceDataFlowTemplates: [{
+ *             direction: "Uplink",
+ *             ports: [],
+ *             protocol: ["ip"],
+ *             remoteIpList: ["10.3.4.0/24"],
+ *             templateName: "IP-to-server",
+ *         }],
+ *         trafficControl: "Enabled",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     serviceName: "TestService",
+ *     servicePrecedence: 255,
+ *     serviceQosPolicy: {
+ *         allocationAndRetentionPriorityLevel: 9,
+ *         fiveQi: 9,
+ *         maximumBitRate: {
+ *             downlink: "1 Gbps",
+ *             uplink: "500 Mbps",
+ *         },
+ *         preemptionCapability: "NotPreempt",
+ *         preemptionVulnerability: "Preemptable",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork:Service testPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/TestService 
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

@@ -524,6 +524,79 @@ class ManagedInstance(pulumi.CustomResource):
         """
         An Azure SQL managed instance.
 
+        ## Example Usage
+        ### Create managed instance with all properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance = azure_native.sql.v20201101preview.ManagedInstance("managedInstance",
+            administrator_login="dummylogin",
+            administrator_login_password="PLACEHOLDER",
+            administrators=azure_native.sql.v20201101preview.ManagedInstanceExternalAdministratorArgs(
+                azure_ad_only_authentication=True,
+                login="bob@contoso.com",
+                principal_type="User",
+                sid="00000011-1111-2222-2222-123456789111",
+                tenant_id="00000011-1111-2222-2222-123456789111",
+            ),
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            dns_zone_partner="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+            instance_pool_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1",
+            license_type="LicenseIncluded",
+            location="Japan East",
+            maintenance_configuration_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_MI_1",
+            managed_instance_name="testinstance",
+            minimal_tls_version="1.2",
+            proxy_override="Redirect",
+            public_data_endpoint_enabled=False,
+            resource_group_name="testrg",
+            sku=azure_native.sql.v20201101preview.SkuResponseArgs(
+                name="GP_Gen5",
+                tier="GeneralPurpose",
+            ),
+            storage_account_type="GRS",
+            storage_size_in_gb=1024,
+            subnet_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            timezone_id="UTC",
+            v_cores=8)
+
+        ```
+        ### Create managed instance with minimal properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance = azure_native.sql.v20201101preview.ManagedInstance("managedInstance",
+            administrator_login="dummylogin",
+            administrator_login_password="PLACEHOLDER",
+            license_type="LicenseIncluded",
+            location="Japan East",
+            managed_instance_name="testinstance",
+            resource_group_name="testrg",
+            sku=azure_native.sql.v20201101preview.SkuResponseArgs(
+                name="GP_Gen4",
+                tier="GeneralPurpose",
+            ),
+            storage_size_in_gb=1024,
+            subnet_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            v_cores=8)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20201101preview:ManagedInstance testinstance /subscriptions/20d7082a-0fc7-4468-82bd-542694d5042b/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
@@ -572,6 +645,79 @@ class ManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure SQL managed instance.
+
+        ## Example Usage
+        ### Create managed instance with all properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance = azure_native.sql.v20201101preview.ManagedInstance("managedInstance",
+            administrator_login="dummylogin",
+            administrator_login_password="PLACEHOLDER",
+            administrators=azure_native.sql.v20201101preview.ManagedInstanceExternalAdministratorArgs(
+                azure_ad_only_authentication=True,
+                login="bob@contoso.com",
+                principal_type="User",
+                sid="00000011-1111-2222-2222-123456789111",
+                tenant_id="00000011-1111-2222-2222-123456789111",
+            ),
+            collation="SQL_Latin1_General_CP1_CI_AS",
+            dns_zone_partner="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+            instance_pool_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1",
+            license_type="LicenseIncluded",
+            location="Japan East",
+            maintenance_configuration_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_MI_1",
+            managed_instance_name="testinstance",
+            minimal_tls_version="1.2",
+            proxy_override="Redirect",
+            public_data_endpoint_enabled=False,
+            resource_group_name="testrg",
+            sku=azure_native.sql.v20201101preview.SkuResponseArgs(
+                name="GP_Gen5",
+                tier="GeneralPurpose",
+            ),
+            storage_account_type="GRS",
+            storage_size_in_gb=1024,
+            subnet_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            timezone_id="UTC",
+            v_cores=8)
+
+        ```
+        ### Create managed instance with minimal properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance = azure_native.sql.v20201101preview.ManagedInstance("managedInstance",
+            administrator_login="dummylogin",
+            administrator_login_password="PLACEHOLDER",
+            license_type="LicenseIncluded",
+            location="Japan East",
+            managed_instance_name="testinstance",
+            resource_group_name="testrg",
+            sku=azure_native.sql.v20201101preview.SkuResponseArgs(
+                name="GP_Gen4",
+                tier="GeneralPurpose",
+            ),
+            storage_size_in_gb=1024,
+            subnet_id="/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            v_cores=8)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20201101preview:ManagedInstance testinstance /subscriptions/20d7082a-0fc7-4468-82bd-542694d5042b/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceArgs args: The arguments to use to populate this resource's properties.

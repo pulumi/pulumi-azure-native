@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Resources.V20220201
 {
     /// <summary>
     /// Template Spec Version object.
+    /// 
+    /// ## Example Usage
+    /// ### TemplateSpecVersionsCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateSpecVersion = new AzureNative.Resources.V20220201.TemplateSpecVersion("templateSpecVersion", new()
+    ///     {
+    ///         Description = "This is version v1.0 of our template content",
+    ///         Location = "eastus",
+    ///         MainTemplate = 
+    ///         {
+    ///             { "$schema", "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#" },
+    ///             { "contentVersion", "1.0.0.0" },
+    ///             { "parameters", null },
+    ///             { "resources", new[] {} },
+    ///         },
+    ///         ResourceGroupName = "templateSpecRG",
+    ///         TemplateSpecName = "simpleTemplateSpec",
+    ///         TemplateSpecVersion = "v1.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20220201:TemplateSpecVersion v1.0 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/simpleTemplateSpec/versions/v1.0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20220201:TemplateSpecVersion")]
     public partial class TemplateSpecVersion : global::Pulumi.CustomResource

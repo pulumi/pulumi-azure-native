@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
     /// <summary>
     /// Properties of the PrivateEndpointConnection.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpacePrivateEndPointConnectionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.ServiceBus.V20180101Preview.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         NamespaceName = "sdk-Namespace-2924",
+    ///         PrivateEndpoint = new AzureNative.ServiceBus.V20180101Preview.Inputs.PrivateEndpointArgs
+    ///         {
+    ///             Id = "/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
+    ///         },
+    ///         PrivateEndpointConnectionName = "privateEndpointConnectionName",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.ServiceBus.V20180101Preview.Inputs.ConnectionStateArgs
+    ///         {
+    ///             Description = "testing",
+    ///             Status = "Rejected",
+    ///         },
+    ///         ProvisioningState = "Succeeded",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20180101preview:PrivateEndpointConnection 928c44d5-b7c6-423b-b6fa-811e0c27b3e0 /subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-4794/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-5828/privateEndpointConnections/928c44d5-b7c6-423b-b6fa-811e0c27b3e0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20180101preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

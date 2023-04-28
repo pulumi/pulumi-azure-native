@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Instance of an Azure ML web service resource.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearning/v20160501preview:WebService myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/webServices/{webServiceName} 
+ * ```
  */
 export class WebService extends pulumi.CustomResource {
     /**

@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.App.V20220101Preview
 {
     /// <summary>
     /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Container App AuthConfig
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerAppsAuthConfig = new AzureNative.App.V20220101Preview.ContainerAppsAuthConfig("containerAppsAuthConfig", new()
+    ///     {
+    ///         ContainerAppName = "testcanadacentral",
+    ///         GlobalValidation = new AzureNative.App.V20220101Preview.Inputs.GlobalValidationArgs
+    ///         {
+    ///             UnauthenticatedClientAction = AzureNative.App.V20220101Preview.UnauthenticatedClientActionV2.AllowAnonymous,
+    ///         },
+    ///         IdentityProviders = new AzureNative.App.V20220101Preview.Inputs.IdentityProvidersArgs
+    ///         {
+    ///             Facebook = new AzureNative.App.V20220101Preview.Inputs.FacebookArgs
+    ///             {
+    ///                 Registration = new AzureNative.App.V20220101Preview.Inputs.AppRegistrationArgs
+    ///                 {
+    ///                     AppId = "123",
+    ///                     AppSecretSettingName = "facebook-secret",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "current",
+    ///         Platform = new AzureNative.App.V20220101Preview.Inputs.AuthPlatformArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///         ResourceGroupName = "workerapps-rg-xj",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20220101preview:ContainerAppsAuthConfig current /subscriptions/651f8027-33e8-4ec4-97b4-f6e9f3dc8744/resourceGroups/workerapps-rg-xj/providers/Microsoft.App/containerApps/myapp/authconfigs/current 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20220101preview:ContainerAppsAuthConfig")]
     public partial class ContainerAppsAuthConfig : global::Pulumi.CustomResource

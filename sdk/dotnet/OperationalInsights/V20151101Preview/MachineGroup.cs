@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
     /// <summary>
     /// A user-defined logical grouping of machines.
+    /// 
+    /// ## Example Usage
+    /// ### SMMachineGroupsUpdatePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineGroup = new AzureNative.OperationalInsights.V20151101Preview.MachineGroup("machineGroup", new()
+    ///     {
+    ///         Count = 1,
+    ///         DisplayName = "Foo",
+    ///         Kind = "machineGroup",
+    ///         MachineGroupName = "ccfbf4bf-dc08-4371-9e9b-00a8d875d45a",
+    ///         Machines = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "id", "/subscriptions/63BE4E24-FDF0-4E9C-9342-6A5D5A359722/resourceGroups/rg-sm/providers/Microsoft.OperationalInsights/workspaces/D6F79F14-E563-469B-84B5-9286D2803B2F/machines/m-0fe4b501-7ac9-41d7-a4e1-1591a0789519" },
+    ///                 { "kind", "ref:machinewithhints" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg-sm",
+    ///         WorkspaceName = "D6F79F14-E563-469B-84B5-9286D2803B2F",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights/v20151101preview:MachineGroup ccfbf4bf-dc08-4371-9e9b-00a8d875d45a /subscriptions/63BE4E24-FDF0-4E9C-9342-6A5D5A359722/resourceGroups/rg-sm/providers/Microsoft.OperationalInsights/workspaces/D6F79F14-E563-469B-84B5-9286D2803B2F/machineGroups/ccfbf4bf-dc08-4371-9e9b-00a8d875d45a 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20151101preview:MachineGroup")]
     public partial class MachineGroup : global::Pulumi.CustomResource

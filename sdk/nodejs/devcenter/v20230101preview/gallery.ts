@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a gallery.
+ *
+ * ## Example Usage
+ * ### Galleries_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gallery = new azure_native.devcenter.v20230101preview.Gallery("gallery", {
+ *     devCenterName: "Contoso",
+ *     galleryName: "StandardGallery",
+ *     galleryResourceId: "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.Compute/galleries/StandardGallery",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter/v20230101preview:Gallery StandardGallery /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/StandardGallery 
+ * ```
  */
 export class Gallery extends pulumi.CustomResource {
     /**

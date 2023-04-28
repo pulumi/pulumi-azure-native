@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Marketplace.V20200101
 {
     /// <summary>
     /// The privateStore offer data structure.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateStoreOffer_update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateStoreOffer = new AzureNative.Marketplace.V20200101.PrivateStoreOffer("privateStoreOffer", new()
+    ///     {
+    ///         ETag = "\"9301f4fd-0000-0100-0000-5e248b350666\"",
+    ///         OfferId = "marketplacetestthirdparty.md-test-third-party-2",
+    ///         PrivateStoreId = "a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+    ///         SpecificPlanIdsLimitation = new[]
+    ///         {
+    ///             "0001",
+    ///             "0002",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:marketplace/v20200101:PrivateStoreOffer marketplacetestthirdparty.md-test-third-party-2 /providers/Microsoft.Marketplace/privateStores/a0e28e55-90c4-41d8-8e34-bb7ef7775406/offers/marketplacetestthirdparty.md-test-third-party-2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace/v20200101:PrivateStoreOffer")]
     public partial class PrivateStoreOffer : global::Pulumi.CustomResource

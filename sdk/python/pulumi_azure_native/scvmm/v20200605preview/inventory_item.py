@@ -112,6 +112,29 @@ class InventoryItem(pulumi.CustomResource):
         """
         Defines the inventory item.
 
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.scvmm.v20200605preview.InventoryItem("inventoryItem",
+            inventory_item_name="12345678-1234-1234-1234-123456789abc",
+            inventory_type="Cloud",
+            resource_group_name="testrg",
+            vmm_server_name="ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm/v20200605preview:InventoryItem 12345678-1234-1234-1234-123456789abc /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer/InventoryItems/12345678-1234-1234-1234-123456789abc 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] inventory_item_name: Name of the inventoryItem.
@@ -128,6 +151,29 @@ class InventoryItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the inventory item.
+
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.scvmm.v20200605preview.InventoryItem("inventoryItem",
+            inventory_item_name="12345678-1234-1234-1234-123456789abc",
+            inventory_type="Cloud",
+            resource_group_name="testrg",
+            vmm_server_name="ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm/v20200605preview:InventoryItem 12345678-1234-1234-1234-123456789abc /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer/InventoryItems/12345678-1234-1234-1234-123456789abc 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.

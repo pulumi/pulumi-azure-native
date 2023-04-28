@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.HybridCompute.V20210325Preview
 {
     /// <summary>
     /// A private endpoint connection
+    /// 
+    /// ## Example Usage
+    /// ### Approve or reject a private endpoint connection with a given name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.HybridCompute.V20210325Preview.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "private-endpoint-connection-name",
+    ///         Properties = new AzureNative.HybridCompute.V20210325Preview.Inputs.PrivateEndpointConnectionPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.HybridCompute.V20210325Preview.Inputs.PrivateLinkServiceConnectionStatePropertyArgs
+    ///             {
+    ///                 Description = "Approved by johndoe@contoso.com",
+    ///                 Status = "Approved",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ScopeName = "myPrivateLinkScope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/myPrivateLinkScope/privateEndpointConnections/private-endpoint-connection-name 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

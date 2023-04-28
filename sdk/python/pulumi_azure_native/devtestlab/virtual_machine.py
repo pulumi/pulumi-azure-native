@@ -515,6 +515,47 @@ class VirtualMachine(pulumi.CustomResource):
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VirtualMachines_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.devtestlab.VirtualMachine("virtualMachine",
+            allow_claim=True,
+            disallow_public_ip_address=True,
+            gallery_image_reference=azure_native.devtestlab.GalleryImageReferenceArgs(
+                offer="UbuntuServer",
+                os_type="Linux",
+                publisher="Canonical",
+                sku="16.04-LTS",
+                version="Latest",
+            ),
+            lab_name="{labName}",
+            lab_subnet_name="{virtualNetworkName}Subnet",
+            lab_virtual_network_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName}",
+            location="{location}",
+            name="{vmName}",
+            password="{userPassword}",
+            resource_group_name="resourceGroupName",
+            size="Standard_A2_v2",
+            storage_type="Standard",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            user_name="{userName}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:VirtualMachine {vmName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_claim: Indicates whether another user can take ownership of the virtual machine
@@ -556,6 +597,47 @@ class VirtualMachine(pulumi.CustomResource):
         A virtual machine.
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VirtualMachines_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.devtestlab.VirtualMachine("virtualMachine",
+            allow_claim=True,
+            disallow_public_ip_address=True,
+            gallery_image_reference=azure_native.devtestlab.GalleryImageReferenceArgs(
+                offer="UbuntuServer",
+                os_type="Linux",
+                publisher="Canonical",
+                sku="16.04-LTS",
+                version="Latest",
+            ),
+            lab_name="{labName}",
+            lab_subnet_name="{virtualNetworkName}Subnet",
+            lab_virtual_network_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName}",
+            location="{location}",
+            name="{vmName}",
+            password="{userPassword}",
+            resource_group_name="resourceGroupName",
+            size="Standard_A2_v2",
+            storage_type="Standard",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            user_name="{userName}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:VirtualMachine {vmName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

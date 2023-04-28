@@ -217,6 +217,81 @@ class MediaService(pulumi.CustomResource):
         API Version: 2023-01-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a Media Services account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_service = azure_native.media.MediaService("mediaService",
+            account_name="contososports",
+            location="South Central US",
+            resource_group_name="contosorg",
+            storage_accounts=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/teststorageaccount",
+                "type": "Primary",
+            }],
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### Create a Media Services account-managed-identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_service = azure_native.media.MediaService("mediaService",
+            account_name="contososports",
+            encryption=azure_native.media.AccountEncryptionResponseArgs(
+                identity=azure_native.media.ResourceIdentityArgs(
+                    use_system_assigned_identity=False,
+                    user_assigned_identity="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+                ),
+                type="CustomerKey",
+            ),
+            identity=azure_native.media.MediaServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {},
+                },
+            ),
+            key_delivery=azure_native.media.KeyDeliveryResponseArgs(
+                access_control=azure_native.media.AccessControlArgs(
+                    default_action="Allow",
+                ),
+            ),
+            location="South Central US",
+            public_network_access="Enabled",
+            resource_group_name="contosorg",
+            storage_accounts=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/contososportsstore",
+                "identity": azure_native.media.ResourceIdentityArgs(
+                    use_system_assigned_identity=False,
+                    user_assigned_identity="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+                ),
+                "type": "Primary",
+            }],
+            storage_authentication="ManagedIdentity",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media:MediaService contososports /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contososports 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -240,6 +315,81 @@ class MediaService(pulumi.CustomResource):
         A Media Services account.
         API Version: 2023-01-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a Media Services account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_service = azure_native.media.MediaService("mediaService",
+            account_name="contososports",
+            location="South Central US",
+            resource_group_name="contosorg",
+            storage_accounts=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/teststorageaccount",
+                "type": "Primary",
+            }],
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### Create a Media Services account-managed-identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_service = azure_native.media.MediaService("mediaService",
+            account_name="contososports",
+            encryption=azure_native.media.AccountEncryptionResponseArgs(
+                identity=azure_native.media.ResourceIdentityArgs(
+                    use_system_assigned_identity=False,
+                    user_assigned_identity="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+                ),
+                type="CustomerKey",
+            ),
+            identity=azure_native.media.MediaServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {},
+                },
+            ),
+            key_delivery=azure_native.media.KeyDeliveryResponseArgs(
+                access_control=azure_native.media.AccessControlArgs(
+                    default_action="Allow",
+                ),
+            ),
+            location="South Central US",
+            public_network_access="Enabled",
+            resource_group_name="contosorg",
+            storage_accounts=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/contososportsstore",
+                "identity": azure_native.media.ResourceIdentityArgs(
+                    use_system_assigned_identity=False,
+                    user_assigned_identity="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+                ),
+                "type": "Primary",
+            }],
+            storage_authentication="ManagedIdentity",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media:MediaService contososports /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contososports 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MediaServiceArgs args: The arguments to use to populate this resource's properties.

@@ -164,6 +164,37 @@ class Certificate(pulumi.CustomResource):
         """
         The integration account certificate.
 
+        ## Example Usage
+        ### Create or update a certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.logic.v20160601.Certificate("certificate",
+            certificate_name="testCertificate",
+            integration_account_name="testIntegrationAccount",
+            key=azure_native.logic.v20160601.KeyVaultKeyReferenceResponseArgs(
+                key_name="<keyName>",
+                key_vault=azure_native.logic.v20160601.KeyVaultKeyReferenceKeyVaultArgs(
+                    id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/<keyVaultName>",
+                ),
+                key_version="87d9764197604449b9b8eb7bd8710868",
+            ),
+            location="brazilsouth",
+            public_certificate="<publicCertificateValue>",
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20160601:Certificate testCertificate /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/certificates/testCertificate 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: The integration account certificate name.
@@ -183,6 +214,37 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account certificate.
+
+        ## Example Usage
+        ### Create or update a certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.logic.v20160601.Certificate("certificate",
+            certificate_name="testCertificate",
+            integration_account_name="testIntegrationAccount",
+            key=azure_native.logic.v20160601.KeyVaultKeyReferenceResponseArgs(
+                key_name="<keyName>",
+                key_vault=azure_native.logic.v20160601.KeyVaultKeyReferenceKeyVaultArgs(
+                    id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/<keyVaultName>",
+                ),
+                key_version="87d9764197604449b9b8eb7bd8710868",
+            ),
+            location="brazilsouth",
+            public_certificate="<publicCertificateValue>",
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20160601:Certificate testCertificate /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/certificates/testCertificate 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

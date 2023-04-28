@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.DevCenter
     /// A pool of Virtual Machines.
     /// API Version: 2022-11-11-preview.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Pools_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.DevCenter.Pool("pool", new()
+    ///     {
+    ///         DevBoxDefinitionName = "WebDevBox",
+    ///         LicenseType = "Windows_Client",
+    ///         LocalAdministrator = "Enabled",
+    ///         Location = "centralus",
+    ///         NetworkConnectionName = "Network1-westus2",
+    ///         PoolName = "DevPool",
+    ///         ProjectName = "DevProject",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter:Pool DevPool /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/DevProject/pools/DevPool 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Pool")]
     public partial class Pool : global::Pulumi.CustomResource

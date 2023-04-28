@@ -143,6 +143,44 @@ class VolumeSnapshot(pulumi.CustomResource):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
 
+        ## Example Usage
+        ### VolumeSnapshots_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume_snapshot = azure_native.containerstorage.v20230301preview.VolumeSnapshot("volumeSnapshot",
+            mount_options=["ozllffotmjyosqwx"],
+            pool_name="-1Jk-",
+            reclaim_policy="Delete",
+            resource_group_name="rgcontainerstorage",
+            source="oytmtfvq",
+            volume_mode="Filesystem",
+            volume_snapshot_name="XBOVLQ-UDJ2n5kod886SN")
+
+        ```
+        ### VolumeSnapshots_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume_snapshot = azure_native.containerstorage.v20230301preview.VolumeSnapshot("volumeSnapshot",
+            pool_name="E-sfxFA3nN-FcID851Rq-Q3u",
+            resource_group_name="rgcontainerstorage",
+            volume_snapshot_name="CjG-k-K4nWgGVV3VL-jT-5")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerstorage/v20230301preview:VolumeSnapshot nvn vdihfxdstmkozaxfocgt 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] mount_options: List of string mount options
@@ -161,6 +199,44 @@ class VolumeSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
+        ## Example Usage
+        ### VolumeSnapshots_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume_snapshot = azure_native.containerstorage.v20230301preview.VolumeSnapshot("volumeSnapshot",
+            mount_options=["ozllffotmjyosqwx"],
+            pool_name="-1Jk-",
+            reclaim_policy="Delete",
+            resource_group_name="rgcontainerstorage",
+            source="oytmtfvq",
+            volume_mode="Filesystem",
+            volume_snapshot_name="XBOVLQ-UDJ2n5kod886SN")
+
+        ```
+        ### VolumeSnapshots_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume_snapshot = azure_native.containerstorage.v20230301preview.VolumeSnapshot("volumeSnapshot",
+            pool_name="E-sfxFA3nN-FcID851Rq-Q3u",
+            resource_group_name="rgcontainerstorage",
+            volume_snapshot_name="CjG-k-K4nWgGVV3VL-jT-5")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerstorage/v20230301preview:VolumeSnapshot nvn vdihfxdstmkozaxfocgt 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VolumeSnapshotArgs args: The arguments to use to populate this resource's properties.

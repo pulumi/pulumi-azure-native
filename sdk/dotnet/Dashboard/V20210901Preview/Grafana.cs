@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.Dashboard.V20210901Preview
 {
     /// <summary>
     /// The grafana resource type.
+    /// 
+    /// ## Example Usage
+    /// ### Grafana_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var grafana = new AzureNative.Dashboard.V20210901Preview.Grafana("grafana", new()
+    ///     {
+    ///         Identity = new AzureNative.Dashboard.V20210901Preview.Inputs.ManagedIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.Dashboard.V20210901Preview.Inputs.ManagedGrafanaPropertiesArgs
+    ///         {
+    ///             ProvisioningState = "Accepted",
+    ///             ZoneRedundancy = "Enabled",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Dashboard.V20210901Preview.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Dev" },
+    ///         },
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dashboard/v20210901preview:Grafana myWorkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/grafana/myWorkspace 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard/v20210901preview:Grafana")]
     public partial class Grafana : global::Pulumi.CustomResource

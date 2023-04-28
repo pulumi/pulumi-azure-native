@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
 {
     /// <summary>
     /// Data network resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create data network
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataNetwork = new AzureNative.MobileNetwork.V20220401Preview.DataNetwork("dataNetwork", new()
+    ///     {
+    ///         DataNetworkName = "testDataNetwork",
+    ///         Description = "myFavouriteDataNetwork",
+    ///         Location = "eastus",
+    ///         MobileNetworkName = "testMobileNetwork",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork/v20220401preview:DataNetwork testDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testDataNetwork 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220401preview:DataNetwork")]
     public partial class DataNetwork : global::Pulumi.CustomResource

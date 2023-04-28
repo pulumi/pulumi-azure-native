@@ -129,6 +129,53 @@ class ApiPolicy(pulumi.CustomResource):
         """
         Policy Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_policy = azure_native.apimanagement.v20180601preview.ApiPolicy("apiPolicy",
+            api_id="5600b57e7e8880006a040001",
+            content_format="xml",
+            policy_content="<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateApiPolicyNonXmlEncoded
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_policy = azure_native.apimanagement.v20180601preview.ApiPolicy("apiPolicy",
+            api_id="5600b57e7e8880006a040001",
+            content_format="rawxml",
+            policy_content=\"\"\"<policies>
+             <inbound>
+             <base />
+          <set-header name="newvalue" exists-action="override">
+           <value>"@(context.Request.Headers.FirstOrDefault(h => h.Ke=="Via"))" </value>
+            </set-header>
+          </inbound>
+              </policies>\"\"\",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180601preview:ApiPolicy policy /subscriptions/4c1a3bc6-89f9-46fe-a175-5d8984b25095/resourcegroups/Api-DF-West-US/providers/Microsoft.ApiManagement/service/samirmsiservice2/apis/echo-api/operations/create-resource/policies/policy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -146,6 +193,53 @@ class ApiPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Policy Contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_policy = azure_native.apimanagement.v20180601preview.ApiPolicy("apiPolicy",
+            api_id="5600b57e7e8880006a040001",
+            content_format="xml",
+            policy_content="<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateApiPolicyNonXmlEncoded
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_policy = azure_native.apimanagement.v20180601preview.ApiPolicy("apiPolicy",
+            api_id="5600b57e7e8880006a040001",
+            content_format="rawxml",
+            policy_content=\"\"\"<policies>
+             <inbound>
+             <base />
+          <set-header name="newvalue" exists-action="override">
+           <value>"@(context.Request.Headers.FirstOrDefault(h => h.Ke=="Via"))" </value>
+            </set-header>
+          </inbound>
+              </policies>\"\"\",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180601preview:ApiPolicy policy /subscriptions/4c1a3bc6-89f9-46fe-a175-5d8984b25095/resourcegroups/Api-DF-West-US/providers/Microsoft.ApiManagement/service/samirmsiservice2/apis/echo-api/operations/create-resource/policies/policy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiPolicyArgs args: The arguments to use to populate this resource's properties.

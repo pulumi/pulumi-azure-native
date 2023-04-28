@@ -153,6 +153,50 @@ class Replication(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ReplicationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication = azure_native.containerregistry.Replication("replication",
+            location="eastus",
+            registry_name="myRegistry",
+            replication_name="myReplication",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            })
+
+        ```
+        ### ReplicationCreateZoneRedundant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication = azure_native.containerregistry.Replication("replication",
+            location="eastus",
+            region_endpoint_enabled=True,
+            registry_name="myRegistry",
+            replication_name="myReplication",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            },
+            zone_redundancy="Enabled")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:Replication myReplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/replications/myReplication 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
@@ -173,6 +217,50 @@ class Replication(pulumi.CustomResource):
         An object that represents a replication for a container registry.
         API Version: 2022-12-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ReplicationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication = azure_native.containerregistry.Replication("replication",
+            location="eastus",
+            registry_name="myRegistry",
+            replication_name="myReplication",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            })
+
+        ```
+        ### ReplicationCreateZoneRedundant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication = azure_native.containerregistry.Replication("replication",
+            location="eastus",
+            region_endpoint_enabled=True,
+            registry_name="myRegistry",
+            replication_name="myReplication",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            },
+            zone_redundancy="Enabled")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:Replication myReplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/replications/myReplication 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationArgs args: The arguments to use to populate this resource's properties.

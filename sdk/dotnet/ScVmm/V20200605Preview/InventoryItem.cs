@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
 {
     /// <summary>
     /// Defines the inventory item.
+    /// 
+    /// ## Example Usage
+    /// ### CreateInventoryItem
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var inventoryItem = new AzureNative.ScVmm.V20200605Preview.InventoryItem("inventoryItem", new()
+    ///     {
+    ///         InventoryItemName = "12345678-1234-1234-1234-123456789abc",
+    ///         InventoryType = "Cloud",
+    ///         ResourceGroupName = "testrg",
+    ///         VmmServerName = "ContosoVMMServer",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scvmm/v20200605preview:InventoryItem 12345678-1234-1234-1234-123456789abc /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer/InventoryItems/12345678-1234-1234-1234-123456789abc 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:InventoryItem")]
     public partial class InventoryItem : global::Pulumi.CustomResource

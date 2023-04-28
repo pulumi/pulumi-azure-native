@@ -147,6 +147,38 @@ class JobSchedule(pulumi.CustomResource):
         API Version: 2022-08-08.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a job schedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_schedule = azure_native.automation.JobSchedule("jobSchedule",
+            automation_account_name="ContoseAutomationAccount",
+            job_schedule_id="0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc",
+            parameters={
+                "jobscheduletag01": "jobschedulevalue01",
+                "jobscheduletag02": "jobschedulevalue02",
+            },
+            resource_group_name="rg",
+            runbook=azure_native.automation.RunbookAssociationPropertyArgs(
+                name="TestRunbook",
+            ),
+            schedule=azure_native.automation.ScheduleAssociationPropertyArgs(
+                name="ScheduleNameGoesHere332204b5-debe-4348-a5c7-6357457189f2",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:JobSchedule myresource1 /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobSchedules/0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -167,6 +199,38 @@ class JobSchedule(pulumi.CustomResource):
         Definition of the job schedule.
         API Version: 2022-08-08.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a job schedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_schedule = azure_native.automation.JobSchedule("jobSchedule",
+            automation_account_name="ContoseAutomationAccount",
+            job_schedule_id="0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc",
+            parameters={
+                "jobscheduletag01": "jobschedulevalue01",
+                "jobscheduletag02": "jobschedulevalue02",
+            },
+            resource_group_name="rg",
+            runbook=azure_native.automation.RunbookAssociationPropertyArgs(
+                name="TestRunbook",
+            ),
+            schedule=azure_native.automation.ScheduleAssociationPropertyArgs(
+                name="ScheduleNameGoesHere332204b5-debe-4348-a5c7-6357457189f2",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:JobSchedule myresource1 /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobSchedules/0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobScheduleArgs args: The arguments to use to populate this resource's properties.

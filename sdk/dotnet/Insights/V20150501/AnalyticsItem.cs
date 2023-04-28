@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.Insights.V20150501
 {
     /// <summary>
     /// Properties that define an Analytics item that is associated to an Application Insights component.
+    /// 
+    /// ## Example Usage
+    /// ### AnalyticsItemPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var analyticsItem = new AzureNative.Insights.V20150501.AnalyticsItem("analyticsItem", new()
+    ///     {
+    ///         Content = @"let newExceptionsTimeRange = 1d;
+    /// let timeRangeToCheckBefore = 7d;
+    /// exceptions
+    /// | where timestamp &lt; ago(timeRangeToCheckBefore)
+    /// | summarize count() by problemId
+    /// | join kind= rightanti (
+    /// exceptions
+    /// | where timestamp &gt;= ago(newExceptionsTimeRange)
+    /// | extend stack = tostring(details[0].rawStack)
+    /// | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+    /// ) on problemId 
+    /// | order by  count_ desc
+    /// ",
+    ///         Name = "Exceptions - New in the last 24 hours",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "my-component",
+    ///         Scope = "shared",
+    ///         ScopePath = "analyticsItems",
+    ///         Type = "query",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20150501:AnalyticsItem myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/{scopePath}/item 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20150501:AnalyticsItem")]
     public partial class AnalyticsItem : global::Pulumi.CustomResource

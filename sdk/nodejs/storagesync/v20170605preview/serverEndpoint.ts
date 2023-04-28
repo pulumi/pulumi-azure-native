@@ -7,6 +7,35 @@ import * as utilities from "../../utilities";
 /**
  * Server Endpoint object.
  *
+ * ## Example Usage
+ * ### ServerEndpoints_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverEndpoint = new azure_native.storagesync.v20170605preview.ServerEndpoint("serverEndpoint", {
+ *     cloudTiering: "off",
+ *     provisioningState: "Created",
+ *     resourceGroupName: "SampleResourceGroup_1",
+ *     serverEndpointName: "SampleServerEndpoint_1",
+ *     serverLocalPath: "D:\\SampleServerEndpoint_1",
+ *     serverResourceId: "/subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncServer_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
+ *     storageSyncServiceName: "SampleStorageSyncService_1",
+ *     syncGroupName: "SampleSyncGroup_1",
+ *     volumeFreeSpacePercent: 100,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagesync/v20170605preview:ServerEndpoint SampleServerEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/10.91.86.47/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/serverEndpoints/SampleServerEndpoint_1 
+ * ```
+ *
  * @deprecated Version 2017-06-05-preview will be removed in v2 of the provider.
  */
 export class ServerEndpoint extends pulumi.CustomResource {

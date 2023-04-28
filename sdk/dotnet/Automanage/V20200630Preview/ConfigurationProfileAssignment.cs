@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
 {
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update configuration profile assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfileAssignment = new AzureNative.Automanage.V20200630Preview.ConfigurationProfileAssignment("configurationProfileAssignment", new()
+    ///     {
+    ///         ConfigurationProfileAssignmentName = "default",
+    ///         Properties = new AzureNative.Automanage.V20200630Preview.Inputs.ConfigurationProfileAssignmentPropertiesArgs
+    ///         {
+    ///             AccountId = "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automanage/accounts/AutomanageAccount",
+    ///             ConfigurationProfile = "Azure virtual machine best practices – Production",
+    ///             ConfigurationProfilePreferenceId = "/subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfilePreferences/defaultProfilePreference",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         VmName = "myVMName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automanage/v20200630preview:ConfigurationProfileAssignment default /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualMachines/myvm/providers/Microsoft.Automanage/AutomanageAssignments/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20200630preview:ConfigurationProfileAssignment")]
     public partial class ConfigurationProfileAssignment : global::Pulumi.CustomResource

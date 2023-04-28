@@ -216,6 +216,51 @@ class OperationalizationCluster(pulumi.CustomResource):
         """
         Instance of an Azure ML Operationalization Cluster resource.
 
+        ## Example Usage
+        ### PUT Operationalization Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        operationalization_cluster = azure_native.machinelearningcompute.v20170801preview.OperationalizationCluster("operationalizationCluster",
+            cluster_name="myCluster",
+            cluster_type="ACS",
+            container_service=azure_native.machinelearningcompute.v20170801preview.AcsClusterPropertiesResponseArgs(
+                orchestrator_properties=azure_native.machinelearningcompute.v20170801preview.KubernetesClusterPropertiesArgs(
+                    service_principal=azure_native.machinelearningcompute.v20170801preview.ServicePrincipalPropertiesArgs(
+                        client_id="abcdefghijklmnopqrt",
+                        secret="<secret>",
+                    ),
+                ),
+                orchestrator_type="Kubernetes",
+            ),
+            description="My Operationalization Cluster",
+            global_service_configuration=azure_native.machinelearningcompute.v20170801preview.GlobalServiceConfigurationResponseArgs(
+                ssl=azure_native.machinelearningcompute.v20170801preview.SslConfigurationArgs(
+                    cert="afjdklq2131casfakld=",
+                    cname="foo.bar.com",
+                    key="flksdafkldsajf=",
+                    status="Enabled",
+                ),
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key1": "alpha",
+                "key2": "beta",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster MyCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningCompute/operationalizationClusters/MyCluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppInsightsPropertiesArgs']] app_insights: AppInsights configuration.
@@ -238,6 +283,51 @@ class OperationalizationCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Instance of an Azure ML Operationalization Cluster resource.
+
+        ## Example Usage
+        ### PUT Operationalization Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        operationalization_cluster = azure_native.machinelearningcompute.v20170801preview.OperationalizationCluster("operationalizationCluster",
+            cluster_name="myCluster",
+            cluster_type="ACS",
+            container_service=azure_native.machinelearningcompute.v20170801preview.AcsClusterPropertiesResponseArgs(
+                orchestrator_properties=azure_native.machinelearningcompute.v20170801preview.KubernetesClusterPropertiesArgs(
+                    service_principal=azure_native.machinelearningcompute.v20170801preview.ServicePrincipalPropertiesArgs(
+                        client_id="abcdefghijklmnopqrt",
+                        secret="<secret>",
+                    ),
+                ),
+                orchestrator_type="Kubernetes",
+            ),
+            description="My Operationalization Cluster",
+            global_service_configuration=azure_native.machinelearningcompute.v20170801preview.GlobalServiceConfigurationResponseArgs(
+                ssl=azure_native.machinelearningcompute.v20170801preview.SslConfigurationArgs(
+                    cert="afjdklq2131casfakld=",
+                    cname="foo.bar.com",
+                    key="flksdafkldsajf=",
+                    status="Enabled",
+                ),
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key1": "alpha",
+                "key2": "beta",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster MyCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningCompute/operationalizationClusters/MyCluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OperationalizationClusterArgs args: The arguments to use to populate this resource's properties.

@@ -131,6 +131,74 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         """
         See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
 
+        ## Example Usage
+        ### Create/Update Maintenance Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        maintenance_configuration = azure_native.containerservice.v20230202preview.MaintenanceConfiguration("maintenanceConfiguration",
+            config_name="default",
+            not_allowed_time=[azure_native.containerservice.v20230202preview.TimeSpanArgs(
+                end="2020-11-30T12:00:00Z",
+                start="2020-11-26T03:00:00Z",
+            )],
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            time_in_week=[azure_native.containerservice.v20230202preview.TimeInWeekArgs(
+                day="Monday",
+                hour_slots=[
+                    1,
+                    2,
+                ],
+            )])
+
+        ```
+        ### Create/Update Maintenance Configuration with Maintenance Window
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        maintenance_configuration = azure_native.containerservice.v20230202preview.MaintenanceConfiguration("maintenanceConfiguration",
+            config_name="aksManagedAutoUpgradeSchedule",
+            maintenance_window=azure_native.containerservice.v20230202preview.MaintenanceWindowResponseArgs(
+                duration_hours=10,
+                not_allowed_dates=[
+                    azure_native.containerservice.v20230202preview.DateSpanArgs(
+                        end="2023-02-25",
+                        start="2023-02-18",
+                    ),
+                    azure_native.containerservice.v20230202preview.DateSpanArgs(
+                        end="2024-01-05",
+                        start="2023-12-23",
+                    ),
+                ],
+                schedule=azure_native.containerservice.v20230202preview.ScheduleArgs(
+                    relative_monthly=azure_native.containerservice.v20230202preview.RelativeMonthlyScheduleArgs(
+                        day_of_week="Monday",
+                        interval_months=3,
+                        week_index="First",
+                    ),
+                ),
+                start_date="2023-01-01",
+                start_time="08:30",
+                utc_offset="+05:30",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20230202preview:MaintenanceConfiguration aksManagedAutoUpgradeSchedule /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/maintenanceConfigurations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_name: The name of the maintenance configuration.
@@ -148,6 +216,74 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+
+        ## Example Usage
+        ### Create/Update Maintenance Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        maintenance_configuration = azure_native.containerservice.v20230202preview.MaintenanceConfiguration("maintenanceConfiguration",
+            config_name="default",
+            not_allowed_time=[azure_native.containerservice.v20230202preview.TimeSpanArgs(
+                end="2020-11-30T12:00:00Z",
+                start="2020-11-26T03:00:00Z",
+            )],
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            time_in_week=[azure_native.containerservice.v20230202preview.TimeInWeekArgs(
+                day="Monday",
+                hour_slots=[
+                    1,
+                    2,
+                ],
+            )])
+
+        ```
+        ### Create/Update Maintenance Configuration with Maintenance Window
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        maintenance_configuration = azure_native.containerservice.v20230202preview.MaintenanceConfiguration("maintenanceConfiguration",
+            config_name="aksManagedAutoUpgradeSchedule",
+            maintenance_window=azure_native.containerservice.v20230202preview.MaintenanceWindowResponseArgs(
+                duration_hours=10,
+                not_allowed_dates=[
+                    azure_native.containerservice.v20230202preview.DateSpanArgs(
+                        end="2023-02-25",
+                        start="2023-02-18",
+                    ),
+                    azure_native.containerservice.v20230202preview.DateSpanArgs(
+                        end="2024-01-05",
+                        start="2023-12-23",
+                    ),
+                ],
+                schedule=azure_native.containerservice.v20230202preview.ScheduleArgs(
+                    relative_monthly=azure_native.containerservice.v20230202preview.RelativeMonthlyScheduleArgs(
+                        day_of_week="Monday",
+                        interval_months=3,
+                        week_index="First",
+                    ),
+                ),
+                start_date="2023-01-01",
+                start_time="08:30",
+                utc_offset="+05:30",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20230202preview:MaintenanceConfiguration aksManagedAutoUpgradeSchedule /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/maintenanceConfigurations/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MaintenanceConfigurationArgs args: The arguments to use to populate this resource's properties.

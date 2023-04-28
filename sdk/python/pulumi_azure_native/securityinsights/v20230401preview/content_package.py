@@ -433,6 +433,32 @@ class ContentPackage(pulumi.CustomResource):
         """
         Represents a Package in Azure Security Insights.
 
+        ## Example Usage
+        ### Install a package to the workspace.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_package = azure_native.securityinsights.v20230401preview.ContentPackage("contentPackage",
+            content_id="str.azure-sentinel-solution-str",
+            content_kind="Solution",
+            display_name="str",
+            package_id="str.azure-sentinel-solution-str",
+            resource_group_name="myRg",
+            version="2.0.0",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:ContentPackage str.azure-sentinel-solution-str /subscriptions/d0cfeab2-9ae0-4464-9919-dccaee2e48f0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/contentPackages/str.azure-sentinel-solution-str 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['MetadataAuthorArgs']] author: The author of the package
@@ -468,6 +494,32 @@ class ContentPackage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Package in Azure Security Insights.
+
+        ## Example Usage
+        ### Install a package to the workspace.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_package = azure_native.securityinsights.v20230401preview.ContentPackage("contentPackage",
+            content_id="str.azure-sentinel-solution-str",
+            content_kind="Solution",
+            display_name="str",
+            package_id="str.azure-sentinel-solution-str",
+            resource_group_name="myRg",
+            version="2.0.0",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:ContentPackage str.azure-sentinel-solution-str /subscriptions/d0cfeab2-9ae0-4464-9919-dccaee2e48f0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/contentPackages/str.azure-sentinel-solution-str 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContentPackageArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * IpAllocation resource.
+ *
+ * ## Example Usage
+ * ### Create IpAllocation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ipAllocation = new azure_native.network.v20201101.IpAllocation("ipAllocation", {
+ *     allocationTags: {
+ *         VNetID: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1",
+ *     },
+ *     ipAllocationName: "test-ipallocation",
+ *     location: "centraluseuap",
+ *     prefix: "3.2.5.0/24",
+ *     resourceGroupName: "rg1",
+ *     type: "Hypernet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:IpAllocation test-ipallocation /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/IpAllocations/test-ipallocation 
+ * ```
  */
 export class IpAllocation extends pulumi.CustomResource {
     /**

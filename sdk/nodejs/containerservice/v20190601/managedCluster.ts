@@ -9,6 +9,70 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed cluster.
+ *
+ * ## Example Usage
+ * ### Create/Update Managed Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCluster = new azure_native.containerservice.v20190601.ManagedCluster("managedCluster", {
+ *     addonProfiles: {},
+ *     agentPoolProfiles: [{
+ *         availabilityZones: [
+ *             "1",
+ *             "2",
+ *             "3",
+ *         ],
+ *         count: 3,
+ *         enableNodePublicIP: true,
+ *         name: "nodepool1",
+ *         osType: "Linux",
+ *         type: "VirtualMachineScaleSets",
+ *         vmSize: "Standard_DS1_v2",
+ *     }],
+ *     dnsPrefix: "dnsprefix1",
+ *     enablePodSecurityPolicy: true,
+ *     enableRBAC: true,
+ *     kubernetesVersion: "",
+ *     linuxProfile: {
+ *         adminUsername: "azureuser",
+ *         ssh: {
+ *             publicKeys: [{
+ *                 keyData: "keydata",
+ *             }],
+ *         },
+ *     },
+ *     location: "location1",
+ *     networkProfile: {
+ *         loadBalancerSku: "basic",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     servicePrincipalProfile: {
+ *         clientId: "clientid",
+ *         secret: "secret",
+ *     },
+ *     tags: {
+ *         archv2: "",
+ *         tier: "production",
+ *     },
+ *     windowsProfile: {
+ *         adminPassword: `replacePassword1234$`,
+ *         adminUsername: "azureuser",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20190601:ManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+ * ```
  */
 export class ManagedCluster extends pulumi.CustomResource {
     /**

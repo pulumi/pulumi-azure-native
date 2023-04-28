@@ -10,6 +10,31 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about an application in a Batch account.
  *
+ * ## Example Usage
+ * ### ApplicationCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.batch.v20170901.Application("application", {
+ *     accountName: "sampleacct",
+ *     allowUpdates: false,
+ *     applicationId: "app1",
+ *     displayName: "myAppName",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:batch/v20170901:Application myresource1 app1 
+ * ```
+ *
  * @deprecated Version 2017-09-01 will be removed in v2 of the provider.
  */
 export class Application extends pulumi.CustomResource {

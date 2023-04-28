@@ -11,6 +11,64 @@ import * as utilities from "../utilities";
  * A schedule.
  * API Version: 2018-09-15.
  * Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ServiceFabricSchedules_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceFabricSchedule = new azure_native.devtestlab.ServiceFabricSchedule("serviceFabricSchedule", {
+ *     dailyRecurrence: {
+ *         time: "19:00",
+ *     },
+ *     hourlyRecurrence: {
+ *         minute: 0,
+ *     },
+ *     labName: "{labName}",
+ *     location: "{location}",
+ *     name: "{scheduleName}",
+ *     notificationSettings: {
+ *         emailRecipient: "{email}",
+ *         notificationLocale: "EN",
+ *         status: "{Enabled|Disabled}",
+ *         timeInMinutes: 15,
+ *         webhookUrl: "{webhoolUrl}",
+ *     },
+ *     resourceGroupName: "resourceGroupName",
+ *     serviceFabricName: "{serviceFrabicName}",
+ *     status: "{Enabled|Disabled}",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ *     targetResourceId: "/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/users/{uniqueIdentifier}/servicefabrics/{serviceFrabicName}",
+ *     taskType: "{Unknown|LabVmsShutdownTask|LabVmsStartupTask|LabVmReclamationTask|ComputeVmShutdownTask}",
+ *     timeZoneId: "Pacific Standard Time",
+ *     userName: "@me",
+ *     weeklyRecurrence: {
+ *         time: "19:00",
+ *         weekdays: [
+ *             "Monday",
+ *             "Tuesday",
+ *             "Wednesday",
+ *             "Thursday",
+ *             "Friday",
+ *             "Saturday",
+ *             "Sunday",
+ *         ],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab:ServiceFabricSchedule {scheduleName} /subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/users/{uniqueIdentifier}/servicefabrics/{serviceFrabicName}/schedules/{scheduleName} 
+ * ```
  */
 export class ServiceFabricSchedule extends pulumi.CustomResource {
     /**

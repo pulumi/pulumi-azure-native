@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Security.V20210701Preview
 {
     /// <summary>
     /// Custom Assessment Automation
+    /// 
+    /// ## Example Usage
+    /// ### Create a Custom Assessment Automation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customAssessmentAutomation = new AzureNative.Security.V20210701Preview.CustomAssessmentAutomation("customAssessmentAutomation", new()
+    ///     {
+    ///         CompressedQuery = "DQAKAEkAYQBtAF8ARwByAG8AdQBwAA0ACgB8ACAAZQB4AHQAZQBuAGQAIABIAGUAYQBsAHQAaABTAHQAYQB0AHUAcwAgAD0AIABpAGYAZgAoAHQAbwBzAHQAcgBpAG4AZwAoAFIAZQBjAG8AcgBkAC4AVQBzAGUAcgBOAGEAbQBlACkAIABjAG8AbgB0AGEAaQBuAHMAIAAnAHUAcwBlAHIAJwAsACAAJwBVAE4ASABFAEEATABUAEgAWQAnACwAIAAnAEgARQBBAEwAVABIAFkAJwApAA0ACgA=",
+    ///         CustomAssessmentAutomationName = "MyCustomAssessmentAutomation",
+    ///         Description = "Data should be encrypted",
+    ///         DisplayName = "Password Policy",
+    ///         RemediationDescription = "Encrypt store by...",
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///         Severity = "Medium",
+    ///         SupportedCloud = "AWS",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20210701preview:CustomAssessmentAutomation 33e7cc6e-a139-4723-a0e5-76993aee0771 /subscriptions/e5d1b86c-3051-44d5-8802-aa65d45a279b/resourcegroups/TestResourceGroup/providers/Microsoft.Security/customAssessmentAutomations/33e7cc6e-a139-4723-a0e5-76993aee0771 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20210701preview:CustomAssessmentAutomation")]
     public partial class CustomAssessmentAutomation : global::Pulumi.CustomResource

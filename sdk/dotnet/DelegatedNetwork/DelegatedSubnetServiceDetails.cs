@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.DelegatedNetwork
     /// Represents an instance of a orchestrator.
     /// API Version: 2021-03-15.
     /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### put delegated subnet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var delegatedSubnetServiceDetails = new AzureNative.DelegatedNetwork.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails", new()
+    ///     {
+    ///         ControllerDetails = new AzureNative.DelegatedNetwork.Inputs.ControllerDetailsArgs
+    ///         {
+    ///             Id = "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestRG",
+    ///         ResourceName = "delegated1",
+    ///         SubnetDetails = new AzureNative.DelegatedNetwork.Inputs.SubnetDetailsArgs
+    ///         {
+    ///             Id = "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:delegatednetwork:DelegatedSubnetServiceDetails delegated1 /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/delegatedSubnets/delegated1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:delegatednetwork:DelegatedSubnetServiceDetails")]
     public partial class DelegatedSubnetServiceDetails : global::Pulumi.CustomResource

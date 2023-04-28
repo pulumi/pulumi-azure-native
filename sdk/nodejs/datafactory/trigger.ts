@@ -11,6 +11,81 @@ import * as utilities from "../utilities";
  * Trigger resource type.
  * API Version: 2018-06-01.
  * Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Triggers_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const trigger = new azure_native.datafactory.Trigger("trigger", {
+ *     factoryName: "exampleFactoryName",
+ *     properties: {
+ *         pipelines: [{
+ *             parameters: {
+ *                 OutputBlobNameList: ["exampleoutput.csv"],
+ *             },
+ *             pipelineReference: {
+ *                 referenceName: "examplePipeline",
+ *                 type: "PipelineReference",
+ *             },
+ *         }],
+ *         recurrence: {
+ *             endTime: "2018-06-16T00:55:13.8441801Z",
+ *             frequency: "Minute",
+ *             interval: 4,
+ *             startTime: "2018-06-16T00:39:13.8441801Z",
+ *             timeZone: "UTC",
+ *         },
+ *         type: "ScheduleTrigger",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ *     triggerName: "exampleTrigger",
+ * });
+ *
+ * ```
+ * ### Triggers_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const trigger = new azure_native.datafactory.Trigger("trigger", {
+ *     factoryName: "exampleFactoryName",
+ *     properties: {
+ *         description: "Example description",
+ *         pipelines: [{
+ *             parameters: {
+ *                 OutputBlobNameList: ["exampleoutput.csv"],
+ *             },
+ *             pipelineReference: {
+ *                 referenceName: "examplePipeline",
+ *                 type: "PipelineReference",
+ *             },
+ *         }],
+ *         recurrence: {
+ *             endTime: "2018-06-16T00:55:14.905167Z",
+ *             frequency: "Minute",
+ *             interval: 4,
+ *             startTime: "2018-06-16T00:39:14.905167Z",
+ *             timeZone: "UTC",
+ *         },
+ *         type: "ScheduleTrigger",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ *     triggerName: "exampleTrigger",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datafactory:Trigger exampleTrigger /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/triggers/exampleTrigger 
+ * ```
  */
 export class Trigger extends pulumi.CustomResource {
     /**

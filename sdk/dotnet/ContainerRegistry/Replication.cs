@@ -13,6 +13,66 @@ namespace Pulumi.AzureNative.ContainerRegistry
     /// An object that represents a replication for a container registry.
     /// API Version: 2022-12-01.
     /// Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ReplicationCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replication = new AzureNative.ContainerRegistry.Replication("replication", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         RegistryName = "myRegistry",
+    ///         ReplicationName = "myReplication",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ReplicationCreateZoneRedundant
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replication = new AzureNative.ContainerRegistry.Replication("replication", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         RegionEndpointEnabled = true,
+    ///         RegistryName = "myRegistry",
+    ///         ReplicationName = "myReplication",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///         ZoneRedundancy = "Enabled",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry:Replication myReplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/replications/myReplication 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry:Replication")]
     public partial class Replication : global::Pulumi.CustomResource

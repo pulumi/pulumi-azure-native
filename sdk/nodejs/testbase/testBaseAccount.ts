@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * The Test Base Account resource.
  * API Version: 2022-04-01-preview.
  * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### TestBaseAccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const testBaseAccount = new azure_native.testbase.TestBaseAccount("testBaseAccount", {
+ *     location: "westus",
+ *     resourceGroupName: "contoso-rg1",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ *     testBaseAccountName: "contoso-testBaseAccount1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase:TestBaseAccount contoso-testBaseAccount1 /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1 
+ * ```
  */
 export class TestBaseAccount extends pulumi.CustomResource {
     /**

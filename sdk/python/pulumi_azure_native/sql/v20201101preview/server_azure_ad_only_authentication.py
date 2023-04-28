@@ -93,6 +93,29 @@ class ServerAzureADOnlyAuthentication(pulumi.CustomResource):
         """
         Azure Active Directory only authentication.
 
+        ## Example Usage
+        ### Creates or updates Azure Active Directory only authentication object.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_azure_ad_only_authentication = azure_native.sql.v20201101preview.ServerAzureADOnlyAuthentication("serverAzureADOnlyAuthentication",
+            authentication_name="Default",
+            azure_ad_only_authentication=False,
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-6440")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20201101preview:ServerAzureADOnlyAuthentication Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-6440/azureadonlyauthentications/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authentication_name: The name of server azure active directory only authentication.
@@ -108,6 +131,29 @@ class ServerAzureADOnlyAuthentication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Active Directory only authentication.
+
+        ## Example Usage
+        ### Creates or updates Azure Active Directory only authentication object.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_azure_ad_only_authentication = azure_native.sql.v20201101preview.ServerAzureADOnlyAuthentication("serverAzureADOnlyAuthentication",
+            authentication_name="Default",
+            azure_ad_only_authentication=False,
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-6440")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20201101preview:ServerAzureADOnlyAuthentication Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-6440/azureadonlyauthentications/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerAzureADOnlyAuthenticationArgs args: The arguments to use to populate this resource's properties.

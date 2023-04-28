@@ -7,6 +7,25 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Traffic Manager Real User Metrics key response.
  *
+ * ## Example Usage
+ * ### TrafficManagerUserMetricsKeys-PUT
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const trafficManagerUserMetricsKey = new azure_native.network.v20170901preview.TrafficManagerUserMetricsKey("trafficManagerUserMetricsKey", {});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20170901preview:TrafficManagerUserMetricsKey default /providers/Microsoft.Network/trafficManagerUserMetricsKeys/default 
+ * ```
+ *
  * @deprecated Version 2017-09-01-preview will be removed in v2 of the provider.
  */
 export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {

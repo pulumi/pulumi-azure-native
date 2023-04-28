@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * The grafana resource type.
+ *
+ * ## Example Usage
+ * ### Grafana_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const grafana = new azure_native.dashboard.v20220501preview.Grafana("grafana", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "West US",
+ *     properties: {
+ *         apiKey: "Enabled",
+ *         deterministicOutboundIP: "Enabled",
+ *         publicNetworkAccess: "Enabled",
+ *         zoneRedundancy: "Enabled",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     tags: {
+ *         Environment: "Dev",
+ *     },
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dashboard/v20220501preview:Grafana myWorkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/grafana/myWorkspace 
+ * ```
  */
 export class Grafana extends pulumi.CustomResource {
     /**

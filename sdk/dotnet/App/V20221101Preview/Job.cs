@@ -11,6 +11,102 @@ namespace Pulumi.AzureNative.App.V20221101Preview
 {
     /// <summary>
     /// Container App Job
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Container Apps Job
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.App.V20221101Preview.Job("job", new()
+    ///     {
+    ///         Configuration = new AzureNative.App.V20221101Preview.Inputs.JobConfigurationArgs
+    ///         {
+    ///             ManualTriggerConfig = new AzureNative.App.V20221101Preview.Inputs.JobConfigurationManualTriggerConfigArgs
+    ///             {
+    ///                 Parallelism = 4,
+    ///                 ReplicaCompletionCount = 1,
+    ///             },
+    ///             ReplicaRetryLimit = 10,
+    ///             ReplicaTimeout = 10,
+    ///             TriggerType = "Manual",
+    ///         },
+    ///         EnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    ///         JobName = "testcontainerAppsJob0",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "rg",
+    ///         Template = new AzureNative.App.V20221101Preview.Inputs.JobTemplateArgs
+    ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new AzureNative.App.V20221101Preview.Inputs.ContainerArgs
+    ///                 {
+    ///                     Image = "repo/testcontainerAppsJob0:v1",
+    ///                     Name = "testcontainerAppsJob0",
+    ///                     Probes = new[]
+    ///                     {
+    ///                         new AzureNative.App.V20221101Preview.Inputs.ContainerAppProbeArgs
+    ///                         {
+    ///                             HttpGet = new AzureNative.App.V20221101Preview.Inputs.ContainerAppProbeHttpGetArgs
+    ///                             {
+    ///                                 HttpHeaders = new[]
+    ///                                 {
+    ///                                     new AzureNative.App.V20221101Preview.Inputs.ContainerAppProbeHttpHeadersArgs
+    ///                                     {
+    ///                                         Name = "Custom-Header",
+    ///                                         Value = "Awesome",
+    ///                                     },
+    ///                                 },
+    ///                                 Path = "/health",
+    ///                                 Port = 8080,
+    ///                             },
+    ///                             InitialDelaySeconds = 5,
+    ///                             PeriodSeconds = 3,
+    ///                             Type = "Liveness",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             InitContainers = new[]
+    ///             {
+    ///                 new AzureNative.App.V20221101Preview.Inputs.InitContainerArgs
+    ///                 {
+    ///                     Args = new[]
+    ///                     {
+    ///                         "-c",
+    ///                         "while true; do echo hello; sleep 10;done",
+    ///                     },
+    ///                     Command = new[]
+    ///                     {
+    ///                         "/bin/sh",
+    ///                     },
+    ///                     Image = "repo/testcontainerAppsJob0:v4",
+    ///                     Name = "testinitcontainerAppsJob0",
+    ///                     Resources = new AzureNative.App.V20221101Preview.Inputs.ContainerResourcesArgs
+    ///                     {
+    ///                         Cpu = 0.2,
+    ///                         Memory = "100Mi",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20221101preview:Job testcontainerAppsJob0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/jobs/testcontainerAppsJob0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20221101preview:Job")]
     public partial class Job : global::Pulumi.CustomResource

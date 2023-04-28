@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Workspace Component Container.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var componentContainer = new AzureNative.MachineLearningServices.V20230401Preview.ComponentContainer("componentContainer", new()
+    ///     {
+    ///         ComponentContainerProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ComponentContainerArgs
+    ///         {
+    ///             Description = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:ComponentContainer string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:ComponentContainer")]
     public partial class ComponentContainer : global::Pulumi.CustomResource

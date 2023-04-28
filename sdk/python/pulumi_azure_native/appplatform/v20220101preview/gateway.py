@@ -113,6 +113,40 @@ class Gateway(pulumi.CustomResource):
         """
         Spring Cloud Gateway resource
 
+        ## Example Usage
+        ### Gateways_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway = azure_native.appplatform.v20220101preview.Gateway("gateway",
+            gateway_name="default",
+            properties=azure_native.appplatform.v20220101preview.GatewayPropertiesResponseArgs(
+                public=True,
+                resource_requests=azure_native.appplatform.v20220101preview.GatewayResourceRequestsArgs(
+                    cpu="1",
+                    memory="1G",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.v20220101preview.SkuArgs(
+                capacity=2,
+                name="E0",
+                tier="Enterprise",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20220101preview:Gateway default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gateway_name: The name of Spring Cloud Gateway.
@@ -129,6 +163,40 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Spring Cloud Gateway resource
+
+        ## Example Usage
+        ### Gateways_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway = azure_native.appplatform.v20220101preview.Gateway("gateway",
+            gateway_name="default",
+            properties=azure_native.appplatform.v20220101preview.GatewayPropertiesResponseArgs(
+                public=True,
+                resource_requests=azure_native.appplatform.v20220101preview.GatewayResourceRequestsArgs(
+                    cpu="1",
+                    memory="1G",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.v20220101preview.SkuArgs(
+                capacity=2,
+                name="E0",
+                tier="Enterprise",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20220101preview:Gateway default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

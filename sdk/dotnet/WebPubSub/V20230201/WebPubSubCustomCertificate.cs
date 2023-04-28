@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.WebPubSub.V20230201
 {
     /// <summary>
     /// A custom certificate.
+    /// 
+    /// ## Example Usage
+    /// ### WebPubSubCustomCertificates_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webPubSubCustomCertificate = new AzureNative.WebPubSub.V20230201.WebPubSubCustomCertificate("webPubSubCustomCertificate", new()
+    ///     {
+    ///         CertificateName = "myCert",
+    ///         KeyVaultBaseUri = "https://myvault.keyvault.azure.net/",
+    ///         KeyVaultSecretName = "mycert",
+    ///         KeyVaultSecretVersion = "bb6a44b2743f47f68dad0d6cc9756432",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "myWebPubSubService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:webpubsub/v20230201:WebPubSubCustomCertificate myCert /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub/v20230201:WebPubSubCustomCertificate")]
     public partial class WebPubSubCustomCertificate : global::Pulumi.CustomResource

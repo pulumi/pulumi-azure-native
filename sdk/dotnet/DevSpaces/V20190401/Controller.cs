@@ -9,6 +9,44 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DevSpaces.V20190401
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### ControllersCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var controller = new AzureNative.DevSpaces.V20190401.Controller("controller", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Name = "myControllerResource",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.DevSpaces.V20190401.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = null,
+    ///         TargetContainerHostCredentialsBase64 = "QmFzZTY0IEVuY29kZWQgVmFsdWUK",
+    ///         TargetContainerHostResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myCluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devspaces/v20190401:Controller myControllerResource /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DevSpaces/controllers/myControllerResource 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:devspaces/v20190401:Controller")]
     public partial class Controller : global::Pulumi.CustomResource
     {

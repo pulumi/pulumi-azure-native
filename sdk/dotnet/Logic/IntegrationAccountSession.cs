@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Logic
     /// The integration account session.
     /// API Version: 2019-05-01.
     /// Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an integration account session
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationAccountSession = new AzureNative.Logic.IntegrationAccountSession("integrationAccountSession", new()
+    ///     {
+    ///         Content = 
+    ///         {
+    ///             { "controlNumber", "1234" },
+    ///             { "controlNumberChangedTime", "2017-02-21T22:30:11.9923759Z" },
+    ///         },
+    ///         IntegrationAccountName = "testia123",
+    ///         ResourceGroupName = "testrg123",
+    ///         SessionName = "testsession123-ICN",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic:IntegrationAccountSession testsession123-ICN /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/testsession123-ICN 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic:IntegrationAccountSession")]
     public partial class IntegrationAccountSession : global::Pulumi.CustomResource

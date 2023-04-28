@@ -179,7 +179,55 @@ class OnlineEndpoint(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OnlineEndpoint resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Workspace Online Endpoint.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        online_endpoint = azure_native.machinelearningservices.v20221201preview.OnlineEndpoint("onlineEndpoint",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.v20221201preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            online_endpoint_properties=azure_native.machinelearningservices.v20221201preview.OnlineEndpointArgs(
+                auth_mode="AMLToken",
+                compute="string",
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                traffic={
+                    "string": 1,
+                },
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20221201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20221201preview.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20221201preview:OnlineEndpoint string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Online Endpoint name.
@@ -199,7 +247,55 @@ class OnlineEndpoint(pulumi.CustomResource):
                  args: OnlineEndpointInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OnlineEndpoint resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Workspace Online Endpoint.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        online_endpoint = azure_native.machinelearningservices.v20221201preview.OnlineEndpoint("onlineEndpoint",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.v20221201preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            online_endpoint_properties=azure_native.machinelearningservices.v20221201preview.OnlineEndpointArgs(
+                auth_mode="AMLToken",
+                compute="string",
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                traffic={
+                    "string": 1,
+                },
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20221201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20221201preview.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20221201preview:OnlineEndpoint string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param OnlineEndpointInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -247,6 +247,58 @@ class UserRule(pulumi.CustomResource):
         """
         Network security user rule.
 
+        ## Example Usage
+        ### Create a default user rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_rule = azure_native.network.v20220401preview.UserRule("userRule",
+            configuration_name="myTestSecurityConfig",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleDefaultUserRule")
+
+        ```
+        ### Create a user rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_rule = azure_native.network.v20220401preview.UserRule("userRule",
+            configuration_name="myTestSecurityConfig",
+            description="Sample User Rule",
+            destination_port_ranges=["22"],
+            destinations=[azure_native.network.v20220401preview.AddressPrefixItemArgs(
+                address_prefix="*",
+                address_prefix_type="IPPrefix",
+            )],
+            direction="Inbound",
+            kind="Custom",
+            network_manager_name="testNetworkManager",
+            protocol="Tcp",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleUserRule",
+            source_port_ranges=["0-65535"],
+            sources=[azure_native.network.v20220401preview.AddressPrefixItemArgs(
+                address_prefix="*",
+                address_prefix_type="IPPrefix",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220401preview:UserRule SampleUserRule /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/SecurityUserConfigurations/Policy1/ruleCollections/testRuleCollection/rules/SampleUserRule 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
@@ -272,6 +324,58 @@ class UserRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network security user rule.
+
+        ## Example Usage
+        ### Create a default user rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_rule = azure_native.network.v20220401preview.UserRule("userRule",
+            configuration_name="myTestSecurityConfig",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleDefaultUserRule")
+
+        ```
+        ### Create a user rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_rule = azure_native.network.v20220401preview.UserRule("userRule",
+            configuration_name="myTestSecurityConfig",
+            description="Sample User Rule",
+            destination_port_ranges=["22"],
+            destinations=[azure_native.network.v20220401preview.AddressPrefixItemArgs(
+                address_prefix="*",
+                address_prefix_type="IPPrefix",
+            )],
+            direction="Inbound",
+            kind="Custom",
+            network_manager_name="testNetworkManager",
+            protocol="Tcp",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleUserRule",
+            source_port_ranges=["0-65535"],
+            sources=[azure_native.network.v20220401preview.AddressPrefixItemArgs(
+                address_prefix="*",
+                address_prefix_type="IPPrefix",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220401preview:UserRule SampleUserRule /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/SecurityUserConfigurations/Policy1/ruleCollections/testRuleCollection/rules/SampleUserRule 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserRuleArgs args: The arguments to use to populate this resource's properties.

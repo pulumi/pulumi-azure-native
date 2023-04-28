@@ -357,6 +357,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  __props__=None):
         """
         A common class for general resource information
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20160601:VirtualNetworkGatewayConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -388,6 +395,13 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20160601:VirtualNetworkGatewayConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/connections/{virtualNetworkGatewayConnectionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayConnectionArgs args: The arguments to use to populate this resource's properties.

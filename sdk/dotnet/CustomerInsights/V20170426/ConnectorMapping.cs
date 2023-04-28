@@ -11,6 +11,81 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The connector mapping resource format.
+    /// 
+    /// ## Example Usage
+    /// ### ConnectorMappings_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectorMapping = new AzureNative.CustomerInsights.V20170426.ConnectorMapping("connectorMapping", new()
+    ///     {
+    ///         ConnectorName = "testConnector8858",
+    ///         Description = "Test mapping",
+    ///         DisplayName = "testMapping12491",
+    ///         EntityType = AzureNative.CustomerInsights.V20170426.EntityTypes.Interaction,
+    ///         EntityTypeName = "TestInteractionType2967",
+    ///         HubName = "sdkTestHub",
+    ///         MappingName = "testMapping12491",
+    ///         MappingProperties = new AzureNative.CustomerInsights.V20170426.Inputs.ConnectorMappingPropertiesArgs
+    ///         {
+    ///             Availability = new AzureNative.CustomerInsights.V20170426.Inputs.ConnectorMappingAvailabilityArgs
+    ///             {
+    ///                 Frequency = AzureNative.CustomerInsights.V20170426.FrequencyTypes.Hour,
+    ///                 Interval = 5,
+    ///             },
+    ///             CompleteOperation = new AzureNative.CustomerInsights.V20170426.Inputs.ConnectorMappingCompleteOperationArgs
+    ///             {
+    ///                 CompletionOperationType = AzureNative.CustomerInsights.V20170426.CompletionOperationTypes.DeleteFile,
+    ///                 DestinationFolder = "fakePath",
+    ///             },
+    ///             ErrorManagement = new AzureNative.CustomerInsights.V20170426.Inputs.ConnectorMappingErrorManagementArgs
+    ///             {
+    ///                 ErrorLimit = 10,
+    ///                 ErrorManagementType = AzureNative.CustomerInsights.V20170426.ErrorManagementTypes.StopImport,
+    ///             },
+    ///             FileFilter = "unknown",
+    ///             FolderPath = "http://sample.dne/file",
+    ///             Format = new AzureNative.CustomerInsights.V20170426.Inputs.ConnectorMappingFormatArgs
+    ///             {
+    ///                 ColumnDelimiter = "|",
+    ///                 FormatType = AzureNative.CustomerInsights.V20170426.FormatTypes.TextFormat,
+    ///             },
+    ///             HasHeader = false,
+    ///             Structure = new[]
+    ///             {
+    ///                 new AzureNative.CustomerInsights.V20170426.Inputs.ConnectorMappingStructureArgs
+    ///                 {
+    ///                     ColumnName = "unknown1",
+    ///                     IsEncrypted = false,
+    ///                     PropertyName = "unknwon1",
+    ///                 },
+    ///                 new AzureNative.CustomerInsights.V20170426.Inputs.ConnectorMappingStructureArgs
+    ///                 {
+    ///                     ColumnName = "unknown2",
+    ///                     IsEncrypted = true,
+    ///                     PropertyName = "unknwon2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestHubRG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170426:ConnectorMapping sdkTestHub/testConnector8858/testMapping12491 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/connectors/testConnector8858/mappings/testMapping12491 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:ConnectorMapping")]
     public partial class ConnectorMapping : global::Pulumi.CustomResource

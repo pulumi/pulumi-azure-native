@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.Network.V20220101
 {
     /// <summary>
     /// VpnServerConfigurationPolicyGroup Resource.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationPolicyGroupPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationPolicyGroup = new AzureNative.Network.V20220101.ConfigurationPolicyGroup("configurationPolicyGroup", new()
+    ///     {
+    ///         ConfigurationPolicyGroupName = "policyGroup1",
+    ///         IsDefault = true,
+    ///         PolicyMembers = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220101.Inputs.VpnServerConfigurationPolicyGroupMemberArgs
+    ///             {
+    ///                 AttributeType = "RadiusAzureGroupId",
+    ///                 AttributeValue = "6ad1bd08",
+    ///                 Name = "policy1",
+    ///             },
+    ///             new AzureNative.Network.V20220101.Inputs.VpnServerConfigurationPolicyGroupMemberArgs
+    ///             {
+    ///                 AttributeType = "CertificateGroupId",
+    ///                 AttributeValue = "red.com",
+    ///                 Name = "policy2",
+    ///             },
+    ///         },
+    ///         Priority = 0,
+    ///         ResourceGroupName = "rg1",
+    ///         VpnServerConfigurationName = "vpnServerConfiguration1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220101:ConfigurationPolicyGroup policyGroup1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220101:ConfigurationPolicyGroup")]
     public partial class ConfigurationPolicyGroup : global::Pulumi.CustomResource

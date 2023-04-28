@@ -10,6 +10,30 @@ import * as utilities from "../../utilities";
 /**
  * Volume resource
  *
+ * ## Example Usage
+ * ### Volumes_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volume = new azure_native.netapp.v20170815.Volume("volume", {
+ *     accountName: "accountName",
+ *     poolName: "poolName",
+ *     resourceGroupName: "resourceGroup",
+ *     volumeName: "volumeName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp/v20170815:Volume myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName} 
+ * ```
+ *
  * @deprecated Version 2017-08-15 will be removed in v2 of the provider.
  */
 export class Volume extends pulumi.CustomResource {

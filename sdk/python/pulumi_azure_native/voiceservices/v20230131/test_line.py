@@ -145,6 +145,31 @@ class TestLine(pulumi.CustomResource):
         """
         A TestLine resource
 
+        ## Example Usage
+        ### CreateTestLineResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        test_line = azure_native.voiceservices.v20230131.TestLine("testLine",
+            communications_gateway_name="myname",
+            location="useast",
+            phone_number="+1-555-1234",
+            purpose="Automated",
+            resource_group_name="testrg",
+            test_line_name="myline")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:voiceservices/v20230131:TestLine myline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceServices/communicationsGateways/myname/TestLines/myline 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] communications_gateway_name: Unique identifier for this deployment
@@ -163,6 +188,31 @@ class TestLine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A TestLine resource
+
+        ## Example Usage
+        ### CreateTestLineResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        test_line = azure_native.voiceservices.v20230131.TestLine("testLine",
+            communications_gateway_name="myname",
+            location="useast",
+            phone_number="+1-555-1234",
+            purpose="Automated",
+            resource_group_name="testrg",
+            test_line_name="myline")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:voiceservices/v20230131:TestLine myline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceServices/communicationsGateways/myname/TestLines/myline 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TestLineArgs args: The arguments to use to populate this resource's properties.

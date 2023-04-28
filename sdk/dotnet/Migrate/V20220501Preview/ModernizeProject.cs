@@ -11,6 +11,80 @@ namespace Pulumi.AzureNative.Migrate.V20220501Preview
 {
     /// <summary>
     /// ModernizeProject model.
+    /// 
+    /// ## Example Usage
+    /// ### ModernizeProject_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var modernizeProject = new AzureNative.Migrate.V20220501Preview.ModernizeProject("modernizeProject", new()
+    ///     {
+    ///         Identity = new AzureNative.Migrate.V20220501Preview.Inputs.ResourceIdentityArgs
+    ///         {
+    ///             PrincipalId = "ins",
+    ///             TenantId = "fjnu",
+    ///             Type = "None",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "key6848", new AzureNative.Migrate.V20220501Preview.Inputs.UserAssignedIdentityArgs
+    ///                 {
+    ///                     ClientId = "lvlngepacjdjryqmxuvfdxwtkc",
+    ///                     PrincipalId = "lumkynazsspljxiiwvz",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Location = "nbqyuxrgrlhx",
+    ///         ModernizeProjectName = "b",
+    ///         Properties = new AzureNative.Migrate.V20220501Preview.Inputs.ModernizeProjectModelPropertiesArgs
+    ///         {
+    ///             MigrationConfiguration = new AzureNative.Migrate.V20220501Preview.Inputs.MigrationConfigurationArgs
+    ///             {
+    ///                 KeyVaultResourceId = "vekhittkyogvwnqmggknv",
+    ///                 MigrationSolutionResourceId = "bglfkwtzvqmhwpddwpvtdzaleaioxo",
+    ///                 StorageAccountResourceId = "dgcoticysafrpynyoxkgrspooiia",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rgmigrateEngine",
+    ///         Tags = 
+    ///         {
+    ///             { "key8644", "wfyi" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ModernizeProject_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var modernizeProject = new AzureNative.Migrate.V20220501Preview.ModernizeProject("modernizeProject", new()
+    ///     {
+    ///         ModernizeProjectName = "j",
+    ///         ResourceGroupName = "rgmigrateEngine",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20220501preview:ModernizeProject qjtgfttacnihw lkjycagzvem 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20220501preview:ModernizeProject")]
     public partial class ModernizeProject : global::Pulumi.CustomResource

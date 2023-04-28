@@ -11,6 +11,128 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
 {
     /// <summary>
     /// Governance rule over a given scope
+    /// 
+    /// ## Example Usage
+    /// ### Create or update governance rule over management group scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var governanceRule = new AzureNative.Security.V20220101Preview.GovernanceRule("governanceRule", new()
+    ///     {
+    ///         Description = "A rule for a management group",
+    ///         DisplayName = "Management group rule",
+    ///         ExcludedScopes = new[]
+    ///         {
+    ///             "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    ///         },
+    ///         GovernanceEmailNotification = new AzureNative.Security.V20220101Preview.Inputs.GovernanceRuleEmailNotificationArgs
+    ///         {
+    ///             DisableManagerEmailNotification = true,
+    ///             DisableOwnerEmailNotification = false,
+    ///         },
+    ///         IsDisabled = false,
+    ///         IsGracePeriod = true,
+    ///         OwnerSource = new AzureNative.Security.V20220101Preview.Inputs.GovernanceRuleOwnerSourceArgs
+    ///         {
+    ///             Type = "Manually",
+    ///             Value = "user@contoso.com",
+    ///         },
+    ///         RemediationTimeframe = "7.00:00:00",
+    ///         RuleId = "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+    ///         RulePriority = 200,
+    ///         RuleType = "Integrated",
+    ///         Scope = "providers/Microsoft.Management/managementGroups/contoso",
+    ///         SourceResourceType = "Assessments",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update governance rule over security connector scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var governanceRule = new AzureNative.Security.V20220101Preview.GovernanceRule("governanceRule", new()
+    ///     {
+    ///         Description = "A rule on critical GCP recommendations",
+    ///         DisplayName = "GCP Admin's rule",
+    ///         GovernanceEmailNotification = new AzureNative.Security.V20220101Preview.Inputs.GovernanceRuleEmailNotificationArgs
+    ///         {
+    ///             DisableManagerEmailNotification = true,
+    ///             DisableOwnerEmailNotification = false,
+    ///         },
+    ///         IsDisabled = false,
+    ///         IsGracePeriod = true,
+    ///         OwnerSource = new AzureNative.Security.V20220101Preview.Inputs.GovernanceRuleOwnerSourceArgs
+    ///         {
+    ///             Type = "Manually",
+    ///             Value = "user@contoso.com",
+    ///         },
+    ///         RemediationTimeframe = "7.00:00:00",
+    ///         RuleId = "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+    ///         RulePriority = 200,
+    ///         RuleType = "Integrated",
+    ///         Scope = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+    ///         SourceResourceType = "Assessments",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update governance rule over subscription scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var governanceRule = new AzureNative.Security.V20220101Preview.GovernanceRule("governanceRule", new()
+    ///     {
+    ///         Description = "A rule for critical recommendations",
+    ///         DisplayName = "Admin's rule",
+    ///         GovernanceEmailNotification = new AzureNative.Security.V20220101Preview.Inputs.GovernanceRuleEmailNotificationArgs
+    ///         {
+    ///             DisableManagerEmailNotification = false,
+    ///             DisableOwnerEmailNotification = false,
+    ///         },
+    ///         IsDisabled = false,
+    ///         IsGracePeriod = true,
+    ///         OwnerSource = new AzureNative.Security.V20220101Preview.Inputs.GovernanceRuleOwnerSourceArgs
+    ///         {
+    ///             Type = "Manually",
+    ///             Value = "user@contoso.com",
+    ///         },
+    ///         RemediationTimeframe = "7.00:00:00",
+    ///         RuleId = "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+    ///         RulePriority = 200,
+    ///         RuleType = "Integrated",
+    ///         Scope = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    ///         SourceResourceType = "Assessments",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20220101preview:GovernanceRule ad9a8e26-29d9-4829-bb30-e597a58cdbb8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/governanceRules/ad9a8e26-29d9-4829-bb30-e597a58cdbb8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20220101preview:GovernanceRule")]
     public partial class GovernanceRule : global::Pulumi.CustomResource

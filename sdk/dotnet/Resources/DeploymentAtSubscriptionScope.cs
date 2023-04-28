@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.Resources
     /// Deployment information.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a deployment that will deploy a templateSpec with the given resourceId
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deploymentAtSubscriptionScope = new AzureNative.Resources.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope", new()
+    ///     {
+    ///         DeploymentName = "my-deployment",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Mode = AzureNative.Resources.DeploymentMode.Incremental,
+    ///             Parameters = null,
+    ///             TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:DeploymentAtSubscriptionScope my-deployment /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.Resources/deployments/my-deployment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentAtSubscriptionScope")]
     public partial class DeploymentAtSubscriptionScope : global::Pulumi.CustomResource

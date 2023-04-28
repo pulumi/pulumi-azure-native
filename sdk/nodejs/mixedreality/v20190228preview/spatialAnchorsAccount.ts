@@ -10,6 +10,29 @@ import * as utilities from "../../utilities";
 /**
  * SpatialAnchorsAccount Response.
  *
+ * ## Example Usage
+ * ### ResourceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const spatialAnchorsAccount = new azure_native.mixedreality.v20190228preview.SpatialAnchorsAccount("spatialAnchorsAccount", {
+ *     location: "eastus2euap",
+ *     resourceGroupName: "MyResourceGroup",
+ *     spatialAnchorsAccountName: "MyAccount",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mixedreality/v20190228preview:SpatialAnchorsAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/SpatialAnchorsAccounts/MyAccount 
+ * ```
+ *
  * @deprecated Version 2019-02-28-preview will be removed in v2 of the provider.
  */
 export class SpatialAnchorsAccount extends pulumi.CustomResource {

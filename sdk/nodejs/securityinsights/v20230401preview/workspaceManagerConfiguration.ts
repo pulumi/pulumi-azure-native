@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The workspace manager configuration
+ *
+ * ## Example Usage
+ * ### Create or Update a workspace manager Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceManagerConfiguration = new azure_native.securityinsights.v20230401preview.WorkspaceManagerConfiguration("workspaceManagerConfiguration", {
+ *     mode: "Enabled",
+ *     resourceGroupName: "myRg",
+ *     workspaceManagerConfigurationName: "default",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration default /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerConfigurations/default 
+ * ```
  */
 export class WorkspaceManagerConfiguration extends pulumi.CustomResource {
     /**

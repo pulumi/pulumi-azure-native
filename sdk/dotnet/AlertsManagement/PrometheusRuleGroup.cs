@@ -12,6 +12,97 @@ namespace Pulumi.AzureNative.AlertsManagement
     /// <summary>
     /// The Prometheus rule group resource.
     /// API Version: 2023-03-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a PrometheusRuleGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var prometheusRuleGroup = new AzureNative.AlertsManagement.PrometheusRuleGroup("prometheusRuleGroup", new()
+    ///     {
+    ///         ClusterName = "myClusterName",
+    ///         Description = "This is the description of the following rule group",
+    ///         Enabled = true,
+    ///         Interval = "PT10M",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "promResourceGroup",
+    ///         RuleGroupName = "myPrometheusRuleGroup",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.AlertsManagement.Inputs.PrometheusRuleArgs
+    ///             {
+    ///                 Expression = "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\"billing-processing\"}[5m])) by (job_type))",
+    ///                 Labels = 
+    ///                 {
+    ///                     { "team", "prod" },
+    ///                 },
+    ///                 Record = "job_type:billing_jobs_duration_seconds:99p5m",
+    ///             },
+    ///             new AzureNative.AlertsManagement.Inputs.PrometheusRuleArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     new AzureNative.AlertsManagement.Inputs.PrometheusRuleGroupActionArgs
+    ///                     {
+    ///                         ActionGroupId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/myrg/providers/microsoft.insights/actiongroups/myactiongroup",
+    ///                         ActionProperties = 
+    ///                         {
+    ///                             { "key11", "value11" },
+    ///                             { "key12", "value12" },
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.AlertsManagement.Inputs.PrometheusRuleGroupActionArgs
+    ///                     {
+    ///                         ActionGroupId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/myrg/providers/microsoft.insights/actiongroups/myotheractiongroup",
+    ///                         ActionProperties = 
+    ///                         {
+    ///                             { "key21", "value21" },
+    ///                             { "key22", "value22" },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Alert = "Billing_Processing_Very_Slow",
+    ///                 Annotations = 
+    ///                 {
+    ///                     { "annotationName1", "annotationValue1" },
+    ///                 },
+    ///                 Enabled = true,
+    ///                 Expression = "job_type:billing_jobs_duration_seconds:99p5m &gt; 30",
+    ///                 For = "PT5M",
+    ///                 Labels = 
+    ///                 {
+    ///                     { "team", "prod" },
+    ///                 },
+    ///                 ResolveConfiguration = new AzureNative.AlertsManagement.Inputs.PrometheusRuleResolveConfigurationArgs
+    ///                 {
+    ///                     AutoResolved = true,
+    ///                     TimeToResolve = "PT10M",
+    ///                 },
+    ///                 Severity = 2,
+    ///             },
+    ///         },
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroup/providers/microsoft.monitor/accounts/myAzureMonitorWorkspace",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:alertsmanagement:PrometheusRuleGroup myresource1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/promResourceGroup/providers/Microsoft.AlertsManagement/prometheusRuleGroups/myPrometheusRuleGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:PrometheusRuleGroup")]
     public partial class PrometheusRuleGroup : global::Pulumi.CustomResource

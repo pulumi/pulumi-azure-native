@@ -11,6 +11,154 @@ namespace Pulumi.AzureNative.DBforMySQL.V20180601PrivatePreview
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Example Usage
+    /// ### Create a database as a point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.V20180601PrivatePreview.Server("server", new()
+    ///     {
+    ///         Location = "brazilsouth",
+    ///         Properties = new AzureNative.DBforMySQL.V20180601PrivatePreview.Inputs.ServerPropertiesForRestoreArgs
+    ///         {
+    ///             CreateMode = "PointInTimeRestore",
+    ///             RestorePointInTime = "2017-12-14T00:00:37.467Z",
+    ///             SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/servers/sourceserver",
+    ///         },
+    ///         ResourceGroupName = "TargetResourceGroup",
+    ///         ServerName = "targetserver",
+    ///         Sku = new AzureNative.DBforMySQL.V20180601PrivatePreview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Family = "Gen5",
+    ///             Name = "GP_Gen5_2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.V20180601PrivatePreview.Server("server", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.DBforMySQL.V20180601PrivatePreview.Inputs.ServerPropertiesForDefaultCreateArgs
+    ///         {
+    ///             AdministratorLogin = "cloudsa",
+    ///             AdministratorLoginPassword = "&lt;administratorLoginPassword&gt;",
+    ///             CreateMode = "Default",
+    ///             SslEnforcement = AzureNative.DBforMySQL.V20180601PrivatePreview.SslEnforcementEnum.Enabled,
+    ///             StorageProfile = new AzureNative.DBforMySQL.V20180601PrivatePreview.Inputs.StorageProfileArgs
+    ///             {
+    ///                 BackupRetentionDays = 7,
+    ///                 GeoRedundantBackup = "Enabled",
+    ///                 StorageMB = 128000,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "mysqltestsvc4",
+    ///         Sku = new AzureNative.DBforMySQL.V20180601PrivatePreview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Family = "Gen5",
+    ///             Name = "GP_Gen5_2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a replica server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.V20180601PrivatePreview.Server("server", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.DBforMySQL.V20180601PrivatePreview.Inputs.ServerPropertiesForReplicaArgs
+    ///         {
+    ///             CreateMode = "Replica",
+    ///             SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/MasterResourceGroup/providers/Microsoft.DBforMySQL/servers/masterserver",
+    ///         },
+    ///         ResourceGroupName = "TargetResourceGroup",
+    ///         ServerName = "targetserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a server as a geo restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.V20180601PrivatePreview.Server("server", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.DBforMySQL.V20180601PrivatePreview.Inputs.ServerPropertiesForGeoRestoreArgs
+    ///         {
+    ///             CreateMode = "GeoRestore",
+    ///             SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/servers/sourceserver",
+    ///         },
+    ///         ResourceGroupName = "TargetResourceGroup",
+    ///         ServerName = "targetserver",
+    ///         Sku = new AzureNative.DBforMySQL.V20180601PrivatePreview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Family = "Gen5",
+    ///             Name = "GP_Gen5_2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformysql/v20180601privatepreview:Server targetserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/servers/targetserver 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql/v20180601privatepreview:Server")]
     public partial class Server : global::Pulumi.CustomResource

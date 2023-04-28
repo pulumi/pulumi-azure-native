@@ -111,6 +111,43 @@ class RegistryDataVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Registry Data Version Base.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_data_version = azure_native.machinelearningservices.v20230201preview.RegistryDataVersion("registryDataVersion",
+            data_version_base_properties=azure_native.machinelearningservices.v20230201preview.MLTableDataArgs(
+                data_type="mltable",
+                data_uri="string",
+                description="string",
+                is_anonymous=False,
+                is_archived=False,
+                properties={
+                    "string": "string",
+                },
+                referenced_uris=["string"],
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            registry_name="registryName",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryDataVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['MLTableDataArgs'], pulumi.InputType['UriFileDataVersionArgs'], pulumi.InputType['UriFolderDataVersionArgs']]] data_version_base_properties: [Required] Additional attributes of the entity.
@@ -127,6 +164,43 @@ class RegistryDataVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Registry Data Version Base.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_data_version = azure_native.machinelearningservices.v20230201preview.RegistryDataVersion("registryDataVersion",
+            data_version_base_properties=azure_native.machinelearningservices.v20230201preview.MLTableDataArgs(
+                data_type="mltable",
+                data_uri="string",
+                description="string",
+                is_anonymous=False,
+                is_archived=False,
+                properties={
+                    "string": "string",
+                },
+                referenced_uris=["string"],
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            registry_name="registryName",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryDataVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryDataVersionArgs args: The arguments to use to populate this resource's properties.

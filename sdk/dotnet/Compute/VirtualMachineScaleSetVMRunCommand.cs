@@ -13,6 +13,58 @@ namespace Pulumi.AzureNative.Compute
     /// Describes a Virtual Machine run command.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create VirtualMachineScaleSet VM run command.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineScaleSetVMRunCommand = new AzureNative.Compute.VirtualMachineScaleSetVMRunCommand("virtualMachineScaleSetVMRunCommand", new()
+    ///     {
+    ///         AsyncExecution = false,
+    ///         InstanceId = "0",
+    ///         Location = "West US",
+    ///         Parameters = new[]
+    ///         {
+    ///             new AzureNative.Compute.Inputs.RunCommandInputParameterArgs
+    ///             {
+    ///                 Name = "param1",
+    ///                 Value = "value1",
+    ///             },
+    ///             new AzureNative.Compute.Inputs.RunCommandInputParameterArgs
+    ///             {
+    ///                 Name = "param2",
+    ///                 Value = "value2",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RunAsPassword = "&lt;runAsPassword&gt;",
+    ///         RunAsUser = "user1",
+    ///         RunCommandName = "myRunCommand",
+    ///         Source = new AzureNative.Compute.Inputs.VirtualMachineRunCommandScriptSourceArgs
+    ///         {
+    ///             Script = "Write-Host Hello World!",
+    ///         },
+    ///         TimeoutInSeconds = 3600,
+    ///         VmScaleSetName = "myvmScaleSet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:VirtualMachineScaleSetVMRunCommand myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myvmScaleSet/virtualMachines/0/runCommands/myRunCommand 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:VirtualMachineScaleSetVMRunCommand")]
     public partial class VirtualMachineScaleSetVMRunCommand : global::Pulumi.CustomResource

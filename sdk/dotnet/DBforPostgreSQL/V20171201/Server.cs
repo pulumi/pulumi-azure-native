@@ -11,6 +11,162 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20171201
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Example Usage
+    /// ### Create a database as a point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20171201.Server("server", new()
+    ///     {
+    ///         Location = "brazilsouth",
+    ///         Properties = new AzureNative.DBforPostgreSQL.V20171201.Inputs.ServerPropertiesForRestoreArgs
+    ///         {
+    ///             CreateMode = "PointInTimeRestore",
+    ///             RestorePointInTime = "2017-12-14T00:00:37.467Z",
+    ///             SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+    ///         },
+    ///         ResourceGroupName = "TargetResourceGroup",
+    ///         ServerName = "targetserver",
+    ///         Sku = new AzureNative.DBforPostgreSQL.V20171201.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Family = "Gen5",
+    ///             Name = "B_Gen5_2",
+    ///             Tier = "Basic",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20171201.Server("server", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.DBforPostgreSQL.V20171201.Inputs.ServerPropertiesForDefaultCreateArgs
+    ///         {
+    ///             AdministratorLogin = "cloudsa",
+    ///             AdministratorLoginPassword = "&lt;administratorLoginPassword&gt;",
+    ///             CreateMode = "Default",
+    ///             MinimalTlsVersion = "TLS1_2",
+    ///             SslEnforcement = AzureNative.DBforPostgreSQL.V20171201.SslEnforcementEnum.Enabled,
+    ///             StorageProfile = new AzureNative.DBforPostgreSQL.V20171201.Inputs.StorageProfileArgs
+    ///             {
+    ///                 BackupRetentionDays = 7,
+    ///                 GeoRedundantBackup = "Disabled",
+    ///                 StorageMB = 128000,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "pgtestsvc4",
+    ///         Sku = new AzureNative.DBforPostgreSQL.V20171201.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Family = "Gen5",
+    ///             Name = "B_Gen5_2",
+    ///             Tier = "Basic",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a replica server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20171201.Server("server", new()
+    ///     {
+    ///         Location = "westcentralus",
+    ///         Properties = new AzureNative.DBforPostgreSQL.V20171201.Inputs.ServerPropertiesForReplicaArgs
+    ///         {
+    ///             CreateMode = "Replica",
+    ///             SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+    ///         },
+    ///         ResourceGroupName = "TestGroup_WestCentralUS",
+    ///         ServerName = "testserver-replica1",
+    ///         Sku = new AzureNative.DBforPostgreSQL.V20171201.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Family = "Gen5",
+    ///             Name = "GP_Gen5_2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a server as a geo restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20171201.Server("server", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.DBforPostgreSQL.V20171201.Inputs.ServerPropertiesForGeoRestoreArgs
+    ///         {
+    ///             CreateMode = "GeoRestore",
+    ///             SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+    ///         },
+    ///         ResourceGroupName = "TargetResourceGroup",
+    ///         ServerName = "targetserver",
+    ///         Sku = new AzureNative.DBforPostgreSQL.V20171201.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Family = "Gen5",
+    ///             Name = "GP_Gen5_2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20171201:Server targetserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/targetserver 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20171201:Server")]
     public partial class Server : global::Pulumi.CustomResource

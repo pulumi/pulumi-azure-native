@@ -12,6 +12,40 @@ namespace Pulumi.AzureNative.WebPubSub
     /// <summary>
     /// A custom domain
     /// API Version: 2023-02-01.
+    /// 
+    /// ## Example Usage
+    /// ### WebPubSubCustomDomains_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webPubSubCustomDomain = new AzureNative.WebPubSub.WebPubSubCustomDomain("webPubSubCustomDomain", new()
+    ///     {
+    ///         CustomCertificate = new AzureNative.WebPubSub.Inputs.ResourceReferenceArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert",
+    ///         },
+    ///         DomainName = "example.com",
+    ///         Name = "myDomain",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "myWebPubSubService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:webpubsub:WebPubSubCustomDomain myDomain /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customDomains/myDomain 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubCustomDomain")]
     public partial class WebPubSubCustomDomain : global::Pulumi.CustomResource

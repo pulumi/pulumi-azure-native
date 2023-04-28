@@ -147,6 +147,43 @@ class HubRouteTable(pulumi.CustomResource):
         """
         RouteTable resource in a virtual hub.
 
+        ## Example Usage
+        ### RouteTablePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hub_route_table = azure_native.network.v20201101.HubRouteTable("hubRouteTable",
+            labels=[
+                "label1",
+                "label2",
+            ],
+            resource_group_name="rg1",
+            route_table_name="hubRouteTable1",
+            routes=[{
+                "destinationType": "CIDR",
+                "destinations": [
+                    "10.0.0.0/8",
+                    "20.0.0.0/8",
+                    "30.0.0.0/8",
+                ],
+                "name": "route1",
+                "nextHop": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azureFirewall1",
+                "nextHopType": "ResourceId",
+            }],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:HubRouteTable hubRouteTable1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -165,6 +202,43 @@ class HubRouteTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         RouteTable resource in a virtual hub.
+
+        ## Example Usage
+        ### RouteTablePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hub_route_table = azure_native.network.v20201101.HubRouteTable("hubRouteTable",
+            labels=[
+                "label1",
+                "label2",
+            ],
+            resource_group_name="rg1",
+            route_table_name="hubRouteTable1",
+            routes=[{
+                "destinationType": "CIDR",
+                "destinations": [
+                    "10.0.0.0/8",
+                    "20.0.0.0/8",
+                    "30.0.0.0/8",
+                ],
+                "name": "route1",
+                "nextHop": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azureFirewall1",
+                "nextHopType": "ResourceId",
+            }],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:HubRouteTable hubRouteTable1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HubRouteTableArgs args: The arguments to use to populate this resource's properties.

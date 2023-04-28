@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.AppConfiguration
     /// A private endpoint connection
     /// API Version: 2022-05-01.
     /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.AppConfiguration.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         ConfigStoreName = "contoso",
+    ///         PrivateEndpointConnectionName = "myConnection",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.AppConfiguration.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Auto-Approved",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appconfiguration:PrivateEndpointConnection myConnection /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso/privateEndpointConnections/myConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

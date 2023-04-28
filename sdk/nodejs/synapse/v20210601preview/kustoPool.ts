@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Kusto kusto pool.
+ *
+ * ## Example Usage
+ * ### kustoPoolsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoPool = new azure_native.synapse.v20210601preview.KustoPool("kustoPool", {
+ *     enablePurge: true,
+ *     enableStreamingIngest: true,
+ *     kustoPoolName: "kustoclusterrptest4",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "Storage optimized",
+ *         size: "Medium",
+ *     },
+ *     workspaceName: "synapseWorkspaceName",
+ *     workspaceUID: "11111111-2222-3333-444444444444",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse/v20210601preview:KustoPool KustoClusterRPTest4 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustopools/KustoClusterRPTest4 
+ * ```
  */
 export class KustoPool extends pulumi.CustomResource {
     /**

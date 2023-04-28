@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.KeyVault.V20190901
 {
     /// <summary>
     /// Resource information with extended details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a secret
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var secret = new AzureNative.KeyVault.V20190901.Secret("secret", new()
+    ///     {
+    ///         Properties = new AzureNative.KeyVault.V20190901.Inputs.SecretPropertiesArgs
+    ///         {
+    ///             Value = "secret-value",
+    ///         },
+    ///         ResourceGroupName = "sample-group",
+    ///         SecretName = "secret-name",
+    ///         VaultName = "sample-vault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:keyvault/v20190901:Secret secret-name /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/secrets/secret-name 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault/v20190901:Secret")]
     public partial class Secret : global::Pulumi.CustomResource

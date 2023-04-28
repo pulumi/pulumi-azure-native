@@ -151,6 +151,43 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
         API Version: 2022-02-01.
         Previous API Version: 2017-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates a SQL virtual machine group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_virtual_machine_group = azure_native.sqlvirtualmachine.SqlVirtualMachineGroup("sqlVirtualMachineGroup",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_image_offer="SQL2016-WS2016",
+            sql_image_sku="Enterprise",
+            sql_virtual_machine_group_name="testvmgroup",
+            tags={
+                "mytag": "myval",
+            },
+            wsfc_domain_profile=azure_native.sqlvirtualmachine.WsfcDomainProfileArgs(
+                cluster_bootstrap_account="testrpadmin",
+                cluster_operator_account="testrp@testdomain.com",
+                cluster_subnet_type="MultiSubnet",
+                domain_fqdn="testdomain.com",
+                ou_path="OU=WSCluster,DC=testdomain,DC=com",
+                sql_service_account="sqlservice@testdomain.com",
+                storage_account_primary_key="<primary storage access key>",
+                storage_account_url="https://storgact.blob.core.windows.net/",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sqlvirtualmachine:SqlVirtualMachineGroup testvmgroup /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.
@@ -171,6 +208,43 @@ class SqlVirtualMachineGroup(pulumi.CustomResource):
         A SQL virtual machine group.
         API Version: 2022-02-01.
         Previous API Version: 2017-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates a SQL virtual machine group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_virtual_machine_group = azure_native.sqlvirtualmachine.SqlVirtualMachineGroup("sqlVirtualMachineGroup",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_image_offer="SQL2016-WS2016",
+            sql_image_sku="Enterprise",
+            sql_virtual_machine_group_name="testvmgroup",
+            tags={
+                "mytag": "myval",
+            },
+            wsfc_domain_profile=azure_native.sqlvirtualmachine.WsfcDomainProfileArgs(
+                cluster_bootstrap_account="testrpadmin",
+                cluster_operator_account="testrp@testdomain.com",
+                cluster_subnet_type="MultiSubnet",
+                domain_fqdn="testdomain.com",
+                ou_path="OU=WSCluster,DC=testdomain,DC=com",
+                sql_service_account="sqlservice@testdomain.com",
+                storage_account_primary_key="<primary storage access key>",
+                storage_account_url="https://storgact.blob.core.windows.net/",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sqlvirtualmachine:SqlVirtualMachineGroup testvmgroup /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlVirtualMachineGroupArgs args: The arguments to use to populate this resource's properties.

@@ -166,6 +166,31 @@ class Invitation(pulumi.CustomResource):
         """
         A Invitation data transfer object.
 
+        ## Example Usage
+        ### Invitations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        invitation = azure_native.datashare.v20210801.Invitation("invitation",
+            account_name="Account1",
+            expiration_date="2020-08-26T22:33:24.5785265Z",
+            invitation_name="Invitation1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            target_email="receiver@microsoft.com")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20210801:Invitation Invitation1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1/invitations/Invitation1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -187,6 +212,31 @@ class Invitation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Invitation data transfer object.
+
+        ## Example Usage
+        ### Invitations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        invitation = azure_native.datashare.v20210801.Invitation("invitation",
+            account_name="Account1",
+            expiration_date="2020-08-26T22:33:24.5785265Z",
+            invitation_name="Invitation1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            target_email="receiver@microsoft.com")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20210801:Invitation Invitation1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1/invitations/Invitation1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InvitationArgs args: The arguments to use to populate this resource's properties.

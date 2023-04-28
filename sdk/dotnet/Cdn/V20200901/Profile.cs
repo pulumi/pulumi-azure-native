@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// CDN profile is a logical grouping of endpoints that share the same settings, such as CDN provider and pricing tier.
+    /// 
+    /// ## Example Usage
+    /// ### Profiles_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Cdn.V20200901.Profile("profile", new()
+    ///     {
+    ///         Location = "WestCentralUs",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         Sku = new AzureNative.Cdn.V20200901.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_Verizon",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20200901:Profile profile1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:Profile")]
     public partial class Profile : global::Pulumi.CustomResource

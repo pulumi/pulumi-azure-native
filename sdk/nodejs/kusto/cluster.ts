@@ -11,6 +11,56 @@ import * as utilities from "../utilities";
  * Class representing a Kusto cluster.
  * API Version: 2022-12-29.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### KustoClustersCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.kusto.Cluster("cluster", {
+ *     allowedIpRangeList: ["0.0.0.0/0"],
+ *     clusterName: "kustoCluster",
+ *     enableAutoStop: true,
+ *     enableDoubleEncryption: false,
+ *     enablePurge: true,
+ *     enableStreamingIngest: true,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     languageExtensions: {
+ *         value: [
+ *             {
+ *                 languageExtensionImageName: "Python3_10_8",
+ *                 languageExtensionName: "PYTHON",
+ *             },
+ *             {
+ *                 languageExtensionImageName: "R",
+ *                 languageExtensionName: "R",
+ *             },
+ *         ],
+ *     },
+ *     location: "westus",
+ *     publicIPType: "DualStack",
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "kustorptest",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "Standard_L16as_v3",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto:Cluster kustoCluster /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

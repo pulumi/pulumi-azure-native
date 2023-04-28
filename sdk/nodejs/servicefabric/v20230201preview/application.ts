@@ -9,6 +9,83 @@ import * as utilities from "../../utilities";
 
 /**
  * The application resource.
+ *
+ * ## Example Usage
+ * ### Put an application with maximum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.servicefabric.v20230201preview.Application("application", {
+ *     applicationName: "myApp",
+ *     clusterName: "myCluster",
+ *     location: "eastus",
+ *     parameters: {
+ *         param1: "value1",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     tags: {
+ *         a: "b",
+ *     },
+ *     upgradePolicy: {
+ *         applicationHealthPolicy: {
+ *             considerWarningAsError: true,
+ *             defaultServiceTypeHealthPolicy: {
+ *                 maxPercentUnhealthyPartitionsPerService: 0,
+ *                 maxPercentUnhealthyReplicasPerPartition: 0,
+ *                 maxPercentUnhealthyServices: 0,
+ *             },
+ *             maxPercentUnhealthyDeployedApplications: 0,
+ *             serviceTypeHealthPolicyMap: {
+ *                 myService: {
+ *                     maxPercentUnhealthyPartitionsPerService: 30,
+ *                     maxPercentUnhealthyReplicasPerPartition: 30,
+ *                     maxPercentUnhealthyServices: 30,
+ *                 },
+ *             },
+ *         },
+ *         forceRestart: false,
+ *         instanceCloseDelayDuration: 600,
+ *         recreateApplication: false,
+ *         rollingUpgradeMonitoringPolicy: {
+ *             failureAction: "Rollback",
+ *             healthCheckRetryTimeout: "00:10:00",
+ *             healthCheckStableDuration: "00:05:00",
+ *             healthCheckWaitDuration: "00:02:00",
+ *             upgradeDomainTimeout: "00:15:00",
+ *             upgradeTimeout: "01:00:00",
+ *         },
+ *         upgradeMode: "UnmonitoredAuto",
+ *         upgradeReplicaSetCheckTimeout: 3600,
+ *     },
+ *     version: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0",
+ * });
+ *
+ * ```
+ * ### Put an application with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.servicefabric.v20230201preview.Application("application", {
+ *     applicationName: "myApp",
+ *     clusterName: "myCluster",
+ *     location: "eastus",
+ *     resourceGroupName: "resRg",
+ *     version: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabric/v20230201preview:Application myApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp 
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

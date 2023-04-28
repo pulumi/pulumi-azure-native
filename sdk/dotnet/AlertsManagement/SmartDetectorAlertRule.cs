@@ -13,6 +13,59 @@ namespace Pulumi.AzureNative.AlertsManagement
     /// The alert rule information
     /// API Version: 2021-04-01.
     /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Smart Detector alert rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var smartDetectorAlertRule = new AzureNative.AlertsManagement.SmartDetectorAlertRule("smartDetectorAlertRule", new()
+    ///     {
+    ///         ActionGroups = new AzureNative.AlertsManagement.Inputs.ActionGroupsInformationArgs
+    ///         {
+    ///             CustomEmailSubject = "My custom email subject",
+    ///             CustomWebhookPayload = "{\"AlertRuleName\":\"#alertrulename\"}",
+    ///             GroupIds = new[]
+    ///             {
+    ///                 "/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourcegroups/actionGroups/providers/microsoft.insights/actiongroups/MyActionGroup",
+    ///             },
+    ///         },
+    ///         AlertRuleName = "MyAlertRule",
+    ///         Description = "Sample smart detector alert rule description",
+    ///         Detector = new AzureNative.AlertsManagement.Inputs.DetectorArgs
+    ///         {
+    ///             Id = "VMMemoryLeak",
+    ///         },
+    ///         Frequency = "PT5M",
+    ///         ResourceGroupName = "MyAlertRules",
+    ///         Scope = new[]
+    ///         {
+    ///             "/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/MyVms/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///         },
+    ///         Severity = "Sev3",
+    ///         State = "Enabled",
+    ///         Throttling = new AzureNative.AlertsManagement.Inputs.ThrottlingInformationArgs
+    ///         {
+    ///             Duration = "PT20M",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:alertsmanagement:SmartDetectorAlertRule MyAlertRule /subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/MyAlertRules/providers/microsoft.alertsManagement/smartDetectorAlertRules/MyAlertRule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement:SmartDetectorAlertRule")]
     public partial class SmartDetectorAlertRule : global::Pulumi.CustomResource

@@ -11,6 +11,154 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
 {
     /// <summary>
     /// Php workload resource
+    /// 
+    /// ## Example Usage
+    /// ### Workloads
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var phpWorkload = new AzureNative.Workloads.V20211201Preview.PhpWorkload("phpWorkload", new()
+    ///     {
+    ///         AdminUserProfile = new AzureNative.Workloads.V20211201Preview.Inputs.UserProfileArgs
+    ///         {
+    ///             SshPublicKey = "===SSH=PUBLIC=KEY===",
+    ///             UserName = "wpadmin",
+    ///         },
+    ///         AppLocation = "eastus",
+    ///         BackupProfile = new AzureNative.Workloads.V20211201Preview.Inputs.BackupProfileArgs
+    ///         {
+    ///             BackupEnabled = "Disabled",
+    ///         },
+    ///         CacheProfile = new AzureNative.Workloads.V20211201Preview.Inputs.CacheProfileArgs
+    ///         {
+    ///             Capacity = 0,
+    ///             Family = "C",
+    ///             Name = "wp-cache",
+    ///             SkuName = "Basic",
+    ///         },
+    ///         ControllerProfile = new AzureNative.Workloads.V20211201Preview.Inputs.NodeProfileArgs
+    ///         {
+    ///             DataDisks = new[]
+    ///             {
+    ///                 new AzureNative.Workloads.V20211201Preview.Inputs.DiskInfoArgs
+    ///                 {
+    ///                     SizeInGB = 100,
+    ///                     StorageType = AzureNative.Workloads.V20211201Preview.DiskStorageType.Premium_LRS,
+    ///                 },
+    ///             },
+    ///             Name = "contoller-vm",
+    ///             NodeSku = "Standard_DS2_v2",
+    ///             OsDisk = new AzureNative.Workloads.V20211201Preview.Inputs.DiskInfoArgs
+    ///             {
+    ///                 StorageType = AzureNative.Workloads.V20211201Preview.DiskStorageType.Premium_LRS,
+    ///             },
+    ///             OsImage = new AzureNative.Workloads.V20211201Preview.Inputs.OsImageProfileArgs
+    ///             {
+    ///                 Offer = "UbuntuServer",
+    ///                 Publisher = "Canonical",
+    ///                 Sku = "18.0-LTS",
+    ///                 Version = "latest",
+    ///             },
+    ///         },
+    ///         DatabaseProfile = new AzureNative.Workloads.V20211201Preview.Inputs.DatabaseProfileArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             HaEnabled = "Disabled",
+    ///             ServerName = "wp-db-server",
+    ///             Sku = "Standard_D32s_v4",
+    ///             SslEnforcementEnabled = "Enabled",
+    ///             StorageInGB = 128,
+    ///             StorageIops = 200,
+    ///             StorageSku = "Premium_LRS",
+    ///             Tier = AzureNative.Workloads.V20211201Preview.DatabaseTier.GeneralPurpose,
+    ///             Type = "MySql",
+    ///             Version = "5.7",
+    ///         },
+    ///         FileshareProfile = new AzureNative.Workloads.V20211201Preview.Inputs.FileshareProfileArgs
+    ///         {
+    ///             ShareSizeInGB = 100,
+    ///             ShareType = "AzureFiles",
+    ///             StorageType = "Premium_LRS",
+    ///         },
+    ///         Kind = "WordPress",
+    ///         Location = "eastus2",
+    ///         ManagedResourceGroupConfiguration = new AzureNative.Workloads.V20211201Preview.Inputs.ManagedRGConfigurationArgs
+    ///         {
+    ///             Name = "php-mrg-wp39",
+    ///         },
+    ///         NetworkProfile = new AzureNative.Workloads.V20211201Preview.Inputs.NetworkProfileArgs
+    ///         {
+    ///             AzureFrontDoorEnabled = "Enabled",
+    ///             LoadBalancerSku = "Standard",
+    ///             LoadBalancerType = "LoadBalancer",
+    ///         },
+    ///         PhpProfile = new AzureNative.Workloads.V20211201Preview.Inputs.PhpProfileArgs
+    ///         {
+    ///             Version = "7.3",
+    ///         },
+    ///         PhpWorkloadName = "wp39",
+    ///         ResourceGroupName = "test-rg",
+    ///         SearchProfile = new AzureNative.Workloads.V20211201Preview.Inputs.SearchProfileArgs
+    ///         {
+    ///             NodeSku = "Standard_DS2_v2",
+    ///             OsDisk = new AzureNative.Workloads.V20211201Preview.Inputs.DiskInfoArgs
+    ///             {
+    ///                 StorageType = AzureNative.Workloads.V20211201Preview.DiskStorageType.Premium_LRS,
+    ///             },
+    ///             OsImage = new AzureNative.Workloads.V20211201Preview.Inputs.OsImageProfileArgs
+    ///             {
+    ///                 Offer = "UbuntuServer",
+    ///                 Publisher = "Canonical",
+    ///                 Sku = "18.0-LTS",
+    ///                 Version = "latest",
+    ///             },
+    ///             SearchType = "Elastic",
+    ///         },
+    ///         SiteProfile = new AzureNative.Workloads.V20211201Preview.Inputs.SiteProfileArgs
+    ///         {
+    ///             DomainName = "www.example.com",
+    ///         },
+    ///         Sku = new AzureNative.Workloads.V20211201Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Large",
+    ///         },
+    ///         Tags = null,
+    ///         WebNodesProfile = new AzureNative.Workloads.V20211201Preview.Inputs.VmssNodesProfileArgs
+    ///         {
+    ///             AutoScaleMaxCount = 1,
+    ///             AutoScaleMinCount = 1,
+    ///             Name = "web-server",
+    ///             NodeSku = "Standard_DS2_v2",
+    ///             OsDisk = new AzureNative.Workloads.V20211201Preview.Inputs.DiskInfoArgs
+    ///             {
+    ///                 StorageType = AzureNative.Workloads.V20211201Preview.DiskStorageType.Premium_LRS,
+    ///             },
+    ///             OsImage = new AzureNative.Workloads.V20211201Preview.Inputs.OsImageProfileArgs
+    ///             {
+    ///                 Offer = "UbuntuServer",
+    ///                 Publisher = "Canonical",
+    ///                 Sku = "18.0-LTS",
+    ///                 Version = "latest",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads/v20211201preview:PhpWorkload wp39 /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsot.Workloads/phpWorkloads/wp39 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20211201preview:PhpWorkload")]
     public partial class PhpWorkload : global::Pulumi.CustomResource

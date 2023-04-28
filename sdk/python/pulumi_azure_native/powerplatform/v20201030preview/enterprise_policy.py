@@ -199,6 +199,35 @@ class EnterprisePolicy(pulumi.CustomResource):
         """
         Definition of the EnterprisePolicy.
 
+        ## Example Usage
+        ### Create or update EnterprisePolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_policy = azure_native.powerplatform.v20201030preview.EnterprisePolicy("enterprisePolicy",
+            enterprise_policy_name="enterprisePolicy",
+            identity=azure_native.powerplatform.v20201030preview.EnterprisePolicyIdentityArgs(
+                type=azure_native.powerplatform/v20201030preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            kind="Lockbox",
+            location="East US",
+            resource_group_name="resourceGroup",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerplatform/v20201030preview:EnterprisePolicy enterprisePolicy /subscriptions/subid/resourceGroups/resourceGroup/providers/Microsoft.PowerPlatform/enterprisePolicies/enterprisePolicy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PropertiesEncryptionArgs']] encryption: The encryption settings for a configuration store.
@@ -220,6 +249,35 @@ class EnterprisePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the EnterprisePolicy.
+
+        ## Example Usage
+        ### Create or update EnterprisePolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_policy = azure_native.powerplatform.v20201030preview.EnterprisePolicy("enterprisePolicy",
+            enterprise_policy_name="enterprisePolicy",
+            identity=azure_native.powerplatform.v20201030preview.EnterprisePolicyIdentityArgs(
+                type=azure_native.powerplatform/v20201030preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            kind="Lockbox",
+            location="East US",
+            resource_group_name="resourceGroup",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerplatform/v20201030preview:EnterprisePolicy enterprisePolicy /subscriptions/subid/resourceGroups/resourceGroup/providers/Microsoft.PowerPlatform/enterprisePolicies/enterprisePolicy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnterprisePolicyArgs args: The arguments to use to populate this resource's properties.

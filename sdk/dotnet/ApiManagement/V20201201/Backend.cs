@@ -11,6 +11,116 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Backend details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateBackendProxyBackend
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backend = new AzureNative.ApiManagement.V20201201.Backend("backend", new()
+    ///     {
+    ///         BackendId = "proxybackend",
+    ///         Credentials = new AzureNative.ApiManagement.V20201201.Inputs.BackendCredentialsContractArgs
+    ///         {
+    ///             Authorization = new AzureNative.ApiManagement.V20201201.Inputs.BackendAuthorizationHeaderCredentialsArgs
+    ///             {
+    ///                 Parameter = "opensesma",
+    ///                 Scheme = "Basic",
+    ///             },
+    ///             Header = 
+    ///             {
+    ///                 { "x-my-1", new[]
+    ///                 {
+    ///                     "val1",
+    ///                     "val2",
+    ///                 } },
+    ///             },
+    ///             Query = 
+    ///             {
+    ///                 { "sv", new[]
+    ///                 {
+    ///                     "xx",
+    ///                     "bb",
+    ///                     "cc",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Description = "description5308",
+    ///         Protocol = "http",
+    ///         Proxy = new AzureNative.ApiManagement.V20201201.Inputs.BackendProxyContractArgs
+    ///         {
+    ///             Password = "&lt;password&gt;",
+    ///             Url = "http://192.168.1.1:8080",
+    ///             Username = "Contoso\\admin",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Tls = new AzureNative.ApiManagement.V20201201.Inputs.BackendTlsPropertiesArgs
+    ///         {
+    ///             ValidateCertificateChain = true,
+    ///             ValidateCertificateName = true,
+    ///         },
+    ///         Url = "https://backendname2644/",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateBackendServiceFabric
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backend = new AzureNative.ApiManagement.V20201201.Backend("backend", new()
+    ///     {
+    ///         BackendId = "sfbackend",
+    ///         Description = "Service Fabric Test App 1",
+    ///         Properties = new AzureNative.ApiManagement.V20201201.Inputs.BackendPropertiesArgs
+    ///         {
+    ///             ServiceFabricCluster = new AzureNative.ApiManagement.V20201201.Inputs.BackendServiceFabricClusterPropertiesArgs
+    ///             {
+    ///                 ClientCertificateId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+    ///                 ManagementEndpoints = new[]
+    ///                 {
+    ///                     "https://somecluster.com",
+    ///                 },
+    ///                 MaxPartitionResolutionRetries = 5,
+    ///                 ServerX509Names = new[]
+    ///                 {
+    ///                     new AzureNative.ApiManagement.V20201201.Inputs.X509CertificateNameArgs
+    ///                     {
+    ///                         IssuerCertificateThumbprint = "IssuerCertificateThumbprint1",
+    ///                         Name = "ServerCommonName1",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Protocol = "http",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Url = "fabric:/mytestapp/mytestservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:Backend sfbackend /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/backends/sfbackend 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:Backend")]
     public partial class Backend : global::Pulumi.CustomResource

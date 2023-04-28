@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * The network interface resource definition.
+ *
+ * ## Example Usage
+ * ### PutNetworkInterface
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkinterfaceRetrieve = new azure_native.azurestackhci.v20210901preview.NetworkinterfaceRetrieve("networkinterfaceRetrieve", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: "CustomLocation",
+ *     },
+ *     ipConfigurations: [{
+ *         name: "ipconfig-sample",
+ *         properties: {
+ *             subnet: {
+ *                 id: "test-vnet",
+ *             },
+ *         },
+ *     }],
+ *     location: "West US2",
+ *     networkinterfacesName: "test-nic",
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve test-nic /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkinterfaces/test-nic 
+ * ```
  */
 export class NetworkinterfaceRetrieve extends pulumi.CustomResource {
     /**

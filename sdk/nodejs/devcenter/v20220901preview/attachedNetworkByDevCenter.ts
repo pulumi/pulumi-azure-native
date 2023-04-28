@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an attached NetworkConnection.
+ *
+ * ## Example Usage
+ * ### AttachedNetworks_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const attachedNetworkByDevCenter = new azure_native.devcenter.v20220901preview.AttachedNetworkByDevCenter("attachedNetworkByDevCenter", {
+ *     attachedNetworkConnectionName: "{attachedNetworkConnectionName}",
+ *     devCenterName: "Contoso",
+ *     networkConnectionId: "/subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/NetworkConnections/network-uswest3",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter {attachedNetworkConnectionName} /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/attachednetworks/network-uswest3 
+ * ```
  */
 export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
     /**

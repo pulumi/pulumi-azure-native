@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource for OuContainer.
+ *
+ * ## Example Usage
+ * ### Create Domain Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ouContainer = new azure_native.aad.v20210301.OuContainer("ouContainer", {
+ *     accountName: "AccountName1",
+ *     domainServiceName: "OuContainer.com",
+ *     ouContainerName: "OuContainer1",
+ *     password: "<password>",
+ *     resourceGroupName: "OuContainerResourceGroup",
+ *     spn: "Spn1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:aad/v20210301:OuContainer OuContainer.com/OuContainer1 /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/ouContainerResourceGroup/providers/Microsoft.AAD/domainServices/ouContainer.com/ouContainer/ouContainer1 
+ * ```
  */
 export class OuContainer extends pulumi.CustomResource {
     /**

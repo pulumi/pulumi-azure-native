@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.Resources.V20220801Preview
 {
     /// <summary>
     /// Deployment stack object.
+    /// 
+    /// ## Example Usage
+    /// ### DeploymentStacksCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deploymentStackAtManagementGroup = new AzureNative.Resources.V20220801Preview.DeploymentStackAtManagementGroup("deploymentStackAtManagementGroup", new()
+    ///     {
+    ///         ActionOnUnmanage = new AzureNative.Resources.V20220801Preview.Inputs.DeploymentStackPropertiesActionOnUnmanageArgs
+    ///         {
+    ///             ManagementGroups = "detach",
+    ///             ResourceGroups = "delete",
+    ///             Resources = "delete",
+    ///         },
+    ///         DeploymentStackName = "simpleDeploymentStack",
+    ///         Location = "eastus",
+    ///         ManagementGroupId = "myMg",
+    ///         Parameters = 
+    ///         {
+    ///             { "parameter1", 
+    ///             {
+    ///                 { "value", "a string" },
+    ///             } },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tagkey", "tagVal" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20220801preview:DeploymentStackAtManagementGroup simpleDeploymentStack /providers/Microsoft.Management/managementGroups/myMg/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20220801preview:DeploymentStackAtManagementGroup")]
     public partial class DeploymentStackAtManagementGroup : global::Pulumi.CustomResource

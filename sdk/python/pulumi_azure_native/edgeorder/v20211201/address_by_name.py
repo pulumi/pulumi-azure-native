@@ -131,6 +131,44 @@ class AddressByName(pulumi.CustomResource):
         """
         Address Resource.
 
+        ## Example Usage
+        ### CreateAddress
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        address_by_name = azure_native.edgeorder.v20211201.AddressByName("addressByName",
+            address_name="TestAddressName2",
+            contact_details=azure_native.edgeorder.v20211201.ContactDetailsArgs(
+                contact_name="XXXX XXXX",
+                email_list=["xxxx@xxxx.xxx"],
+                phone="0000000000",
+                phone_extension="",
+            ),
+            location="eastus",
+            resource_group_name="YourResourceGroupName",
+            shipping_address=azure_native.edgeorder.v20211201.ShippingAddressResponseArgs(
+                address_type="None",
+                city="San Francisco",
+                company_name="Microsoft",
+                country="US",
+                postal_code="94107",
+                state_or_province="CA",
+                street_address1="16 TOWNSEND ST",
+                street_address2="UNIT 1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edgeorder/v20211201:AddressByName TestAddressName2 /subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/addresses/TestAddressName2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -148,6 +186,44 @@ class AddressByName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Address Resource.
+
+        ## Example Usage
+        ### CreateAddress
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        address_by_name = azure_native.edgeorder.v20211201.AddressByName("addressByName",
+            address_name="TestAddressName2",
+            contact_details=azure_native.edgeorder.v20211201.ContactDetailsArgs(
+                contact_name="XXXX XXXX",
+                email_list=["xxxx@xxxx.xxx"],
+                phone="0000000000",
+                phone_extension="",
+            ),
+            location="eastus",
+            resource_group_name="YourResourceGroupName",
+            shipping_address=azure_native.edgeorder.v20211201.ShippingAddressResponseArgs(
+                address_type="None",
+                city="San Francisco",
+                company_name="Microsoft",
+                country="US",
+                postal_code="94107",
+                state_or_province="CA",
+                street_address1="16 TOWNSEND ST",
+                street_address2="UNIT 1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edgeorder/v20211201:AddressByName TestAddressName2 /subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/addresses/TestAddressName2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AddressByNameArgs args: The arguments to use to populate this resource's properties.

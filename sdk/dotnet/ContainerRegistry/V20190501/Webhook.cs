@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501
 {
     /// <summary>
     /// An object that represents a webhook for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### WebhookCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webhook = new AzureNative.ContainerRegistry.V20190501.Webhook("webhook", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             "push",
+    ///         },
+    ///         CustomHeaders = 
+    ///         {
+    ///             { "Authorization", "******" },
+    ///         },
+    ///         Location = "westus",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Scope = "myRepository",
+    ///         ServiceUri = "http://myservice.com",
+    ///         Status = "enabled",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///         WebhookName = "myWebhook",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20190501:Webhook myWebhook /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/webhooks/myWebhook 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20190501:Webhook")]
     public partial class Webhook : global::Pulumi.CustomResource

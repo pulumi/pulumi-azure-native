@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Workloads.V20211201Preview
 {
     /// <summary>
     /// WordPress instance resource
+    /// 
+    /// ## Example Usage
+    /// ### Workloads
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var wordpressInstance = new AzureNative.Workloads.V20211201Preview.WordpressInstance("wordpressInstance", new()
+    ///     {
+    ///         DatabaseName = "wpdb",
+    ///         DatabaseUser = "wpuser",
+    ///         PhpWorkloadName = "wp39",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "5.4.2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads/v20211201preview:WordpressInstance default /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsot.Workloads/phpWorkloads/wp39/wordpressInstances/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20211201preview:WordpressInstance")]
     public partial class WordpressInstance : global::Pulumi.CustomResource

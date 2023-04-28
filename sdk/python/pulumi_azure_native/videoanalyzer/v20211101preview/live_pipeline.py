@@ -145,6 +145,35 @@ class LivePipeline(pulumi.CustomResource):
         """
         Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
 
+        ## Example Usage
+        ### Create or update a live pipeline
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        live_pipeline = azure_native.videoanalyzer.v20211101preview.LivePipeline("livePipeline",
+            account_name="testaccount2",
+            bitrate_kbps=500,
+            description="Live Pipeline 1 Description",
+            live_pipeline_name="livePipeline1",
+            parameters=[{
+                "name": "rtspUrlParameter",
+                "value": "rtsp://contoso.com/stream",
+            }],
+            resource_group_name="testrg",
+            topology_name="pipelinetopology1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer/v20211101preview:LivePipeline livePipeline1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/livePipelines/livePipeline1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
@@ -163,6 +192,35 @@ class LivePipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
+
+        ## Example Usage
+        ### Create or update a live pipeline
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        live_pipeline = azure_native.videoanalyzer.v20211101preview.LivePipeline("livePipeline",
+            account_name="testaccount2",
+            bitrate_kbps=500,
+            description="Live Pipeline 1 Description",
+            live_pipeline_name="livePipeline1",
+            parameters=[{
+                "name": "rtspUrlParameter",
+                "value": "rtsp://contoso.com/stream",
+            }],
+            resource_group_name="testrg",
+            topology_name="pipelinetopology1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer/v20211101preview:LivePipeline livePipeline1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/livePipelines/livePipeline1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LivePipelineArgs args: The arguments to use to populate this resource's properties.

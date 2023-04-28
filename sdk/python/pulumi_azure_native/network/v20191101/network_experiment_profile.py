@@ -130,6 +130,29 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         """
         Defines an Network Experiment Profile and lists of Experiments
 
+        ## Example Usage
+        ### Creates an NetworkExperiment Profile in a Resource Group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_experiment_profile = azure_native.network.v20191101.NetworkExperimentProfile("networkExperimentProfile",
+            enabled_state="Enabled",
+            location="WestUs",
+            profile_name="MyProfile",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20191101:NetworkExperimentProfile MyProfile /subscriptions/subid/resourceGroups/MyResourceGroup/providers/Microsoft.Network/NetworkExperimentProfiles/MyProfile 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'State']] enabled_state: The state of the Experiment
@@ -147,6 +170,29 @@ class NetworkExperimentProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines an Network Experiment Profile and lists of Experiments
+
+        ## Example Usage
+        ### Creates an NetworkExperiment Profile in a Resource Group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_experiment_profile = azure_native.network.v20191101.NetworkExperimentProfile("networkExperimentProfile",
+            enabled_state="Enabled",
+            location="WestUs",
+            profile_name="MyProfile",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20191101:NetworkExperimentProfile MyProfile /subscriptions/subid/resourceGroups/MyResourceGroup/providers/Microsoft.Network/NetworkExperimentProfiles/MyProfile 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkExperimentProfileArgs args: The arguments to use to populate this resource's properties.

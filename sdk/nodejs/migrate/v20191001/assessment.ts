@@ -9,6 +9,66 @@ import * as utilities from "../../utilities";
 
 /**
  * An assessment created for a group in the Migration project.
+ *
+ * ## Example Usage
+ * ### Assessments_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assessment = new azure_native.migrate.v20191001.Assessment("assessment", {
+ *     assessmentName: "assessment_5_14_2019_16_48_47",
+ *     eTag: "\"1e000c2c-0000-0d00-0000-5cdaa4190000\"",
+ *     groupName: "Group2",
+ *     projectName: "abgoyalWEselfhostb72bproject",
+ *     properties: {
+ *         azureDiskType: "StandardOrPremium",
+ *         azureHybridUseBenefit: "Yes",
+ *         azureLocation: "NorthEurope",
+ *         azureOfferCode: "MSAZR0003P",
+ *         azurePricingTier: "Standard",
+ *         azureStorageRedundancy: "LocallyRedundant",
+ *         azureVmFamilies: [
+ *             "Dv2_series",
+ *             "F_series",
+ *             "Dv3_series",
+ *             "DS_series",
+ *             "DSv2_series",
+ *             "Fs_series",
+ *             "Dsv3_series",
+ *             "Ev3_series",
+ *             "Esv3_series",
+ *             "D_series",
+ *             "M_series",
+ *             "Fsv2_series",
+ *             "H_series",
+ *         ],
+ *         currency: "USD",
+ *         discountPercentage: 100,
+ *         percentile: "Percentile95",
+ *         reservedInstance: "RI3Year",
+ *         scalingFactor: 1,
+ *         sizingCriterion: "PerformanceBased",
+ *         stage: "InProgress",
+ *         timeRange: "Day",
+ *         vmUptime: {
+ *             daysPerMonth: 31,
+ *             hoursPerDay: 24,
+ *         },
+ *     },
+ *     resourceGroupName: "abgoyal-westEurope",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20191001:Assessment assessment_5_14_2019_16_48_47 /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abgoyalWEselfhostb72bproject/groups/Group2/assessments/assessment_5_14_2019_16_48_47 
+ * ```
  */
 export class Assessment extends pulumi.CustomResource {
     /**

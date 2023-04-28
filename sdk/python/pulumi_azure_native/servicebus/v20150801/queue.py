@@ -390,6 +390,31 @@ class Queue(pulumi.CustomResource):
         """
         Description of queue Resource.
 
+        ## Example Usage
+        ### QueueCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue = azure_native.servicebus.v20150801.Queue("queue",
+            enable_express=False,
+            enable_partitioning=False,
+            location="West US",
+            namespace_name="sdk-Namespace3082",
+            queue_name="sdk-Queues8544",
+            resource_group_name="Default-ServiceBus-WestUS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20150801:Queue sdk-Queues8544 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace3082/queues/sdk-Queues8544 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: the TimeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
@@ -422,6 +447,31 @@ class Queue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of queue Resource.
+
+        ## Example Usage
+        ### QueueCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue = azure_native.servicebus.v20150801.Queue("queue",
+            enable_express=False,
+            enable_partitioning=False,
+            location="West US",
+            namespace_name="sdk-Namespace3082",
+            queue_name="sdk-Queues8544",
+            resource_group_name="Default-ServiceBus-WestUS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20150801:Queue sdk-Queues8544 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace3082/queues/sdk-Queues8544 
+        ```
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

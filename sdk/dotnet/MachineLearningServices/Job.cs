@@ -13,6 +13,391 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Azure Resource Manager resource envelope.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate AutoML Job.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.MachineLearningServices.Job("job", new()
+    ///     {
+    ///         Id = "string",
+    ///         JobBaseProperties = new AzureNative.MachineLearningServices.Inputs.AutoMLJobArgs
+    ///         {
+    ///             ComputeId = "string",
+    ///             Description = "string",
+    ///             DisplayName = "string",
+    ///             EnvironmentId = "string",
+    ///             EnvironmentVariables = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             ExperimentName = "string",
+    ///             Identity = new AzureNative.MachineLearningServices.Inputs.AmlTokenArgs
+    ///             {
+    ///                 IdentityType = "AMLToken",
+    ///             },
+    ///             IsArchived = false,
+    ///             JobType = "AutoML",
+    ///             Outputs = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.Inputs.UriFileJobOutputArgs
+    ///                 {
+    ///                     Description = "string",
+    ///                     JobOutputType = "uri_file",
+    ///                     Mode = "ReadWriteMount",
+    ///                     Uri = "string",
+    ///                 } },
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Resources = new AzureNative.MachineLearningServices.Inputs.JobResourceConfigurationArgs
+    ///             {
+    ///                 InstanceCount = 1,
+    ///                 InstanceType = "string",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "string", 
+    ///                     {
+    ///                         { "9bec0ab0-c62f-4fa9-a97c-7b24bbcc90ad", null },
+    ///                     } },
+    ///                 },
+    ///             },
+    ///             Services = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.Inputs.JobServiceArgs
+    ///                 {
+    ///                     Endpoint = "string",
+    ///                     JobServiceType = "string",
+    ///                     Port = 1,
+    ///                     Properties = 
+    ///                     {
+    ///                         { "string", "string" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             TaskDetails = new AzureNative.MachineLearningServices.Inputs.ImageClassificationArgs
+    ///             {
+    ///                 LimitSettings = new AzureNative.MachineLearningServices.Inputs.ImageLimitSettingsArgs
+    ///                 {
+    ///                     MaxTrials = 2,
+    ///                 },
+    ///                 ModelSettings = new AzureNative.MachineLearningServices.Inputs.ImageModelSettingsClassificationArgs
+    ///                 {
+    ///                     ValidationCropSize = 2,
+    ///                 },
+    ///                 SearchSpace = new[]
+    ///                 {
+    ///                     new AzureNative.MachineLearningServices.Inputs.ImageModelDistributionSettingsClassificationArgs
+    ///                     {
+    ///                         ValidationCropSize = "choice(2, 360)",
+    ///                     },
+    ///                 },
+    ///                 TargetColumnName = "string",
+    ///                 TaskType = "ImageClassification",
+    ///                 TrainingData = new AzureNative.MachineLearningServices.Inputs.MLTableJobInputArgs
+    ///                 {
+    ///                     JobInputType = "mltable",
+    ///                     Uri = "string",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrUpdate Command Job.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.MachineLearningServices.Job("job", new()
+    ///     {
+    ///         Id = "string",
+    ///         JobBaseProperties = new AzureNative.MachineLearningServices.Inputs.CommandJobArgs
+    ///         {
+    ///             CodeId = "string",
+    ///             Command = "string",
+    ///             ComputeId = "string",
+    ///             Description = "string",
+    ///             DisplayName = "string",
+    ///             Distribution = new AzureNative.MachineLearningServices.Inputs.TensorFlowArgs
+    ///             {
+    ///                 DistributionType = "TensorFlow",
+    ///                 ParameterServerCount = 1,
+    ///                 WorkerCount = 1,
+    ///             },
+    ///             EnvironmentId = "string",
+    ///             EnvironmentVariables = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             ExperimentName = "string",
+    ///             Identity = new AzureNative.MachineLearningServices.Inputs.AmlTokenArgs
+    ///             {
+    ///                 IdentityType = "AMLToken",
+    ///             },
+    ///             Inputs = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.Inputs.LiteralJobInputArgs
+    ///                 {
+    ///                     Description = "string",
+    ///                     JobInputType = "literal",
+    ///                     Value = "string",
+    ///                 } },
+    ///             },
+    ///             JobType = "Command",
+    ///             Limits = new AzureNative.MachineLearningServices.Inputs.CommandJobLimitsArgs
+    ///             {
+    ///                 JobLimitsType = "Command",
+    ///                 Timeout = "PT5M",
+    ///             },
+    ///             Outputs = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.Inputs.UriFileJobOutputArgs
+    ///                 {
+    ///                     Description = "string",
+    ///                     JobOutputType = "uri_file",
+    ///                     Mode = "ReadWriteMount",
+    ///                     Uri = "string",
+    ///                 } },
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Resources = new AzureNative.MachineLearningServices.Inputs.JobResourceConfigurationArgs
+    ///             {
+    ///                 InstanceCount = 1,
+    ///                 InstanceType = "string",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "string", 
+    ///                     {
+    ///                         { "e6b6493e-7d5e-4db3-be1e-306ec641327e", null },
+    ///                     } },
+    ///                 },
+    ///             },
+    ///             Services = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.Inputs.JobServiceArgs
+    ///                 {
+    ///                     Endpoint = "string",
+    ///                     JobServiceType = "string",
+    ///                     Port = 1,
+    ///                     Properties = 
+    ///                     {
+    ///                         { "string", "string" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrUpdate Pipeline Job.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.MachineLearningServices.Job("job", new()
+    ///     {
+    ///         Id = "string",
+    ///         JobBaseProperties = new AzureNative.MachineLearningServices.Inputs.PipelineJobArgs
+    ///         {
+    ///             ComputeId = "string",
+    ///             Description = "string",
+    ///             DisplayName = "string",
+    ///             ExperimentName = "string",
+    ///             Inputs = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.Inputs.LiteralJobInputArgs
+    ///                 {
+    ///                     Description = "string",
+    ///                     JobInputType = "literal",
+    ///                     Value = "string",
+    ///                 } },
+    ///             },
+    ///             JobType = "Pipeline",
+    ///             Outputs = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.Inputs.UriFileJobOutputArgs
+    ///                 {
+    ///                     Description = "string",
+    ///                     JobOutputType = "uri_file",
+    ///                     Mode = "Upload",
+    ///                     Uri = "string",
+    ///                 } },
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Services = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.Inputs.JobServiceArgs
+    ///                 {
+    ///                     Endpoint = "string",
+    ///                     JobServiceType = "string",
+    ///                     Port = 1,
+    ///                     Properties = 
+    ///                     {
+    ///                         { "string", "string" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             Settings = null,
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrUpdate Sweep Job.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.MachineLearningServices.Job("job", new()
+    ///     {
+    ///         Id = "string",
+    ///         JobBaseProperties = new AzureNative.MachineLearningServices.Inputs.SweepJobArgs
+    ///         {
+    ///             ComputeId = "string",
+    ///             Description = "string",
+    ///             DisplayName = "string",
+    ///             EarlyTermination = new AzureNative.MachineLearningServices.Inputs.MedianStoppingPolicyArgs
+    ///             {
+    ///                 DelayEvaluation = 1,
+    ///                 EvaluationInterval = 1,
+    ///                 PolicyType = "MedianStopping",
+    ///             },
+    ///             ExperimentName = "string",
+    ///             JobType = "Sweep",
+    ///             Limits = new AzureNative.MachineLearningServices.Inputs.SweepJobLimitsArgs
+    ///             {
+    ///                 JobLimitsType = "Sweep",
+    ///                 MaxConcurrentTrials = 1,
+    ///                 MaxTotalTrials = 1,
+    ///                 TrialTimeout = "PT1S",
+    ///             },
+    ///             Objective = new AzureNative.MachineLearningServices.Inputs.ObjectiveArgs
+    ///             {
+    ///                 Goal = "Minimize",
+    ///                 PrimaryMetric = "string",
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             SamplingAlgorithm = new AzureNative.MachineLearningServices.Inputs.GridSamplingAlgorithmArgs
+    ///             {
+    ///                 SamplingAlgorithmType = "Grid",
+    ///             },
+    ///             SearchSpace = 
+    ///             {
+    ///                 { "string", null },
+    ///             },
+    ///             Services = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.Inputs.JobServiceArgs
+    ///                 {
+    ///                     Endpoint = "string",
+    ///                     JobServiceType = "string",
+    ///                     Port = 1,
+    ///                     Properties = 
+    ///                     {
+    ///                         { "string", "string" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Trial = new AzureNative.MachineLearningServices.Inputs.TrialComponentArgs
+    ///             {
+    ///                 CodeId = "string",
+    ///                 Command = "string",
+    ///                 Distribution = new AzureNative.MachineLearningServices.Inputs.MpiArgs
+    ///                 {
+    ///                     DistributionType = "Mpi",
+    ///                     ProcessCountPerInstance = 1,
+    ///                 },
+    ///                 EnvironmentId = "string",
+    ///                 EnvironmentVariables = 
+    ///                 {
+    ///                     { "string", "string" },
+    ///                 },
+    ///                 Resources = new AzureNative.MachineLearningServices.Inputs.JobResourceConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     InstanceType = "string",
+    ///                     Properties = 
+    ///                     {
+    ///                         { "string", 
+    ///                         {
+    ///                             { "e6b6493e-7d5e-4db3-be1e-306ec641327e", null },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:Job string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Job")]
     public partial class Job : global::Pulumi.CustomResource

@@ -88,6 +88,40 @@ class SqlMigrationService(pulumi.CustomResource):
         """
         A SQL Migration Service.
 
+        ## Example Usage
+        ### Create or Update SQL Migration Service with maximum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_migration_service = azure_native.datamigration.v20211030preview.SqlMigrationService("sqlMigrationService",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_migration_service_name="testagent")
+
+        ```
+        ### Create or Update SQL Migration Service with minimum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_migration_service = azure_native.datamigration.v20211030preview.SqlMigrationService("sqlMigrationService",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_migration_service_name="testagent")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20211030preview:SqlMigrationService testagent /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -101,6 +135,40 @@ class SqlMigrationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL Migration Service.
+
+        ## Example Usage
+        ### Create or Update SQL Migration Service with maximum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_migration_service = azure_native.datamigration.v20211030preview.SqlMigrationService("sqlMigrationService",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_migration_service_name="testagent")
+
+        ```
+        ### Create or Update SQL Migration Service with minimum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_migration_service = azure_native.datamigration.v20211030preview.SqlMigrationService("sqlMigrationService",
+            location="northeurope",
+            resource_group_name="testrg",
+            sql_migration_service_name="testagent")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20211030preview:SqlMigrationService testagent /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlMigrationServiceArgs args: The arguments to use to populate this resource's properties.

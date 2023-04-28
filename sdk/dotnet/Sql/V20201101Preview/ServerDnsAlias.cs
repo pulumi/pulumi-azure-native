@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
     /// <summary>
     /// A server DNS alias.
+    /// 
+    /// ## Example Usage
+    /// ### Create server DNS alias
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverDnsAlias = new AzureNative.Sql.V20201101Preview.ServerDnsAlias("serverDnsAlias", new()
+    ///     {
+    ///         DnsAliasName = "dns-alias-name-1",
+    ///         ResourceGroupName = "Default",
+    ///         ServerName = "dns-alias-server",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20201101preview:ServerDnsAlias dns-alias-name-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/dns-alias-server/dnsAliases/dns-alias-name-1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20201101preview:ServerDnsAlias")]
     public partial class ServerDnsAlias : global::Pulumi.CustomResource

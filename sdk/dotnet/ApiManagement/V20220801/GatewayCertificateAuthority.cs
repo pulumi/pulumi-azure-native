@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Gateway certificate authority details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGatewayCertificateAuthority
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gatewayCertificateAuthority = new AzureNative.ApiManagement.V20220801.GatewayCertificateAuthority("gatewayCertificateAuthority", new()
+    ///     {
+    ///         CertificateId = "cert1",
+    ///         GatewayId = "gw1",
+    ///         IsTrusted = false,
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:GatewayCertificateAuthority cert1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/certificateAuthorities/cert1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:GatewayCertificateAuthority")]
     public partial class GatewayCertificateAuthority : global::Pulumi.CustomResource

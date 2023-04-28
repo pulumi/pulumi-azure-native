@@ -11,6 +11,97 @@ namespace Pulumi.AzureNative.Compute.V20221101
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualMachineExtension_CreateOrUpdate_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineExtension = new AzureNative.Compute.V20221101.VirtualMachineExtension("virtualMachineExtension", new()
+    ///     {
+    ///         AutoUpgradeMinorVersion = true,
+    ///         EnableAutomaticUpgrade = true,
+    ///         ForceUpdateTag = "a",
+    ///         InstanceView = new AzureNative.Compute.V20221101.Inputs.VirtualMachineExtensionInstanceViewArgs
+    ///         {
+    ///             Name = "aaaaaaaaaaaaaaaaa",
+    ///             Statuses = new[]
+    ///             {
+    ///                 new AzureNative.Compute.V20221101.Inputs.InstanceViewStatusArgs
+    ///                 {
+    ///                     Code = "aaaaaaaaaaaaaaaaaaaaaaa",
+    ///                     DisplayStatus = "aaaaaa",
+    ///                     Level = AzureNative.Compute.V20221101.StatusLevelTypes.Info,
+    ///                     Message = "a",
+    ///                     Time = "2021-11-30T12:58:26.522Z",
+    ///                 },
+    ///             },
+    ///             Substatuses = new[]
+    ///             {
+    ///                 new AzureNative.Compute.V20221101.Inputs.InstanceViewStatusArgs
+    ///                 {
+    ///                     Code = "aaaaaaaaaaaaaaaaaaaaaaa",
+    ///                     DisplayStatus = "aaaaaa",
+    ///                     Level = AzureNative.Compute.V20221101.StatusLevelTypes.Info,
+    ///                     Message = "a",
+    ///                     Time = "2021-11-30T12:58:26.522Z",
+    ///                 },
+    ///             },
+    ///             Type = "aaaaaaaaa",
+    ///             TypeHandlerVersion = "aaaaaaaaaaaaaaaaaaaaaaaaaa",
+    ///         },
+    ///         Location = "westus",
+    ///         ProtectedSettings = null,
+    ///         Publisher = "extPublisher",
+    ///         ResourceGroupName = "rgcompute",
+    ///         Settings = null,
+    ///         SuppressFailures = true,
+    ///         Tags = 
+    ///         {
+    ///             { "key9183", "aa" },
+    ///         },
+    ///         Type = "extType",
+    ///         TypeHandlerVersion = "1.2",
+    ///         VmExtensionName = "aaaaaaaaaaaaa",
+    ///         VmName = "aaaaaaaaaaaaaaaaaaaaaaaa",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### VirtualMachineExtension_CreateOrUpdate_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineExtension = new AzureNative.Compute.V20221101.VirtualMachineExtension("virtualMachineExtension", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rgcompute",
+    ///         VmExtensionName = "myVMExtension",
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20221101:VirtualMachineExtension myVMExtension /subscriptions/{subscription-id}/resourceGroups/rgcompute/providers/Microsoft.Compute/virtualMachines/myVM/extensions/myVMExtension 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20221101:VirtualMachineExtension")]
     public partial class VirtualMachineExtension : global::Pulumi.CustomResource

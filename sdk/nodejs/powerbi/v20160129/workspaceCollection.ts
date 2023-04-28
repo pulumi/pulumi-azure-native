@@ -7,6 +7,15 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:powerbi/v20160129:WorkspaceCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/workspaceCollections/{workspaceCollectionName} 
+ * ```
+ */
 export class WorkspaceCollection extends pulumi.CustomResource {
     /**
      * Get an existing WorkspaceCollection resource's state with the given name, ID, and optional extra

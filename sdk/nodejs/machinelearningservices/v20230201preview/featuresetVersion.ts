@@ -9,6 +9,73 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Workspace Featureset Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const featuresetVersion = new azure_native.machinelearningservices.v20230201preview.FeaturesetVersion("featuresetVersion", {
+ *     featuresetVersionProperties: {
+ *         description: "string",
+ *         entities: ["string"],
+ *         isAnonymous: false,
+ *         isArchived: false,
+ *         materializationSettings: {
+ *             notification: {
+ *                 emailOn: ["JobFailed"],
+ *                 emails: ["string"],
+ *             },
+ *             resource: {
+ *                 instanceType: "string",
+ *             },
+ *             schedule: {
+ *                 endTime: "string",
+ *                 frequency: "Day",
+ *                 interval: 1,
+ *                 schedule: {
+ *                     hours: [1],
+ *                     minutes: [1],
+ *                     monthDays: [1],
+ *                     weekDays: ["Monday"],
+ *                 },
+ *                 startTime: "string",
+ *                 timeZone: "string",
+ *                 triggerType: "Recurrence",
+ *             },
+ *             sparkConfiguration: {
+ *                 string: "string",
+ *             },
+ *             storeType: "Online",
+ *         },
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         specification: {
+ *             path: "string",
+ *         },
+ *         stage: "string",
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230201preview:FeaturesetVersion string string 
+ * ```
  */
 export class FeaturesetVersion extends pulumi.CustomResource {
     /**

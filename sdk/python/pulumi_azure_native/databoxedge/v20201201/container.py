@@ -111,6 +111,30 @@ class Container(pulumi.CustomResource):
         """
         Represents a container on the  Data Box Edge/Gateway device.
 
+        ## Example Usage
+        ### ContainerPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container = azure_native.databoxedge.v20201201.Container("container",
+            container_name="blobcontainer1",
+            data_format="BlockBlob",
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            storage_account_name="storageaccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20201201:Container blobcontainer-5e155efe /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccounts/storageaccount1/containers/blobcontainer1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: The container name.
@@ -127,6 +151,30 @@ class Container(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a container on the  Data Box Edge/Gateway device.
+
+        ## Example Usage
+        ### ContainerPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container = azure_native.databoxedge.v20201201.Container("container",
+            container_name="blobcontainer1",
+            data_format="BlockBlob",
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            storage_account_name="storageaccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20201201:Container blobcontainer-5e155efe /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccounts/storageaccount1/containers/blobcontainer1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerArgs args: The arguments to use to populate this resource's properties.

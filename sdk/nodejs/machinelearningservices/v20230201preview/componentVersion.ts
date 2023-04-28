@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Workspace Component Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const componentVersion = new azure_native.machinelearningservices.v20230201preview.ComponentVersion("componentVersion", {
+ *     componentVersionProperties: {
+ *         componentSpec: {
+ *             "8ced901b-d826-477d-bfef-329da9672513": undefined,
+ *         },
+ *         description: "string",
+ *         isAnonymous: false,
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230201preview:ComponentVersion string string 
+ * ```
  */
 export class ComponentVersion extends pulumi.CustomResource {
     /**

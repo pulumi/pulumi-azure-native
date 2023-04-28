@@ -13,6 +13,51 @@ namespace Pulumi.AzureNative.Network
     /// Describes an inbound endpoint for a DNS resolver.
     /// API Version: 2022-07-01.
     /// Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Upsert inbound endpoint for DNS resolver
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var inboundEndpoint = new AzureNative.Network.InboundEndpoint("inboundEndpoint", new()
+    ///     {
+    ///         DnsResolverName = "sampleDnsResolver",
+    ///         InboundEndpointName = "sampleInboundEndpoint",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.InboundEndpointIPConfigurationArgs
+    ///             {
+    ///                 PrivateIpAllocationMethod = "Dynamic",
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "sampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:InboundEndpoint sampleInboundEndpoint /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/inboundEndpoints/sampleInboundEndpoint 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:InboundEndpoint")]
     public partial class InboundEndpoint : global::Pulumi.CustomResource

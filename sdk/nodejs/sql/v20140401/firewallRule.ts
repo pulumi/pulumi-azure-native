@@ -6,6 +6,46 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server firewall rule.
+ *
+ * ## Example Usage
+ * ### Create a firewall rule max/min
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallRule = new azure_native.sql.v20140401.FirewallRule("firewallRule", {
+ *     endIpAddress: "0.0.0.3",
+ *     firewallRuleName: "firewallrulecrudtest-5370",
+ *     resourceGroupName: "firewallrulecrudtest-12",
+ *     serverName: "firewallrulecrudtest-6285",
+ *     startIpAddress: "0.0.0.3",
+ * });
+ *
+ * ```
+ * ### Update a firewall rule max/min
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallRule = new azure_native.sql.v20140401.FirewallRule("firewallRule", {
+ *     endIpAddress: "0.0.0.1",
+ *     firewallRuleName: "firewallrulecrudtest-3927",
+ *     resourceGroupName: "firewallrulecrudtest-12",
+ *     serverName: "firewallrulecrudtest-6285",
+ *     startIpAddress: "0.0.0.1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20140401:FirewallRule firewallrulecrudtest-3927 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.Sql/servers/firewallrulecrudtest-6285/firewallRules/firewallrulecrudtest-3927 
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

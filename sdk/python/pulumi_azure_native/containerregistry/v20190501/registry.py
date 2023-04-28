@@ -184,6 +184,35 @@ class Registry(pulumi.CustomResource):
         """
         An object that represents a container registry.
 
+        ## Example Usage
+        ### RegistryCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.containerregistry.v20190501.Registry("registry",
+            admin_user_enabled=True,
+            location="westus",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.containerregistry.v20190501.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20190501:Registry myRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
@@ -204,6 +233,35 @@ class Registry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a container registry.
+
+        ## Example Usage
+        ### RegistryCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.containerregistry.v20190501.Registry("registry",
+            admin_user_enabled=True,
+            location="westus",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.containerregistry.v20190501.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20190501:Registry myRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryArgs args: The arguments to use to populate this resource's properties.

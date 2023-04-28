@@ -95,6 +95,31 @@ class PrivateZone(pulumi.CustomResource):
         """
         Describes a Private DNS zone.
 
+        ## Example Usage
+        ### PUT Private DNS Zone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_zone = azure_native.network.v20200601.PrivateZone("privateZone",
+            location="Global",
+            private_zone_name="privatezone1.com",
+            resource_group_name="resourceGroup1",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200601:PrivateZone privatezone1.com /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The Azure Region where the resource lives
@@ -110,6 +135,31 @@ class PrivateZone(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Private DNS zone.
+
+        ## Example Usage
+        ### PUT Private DNS Zone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_zone = azure_native.network.v20200601.PrivateZone("privateZone",
+            location="Global",
+            private_zone_name="privatezone1.com",
+            resource_group_name="resourceGroup1",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200601:PrivateZone privatezone1.com /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateZoneArgs args: The arguments to use to populate this resource's properties.

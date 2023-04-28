@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// Route resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create route
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var route = new AzureNative.Network.V20220901.Route("route", new()
+    ///     {
+    ///         AddressPrefix = "10.0.3.0/24",
+    ///         NextHopType = "VirtualNetworkGateway",
+    ///         ResourceGroupName = "rg1",
+    ///         RouteName = "route1",
+    ///         RouteTableName = "testrt",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:Route route1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeTables/testrt/routes/route1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:Route")]
     public partial class Route : global::Pulumi.CustomResource

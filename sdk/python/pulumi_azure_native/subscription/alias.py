@@ -67,6 +67,40 @@ class Alias(pulumi.CustomResource):
         API Version: 2021-10-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateAlias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        alias = azure_native.subscription.Alias("alias",
+            alias_name="aliasForNewSub",
+            properties=azure_native.subscription.SubscriptionAliasResponsePropertiesResponseArgs(
+                additional_properties=azure_native.subscription.PutAliasRequestAdditionalPropertiesArgs(
+                    subscription_owner_id="f09b39eb-c496-482c-9ab9-afd799572f4c",
+                    subscription_tenant_id="66f6e4d6-07dc-4aea-94ea-e12d3026a3c8",
+                    tags={
+                        "tag1": "Messi",
+                        "tag2": "Ronaldo",
+                        "tag3": "Lebron",
+                    },
+                ),
+                billing_scope="/billingAccounts/af6231a7-7f8d-4fcc-a993-dd8466108d07:c663dac6-a9a5-405a-8938-cd903e12ab5b_2019_05_31/billingProfiles/QWDQ-QWHI-AUW-SJDO-DJH/invoiceSections/FEUF-EUHE-ISJ-SKDW-DJH",
+                display_name="Test Subscription",
+                workload="Production",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:subscription:Alias string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias_name: AliasName is the name for the subscription creation request. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -82,6 +116,40 @@ class Alias(pulumi.CustomResource):
         Subscription Information with the alias.
         API Version: 2021-10-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateAlias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        alias = azure_native.subscription.Alias("alias",
+            alias_name="aliasForNewSub",
+            properties=azure_native.subscription.SubscriptionAliasResponsePropertiesResponseArgs(
+                additional_properties=azure_native.subscription.PutAliasRequestAdditionalPropertiesArgs(
+                    subscription_owner_id="f09b39eb-c496-482c-9ab9-afd799572f4c",
+                    subscription_tenant_id="66f6e4d6-07dc-4aea-94ea-e12d3026a3c8",
+                    tags={
+                        "tag1": "Messi",
+                        "tag2": "Ronaldo",
+                        "tag3": "Lebron",
+                    },
+                ),
+                billing_scope="/billingAccounts/af6231a7-7f8d-4fcc-a993-dd8466108d07:c663dac6-a9a5-405a-8938-cd903e12ab5b_2019_05_31/billingProfiles/QWDQ-QWHI-AUW-SJDO-DJH/invoiceSections/FEUF-EUHE-ISJ-SKDW-DJH",
+                display_name="Test Subscription",
+                workload="Production",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:subscription:Alias string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AliasArgs args: The arguments to use to populate this resource's properties.

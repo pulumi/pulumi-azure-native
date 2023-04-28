@@ -165,6 +165,44 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
         """
         An Azure Cosmos DB Mongo Role Definition.
 
+        ## Example Usage
+        ### CosmosDBMongoDBRoleDefinitionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_role_definition = azure_native.documentdb.v20230301preview.MongoDBResourceMongoRoleDefinition("mongoDBResourceMongoRoleDefinition",
+            account_name="myAccountName",
+            database_name="sales",
+            mongo_role_definition_id="myMongoRoleDefinitionId",
+            privileges=[{
+                "actions": [
+                    "insert",
+                    "find",
+                ],
+                "resource": azure_native.documentdb.v20230301preview.PrivilegeResourceArgs(
+                    collection="sales",
+                    db="sales",
+                ),
+            }],
+            resource_group_name="myResourceGroupName",
+            role_name="myRoleName",
+            roles=[azure_native.documentdb.v20230301preview.RoleArgs(
+                db="sales",
+                role="myInheritedRole",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20230301preview:MongoDBResourceMongoRoleDefinition myMongoDbRoleDefinitionId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbRoleDefinitions/myMongoDbRoleDefinitionId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -184,6 +222,44 @@ class MongoDBResourceMongoRoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Mongo Role Definition.
+
+        ## Example Usage
+        ### CosmosDBMongoDBRoleDefinitionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_role_definition = azure_native.documentdb.v20230301preview.MongoDBResourceMongoRoleDefinition("mongoDBResourceMongoRoleDefinition",
+            account_name="myAccountName",
+            database_name="sales",
+            mongo_role_definition_id="myMongoRoleDefinitionId",
+            privileges=[{
+                "actions": [
+                    "insert",
+                    "find",
+                ],
+                "resource": azure_native.documentdb.v20230301preview.PrivilegeResourceArgs(
+                    collection="sales",
+                    db="sales",
+                ),
+            }],
+            resource_group_name="myResourceGroupName",
+            role_name="myRoleName",
+            roles=[azure_native.documentdb.v20230301preview.RoleArgs(
+                db="sales",
+                role="myInheritedRole",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20230301preview:MongoDBResourceMongoRoleDefinition myMongoDbRoleDefinitionId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbRoleDefinitions/myMongoDbRoleDefinitionId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MongoDBResourceMongoRoleDefinitionArgs args: The arguments to use to populate this resource's properties.

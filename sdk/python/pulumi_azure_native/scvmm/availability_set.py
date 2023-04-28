@@ -133,6 +133,33 @@ class AvailabilitySet(pulumi.CustomResource):
         API Version: 2020-06-05-preview.
         Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateAvailabilitySet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        availability_set = azure_native.scvmm.AvailabilitySet("availabilitySet",
+            availability_set_name="hr-avset",
+            extended_location=azure_native.scvmm.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                type="customLocation",
+            ),
+            location="East US",
+            resource_group_name="testrg",
+            vmm_server_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ScVmm/VMMServers/ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:AvailabilitySet HRAvailabilitySet /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ScVmm/AvailabilitySets/HRAvailabilitySet 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_set_name: Name of the availability set.
@@ -152,6 +179,33 @@ class AvailabilitySet(pulumi.CustomResource):
         The AvailabilitySets resource definition.
         API Version: 2020-06-05-preview.
         Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateAvailabilitySet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        availability_set = azure_native.scvmm.AvailabilitySet("availabilitySet",
+            availability_set_name="hr-avset",
+            extended_location=azure_native.scvmm.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                type="customLocation",
+            ),
+            location="East US",
+            resource_group_name="testrg",
+            vmm_server_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ScVmm/VMMServers/ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:AvailabilitySet HRAvailabilitySet /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ScVmm/AvailabilitySets/HRAvailabilitySet 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AvailabilitySetArgs args: The arguments to use to populate this resource's properties.

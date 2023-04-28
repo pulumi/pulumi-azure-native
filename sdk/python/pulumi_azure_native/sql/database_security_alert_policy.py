@@ -215,6 +215,56 @@ class DatabaseSecurityAlertPolicy(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update a database's threat detection policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_security_alert_policy = azure_native.sql.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy",
+            database_name="testdb",
+            disabled_alerts=[
+                "Sql_Injection",
+                "Usage_Anomaly",
+            ],
+            email_account_admins=True,
+            email_addresses=[
+                "test@microsoft.com",
+                "user@microsoft.com",
+            ],
+            resource_group_name="securityalert-4799",
+            retention_days=6,
+            security_alert_policy_name="default",
+            server_name="securityalert-6440",
+            state=azure_native.sql.SecurityAlertsPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Update a database's threat detection policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_security_alert_policy = azure_native.sql.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy",
+            database_name="testdb",
+            resource_group_name="securityalert-4799",
+            security_alert_policy_name="default",
+            server_name="securityalert-6440",
+            state=azure_native.sql.SecurityAlertsPolicyState.ENABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:DatabaseSecurityAlertPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.Sql/servers/securityalert-6440/databases/testdb 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the  database for which the security alert policy is defined.
@@ -239,6 +289,56 @@ class DatabaseSecurityAlertPolicy(pulumi.CustomResource):
         A database security alert policy.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update a database's threat detection policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_security_alert_policy = azure_native.sql.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy",
+            database_name="testdb",
+            disabled_alerts=[
+                "Sql_Injection",
+                "Usage_Anomaly",
+            ],
+            email_account_admins=True,
+            email_addresses=[
+                "test@microsoft.com",
+                "user@microsoft.com",
+            ],
+            resource_group_name="securityalert-4799",
+            retention_days=6,
+            security_alert_policy_name="default",
+            server_name="securityalert-6440",
+            state=azure_native.sql.SecurityAlertsPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Update a database's threat detection policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_security_alert_policy = azure_native.sql.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy",
+            database_name="testdb",
+            resource_group_name="securityalert-4799",
+            security_alert_policy_name="default",
+            server_name="securityalert-6440",
+            state=azure_native.sql.SecurityAlertsPolicyState.ENABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:DatabaseSecurityAlertPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.Sql/servers/securityalert-6440/databases/testdb 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.

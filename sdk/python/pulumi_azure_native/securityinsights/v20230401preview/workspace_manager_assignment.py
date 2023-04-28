@@ -111,6 +111,37 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
         """
         The workspace manager assignment
 
+        ## Example Usage
+        ### Creates or updates a workspace manager assignment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_manager_assignment = azure_native.securityinsights.v20230401preview.WorkspaceManagerAssignment("workspaceManagerAssignment",
+            items=[
+                azure_native.securityinsights.v20230401preview.AssignmentItemArgs(
+                    resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleOne",
+                ),
+                azure_native.securityinsights.v20230401preview.AssignmentItemArgs(
+                    resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleTwo",
+                ),
+            ],
+            resource_group_name="myRg",
+            target_resource_name="37207a7a-3b8a-438f-a559-c7df400e1b96",
+            workspace_manager_assignment_name="47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerAssignment 47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerAssignments/47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AssignmentItemArgs']]]] items: List of resources included in this workspace manager assignment
@@ -127,6 +158,37 @@ class WorkspaceManagerAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The workspace manager assignment
+
+        ## Example Usage
+        ### Creates or updates a workspace manager assignment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_manager_assignment = azure_native.securityinsights.v20230401preview.WorkspaceManagerAssignment("workspaceManagerAssignment",
+            items=[
+                azure_native.securityinsights.v20230401preview.AssignmentItemArgs(
+                    resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleOne",
+                ),
+                azure_native.securityinsights.v20230401preview.AssignmentItemArgs(
+                    resource_id="/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleTwo",
+                ),
+            ],
+            resource_group_name="myRg",
+            target_resource_name="37207a7a-3b8a-438f-a559-c7df400e1b96",
+            workspace_manager_assignment_name="47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerAssignment 47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerAssignments/47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceManagerAssignmentArgs args: The arguments to use to populate this resource's properties.

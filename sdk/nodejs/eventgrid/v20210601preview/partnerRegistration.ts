@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about a partner registration.
+ *
+ * ## Example Usage
+ * ### PartnerRegistrations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const partnerRegistration = new azure_native.eventgrid.v20210601preview.PartnerRegistration("partnerRegistration", {
+ *     authorizedAzureSubscriptionIds: ["d48566a8-2428-4a6c-8347-9675d09fb851"],
+ *     location: "global",
+ *     logoUri: "https://www.example.com/logo.png",
+ *     partnerName: "ContosoCorp",
+ *     partnerRegistrationName: "examplePartnerRegistrationName1",
+ *     partnerResourceTypeDescription: "ContocoCorp Accounts Description Text",
+ *     partnerResourceTypeDisplayName: "ContocoCorp Accounts DisplayName Text",
+ *     partnerResourceTypeName: "ContosoCorp.Accounts",
+ *     resourceGroupName: "examplerg",
+ *     setupUri: "https://www.example.com/setup.html",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "Value2",
+ *         key3: "Value3",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid/v20210601preview:PartnerRegistration examplePartnerRegistrationName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerRegistrations/examplePartnerRegistrationName1 
+ * ```
  */
 export class PartnerRegistration extends pulumi.CustomResource {
     /**

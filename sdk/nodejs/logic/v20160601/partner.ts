@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account partner.
+ *
+ * ## Example Usage
+ * ### Create or update a partner
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const partner = new azure_native.logic.v20160601.Partner("partner", {
+ *     content: {
+ *         b2b: {
+ *             businessIdentities: [{
+ *                 qualifier: "AA",
+ *                 value: "ZZ",
+ *             }],
+ *         },
+ *     },
+ *     integrationAccountName: "testIntegrationAccount",
+ *     location: "westus",
+ *     metadata: {},
+ *     partnerName: "testPartner",
+ *     partnerType: azure_native.logic.v20160601.PartnerType.B2B,
+ *     resourceGroupName: "testResourceGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic/v20160601:Partner testPartner /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/flowrg/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/partners/testPartner 
+ * ```
  */
 export class Partner extends pulumi.CustomResource {
     /**

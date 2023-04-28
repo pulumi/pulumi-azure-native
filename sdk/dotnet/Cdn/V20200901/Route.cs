@@ -11,6 +11,77 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// Friendly Routes name mapping to the any Routes or secret related information.
+    /// 
+    /// ## Example Usage
+    /// ### Routes_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var route = new AzureNative.Cdn.V20200901.Route("route", new()
+    ///     {
+    ///         CompressionSettings = new AzureNative.Cdn.V20200901.Inputs.CompressionSettingsArgs
+    ///         {
+    ///             ContentTypesToCompress = new[]
+    ///             {
+    ///                 "text/html",
+    ///                 "application/octet-stream",
+    ///             },
+    ///             IsCompressionEnabled = true,
+    ///         },
+    ///         CustomDomains = new[]
+    ///         {
+    ///             new AzureNative.Cdn.V20200901.Inputs.ResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/domain1",
+    ///             },
+    ///         },
+    ///         EnabledState = "Enabled",
+    ///         EndpointName = "endpoint1",
+    ///         ForwardingProtocol = "MatchRequest",
+    ///         HttpsRedirect = "Enabled",
+    ///         LinkToDefaultDomain = "Enabled",
+    ///         OriginGroup = new AzureNative.Cdn.V20200901.Inputs.ResourceReferenceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1",
+    ///         },
+    ///         PatternsToMatch = new[]
+    ///         {
+    ///             "/*",
+    ///         },
+    ///         ProfileName = "profile1",
+    ///         QueryStringCachingBehavior = AzureNative.Cdn.V20200901.AfdQueryStringCachingBehavior.IgnoreQueryString,
+    ///         ResourceGroupName = "RG",
+    ///         RouteName = "route1",
+    ///         RuleSets = new[]
+    ///         {
+    ///             new AzureNative.Cdn.V20200901.Inputs.ResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1",
+    ///             },
+    ///         },
+    ///         SupportedProtocols = new[]
+    ///         {
+    ///             "Https",
+    ///             "Http",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20200901:Route route1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afdendpoints/endpoint1/routes/route1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:Route")]
     public partial class Route : global::Pulumi.CustomResource

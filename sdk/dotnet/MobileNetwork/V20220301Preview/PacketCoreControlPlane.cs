@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220301Preview
 {
     /// <summary>
     /// Packet core control plane resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create packet core control plane
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var packetCoreControlPlane = new AzureNative.MobileNetwork.V20220301Preview.PacketCoreControlPlane("packetCoreControlPlane", new()
+    ///     {
+    ///         ControlPlaneAccessInterface = new AzureNative.MobileNetwork.V20220301Preview.Inputs.InterfacePropertiesArgs
+    ///         {
+    ///             Name = "N2",
+    ///         },
+    ///         CoreNetworkTechnology = "5GC",
+    ///         CustomLocation = new AzureNative.MobileNetwork.V20220301Preview.Inputs.CustomLocationResourceIdArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/TestCustomLocation",
+    ///         },
+    ///         Location = "eastus",
+    ///         MobileNetwork = new AzureNative.MobileNetwork.V20220301Preview.Inputs.MobileNetworkResourceIdArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork",
+    ///         },
+    ///         PacketCoreControlPlaneName = "TestPacketCoreCP",
+    ///         ResourceGroupName = "rg1",
+    ///         Version = "0.2.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane TestPacketCoreCP /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220301preview:PacketCoreControlPlane")]
     public partial class PacketCoreControlPlane : global::Pulumi.CustomResource

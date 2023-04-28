@@ -12,6 +12,152 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// API Version: 2020-01-01.
     /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update an application control machine group by adding a new application
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adaptiveApplicationControl = new AzureNative.Security.AdaptiveApplicationControl("adaptiveApplicationControl", new()
+    ///     {
+    ///         AscLocation = "centralus",
+    ///         EnforcementMode = "Audit",
+    ///         GroupName = "ERELGROUP1",
+    ///         PathRecommendations = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.PathRecommendationArgs
+    ///             {
+    ///                 Action = "Recommended",
+    ///                 Common = true,
+    ///                 ConfigurationStatus = "Configured",
+    ///                 FileType = "Exe",
+    ///                 Path = "[Exe] O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US\\*\\*\\0.0.0.0",
+    ///                 PublisherInfo = new AzureNative.Security.Inputs.PublisherInfoArgs
+    ///                 {
+    ///                     BinaryName = "*",
+    ///                     ProductName = "*",
+    ///                     PublisherName = "O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US",
+    ///                     Version = "0.0.0.0",
+    ///                 },
+    ///                 Type = "PublisherSignature",
+    ///                 UserSids = new[]
+    ///                 {
+    ///                     "S-1-1-0",
+    ///                 },
+    ///                 Usernames = new[]
+    ///                 {
+    ///                     new AzureNative.Security.Inputs.UserRecommendationArgs
+    ///                     {
+    ///                         RecommendationAction = "Recommended",
+    ///                         Username = "Everyone",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Security.Inputs.PathRecommendationArgs
+    ///             {
+    ///                 Action = "Recommended",
+    ///                 Common = true,
+    ///                 ConfigurationStatus = "Configured",
+    ///                 FileType = "Exe",
+    ///                 Path = "%OSDRIVE%\\WINDOWSAZURE\\SECAGENT\\WASECAGENTPROV.EXE",
+    ///                 PublisherInfo = new AzureNative.Security.Inputs.PublisherInfoArgs
+    ///                 {
+    ///                     BinaryName = "*",
+    ///                     ProductName = "MICROSOFT® COREXT",
+    ///                     PublisherName = "CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+    ///                     Version = "0.0.0.0",
+    ///                 },
+    ///                 Type = "ProductSignature",
+    ///                 UserSids = new[]
+    ///                 {
+    ///                     "S-1-1-0",
+    ///                 },
+    ///                 Usernames = new[]
+    ///                 {
+    ///                     new AzureNative.Security.Inputs.UserRecommendationArgs
+    ///                     {
+    ///                         RecommendationAction = "Recommended",
+    ///                         Username = "NT AUTHORITY\\SYSTEM",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Security.Inputs.PathRecommendationArgs
+    ///             {
+    ///                 Action = "Recommended",
+    ///                 Common = true,
+    ///                 ConfigurationStatus = "Configured",
+    ///                 FileType = "Exe",
+    ///                 Path = "%OSDRIVE%\\WINDOWSAZURE\\PACKAGES_201973_7415\\COLLECTGUESTLOGS.EXE",
+    ///                 PublisherInfo = new AzureNative.Security.Inputs.PublisherInfoArgs
+    ///                 {
+    ///                     BinaryName = "*",
+    ///                     ProductName = "*",
+    ///                     PublisherName = "CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+    ///                     Version = "0.0.0.0",
+    ///                 },
+    ///                 Type = "PublisherSignature",
+    ///                 UserSids = new[]
+    ///                 {
+    ///                     "S-1-1-0",
+    ///                 },
+    ///                 Usernames = new[]
+    ///                 {
+    ///                     new AzureNative.Security.Inputs.UserRecommendationArgs
+    ///                     {
+    ///                         RecommendationAction = "Recommended",
+    ///                         Username = "NT AUTHORITY\\SYSTEM",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Security.Inputs.PathRecommendationArgs
+    ///             {
+    ///                 Action = "Add",
+    ///                 Common = true,
+    ///                 Path = "C:\\directory\\file.exe",
+    ///                 Type = "File",
+    ///             },
+    ///         },
+    ///         ProtectionMode = new AzureNative.Security.Inputs.ProtectionModeArgs
+    ///         {
+    ///             Exe = "Audit",
+    ///             Msi = "None",
+    ///             Script = "None",
+    ///         },
+    ///         VmRecommendations = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.VmRecommendationArgs
+    ///             {
+    ///                 ConfigurationStatus = "Configured",
+    ///                 EnforcementSupport = "Supported",
+    ///                 RecommendationAction = "Recommended",
+    ///                 ResourceId = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/erelh-stable/providers/microsoft.compute/virtualmachines/erelh-16090",
+    ///             },
+    ///             new AzureNative.Security.Inputs.VmRecommendationArgs
+    ///             {
+    ///                 ConfigurationStatus = "Configured",
+    ///                 EnforcementSupport = "Supported",
+    ///                 RecommendationAction = "Recommended",
+    ///                 ResourceId = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/matanvs/providers/microsoft.compute/virtualmachines/matanvs19",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:AdaptiveApplicationControl ERELGROUP1 /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/locations/centralus/applicationWhitelistings/ERELGROUP1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:AdaptiveApplicationControl")]
     public partial class AdaptiveApplicationControl : global::Pulumi.CustomResource

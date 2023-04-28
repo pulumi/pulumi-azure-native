@@ -96,6 +96,31 @@ class TrafficControllerInterface(pulumi.CustomResource):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
 
+        ## Example Usage
+        ### Put Traffic Controller
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        traffic_controller_interface = azure_native.servicenetworking.v20221001preview.TrafficControllerInterface("trafficControllerInterface",
+            location="NorthCentralUS",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            traffic_controller_name="tc1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicenetworking/v20221001preview:TrafficControllerInterface tc1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -111,6 +136,31 @@ class TrafficControllerInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Concrete tracked resource types can be created by aliasing this type using a specific property type.
+
+        ## Example Usage
+        ### Put Traffic Controller
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        traffic_controller_interface = azure_native.servicenetworking.v20221001preview.TrafficControllerInterface("trafficControllerInterface",
+            location="NorthCentralUS",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            traffic_controller_name="tc1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicenetworking/v20221001preview:TrafficControllerInterface tc1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TrafficControllerInterfaceArgs args: The arguments to use to populate this resource's properties.

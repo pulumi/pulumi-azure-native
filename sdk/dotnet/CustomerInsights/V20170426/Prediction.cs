@@ -11,6 +11,59 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The prediction resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Predictions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var prediction = new AzureNative.CustomerInsights.V20170426.Prediction("prediction", new()
+    ///     {
+    ///         AutoAnalyze = true,
+    ///         Description = 
+    ///         {
+    ///             { "en-us", "sdktest" },
+    ///         },
+    ///         DisplayName = 
+    ///         {
+    ///             { "en-us", "sdktest" },
+    ///         },
+    ///         Grades = new[] {},
+    ///         HubName = "sdkTestHub",
+    ///         InvolvedInteractionTypes = new[] {},
+    ///         InvolvedKpiTypes = new[] {},
+    ///         InvolvedRelationships = new[] {},
+    ///         Mappings = new AzureNative.CustomerInsights.V20170426.Inputs.PredictionMappingsArgs
+    ///         {
+    ///             Grade = "sdktest_Grade",
+    ///             Reason = "sdktest_Reason",
+    ///             Score = "sdktest_Score",
+    ///         },
+    ///         NegativeOutcomeExpression = "Customers.FirstName = 'Mike'",
+    ///         PositiveOutcomeExpression = "Customers.FirstName = 'David'",
+    ///         PredictionName = "sdktest",
+    ///         PrimaryProfileType = "Customers",
+    ///         ResourceGroupName = "TestHubRG",
+    ///         ScopeExpression = "*",
+    ///         ScoreLabel = "score label",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170426:Prediction sdkTestHub/sdktest /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/predictions/sdktest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Prediction")]
     public partial class Prediction : global::Pulumi.CustomResource

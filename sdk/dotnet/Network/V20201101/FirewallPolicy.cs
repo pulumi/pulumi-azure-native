@@ -11,6 +11,146 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// FirewallPolicy Resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create FirewallPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var firewallPolicy = new AzureNative.Network.V20201101.FirewallPolicy("firewallPolicy", new()
+    ///     {
+    ///         DnsSettings = new AzureNative.Network.V20201101.Inputs.DnsSettingsArgs
+    ///         {
+    ///             EnableProxy = true,
+    ///             RequireProxyForNetworkRules = false,
+    ///             Servers = new[]
+    ///             {
+    ///                 "30.3.4.5",
+    ///             },
+    ///         },
+    ///         FirewallPolicyName = "firewallPolicy",
+    ///         Insights = new AzureNative.Network.V20201101.Inputs.FirewallPolicyInsightsArgs
+    ///         {
+    ///             IsEnabled = true,
+    ///             LogAnalyticsResources = new AzureNative.Network.V20201101.Inputs.FirewallPolicyLogAnalyticsResourcesArgs
+    ///             {
+    ///                 DefaultWorkspaceId = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/defaultWorkspace",
+    ///                 },
+    ///                 Workspaces = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20201101.Inputs.FirewallPolicyLogAnalyticsWorkspaceArgs
+    ///                     {
+    ///                         Region = "westus",
+    ///                         WorkspaceId = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace1",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.Network.V20201101.Inputs.FirewallPolicyLogAnalyticsWorkspaceArgs
+    ///                     {
+    ///                         Region = "eastus",
+    ///                         WorkspaceId = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             RetentionDays = 100,
+    ///         },
+    ///         IntrusionDetection = new AzureNative.Network.V20201101.Inputs.FirewallPolicyIntrusionDetectionArgs
+    ///         {
+    ///             Configuration = new AzureNative.Network.V20201101.Inputs.FirewallPolicyIntrusionDetectionConfigurationArgs
+    ///             {
+    ///                 BypassTrafficSettings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20201101.Inputs.FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs
+    ///                     {
+    ///                         Description = "Rule 1",
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "5.6.7.8",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         Name = "bypassRule1",
+    ///                         Protocol = "TCP",
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "1.2.3.4",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 SignatureOverrides = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20201101.Inputs.FirewallPolicyIntrusionDetectionSignatureSpecificationArgs
+    ///                     {
+    ///                         Id = "2525004",
+    ///                         Mode = "Deny",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Mode = "Alert",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20201101.Inputs.FirewallPolicySkuArgs
+    ///         {
+    ///             Tier = "Premium",
+    ///         },
+    ///         Snat = new AzureNative.Network.V20201101.Inputs.FirewallPolicySNATArgs
+    ///         {
+    ///             PrivateRanges = new[]
+    ///             {
+    ///                 "IANAPrivateRanges",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ThreatIntelMode = "Alert",
+    ///         ThreatIntelWhitelist = new AzureNative.Network.V20201101.Inputs.FirewallPolicyThreatIntelWhitelistArgs
+    ///         {
+    ///             Fqdns = new[]
+    ///             {
+    ///                 "*.microsoft.com",
+    ///             },
+    ///             IpAddresses = new[]
+    ///             {
+    ///                 "20.3.4.5",
+    ///             },
+    ///         },
+    ///         TransportSecurity = new AzureNative.Network.V20201101.Inputs.FirewallPolicyTransportSecurityArgs
+    ///         {
+    ///             CertificateAuthority = new AzureNative.Network.V20201101.Inputs.FirewallPolicyCertificateAuthorityArgs
+    ///             {
+    ///                 KeyVaultSecretId = "https://kv/secret",
+    ///                 Name = "clientcert",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:FirewallPolicy firewallPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:FirewallPolicy")]
     public partial class FirewallPolicy : global::Pulumi.CustomResource

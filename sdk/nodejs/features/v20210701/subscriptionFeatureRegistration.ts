@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Subscription feature registration details
+ *
+ * ## Example Usage
+ * ### Creates a feature registration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subscriptionFeatureRegistration = new azure_native.features.v20210701.SubscriptionFeatureRegistration("subscriptionFeatureRegistration", {
+ *     featureName: "testFeature",
+ *     properties: {},
+ *     providerNamespace: "subscriptionFeatureRegistrationGroupTestRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:features/v20210701:SubscriptionFeatureRegistration testFeature /subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Features/featureProviders/Microsoft.TestRP/subscriptionFeatureRegistrations/testFeature 
+ * ```
  */
 export class SubscriptionFeatureRegistration extends pulumi.CustomResource {
     /**

@@ -11,6 +11,186 @@ namespace Pulumi.AzureNative.Storage.V20210201
 {
     /// <summary>
     /// The storage account.
+    /// 
+    /// ## Example Usage
+    /// ### NfsV3AccountCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAccount = new AzureNative.Storage.V20210201.StorageAccount("storageAccount", new()
+    ///     {
+    ///         AccountName = "sto4445",
+    ///         EnableHttpsTrafficOnly = false,
+    ///         EnableNfsV3 = true,
+    ///         IsHnsEnabled = true,
+    ///         Kind = "BlockBlobStorage",
+    ///         Location = "eastus",
+    ///         NetworkRuleSet = new AzureNative.Storage.V20210201.Inputs.NetworkRuleSetArgs
+    ///         {
+    ///             Bypass = "AzureServices",
+    ///             DefaultAction = AzureNative.Storage.V20210201.DefaultAction.Allow,
+    ///             IpRules = new[] {},
+    ///             VirtualNetworkRules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20210201.Inputs.VirtualNetworkRuleArgs
+    ///                 {
+    ///                     VirtualNetworkResourceId = "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Network/virtualNetworks/net123/subnets/subnet12",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res9101",
+    ///         Sku = new AzureNative.Storage.V20210201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Premium_LRS",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAccount = new AzureNative.Storage.V20210201.StorageAccount("storageAccount", new()
+    ///     {
+    ///         AccountName = "sto4445",
+    ///         AllowBlobPublicAccess = false,
+    ///         AllowSharedKeyAccess = true,
+    ///         Encryption = new AzureNative.Storage.V20210201.Inputs.EncryptionArgs
+    ///         {
+    ///             KeySource = "Microsoft.Storage",
+    ///             RequireInfrastructureEncryption = false,
+    ///             Services = new AzureNative.Storage.V20210201.Inputs.EncryptionServicesArgs
+    ///             {
+    ///                 Blob = new AzureNative.Storage.V20210201.Inputs.EncryptionServiceArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     KeyType = "Account",
+    ///                 },
+    ///                 File = new AzureNative.Storage.V20210201.Inputs.EncryptionServiceArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     KeyType = "Account",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ExtendedLocation = new AzureNative.Storage.V20210201.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "losangeles001",
+    ///             Type = "EdgeZone",
+    ///         },
+    ///         IsHnsEnabled = true,
+    ///         KeyPolicy = new AzureNative.Storage.V20210201.Inputs.KeyPolicyArgs
+    ///         {
+    ///             KeyExpirationPeriodInDays = 20,
+    ///         },
+    ///         Kind = "Storage",
+    ///         Location = "eastus",
+    ///         MinimumTlsVersion = "TLS1_2",
+    ///         ResourceGroupName = "res9101",
+    ///         RoutingPreference = new AzureNative.Storage.V20210201.Inputs.RoutingPreferenceArgs
+    ///         {
+    ///             PublishInternetEndpoints = true,
+    ///             PublishMicrosoftEndpoints = true,
+    ///             RoutingChoice = "MicrosoftRouting",
+    ///         },
+    ///         SasPolicy = new AzureNative.Storage.V20210201.Inputs.SasPolicyArgs
+    ///         {
+    ///             ExpirationAction = "Log",
+    ///             SasExpirationPeriod = "1.15:59:59",
+    ///         },
+    ///         Sku = new AzureNative.Storage.V20210201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_GRS",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountCreateUserAssignedEncryptionIdentityWithCMK
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAccount = new AzureNative.Storage.V20210201.StorageAccount("storageAccount", new()
+    ///     {
+    ///         AccountName = "sto4445",
+    ///         Encryption = new AzureNative.Storage.V20210201.Inputs.EncryptionArgs
+    ///         {
+    ///             EncryptionIdentity = new AzureNative.Storage.V20210201.Inputs.EncryptionIdentityArgs
+    ///             {
+    ///                 EncryptionUserAssignedIdentity = "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}",
+    ///             },
+    ///             KeySource = "Microsoft.Keyvault",
+    ///             KeyVaultProperties = new AzureNative.Storage.V20210201.Inputs.KeyVaultPropertiesArgs
+    ///             {
+    ///                 KeyName = "wrappingKey",
+    ///                 KeyVaultUri = "https://myvault8569.vault.azure.net",
+    ///                 KeyVersion = "",
+    ///             },
+    ///             Services = new AzureNative.Storage.V20210201.Inputs.EncryptionServicesArgs
+    ///             {
+    ///                 Blob = new AzureNative.Storage.V20210201.Inputs.EncryptionServiceArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     KeyType = "Account",
+    ///                 },
+    ///                 File = new AzureNative.Storage.V20210201.Inputs.EncryptionServiceArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                     KeyType = "Account",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.Storage.V20210201.Inputs.IdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}", null },
+    ///             },
+    ///         },
+    ///         Kind = "Storage",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "res9101",
+    ///         Sku = new AzureNative.Storage.V20210201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_LRS",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20210201:StorageAccount sto4445 /subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210201:StorageAccount")]
     public partial class StorageAccount : global::Pulumi.CustomResource

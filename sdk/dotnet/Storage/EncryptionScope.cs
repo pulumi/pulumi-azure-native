@@ -13,6 +13,55 @@ namespace Pulumi.AzureNative.Storage
     /// The Encryption Scope resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountPutEncryptionScope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var encryptionScope = new AzureNative.Storage.EncryptionScope("encryptionScope", new()
+    ///     {
+    ///         AccountName = "{storage-account-name}",
+    ///         EncryptionScopeName = "{encryption-scope-name}",
+    ///         ResourceGroupName = "resource-group-name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountPutEncryptionScopeWithInfrastructureEncryption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var encryptionScope = new AzureNative.Storage.EncryptionScope("encryptionScope", new()
+    ///     {
+    ///         AccountName = "{storage-account-name}",
+    ///         EncryptionScopeName = "{encryption-scope-name}",
+    ///         RequireInfrastructureEncryption = true,
+    ///         ResourceGroupName = "resource-group-name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage:EncryptionScope {encryption-scope-name} /subscriptions/{subscription-id}/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/{storage-account-name}/encryptionScopes/{encryption-scope-name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage:EncryptionScope")]
     public partial class EncryptionScope : global::Pulumi.CustomResource

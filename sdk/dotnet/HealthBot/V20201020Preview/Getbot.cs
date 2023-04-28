@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.HealthBot.V20201020Preview
 {
     /// <summary>
     /// HealthBot resource definition
+    /// 
+    /// ## Example Usage
+    /// ### BatchAccountDelete
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var getbot = new AzureNative.HealthBot.V20201020Preview.Getbot("getbot", new()
+    ///     {
+    ///         Location = "East US",
+    ///         ResourceGroupName = "healthbotClient",
+    ///         ResourceName = "MyBot",
+    ///         Sku = new AzureNative.HealthBot.V20201020Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "F0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthbot/v20201020preview:getbot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2020-10-20-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:healthbot/v20201020preview:getbot")]

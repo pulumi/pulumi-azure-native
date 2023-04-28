@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing an attached database configuration.
+ *
+ * ## Example Usage
+ * ### AttachedDatabaseConfigurationsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const attachedDatabaseConfiguration = new azure_native.kusto.v20221229.AttachedDatabaseConfiguration("attachedDatabaseConfiguration", {
+ *     attachedDatabaseConfigurationName: "attachedDatabaseConfigurationsTest",
+ *     clusterName: "kustoCluster2",
+ *     clusterResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster2",
+ *     databaseName: "kustodatabase",
+ *     databaseNameOverride: "overridekustodatabase",
+ *     defaultPrincipalsModificationKind: "Union",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     tableLevelSharingProperties: {
+ *         externalTablesToExclude: ["ExternalTable2"],
+ *         externalTablesToInclude: ["ExternalTable1"],
+ *         materializedViewsToExclude: ["MaterializedViewTable2"],
+ *         materializedViewsToInclude: ["MaterializedViewTable1"],
+ *         tablesToExclude: ["Table2"],
+ *         tablesToInclude: ["Table1"],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto/v20221229:AttachedDatabaseConfiguration kustoCluster2/attachedDatabaseConfigurationsTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster2/attachedDatabaseConfigurations/attachedDatabaseConfigurationsTest 
+ * ```
  */
 export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**

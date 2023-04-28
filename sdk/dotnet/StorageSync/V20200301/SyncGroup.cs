@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.StorageSync.V20200301
 {
     /// <summary>
     /// Sync Group object.
+    /// 
+    /// ## Example Usage
+    /// ### SyncGroups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var syncGroup = new AzureNative.StorageSync.V20200301.SyncGroup("syncGroup", new()
+    ///     {
+    ///         ResourceGroupName = "SampleResourceGroup_1",
+    ///         StorageSyncServiceName = "SampleStorageSyncService_1",
+    ///         SyncGroupName = "SampleSyncGroup_1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagesync/v20200301:SyncGroup SampleSyncGroup_1 /subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagesync/v20200301:SyncGroup")]
     public partial class SyncGroup : global::Pulumi.CustomResource

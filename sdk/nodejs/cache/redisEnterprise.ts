@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * Describes the RedisEnterprise cluster
  * API Version: 2022-01-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RedisEnterpriseCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redisEnterprise = new azure_native.cache.RedisEnterprise("redisEnterprise", {
+ *     clusterName: "cache1",
+ *     location: "West US",
+ *     minimumTlsVersion: "1.2",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         capacity: 3,
+ *         name: "EnterpriseFlash_F300",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *     },
+ *     zones: [
+ *         "1",
+ *         "2",
+ *         "3",
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cache:RedisEnterprise cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1 
+ * ```
  */
 export class RedisEnterprise extends pulumi.CustomResource {
     /**

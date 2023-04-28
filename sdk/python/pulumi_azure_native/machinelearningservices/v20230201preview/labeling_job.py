@@ -96,6 +96,83 @@ class LabelingJob(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Labeling Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        labeling_job = azure_native.machinelearningservices.v20230201preview.LabelingJob("labelingJob",
+            id="testLabelingJob",
+            labeling_job_properties=azure_native.machinelearningservices.v20230201preview.LabelingJobResponseArgs(
+                description="string",
+                job_instructions=azure_native.machinelearningservices.v20230201preview.LabelingJobInstructionsArgs(
+                    uri="link/to/instructions",
+                ),
+                job_type="Labeling",
+                label_categories={
+                    "myCategory1": azure_native.machinelearningservices.v20230201preview.LabelCategoryArgs(
+                        classes={
+                            "myLabelClass1": azure_native.machinelearningservices.v20230201preview.LabelClassArgs(
+                                display_name="myLabelClass1",
+                                subclasses={},
+                            ),
+                            "myLabelClass2": azure_native.machinelearningservices.v20230201preview.LabelClassArgs(
+                                display_name="myLabelClass2",
+                                subclasses={},
+                            ),
+                        },
+                        display_name="myCategory1Title",
+                        multi_select="Disabled",
+                    ),
+                    "myCategory2": azure_native.machinelearningservices.v20230201preview.LabelCategoryArgs(
+                        classes={
+                            "myLabelClass1": azure_native.machinelearningservices.v20230201preview.LabelClassArgs(
+                                display_name="myLabelClass1",
+                                subclasses={},
+                            ),
+                            "myLabelClass2": azure_native.machinelearningservices.v20230201preview.LabelClassArgs(
+                                display_name="myLabelClass2",
+                                subclasses={},
+                            ),
+                        },
+                        display_name="myCategory2Title",
+                        multi_select="Disabled",
+                    ),
+                },
+                labeling_job_media_properties=azure_native.machinelearningservices.v20230201preview.LabelingJobImagePropertiesArgs(
+                    media_type="Image",
+                ),
+                ml_assist_configuration=azure_native.machinelearningservices.v20230201preview.MLAssistConfigurationEnabledArgs(
+                    inferencing_compute_binding="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/myscoringcompute",
+                    ml_assist="Enabled",
+                    training_compute_binding="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mytrainingompute",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="workspace-1234",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:LabelingJob testLabelingJob /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/labelingJobs/testLabelingJob 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: The name and identifier for the LabelingJob.
@@ -111,6 +188,83 @@ class LabelingJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Labeling Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        labeling_job = azure_native.machinelearningservices.v20230201preview.LabelingJob("labelingJob",
+            id="testLabelingJob",
+            labeling_job_properties=azure_native.machinelearningservices.v20230201preview.LabelingJobResponseArgs(
+                description="string",
+                job_instructions=azure_native.machinelearningservices.v20230201preview.LabelingJobInstructionsArgs(
+                    uri="link/to/instructions",
+                ),
+                job_type="Labeling",
+                label_categories={
+                    "myCategory1": azure_native.machinelearningservices.v20230201preview.LabelCategoryArgs(
+                        classes={
+                            "myLabelClass1": azure_native.machinelearningservices.v20230201preview.LabelClassArgs(
+                                display_name="myLabelClass1",
+                                subclasses={},
+                            ),
+                            "myLabelClass2": azure_native.machinelearningservices.v20230201preview.LabelClassArgs(
+                                display_name="myLabelClass2",
+                                subclasses={},
+                            ),
+                        },
+                        display_name="myCategory1Title",
+                        multi_select="Disabled",
+                    ),
+                    "myCategory2": azure_native.machinelearningservices.v20230201preview.LabelCategoryArgs(
+                        classes={
+                            "myLabelClass1": azure_native.machinelearningservices.v20230201preview.LabelClassArgs(
+                                display_name="myLabelClass1",
+                                subclasses={},
+                            ),
+                            "myLabelClass2": azure_native.machinelearningservices.v20230201preview.LabelClassArgs(
+                                display_name="myLabelClass2",
+                                subclasses={},
+                            ),
+                        },
+                        display_name="myCategory2Title",
+                        multi_select="Disabled",
+                    ),
+                },
+                labeling_job_media_properties=azure_native.machinelearningservices.v20230201preview.LabelingJobImagePropertiesArgs(
+                    media_type="Image",
+                ),
+                ml_assist_configuration=azure_native.machinelearningservices.v20230201preview.MLAssistConfigurationEnabledArgs(
+                    inferencing_compute_binding="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/myscoringcompute",
+                    ml_assist="Enabled",
+                    training_compute_binding="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mytrainingompute",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="workspace-1234",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:LabelingJob testLabelingJob /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/labelingJobs/testLabelingJob 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LabelingJobInitArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.LoadTestService.V20211201Preview
 {
     /// <summary>
     /// LoadTest details
+    /// 
+    /// ## Example Usage
+    /// ### LoadTests_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadTest = new AzureNative.LoadTestService.V20211201Preview.LoadTest("loadTest", new()
+    ///     {
+    ///         Description = "This is new load test resource",
+    ///         Identity = new AzureNative.LoadTestService.V20211201Preview.Inputs.SystemAssignedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         LoadTestName = "myLoadTest",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "dummyrg",
+    ///         Tags = 
+    ///         {
+    ///             { "Team", "Dev Exp" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:loadtestservice/v20211201preview:LoadTest myLoadTest /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.LoadTestService/loadTests/myLoadTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice/v20211201preview:LoadTest")]
     public partial class LoadTest : global::Pulumi.CustomResource

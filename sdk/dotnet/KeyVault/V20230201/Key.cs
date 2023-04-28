@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.KeyVault.V20230201
 {
     /// <summary>
     /// The key resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create a key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var key = new AzureNative.KeyVault.V20230201.Key("key", new()
+    ///     {
+    ///         KeyName = "sample-key-name",
+    ///         Properties = new AzureNative.KeyVault.V20230201.Inputs.KeyPropertiesArgs
+    ///         {
+    ///             Kty = "RSA",
+    ///         },
+    ///         ResourceGroupName = "sample-group",
+    ///         VaultName = "sample-vault-name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:keyvault/v20230201:Key sample-key-name /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault-name/keys/sample-key-name 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault/v20230201:Key")]
     public partial class Key : global::Pulumi.CustomResource

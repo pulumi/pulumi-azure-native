@@ -8,6 +8,32 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB Role Assignment
  * API Version: 2022-11-15.
  * Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CosmosDBSqlRoleAssignmentCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlResourceSqlRoleAssignment = new azure_native.documentdb.SqlResourceSqlRoleAssignment("sqlResourceSqlRoleAssignment", {
+ *     accountName: "myAccountName",
+ *     principalId: "myPrincipalId",
+ *     resourceGroupName: "myResourceGroupName",
+ *     roleAssignmentId: "myRoleAssignmentId",
+ *     roleDefinitionId: "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId",
+ *     scope: "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases/colls/redmond-purchases",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb:SqlResourceSqlRoleAssignment myRoleAssignmentId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleAssignments/myRoleAssignmentId 
+ * ```
  */
 export class SqlResourceSqlRoleAssignment extends pulumi.CustomResource {
     /**

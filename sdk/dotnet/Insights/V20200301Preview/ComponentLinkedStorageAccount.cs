@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Insights.V20200301Preview
 {
     /// <summary>
     /// An Application Insights component linked storage accounts
+    /// 
+    /// ## Example Usage
+    /// ### ComponentLinkedStorageAccountsCreateAndUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var componentLinkedStorageAccount = new AzureNative.Insights.V20200301Preview.ComponentLinkedStorageAccount("componentLinkedStorageAccount", new()
+    ///     {
+    ///         LinkedStorageAccount = "/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname",
+    ///         ResourceGroupName = "someResourceGroupName",
+    ///         ResourceName = "myComponent",
+    ///         StorageType = "ServiceProfiler",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20200301preview:ComponentLinkedStorageAccount serviceprofile /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupNameproviders/microsoft.insights/components/myComponent/linkedStorageAccounts/serviceprofiler 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20200301preview:ComponentLinkedStorageAccount")]
     public partial class ComponentLinkedStorageAccount : global::Pulumi.CustomResource

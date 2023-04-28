@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * NSX Public IP Block
+ *
+ * ## Example Usage
+ * ### WorkloadNetworks_CreatePublicIP
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadNetworkPublicIP = new azure_native.avs.v20210601.WorkloadNetworkPublicIP("workloadNetworkPublicIP", {
+ *     displayName: "publicIP1",
+ *     numberOfPublicIPs: 32,
+ *     privateCloudName: "cloud1",
+ *     publicIPId: "publicIP1",
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20210601:WorkloadNetworkPublicIP publicIP1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/publicIPs/publicIP1 
+ * ```
  */
 export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
     /**

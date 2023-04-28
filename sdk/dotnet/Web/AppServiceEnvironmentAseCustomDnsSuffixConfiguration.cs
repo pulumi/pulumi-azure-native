@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.Web
     /// Full view of the custom domain suffix configuration for ASEv3.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update ASE custom DNS suffix configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appServiceEnvironmentAseCustomDnsSuffixConfiguration = new AzureNative.Web.AppServiceEnvironmentAseCustomDnsSuffixConfiguration("appServiceEnvironmentAseCustomDnsSuffixConfiguration", new()
+    ///     {
+    ///         CertificateUrl = "https://test-kv.vault.azure.net/secrets/contosocert",
+    ///         DnsSuffix = "contoso.com",
+    ///         KeyVaultReferenceIdentity = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/test-rg/providers/microsoft.managedidentity/userassignedidentities/test-user-mi",
+    ///         Name = "test-ase",
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration customDnsSuffix /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase/configurations/customdnssuffix 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration")]
     public partial class AppServiceEnvironmentAseCustomDnsSuffixConfiguration : global::Pulumi.CustomResource

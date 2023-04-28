@@ -98,6 +98,60 @@ class WebPubSubHub(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### WebPubSubHubs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_hub = azure_native.webpubsub.WebPubSubHub("webPubSubHub",
+            hub_name="exampleHub",
+            properties=azure_native.webpubsub.WebPubSubHubPropertiesResponseArgs(
+                anonymous_connect_policy="allow",
+                event_handlers=[{
+                    "auth": {
+                        "managedIdentity": azure_native.webpubsub.ManagedIdentitySettingsArgs(
+                            resource="abc",
+                        ),
+                        "type": "ManagedIdentity",
+                    },
+                    "systemEvents": [
+                        "connect",
+                        "connected",
+                    ],
+                    "urlTemplate": "http://host.com",
+                    "userEventPattern": "*",
+                }],
+                event_listeners=[{
+                    "endpoint": azure_native.webpubsub.EventHubEndpointResponseArgs(
+                        event_hub_name="eventHubName1",
+                        fully_qualified_namespace="example.servicebus.windows.net",
+                        type="EventHub",
+                    ),
+                    "filter": azure_native.webpubsub.EventNameFilterResponseArgs(
+                        system_events=[
+                            "connected",
+                            "disconnected",
+                        ],
+                        type="EventName",
+                        user_event_pattern="*",
+                    ),
+                }],
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub:WebPubSubHub exampleHub /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/hubs/exampleHub 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hub_name: The hub name.
@@ -115,6 +169,60 @@ class WebPubSubHub(pulumi.CustomResource):
         A hub setting
         API Version: 2023-02-01.
         Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### WebPubSubHubs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_hub = azure_native.webpubsub.WebPubSubHub("webPubSubHub",
+            hub_name="exampleHub",
+            properties=azure_native.webpubsub.WebPubSubHubPropertiesResponseArgs(
+                anonymous_connect_policy="allow",
+                event_handlers=[{
+                    "auth": {
+                        "managedIdentity": azure_native.webpubsub.ManagedIdentitySettingsArgs(
+                            resource="abc",
+                        ),
+                        "type": "ManagedIdentity",
+                    },
+                    "systemEvents": [
+                        "connect",
+                        "connected",
+                    ],
+                    "urlTemplate": "http://host.com",
+                    "userEventPattern": "*",
+                }],
+                event_listeners=[{
+                    "endpoint": azure_native.webpubsub.EventHubEndpointResponseArgs(
+                        event_hub_name="eventHubName1",
+                        fully_qualified_namespace="example.servicebus.windows.net",
+                        type="EventHub",
+                    ),
+                    "filter": azure_native.webpubsub.EventNameFilterResponseArgs(
+                        system_events=[
+                            "connected",
+                            "disconnected",
+                        ],
+                        type="EventName",
+                        user_event_pattern="*",
+                    ),
+                }],
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub:WebPubSubHub exampleHub /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/hubs/exampleHub 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebPubSubHubArgs args: The arguments to use to populate this resource's properties.

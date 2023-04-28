@@ -113,6 +113,42 @@ class PlacementPolicy(pulumi.CustomResource):
         """
         A vSphere Distributed Resource Scheduler (DRS) placement policy
 
+        ## Example Usage
+        ### PlacementPolicies_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        placement_policy = azure_native.avs.v20211201.PlacementPolicy("placementPolicy",
+            cluster_name="cluster1",
+            placement_policy_name="policy1",
+            private_cloud_name="cloud1",
+            properties=azure_native.avs.v20211201.VmHostPlacementPolicyPropertiesArgs(
+                affinity_type="AntiAffinity",
+                host_members=[
+                    "fakehost22.nyc1.kubernetes.center",
+                    "fakehost23.nyc1.kubernetes.center",
+                    "fakehost24.nyc1.kubernetes.center",
+                ],
+                type="VmHost",
+                vm_members=[
+                    "/subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+                    "/subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+                ],
+            ),
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20211201:PlacementPolicy policy1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/placementPolicies/policy1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
@@ -129,6 +165,42 @@ class PlacementPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A vSphere Distributed Resource Scheduler (DRS) placement policy
+
+        ## Example Usage
+        ### PlacementPolicies_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        placement_policy = azure_native.avs.v20211201.PlacementPolicy("placementPolicy",
+            cluster_name="cluster1",
+            placement_policy_name="policy1",
+            private_cloud_name="cloud1",
+            properties=azure_native.avs.v20211201.VmHostPlacementPolicyPropertiesArgs(
+                affinity_type="AntiAffinity",
+                host_members=[
+                    "fakehost22.nyc1.kubernetes.center",
+                    "fakehost23.nyc1.kubernetes.center",
+                    "fakehost24.nyc1.kubernetes.center",
+                ],
+                type="VmHost",
+                vm_members=[
+                    "/subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+                    "/subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+                ],
+            ),
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20211201:PlacementPolicy policy1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/placementPolicies/policy1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PlacementPolicyArgs args: The arguments to use to populate this resource's properties.

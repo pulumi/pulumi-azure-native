@@ -113,6 +113,33 @@ class StorageMover(pulumi.CustomResource):
         """
         The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
 
+        ## Example Usage
+        ### StorageMovers_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_mover = azure_native.storagemover.v20220701preview.StorageMover("storageMover",
+            description="Example Storage Mover Description",
+            location="eastus2",
+            resource_group_name="examples-rg",
+            storage_mover_name="examples-storageMoverName",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagemover/v20220701preview:StorageMover examples-storageMoverName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description for the Storage Mover.
@@ -129,6 +156,33 @@ class StorageMover(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
+
+        ## Example Usage
+        ### StorageMovers_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_mover = azure_native.storagemover.v20220701preview.StorageMover("storageMover",
+            description="Example Storage Mover Description",
+            location="eastus2",
+            resource_group_name="examples-rg",
+            storage_mover_name="examples-storageMoverName",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagemover/v20220701preview:StorageMover examples-storageMoverName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageMoverArgs args: The arguments to use to populate this resource's properties.

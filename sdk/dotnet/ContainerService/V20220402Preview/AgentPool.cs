@@ -11,6 +11,621 @@ namespace Pulumi.AzureNative.ContainerService.V20220402Preview
 {
     /// <summary>
     /// Agent Pool.
+    /// 
+    /// ## Example Usage
+    /// ### Associate Agent Pool with Capacity Reservation Group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         CapacityReservationGroupID = "/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/CapacityReservationGroups/crg1",
+    ///         Count = 3,
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool using an agent pool snapshot
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         CreationData = new AzureNative.ContainerService.V20220402Preview.Inputs.CreationDataArgs
+    ///         {
+    ///             SourceResourceId = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1",
+    ///         },
+    ///         EnableFIPS = true,
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with CustomCATrust enabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         EnableCustomCATrust = true,
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with Dedicated Host Group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         HostGroupID = "/subscriptions/subid1/resourcegroups/rg/providers/Microsoft.Compute/hostGroups/hostgroup1",
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with EncryptionAtHost enabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         EnableEncryptionAtHost = true,
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with Ephemeral OS Disk
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         OrchestratorVersion = "",
+    ///         OsDiskSizeGB = 64,
+    ///         OsDiskType = "Ephemeral",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with FIPS enabled OS
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         EnableFIPS = true,
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with GPUMIG
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         GpuInstanceProfile = "MIG2g",
+    ///         KubeletConfig = new AzureNative.ContainerService.V20220402Preview.Inputs.KubeletConfigArgs
+    ///         {
+    ///             AllowedUnsafeSysctls = new[]
+    ///             {
+    ///                 "kernel.msg*",
+    ///                 "net.core.somaxconn",
+    ///             },
+    ///             CpuCfsQuota = true,
+    ///             CpuCfsQuotaPeriod = "200ms",
+    ///             CpuManagerPolicy = "static",
+    ///             FailSwapOn = false,
+    ///             ImageGcHighThreshold = 90,
+    ///             ImageGcLowThreshold = 70,
+    ///             TopologyManagerPolicy = "best-effort",
+    ///         },
+    ///         LinuxOSConfig = new AzureNative.ContainerService.V20220402Preview.Inputs.LinuxOSConfigArgs
+    ///         {
+    ///             SwapFileSizeMB = 1500,
+    ///             Sysctls = new AzureNative.ContainerService.V20220402Preview.Inputs.SysctlConfigArgs
+    ///             {
+    ///                 KernelThreadsMax = 99999,
+    ///                 NetCoreWmemDefault = 12345,
+    ///                 NetIpv4IpLocalPortRange = "20000 60000",
+    ///                 NetIpv4TcpTwReuse = true,
+    ///             },
+    ///             TransparentHugePageDefrag = "madvise",
+    ///             TransparentHugePageEnabled = "always",
+    ///         },
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_ND96asr_v4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with Krustlet and the WASI runtime
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         Mode = "User",
+    ///         OrchestratorVersion = "",
+    ///         OsDiskSizeGB = 64,
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///         WorkloadRuntime = "WasmWasi",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with KubeletConfig and LinuxOSConfig
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         KubeletConfig = new AzureNative.ContainerService.V20220402Preview.Inputs.KubeletConfigArgs
+    ///         {
+    ///             AllowedUnsafeSysctls = new[]
+    ///             {
+    ///                 "kernel.msg*",
+    ///                 "net.core.somaxconn",
+    ///             },
+    ///             CpuCfsQuota = true,
+    ///             CpuCfsQuotaPeriod = "200ms",
+    ///             CpuManagerPolicy = "static",
+    ///             FailSwapOn = false,
+    ///             ImageGcHighThreshold = 90,
+    ///             ImageGcLowThreshold = 70,
+    ///             TopologyManagerPolicy = "best-effort",
+    ///         },
+    ///         LinuxOSConfig = new AzureNative.ContainerService.V20220402Preview.Inputs.LinuxOSConfigArgs
+    ///         {
+    ///             SwapFileSizeMB = 1500,
+    ///             Sysctls = new AzureNative.ContainerService.V20220402Preview.Inputs.SysctlConfigArgs
+    ///             {
+    ///                 KernelThreadsMax = 99999,
+    ///                 NetCoreWmemDefault = 12345,
+    ///                 NetIpv4IpLocalPortRange = "20000 60000",
+    ///                 NetIpv4TcpTwReuse = true,
+    ///             },
+    ///             TransparentHugePageDefrag = "madvise",
+    ///             TransparentHugePageEnabled = "always",
+    ///         },
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with Message of the Day
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         MessageOfTheDay = "Zm9vCg==",
+    ///         Mode = "User",
+    ///         OrchestratorVersion = "",
+    ///         OsDiskSizeGB = 64,
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with OSSKU
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         KubeletConfig = new AzureNative.ContainerService.V20220402Preview.Inputs.KubeletConfigArgs
+    ///         {
+    ///             AllowedUnsafeSysctls = new[]
+    ///             {
+    ///                 "kernel.msg*",
+    ///                 "net.core.somaxconn",
+    ///             },
+    ///             CpuCfsQuota = true,
+    ///             CpuCfsQuotaPeriod = "200ms",
+    ///             CpuManagerPolicy = "static",
+    ///             FailSwapOn = false,
+    ///             ImageGcHighThreshold = 90,
+    ///             ImageGcLowThreshold = 70,
+    ///             TopologyManagerPolicy = "best-effort",
+    ///         },
+    ///         LinuxOSConfig = new AzureNative.ContainerService.V20220402Preview.Inputs.LinuxOSConfigArgs
+    ///         {
+    ///             SwapFileSizeMB = 1500,
+    ///             Sysctls = new AzureNative.ContainerService.V20220402Preview.Inputs.SysctlConfigArgs
+    ///             {
+    ///                 KernelThreadsMax = 99999,
+    ///                 NetCoreWmemDefault = 12345,
+    ///                 NetIpv4IpLocalPortRange = "20000 60000",
+    ///                 NetIpv4TcpTwReuse = true,
+    ///             },
+    ///             TransparentHugePageDefrag = "madvise",
+    ///             TransparentHugePageEnabled = "always",
+    ///         },
+    ///         OrchestratorVersion = "",
+    ///         OsSKU = "CBLMariner",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with PPG
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ProximityPlacementGroupID = "/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with UltraSSD enabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         EnableUltraSSD = true,
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Agent Pool with Windows OSSKU
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "wnp2",
+    ///         Count = 3,
+    ///         OrchestratorVersion = "1.23.3",
+    ///         OsSKU = "Windows2022",
+    ///         OsType = "Windows",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_D4s_v3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Spot Agent Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         NodeLabels = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///         NodeTaints = new[]
+    ///         {
+    ///             "Key1=Value1:NoSchedule",
+    ///         },
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ScaleSetEvictionPolicy = "Delete",
+    ///         ScaleSetPriority = "Spot",
+    ///         Tags = 
+    ///         {
+    ///             { "name1", "val1" },
+    ///         },
+    ///         VmSize = "Standard_DS1_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/Update Agent Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         Mode = "User",
+    ///         NodeLabels = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///         NodeTaints = new[]
+    ///         {
+    ///             "Key1=Value1:NoSchedule",
+    ///         },
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ScaleSetEvictionPolicy = "Delete",
+    ///         ScaleSetPriority = "Spot",
+    ///         Tags = 
+    ///         {
+    ///             { "name1", "val1" },
+    ///         },
+    ///         VmSize = "Standard_DS1_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Start Agent Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         PowerState = new AzureNative.ContainerService.V20220402Preview.Inputs.PowerStateArgs
+    ///         {
+    ///             Code = "Running",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Stop Agent Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         PowerState = new AzureNative.ContainerService.V20220402Preview.Inputs.PowerStateArgs
+    ///         {
+    ///             Code = "Stopped",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update Agent Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20220402Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         EnableAutoScaling = true,
+    ///         MaxCount = 2,
+    ///         MinCount = 2,
+    ///         NodeTaints = new[]
+    ///         {
+    ///             "Key1=Value1:NoSchedule",
+    ///         },
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ScaleSetEvictionPolicy = "Delete",
+    ///         ScaleSetPriority = "Spot",
+    ///         VmSize = "Standard_DS1_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20220402preview:AgentPool agentpool1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/agentPools/agentpool1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20220402preview:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource

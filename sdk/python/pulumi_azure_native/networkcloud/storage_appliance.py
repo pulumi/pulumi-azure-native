@@ -194,6 +194,44 @@ class StorageAppliance(pulumi.CustomResource):
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update storage appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_appliance = azure_native.networkcloud.StorageAppliance("storageAppliance",
+            administrator_credentials=azure_native.networkcloud.AdministrativeCredentialsArgs(
+                password="{password}",
+                username="adminUser",
+            ),
+            extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            rack_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+            rack_slot=1,
+            resource_group_name="resourceGroupName",
+            serial_number="BM1219XXX",
+            storage_appliance_name="storageApplianceName",
+            storage_appliance_sku_id="684E-3B16-399E",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:StorageAppliance storageApplianceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/storageAppliances/storageApplianceName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']] administrator_credentials: The credentials of the administrative interface on this storage appliance.
@@ -216,6 +254,44 @@ class StorageAppliance(pulumi.CustomResource):
         """
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update storage appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_appliance = azure_native.networkcloud.StorageAppliance("storageAppliance",
+            administrator_credentials=azure_native.networkcloud.AdministrativeCredentialsArgs(
+                password="{password}",
+                username="adminUser",
+            ),
+            extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            rack_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+            rack_slot=1,
+            resource_group_name="resourceGroupName",
+            serial_number="BM1219XXX",
+            storage_appliance_name="storageApplianceName",
+            storage_appliance_sku_id="684E-3B16-399E",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:StorageAppliance storageApplianceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/storageAppliances/storageApplianceName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageApplianceArgs args: The arguments to use to populate this resource's properties.

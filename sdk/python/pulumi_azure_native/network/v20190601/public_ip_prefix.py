@@ -268,6 +268,49 @@ class PublicIPPrefix(pulumi.CustomResource):
         """
         Public IP prefix resource.
 
+        ## Example Usage
+        ### Create public IP prefix allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_prefix = azure_native.network.v20190601.PublicIPPrefix("publicIPPrefix",
+            location="westus",
+            prefix_length=30,
+            public_ip_address_version="IPv4",
+            public_ip_prefix_name="test-ipprefix",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20190601.PublicIPPrefixSkuArgs(
+                name="Standard",
+            ))
+
+        ```
+        ### Create public IP prefix defaults
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_prefix = azure_native.network.v20190601.PublicIPPrefix("publicIPPrefix",
+            location="westus",
+            prefix_length=30,
+            public_ip_prefix_name="test-ipprefix",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20190601.PublicIPPrefixSkuArgs(
+                name="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190601:PublicIPPrefix test-ipprefix /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/test-ipprefix 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -293,6 +336,49 @@ class PublicIPPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Public IP prefix resource.
+
+        ## Example Usage
+        ### Create public IP prefix allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_prefix = azure_native.network.v20190601.PublicIPPrefix("publicIPPrefix",
+            location="westus",
+            prefix_length=30,
+            public_ip_address_version="IPv4",
+            public_ip_prefix_name="test-ipprefix",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20190601.PublicIPPrefixSkuArgs(
+                name="Standard",
+            ))
+
+        ```
+        ### Create public IP prefix defaults
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_prefix = azure_native.network.v20190601.PublicIPPrefix("publicIPPrefix",
+            location="westus",
+            prefix_length=30,
+            public_ip_prefix_name="test-ipprefix",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20190601.PublicIPPrefixSkuArgs(
+                name="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190601:PublicIPPrefix test-ipprefix /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/test-ipprefix 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PublicIPPrefixArgs args: The arguments to use to populate this resource's properties.

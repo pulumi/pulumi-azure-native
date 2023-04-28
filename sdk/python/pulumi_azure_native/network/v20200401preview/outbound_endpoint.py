@@ -130,6 +130,35 @@ class OutboundEndpoint(pulumi.CustomResource):
         """
         Describes an outbound endpoint for a DNS resolver.
 
+        ## Example Usage
+        ### Upsert outbound endpoint for DNS resolver
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        outbound_endpoint = azure_native.network.v20200401preview.OutboundEndpoint("outboundEndpoint",
+            dns_resolver_name="sampleDnsResolver",
+            location="westus2",
+            outbound_endpoint_name="sampleOutboundEndpoint",
+            resource_group_name="sampleResourceGroup",
+            subnet=azure_native.network.v20200401preview.SubResourceArgs(
+                id="/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200401preview:OutboundEndpoint sampleOutboundEndpoint /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/outboundEndpoints/sampleOutboundEndpoint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_resolver_name: The name of the DNS resolver.
@@ -147,6 +176,35 @@ class OutboundEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an outbound endpoint for a DNS resolver.
+
+        ## Example Usage
+        ### Upsert outbound endpoint for DNS resolver
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        outbound_endpoint = azure_native.network.v20200401preview.OutboundEndpoint("outboundEndpoint",
+            dns_resolver_name="sampleDnsResolver",
+            location="westus2",
+            outbound_endpoint_name="sampleOutboundEndpoint",
+            resource_group_name="sampleResourceGroup",
+            subnet=azure_native.network.v20200401preview.SubResourceArgs(
+                id="/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200401preview:OutboundEndpoint sampleOutboundEndpoint /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/outboundEndpoints/sampleOutboundEndpoint 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OutboundEndpointArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
 {
     /// <summary>
     /// Represents a gallery.
+    /// 
+    /// ## Example Usage
+    /// ### Galleries_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gallery = new AzureNative.DevCenter.V20220901Preview.Gallery("gallery", new()
+    ///     {
+    ///         DevCenterName = "Contoso",
+    ///         GalleryName = "{galleryName}",
+    ///         GalleryResourceId = "/subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.Compute/galleries/{galleryName}",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter/v20220901preview:Gallery {galleryName} /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/{galleryName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220901preview:Gallery")]
     public partial class Gallery : global::Pulumi.CustomResource

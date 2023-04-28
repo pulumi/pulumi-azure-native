@@ -13,6 +13,83 @@ namespace Pulumi.AzureNative.Network
     /// Subnet in a virtual network resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create subnet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subnet = new AzureNative.Network.Subnet("subnet", new()
+    ///     {
+    ///         AddressPrefix = "10.0.0.0/16",
+    ///         ResourceGroupName = "subnet-test",
+    ///         SubnetName = "subnet1",
+    ///         VirtualNetworkName = "vnetname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create subnet with a delegation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subnet = new AzureNative.Network.Subnet("subnet", new()
+    ///     {
+    ///         AddressPrefix = "10.0.0.0/16",
+    ///         ResourceGroupName = "subnet-test",
+    ///         SubnetName = "subnet1",
+    ///         VirtualNetworkName = "vnetname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create subnet with service endpoints
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subnet = new AzureNative.Network.Subnet("subnet", new()
+    ///     {
+    ///         AddressPrefix = "10.0.0.0/16",
+    ///         ResourceGroupName = "subnet-test",
+    ///         ServiceEndpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ServiceEndpointPropertiesFormatArgs
+    ///             {
+    ///                 Service = "Microsoft.Storage",
+    ///             },
+    ///         },
+    ///         SubnetName = "subnet1",
+    ///         VirtualNetworkName = "vnetname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:Subnet subnet1 /subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:Subnet")]
     public partial class Subnet : global::Pulumi.CustomResource

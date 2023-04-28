@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * The private endpoint connection.
  * API Version: 2021-06-01.
  * Previous API Version: 2021-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Approve a private endpoint connection manually.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.hdinsight.PrivateEndpointConnection("privateEndpointConnection", {
+ *     clusterName: "cluster1",
+ *     privateEndpointConnectionName: "testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "None",
+ *         description: "update it from pending to approved.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hdinsight:PrivateEndpointConnection testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1/privateEndpointConnections/testprivateep.b3bf5fed-9b12-4560-b7d0-2abe1bba07e2 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Issue Comment Contract details.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiIssueComment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiIssueComment = new AzureNative.ApiManagement.ApiIssueComment("apiIssueComment", new()
+    ///     {
+    ///         ApiId = "57d1f7558aa04f15146d9d8a",
+    ///         CommentId = "599e29ab193c3c0bd0b3e2fb",
+    ///         CreatedDate = "2018-02-01T22:21:20.467Z",
+    ///         IssueId = "57d2ef278aa04f0ad01d6cdc",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Text = "Issue comment.",
+    ///         UserId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:ApiIssueComment 599e29ab193c3c0bd0b3e2fb /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc/comments/599e29ab193c3c0bd0b3e2fb 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiIssueComment")]
     public partial class ApiIssueComment : global::Pulumi.CustomResource

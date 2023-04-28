@@ -255,6 +255,29 @@ class KubeEnvironment(pulumi.CustomResource):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
 
+        ## Example Usage
+        ### Create kube environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kube_environment = azure_native.web.v20220901.KubeEnvironment("kubeEnvironment",
+            location="East US",
+            name="testkubeenv",
+            resource_group_name="examplerg",
+            static_ip="1.2.3.4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:KubeEnvironment testkubeenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.Web/kubeEnvironments/testkubeenv 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']] app_logs_configuration: Cluster configuration which enables the log daemon to export
@@ -282,6 +305,29 @@ class KubeEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Kubernetes cluster specialized for web workloads by Azure App Service
+
+        ## Example Usage
+        ### Create kube environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kube_environment = azure_native.web.v20220901.KubeEnvironment("kubeEnvironment",
+            location="East US",
+            name="testkubeenv",
+            resource_group_name="examplerg",
+            static_ip="1.2.3.4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:KubeEnvironment testkubeenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.Web/kubeEnvironments/testkubeenv 
+        ```
 
         :param str resource_name: The name of the resource.
         :param KubeEnvironmentArgs args: The arguments to use to populate this resource's properties.

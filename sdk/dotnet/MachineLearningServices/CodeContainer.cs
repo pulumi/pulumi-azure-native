@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Azure Resource Manager resource envelope.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Code Container.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var codeContainer = new AzureNative.MachineLearningServices.CodeContainer("codeContainer", new()
+    ///     {
+    ///         CodeContainerProperties = new AzureNative.MachineLearningServices.Inputs.CodeContainerArgs
+    ///         {
+    ///             Description = "string",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         },
+    ///         Name = "testContainer",
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:CodeContainer testContainer /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/testContainer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:CodeContainer")]
     public partial class CodeContainer : global::Pulumi.CustomResource

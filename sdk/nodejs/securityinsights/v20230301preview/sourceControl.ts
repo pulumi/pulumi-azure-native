@@ -9,6 +9,51 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a SourceControl in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Creates a source control.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sourceControl = new azure_native.securityinsights.v20230301preview.SourceControl("sourceControl", {
+ *     contentTypes: [
+ *         "AnalyticRules",
+ *         "Workbook",
+ *     ],
+ *     description: "This is a source control",
+ *     displayName: "My Source Control",
+ *     repoType: "Github",
+ *     repository: {
+ *         branch: "master",
+ *         displayUrl: "https://github.com/user/repo",
+ *         pathMapping: [
+ *             {
+ *                 contentType: "AnalyticRules",
+ *                 path: "path/to/rules",
+ *             },
+ *             {
+ *                 contentType: "Workbook",
+ *                 path: "path/to/workbooks",
+ *             },
+ *         ],
+ *         url: "https://github.com/user/repo",
+ *     },
+ *     resourceGroupName: "myRg",
+ *     sourceControlId: "789e0c1f-4a3d-43ad-809c-e713b677b04a",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230301preview:SourceControl 789e0c1f-4a3d-43ad-809c-e713b677b04a /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/sourcecontrols/789e0c1f-4a3d-43ad-809c-e713b677b04a 
+ * ```
  */
 export class SourceControl extends pulumi.CustomResource {
     /**

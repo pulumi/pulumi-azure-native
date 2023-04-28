@@ -9,6 +9,76 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a cluster.
+ *
+ * ## Example Usage
+ * ### Create a new cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.dbforpostgresql.v20221108.Cluster("cluster", {
+ *     administratorLoginPassword: "password",
+ *     citusVersion: "11.1",
+ *     clusterName: "testcluster",
+ *     coordinatorEnablePublicIpAccess: true,
+ *     coordinatorServerEdition: "GeneralPurpose",
+ *     coordinatorStorageQuotaInMb: 524288,
+ *     coordinatorVCores: 4,
+ *     enableHa: true,
+ *     enableShardsOnCoordinator: false,
+ *     location: "westus",
+ *     nodeCount: 3,
+ *     nodeEnablePublicIpAccess: false,
+ *     nodeServerEdition: "MemoryOptimized",
+ *     nodeStorageQuotaInMb: 524288,
+ *     nodeVCores: 8,
+ *     postgresqlVersion: "15",
+ *     preferredPrimaryZone: "1",
+ *     resourceGroupName: "TestGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create a new cluster as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.dbforpostgresql.v20221108.Cluster("cluster", {
+ *     clusterName: "testcluster",
+ *     location: "westus",
+ *     pointInTimeUTC: "2017-12-14T00:00:37.467Z",
+ *     resourceGroupName: "TestGroup",
+ *     sourceLocation: "westus",
+ *     sourceResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/source-cluster",
+ * });
+ *
+ * ```
+ * ### Create a new cluster as a read replica
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.dbforpostgresql.v20221108.Cluster("cluster", {
+ *     clusterName: "testcluster",
+ *     location: "westus",
+ *     resourceGroupName: "TestGroup",
+ *     sourceLocation: "westus",
+ *     sourceResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/sourcecluster",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20221108:Cluster testcluster /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/testcluster 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

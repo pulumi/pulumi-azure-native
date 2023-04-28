@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The file server.
+    /// 
+    /// ## Example Usage
+    /// ### FileServersCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileServer = new AzureNative.StorSimple.V20161001.FileServer("fileServer", new()
+    ///     {
+    ///         BackupScheduleGroupId = "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/backupScheduleGroups/BackupSchGroupForSDKTest",
+    ///         Description = "Demo FileServer for SDK Test",
+    ///         DeviceName = "HSDK-4XY4FI2IVG",
+    ///         DomainName = "fareast.corp.microsoft.com",
+    ///         FileServerName = "HSDK-4XY4FI2IVG",
+    ///         ManagerName = "hAzureSDKOperations",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         StorageDomainId = "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/sd-fs-HSDK-4XY4FI2IVG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20161001:FileServer HSDK-4XY4FI2IVG /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/fileServers/HSDK-4XY4FI2IVG 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:FileServer")]

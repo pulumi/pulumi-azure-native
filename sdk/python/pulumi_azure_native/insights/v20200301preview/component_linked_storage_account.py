@@ -94,6 +94,29 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
         """
         An Application Insights component linked storage accounts
 
+        ## Example Usage
+        ### ComponentLinkedStorageAccountsCreateAndUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component_linked_storage_account = azure_native.insights.v20200301preview.ComponentLinkedStorageAccount("componentLinkedStorageAccount",
+            linked_storage_account="/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname",
+            resource_group_name="someResourceGroupName",
+            resource_name_="myComponent",
+            storage_type="ServiceProfiler")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20200301preview:ComponentLinkedStorageAccount serviceprofile /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupNameproviders/microsoft.insights/components/myComponent/linkedStorageAccounts/serviceprofiler 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] linked_storage_account: Linked storage account resource ID
@@ -109,6 +132,29 @@ class ComponentLinkedStorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Application Insights component linked storage accounts
+
+        ## Example Usage
+        ### ComponentLinkedStorageAccountsCreateAndUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component_linked_storage_account = azure_native.insights.v20200301preview.ComponentLinkedStorageAccount("componentLinkedStorageAccount",
+            linked_storage_account="/subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupName/providers/Microsoft.Storage/storageAccounts/storageaccountname",
+            resource_group_name="someResourceGroupName",
+            resource_name_="myComponent",
+            storage_type="ServiceProfiler")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20200301preview:ComponentLinkedStorageAccount serviceprofile /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4918/resourceGroups/someResourceGroupNameproviders/microsoft.insights/components/myComponent/linkedStorageAccounts/serviceprofiler 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ComponentLinkedStorageAccountArgs args: The arguments to use to populate this resource's properties.

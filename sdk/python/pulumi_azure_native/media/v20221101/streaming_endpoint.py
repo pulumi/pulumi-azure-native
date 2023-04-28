@@ -316,6 +316,59 @@ class StreamingEndpoint(pulumi.CustomResource):
         """
         The streaming endpoint.
 
+        ## Example Usage
+        ### Create a streaming endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_endpoint = azure_native.media.v20221101.StreamingEndpoint("streamingEndpoint",
+            access_control=azure_native.media.v20221101.StreamingEndpointAccessControlResponseArgs(
+                akamai={
+                    "akamaiSignatureHeaderAuthenticationKeyList": [
+                        azure_native.media.v20221101.AkamaiSignatureHeaderAuthenticationKeyArgs(
+                            base64_key="dGVzdGlkMQ==",
+                            expiration="2029-12-31T16:00:00-08:00",
+                            identifier="id1",
+                        ),
+                        azure_native.media.v20221101.AkamaiSignatureHeaderAuthenticationKeyArgs(
+                            base64_key="dGVzdGlkMQ==",
+                            expiration="2030-12-31T16:00:00-08:00",
+                            identifier="id2",
+                        ),
+                    ],
+                },
+                ip={
+                    "allow": [azure_native.media.v20221101.IPRangeArgs(
+                        address="192.168.1.1",
+                        name="AllowedIp",
+                    )],
+                },
+            ),
+            account_name="slitestmedia10",
+            availability_set_name="availableset",
+            cdn_enabled=False,
+            description="test event 1",
+            location="West US",
+            resource_group_name="mediaresources",
+            scale_units=1,
+            streaming_endpoint_name="myStreamingEndpoint1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20221101:StreamingEndpoint myStreamingEndpoint1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingendpoints/myStreamingEndpoint1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StreamingEndpointAccessControlArgs']] access_control: The access control definition of the streaming endpoint.
@@ -344,6 +397,59 @@ class StreamingEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The streaming endpoint.
+
+        ## Example Usage
+        ### Create a streaming endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_endpoint = azure_native.media.v20221101.StreamingEndpoint("streamingEndpoint",
+            access_control=azure_native.media.v20221101.StreamingEndpointAccessControlResponseArgs(
+                akamai={
+                    "akamaiSignatureHeaderAuthenticationKeyList": [
+                        azure_native.media.v20221101.AkamaiSignatureHeaderAuthenticationKeyArgs(
+                            base64_key="dGVzdGlkMQ==",
+                            expiration="2029-12-31T16:00:00-08:00",
+                            identifier="id1",
+                        ),
+                        azure_native.media.v20221101.AkamaiSignatureHeaderAuthenticationKeyArgs(
+                            base64_key="dGVzdGlkMQ==",
+                            expiration="2030-12-31T16:00:00-08:00",
+                            identifier="id2",
+                        ),
+                    ],
+                },
+                ip={
+                    "allow": [azure_native.media.v20221101.IPRangeArgs(
+                        address="192.168.1.1",
+                        name="AllowedIp",
+                    )],
+                },
+            ),
+            account_name="slitestmedia10",
+            availability_set_name="availableset",
+            cdn_enabled=False,
+            description="test event 1",
+            location="West US",
+            resource_group_name="mediaresources",
+            scale_units=1,
+            streaming_endpoint_name="myStreamingEndpoint1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20221101:StreamingEndpoint myStreamingEndpoint1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingendpoints/myStreamingEndpoint1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StreamingEndpointArgs args: The arguments to use to populate this resource's properties.

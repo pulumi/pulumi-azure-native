@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Cache.V20200601
 {
     /// <summary>
     /// Response to put/get linked server (with properties) for Redis cache.
+    /// 
+    /// ## Example Usage
+    /// ### LinkedServer_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linkedServer = new AzureNative.Cache.V20200601.LinkedServer("linkedServer", new()
+    ///     {
+    ///         LinkedRedisCacheId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache2",
+    ///         LinkedRedisCacheLocation = "West US",
+    ///         LinkedServerName = "cache2",
+    ///         Name = "cache1",
+    ///         ResourceGroupName = "rg1",
+    ///         ServerRole = AzureNative.Cache.V20200601.ReplicationRole.Secondary,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cache/v20200601:LinkedServer cache2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/linkedServers/cache2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20200601:LinkedServer")]
     public partial class LinkedServer : global::Pulumi.CustomResource

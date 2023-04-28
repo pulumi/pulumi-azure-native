@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  * Response for Volume request.
  * API Version: 2021-11-20-preview.
  * Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Volumes_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volume = new azure_native.elasticsan.Volume("volume", {
+ *     creationData: {
+ *         createSource: azure_native.elasticsan.VolumeCreateOption.None,
+ *         sourceUri: "aaaaaa",
+ *     },
+ *     elasticSanName: "ti7q-k952-1qB3J_5",
+ *     resourceGroupName: "rgelasticsan",
+ *     sizeGiB: 22,
+ *     tags: {
+ *         key7423: "aaaa",
+ *     },
+ *     volumeGroupName: "u_5I_1j4t3",
+ *     volumeName: "9132y",
+ * });
+ *
+ * ```
+ * ### Volumes_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volume = new azure_native.elasticsan.Volume("volume", {
+ *     elasticSanName: "ti7q-k952-1qB3J_5",
+ *     resourceGroupName: "rgelasticsan",
+ *     volumeGroupName: "u_5I_1j4t3",
+ *     volumeName: "9132y",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:elasticsan:Volume aaaaaaaaaaaa aaaaaaaa 
+ * ```
  */
 export class Volume extends pulumi.CustomResource {
     /**

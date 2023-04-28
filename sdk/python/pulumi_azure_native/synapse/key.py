@@ -113,6 +113,30 @@ class Key(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a workspace key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        key = azure_native.synapse.Key("key",
+            is_active_cmk=True,
+            key_name="somekey",
+            key_vault_url="https://vault.azure.net/keys/somesecret",
+            resource_group_name="ExampleResourceGroup",
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:Key somekey /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/keys/somekey 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_active_cmk: Used to activate the workspace after a customer managed key is provided.
@@ -131,6 +155,30 @@ class Key(pulumi.CustomResource):
         A workspace key
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a workspace key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        key = azure_native.synapse.Key("key",
+            is_active_cmk=True,
+            key_name="somekey",
+            key_vault_url="https://vault.azure.net/keys/somesecret",
+            resource_group_name="ExampleResourceGroup",
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:Key somekey /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/keys/somekey 
+        ```
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

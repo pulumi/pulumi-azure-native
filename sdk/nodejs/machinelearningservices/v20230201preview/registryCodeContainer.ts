@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Registry Code Container.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registryCodeContainer = new azure_native.machinelearningservices.v20230201preview.RegistryCodeContainer("registryCodeContainer", {
+ *     codeContainerProperties: {
+ *         description: "string",
+ *         tags: {
+ *             tag1: "value1",
+ *             tag2: "value2",
+ *         },
+ *     },
+ *     codeName: "testContainer",
+ *     registryName: "testregistry",
+ *     resourceGroupName: "testrg123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryCodeContainer testContainer /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/registries/testregistry/codes/testContainer 
+ * ```
  */
 export class RegistryCodeContainer extends pulumi.CustomResource {
     /**

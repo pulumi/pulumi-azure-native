@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection of an IotHub
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnection_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.devices.v20220430preview.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "myPrivateEndpointConnection",
+ *     properties: {
+ *         privateLinkServiceConnectionState: {
+ *             description: "Approved by johndoe@contoso.com",
+ *             status: "Approved",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "testHub",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devices/v20220430preview:PrivateEndpointConnection myPrivateEndpointConnection /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/testHub/PrivateEndpointConnections/myPrivateEndpointConnection 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

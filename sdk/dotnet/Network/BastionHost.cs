@@ -13,6 +13,49 @@ namespace Pulumi.AzureNative.Network
     /// Bastion Host resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Bastion Host
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bastionHost = new AzureNative.Network.BastionHost("bastionHost", new()
+    ///     {
+    ///         BastionHostName = "bastionhosttenant",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.BastionHostIPConfigurationArgs
+    ///             {
+    ///                 Name = "bastionHostIpConfiguration",
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/BastionHostSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:BastionHost bastionhost /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/bastionHosts/bastionhosttenant' 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:BastionHost")]
     public partial class BastionHost : global::Pulumi.CustomResource

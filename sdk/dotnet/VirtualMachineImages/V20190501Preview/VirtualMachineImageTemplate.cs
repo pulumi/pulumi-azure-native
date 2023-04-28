@@ -11,6 +11,136 @@ namespace Pulumi.AzureNative.VirtualMachineImages.V20190501Preview
 {
     /// <summary>
     /// Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+    /// 
+    /// ## Example Usage
+    /// ### Create an Image Template with a user assigned identity configured
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineImageTemplate = new AzureNative.VirtualMachineImages.V20190501Preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", new()
+    ///     {
+    ///         Customize = new[]
+    ///         {
+    ///             new AzureNative.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateShellCustomizerArgs
+    ///             {
+    ///                 Name = "Shell Customizer Example",
+    ///                 ScriptUri = "https://example.com/path/to/script.sh",
+    ///                 Type = "Shell",
+    ///             },
+    ///         },
+    ///         Distribute = new[]
+    ///         {
+    ///             new AzureNative.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateManagedImageDistributorArgs
+    ///             {
+    ///                 ArtifactTags = 
+    ///                 {
+    ///                     { "tagName", "value" },
+    ///                 },
+    ///                 ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+    ///                 Location = "1_location",
+    ///                 RunOutputName = "image_it_pir_1",
+    ///                 Type = "ManagedImage",
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateIdentityArgs
+    ///         {
+    ///             Type = AzureNative.VirtualMachineImages.V20190501Preview.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1", null },
+    ///             },
+    ///         },
+    ///         ImageTemplateName = "myImageTemplate",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Source = new AzureNative.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateManagedImageSourceArgs
+    ///         {
+    ///             ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+    ///             Type = "ManagedImage",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "imagetemplate_tag1", "IT_T1" },
+    ///             { "imagetemplate_tag2", "IT_T2" },
+    ///         },
+    ///         VmProfile = new AzureNative.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateVmProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2s_v3",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Image Template.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineImageTemplate = new AzureNative.VirtualMachineImages.V20190501Preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", new()
+    ///     {
+    ///         Customize = new[]
+    ///         {
+    ///             new AzureNative.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateShellCustomizerArgs
+    ///             {
+    ///                 Name = "Shell Customizer Example",
+    ///                 ScriptUri = "https://example.com/path/to/script.sh",
+    ///                 Type = "Shell",
+    ///             },
+    ///         },
+    ///         Distribute = new[]
+    ///         {
+    ///             new AzureNative.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateManagedImageDistributorArgs
+    ///             {
+    ///                 ArtifactTags = 
+    ///                 {
+    ///                     { "tagName", "value" },
+    ///                 },
+    ///                 ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+    ///                 Location = "1_location",
+    ///                 RunOutputName = "image_it_pir_1",
+    ///                 Type = "ManagedImage",
+    ///             },
+    ///         },
+    ///         ImageTemplateName = "myImageTemplate",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Source = new AzureNative.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateManagedImageSourceArgs
+    ///         {
+    ///             ImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+    ///             Type = "ManagedImage",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "imagetemplate_tag1", "IT_T1" },
+    ///             { "imagetemplate_tag2", "IT_T2" },
+    ///         },
+    ///         VmProfile = new AzureNative.VirtualMachineImages.V20190501Preview.Inputs.ImageTemplateVmProfileArgs
+    ///         {
+    ///             VmSize = "Standard_D2s_v3",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate")]

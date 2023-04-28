@@ -9,6 +9,123 @@ import * as utilities from "../../utilities";
 
 /**
  * An environment for hosting container apps
+ *
+ * ## Example Usage
+ * ### Create environment with custom infrastructureResourceGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedEnvironment = new azure_native.app.v20221101preview.ManagedEnvironment("managedEnvironment", {
+ *     appLogsConfiguration: {
+ *         logAnalyticsConfiguration: {
+ *             customerId: "string",
+ *             sharedKey: "string",
+ *         },
+ *     },
+ *     customDomainConfiguration: {
+ *         certificatePassword: "1234",
+ *         certificateValue: "Y2VydA==",
+ *         dnsSuffix: "www.my-name.com",
+ *     },
+ *     daprAIConnectionString: "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+ *     environmentName: "testcontainerenv",
+ *     infrastructureResourceGroup: "myInfrastructureRgName",
+ *     location: "East US",
+ *     resourceGroupName: "examplerg",
+ *     vnetConfiguration: {
+ *         infrastructureSubnetId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1",
+ *     },
+ *     workloadProfiles: [
+ *         {
+ *             maximumCount: 12,
+ *             minimumCount: 3,
+ *             name: "My-GP-01",
+ *             workloadProfileType: "GeneralPurpose",
+ *         },
+ *         {
+ *             maximumCount: 6,
+ *             minimumCount: 3,
+ *             name: "My-MO-01",
+ *             workloadProfileType: "MemoryOptimized",
+ *         },
+ *         {
+ *             maximumCount: 6,
+ *             minimumCount: 3,
+ *             name: "My-CO-01",
+ *             workloadProfileType: "ComputeOptimized",
+ *         },
+ *         {
+ *             name: "My-consumption-01",
+ *             workloadProfileType: "Consumption",
+ *         },
+ *     ],
+ *     zoneRedundant: true,
+ * });
+ *
+ * ```
+ * ### Create environments
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedEnvironment = new azure_native.app.v20221101preview.ManagedEnvironment("managedEnvironment", {
+ *     appLogsConfiguration: {
+ *         logAnalyticsConfiguration: {
+ *             customerId: "string",
+ *             sharedKey: "string",
+ *         },
+ *     },
+ *     customDomainConfiguration: {
+ *         certificatePassword: "1234",
+ *         certificateValue: "Y2VydA==",
+ *         dnsSuffix: "www.my-name.com",
+ *     },
+ *     daprAIConnectionString: "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+ *     environmentName: "testcontainerenv",
+ *     location: "East US",
+ *     resourceGroupName: "examplerg",
+ *     vnetConfiguration: {
+ *         infrastructureSubnetId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1",
+ *     },
+ *     workloadProfiles: [
+ *         {
+ *             maximumCount: 12,
+ *             minimumCount: 3,
+ *             name: "My-GP-01",
+ *             workloadProfileType: "GeneralPurpose",
+ *         },
+ *         {
+ *             maximumCount: 6,
+ *             minimumCount: 3,
+ *             name: "My-MO-01",
+ *             workloadProfileType: "MemoryOptimized",
+ *         },
+ *         {
+ *             maximumCount: 6,
+ *             minimumCount: 3,
+ *             name: "My-CO-01",
+ *             workloadProfileType: "ComputeOptimized",
+ *         },
+ *         {
+ *             name: "My-consumption-01",
+ *             workloadProfileType: "Consumption",
+ *         },
+ *     ],
+ *     zoneRedundant: true,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20221101preview:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+ * ```
  */
 export class ManagedEnvironment extends pulumi.CustomResource {
     /**

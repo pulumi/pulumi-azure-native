@@ -7,6 +7,64 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### CreateOrUpdate Online Endpoint.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const onlineEndpoint = new azure_native.machinelearningservices.v20210301preview.OnlineEndpoint("onlineEndpoint", {
+ *     endpointName: "testEndpoint",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuseridentity": {
+ *                 clientId: "string",
+ *                 principalId: "string",
+ *             },
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     properties: {
+ *         authMode: "AMLToken",
+ *         description: "string",
+ *         keys: {
+ *             primaryKey: "string",
+ *             secondaryKey: "string",
+ *         },
+ *         properties: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         target: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/compute123",
+ *         traffic: {
+ *             myDeployment1: 0,
+ *             myDeployment2: 1,
+ *         },
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     tags: {
+ *         additionalProp1: "string",
+ *         additionalProp2: "string",
+ *         additionalProp3: "string",
+ *     },
+ *     workspaceName: "workspace123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20210301preview:OnlineEndpoint testEndpoint /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/onlineEndpoints/testEndpoint 
+ * ```
+ */
 export class OnlineEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing OnlineEndpoint resource's state with the given name, ID, and optional extra

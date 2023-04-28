@@ -131,6 +131,31 @@ class ScopeConnection(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or Update Network Manager Scope Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_connection = azure_native.network.ScopeConnection("scopeConnection",
+            description="This is a scope connection to a cross tenant subscription.",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            resource_id="subscriptions/f0dc2b34-dfad-40e4-83e0-2309fed8d00b",
+            scope_connection_name="TestScopeConnection",
+            tenant_id="6babcaad-604b-40ac-a9d7-9fd97c0b779f")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ScopeConnection TestScopeConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/scopeConnections/TestScopeConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the scope connection.
@@ -150,6 +175,31 @@ class ScopeConnection(pulumi.CustomResource):
         The Scope Connections resource
         API Version: 2022-09-01.
         Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or Update Network Manager Scope Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_connection = azure_native.network.ScopeConnection("scopeConnection",
+            description="This is a scope connection to a cross tenant subscription.",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            resource_id="subscriptions/f0dc2b34-dfad-40e4-83e0-2309fed8d00b",
+            scope_connection_name="TestScopeConnection",
+            tenant_id="6babcaad-604b-40ac-a9d7-9fd97c0b779f")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ScopeConnection TestScopeConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/scopeConnections/TestScopeConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScopeConnectionArgs args: The arguments to use to populate this resource's properties.

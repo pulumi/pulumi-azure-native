@@ -148,6 +148,38 @@ class Bot(pulumi.CustomResource):
         """
         Azure Health Bot resource definition
 
+        ## Example Usage
+        ### BotCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot = azure_native.healthbot.v20220808.Bot("bot",
+            bot_name="samplebotname",
+            identity=azure_native.healthbot.v20220808.IdentityArgs(
+                type=azure_native.healthbot/v20220808.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi": {},
+                    "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi2": {},
+                },
+            ),
+            location="East US",
+            resource_group_name="healthbotClient",
+            sku=azure_native.healthbot.v20220808.SkuArgs(
+                name=azure_native.healthbot/v20220808.SkuName.F0,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthbot/v20220808:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot resource.
@@ -166,6 +198,38 @@ class Bot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Health Bot resource definition
+
+        ## Example Usage
+        ### BotCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot = azure_native.healthbot.v20220808.Bot("bot",
+            bot_name="samplebotname",
+            identity=azure_native.healthbot.v20220808.IdentityArgs(
+                type=azure_native.healthbot/v20220808.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi": {},
+                    "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi2": {},
+                },
+            ),
+            location="East US",
+            resource_group_name="healthbotClient",
+            sku=azure_native.healthbot.v20220808.SkuArgs(
+                name=azure_native.healthbot/v20220808.SkuName.F0,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthbot/v20220808:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.

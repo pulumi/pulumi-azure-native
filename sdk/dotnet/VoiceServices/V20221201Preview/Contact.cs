@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.VoiceServices.V20221201Preview
 {
     /// <summary>
     /// A Contact resource
+    /// 
+    /// ## Example Usage
+    /// ### CreateContactResource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contact = new AzureNative.VoiceServices.V20221201Preview.Contact("contact", new()
+    ///     {
+    ///         CommunicationsGatewayName = "myname",
+    ///         ContactName = "John Smith",
+    ///         Email = "johnsmith@example.com",
+    ///         Location = "useast",
+    ///         PhoneNumber = "+1-555-1234",
+    ///         ResourceGroupName = "testrg",
+    ///         Role = "Network Manager",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:voiceservices/v20221201preview:Contact name2 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceService/communicationsGateway/myname/contacts/name2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:voiceservices/v20221201preview:Contact")]
     public partial class Contact : global::Pulumi.CustomResource

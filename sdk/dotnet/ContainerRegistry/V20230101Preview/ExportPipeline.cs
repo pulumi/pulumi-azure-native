@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
 {
     /// <summary>
     /// An object that represents an export pipeline for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### ExportPipelineCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exportPipeline = new AzureNative.ContainerRegistry.V20230101Preview.ExportPipeline("exportPipeline", new()
+    ///     {
+    ///         ExportPipelineName = "myExportPipeline",
+    ///         Identity = new AzureNative.ContainerRegistry.V20230101Preview.Inputs.IdentityPropertiesArgs
+    ///         {
+    ///             Type = AzureNative.ContainerRegistry.V20230101Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "westus",
+    ///         Options = new[]
+    ///         {
+    ///             "OverwriteBlobs",
+    ///         },
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Target = new AzureNative.ContainerRegistry.V20230101Preview.Inputs.ExportPipelineTargetPropertiesArgs
+    ///         {
+    ///             KeyVaultUri = "https://myvault.vault.azure.net/secrets/acrexportsas",
+    ///             Type = "AzureStorageBlobContainer",
+    ///             Uri = "https://accountname.blob.core.windows.net/containername",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20230101preview:ExportPipeline myExportPipeline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20230101preview:ExportPipeline")]
     public partial class ExportPipeline : global::Pulumi.CustomResource

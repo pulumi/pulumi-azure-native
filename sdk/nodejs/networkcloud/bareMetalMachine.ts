@@ -10,6 +10,50 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-12-12-preview.
  * Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update bare metal machine
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bareMetalMachine = new azure_native.networkcloud.BareMetalMachine("bareMetalMachine", {
+ *     bareMetalMachineName: "bareMetalMachineName",
+ *     bmcConnectionString: "bmcconnectionstring",
+ *     bmcCredentials: {
+ *         password: "{password}",
+ *         username: "bmcuser",
+ *     },
+ *     bmcMacAddress: "00:00:4f:00:57:00",
+ *     bootMacAddress: "00:00:4e:00:58:af",
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     machineDetails: "User-provided machine details.",
+ *     machineName: "r01c001",
+ *     machineSkuId: "684E-3B16-399E",
+ *     rackId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+ *     rackSlot: 1,
+ *     resourceGroupName: "resourceGroupName",
+ *     serialNumber: "BM1219XXX",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:BareMetalMachine bareMetalMachineName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/bareMetalMachines/bareMetalMachineName 
+ * ```
  */
 export class BareMetalMachine extends pulumi.CustomResource {
     /**

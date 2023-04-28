@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.App.V20221101Preview
 {
     /// <summary>
     /// Storage resource for connectedEnvironment.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update environments storage
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectedEnvironmentsStorage = new AzureNative.App.V20221101Preview.ConnectedEnvironmentsStorage("connectedEnvironmentsStorage", new()
+    ///     {
+    ///         ConnectedEnvironmentName = "env",
+    ///         Properties = new AzureNative.App.V20221101Preview.Inputs.ConnectedEnvironmentStoragePropertiesArgs
+    ///         {
+    ///             AzureFile = new AzureNative.App.V20221101Preview.Inputs.AzureFilePropertiesArgs
+    ///             {
+    ///                 AccessMode = "ReadOnly",
+    ///                 AccountKey = "key",
+    ///                 AccountName = "account1",
+    ///                 ShareName = "share1",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///         StorageName = "jlaw-demo1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20221101preview:ConnectedEnvironmentsStorage jlaw-demo1 /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/env/storages/jlaw-demo1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20221101preview:ConnectedEnvironmentsStorage")]
     public partial class ConnectedEnvironmentsStorage : global::Pulumi.CustomResource

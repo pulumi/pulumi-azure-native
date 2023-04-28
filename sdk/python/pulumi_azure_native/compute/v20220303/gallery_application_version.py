@@ -163,6 +163,63 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery Application Version that you want to create or update.
 
+        ## Example Usage
+        ### Create or update a simple gallery Application Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_application_version = azure_native.compute.v20220303.GalleryApplicationVersion("galleryApplicationVersion",
+            gallery_application_name="myGalleryApplicationName",
+            gallery_application_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryApplicationVersionPublishingProfileResponseArgs(
+                custom_actions=[{
+                    "description": "This is the custom action description.",
+                    "name": "myCustomAction",
+                    "parameters": [azure_native.compute.v20220303.GalleryApplicationCustomActionParameterArgs(
+                        default_value="default value of parameter.",
+                        description="This is the description of the parameter",
+                        name="myCustomActionParameter",
+                        required=False,
+                        type=azure_native.compute/v20220303.GalleryApplicationCustomActionParameterType.STRING,
+                    )],
+                    "script": "myCustomActionScript",
+                }],
+                end_of_life_date="2019-07-01T07:00:00Z",
+                manage_actions=azure_native.compute.v20220303.UserArtifactManageArgs(
+                    install="powershell -command \\"Expand-Archive -Path package.zip -DestinationPath C:\\\\package\\"",
+                    remove="del C:\\\\package ",
+                ),
+                replica_count=1,
+                source=azure_native.compute.v20220303.UserArtifactSourceArgs(
+                    media_link="https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}",
+                ),
+                storage_account_type="Standard_LRS",
+                target_regions=[azure_native.compute.v20220303.TargetRegionArgs(
+                    exclude_from_latest=False,
+                    name="West US",
+                    regional_replica_count=1,
+                    storage_account_type="Standard_LRS",
+                )],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryApplicationVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20220303:GalleryApplicationVersion 1.0.0 /subscriptions/01523d7c-60da-455e-adef-521b547922c4/resourceGroups/galleryPsTestRg98/providers/Microsoft.Compute/galleries/galleryPsTestGallery6165/applications/galleryPsTestGalleryApplication7825/versions/1.0.0 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gallery_application_name: The name of the gallery Application Definition in which the Application Version is to be created.
@@ -182,6 +239,63 @@ class GalleryApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery Application Version that you want to create or update.
+
+        ## Example Usage
+        ### Create or update a simple gallery Application Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_application_version = azure_native.compute.v20220303.GalleryApplicationVersion("galleryApplicationVersion",
+            gallery_application_name="myGalleryApplicationName",
+            gallery_application_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryApplicationVersionPublishingProfileResponseArgs(
+                custom_actions=[{
+                    "description": "This is the custom action description.",
+                    "name": "myCustomAction",
+                    "parameters": [azure_native.compute.v20220303.GalleryApplicationCustomActionParameterArgs(
+                        default_value="default value of parameter.",
+                        description="This is the description of the parameter",
+                        name="myCustomActionParameter",
+                        required=False,
+                        type=azure_native.compute/v20220303.GalleryApplicationCustomActionParameterType.STRING,
+                    )],
+                    "script": "myCustomActionScript",
+                }],
+                end_of_life_date="2019-07-01T07:00:00Z",
+                manage_actions=azure_native.compute.v20220303.UserArtifactManageArgs(
+                    install="powershell -command \\"Expand-Archive -Path package.zip -DestinationPath C:\\\\package\\"",
+                    remove="del C:\\\\package ",
+                ),
+                replica_count=1,
+                source=azure_native.compute.v20220303.UserArtifactSourceArgs(
+                    media_link="https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}",
+                ),
+                storage_account_type="Standard_LRS",
+                target_regions=[azure_native.compute.v20220303.TargetRegionArgs(
+                    exclude_from_latest=False,
+                    name="West US",
+                    regional_replica_count=1,
+                    storage_account_type="Standard_LRS",
+                )],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryApplicationVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20220303:GalleryApplicationVersion 1.0.0 /subscriptions/01523d7c-60da-455e-adef-521b547922c4/resourceGroups/galleryPsTestRg98/providers/Microsoft.Compute/galleries/galleryPsTestGallery6165/applications/galleryPsTestGalleryApplication7825/versions/1.0.0 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationVersionArgs args: The arguments to use to populate this resource's properties.

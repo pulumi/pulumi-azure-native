@@ -13,6 +13,77 @@ namespace Pulumi.AzureNative.Authorization
     /// The policy definition.
     /// API Version: 2021-06-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy definition at management group level
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyDefinitionAtManagementGroup = new AzureNative.Authorization.PolicyDefinitionAtManagementGroup("policyDefinitionAtManagementGroup", new()
+    ///     {
+    ///         Description = "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+    ///         DisplayName = "Enforce resource naming convention",
+    ///         ManagementGroupId = "MyManagementGroup",
+    ///         Metadata = 
+    ///         {
+    ///             { "category", "Naming" },
+    ///         },
+    ///         Mode = "All",
+    ///         Parameters = 
+    ///         {
+    ///             { "prefix", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+    ///             {
+    ///                 Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                 {
+    ///                     Description = "Resource name prefix",
+    ///                     DisplayName = "Prefix",
+    ///                 },
+    ///                 Type = "String",
+    ///             } },
+    ///             { "suffix", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+    ///             {
+    ///                 Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                 {
+    ///                     Description = "Resource name suffix",
+    ///                     DisplayName = "Suffix",
+    ///                 },
+    ///                 Type = "String",
+    ///             } },
+    ///         },
+    ///         PolicyDefinitionName = "ResourceNaming",
+    ///         PolicyRule = 
+    ///         {
+    ///             { "if", 
+    ///             {
+    ///                 { "not", 
+    ///                 {
+    ///                     { "field", "name" },
+    ///                     { "like", "[concat(parameters('prefix'), '*', parameters('suffix'))]" },
+    ///                 } },
+    ///             } },
+    ///             { "then", 
+    ///             {
+    ///                 { "effect", "deny" },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization:PolicyDefinitionAtManagementGroup ResourceNaming /providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyDefinitionAtManagementGroup")]
     public partial class PolicyDefinitionAtManagementGroup : global::Pulumi.CustomResource

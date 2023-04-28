@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Network watcher in a resource group.
+ *
+ * ## Example Usage
+ * ### Create network watcher
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkWatcher = new azure_native.network.v20201101.NetworkWatcher("networkWatcher", {
+ *     location: "eastus",
+ *     networkWatcherName: "nw1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:NetworkWatcher nw1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1 
+ * ```
  */
 export class NetworkWatcher extends pulumi.CustomResource {
     /**

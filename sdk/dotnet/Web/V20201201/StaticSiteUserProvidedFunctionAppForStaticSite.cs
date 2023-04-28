@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Web.V20201201
 {
     /// <summary>
     /// Static Site User Provided Function App ARM resource.
+    /// 
+    /// ## Example Usage
+    /// ### Register a user provided function app with a static site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var staticSiteUserProvidedFunctionAppForStaticSite = new AzureNative.Web.V20201201.StaticSiteUserProvidedFunctionAppForStaticSite("staticSiteUserProvidedFunctionAppForStaticSite", new()
+    ///     {
+    ///         FunctionAppName = "testFunctionApp",
+    ///         FunctionAppRegion = "West US 2",
+    ///         FunctionAppResourceId = "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/functionRG/providers/Microsoft.Web/sites/testFunctionApp",
+    ///         IsForced = true,
+    ///         Name = "testStaticSite0",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite testFunctionApp /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/builds/default/userProvidedFunctionApps/testFunctionApp 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSite")]
     public partial class StaticSiteUserProvidedFunctionAppForStaticSite : global::Pulumi.CustomResource

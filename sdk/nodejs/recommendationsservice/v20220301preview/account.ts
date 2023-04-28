@@ -9,6 +9,70 @@ import * as utilities from "../../utilities";
 
 /**
  * Account resource details.
+ *
+ * ## Example Usage
+ * ### Create or update RecommendationsService Account resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.recommendationsservice.v20220301preview.Account("account", {
+ *     accountName: "sampleAccount",
+ *     location: "West US",
+ *     properties: {
+ *         configuration: "Capacity",
+ *         endpointAuthentications: [{
+ *             aadTenantID: "tenant",
+ *             principalID: "oid",
+ *             principalType: "User",
+ *         }],
+ *     },
+ *     resourceGroupName: "rg",
+ *     tags: {
+ *         Environment: "Prod",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update RecommendationsService Account resource with managed identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.recommendationsservice.v20220301preview.Account("account", {
+ *     accountName: "sampleAccount",
+ *     identity: {
+ *         type: "SystemAssigned,UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userAssignedIdentity": {},
+ *         },
+ *     },
+ *     location: "West US",
+ *     properties: {
+ *         configuration: "Capacity",
+ *         endpointAuthentications: [{
+ *             aadTenantID: "tenant",
+ *             principalID: "oid",
+ *             principalType: "User",
+ *         }],
+ *     },
+ *     resourceGroupName: "rg",
+ *     tags: {
+ *         Environment: "Prod",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recommendationsservice/v20220301preview:Account sampleAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

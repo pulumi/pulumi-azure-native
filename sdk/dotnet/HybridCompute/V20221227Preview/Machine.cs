@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.HybridCompute.V20221227Preview
 {
     /// <summary>
     /// Describes a hybrid machine.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machine = new AzureNative.HybridCompute.V20221227Preview.Machine("machine", new()
+    ///     {
+    ///         ClientPublicKey = "string",
+    ///         Identity = new AzureNative.HybridCompute.V20221227Preview.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.HybridCompute.V20221227Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         LocationData = new AzureNative.HybridCompute.V20221227Preview.Inputs.LocationDataArgs
+    ///         {
+    ///             Name = "Redmond",
+    ///         },
+    ///         MachineName = "myMachine",
+    ///         ParentClusterResourceId = "{AzureStackHCIResourceId}",
+    ///         PrivateLinkScopeResourceId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         VmId = "b7a098cc-b0b8-46e8-a205-62f301a62a8f",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute/v20221227preview:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/myMachine 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute/v20221227preview:Machine")]
     public partial class Machine : global::Pulumi.CustomResource

@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
 {
     /// <summary>
     /// SIM group resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create SIM group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var simGroup = new AzureNative.MobileNetwork.V20220401Preview.SimGroup("simGroup", new()
+    ///     {
+    ///         EncryptionKey = new AzureNative.MobileNetwork.V20220401Preview.Inputs.KeyVaultKeyArgs
+    ///         {
+    ///             KeyUrl = "https://contosovault.vault.azure.net/keys/azureKey",
+    ///         },
+    ///         Location = "eastus",
+    ///         MobileNetwork = new AzureNative.MobileNetwork.V20220401Preview.Inputs.MobileNetworkResourceIdArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SimGroupName = "testSimGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork/v20220401preview:SimGroup testSimGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simGroups/testSimGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220401preview:SimGroup")]
     public partial class SimGroup : global::Pulumi.CustomResource

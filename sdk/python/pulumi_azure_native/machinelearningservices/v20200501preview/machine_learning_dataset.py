@@ -152,6 +152,42 @@ class MachineLearningDataset(pulumi.CustomResource):
         """
         Machine Learning dataset object wrapped into ARM resource envelope.
 
+        ## Example Usage
+        ### Create Dataset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_dataset = azure_native.machinelearningservices.v20200501preview.MachineLearningDataset("machineLearningDataset",
+            dataset_name="datasetName123",
+            dataset_type="file",
+            parameters=azure_native.machinelearningservices.v20200501preview.DatasetCreateRequestParametersArgs(
+                path=azure_native.machinelearningservices.v20200501preview.DatasetCreateRequestPathArgs(
+                    data_path=azure_native.machinelearningservices.v20200501preview.DatasetCreateRequestDataPathArgs(
+                        datastore_name="testblobfromarm",
+                        relative_path="UI/03-26-2020_083359_UTC/latin1encoding.csv",
+                    ),
+                ),
+            ),
+            registration=azure_native.machinelearningservices.v20200501preview.DatasetCreateRequestRegistrationArgs(
+                description="test description",
+                name="datasetName123",
+            ),
+            resource_group_name="acjain-mleastUS2",
+            skip_validation=False,
+            workspace_name="acjain-mleastUS2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200501preview:MachineLearningDataset datasetName123 /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/acjain-mleastUS2/providers/Microsoft.MachineLearningServices/workspaces/acjain-mleastUS2/datasets/datasetName123 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dataset_name: The Dataset name.
@@ -168,6 +204,42 @@ class MachineLearningDataset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning dataset object wrapped into ARM resource envelope.
+
+        ## Example Usage
+        ### Create Dataset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_learning_dataset = azure_native.machinelearningservices.v20200501preview.MachineLearningDataset("machineLearningDataset",
+            dataset_name="datasetName123",
+            dataset_type="file",
+            parameters=azure_native.machinelearningservices.v20200501preview.DatasetCreateRequestParametersArgs(
+                path=azure_native.machinelearningservices.v20200501preview.DatasetCreateRequestPathArgs(
+                    data_path=azure_native.machinelearningservices.v20200501preview.DatasetCreateRequestDataPathArgs(
+                        datastore_name="testblobfromarm",
+                        relative_path="UI/03-26-2020_083359_UTC/latin1encoding.csv",
+                    ),
+                ),
+            ),
+            registration=azure_native.machinelearningservices.v20200501preview.DatasetCreateRequestRegistrationArgs(
+                description="test description",
+                name="datasetName123",
+            ),
+            resource_group_name="acjain-mleastUS2",
+            skip_validation=False,
+            workspace_name="acjain-mleastUS2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200501preview:MachineLearningDataset datasetName123 /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/acjain-mleastUS2/providers/Microsoft.MachineLearningServices/workspaces/acjain-mleastUS2/datasets/datasetName123 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MachineLearningDatasetArgs args: The arguments to use to populate this resource's properties.

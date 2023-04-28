@@ -184,6 +184,61 @@ class Formula(pulumi.CustomResource):
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Formulas_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        formula = azure_native.devtestlab.Formula("formula",
+            description="Formula using a Linux base",
+            formula_content=azure_native.devtestlab.LabVirtualMachineCreationParameterResponseArgs(
+                allow_claim=False,
+                artifacts=[{
+                    "artifactId": "/artifactsources/{artifactSourceName}/artifacts/linux-install-nodejs",
+                    "parameters": [],
+                }],
+                disallow_public_ip_address=True,
+                gallery_image_reference=azure_native.devtestlab.GalleryImageReferenceArgs(
+                    offer="0001-com-ubuntu-server-groovy",
+                    os_type="Linux",
+                    publisher="canonical",
+                    sku="20_10",
+                    version="latest",
+                ),
+                is_authentication_with_ssh_key=False,
+                lab_subnet_name="Dtl{labName}Subnet",
+                lab_virtual_network_id="/virtualnetworks/dtl{labName}",
+                location="{location}",
+                network_interface={
+                    "sharedPublicIpAddressConfiguration": {
+                        "inboundNatRules": [azure_native.devtestlab.InboundNatRuleArgs(
+                            backend_port=22,
+                            transport_protocol="Tcp",
+                        )],
+                    },
+                },
+                notes="Ubuntu Server 20.10",
+                size="Standard_B1ms",
+                storage_type="Standard",
+                user_name="user",
+            ),
+            lab_name="{labName}",
+            location="{location}",
+            name="{formulaName}",
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:Formula {formulaName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/formulas/{formulaName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the formula.
@@ -206,6 +261,61 @@ class Formula(pulumi.CustomResource):
         A formula for creating a VM, specifying an image base and other parameters
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Formulas_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        formula = azure_native.devtestlab.Formula("formula",
+            description="Formula using a Linux base",
+            formula_content=azure_native.devtestlab.LabVirtualMachineCreationParameterResponseArgs(
+                allow_claim=False,
+                artifacts=[{
+                    "artifactId": "/artifactsources/{artifactSourceName}/artifacts/linux-install-nodejs",
+                    "parameters": [],
+                }],
+                disallow_public_ip_address=True,
+                gallery_image_reference=azure_native.devtestlab.GalleryImageReferenceArgs(
+                    offer="0001-com-ubuntu-server-groovy",
+                    os_type="Linux",
+                    publisher="canonical",
+                    sku="20_10",
+                    version="latest",
+                ),
+                is_authentication_with_ssh_key=False,
+                lab_subnet_name="Dtl{labName}Subnet",
+                lab_virtual_network_id="/virtualnetworks/dtl{labName}",
+                location="{location}",
+                network_interface={
+                    "sharedPublicIpAddressConfiguration": {
+                        "inboundNatRules": [azure_native.devtestlab.InboundNatRuleArgs(
+                            backend_port=22,
+                            transport_protocol="Tcp",
+                        )],
+                    },
+                },
+                notes="Ubuntu Server 20.10",
+                size="Standard_B1ms",
+                storage_type="Standard",
+                user_name="user",
+            ),
+            lab_name="{labName}",
+            location="{location}",
+            name="{formulaName}",
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:Formula {formulaName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/formulas/{formulaName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FormulaArgs args: The arguments to use to populate this resource's properties.

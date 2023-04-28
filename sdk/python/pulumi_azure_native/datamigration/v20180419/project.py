@@ -197,6 +197,31 @@ class Project(pulumi.CustomResource):
         """
         A project resource
 
+        ## Example Usage
+        ### Projects_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.datamigration.v20180419.Project("project",
+            group_name="DmsSdkRg",
+            location="southcentralus",
+            project_name="DmsSdkProject",
+            service_name="DmsSdkService",
+            source_platform="SQL",
+            target_platform="SQLDB")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20180419:Project DmsSdkProject /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DatabaseInfoArgs']]]] databases_info: List of DatabaseInfo
@@ -218,6 +243,31 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A project resource
+
+        ## Example Usage
+        ### Projects_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.datamigration.v20180419.Project("project",
+            group_name="DmsSdkRg",
+            location="southcentralus",
+            project_name="DmsSdkProject",
+            service_name="DmsSdkService",
+            source_platform="SQL",
+            target_platform="SQLDB")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20180419:Project DmsSdkProject /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

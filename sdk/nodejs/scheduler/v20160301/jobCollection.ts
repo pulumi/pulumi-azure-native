@@ -7,6 +7,15 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:scheduler/v20160301:JobCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName} 
+ * ```
+ */
 export class JobCollection extends pulumi.CustomResource {
     /**
      * Get an existing JobCollection resource's state with the given name, ID, and optional extra

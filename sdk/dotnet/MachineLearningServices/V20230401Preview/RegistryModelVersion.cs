@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Registry Model Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registryModelVersion = new AzureNative.MachineLearningServices.V20230401Preview.RegistryModelVersion("registryModelVersion", new()
+    ///     {
+    ///         ModelName = "string",
+    ///         ModelVersionProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ModelVersionArgs
+    ///         {
+    ///             Description = "string",
+    ///             Flavors = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.V20230401Preview.Inputs.FlavorDataArgs
+    ///                 {
+    ///                     Data = 
+    ///                     {
+    ///                         { "string", "string" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             IsAnonymous = false,
+    ///             ModelType = "CustomModel",
+    ///             ModelUri = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         RegistryName = "my-aml-registry",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryModelVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:RegistryModelVersion")]
     public partial class RegistryModelVersion : global::Pulumi.CustomResource

@@ -163,6 +163,72 @@ class DscNodeConfiguration(pulumi.CustomResource):
         """
         Definition of the dsc node configuration.
 
+        ## Example Usage
+        ### Create node configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dsc_node_configuration = azure_native.automation.v20220808.DscNodeConfiguration("dscNodeConfiguration",
+            automation_account_name="myAutomationAccount20",
+            configuration=azure_native.automation.v20220808.DscConfigurationAssociationPropertyArgs(
+                name="configName",
+            ),
+            increment_node_configuration_build=True,
+            name="configName.nodeConfigName",
+            node_configuration_name="configName.nodeConfigName",
+            resource_group_name="rg",
+            source=azure_native.automation.v20220808.ContentSourceArgs(
+                hash=azure_native.automation.v20220808.ContentHashArgs(
+                    algorithm="sha256",
+                    value="6DE256A57F01BFA29B88696D5E77A383D6E61484C7686E8DB955FA10ACE9FFE5",
+                ),
+                type="embeddedContent",
+                value=\"\"\"
+        instance of MSFT_RoleResource as $MSFT_RoleResource1ref
+        {
+        ResourceID = "[WindowsFeature]IIS";
+         Ensure = "Present";
+         SourceInfo = "::3::32::WindowsFeature";
+         Name = "Web-Server";
+         ModuleName = "PsDesiredStateConfiguration";
+        
+        ModuleVersion = "1.0";
+         ConfigurationName = "configName";
+        };
+        instance of OMI_ConfigurationDocument
+        
+                            {
+         Version="2.0.0";
+         
+                                MinimumCompatibleVersion = "1.0.0";
+         
+                                CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+         
+                                Author="weijiel";
+         
+                                GenerationDate="03/30/2017 13:40:25";
+         
+                                GenerationHost="TEST-BACKEND";
+         
+                                Name="configName";
+        
+                            };
+        \"\"\",
+                version="1.0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:DscNodeConfiguration configName.nodeConfigName /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount20/nodeConfigurations/configName.nodeConfigName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -182,6 +248,72 @@ class DscNodeConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the dsc node configuration.
+
+        ## Example Usage
+        ### Create node configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dsc_node_configuration = azure_native.automation.v20220808.DscNodeConfiguration("dscNodeConfiguration",
+            automation_account_name="myAutomationAccount20",
+            configuration=azure_native.automation.v20220808.DscConfigurationAssociationPropertyArgs(
+                name="configName",
+            ),
+            increment_node_configuration_build=True,
+            name="configName.nodeConfigName",
+            node_configuration_name="configName.nodeConfigName",
+            resource_group_name="rg",
+            source=azure_native.automation.v20220808.ContentSourceArgs(
+                hash=azure_native.automation.v20220808.ContentHashArgs(
+                    algorithm="sha256",
+                    value="6DE256A57F01BFA29B88696D5E77A383D6E61484C7686E8DB955FA10ACE9FFE5",
+                ),
+                type="embeddedContent",
+                value=\"\"\"
+        instance of MSFT_RoleResource as $MSFT_RoleResource1ref
+        {
+        ResourceID = "[WindowsFeature]IIS";
+         Ensure = "Present";
+         SourceInfo = "::3::32::WindowsFeature";
+         Name = "Web-Server";
+         ModuleName = "PsDesiredStateConfiguration";
+        
+        ModuleVersion = "1.0";
+         ConfigurationName = "configName";
+        };
+        instance of OMI_ConfigurationDocument
+        
+                            {
+         Version="2.0.0";
+         
+                                MinimumCompatibleVersion = "1.0.0";
+         
+                                CompatibleVersionAdditionalProperties= {"Omi_BaseResource:ConfigurationName"};
+         
+                                Author="weijiel";
+         
+                                GenerationDate="03/30/2017 13:40:25";
+         
+                                GenerationHost="TEST-BACKEND";
+         
+                                Name="configName";
+        
+                            };
+        \"\"\",
+                version="1.0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:DscNodeConfiguration configName.nodeConfigName /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount20/nodeConfigurations/configName.nodeConfigName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DscNodeConfigurationArgs args: The arguments to use to populate this resource's properties.

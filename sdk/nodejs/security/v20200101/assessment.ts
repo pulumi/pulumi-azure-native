@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Security assessment on a resource
+ *
+ * ## Example Usage
+ * ### Create security recommendation task on a resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assessment = new azure_native.security.v20200101.Assessment("assessment", {
+ *     assessmentName: "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+ *     resourceDetails: {
+ *         source: "Azure",
+ *     },
+ *     resourceId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
+ *     status: {
+ *         code: "Healthy",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20200101:Assessment 8bb8be0a-6010-4789-812f-e4d661c4ed0e /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1/providers/Microsoft.Security/assessments/8bb8be0a-6010-4789-812f-e4d661c4ed0e 
+ * ```
  */
 export class Assessment extends pulumi.CustomResource {
     /**

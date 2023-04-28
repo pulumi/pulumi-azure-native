@@ -100,6 +100,34 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a deployment that will deploy a templateSpec with the given resourceId
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_subscription_scope = azure_native.resources.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope",
+            deployment_name="my-deployment",
+            location="eastus",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:DeploymentAtSubscriptionScope my-deployment /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: The name of the deployment.
@@ -117,6 +145,34 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
         Deployment information.
         API Version: 2022-09-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a deployment that will deploy a templateSpec with the given resourceId
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_subscription_scope = azure_native.resources.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope",
+            deployment_name="my-deployment",
+            location="eastus",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:DeploymentAtSubscriptionScope my-deployment /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtSubscriptionScopeArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * The Storage Mover resource, which is a container for a group of Agents, Projects, and Endpoints.
  * API Version: 2023-03-01.
  * Previous API Version: 2022-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### StorageMovers_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageMover = new azure_native.storagemover.StorageMover("storageMover", {
+ *     description: "Example Storage Mover Description",
+ *     location: "eastus2",
+ *     resourceGroupName: "examples-rg",
+ *     storageMoverName: "examples-storageMoverName",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagemover:StorageMover examples-storageMoverName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName 
+ * ```
  */
 export class StorageMover extends pulumi.CustomResource {
     /**

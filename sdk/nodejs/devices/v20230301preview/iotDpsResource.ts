@@ -9,6 +9,64 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the provisioning service.
+ *
+ * ## Example Usage
+ * ### DPSCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotDpsResource = new azure_native.devices.v20230301preview.IotDpsResource("iotDpsResource", {
+ *     location: "East US",
+ *     properties: {
+ *         enableDataResidency: false,
+ *     },
+ *     provisioningServiceName: "myFirstProvisioningService",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### DPSUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotDpsResource = new azure_native.devices.v20230301preview.IotDpsResource("iotDpsResource", {
+ *     identity: {
+ *         type: "SystemAssigned,UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourcegroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity": {},
+ *         },
+ *     },
+ *     location: "East US",
+ *     properties: {
+ *         enableDataResidency: false,
+ *     },
+ *     provisioningServiceName: "myFirstProvisioningService",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devices/v20230301preview:IotDpsResource myFirstProvisioningService /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups//providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService 
+ * ```
  */
 export class IotDpsResource extends pulumi.CustomResource {
     /**

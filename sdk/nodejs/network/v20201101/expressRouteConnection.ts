@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * ExpressRouteConnection resource.
+ *
+ * ## Example Usage
+ * ### ExpressRouteConnectionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteConnection = new azure_native.network.v20201101.ExpressRouteConnection("expressRouteConnection", {
+ *     authorizationKey: "authorizationKey",
+ *     connectionName: "connectionName",
+ *     expressRouteCircuitPeering: {
+ *         id: "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+ *     },
+ *     expressRouteGatewayName: "gateway-2",
+ *     id: "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName",
+ *     name: "connectionName",
+ *     resourceGroupName: "resourceGroupName",
+ *     routingWeight: 2,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:ExpressRouteConnection connectionName /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName 
+ * ```
  */
 export class ExpressRouteConnection extends pulumi.CustomResource {
     /**

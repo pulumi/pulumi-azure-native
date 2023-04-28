@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
 {
     /// <summary>
     /// Access Review History Definition.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById")]
     public partial class AccessReviewHistoryDefinitionById : global::Pulumi.CustomResource

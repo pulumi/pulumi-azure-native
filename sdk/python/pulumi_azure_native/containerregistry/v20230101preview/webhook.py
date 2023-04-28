@@ -196,6 +196,39 @@ class Webhook(pulumi.CustomResource):
         """
         An object that represents a webhook for a container registry.
 
+        ## Example Usage
+        ### WebhookCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        webhook = azure_native.containerregistry.v20230101preview.Webhook("webhook",
+            actions=["push"],
+            custom_headers={
+                "Authorization": "******",
+            },
+            location="westus",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            scope="myRepository",
+            service_uri="http://myservice.com",
+            status="enabled",
+            tags={
+                "key": "value",
+            },
+            webhook_name="myWebhook")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:Webhook myWebhook /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/webhooks/myWebhook 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'WebhookAction']]]] actions: The list of actions that trigger the webhook to post notifications.
@@ -217,6 +250,39 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a webhook for a container registry.
+
+        ## Example Usage
+        ### WebhookCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        webhook = azure_native.containerregistry.v20230101preview.Webhook("webhook",
+            actions=["push"],
+            custom_headers={
+                "Authorization": "******",
+            },
+            location="westus",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            scope="myRepository",
+            service_uri="http://myservice.com",
+            status="enabled",
+            tags={
+                "key": "value",
+            },
+            webhook_name="myWebhook")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:Webhook myWebhook /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/webhooks/myWebhook 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

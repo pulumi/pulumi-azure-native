@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
 {
     /// <summary>
     /// Custom domain of the Spring Cloud Gateway
+    /// 
+    /// ## Example Usage
+    /// ### GatewayCustomDomains_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gatewayCustomDomain = new AzureNative.AppPlatform.V20220101Preview.GatewayCustomDomain("gatewayCustomDomain", new()
+    ///     {
+    ///         DomainName = "myDomainName",
+    ///         GatewayName = "default",
+    ///         Properties = new AzureNative.AppPlatform.V20220101Preview.Inputs.GatewayCustomDomainPropertiesArgs
+    ///         {
+    ///             Thumbprint = "*",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20220101preview:GatewayCustomDomain myDomainName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default/domains/myDomainName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20220101preview:GatewayCustomDomain")]
     public partial class GatewayCustomDomain : global::Pulumi.CustomResource

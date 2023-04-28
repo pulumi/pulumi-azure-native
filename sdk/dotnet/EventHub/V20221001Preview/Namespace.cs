@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
+    /// 
+    /// ## Example Usage
+    /// ### NamespaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @namespace = new AzureNative.EventHub.V20221001Preview.Namespace("namespace", new()
+    ///     {
+    ///         ClusterArmId = "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/clusters/enc-test",
+    ///         Encryption = new AzureNative.EventHub.V20221001Preview.Inputs.EncryptionArgs
+    ///         {
+    ///             KeySource = AzureNative.EventHub.V20221001Preview.KeySource.Microsoft_KeyVault,
+    ///             KeyVaultProperties = new[]
+    ///             {
+    ///                 new AzureNative.EventHub.V20221001Preview.Inputs.KeyVaultPropertiesArgs
+    ///                 {
+    ///                     Identity = new AzureNative.EventHub.V20221001Preview.Inputs.UserAssignedIdentityPropertiesArgs
+    ///                     {
+    ///                         UserAssignedIdentity = "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1",
+    ///                     },
+    ///                     KeyName = "Samplekey",
+    ///                     KeyVaultUri = "https://aprao-keyvault-user.vault-int.azure-int.net/",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.EventHub.V20221001Preview.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.EventHub.V20221001Preview.ManagedServiceIdentityType.SystemAssigned_UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud1", null },
+    ///                 { "/subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ud2", null },
+    ///             },
+    ///         },
+    ///         Location = "East US",
+    ///         NamespaceName = "NamespaceSample",
+    ///         ResourceGroupName = "ResurceGroupSample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20221001preview:Namespace NamespaceSample /subscriptions/SampleSubscription/resourceGroups/ResurceGroupSample/providers/Microsoft.EventHub/namespaces/NamespaceSample 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20221001preview:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Single item in a List or Get AuthorizationRule operation
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RelayHybridConnectionAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hybridConnectionAuthorizationRule = new azure_native.relay.HybridConnectionAuthorizationRule("hybridConnectionAuthorizationRule", {
+ *     authorizationRuleName: "example-RelayAuthRules-01",
+ *     hybridConnectionName: "example-Relay-Hybrid-01",
+ *     namespaceName: "example-RelayNamespace-01",
+ *     resourceGroupName: "resourcegroup",
+ *     rights: [
+ *         "Listen",
+ *         "Send",
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:relay:HybridConnectionAuthorizationRule example-RelayAuthRules-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01/HybridConnections/example-Relay-Hybrid-01/AuthorizationRules/example-RelayAuthRules-01 
+ * ```
  */
 export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {
     /**

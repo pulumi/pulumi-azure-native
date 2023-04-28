@@ -11,6 +11,57 @@ import * as utilities from "../utilities";
  * This type describes an application resource.
  * API Version: 2018-09-01-preview.
  * Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateApplication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.servicefabricmesh.Application("application", {
+ *     applicationResourceName: "sampleApplication",
+ *     description: "Service Fabric Mesh sample application.",
+ *     location: "EastUS",
+ *     resourceGroupName: "sbz_demo",
+ *     services: [{
+ *         codePackages: [{
+ *             endpoints: [{
+ *                 name: "helloWorldListener",
+ *                 port: 80,
+ *             }],
+ *             image: "seabreeze/sbz-helloworld:1.0-alpine",
+ *             name: "helloWorldCode",
+ *             resources: {
+ *                 requests: {
+ *                     cpu: 1,
+ *                     memoryInGB: 1,
+ *                 },
+ *             },
+ *         }],
+ *         description: "SeaBreeze Hello World Service.",
+ *         name: "helloWorldService",
+ *         networkRefs: [{
+ *             endpointRefs: [{
+ *                 name: "helloWorldListener",
+ *             }],
+ *             name: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork",
+ *         }],
+ *         osType: "Linux",
+ *         replicaCount: 1,
+ *     }],
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabricmesh:Application sampleApplication /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/applications/sampleApplication 
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

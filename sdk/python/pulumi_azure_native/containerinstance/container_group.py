@@ -359,6 +359,227 @@ class ContainerGroup(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ContainerGroupCreateWithExtensions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "command": [],
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": {
+                    "requests": azure_native.containerinstance.ResourceRequestsArgs(
+                        cpu=1,
+                        memory_in_gb=1.5,
+                    ),
+                },
+            }],
+            extensions=[
+                {
+                    "extensionType": "kube-proxy",
+                    "name": "kube-proxy",
+                    "protectedSettings": {
+                        "kubeConfig": "<kubeconfig encoded string>",
+                    },
+                    "settings": {
+                        "clusterCidr": "10.240.0.0/16",
+                        "kubeVersion": "v1.9.10",
+                    },
+                    "version": "1.0",
+                },
+                {
+                    "extensionType": "realtime-metrics",
+                    "name": "vk-realtime-metrics",
+                    "version": "1.0",
+                },
+            ],
+            image_registry_credentials=[],
+            ip_address=azure_native.containerinstance.IpAddressResponseArgs(
+                ports=[{
+                    "port": 80,
+                    "protocol": "TCP",
+                }],
+                type="Private",
+            ),
+            location="eastus2",
+            os_type="Linux",
+            resource_group_name="demo",
+            subnet_ids=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-rg-vnet/subnets/test-subnet",
+            }])
+
+        ```
+        ### ContainerGroupWithEncryptionProperties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "command": [],
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": {
+                    "requests": azure_native.containerinstance.ResourceRequestsArgs(
+                        cpu=1,
+                        memory_in_gb=1.5,
+                    ),
+                },
+            }],
+            encryption_properties=azure_native.containerinstance.EncryptionPropertiesResponseArgs(
+                identity="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity",
+                key_name="test-key",
+                key_version="<key version>",
+                vault_base_url="https://testkeyvault.vault.azure.net",
+            ),
+            identity=azure_native.containerinstance.ContainerGroupIdentityArgs(
+                type=azure_native.containerinstance.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity": {},
+                },
+            ),
+            image_registry_credentials=[],
+            ip_address=azure_native.containerinstance.IpAddressResponseArgs(
+                ports=[{
+                    "port": 80,
+                    "protocol": "TCP",
+                }],
+                type="Public",
+            ),
+            location="eastus2",
+            os_type="Linux",
+            resource_group_name="demo")
+
+        ```
+        ### ContainerGroupsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "command": [],
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": {
+                    "requests": azure_native.containerinstance.ResourceRequestsArgs(
+                        cpu=1,
+                        gpu=azure_native.containerinstance.GpuResourceArgs(
+                            count=1,
+                            sku="K80",
+                        ),
+                        memory_in_gb=1.5,
+                    ),
+                },
+                "volumeMounts": [
+                    azure_native.containerinstance.VolumeMountArgs(
+                        mount_path="/mnt/volume1",
+                        name="volume1",
+                        read_only=False,
+                    ),
+                    azure_native.containerinstance.VolumeMountArgs(
+                        mount_path="/mnt/volume2",
+                        name="volume2",
+                        read_only=False,
+                    ),
+                    azure_native.containerinstance.VolumeMountArgs(
+                        mount_path="/mnt/volume3",
+                        name="volume3",
+                        read_only=True,
+                    ),
+                ],
+            }],
+            diagnostics=azure_native.containerinstance.ContainerGroupDiagnosticsResponseArgs(
+                log_analytics=azure_native.containerinstance.LogAnalyticsArgs(
+                    log_type="ContainerInsights",
+                    metadata={
+                        "test-key": "test-metadata-value",
+                    },
+                    workspace_id="workspaceid",
+                    workspace_key="workspaceKey",
+                    workspace_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg/providers/microsoft.operationalinsights/workspaces/workspace",
+                ),
+            ),
+            dns_config=azure_native.containerinstance.DnsConfigurationResponseArgs(
+                name_servers=["1.1.1.1"],
+                options="ndots:2",
+                search_domains="cluster.local svc.cluster.local",
+            ),
+            identity=azure_native.containerinstance.ContainerGroupIdentityArgs(
+                type=azure_native.containerinstance.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name": {},
+                },
+            ),
+            image_registry_credentials=[],
+            ip_address=azure_native.containerinstance.IpAddressResponseArgs(
+                auto_generated_domain_name_label_scope="Unsecure",
+                dns_name_label="dnsnamelabel1",
+                ports=[{
+                    "port": 80,
+                    "protocol": "TCP",
+                }],
+                type="Public",
+            ),
+            location="west us",
+            os_type="Linux",
+            resource_group_name="demo",
+            subnet_ids=[{
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]",
+            }],
+            volumes=[
+                {
+                    "azureFile": azure_native.containerinstance.AzureFileVolumeArgs(
+                        share_name="shareName",
+                        storage_account_key="accountKey",
+                        storage_account_name="accountName",
+                    ),
+                    "name": "volume1",
+                },
+                {
+                    "emptyDir": {},
+                    "name": "volume2",
+                },
+                {
+                    "name": "volume3",
+                    "secret": {
+                        "secretKey1": "SecretValue1InBase64",
+                        "secretKey2": "SecretValue2InBase64",
+                    },
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerinstance:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_group_name: The name of the container group.
@@ -394,6 +615,227 @@ class ContainerGroup(pulumi.CustomResource):
         A container group.
         API Version: 2022-09-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ContainerGroupCreateWithExtensions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "command": [],
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": {
+                    "requests": azure_native.containerinstance.ResourceRequestsArgs(
+                        cpu=1,
+                        memory_in_gb=1.5,
+                    ),
+                },
+            }],
+            extensions=[
+                {
+                    "extensionType": "kube-proxy",
+                    "name": "kube-proxy",
+                    "protectedSettings": {
+                        "kubeConfig": "<kubeconfig encoded string>",
+                    },
+                    "settings": {
+                        "clusterCidr": "10.240.0.0/16",
+                        "kubeVersion": "v1.9.10",
+                    },
+                    "version": "1.0",
+                },
+                {
+                    "extensionType": "realtime-metrics",
+                    "name": "vk-realtime-metrics",
+                    "version": "1.0",
+                },
+            ],
+            image_registry_credentials=[],
+            ip_address=azure_native.containerinstance.IpAddressResponseArgs(
+                ports=[{
+                    "port": 80,
+                    "protocol": "TCP",
+                }],
+                type="Private",
+            ),
+            location="eastus2",
+            os_type="Linux",
+            resource_group_name="demo",
+            subnet_ids=[{
+                "id": "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-rg-vnet/subnets/test-subnet",
+            }])
+
+        ```
+        ### ContainerGroupWithEncryptionProperties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "command": [],
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": {
+                    "requests": azure_native.containerinstance.ResourceRequestsArgs(
+                        cpu=1,
+                        memory_in_gb=1.5,
+                    ),
+                },
+            }],
+            encryption_properties=azure_native.containerinstance.EncryptionPropertiesResponseArgs(
+                identity="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity",
+                key_name="test-key",
+                key_version="<key version>",
+                vault_base_url="https://testkeyvault.vault.azure.net",
+            ),
+            identity=azure_native.containerinstance.ContainerGroupIdentityArgs(
+                type=azure_native.containerinstance.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity": {},
+                },
+            ),
+            image_registry_credentials=[],
+            ip_address=azure_native.containerinstance.IpAddressResponseArgs(
+                ports=[{
+                    "port": 80,
+                    "protocol": "TCP",
+                }],
+                type="Public",
+            ),
+            location="eastus2",
+            os_type="Linux",
+            resource_group_name="demo")
+
+        ```
+        ### ContainerGroupsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "command": [],
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": {
+                    "requests": azure_native.containerinstance.ResourceRequestsArgs(
+                        cpu=1,
+                        gpu=azure_native.containerinstance.GpuResourceArgs(
+                            count=1,
+                            sku="K80",
+                        ),
+                        memory_in_gb=1.5,
+                    ),
+                },
+                "volumeMounts": [
+                    azure_native.containerinstance.VolumeMountArgs(
+                        mount_path="/mnt/volume1",
+                        name="volume1",
+                        read_only=False,
+                    ),
+                    azure_native.containerinstance.VolumeMountArgs(
+                        mount_path="/mnt/volume2",
+                        name="volume2",
+                        read_only=False,
+                    ),
+                    azure_native.containerinstance.VolumeMountArgs(
+                        mount_path="/mnt/volume3",
+                        name="volume3",
+                        read_only=True,
+                    ),
+                ],
+            }],
+            diagnostics=azure_native.containerinstance.ContainerGroupDiagnosticsResponseArgs(
+                log_analytics=azure_native.containerinstance.LogAnalyticsArgs(
+                    log_type="ContainerInsights",
+                    metadata={
+                        "test-key": "test-metadata-value",
+                    },
+                    workspace_id="workspaceid",
+                    workspace_key="workspaceKey",
+                    workspace_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg/providers/microsoft.operationalinsights/workspaces/workspace",
+                ),
+            ),
+            dns_config=azure_native.containerinstance.DnsConfigurationResponseArgs(
+                name_servers=["1.1.1.1"],
+                options="ndots:2",
+                search_domains="cluster.local svc.cluster.local",
+            ),
+            identity=azure_native.containerinstance.ContainerGroupIdentityArgs(
+                type=azure_native.containerinstance.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name": {},
+                },
+            ),
+            image_registry_credentials=[],
+            ip_address=azure_native.containerinstance.IpAddressResponseArgs(
+                auto_generated_domain_name_label_scope="Unsecure",
+                dns_name_label="dnsnamelabel1",
+                ports=[{
+                    "port": 80,
+                    "protocol": "TCP",
+                }],
+                type="Public",
+            ),
+            location="west us",
+            os_type="Linux",
+            resource_group_name="demo",
+            subnet_ids=[{
+                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]",
+            }],
+            volumes=[
+                {
+                    "azureFile": azure_native.containerinstance.AzureFileVolumeArgs(
+                        share_name="shareName",
+                        storage_account_key="accountKey",
+                        storage_account_name="accountName",
+                    ),
+                    "name": "volume1",
+                },
+                {
+                    "emptyDir": {},
+                    "name": "volume2",
+                },
+                {
+                    "name": "volume3",
+                    "secret": {
+                        "secretKey1": "SecretValue1InBase64",
+                        "secretKey2": "SecretValue2InBase64",
+                    },
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerinstance:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerGroupArgs args: The arguments to use to populate this resource's properties.

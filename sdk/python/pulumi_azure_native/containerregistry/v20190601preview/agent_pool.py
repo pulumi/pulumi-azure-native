@@ -182,6 +182,35 @@ class AgentPool(pulumi.CustomResource):
         The agentpool that has the ARM resource and properties.
         The agentpool will have all information to create an agent pool.
 
+        ## Example Usage
+        ### AgentPools_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerregistry.v20190601preview.AgentPool("agentPool",
+            agent_pool_name="myAgentPool",
+            count=1,
+            location="WESTUS",
+            os="Linux",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            },
+            tier="S1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20190601preview:AgentPool myAgentPool /subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourceGroups/huanwudfwestgroup/providers/Microsoft.ContainerRegistry/registries/huanglidfwest01/agentPools/testagent26 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
@@ -203,6 +232,35 @@ class AgentPool(pulumi.CustomResource):
         """
         The agentpool that has the ARM resource and properties.
         The agentpool will have all information to create an agent pool.
+
+        ## Example Usage
+        ### AgentPools_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerregistry.v20190601preview.AgentPool("agentPool",
+            agent_pool_name="myAgentPool",
+            count=1,
+            location="WESTUS",
+            os="Linux",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            },
+            tier="S1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20190601preview:AgentPool myAgentPool /subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourceGroups/huanwudfwestgroup/providers/Microsoft.ContainerRegistry/registries/huanglidfwest01/agentPools/testagent26 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.

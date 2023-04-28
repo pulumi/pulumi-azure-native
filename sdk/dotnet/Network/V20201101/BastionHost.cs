@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// Bastion Host resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create Bastion Host
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bastionHost = new AzureNative.Network.V20201101.BastionHost("bastionHost", new()
+    ///     {
+    ///         BastionHostName = "bastionhosttenant'",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.BastionHostIPConfigurationArgs
+    ///             {
+    ///                 Name = "bastionHostIpConfiguration",
+    ///                 PublicIPAddress = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/BastionHostSubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:BastionHost bastionhost' /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/bastionHosts/bastionhosttenant' 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:BastionHost")]
     public partial class BastionHost : global::Pulumi.CustomResource

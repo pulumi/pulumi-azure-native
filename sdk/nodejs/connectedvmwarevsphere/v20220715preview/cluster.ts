@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Define the cluster.
+ *
+ * ## Example Usage
+ * ### CreateCluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.connectedvmwarevsphere.v20220715preview.Cluster("cluster", {
+ *     clusterName: "HRCluster",
+ *     extendedLocation: {
+ *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+ *         type: "customLocation",
+ *     },
+ *     location: "East US",
+ *     moRefId: "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+ *     resourceGroupName: "testrg",
+ *     vCenterId: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:Cluster HRCluster /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/Clusters/HRCluster 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

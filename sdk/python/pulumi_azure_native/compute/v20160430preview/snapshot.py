@@ -187,6 +187,65 @@ class Snapshot(pulumi.CustomResource):
         """
         Snapshot resource.
 
+        ## Example Usage
+        ### Create a snapshot by importing an unmanaged blob from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.v20160430preview.Snapshot("snapshot",
+            creation_data=azure_native.compute.v20160430preview.CreationDataArgs(
+                create_option=azure_native.compute/v20160430preview.DiskCreateOption.IMPORT_,
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                storage_account_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+        ### Create a snapshot by importing an unmanaged blob from the same subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.v20160430preview.Snapshot("snapshot",
+            creation_data=azure_native.compute.v20160430preview.CreationDataArgs(
+                create_option=azure_native.compute/v20160430preview.DiskCreateOption.IMPORT_,
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+        ### Create a snapshot from an existing snapshot in the same or a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.v20160430preview.Snapshot("snapshot",
+            creation_data=azure_native.compute.v20160430preview.CreationDataArgs(
+                create_option=azure_native.compute/v20160430preview.DiskCreateOption.COPY,
+                source_resource_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20160430preview:Snapshot mySnapshot2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/snapshots/{snapshotName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['StorageAccountTypes'] account_type: the storage account type of the disk.
@@ -207,6 +266,65 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Snapshot resource.
+
+        ## Example Usage
+        ### Create a snapshot by importing an unmanaged blob from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.v20160430preview.Snapshot("snapshot",
+            creation_data=azure_native.compute.v20160430preview.CreationDataArgs(
+                create_option=azure_native.compute/v20160430preview.DiskCreateOption.IMPORT_,
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                storage_account_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+        ### Create a snapshot by importing an unmanaged blob from the same subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.v20160430preview.Snapshot("snapshot",
+            creation_data=azure_native.compute.v20160430preview.CreationDataArgs(
+                create_option=azure_native.compute/v20160430preview.DiskCreateOption.IMPORT_,
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+        ### Create a snapshot from an existing snapshot in the same or a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.v20160430preview.Snapshot("snapshot",
+            creation_data=azure_native.compute.v20160430preview.CreationDataArgs(
+                create_option=azure_native.compute/v20160430preview.DiskCreateOption.COPY,
+                source_resource_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20160430preview:Snapshot mySnapshot2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/snapshots/{snapshotName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

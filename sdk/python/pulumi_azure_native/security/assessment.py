@@ -149,6 +149,33 @@ class Assessment(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create security recommendation task on a resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.security.Assessment("assessment",
+            assessment_name="8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+            resource_details=azure_native.security.AzureResourceDetailsArgs(
+                source="Azure",
+            ),
+            resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
+            status=azure_native.security.AssessmentStatusArgs(
+                code="Healthy",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:Assessment 8bb8be0a-6010-4789-812f-e4d661c4ed0e /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1/providers/Microsoft.Security/assessments/8bb8be0a-6010-4789-812f-e4d661c4ed0e 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] additional_data: Additional data regarding the assessment
@@ -169,6 +196,33 @@ class Assessment(pulumi.CustomResource):
         Security assessment on a resource - response format
         API Version: 2021-06-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create security recommendation task on a resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.security.Assessment("assessment",
+            assessment_name="8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+            resource_details=azure_native.security.AzureResourceDetailsArgs(
+                source="Azure",
+            ),
+            resource_id="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
+            status=azure_native.security.AssessmentStatusArgs(
+                code="Healthy",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:Assessment 8bb8be0a-6010-4789-812f-e4d661c4ed0e /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1/providers/Microsoft.Security/assessments/8bb8be0a-6010-4789-812f-e4d661c4ed0e 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

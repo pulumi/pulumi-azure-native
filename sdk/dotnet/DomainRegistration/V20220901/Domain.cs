@@ -11,6 +11,125 @@ namespace Pulumi.AzureNative.DomainRegistration.V20220901
 {
     /// <summary>
     /// Information about a domain.
+    /// 
+    /// ## Example Usage
+    /// ### Create App Service Domain
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domain = new AzureNative.DomainRegistration.V20220901.Domain("domain", new()
+    ///     {
+    ///         AuthCode = "exampleAuthCode",
+    ///         AutoRenew = true,
+    ///         Consent = new AzureNative.DomainRegistration.V20220901.Inputs.DomainPurchaseConsentArgs
+    ///         {
+    ///             AgreedAt = "2021-09-10T19:30:53Z",
+    ///             AgreedBy = "192.0.2.1",
+    ///             AgreementKeys = new[]
+    ///             {
+    ///                 "agreementKey1",
+    ///             },
+    ///         },
+    ///         ContactAdmin = new AzureNative.DomainRegistration.V20220901.Inputs.ContactArgs
+    ///         {
+    ///             AddressMailing = new AzureNative.DomainRegistration.V20220901.Inputs.AddressArgs
+    ///             {
+    ///                 Address1 = "3400 State St",
+    ///                 City = "Chicago",
+    ///                 Country = "United States",
+    ///                 PostalCode = "67098",
+    ///                 State = "IL",
+    ///             },
+    ///             Email = "admin@email.com",
+    ///             Fax = "1-245-534-2242",
+    ///             JobTitle = "Admin",
+    ///             NameFirst = "John",
+    ///             NameLast = "Doe",
+    ///             NameMiddle = "",
+    ///             Organization = "Microsoft Inc.",
+    ///             Phone = "1-245-534-2242",
+    ///         },
+    ///         ContactBilling = new AzureNative.DomainRegistration.V20220901.Inputs.ContactArgs
+    ///         {
+    ///             AddressMailing = new AzureNative.DomainRegistration.V20220901.Inputs.AddressArgs
+    ///             {
+    ///                 Address1 = "3400 State St",
+    ///                 City = "Chicago",
+    ///                 Country = "United States",
+    ///                 PostalCode = "67098",
+    ///                 State = "IL",
+    ///             },
+    ///             Email = "billing@email.com",
+    ///             Fax = "1-245-534-2242",
+    ///             JobTitle = "Billing",
+    ///             NameFirst = "John",
+    ///             NameLast = "Doe",
+    ///             NameMiddle = "",
+    ///             Organization = "Microsoft Inc.",
+    ///             Phone = "1-245-534-2242",
+    ///         },
+    ///         ContactRegistrant = new AzureNative.DomainRegistration.V20220901.Inputs.ContactArgs
+    ///         {
+    ///             AddressMailing = new AzureNative.DomainRegistration.V20220901.Inputs.AddressArgs
+    ///             {
+    ///                 Address1 = "3400 State St",
+    ///                 City = "Chicago",
+    ///                 Country = "United States",
+    ///                 PostalCode = "67098",
+    ///                 State = "IL",
+    ///             },
+    ///             Email = "registrant@email.com",
+    ///             Fax = "1-245-534-2242",
+    ///             JobTitle = "Registrant",
+    ///             NameFirst = "John",
+    ///             NameLast = "Doe",
+    ///             NameMiddle = "",
+    ///             Organization = "Microsoft Inc.",
+    ///             Phone = "1-245-534-2242",
+    ///         },
+    ///         ContactTech = new AzureNative.DomainRegistration.V20220901.Inputs.ContactArgs
+    ///         {
+    ///             AddressMailing = new AzureNative.DomainRegistration.V20220901.Inputs.AddressArgs
+    ///             {
+    ///                 Address1 = "3400 State St",
+    ///                 City = "Chicago",
+    ///                 Country = "United States",
+    ///                 PostalCode = "67098",
+    ///                 State = "IL",
+    ///             },
+    ///             Email = "tech@email.com",
+    ///             Fax = "1-245-534-2242",
+    ///             JobTitle = "Tech",
+    ///             NameFirst = "John",
+    ///             NameLast = "Doe",
+    ///             NameMiddle = "",
+    ///             Organization = "Microsoft Inc.",
+    ///             Phone = "1-245-534-2242",
+    ///         },
+    ///         DnsType = AzureNative.DomainRegistration.V20220901.DnsType.DefaultDomainRegistrarDns,
+    ///         DomainName = "example.com",
+    ///         Location = "global",
+    ///         Privacy = false,
+    ///         ResourceGroupName = "testrg123",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:domainregistration/v20220901:Domain example.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.DomainRegistration/domains/example.com 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration/v20220901:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

@@ -219,6 +219,38 @@ class ConnectedCluster(pulumi.CustomResource):
         """
         Represents a connected cluster.
 
+        ## Example Usage
+        ### CreateClusterExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_cluster = azure_native.kubernetes.v20200101preview.ConnectedCluster("connectedCluster",
+            aad_profile=azure_native.kubernetes.v20200101preview.ConnectedClusterAADProfileArgs(
+                client_app_id="f8cd1fd9-154f-4da7-b348-595f283c13a3",
+                server_app_id="45c27b16-e262-4c55-b572-b3b8f7788eb8",
+                tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            ),
+            agent_public_key_certificate="MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiM D6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO",
+            cluster_name="testCluster",
+            identity=azure_native.kubernetes.v20200101preview.ConnectedClusterIdentityArgs(
+                type=azure_native.kubernetes/v20200101preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="East US",
+            resource_group_name="k8sc-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetes/v20200101preview:ConnectedCluster connectedCluster1 /subscriptions/1bfbb5d0-917e-4346-9026-1d3b344417f5/resourceGroups/akkeshar/providers/Microsoft.Kubernetes/connectedClusters/connectedCluster1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConnectedClusterAADProfileArgs']] aad_profile: AAD profile of the connected cluster.
@@ -241,6 +273,38 @@ class ConnectedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a connected cluster.
+
+        ## Example Usage
+        ### CreateClusterExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_cluster = azure_native.kubernetes.v20200101preview.ConnectedCluster("connectedCluster",
+            aad_profile=azure_native.kubernetes.v20200101preview.ConnectedClusterAADProfileArgs(
+                client_app_id="f8cd1fd9-154f-4da7-b348-595f283c13a3",
+                server_app_id="45c27b16-e262-4c55-b572-b3b8f7788eb8",
+                tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+            ),
+            agent_public_key_certificate="MIICYzCCAcygAwIBAgIBADANBgkqhkiG9w0BAQUFADAuMQswCQYDVQQGEwJVUzEMMAoGA1UEChMDSUJNMREwDwYDVQQLEwhMb2NhbCBDQTAeFw05OTEyMjIwNTAwMDBaFw0wMDEyMjMwNDU5NTlaMC4xCzAJBgNVBAYTAlVTMQwwCgYDVQQKEwNJQk0xETAPBgNVBAsTCExvY2FsIENBMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD2bZEo7xGaX2/0GHkrNFZvlxBou9v1Jmt/PDiTMPve8r9FeJAQ0QdvFST/0JPQYD20rH0bimdDLgNdNynmyRoS2S/IInfpmf69iyc2G0TPyRvmHIiOZbdCd+YBHQi1adkj17NDcWj6S14tVurFX73zx0sNoMS79q3tuXKrDsxeuwIDAQABo4GQMIGNMEsGCVUdDwGG+EIBDQQ+EzxHZW5lcmF0ZWQgYnkgdGhlIFNlY3VyZVdheSBTZWN1cml0eSBTZXJ2ZXIgZm9yIE9TLzM5MCAoUkFDRikwDgYDVR0PAQH/BAQDAgAGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFJ3+ocRyCTJw067dLSwr/nalx6YMMA0GCSqGSIb3DQEBBQUAA4GBAMaQzt+zaj1GU77yzlr8iiMBXgdQrwsZZWJo5exnAucJAEYQZmOfyLiM D6oYq+ZnfvM0n8G/Y79q8nhwvuxpYOnRSAXFp6xSkrIOeZtJMY1h00LKp/JX3Ng1svZ2agE126JHsQ0bhzN5TKsYfbwfTwfjdWAGy6Vf1nYi/rO+ryMO",
+            cluster_name="testCluster",
+            identity=azure_native.kubernetes.v20200101preview.ConnectedClusterIdentityArgs(
+                type=azure_native.kubernetes/v20200101preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="East US",
+            resource_group_name="k8sc-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetes/v20200101preview:ConnectedCluster connectedCluster1 /subscriptions/1bfbb5d0-917e-4346-9026-1d3b344417f5/resourceGroups/akkeshar/providers/Microsoft.Kubernetes/connectedClusters/connectedCluster1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectedClusterArgs args: The arguments to use to populate this resource's properties.

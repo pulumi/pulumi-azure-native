@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a cluster firewall rule.
+ *
+ * ## Example Usage
+ * ### Create a firewall rule of the cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallRule = new azure_native.dbforpostgresql.v20221108.FirewallRule("firewallRule", {
+ *     clusterName: "pgtestsvc4",
+ *     endIpAddress: "255.255.255.255",
+ *     firewallRuleName: "rule1",
+ *     resourceGroupName: "TestGroup",
+ *     startIpAddress: "0.0.0.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20221108:FirewallRule rule1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/pgtestsvc4/firewallRules/rule1 
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

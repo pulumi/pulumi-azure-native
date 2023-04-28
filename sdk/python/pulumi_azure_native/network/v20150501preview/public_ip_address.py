@@ -219,6 +219,13 @@ class PublicIpAddress(pulumi.CustomResource):
                  __props__=None):
         """
         PublicIPAddress resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20150501preview:PublicIpAddress myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{publicIpAddressName}/ 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,6 +249,13 @@ class PublicIpAddress(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         PublicIPAddress resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20150501preview:PublicIpAddress myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPAddresses/{publicIpAddressName}/ 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PublicIpAddressArgs args: The arguments to use to populate this resource's properties.

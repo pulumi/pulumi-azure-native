@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// Defines the HybridIdentityMetadata.
     /// API Version: 2022-07-15-preview.
     /// Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateHybridIdentityMetadata
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hybridIdentityMetadatum = new AzureNative.ConnectedVMwarevSphere.HybridIdentityMetadatum("hybridIdentityMetadatum", new()
+    ///     {
+    ///         MetadataName = "default",
+    ///         PublicKey = "8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+    ///         ResourceGroupName = "testrg",
+    ///         VirtualMachineName = "ContosoVm",
+    ///         VmId = "f8b82dff-38ef-4220-99ef-d3a3f86ddc6c",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:connectedvmwarevsphere:HybridIdentityMetadatum testItem /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VitualMachines/ContosoVm/hybridIdentityMetadatas/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:HybridIdentityMetadatum")]
     public partial class HybridIdentityMetadatum : global::Pulumi.CustomResource

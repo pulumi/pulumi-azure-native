@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.EventGrid.V20200601
 {
     /// <summary>
     /// Domain Topic.
+    /// 
+    /// ## Example Usage
+    /// ### DomainTopics_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domainTopic = new AzureNative.EventGrid.V20200601.DomainTopic("domainTopic", new()
+    ///     {
+    ///         DomainName = "exampledomain1",
+    ///         DomainTopicName = "exampledomaintopic1",
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20200601:DomainTopic exampledomaintopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1/topics/exampledomaintopic1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20200601:DomainTopic")]
     public partial class DomainTopic : global::Pulumi.CustomResource

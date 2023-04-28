@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * Friendly RuleSet name mapping to the any RuleSet or secret related information.
  * API Version: 2021-06-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RuleSets_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ruleSet = new azure_native.cdn.RuleSet("ruleSet", {
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     ruleSetName: "ruleSet1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:RuleSet ruleSet1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/rulesets/ruleSet1 
+ * ```
  */
 export class RuleSet extends pulumi.CustomResource {
     /**

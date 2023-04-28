@@ -13,6 +13,70 @@ namespace Pulumi.AzureNative.DevCenter
     /// Represents a devcenter resource.
     /// API Version: 2022-11-11-preview.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### DevCenters_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var devCenter = new AzureNative.DevCenter.DevCenter("devCenter", new()
+    ///     {
+    ///         DevCenterName = "Contoso",
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "CostCode", "12345" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DevCenters_CreateWithUserIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var devCenter = new AzureNative.DevCenter.DevCenter("devCenter", new()
+    ///     {
+    ///         DevCenterName = "Contoso",
+    ///         Identity = new AzureNative.DevCenter.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1", null },
+    ///             },
+    ///         },
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "CostCode", "12345" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter:DevCenter Contoso /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:DevCenter")]
     public partial class DevCenter : global::Pulumi.CustomResource

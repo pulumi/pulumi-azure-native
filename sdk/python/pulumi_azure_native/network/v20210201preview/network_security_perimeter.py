@@ -129,6 +129,27 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
         """
         The Network Security Perimeter resource
 
+        ## Example Usage
+        ### Put Network Security Perimeter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_security_perimeter = azure_native.network.v20210201preview.NetworkSecurityPerimeter("networkSecurityPerimeter",
+            network_security_perimeter_name="nsp1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NetworkSecurityPerimeter TestNetworkSecurityPerimeter /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/TestNetworkSecurityPerimeter 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -146,6 +167,27 @@ class NetworkSecurityPerimeter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Network Security Perimeter resource
+
+        ## Example Usage
+        ### Put Network Security Perimeter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_security_perimeter = azure_native.network.v20210201preview.NetworkSecurityPerimeter("networkSecurityPerimeter",
+            network_security_perimeter_name="nsp1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NetworkSecurityPerimeter TestNetworkSecurityPerimeter /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/TestNetworkSecurityPerimeter 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterArgs args: The arguments to use to populate this resource's properties.

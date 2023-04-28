@@ -7,6 +7,31 @@ import * as utilities from "../../utilities";
 /**
  * Single item in List or Get Consumer group operation
  *
+ * ## Example Usage
+ * ### ConsumerGroupCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const consumerGroup = new azure_native.eventhub.v20150801.ConsumerGroup("consumerGroup", {
+ *     consumerGroupName: "sdk-ConsumerGroup115",
+ *     eventHubName: "sdk-EventHub5290",
+ *     location: "West US",
+ *     namespaceName: "sdk-Namespace736",
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub/v20150801:ConsumerGroup sdk-ConsumerGroup115 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace736/eventhubs/sdk-EventHub5290/consumergroups/sdk-ConsumerGroup115 
+ * ```
+ *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class ConsumerGroup extends pulumi.CustomResource {

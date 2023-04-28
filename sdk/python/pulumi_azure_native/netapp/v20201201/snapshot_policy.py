@@ -198,6 +198,50 @@ class SnapshotPolicy(pulumi.CustomResource):
         """
         Snapshot policy information
 
+        ## Example Usage
+        ### SnapshotPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot_policy = azure_native.netapp.v20201201.SnapshotPolicy("snapshotPolicy",
+            account_name="account1",
+            daily_schedule=azure_native.netapp.v20201201.DailyScheduleArgs(
+                hour=14,
+                minute=30,
+                snapshots_to_keep=4,
+            ),
+            hourly_schedule=azure_native.netapp.v20201201.HourlyScheduleArgs(
+                minute=50,
+                snapshots_to_keep=2,
+            ),
+            location="eastus",
+            monthly_schedule=azure_native.netapp.v20201201.MonthlyScheduleArgs(
+                days_of_month="10,11,12",
+                hour=14,
+                minute=15,
+                snapshots_to_keep=5,
+            ),
+            resource_group_name="myRG",
+            snapshot_policy_name="snapshotPolicyName",
+            weekly_schedule=azure_native.netapp.v20201201.WeeklyScheduleArgs(
+                day="Wednesday",
+                hour=14,
+                minute=45,
+                snapshots_to_keep=3,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20201201:SnapshotPolicy account1/snapshotPolicy1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotPolicy1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -219,6 +263,50 @@ class SnapshotPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Snapshot policy information
+
+        ## Example Usage
+        ### SnapshotPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot_policy = azure_native.netapp.v20201201.SnapshotPolicy("snapshotPolicy",
+            account_name="account1",
+            daily_schedule=azure_native.netapp.v20201201.DailyScheduleArgs(
+                hour=14,
+                minute=30,
+                snapshots_to_keep=4,
+            ),
+            hourly_schedule=azure_native.netapp.v20201201.HourlyScheduleArgs(
+                minute=50,
+                snapshots_to_keep=2,
+            ),
+            location="eastus",
+            monthly_schedule=azure_native.netapp.v20201201.MonthlyScheduleArgs(
+                days_of_month="10,11,12",
+                hour=14,
+                minute=15,
+                snapshots_to_keep=5,
+            ),
+            resource_group_name="myRG",
+            snapshot_policy_name="snapshotPolicyName",
+            weekly_schedule=azure_native.netapp.v20201201.WeeklyScheduleArgs(
+                day="Wednesday",
+                hour=14,
+                minute=45,
+                snapshots_to_keep=3,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20201201:SnapshotPolicy account1/snapshotPolicy1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotPolicy1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnapshotPolicyArgs args: The arguments to use to populate this resource's properties.

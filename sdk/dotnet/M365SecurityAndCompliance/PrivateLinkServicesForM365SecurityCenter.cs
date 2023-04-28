@@ -13,6 +13,125 @@ namespace Pulumi.AzureNative.M365SecurityAndCompliance
     /// The description of the service.
     /// API Version: 2021-03-25-preview.
     /// Previous API Version: 2021-03-25-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a service with all parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkServicesForM365SecurityCenter = new AzureNative.M365SecurityAndCompliance.PrivateLinkServicesForM365SecurityCenter("privateLinkServicesForM365SecurityCenter", new()
+    ///     {
+    ///         Identity = new AzureNative.M365SecurityAndCompliance.Inputs.ServicesResourceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Kind = AzureNative.M365SecurityAndCompliance.Kind.Fhir_R4,
+    ///         Location = "westus2",
+    ///         Properties = new AzureNative.M365SecurityAndCompliance.Inputs.ServicesPropertiesArgs
+    ///         {
+    ///             AccessPolicies = new[]
+    ///             {
+    ///                 new AzureNative.M365SecurityAndCompliance.Inputs.ServiceAccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+    ///                 },
+    ///                 new AzureNative.M365SecurityAndCompliance.Inputs.ServiceAccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "5b307da8-43d4-492b-8b66-b0294ade872f",
+    ///                 },
+    ///             },
+    ///             AuthenticationConfiguration = new AzureNative.M365SecurityAndCompliance.Inputs.ServiceAuthenticationConfigurationInfoArgs
+    ///             {
+    ///                 Audience = "https://azurehealthcareapis.com",
+    ///                 Authority = "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
+    ///                 SmartProxyEnabled = true,
+    ///             },
+    ///             CorsConfiguration = new AzureNative.M365SecurityAndCompliance.Inputs.ServiceCorsConfigurationInfoArgs
+    ///             {
+    ///                 AllowCredentials = false,
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 MaxAge = 1440,
+    ///                 Methods = new[]
+    ///                 {
+    ///                     "DELETE",
+    ///                     "GET",
+    ///                     "OPTIONS",
+    ///                     "PATCH",
+    ///                     "POST",
+    ///                     "PUT",
+    ///                 },
+    ///                 Origins = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             CosmosDbConfiguration = new AzureNative.M365SecurityAndCompliance.Inputs.ServiceCosmosDbConfigurationInfoArgs
+    ///             {
+    ///                 KeyVaultKeyUri = "https://my-vault.vault.azure.net/keys/my-key",
+    ///                 OfferThroughput = 1000,
+    ///             },
+    ///             ExportConfiguration = new AzureNative.M365SecurityAndCompliance.Inputs.ServiceExportConfigurationInfoArgs
+    ///             {
+    ///                 StorageAccountName = "existingStorageAccount",
+    ///             },
+    ///             PrivateEndpointConnections = new[] {},
+    ///             PublicNetworkAccess = "Disabled",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "service1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update a service with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkServicesForM365SecurityCenter = new AzureNative.M365SecurityAndCompliance.PrivateLinkServicesForM365SecurityCenter("privateLinkServicesForM365SecurityCenter", new()
+    ///     {
+    ///         Kind = AzureNative.M365SecurityAndCompliance.Kind.Fhir_R4,
+    ///         Location = "westus2",
+    ///         Properties = new AzureNative.M365SecurityAndCompliance.Inputs.ServicesPropertiesArgs
+    ///         {
+    ///             AccessPolicies = new[]
+    ///             {
+    ///                 new AzureNative.M365SecurityAndCompliance.Inputs.ServiceAccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "service2",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:m365securityandcompliance:privateLinkServicesForM365SecurityCenter service2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.M365SecurityAndCompliance/privateLinkServicesForM365SecurityCenter/service2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:m365securityandcompliance:privateLinkServicesForM365SecurityCenter")]
     public partial class PrivateLinkServicesForM365SecurityCenter : global::Pulumi.CustomResource

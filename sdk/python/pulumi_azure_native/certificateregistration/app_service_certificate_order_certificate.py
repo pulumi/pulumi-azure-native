@@ -164,6 +164,31 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_certificate_order_certificate = azure_native.certificateregistration.AppServiceCertificateOrderCertificate("appServiceCertificateOrderCertificate",
+            certificate_order_name="SampleCertificateOrderName",
+            key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+            key_vault_secret_name="SampleSecretName1",
+            location="Global",
+            name="SampleCertName1",
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:certificateregistration:AppServiceCertificateOrderCertificate SampleCertName1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.CertificateRegistration/certificateOrders/SampleCertificateOrderName/certificates/SampleCertName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_order_name: Name of the certificate order.
@@ -185,6 +210,31 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
         Key Vault container ARM resource for a certificate that is purchased through Azure.
         API Version: 2022-09-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_certificate_order_certificate = azure_native.certificateregistration.AppServiceCertificateOrderCertificate("appServiceCertificateOrderCertificate",
+            certificate_order_name="SampleCertificateOrderName",
+            key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+            key_vault_secret_name="SampleSecretName1",
+            location="Global",
+            name="SampleCertName1",
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:certificateregistration:AppServiceCertificateOrderCertificate SampleCertName1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.CertificateRegistration/certificateOrders/SampleCertificateOrderName/certificates/SampleCertName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderCertificateArgs args: The arguments to use to populate this resource's properties.

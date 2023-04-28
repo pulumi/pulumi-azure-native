@@ -13,6 +13,87 @@ namespace Pulumi.AzureNative.HybridNetwork
     /// Network function resource response.
     /// API Version: 2021-05-01.
     /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create network function resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkFunction = new AzureNative.HybridNetwork.NetworkFunction("networkFunction", new()
+    ///     {
+    ///         Device = new AzureNative.HybridNetwork.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/devices/testDevice",
+    ///         },
+    ///         Location = "eastus",
+    ///         ManagedApplicationParameters = null,
+    ///         NetworkFunctionName = "testNf",
+    ///         NetworkFunctionUserConfigurations = new[]
+    ///         {
+    ///             new AzureNative.HybridNetwork.Inputs.NetworkFunctionUserConfigurationArgs
+    ///             {
+    ///                 NetworkInterfaces = new[]
+    ///                 {
+    ///                     new AzureNative.HybridNetwork.Inputs.NetworkInterfaceArgs
+    ///                     {
+    ///                         IpConfigurations = new[]
+    ///                         {
+    ///                             new AzureNative.HybridNetwork.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///                             {
+    ///                                 Gateway = "",
+    ///                                 IpAddress = "",
+    ///                                 IpAllocationMethod = "Dynamic",
+    ///                                 IpVersion = "IPv4",
+    ///                                 Subnet = "",
+    ///                             },
+    ///                         },
+    ///                         MacAddress = "",
+    ///                         NetworkInterfaceName = "nic1",
+    ///                         VmSwitchType = "Management",
+    ///                     },
+    ///                     new AzureNative.HybridNetwork.Inputs.NetworkInterfaceArgs
+    ///                     {
+    ///                         IpConfigurations = new[]
+    ///                         {
+    ///                             new AzureNative.HybridNetwork.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///                             {
+    ///                                 Gateway = "",
+    ///                                 IpAddress = "",
+    ///                                 IpAllocationMethod = "Dynamic",
+    ///                                 IpVersion = "IPv4",
+    ///                                 Subnet = "",
+    ///                             },
+    ///                         },
+    ///                         MacAddress = "DC-97-F8-79-16-7D",
+    ///                         NetworkInterfaceName = "nic2",
+    ///                         VmSwitchType = "Wan",
+    ///                     },
+    ///                 },
+    ///                 RoleName = "testRole",
+    ///                 UserDataParameters = null,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         SkuName = "testSku",
+    ///         VendorName = "testVendor",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork:NetworkFunction testNf /subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/networkFunctions/testNf 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork:NetworkFunction")]
     public partial class NetworkFunction : global::Pulumi.CustomResource

@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Model Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const modelVersion = new azure_native.machinelearningservices.v20210301preview.ModelVersion("modelVersion", {
+ *     name: "testContainer",
+ *     properties: {
+ *         datastoreId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/datastores/datastore123",
+ *         description: "Model version description",
+ *         flavors: {
+ *             python_function: {
+ *                 data: {
+ *                     loader_module: "myLoaderModule",
+ *                 },
+ *             },
+ *         },
+ *         path: "path/in/datastore",
+ *         properties: {
+ *             prop1: "value1",
+ *             prop2: "value2",
+ *         },
+ *         tags: {
+ *             tag1: "value1",
+ *             tag2: "value2",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     version: "1",
+ *     workspaceName: "workspace123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20210301preview:ModelVersion 1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/models/testContainer/versions/1 
+ * ```
  */
 export class ModelVersion extends pulumi.CustomResource {
     /**

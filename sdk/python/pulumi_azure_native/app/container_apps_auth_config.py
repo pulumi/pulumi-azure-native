@@ -167,6 +167,42 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or Update Container App AuthConfig
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_apps_auth_config = azure_native.app.ContainerAppsAuthConfig("containerAppsAuthConfig",
+            auth_config_name="current",
+            container_app_name="testcanadacentral",
+            global_validation=azure_native.app.GlobalValidationArgs(
+                unauthenticated_client_action=azure_native.app.UnauthenticatedClientActionV2.ALLOW_ANONYMOUS,
+            ),
+            identity_providers=azure_native.app.IdentityProvidersResponseArgs(
+                facebook={
+                    "registration": azure_native.app.AppRegistrationArgs(
+                        app_id="123",
+                        app_secret_setting_name="facebook-secret",
+                    ),
+                },
+            ),
+            platform=azure_native.app.AuthPlatformArgs(
+                enabled=True,
+            ),
+            resource_group_name="workerapps-rg-xj")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ContainerAppsAuthConfig current /subscriptions/651f8027-33e8-4ec4-97b4-f6e9f3dc8744/resourceGroups/workerapps-rg-xj/providers/Microsoft.App/containerApps/myapp/authconfigs/current 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auth_config_name: Name of the Container App AuthConfig.
@@ -188,6 +224,42 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
         Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
         API Version: 2022-10-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or Update Container App AuthConfig
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_apps_auth_config = azure_native.app.ContainerAppsAuthConfig("containerAppsAuthConfig",
+            auth_config_name="current",
+            container_app_name="testcanadacentral",
+            global_validation=azure_native.app.GlobalValidationArgs(
+                unauthenticated_client_action=azure_native.app.UnauthenticatedClientActionV2.ALLOW_ANONYMOUS,
+            ),
+            identity_providers=azure_native.app.IdentityProvidersResponseArgs(
+                facebook={
+                    "registration": azure_native.app.AppRegistrationArgs(
+                        app_id="123",
+                        app_secret_setting_name="facebook-secret",
+                    ),
+                },
+            ),
+            platform=azure_native.app.AuthPlatformArgs(
+                enabled=True,
+            ),
+            resource_group_name="workerapps-rg-xj")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ContainerAppsAuthConfig current /subscriptions/651f8027-33e8-4ec4-97b4-f6e9f3dc8744/resourceGroups/workerapps-rg-xj/providers/Microsoft.App/containerApps/myapp/authconfigs/current 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerAppsAuthConfigArgs args: The arguments to use to populate this resource's properties.

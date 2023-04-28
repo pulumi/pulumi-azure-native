@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network information ARM resource.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:WebAppVnetConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/virtualNetworkConnections/{vnetName} 
+ * ```
  */
 export class WebAppVnetConnection extends pulumi.CustomResource {
     /**

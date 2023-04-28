@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.ResourceConnector.V20211031Preview
 {
     /// <summary>
     /// Appliances definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Appliance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appliance = new AzureNative.ResourceConnector.V20211031Preview.Appliance("appliance", new()
+    ///     {
+    ///         Distro = "AKSEdge",
+    ///         InfrastructureConfig = new AzureNative.ResourceConnector.V20211031Preview.Inputs.AppliancePropertiesInfrastructureConfigArgs
+    ///         {
+    ///             Provider = "VMWare",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "testresourcegroup",
+    ///         ResourceName = "appliance01",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resourceconnector/v20211031preview:Appliance appliance01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ResourceConnector/appliances/appliance01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resourceconnector/v20211031preview:Appliance")]
     public partial class Appliance : global::Pulumi.CustomResource

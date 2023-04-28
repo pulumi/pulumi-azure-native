@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// Packet core data plane resource. Must be created in the same location as its parent packet core control plane.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create packet core data plane
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var packetCoreDataPlane = new AzureNative.MobileNetwork.PacketCoreDataPlane("packetCoreDataPlane", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         PacketCoreControlPlaneName = "testPacketCoreCP",
+    ///         PacketCoreDataPlaneName = "testPacketCoreDP",
+    ///         ResourceGroupName = "rg1",
+    ///         UserPlaneAccessInterface = new AzureNative.MobileNetwork.Inputs.InterfacePropertiesArgs
+    ///         {
+    ///             Name = "N3",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork:PacketCoreDataPlane TestPacketCoreDP /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCoreDataPlane")]
     public partial class PacketCoreDataPlane : global::Pulumi.CustomResource

@@ -13,6 +13,34 @@ namespace Pulumi.AzureNative.Resources
     /// Resource group information.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a resource group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var resourceGroup = new AzureNative.Resources.ResourceGroup("resourceGroup", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "my-resource-group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:ResourceGroup my-resource-group /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:ResourceGroup")]
     public partial class ResourceGroup : global::Pulumi.CustomResource

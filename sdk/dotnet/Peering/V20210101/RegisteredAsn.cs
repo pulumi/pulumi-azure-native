@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Peering.V20210101
 {
     /// <summary>
     /// The customer's ASN that is registered by the peering service provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a registered ASN for the peering
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registeredAsn = new AzureNative.Peering.V20210101.RegisteredAsn("registeredAsn", new()
+    ///     {
+    ///         Asn = 65000,
+    ///         PeeringName = "peeringName",
+    ///         RegisteredAsnName = "registeredAsnName",
+    ///         ResourceGroupName = "rgName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering/v20210101:RegisteredAsn registeredAsnName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName/registeredAsns/registeredAsnName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering/v20210101:RegisteredAsn")]
     public partial class RegisteredAsn : global::Pulumi.CustomResource

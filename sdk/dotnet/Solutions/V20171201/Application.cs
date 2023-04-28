@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Solutions.V20171201
 {
     /// <summary>
     /// Information about managed application.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update managed application
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.Solutions.V20171201.Application("application", new()
+    ///     {
+    ///         ApplicationName = "myManagedApplication",
+    ///         Kind = "ServiceCatalog",
+    ///         Location = "East US 2",
+    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:solutions/v20171201:Application myManagedApplication /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applications/myManagedApplication 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20171201:Application")]

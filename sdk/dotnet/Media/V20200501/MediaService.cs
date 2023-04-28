@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// A Media Services account.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Media Services account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mediaService = new AzureNative.Media.V20200501.MediaService("mediaService", new()
+    ///     {
+    ///         AccountName = "contososports",
+    ///         Location = "South Central US",
+    ///         ResourceGroupName = "contoso",
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new AzureNative.Media.V20200501.Inputs.StorageAccountArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Storage/storageAccounts/contososportsstore",
+    ///                 Type = "Primary",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20200501:MediaService contososports /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contososports 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20200501:MediaService")]
     public partial class MediaService : global::Pulumi.CustomResource

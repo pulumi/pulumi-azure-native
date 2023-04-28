@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// An environment, which is essentially an ARM template deployment.
+    /// 
+    /// ## Example Usage
+    /// ### Environments_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var environment = new AzureNative.DevTestLab.V20180915.Environment("environment", new()
+    ///     {
+    ///         DeploymentProperties = new AzureNative.DevTestLab.V20180915.Inputs.EnvironmentDeploymentPropertiesArgs
+    ///         {
+    ///             ArmTemplateId = "/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{armTemplateName}",
+    ///             Parameters = new[] {},
+    ///         },
+    ///         LabName = "{labName}",
+    ///         Name = "{environmentName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         UserName = "@me",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20180915:Environment {environmentName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/users/{uniqueIdentifier}/environments/{environmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:Environment")]
     public partial class Environment : global::Pulumi.CustomResource

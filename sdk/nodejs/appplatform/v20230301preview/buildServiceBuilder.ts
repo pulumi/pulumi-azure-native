@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * KPack Builder resource
+ *
+ * ## Example Usage
+ * ### BuildServiceBuilder_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const buildServiceBuilder = new azure_native.appplatform.v20230301preview.BuildServiceBuilder("buildServiceBuilder", {
+ *     buildServiceName: "default",
+ *     builderName: "mybuilder",
+ *     properties: {
+ *         buildpackGroups: [{
+ *             buildpacks: [{
+ *                 id: "tanzu-buildpacks/java-azure",
+ *             }],
+ *             name: "mix",
+ *         }],
+ *         stack: {
+ *             id: "io.buildpacks.stacks.bionic",
+ *             version: "base",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230301preview:BuildServiceBuilder mybuilder /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/mybuilder 
+ * ```
  */
 export class BuildServiceBuilder extends pulumi.CustomResource {
     /**

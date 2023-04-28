@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Remote Private Endpoint Connection ARM resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Approves or rejects a private endpoint connection for a site.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const staticSitePrivateEndpointConnection = new azure_native.web.StaticSitePrivateEndpointConnection("staticSitePrivateEndpointConnection", {
+ *     name: "testSite",
+ *     privateEndpointConnectionName: "connection",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "",
+ *         description: "Approved by admin.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:StaticSitePrivateEndpointConnection myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/sites/testSite/privateEndpointConnections/connection 
+ * ```
  */
 export class StaticSitePrivateEndpointConnection extends pulumi.CustomResource {
     /**

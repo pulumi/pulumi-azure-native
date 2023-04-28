@@ -131,6 +131,36 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Properties of the PrivateEndpointConnection.
 
+        ## Example Usage
+        ### NameSpacePrivateEndPointConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.servicebus.v20221001preview.PrivateEndpointConnection("privateEndpointConnection",
+            namespace_name="sdk-Namespace-2924",
+            private_endpoint=azure_native.servicebus.v20221001preview.PrivateEndpointArgs(
+                id="/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
+            ),
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state=azure_native.servicebus.v20221001preview.ConnectionStateArgs(
+                description="testing",
+                status="Rejected",
+            ),
+            provisioning_state="Succeeded",
+            resource_group_name="ArunMonocle")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20221001preview:PrivateEndpointConnection 928c44d5-b7c6-423b-b6fa-811e0c27b3e0 /subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-4794/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-5828/privateEndpointConnections/928c44d5-b7c6-423b-b6fa-811e0c27b3e0 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] namespace_name: The namespace name
@@ -148,6 +178,36 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of the PrivateEndpointConnection.
+
+        ## Example Usage
+        ### NameSpacePrivateEndPointConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.servicebus.v20221001preview.PrivateEndpointConnection("privateEndpointConnection",
+            namespace_name="sdk-Namespace-2924",
+            private_endpoint=azure_native.servicebus.v20221001preview.PrivateEndpointArgs(
+                id="/subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-8396/providers/Microsoft.Network/privateEndpoints/sdk-Namespace-2847",
+            ),
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state=azure_native.servicebus.v20221001preview.ConnectionStateArgs(
+                description="testing",
+                status="Rejected",
+            ),
+            provisioning_state="Succeeded",
+            resource_group_name="ArunMonocle")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20221001preview:PrivateEndpointConnection 928c44d5-b7c6-423b-b6fa-811e0c27b3e0 /subscriptions/dbedb4e0-40e6-4145-81f3-f1314c150774/resourceGroups/SDK-ServiceBus-4794/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-5828/privateEndpointConnections/928c44d5-b7c6-423b-b6fa-811e0c27b3e0 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

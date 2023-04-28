@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// A domain specific resource identifier.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:WebAppDomainOwnershipIdentifier myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/domainOwnershipIdentifiers/{domainOwnershipIdentifierName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:WebAppDomainOwnershipIdentifier")]
     public partial class WebAppDomainOwnershipIdentifier : global::Pulumi.CustomResource

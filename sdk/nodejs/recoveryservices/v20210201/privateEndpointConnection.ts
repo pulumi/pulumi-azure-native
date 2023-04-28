@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * Private Endpoint Connection Response Properties
+ *
+ * ## Example Usage
+ * ### Update PrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.recoveryservices.v20210201.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
+ *     properties: {
+ *         privateEndpoint: {
+ *             id: "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.Network/privateEndpoints/gaallatestpe3",
+ *         },
+ *         privateLinkServiceConnectionState: {
+ *             description: "Approved by johndoe@company.com",
+ *             status: "Approved",
+ *         },
+ *         provisioningState: "Succeeded",
+ *     },
+ *     resourceGroupName: "gaallaRG",
+ *     vaultName: "gaallavaultbvtd2msi",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20210201:PrivateEndpointConnection gaallatestpe1.3592346090307038890.backup.5704c932-249a-490b-a142-1396838cd3b /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.RecoveryServicesBVTD2/vaults/gaallavaultbvtd2msi/privateEndpointConnections/gaallatestpe3.3592346090307038890.backup.5704c932-249a-490b-a142-1396838cd3b 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -11,6 +11,40 @@ import * as utilities from "../utilities";
  * Deployment information.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create deployment at a given scope.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentAtScope = new azure_native.resources.DeploymentAtScope("deploymentAtScope", {
+ *     deploymentName: "my-deployment",
+ *     location: "eastus",
+ *     properties: {
+ *         mode: azure_native.resources.DeploymentMode.Incremental,
+ *         parameters: {},
+ *         templateLink: {
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ *     scope: "providers/Microsoft.Management/managementGroups/my-management-group-id",
+ *     tags: {
+ *         tagKey1: "tag-value-1",
+ *         tagKey2: "tag-value-2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:DeploymentAtScope my-deployment /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/my-deployment 
+ * ```
  */
 export class DeploymentAtScope extends pulumi.CustomResource {
     /**

@@ -148,6 +148,49 @@ class SqlManagedInstance(pulumi.CustomResource):
         """
         A SqlManagedInstance.
 
+        ## Example Usage
+        ### Create or update a SQL Managed Instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_managed_instance = azure_native.azurearcdata.v20210601preview.SqlManagedInstance("sqlManagedInstance",
+            extended_location=azure_native.azurearcdata.v20210601preview.ExtendedLocationArgs(
+                name="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+                type="CustomLocation",
+            ),
+            location="northeurope",
+            properties=azure_native.azurearcdata.v20210601preview.SqlManagedInstancePropertiesResponseArgs(
+                admin="Admin user",
+                basic_login_information=azure_native.azurearcdata.v20210601preview.BasicLoginInformationArgs(
+                    password="********",
+                    username="username",
+                ),
+                end_time="Instance end time",
+                start_time="Instance start time",
+            ),
+            resource_group_name="testrg",
+            sku=azure_native.azurearcdata.v20210601preview.SqlManagedInstanceSkuResponseArgs(
+                dev=True,
+                name="default",
+                tier=azure_native.azurearcdata/v20210601preview.SqlManagedInstanceSkuTier.GENERAL_PURPOSE,
+            ),
+            sql_managed_instance_name="testsqlManagedInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20210601preview:SqlManagedInstance testsqlManagedInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testsqlManagedInstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
@@ -166,6 +209,49 @@ class SqlManagedInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SqlManagedInstance.
+
+        ## Example Usage
+        ### Create or update a SQL Managed Instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_managed_instance = azure_native.azurearcdata.v20210601preview.SqlManagedInstance("sqlManagedInstance",
+            extended_location=azure_native.azurearcdata.v20210601preview.ExtendedLocationArgs(
+                name="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+                type="CustomLocation",
+            ),
+            location="northeurope",
+            properties=azure_native.azurearcdata.v20210601preview.SqlManagedInstancePropertiesResponseArgs(
+                admin="Admin user",
+                basic_login_information=azure_native.azurearcdata.v20210601preview.BasicLoginInformationArgs(
+                    password="********",
+                    username="username",
+                ),
+                end_time="Instance end time",
+                start_time="Instance start time",
+            ),
+            resource_group_name="testrg",
+            sku=azure_native.azurearcdata.v20210601preview.SqlManagedInstanceSkuResponseArgs(
+                dev=True,
+                name="default",
+                tier=azure_native.azurearcdata/v20210601preview.SqlManagedInstanceSkuTier.GENERAL_PURPOSE,
+            ),
+            sql_managed_instance_name="testsqlManagedInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20210601preview:SqlManagedInstance testsqlManagedInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testsqlManagedInstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlManagedInstanceArgs args: The arguments to use to populate this resource's properties.

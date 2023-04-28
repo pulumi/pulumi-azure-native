@@ -116,6 +116,43 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PrivateEndpointConnectionProxyCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_proxy = azure_native.deviceupdate.PrivateEndpointConnectionProxy("privateEndpointConnectionProxy",
+            account_name="contoso",
+            private_endpoint_connection_proxy_id="peexample01",
+            remote_private_endpoint=azure_native.deviceupdate.RemotePrivateEndpointResponseArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
+                immutable_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
+                immutable_subscription_id="00000000-0000-0000-0000-000000000000",
+                location="westus2",
+                manual_private_link_service_connections=[azure_native.deviceupdate.PrivateLinkServiceConnectionArgs(
+                    group_ids=["DeviceUpdate"],
+                    name="{privateEndpointConnectionProxyId}",
+                    request_message="Please approve my connection, thanks.",
+                )],
+                private_link_service_proxies=[{
+                    "groupConnectivityInformation": [],
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{privateEndpointConnectionProxyId}/privateLinkServiceProxies/{privateEndpointConnectionProxyId}",
+                }],
+            ),
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceupdate:PrivateEndpointConnectionProxy peexample01 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso/privateEndpointConnectionProxies/peexample01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account name.
@@ -134,6 +171,43 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
         Private endpoint connection proxy details.
         API Version: 2022-10-01.
         Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PrivateEndpointConnectionProxyCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection_proxy = azure_native.deviceupdate.PrivateEndpointConnectionProxy("privateEndpointConnectionProxy",
+            account_name="contoso",
+            private_endpoint_connection_proxy_id="peexample01",
+            remote_private_endpoint=azure_native.deviceupdate.RemotePrivateEndpointResponseArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
+                immutable_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
+                immutable_subscription_id="00000000-0000-0000-0000-000000000000",
+                location="westus2",
+                manual_private_link_service_connections=[azure_native.deviceupdate.PrivateLinkServiceConnectionArgs(
+                    group_ids=["DeviceUpdate"],
+                    name="{privateEndpointConnectionProxyId}",
+                    request_message="Please approve my connection, thanks.",
+                )],
+                private_link_service_proxies=[{
+                    "groupConnectivityInformation": [],
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{privateEndpointConnectionProxyId}/privateLinkServiceProxies/{privateEndpointConnectionProxyId}",
+                }],
+            ),
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceupdate:PrivateEndpointConnectionProxy peexample01 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso/privateEndpointConnectionProxies/peexample01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionProxyArgs args: The arguments to use to populate this resource's properties.

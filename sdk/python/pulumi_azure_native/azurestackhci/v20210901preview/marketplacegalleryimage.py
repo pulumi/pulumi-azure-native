@@ -234,6 +234,44 @@ class Marketplacegalleryimage(pulumi.CustomResource):
         """
         The marketplace gallery image resource definition.
 
+        ## Example Usage
+        ### PutMarketplaceGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        marketplacegalleryimage = azure_native.azurestackhci.v20210901preview.Marketplacegalleryimage("marketplacegalleryimage",
+            cloud_init_data_source="Azure",
+            container_name="Default_Container",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            hyper_v_generation="V1",
+            identifier=azure_native.azurestackhci.v20210901preview.GalleryImageIdentifierResponseArgs(
+                offer="myOfferName",
+                publisher="myPublisherName",
+                sku="mySkuName",
+            ),
+            location="West US2",
+            marketplacegalleryimages_name="test-marketplace-gallery-image",
+            os_type=azure_native.azurestackhci/v20210901preview.OperatingSystemTypes.WINDOWS,
+            resource_group_name="test-rg",
+            version=azure_native.azurestackhci.v20210901preview.GalleryImageVersionArgs(
+                name="1.0.0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:marketplacegalleryimage test-marketplace-gallery-image /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplacegalleryimages/test-marketplace-gallery-image 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'CloudInitDataSource']] cloud_init_data_source: Datasource for the gallery image when provisioning with cloud-init [Azure, NoCloud]
@@ -257,6 +295,44 @@ class Marketplacegalleryimage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The marketplace gallery image resource definition.
+
+        ## Example Usage
+        ### PutMarketplaceGalleryImage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        marketplacegalleryimage = azure_native.azurestackhci.v20210901preview.Marketplacegalleryimage("marketplacegalleryimage",
+            cloud_init_data_source="Azure",
+            container_name="Default_Container",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            hyper_v_generation="V1",
+            identifier=azure_native.azurestackhci.v20210901preview.GalleryImageIdentifierResponseArgs(
+                offer="myOfferName",
+                publisher="myPublisherName",
+                sku="mySkuName",
+            ),
+            location="West US2",
+            marketplacegalleryimages_name="test-marketplace-gallery-image",
+            os_type=azure_native.azurestackhci/v20210901preview.OperatingSystemTypes.WINDOWS,
+            resource_group_name="test-rg",
+            version=azure_native.azurestackhci.v20210901preview.GalleryImageVersionArgs(
+                name="1.0.0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:marketplacegalleryimage test-marketplace-gallery-image /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/marketplacegalleryimages/test-marketplace-gallery-image 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MarketplacegalleryimageArgs args: The arguments to use to populate this resource's properties.

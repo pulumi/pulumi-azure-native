@@ -93,6 +93,29 @@ class ProductGroup(pulumi.CustomResource):
         """
         Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateProductGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        product_group = azure_native.apimanagement.v20220801.ProductGroup("productGroup",
+            group_id="templateGroup",
+            product_id="testproduct",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:ProductGroup templateGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/groups/templateGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: Group identifier. Must be unique in the current API Management service instance.
@@ -108,6 +131,29 @@ class ProductGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateProductGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        product_group = azure_native.apimanagement.v20220801.ProductGroup("productGroup",
+            group_id="templateGroup",
+            product_id="testproduct",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:ProductGroup templateGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/groups/templateGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProductGroupArgs args: The arguments to use to populate this resource's properties.

@@ -177,6 +177,40 @@ class HybridAksCluster(pulumi.CustomResource):
         """
         The details are specific to the Network Cloud use of the Hybrid AKS cluster.
 
+        ## Example Usage
+        ### Create or update Hybrid AKS provisioned cluster data
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_aks_cluster = azure_native.networkcloud.v20221212preview.HybridAksCluster("hybridAksCluster",
+            associated_network_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName"],
+            control_plane_count=4,
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            hybrid_aks_cluster_name="hybridAksClusterName",
+            hybrid_aks_provisioned_cluster_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridContainerService/provisionedClusters/hybridAksClusterName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            worker_count=8)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:HybridAksCluster HybridAksClusterName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/hybridAksClusters/hybridAksClusterName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_network_ids: The list of resource IDs for the workload networks associated with the Hybrid AKS cluster. It can be any of l2Networks, l3Networks, or trunkedNetworks resources. This field will also contain one cloudServicesNetwork and one defaultCniNetwork.
@@ -197,6 +231,40 @@ class HybridAksCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The details are specific to the Network Cloud use of the Hybrid AKS cluster.
+
+        ## Example Usage
+        ### Create or update Hybrid AKS provisioned cluster data
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_aks_cluster = azure_native.networkcloud.v20221212preview.HybridAksCluster("hybridAksCluster",
+            associated_network_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName"],
+            control_plane_count=4,
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            hybrid_aks_cluster_name="hybridAksClusterName",
+            hybrid_aks_provisioned_cluster_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridContainerService/provisionedClusters/hybridAksClusterName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            worker_count=8)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:HybridAksCluster HybridAksClusterName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/hybridAksClusters/hybridAksClusterName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HybridAksClusterArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,135 @@ namespace Pulumi.AzureNative.Cache.V20220601
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
+    /// 
+    /// ## Example Usage
+    /// ### RedisCacheCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var redis = new AzureNative.Cache.V20220601.Redis("redis", new()
+    ///     {
+    ///         EnableNonSslPort = true,
+    ///         Location = "West US",
+    ///         MinimumTlsVersion = "1.2",
+    ///         Name = "cache1",
+    ///         RedisConfiguration = new AzureNative.Cache.V20220601.Inputs.RedisCommonPropertiesRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///         RedisVersion = "4",
+    ///         ReplicasPerPrimary = 2,
+    ///         ResourceGroupName = "rg1",
+    ///         ShardCount = 2,
+    ///         Sku = new AzureNative.Cache.V20220601.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "P",
+    ///             Name = "Premium",
+    ///         },
+    ///         StaticIP = "192.168.0.5",
+    ///         SubnetId = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RedisCacheCreateDefaultVersion
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var redis = new AzureNative.Cache.V20220601.Redis("redis", new()
+    ///     {
+    ///         EnableNonSslPort = true,
+    ///         Location = "West US",
+    ///         MinimumTlsVersion = "1.2",
+    ///         Name = "cache1",
+    ///         RedisConfiguration = new AzureNative.Cache.V20220601.Inputs.RedisCommonPropertiesRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///         ReplicasPerPrimary = 2,
+    ///         ResourceGroupName = "rg1",
+    ///         ShardCount = 2,
+    ///         Sku = new AzureNative.Cache.V20220601.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "P",
+    ///             Name = "Premium",
+    ///         },
+    ///         StaticIP = "192.168.0.5",
+    ///         SubnetId = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RedisCacheCreateLatestVersion
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var redis = new AzureNative.Cache.V20220601.Redis("redis", new()
+    ///     {
+    ///         EnableNonSslPort = true,
+    ///         Location = "West US",
+    ///         MinimumTlsVersion = "1.2",
+    ///         Name = "cache1",
+    ///         RedisConfiguration = new AzureNative.Cache.V20220601.Inputs.RedisCommonPropertiesRedisConfigurationArgs
+    ///         {
+    ///             MaxmemoryPolicy = "allkeys-lru",
+    ///         },
+    ///         RedisVersion = "Latest",
+    ///         ReplicasPerPrimary = 2,
+    ///         ResourceGroupName = "rg1",
+    ///         ShardCount = 2,
+    ///         Sku = new AzureNative.Cache.V20220601.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "P",
+    ///             Name = "Premium",
+    ///         },
+    ///         StaticIP = "192.168.0.5",
+    ///         SubnetId = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cache/v20220601:Redis cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20220601:Redis")]
     public partial class Redis : global::Pulumi.CustomResource

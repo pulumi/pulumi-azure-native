@@ -111,6 +111,33 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection for a site.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_private_endpoint_connection = azure_native.web.WebAppPrivateEndpointConnection("webAppPrivateEndpointConnection",
+            name="testSite",
+            private_endpoint_connection_name="connection",
+            private_link_service_connection_state=azure_native.web.PrivateLinkConnectionStateArgs(
+                actions_required="",
+                description="Approved by admin.",
+                status="Approved",
+            ),
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:WebAppPrivateEndpointConnection myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/sites/testSite/privateEndpointConnections/connection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -128,6 +155,33 @@ class WebAppPrivateEndpointConnection(pulumi.CustomResource):
         Remote Private Endpoint Connection ARM resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection for a site.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_private_endpoint_connection = azure_native.web.WebAppPrivateEndpointConnection("webAppPrivateEndpointConnection",
+            name="testSite",
+            private_endpoint_connection_name="connection",
+            private_link_service_connection_state=azure_native.web.PrivateLinkConnectionStateArgs(
+                actions_required="",
+                description="Approved by admin.",
+                status="Approved",
+            ),
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:WebAppPrivateEndpointConnection myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/sites/testSite/privateEndpointConnections/connection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

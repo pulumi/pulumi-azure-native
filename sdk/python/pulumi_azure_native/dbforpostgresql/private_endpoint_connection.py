@@ -98,6 +98,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2022-11-08.
         Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Approves or Rejects a Private Endpoint Connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.dbforpostgresql.PrivateEndpointConnection("privateEndpointConnection",
+            cluster_name="testcluster",
+            private_endpoint_connection_name="private-endpoint-connection-name",
+            private_link_service_connection_state=azure_native.dbforpostgresql.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="TestGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/testcluster/privateEndpointConnections/private-endpoint-connection-name 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -115,6 +141,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The private endpoint connection resource.
         API Version: 2022-11-08.
         Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Approves or Rejects a Private Endpoint Connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.dbforpostgresql.PrivateEndpointConnection("privateEndpointConnection",
+            cluster_name="testcluster",
+            private_endpoint_connection_name="private-endpoint-connection-name",
+            private_link_service_connection_state=azure_native.dbforpostgresql.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="TestGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/testcluster/privateEndpointConnections/private-endpoint-connection-name 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

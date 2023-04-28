@@ -129,6 +129,33 @@ class Datastore(pulumi.CustomResource):
         """
         A datastore resource
 
+        ## Example Usage
+        ### Datastores_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.avs.v20210101preview.Datastore("datastore",
+            cluster_name="cluster1",
+            datastore_name="datastore1",
+            net_app_volume=azure_native.avs.v20210101preview.NetAppVolumeArgs(
+                nfs_file_path="ANFVol2",
+                nfs_provider_ip="12.0.0.4",
+            ),
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20210101preview:Datastore datastore1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/datastores/datastore1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
@@ -146,6 +173,33 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A datastore resource
+
+        ## Example Usage
+        ### Datastores_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.avs.v20210101preview.Datastore("datastore",
+            cluster_name="cluster1",
+            datastore_name="datastore1",
+            net_app_volume=azure_native.avs.v20210101preview.NetAppVolumeArgs(
+                nfs_file_path="ANFVol2",
+                nfs_provider_ip="12.0.0.4",
+            ),
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20210101preview:Datastore datastore1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/datastores/datastore1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,93 @@ namespace Pulumi.AzureNative.Insights.V20150501
 {
     /// <summary>
     /// An Application Insights web test definition.
+    /// 
+    /// ## Example Usage
+    /// ### webTestCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webTest = new AzureNative.Insights.V20150501.WebTest("webTest", new()
+    ///     {
+    ///         Configuration = new AzureNative.Insights.V20150501.Inputs.WebTestPropertiesConfigurationArgs
+    ///         {
+    ///             WebTest = "&lt;WebTest Name=\"my-webtest\" Id=\"678ddf96-1ab8-44c8-9274-123456789abc\" Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"120\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\" &gt;&lt;Items&gt;&lt;Request Method=\"GET\" Guid=\"a4162485-9114-fcfc-e086-123456789abc\" Version=\"1.1\" Url=\"http://my-component.azurewebsites.net\" ThinkTime=\"0\" Timeout=\"120\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"200\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" /&gt;&lt;/Items&gt;&lt;/WebTest&gt;",
+    ///         },
+    ///         Description = "Ping web test alert for mytestwebapp",
+    ///         Enabled = true,
+    ///         Frequency = 900,
+    ///         Kind = AzureNative.Insights.V20150501.WebTestKind.Ping,
+    ///         Location = "South Central US",
+    ///         Locations = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20150501.Inputs.WebTestGeolocationArgs
+    ///             {
+    ///                 Location = "us-fl-mia-edge",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "my-resource-group",
+    ///         RetryEnabled = true,
+    ///         SyntheticMonitorId = "my-webtest-my-component",
+    ///         Timeout = 120,
+    ///         WebTestKind = AzureNative.Insights.V20150501.WebTestKind.Ping,
+    ///         WebTestName = "my-webtest-my-component",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### webTestUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webTest = new AzureNative.Insights.V20150501.WebTest("webTest", new()
+    ///     {
+    ///         Configuration = new AzureNative.Insights.V20150501.Inputs.WebTestPropertiesConfigurationArgs
+    ///         {
+    ///             WebTest = "&lt;WebTest Name=\"my-webtest\" Id=\"678ddf96-1ab8-44c8-9274-123456789abc\" Enabled=\"True\" CssProjectStructure=\"\" CssIteration=\"\" Timeout=\"30\" WorkItemIds=\"\" xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\" Description=\"\" CredentialUserName=\"\" CredentialPassword=\"\" PreAuthenticate=\"True\" Proxy=\"default\" StopOnError=\"False\" RecordedResultFile=\"\" ResultsLocale=\"\" &gt;&lt;Items&gt;&lt;Request Method=\"GET\" Guid=\"a4162485-9114-fcfc-e086-123456789abc\" Version=\"1.1\" Url=\"http://my-component.azurewebsites.net\" ThinkTime=\"0\" Timeout=\"30\" ParseDependentRequests=\"True\" FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\" ResponseTimeGoal=\"0\" Encoding=\"utf-8\" ExpectedHttpStatusCode=\"200\" ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" /&gt;&lt;/Items&gt;&lt;/WebTest&gt;",
+    ///         },
+    ///         Frequency = 600,
+    ///         Kind = AzureNative.Insights.V20150501.WebTestKind.Ping,
+    ///         Location = "South Central US",
+    ///         Locations = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20150501.Inputs.WebTestGeolocationArgs
+    ///             {
+    ///                 Location = "us-fl-mia-edge",
+    ///             },
+    ///             new AzureNative.Insights.V20150501.Inputs.WebTestGeolocationArgs
+    ///             {
+    ///                 Location = "apac-hk-hkn-azr",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "my-resource-group",
+    ///         SyntheticMonitorId = "my-webtest-my-component",
+    ///         Timeout = 30,
+    ///         WebTestKind = AzureNative.Insights.V20150501.WebTestKind.Ping,
+    ///         WebTestName = "my-webtest-my-component",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20150501:WebTest my-webtest-my-component /subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20150501:WebTest")]
     public partial class WebTest : global::Pulumi.CustomResource

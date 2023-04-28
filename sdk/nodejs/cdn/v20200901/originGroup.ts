@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+ *
+ * ## Example Usage
+ * ### OriginGroups_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const originGroup = new azure_native.cdn.v20200901.OriginGroup("originGroup", {
+ *     endpointName: "endpoint1",
+ *     healthProbeSettings: {
+ *         probeIntervalInSeconds: 120,
+ *         probePath: "/health.aspx",
+ *         probeProtocol: azure_native.cdn.v20200901.ProbeProtocol.Http,
+ *         probeRequestType: azure_native.cdn.v20200901.HealthProbeRequestType.GET,
+ *     },
+ *     originGroupName: "origingroup1",
+ *     origins: [{
+ *         id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+ *     }],
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     responseBasedOriginErrorDetectionSettings: {
+ *         responseBasedDetectedErrorTypes: azure_native.cdn.v20200901.ResponseBasedDetectedErrorTypes.TcpErrorsOnly,
+ *         responseBasedFailoverThresholdPercentage: 10,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn/v20200901:OriginGroup origingroup1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1 
+ * ```
  */
 export class OriginGroup extends pulumi.CustomResource {
     /**

@@ -11,6 +11,61 @@ import * as utilities from "../utilities";
  * Subnet in a virtual network resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create subnet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subnet = new azure_native.network.Subnet("subnet", {
+ *     addressPrefix: "10.0.0.0/16",
+ *     resourceGroupName: "subnet-test",
+ *     subnetName: "subnet1",
+ *     virtualNetworkName: "vnetname",
+ * });
+ *
+ * ```
+ * ### Create subnet with a delegation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subnet = new azure_native.network.Subnet("subnet", {
+ *     addressPrefix: "10.0.0.0/16",
+ *     resourceGroupName: "subnet-test",
+ *     subnetName: "subnet1",
+ *     virtualNetworkName: "vnetname",
+ * });
+ *
+ * ```
+ * ### Create subnet with service endpoints
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subnet = new azure_native.network.Subnet("subnet", {
+ *     addressPrefix: "10.0.0.0/16",
+ *     resourceGroupName: "subnet-test",
+ *     serviceEndpoints: [{
+ *         service: "Microsoft.Storage",
+ *     }],
+ *     subnetName: "subnet1",
+ *     virtualNetworkName: "vnetname",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:Subnet subnet1 /subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1 
+ * ```
  */
 export class Subnet extends pulumi.CustomResource {
     /**

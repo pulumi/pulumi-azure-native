@@ -267,6 +267,56 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create packet core control plane
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        packet_core_control_plane = azure_native.mobilenetwork.PacketCoreControlPlane("packetCoreControlPlane",
+            control_plane_access_interface=azure_native.mobilenetwork.InterfacePropertiesArgs(
+                name="N2",
+            ),
+            core_network_technology="5GC",
+            local_diagnostics_access=azure_native.mobilenetwork.LocalDiagnosticsAccessConfigurationArgs(
+                authentication_type="AAD",
+                https_server_certificate=azure_native.mobilenetwork.HttpsServerCertificateArgs(
+                    certificate_url="https://contosovault.vault.azure.net/certificates/ingress",
+                ),
+            ),
+            location="eastus",
+            packet_core_control_plane_name="TestPacketCoreCP",
+            platform=azure_native.mobilenetwork.PlatformConfigurationArgs(
+                azure_stack_edge_device=azure_native.mobilenetwork.AzureStackEdgeDeviceResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/TestAzureStackEdgeDevice",
+                ),
+                connected_cluster=azure_native.mobilenetwork.ConnectedClusterResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/TestConnectedCluster",
+                ),
+                custom_location=azure_native.mobilenetwork.CustomLocationResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/TestCustomLocation",
+                ),
+                type="AKS-HCI",
+            ),
+            resource_group_name="rg1",
+            sites=[azure_native.mobilenetwork.SiteResourceIdArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite",
+            )],
+            sku="G0",
+            ue_mtu=1600,
+            version="0.2.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:PacketCoreControlPlane TestPacketCoreCP /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['InterfacePropertiesArgs']] control_plane_access_interface: The control plane interface on the access network. For 5G networks, this is the N2 interface. For 4G networks, this is the S1-MME interface.
@@ -294,6 +344,56 @@ class PacketCoreControlPlane(pulumi.CustomResource):
         Packet core control plane resource.
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create packet core control plane
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        packet_core_control_plane = azure_native.mobilenetwork.PacketCoreControlPlane("packetCoreControlPlane",
+            control_plane_access_interface=azure_native.mobilenetwork.InterfacePropertiesArgs(
+                name="N2",
+            ),
+            core_network_technology="5GC",
+            local_diagnostics_access=azure_native.mobilenetwork.LocalDiagnosticsAccessConfigurationArgs(
+                authentication_type="AAD",
+                https_server_certificate=azure_native.mobilenetwork.HttpsServerCertificateArgs(
+                    certificate_url="https://contosovault.vault.azure.net/certificates/ingress",
+                ),
+            ),
+            location="eastus",
+            packet_core_control_plane_name="TestPacketCoreCP",
+            platform=azure_native.mobilenetwork.PlatformConfigurationArgs(
+                azure_stack_edge_device=azure_native.mobilenetwork.AzureStackEdgeDeviceResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/TestAzureStackEdgeDevice",
+                ),
+                connected_cluster=azure_native.mobilenetwork.ConnectedClusterResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/TestConnectedCluster",
+                ),
+                custom_location=azure_native.mobilenetwork.CustomLocationResourceIdArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/TestCustomLocation",
+                ),
+                type="AKS-HCI",
+            ),
+            resource_group_name="rg1",
+            sites=[azure_native.mobilenetwork.SiteResourceIdArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite",
+            )],
+            sku="G0",
+            ue_mtu=1600,
+            version="0.2.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:PacketCoreControlPlane TestPacketCoreCP /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PacketCoreControlPlaneArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315
 {
     /// <summary>
     /// An Azure Cosmos DB Mongo Role Definition.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBRoleDefinitionCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoDBResourceMongoRoleDefinition = new AzureNative.DocumentDB.V20230315.MongoDBResourceMongoRoleDefinition("mongoDBResourceMongoRoleDefinition", new()
+    ///     {
+    ///         AccountName = "myAccountName",
+    ///         DatabaseName = "sales",
+    ///         MongoRoleDefinitionId = "myMongoRoleDefinitionId",
+    ///         Privileges = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20230315.Inputs.PrivilegeArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "insert",
+    ///                     "find",
+    ///                 },
+    ///                 Resource = new AzureNative.DocumentDB.V20230315.Inputs.PrivilegeResourceArgs
+    ///                 {
+    ///                     Collection = "sales",
+    ///                     Db = "sales",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         RoleName = "myRoleName",
+    ///         Roles = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20230315.Inputs.RoleArgs
+    ///             {
+    ///                 Db = "sales",
+    ///                 Role = "myInheritedRole",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20230315:MongoDBResourceMongoRoleDefinition myMongoDbRoleDefinitionId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbRoleDefinitions/myMongoDbRoleDefinitionId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20230315:MongoDBResourceMongoRoleDefinition")]
     public partial class MongoDBResourceMongoRoleDefinition : global::Pulumi.CustomResource

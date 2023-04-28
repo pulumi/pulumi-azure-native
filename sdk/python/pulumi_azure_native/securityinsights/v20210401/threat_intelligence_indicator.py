@@ -588,6 +588,47 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
         """
         Threat intelligence information object.
 
+        ## Example Usage
+        ### Update a threat Intelligence indicator
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        threat_intelligence_indicator = azure_native.securityinsights.v20210401.ThreatIntelligenceIndicator("threatIntelligenceIndicator",
+            confidence=78,
+            created_by_ref="contoso@contoso.com",
+            description="debugging indicators",
+            display_name="new schema",
+            external_references=[],
+            granular_markings=[],
+            kill_chain_phases=[],
+            kind="indicator",
+            labels=[],
+            modified="",
+            name="d9cd6f0b-96b9-3984-17cd-a779d1e15a93",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            pattern="[url:value = 'https://www.contoso.com']",
+            pattern_type="url",
+            resource_group_name="myRg",
+            revoked=False,
+            source="Azure Sentinel",
+            threat_intelligence_tags=["new schema"],
+            threat_types=["compromised"],
+            valid_from="2020-04-15T17:44:00.114052Z",
+            valid_until="",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator 180105c7-a28d-b1a2-4a78-234f6ec80fd6 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/ThreatIntelligence/180105c7-a28d-b1a2-4a78-234f6ec80fd6 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] confidence: Confidence of threat intelligence entity
@@ -632,6 +673,47 @@ class ThreatIntelligenceIndicator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Threat intelligence information object.
+
+        ## Example Usage
+        ### Update a threat Intelligence indicator
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        threat_intelligence_indicator = azure_native.securityinsights.v20210401.ThreatIntelligenceIndicator("threatIntelligenceIndicator",
+            confidence=78,
+            created_by_ref="contoso@contoso.com",
+            description="debugging indicators",
+            display_name="new schema",
+            external_references=[],
+            granular_markings=[],
+            kill_chain_phases=[],
+            kind="indicator",
+            labels=[],
+            modified="",
+            name="d9cd6f0b-96b9-3984-17cd-a779d1e15a93",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            pattern="[url:value = 'https://www.contoso.com']",
+            pattern_type="url",
+            resource_group_name="myRg",
+            revoked=False,
+            source="Azure Sentinel",
+            threat_intelligence_tags=["new schema"],
+            threat_types=["compromised"],
+            valid_from="2020-04-15T17:44:00.114052Z",
+            valid_until="",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator 180105c7-a28d-b1a2-4a78-234f6ec80fd6 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/ThreatIntelligence/180105c7-a28d-b1a2-4a78-234f6ec80fd6 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ThreatIntelligenceIndicatorArgs args: The arguments to use to populate this resource's properties.

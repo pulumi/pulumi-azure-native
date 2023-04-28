@@ -97,6 +97,13 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
                  __props__=None):
         """
         The properties of the EventHubConsumerGroupInfo object.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20170701:IotHubResourceEventHubConsumerGroup myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/eventHubEndpoints/{eventHubEndpointName}/ConsumerGroups/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -113,6 +120,13 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The properties of the EventHubConsumerGroupInfo object.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20170701:IotHubResourceEventHubConsumerGroup myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/eventHubEndpoints/{eventHubEndpointName}/ConsumerGroups/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IotHubResourceEventHubConsumerGroupArgs args: The arguments to use to populate this resource's properties.

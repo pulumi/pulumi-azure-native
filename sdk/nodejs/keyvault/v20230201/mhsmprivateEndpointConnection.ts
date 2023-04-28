@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Private endpoint connection resource.
+ *
+ * ## Example Usage
+ * ### ManagedHsmPutPrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mhsmPrivateEndpointConnection = new azure_native.keyvault.v20230201.MHSMPrivateEndpointConnection("mhsmPrivateEndpointConnection", {
+ *     name: "sample-mhsm",
+ *     privateEndpointConnectionName: "sample-pec",
+ *     privateLinkServiceConnectionState: {
+ *         description: "My name is Joe and I'm approving this.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "sample-group",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection sample-pec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/managedhsms/sample-mhsm/privateEndpointConnections/sample-pec 
+ * ```
  */
 export class MHSMPrivateEndpointConnection extends pulumi.CustomResource {
     /**

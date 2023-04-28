@@ -96,6 +96,32 @@ class PrivateEndpointConnectionsComp(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### PrivateEndpointConnection_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connections_comp = azure_native.securityandcompliance.v20210308.PrivateEndpointConnectionsComp("privateEndpointConnectionsComp",
+            private_endpoint_connection_name="myConnection",
+            private_link_service_connection_state=azure_native.securityandcompliance.v20210308.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="rgname",
+            resource_name_="service1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp myConnection /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForM365ComplianceCenter/service1/privateEndpointConnections/myConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -111,6 +137,32 @@ class PrivateEndpointConnectionsComp(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
+
+        ## Example Usage
+        ### PrivateEndpointConnection_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connections_comp = azure_native.securityandcompliance.v20210308.PrivateEndpointConnectionsComp("privateEndpointConnectionsComp",
+            private_endpoint_connection_name="myConnection",
+            private_link_service_connection_state=azure_native.securityandcompliance.v20210308.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="rgname",
+            resource_name_="service1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsComp myConnection /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForM365ComplianceCenter/service1/privateEndpointConnections/myConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionsCompArgs args: The arguments to use to populate this resource's properties.

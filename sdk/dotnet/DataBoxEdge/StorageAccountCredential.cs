@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// The storage account credential.
     /// API Version: 2022-03-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SACPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAccountCredential = new AzureNative.DataBoxEdge.StorageAccountCredential("storageAccountCredential", new()
+    ///     {
+    ///         AccountKey = new AzureNative.DataBoxEdge.Inputs.AsymmetricEncryptedSecretArgs
+    ///         {
+    ///             EncryptionAlgorithm = "AES256",
+    ///             EncryptionCertThumbprint = "2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
+    ///             Value = "lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
+    ///         },
+    ///         AccountType = "BlobStorage",
+    ///         Alias = "sac1",
+    ///         DeviceName = "testedgedevice",
+    ///         Name = "sac1",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         SslStatus = "Disabled",
+    ///         UserName = "cisbvt",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:StorageAccountCredential sac1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:StorageAccountCredential")]
     public partial class StorageAccountCredential : global::Pulumi.CustomResource

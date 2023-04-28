@@ -113,6 +113,27 @@ class GuestUsage(pulumi.CustomResource):
         """
         Guest Usages Resource
 
+        ## Example Usage
+        ### GuestUsages_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_usage = azure_native.azureactivedirectory.v20230118preview.GuestUsage("guestUsage",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso.onmicrosoft.com")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory/v20230118preview:GuestUsage contoso.onmicrosoft.com /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/guestUsages/contoso.onmicrosoft.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the Guest Usages resource.
@@ -129,6 +150,27 @@ class GuestUsage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Guest Usages Resource
+
+        ## Example Usage
+        ### GuestUsages_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_usage = azure_native.azureactivedirectory.v20230118preview.GuestUsage("guestUsage",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso.onmicrosoft.com")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory/v20230118preview:GuestUsage contoso.onmicrosoft.com /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/guestUsages/contoso.onmicrosoft.com 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GuestUsageArgs args: The arguments to use to populate this resource's properties.

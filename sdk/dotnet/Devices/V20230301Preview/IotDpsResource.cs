@@ -11,6 +11,82 @@ namespace Pulumi.AzureNative.Devices.V20230301Preview
 {
     /// <summary>
     /// The description of the provisioning service.
+    /// 
+    /// ## Example Usage
+    /// ### DPSCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotDpsResource = new AzureNative.Devices.V20230301Preview.IotDpsResource("iotDpsResource", new()
+    ///     {
+    ///         Location = "East US",
+    ///         Properties = new AzureNative.Devices.V20230301Preview.Inputs.IotDpsPropertiesDescriptionArgs
+    ///         {
+    ///             EnableDataResidency = false,
+    ///         },
+    ///         ProvisioningServiceName = "myFirstProvisioningService",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Devices.V20230301Preview.Inputs.IotDpsSkuInfoArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "S1",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DPSUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotDpsResource = new AzureNative.Devices.V20230301Preview.IotDpsResource("iotDpsResource", new()
+    ///     {
+    ///         Identity = new AzureNative.Devices.V20230301Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned,UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourcegroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity", null },
+    ///             },
+    ///         },
+    ///         Location = "East US",
+    ///         Properties = new AzureNative.Devices.V20230301Preview.Inputs.IotDpsPropertiesDescriptionArgs
+    ///         {
+    ///             EnableDataResidency = false,
+    ///         },
+    ///         ProvisioningServiceName = "myFirstProvisioningService",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Devices.V20230301Preview.Inputs.IotDpsSkuInfoArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "S1",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devices/v20230301preview:IotDpsResource myFirstProvisioningService /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups//providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devices/v20230301preview:IotDpsResource")]
     public partial class IotDpsResource : global::Pulumi.CustomResource

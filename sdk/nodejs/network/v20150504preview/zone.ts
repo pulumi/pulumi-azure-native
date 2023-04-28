@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS zone.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20150504preview:Zone myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnszones/{zoneName} 
+ * ```
  *
  * @deprecated Version 2015-05-04-preview will be removed in v2 of the provider.
  */

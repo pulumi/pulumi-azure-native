@@ -97,6 +97,36 @@ class Solution(pulumi.CustomResource):
         Solution resource.
         API Version: 2021-09-01-preview.
 
+        ## Example Usage
+        ### Solutions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        solution = azure_native.agfoodplatform.Solution("solution",
+            farm_beats_resource_name="examples-farmbeatsResourceName",
+            properties=azure_native.agfoodplatform.SolutionPropertiesResponseArgs(
+                marketplace_publisher_id="publisherId",
+                offer_id="offerId",
+                plan_id="planId",
+                saas_subscription_id="123",
+                saas_subscription_name="name",
+                term_id="termId",
+            ),
+            resource_group_name="examples-rg",
+            solution_id="abc.partner")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agfoodplatform:Solution string /subscriptions/ff57165d-e71f-4a0e-8e9b-3cd461dc0f38/resourceGroups/bugbash-instances-westus2/providers/Microsoft.AgFoodPlatform/farmBeats/bb-df-wus2-1/solutions/string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
@@ -113,6 +143,36 @@ class Solution(pulumi.CustomResource):
         """
         Solution resource.
         API Version: 2021-09-01-preview.
+
+        ## Example Usage
+        ### Solutions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        solution = azure_native.agfoodplatform.Solution("solution",
+            farm_beats_resource_name="examples-farmbeatsResourceName",
+            properties=azure_native.agfoodplatform.SolutionPropertiesResponseArgs(
+                marketplace_publisher_id="publisherId",
+                offer_id="offerId",
+                plan_id="planId",
+                saas_subscription_id="123",
+                saas_subscription_name="name",
+                term_id="termId",
+            ),
+            resource_group_name="examples-rg",
+            solution_id="abc.partner")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agfoodplatform:Solution string /subscriptions/ff57165d-e71f-4a0e-8e9b-3cd461dc0f38/resourceGroups/bugbash-instances-westus2/providers/Microsoft.AgFoodPlatform/farmBeats/bb-df-wus2-1/solutions/string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SolutionArgs args: The arguments to use to populate this resource's properties.

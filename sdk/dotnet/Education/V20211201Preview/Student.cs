@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
 {
     /// <summary>
     /// Student details.
+    /// 
+    /// ## Example Usage
+    /// ### Student
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var student = new AzureNative.Education.V20211201Preview.Student("student", new()
+    ///     {
+    ///         BillingAccountName = "{billingAccountName}",
+    ///         BillingProfileName = "{billingProfileName}",
+    ///         Budget = new AzureNative.Education.V20211201Preview.Inputs.AmountArgs
+    ///         {
+    ///             Currency = "USD",
+    ///             Value = 100,
+    ///         },
+    ///         Email = "test@contoso.com",
+    ///         ExpirationDate = "2021-11-09T22:13:21.795Z",
+    ///         FirstName = "test",
+    ///         InvoiceSectionName = "{invoiceSectionName}",
+    ///         LastName = "user",
+    ///         Role = "Student",
+    ///         StudentAlias = "{studentAlias}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:education/v20211201preview:Student {studentAlias} /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default/students/{studentAlias} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:education/v20211201preview:Student")]
     public partial class Student : global::Pulumi.CustomResource

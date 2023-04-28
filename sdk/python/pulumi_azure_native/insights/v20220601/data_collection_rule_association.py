@@ -113,6 +113,28 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         """
         Definition of generic ARM proxy resource.
 
+        ## Example Usage
+        ### Create or update association
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_collection_rule_association = azure_native.insights.v20220601.DataCollectionRuleAssociation("dataCollectionRuleAssociation",
+            association_name="myAssociation",
+            data_collection_rule_id="/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule",
+            resource_uri="subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20220601:DataCollectionRuleAssociation myAssociation /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm/providers/Microsoft.Insights/dataCollectionRuleAssociations/myAssociation 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] association_name: The name of the association. The name is case insensitive.
@@ -129,6 +151,28 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of generic ARM proxy resource.
+
+        ## Example Usage
+        ### Create or update association
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_collection_rule_association = azure_native.insights.v20220601.DataCollectionRuleAssociation("dataCollectionRuleAssociation",
+            association_name="myAssociation",
+            data_collection_rule_id="/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule",
+            resource_uri="subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20220601:DataCollectionRuleAssociation myAssociation /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVm/providers/Microsoft.Insights/dataCollectionRuleAssociations/myAssociation 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,51 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot policy information
+ *
+ * ## Example Usage
+ * ### SnapshotPolicies_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const snapshotPolicy = new azure_native.netapp.v20201201.SnapshotPolicy("snapshotPolicy", {
+ *     accountName: "account1",
+ *     dailySchedule: {
+ *         hour: 14,
+ *         minute: 30,
+ *         snapshotsToKeep: 4,
+ *     },
+ *     hourlySchedule: {
+ *         minute: 50,
+ *         snapshotsToKeep: 2,
+ *     },
+ *     location: "eastus",
+ *     monthlySchedule: {
+ *         daysOfMonth: "10,11,12",
+ *         hour: 14,
+ *         minute: 15,
+ *         snapshotsToKeep: 5,
+ *     },
+ *     resourceGroupName: "myRG",
+ *     snapshotPolicyName: "snapshotPolicyName",
+ *     weeklySchedule: {
+ *         day: "Wednesday",
+ *         hour: 14,
+ *         minute: 45,
+ *         snapshotsToKeep: 3,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp/v20201201:SnapshotPolicy account1/snapshotPolicy1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/snapshotPolicies/snapshotPolicy1 
+ * ```
  */
 export class SnapshotPolicy extends pulumi.CustomResource {
     /**

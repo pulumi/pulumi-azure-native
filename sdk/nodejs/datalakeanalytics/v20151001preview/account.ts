@@ -10,6 +10,62 @@ import * as utilities from "../../utilities";
 /**
  * A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
  *
+ * ## Example Usage
+ * ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.datalakeanalytics.v20151001preview.Account("account", {
+ *     accountName: "contosoadla",
+ *     computePolicies: [{
+ *         maxDegreeOfParallelismPerJob: 1,
+ *         minPriorityPerJob: 1,
+ *         name: "test_policy",
+ *         objectId: "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+ *         objectType: "User",
+ *     }],
+ *     dataLakeStoreAccounts: [{
+ *         name: "test_adls",
+ *         suffix: "test_suffix",
+ *     }],
+ *     defaultDataLakeStoreAccount: "test_adls",
+ *     firewallAllowAzureIps: azure_native.datalakeanalytics.v20151001preview.FirewallAllowAzureIpsState.Enabled,
+ *     firewallRules: [{
+ *         endIpAddress: "2.2.2.2",
+ *         name: "test_rule",
+ *         startIpAddress: "1.1.1.1",
+ *     }],
+ *     firewallState: azure_native.datalakeanalytics.v20151001preview.FirewallState.Enabled,
+ *     location: "eastus2",
+ *     maxDegreeOfParallelism: 30,
+ *     maxDegreeOfParallelismPerJob: 1,
+ *     maxJobCount: 3,
+ *     minPriorityPerJob: 1,
+ *     newTier: azure_native.datalakeanalytics.v20151001preview.TierType.Consumption,
+ *     queryStoreRetention: 30,
+ *     resourceGroupName: "contosorg",
+ *     storageAccounts: [{
+ *         accessKey: "34adfa4f-cedf-4dc0-ba29-b6d1a69ab346",
+ *         name: "test_storage",
+ *         suffix: "test_suffix",
+ *     }],
+ *     tags: {
+ *         test_key: "test_value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datalakeanalytics/v20151001preview:Account test_account /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rgaba12041/providers/Microsoft.DataLakeAnalytics/accounts/testaba15818 
+ * ```
+ *
  * @deprecated Version 2015-10-01-preview will be removed in v2 of the provider.
  */
 export class Account extends pulumi.CustomResource {

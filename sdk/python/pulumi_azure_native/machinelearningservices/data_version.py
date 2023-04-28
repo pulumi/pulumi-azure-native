@@ -113,6 +113,41 @@ class DataVersion(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdate Data Version Base.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_version = azure_native.machinelearningservices.DataVersion("dataVersion",
+            data_version_base_properties=azure_native.machinelearningservices.UriFileDataVersionArgs(
+                data_type="uri_file",
+                data_uri="string",
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:DataVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['MLTableDataArgs'], pulumi.InputType['UriFileDataVersionArgs'], pulumi.InputType['UriFolderDataVersionArgs']]] data_version_base_properties: [Required] Additional attributes of the entity.
@@ -131,6 +166,41 @@ class DataVersion(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         API Version: 2022-10-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdate Data Version Base.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_version = azure_native.machinelearningservices.DataVersion("dataVersion",
+            data_version_base_properties=azure_native.machinelearningservices.UriFileDataVersionArgs(
+                data_type="uri_file",
+                data_uri="string",
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:DataVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataVersionArgs args: The arguments to use to populate this resource's properties.

@@ -6,6 +6,34 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL server.
+ *
+ * ## Example Usage
+ * ### Creates or updates a SQL Server in a Registration group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlServer = new azure_native.azuredata.v20190724preview.SqlServer("sqlServer", {
+ *     cores: 8,
+ *     edition: "Latin",
+ *     propertyBag: "",
+ *     registrationID: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration",
+ *     resourceGroupName: "testrg",
+ *     sqlServerName: "testsqlserver",
+ *     sqlServerRegistrationName: "testsqlregistration",
+ *     version: "2008",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azuredata/v20190724preview:SqlServer testsqlserver /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureData/SqlServerRegistrations/testsqlregistration/sqlServers/testsqlserver 
+ * ```
  */
 export class SqlServer extends pulumi.CustomResource {
     /**

@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * Spring Cloud Gateway resource
  * API Version: 2022-12-01.
  * Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Gateways_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gateway = new azure_native.appplatform.Gateway("gateway", {
+ *     gatewayName: "default",
+ *     properties: {
+ *         "public": true,
+ *         resourceRequests: {
+ *             cpu: "1",
+ *             memory: "1G",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "E0",
+ *         tier: "Enterprise",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform:Gateway default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default 
+ * ```
  */
 export class Gateway extends pulumi.CustomResource {
     /**

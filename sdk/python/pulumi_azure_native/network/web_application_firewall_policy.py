@@ -167,6 +167,132 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates a WAF policy within a resource group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_application_firewall_policy = azure_native.network.WebApplicationFirewallPolicy("webApplicationFirewallPolicy",
+            custom_rules=[
+                {
+                    "action": "Block",
+                    "matchConditions": [{
+                        "matchValues": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                        "matchVariables": [{
+                            "variableName": "RemoteAddr",
+                        }],
+                        "operator": "IPMatch",
+                    }],
+                    "name": "Rule1",
+                    "priority": 1,
+                    "ruleType": "MatchRule",
+                },
+                {
+                    "action": "Block",
+                    "matchConditions": [
+                        {
+                            "matchValues": ["192.168.1.0/24"],
+                            "matchVariables": [{
+                                "variableName": "RemoteAddr",
+                            }],
+                            "operator": "IPMatch",
+                        },
+                        {
+                            "matchValues": ["Windows"],
+                            "matchVariables": [{
+                                "selector": "UserAgent",
+                                "variableName": "RequestHeaders",
+                            }],
+                            "operator": "Contains",
+                        },
+                    ],
+                    "name": "Rule2",
+                    "priority": 2,
+                    "ruleType": "MatchRule",
+                },
+            ],
+            location="WestUs",
+            managed_rules=azure_native.network.ManagedRulesDefinitionResponseArgs(
+                exclusions=[
+                    {
+                        "exclusionManagedRuleSets": [{
+                            "ruleGroups": [
+                                azure_native.network.ExclusionManagedRuleGroupArgs(
+                                    rule_group_name="REQUEST-930-APPLICATION-ATTACK-LFI",
+                                    rules=[azure_native.network.ExclusionManagedRuleArgs(
+                                        rule_id="930120",
+                                    )],
+                                ),
+                                azure_native.network.ExclusionManagedRuleGroupArgs(
+                                    rule_group_name="REQUEST-932-APPLICATION-ATTACK-RCE",
+                                ),
+                            ],
+                            "ruleSetType": "OWASP",
+                            "ruleSetVersion": "3.2",
+                        }],
+                        "matchVariable": "RequestArgNames",
+                        "selector": "hello",
+                        "selectorMatchOperator": "StartsWith",
+                    },
+                    {
+                        "exclusionManagedRuleSets": [{
+                            "ruleGroups": [],
+                            "ruleSetType": "OWASP",
+                            "ruleSetVersion": "3.1",
+                        }],
+                        "matchVariable": "RequestArgNames",
+                        "selector": "hello",
+                        "selectorMatchOperator": "EndsWith",
+                    },
+                    azure_native.network.OwaspCrsExclusionEntryArgs(
+                        match_variable="RequestArgNames",
+                        selector="test",
+                        selector_match_operator="StartsWith",
+                    ),
+                    azure_native.network.OwaspCrsExclusionEntryArgs(
+                        match_variable="RequestArgValues",
+                        selector="test",
+                        selector_match_operator="StartsWith",
+                    ),
+                ],
+                managed_rule_sets=[{
+                    "ruleGroupOverrides": [{
+                        "ruleGroupName": "REQUEST-931-APPLICATION-ATTACK-RFI",
+                        "rules": [
+                            azure_native.network.ManagedRuleOverrideArgs(
+                                action="Log",
+                                rule_id="931120",
+                                state="Enabled",
+                            ),
+                            azure_native.network.ManagedRuleOverrideArgs(
+                                action="AnomalyScoring",
+                                rule_id="931130",
+                                state="Disabled",
+                            ),
+                        ],
+                    }],
+                    "ruleSetType": "OWASP",
+                    "ruleSetVersion": "3.2",
+                }],
+            ),
+            policy_name="Policy1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:WebApplicationFirewallPolicy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/Policy1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]] custom_rules: The custom rules inside the policy.
@@ -188,6 +314,132 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
         Defines web application firewall policy.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates a WAF policy within a resource group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_application_firewall_policy = azure_native.network.WebApplicationFirewallPolicy("webApplicationFirewallPolicy",
+            custom_rules=[
+                {
+                    "action": "Block",
+                    "matchConditions": [{
+                        "matchValues": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                        "matchVariables": [{
+                            "variableName": "RemoteAddr",
+                        }],
+                        "operator": "IPMatch",
+                    }],
+                    "name": "Rule1",
+                    "priority": 1,
+                    "ruleType": "MatchRule",
+                },
+                {
+                    "action": "Block",
+                    "matchConditions": [
+                        {
+                            "matchValues": ["192.168.1.0/24"],
+                            "matchVariables": [{
+                                "variableName": "RemoteAddr",
+                            }],
+                            "operator": "IPMatch",
+                        },
+                        {
+                            "matchValues": ["Windows"],
+                            "matchVariables": [{
+                                "selector": "UserAgent",
+                                "variableName": "RequestHeaders",
+                            }],
+                            "operator": "Contains",
+                        },
+                    ],
+                    "name": "Rule2",
+                    "priority": 2,
+                    "ruleType": "MatchRule",
+                },
+            ],
+            location="WestUs",
+            managed_rules=azure_native.network.ManagedRulesDefinitionResponseArgs(
+                exclusions=[
+                    {
+                        "exclusionManagedRuleSets": [{
+                            "ruleGroups": [
+                                azure_native.network.ExclusionManagedRuleGroupArgs(
+                                    rule_group_name="REQUEST-930-APPLICATION-ATTACK-LFI",
+                                    rules=[azure_native.network.ExclusionManagedRuleArgs(
+                                        rule_id="930120",
+                                    )],
+                                ),
+                                azure_native.network.ExclusionManagedRuleGroupArgs(
+                                    rule_group_name="REQUEST-932-APPLICATION-ATTACK-RCE",
+                                ),
+                            ],
+                            "ruleSetType": "OWASP",
+                            "ruleSetVersion": "3.2",
+                        }],
+                        "matchVariable": "RequestArgNames",
+                        "selector": "hello",
+                        "selectorMatchOperator": "StartsWith",
+                    },
+                    {
+                        "exclusionManagedRuleSets": [{
+                            "ruleGroups": [],
+                            "ruleSetType": "OWASP",
+                            "ruleSetVersion": "3.1",
+                        }],
+                        "matchVariable": "RequestArgNames",
+                        "selector": "hello",
+                        "selectorMatchOperator": "EndsWith",
+                    },
+                    azure_native.network.OwaspCrsExclusionEntryArgs(
+                        match_variable="RequestArgNames",
+                        selector="test",
+                        selector_match_operator="StartsWith",
+                    ),
+                    azure_native.network.OwaspCrsExclusionEntryArgs(
+                        match_variable="RequestArgValues",
+                        selector="test",
+                        selector_match_operator="StartsWith",
+                    ),
+                ],
+                managed_rule_sets=[{
+                    "ruleGroupOverrides": [{
+                        "ruleGroupName": "REQUEST-931-APPLICATION-ATTACK-RFI",
+                        "rules": [
+                            azure_native.network.ManagedRuleOverrideArgs(
+                                action="Log",
+                                rule_id="931120",
+                                state="Enabled",
+                            ),
+                            azure_native.network.ManagedRuleOverrideArgs(
+                                action="AnomalyScoring",
+                                rule_id="931130",
+                                state="Disabled",
+                            ),
+                        ],
+                    }],
+                    "ruleSetType": "OWASP",
+                    "ruleSetVersion": "3.2",
+                }],
+            ),
+            policy_name="Policy1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:WebApplicationFirewallPolicy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/Policy1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebApplicationFirewallPolicyArgs args: The arguments to use to populate this resource's properties.

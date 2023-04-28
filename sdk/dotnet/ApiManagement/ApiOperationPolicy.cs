@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Policy Contract details.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiOperationPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiOperationPolicy = new AzureNative.ApiManagement.ApiOperationPolicy("apiOperationPolicy", new()
+    ///     {
+    ///         ApiId = "5600b57e7e8880006a040001",
+    ///         Format = "xml",
+    ///         OperationId = "5600b57e7e8880006a080001",
+    ///         PolicyId = "policy",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = "&lt;policies&gt; &lt;inbound /&gt; &lt;backend&gt;    &lt;forward-request /&gt;  &lt;/backend&gt;  &lt;outbound /&gt;&lt;/policies&gt;",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:ApiOperationPolicy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/5600b57e7e8880006a040001/operations/5600b57e7e8880006a080001/policies/policy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:ApiOperationPolicy")]
     public partial class ApiOperationPolicy : global::Pulumi.CustomResource

@@ -96,6 +96,34 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
         """
         Outbound Rule Basic Resource for the managed network of a machine learning workspace.
 
+        ## Example Usage
+        ### CreateOrUpdate ManagedNetworkSettingsRule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network_settings_rule = azure_native.machinelearningservices.v20230401preview.ManagedNetworkSettingsRule("managedNetworkSettingsRule",
+            properties=azure_native.machinelearningservices.v20230401preview.FqdnOutboundRuleArgs(
+                category="UserDefined",
+                destination="some_string",
+                status="Active",
+                type="FQDN",
+            ),
+            resource_group_name="test-rg",
+            rule_name="some_string",
+            workspace_name="aml-workspace-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule some_string some_string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['FqdnOutboundRuleArgs'], pulumi.InputType['PrivateEndpointOutboundRuleArgs'], pulumi.InputType['ServiceTagOutboundRuleArgs']]] properties: Outbound Rule for the managed network of a machine learning workspace.
@@ -111,6 +139,34 @@ class ManagedNetworkSettingsRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Outbound Rule Basic Resource for the managed network of a machine learning workspace.
+
+        ## Example Usage
+        ### CreateOrUpdate ManagedNetworkSettingsRule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network_settings_rule = azure_native.machinelearningservices.v20230401preview.ManagedNetworkSettingsRule("managedNetworkSettingsRule",
+            properties=azure_native.machinelearningservices.v20230401preview.FqdnOutboundRuleArgs(
+                category="UserDefined",
+                destination="some_string",
+                status="Active",
+                type="FQDN",
+            ),
+            resource_group_name="test-rg",
+            rule_name="some_string",
+            workspace_name="aml-workspace-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule some_string some_string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedNetworkSettingsRuleArgs args: The arguments to use to populate this resource's properties.

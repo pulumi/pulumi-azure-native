@@ -114,6 +114,30 @@ class Group(pulumi.CustomResource):
         API Version: 2019-10-01.
         Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Groups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group = azure_native.migrate.Group("group",
+            e_tag="\\"1e000c2c-0000-0d00-0000-5cdaa4190000\\"",
+            group_name="Group2",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties=azure_native.migrate.GroupPropertiesArgs(),
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:Group Group2 /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abgoyalWEselfhostb72bproject/groups/Group2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
@@ -132,6 +156,30 @@ class Group(pulumi.CustomResource):
         A group created in a Migration project.
         API Version: 2019-10-01.
         Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Groups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group = azure_native.migrate.Group("group",
+            e_tag="\\"1e000c2c-0000-0d00-0000-5cdaa4190000\\"",
+            group_name="Group2",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties=azure_native.migrate.GroupPropertiesArgs(),
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:Group Group2 /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abgoyalWEselfhostb72bproject/groups/Group2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

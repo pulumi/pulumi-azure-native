@@ -132,6 +132,36 @@ class IpGroup(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdate_IpGroups
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_group = azure_native.network.IpGroup("ipGroup",
+            ip_addresses=[
+                "13.64.39.16/32",
+                "40.74.146.80/31",
+                "40.74.147.32/28",
+            ],
+            ip_groups_name="ipGroups1",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:IpGroup ipGroups1 /subscriptions/subId/providers/Microsoft.Network/resourceGroup/myResourceGroup/ipGroups/ipGroups1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -151,6 +181,36 @@ class IpGroup(pulumi.CustomResource):
         The IpGroups resource information.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdate_IpGroups
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_group = azure_native.network.IpGroup("ipGroup",
+            ip_addresses=[
+                "13.64.39.16/32",
+                "40.74.146.80/31",
+                "40.74.147.32/28",
+            ],
+            ip_groups_name="ipGroups1",
+            location="West US",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:IpGroup ipGroups1 /subscriptions/subId/providers/Microsoft.Network/resourceGroup/myResourceGroup/ipGroups/ipGroups1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IpGroupArgs args: The arguments to use to populate this resource's properties.

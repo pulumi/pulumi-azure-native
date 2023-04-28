@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.StoragePool.V20200315Preview
 {
     /// <summary>
     /// Response for iSCSI target requests.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update iSCSI target
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iscsiTarget = new AzureNative.StoragePool.V20200315Preview.IscsiTarget("iscsiTarget", new()
+    ///     {
+    ///         DiskPoolName = "myDiskPool",
+    ///         IscsiTargetName = "myIscsiTarget",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         TargetIqn = "iqn.2005-03.org.iscsi:server1",
+    ///         Tpgs = new[]
+    ///         {
+    ///             new AzureNative.StoragePool.V20200315Preview.Inputs.TargetPortalGroupCreateArgs
+    ///             {
+    ///                 Acls = new[]
+    ///                 {
+    ///                     new AzureNative.StoragePool.V20200315Preview.Inputs.AclArgs
+    ///                     {
+    ///                         InitiatorIqn = "iqn.2005-03.org.iscsi:client",
+    ///                         MappedLuns = new[]
+    ///                         {
+    ///                             "lun0",
+    ///                         },
+    ///                         Password = "some_password",
+    ///                         Username = "some_username",
+    ///                     },
+    ///                 },
+    ///                 Attributes = new AzureNative.StoragePool.V20200315Preview.Inputs.AttributesArgs
+    ///                 {
+    ///                     Authentication = true,
+    ///                     ProdModeWriteProtect = false,
+    ///                 },
+    ///                 Luns = new[]
+    ///                 {
+    ///                     new AzureNative.StoragePool.V20200315Preview.Inputs.IscsiLunArgs
+    ///                     {
+    ///                         ManagedDiskAzureResourceId = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+    ///                         Name = "lun0",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagepool/v20200315preview:IscsiTarget myIscsiTarget /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool/iscsiTargets/myIscsiTarget 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool/v20200315preview:IscsiTarget")]
     public partial class IscsiTarget : global::Pulumi.CustomResource

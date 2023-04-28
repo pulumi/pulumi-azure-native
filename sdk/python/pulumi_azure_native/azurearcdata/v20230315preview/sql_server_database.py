@@ -130,6 +130,56 @@ class SqlServerDatabase(pulumi.CustomResource):
         """
         Arc Sql Server database
 
+        ## Example Usage
+        ### Create a Arc Sql Server database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_database = azure_native.azurearcdata.v20230315preview.SqlServerDatabase("sqlServerDatabase",
+            database_name="testdb",
+            location="southeastasia",
+            properties=azure_native.azurearcdata.v20230315preview.SqlServerDatabaseResourcePropertiesResponseArgs(
+                backup_information=azure_native.azurearcdata.v20230315preview.SqlServerDatabaseResourcePropertiesBackupInformationArgs(
+                    last_full_backup="2022-05-05T16:26:33.883Z",
+                    last_log_backup="2022-05-10T16:26:33.883Z",
+                ),
+                collation_name="SQL_Latin1_General_CP1_CI_AS",
+                compatibility_level=150,
+                database_creation_date="2022-04-05T16:26:33.883Z",
+                database_options=azure_native.azurearcdata.v20230315preview.SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs(
+                    is_auto_close_on=True,
+                    is_auto_create_stats_on=True,
+                    is_auto_shrink_on=True,
+                    is_auto_update_stats_on=True,
+                    is_encrypted=True,
+                    is_memory_optimization_enabled=True,
+                    is_remote_data_archive_enabled=True,
+                    is_trustworthy_on=True,
+                ),
+                is_read_only=True,
+                recovery_mode="Full",
+                size_mb=150,
+                space_available_mb=100,
+                state="Online",
+            ),
+            resource_group_name="testrg",
+            sql_server_instance_name="testSqlServerInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20230315preview:SqlServerDatabase testdb /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/testSqlServerInstance/testsqlManagedInstance/databases/testdb 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: Name of the database
@@ -147,6 +197,56 @@ class SqlServerDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Arc Sql Server database
+
+        ## Example Usage
+        ### Create a Arc Sql Server database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_database = azure_native.azurearcdata.v20230315preview.SqlServerDatabase("sqlServerDatabase",
+            database_name="testdb",
+            location="southeastasia",
+            properties=azure_native.azurearcdata.v20230315preview.SqlServerDatabaseResourcePropertiesResponseArgs(
+                backup_information=azure_native.azurearcdata.v20230315preview.SqlServerDatabaseResourcePropertiesBackupInformationArgs(
+                    last_full_backup="2022-05-05T16:26:33.883Z",
+                    last_log_backup="2022-05-10T16:26:33.883Z",
+                ),
+                collation_name="SQL_Latin1_General_CP1_CI_AS",
+                compatibility_level=150,
+                database_creation_date="2022-04-05T16:26:33.883Z",
+                database_options=azure_native.azurearcdata.v20230315preview.SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs(
+                    is_auto_close_on=True,
+                    is_auto_create_stats_on=True,
+                    is_auto_shrink_on=True,
+                    is_auto_update_stats_on=True,
+                    is_encrypted=True,
+                    is_memory_optimization_enabled=True,
+                    is_remote_data_archive_enabled=True,
+                    is_trustworthy_on=True,
+                ),
+                is_read_only=True,
+                recovery_mode="Full",
+                size_mb=150,
+                space_available_mb=100,
+                state="Online",
+            ),
+            resource_group_name="testrg",
+            sql_server_instance_name="testSqlServerInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20230315preview:SqlServerDatabase testdb /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/testSqlServerInstance/testsqlManagedInstance/databases/testdb 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlServerDatabaseArgs args: The arguments to use to populate this resource's properties.

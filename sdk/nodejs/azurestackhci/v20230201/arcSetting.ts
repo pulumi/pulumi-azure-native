@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * ArcSetting details.
+ *
+ * ## Example Usage
+ * ### Create ArcSetting
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const arcSetting = new azure_native.azurestackhci.v20230201.ArcSetting("arcSetting", {
+ *     arcSettingName: "default",
+ *     clusterName: "myCluster",
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci/v20230201:ArcSetting myresource1 /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster/arcSettings/default 
+ * ```
  */
 export class ArcSetting extends pulumi.CustomResource {
     /**

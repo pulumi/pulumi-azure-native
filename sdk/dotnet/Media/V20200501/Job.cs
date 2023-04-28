@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Job
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.Media.V20200501.Job("job", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         CorrelationData = 
+    ///         {
+    ///             { "Key 2", "Value 2" },
+    ///             { "key1", "value1" },
+    ///         },
+    ///         Input = new AzureNative.Media.V20200501.Inputs.JobInputAssetArgs
+    ///         {
+    ///             AssetName = "job1-InputAsset",
+    ///             OdataType = "#Microsoft.Media.JobInputAsset",
+    ///         },
+    ///         JobName = "job1",
+    ///         Outputs = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "assetName", "job1-OutputAsset" },
+    ///                 { "odataType", "#Microsoft.Media.JobOutputAsset" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contosoresources",
+    ///         TransformName = "exampleTransform",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20200501:Job job1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Media/mediaservices/contosomedia/transforms/exampleTransform/jobs/job1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20200501:Job")]
     public partial class Job : global::Pulumi.CustomResource

@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Account resource details.
+ *
+ * ## Example Usage
+ * ### Create or update RecommendationsService Account resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.recommendationsservice.v20220201.Account("account", {
+ *     accountName: "sampleAccount",
+ *     location: "West US",
+ *     properties: {
+ *         configuration: "Capacity",
+ *         endpointAuthentications: [{
+ *             aadTenantID: "tenant",
+ *             principalID: "oid",
+ *             principalType: "User",
+ *         }],
+ *     },
+ *     resourceGroupName: "rg",
+ *     tags: {
+ *         Environment: "Prod",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recommendationsservice/v20220201:Account sampleAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

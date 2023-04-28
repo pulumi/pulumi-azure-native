@@ -341,6 +341,58 @@ class Subnet(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with a delegation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with service endpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            service_endpoints=[azure_native.network.ServiceEndpointPropertiesFormatArgs(
+                service="Microsoft.Storage",
+            )],
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:Subnet subnet1 /subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The address prefix for the subnet.
@@ -372,6 +424,58 @@ class Subnet(pulumi.CustomResource):
         Subnet in a virtual network resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create subnet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with a delegation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+        ### Create subnet with service endpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subnet = azure_native.network.Subnet("subnet",
+            address_prefix="10.0.0.0/16",
+            resource_group_name="subnet-test",
+            service_endpoints=[azure_native.network.ServiceEndpointPropertiesFormatArgs(
+                service="Microsoft.Storage",
+            )],
+            subnet_name="subnet1",
+            virtual_network_name="vnetname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:Subnet subnet1 /subscriptions/subid/resourceGroups/subnet-test/providers/Microsoft.Network/virtualNetworks/vnetname/subnets/subnet1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubnetInitArgs args: The arguments to use to populate this resource's properties.

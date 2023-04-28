@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * The Job Definition resource.
+ *
+ * ## Example Usage
+ * ### JobDefinitions_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jobDefinition = new azure_native.storagemover.v20220701preview.JobDefinition("jobDefinition", {
+ *     agentName: "migration-agent",
+ *     copyMode: "Additive",
+ *     description: "Example Job Definition Description",
+ *     jobDefinitionName: "examples-jobDefinitionName",
+ *     projectName: "examples-projectName",
+ *     resourceGroupName: "examples-rg",
+ *     sourceName: "examples-sourceEndpointName",
+ *     sourceSubpath: "/",
+ *     storageMoverName: "examples-storageMoverName",
+ *     targetName: "examples-targetEndpointName",
+ *     targetSubpath: "/",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagemover/v20220701preview:JobDefinition examples-jobDefinitionName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/projects/examples-projectName/jobDefinitions/examples-jobDefinitionName 
+ * ```
  */
 export class JobDefinition extends pulumi.CustomResource {
     /**

@@ -11,6 +11,45 @@ import * as utilities from "../utilities";
  * Pool of backend IP addresses.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Update load balancer backend pool with backend addresses containing virtual network and  IP address.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const loadBalancerBackendAddressPool = new azure_native.network.LoadBalancerBackendAddressPool("loadBalancerBackendAddressPool", {
+ *     backendAddressPoolName: "backend",
+ *     loadBalancerBackendAddresses: [
+ *         {
+ *             ipAddress: "10.0.0.4",
+ *             name: "address1",
+ *             virtualNetwork: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb",
+ *             },
+ *         },
+ *         {
+ *             ipAddress: "10.0.0.5",
+ *             name: "address2",
+ *             virtualNetwork: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb",
+ *             },
+ *         },
+ *     ],
+ *     loadBalancerName: "lb",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:LoadBalancerBackendAddressPool backend /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend 
+ * ```
  */
 export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**

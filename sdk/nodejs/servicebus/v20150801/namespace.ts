@@ -10,6 +10,37 @@ import * as utilities from "../../utilities";
 /**
  * Description of a namespace resource.
  *
+ * ## Example Usage
+ * ### NameSpaceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespace = new azure_native.servicebus.v20150801.Namespace("namespace", {
+ *     location: "West US",
+ *     namespaceName: "sdk-Namespace7816",
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ *     sku: {
+ *         name: "Standard",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus/v20150801:Namespace sdk-Namespace7816 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace7816 
+ * ```
+ *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class Namespace extends pulumi.CustomResource {

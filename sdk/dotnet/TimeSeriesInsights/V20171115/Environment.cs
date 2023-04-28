@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 {
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+    /// 
+    /// ## Example Usage
+    /// ### EnvironmentsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var environment = new AzureNative.TimeSeriesInsights.V20171115.Environment("environment", new()
+    ///     {
+    ///         DataRetentionTime = "P31D",
+    ///         EnvironmentName = "env1",
+    ///         Location = "West US",
+    ///         PartitionKeyProperties = new[]
+    ///         {
+    ///             new AzureNative.TimeSeriesInsights.V20171115.Inputs.PartitionKeyPropertyArgs
+    ///             {
+    ///                 Name = "DeviceId1",
+    ///                 Type = "String",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.TimeSeriesInsights.V20171115.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = AzureNative.TimeSeriesInsights.V20171115.SkuName.S1,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights/v20171115:Environment env1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-11-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20171115:Environment")]

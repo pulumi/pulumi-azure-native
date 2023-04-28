@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.DBforMariaDB.V20180601
 {
     /// <summary>
     /// Represents a Database.
+    /// 
+    /// ## Example Usage
+    /// ### DatabaseCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.DBforMariaDB.V20180601.Database("database", new()
+    ///     {
+    ///         Charset = "utf8",
+    ///         Collation = "utf8_general_ci",
+    ///         DatabaseName = "db1",
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "testserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformariadb/v20180601:Database db1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMariaDB/servers/testserver/databases/db1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb/v20180601:Database")]
     public partial class Database : global::Pulumi.CustomResource

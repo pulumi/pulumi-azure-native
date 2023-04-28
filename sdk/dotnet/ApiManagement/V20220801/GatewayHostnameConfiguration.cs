@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Gateway hostname configuration details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGatewayHostnameConfiguration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gatewayHostnameConfiguration = new AzureNative.ApiManagement.V20220801.GatewayHostnameConfiguration("gatewayHostnameConfiguration", new()
+    ///     {
+    ///         CertificateId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+    ///         GatewayId = "gw1",
+    ///         HcId = "default",
+    ///         Hostname = "*",
+    ///         Http2Enabled = true,
+    ///         NegotiateClientCertificate = false,
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Tls10Enabled = false,
+    ///         Tls11Enabled = false,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:GatewayHostnameConfiguration default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/hostnameConfigurations/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:GatewayHostnameConfiguration")]
     public partial class GatewayHostnameConfiguration : global::Pulumi.CustomResource

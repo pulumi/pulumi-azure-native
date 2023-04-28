@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.Sql
     /// A Geo backup policy.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a database default Geo backup policy.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var geoBackupPolicy = new AzureNative.Sql.GeoBackupPolicy("geoBackupPolicy", new()
+    ///     {
+    ///         DatabaseName = "testdw",
+    ///         GeoBackupPolicyName = "Default",
+    ///         ResourceGroupName = "sqlcrudtest-4799",
+    ///         ServerName = "sqlcrudtest-5961",
+    ///         State = AzureNative.Sql.GeoBackupPolicyState.Enabled,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:GeoBackupPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/databases/testdw/geoBackupPolicies/Default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:GeoBackupPolicy")]
     public partial class GeoBackupPolicy : global::Pulumi.CustomResource

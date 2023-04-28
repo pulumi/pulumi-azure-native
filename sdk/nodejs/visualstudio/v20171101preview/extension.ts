@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * The response to an extension resource GET request.
+ *
+ * ## Example Usage
+ * ### Create an extension resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const extension = new azure_native.visualstudio.v20171101preview.Extension("extension", {
+ *     accountResourceName: "ExampleAccount",
+ *     extensionResourceName: "ms.example",
+ *     location: "Central US",
+ *     plan: {
+ *         name: "ExamplePlan",
+ *         product: "ExampleExtensionName",
+ *         promotionCode: "",
+ *         publisher: "ExampleExtensionPublisher",
+ *         version: "1.0",
+ *     },
+ *     properties: {},
+ *     resourceGroupName: "VS-Example-Group",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:visualstudio/v20171101preview:Extension ms.example /subscriptions/0de7f055-dbea-498d-8e9e-da287eedca90/resourceGroups/VS-Example-Group/providers/Microsoft.VisualStudio/account/ExampleAccount/extension/ms.example 
+ * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**

@@ -113,6 +113,37 @@ class ApiPortal(pulumi.CustomResource):
         """
         API portal resource
 
+        ## Example Usage
+        ### ApiPortals_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_portal = azure_native.appplatform.v20230301preview.ApiPortal("apiPortal",
+            api_portal_name="default",
+            properties=azure_native.appplatform.v20230301preview.ApiPortalPropertiesArgs(
+                gateway_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default"],
+                public=True,
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.v20230301preview.SkuArgs(
+                capacity=2,
+                name="E0",
+                tier="Enterprise",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:ApiPortal default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apiPortals/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_portal_name: The name of API portal.
@@ -129,6 +160,37 @@ class ApiPortal(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         API portal resource
+
+        ## Example Usage
+        ### ApiPortals_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_portal = azure_native.appplatform.v20230301preview.ApiPortal("apiPortal",
+            api_portal_name="default",
+            properties=azure_native.appplatform.v20230301preview.ApiPortalPropertiesArgs(
+                gateway_ids=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default"],
+                public=True,
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.v20230301preview.SkuArgs(
+                capacity=2,
+                name="E0",
+                tier="Enterprise",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:ApiPortal default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apiPortals/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiPortalArgs args: The arguments to use to populate this resource's properties.

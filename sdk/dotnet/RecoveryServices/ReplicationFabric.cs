@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Fabric definition.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates an Azure Site Recovery fabric.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replicationFabric = new AzureNative.RecoveryServices.ReplicationFabric("replicationFabric", new()
+    ///     {
+    ///         FabricName = "cloud1",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.FabricCreationInputPropertiesArgs
+    ///         {
+    ///             CustomDetails = 
+    ///             {
+    ///                 { "instanceType", "FabricSpecificCreationInput" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "resourceGroupPS1",
+    ///         ResourceName = "vault1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices:ReplicationFabric cloud1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ReplicationFabric")]
     public partial class ReplicationFabric : global::Pulumi.CustomResource

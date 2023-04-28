@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a DNS resolver.
+ *
+ * ## Example Usage
+ * ### Upsert DNS resolver
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dnsResolver = new azure_native.network.v20200401preview.DnsResolver("dnsResolver", {
+ *     dnsResolverName: "sampleDnsResolver",
+ *     location: "westus2",
+ *     resourceGroupName: "sampleResourceGroup",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualNetwork: {
+ *         id: "/subscriptions/cbb1387e-4b03-44f2-ad41-58d4677b9873/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20200401preview:DnsResolver sampleDnsResolver /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver 
+ * ```
  */
 export class DnsResolver extends pulumi.CustomResource {
     /**

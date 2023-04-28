@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.DevCenter.V20221111Preview
 {
     /// <summary>
     /// Represents an environment type.
+    /// 
+    /// ## Example Usage
+    /// ### ProjectEnvironmentTypes_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var projectEnvironmentType = new AzureNative.DevCenter.V20221111Preview.ProjectEnvironmentType("projectEnvironmentType", new()
+    ///     {
+    ///         CreatorRoleAssignment = new AzureNative.DevCenter.V20221111Preview.Inputs.ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignmentArgs
+    ///         {
+    ///             Roles = 
+    ///             {
+    ///                 { "4cbf0b6c-e750-441c-98a7-10da8387e4d6", null },
+    ///             },
+    ///         },
+    ///         DeploymentTargetId = "/subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         EnvironmentTypeName = "DevTest",
+    ///         Identity = new AzureNative.DevCenter.V20221111Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1", null },
+    ///             },
+    ///         },
+    ///         ProjectName = "ContosoProj",
+    ///         ResourceGroupName = "rg1",
+    ///         Status = "Enabled",
+    ///         Tags = 
+    ///         {
+    ///             { "CostCenter", "RnD" },
+    ///         },
+    ///         UserRoleAssignments = 
+    ///         {
+    ///             { "e45e3m7c-176e-416a-b466-0c5ec8298f8a", new AzureNative.DevCenter.V20221111Preview.Inputs.UserRoleAssignmentArgs
+    ///             {
+    ///                 Roles = 
+    ///                 {
+    ///                     { "4cbf0b6c-e750-441c-98a7-10da8387e4d6", null },
+    ///                 },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter/v20221111preview:ProjectEnvironmentType DevTest /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/ContosoProj/environmentTypes/DevTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20221111preview:ProjectEnvironmentType")]
     public partial class ProjectEnvironmentType : global::Pulumi.CustomResource

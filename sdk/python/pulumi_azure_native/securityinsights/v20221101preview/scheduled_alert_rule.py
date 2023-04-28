@@ -445,6 +445,155 @@ class ScheduledAlertRule(pulumi.CustomResource):
         """
         Represents scheduled alert rule.
 
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule with scenario exclusion pattern.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Nrt alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            alert_details_override=azure_native.securityinsights.v20221101preview.AlertDetailsOverrideResponseArgs(
+                alert_description_format="Suspicious activity was made by {{ComputerIP}}",
+                alert_display_name_format="Alert from {{Computer}}",
+                alert_dynamic_properties=[
+                    azure_native.securityinsights.v20221101preview.AlertPropertyMappingArgs(
+                        alert_property="ProductComponentName",
+                        value="ProductComponentNameCustomColumn",
+                    ),
+                    azure_native.securityinsights.v20221101preview.AlertPropertyMappingArgs(
+                        alert_property="ProductName",
+                        value="ProductNameCustomColumn",
+                    ),
+                    azure_native.securityinsights.v20221101preview.AlertPropertyMappingArgs(
+                        alert_property="AlertLink",
+                        value="Link",
+                    ),
+                ],
+            ),
+            custom_details={
+                "OperatingSystemName": "OSName",
+                "OperatingSystemType": "OSType",
+            },
+            description="An example for a scheduled rule",
+            display_name="My scheduled rule",
+            enabled=True,
+            entity_mappings=[
+                {
+                    "entityType": "Host",
+                    "fieldMappings": [azure_native.securityinsights.v20221101preview.FieldMappingArgs(
+                        column_name="Computer",
+                        identifier="FullName",
+                    )],
+                },
+                {
+                    "entityType": "IP",
+                    "fieldMappings": [azure_native.securityinsights.v20221101preview.FieldMappingArgs(
+                        column_name="ComputerIP",
+                        identifier="Address",
+                    )],
+                },
+            ],
+            event_grouping_settings=azure_native.securityinsights.v20221101preview.EventGroupingSettingsArgs(
+                aggregation_kind="AlertPerResult",
+            ),
+            incident_configuration=azure_native.securityinsights.v20221101preview.IncidentConfigurationResponseArgs(
+                create_incident=True,
+                grouping_configuration=azure_native.securityinsights.v20221101preview.GroupingConfigurationArgs(
+                    enabled=True,
+                    group_by_alert_details=["DisplayName"],
+                    group_by_custom_details=[
+                        "OperatingSystemType",
+                        "OperatingSystemName",
+                    ],
+                    group_by_entities=["Host"],
+                    lookback_duration="PT5H",
+                    matching_method="Selected",
+                    reopen_closed_incident=False,
+                ),
+            ),
+            kind="Scheduled",
+            query="Heartbeat",
+            query_frequency="PT1H",
+            query_period="P2DT1H30M",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            sentinel_entities_mappings=[azure_native.securityinsights.v20221101preview.SentinelEntityMappingArgs(
+                column_name="Entities",
+            )],
+            severity="High",
+            suppression_duration="PT1H",
+            suppression_enabled=False,
+            tactics=[
+                "Persistence",
+                "LateralMovement",
+            ],
+            techniques=[
+                "T1037",
+                "T1021",
+            ],
+            trigger_operator=azure_native.securityinsights/v20221101preview.TriggerOperator.GREATER_THAN,
+            trigger_threshold=0,
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20221101preview:ScheduledAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AlertDetailsOverrideArgs']] alert_details_override: The alert details override settings
@@ -482,6 +631,155 @@ class ScheduledAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents scheduled alert rule.
+
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule with scenario exclusion pattern.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Nrt alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_alert_rule = azure_native.securityinsights.v20221101preview.ScheduledAlertRule("scheduledAlertRule",
+            alert_details_override=azure_native.securityinsights.v20221101preview.AlertDetailsOverrideResponseArgs(
+                alert_description_format="Suspicious activity was made by {{ComputerIP}}",
+                alert_display_name_format="Alert from {{Computer}}",
+                alert_dynamic_properties=[
+                    azure_native.securityinsights.v20221101preview.AlertPropertyMappingArgs(
+                        alert_property="ProductComponentName",
+                        value="ProductComponentNameCustomColumn",
+                    ),
+                    azure_native.securityinsights.v20221101preview.AlertPropertyMappingArgs(
+                        alert_property="ProductName",
+                        value="ProductNameCustomColumn",
+                    ),
+                    azure_native.securityinsights.v20221101preview.AlertPropertyMappingArgs(
+                        alert_property="AlertLink",
+                        value="Link",
+                    ),
+                ],
+            ),
+            custom_details={
+                "OperatingSystemName": "OSName",
+                "OperatingSystemType": "OSType",
+            },
+            description="An example for a scheduled rule",
+            display_name="My scheduled rule",
+            enabled=True,
+            entity_mappings=[
+                {
+                    "entityType": "Host",
+                    "fieldMappings": [azure_native.securityinsights.v20221101preview.FieldMappingArgs(
+                        column_name="Computer",
+                        identifier="FullName",
+                    )],
+                },
+                {
+                    "entityType": "IP",
+                    "fieldMappings": [azure_native.securityinsights.v20221101preview.FieldMappingArgs(
+                        column_name="ComputerIP",
+                        identifier="Address",
+                    )],
+                },
+            ],
+            event_grouping_settings=azure_native.securityinsights.v20221101preview.EventGroupingSettingsArgs(
+                aggregation_kind="AlertPerResult",
+            ),
+            incident_configuration=azure_native.securityinsights.v20221101preview.IncidentConfigurationResponseArgs(
+                create_incident=True,
+                grouping_configuration=azure_native.securityinsights.v20221101preview.GroupingConfigurationArgs(
+                    enabled=True,
+                    group_by_alert_details=["DisplayName"],
+                    group_by_custom_details=[
+                        "OperatingSystemType",
+                        "OperatingSystemName",
+                    ],
+                    group_by_entities=["Host"],
+                    lookback_duration="PT5H",
+                    matching_method="Selected",
+                    reopen_closed_incident=False,
+                ),
+            ),
+            kind="Scheduled",
+            query="Heartbeat",
+            query_frequency="PT1H",
+            query_period="P2DT1H30M",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            sentinel_entities_mappings=[azure_native.securityinsights.v20221101preview.SentinelEntityMappingArgs(
+                column_name="Entities",
+            )],
+            severity="High",
+            suppression_duration="PT1H",
+            suppression_enabled=False,
+            tactics=[
+                "Persistence",
+                "LateralMovement",
+            ],
+            techniques=[
+                "T1037",
+                "T1021",
+            ],
+            trigger_operator=azure_native.securityinsights/v20221101preview.TriggerOperator.GREATER_THAN,
+            trigger_threshold=0,
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20221101preview:ScheduledAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduledAlertRuleArgs args: The arguments to use to populate this resource's properties.

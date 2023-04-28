@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview
 {
     /// <summary>
     /// The description of the DigitalTwins service.
+    /// 
+    /// ## Example Usage
+    /// ### Put a DigitalTwinsInstance resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var digitalTwin = new AzureNative.DigitalTwins.V20200301Preview.DigitalTwin("digitalTwin", new()
+    ///     {
+    ///         Location = "WestUS",
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:digitaltwins/v20200301preview:DigitalTwin myDigitalTwinsService /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/DigitalTwinsInstance/myDigitalTwinsService 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2020-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:digitaltwins/v20200301preview:DigitalTwin")]

@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190501
 {
     /// <summary>
     /// An object that represents a replication for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### ReplicationCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replication = new AzureNative.ContainerRegistry.V20190501.Replication("replication", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         RegistryName = "myRegistry",
+    ///         ReplicationName = "myReplication",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20190501:Replication myReplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/replications/myReplication 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20190501:Replication")]
     public partial class Replication : global::Pulumi.CustomResource

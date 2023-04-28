@@ -128,6 +128,33 @@ class UserRuleCollection(pulumi.CustomResource):
         """
         Defines the user rule collection.
 
+        ## Example Usage
+        ### Create or Update a User Rule Collection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_rule_collection = azure_native.network.v20220401preview.UserRuleCollection("userRuleCollection",
+            applies_to_groups=[azure_native.network.v20220401preview.NetworkManagerSecurityGroupItemArgs(
+                network_group_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+            )],
+            configuration_name="myTestSecurityConfig",
+            description="A sample policy",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220401preview:UserRuleCollection myTestSecurityConfig /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityUserConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerSecurityGroupItemArgs']]]] applies_to_groups: Groups for configuration
@@ -145,6 +172,33 @@ class UserRuleCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the user rule collection.
+
+        ## Example Usage
+        ### Create or Update a User Rule Collection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_rule_collection = azure_native.network.v20220401preview.UserRuleCollection("userRuleCollection",
+            applies_to_groups=[azure_native.network.v20220401preview.NetworkManagerSecurityGroupItemArgs(
+                network_group_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+            )],
+            configuration_name="myTestSecurityConfig",
+            description="A sample policy",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220401preview:UserRuleCollection myTestSecurityConfig /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityUserConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserRuleCollectionArgs args: The arguments to use to populate this resource's properties.

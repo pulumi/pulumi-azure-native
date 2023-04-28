@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a read write database.
+ *
+ * ## Example Usage
+ * ### KustoPoolDatabasesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const readWriteDatabase = new azure_native.synapse.v20210401preview.ReadWriteDatabase("readWriteDatabase", {
+ *     databaseName: "KustoDatabase8",
+ *     kind: "ReadWrite",
+ *     kustoPoolName: "kustoclusterrptest4",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     softDeletePeriod: "P1D",
+ *     workspaceName: "synapseWorkspaceName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse/v20210401preview:ReadWriteDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustopools/KustoClusterRPTest4/Databases/KustoDatabase8 
+ * ```
  */
 export class ReadWriteDatabase extends pulumi.CustomResource {
     /**

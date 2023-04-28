@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level data export resource container.
+ *
+ * ## Example Usage
+ * ### DataExportCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataExport = new azure_native.operationalinsights.v20200801.DataExport("dataExport", {
+ *     dataExportName: "export1",
+ *     resourceGroupName: "RgTest1",
+ *     resourceId: "/subscriptions/192b9f85-a39a-4276-b96d-d5cd351703f9/resourceGroups/OIAutoRest1234/providers/Microsoft.EventHub/namespaces/test",
+ *     tableNames: ["Heartbeat"],
+ *     workspaceName: "DeWnTest1234",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights/v20200801:DataExport export1 /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/RgTest1/providers/microsoft.operationalinsights/workspaces/DeWnTest1234/export/export1 
+ * ```
  */
 export class DataExport extends pulumi.CustomResource {
     /**

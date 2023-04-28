@@ -77,6 +77,28 @@ class ContentType(pulumi.CustomResource):
         """
         Content type contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateContentType
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_type = azure_native.apimanagement.v20201201.ContentType("contentType",
+            content_type_id="page",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:ContentType page /contentTypes/page 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type_id: Content type identifier.
@@ -91,6 +113,28 @@ class ContentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Content type contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateContentType
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_type = azure_native.apimanagement.v20201201.ContentType("contentType",
+            content_type_id="page",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:ContentType page /contentTypes/page 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContentTypeArgs args: The arguments to use to populate this resource's properties.

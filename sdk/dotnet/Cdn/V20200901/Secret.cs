@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// Friendly Secret name mapping to the any Secret or secret related information.
+    /// 
+    /// ## Example Usage
+    /// ### Secrets_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var secret = new AzureNative.Cdn.V20200901.Secret("secret", new()
+    ///     {
+    ///         Parameters = new AzureNative.Cdn.V20200901.Inputs.CustomerCertificateParametersArgs
+    ///         {
+    ///             CertificateAuthority = "Symantec",
+    ///             SecretSource = new AzureNative.Cdn.V20200901.Inputs.ResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.KeyVault/vault/kvName/certificate/certName",
+    ///             },
+    ///             SecretVersion = "67c452f83c804aed80aa3a21e523c226",
+    ///             SubjectAlternativeNames = new[]
+    ///             {
+    ///                 "foo.contoso.com",
+    ///                 "www3.foo.contoso.com",
+    ///             },
+    ///             Type = "CustomerCertificate",
+    ///             UseLatestVersion = false,
+    ///         },
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         SecretName = "secret1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20200901:Secret secret1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:Secret")]
     public partial class Secret : global::Pulumi.CustomResource

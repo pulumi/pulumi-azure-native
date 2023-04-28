@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Build step resource properties
+ *
+ * ## Example Usage
+ * ### BuildSteps_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const buildStep = new azure_native.containerregistry.v20180201preview.BuildStep("buildStep", {
+ *     buildTaskName: "myBuildTask",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     stepName: "myStep",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20180201preview:BuildStep myStep /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/buildTasks/myBuildTask/steps/myStep 
+ * ```
  */
 export class BuildStep extends pulumi.CustomResource {
     /**

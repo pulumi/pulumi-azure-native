@@ -145,6 +145,29 @@ class NspLink(pulumi.CustomResource):
         """
         The network security perimeter link resource
 
+        ## Example Usage
+        ### NspLinksPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nsp_link = azure_native.network.v20210201preview.NspLink("nspLink",
+            auto_approved_remote_perimeter_resource_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp2",
+            link_name="link1",
+            network_security_perimeter_name="nsp1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NspLink link1 /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/links/link1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_approved_remote_perimeter_resource_id: Perimeter ARM Id for the remote NSP with which the link gets created in Auto-approval mode. It should be used when the NSP admin have Microsoft.Network/networkSecurityPerimeters/linkPerimeter/action permission on the remote NSP resource.
@@ -163,6 +186,29 @@ class NspLink(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network security perimeter link resource
+
+        ## Example Usage
+        ### NspLinksPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nsp_link = azure_native.network.v20210201preview.NspLink("nspLink",
+            auto_approved_remote_perimeter_resource_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp2",
+            link_name="link1",
+            network_security_perimeter_name="nsp1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NspLink link1 /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/links/link1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NspLinkArgs args: The arguments to use to populate this resource's properties.

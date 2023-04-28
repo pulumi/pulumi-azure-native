@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * A single Redis item in List or Get Operation.
+ *
+ * ## Example Usage
+ * ### RedisCacheCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redis = new azure_native.cache.v20200601.Redis("redis", {
+ *     enableNonSslPort: true,
+ *     location: "West US",
+ *     minimumTlsVersion: "1.2",
+ *     name: "cache1",
+ *     redisConfiguration: {
+ *         maxmemoryPolicy: "allkeys-lru",
+ *     },
+ *     replicasPerMaster: 2,
+ *     resourceGroupName: "rg1",
+ *     shardCount: 2,
+ *     sku: {
+ *         capacity: 1,
+ *         family: "P",
+ *         name: "Premium",
+ *     },
+ *     staticIP: "192.168.0.5",
+ *     subnetId: "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cache/v20200601:Redis cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1 
+ * ```
  */
 export class Redis extends pulumi.CustomResource {
     /**

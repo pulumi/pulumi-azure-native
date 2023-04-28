@@ -98,6 +98,40 @@ class DataContainer(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdate Data Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_container = azure_native.machinelearningservices.DataContainer("dataContainer",
+            data_container_properties=azure_native.machinelearningservices.DataContainerArgs(
+                data_type="UriFile",
+                description="string",
+                properties={
+                    "properties1": "value1",
+                    "properties2": "value2",
+                },
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            name="datacontainer123",
+            resource_group_name="testrg123",
+            workspace_name="workspace123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:DataContainer datacontainer123 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/data/datacontainer123 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DataContainerArgs']] data_container_properties: [Required] Additional attributes of the entity.
@@ -115,6 +149,40 @@ class DataContainer(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         API Version: 2022-10-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdate Data Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_container = azure_native.machinelearningservices.DataContainer("dataContainer",
+            data_container_properties=azure_native.machinelearningservices.DataContainerArgs(
+                data_type="UriFile",
+                description="string",
+                properties={
+                    "properties1": "value1",
+                    "properties2": "value2",
+                },
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            name="datacontainer123",
+            resource_group_name="testrg123",
+            workspace_name="workspace123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:DataContainer datacontainer123 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/data/datacontainer123 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataContainerInitArgs args: The arguments to use to populate this resource's properties.

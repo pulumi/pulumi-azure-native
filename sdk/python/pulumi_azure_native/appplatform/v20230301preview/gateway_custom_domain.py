@@ -112,6 +112,32 @@ class GatewayCustomDomain(pulumi.CustomResource):
         """
         Custom domain of the Spring Cloud Gateway
 
+        ## Example Usage
+        ### GatewayCustomDomains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway_custom_domain = azure_native.appplatform.v20230301preview.GatewayCustomDomain("gatewayCustomDomain",
+            domain_name="myDomainName",
+            gateway_name="default",
+            properties=azure_native.appplatform.v20230301preview.GatewayCustomDomainPropertiesArgs(
+                thumbprint="*",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:GatewayCustomDomain myDomainName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default/domains/myDomainName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The name of the Spring Cloud Gateway custom domain.
@@ -128,6 +154,32 @@ class GatewayCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom domain of the Spring Cloud Gateway
+
+        ## Example Usage
+        ### GatewayCustomDomains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway_custom_domain = azure_native.appplatform.v20230301preview.GatewayCustomDomain("gatewayCustomDomain",
+            domain_name="myDomainName",
+            gateway_name="default",
+            properties=azure_native.appplatform.v20230301preview.GatewayCustomDomainPropertiesArgs(
+                thumbprint="*",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:GatewayCustomDomain myDomainName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default/domains/myDomainName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GatewayCustomDomainArgs args: The arguments to use to populate this resource's properties.

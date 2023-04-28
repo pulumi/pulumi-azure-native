@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Device resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update device
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var device = new AzureNative.HybridNetwork.V20200101Preview.Device("device", new()
+    ///     {
+    ///         DeviceName = "TestDevice",
+    ///         DeviceType = "AzureStackEdge",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork/v20200101preview:Device TestDevice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/devices/TestDevice 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork/v20200101preview:Device")]
     public partial class Device : global::Pulumi.CustomResource

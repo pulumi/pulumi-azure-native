@@ -240,6 +240,33 @@ class PartnerTopic(pulumi.CustomResource):
         API Version: 2022-06-15.
         Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PartnerTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner_topic = azure_native.eventgrid.PartnerTopic("partnerTopic",
+            expiration_time_if_not_activated_utc="2022-03-23T23:06:13.109Z",
+            location="westus2",
+            message_for_activation="Example message for activation",
+            partner_registration_immutable_id="6f541064-031d-4cc8-9ec3-a3b4fc0f7185",
+            partner_topic_friendly_description="Example description",
+            partner_topic_name="examplePartnerTopicName1",
+            resource_group_name="examplerg",
+            source="ContosoCorp.Accounts.User1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:PartnerTopic examplePartnerTopicName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerTopics/examplePartnerTopicName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'PartnerTopicActivationState']] activation_state: Activation state of the partner topic.
@@ -267,6 +294,33 @@ class PartnerTopic(pulumi.CustomResource):
         Event Grid Partner Topic.
         API Version: 2022-06-15.
         Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PartnerTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner_topic = azure_native.eventgrid.PartnerTopic("partnerTopic",
+            expiration_time_if_not_activated_utc="2022-03-23T23:06:13.109Z",
+            location="westus2",
+            message_for_activation="Example message for activation",
+            partner_registration_immutable_id="6f541064-031d-4cc8-9ec3-a3b4fc0f7185",
+            partner_topic_friendly_description="Example description",
+            partner_topic_name="examplePartnerTopicName1",
+            resource_group_name="examplerg",
+            source="ContosoCorp.Accounts.User1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:PartnerTopic examplePartnerTopicName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerTopics/examplePartnerTopicName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PartnerTopicArgs args: The arguments to use to populate this resource's properties.

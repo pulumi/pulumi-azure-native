@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a hybrid machine.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcompute/v20190802preview:Machine string string 
+ * ```
  *
  * @deprecated Version 2019-08-02-preview will be removed in v2 of the provider.
  */

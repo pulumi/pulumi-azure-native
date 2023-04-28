@@ -9,6 +9,68 @@ import * as utilities from "../../utilities";
 
 /**
  * An Application Insights workbook definition.
+ *
+ * ## Example Usage
+ * ### WorkbookAdd
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workbook = new azure_native.insights.v20201020.Workbook("workbook", {
+ *     category: "workbook",
+ *     displayName: "tttt",
+ *     id: "c0deea5e-3344-40f2-96f8-6f8e1c3b5722",
+ *     kind: "shared",
+ *     location: "west us",
+ *     name: "Blah Blah Blah",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "deadb33f-8bee-4d3b-a059-9be8dac93960",
+ *     serializedData: "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":\"{\"json\":\"## New workbook\\r\\n---\\r\\n\\r\\nWelcome to your new workbook.  This area will display text formatted as markdown.\\r\\n\\r\\n\\r\\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\"}\",\"halfWidth\":null,\"conditionalVisibility\":null},{\"type\":3,\"content\":\"{\"version\":\"KqlItem/1.0\",\"query\":\"union withsource=TableName *\\n| summarize Count=count() by TableName\\n| render barchart\",\"showQuery\":false,\"size\":1,\"aggregation\":0,\"showAnnotations\":false}\",\"halfWidth\":null,\"conditionalVisibility\":null}],\"isLocked\":false}",
+ *     sourceId: "/subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyGroup",
+ *     tags: [
+ *         "TagSample01",
+ *         "TagSample02",
+ *     ],
+ * });
+ *
+ * ```
+ * ### WorkbookManagedAdd
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workbook = new azure_native.insights.v20201020.Workbook("workbook", {
+ *     category: "workbook",
+ *     displayName: "tttt",
+ *     id: "/subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyGroup/providers/Microsoft.Insights/workbooks/e378d137-1243-4256-b5c4-ad2a937cae79",
+ *     identity: {
+ *         type: "UserAssigned",
+ *     },
+ *     kind: "shared",
+ *     location: "westus",
+ *     name: "e378d137-1243-4256-b5c4-ad2a937cae79",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "deadb33f-5e0d-4064-8ebb-1a4ed0313eb2",
+ *     serializedData: "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"test\"},\"name\":\"text - 0\"}],\"isLocked\":false,\"fallbackResourceIds\":[\"/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/MyGroup\"]}",
+ *     sourceId: "/subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyGroup",
+ *     storageUri: "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/MyGroup/providers/Microsoft.Storage/storageAccounts/testStorage/blobServices/default/containers/testContainer",
+ *     tags: {
+ *         "hidden-title": "tttt",
+ *     },
+ *     version: "Notebook/1.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20201020:Workbook e378d137-1243-4256-b5c4-ad2a937cae79 /subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyGroup/providers/Microsoft.Insights/workbooks/72377f0c-b7e7-4044-a882-471bcbd9696e 
+ * ```
  */
 export class Workbook extends pulumi.CustomResource {
     /**

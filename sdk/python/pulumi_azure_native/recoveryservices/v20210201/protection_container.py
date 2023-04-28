@@ -164,6 +164,35 @@ class ProtectionContainer(pulumi.CustomResource):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
 
+        ## Example Usage
+        ### RegisterAzure Storage ProtectionContainers
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        protection_container = azure_native.recoveryservices.v20210201.ProtectionContainer("protectionContainer",
+            container_name="VMAppContainer;Compute;testRG;testSQL",
+            fabric_name="Azure",
+            properties=azure_native.recoveryservices.v20210201.AzureVMAppContainerProtectionContainerArgs(
+                backup_management_type="AzureWorkload",
+                container_type="VMAppContainer",
+                friendly_name="testSQL",
+                source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testSQL",
+            ),
+            resource_group_name="test-rg",
+            vault_name="testvault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20210201:ProtectionContainer VMAppContainer;Compute;testRG;testSQL /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;testRG;testSQL 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_name: Name of the container to be registered.
@@ -183,6 +212,35 @@ class ProtectionContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Base class for container with backup items. Containers with specific workloads are derived from this class.
+
+        ## Example Usage
+        ### RegisterAzure Storage ProtectionContainers
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        protection_container = azure_native.recoveryservices.v20210201.ProtectionContainer("protectionContainer",
+            container_name="VMAppContainer;Compute;testRG;testSQL",
+            fabric_name="Azure",
+            properties=azure_native.recoveryservices.v20210201.AzureVMAppContainerProtectionContainerArgs(
+                backup_management_type="AzureWorkload",
+                container_type="VMAppContainer",
+                friendly_name="testSQL",
+                source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testSQL",
+            ),
+            resource_group_name="test-rg",
+            vault_name="testvault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20210201:ProtectionContainer VMAppContainer;Compute;testRG;testSQL /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/VMAppContainer;Compute;testRG;testSQL 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProtectionContainerArgs args: The arguments to use to populate this resource's properties.

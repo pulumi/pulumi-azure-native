@@ -166,6 +166,113 @@ class Policy(pulumi.CustomResource):
         """
         Defines web application firewall policy.
 
+        ## Example Usage
+        ### Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.network.v20201101.Policy("policy",
+            custom_rules=azure_native.network.v20201101.CustomRuleListResponseArgs(
+                rules=[
+                    {
+                        "action": "Block",
+                        "matchConditions": [azure_native.network.v20201101.FrontDoorMatchConditionArgs(
+                            match_value=[
+                                "192.168.1.0/24",
+                                "10.0.0.0/24",
+                            ],
+                            match_variable="RemoteAddr",
+                            operator="IPMatch",
+                        )],
+                        "name": "Rule1",
+                        "priority": 1,
+                        "rateLimitThreshold": 1000,
+                        "ruleType": "RateLimitRule",
+                    },
+                    {
+                        "action": "Block",
+                        "matchConditions": [
+                            azure_native.network.v20201101.FrontDoorMatchConditionArgs(
+                                match_value=["CH"],
+                                match_variable="RemoteAddr",
+                                operator="GeoMatch",
+                            ),
+                            azure_native.network.v20201101.FrontDoorMatchConditionArgs(
+                                match_value=["windows"],
+                                match_variable="RequestHeader",
+                                operator="Contains",
+                                selector="UserAgent",
+                                transforms=["Lowercase"],
+                            ),
+                        ],
+                        "name": "Rule2",
+                        "priority": 2,
+                        "ruleType": "MatchRule",
+                    },
+                ],
+            ),
+            managed_rules=azure_native.network.v20201101.ManagedRuleSetListResponseArgs(
+                managed_rule_sets=[{
+                    "exclusions": [azure_native.network.v20201101.ManagedRuleExclusionArgs(
+                        match_variable="RequestHeaderNames",
+                        selector="User-Agent",
+                        selector_match_operator="Equals",
+                    )],
+                    "ruleGroupOverrides": [{
+                        "exclusions": [azure_native.network.v20201101.ManagedRuleExclusionArgs(
+                            match_variable="RequestCookieNames",
+                            selector="token",
+                            selector_match_operator="StartsWith",
+                        )],
+                        "ruleGroupName": "SQLI",
+                        "rules": [
+                            azure_native.network.v20201101.FrontDoorManagedRuleOverrideArgs(
+                                action="Redirect",
+                                enabled_state="Enabled",
+                                exclusions=[azure_native.network.v20201101.ManagedRuleExclusionArgs(
+                                    match_variable="QueryStringArgNames",
+                                    selector="query",
+                                    selector_match_operator="Equals",
+                                )],
+                                rule_id="942100",
+                            ),
+                            azure_native.network.v20201101.FrontDoorManagedRuleOverrideArgs(
+                                enabled_state="Disabled",
+                                rule_id="942110",
+                            ),
+                        ],
+                    }],
+                    "ruleSetAction": "Block",
+                    "ruleSetType": "DefaultRuleSet",
+                    "ruleSetVersion": "1.0",
+                }],
+            ),
+            policy_name="Policy1",
+            policy_settings=azure_native.network.v20201101.FrontDoorPolicySettingsArgs(
+                custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+                custom_block_response_status_code=499,
+                enabled_state="Enabled",
+                mode="Prevention",
+                redirect_url="http://www.bing.com",
+                request_body_check="Disabled",
+            ),
+            resource_group_name="rg1",
+            sku=azure_native.network.v20201101.SkuArgs(
+                name="Classic_AzureFrontDoor",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:Policy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/FrontDoorWebApplicationFirewallPolicies/Policy1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomRuleListArgs']] custom_rules: Describes custom rules inside the policy.
@@ -185,6 +292,113 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines web application firewall policy.
+
+        ## Example Usage
+        ### Creates specific policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.network.v20201101.Policy("policy",
+            custom_rules=azure_native.network.v20201101.CustomRuleListResponseArgs(
+                rules=[
+                    {
+                        "action": "Block",
+                        "matchConditions": [azure_native.network.v20201101.FrontDoorMatchConditionArgs(
+                            match_value=[
+                                "192.168.1.0/24",
+                                "10.0.0.0/24",
+                            ],
+                            match_variable="RemoteAddr",
+                            operator="IPMatch",
+                        )],
+                        "name": "Rule1",
+                        "priority": 1,
+                        "rateLimitThreshold": 1000,
+                        "ruleType": "RateLimitRule",
+                    },
+                    {
+                        "action": "Block",
+                        "matchConditions": [
+                            azure_native.network.v20201101.FrontDoorMatchConditionArgs(
+                                match_value=["CH"],
+                                match_variable="RemoteAddr",
+                                operator="GeoMatch",
+                            ),
+                            azure_native.network.v20201101.FrontDoorMatchConditionArgs(
+                                match_value=["windows"],
+                                match_variable="RequestHeader",
+                                operator="Contains",
+                                selector="UserAgent",
+                                transforms=["Lowercase"],
+                            ),
+                        ],
+                        "name": "Rule2",
+                        "priority": 2,
+                        "ruleType": "MatchRule",
+                    },
+                ],
+            ),
+            managed_rules=azure_native.network.v20201101.ManagedRuleSetListResponseArgs(
+                managed_rule_sets=[{
+                    "exclusions": [azure_native.network.v20201101.ManagedRuleExclusionArgs(
+                        match_variable="RequestHeaderNames",
+                        selector="User-Agent",
+                        selector_match_operator="Equals",
+                    )],
+                    "ruleGroupOverrides": [{
+                        "exclusions": [azure_native.network.v20201101.ManagedRuleExclusionArgs(
+                            match_variable="RequestCookieNames",
+                            selector="token",
+                            selector_match_operator="StartsWith",
+                        )],
+                        "ruleGroupName": "SQLI",
+                        "rules": [
+                            azure_native.network.v20201101.FrontDoorManagedRuleOverrideArgs(
+                                action="Redirect",
+                                enabled_state="Enabled",
+                                exclusions=[azure_native.network.v20201101.ManagedRuleExclusionArgs(
+                                    match_variable="QueryStringArgNames",
+                                    selector="query",
+                                    selector_match_operator="Equals",
+                                )],
+                                rule_id="942100",
+                            ),
+                            azure_native.network.v20201101.FrontDoorManagedRuleOverrideArgs(
+                                enabled_state="Disabled",
+                                rule_id="942110",
+                            ),
+                        ],
+                    }],
+                    "ruleSetAction": "Block",
+                    "ruleSetType": "DefaultRuleSet",
+                    "ruleSetVersion": "1.0",
+                }],
+            ),
+            policy_name="Policy1",
+            policy_settings=azure_native.network.v20201101.FrontDoorPolicySettingsArgs(
+                custom_block_response_body="PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+                custom_block_response_status_code=499,
+                enabled_state="Enabled",
+                mode="Prevention",
+                redirect_url="http://www.bing.com",
+                request_body_check="Disabled",
+            ),
+            resource_group_name="rg1",
+            sku=azure_native.network.v20201101.SkuArgs(
+                name="Classic_AzureFrontDoor",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:Policy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/FrontDoorWebApplicationFirewallPolicies/Policy1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

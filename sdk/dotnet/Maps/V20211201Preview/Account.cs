@@ -11,6 +11,161 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview
 {
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
+    /// 
+    /// ## Example Usage
+    /// ### Create Account with Managed Identities
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.Maps.V20211201Preview.Account("account", new()
+    ///     {
+    ///         AccountName = "myMapsAccount",
+    ///         Identity = new AzureNative.Maps.V20211201Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Maps.V20211201Preview.ResourceIdentityType.SystemAssigned_UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName", null },
+    ///             },
+    ///         },
+    ///         Kind = "Gen2",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Maps.V20211201Preview.Inputs.MapsAccountPropertiesArgs
+    ///         {
+    ///             DisableLocalAuth = false,
+    ///             LinkedResources = new[]
+    ///             {
+    ///                 new AzureNative.Maps.V20211201Preview.Inputs.LinkedResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Storage/accounts/mystorageacc",
+    ///                     UniqueName = "myBatchStorageAccount",
+    ///                 },
+    ///                 new AzureNative.Maps.V20211201Preview.Inputs.LinkedResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Storage/accounts/mystorageacc",
+    ///                     UniqueName = "myBlobDataSource",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Maps.V20211201Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "G2",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "test", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Gen1 Account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.Maps.V20211201Preview.Account("account", new()
+    ///     {
+    ///         AccountName = "myMapsAccount",
+    ///         Kind = "Gen1",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Maps.V20211201Preview.Inputs.MapsAccountPropertiesArgs
+    ///         {
+    ///             Cors = new AzureNative.Maps.V20211201Preview.Inputs.CorsRulesArgs
+    ///             {
+    ///                 CorsRules = new[]
+    ///                 {
+    ///                     new AzureNative.Maps.V20211201Preview.Inputs.CorsRuleArgs
+    ///                     {
+    ///                         AllowedOrigins = new[]
+    ///                         {
+    ///                             "http://www.contoso.com",
+    ///                             "http://www.fabrikam.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DisableLocalAuth = false,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Maps.V20211201Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "test", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Gen2 Account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.Maps.V20211201Preview.Account("account", new()
+    ///     {
+    ///         AccountName = "myMapsAccount",
+    ///         Kind = "Gen2",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Maps.V20211201Preview.Inputs.MapsAccountPropertiesArgs
+    ///         {
+    ///             Cors = new AzureNative.Maps.V20211201Preview.Inputs.CorsRulesArgs
+    ///             {
+    ///                 CorsRules = new[]
+    ///                 {
+    ///                     new AzureNative.Maps.V20211201Preview.Inputs.CorsRuleArgs
+    ///                     {
+    ///                         AllowedOrigins = new[]
+    ///                         {
+    ///                             "http://www.contoso.com",
+    ///                             "http://www.fabrikam.com",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DisableLocalAuth = true,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Maps.V20211201Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "G2",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "test", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maps/v20211201preview:Account myMapsAccount /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maps/v20211201preview:Account")]
     public partial class Account : global::Pulumi.CustomResource

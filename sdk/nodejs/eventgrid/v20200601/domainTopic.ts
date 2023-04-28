@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain Topic.
+ *
+ * ## Example Usage
+ * ### DomainTopics_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const domainTopic = new azure_native.eventgrid.v20200601.DomainTopic("domainTopic", {
+ *     domainName: "exampledomain1",
+ *     domainTopicName: "exampledomaintopic1",
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid/v20200601:DomainTopic exampledomaintopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1/topics/exampledomaintopic1 
+ * ```
  */
 export class DomainTopic extends pulumi.CustomResource {
     /**

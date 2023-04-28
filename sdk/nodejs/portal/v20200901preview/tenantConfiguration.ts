@@ -6,6 +6,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Tenant configuration.
+ *
+ * ## Example Usage
+ * ### Create or update Tenant configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tenantConfiguration = new azure_native.portal.v20200901preview.TenantConfiguration("tenantConfiguration", {
+ *     configurationName: "default",
+ *     enforcePrivateMarkdownStorage: true,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:portal/v20200901preview:TenantConfiguration default /providers/Microsoft.Portal/tenantConfigurations/default 
+ * ```
  */
 export class TenantConfiguration extends pulumi.CustomResource {
     /**

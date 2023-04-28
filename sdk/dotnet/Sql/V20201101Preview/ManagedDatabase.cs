@@ -11,6 +11,155 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
     /// <summary>
     /// A managed database resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a new managed database by restoring from an external backup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedDatabase = new AzureNative.Sql.V20201101Preview.ManagedDatabase("managedDatabase", new()
+    ///     {
+    ///         AutoCompleteRestore = true,
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         CreateMode = "RestoreExternalBackup",
+    ///         DatabaseName = "managedDatabase",
+    ///         LastBackupName = "last_backup_name",
+    ///         Location = "southeastasia",
+    ///         ManagedInstanceName = "managedInstance",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         StorageContainerSasToken = "sv=2015-12-11&amp;sr=c&amp;sp=rl&amp;sig=1234",
+    ///         StorageContainerUri = "https://myaccountname.blob.core.windows.net/backups",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a new managed database from restoring a geo-replicated backup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedDatabase = new AzureNative.Sql.V20201101Preview.ManagedDatabase("managedDatabase", new()
+    ///     {
+    ///         CreateMode = "Recovery",
+    ///         DatabaseName = "testdb_recovered",
+    ///         Location = "southeastasia",
+    ///         ManagedInstanceName = "server1",
+    ///         RecoverableDatabaseId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/Default-SQL-WestEurope/providers/Microsoft.Sql/managedInstances/testsvr/recoverableDatabases/testdb",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a new managed database from restoring a long term retention backup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedDatabase = new AzureNative.Sql.V20201101Preview.ManagedDatabase("managedDatabase", new()
+    ///     {
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         CreateMode = "RestoreExternalBackup",
+    ///         DatabaseName = "managedDatabase",
+    ///         Location = "southeastasia",
+    ///         ManagedInstanceName = "managedInstance",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         StorageContainerSasToken = "sv=2015-12-11&amp;sr=c&amp;sp=rl&amp;sig=1234",
+    ///         StorageContainerUri = "https://myaccountname.blob.core.windows.net/backups",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a new managed database using point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedDatabase = new AzureNative.Sql.V20201101Preview.ManagedDatabase("managedDatabase", new()
+    ///     {
+    ///         CreateMode = "PointInTimeRestore",
+    ///         DatabaseName = "managedDatabase",
+    ///         Location = "southeastasia",
+    ///         ManagedInstanceName = "managedInstance",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         RestorePointInTime = "2017-07-14T05:35:31.503Z",
+    ///         SourceDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr/databases/testdb",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a new managed database with maximal properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedDatabase = new AzureNative.Sql.V20201101Preview.ManagedDatabase("managedDatabase", new()
+    ///     {
+    ///         DatabaseName = "managedDatabase",
+    ///         Location = "southeastasia",
+    ///         ManagedInstanceName = "managedInstance",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "TagValue1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a new managed database with minimal properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedDatabase = new AzureNative.Sql.V20201101Preview.ManagedDatabase("managedDatabase", new()
+    ///     {
+    ///         DatabaseName = "managedDatabase",
+    ///         Location = "southeastasia",
+    ///         ManagedInstanceName = "managedInstance",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20201101preview:ManagedDatabase testdb1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/testsvr/databases/testdb1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20201101preview:ManagedDatabase")]
     public partial class ManagedDatabase : global::Pulumi.CustomResource

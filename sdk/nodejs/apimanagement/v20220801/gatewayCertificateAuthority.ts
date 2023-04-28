@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Gateway certificate authority details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateGatewayCertificateAuthority
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gatewayCertificateAuthority = new azure_native.apimanagement.v20220801.GatewayCertificateAuthority("gatewayCertificateAuthority", {
+ *     certificateId: "cert1",
+ *     gatewayId: "gw1",
+ *     isTrusted: false,
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:GatewayCertificateAuthority cert1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/certificateAuthorities/cert1 
+ * ```
  */
 export class GatewayCertificateAuthority extends pulumi.CustomResource {
     /**

@@ -112,6 +112,32 @@ class WebPubSubCustomDomain(pulumi.CustomResource):
         A custom domain
         API Version: 2023-02-01.
 
+        ## Example Usage
+        ### WebPubSubCustomDomains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_custom_domain = azure_native.webpubsub.WebPubSubCustomDomain("webPubSubCustomDomain",
+            custom_certificate=azure_native.webpubsub.ResourceReferenceArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert",
+            ),
+            domain_name="example.com",
+            name="myDomain",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub:WebPubSubCustomDomain myDomain /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customDomains/myDomain 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] custom_certificate: Reference to a resource.
@@ -129,6 +155,32 @@ class WebPubSubCustomDomain(pulumi.CustomResource):
         """
         A custom domain
         API Version: 2023-02-01.
+
+        ## Example Usage
+        ### WebPubSubCustomDomains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_custom_domain = azure_native.webpubsub.WebPubSubCustomDomain("webPubSubCustomDomain",
+            custom_certificate=azure_native.webpubsub.ResourceReferenceArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customCertificates/myCert",
+            ),
+            domain_name="example.com",
+            name="myDomain",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub:WebPubSubCustomDomain myDomain /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/customDomains/myDomain 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebPubSubCustomDomainArgs args: The arguments to use to populate this resource's properties.

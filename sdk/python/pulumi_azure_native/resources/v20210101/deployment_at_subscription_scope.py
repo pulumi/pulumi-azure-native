@@ -98,6 +98,34 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
         """
         Deployment information.
 
+        ## Example Usage
+        ### Create a deployment that will deploy a templateSpec with the given resourceId
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_subscription_scope = azure_native.resources.v20210101.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope",
+            deployment_name="my-deployment",
+            location="eastus",
+            properties=azure_native.resources.v20210101.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources/v20210101.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.v20210101.TemplateLinkArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20210101:DeploymentAtSubscriptionScope my-deployment /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: The name of the deployment.
@@ -113,6 +141,34 @@ class DeploymentAtSubscriptionScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment information.
+
+        ## Example Usage
+        ### Create a deployment that will deploy a templateSpec with the given resourceId
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_subscription_scope = azure_native.resources.v20210101.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope",
+            deployment_name="my-deployment",
+            location="eastus",
+            properties=azure_native.resources.v20210101.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources/v20210101.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.v20210101.TemplateLinkArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20210101:DeploymentAtSubscriptionScope my-deployment /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtSubscriptionScopeArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,321 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     /// A SQL virtual machine.
     /// API Version: 2022-02-01.
     /// Previous API Version: 2017-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a SQL virtual machine and joins it to a SQL virtual machine group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlVirtualMachine = new AzureNative.SqlVirtualMachine.SqlVirtualMachine("sqlVirtualMachine", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "testrg",
+    ///         SqlVirtualMachineGroupResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup",
+    ///         SqlVirtualMachineName = "testvm",
+    ///         VirtualMachineResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm2",
+    ///         WsfcDomainCredentials = new AzureNative.SqlVirtualMachine.Inputs.WsfcDomainCredentialsArgs
+    ///         {
+    ///             ClusterBootstrapAccountPassword = "&lt;Password&gt;",
+    ///             ClusterOperatorAccountPassword = "&lt;Password&gt;",
+    ///             SqlServiceAccountPassword = "&lt;Password&gt;",
+    ///         },
+    ///         WsfcStaticIp = "10.0.0.7",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a SQL virtual machine for Automated Back up Settings with Weekly and Days of the week to run the back up.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlVirtualMachine = new AzureNative.SqlVirtualMachine.SqlVirtualMachine("sqlVirtualMachine", new()
+    ///     {
+    ///         AutoBackupSettings = new AzureNative.SqlVirtualMachine.Inputs.AutoBackupSettingsArgs
+    ///         {
+    ///             BackupScheduleType = "Manual",
+    ///             BackupSystemDbs = true,
+    ///             DaysOfWeek = new[]
+    ///             {
+    ///                 "Monday",
+    ///                 "Friday",
+    ///             },
+    ///             Enable = true,
+    ///             EnableEncryption = true,
+    ///             FullBackupFrequency = "Weekly",
+    ///             FullBackupStartTime = 6,
+    ///             FullBackupWindowHours = 11,
+    ///             LogBackupFrequency = 10,
+    ///             Password = "&lt;Password&gt;",
+    ///             RetentionPeriod = 17,
+    ///             StorageAccessKey = "&lt;primary storage access key&gt;",
+    ///             StorageAccountUrl = "https://teststorage.blob.core.windows.net/",
+    ///             StorageContainerName = "testcontainer",
+    ///         },
+    ///         AutoPatchingSettings = new AzureNative.SqlVirtualMachine.Inputs.AutoPatchingSettingsArgs
+    ///         {
+    ///             DayOfWeek = AzureNative.SqlVirtualMachine.DayOfWeek.Sunday,
+    ///             Enable = true,
+    ///             MaintenanceWindowDuration = 60,
+    ///             MaintenanceWindowStartingHour = 2,
+    ///         },
+    ///         KeyVaultCredentialSettings = new AzureNative.SqlVirtualMachine.Inputs.KeyVaultCredentialSettingsArgs
+    ///         {
+    ///             Enable = false,
+    ///         },
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerConfigurationsManagementSettings = new AzureNative.SqlVirtualMachine.Inputs.ServerConfigurationsManagementSettingsArgs
+    ///         {
+    ///             AdditionalFeaturesServerConfigurations = new AzureNative.SqlVirtualMachine.Inputs.AdditionalFeaturesServerConfigurationsArgs
+    ///             {
+    ///                 IsRServicesEnabled = false,
+    ///             },
+    ///             SqlConnectivityUpdateSettings = new AzureNative.SqlVirtualMachine.Inputs.SqlConnectivityUpdateSettingsArgs
+    ///             {
+    ///                 ConnectivityType = "PRIVATE",
+    ///                 Port = 1433,
+    ///                 SqlAuthUpdatePassword = "&lt;password&gt;",
+    ///                 SqlAuthUpdateUserName = "sqllogin",
+    ///             },
+    ///             SqlStorageUpdateSettings = new AzureNative.SqlVirtualMachine.Inputs.SqlStorageUpdateSettingsArgs
+    ///             {
+    ///                 DiskConfigurationType = "NEW",
+    ///                 DiskCount = 1,
+    ///                 StartingDeviceId = 2,
+    ///             },
+    ///             SqlWorkloadTypeUpdateSettings = new AzureNative.SqlVirtualMachine.Inputs.SqlWorkloadTypeUpdateSettingsArgs
+    ///             {
+    ///                 SqlWorkloadType = "OLTP",
+    ///             },
+    ///         },
+    ///         SqlImageSku = "Enterprise",
+    ///         SqlManagement = "Full",
+    ///         SqlServerLicenseType = "PAYG",
+    ///         SqlVirtualMachineName = "testvm",
+    ///         VirtualMachineResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a SQL virtual machine for Storage Configuration Settings to EXTEND Data, Log or TempDB storage pool.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlVirtualMachine = new AzureNative.SqlVirtualMachine.SqlVirtualMachine("sqlVirtualMachine", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "testrg",
+    ///         SqlVirtualMachineName = "testvm",
+    ///         StorageConfigurationSettings = new AzureNative.SqlVirtualMachine.Inputs.StorageConfigurationSettingsArgs
+    ///         {
+    ///             DiskConfigurationType = "EXTEND",
+    ///             SqlDataSettings = new AzureNative.SqlVirtualMachine.Inputs.SQLStorageSettingsArgs
+    ///             {
+    ///                 Luns = new[]
+    ///                 {
+    ///                     2,
+    ///                 },
+    ///             },
+    ///         },
+    ///         VirtualMachineResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a SQL virtual machine for Storage Configuration Settings to NEW Data, Log and TempDB storage pool.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlVirtualMachine = new AzureNative.SqlVirtualMachine.SqlVirtualMachine("sqlVirtualMachine", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "testrg",
+    ///         SqlVirtualMachineName = "testvm",
+    ///         StorageConfigurationSettings = new AzureNative.SqlVirtualMachine.Inputs.StorageConfigurationSettingsArgs
+    ///         {
+    ///             DiskConfigurationType = "NEW",
+    ///             SqlDataSettings = new AzureNative.SqlVirtualMachine.Inputs.SQLStorageSettingsArgs
+    ///             {
+    ///                 DefaultFilePath = "F:\\folderpath\\",
+    ///                 Luns = new[]
+    ///                 {
+    ///                     0,
+    ///                 },
+    ///             },
+    ///             SqlLogSettings = new AzureNative.SqlVirtualMachine.Inputs.SQLStorageSettingsArgs
+    ///             {
+    ///                 DefaultFilePath = "G:\\folderpath\\",
+    ///                 Luns = new[]
+    ///                 {
+    ///                     1,
+    ///                 },
+    ///             },
+    ///             SqlSystemDbOnDataDisk = true,
+    ///             SqlTempDbSettings = new AzureNative.SqlVirtualMachine.Inputs.SQLTempDbSettingsArgs
+    ///             {
+    ///                 DataFileCount = 8,
+    ///                 DataFileSize = 256,
+    ///                 DataGrowth = 512,
+    ///                 DefaultFilePath = "D:\\TEMP",
+    ///                 LogFileSize = 256,
+    ///                 LogGrowth = 512,
+    ///             },
+    ///             StorageWorkloadType = "OLTP",
+    ///         },
+    ///         VirtualMachineResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a SQL virtual machine with max parameters.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlVirtualMachine = new AzureNative.SqlVirtualMachine.SqlVirtualMachine("sqlVirtualMachine", new()
+    ///     {
+    ///         AssessmentSettings = new AzureNative.SqlVirtualMachine.Inputs.AssessmentSettingsArgs
+    ///         {
+    ///             Enable = true,
+    ///             RunImmediately = true,
+    ///             Schedule = new AzureNative.SqlVirtualMachine.Inputs.ScheduleArgs
+    ///             {
+    ///                 DayOfWeek = AzureNative.SqlVirtualMachine.AssessmentDayOfWeek.Sunday,
+    ///                 Enable = true,
+    ///                 StartTime = "23:17",
+    ///                 WeeklyInterval = 1,
+    ///             },
+    ///         },
+    ///         AutoBackupSettings = new AzureNative.SqlVirtualMachine.Inputs.AutoBackupSettingsArgs
+    ///         {
+    ///             BackupScheduleType = "Manual",
+    ///             BackupSystemDbs = true,
+    ///             Enable = true,
+    ///             EnableEncryption = true,
+    ///             FullBackupFrequency = "Daily",
+    ///             FullBackupStartTime = 6,
+    ///             FullBackupWindowHours = 11,
+    ///             LogBackupFrequency = 10,
+    ///             Password = "&lt;Password&gt;",
+    ///             RetentionPeriod = 17,
+    ///             StorageAccessKey = "&lt;primary storage access key&gt;",
+    ///             StorageAccountUrl = "https://teststorage.blob.core.windows.net/",
+    ///             StorageContainerName = "testcontainer",
+    ///         },
+    ///         AutoPatchingSettings = new AzureNative.SqlVirtualMachine.Inputs.AutoPatchingSettingsArgs
+    ///         {
+    ///             DayOfWeek = AzureNative.SqlVirtualMachine.DayOfWeek.Sunday,
+    ///             Enable = true,
+    ///             MaintenanceWindowDuration = 60,
+    ///             MaintenanceWindowStartingHour = 2,
+    ///         },
+    ///         KeyVaultCredentialSettings = new AzureNative.SqlVirtualMachine.Inputs.KeyVaultCredentialSettingsArgs
+    ///         {
+    ///             Enable = false,
+    ///         },
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerConfigurationsManagementSettings = new AzureNative.SqlVirtualMachine.Inputs.ServerConfigurationsManagementSettingsArgs
+    ///         {
+    ///             AdditionalFeaturesServerConfigurations = new AzureNative.SqlVirtualMachine.Inputs.AdditionalFeaturesServerConfigurationsArgs
+    ///             {
+    ///                 IsRServicesEnabled = false,
+    ///             },
+    ///             SqlConnectivityUpdateSettings = new AzureNative.SqlVirtualMachine.Inputs.SqlConnectivityUpdateSettingsArgs
+    ///             {
+    ///                 ConnectivityType = "PRIVATE",
+    ///                 Port = 1433,
+    ///                 SqlAuthUpdatePassword = "&lt;password&gt;",
+    ///                 SqlAuthUpdateUserName = "sqllogin",
+    ///             },
+    ///             SqlInstanceSettings = new AzureNative.SqlVirtualMachine.Inputs.SQLInstanceSettingsArgs
+    ///             {
+    ///                 Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///                 IsIfiEnabled = true,
+    ///                 IsLpimEnabled = true,
+    ///                 IsOptimizeForAdHocWorkloadsEnabled = true,
+    ///                 MaxDop = 8,
+    ///                 MaxServerMemoryMB = 128,
+    ///                 MinServerMemoryMB = 0,
+    ///             },
+    ///             SqlStorageUpdateSettings = new AzureNative.SqlVirtualMachine.Inputs.SqlStorageUpdateSettingsArgs
+    ///             {
+    ///                 DiskConfigurationType = "NEW",
+    ///                 DiskCount = 1,
+    ///                 StartingDeviceId = 2,
+    ///             },
+    ///             SqlWorkloadTypeUpdateSettings = new AzureNative.SqlVirtualMachine.Inputs.SqlWorkloadTypeUpdateSettingsArgs
+    ///             {
+    ///                 SqlWorkloadType = "OLTP",
+    ///             },
+    ///         },
+    ///         SqlImageSku = "Enterprise",
+    ///         SqlManagement = "Full",
+    ///         SqlServerLicenseType = "PAYG",
+    ///         SqlVirtualMachineName = "testvm",
+    ///         VirtualMachineResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a SQL virtual machine with min parameters.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlVirtualMachine = new AzureNative.SqlVirtualMachine.SqlVirtualMachine("sqlVirtualMachine", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "testrg",
+    ///         SqlVirtualMachineName = "testvm",
+    ///         VirtualMachineResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sqlvirtualmachine:SqlVirtualMachine testvm /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:SqlVirtualMachine")]
     public partial class SqlVirtualMachine : global::Pulumi.CustomResource

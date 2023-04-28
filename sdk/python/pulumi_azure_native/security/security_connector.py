@@ -185,6 +185,40 @@ class SecurityConnector(pulumi.CustomResource):
         API Version: 2022-08-01-preview.
         Previous API Version: 2021-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a security connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_connector = azure_native.security.SecurityConnector("securityConnector",
+            environment_data=azure_native.security.AwsEnvironmentDataArgs(
+                environment_type="AwsAccount",
+            ),
+            environment_name="AWS",
+            hierarchy_identifier="exampleHierarchyId",
+            location="Central US",
+            offerings=[azure_native.security.CspmMonitorAwsOfferingArgs(
+                native_cloud_connection=azure_native.security.CspmMonitorAwsOfferingNativeCloudConnectionArgs(
+                    cloud_role_arn="arn:aws:iam::00000000:role/ASCMonitor",
+                ),
+                offering_type="CspmMonitorAws",
+            )],
+            resource_group_name="exampleResourceGroup",
+            security_connector_name="exampleSecurityConnectorName",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityConnector exampleSecurityConnectorName /subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/exampleResourceGroup/providers/Microsoft.Security/securityConnectors/exampleSecurityConnectorName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AwsEnvironmentDataArgs'], pulumi.InputType['AzureDevOpsScopeEnvironmentDataArgs'], pulumi.InputType['GcpProjectEnvironmentDataArgs'], pulumi.InputType['GithubScopeEnvironmentDataArgs']]] environment_data: The security connector environment data.
@@ -207,6 +241,40 @@ class SecurityConnector(pulumi.CustomResource):
         The security connector resource.
         API Version: 2022-08-01-preview.
         Previous API Version: 2021-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a security connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_connector = azure_native.security.SecurityConnector("securityConnector",
+            environment_data=azure_native.security.AwsEnvironmentDataArgs(
+                environment_type="AwsAccount",
+            ),
+            environment_name="AWS",
+            hierarchy_identifier="exampleHierarchyId",
+            location="Central US",
+            offerings=[azure_native.security.CspmMonitorAwsOfferingArgs(
+                native_cloud_connection=azure_native.security.CspmMonitorAwsOfferingNativeCloudConnectionArgs(
+                    cloud_role_arn="arn:aws:iam::00000000:role/ASCMonitor",
+                ),
+                offering_type="CspmMonitorAws",
+            )],
+            resource_group_name="exampleResourceGroup",
+            security_connector_name="exampleSecurityConnectorName",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityConnector exampleSecurityConnectorName /subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/exampleResourceGroup/providers/Microsoft.Security/securityConnectors/exampleSecurityConnectorName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityConnectorArgs args: The arguments to use to populate this resource's properties.

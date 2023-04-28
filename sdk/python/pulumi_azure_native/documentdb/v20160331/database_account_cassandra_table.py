@@ -132,6 +132,47 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
         """
         An Azure Cosmos DB Cassandra table.
 
+        ## Example Usage
+        ### CosmosDBCassandraTableCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account_cassandra_table = azure_native.documentdb.v20160331.DatabaseAccountCassandraTable("databaseAccountCassandraTable",
+            account_name="ddb1",
+            keyspace_name="tableName",
+            options={},
+            resource=azure_native.documentdb.v20160331.CassandraTableResourceArgs(
+                default_ttl=100,
+                id="tableName",
+                schema=azure_native.documentdb.v20160331.CassandraSchemaArgs(
+                    cluster_keys=[azure_native.documentdb.v20160331.ClusterKeyArgs(
+                        name="columnA",
+                        order_by="Asc",
+                    )],
+                    columns=[azure_native.documentdb.v20160331.ColumnArgs(
+                        name="columnA",
+                        type="Ascii",
+                    )],
+                    partition_keys=[azure_native.documentdb.v20160331.CassandraPartitionKeyArgs(
+                        name="columnA",
+                    )],
+                ),
+            ),
+            resource_group_name="rg1",
+            table_name="tableName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountCassandraTable tableName tableName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -149,6 +190,47 @@ class DatabaseAccountCassandraTable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Cassandra table.
+
+        ## Example Usage
+        ### CosmosDBCassandraTableCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account_cassandra_table = azure_native.documentdb.v20160331.DatabaseAccountCassandraTable("databaseAccountCassandraTable",
+            account_name="ddb1",
+            keyspace_name="tableName",
+            options={},
+            resource=azure_native.documentdb.v20160331.CassandraTableResourceArgs(
+                default_ttl=100,
+                id="tableName",
+                schema=azure_native.documentdb.v20160331.CassandraSchemaArgs(
+                    cluster_keys=[azure_native.documentdb.v20160331.ClusterKeyArgs(
+                        name="columnA",
+                        order_by="Asc",
+                    )],
+                    columns=[azure_native.documentdb.v20160331.ColumnArgs(
+                        name="columnA",
+                        type="Ascii",
+                    )],
+                    partition_keys=[azure_native.documentdb.v20160331.CassandraPartitionKeyArgs(
+                        name="columnA",
+                    )],
+                ),
+            ),
+            resource_group_name="rg1",
+            table_name="tableName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountCassandraTable tableName tableName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseAccountCassandraTableArgs args: The arguments to use to populate this resource's properties.

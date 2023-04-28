@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level Linked service resource container.
+ *
+ * ## Example Usage
+ * ### LinkedServicesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedService = new azure_native.operationalinsights.v20200801.LinkedService("linkedService", {
+ *     linkedServiceName: "Cluster",
+ *     resourceGroupName: "mms-eus",
+ *     workspaceName: "TestLinkWS",
+ *     writeAccessResourceId: "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/clusters/testcluster",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights/v20200801:LinkedService TestLinkWS/Cluster /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/testlinkws/linkedservices/cluster 
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

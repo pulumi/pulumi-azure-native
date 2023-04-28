@@ -11,6 +11,59 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
 {
     /// <summary>
     /// The bandwidth setting.
+    /// 
+    /// ## Example Usage
+    /// ### BandwidthSettingsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bandwidthSetting = new AzureNative.StorSimple.V20170601.BandwidthSetting("bandwidthSetting", new()
+    ///     {
+    ///         BandwidthSettingName = "BWSForTest",
+    ///         ManagerName = "ManagerForSDKTest1",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         Schedules = new[]
+    ///         {
+    ///             new AzureNative.StorSimple.V20170601.Inputs.BandwidthScheduleArgs
+    ///             {
+    ///                 Days = new[]
+    ///                 {
+    ///                     AzureNative.StorSimple.V20170601.DayOfWeek.Saturday,
+    ///                     AzureNative.StorSimple.V20170601.DayOfWeek.Sunday,
+    ///                 },
+    ///                 RateInMbps = 10,
+    ///                 Start = new AzureNative.StorSimple.V20170601.Inputs.TimeArgs
+    ///                 {
+    ///                     Hours = 10,
+    ///                     Minutes = 0,
+    ///                     Seconds = 0,
+    ///                 },
+    ///                 Stop = new AzureNative.StorSimple.V20170601.Inputs.TimeArgs
+    ///                 {
+    ///                     Hours = 20,
+    ///                     Minutes = 0,
+    ///                     Seconds = 0,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20170601:BandwidthSetting BWSForTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/bandwidthSettings/BWSForTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple/v20170601:BandwidthSetting")]
     public partial class BandwidthSetting : global::Pulumi.CustomResource

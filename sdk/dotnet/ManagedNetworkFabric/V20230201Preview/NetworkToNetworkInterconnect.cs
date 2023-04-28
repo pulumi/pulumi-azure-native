@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 {
     /// <summary>
     /// The NetworkToNetworkInterconnect resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkToNetworkInterconnects_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkToNetworkInterconnect = new AzureNative.ManagedNetworkFabric.V20230201Preview.NetworkToNetworkInterconnect("networkToNetworkInterconnect", new()
+    ///     {
+    ///         IsManagementType = "True",
+    ///         Layer2Configuration = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.NetworkToNetworkInterconnectPropertiesLayer2ConfigurationArgs
+    ///         {
+    ///             Mtu = 1500,
+    ///             PortCount = 10,
+    ///         },
+    ///         Layer3Configuration = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.Layer3ConfigurationArgs
+    ///         {
+    ///             ExportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+    ///             ImportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+    ///             PeerASN = 50272,
+    ///             PrimaryIpv4Prefix = "172.31.0.0/31",
+    ///             PrimaryIpv6Prefix = "3FFE:FFFF:0:CD30::a0/126",
+    ///             SecondaryIpv4Prefix = "172.31.0.20/31",
+    ///             SecondaryIpv6Prefix = "3FFE:FFFF:0:CD30::a4/126",
+    ///             VlanId = 2064,
+    ///         },
+    ///         NetworkFabricName = "FabricName",
+    ///         NetworkToNetworkInterconnectName = "DefaultNNI",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         UseOptionB = "False",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkToNetworkInterconnect DefaultNNI /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName/networkToNetworkInterconnect/DefaultNNI 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric/v20230201preview:NetworkToNetworkInterconnect")]
     public partial class NetworkToNetworkInterconnect : global::Pulumi.CustomResource

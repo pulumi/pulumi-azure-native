@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * Extension resource.
  * API Version: 2021-09-01-preview.
  * Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Extensions_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const extension = new azure_native.agfoodplatform.Extension("extension", {
+ *     extensionId: "provider.extension",
+ *     farmBeatsResourceName: "examples-farmbeatsResourceName",
+ *     resourceGroupName: "examples-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:agfoodplatform:Extension provider.extension /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName/extensions/provider.extension 
+ * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**

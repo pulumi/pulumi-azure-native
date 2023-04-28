@@ -94,6 +94,32 @@ class LinkedStorageAccount(pulumi.CustomResource):
         """
         Linked storage accounts top level resource container.
 
+        ## Example Usage
+        ### LinkedStorageAccountsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_storage_account = azure_native.operationalinsights.v20200801.LinkedStorageAccount("linkedStorageAccount",
+            data_source_type="CustomLogs",
+            resource_group_name="mms-eus",
+            storage_account_ids=[
+                "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageA",
+                "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageB",
+            ],
+            workspace_name="testLinkStorageAccountsWS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20200801:LinkedStorageAccount CustomLogs /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/testLinkStorageAccountsWS/linkedStorageAccounts/CustomLogs 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_source_type: Linked storage accounts type.
@@ -109,6 +135,32 @@ class LinkedStorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Linked storage accounts top level resource container.
+
+        ## Example Usage
+        ### LinkedStorageAccountsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linked_storage_account = azure_native.operationalinsights.v20200801.LinkedStorageAccount("linkedStorageAccount",
+            data_source_type="CustomLogs",
+            resource_group_name="mms-eus",
+            storage_account_ids=[
+                "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageA",
+                "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageB",
+            ],
+            workspace_name="testLinkStorageAccountsWS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20200801:LinkedStorageAccount CustomLogs /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/testLinkStorageAccountsWS/linkedStorageAccounts/CustomLogs 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LinkedStorageAccountArgs args: The arguments to use to populate this resource's properties.

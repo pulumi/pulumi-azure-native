@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Storage.V20190401
 {
     /// <summary>
     /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateImmutabilityPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobContainerImmutabilityPolicy = new AzureNative.Storage.V20190401.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", new()
+    ///     {
+    ///         AccountName = "sto7069",
+    ///         ContainerName = "container6397",
+    ///         ImmutabilityPeriodSinceCreationInDays = 3,
+    ///         ImmutabilityPolicyName = "default",
+    ///         ResourceGroupName = "res1782",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20190401:BlobContainerImmutabilityPolicy default /subscriptions/{subscription-id}/resourceGroups/res1782/providers/Microsoft.Storage/storageAccounts/sto7069/blobServices/default/containers/container6397/immutabilityPolicies/default 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20190401:BlobContainerImmutabilityPolicy")]

@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.AVS
     /// NSX VM Group
     /// API Version: 2022-05-01.
     /// Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### WorkloadNetworks_CreateVMGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadNetworkVMGroup = new AzureNative.AVS.WorkloadNetworkVMGroup("workloadNetworkVMGroup", new()
+    ///     {
+    ///         DisplayName = "vmGroup1",
+    ///         Members = new[]
+    ///         {
+    ///             "564d43da-fefc-2a3b-1d92-42855622fa50",
+    ///         },
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Revision = 1,
+    ///         VmGroupId = "vmGroup1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs:WorkloadNetworkVMGroup vmGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/vmGroups/vmGroup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkVMGroup")]
     public partial class WorkloadNetworkVMGroup : global::Pulumi.CustomResource

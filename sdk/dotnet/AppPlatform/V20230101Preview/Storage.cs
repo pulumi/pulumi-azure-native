@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
 {
     /// <summary>
     /// Storage resource payload.
+    /// 
+    /// ## Example Usage
+    /// ### Storages_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storage = new AzureNative.AppPlatform.V20230101Preview.Storage("storage", new()
+    ///     {
+    ///         Properties = new AzureNative.AppPlatform.V20230101Preview.Inputs.StorageAccountArgs
+    ///         {
+    ///             AccountKey = "account-key-of-storage-account",
+    ///             AccountName = "storage-account-name",
+    ///             StorageType = "StorageAccount",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         StorageName = "mystorage",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230101preview:Storage mystorage /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/storages/mystorage 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230101preview:Storage")]
     public partial class Storage : global::Pulumi.CustomResource

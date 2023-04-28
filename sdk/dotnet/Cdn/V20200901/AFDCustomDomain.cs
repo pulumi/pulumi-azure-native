@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+    /// 
+    /// ## Example Usage
+    /// ### AFDCustomDomains_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var afdCustomDomain = new AzureNative.Cdn.V20200901.AFDCustomDomain("afdCustomDomain", new()
+    ///     {
+    ///         AzureDnsZone = new AzureNative.Cdn.V20200901.Inputs.ResourceReferenceArgs
+    ///         {
+    ///             Id = "",
+    ///         },
+    ///         CustomDomainName = "domain1",
+    ///         HostName = "www.someDomain.net",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         TlsSettings = new AzureNative.Cdn.V20200901.Inputs.AFDDomainHttpsParametersArgs
+    ///         {
+    ///             CertificateType = "ManagedCertificate",
+    ///             MinimumTlsVersion = AzureNative.Cdn.V20200901.AfdMinimumTlsVersion.TLS12,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20200901:AFDCustomDomain domain1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/domains/domain1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:AFDCustomDomain")]
     public partial class AFDCustomDomain : global::Pulumi.CustomResource

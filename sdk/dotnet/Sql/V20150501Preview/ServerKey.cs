@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Sql.V20150501Preview
 {
     /// <summary>
     /// A server key.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a server key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverKey = new AzureNative.Sql.V20150501Preview.ServerKey("serverKey", new()
+    ///     {
+    ///         KeyName = "someVault_someKey_01234567890123456789012345678901",
+    ///         ResourceGroupName = "sqlcrudtest-7398",
+    ///         ServerKeyType = "AzureKeyVault",
+    ///         ServerName = "sqlcrudtest-4645",
+    ///         Uri = "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20150501preview:ServerKey sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/keys/someVault_someKey_01234567890123456789012345678901 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20150501preview:ServerKey")]
     public partial class ServerKey : global::Pulumi.CustomResource

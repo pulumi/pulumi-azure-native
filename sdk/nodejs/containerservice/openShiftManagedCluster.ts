@@ -11,6 +11,77 @@ import * as utilities from "../utilities";
  * OpenShift Managed cluster.
  * API Version: 2019-04-30.
  * Previous API Version: 2019-04-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create/Update OpenShift Managed Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const openShiftManagedCluster = new azure_native.containerservice.OpenShiftManagedCluster("openShiftManagedCluster", {
+ *     agentPoolProfiles: [
+ *         {
+ *             count: 2,
+ *             name: "infra",
+ *             osType: "Linux",
+ *             role: "infra",
+ *             subnetCidr: "10.0.0.0/24",
+ *             vmSize: "Standard_D4s_v3",
+ *         },
+ *         {
+ *             count: 4,
+ *             name: "compute",
+ *             osType: "Linux",
+ *             role: "compute",
+ *             subnetCidr: "10.0.0.0/24",
+ *             vmSize: "Standard_D4s_v3",
+ *         },
+ *     ],
+ *     authProfile: {
+ *         identityProviders: [{
+ *             name: "Azure AD",
+ *             provider: {
+ *                 clientId: "clientId",
+ *                 customerAdminGroupId: "customerAdminGroupId",
+ *                 kind: "AADIdentityProvider",
+ *                 secret: "secret",
+ *                 tenantId: "tenantId",
+ *             },
+ *         }],
+ *     },
+ *     location: "location1",
+ *     masterPoolProfile: {
+ *         count: 3,
+ *         name: "master",
+ *         osType: "Linux",
+ *         subnetCidr: "10.0.0.0/24",
+ *         vmSize: "Standard_D4s_v3",
+ *     },
+ *     networkProfile: {
+ *         vnetCidr: "10.0.0.0/8",
+ *     },
+ *     openShiftVersion: "v3.11",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     routerProfiles: [{
+ *         name: "default",
+ *     }],
+ *     tags: {
+ *         archv2: "",
+ *         tier: "production",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice:OpenShiftManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/openShiftManagedClusters/clustername1 
+ * ```
  */
 export class OpenShiftManagedCluster extends pulumi.CustomResource {
     /**

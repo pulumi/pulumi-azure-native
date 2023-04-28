@@ -149,6 +149,32 @@ class Account(pulumi.CustomResource):
         API Version: 2017-11-01-preview.
         Previous API Version: 2014-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create an account resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.visualstudio.Account("account",
+            account_name="Example",
+            location="Central US",
+            operation_type="create",
+            properties={},
+            resource_group_name="VS-Example-Group",
+            resource_name_="Example",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:visualstudio:Account VS-Example-Group /subscriptions/0de7f055-dbea-498d-8e9e-da287eedca90/resourceGroups/VS-Example-Group/providers/Microsoft.VisualStudio/account/Example 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The account name.
@@ -169,6 +195,32 @@ class Account(pulumi.CustomResource):
         The response to an account resource GET request.
         API Version: 2017-11-01-preview.
         Previous API Version: 2014-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create an account resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.visualstudio.Account("account",
+            account_name="Example",
+            location="Central US",
+            operation_type="create",
+            properties={},
+            resource_group_name="VS-Example-Group",
+            resource_name_="Example",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:visualstudio:Account VS-Example-Group /subscriptions/0de7f055-dbea-498d-8e9e-da287eedca90/resourceGroups/VS-Example-Group/providers/Microsoft.VisualStudio/account/Example 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

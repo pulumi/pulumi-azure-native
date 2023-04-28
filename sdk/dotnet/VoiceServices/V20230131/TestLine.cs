@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.VoiceServices.V20230131
 {
     /// <summary>
     /// A TestLine resource
+    /// 
+    /// ## Example Usage
+    /// ### CreateTestLineResource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testLine = new AzureNative.VoiceServices.V20230131.TestLine("testLine", new()
+    ///     {
+    ///         CommunicationsGatewayName = "myname",
+    ///         Location = "useast",
+    ///         PhoneNumber = "+1-555-1234",
+    ///         Purpose = "Automated",
+    ///         ResourceGroupName = "testrg",
+    ///         TestLineName = "myline",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:voiceservices/v20230131:TestLine myline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceServices/communicationsGateways/myname/TestLines/myline 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:voiceservices/v20230131:TestLine")]
     public partial class TestLine : global::Pulumi.CustomResource

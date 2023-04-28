@@ -114,6 +114,132 @@ class Input(pulumi.CustomResource):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
 
+        ## Example Usage
+        ### Create a reference blob input with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        input = azure_native.streamanalytics.v20160301.Input("input",
+            input_name="input7225",
+            job_name="sj9597",
+            properties=azure_native.streamanalytics.v20160301.ReferenceInputPropertiesArgs(
+                datasource=azure_native.streamanalytics.v20160301.BlobReferenceInputDataSourceArgs(
+                    container="state",
+                    date_format="yyyy/MM/dd",
+                    path_pattern="{date}/{time}",
+                    storage_accounts=[azure_native.streamanalytics.v20160301.StorageAccountArgs(
+                        account_key="someAccountKey==",
+                        account_name="someAccountName",
+                    )],
+                    time_format="HH",
+                    type="Microsoft.Storage/Blob",
+                ),
+                serialization=azure_native.streamanalytics.v20160301.CsvSerializationArgs(
+                    encoding="UTF8",
+                    field_delimiter=",",
+                    type="Csv",
+                ),
+                type="Reference",
+            ),
+            resource_group_name="sjrg8440")
+
+        ```
+        ### Create a stream Event Hub input with JSON serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        input = azure_native.streamanalytics.v20160301.Input("input",
+            input_name="input7425",
+            job_name="sj197",
+            properties=azure_native.streamanalytics.v20160301.StreamInputPropertiesArgs(
+                datasource=azure_native.streamanalytics.v20160301.EventHubStreamInputDataSourceArgs(
+                    consumer_group_name="sdkconsumergroup",
+                    event_hub_name="sdkeventhub",
+                    service_bus_namespace="sdktest",
+                    shared_access_policy_key="someSharedAccessPolicyKey==",
+                    shared_access_policy_name="RootManageSharedAccessKey",
+                    type="Microsoft.ServiceBus/EventHub",
+                ),
+                serialization=azure_native.streamanalytics.v20160301.JsonSerializationArgs(
+                    encoding="UTF8",
+                    type="Json",
+                ),
+                type="Stream",
+            ),
+            resource_group_name="sjrg3139")
+
+        ```
+        ### Create a stream IoT Hub input with Avro serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        input = azure_native.streamanalytics.v20160301.Input("input",
+            input_name="input7970",
+            job_name="sj9742",
+            properties=azure_native.streamanalytics.v20160301.StreamInputPropertiesArgs(
+                datasource=azure_native.streamanalytics.v20160301.IoTHubStreamInputDataSourceArgs(
+                    consumer_group_name="sdkconsumergroup",
+                    endpoint="messages/events",
+                    iot_hub_namespace="iothub",
+                    shared_access_policy_key="sharedAccessPolicyKey=",
+                    shared_access_policy_name="owner",
+                    type="Microsoft.Devices/IotHubs",
+                ),
+                serialization=azure_native.streamanalytics.v20160301.AvroSerializationArgs(
+                    type="Avro",
+                ),
+                type="Stream",
+            ),
+            resource_group_name="sjrg3467")
+
+        ```
+        ### Create a stream blob input with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        input = azure_native.streamanalytics.v20160301.Input("input",
+            input_name="input8899",
+            job_name="sj6695",
+            properties=azure_native.streamanalytics.v20160301.StreamInputPropertiesArgs(
+                datasource=azure_native.streamanalytics.v20160301.BlobStreamInputDataSourceArgs(
+                    container="state",
+                    date_format="yyyy/MM/dd",
+                    path_pattern="{date}/{time}",
+                    source_partition_count=16,
+                    storage_accounts=[azure_native.streamanalytics.v20160301.StorageAccountArgs(
+                        account_key="someAccountKey==",
+                        account_name="someAccountName",
+                    )],
+                    time_format="HH",
+                    type="Microsoft.Storage/Blob",
+                ),
+                serialization=azure_native.streamanalytics.v20160301.CsvSerializationArgs(
+                    encoding="UTF8",
+                    field_delimiter=",",
+                    type="Csv",
+                ),
+                type="Stream",
+            ),
+            resource_group_name="sjrg8161")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics/v20160301:Input input8899 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg8161/providers/Microsoft.StreamAnalytics/streamingjobs/sj6695/inputs/input8899 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] input_name: The name of the input.
@@ -130,6 +256,132 @@ class Input(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+
+        ## Example Usage
+        ### Create a reference blob input with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        input = azure_native.streamanalytics.v20160301.Input("input",
+            input_name="input7225",
+            job_name="sj9597",
+            properties=azure_native.streamanalytics.v20160301.ReferenceInputPropertiesArgs(
+                datasource=azure_native.streamanalytics.v20160301.BlobReferenceInputDataSourceArgs(
+                    container="state",
+                    date_format="yyyy/MM/dd",
+                    path_pattern="{date}/{time}",
+                    storage_accounts=[azure_native.streamanalytics.v20160301.StorageAccountArgs(
+                        account_key="someAccountKey==",
+                        account_name="someAccountName",
+                    )],
+                    time_format="HH",
+                    type="Microsoft.Storage/Blob",
+                ),
+                serialization=azure_native.streamanalytics.v20160301.CsvSerializationArgs(
+                    encoding="UTF8",
+                    field_delimiter=",",
+                    type="Csv",
+                ),
+                type="Reference",
+            ),
+            resource_group_name="sjrg8440")
+
+        ```
+        ### Create a stream Event Hub input with JSON serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        input = azure_native.streamanalytics.v20160301.Input("input",
+            input_name="input7425",
+            job_name="sj197",
+            properties=azure_native.streamanalytics.v20160301.StreamInputPropertiesArgs(
+                datasource=azure_native.streamanalytics.v20160301.EventHubStreamInputDataSourceArgs(
+                    consumer_group_name="sdkconsumergroup",
+                    event_hub_name="sdkeventhub",
+                    service_bus_namespace="sdktest",
+                    shared_access_policy_key="someSharedAccessPolicyKey==",
+                    shared_access_policy_name="RootManageSharedAccessKey",
+                    type="Microsoft.ServiceBus/EventHub",
+                ),
+                serialization=azure_native.streamanalytics.v20160301.JsonSerializationArgs(
+                    encoding="UTF8",
+                    type="Json",
+                ),
+                type="Stream",
+            ),
+            resource_group_name="sjrg3139")
+
+        ```
+        ### Create a stream IoT Hub input with Avro serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        input = azure_native.streamanalytics.v20160301.Input("input",
+            input_name="input7970",
+            job_name="sj9742",
+            properties=azure_native.streamanalytics.v20160301.StreamInputPropertiesArgs(
+                datasource=azure_native.streamanalytics.v20160301.IoTHubStreamInputDataSourceArgs(
+                    consumer_group_name="sdkconsumergroup",
+                    endpoint="messages/events",
+                    iot_hub_namespace="iothub",
+                    shared_access_policy_key="sharedAccessPolicyKey=",
+                    shared_access_policy_name="owner",
+                    type="Microsoft.Devices/IotHubs",
+                ),
+                serialization=azure_native.streamanalytics.v20160301.AvroSerializationArgs(
+                    type="Avro",
+                ),
+                type="Stream",
+            ),
+            resource_group_name="sjrg3467")
+
+        ```
+        ### Create a stream blob input with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        input = azure_native.streamanalytics.v20160301.Input("input",
+            input_name="input8899",
+            job_name="sj6695",
+            properties=azure_native.streamanalytics.v20160301.StreamInputPropertiesArgs(
+                datasource=azure_native.streamanalytics.v20160301.BlobStreamInputDataSourceArgs(
+                    container="state",
+                    date_format="yyyy/MM/dd",
+                    path_pattern="{date}/{time}",
+                    source_partition_count=16,
+                    storage_accounts=[azure_native.streamanalytics.v20160301.StorageAccountArgs(
+                        account_key="someAccountKey==",
+                        account_name="someAccountName",
+                    )],
+                    time_format="HH",
+                    type="Microsoft.Storage/Blob",
+                ),
+                serialization=azure_native.streamanalytics.v20160301.CsvSerializationArgs(
+                    encoding="UTF8",
+                    field_delimiter=",",
+                    type="Csv",
+                ),
+                type="Stream",
+            ),
+            resource_group_name="sjrg8161")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics/v20160301:Input input8899 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg8161/providers/Microsoft.StreamAnalytics/streamingjobs/sj6695/inputs/input8899 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InputInitArgs args: The arguments to use to populate this resource's properties.

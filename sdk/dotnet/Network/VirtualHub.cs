@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.Network
     /// VirtualHub Resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualHubPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualHub = new AzureNative.Network.VirtualHub("virtualHub", new()
+    ///     {
+    ///         AddressPrefix = "10.168.0.0/24",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = "Basic",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualHubName = "virtualHub2",
+    ///         VirtualWan = new AzureNative.Network.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VirtualHub virtualHub2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualHub")]
     public partial class VirtualHub : global::Pulumi.CustomResource

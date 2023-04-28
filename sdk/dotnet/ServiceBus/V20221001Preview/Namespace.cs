@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
 {
     /// <summary>
     /// Description of a namespace resource.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @namespace = new AzureNative.ServiceBus.V20221001Preview.Namespace("namespace", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         NamespaceName = "sdk-Namespace2924",
+    ///         PremiumMessagingPartitions = 2,
+    ///         ResourceGroupName = "ArunMonocle",
+    ///         Sku = new AzureNative.ServiceBus.V20221001Preview.Inputs.SBSkuArgs
+    ///         {
+    ///             Capacity = 4,
+    ///             Name = AzureNative.ServiceBus.V20221001Preview.SkuName.Premium,
+    ///             Tier = AzureNative.ServiceBus.V20221001Preview.SkuTier.Premium,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20221001preview:Namespace sdk-Namespace-2924 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-2924 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20221001preview:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

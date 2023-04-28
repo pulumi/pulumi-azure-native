@@ -11,6 +11,64 @@ import * as utilities from "../utilities";
  * The local user associated with the storage accounts.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateLocalUser
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const localUser = new azure_native.storage.LocalUser("localUser", {
+ *     accountName: "sto2527",
+ *     hasSshPassword: true,
+ *     homeDirectory: "homedirectory",
+ *     permissionScopes: [
+ *         {
+ *             permissions: "rwd",
+ *             resourceName: "share1",
+ *             service: "file",
+ *         },
+ *         {
+ *             permissions: "rw",
+ *             resourceName: "share2",
+ *             service: "file",
+ *         },
+ *     ],
+ *     resourceGroupName: "res6977",
+ *     sshAuthorizedKeys: [{
+ *         description: "key name",
+ *         key: "ssh-rsa keykeykeykeykey=",
+ *     }],
+ *     username: "user1",
+ * });
+ *
+ * ```
+ * ### UpdateLocalUser
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const localUser = new azure_native.storage.LocalUser("localUser", {
+ *     accountName: "sto2527",
+ *     hasSharedKey: false,
+ *     hasSshKey: false,
+ *     hasSshPassword: false,
+ *     homeDirectory: "homedirectory2",
+ *     resourceGroupName: "res6977",
+ *     username: "user1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:LocalUser user1 /subscriptions/{subscription-id}/resourceGroups/res6977/providers/Microsoft.Storage/storageAccounts/sto2527/loalUsers/user1 
+ * ```
  */
 export class LocalUser extends pulumi.CustomResource {
     /**

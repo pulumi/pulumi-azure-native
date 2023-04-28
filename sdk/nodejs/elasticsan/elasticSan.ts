@@ -11,6 +11,56 @@ import * as utilities from "../utilities";
  * Response for ElasticSan request.
  * API Version: 2021-11-20-preview.
  * Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ElasticSans_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticSan = new azure_native.elasticsan.ElasticSan("elasticSan", {
+ *     availabilityZones: ["aaaaaaaaaaaaaaaaa"],
+ *     baseSizeTiB: 26,
+ *     elasticSanName: "ti7q-k952-1qB3J_5",
+ *     extendedCapacitySizeTiB: 7,
+ *     location: "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ *     resourceGroupName: "rgelasticsan",
+ *     sku: {
+ *         name: "Premium_LRS",
+ *         tier: "Premium",
+ *     },
+ *     tags: {
+ *         key896: "aaaaaaaaaaaaaaaaaa",
+ *     },
+ * });
+ *
+ * ```
+ * ### ElasticSans_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticSan = new azure_native.elasticsan.ElasticSan("elasticSan", {
+ *     baseSizeTiB: 26,
+ *     elasticSanName: "ti7q-k952-1qB3J_5",
+ *     extendedCapacitySizeTiB: 7,
+ *     resourceGroupName: "rgelasticsan",
+ *     sku: {
+ *         name: "Premium_LRS",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:elasticsan:ElasticSan aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
+ * ```
  */
 export class ElasticSan extends pulumi.CustomResource {
     /**

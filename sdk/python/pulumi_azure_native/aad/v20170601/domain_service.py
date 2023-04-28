@@ -256,6 +256,50 @@ class DomainService(pulumi.CustomResource):
         """
         Domain service.
 
+        ## Example Usage
+        ### Create Domain Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_service = azure_native.aad.v20170601.DomainService("domainService",
+            domain_name="zdomain.zforest.com",
+            domain_security_settings=azure_native.aad.v20170601.DomainSecuritySettingsArgs(
+                ntlm_v1="Enabled",
+                sync_ntlm_passwords="Enabled",
+                tls_v1="Disabled",
+            ),
+            domain_service_name="zdomain.zforest.com",
+            filtered_sync="Enabled",
+            ldaps_settings=azure_native.aad.v20170601.LdapsSettingsArgs(
+                external_access="Enabled",
+                ldaps="Enabled",
+                pfx_certificate="MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+                pfx_certificate_password="<pfxCertificatePassword>",
+            ),
+            location="westus",
+            notification_settings=azure_native.aad.v20170601.NotificationSettingsArgs(
+                additional_recipients=[
+                    "jicha@microsoft.com",
+                    "caalmont@microsoft.com",
+                ],
+                notify_dc_admins="Enabled",
+                notify_global_admins="Enabled",
+            ),
+            resource_group_name="sva-tt-WUS",
+            subnet_id="/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/Default-Networking/providers/Microsoft.Network/virtualNetworks/DCIaasTmpWusNet/subnets/Subnet-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aad/v20170601:DomainService zdomain.zforest.com /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/sva-tt-WUS/providers/Microsoft.AAD/domainServices/zdomain.zforest.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_configuration_type: Domain Configuration Type
@@ -280,6 +324,50 @@ class DomainService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Domain service.
+
+        ## Example Usage
+        ### Create Domain Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_service = azure_native.aad.v20170601.DomainService("domainService",
+            domain_name="zdomain.zforest.com",
+            domain_security_settings=azure_native.aad.v20170601.DomainSecuritySettingsArgs(
+                ntlm_v1="Enabled",
+                sync_ntlm_passwords="Enabled",
+                tls_v1="Disabled",
+            ),
+            domain_service_name="zdomain.zforest.com",
+            filtered_sync="Enabled",
+            ldaps_settings=azure_native.aad.v20170601.LdapsSettingsArgs(
+                external_access="Enabled",
+                ldaps="Enabled",
+                pfx_certificate="MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+                pfx_certificate_password="<pfxCertificatePassword>",
+            ),
+            location="westus",
+            notification_settings=azure_native.aad.v20170601.NotificationSettingsArgs(
+                additional_recipients=[
+                    "jicha@microsoft.com",
+                    "caalmont@microsoft.com",
+                ],
+                notify_dc_admins="Enabled",
+                notify_global_admins="Enabled",
+            ),
+            resource_group_name="sva-tt-WUS",
+            subnet_id="/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/Default-Networking/providers/Microsoft.Network/virtualNetworks/DCIaasTmpWusNet/subnets/Subnet-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aad/v20170601:DomainService zdomain.zforest.com /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/sva-tt-WUS/providers/Microsoft.AAD/domainServices/zdomain.zforest.com 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainServiceArgs args: The arguments to use to populate this resource's properties.

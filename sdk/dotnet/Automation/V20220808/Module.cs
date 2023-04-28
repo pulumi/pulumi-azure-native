@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Automation.V20220808
 {
     /// <summary>
     /// Definition of the module type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a module
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var module = new AzureNative.Automation.V20220808.Module("module", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount33",
+    ///         ContentLink = new AzureNative.Automation.V20220808.Inputs.ContentLinkArgs
+    ///         {
+    ///             ContentHash = new AzureNative.Automation.V20220808.Inputs.ContentHashArgs
+    ///             {
+    ///                 Algorithm = "sha265",
+    ///                 Value = "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+    ///             },
+    ///             Uri = "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+    ///             Version = "1.0.0.0",
+    ///         },
+    ///         ModuleName = "OmsCompositeResources",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20220808:Module OmsCompositeResources /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/modules/OmsCompositeResources 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20220808:Module")]
     public partial class Module : global::Pulumi.CustomResource

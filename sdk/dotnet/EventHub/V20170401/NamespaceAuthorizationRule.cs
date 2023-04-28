@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.EventHub.V20170401
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceAuthorizationRule = new AzureNative.EventHub.V20170401.NamespaceAuthorizationRule("namespaceAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "sdk-Authrules-1746",
+    ///         NamespaceName = "sdk-Namespace-2702",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///         Rights = new[]
+    ///         {
+    ///             "Listen",
+    ///             "Send",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20170401:NamespaceAuthorizationRule sdk-Authrules-1746 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-2702/AuthorizationRules/sdk-Authrules-1746 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20170401:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource

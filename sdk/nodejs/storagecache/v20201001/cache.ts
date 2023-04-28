@@ -10,6 +10,133 @@ import * as utilities from "../../utilities";
 /**
  * A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
  *
+ * ## Example Usage
+ * ### Caches_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cache = new azure_native.storagecache.v20201001.Cache("cache", {
+ *     cacheName: "sc1",
+ *     cacheSizeGB: 3072,
+ *     directoryServicesSettings: {
+ *         activeDirectory: {
+ *             cacheNetBiosName: "contosoSmb",
+ *             credentials: {
+ *                 password: "<password>",
+ *                 username: "consotoAdmin",
+ *             },
+ *             domainName: "contosoAd.contoso.local",
+ *             domainNetBiosName: "contosoAd",
+ *             primaryDnsIpAddress: "192.0.2.10",
+ *             secondaryDnsIpAddress: "192.0.2.11",
+ *         },
+ *         usernameDownload: {
+ *             credentials: {
+ *                 bindDn: "cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+ *                 bindPassword: "<bindPassword>",
+ *             },
+ *             extendedGroups: true,
+ *             ldapBaseDN: "dc=contosoad,dc=contoso,dc=local",
+ *             ldapServer: "192.0.2.12",
+ *             usernameSource: "LDAP",
+ *         },
+ *     },
+ *     encryptionSettings: {
+ *         keyEncryptionKey: {
+ *             keyUrl: "https://keyvault-cmk.vault.azure.net/keys/key2047/test",
+ *             sourceVault: {
+ *                 id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+ *             },
+ *         },
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "scgroup",
+ *     securitySettings: {
+ *         accessPolicies: [{
+ *             accessRules: [{
+ *                 access: "rw",
+ *                 rootSquash: false,
+ *                 scope: "default",
+ *                 submountAccess: true,
+ *                 suid: false,
+ *             }],
+ *             name: "default",
+ *         }],
+ *     },
+ *     sku: {
+ *         name: "Standard_2G",
+ *     },
+ *     subnet: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+ *     tags: {
+ *         Dept: "ContosoAds",
+ *     },
+ * });
+ *
+ * ```
+ * ### Caches_CreateOrUpdate_ldap_only
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cache = new azure_native.storagecache.v20201001.Cache("cache", {
+ *     cacheName: "sc1",
+ *     cacheSizeGB: 3072,
+ *     directoryServicesSettings: {
+ *         usernameDownload: {
+ *             credentials: {
+ *                 bindDn: "cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+ *                 bindPassword: "<bindPassword>",
+ *             },
+ *             extendedGroups: true,
+ *             ldapBaseDN: "dc=contosoad,dc=contoso,dc=local",
+ *             ldapServer: "192.0.2.12",
+ *             usernameSource: "LDAP",
+ *         },
+ *     },
+ *     encryptionSettings: {
+ *         keyEncryptionKey: {
+ *             keyUrl: "https://keyvault-cmk.vault.azure.net/keys/key2048/test",
+ *             sourceVault: {
+ *                 id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+ *             },
+ *         },
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "scgroup",
+ *     securitySettings: {
+ *         accessPolicies: [{
+ *             accessRules: [{
+ *                 access: "rw",
+ *                 rootSquash: false,
+ *                 scope: "default",
+ *                 submountAccess: true,
+ *                 suid: false,
+ *             }],
+ *             name: "default",
+ *         }],
+ *     },
+ *     sku: {
+ *         name: "Standard_2G",
+ *     },
+ *     subnet: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+ *     tags: {
+ *         Dept: "ContosoAds",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagecache/v20201001:Cache sc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1 
+ * ```
+ *
  * @deprecated Version 2020-10-01 will be removed in v2 of the provider.
  */
 export class Cache extends pulumi.CustomResource {

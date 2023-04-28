@@ -10,6 +10,33 @@ import * as utilities from "../../utilities";
 /**
  * Agent Pool.
  *
+ * ## Example Usage
+ * ### Create/Update Agent Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20190401.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20190401:AgentPool agentpool1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/agentPools/agentpool1 
+ * ```
+ *
  * @deprecated Version 2019-04-01 will be removed in v2 of the provider.
  */
 export class AgentPool extends pulumi.CustomResource {

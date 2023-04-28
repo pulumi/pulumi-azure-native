@@ -13,6 +13,75 @@ namespace Pulumi.AzureNative.DocumentDB
     /// An Azure Cosmos DB MongoDB collection.
     /// API Version: 2022-11-15.
     /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBCollectionCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoDBResourceMongoDBCollection = new AzureNative.DocumentDB.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         CollectionName = "collectionName",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.Inputs.MongoDBCollectionResourceArgs
+    ///         {
+    ///             Id = "collectionName",
+    ///             Indexes = new[]
+    ///             {
+    ///                 new AzureNative.DocumentDB.Inputs.MongoIndexArgs
+    ///                 {
+    ///                     Key = new AzureNative.DocumentDB.Inputs.MongoIndexKeysArgs
+    ///                     {
+    ///                         Keys = new[]
+    ///                         {
+    ///                             "_ts",
+    ///                         },
+    ///                     },
+    ///                     Options = new AzureNative.DocumentDB.Inputs.MongoIndexOptionsArgs
+    ///                     {
+    ///                         ExpireAfterSeconds = 100,
+    ///                         Unique = true,
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.DocumentDB.Inputs.MongoIndexArgs
+    ///                 {
+    ///                     Key = new AzureNative.DocumentDB.Inputs.MongoIndexKeysArgs
+    ///                     {
+    ///                         Keys = new[]
+    ///                         {
+    ///                             "_id",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ShardKey = 
+    ///             {
+    ///                 { "testKey", "Hash" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb:MongoDBResourceMongoDBCollection collectionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/mongodbDatabases/databaseName/mongodbCollections/collectionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:MongoDBResourceMongoDBCollection")]
     public partial class MongoDBResourceMongoDBCollection : global::Pulumi.CustomResource

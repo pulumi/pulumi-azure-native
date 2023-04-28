@@ -9,6 +9,34 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Operations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var operationByProviderRegistration = new AzureNative.ProviderHub.V20210901Preview.OperationByProviderRegistration("operationByProviderRegistration", new()
+    ///     {
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub/v20210901preview:OperationByProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/operations/default 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:providerhub/v20210901preview:OperationByProviderRegistration")]
     public partial class OperationByProviderRegistration : global::Pulumi.CustomResource
     {

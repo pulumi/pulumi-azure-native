@@ -11,6 +11,84 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20210201Preview
 {
     /// <summary>
     /// Represents a scaling plan definition.
+    /// 
+    /// ## Example Usage
+    /// ### ScalingPlans_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scalingPlan = new AzureNative.DesktopVirtualization.V20210201Preview.ScalingPlan("scalingPlan", new()
+    ///     {
+    ///         Description = "des1",
+    ///         ExclusionTag = "value",
+    ///         FriendlyName = "friendly",
+    ///         HostPoolReferences = new[]
+    ///         {
+    ///             new AzureNative.DesktopVirtualization.V20210201Preview.Inputs.ScalingHostPoolReferenceArgs
+    ///             {
+    ///                 HostPoolArmPath = "/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
+    ///                 ScalingPlanEnabled = true,
+    ///             },
+    ///         },
+    ///         HostPoolType = "Personal",
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Ring = 1,
+    ///         ScalingPlanName = "scalingPlan1",
+    ///         Schedules = new[]
+    ///         {
+    ///             new AzureNative.DesktopVirtualization.V20210201Preview.Inputs.ScalingScheduleArgs
+    ///             {
+    ///                 DaysOfWeek = new[]
+    ///                 {
+    ///                     "Monday",
+    ///                     "Tuesday",
+    ///                     "Wednesday",
+    ///                     "Thursday",
+    ///                     "Friday",
+    ///                 },
+    ///                 Name = "schedule1",
+    ///                 OffPeakLoadBalancingAlgorithm = "DepthFirst",
+    ///                 OffPeakStartTime = "2020-11-10T20:00:00.000Z",
+    ///                 PeakLoadBalancingAlgorithm = "BreadthFirst",
+    ///                 PeakStartTime = "2020-11-10T08:00:00.000Z",
+    ///                 RampDownCapacityThresholdPct = 50,
+    ///                 RampDownForceLogoffUsers = true,
+    ///                 RampDownLoadBalancingAlgorithm = "DepthFirst",
+    ///                 RampDownMinimumHostsPct = 20,
+    ///                 RampDownNotificationMessage = "message",
+    ///                 RampDownStartTime = "2020-11-10T18:00:00.000Z",
+    ///                 RampDownWaitTimeMinutes = 30,
+    ///                 RampUpCapacityThresholdPct = 80,
+    ///                 RampUpLoadBalancingAlgorithm = "DepthFirst",
+    ///                 RampUpMinimumHostsPct = 20,
+    ///                 RampUpStartTime = "2020-11-10T06:00:00.000Z",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///         TimeZone = "",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization/v20210201preview:ScalingPlan scalingPlan1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/scalingPlan1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20210201preview:ScalingPlan")]
     public partial class ScalingPlan : global::Pulumi.CustomResource

@@ -10,6 +10,38 @@ import * as utilities from "../../utilities";
 /**
  * Route Filter Rule Resource
  *
+ * ## Example Usage
+ * ### RouteFilterRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const routeFilterRule = new azure_native.network.v20171001.RouteFilterRule("routeFilterRule", {
+ *     access: "Allow",
+ *     communities: [
+ *         "12076:5030",
+ *         "12076:5040",
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     routeFilterName: "filterName",
+ *     routeFilterRuleType: "Community",
+ *     ruleName: "ruleName",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20171001:RouteFilterRule ruleName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName 
+ * ```
+ *
  * @deprecated Version 2017-10-01 will be removed in v2 of the provider.
  */
 export class RouteFilterRule extends pulumi.CustomResource {

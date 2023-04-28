@@ -105,7 +105,14 @@ class WorkspaceCollection(pulumi.CustomResource):
                  workspace_collection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a WorkspaceCollection resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbi/v20160129:WorkspaceCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/workspaceCollections/{workspaceCollectionName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Azure location
@@ -119,7 +126,14 @@ class WorkspaceCollection(pulumi.CustomResource):
                  args: WorkspaceCollectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a WorkspaceCollection resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbi/v20160129:WorkspaceCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/workspaceCollections/{workspaceCollectionName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param WorkspaceCollectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

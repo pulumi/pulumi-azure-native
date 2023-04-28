@@ -95,6 +95,41 @@ class EnvironmentContainer(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Environment Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment_container = azure_native.machinelearningservices.v20210301preview.EnvironmentContainer("environmentContainer",
+            name="testEnvironment",
+            properties=azure_native.machinelearningservices.v20210301preview.EnvironmentContainerArgs(
+                description="string",
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:EnvironmentContainer testEnvironment /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/testEnvironment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Container name.
@@ -110,6 +145,41 @@ class EnvironmentContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Environment Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment_container = azure_native.machinelearningservices.v20210301preview.EnvironmentContainer("environmentContainer",
+            name="testEnvironment",
+            properties=azure_native.machinelearningservices.v20210301preview.EnvironmentContainerArgs(
+                description="string",
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:EnvironmentContainer testEnvironment /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/testEnvironment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentContainerInitArgs args: The arguments to use to populate this resource's properties.

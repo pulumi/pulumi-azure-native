@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.EventHub.V20150801
 {
     /// <summary>
     /// Single item in List or Get Event Hub operation
+    /// 
+    /// ## Example Usage
+    /// ### EventHubCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHub = new AzureNative.EventHub.V20150801.EventHub("eventHub", new()
+    ///     {
+    ///         EventHubName = "sdk-EventHub6448",
+    ///         Location = "West US",
+    ///         MessageRetentionInDays = 7,
+    ///         NamespaceName = "sdk-Namespace7834",
+    ///         PartitionCount = 4,
+    ///         ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///         Status = AzureNative.EventHub.V20150801.EntityStatus.Active,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20150801:EventHub sdk-EventHub6448 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace7834/eventhubs/sdk-EventHub6448 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:eventhub/v20150801:EventHub")]

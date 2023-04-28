@@ -165,6 +165,33 @@ class CustomAssessmentAutomation(pulumi.CustomResource):
         """
         Custom Assessment Automation
 
+        ## Example Usage
+        ### Create a Custom Assessment Automation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_assessment_automation = azure_native.security.v20210701preview.CustomAssessmentAutomation("customAssessmentAutomation",
+            compressed_query="DQAKAEkAYQBtAF8ARwByAG8AdQBwAA0ACgB8ACAAZQB4AHQAZQBuAGQAIABIAGUAYQBsAHQAaABTAHQAYQB0AHUAcwAgAD0AIABpAGYAZgAoAHQAbwBzAHQAcgBpAG4AZwAoAFIAZQBjAG8AcgBkAC4AVQBzAGUAcgBOAGEAbQBlACkAIABjAG8AbgB0AGEAaQBuAHMAIAAnAHUAcwBlAHIAJwAsACAAJwBVAE4ASABFAEEATABUAEgAWQAnACwAIAAnAEgARQBBAEwAVABIAFkAJwApAA0ACgA=",
+            custom_assessment_automation_name="MyCustomAssessmentAutomation",
+            description="Data should be encrypted",
+            display_name="Password Policy",
+            remediation_description="Encrypt store by...",
+            resource_group_name="TestResourceGroup",
+            severity="Medium",
+            supported_cloud="AWS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20210701preview:CustomAssessmentAutomation 33e7cc6e-a139-4723-a0e5-76993aee0771 /subscriptions/e5d1b86c-3051-44d5-8802-aa65d45a279b/resourcegroups/TestResourceGroup/providers/Microsoft.Security/customAssessmentAutomations/33e7cc6e-a139-4723-a0e5-76993aee0771 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compressed_query: Base 64 encoded KQL query representing the assessment automation results required.
@@ -184,6 +211,33 @@ class CustomAssessmentAutomation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom Assessment Automation
+
+        ## Example Usage
+        ### Create a Custom Assessment Automation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_assessment_automation = azure_native.security.v20210701preview.CustomAssessmentAutomation("customAssessmentAutomation",
+            compressed_query="DQAKAEkAYQBtAF8ARwByAG8AdQBwAA0ACgB8ACAAZQB4AHQAZQBuAGQAIABIAGUAYQBsAHQAaABTAHQAYQB0AHUAcwAgAD0AIABpAGYAZgAoAHQAbwBzAHQAcgBpAG4AZwAoAFIAZQBjAG8AcgBkAC4AVQBzAGUAcgBOAGEAbQBlACkAIABjAG8AbgB0AGEAaQBuAHMAIAAnAHUAcwBlAHIAJwAsACAAJwBVAE4ASABFAEEATABUAEgAWQAnACwAIAAnAEgARQBBAEwAVABIAFkAJwApAA0ACgA=",
+            custom_assessment_automation_name="MyCustomAssessmentAutomation",
+            description="Data should be encrypted",
+            display_name="Password Policy",
+            remediation_description="Encrypt store by...",
+            resource_group_name="TestResourceGroup",
+            severity="Medium",
+            supported_cloud="AWS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20210701preview:CustomAssessmentAutomation 33e7cc6e-a139-4723-a0e5-76993aee0771 /subscriptions/e5d1b86c-3051-44d5-8802-aa65d45a279b/resourcegroups/TestResourceGroup/providers/Microsoft.Security/customAssessmentAutomations/33e7cc6e-a139-4723-a0e5-76993aee0771 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomAssessmentAutomationArgs args: The arguments to use to populate this resource's properties.

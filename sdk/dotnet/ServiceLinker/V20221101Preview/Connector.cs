@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
 {
     /// <summary>
     /// Linker of source and target resource
+    /// 
+    /// ## Example Usage
+    /// ### PutConnector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connector = new AzureNative.ServiceLinker.V20221101Preview.Connector("connector", new()
+    ///     {
+    ///         AuthInfo = new AzureNative.ServiceLinker.V20221101Preview.Inputs.SecretAuthInfoArgs
+    ///         {
+    ///             AuthType = "secret",
+    ///         },
+    ///         ConnectorName = "connectorName",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SecretStore = new AzureNative.ServiceLinker.V20221101Preview.Inputs.SecretStoreArgs
+    ///         {
+    ///             KeyVaultId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/test-kv",
+    ///         },
+    ///         TargetService = new AzureNative.ServiceLinker.V20221101Preview.Inputs.AzureResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+    ///             Type = "AzureResource",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicelinker/v20221101preview:Connector linkName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker/v20221101preview:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

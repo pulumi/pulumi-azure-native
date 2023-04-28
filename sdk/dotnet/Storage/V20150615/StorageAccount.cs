@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Storage.V20150615
 {
     /// <summary>
     /// The storage account.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20150615:StorageAccount myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{accountName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-06-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20150615:StorageAccount")]

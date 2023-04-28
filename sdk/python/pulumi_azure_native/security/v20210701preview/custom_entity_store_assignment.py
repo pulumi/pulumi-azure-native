@@ -79,6 +79,28 @@ class CustomEntityStoreAssignment(pulumi.CustomResource):
         """
         Custom entity store assignment
 
+        ## Example Usage
+        ### Create a custom entity store assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_entity_store_assignment = azure_native.security.v20210701preview.CustomEntityStoreAssignment("customEntityStoreAssignment",
+            custom_entity_store_assignment_name="33e7cc6e-a139-4723-a0e5-76993aee0771",
+            principal="aaduser=f3923a3e-ad57-4752-b1a9-fbf3c8e5e082;72f988bf-86f1-41af-91ab-2d7cd011db47",
+            resource_group_name="TestResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20210701preview:CustomEntityStoreAssignment 33e7cc6e-a139-4723-a0e5-76993aee0771 /subscriptions/e5d1b86c-3051-44d5-8802-aa65d45a279b/resourcegroups/TestResourceGroup/providers/Microsoft.Security/customEntityStoreAssignments/33e7cc6e-a139-4723-a0e5-76993aee0771 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_entity_store_assignment_name: Name of the custom entity store assignment. Generated name is GUID.
@@ -93,6 +115,28 @@ class CustomEntityStoreAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom entity store assignment
+
+        ## Example Usage
+        ### Create a custom entity store assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_entity_store_assignment = azure_native.security.v20210701preview.CustomEntityStoreAssignment("customEntityStoreAssignment",
+            custom_entity_store_assignment_name="33e7cc6e-a139-4723-a0e5-76993aee0771",
+            principal="aaduser=f3923a3e-ad57-4752-b1a9-fbf3c8e5e082;72f988bf-86f1-41af-91ab-2d7cd011db47",
+            resource_group_name="TestResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20210701preview:CustomEntityStoreAssignment 33e7cc6e-a139-4723-a0e5-76993aee0771 /subscriptions/e5d1b86c-3051-44d5-8802-aa65d45a279b/resourcegroups/TestResourceGroup/providers/Microsoft.Security/customEntityStoreAssignments/33e7cc6e-a139-4723-a0e5-76993aee0771 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomEntityStoreAssignmentArgs args: The arguments to use to populate this resource's properties.

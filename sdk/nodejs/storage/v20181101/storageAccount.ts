@@ -10,6 +10,39 @@ import * as utilities from "../../utilities";
 /**
  * The storage account.
  *
+ * ## Example Usage
+ * ### StorageAccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.v20181101.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     enableAzureFilesAadIntegration: true,
+ *     isHnsEnabled: true,
+ *     kind: azure_native.storage.v20181101.Kind.Storage,
+ *     location: "eastus2euap",
+ *     resourceGroupName: "res9101",
+ *     sku: {
+ *         name: azure_native.storage.v20181101.SkuName.Standard_GRS,
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20181101:StorageAccount sto4445 /subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445 
+ * ```
+ *
  * @deprecated Version 2018-11-01 will be removed in v2 of the provider.
  */
 export class StorageAccount extends pulumi.CustomResource {

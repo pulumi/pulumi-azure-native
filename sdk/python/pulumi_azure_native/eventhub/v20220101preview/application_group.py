@@ -130,6 +130,50 @@ class ApplicationGroup(pulumi.CustomResource):
         """
         The Application Group object
 
+        ## Example Usage
+        ### ApplicationGroupCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_group = azure_native.eventhub.v20220101preview.ApplicationGroup("applicationGroup",
+            application_group_name="appGroup1",
+            client_app_group_identifier="SASKeyName=KeyName",
+            is_enabled=True,
+            namespace_name="contoso-ua-test-eh-system-1",
+            policies=[
+                azure_native.eventhub.v20220101preview.ThrottlingPolicyResponseArgs(
+                    metric_id="IncomingMessages",
+                    name="ThrottlingPolicy1",
+                    rate_limit_threshold=7912,
+                    type="ThrottlingPolicy",
+                ),
+                azure_native.eventhub.v20220101preview.ThrottlingPolicyResponseArgs(
+                    metric_id="IncomingBytes",
+                    name="ThrottlingPolicy2",
+                    rate_limit_threshold=3951729,
+                    type="ThrottlingPolicy",
+                ),
+                azure_native.eventhub.v20220101preview.ThrottlingPolicyResponseArgs(
+                    metric_id="OutgoingBytes",
+                    name="ThrottlingPolicy3",
+                    rate_limit_threshold=245175,
+                    type="ThrottlingPolicy",
+                ),
+            ],
+            resource_group_name="contosotest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20220101preview:ApplicationGroup appGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosotest/providers/Microsoft.EventHub/namespaces/contoso-ua-test-eh-system-1/applicationgroups/appGroup1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_group_name: The Application Group name 
@@ -147,6 +191,50 @@ class ApplicationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Application Group object
+
+        ## Example Usage
+        ### ApplicationGroupCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_group = azure_native.eventhub.v20220101preview.ApplicationGroup("applicationGroup",
+            application_group_name="appGroup1",
+            client_app_group_identifier="SASKeyName=KeyName",
+            is_enabled=True,
+            namespace_name="contoso-ua-test-eh-system-1",
+            policies=[
+                azure_native.eventhub.v20220101preview.ThrottlingPolicyResponseArgs(
+                    metric_id="IncomingMessages",
+                    name="ThrottlingPolicy1",
+                    rate_limit_threshold=7912,
+                    type="ThrottlingPolicy",
+                ),
+                azure_native.eventhub.v20220101preview.ThrottlingPolicyResponseArgs(
+                    metric_id="IncomingBytes",
+                    name="ThrottlingPolicy2",
+                    rate_limit_threshold=3951729,
+                    type="ThrottlingPolicy",
+                ),
+                azure_native.eventhub.v20220101preview.ThrottlingPolicyResponseArgs(
+                    metric_id="OutgoingBytes",
+                    name="ThrottlingPolicy3",
+                    rate_limit_threshold=245175,
+                    type="ThrottlingPolicy",
+                ),
+            ],
+            resource_group_name="contosotest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20220101preview:ApplicationGroup appGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosotest/providers/Microsoft.EventHub/namespaces/contoso-ua-test-eh-system-1/applicationgroups/appGroup1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationGroupArgs args: The arguments to use to populate this resource's properties.

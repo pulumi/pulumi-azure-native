@@ -9,6 +9,125 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server.
+ *
+ * ## Example Usage
+ * ### Create a database as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.v20171201preview.Server("server", {
+ *     location: "brazilsouth",
+ *     properties: {
+ *         createMode: "PointInTimeRestore",
+ *         restorePointInTime: "2017-12-14T00:00:37.467Z",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen4",
+ *         name: "B_Gen4_2",
+ *         tier: "Basic",
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.v20171201preview.Server("server", {
+ *     location: "westus",
+ *     properties: {
+ *         administratorLogin: "cloudsa",
+ *         administratorLoginPassword: "password",
+ *         createMode: "Default",
+ *         sslEnforcement: azure_native.dbforpostgresql.v20171201preview.SslEnforcementEnum.Enabled,
+ *         storageProfile: {
+ *             backupRetentionDays: 7,
+ *             geoRedundantBackup: "Enabled",
+ *             storageMB: 128000,
+ *         },
+ *     },
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "pgtestsvc4",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "B_Gen5_2",
+ *         tier: "Basic",
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a replica server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.v20171201preview.Server("server", {
+ *     location: "westcentralus",
+ *     properties: {
+ *         createMode: "Replica",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup_WestCentralUS/providers/Microsoft.DBforPostgreSQL/servers/testserver-master",
+ *     },
+ *     resourceGroupName: "TestGroup_WestCentralUS",
+ *     serverName: "testserver-replica1",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: "GeneralPurpose",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a server as a geo restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.v20171201preview.Server("server", {
+ *     location: "Japan West",
+ *     properties: {
+ *         createMode: "GeoRestore",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforPostgreSQL/servers/sourceserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen4",
+ *         name: "GP_Gen4_2",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20171201preview:Server targetserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/targetserver 
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

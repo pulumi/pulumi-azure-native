@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * Azure Resource Manager resource envelope.
  * API Version: 2022-10-01.
  * Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Data Version Base.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataVersion = new azure_native.machinelearningservices.DataVersion("dataVersion", {
+ *     dataVersionBaseProperties: {
+ *         dataType: "uri_file",
+ *         dataUri: "string",
+ *         description: "string",
+ *         isAnonymous: false,
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices:DataVersion string string 
+ * ```
  */
 export class DataVersion extends pulumi.CustomResource {
     /**

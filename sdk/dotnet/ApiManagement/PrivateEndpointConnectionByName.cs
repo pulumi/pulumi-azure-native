@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.ApiManagement
     /// The Private Endpoint Connection resource.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementApproveOrRejectPrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnectionByName = new AzureNative.ApiManagement.PrivateEndpointConnectionByName("privateEndpointConnectionByName", new()
+    ///     {
+    ///         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/privateEndpointConnections/connectionName",
+    ///         PrivateEndpointConnectionName = "privateEndpointConnectionName",
+    ///         Properties = new AzureNative.ApiManagement.Inputs.PrivateEndpointConnectionRequestPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.ApiManagement.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "The Private Endpoint Connection is approved.",
+    ///                 Status = "Approved",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:PrivateEndpointConnectionByName privateEndpointConnectionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/privateEndpointConnections/privateEndpointConnectionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:PrivateEndpointConnectionByName")]
     public partial class PrivateEndpointConnectionByName : global::Pulumi.CustomResource

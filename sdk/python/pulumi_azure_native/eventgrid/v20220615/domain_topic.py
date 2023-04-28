@@ -78,6 +78,28 @@ class DomainTopic(pulumi.CustomResource):
         """
         Domain Topic.
 
+        ## Example Usage
+        ### DomainTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_topic = azure_native.eventgrid.v20220615.DomainTopic("domainTopic",
+            domain_name="exampledomain1",
+            domain_topic_name="exampledomaintopic1",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20220615:DomainTopic exampledomaintopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1/topics/exampledomaintopic1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: Name of the domain.
@@ -92,6 +114,28 @@ class DomainTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Domain Topic.
+
+        ## Example Usage
+        ### DomainTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_topic = azure_native.eventgrid.v20220615.DomainTopic("domainTopic",
+            domain_name="exampledomain1",
+            domain_topic_name="exampledomaintopic1",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20220615:DomainTopic exampledomaintopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1/topics/exampledomaintopic1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainTopicArgs args: The arguments to use to populate this resource's properties.

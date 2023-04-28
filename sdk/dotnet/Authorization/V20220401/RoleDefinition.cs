@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.Authorization.V20220401
 {
     /// <summary>
     /// Role definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create role definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleDefinition = new AzureNative.Authorization.V20220401.RoleDefinition("roleDefinition", new()
+    ///     {
+    ///         RoleDefinitionId = "roleDefinitionId",
+    ///         Scope = "scope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20220401:RoleDefinition roleDefinitionId /subscriptions/subID/providers/Microsoft.Authorization/roleDefinitions/roleDefinitionId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20220401:RoleDefinition")]
     public partial class RoleDefinition : global::Pulumi.CustomResource

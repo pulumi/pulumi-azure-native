@@ -151,6 +151,53 @@ class Device(pulumi.CustomResource):
         API Version: 2022-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### DataBoxEdgeDevicePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device = azure_native.databoxedge.Device("device",
+            device_name="testedgedevice",
+            location="WUS",
+            resource_group_name="GroupForEdgeAutomation",
+            sku=azure_native.databoxedge.SkuArgs(
+                name="Edge",
+                tier="Standard",
+            ),
+            tags={})
+
+        ```
+        ### DataBoxEdgeDevicePutWithDataResidency
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device = azure_native.databoxedge.Device("device",
+            data_residency=azure_native.databoxedge.DataResidencyArgs(
+                type="ZoneReplication",
+            ),
+            device_name="testedgedevice",
+            location="WUS",
+            resource_group_name="GroupForEdgeAutomation",
+            sku=azure_native.databoxedge.SkuArgs(
+                name="Edge",
+                tier="Standard",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:Device testedgedevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DataResidencyArgs']] data_residency: The details of data-residency related properties for this resource
@@ -171,6 +218,53 @@ class Device(pulumi.CustomResource):
         The Data Box Edge/Gateway device.
         API Version: 2022-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### DataBoxEdgeDevicePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device = azure_native.databoxedge.Device("device",
+            device_name="testedgedevice",
+            location="WUS",
+            resource_group_name="GroupForEdgeAutomation",
+            sku=azure_native.databoxedge.SkuArgs(
+                name="Edge",
+                tier="Standard",
+            ),
+            tags={})
+
+        ```
+        ### DataBoxEdgeDevicePutWithDataResidency
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device = azure_native.databoxedge.Device("device",
+            data_residency=azure_native.databoxedge.DataResidencyArgs(
+                type="ZoneReplication",
+            ),
+            device_name="testedgedevice",
+            location="WUS",
+            resource_group_name="GroupForEdgeAutomation",
+            sku=azure_native.databoxedge.SkuArgs(
+                name="Edge",
+                tier="Standard",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:Device testedgedevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

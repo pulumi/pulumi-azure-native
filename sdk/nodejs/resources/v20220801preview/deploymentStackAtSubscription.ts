@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment stack object.
+ *
+ * ## Example Usage
+ * ### DeploymentStacksCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentStackAtSubscription = new azure_native.resources.v20220801preview.DeploymentStackAtSubscription("deploymentStackAtSubscription", {
+ *     actionOnUnmanage: {
+ *         managementGroups: "detach",
+ *         resourceGroups: "delete",
+ *         resources: "delete",
+ *     },
+ *     deploymentStackName: "simpleDeploymentStack",
+ *     location: "eastus",
+ *     parameters: {
+ *         parameter1: {
+ *             value: "a string",
+ *         },
+ *     },
+ *     tags: {
+ *         tagkey: "tagVal",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources/v20220801preview:DeploymentStackAtSubscription simpleDeploymentStack /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/deploymentStacksRG/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack 
+ * ```
  */
 export class DeploymentStackAtSubscription extends pulumi.CustomResource {
     /**

@@ -11,6 +11,123 @@ namespace Pulumi.AzureNative.HealthcareApis.V20200315
 {
     /// <summary>
     /// The description of the service.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a service with all parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.HealthcareApis.V20200315.Service("service", new()
+    ///     {
+    ///         Identity = new AzureNative.HealthcareApis.V20200315.Inputs.ResourceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Kind = AzureNative.HealthcareApis.V20200315.Kind.Fhir_R4,
+    ///         Location = "westus2",
+    ///         Properties = new AzureNative.HealthcareApis.V20200315.Inputs.ServicesPropertiesArgs
+    ///         {
+    ///             AccessPolicies = new[]
+    ///             {
+    ///                 new AzureNative.HealthcareApis.V20200315.Inputs.ServiceAccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+    ///                 },
+    ///                 new AzureNative.HealthcareApis.V20200315.Inputs.ServiceAccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "5b307da8-43d4-492b-8b66-b0294ade872f",
+    ///                 },
+    ///             },
+    ///             AuthenticationConfiguration = new AzureNative.HealthcareApis.V20200315.Inputs.ServiceAuthenticationConfigurationInfoArgs
+    ///             {
+    ///                 Audience = "https://azurehealthcareapis.com",
+    ///                 Authority = "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
+    ///                 SmartProxyEnabled = true,
+    ///             },
+    ///             CorsConfiguration = new AzureNative.HealthcareApis.V20200315.Inputs.ServiceCorsConfigurationInfoArgs
+    ///             {
+    ///                 AllowCredentials = false,
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 MaxAge = 1440,
+    ///                 Methods = new[]
+    ///                 {
+    ///                     "DELETE",
+    ///                     "GET",
+    ///                     "OPTIONS",
+    ///                     "PATCH",
+    ///                     "POST",
+    ///                     "PUT",
+    ///                 },
+    ///                 Origins = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             CosmosDbConfiguration = new AzureNative.HealthcareApis.V20200315.Inputs.ServiceCosmosDbConfigurationInfoArgs
+    ///             {
+    ///                 KeyVaultKeyUri = "https://my-vault.vault.azure.net/keys/my-key",
+    ///                 OfferThroughput = 1000,
+    ///             },
+    ///             ExportConfiguration = new AzureNative.HealthcareApis.V20200315.Inputs.ServiceExportConfigurationInfoArgs
+    ///             {
+    ///                 StorageAccountName = "existingStorageAccount",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "service1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update a service with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.HealthcareApis.V20200315.Service("service", new()
+    ///     {
+    ///         Kind = AzureNative.HealthcareApis.V20200315.Kind.Fhir_R4,
+    ///         Location = "westus2",
+    ///         Properties = new AzureNative.HealthcareApis.V20200315.Inputs.ServicesPropertiesArgs
+    ///         {
+    ///             AccessPolicies = new[]
+    ///             {
+    ///                 new AzureNative.HealthcareApis.V20200315.Inputs.ServiceAccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "service2",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthcareapis/v20200315:Service service2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service2 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2020-03-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20200315:Service")]

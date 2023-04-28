@@ -196,6 +196,35 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
         """
         An Azure Cosmos DB storedProcedure.
 
+        ## Example Usage
+        ### CosmosDBSqlStoredProcedureCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_stored_procedure = azure_native.documentdb.v20220815preview.SqlResourceSqlStoredProcedure("sqlResourceSqlStoredProcedure",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlStoredProcedureResourceArgs(
+                body="body",
+                id="storedProcedureName",
+            ),
+            resource_group_name="rg1",
+            stored_procedure_name="storedProcedureName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure storedProcedureName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlStoredProcedures/storedProcedureName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -217,6 +246,35 @@ class SqlResourceSqlStoredProcedure(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB storedProcedure.
+
+        ## Example Usage
+        ### CosmosDBSqlStoredProcedureCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_stored_procedure = azure_native.documentdb.v20220815preview.SqlResourceSqlStoredProcedure("sqlResourceSqlStoredProcedure",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlStoredProcedureResourceArgs(
+                body="body",
+                id="storedProcedureName",
+            ),
+            resource_group_name="rg1",
+            stored_procedure_name="storedProcedureName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:SqlResourceSqlStoredProcedure storedProcedureName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlStoredProcedures/storedProcedureName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlStoredProcedureArgs args: The arguments to use to populate this resource's properties.

@@ -7,6 +7,33 @@ import * as utilities from "../utilities";
 /**
  * Authorization access policy contract.
  * API Version: 2022-08-01.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateAuthorizationAccessPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const authorizationAccessPolicy = new azure_native.apimanagement.AuthorizationAccessPolicy("authorizationAccessPolicy", {
+ *     authorizationAccessPolicyId: "fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+ *     authorizationId: "authz1",
+ *     authorizationProviderId: "aadwithauthcode",
+ *     objectId: "fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     tenantId: "13932a0d-5c63-4d37-901d-1df9c97722ff",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:AuthorizationAccessPolicy fe0bed83-631f-4149-bd0b-0464b1bc7cab /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/aadwithauthcode/authorizations/authz1/accessPolicies 
+ * ```
  */
 export class AuthorizationAccessPolicy extends pulumi.CustomResource {
     /**

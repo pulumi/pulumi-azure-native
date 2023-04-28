@@ -13,6 +13,69 @@ namespace Pulumi.AzureNative.Network
     /// VirtualHubRouteTableV2 Resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualHubRouteTableV2Put
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualHubRouteTableV2 = new AzureNative.Network.VirtualHubRouteTableV2("virtualHubRouteTableV2", new()
+    ///     {
+    ///         AttachedConnections = new[]
+    ///         {
+    ///             "All_Vnets",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         RouteTableName = "virtualHubRouteTable1a",
+    ///         Routes = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.VirtualHubRouteV2Args
+    ///             {
+    ///                 DestinationType = "CIDR",
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "20.10.0.0/16",
+    ///                     "20.20.0.0/16",
+    ///                 },
+    ///                 NextHopType = "IPAddress",
+    ///                 NextHops = new[]
+    ///                 {
+    ///                     "10.0.0.68",
+    ///                 },
+    ///             },
+    ///             new AzureNative.Network.Inputs.VirtualHubRouteV2Args
+    ///             {
+    ///                 DestinationType = "CIDR",
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "0.0.0.0/0",
+    ///                 },
+    ///                 NextHopType = "IPAddress",
+    ///                 NextHops = new[]
+    ///                 {
+    ///                     "10.0.0.68",
+    ///                 },
+    ///             },
+    ///         },
+    ///         VirtualHubName = "virtualHub1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VirtualHubRouteTableV2 virtualHubRouteTable1a /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeTables/virtualHubRouteTable1a 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualHubRouteTableV2")]
     public partial class VirtualHubRouteTableV2 : global::Pulumi.CustomResource

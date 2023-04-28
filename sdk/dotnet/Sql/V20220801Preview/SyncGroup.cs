@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// An Azure SQL Database sync group.
+    /// 
+    /// ## Example Usage
+    /// ### Create a sync group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var syncGroup = new AzureNative.Sql.V20220801Preview.SyncGroup("syncGroup", new()
+    ///     {
+    ///         ConflictResolutionPolicy = "HubWin",
+    ///         DatabaseName = "syncgroupcrud-4328",
+    ///         HubDatabaseUserName = "hubUser",
+    ///         Interval = -1,
+    ///         ResourceGroupName = "syncgroupcrud-65440",
+    ///         ServerName = "syncgroupcrud-8475",
+    ///         SyncDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    ///         SyncGroupName = "syncgroupcrud-3187",
+    ///         UsePrivateLinkConnection = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update a sync group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var syncGroup = new AzureNative.Sql.V20220801Preview.SyncGroup("syncGroup", new()
+    ///     {
+    ///         ConflictResolutionPolicy = "HubWin",
+    ///         DatabaseName = "syncgroupcrud-4328",
+    ///         HubDatabaseUserName = "hubUser",
+    ///         Interval = -1,
+    ///         ResourceGroupName = "syncgroupcrud-65440",
+    ///         ServerName = "syncgroupcrud-8475",
+    ///         SyncDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    ///         SyncGroupName = "syncgroupcrud-3187",
+    ///         UsePrivateLinkConnection = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:SyncGroup syncgroupcrud-3187 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-3521/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:SyncGroup")]
     public partial class SyncGroup : global::Pulumi.CustomResource

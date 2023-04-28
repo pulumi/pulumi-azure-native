@@ -11,6 +11,60 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20230126Preview
 {
     /// <summary>
     /// Managed CCF. Contains the properties of Managed CCF Resource.
+    /// 
+    /// ## Example Usage
+    /// ### ManagedCCFCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCCF = new AzureNative.ConfidentialLedger.V20230126Preview.ManagedCCF("managedCCF", new()
+    ///     {
+    ///         AppName = "DummyMccfAppName",
+    ///         Location = "EastUS",
+    ///         Properties = new AzureNative.ConfidentialLedger.V20230126Preview.Inputs.ManagedCCFPropertiesArgs
+    ///         {
+    ///             DeploymentType = new AzureNative.ConfidentialLedger.V20230126Preview.Inputs.DeploymentTypeArgs
+    ///             {
+    ///                 AppSourceUri = "https://myaccount.blob.core.windows.net/storage/mccfsource?sv=2022-02-11%st=2022-03-11",
+    ///                 LanguageRuntime = "CPP",
+    ///             },
+    ///             MemberIdentityCertificates = new[]
+    ///             {
+    ///                 new AzureNative.ConfidentialLedger.V20230126Preview.Inputs.MemberIdentityCertificateArgs
+    ///                 {
+    ///                     Certificate = "-----BEGIN CERTIFICATE-----MIIBsjCCATigAwIBAgIUZWIbyG79TniQLd2UxJuU74tqrKcwCgYIKoZIzj0EAwMwEDEOMAwGA1UEAwwFdXNlcjAwHhcNMjEwMzE2MTgwNjExWhcNMjIwMzE2MTgwNjExWjAQMQ4wDAYDVQQDDAV1c2VyMDB2MBAGByqGSM49AgEGBSuBBAAiA2IABBiWSo/j8EFit7aUMm5lF+lUmCu+IgfnpFD+7QMgLKtxRJ3aGSqgS/GpqcYVGddnODtSarNE/HyGKUFUolLPQ5ybHcouUk0kyfA7XMeSoUA4lBz63Wha8wmXo+NdBRo39qNTMFEwHQYDVR0OBBYEFPtuhrwgGjDFHeUUT4nGsXaZn69KMB8GA1UdIwQYMBaAFPtuhrwgGjDFHeUUT4nGsXaZn69KMA8GA1UdEwEB/wQFMAMBAf8wCgYIKoZIzj0EAwMDaAAwZQIxAOnozm2CyqRwSSQLls5r+mUHRGRyXHXwYtM4Dcst/VEZdmS9fqvHRCHbjUlO/+HNfgIwMWZ4FmsjD3wnPxONOm9YdVn/PRD7SsPRPbOjwBiE4EBGaHDsLjYAGDSGi7NJnSkA-----END CERTIFICATE-----",
+    ///                     Encryptionkey = "ledgerencryptionkey",
+    ///                     Tags = 
+    ///                     {
+    ///                         { "additionalProps1", "additional properties" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             NodeCount = 5,
+    ///         },
+    ///         ResourceGroupName = "DummyResourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "additionalProps1", "additional properties" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:confidentialledger/v20230126preview:ManagedCCF DummyLedgerName /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.ConfidentialLedger/ledgers/DummyLedgerName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:confidentialledger/v20230126preview:ManagedCCF")]
     public partial class ManagedCCF : global::Pulumi.CustomResource

@@ -221,6 +221,53 @@ class DefaultCniNetwork(pulumi.CustomResource):
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update default CNI network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_cni_network = azure_native.networkcloud.DefaultCniNetwork("defaultCniNetwork",
+            cni_bgp_configuration=azure_native.networkcloud.CniBgpConfigurationResponseArgs(
+                bgp_peers=[azure_native.networkcloud.BgpPeerArgs(
+                    as_number=64497,
+                    peer_ip="203.0.113.254",
+                )],
+                community_advertisements=[azure_native.networkcloud.CommunityAdvertisementArgs(
+                    communities=["64512:100"],
+                    subnet_prefix="192.0.2.0/27",
+                )],
+                service_external_prefixes=["192.0.2.0/28"],
+                service_load_balancer_prefixes=["192.0.2.16/28"],
+            ),
+            default_cni_network_name="defaultCniNetworkName",
+            extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            ip_allocation_type="DualStack",
+            ipv4_connected_prefix="203.0.113.0/24",
+            ipv6_connected_prefix="2001:db8:0:3::/64",
+            l3_isolation_domain_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            vlan=12)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:DefaultCniNetwork defaultcniNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/defaultcniNetworks/defaultcniNetworkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CniBgpConfigurationArgs']] cni_bgp_configuration: The Calico BGP configuration.
@@ -246,6 +293,53 @@ class DefaultCniNetwork(pulumi.CustomResource):
         """
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update default CNI network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_cni_network = azure_native.networkcloud.DefaultCniNetwork("defaultCniNetwork",
+            cni_bgp_configuration=azure_native.networkcloud.CniBgpConfigurationResponseArgs(
+                bgp_peers=[azure_native.networkcloud.BgpPeerArgs(
+                    as_number=64497,
+                    peer_ip="203.0.113.254",
+                )],
+                community_advertisements=[azure_native.networkcloud.CommunityAdvertisementArgs(
+                    communities=["64512:100"],
+                    subnet_prefix="192.0.2.0/27",
+                )],
+                service_external_prefixes=["192.0.2.0/28"],
+                service_load_balancer_prefixes=["192.0.2.16/28"],
+            ),
+            default_cni_network_name="defaultCniNetworkName",
+            extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            ip_allocation_type="DualStack",
+            ipv4_connected_prefix="203.0.113.0/24",
+            ipv6_connected_prefix="2001:db8:0:3::/64",
+            l3_isolation_domain_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            vlan=12)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:DefaultCniNetwork defaultcniNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/defaultcniNetworks/defaultcniNetworkName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DefaultCniNetworkArgs args: The arguments to use to populate this resource's properties.

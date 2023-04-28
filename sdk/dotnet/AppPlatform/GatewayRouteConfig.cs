@@ -13,6 +13,62 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Spring Cloud Gateway route config resource
     /// API Version: 2022-12-01.
     /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### GatewayRouteConfigs_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gatewayRouteConfig = new AzureNative.AppPlatform.GatewayRouteConfig("gatewayRouteConfig", new()
+    ///     {
+    ///         GatewayName = "default",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.GatewayRouteConfigPropertiesArgs
+    ///         {
+    ///             AppResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myApp",
+    ///             OpenApi = new AzureNative.AppPlatform.Inputs.GatewayRouteConfigOpenApiPropertiesArgs
+    ///             {
+    ///                 Uri = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/examples/v3.0/petstore.json",
+    ///             },
+    ///             Protocol = "HTTPS",
+    ///             Routes = new[]
+    ///             {
+    ///                 new AzureNative.AppPlatform.Inputs.GatewayApiRouteArgs
+    ///                 {
+    ///                     Filters = new[]
+    ///                     {
+    ///                         "StripPrefix=2",
+    ///                         "RateLimit=1,1s",
+    ///                     },
+    ///                     Predicates = new[]
+    ///                     {
+    ///                         "Path=/api5/customer/**",
+    ///                     },
+    ///                     SsoEnabled = true,
+    ///                     Title = "myApp route config",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RouteConfigName = "myRouteConfig",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:GatewayRouteConfig myRouteConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default/routeConfigs/myRouteConfig 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:GatewayRouteConfig")]
     public partial class GatewayRouteConfig : global::Pulumi.CustomResource

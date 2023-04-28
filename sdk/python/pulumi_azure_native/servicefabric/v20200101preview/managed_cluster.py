@@ -304,6 +304,88 @@ class ManagedCluster(pulumi.CustomResource):
         """
         The manged cluster resource
 
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.v20200101preview.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            client_connection_port=19000,
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            http_gateway_connection_port=19080,
+            load_balancing_rules=[
+                {
+                    "backendPort": 80,
+                    "frontendPort": 80,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 443,
+                    "frontendPort": 443,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 10000,
+                    "frontendPort": 10000,
+                    "probeProtocol": "http",
+                    "protocol": "tcp",
+                },
+            ],
+            location="eastus",
+            resource_group_name="resRg",
+            sku=azure_native.servicefabric.v20200101preview.SkuResponseArgs(
+                name="Basic",
+            ),
+            tags={})
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.v20200101preview.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            location="eastus",
+            resource_group_name="resRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20200101preview:ManagedCluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] addon_features: client certificates for the cluster.
@@ -331,6 +413,88 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The manged cluster resource
+
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.v20200101preview.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            client_connection_port=19000,
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            http_gateway_connection_port=19080,
+            load_balancing_rules=[
+                {
+                    "backendPort": 80,
+                    "frontendPort": 80,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 443,
+                    "frontendPort": 443,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 10000,
+                    "frontendPort": 10000,
+                    "probeProtocol": "http",
+                    "protocol": "tcp",
+                },
+            ],
+            location="eastus",
+            resource_group_name="resRg",
+            sku=azure_native.servicefabric.v20200101preview.SkuResponseArgs(
+                name="Basic",
+            ),
+            tags={})
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.v20200101preview.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            location="eastus",
+            resource_group_name="resRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20200101preview:ManagedCluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.

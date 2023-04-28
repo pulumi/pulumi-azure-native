@@ -339,6 +339,32 @@ class AppServiceEnvironment(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update an App Service Environment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_environment = azure_native.web.AppServiceEnvironment("appServiceEnvironment",
+            kind="Asev3",
+            location="South Central US",
+            name="test-ase",
+            resource_group_name="test-rg",
+            virtual_network=azure_native.web.VirtualNetworkProfileArgs(
+                id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/delegated",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:AppServiceEnvironment test-ase /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NameValuePairArgs']]]] cluster_settings: Custom settings for changing the behavior of the App Service Environment.
@@ -370,6 +396,32 @@ class AppServiceEnvironment(pulumi.CustomResource):
         App Service Environment ARM resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update an App Service Environment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_environment = azure_native.web.AppServiceEnvironment("appServiceEnvironment",
+            kind="Asev3",
+            location="South Central US",
+            name="test-ase",
+            resource_group_name="test-rg",
+            virtual_network=azure_native.web.VirtualNetworkProfileArgs(
+                id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/delegated",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:AppServiceEnvironment test-ase /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.

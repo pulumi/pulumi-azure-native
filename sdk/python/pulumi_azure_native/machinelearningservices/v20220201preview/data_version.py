@@ -111,6 +111,41 @@ class DataVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Data Version Base.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_version = azure_native.machinelearningservices.v20220201preview.DataVersion("dataVersion",
+            data_version_base_details=azure_native.machinelearningservices.v20220201preview.UriFileDataVersionArgs(
+                data_type="UriFile",
+                data_uri="string",
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20220201preview:DataVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['MLTableDataArgs'], pulumi.InputType['UriFileDataVersionArgs'], pulumi.InputType['UriFolderDataVersionArgs']]] data_version_base_details: [Required] Additional attributes of the entity.
@@ -127,6 +162,41 @@ class DataVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Data Version Base.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_version = azure_native.machinelearningservices.v20220201preview.DataVersion("dataVersion",
+            data_version_base_details=azure_native.machinelearningservices.v20220201preview.UriFileDataVersionArgs(
+                data_type="UriFile",
+                data_uri="string",
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20220201preview:DataVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataVersionArgs args: The arguments to use to populate this resource's properties.

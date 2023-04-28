@@ -64,6 +64,25 @@ class ManagementGroupSubscription(pulumi.CustomResource):
         API Version: 2021-04-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### AddSubscriptionToManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_subscription = azure_native.management.ManagementGroupSubscription("managementGroupSubscription", group_id="Group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management:ManagementGroupSubscription 728bcbe4-8d56-4510-86c2-4921b8beefbc  /providers/Microsoft.Management/managementGroups/Group/subscriptions/728bcbe4-8d56-4510-86c2-4921b8beefbc 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: Management Group ID.
@@ -79,6 +98,25 @@ class ManagementGroupSubscription(pulumi.CustomResource):
         The details of subscription under management group.
         API Version: 2021-04-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### AddSubscriptionToManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_subscription = azure_native.management.ManagementGroupSubscription("managementGroupSubscription", group_id="Group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management:ManagementGroupSubscription 728bcbe4-8d56-4510-86c2-4921b8beefbc  /providers/Microsoft.Management/managementGroups/Group/subscriptions/728bcbe4-8d56-4510-86c2-4921b8beefbc 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupSubscriptionArgs args: The arguments to use to populate this resource's properties.

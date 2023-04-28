@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.Network
     /// The Managed Network resource
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Put Network Manager
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkManager = new AzureNative.Network.NetworkManager("networkManager", new()
+    ///     {
+    ///         Description = "My Test Network Manager",
+    ///         NetworkManagerName = "TestNetworkManager",
+    ///         NetworkManagerScopeAccesses = new[]
+    ///         {
+    ///             "Connectivity",
+    ///         },
+    ///         NetworkManagerScopes = new AzureNative.Network.Inputs.NetworkManagerPropertiesNetworkManagerScopesArgs
+    ///         {
+    ///             ManagementGroups = new[]
+    ///             {
+    ///                 "/Microsoft.Management/testmg",
+    ///             },
+    ///             Subscriptions = new[]
+    ///             {
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:NetworkManager TestNetworkManager /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/TestNetworkManager 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkManager")]
     public partial class NetworkManager : global::Pulumi.CustomResource

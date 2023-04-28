@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Inbound NAT rule of the load balancer.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### InboundNatRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const inboundNatRule = new azure_native.network.InboundNatRule("inboundNatRule", {
+ *     backendPort: 3389,
+ *     enableFloatingIP: false,
+ *     enableTcpReset: false,
+ *     frontendIPConfiguration: {
+ *         id: "/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/frontendIPConfigurations/ip1",
+ *     },
+ *     frontendPort: 3390,
+ *     idleTimeoutInMinutes: 4,
+ *     inboundNatRuleName: "natRule1.1",
+ *     loadBalancerName: "lb1",
+ *     protocol: "Tcp",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:InboundNatRule natRule1.1 /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/natRule1.1 
+ * ```
  */
 export class InboundNatRule extends pulumi.CustomResource {
     /**

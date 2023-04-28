@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.OperationalInsights.V20200801
 {
     /// <summary>
     /// The top level data export resource container.
+    /// 
+    /// ## Example Usage
+    /// ### DataExportCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataExport = new AzureNative.OperationalInsights.V20200801.DataExport("dataExport", new()
+    ///     {
+    ///         DataExportName = "export1",
+    ///         ResourceGroupName = "RgTest1",
+    ///         ResourceId = "/subscriptions/192b9f85-a39a-4276-b96d-d5cd351703f9/resourceGroups/OIAutoRest1234/providers/Microsoft.EventHub/namespaces/test",
+    ///         TableNames = new[]
+    ///         {
+    ///             "Heartbeat",
+    ///         },
+    ///         WorkspaceName = "DeWnTest1234",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights/v20200801:DataExport export1 /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/RgTest1/providers/microsoft.operationalinsights/workspaces/DeWnTest1234/export/export1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20200801:DataExport")]
     public partial class DataExport : global::Pulumi.CustomResource

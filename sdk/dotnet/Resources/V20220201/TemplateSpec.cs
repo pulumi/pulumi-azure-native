@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Resources.V20220201
 {
     /// <summary>
     /// Template Spec object.
+    /// 
+    /// ## Example Usage
+    /// ### TemplateSpecsCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var templateSpec = new AzureNative.Resources.V20220201.TemplateSpec("templateSpec", new()
+    ///     {
+    ///         Description = "A very simple Template Spec",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "templateSpecRG",
+    ///         TemplateSpecName = "simpleTemplateSpec",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20220201:TemplateSpec simpleTemplateSpec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/simpleTemplateSpec 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20220201:TemplateSpec")]
     public partial class TemplateSpec : global::Pulumi.CustomResource

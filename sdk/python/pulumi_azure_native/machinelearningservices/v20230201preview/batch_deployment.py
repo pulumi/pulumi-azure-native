@@ -195,7 +195,83 @@ class BatchDeployment(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a BatchDeployment resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Workspace Batch Deployment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        batch_deployment = azure_native.machinelearningservices.v20230201preview.BatchDeployment("batchDeployment",
+            batch_deployment_properties=azure_native.machinelearningservices.v20230201preview.BatchDeploymentResponseArgs(
+                code_configuration=azure_native.machinelearningservices.v20230201preview.CodeConfigurationArgs(
+                    code_id="string",
+                    scoring_script="string",
+                ),
+                compute="string",
+                description="string",
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                error_threshold=1,
+                logging_level="Info",
+                max_concurrency_per_instance=1,
+                mini_batch_size=1,
+                model=azure_native.machinelearningservices.v20230201preview.IdAssetReferenceArgs(
+                    asset_id="string",
+                    reference_type="Id",
+                ),
+                output_action="SummaryOnly",
+                output_file_name="string",
+                properties={
+                    "string": "string",
+                },
+                resources=azure_native.machinelearningservices.v20230201preview.DeploymentResourceConfigurationArgs(
+                    instance_count=1,
+                    instance_type="string",
+                    properties={
+                        "string": {
+                            "cd3c37dc-2876-4ca4-8a54-21bd7619724a": None,
+                        },
+                    },
+                ),
+                retry_settings=azure_native.machinelearningservices.v20230201preview.BatchRetrySettingsArgs(
+                    max_retries=1,
+                    timeout="PT5M",
+                ),
+            ),
+            deployment_name="testDeploymentName",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.v20230201preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20230201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20230201preview.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:BatchDeployment string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BatchDeploymentArgs']] batch_deployment_properties: [Required] Additional attributes of the entity.
@@ -216,7 +292,83 @@ class BatchDeployment(pulumi.CustomResource):
                  args: BatchDeploymentInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BatchDeployment resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Workspace Batch Deployment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        batch_deployment = azure_native.machinelearningservices.v20230201preview.BatchDeployment("batchDeployment",
+            batch_deployment_properties=azure_native.machinelearningservices.v20230201preview.BatchDeploymentResponseArgs(
+                code_configuration=azure_native.machinelearningservices.v20230201preview.CodeConfigurationArgs(
+                    code_id="string",
+                    scoring_script="string",
+                ),
+                compute="string",
+                description="string",
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                error_threshold=1,
+                logging_level="Info",
+                max_concurrency_per_instance=1,
+                mini_batch_size=1,
+                model=azure_native.machinelearningservices.v20230201preview.IdAssetReferenceArgs(
+                    asset_id="string",
+                    reference_type="Id",
+                ),
+                output_action="SummaryOnly",
+                output_file_name="string",
+                properties={
+                    "string": "string",
+                },
+                resources=azure_native.machinelearningservices.v20230201preview.DeploymentResourceConfigurationArgs(
+                    instance_count=1,
+                    instance_type="string",
+                    properties={
+                        "string": {
+                            "cd3c37dc-2876-4ca4-8a54-21bd7619724a": None,
+                        },
+                    },
+                ),
+                retry_settings=azure_native.machinelearningservices.v20230201preview.BatchRetrySettingsArgs(
+                    max_retries=1,
+                    timeout="PT5M",
+                ),
+            ),
+            deployment_name="testDeploymentName",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.v20230201preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20230201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20230201preview.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:BatchDeployment string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param BatchDeploymentInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

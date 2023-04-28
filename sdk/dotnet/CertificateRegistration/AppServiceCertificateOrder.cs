@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.CertificateRegistration
     /// SSL certificate purchase order.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Certificate order
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appServiceCertificateOrder = new AzureNative.CertificateRegistration.AppServiceCertificateOrder("appServiceCertificateOrder", new()
+    ///     {
+    ///         AutoRenew = true,
+    ///         CertificateOrderName = "SampleCertificateOrderName",
+    ///         Certificates = 
+    ///         {
+    ///             { "SampleCertName1", new AzureNative.CertificateRegistration.Inputs.AppServiceCertificateArgs
+    ///             {
+    ///                 KeyVaultId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+    ///                 KeyVaultSecretName = "SampleSecretName1",
+    ///             } },
+    ///             { "SampleCertName2", new AzureNative.CertificateRegistration.Inputs.AppServiceCertificateArgs
+    ///             {
+    ///                 KeyVaultId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+    ///                 KeyVaultSecretName = "SampleSecretName2",
+    ///             } },
+    ///         },
+    ///         DistinguishedName = "CN=SampleCustomDomain.com",
+    ///         KeySize = 2048,
+    ///         Location = "Global",
+    ///         ProductType = AzureNative.CertificateRegistration.CertificateProductType.StandardDomainValidatedSsl,
+    ///         ResourceGroupName = "testrg123",
+    ///         ValidityInYears = 2,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:certificateregistration:AppServiceCertificateOrder SampleCertificateOrderName /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.CertificateRegistration/certificateOrders/SampleCertificateOrderName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration:AppServiceCertificateOrder")]
     public partial class AppServiceCertificateOrder : global::Pulumi.CustomResource

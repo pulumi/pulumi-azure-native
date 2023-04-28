@@ -93,6 +93,29 @@ class Diagnostic(pulumi.CustomResource):
         """
         Diagnostic details.
 
+        ## Example Usage
+        ### ApiManagementCreateDiagnostic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic = azure_native.apimanagement.v20180101.Diagnostic("diagnostic",
+            diagnostic_id="default",
+            enabled=True,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180101:Diagnostic default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -108,6 +131,29 @@ class Diagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Diagnostic details.
+
+        ## Example Usage
+        ### ApiManagementCreateDiagnostic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic = azure_native.apimanagement.v20180101.Diagnostic("diagnostic",
+            diagnostic_id="default",
+            enabled=True,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180101:Diagnostic default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiagnosticArgs args: The arguments to use to populate this resource's properties.

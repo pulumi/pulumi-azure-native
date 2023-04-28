@@ -181,6 +181,28 @@ class ArcSetting(pulumi.CustomResource):
         """
         ArcSetting details.
 
+        ## Example Usage
+        ### Create ArcSetting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        arc_setting = azure_native.azurestackhci.v20230301.ArcSetting("arcSetting",
+            arc_setting_name="default",
+            cluster_name="myCluster",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20230301:ArcSetting myresource1 /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster/arcSettings/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arc_application_client_id: App id of arc AAD identity.
@@ -201,6 +223,28 @@ class ArcSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ArcSetting details.
+
+        ## Example Usage
+        ### Create ArcSetting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        arc_setting = azure_native.azurestackhci.v20230301.ArcSetting("arcSetting",
+            arc_setting_name="default",
+            cluster_name="myCluster",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20230301:ArcSetting myresource1 /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster/arcSettings/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ArcSettingArgs args: The arguments to use to populate this resource's properties.

@@ -199,6 +199,37 @@ class RouteFilterRule(pulumi.CustomResource):
         """
         Route Filter Rule Resource
 
+        ## Example Usage
+        ### RouteFilterRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_filter_rule = azure_native.network.v20171001.RouteFilterRule("routeFilterRule",
+            access="Allow",
+            communities=[
+                "12076:5030",
+                "12076:5040",
+            ],
+            resource_group_name="rg1",
+            route_filter_name="filterName",
+            route_filter_rule_type="Community",
+            rule_name="ruleName",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20171001:RouteFilterRule ruleName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Access']] access: The access type of the rule. Valid values are: 'Allow', 'Deny'
@@ -220,6 +251,37 @@ class RouteFilterRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Route Filter Rule Resource
+
+        ## Example Usage
+        ### RouteFilterRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_filter_rule = azure_native.network.v20171001.RouteFilterRule("routeFilterRule",
+            access="Allow",
+            communities=[
+                "12076:5030",
+                "12076:5040",
+            ],
+            resource_group_name="rg1",
+            route_filter_name="filterName",
+            route_filter_rule_type="Community",
+            rule_name="ruleName",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20171001:RouteFilterRule ruleName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteFilterRuleArgs args: The arguments to use to populate this resource's properties.

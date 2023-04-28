@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Compute.V20200930
 {
     /// <summary>
     /// Specifies information about the gallery image definition that you want to create or update.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery image.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var galleryImage = new AzureNative.Compute.V20200930.GalleryImage("galleryImage", new()
+    ///     {
+    ///         GalleryImageName = "myGalleryImageName",
+    ///         GalleryName = "myGalleryName",
+    ///         HyperVGeneration = "V1",
+    ///         Identifier = new AzureNative.Compute.V20200930.Inputs.GalleryImageIdentifierArgs
+    ///         {
+    ///             Offer = "myOfferName",
+    ///             Publisher = "myPublisherName",
+    ///             Sku = "mySkuName",
+    ///         },
+    ///         Location = "West US",
+    ///         OsState = AzureNative.Compute.V20200930.OperatingSystemStateTypes.Generalized,
+    ///         OsType = AzureNative.Compute.V20200930.OperatingSystemTypes.Windows,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20200930:GalleryImage myGalleryImageName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20200930:GalleryImage")]
     public partial class GalleryImage : global::Pulumi.CustomResource

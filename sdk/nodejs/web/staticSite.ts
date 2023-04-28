@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * Static Site ARM resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a static site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const staticSite = new azure_native.web.StaticSite("staticSite", {
+ *     branch: "master",
+ *     buildProperties: {
+ *         apiLocation: "api",
+ *         appArtifactLocation: "build",
+ *         appLocation: "app",
+ *     },
+ *     location: "West US 2",
+ *     name: "testStaticSite0",
+ *     repositoryToken: "repoToken123",
+ *     repositoryUrl: "https://github.com/username/RepoName",
+ *     resourceGroupName: "rg",
+ *     sku: {
+ *         name: "Basic",
+ *         tier: "Basic",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:StaticSite testStaticSite0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0 
+ * ```
  */
 export class StaticSite extends pulumi.CustomResource {
     /**

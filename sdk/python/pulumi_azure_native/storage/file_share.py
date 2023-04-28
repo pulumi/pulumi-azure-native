@@ -201,6 +201,54 @@ class FileShare(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create NFS Shares
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_share = azure_native.storage.FileShare("fileShare",
+            account_name="sto666",
+            enabled_protocols="NFS",
+            resource_group_name="res346",
+            share_name="share1235")
+
+        ```
+        ### PutShares
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_share = azure_native.storage.FileShare("fileShare",
+            account_name="sto328",
+            resource_group_name="res3376",
+            share_name="share6185")
+
+        ```
+        ### PutShares with Access Tier
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_share = azure_native.storage.FileShare("fileShare",
+            access_tier="Hot",
+            account_name="sto666",
+            resource_group_name="res346",
+            share_name="share1235")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:FileShare share1235 /subscriptions/{subscription-id}/resourceGroups/res346/providers/Microsoft.Storage/storageAccounts/sto666/fileServices/default/shares/share1235 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ShareAccessTier']] access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
@@ -224,6 +272,54 @@ class FileShare(pulumi.CustomResource):
         Properties of the file share, including Id, resource name, resource type, Etag.
         API Version: 2022-09-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create NFS Shares
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_share = azure_native.storage.FileShare("fileShare",
+            account_name="sto666",
+            enabled_protocols="NFS",
+            resource_group_name="res346",
+            share_name="share1235")
+
+        ```
+        ### PutShares
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_share = azure_native.storage.FileShare("fileShare",
+            account_name="sto328",
+            resource_group_name="res3376",
+            share_name="share6185")
+
+        ```
+        ### PutShares with Access Tier
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_share = azure_native.storage.FileShare("fileShare",
+            access_tier="Hot",
+            account_name="sto666",
+            resource_group_name="res346",
+            share_name="share1235")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:FileShare share1235 /subscriptions/{subscription-id}/resourceGroups/res346/providers/Microsoft.Storage/storageAccounts/sto666/fileServices/default/shares/share1235 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FileShareArgs args: The arguments to use to populate this resource's properties.

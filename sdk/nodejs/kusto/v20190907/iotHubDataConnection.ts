@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing an iot hub data connection.
+ *
+ * ## Example Usage
+ * ### KustoDataConnectionsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotHubDataConnection = new azure_native.kusto.v20190907.IotHubDataConnection("iotHubDataConnection", {
+ *     clusterName: "KustoClusterRPTest4",
+ *     dataConnectionName: "DataConnections8",
+ *     databaseName: "KustoDatabase8",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto/v20190907:IotHubDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8/DataConnections/DataConnections8 
+ * ```
  */
 export class IotHubDataConnection extends pulumi.CustomResource {
     /**

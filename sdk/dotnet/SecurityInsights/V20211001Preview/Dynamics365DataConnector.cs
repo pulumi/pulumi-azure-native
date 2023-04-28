@@ -11,6 +11,177 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
 {
     /// <summary>
     /// Represents Dynamics365 data connector.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a APIPolling data connector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dynamics365DataConnector = new AzureNative.SecurityInsights.V20211001Preview.Dynamics365DataConnector("dynamics365DataConnector", new()
+    ///     {
+    ///         DataConnectorId = "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Dynamics365 data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dynamics365DataConnector = new AzureNative.SecurityInsights.V20211001Preview.Dynamics365DataConnector("dynamics365DataConnector", new()
+    ///     {
+    ///         DataConnectorId = "c2541efb-c9a6-47fe-9501-87d1017d1512",
+    ///         DataTypes = new AzureNative.SecurityInsights.V20211001Preview.Inputs.Dynamics365DataConnectorDataTypesArgs
+    ///         {
+    ///             Dynamics365CdsActivities = new AzureNative.SecurityInsights.V20211001Preview.Inputs.Dynamics365DataConnectorDataTypesDynamics365CdsActivitiesArgs
+    ///             {
+    ///                 State = "Enabled",
+    ///             },
+    ///         },
+    ///         Kind = "Dynamics365",
+    ///         ResourceGroupName = "myRg",
+    ///         TenantId = "2070ecc9-b4d5-4ae4-adaa-936fa1954fa8",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a GenericUI data connector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dynamics365DataConnector = new AzureNative.SecurityInsights.V20211001Preview.Dynamics365DataConnector("dynamics365DataConnector", new()
+    ///     {
+    ///         DataConnectorId = "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Threat Intelligence Taxii data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dynamics365DataConnector = new AzureNative.SecurityInsights.V20211001Preview.Dynamics365DataConnector("dynamics365DataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an Office PowerBI data connector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dynamics365DataConnector = new AzureNative.SecurityInsights.V20211001Preview.Dynamics365DataConnector("dynamics365DataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an Office365 Project data connector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dynamics365DataConnector = new AzureNative.SecurityInsights.V20211001Preview.Dynamics365DataConnector("dynamics365DataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an Office365 data connector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dynamics365DataConnector = new AzureNative.SecurityInsights.V20211001Preview.Dynamics365DataConnector("dynamics365DataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an Threat Intelligence Platform data connector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dynamics365DataConnector = new AzureNative.SecurityInsights.V20211001Preview.Dynamics365DataConnector("dynamics365DataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20211001preview:Dynamics365DataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20211001preview:Dynamics365DataConnector")]
     public partial class Dynamics365DataConnector : global::Pulumi.CustomResource

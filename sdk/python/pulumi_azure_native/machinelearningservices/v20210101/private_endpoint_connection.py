@@ -164,6 +164,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### WorkspacePutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.machinelearningservices.v20210101.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            private_link_service_connection_state=azure_native.machinelearningservices.v20210101.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="rg-1234",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210101:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/rg-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: The identity of the resource.
@@ -183,6 +209,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
+
+        ## Example Usage
+        ### WorkspacePutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.machinelearningservices.v20210101.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            private_link_service_connection_state=azure_native.machinelearningservices.v20210101.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="rg-1234",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210101:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/rg-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

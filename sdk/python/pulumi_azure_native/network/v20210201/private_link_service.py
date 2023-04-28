@@ -251,6 +251,58 @@ class PrivateLinkService(pulumi.CustomResource):
         """
         Private link service resource.
 
+        ## Example Usage
+        ### Create private link service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_service = azure_native.network.v20210201.PrivateLinkService("privateLinkService",
+            auto_approval=azure_native.network.v20210201.PrivateLinkServicePropertiesAutoApprovalArgs(
+                subscriptions=[
+                    "subscription1",
+                    "subscription2",
+                ],
+            ),
+            fqdns=[
+                "fqdn1",
+                "fqdn2",
+                "fqdn3",
+            ],
+            ip_configurations=[{
+                "name": "fe-lb",
+                "privateIPAddress": "10.0.1.4",
+                "privateIPAddressVersion": "IPv4",
+                "privateIPAllocationMethod": "Static",
+                "subnet": azure_native.network.v20210201.SubnetArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+                ),
+            }],
+            load_balancer_frontend_ip_configurations=[azure_native.network.v20210201.FrontendIPConfigurationArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+            )],
+            location="eastus",
+            resource_group_name="rg1",
+            service_name="testPls",
+            visibility=azure_native.network.v20210201.PrivateLinkServicePropertiesVisibilityArgs(
+                subscriptions=[
+                    "subscription1",
+                    "subscription2",
+                    "subscription3",
+                ],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201:PrivateLinkService testPls /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateLinkServicePropertiesAutoApprovalArgs']] auto_approval: The auto-approval list of the private link service.
@@ -275,6 +327,58 @@ class PrivateLinkService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private link service resource.
+
+        ## Example Usage
+        ### Create private link service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_service = azure_native.network.v20210201.PrivateLinkService("privateLinkService",
+            auto_approval=azure_native.network.v20210201.PrivateLinkServicePropertiesAutoApprovalArgs(
+                subscriptions=[
+                    "subscription1",
+                    "subscription2",
+                ],
+            ),
+            fqdns=[
+                "fqdn1",
+                "fqdn2",
+                "fqdn3",
+            ],
+            ip_configurations=[{
+                "name": "fe-lb",
+                "privateIPAddress": "10.0.1.4",
+                "privateIPAddressVersion": "IPv4",
+                "privateIPAllocationMethod": "Static",
+                "subnet": azure_native.network.v20210201.SubnetArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+                ),
+            }],
+            load_balancer_frontend_ip_configurations=[azure_native.network.v20210201.FrontendIPConfigurationArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+            )],
+            location="eastus",
+            resource_group_name="rg1",
+            service_name="testPls",
+            visibility=azure_native.network.v20210201.PrivateLinkServicePropertiesVisibilityArgs(
+                subscriptions=[
+                    "subscription1",
+                    "subscription2",
+                    "subscription3",
+                ],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201:PrivateLinkService testPls /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkServiceArgs args: The arguments to use to populate this resource's properties.

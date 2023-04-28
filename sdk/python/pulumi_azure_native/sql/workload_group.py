@@ -194,6 +194,51 @@ class WorkloadGroup(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a workload group with all properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_group = azure_native.sql.WorkloadGroup("workloadGroup",
+            database_name="testdb",
+            importance="normal",
+            max_resource_percent=100,
+            max_resource_percent_per_request=3,
+            min_resource_percent=0,
+            min_resource_percent_per_request=3,
+            query_execution_timeout=0,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            workload_group_name="smallrc")
+
+        ```
+        ### Create a workload group with the required properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_group = azure_native.sql.WorkloadGroup("workloadGroup",
+            database_name="testdb",
+            max_resource_percent=100,
+            min_resource_percent=0,
+            min_resource_percent_per_request=3,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            workload_group_name="smallrc")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:WorkloadGroup smallrc /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb/workloadGroups/smallrc 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database.
@@ -217,6 +262,51 @@ class WorkloadGroup(pulumi.CustomResource):
         Workload group operations for a data warehouse
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a workload group with all properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_group = azure_native.sql.WorkloadGroup("workloadGroup",
+            database_name="testdb",
+            importance="normal",
+            max_resource_percent=100,
+            max_resource_percent_per_request=3,
+            min_resource_percent=0,
+            min_resource_percent_per_request=3,
+            query_execution_timeout=0,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            workload_group_name="smallrc")
+
+        ```
+        ### Create a workload group with the required properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_group = azure_native.sql.WorkloadGroup("workloadGroup",
+            database_name="testdb",
+            max_resource_percent=100,
+            min_resource_percent=0,
+            min_resource_percent_per_request=3,
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            workload_group_name="smallrc")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:WorkloadGroup smallrc /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb/workloadGroups/smallrc 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkloadGroupArgs args: The arguments to use to populate this resource's properties.

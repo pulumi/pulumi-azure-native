@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.Management.V20210401
 {
     /// <summary>
     /// The management group details.
+    /// 
+    /// ## Example Usage
+    /// ### PutManagementGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementGroup = new AzureNative.Management.V20210401.ManagementGroup("managementGroup", new()
+    ///     {
+    ///         Details = new AzureNative.Management.V20210401.Inputs.CreateManagementGroupDetailsArgs
+    ///         {
+    ///             Parent = new AzureNative.Management.V20210401.Inputs.CreateParentGroupInfoArgs
+    ///             {
+    ///                 Id = "/providers/Microsoft.Management/managementGroups/RootGroup",
+    ///             },
+    ///         },
+    ///         DisplayName = "ChildGroup",
+    ///         GroupId = "ChildGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:management/v20210401:ManagementGroup ChildGroup /providers/Microsoft.Management/managementGroups/ChildGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:management/v20210401:ManagementGroup")]
     public partial class ManagementGroup : global::Pulumi.CustomResource

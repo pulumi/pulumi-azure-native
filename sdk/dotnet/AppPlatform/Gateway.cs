@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Spring Cloud Gateway resource
     /// API Version: 2022-12-01.
     /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Gateways_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gateway = new AzureNative.AppPlatform.Gateway("gateway", new()
+    ///     {
+    ///         GatewayName = "default",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.GatewayPropertiesArgs
+    ///         {
+    ///             Public = true,
+    ///             ResourceRequests = new AzureNative.AppPlatform.Inputs.GatewayResourceRequestsArgs
+    ///             {
+    ///                 Cpu = "1",
+    ///                 Memory = "1G",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "E0",
+    ///             Tier = "Enterprise",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:Gateway default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource

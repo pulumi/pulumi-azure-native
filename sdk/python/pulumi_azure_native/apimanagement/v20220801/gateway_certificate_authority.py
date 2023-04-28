@@ -110,6 +110,30 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
         """
         Gateway certificate authority details.
 
+        ## Example Usage
+        ### ApiManagementCreateGatewayCertificateAuthority
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway_certificate_authority = azure_native.apimanagement.v20220801.GatewayCertificateAuthority("gatewayCertificateAuthority",
+            certificate_id="cert1",
+            gateway_id="gw1",
+            is_trusted=False,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:GatewayCertificateAuthority cert1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/certificateAuthorities/cert1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -126,6 +150,30 @@ class GatewayCertificateAuthority(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Gateway certificate authority details.
+
+        ## Example Usage
+        ### ApiManagementCreateGatewayCertificateAuthority
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway_certificate_authority = azure_native.apimanagement.v20220801.GatewayCertificateAuthority("gatewayCertificateAuthority",
+            certificate_id="cert1",
+            gateway_id="gw1",
+            is_trusted=False,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:GatewayCertificateAuthority cert1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/certificateAuthorities/cert1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GatewayCertificateAuthorityArgs args: The arguments to use to populate this resource's properties.

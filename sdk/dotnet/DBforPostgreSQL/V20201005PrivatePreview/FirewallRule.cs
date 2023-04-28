@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 {
     /// <summary>
     /// Represents a server group firewall rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create a firewall rule of the server group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var firewallRule = new AzureNative.DBforPostgreSQL.V20201005PrivatePreview.FirewallRule("firewallRule", new()
+    ///     {
+    ///         EndIpAddress = "255.255.255.255",
+    ///         FirewallRuleName = "rule1",
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerGroupName = "pgtestsvc4",
+    ///         StartIpAddress = "0.0.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule rule1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/pgtestsvc4/firewallRules/rule1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20201005privatepreview:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource

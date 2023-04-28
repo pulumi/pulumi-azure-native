@@ -180,6 +180,48 @@ class Spacecraft(pulumi.CustomResource):
         Customer creates a spacecraft resource to schedule a contact.
         API Version: 2022-11-01.
 
+        ## Example Usage
+        ### Create a spacecraft
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        spacecraft = azure_native.orbital.Spacecraft("spacecraft",
+            links=[
+                azure_native.orbital.SpacecraftLinkArgs(
+                    bandwidth_m_hz=2,
+                    center_frequency_m_hz=2250,
+                    direction="Uplink",
+                    name="uplink_lhcp1",
+                    polarization="LHCP",
+                ),
+                azure_native.orbital.SpacecraftLinkArgs(
+                    bandwidth_m_hz=15,
+                    center_frequency_m_hz=8160,
+                    direction="Downlink",
+                    name="downlink_rhcp1",
+                    polarization="RHCP",
+                ),
+            ],
+            location="eastus2",
+            norad_id="36411",
+            resource_group_name="contoso-Rgp",
+            spacecraft_name="CONTOSO_SAT",
+            title_line="CONTOSO_SAT",
+            tle_line1="1 27424U 02022A   22167.05119303  .00000638  00000+0  15103-3 0  9994",
+            tle_line2="2 27424  98.2477 108.9546 0000928  92.9194 327.0802 14.57300770 69982")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:orbital:Spacecraft CONTOSO_SAT /subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/spacecrafts/CONTOSO_SAT 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]] links: Immutable list of Spacecraft links.
@@ -201,6 +243,48 @@ class Spacecraft(pulumi.CustomResource):
         """
         Customer creates a spacecraft resource to schedule a contact.
         API Version: 2022-11-01.
+
+        ## Example Usage
+        ### Create a spacecraft
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        spacecraft = azure_native.orbital.Spacecraft("spacecraft",
+            links=[
+                azure_native.orbital.SpacecraftLinkArgs(
+                    bandwidth_m_hz=2,
+                    center_frequency_m_hz=2250,
+                    direction="Uplink",
+                    name="uplink_lhcp1",
+                    polarization="LHCP",
+                ),
+                azure_native.orbital.SpacecraftLinkArgs(
+                    bandwidth_m_hz=15,
+                    center_frequency_m_hz=8160,
+                    direction="Downlink",
+                    name="downlink_rhcp1",
+                    polarization="RHCP",
+                ),
+            ],
+            location="eastus2",
+            norad_id="36411",
+            resource_group_name="contoso-Rgp",
+            spacecraft_name="CONTOSO_SAT",
+            title_line="CONTOSO_SAT",
+            tle_line1="1 27424U 02022A   22167.05119303  .00000638  00000+0  15103-3 0  9994",
+            tle_line2="2 27424  98.2477 108.9546 0000928  92.9194 327.0802 14.57300770 69982")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:orbital:Spacecraft CONTOSO_SAT /subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/spacecrafts/CONTOSO_SAT 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SpacecraftArgs args: The arguments to use to populate this resource's properties.

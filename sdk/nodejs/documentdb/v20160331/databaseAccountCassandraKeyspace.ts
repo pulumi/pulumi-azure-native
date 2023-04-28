@@ -10,6 +10,33 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Cassandra keyspace.
  *
+ * ## Example Usage
+ * ### CosmosDBCassandraKeyspaceCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccountCassandraKeyspace = new azure_native.documentdb.v20160331.DatabaseAccountCassandraKeyspace("databaseAccountCassandraKeyspace", {
+ *     accountName: "ddb1",
+ *     keyspaceName: "keyspaceName",
+ *     options: {},
+ *     resource: {
+ *         id: "keyspaceName",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountCassandraKeyspace keyspaceName keyspaceName 
+ * ```
+ *
  * @deprecated Version 2016-03-31 will be removed in v2 of the provider.
  */
 export class DatabaseAccountCassandraKeyspace extends pulumi.CustomResource {

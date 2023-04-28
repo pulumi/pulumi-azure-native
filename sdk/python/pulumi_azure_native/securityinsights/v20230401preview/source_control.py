@@ -229,6 +229,50 @@ class SourceControl(pulumi.CustomResource):
         """
         Represents a SourceControl in Azure Security Insights.
 
+        ## Example Usage
+        ### Creates a source control.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        source_control = azure_native.securityinsights.v20230401preview.SourceControl("sourceControl",
+            content_types=[
+                "AnalyticRules",
+                "Workbook",
+            ],
+            description="This is a source control",
+            display_name="My Source Control",
+            repo_type="Github",
+            repository=azure_native.securityinsights.v20230401preview.RepositoryResponseArgs(
+                branch="master",
+                display_url="https://github.com/user/repo",
+                path_mapping=[
+                    azure_native.securityinsights.v20230401preview.ContentPathMapArgs(
+                        content_type="AnalyticRules",
+                        path="path/to/rules",
+                    ),
+                    azure_native.securityinsights.v20230401preview.ContentPathMapArgs(
+                        content_type="Workbook",
+                        path="path/to/workbooks",
+                    ),
+                ],
+                url="https://github.com/user/repo",
+            ),
+            resource_group_name="myRg",
+            source_control_id="789e0c1f-4a3d-43ad-809c-e713b677b04a",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:SourceControl 789e0c1f-4a3d-43ad-809c-e713b677b04a /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/sourcecontrols/789e0c1f-4a3d-43ad-809c-e713b677b04a 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ContentType']]]] content_types: Array of source control content types.
@@ -252,6 +296,50 @@ class SourceControl(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a SourceControl in Azure Security Insights.
+
+        ## Example Usage
+        ### Creates a source control.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        source_control = azure_native.securityinsights.v20230401preview.SourceControl("sourceControl",
+            content_types=[
+                "AnalyticRules",
+                "Workbook",
+            ],
+            description="This is a source control",
+            display_name="My Source Control",
+            repo_type="Github",
+            repository=azure_native.securityinsights.v20230401preview.RepositoryResponseArgs(
+                branch="master",
+                display_url="https://github.com/user/repo",
+                path_mapping=[
+                    azure_native.securityinsights.v20230401preview.ContentPathMapArgs(
+                        content_type="AnalyticRules",
+                        path="path/to/rules",
+                    ),
+                    azure_native.securityinsights.v20230401preview.ContentPathMapArgs(
+                        content_type="Workbook",
+                        path="path/to/workbooks",
+                    ),
+                ],
+                url="https://github.com/user/repo",
+            ),
+            resource_group_name="myRg",
+            source_control_id="789e0c1f-4a3d-43ad-809c-e713b677b04a",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:SourceControl 789e0c1f-4a3d-43ad-809c-e713b677b04a /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/sourcecontrols/789e0c1f-4a3d-43ad-809c-e713b677b04a 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SourceControlArgs args: The arguments to use to populate this resource's properties.

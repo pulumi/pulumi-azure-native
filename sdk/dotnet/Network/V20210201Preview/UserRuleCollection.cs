@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 {
     /// <summary>
     /// Defines the rule collection.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a User Rule Collection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var userRuleCollection = new AzureNative.Network.V20210201Preview.UserRuleCollection("userRuleCollection", new()
+    ///     {
+    ///         AppliesToGroups = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210201Preview.Inputs.NetworkManagerSecurityGroupItemArgs
+    ///             {
+    ///                 NetworkGroupId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+    ///             },
+    ///         },
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         Description = "A sample policy",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///         RuleCollectionName = "testRuleCollection",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210201preview:UserRuleCollection myTestSecurityConfig /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityUserConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210201preview:UserRuleCollection")]
     public partial class UserRuleCollection : global::Pulumi.CustomResource

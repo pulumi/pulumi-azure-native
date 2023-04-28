@@ -109,7 +109,40 @@ class AzureDevOpsConnector(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a AzureDevOpsConnector resource with the given unique name, props, and options.
+        ## Example Usage
+        ### AzureDevOpsConnector_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_dev_ops_connector = azure_native.securitydevops.v20220901preview.AzureDevOpsConnector("azureDevOpsConnector",
+            azure_dev_ops_connector_name="testconnector",
+            location="West US",
+            properties=azure_native.securitydevops.v20220901preview.AzureDevOpsConnectorPropertiesResponseArgs(
+                authorization=azure_native.securitydevops.v20220901preview.AuthorizationInfoArgs(
+                    code="00000000000000000000",
+                ),
+                orgs=[{
+                    "name": "testOrg",
+                    "projects": [azure_native.securitydevops.v20220901preview.AzureDevOpsProjectMetadataArgs(
+                        name="testProject",
+                        repos=["testRepo"],
+                    )],
+                }],
+            ),
+            resource_group_name="westusrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securitydevops/v20220901preview:AzureDevOpsConnector testconnector /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/westusrg/providers/Microsoft.SecurityDevOps/azureDevOpsConnectors/testconnector 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_dev_ops_connector_name: Name of the AzureDevOps Connector.
@@ -124,7 +157,40 @@ class AzureDevOpsConnector(pulumi.CustomResource):
                  args: AzureDevOpsConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AzureDevOpsConnector resource with the given unique name, props, and options.
+        ## Example Usage
+        ### AzureDevOpsConnector_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_dev_ops_connector = azure_native.securitydevops.v20220901preview.AzureDevOpsConnector("azureDevOpsConnector",
+            azure_dev_ops_connector_name="testconnector",
+            location="West US",
+            properties=azure_native.securitydevops.v20220901preview.AzureDevOpsConnectorPropertiesResponseArgs(
+                authorization=azure_native.securitydevops.v20220901preview.AuthorizationInfoArgs(
+                    code="00000000000000000000",
+                ),
+                orgs=[{
+                    "name": "testOrg",
+                    "projects": [azure_native.securitydevops.v20220901preview.AzureDevOpsProjectMetadataArgs(
+                        name="testProject",
+                        repos=["testRepo"],
+                    )],
+                }],
+            ),
+            resource_group_name="westusrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securitydevops/v20220901preview:AzureDevOpsConnector testconnector /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/westusrg/providers/Microsoft.SecurityDevOps/azureDevOpsConnectors/testconnector 
+        ```
+
         :param str resource_name: The name of the resource.
         :param AzureDevOpsConnectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

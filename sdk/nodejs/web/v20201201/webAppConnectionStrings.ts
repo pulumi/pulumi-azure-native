@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * String dictionary resource.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201201:WebAppConnectionStrings myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/connectionstrings 
+ * ```
  */
 export class WebAppConnectionStrings extends pulumi.CustomResource {
     /**

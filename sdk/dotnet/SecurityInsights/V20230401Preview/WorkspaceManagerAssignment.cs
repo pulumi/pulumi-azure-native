@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
     /// <summary>
     /// The workspace manager assignment
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a workspace manager assignment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceManagerAssignment = new AzureNative.SecurityInsights.V20230401Preview.WorkspaceManagerAssignment("workspaceManagerAssignment", new()
+    ///     {
+    ///         Items = new[]
+    ///         {
+    ///             new AzureNative.SecurityInsights.V20230401Preview.Inputs.AssignmentItemArgs
+    ///             {
+    ///                 ResourceId = "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleOne",
+    ///             },
+    ///             new AzureNative.SecurityInsights.V20230401Preview.Inputs.AssignmentItemArgs
+    ///             {
+    ///                 ResourceId = "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspac-es/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/microsoftSecurityIncidentCreationRuleExampleTwo",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myRg",
+    ///         TargetResourceName = "37207a7a-3b8a-438f-a559-c7df400e1b96",
+    ///         WorkspaceManagerAssignmentName = "47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerAssignment 47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerAssignments/47cdc5f5-37c4-47b5-bd5f-83c84b8bdd58 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:WorkspaceManagerAssignment")]
     public partial class WorkspaceManagerAssignment : global::Pulumi.CustomResource

@@ -9,6 +9,72 @@ import * as utilities from "../../utilities";
 
 /**
  * Action rule object containing target scope, conditions and suppression logic
+ *
+ * ## Example Usage
+ * ### PutActionRule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const actionRuleByName = new azure_native.alertsmanagement.v20190505preview.ActionRuleByName("actionRuleByName", {
+ *     actionRuleName: "DailySuppression",
+ *     location: "Global",
+ *     properties: {
+ *         conditions: {
+ *             monitorCondition: {
+ *                 operator: "Equals",
+ *                 values: ["Fired"],
+ *             },
+ *             monitorService: {
+ *                 operator: "Equals",
+ *                 values: [
+ *                     "Platform",
+ *                     "Application Insights",
+ *                 ],
+ *             },
+ *             severity: {
+ *                 operator: "Equals",
+ *                 values: [
+ *                     "Sev0",
+ *                     "Sev2",
+ *                 ],
+ *             },
+ *             targetResourceType: {
+ *                 operator: "NotEquals",
+ *                 values: ["Microsoft.Compute/VirtualMachines"],
+ *             },
+ *         },
+ *         description: "Action rule on resource group for daily suppression",
+ *         scope: {
+ *             scopeType: "ResourceGroup",
+ *             values: ["/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/alertscorrelationrg"],
+ *         },
+ *         status: "Enabled",
+ *         suppressionConfig: {
+ *             recurrenceType: "Daily",
+ *             schedule: {
+ *                 endDate: "12/18/2018",
+ *                 endTime: "14:00:00",
+ *                 startDate: "12/09/2018",
+ *                 startTime: "06:00:00",
+ *             },
+ *         },
+ *         type: "Suppression",
+ *     },
+ *     resourceGroupName: "alertscorrelationrg",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:alertsmanagement/v20190505preview:ActionRuleByName DailySuppression /subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/alertscorrelationrg/providers/Microsoft.AlertsManagement/actionRules/DailySuppression 
+ * ```
  */
 export class ActionRuleByName extends pulumi.CustomResource {
     /**

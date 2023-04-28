@@ -255,6 +255,47 @@ class MachineExtension(pulumi.CustomResource):
         """
         Describes a Machine Extension.
 
+        ## Example Usage
+        ### Create or Update a Machine Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_extension = azure_native.hybridcompute.v20190802preview.MachineExtension("machineExtension",
+            auto_upgrade_minor_version=True,
+            extension_name="MMA",
+            force_update_tag="false",
+            instance_view=azure_native.hybridcompute.v20190802preview.MachineExtensionInstanceViewResponseArgs(
+                name="string",
+                status=azure_native.hybridcompute.v20190802preview.MachineExtensionInstanceViewStatusArgs(
+                    code="string",
+                    display_status="string",
+                    level=azure_native.hybridcompute/v20190802preview.StatusLevelTypes.INFO,
+                    message="string",
+                    time="2019-08-08T20:36:46.620Z",
+                ),
+                type="string",
+                type_handler_version="string",
+            ),
+            location="string",
+            name="myMachine",
+            protected_settings={},
+            publisher="Publisher1",
+            resource_group_name="myResourceGroup",
+            settings={},
+            type_handler_version="1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute/v20190802preview:MachineExtension string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -279,6 +320,47 @@ class MachineExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Machine Extension.
+
+        ## Example Usage
+        ### Create or Update a Machine Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_extension = azure_native.hybridcompute.v20190802preview.MachineExtension("machineExtension",
+            auto_upgrade_minor_version=True,
+            extension_name="MMA",
+            force_update_tag="false",
+            instance_view=azure_native.hybridcompute.v20190802preview.MachineExtensionInstanceViewResponseArgs(
+                name="string",
+                status=azure_native.hybridcompute.v20190802preview.MachineExtensionInstanceViewStatusArgs(
+                    code="string",
+                    display_status="string",
+                    level=azure_native.hybridcompute/v20190802preview.StatusLevelTypes.INFO,
+                    message="string",
+                    time="2019-08-08T20:36:46.620Z",
+                ),
+                type="string",
+                type_handler_version="string",
+            ),
+            location="string",
+            name="myMachine",
+            protected_settings={},
+            publisher="Publisher1",
+            resource_group_name="myResourceGroup",
+            settings={},
+            type_handler_version="1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute/v20190802preview:MachineExtension string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MachineExtensionArgs args: The arguments to use to populate this resource's properties.

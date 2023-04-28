@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
+    /// 
+    /// ## Example Usage
+    /// ### AFDEndpoints_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var afdEndpoint = new AzureNative.Cdn.V20200901.AFDEndpoint("afdEndpoint", new()
+    ///     {
+    ///         EnabledState = "Enabled",
+    ///         EndpointName = "endpoint1",
+    ///         Location = "CentralUs",
+    ///         OriginResponseTimeoutSeconds = 30,
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20200901:AFDEndpoint endpoint1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:AFDEndpoint")]
     public partial class AFDEndpoint : global::Pulumi.CustomResource

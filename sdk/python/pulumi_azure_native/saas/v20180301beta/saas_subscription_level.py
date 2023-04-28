@@ -132,6 +132,40 @@ class SaasSubscriptionLevel(pulumi.CustomResource):
         """
         SaaS REST API resource definition.
 
+        ## Example Usage
+        ### Create subscription level SaaS resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        saas_subscription_level = azure_native.saas.v20180301beta.SaasSubscriptionLevel("saasSubscriptionLevel",
+            location="global",
+            name="MyContosoSubscription",
+            properties=azure_native.saas.v20180301beta.SaasCreationPropertiesArgs(
+                offer_id="contosoOffer",
+                payment_channel_metadata={
+                    "AzureSubscriptionId": "155af98a-3205-47e7-883b-a2ab9db9f88d",
+                },
+                payment_channel_type="SubscriptionDelegated",
+                publisher_id="microsoft-contoso",
+                saas_resource_name="MyContosoSubscription",
+                sku_id="free",
+                term_id="hjdtn7tfnxcy",
+            ),
+            resource_group_name="my-saas-rg",
+            resource_name_="MyContosoSubscription")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:saas/v20180301beta:SaasSubscriptionLevel MyContosoSubscription /subscriptions/c825645b-e31b-9cf4-1cee-2aba9e58bc7c/resourceGroups/my-saas-rg/providers/Microsoft.SaaS/resources/MyContosoSubscription 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location. Only value allowed for SaaS is 'global'
@@ -149,6 +183,40 @@ class SaasSubscriptionLevel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SaaS REST API resource definition.
+
+        ## Example Usage
+        ### Create subscription level SaaS resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        saas_subscription_level = azure_native.saas.v20180301beta.SaasSubscriptionLevel("saasSubscriptionLevel",
+            location="global",
+            name="MyContosoSubscription",
+            properties=azure_native.saas.v20180301beta.SaasCreationPropertiesArgs(
+                offer_id="contosoOffer",
+                payment_channel_metadata={
+                    "AzureSubscriptionId": "155af98a-3205-47e7-883b-a2ab9db9f88d",
+                },
+                payment_channel_type="SubscriptionDelegated",
+                publisher_id="microsoft-contoso",
+                saas_resource_name="MyContosoSubscription",
+                sku_id="free",
+                term_id="hjdtn7tfnxcy",
+            ),
+            resource_group_name="my-saas-rg",
+            resource_name_="MyContosoSubscription")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:saas/v20180301beta:SaasSubscriptionLevel MyContosoSubscription /subscriptions/c825645b-e31b-9cf4-1cee-2aba9e58bc7c/resourceGroups/my-saas-rg/providers/Microsoft.SaaS/resources/MyContosoSubscription 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SaasSubscriptionLevelArgs args: The arguments to use to populate this resource's properties.

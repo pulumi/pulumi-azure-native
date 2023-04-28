@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Represents a Configuration.
  * API Version: 2022-12-01.
  * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Update a user configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configuration = new azure_native.dbforpostgresql.Configuration("configuration", {
+ *     configurationName: "event_scheduler",
+ *     resourceGroupName: "testrg",
+ *     serverName: "testserver",
+ *     source: "user-override",
+ *     value: "on",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql:Configuration event_scheduler /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/configurations/event_scheduler 
+ * ```
  */
 export class Configuration extends pulumi.CustomResource {
     /**

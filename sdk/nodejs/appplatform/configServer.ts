@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Config Server resource
  * API Version: 2022-12-01.
  * Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ConfigServers_UpdatePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configServer = new azure_native.appplatform.ConfigServer("configServer", {
+ *     properties: {
+ *         configServer: {
+ *             gitProperty: {
+ *                 label: "master",
+ *                 searchPaths: ["/"],
+ *                 uri: "https://github.com/fake-user/fake-repository.git",
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform:ConfigServer default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configServers/default 
+ * ```
  */
 export class ConfigServer extends pulumi.CustomResource {
     /**

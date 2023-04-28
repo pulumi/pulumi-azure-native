@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
 {
     /// <summary>
     /// An Azure Cosmos DB SQL database.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlDatabaseCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccountSqlDatabase = new AzureNative.DocumentDB.V20160331.DatabaseAccountSqlDatabase("databaseAccountSqlDatabase", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseName = "databaseName",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20160331.Inputs.SqlDatabaseResourceArgs
+    ///         {
+    ///             Id = "databaseName",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase databaseName databaseName 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-03-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20160331:DatabaseAccountSqlDatabase")]

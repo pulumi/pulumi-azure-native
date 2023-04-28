@@ -9,6 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### AutomationRules_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var automationRule = new AzureNative.SecurityInsights.V20230401Preview.AutomationRule("automationRule", new()
+    ///     {
+    ///         AutomationRuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:AutomationRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/automationRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:AutomationRule")]
     public partial class AutomationRule : global::Pulumi.CustomResource
     {

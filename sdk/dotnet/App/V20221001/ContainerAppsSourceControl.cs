@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.App.V20221001
 {
     /// <summary>
     /// Container App SourceControl.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Container App SourceControl
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerAppsSourceControl = new AzureNative.App.V20221001.ContainerAppsSourceControl("containerAppsSourceControl", new()
+    ///     {
+    ///         Branch = "master",
+    ///         ContainerAppName = "testcanadacentral",
+    ///         GithubActionConfiguration = new AzureNative.App.V20221001.Inputs.GithubActionConfigurationArgs
+    ///         {
+    ///             AzureCredentials = new AzureNative.App.V20221001.Inputs.AzureCredentialsArgs
+    ///             {
+    ///                 ClientId = "&lt;clientid&gt;",
+    ///                 ClientSecret = "&lt;clientsecret&gt;",
+    ///                 TenantId = "&lt;tenantid&gt;",
+    ///             },
+    ///             ContextPath = "./",
+    ///             Image = "image/tag",
+    ///             RegistryInfo = new AzureNative.App.V20221001.Inputs.RegistryInfoArgs
+    ///             {
+    ///                 RegistryPassword = "&lt;registrypassword&gt;",
+    ///                 RegistryUrl = "xwang971reg.azurecr.io",
+    ///                 RegistryUserName = "xwang971reg",
+    ///             },
+    ///         },
+    ///         RepoUrl = "https://github.com/xwang971/ghatest",
+    ///         ResourceGroupName = "workerapps-rg-xj",
+    ///         SourceControlName = "current",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20221001:ContainerAppsSourceControl current /subscriptions/651f8027-33e8-4ec4-97b4-f6e9f3dc8744/resourceGroups/workerapps-rg-xj/providers/Microsoft.App/containerApps/myapp/sourcecontrols/current 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20221001:ContainerAppsSourceControl")]
     public partial class ContainerAppsSourceControl : global::Pulumi.CustomResource

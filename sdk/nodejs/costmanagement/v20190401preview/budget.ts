@@ -9,6 +9,16 @@ import * as utilities from "../../utilities";
 
 /**
  * A budget resource.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement/v20190401preview:Budget TestBudget subscriptions/{subscription-id}/providers/Microsoft.Consumption/budgets/TestBudget 
+ * ```
  */
 export class Budget extends pulumi.CustomResource {
     /**

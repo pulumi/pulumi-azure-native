@@ -198,6 +198,84 @@ class StorageTarget(pulumi.CustomResource):
         """
         Type of the Storage Target.
 
+        ## Example Usage
+        ### StorageTargets_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_target = azure_native.storagecache.v20210301.StorageTarget("storageTarget",
+            cache_name="sc1",
+            junctions=[
+                azure_native.storagecache.v20210301.NamespaceJunctionArgs(
+                    namespace_path="/path/on/cache",
+                    nfs_access_policy="default",
+                    nfs_export="exp1",
+                    target_path="/path/on/exp1",
+                ),
+                azure_native.storagecache.v20210301.NamespaceJunctionArgs(
+                    namespace_path="/path2/on/cache",
+                    nfs_access_policy="rootSquash",
+                    nfs_export="exp2",
+                    target_path="/path2/on/exp2",
+                ),
+            ],
+            nfs3=azure_native.storagecache.v20210301.Nfs3TargetArgs(
+                target="10.0.44.44",
+                usage_model="READ_HEAVY_INFREQ",
+            ),
+            resource_group_name="scgroup",
+            storage_target_name="st1",
+            target_type="nfs3")
+
+        ```
+        ### StorageTargets_CreateOrUpdate_BlobNfs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_target = azure_native.storagecache.v20210301.StorageTarget("storageTarget",
+            blob_nfs=azure_native.storagecache.v20210301.BlobNfsTargetArgs(
+                target="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/blofnfs/blobServices/default/containers/blobnfs",
+                usage_model="WRITE_WORKLOAD_15",
+            ),
+            cache_name="sc1",
+            junctions=[azure_native.storagecache.v20210301.NamespaceJunctionArgs(
+                namespace_path="/blobnfs",
+            )],
+            resource_group_name="scgroup",
+            storage_target_name="st1",
+            target_type="blobNfs")
+
+        ```
+        ### StorageTargets_CreateOrUpdate_NoJunctions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_target = azure_native.storagecache.v20210301.StorageTarget("storageTarget",
+            cache_name="sc1",
+            nfs3=azure_native.storagecache.v20210301.Nfs3TargetArgs(
+                target="10.0.44.44",
+                usage_model="READ_HEAVY_INFREQ",
+            ),
+            resource_group_name="scgroup",
+            storage_target_name="st1",
+            target_type="nfs3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagecache/v20210301:StorageTarget st1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1/storagetargets/st1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BlobNfsTargetArgs']] blob_nfs: Properties when targetType is blobNfs.
@@ -219,6 +297,84 @@ class StorageTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Type of the Storage Target.
+
+        ## Example Usage
+        ### StorageTargets_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_target = azure_native.storagecache.v20210301.StorageTarget("storageTarget",
+            cache_name="sc1",
+            junctions=[
+                azure_native.storagecache.v20210301.NamespaceJunctionArgs(
+                    namespace_path="/path/on/cache",
+                    nfs_access_policy="default",
+                    nfs_export="exp1",
+                    target_path="/path/on/exp1",
+                ),
+                azure_native.storagecache.v20210301.NamespaceJunctionArgs(
+                    namespace_path="/path2/on/cache",
+                    nfs_access_policy="rootSquash",
+                    nfs_export="exp2",
+                    target_path="/path2/on/exp2",
+                ),
+            ],
+            nfs3=azure_native.storagecache.v20210301.Nfs3TargetArgs(
+                target="10.0.44.44",
+                usage_model="READ_HEAVY_INFREQ",
+            ),
+            resource_group_name="scgroup",
+            storage_target_name="st1",
+            target_type="nfs3")
+
+        ```
+        ### StorageTargets_CreateOrUpdate_BlobNfs
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_target = azure_native.storagecache.v20210301.StorageTarget("storageTarget",
+            blob_nfs=azure_native.storagecache.v20210301.BlobNfsTargetArgs(
+                target="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Storage/storageAccounts/blofnfs/blobServices/default/containers/blobnfs",
+                usage_model="WRITE_WORKLOAD_15",
+            ),
+            cache_name="sc1",
+            junctions=[azure_native.storagecache.v20210301.NamespaceJunctionArgs(
+                namespace_path="/blobnfs",
+            )],
+            resource_group_name="scgroup",
+            storage_target_name="st1",
+            target_type="blobNfs")
+
+        ```
+        ### StorageTargets_CreateOrUpdate_NoJunctions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_target = azure_native.storagecache.v20210301.StorageTarget("storageTarget",
+            cache_name="sc1",
+            nfs3=azure_native.storagecache.v20210301.Nfs3TargetArgs(
+                target="10.0.44.44",
+                usage_model="READ_HEAVY_INFREQ",
+            ),
+            resource_group_name="scgroup",
+            storage_target_name="st1",
+            target_type="nfs3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagecache/v20210301:StorageTarget st1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1/storagetargets/st1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageTargetArgs args: The arguments to use to populate this resource's properties.

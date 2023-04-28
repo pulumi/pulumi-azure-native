@@ -11,6 +11,105 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
 {
     /// <summary>
     /// This type describes a gateway resource.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateGateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gateway = new AzureNative.ServiceFabricMesh.V20180901Preview.Gateway("gateway", new()
+    ///     {
+    ///         Description = "Service Fabric Mesh sample gateway.",
+    ///         DestinationNetwork = new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.NetworkRefArgs
+    ///         {
+    ///             Name = "helloWorldNetwork",
+    ///         },
+    ///         GatewayResourceName = "sampleGateway",
+    ///         Http = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.HttpConfigArgs
+    ///             {
+    ///                 Hosts = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.HttpHostConfigArgs
+    ///                     {
+    ///                         Name = "contoso.com",
+    ///                         Routes = new[]
+    ///                         {
+    ///                             new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.HttpRouteConfigArgs
+    ///                             {
+    ///                                 Destination = new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.GatewayDestinationArgs
+    ///                                 {
+    ///                                     ApplicationName = "httpHelloWorldApp",
+    ///                                     EndpointName = "indexHttpEndpoint",
+    ///                                     ServiceName = "indexService",
+    ///                                 },
+    ///                                 Match = new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.HttpRouteMatchRuleArgs
+    ///                                 {
+    ///                                     Headers = new[]
+    ///                                     {
+    ///                                         new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.HttpRouteMatchHeaderArgs
+    ///                                         {
+    ///                                             Name = "accept",
+    ///                                             Type = "exact",
+    ///                                             Value = "application/json",
+    ///                                         },
+    ///                                     },
+    ///                                     Path = new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.HttpRouteMatchPathArgs
+    ///                                     {
+    ///                                         Rewrite = "/",
+    ///                                         Type = "prefix",
+    ///                                         Value = "/index",
+    ///                                     },
+    ///                                 },
+    ///                                 Name = "index",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Name = "contosoWebsite",
+    ///                 Port = 8081,
+    ///             },
+    ///         },
+    ///         Location = "EastUS",
+    ///         ResourceGroupName = "sbz_demo",
+    ///         SourceNetwork = new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.NetworkRefArgs
+    ///         {
+    ///             Name = "Open",
+    ///         },
+    ///         Tags = null,
+    ///         Tcp = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.TcpConfigArgs
+    ///             {
+    ///                 Destination = new AzureNative.ServiceFabricMesh.V20180901Preview.Inputs.GatewayDestinationArgs
+    ///                 {
+    ///                     ApplicationName = "helloWorldApp",
+    ///                     EndpointName = "helloWorldListener",
+    ///                     ServiceName = "helloWorldService",
+    ///                 },
+    ///                 Name = "web",
+    ///                 Port = 80,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabricmesh/v20180901preview:Gateway sampleGateway /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/gateways/sampleGateway 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180901preview:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource

@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
 {
     /// <summary>
     /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
+    /// 
+    /// ## Example Usage
+    /// ### AFDOriginGroups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var afdOriginGroup = new AzureNative.Cdn.V20221101Preview.AFDOriginGroup("afdOriginGroup", new()
+    ///     {
+    ///         HealthProbeSettings = new AzureNative.Cdn.V20221101Preview.Inputs.HealthProbeParametersArgs
+    ///         {
+    ///             ProbeIntervalInSeconds = 10,
+    ///             ProbePath = "/path2",
+    ///             ProbeProtocol = AzureNative.Cdn.V20221101Preview.ProbeProtocol.NotSet,
+    ///             ProbeRequestType = AzureNative.Cdn.V20221101Preview.HealthProbeRequestType.NotSet,
+    ///         },
+    ///         LoadBalancingSettings = new AzureNative.Cdn.V20221101Preview.Inputs.LoadBalancingSettingsParametersArgs
+    ///         {
+    ///             AdditionalLatencyInMilliseconds = 1000,
+    ///             SampleSize = 3,
+    ///             SuccessfulSamplesRequired = 3,
+    ///         },
+    ///         OriginGroupName = "origingroup1",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         TrafficRestorationTimeToHealedOrNewEndpointsInMinutes = 5,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20221101preview:AFDOriginGroup origingroup1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/origingroups/origingroup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20221101preview:AFDOriginGroup")]
     public partial class AFDOriginGroup : global::Pulumi.CustomResource

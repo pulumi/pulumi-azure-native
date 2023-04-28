@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server firewall rule.
+ *
+ * ## Example Usage
+ * ### FirewallRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallRule = new azure_native.dbformysql.v20180601privatepreview.FirewallRule("firewallRule", {
+ *     endIpAddress: "255.255.255.255",
+ *     firewallRuleName: "rule1",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ *     startIpAddress: "0.0.0.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformysql/v20180601privatepreview:FirewallRule rule1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMySQL/servers/testserver/firewallRules/rule1 
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

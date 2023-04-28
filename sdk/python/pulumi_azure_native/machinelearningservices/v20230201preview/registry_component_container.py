@@ -95,6 +95,37 @@ class RegistryComponentContainer(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Registry Component Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_component_container = azure_native.machinelearningservices.v20230201preview.RegistryComponentContainer("registryComponentContainer",
+            component_container_properties=azure_native.machinelearningservices.v20230201preview.ComponentContainerArgs(
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            component_name="string",
+            registry_name="my-aml-registry",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryComponentContainer string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ComponentContainerArgs']] component_container_properties: [Required] Additional attributes of the entity.
@@ -110,6 +141,37 @@ class RegistryComponentContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Registry Component Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_component_container = azure_native.machinelearningservices.v20230201preview.RegistryComponentContainer("registryComponentContainer",
+            component_container_properties=azure_native.machinelearningservices.v20230201preview.ComponentContainerArgs(
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            component_name="string",
+            registry_name="my-aml-registry",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryComponentContainer string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryComponentContainerArgs args: The arguments to use to populate this resource's properties.

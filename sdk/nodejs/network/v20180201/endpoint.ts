@@ -10,6 +10,53 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Traffic Manager endpoint.
  *
+ * ## Example Usage
+ * ### Endpoint-PUT-External-WithGeoMapping
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const endpoint = new azure_native.network.v20180201.Endpoint("endpoint", {
+ *     endpointName: `My%20external%20endpoint`,
+ *     endpointStatus: "Enabled",
+ *     endpointType: "ExternalEndpoints",
+ *     geoMapping: [
+ *         "GEO-AS",
+ *         "GEO-AF",
+ *     ],
+ *     profileName: "azuresdkfornetautoresttrafficmanager8224",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager2191",
+ *     target: "foobar.contoso.com",
+ * });
+ *
+ * ```
+ * ### Endpoint-PUT-External-WithLocation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const endpoint = new azure_native.network.v20180201.Endpoint("endpoint", {
+ *     endpointLocation: "North Europe",
+ *     endpointName: "azsmnet7187",
+ *     endpointStatus: "Enabled",
+ *     endpointType: "ExternalEndpoints",
+ *     profileName: "azsmnet6386",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager1421",
+ *     target: "foobar.contoso.com",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20180201:Endpoint azsmnet7187 /subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187 
+ * ```
+ *
  * @deprecated Version 2018-02-01 will be removed in v2 of the provider.
  */
 export class Endpoint extends pulumi.CustomResource {

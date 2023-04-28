@@ -125,6 +125,31 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         """
         Describes a federated identity credential.
 
+        ## Example Usage
+        ### FederatedIdentityCredentialCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        federated_identity_credential = azure_native.managedidentity.v20220131preview.FederatedIdentityCredential("federatedIdentityCredential",
+            audiences=["api://AzureADTokenExchange"],
+            federated_identity_credential_resource_name="ficResourceName",
+            issuer="https://oidc.prod-aks.azure.com/IssuerGUID",
+            resource_group_name="rgName",
+            resource_name_="resourceName",
+            subject="system:serviceaccount:ns:svcaccount")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedidentity/v20220131preview:FederatedIdentityCredential ficResourceName /subscriptions/subid/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/federatedIdentityCredentials/ficResourceName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audiences: The list of audiences that can appear in the issued token.
@@ -142,6 +167,31 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a federated identity credential.
+
+        ## Example Usage
+        ### FederatedIdentityCredentialCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        federated_identity_credential = azure_native.managedidentity.v20220131preview.FederatedIdentityCredential("federatedIdentityCredential",
+            audiences=["api://AzureADTokenExchange"],
+            federated_identity_credential_resource_name="ficResourceName",
+            issuer="https://oidc.prod-aks.azure.com/IssuerGUID",
+            resource_group_name="rgName",
+            resource_name_="resourceName",
+            subject="system:serviceaccount:ns:svcaccount")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedidentity/v20220131preview:FederatedIdentityCredential ficResourceName /subscriptions/subid/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/federatedIdentityCredentials/ficResourceName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FederatedIdentityCredentialArgs args: The arguments to use to populate this resource's properties.

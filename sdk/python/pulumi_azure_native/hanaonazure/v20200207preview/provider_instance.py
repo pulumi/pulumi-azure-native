@@ -128,6 +128,31 @@ class ProviderInstance(pulumi.CustomResource):
         """
         A provider instance associated with a SAP monitor.
 
+        ## Example Usage
+        ### Create a SAP Monitor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.hanaonazure.v20200207preview.ProviderInstance("providerInstance",
+            metadata="{\\"key\\":\\"value\\"}",
+            properties="{\\"hostname\\":\\"10.0.0.6\\",\\"dbName\\":\\"SYSTEMDB\\",\\"sqlPort\\":30013,\\"dbUsername\\":\\"SYSTEM\\",\\"dbPassword\\":\\"PASSWORD\\"}",
+            provider_instance_name="myProviderInstance",
+            resource_group_name="myResourceGroup",
+            sap_monitor_name="mySapMonitor",
+            type="hana")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hanaonazure/v20200207preview:ProviderInstance myProviderInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/sapMonitors/mySapMonitor/providerInstances/myProviderInstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metadata: A JSON string containing metadata of the provider instance.
@@ -145,6 +170,31 @@ class ProviderInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A provider instance associated with a SAP monitor.
+
+        ## Example Usage
+        ### Create a SAP Monitor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        provider_instance = azure_native.hanaonazure.v20200207preview.ProviderInstance("providerInstance",
+            metadata="{\\"key\\":\\"value\\"}",
+            properties="{\\"hostname\\":\\"10.0.0.6\\",\\"dbName\\":\\"SYSTEMDB\\",\\"sqlPort\\":30013,\\"dbUsername\\":\\"SYSTEM\\",\\"dbPassword\\":\\"PASSWORD\\"}",
+            provider_instance_name="myProviderInstance",
+            resource_group_name="myResourceGroup",
+            sap_monitor_name="mySapMonitor",
+            type="hana")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hanaonazure/v20200207preview:ProviderInstance myProviderInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/sapMonitors/mySapMonitor/providerInstances/myProviderInstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProviderInstanceArgs args: The arguments to use to populate this resource's properties.

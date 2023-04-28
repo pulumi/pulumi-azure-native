@@ -11,6 +11,64 @@ namespace Pulumi.AzureNative.Compute.V20230301
 {
     /// <summary>
     /// Describes a Virtual Machine run command.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a run command.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineRunCommandByVirtualMachine = new AzureNative.Compute.V20230301.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine", new()
+    ///     {
+    ///         AsyncExecution = false,
+    ///         ErrorBlobUri = "https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt?sp=racw&amp;st=2022-10-07T19:40:21Z&amp;se=2022-10-08T03:40:21Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=b&amp;sig=Yh7B%2Fy83olbYBdfsfbUREvd7ol8Dq5EVP3lAO4Kj4xDcN8%3D",
+    ///         Location = "West US",
+    ///         OutputBlobManagedIdentity = new AzureNative.Compute.V20230301.Inputs.RunCommandManagedIdentityArgs
+    ///         {
+    ///             ClientId = "22d35efb-0c99-4041-8c5b-6d24db33a69a",
+    ///         },
+    ///         OutputBlobUri = "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+    ///         Parameters = new[]
+    ///         {
+    ///             new AzureNative.Compute.V20230301.Inputs.RunCommandInputParameterArgs
+    ///             {
+    ///                 Name = "param1",
+    ///                 Value = "value1",
+    ///             },
+    ///             new AzureNative.Compute.V20230301.Inputs.RunCommandInputParameterArgs
+    ///             {
+    ///                 Name = "param2",
+    ///                 Value = "value2",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RunAsPassword = "&lt;runAsPassword&gt;",
+    ///         RunAsUser = "user1",
+    ///         RunCommandName = "myRunCommand",
+    ///         Source = new AzureNative.Compute.V20230301.Inputs.VirtualMachineRunCommandScriptSourceArgs
+    ///         {
+    ///             ScriptUri = "https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1?sp=r&amp;st=2022-10-07T19:52:54Z&amp;se=2022-10-08T03:52:54Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=b&amp;sig=zfYFYCgea1PqVERZuwJiewrte5gjTnKGtVJngcw5oc828%3D",
+    ///         },
+    ///         TimeoutInSeconds = 3600,
+    ///         TreatFailureAsDeploymentFailure = false,
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/runCommands/myRunCommand 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine")]
     public partial class VirtualMachineRunCommandByVirtualMachine : global::Pulumi.CustomResource

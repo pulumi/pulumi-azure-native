@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
 {
     /// <summary>
     /// Network slice resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create network slice
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var slice = new AzureNative.MobileNetwork.V20220401Preview.Slice("slice", new()
+    ///     {
+    ///         Description = "myFavouriteSlice",
+    ///         Location = "eastus",
+    ///         MobileNetworkName = "testMobileNetwork",
+    ///         ResourceGroupName = "rg1",
+    ///         SliceName = "testSlice",
+    ///         Snssai = new AzureNative.MobileNetwork.V20220401Preview.Inputs.SnssaiArgs
+    ///         {
+    ///             Sd = "1abcde",
+    ///             Sst = 1,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork/v20220401preview:Slice testSlice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220401preview:Slice")]
     public partial class Slice : global::Pulumi.CustomResource

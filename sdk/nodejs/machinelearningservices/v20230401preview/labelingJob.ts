@@ -9,6 +9,84 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Labeling Job.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const labelingJob = new azure_native.machinelearningservices.v20230401preview.LabelingJob("labelingJob", {
+ *     id: "testLabelingJob",
+ *     labelingJobProperties: {
+ *         description: "string",
+ *         jobInstructions: {
+ *             uri: "link/to/instructions",
+ *         },
+ *         jobType: "Labeling",
+ *         labelCategories: {
+ *             myCategory1: {
+ *                 classes: {
+ *                     myLabelClass1: {
+ *                         displayName: "myLabelClass1",
+ *                         subclasses: {},
+ *                     },
+ *                     myLabelClass2: {
+ *                         displayName: "myLabelClass2",
+ *                         subclasses: {},
+ *                     },
+ *                 },
+ *                 displayName: "myCategory1Title",
+ *                 multiSelect: "Disabled",
+ *             },
+ *             myCategory2: {
+ *                 classes: {
+ *                     myLabelClass1: {
+ *                         displayName: "myLabelClass1",
+ *                         subclasses: {},
+ *                     },
+ *                     myLabelClass2: {
+ *                         displayName: "myLabelClass2",
+ *                         subclasses: {},
+ *                     },
+ *                 },
+ *                 displayName: "myCategory2Title",
+ *                 multiSelect: "Disabled",
+ *             },
+ *         },
+ *         labelingJobMediaProperties: {
+ *             mediaType: "Image",
+ *         },
+ *         mlAssistConfiguration: {
+ *             inferencingComputeBinding: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/myscoringcompute",
+ *             mlAssist: "Enabled",
+ *             trainingComputeBinding: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mytrainingompute",
+ *         },
+ *         properties: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         tags: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *     },
+ *     resourceGroupName: "workspace-1234",
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230401preview:LabelingJob testLabelingJob /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/labelingJobs/testLabelingJob 
+ * ```
  */
 export class LabelingJob extends pulumi.CustomResource {
     /**

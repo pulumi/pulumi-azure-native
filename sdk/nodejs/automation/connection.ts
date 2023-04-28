@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Definition of the connection.
  * API Version: 2022-08-08.
  * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connection = new azure_native.automation.Connection("connection", {
+ *     automationAccountName: "myAutomationAccount28",
+ *     connectionName: "mysConnection",
+ *     connectionType: {
+ *         name: "Azure",
+ *     },
+ *     description: "my description goes here",
+ *     fieldDefinitionValues: {
+ *         AutomationCertificateName: "mysCertificateName",
+ *         SubscriptionID: "subid",
+ *     },
+ *     name: "mysConnection",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:Connection mysConnection /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount28/connections/mysConnection 
+ * ```
  */
 export class Connection extends pulumi.CustomResource {
     /**

@@ -10,6 +10,49 @@ import * as utilities from "../utilities";
 /**
  * The RouteMap child resource of a Virtual hub.
  * API Version: 2022-09-01.
+ *
+ * ## Example Usage
+ * ### RouteMapPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const routeMap = new azure_native.network.RouteMap("routeMap", {
+ *     associatedInboundConnections: ["/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteGateways/exrGateway1/expressRouteConnections/exrConn1"],
+ *     associatedOutboundConnections: [],
+ *     resourceGroupName: "rg1",
+ *     routeMapName: "routeMap1",
+ *     rules: [{
+ *         actions: [{
+ *             parameters: [{
+ *                 asPath: ["22334"],
+ *                 community: [],
+ *                 routePrefix: [],
+ *             }],
+ *             type: "Add",
+ *         }],
+ *         matchCriteria: [{
+ *             asPath: [],
+ *             community: [],
+ *             matchCondition: "Contains",
+ *             routePrefix: ["10.0.0.0/8"],
+ *         }],
+ *         name: "rule1",
+ *         nextStepIfMatched: "Continue",
+ *     }],
+ *     virtualHubName: "virtualHub1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:RouteMap routeMap1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1 
+ * ```
  */
 export class RouteMap extends pulumi.CustomResource {
     /**

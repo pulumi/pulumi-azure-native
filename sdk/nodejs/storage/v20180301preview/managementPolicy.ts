@@ -7,6 +7,60 @@ import * as utilities from "../../utilities";
 /**
  * The Get Storage Account ManagementPolicies operation response.
  *
+ * ## Example Usage
+ * ### StorageAccountSetManagementPolicies
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementPolicy = new azure_native.storage.v20180301preview.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [{
+ *             definition: {
+ *                 actions: {
+ *                     baseBlob: {
+ *                         "delete": {
+ *                             daysAfterModificationGreaterThan: 1000,
+ *                         },
+ *                         tierToArchive: {
+ *                             daysAfterModificationGreaterThan: 90,
+ *                         },
+ *                         tierToCool: {
+ *                             daysAfterModificationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     snapshot: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                 },
+ *                 filters: {
+ *                     blobTypes: ["blockBlob"],
+ *                     prefixMatch: ["olcmtestcontainer"],
+ *                 },
+ *             },
+ *             name: "olcmtest",
+ *             type: "Lifecycle",
+ *         }],
+ *         version: "0.5",
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20180301preview:ManagementPolicy DefaultManagementPolicy /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.Storage/storageAccounts/sto288/managementPolicies/default 
+ * ```
+ *
  * @deprecated Version 2018-03-01-preview will be removed in v2 of the provider.
  */
 export class ManagementPolicy extends pulumi.CustomResource {

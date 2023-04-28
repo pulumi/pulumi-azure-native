@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
     /// <summary>
     /// Define the datastore.
+    /// 
+    /// ## Example Usage
+    /// ### CreateDatastore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var datastore = new AzureNative.ConnectedVMwarevSphere.V20201001Preview.Datastore("datastore", new()
+    ///     {
+    ///         DatastoreName = "HRDatastore",
+    ///         ExtendedLocation = new AzureNative.ConnectedVMwarevSphere.V20201001Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+    ///             Type = "customLocation",
+    ///         },
+    ///         Location = "East US",
+    ///         MoRefId = "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    ///         ResourceGroupName = "testrg",
+    ///         VCenterId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:connectedvmwarevsphere/v20201001preview:Datastore HRDatastore /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/Datastores/HRDatastore 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20201001preview:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource

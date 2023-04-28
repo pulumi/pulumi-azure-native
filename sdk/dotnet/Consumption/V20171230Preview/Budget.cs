@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.Consumption.V20171230Preview
 {
     /// <summary>
     /// A budget resource.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateBudget
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var budget = new AzureNative.Consumption.V20171230Preview.Budget("budget", new()
+    ///     {
+    ///         Amount = 100.65,
+    ///         Category = "Cost",
+    ///         ETag = "\"1d34d016a593709\"",
+    ///         Name = "TestBudget",
+    ///         Notifications = 
+    ///         {
+    ///             { "Actual_GreaterThan_80_Percent", new AzureNative.Consumption.V20171230Preview.Inputs.NotificationArgs
+    ///             {
+    ///                 ContactEmails = new[]
+    ///                 {
+    ///                     "johndoe@contoso.com",
+    ///                     "janesmith@contoso.com",
+    ///                 },
+    ///                 ContactRoles = new[]
+    ///                 {
+    ///                     "Contributor",
+    ///                     "Reader",
+    ///                 },
+    ///                 Enabled = true,
+    ///                 Operator = "GreaterThan",
+    ///                 Threshold = 80,
+    ///             } },
+    ///         },
+    ///         TimeGrain = "Monthly",
+    ///         TimePeriod = new AzureNative.Consumption.V20171230Preview.Inputs.BudgetTimePeriodArgs
+    ///         {
+    ///             EndDate = "2018-10-31T00:00:00Z",
+    ///             StartDate = "2017-10-01T00:00:00Z",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:consumption/v20171230preview:Budget TestBudget subscriptions/{subscription-id}/providers/Microsoft.Consumption/budgets/TestBudget 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-12-30-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:consumption/v20171230preview:Budget")]

@@ -250,6 +250,41 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
         """
         Deployment stack object.
 
+        ## Example Usage
+        ### DeploymentStacksCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_stack_at_resource_group = azure_native.resources.v20220801preview.DeploymentStackAtResourceGroup("deploymentStackAtResourceGroup",
+            action_on_unmanage=azure_native.resources.v20220801preview.DeploymentStackPropertiesActionOnUnmanageArgs(
+                management_groups="detach",
+                resource_groups="delete",
+                resources="delete",
+            ),
+            deployment_stack_name="simpleDeploymentStack",
+            location="eastus",
+            parameters={
+                "parameter1": {
+                    "value": "a string",
+                },
+            },
+            resource_group_name="deploymentStacksRG",
+            tags={
+                "tagkey": "tagVal",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20220801preview:DeploymentStackAtResourceGroup simpleDeploymentStack /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/deploymentStacksRG/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DeploymentStackPropertiesActionOnUnmanageArgs']] action_on_unmanage: Defines the behavior of resources that are not managed immediately after the stack is updated.
@@ -274,6 +309,41 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment stack object.
+
+        ## Example Usage
+        ### DeploymentStacksCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_stack_at_resource_group = azure_native.resources.v20220801preview.DeploymentStackAtResourceGroup("deploymentStackAtResourceGroup",
+            action_on_unmanage=azure_native.resources.v20220801preview.DeploymentStackPropertiesActionOnUnmanageArgs(
+                management_groups="detach",
+                resource_groups="delete",
+                resources="delete",
+            ),
+            deployment_stack_name="simpleDeploymentStack",
+            location="eastus",
+            parameters={
+                "parameter1": {
+                    "value": "a string",
+                },
+            },
+            resource_group_name="deploymentStacksRG",
+            tags={
+                "tagkey": "tagVal",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20220801preview:DeploymentStackAtResourceGroup simpleDeploymentStack /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/deploymentStacksRG/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentStackAtResourceGroupArgs args: The arguments to use to populate this resource's properties.

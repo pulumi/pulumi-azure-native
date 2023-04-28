@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.Addons.V20180301
 {
     /// <summary>
     /// The status of the Canonical support plan.
+    /// 
+    /// ## Example Usage
+    /// ### SupportPlanTypes_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var supportPlanType = new AzureNative.Addons.V20180301.SupportPlanType("supportPlanType", new()
+    ///     {
+    ///         PlanTypeName = "Standard",
+    ///         ProviderName = "Canonical",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:addons/v20180301:SupportPlanType Standard subscriptions/d18d258f-bdba-4de1-8b51-e79d6c181d5e/providers/Microsoft.Addons/supportProviders/canonical/supportPlanTypes/Standard 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:addons/v20180301:SupportPlanType")]
     public partial class SupportPlanType : global::Pulumi.CustomResource

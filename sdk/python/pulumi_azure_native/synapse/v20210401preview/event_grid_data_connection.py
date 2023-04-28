@@ -279,6 +279,30 @@ class EventGridDataConnection(pulumi.CustomResource):
         """
         Class representing an Event Grid data connection.
 
+        ## Example Usage
+        ### KustoPoolDataConnectionsCreateOrUpdate.json
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_grid_data_connection = azure_native.synapse.v20210401preview.EventGridDataConnection("eventGridDataConnection",
+            data_connection_name="DataConnections8",
+            database_name="KustoDatabase8",
+            kusto_pool_name="kustoclusterrptest4",
+            resource_group_name="kustorptest",
+            workspace_name="synapseWorkspaceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210401preview:EventGridDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustopools/KustoClusterRPTest4/Databases/KustoDatabase8/DataConnections/DataConnections8 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'BlobStorageEventType']] blob_storage_event_type: The name of blob storage event type to process.
@@ -306,6 +330,30 @@ class EventGridDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an Event Grid data connection.
+
+        ## Example Usage
+        ### KustoPoolDataConnectionsCreateOrUpdate.json
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_grid_data_connection = azure_native.synapse.v20210401preview.EventGridDataConnection("eventGridDataConnection",
+            data_connection_name="DataConnections8",
+            database_name="KustoDatabase8",
+            kusto_pool_name="kustoclusterrptest4",
+            resource_group_name="kustorptest",
+            workspace_name="synapseWorkspaceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210401preview:EventGridDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustopools/KustoClusterRPTest4/Databases/KustoDatabase8/DataConnections/DataConnections8 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventGridDataConnectionArgs args: The arguments to use to populate this resource's properties.

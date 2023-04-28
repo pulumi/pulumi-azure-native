@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection of a provisioning service
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnection_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotDpsResourcePrivateEndpointConnection = new azure_native.devices.v20200301.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection", {
+ *     privateEndpointConnectionName: "myPrivateEndpointConnection",
+ *     properties: {
+ *         privateLinkServiceConnectionState: {
+ *             description: "Approved by johndoe@contoso.com",
+ *             status: "Approved",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myFirstProvisioningService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devices/v20200301:IotDpsResourcePrivateEndpointConnection myPrivateEndpointConnection /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService/PrivateEndpointConnections/myPrivateEndpointConnection 
+ * ```
  */
 export class IotDpsResourcePrivateEndpointConnection extends pulumi.CustomResource {
     /**

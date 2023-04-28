@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.DataMigration.V20180715Preview
 {
     /// <summary>
     /// A file resource
+    /// 
+    /// ## Example Usage
+    /// ### Files_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var file = new AzureNative.DataMigration.V20180715Preview.File("file", new()
+    ///     {
+    ///         FileName = "x114d023d8",
+    ///         GroupName = "DmsSdkRg",
+    ///         ProjectName = "DmsSdkProject",
+    ///         Properties = new AzureNative.DataMigration.V20180715Preview.Inputs.ProjectFilePropertiesArgs
+    ///         {
+    ///             FilePath = "DmsSdkFilePath/DmsSdkFile.sql",
+    ///         },
+    ///         ServiceName = "DmsSdkService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datamigration/v20180715preview:File x114d023d8 /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject/files/x114d023d8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration/v20180715preview:File")]
     public partial class File : global::Pulumi.CustomResource

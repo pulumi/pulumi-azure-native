@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * A secret.
+ *
+ * ## Example Usage
+ * ### Secrets_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const secret = new azure_native.devtestlab.v20180915.Secret("secret", {
+ *     labName: "{labName}",
+ *     name: "{secretName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     userName: "{userName}",
+ *     value: "{secret}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:Secret {secretName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/users/{userName}/secrets/{secretName} 
+ * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

@@ -94,6 +94,28 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create managed server DNS alias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_server_dns_alias = azure_native.sql.ManagedServerDnsAlias("managedServerDnsAlias",
+            dns_alias_name="dns-alias-mi",
+            managed_instance_name="dns-mi",
+            resource_group_name="Default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ManagedServerDnsAlias dns-alias-mi /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/dns-mi/dnsAliases/dns-alias-mi 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_dns_record: Whether or not DNS record should be created for this alias.
@@ -110,6 +132,28 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
         A managed server DNS alias.
         API Version: 2021-11-01.
         Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create managed server DNS alias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_server_dns_alias = azure_native.sql.ManagedServerDnsAlias("managedServerDnsAlias",
+            dns_alias_name="dns-alias-mi",
+            managed_instance_name="dns-mi",
+            resource_group_name="Default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ManagedServerDnsAlias dns-alias-mi /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/dns-mi/dnsAliases/dns-alias-mi 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedServerDnsAliasArgs args: The arguments to use to populate this resource's properties.

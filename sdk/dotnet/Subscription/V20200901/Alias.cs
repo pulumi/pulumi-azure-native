@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Subscription.V20200901
 {
     /// <summary>
     /// Subscription Information with the alias.
+    /// 
+    /// ## Example Usage
+    /// ### CreateAlias
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @alias = new AzureNative.Subscription.V20200901.Alias("alias", new()
+    ///     {
+    ///         AliasName = "aliasForNewSub",
+    ///         Properties = new AzureNative.Subscription.V20200901.Inputs.PutAliasRequestPropertiesArgs
+    ///         {
+    ///             BillingScope = "/providers/Microsoft.Billing/billingAccounts/e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31/billingProfiles/PE2Q-NOIT-BG7-TGB/invoiceSections/MTT4-OBS7-PJA-TGB",
+    ///             DisplayName = "Contoso MCA subscription",
+    ///             Workload = "Production",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:subscription/v20200901:Alias aliasForNewSub /providers/Microsoft.Subscription/aliases/aliasForNewSub 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:subscription/v20200901:Alias")]
     public partial class Alias : global::Pulumi.CustomResource

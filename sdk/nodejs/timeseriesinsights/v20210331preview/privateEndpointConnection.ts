@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnectionUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.timeseriesinsights.v20210331preview.PrivateEndpointConnection("privateEndpointConnection", {
+ *     environmentName: "myEnvironment",
+ *     privateEndpointConnectionName: "myPrivateEndpointConnectionName",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Rejected for some reason",
+ *         status: "Rejected",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection myPrivateEndpointConnectionName /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.TimeSeriesInsights/Environments/myEnvironment/privateEndpointConnections/myPrivateEndpointConnectionName 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

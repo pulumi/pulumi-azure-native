@@ -10,6 +10,31 @@ import * as utilities from "../../utilities";
 /**
  * Description of subscription resource.
  *
+ * ## Example Usage
+ * ### SubscriptionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subscription = new azure_native.servicebus.v20150801.Subscription("subscription", {
+ *     location: "West US",
+ *     namespaceName: "sdk-Namespace2500",
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ *     subscriptionName: "sdk-Subscriptions3374",
+ *     topicName: "sdk-Topics2565",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus/v20150801:Subscription sdk-Subscriptions3374 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace2500/topics/sdk-Topics2565/subscriptions/sdk-Subscriptions3374 
+ * ```
+ *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class Subscription extends pulumi.CustomResource {

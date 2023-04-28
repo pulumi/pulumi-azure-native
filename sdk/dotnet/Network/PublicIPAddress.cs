@@ -13,6 +13,85 @@ namespace Pulumi.AzureNative.Network
     /// Public IP address resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create public IP address DNS
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var publicIPAddress = new AzureNative.Network.PublicIPAddress("publicIPAddress", new()
+    ///     {
+    ///         DnsSettings = new AzureNative.Network.Inputs.PublicIPAddressDnsSettingsArgs
+    ///         {
+    ///             DomainNameLabel = "dnslbl",
+    ///         },
+    ///         Location = "eastus",
+    ///         PublicIpAddressName = "test-ip",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create public IP address allocation method
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var publicIPAddress = new AzureNative.Network.PublicIPAddress("publicIPAddress", new()
+    ///     {
+    ///         IdleTimeoutInMinutes = 10,
+    ///         Location = "eastus",
+    ///         PublicIPAddressVersion = "IPv4",
+    ///         PublicIPAllocationMethod = "Static",
+    ///         PublicIpAddressName = "test-ip",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.Inputs.PublicIPAddressSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///             Tier = "Global",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create public IP address defaults
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var publicIPAddress = new AzureNative.Network.PublicIPAddress("publicIPAddress", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         PublicIpAddressName = "test-ip",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:PublicIPAddress testDNS-ip /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PublicIPAddress")]
     public partial class PublicIPAddress : global::Pulumi.CustomResource

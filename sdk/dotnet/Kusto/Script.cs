@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Kusto
     /// Class representing a database script.
     /// API Version: 2022-12-29.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### KustoScriptsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var script = new AzureNative.Kusto.Script("script", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         ContinueOnErrors = true,
+    ///         DatabaseName = "KustoDatabase8",
+    ///         ForceUpdateTag = "2bcf3c21-ffd1-4444-b9dd-e52e00ee53fe",
+    ///         ResourceGroupName = "kustorptest",
+    ///         ScriptName = "kustoScript",
+    ///         ScriptUrl = "https://mysa.blob.core.windows.net/container/script.txt",
+    ///         ScriptUrlSasToken = "?sv=2019-02-02&amp;st=2019-04-29T22%3A18%3A26Z&amp;se=2019-04-30T02%3A23%3A26Z&amp;sr=b&amp;sp=rw&amp;sip=168.1.5.60-168.1.5.70&amp;spr=https&amp;sig=********************************",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto:Script kustoCluster/KustoDatabase8/kustoScript /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/KustoDatabase8/Scripts/kustoScript 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:Script")]
     public partial class Script : global::Pulumi.CustomResource

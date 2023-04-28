@@ -319,6 +319,29 @@ class CustomIPPrefix(pulumi.CustomResource):
         """
         Custom IP prefix resource.
 
+        ## Example Usage
+        ### Create custom IP prefix allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_ip_prefix = azure_native.network.v20220901.CustomIPPrefix("customIPPrefix",
+            cidr="0.0.0.0/24",
+            custom_ip_prefix_name="test-customipprefix",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:CustomIPPrefix test-customipprefix /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/customIpPrefixes/test-customipprefix 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asn: The ASN for CIDR advertising. Should be an integer as string.
@@ -347,6 +370,29 @@ class CustomIPPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom IP prefix resource.
+
+        ## Example Usage
+        ### Create custom IP prefix allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_ip_prefix = azure_native.network.v20220901.CustomIPPrefix("customIPPrefix",
+            cidr="0.0.0.0/24",
+            custom_ip_prefix_name="test-customipprefix",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:CustomIPPrefix test-customipprefix /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/customIpPrefixes/test-customipprefix 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomIPPrefixArgs args: The arguments to use to populate this resource's properties.

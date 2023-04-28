@@ -162,6 +162,40 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         """
         Class representing an attached database configuration.
 
+        ## Example Usage
+        ### AttachedDatabaseConfigurationsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attached_database_configuration = azure_native.kusto.v20210101.AttachedDatabaseConfiguration("attachedDatabaseConfiguration",
+            attached_database_configuration_name="attachedDatabaseConfigurations1",
+            cluster_name="kustoclusterrptest4",
+            cluster_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterLeader",
+            database_name="kustodatabase",
+            default_principals_modification_kind="Union",
+            location="westus",
+            resource_group_name="kustorptest",
+            table_level_sharing_properties=azure_native.kusto.v20210101.TableLevelSharingPropertiesArgs(
+                external_tables_to_exclude=["ExternalTable2"],
+                external_tables_to_include=["ExternalTable1"],
+                materialized_views_to_exclude=["MaterializedViewTable2"],
+                materialized_views_to_include=["MaterializedViewTable1"],
+                tables_to_exclude=["Table2"],
+                tables_to_include=["Table1"],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210101:AttachedDatabaseConfiguration KustoClusterRPTest4/attachedDatabaseConfigurations1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/attachedDatabaseConfigurations/attachedDatabaseConfigurations1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attached_database_configuration_name: The name of the attached database configuration.
@@ -181,6 +215,40 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an attached database configuration.
+
+        ## Example Usage
+        ### AttachedDatabaseConfigurationsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attached_database_configuration = azure_native.kusto.v20210101.AttachedDatabaseConfiguration("attachedDatabaseConfiguration",
+            attached_database_configuration_name="attachedDatabaseConfigurations1",
+            cluster_name="kustoclusterrptest4",
+            cluster_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterLeader",
+            database_name="kustodatabase",
+            default_principals_modification_kind="Union",
+            location="westus",
+            resource_group_name="kustorptest",
+            table_level_sharing_properties=azure_native.kusto.v20210101.TableLevelSharingPropertiesArgs(
+                external_tables_to_exclude=["ExternalTable2"],
+                external_tables_to_include=["ExternalTable1"],
+                materialized_views_to_exclude=["MaterializedViewTable2"],
+                materialized_views_to_include=["MaterializedViewTable1"],
+                tables_to_exclude=["Table2"],
+                tables_to_include=["Table1"],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210101:AttachedDatabaseConfiguration KustoClusterRPTest4/attachedDatabaseConfigurations1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/attachedDatabaseConfigurations/attachedDatabaseConfigurations1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.

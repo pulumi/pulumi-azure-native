@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * A user-defined logical grouping of machines.
+ *
+ * ## Example Usage
+ * ### SMMachineGroupsUpdatePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineGroup = new azure_native.operationalinsights.v20151101preview.MachineGroup("machineGroup", {
+ *     count: 1,
+ *     displayName: "Foo",
+ *     kind: "machineGroup",
+ *     machineGroupName: "ccfbf4bf-dc08-4371-9e9b-00a8d875d45a",
+ *     machines: [{
+ *         id: "/subscriptions/63BE4E24-FDF0-4E9C-9342-6A5D5A359722/resourceGroups/rg-sm/providers/Microsoft.OperationalInsights/workspaces/D6F79F14-E563-469B-84B5-9286D2803B2F/machines/m-0fe4b501-7ac9-41d7-a4e1-1591a0789519",
+ *         kind: "ref:machinewithhints",
+ *     }],
+ *     resourceGroupName: "rg-sm",
+ *     workspaceName: "D6F79F14-E563-469B-84B5-9286D2803B2F",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights/v20151101preview:MachineGroup ccfbf4bf-dc08-4371-9e9b-00a8d875d45a /subscriptions/63BE4E24-FDF0-4E9C-9342-6A5D5A359722/resourceGroups/rg-sm/providers/Microsoft.OperationalInsights/workspaces/D6F79F14-E563-469B-84B5-9286D2803B2F/machineGroups/ccfbf4bf-dc08-4371-9e9b-00a8d875d45a 
+ * ```
  */
 export class MachineGroup extends pulumi.CustomResource {
     /**

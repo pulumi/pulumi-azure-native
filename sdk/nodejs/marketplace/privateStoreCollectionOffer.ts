@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * The privateStore offer data structure.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PrivateStoreOffer_update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateStoreCollectionOffer = new azure_native.marketplace.PrivateStoreCollectionOffer("privateStoreCollectionOffer", {
+ *     collectionId: "56a1a02d-8cf8-45df-bf37-d5f7120fcb3d",
+ *     eTag: "\"9301f4fd-0000-0100-0000-5e248b350666\"",
+ *     offerId: "marketplacetestthirdparty.md-test-third-party-2",
+ *     privateStoreId: "a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+ *     specificPlanIdsLimitation: [
+ *         "0001",
+ *         "0002",
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:marketplace:PrivateStoreCollectionOffer marketplacetestthirdparty.md-test-third-party-2 /providers/Microsoft.Marketplace/privateStores/a0e28e55-90c4-41d8-8e34-bb7ef7775406/collections/56a1a02d-8cf8-45df-bf37-d5f7120fcb3d/offers/marketplacetestthirdparty.md-test-third-party-2 
+ * ```
  */
 export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
     /**

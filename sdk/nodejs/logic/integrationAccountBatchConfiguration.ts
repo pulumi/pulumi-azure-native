@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * The batch configuration resource definition.
  * API Version: 2019-05-01.
  * Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a batch configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const integrationAccountBatchConfiguration = new azure_native.logic.IntegrationAccountBatchConfiguration("integrationAccountBatchConfiguration", {
+ *     batchConfigurationName: "testBatchConfiguration",
+ *     integrationAccountName: "testIntegrationAccount",
+ *     location: "westus",
+ *     properties: {
+ *         batchGroupName: "DEFAULT",
+ *         releaseCriteria: {
+ *             batchSize: 234567,
+ *             messageCount: 10,
+ *             recurrence: {
+ *                 frequency: "Minute",
+ *                 interval: 1,
+ *                 startTime: "2017-03-24T11:43:00",
+ *                 timeZone: "India Standard Time",
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "testResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic:IntegrationAccountBatchConfiguration testBatchConfiguration /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/batchConfigurations/testBatchConfiguration 
+ * ```
  */
 export class IntegrationAccountBatchConfiguration extends pulumi.CustomResource {
     /**

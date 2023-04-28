@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Api details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGatewayApi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gatewayApiEntityTag = new AzureNative.ApiManagement.V20201201.GatewayApiEntityTag("gatewayApiEntityTag", new()
+    ///     {
+    ///         ApiId = "echo-api",
+    ///         GatewayId = "gw1",
+    ///         ProvisioningState = AzureNative.ApiManagement.V20201201.ProvisioningState.Created,
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:GatewayApiEntityTag echo-api /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/apis/echo-api 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:GatewayApiEntityTag")]
     public partial class GatewayApiEntityTag : global::Pulumi.CustomResource

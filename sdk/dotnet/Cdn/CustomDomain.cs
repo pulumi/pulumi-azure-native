@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.Cdn
     /// Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
     /// API Version: 2021-06-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CustomDomains_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customDomain = new AzureNative.Cdn.CustomDomain("customDomain", new()
+    ///     {
+    ///         CustomDomainName = "www-someDomain-net",
+    ///         EndpointName = "endpoint1",
+    ///         HostName = "www.someDomain.net",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:CustomDomain www-someDomain-net /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customdomains/www-someDomain-net 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:CustomDomain")]
     public partial class CustomDomain : global::Pulumi.CustomResource

@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Define the resourcePool.
+ *
+ * ## Example Usage
+ * ### CreateResourcePool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourcePool = new azure_native.connectedvmwarevsphere.v20201001preview.ResourcePool("resourcePool", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+ *         type: "customLocation",
+ *     },
+ *     location: "East US",
+ *     moRefId: "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+ *     resourceGroupName: "testrg",
+ *     resourcePoolName: "HRPool",
+ *     vCenterId: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:connectedvmwarevsphere/v20201001preview:ResourcePool HRPool /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool 
+ * ```
  */
 export class ResourcePool extends pulumi.CustomResource {
     /**

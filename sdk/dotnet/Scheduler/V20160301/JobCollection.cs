@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Scheduler.V20160301
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scheduler/v20160301:JobCollection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName} 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:scheduler/v20160301:JobCollection")]
     public partial class JobCollection : global::Pulumi.CustomResource
     {

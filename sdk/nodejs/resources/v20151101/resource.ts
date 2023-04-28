@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource information.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources/v20151101:Resource myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName} 
+ * ```
  *
  * @deprecated Version 2015-11-01 will be removed in v2 of the provider.
  */

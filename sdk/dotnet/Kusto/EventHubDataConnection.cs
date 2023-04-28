@@ -13,6 +13,81 @@ namespace Pulumi.AzureNative.Kusto
     /// Class representing an event hub data connection.
     /// API Version: 2022-12-29.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### KustoDataConnectionsCosmosDbCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHubDataConnection = new AzureNative.Kusto.EventHubDataConnection("eventHubDataConnection", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         DataConnectionName = "dataConnectionTest",
+    ///         DatabaseName = "KustoDatabase1",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### KustoDataConnectionsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHubDataConnection = new AzureNative.Kusto.EventHubDataConnection("eventHubDataConnection", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         ConsumerGroup = "testConsumerGroup1",
+    ///         DataConnectionName = "dataConnectionTest",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         EventHubResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
+    ///         Kind = "EventHub",
+    ///         Location = "westus",
+    ///         ManagedIdentityResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.ManagedIdentity/userAssignedIdentities/managedidentityTest1",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### KustoDataConnectionsEventGridCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHubDataConnection = new AzureNative.Kusto.EventHubDataConnection("eventHubDataConnection", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         DataConnectionName = "dataConnectionTest",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto:EventHubDataConnection kustoCluster/KustoDatabase8/dataConnectionTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/KustoDatabase8/DataConnections/KustoDataConnection9 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:EventHubDataConnection")]
     public partial class EventHubDataConnection : global::Pulumi.CustomResource

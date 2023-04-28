@@ -131,6 +131,50 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
         """
         Service End point policy resource.
 
+        ## Example Usage
+        ### Create service endpoint policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint_policy = azure_native.network.v20201101.ServiceEndpointPolicy("serviceEndpointPolicy",
+            location="westus",
+            resource_group_name="rg1",
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+        ### Create service endpoint policy with definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint_policy = azure_native.network.v20201101.ServiceEndpointPolicy("serviceEndpointPolicy",
+            location="westus",
+            resource_group_name="rg1",
+            service_endpoint_policy_definitions=[azure_native.network.v20201101.ServiceEndpointPolicyDefinitionArgs(
+                description="Storage Service EndpointPolicy Definition",
+                name="StorageServiceEndpointPolicyDefinition",
+                service="Microsoft.Storage",
+                service_resources=[
+                    "/subscriptions/subid1",
+                    "/subscriptions/subid1/resourceGroups/storageRg",
+                    "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
+                ],
+            )],
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:ServiceEndpointPolicy testnsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ServiceEndpointPolicies/testpolicy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -148,6 +192,50 @@ class ServiceEndpointPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Service End point policy resource.
+
+        ## Example Usage
+        ### Create service endpoint policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint_policy = azure_native.network.v20201101.ServiceEndpointPolicy("serviceEndpointPolicy",
+            location="westus",
+            resource_group_name="rg1",
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+        ### Create service endpoint policy with definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint_policy = azure_native.network.v20201101.ServiceEndpointPolicy("serviceEndpointPolicy",
+            location="westus",
+            resource_group_name="rg1",
+            service_endpoint_policy_definitions=[azure_native.network.v20201101.ServiceEndpointPolicyDefinitionArgs(
+                description="Storage Service EndpointPolicy Definition",
+                name="StorageServiceEndpointPolicyDefinition",
+                service="Microsoft.Storage",
+                service_resources=[
+                    "/subscriptions/subid1",
+                    "/subscriptions/subid1/resourceGroups/storageRg",
+                    "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
+                ],
+            )],
+            service_endpoint_policy_name="testPolicy")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:ServiceEndpointPolicy testnsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ServiceEndpointPolicies/testpolicy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointPolicyInitArgs args: The arguments to use to populate this resource's properties.

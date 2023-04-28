@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * The base class for backup policy. Workload-specific backup policies are derived from this class.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20160601:ProtectionPolicy myresource1 /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName} 
+ * ```
  *
  * @deprecated Version 2016-06-01 will be removed in v2 of the provider.
  */

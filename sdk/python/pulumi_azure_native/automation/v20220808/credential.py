@@ -142,6 +142,32 @@ class Credential(pulumi.CustomResource):
         """
         Definition of the credential.
 
+        ## Example Usage
+        ### Create a credential
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential = azure_native.automation.v20220808.Credential("credential",
+            automation_account_name="myAutomationAccount18",
+            credential_name="myCredential",
+            description="my description goes here",
+            name="myCredential",
+            password="<password>",
+            resource_group_name="rg",
+            user_name="mylingaiah")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:Credential myCredential /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount18/credentials/myCredential 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -160,6 +186,32 @@ class Credential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the credential.
+
+        ## Example Usage
+        ### Create a credential
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential = azure_native.automation.v20220808.Credential("credential",
+            automation_account_name="myAutomationAccount18",
+            credential_name="myCredential",
+            description="my description goes here",
+            name="myCredential",
+            password="<password>",
+            resource_group_name="rg",
+            user_name="mylingaiah")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:Credential myCredential /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount18/credentials/myCredential 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CredentialArgs args: The arguments to use to populate this resource's properties.

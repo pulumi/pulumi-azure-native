@@ -45,6 +45,25 @@ class Partner(pulumi.CustomResource):
         """
         this is the management partner operations response
 
+        ## Example Usage
+        ### PutPartnerDetails
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner = azure_native.managementpartner.v20180201.Partner("partner", partner_id="123456")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managementpartner/v20180201:Partner 123456 /providers/microsoft.managementpartner/partners/123456 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] partner_id: Id of the Partner
@@ -57,6 +76,25 @@ class Partner(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         this is the management partner operations response
+
+        ## Example Usage
+        ### PutPartnerDetails
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner = azure_native.managementpartner.v20180201.Partner("partner", partner_id="123456")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managementpartner/v20180201:Partner 123456 /providers/microsoft.managementpartner/partners/123456 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PartnerArgs args: The arguments to use to populate this resource's properties.

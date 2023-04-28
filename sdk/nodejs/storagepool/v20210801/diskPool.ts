@@ -9,6 +9,46 @@ import * as utilities from "../../utilities";
 
 /**
  * Response for Disk Pool request.
+ *
+ * ## Example Usage
+ * ### Create or Update Disk pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const diskPool = new azure_native.storagepool.v20210801.DiskPool("diskPool", {
+ *     availabilityZones: ["1"],
+ *     diskPoolName: "myDiskPool",
+ *     disks: [
+ *         {
+ *             id: "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_0",
+ *         },
+ *         {
+ *             id: "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+ *         },
+ *     ],
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Basic_V1",
+ *         tier: "Basic",
+ *     },
+ *     subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagepool/v20210801:DiskPool myDiskPool /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool 
+ * ```
  */
 export class DiskPool extends pulumi.CustomResource {
     /**

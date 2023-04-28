@@ -129,6 +129,32 @@ class Cluster(pulumi.CustomResource):
         """
         A cluster resource
 
+        ## Example Usage
+        ### Clusters_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.avs.v20220501.Cluster("cluster",
+            cluster_name="cluster1",
+            cluster_size=3,
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            sku=azure_native.avs.v20220501.SkuArgs(
+                name="AV20",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20220501:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Name of the cluster in the private cloud
@@ -146,6 +172,32 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A cluster resource
+
+        ## Example Usage
+        ### Clusters_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.avs.v20220501.Cluster("cluster",
+            cluster_name="cluster1",
+            cluster_size=3,
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            sku=azure_native.avs.v20220501.SkuArgs(
+                name="AV20",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20220501:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

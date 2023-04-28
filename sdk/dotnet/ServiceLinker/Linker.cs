@@ -13,6 +13,117 @@ namespace Pulumi.AzureNative.ServiceLinker
     /// Linker of source and target resource
     /// API Version: 2022-05-01.
     /// Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PutLink
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linker = new AzureNative.ServiceLinker.Linker("linker", new()
+    ///     {
+    ///         AuthInfo = new AzureNative.ServiceLinker.Inputs.SecretAuthInfoArgs
+    ///         {
+    ///             AuthType = "secret",
+    ///             Name = "name",
+    ///             SecretInfo = new AzureNative.ServiceLinker.Inputs.ValueSecretInfoArgs
+    ///             {
+    ///                 SecretType = "rawValue",
+    ///                 Value = "secret",
+    ///             },
+    ///         },
+    ///         LinkerName = "linkName",
+    ///         ResourceUri = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+    ///         TargetService = new AzureNative.ServiceLinker.Inputs.AzureResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DBforPostgreSQL/servers/test-pg/databases/test-db",
+    ///             Type = "AzureResource",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutLinkWithSecretStore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linker = new AzureNative.ServiceLinker.Linker("linker", new()
+    ///     {
+    ///         AuthInfo = new AzureNative.ServiceLinker.Inputs.SecretAuthInfoArgs
+    ///         {
+    ///             AuthType = "secret",
+    ///         },
+    ///         LinkerName = "linkName",
+    ///         ResourceUri = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+    ///         SecretStore = new AzureNative.ServiceLinker.Inputs.SecretStoreArgs
+    ///         {
+    ///             KeyVaultId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/test-kv",
+    ///         },
+    ///         TargetService = new AzureNative.ServiceLinker.Inputs.AzureResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+    ///             Type = "AzureResource",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutLinkWithServiceEndpoint
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linker = new AzureNative.ServiceLinker.Linker("linker", new()
+    ///     {
+    ///         AuthInfo = new AzureNative.ServiceLinker.Inputs.SecretAuthInfoArgs
+    ///         {
+    ///             AuthType = "secret",
+    ///             Name = "name",
+    ///             SecretInfo = new AzureNative.ServiceLinker.Inputs.KeyVaultSecretUriSecretInfoArgs
+    ///             {
+    ///                 SecretType = "keyVaultSecretUri",
+    ///                 Value = "https://vault-name.vault.azure.net/secrets/secret-name/00000000000000000000000000000000",
+    ///             },
+    ///         },
+    ///         LinkerName = "linkName",
+    ///         ResourceUri = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+    ///         TargetService = new AzureNative.ServiceLinker.Inputs.AzureResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DBforPostgreSQL/servers/test-pg/databases/test-db",
+    ///             Type = "AzureResource",
+    ///         },
+    ///         VNetSolution = new AzureNative.ServiceLinker.Inputs.VNetSolutionArgs
+    ///         {
+    ///             Type = "serviceEndpoint",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicelinker:Linker linkName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker:Linker")]
     public partial class Linker : global::Pulumi.CustomResource

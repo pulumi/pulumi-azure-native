@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview
 {
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
+    /// 
+    /// ## Example Usage
+    /// ### IotHubResource_CreateEventHubConsumerGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotHubResourceEventHubConsumerGroup = new AzureNative.Devices.V20220430Preview.IotHubResourceEventHubConsumerGroup("iotHubResourceEventHubConsumerGroup", new()
+    ///     {
+    ///         EventHubEndpointName = "events",
+    ///         Name = "test",
+    ///         Properties = new AzureNative.Devices.V20220430Preview.Inputs.EventHubConsumerGroupNameArgs
+    ///         {
+    ///             Name = "test",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "testHub",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup test /subscriptions/cmd-sub-1/resourceGroups/cmd-rg-1/providers/Microsoft.Devices/IotHubs/test-hub-2/eventHubEndpoints/events/ConsumerGroups/%24Default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup")]
     public partial class IotHubResourceEventHubConsumerGroup : global::Pulumi.CustomResource

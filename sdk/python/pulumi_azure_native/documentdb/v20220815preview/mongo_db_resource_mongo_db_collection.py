@@ -180,6 +180,79 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
         """
         An Azure Cosmos DB MongoDB collection.
 
+        ## Example Usage
+        ### CosmosDBMongoDBCollectionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_db_collection = azure_native.documentdb.v20220815preview.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection",
+            account_name="ddb1",
+            collection_name="collectionName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.MongoDBCollectionGetPropertiesResponseResourceArgs(
+                analytical_storage_ttl=500,
+                id="collectionName",
+                indexes=[
+                    {
+                        "key": azure_native.documentdb.v20220815preview.MongoIndexKeysArgs(
+                            keys=["_ts"],
+                        ),
+                        "options": azure_native.documentdb.v20220815preview.MongoIndexOptionsArgs(
+                            expire_after_seconds=100,
+                            unique=True,
+                        ),
+                    },
+                    {
+                        "key": azure_native.documentdb.v20220815preview.MongoIndexKeysArgs(
+                            keys=["_id"],
+                        ),
+                    },
+                ],
+                shard_key={
+                    "testKey": "Hash",
+                },
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+        ### CosmosDBMongoDBCollectionRestore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_db_collection = azure_native.documentdb.v20220815preview.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection",
+            account_name="ddb1",
+            collection_name="collectionName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.MongoDBCollectionGetPropertiesResponseResourceArgs(
+                create_mode="Restore",
+                id="collectionName",
+                restore_parameters=azure_native.documentdb.v20220815preview.ResourceRestoreParametersArgs(
+                    restore_source="/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+                    restore_timestamp_in_utc="2022-07-20T18:28:00Z",
+                ),
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection collectionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/mongodbDatabases/databaseName/mongodbCollections/collectionName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -200,6 +273,79 @@ class MongoDBResourceMongoDBCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB MongoDB collection.
+
+        ## Example Usage
+        ### CosmosDBMongoDBCollectionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_db_collection = azure_native.documentdb.v20220815preview.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection",
+            account_name="ddb1",
+            collection_name="collectionName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.MongoDBCollectionGetPropertiesResponseResourceArgs(
+                analytical_storage_ttl=500,
+                id="collectionName",
+                indexes=[
+                    {
+                        "key": azure_native.documentdb.v20220815preview.MongoIndexKeysArgs(
+                            keys=["_ts"],
+                        ),
+                        "options": azure_native.documentdb.v20220815preview.MongoIndexOptionsArgs(
+                            expire_after_seconds=100,
+                            unique=True,
+                        ),
+                    },
+                    {
+                        "key": azure_native.documentdb.v20220815preview.MongoIndexKeysArgs(
+                            keys=["_id"],
+                        ),
+                    },
+                ],
+                shard_key={
+                    "testKey": "Hash",
+                },
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+        ### CosmosDBMongoDBCollectionRestore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_db_collection = azure_native.documentdb.v20220815preview.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection",
+            account_name="ddb1",
+            collection_name="collectionName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.MongoDBCollectionGetPropertiesResponseResourceArgs(
+                create_mode="Restore",
+                id="collectionName",
+                restore_parameters=azure_native.documentdb.v20220815preview.ResourceRestoreParametersArgs(
+                    restore_source="/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+                    restore_timestamp_in_utc="2022-07-20T18:28:00Z",
+                ),
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:MongoDBResourceMongoDBCollection collectionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/mongodbDatabases/databaseName/mongodbCollections/collectionName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MongoDBResourceMongoDBCollectionArgs args: The arguments to use to populate this resource's properties.

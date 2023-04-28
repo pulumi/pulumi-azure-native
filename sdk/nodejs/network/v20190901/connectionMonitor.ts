@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about the connection monitor.
+ *
+ * ## Example Usage
+ * ### Create connection monitor
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectionMonitor = new azure_native.network.v20190901.ConnectionMonitor("connectionMonitor", {
+ *     connectionMonitorName: "cm1",
+ *     destination: {
+ *         address: "bing.com",
+ *         port: 80,
+ *     },
+ *     location: "eastus",
+ *     monitoringIntervalInSeconds: 60,
+ *     networkWatcherName: "nw1",
+ *     resourceGroupName: "rg1",
+ *     source: {
+ *         resourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20190901:ConnectionMonitor cm1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1 
+ * ```
  */
 export class ConnectionMonitor extends pulumi.CustomResource {
     /**

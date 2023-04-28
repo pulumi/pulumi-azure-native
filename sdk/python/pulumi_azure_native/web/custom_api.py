@@ -134,6 +134,37 @@ class CustomApi(pulumi.CustomResource):
         API Version: 2016-06-01.
         Previous API Version: 2016-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Replace a custom API
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_api = azure_native.web.CustomApi("customApi",
+            api_name="testCustomApi",
+            properties=azure_native.web.CustomApiPropertiesDefinitionResponseArgs(
+                api_definitions=azure_native.web.ApiResourceDefinitionsArgs(
+                    original_swagger_url="https://tempuri.org/swagger.json",
+                ),
+                api_type="Rest",
+                capabilities=[],
+                description="",
+                display_name="testCustomApi",
+                icon_uri="/testIcon.svg",
+            ),
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:CustomApi testCustomApi /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testCustomApi 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_name: API name
@@ -153,6 +184,37 @@ class CustomApi(pulumi.CustomResource):
         A custom API
         API Version: 2016-06-01.
         Previous API Version: 2016-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Replace a custom API
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_api = azure_native.web.CustomApi("customApi",
+            api_name="testCustomApi",
+            properties=azure_native.web.CustomApiPropertiesDefinitionResponseArgs(
+                api_definitions=azure_native.web.ApiResourceDefinitionsArgs(
+                    original_swagger_url="https://tempuri.org/swagger.json",
+                ),
+                api_type="Rest",
+                capabilities=[],
+                description="",
+                display_name="testCustomApi",
+                icon_uri="/testIcon.svg",
+            ),
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:CustomApi testCustomApi /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testCustomApi 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomApiArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiOperationPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiOperationPolicy = new azure_native.apimanagement.v20180601preview.ApiOperationPolicy("apiOperationPolicy", {
+ *     apiId: "5600b57e7e8880006a040001",
+ *     contentFormat: "xml",
+ *     operationId: "5600b57e7e8880006a080001",
+ *     policyContent: "<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+ *     policyId: "policy",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20180601preview:ApiOperationPolicy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/5600b57e7e8880006a040001/operations/5600b57e7e8880006a080001/policies/policy 
+ * ```
  */
 export class ApiOperationPolicy extends pulumi.CustomResource {
     /**

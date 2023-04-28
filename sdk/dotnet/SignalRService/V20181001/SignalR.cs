@@ -11,6 +11,65 @@ namespace Pulumi.AzureNative.SignalRService.V20181001
 {
     /// <summary>
     /// A class represent a SignalR service resource.
+    /// 
+    /// ## Example Usage
+    /// ### SignalR_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var signalR = new AzureNative.SignalRService.V20181001.SignalR("signalR", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.SignalRService.V20181001.Inputs.SignalRCreateOrUpdatePropertiesArgs
+    ///         {
+    ///             Cors = new AzureNative.SignalRService.V20181001.Inputs.SignalRCorsSettingsArgs
+    ///             {
+    ///                 AllowedOrigins = new[]
+    ///                 {
+    ///                     "https://foo.com",
+    ///                     "https://bar.com",
+    ///                 },
+    ///             },
+    ///             Features = new[]
+    ///             {
+    ///                 new AzureNative.SignalRService.V20181001.Inputs.SignalRFeatureArgs
+    ///                 {
+    ///                     Flag = "ServiceMode",
+    ///                     Properties = null,
+    ///                     Value = "Serverless",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "mySignalRService",
+    ///         Sku = new AzureNative.SignalRService.V20181001.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Standard_S1",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:signalrservice/v20181001:SignalR mySignalRService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:signalrservice/v20181001:SignalR")]

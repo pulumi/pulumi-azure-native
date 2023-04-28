@@ -133,6 +133,35 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### NameSpacePrivateEndPointConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.relay.PrivateEndpointConnection("privateEndpointConnection",
+            namespace_name="example-RelayNamespace-5849",
+            private_endpoint=azure_native.relay.PrivateEndpointArgs(
+                id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+            ),
+            private_endpoint_connection_name="{privateEndpointConnection name}",
+            private_link_service_connection_state=azure_native.relay.ConnectionStateArgs(
+                description="You may pass",
+                status="Approved",
+            ),
+            resource_group_name="resourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:PrivateEndpointConnection {privateEndpointConnection name} /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/alitest/providers/Microsoft.Relay/namespaces/relay-private-endpoint-test/privateEndpointConnections/{privateEndpointConnection name} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] namespace_name: The namespace name
@@ -152,6 +181,35 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Properties of the PrivateEndpointConnection.
         API Version: 2021-11-01.
         Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### NameSpacePrivateEndPointConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.relay.PrivateEndpointConnection("privateEndpointConnection",
+            namespace_name="example-RelayNamespace-5849",
+            private_endpoint=azure_native.relay.PrivateEndpointArgs(
+                id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+            ),
+            private_endpoint_connection_name="{privateEndpointConnection name}",
+            private_link_service_connection_state=azure_native.relay.ConnectionStateArgs(
+                description="You may pass",
+                status="Approved",
+            ),
+            resource_group_name="resourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:PrivateEndpointConnection {privateEndpointConnection name} /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/alitest/providers/Microsoft.Relay/namespaces/relay-private-endpoint-test/privateEndpointConnections/{privateEndpointConnection name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

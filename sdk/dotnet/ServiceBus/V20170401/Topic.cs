@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
 {
     /// <summary>
     /// Description of topic resource.
+    /// 
+    /// ## Example Usage
+    /// ### TopicCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var topic = new AzureNative.ServiceBus.V20170401.Topic("topic", new()
+    ///     {
+    ///         EnableExpress = true,
+    ///         NamespaceName = "sdk-Namespace-1617",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///         TopicName = "sdk-Topics-5488",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20170401:Topic sdk-Topics-5488 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1617/topics/sdk-Topics-5488 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20170401:Topic")]
     public partial class Topic : global::Pulumi.CustomResource

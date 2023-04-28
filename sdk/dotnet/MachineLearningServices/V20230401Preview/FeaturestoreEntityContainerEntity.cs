@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Workspace Featurestore Entity Container.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var featurestoreEntityContainerEntity = new AzureNative.MachineLearningServices.V20230401Preview.FeaturestoreEntityContainerEntity("featurestoreEntityContainerEntity", new()
+    ///     {
+    ///         FeaturestoreEntityContainerProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.FeaturestoreEntityContainerArgs
+    ///         {
+    ///             Description = "string",
+    ///             IsArchived = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:FeaturestoreEntityContainerEntity string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:FeaturestoreEntityContainerEntity")]
     public partial class FeaturestoreEntityContainerEntity : global::Pulumi.CustomResource

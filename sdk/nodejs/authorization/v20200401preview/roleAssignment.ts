@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Role Assignments
+ *
+ * ## Example Usage
+ * ### Create role assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignment = new azure_native.authorization.v20200401preview.RoleAssignment("roleAssignment", {
+ *     canDelegate: false,
+ *     condition: "@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'",
+ *     conditionVersion: "1.0",
+ *     description: "Grants UserFoo role assignment bar in scope baz",
+ *     principalId: "d93a38bc-d029-4160-bfb0-fbda779ac214",
+ *     principalType: "User",
+ *     roleAssignmentName: "roleAssignmentName",
+ *     roleDefinitionId: "/subscriptions/4004a9fd-d58e-48dc-aeb2-4a4aec58606f/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772",
+ *     scope: "scope",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20200401preview:RoleAssignment roleassignmentId /subscriptions/subId/resourcegroups/rgname/providers/Microsoft.Authorization/roleAssignments/roleassignmentId 
+ * ```
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**

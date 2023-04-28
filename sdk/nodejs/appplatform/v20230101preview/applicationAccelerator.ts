@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Application accelerator resource
+ *
+ * ## Example Usage
+ * ### ApplicationAccelerators_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationAccelerator = new azure_native.appplatform.v20230101preview.ApplicationAccelerator("applicationAccelerator", {
+ *     applicationAcceleratorName: "default",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "E0",
+ *         tier: "Enterprise",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230101preview:ApplicationAccelerator default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationAccelerators/default 
+ * ```
  */
 export class ApplicationAccelerator extends pulumi.CustomResource {
     /**

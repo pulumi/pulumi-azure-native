@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Integration runtime resource type.
  * API Version: 2021-06-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create integration runtime
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const integrationRuntime = new azure_native.synapse.IntegrationRuntime("integrationRuntime", {
+ *     integrationRuntimeName: "exampleIntegrationRuntime",
+ *     properties: {
+ *         description: "A selfhosted integration runtime",
+ *         type: "SelfHosted",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ *     workspaceName: "exampleWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:IntegrationRuntime exampleIntegrationRuntime /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Synapse/workspaces/exampleWorkspaceName/integrationruntimes/exampleIntegrationRuntime 
+ * ```
  */
 export class IntegrationRuntime extends pulumi.CustomResource {
     /**

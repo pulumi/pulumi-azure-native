@@ -355,6 +355,63 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create ExpressRouteCircuit
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit = azure_native.network.ExpressRouteCircuit("expressRouteCircuit",
+            allow_classic_operations=False,
+            authorizations=[],
+            circuit_name="circuitName",
+            location="Brazil South",
+            peerings=[],
+            resource_group_name="rg1",
+            service_provider_properties=azure_native.network.ExpressRouteCircuitServiceProviderPropertiesArgs(
+                bandwidth_in_mbps=200,
+                peering_location="Silicon Valley",
+                service_provider_name="Equinix",
+            ),
+            sku=azure_native.network.ExpressRouteCircuitSkuArgs(
+                family="MeteredData",
+                name="Standard_MeteredData",
+                tier="Standard",
+            ))
+
+        ```
+        ### Create ExpressRouteCircuit on ExpressRoutePort
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit = azure_native.network.ExpressRouteCircuit("expressRouteCircuit",
+            authorization_key="b0be57f5-1fba-463b-adec-ffe767354cdd",
+            bandwidth_in_gbps=10,
+            circuit_name="expressRouteCircuit1",
+            express_route_port=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName",
+            ),
+            location="westus",
+            resource_group_name="rg1",
+            sku=azure_native.network.ExpressRouteCircuitSkuArgs(
+                family="MeteredData",
+                name="Premium_MeteredData",
+                tier="Premium",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRouteCircuit expressRouteCircuit1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuit1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_classic_operations: Allow classic operations.
@@ -387,6 +444,63 @@ class ExpressRouteCircuit(pulumi.CustomResource):
         ExpressRouteCircuit resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create ExpressRouteCircuit
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit = azure_native.network.ExpressRouteCircuit("expressRouteCircuit",
+            allow_classic_operations=False,
+            authorizations=[],
+            circuit_name="circuitName",
+            location="Brazil South",
+            peerings=[],
+            resource_group_name="rg1",
+            service_provider_properties=azure_native.network.ExpressRouteCircuitServiceProviderPropertiesArgs(
+                bandwidth_in_mbps=200,
+                peering_location="Silicon Valley",
+                service_provider_name="Equinix",
+            ),
+            sku=azure_native.network.ExpressRouteCircuitSkuArgs(
+                family="MeteredData",
+                name="Standard_MeteredData",
+                tier="Standard",
+            ))
+
+        ```
+        ### Create ExpressRouteCircuit on ExpressRoutePort
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit = azure_native.network.ExpressRouteCircuit("expressRouteCircuit",
+            authorization_key="b0be57f5-1fba-463b-adec-ffe767354cdd",
+            bandwidth_in_gbps=10,
+            circuit_name="expressRouteCircuit1",
+            express_route_port=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName",
+            ),
+            location="westus",
+            resource_group_name="rg1",
+            sku=azure_native.network.ExpressRouteCircuitSkuArgs(
+                family="MeteredData",
+                name="Premium_MeteredData",
+                tier="Premium",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRouteCircuit expressRouteCircuit1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuit1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitArgs args: The arguments to use to populate this resource's properties.

@@ -12,6 +12,49 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
     /// <summary>
     /// The task run that has the ARM resource and properties.
     /// The task run will have the information of request and result of a run.
+    /// 
+    /// ## Example Usage
+    /// ### TaskRuns_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var taskRun = new AzureNative.ContainerRegistry.V20190601Preview.TaskRun("taskRun", new()
+    ///     {
+    ///         ForceUpdateTag = "test",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RunRequest = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.EncodedTaskRunRequestArgs
+    ///         {
+    ///             Credentials = null,
+    ///             EncodedTaskContent = "c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K",
+    ///             EncodedValuesContent = "Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==",
+    ///             Platform = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.PlatformPropertiesArgs
+    ///             {
+    ///                 Architecture = "amd64",
+    ///                 Os = "Linux",
+    ///             },
+    ///             Type = "EncodedTaskRunRequest",
+    ///             Values = new[] {},
+    ///         },
+    ///         TaskRunName = "myRun",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20190601preview:TaskRun myrun /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/taskRuns/myRun 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20190601preview:TaskRun")]
     public partial class TaskRun : global::Pulumi.CustomResource

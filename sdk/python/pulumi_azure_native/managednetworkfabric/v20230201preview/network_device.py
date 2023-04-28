@@ -179,6 +179,36 @@ class NetworkDevice(pulumi.CustomResource):
         """
         The NetworkDevice resource definition.
 
+        ## Example Usage
+        ### NetworkDevices_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_device = azure_native.managednetworkfabric.v20230201preview.NetworkDevice("networkDevice",
+            annotation="null",
+            host_name="networkDeviceName",
+            location="eastus",
+            network_device_name="networkDeviceName",
+            network_device_role="CE",
+            network_device_sku="DefaultSku",
+            resource_group_name="resourceGroupName",
+            serial_number="Arista;DCS-7280PR3-24;12.05;JPE21330382",
+            tags={
+                "keyID": "keyValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkDevice networkDeviceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/networkDeviceName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
@@ -199,6 +229,36 @@ class NetworkDevice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NetworkDevice resource definition.
+
+        ## Example Usage
+        ### NetworkDevices_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_device = azure_native.managednetworkfabric.v20230201preview.NetworkDevice("networkDevice",
+            annotation="null",
+            host_name="networkDeviceName",
+            location="eastus",
+            network_device_name="networkDeviceName",
+            network_device_role="CE",
+            network_device_sku="DefaultSku",
+            resource_group_name="resourceGroupName",
+            serial_number="Arista;DCS-7280PR3-24;12.05;JPE21330382",
+            tags={
+                "keyID": "keyValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkDevice networkDeviceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/networkDeviceName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkDeviceArgs args: The arguments to use to populate this resource's properties.

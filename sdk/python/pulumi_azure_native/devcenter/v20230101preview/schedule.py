@@ -193,6 +193,34 @@ class Schedule(pulumi.CustomResource):
         """
         Represents a Schedule to execute a task.
 
+        ## Example Usage
+        ### Schedules_CreateDailyShutdownPoolSchedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.devcenter.v20230101preview.Schedule("schedule",
+            frequency="Daily",
+            pool_name="DevPool",
+            project_name="DevProject",
+            resource_group_name="rg1",
+            schedule_name="autoShutdown",
+            state="Enabled",
+            time="17:30",
+            time_zone="America/Los_Angeles",
+            type="StopDevBox")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:Schedule autoShutdown /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/TestProject/pools/DevPool/schedules/autoShutdown 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ScheduledFrequency']] frequency: The frequency of this scheduled task.
@@ -214,6 +242,34 @@ class Schedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Schedule to execute a task.
+
+        ## Example Usage
+        ### Schedules_CreateDailyShutdownPoolSchedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.devcenter.v20230101preview.Schedule("schedule",
+            frequency="Daily",
+            pool_name="DevPool",
+            project_name="DevProject",
+            resource_group_name="rg1",
+            schedule_name="autoShutdown",
+            state="Enabled",
+            time="17:30",
+            time_zone="America/Los_Angeles",
+            type="StopDevBox")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:Schedule autoShutdown /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/TestProject/pools/DevPool/schedules/autoShutdown 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

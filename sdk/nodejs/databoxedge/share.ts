@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * Represents a share on the  Data Box Edge/Gateway device.
  * API Version: 2022-03-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### SharePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const share = new azure_native.databoxedge.Share("share", {
+ *     accessProtocol: "SMB",
+ *     azureContainerInfo: {
+ *         containerName: "testContainerSMB",
+ *         dataFormat: "BlockBlob",
+ *         storageAccountCredentialId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+ *     },
+ *     dataPolicy: "Cloud",
+ *     description: "",
+ *     deviceName: "testedgedevice",
+ *     monitoringStatus: "Enabled",
+ *     name: "smbshare",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     shareStatus: "Online",
+ *     userAccessRights: [{
+ *         accessType: "Change",
+ *         userId: "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge:Share smbshare /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/smbshare 
+ * ```
  */
 export class Share extends pulumi.CustomResource {
     /**

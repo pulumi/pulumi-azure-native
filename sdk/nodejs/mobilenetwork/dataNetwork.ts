@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Data network resource. Must be created in the same location as its parent mobile network.
  * API Version: 2022-11-01.
  * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create data network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataNetwork = new azure_native.mobilenetwork.DataNetwork("dataNetwork", {
+ *     dataNetworkName: "testDataNetwork",
+ *     description: "myFavouriteDataNetwork",
+ *     location: "eastus",
+ *     mobileNetworkName: "testMobileNetwork",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork:DataNetwork testDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testDataNetwork 
+ * ```
  */
 export class DataNetwork extends pulumi.CustomResource {
     /**

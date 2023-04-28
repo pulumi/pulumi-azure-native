@@ -113,6 +113,28 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         """
         Static Site Custom Domain Overview ARM resource.
 
+        ## Example Usage
+        ### Create or update a custom domain for a static site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site_custom_domain = azure_native.web.v20220901.StaticSiteCustomDomain("staticSiteCustomDomain",
+            domain_name="custom.domain.net",
+            name="testStaticSite0",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:StaticSiteCustomDomain myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSitesBuilds/testStaticSite0/customDomains/custom.domain.net 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] domain_name: The custom domain to create.
@@ -129,6 +151,28 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Static Site Custom Domain Overview ARM resource.
+
+        ## Example Usage
+        ### Create or update a custom domain for a static site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site_custom_domain = azure_native.web.v20220901.StaticSiteCustomDomain("staticSiteCustomDomain",
+            domain_name="custom.domain.net",
+            name="testStaticSite0",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:StaticSiteCustomDomain myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSitesBuilds/testStaticSite0/customDomains/custom.domain.net 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StaticSiteCustomDomainArgs args: The arguments to use to populate this resource's properties.

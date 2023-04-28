@@ -6,6 +6,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiTagDescription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiTagDescription = new azure_native.apimanagement.v20201201.ApiTagDescription("apiTagDescription", {
+ *     apiId: "5931a75ae4bbd512a88c680b",
+ *     description: "Some description that will be displayed for operation's tag if the tag is assigned to operation of the API",
+ *     externalDocsDescription: "Description of the external docs resource",
+ *     externalDocsUrl: "http://some.url/additionaldoc",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     tagDescriptionId: "tagId1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:ApiTagDescription tagId1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/5931a75ae4bbd512a88c680b/tagDescriptions/tagId1 
+ * ```
  */
 export class ApiTagDescription extends pulumi.CustomResource {
     /**

@@ -230,6 +230,13 @@ class WebAppHybridConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppHybridConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,6 +262,13 @@ class WebAppHybridConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Hybrid Connection contract. This is used to configure a Hybrid Connection.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppHybridConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppHybridConnectionArgs args: The arguments to use to populate this resource's properties.

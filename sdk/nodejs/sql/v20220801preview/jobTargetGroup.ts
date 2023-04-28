@@ -9,6 +9,73 @@ import * as utilities from "../../utilities";
 
 /**
  * A group of job targets.
+ *
+ * ## Example Usage
+ * ### Create or update a target group with all properties.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jobTargetGroup = new azure_native.sql.v20220801preview.JobTargetGroup("jobTargetGroup", {
+ *     jobAgentName: "agent1",
+ *     members: [
+ *         {
+ *             databaseName: "database1",
+ *             membershipType: azure_native.sql.v20220801preview.JobTargetGroupMembershipType.Exclude,
+ *             serverName: "server1",
+ *             type: "SqlDatabase",
+ *         },
+ *         {
+ *             membershipType: azure_native.sql.v20220801preview.JobTargetGroupMembershipType.Include,
+ *             refreshCredential: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+ *             serverName: "server1",
+ *             type: "SqlServer",
+ *         },
+ *         {
+ *             elasticPoolName: "pool1",
+ *             membershipType: azure_native.sql.v20220801preview.JobTargetGroupMembershipType.Include,
+ *             refreshCredential: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+ *             serverName: "server2",
+ *             type: "SqlElasticPool",
+ *         },
+ *         {
+ *             membershipType: azure_native.sql.v20220801preview.JobTargetGroupMembershipType.Include,
+ *             refreshCredential: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+ *             serverName: "server3",
+ *             shardMapName: "shardMap1",
+ *             type: "SqlShardMap",
+ *         },
+ *     ],
+ *     resourceGroupName: "group1",
+ *     serverName: "server1",
+ *     targetGroupName: "targetGroup1",
+ * });
+ *
+ * ```
+ * ### Create or update a target group with minimal properties.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jobTargetGroup = new azure_native.sql.v20220801preview.JobTargetGroup("jobTargetGroup", {
+ *     jobAgentName: "agent1",
+ *     members: [],
+ *     resourceGroupName: "group1",
+ *     serverName: "server1",
+ *     targetGroupName: "targetGroup1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:JobTargetGroup targetGroup1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup1 
+ * ```
  */
 export class JobTargetGroup extends pulumi.CustomResource {
     /**

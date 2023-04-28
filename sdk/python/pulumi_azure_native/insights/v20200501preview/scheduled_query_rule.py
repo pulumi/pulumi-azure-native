@@ -292,6 +292,161 @@ class ScheduledQueryRule(pulumi.CustomResource):
         """
         The scheduled query rule resource.
 
+        ## Example Usage
+        ### Create or update a scheduled query rule for Single Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_query_rule = azure_native.insights.v20200501preview.ScheduledQueryRule("scheduledQueryRule",
+            actions=[azure_native.insights.v20200501preview.ActionArgs(
+                action_group_id="/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            criteria=azure_native.insights.v20200501preview.ScheduledQueryRuleCriteriaResponseArgs(
+                all_of=[{
+                    "dimensions": [
+                        azure_native.insights.v20200501preview.DimensionArgs(
+                            name="ComputerIp",
+                            operator="Exclude",
+                            values=["192.168.1.1"],
+                        ),
+                        azure_native.insights.v20200501preview.DimensionArgs(
+                            name="OSType",
+                            operator="Include",
+                            values=["*"],
+                        ),
+                    ],
+                    "failingPeriods": azure_native.insights.v20200501preview.ConditionFailingPeriodsArgs(
+                        min_failing_periods_to_alert=1,
+                        number_of_evaluation_periods=1,
+                    ),
+                    "metricMeasureColumn": "% Processor Time",
+                    "operator": "GreaterThan",
+                    "query": "Perf | where ObjectName == \\"Processor\\"",
+                    "resourceIdColumn": "resourceId",
+                    "threshold": 70,
+                    "timeAggregation": "Average",
+                }],
+            ),
+            description="Performance rule",
+            enabled=True,
+            evaluation_frequency="PT5M",
+            location="eastus",
+            mute_actions_duration="PT30M",
+            resource_group_name="QueryResourceGroupName",
+            rule_name="perf",
+            scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1/providers/Microsoft.Compute/virtualMachines/vm1"],
+            severity=4,
+            window_size="PT10M")
+
+        ```
+        ### Create or update a scheduled query rule on Resource group(s)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_query_rule = azure_native.insights.v20200501preview.ScheduledQueryRule("scheduledQueryRule",
+            actions=[azure_native.insights.v20200501preview.ActionArgs(
+                action_group_id="/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            criteria=azure_native.insights.v20200501preview.ScheduledQueryRuleCriteriaResponseArgs(
+                all_of=[{
+                    "dimensions": [],
+                    "failingPeriods": azure_native.insights.v20200501preview.ConditionFailingPeriodsArgs(
+                        min_failing_periods_to_alert=1,
+                        number_of_evaluation_periods=1,
+                    ),
+                    "operator": "GreaterThan",
+                    "query": "Heartbeat",
+                    "threshold": 360,
+                    "timeAggregation": "Count",
+                }],
+            ),
+            description="Health check rule",
+            enabled=True,
+            evaluation_frequency="PT5M",
+            location="eastus",
+            mute_actions_duration="PT30M",
+            resource_group_name="QueryResourceGroupName",
+            rule_name="heartbeat",
+            scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1"],
+            severity=4,
+            target_resource_types=["Microsoft.Compute/virtualMachines"],
+            window_size="PT10M")
+
+        ```
+        ### Create or update a scheduled query rule on Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_query_rule = azure_native.insights.v20200501preview.ScheduledQueryRule("scheduledQueryRule",
+            actions=[azure_native.insights.v20200501preview.ActionArgs(
+                action_group_id="/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            criteria=azure_native.insights.v20200501preview.ScheduledQueryRuleCriteriaResponseArgs(
+                all_of=[{
+                    "dimensions": [
+                        azure_native.insights.v20200501preview.DimensionArgs(
+                            name="ComputerIp",
+                            operator="Exclude",
+                            values=["192.168.1.1"],
+                        ),
+                        azure_native.insights.v20200501preview.DimensionArgs(
+                            name="OSType",
+                            operator="Include",
+                            values=["*"],
+                        ),
+                    ],
+                    "failingPeriods": azure_native.insights.v20200501preview.ConditionFailingPeriodsArgs(
+                        min_failing_periods_to_alert=1,
+                        number_of_evaluation_periods=1,
+                    ),
+                    "metricMeasureColumn": "% Processor Time",
+                    "operator": "GreaterThan",
+                    "query": "Perf | where ObjectName == \\"Processor\\"",
+                    "resourceIdColumn": "resourceId",
+                    "threshold": 70,
+                    "timeAggregation": "Average",
+                }],
+            ),
+            description="Performance rule",
+            enabled=True,
+            evaluation_frequency="PT5M",
+            location="eastus",
+            mute_actions_duration="PT30M",
+            resource_group_name="QueryResourceGroupName",
+            rule_name="perf",
+            scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147"],
+            severity=4,
+            target_resource_types=["Microsoft.Compute/virtualMachines"],
+            window_size="PT10M")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20200501preview:ScheduledQueryRule perf /subscriptions/dd4bfc94-a096-412b-9c43-4bd13e35afbc/resourcegroups/QueryResourceGroupName/providers/microsoft.insights/scheduledqueryrules/perf 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ScheduledQueryRuleCriteriaArgs']] criteria: The rule criteria that defines the conditions of the scheduled query rule.
@@ -318,6 +473,161 @@ class ScheduledQueryRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The scheduled query rule resource.
+
+        ## Example Usage
+        ### Create or update a scheduled query rule for Single Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_query_rule = azure_native.insights.v20200501preview.ScheduledQueryRule("scheduledQueryRule",
+            actions=[azure_native.insights.v20200501preview.ActionArgs(
+                action_group_id="/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            criteria=azure_native.insights.v20200501preview.ScheduledQueryRuleCriteriaResponseArgs(
+                all_of=[{
+                    "dimensions": [
+                        azure_native.insights.v20200501preview.DimensionArgs(
+                            name="ComputerIp",
+                            operator="Exclude",
+                            values=["192.168.1.1"],
+                        ),
+                        azure_native.insights.v20200501preview.DimensionArgs(
+                            name="OSType",
+                            operator="Include",
+                            values=["*"],
+                        ),
+                    ],
+                    "failingPeriods": azure_native.insights.v20200501preview.ConditionFailingPeriodsArgs(
+                        min_failing_periods_to_alert=1,
+                        number_of_evaluation_periods=1,
+                    ),
+                    "metricMeasureColumn": "% Processor Time",
+                    "operator": "GreaterThan",
+                    "query": "Perf | where ObjectName == \\"Processor\\"",
+                    "resourceIdColumn": "resourceId",
+                    "threshold": 70,
+                    "timeAggregation": "Average",
+                }],
+            ),
+            description="Performance rule",
+            enabled=True,
+            evaluation_frequency="PT5M",
+            location="eastus",
+            mute_actions_duration="PT30M",
+            resource_group_name="QueryResourceGroupName",
+            rule_name="perf",
+            scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1/providers/Microsoft.Compute/virtualMachines/vm1"],
+            severity=4,
+            window_size="PT10M")
+
+        ```
+        ### Create or update a scheduled query rule on Resource group(s)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_query_rule = azure_native.insights.v20200501preview.ScheduledQueryRule("scheduledQueryRule",
+            actions=[azure_native.insights.v20200501preview.ActionArgs(
+                action_group_id="/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            criteria=azure_native.insights.v20200501preview.ScheduledQueryRuleCriteriaResponseArgs(
+                all_of=[{
+                    "dimensions": [],
+                    "failingPeriods": azure_native.insights.v20200501preview.ConditionFailingPeriodsArgs(
+                        min_failing_periods_to_alert=1,
+                        number_of_evaluation_periods=1,
+                    ),
+                    "operator": "GreaterThan",
+                    "query": "Heartbeat",
+                    "threshold": 360,
+                    "timeAggregation": "Count",
+                }],
+            ),
+            description="Health check rule",
+            enabled=True,
+            evaluation_frequency="PT5M",
+            location="eastus",
+            mute_actions_duration="PT30M",
+            resource_group_name="QueryResourceGroupName",
+            rule_name="heartbeat",
+            scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1"],
+            severity=4,
+            target_resource_types=["Microsoft.Compute/virtualMachines"],
+            window_size="PT10M")
+
+        ```
+        ### Create or update a scheduled query rule on Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_query_rule = azure_native.insights.v20200501preview.ScheduledQueryRule("scheduledQueryRule",
+            actions=[azure_native.insights.v20200501preview.ActionArgs(
+                action_group_id="/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            criteria=azure_native.insights.v20200501preview.ScheduledQueryRuleCriteriaResponseArgs(
+                all_of=[{
+                    "dimensions": [
+                        azure_native.insights.v20200501preview.DimensionArgs(
+                            name="ComputerIp",
+                            operator="Exclude",
+                            values=["192.168.1.1"],
+                        ),
+                        azure_native.insights.v20200501preview.DimensionArgs(
+                            name="OSType",
+                            operator="Include",
+                            values=["*"],
+                        ),
+                    ],
+                    "failingPeriods": azure_native.insights.v20200501preview.ConditionFailingPeriodsArgs(
+                        min_failing_periods_to_alert=1,
+                        number_of_evaluation_periods=1,
+                    ),
+                    "metricMeasureColumn": "% Processor Time",
+                    "operator": "GreaterThan",
+                    "query": "Perf | where ObjectName == \\"Processor\\"",
+                    "resourceIdColumn": "resourceId",
+                    "threshold": 70,
+                    "timeAggregation": "Average",
+                }],
+            ),
+            description="Performance rule",
+            enabled=True,
+            evaluation_frequency="PT5M",
+            location="eastus",
+            mute_actions_duration="PT30M",
+            resource_group_name="QueryResourceGroupName",
+            rule_name="perf",
+            scopes=["/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147"],
+            severity=4,
+            target_resource_types=["Microsoft.Compute/virtualMachines"],
+            window_size="PT10M")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20200501preview:ScheduledQueryRule perf /subscriptions/dd4bfc94-a096-412b-9c43-4bd13e35afbc/resourcegroups/QueryResourceGroupName/providers/microsoft.insights/scheduledqueryrules/perf 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduledQueryRuleArgs args: The arguments to use to populate this resource's properties.

@@ -130,6 +130,55 @@ class SqlAvailabilityGroupReplica(pulumi.CustomResource):
         Arc Sql Server Availability Group
         API Version: 2023-03-15-preview.
 
+        ## Example Usage
+        ### Create a Arc Sql Server availability group replica.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_availability_group_replica = azure_native.azurearcdata.SqlAvailabilityGroupReplica("sqlAvailabilityGroupReplica",
+            location="southeastasia",
+            properties=azure_native.azurearcdata.SqlAvailabilityGroupReplicaResourcePropertiesResponseArgs(
+                configure=azure_native.azurearcdata.AvailabilityGroupConfigureArgs(
+                    availability_mode_desc="SYNCHRONOUS_COMMIT",
+                    backup_priority=50,
+                    endpoint_url="TCP://mytest60-0.mytest60-svc:5022",
+                    failover_mode_desc="EXTERNAL",
+                    primary_role_allow_connections_desc="ALL",
+                    secondary_role_allow_connections_desc="ALL",
+                    seeding_mode_desc="AUTOMATIC",
+                    session_timeout=10,
+                ),
+                replica_id="00000000-1111-2222-3333-444444444444",
+                replica_name="testSqlServerInstance",
+                state=azure_native.azurearcdata.AvailabilityGroupStateArgs(
+                    availability_group_replica_role="SECONDARY",
+                    connected_state_desc="CONNECTED",
+                    last_connect_error_description="",
+                    last_connect_error_timestamp="2022-05-05T16:26:33.883Z",
+                    operational_state_desc="ONLINE",
+                    recovery_health_desc="ONLINE_IN_PROGRESS",
+                    synchronization_health_desc="HEALTHY",
+                ),
+            ),
+            resource_group_name="testrg",
+            sql_availability_group_name="testAG",
+            sql_server_instance_name="testSqlServerInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:SqlAvailabilityGroupReplica testSqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlAvailabilityGroups/testsAG/sqlServerInstances/testSqlServerInstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -148,6 +197,55 @@ class SqlAvailabilityGroupReplica(pulumi.CustomResource):
         """
         Arc Sql Server Availability Group
         API Version: 2023-03-15-preview.
+
+        ## Example Usage
+        ### Create a Arc Sql Server availability group replica.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_availability_group_replica = azure_native.azurearcdata.SqlAvailabilityGroupReplica("sqlAvailabilityGroupReplica",
+            location="southeastasia",
+            properties=azure_native.azurearcdata.SqlAvailabilityGroupReplicaResourcePropertiesResponseArgs(
+                configure=azure_native.azurearcdata.AvailabilityGroupConfigureArgs(
+                    availability_mode_desc="SYNCHRONOUS_COMMIT",
+                    backup_priority=50,
+                    endpoint_url="TCP://mytest60-0.mytest60-svc:5022",
+                    failover_mode_desc="EXTERNAL",
+                    primary_role_allow_connections_desc="ALL",
+                    secondary_role_allow_connections_desc="ALL",
+                    seeding_mode_desc="AUTOMATIC",
+                    session_timeout=10,
+                ),
+                replica_id="00000000-1111-2222-3333-444444444444",
+                replica_name="testSqlServerInstance",
+                state=azure_native.azurearcdata.AvailabilityGroupStateArgs(
+                    availability_group_replica_role="SECONDARY",
+                    connected_state_desc="CONNECTED",
+                    last_connect_error_description="",
+                    last_connect_error_timestamp="2022-05-05T16:26:33.883Z",
+                    operational_state_desc="ONLINE",
+                    recovery_health_desc="ONLINE_IN_PROGRESS",
+                    synchronization_health_desc="HEALTHY",
+                ),
+            ),
+            resource_group_name="testrg",
+            sql_availability_group_name="testAG",
+            sql_server_instance_name="testSqlServerInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:SqlAvailabilityGroupReplica testSqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlAvailabilityGroups/testsAG/sqlServerInstances/testSqlServerInstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlAvailabilityGroupReplicaArgs args: The arguments to use to populate this resource's properties.

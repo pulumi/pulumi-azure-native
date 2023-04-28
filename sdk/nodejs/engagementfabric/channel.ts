@@ -8,6 +8,38 @@ import * as utilities from "../utilities";
  * The EngagementFabric channel
  * API Version: 2018-09-01-preview.
  * Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ChannelsCreateOrUpdateExample
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const channel = new azure_native.engagementfabric.Channel("channel", {
+ *     accountName: "ExampleAccount",
+ *     channelFunctions: [
+ *         "MockFunction1",
+ *         "MockFunction2",
+ *     ],
+ *     channelName: "ExampleChannel",
+ *     channelType: "MockChannel",
+ *     credentials: {
+ *         AppId: "exampleApp",
+ *         AppKey: "exampleAppKey",
+ *     },
+ *     resourceGroupName: "ExampleRg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:engagementfabric:Channel ExampleChannel subscriptions/EDBF0095-A524-4A84-95FB-F72DA41AA6A1/resourceGroups/ExampleRg/providers/Microsoft.EngagementFabric/Accounts/ExampleAccount/Channels/ExampleChannel 
+ * ```
  */
 export class Channel extends pulumi.CustomResource {
     /**

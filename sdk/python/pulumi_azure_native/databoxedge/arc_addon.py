@@ -162,6 +162,33 @@ class ArcAddon(pulumi.CustomResource):
         API Version: 2022-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PutAddOns
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        arc_addon = azure_native.databoxedge.ArcAddon("arcAddon",
+            addon_name="arcName",
+            device_name="testedgedevice",
+            kind="ArcForKubernetes",
+            resource_group_name="GroupForEdgeAutomation",
+            resource_location="EastUS",
+            resource_name_="testedgedevice",
+            role_name="KubernetesRole",
+            subscription_id="4385cf00-2d3a-425a-832f-f4285b1c9dce")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:ArcAddon arcName /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourcegroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/addonExamples/roles/kubernetesRole/addons/arcName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_name: The addon name.
@@ -184,6 +211,33 @@ class ArcAddon(pulumi.CustomResource):
         Arc Addon.
         API Version: 2022-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PutAddOns
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        arc_addon = azure_native.databoxedge.ArcAddon("arcAddon",
+            addon_name="arcName",
+            device_name="testedgedevice",
+            kind="ArcForKubernetes",
+            resource_group_name="GroupForEdgeAutomation",
+            resource_location="EastUS",
+            resource_name_="testedgedevice",
+            role_name="KubernetesRole",
+            subscription_id="4385cf00-2d3a-425a-832f-f4285b1c9dce")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:ArcAddon arcName /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourcegroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/addonExamples/roles/kubernetesRole/addons/arcName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ArcAddonArgs args: The arguments to use to populate this resource's properties.

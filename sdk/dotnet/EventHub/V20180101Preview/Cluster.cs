@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.EventHub.V20180101Preview
 {
     /// <summary>
     /// Single Event Hubs Cluster resource in List or Get operations.
+    /// 
+    /// ## Example Usage
+    /// ### ClusterPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.EventHub.V20180101Preview.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "testCluster",
+    ///         Location = "South Central US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.EventHub.V20180101Preview.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Dedicated",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20180101preview:Cluster testCluster /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/myResourceGroup/providers/Microsoft.EventHub/clusters/testCluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20180101preview:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

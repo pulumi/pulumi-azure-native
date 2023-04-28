@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Web.V20160601
 {
     /// <summary>
     /// API connection
+    /// 
+    /// ## Example Usage
+    /// ### Replace a connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connection = new AzureNative.Web.V20160601.Connection("connection", new()
+    ///     {
+    ///         ConnectionName = "testManagedApi",
+    ///         Properties = new AzureNative.Web.V20160601.Inputs.ApiConnectionDefinitionPropertiesArgs
+    ///         {
+    ///             Api = new AzureNative.Web.V20160601.Inputs.ApiReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+    ///             },
+    ///             CustomParameterValues = null,
+    ///             DisplayName = "testManagedApi",
+    ///             ParameterValues = null,
+    ///         },
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20160601:Connection testManagedApi-1 /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20160601:Connection")]
     public partial class Connection : global::Pulumi.CustomResource

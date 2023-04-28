@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * An assessment created for a group in the Migration project.
+ *
+ * ## Example Usage
+ * ### Assessments_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assessment = new azure_native.migrate.v20180202.Assessment("assessment", {
+ *     assessmentName: "assessment01",
+ *     azureHybridUseBenefit: "Yes",
+ *     azureLocation: "WestUs",
+ *     azureOfferCode: "MSAZR0003P",
+ *     azurePricingTier: "Standard",
+ *     azureStorageRedundancy: "LocallyRedundant",
+ *     currency: "USD",
+ *     discountPercentage: 100,
+ *     eTag: "\"1100637e-0000-0000-0000-59f6ed1f0000\"",
+ *     groupName: "group01",
+ *     percentile: "Percentile50",
+ *     projectName: "project01",
+ *     resourceGroupName: "myResourceGroup",
+ *     scalingFactor: 1.2,
+ *     sizingCriterion: "PerformanceBased",
+ *     stage: "InProgress",
+ *     timeRange: "Day",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20180202:Assessment assessment01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/groups/group01/assessments/assessment01 
+ * ```
  */
 export class Assessment extends pulumi.CustomResource {
     /**

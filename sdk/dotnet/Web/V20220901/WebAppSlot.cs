@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
+    /// 
+    /// ## Example Usage
+    /// ### Clone web app slot
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppSlot = new AzureNative.Web.V20220901.WebAppSlot("webAppSlot", new()
+    ///     {
+    ///         CloningInfo = new AzureNative.Web.V20220901.Inputs.CloningInfoArgs
+    ///         {
+    ///             AppSettingsOverrides = 
+    ///             {
+    ///                 { "Setting1", "NewValue1" },
+    ///                 { "Setting3", "NewValue5" },
+    ///             },
+    ///             CloneCustomHostNames = true,
+    ///             CloneSourceControl = true,
+    ///             ConfigureLoadBalancing = false,
+    ///             HostingEnvironment = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
+    ///             Overwrite = false,
+    ///             SourceWebAppId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478/slot/qa",
+    ///             SourceWebAppLocation = "West Europe",
+    ///         },
+    ///         Kind = "app",
+    ///         Location = "East US",
+    ///         Name = "sitef6141",
+    ///         ResourceGroupName = "testrg123",
+    ///         Slot = "staging",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Web App Slot
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppSlot = new AzureNative.Web.V20220901.WebAppSlot("webAppSlot", new()
+    ///     {
+    ///         Kind = "app",
+    ///         Location = "East US",
+    ///         Name = "sitef6141",
+    ///         ResourceGroupName = "testrg123",
+    ///         ServerFarmId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
+    ///         Slot = "staging",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:WebAppSlot sitef6141/staging /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/slots/staging 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:WebAppSlot")]
     public partial class WebAppSlot : global::Pulumi.CustomResource

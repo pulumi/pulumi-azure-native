@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * A class representing a CommunicationService resource.
  * API Version: 2023-03-01-preview.
  * Previous API Version: 2020-08-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const communicationService = new azure_native.communication.CommunicationService("communicationService", {
+ *     communicationServiceName: "MyCommunicationResource",
+ *     dataLocation: "United States",
+ *     location: "Global",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:communication:CommunicationService MyCommunicationResource /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/CommunicationServices/MyCommunicationResource 
+ * ```
  */
 export class CommunicationService extends pulumi.CustomResource {
     /**

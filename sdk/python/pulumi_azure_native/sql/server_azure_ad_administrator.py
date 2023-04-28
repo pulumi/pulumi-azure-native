@@ -145,6 +145,32 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates an existing Azure Active Directory administrator.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_azure_ad_administrator = azure_native.sql.ServerAzureADAdministrator("serverAzureADAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-6440",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ServerAzureADAdministrator ActiveDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-6440/administrators/ActiveDirectory 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_name: The name of server active directory administrator.
@@ -165,6 +191,32 @@ class ServerAzureADAdministrator(pulumi.CustomResource):
         Azure Active Directory administrator.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates an existing Azure Active Directory administrator.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_azure_ad_administrator = azure_native.sql.ServerAzureADAdministrator("serverAzureADAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-6440",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ServerAzureADAdministrator ActiveDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-6440/administrators/ActiveDirectory 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerAzureADAdministratorArgs args: The arguments to use to populate this resource's properties.

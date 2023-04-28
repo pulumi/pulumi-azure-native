@@ -94,6 +94,29 @@ class BuildStep(pulumi.CustomResource):
         """
         Build step resource properties
 
+        ## Example Usage
+        ### BuildSteps_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        build_step = azure_native.containerregistry.v20180201preview.BuildStep("buildStep",
+            build_task_name="myBuildTask",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            step_name="myStep")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20180201preview:BuildStep myStep /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/buildTasks/myBuildTask/steps/myStep 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] build_task_name: The name of the container registry build task.
@@ -109,6 +132,29 @@ class BuildStep(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Build step resource properties
+
+        ## Example Usage
+        ### BuildSteps_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        build_step = azure_native.containerregistry.v20180201preview.BuildStep("buildStep",
+            build_task_name="myBuildTask",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            step_name="myStep")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20180201preview:BuildStep myStep /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/buildTasks/myBuildTask/steps/myStep 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BuildStepArgs args: The arguments to use to populate this resource's properties.

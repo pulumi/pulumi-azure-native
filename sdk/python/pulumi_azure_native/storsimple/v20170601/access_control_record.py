@@ -111,6 +111,29 @@ class AccessControlRecord(pulumi.CustomResource):
         """
         The access control record.
 
+        ## Example Usage
+        ### AccessControlRecordsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_control_record = azure_native.storsimple.v20170601.AccessControlRecord("accessControlRecord",
+            access_control_record_name="ACRForTest",
+            initiator_name="iqn.2017-06.com.contoso:ForTest",
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20170601:AccessControlRecord ACRForTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACRForTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_control_record_name: The name of the access control record.
@@ -127,6 +150,29 @@ class AccessControlRecord(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The access control record.
+
+        ## Example Usage
+        ### AccessControlRecordsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_control_record = azure_native.storsimple.v20170601.AccessControlRecord("accessControlRecord",
+            access_control_record_name="ACRForTest",
+            initiator_name="iqn.2017-06.com.contoso:ForTest",
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20170601:AccessControlRecord ACRForTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACRForTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccessControlRecordArgs args: The arguments to use to populate this resource's properties.

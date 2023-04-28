@@ -166,6 +166,29 @@ class EmailTemplate(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateTemplate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        email_template = azure_native.apimanagement.EmailTemplate("emailTemplate",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            subject="Your request for $IssueName was successfully received.",
+            template_name="newIssueNotificationMessage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:EmailTemplate NewIssueNotificationMessage /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/templates/NewIssueNotificationMessage 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: Email Template Body. This should be a valid XDocument
@@ -187,6 +210,29 @@ class EmailTemplate(pulumi.CustomResource):
         Email Template details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateTemplate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        email_template = azure_native.apimanagement.EmailTemplate("emailTemplate",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            subject="Your request for $IssueName was successfully received.",
+            template_name="newIssueNotificationMessage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:EmailTemplate NewIssueNotificationMessage /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/templates/NewIssueNotificationMessage 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EmailTemplateArgs args: The arguments to use to populate this resource's properties.

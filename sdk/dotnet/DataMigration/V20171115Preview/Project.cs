@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.DataMigration.V20171115Preview
 {
     /// <summary>
     /// A project resource
+    /// 
+    /// ## Example Usage
+    /// ### Projects_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var project = new AzureNative.DataMigration.V20171115Preview.Project("project", new()
+    ///     {
+    ///         GroupName = "DmsSdkRg",
+    ///         Location = "southcentralus",
+    ///         ProjectName = "DmsSdkProject",
+    ///         ServiceName = "DmsSdkService",
+    ///         SourcePlatform = AzureNative.DataMigration.V20171115Preview.ProjectSourcePlatform.SQL,
+    ///         TargetPlatform = AzureNative.DataMigration.V20171115Preview.ProjectTargetPlatform.SQLDB,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datamigration/v20171115preview:Project DmsSdkProject /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-11-15-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datamigration/v20171115preview:Project")]

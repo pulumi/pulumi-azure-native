@@ -13,6 +13,16 @@ namespace Pulumi.AzureNative.CostManagement
     /// An export resource.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement:Export TestExport subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/exports/TestExport 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Export")]
     public partial class Export : global::Pulumi.CustomResource

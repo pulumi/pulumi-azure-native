@@ -116,6 +116,37 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
         API Version: 2019-06-01-preview.
         Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ManagedNetworkPeeringPoliciesPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network_peering_policy = azure_native.managednetwork.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy",
+            managed_network_name="myManagedNetwork",
+            managed_network_peering_policy_name="myHubAndSpoke",
+            properties=azure_native.managednetwork.ManagedNetworkPeeringPolicyPropertiesResponseArgs(
+                hub=azure_native.managednetwork.ResourceIdArgs(
+                    id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myHubVnet",
+                ),
+                spokes=[azure_native.managednetwork.ResourceIdArgs(
+                    id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1",
+                )],
+                type="HubAndSpokeTopology",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork:ManagedNetworkPeeringPolicy myHubAndSpoke /subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkPeeringPolicies/myHubAndSpoke 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -134,6 +165,37 @@ class ManagedNetworkPeeringPolicy(pulumi.CustomResource):
         The Managed Network Peering Policy resource
         API Version: 2019-06-01-preview.
         Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ManagedNetworkPeeringPoliciesPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network_peering_policy = azure_native.managednetwork.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy",
+            managed_network_name="myManagedNetwork",
+            managed_network_peering_policy_name="myHubAndSpoke",
+            properties=azure_native.managednetwork.ManagedNetworkPeeringPolicyPropertiesResponseArgs(
+                hub=azure_native.managednetwork.ResourceIdArgs(
+                    id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myHubVnet",
+                ),
+                spokes=[azure_native.managednetwork.ResourceIdArgs(
+                    id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1",
+                )],
+                type="HubAndSpokeTopology",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork:ManagedNetworkPeeringPolicy myHubAndSpoke /subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkPeeringPolicies/myHubAndSpoke 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedNetworkPeeringPolicyArgs args: The arguments to use to populate this resource's properties.

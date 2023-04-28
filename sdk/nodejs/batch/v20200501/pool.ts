@@ -10,6 +10,354 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about a pool.
  *
+ * ## Example Usage
+ * ### CreatePool - Custom Image
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.batch.v20200501.Pool("pool", {
+ *     accountName: "sampleacct",
+ *     deploymentConfiguration: {
+ *         virtualMachineConfiguration: {
+ *             imageReference: {
+ *                 id: "/subscriptions/subid/resourceGroups/networking-group/providers/Microsoft.Compute/images/image-123",
+ *             },
+ *             nodeAgentSkuId: "batch.node.ubuntu 18.04",
+ *         },
+ *     },
+ *     poolName: "testpool",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ *     vmSize: "STANDARD_D4",
+ * });
+ *
+ * ```
+ * ### CreatePool - Full Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.batch.v20200501.Pool("pool", {
+ *     accountName: "sampleacct",
+ *     applicationLicenses: [
+ *         "app-license0",
+ *         "app-license1",
+ *     ],
+ *     applicationPackages: [{
+ *         id: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct/pools/testpool/applications/app_1234",
+ *         version: "asdf",
+ *     }],
+ *     certificates: [{
+ *         id: "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct/pools/testpool/certificates/sha1-1234567",
+ *         storeLocation: azure_native.batch.v20200501.CertificateStoreLocation.LocalMachine,
+ *         storeName: "MY",
+ *         visibility: [azure_native.batch.v20200501.CertificateVisibility.RemoteUser],
+ *     }],
+ *     deploymentConfiguration: {
+ *         cloudServiceConfiguration: {
+ *             osFamily: "4",
+ *             osVersion: "WA-GUEST-OS-4.45_201708-01",
+ *         },
+ *     },
+ *     displayName: "my-pool-name",
+ *     interNodeCommunication: azure_native.batch.v20200501.InterNodeCommunicationState.Enabled,
+ *     maxTasksPerNode: 13,
+ *     metadata: [
+ *         {
+ *             name: "metadata-1",
+ *             value: "value-1",
+ *         },
+ *         {
+ *             name: "metadata-2",
+ *             value: "value-2",
+ *         },
+ *     ],
+ *     networkConfiguration: {
+ *         endpointConfiguration: {
+ *             inboundNatPools: [{
+ *                 backendPort: 12001,
+ *                 frontendPortRangeEnd: 15100,
+ *                 frontendPortRangeStart: 15000,
+ *                 name: "testnat",
+ *                 networkSecurityGroupRules: [
+ *                     {
+ *                         access: azure_native.batch.v20200501.NetworkSecurityGroupRuleAccess.Allow,
+ *                         priority: 150,
+ *                         sourceAddressPrefix: "192.100.12.45",
+ *                         sourcePortRanges: ["*"],
+ *                     },
+ *                     {
+ *                         access: azure_native.batch.v20200501.NetworkSecurityGroupRuleAccess.Deny,
+ *                         priority: 3500,
+ *                         sourceAddressPrefix: "*",
+ *                         sourcePortRanges: ["*"],
+ *                     },
+ *                 ],
+ *                 protocol: azure_native.batch.v20200501.InboundEndpointProtocol.TCP,
+ *             }],
+ *         },
+ *         publicIPAddressConfiguration: {
+ *             ipAddressIds: [
+ *                 "/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135",
+ *                 "/subscriptions/subid2/resourceGroups/rg24/providers/Microsoft.Network/publicIPAddresses/ip268",
+ *             ],
+ *             provision: azure_native.batch.v20200501.IPAddressProvisioningType.UserManaged,
+ *         },
+ *         subnetId: "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+ *     },
+ *     poolName: "testpool",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ *     scaleSettings: {
+ *         fixedScale: {
+ *             nodeDeallocationOption: azure_native.batch.v20200501.ComputeNodeDeallocationOption.TaskCompletion,
+ *             resizeTimeout: "PT8M",
+ *             targetDedicatedNodes: 6,
+ *             targetLowPriorityNodes: 28,
+ *         },
+ *     },
+ *     startTask: {
+ *         commandLine: "cmd /c SET",
+ *         environmentSettings: [{
+ *             name: "MYSET",
+ *             value: "1234",
+ *         }],
+ *         maxTaskRetryCount: 6,
+ *         resourceFiles: [{
+ *             fileMode: "777",
+ *             filePath: "c:\\temp\\gohere",
+ *             httpUrl: "https://testaccount.blob.core.windows.net/example-blob-file",
+ *         }],
+ *         userIdentity: {
+ *             autoUser: {
+ *                 elevationLevel: azure_native.batch.v20200501.ElevationLevel.Admin,
+ *                 scope: azure_native.batch.v20200501.AutoUserScope.Pool,
+ *             },
+ *         },
+ *         waitForSuccess: true,
+ *     },
+ *     taskSchedulingPolicy: {
+ *         nodeFillType: azure_native.batch.v20200501.ComputeNodeFillType.Pack,
+ *     },
+ *     userAccounts: [{
+ *         elevationLevel: azure_native.batch.v20200501.ElevationLevel.Admin,
+ *         linuxUserConfiguration: {
+ *             gid: 4567,
+ *             sshPrivateKey: "sshprivatekeyvalue",
+ *             uid: 1234,
+ *         },
+ *         name: "username1",
+ *         password: "examplepassword",
+ *     }],
+ *     vmSize: "STANDARD_D4",
+ * });
+ *
+ * ```
+ * ### CreatePool - Full VirtualMachineConfiguration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.batch.v20200501.Pool("pool", {
+ *     accountName: "sampleacct",
+ *     deploymentConfiguration: {
+ *         virtualMachineConfiguration: {
+ *             dataDisks: [
+ *                 {
+ *                     caching: azure_native.batch.v20200501.CachingType.ReadWrite,
+ *                     diskSizeGB: 30,
+ *                     lun: 0,
+ *                     storageAccountType: azure_native.batch.v20200501.StorageAccountType.Premium_LRS,
+ *                 },
+ *                 {
+ *                     caching: azure_native.batch.v20200501.CachingType.None,
+ *                     diskSizeGB: 200,
+ *                     lun: 1,
+ *                     storageAccountType: azure_native.batch.v20200501.StorageAccountType.Standard_LRS,
+ *                 },
+ *             ],
+ *             diskEncryptionConfiguration: {
+ *                 targets: [
+ *                     azure_native.batch.v20200501.DiskEncryptionTarget.OsDisk,
+ *                     azure_native.batch.v20200501.DiskEncryptionTarget.TemporaryDisk,
+ *                 ],
+ *             },
+ *             imageReference: {
+ *                 offer: "WindowsServer",
+ *                 publisher: "MicrosoftWindowsServer",
+ *                 sku: "2016-Datacenter-SmallDisk",
+ *                 version: "latest",
+ *             },
+ *             licenseType: "Windows_Server",
+ *             nodeAgentSkuId: "batch.node.windows amd64",
+ *             windowsConfiguration: {
+ *                 enableAutomaticUpdates: false,
+ *             },
+ *         },
+ *     },
+ *     networkConfiguration: {
+ *         endpointConfiguration: {
+ *             inboundNatPools: [{
+ *                 backendPort: 12001,
+ *                 frontendPortRangeEnd: 15100,
+ *                 frontendPortRangeStart: 15000,
+ *                 name: "testnat",
+ *                 networkSecurityGroupRules: [
+ *                     {
+ *                         access: azure_native.batch.v20200501.NetworkSecurityGroupRuleAccess.Allow,
+ *                         priority: 150,
+ *                         sourceAddressPrefix: "192.100.12.45",
+ *                         sourcePortRanges: [
+ *                             "1",
+ *                             "2",
+ *                         ],
+ *                     },
+ *                     {
+ *                         access: azure_native.batch.v20200501.NetworkSecurityGroupRuleAccess.Deny,
+ *                         priority: 3500,
+ *                         sourceAddressPrefix: "*",
+ *                         sourcePortRanges: ["*"],
+ *                     },
+ *                 ],
+ *                 protocol: azure_native.batch.v20200501.InboundEndpointProtocol.TCP,
+ *             }],
+ *         },
+ *     },
+ *     poolName: "testpool",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ *     scaleSettings: {
+ *         autoScale: {
+ *             evaluationInterval: "PT5M",
+ *             formula: `$TargetDedicatedNodes=1`,
+ *         },
+ *     },
+ *     vmSize: "STANDARD_D4",
+ * });
+ *
+ * ```
+ * ### CreatePool - Minimal CloudServiceConfiguration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.batch.v20200501.Pool("pool", {
+ *     accountName: "sampleacct",
+ *     deploymentConfiguration: {
+ *         cloudServiceConfiguration: {
+ *             osFamily: "5",
+ *         },
+ *     },
+ *     poolName: "testpool",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ *     scaleSettings: {
+ *         fixedScale: {
+ *             targetDedicatedNodes: 3,
+ *         },
+ *     },
+ *     vmSize: "STANDARD_D4",
+ * });
+ *
+ * ```
+ * ### CreatePool - Minimal VirtualMachineConfiguration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.batch.v20200501.Pool("pool", {
+ *     accountName: "sampleacct",
+ *     deploymentConfiguration: {
+ *         virtualMachineConfiguration: {
+ *             imageReference: {
+ *                 offer: "UbuntuServer",
+ *                 publisher: "Canonical",
+ *                 sku: "18.04-LTS",
+ *                 version: "latest",
+ *             },
+ *             nodeAgentSkuId: "batch.node.ubuntu 18.04",
+ *         },
+ *     },
+ *     poolName: "testpool",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ *     scaleSettings: {
+ *         autoScale: {
+ *             evaluationInterval: "PT5M",
+ *             formula: `$TargetDedicatedNodes=1`,
+ *         },
+ *     },
+ *     vmSize: "STANDARD_D4",
+ * });
+ *
+ * ```
+ * ### CreatePool - No public IP
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.batch.v20200501.Pool("pool", {
+ *     accountName: "sampleacct",
+ *     deploymentConfiguration: {
+ *         virtualMachineConfiguration: {
+ *             imageReference: {
+ *                 id: "/subscriptions/subid/resourceGroups/networking-group/providers/Microsoft.Compute/images/image-123",
+ *             },
+ *             nodeAgentSkuId: "batch.node.ubuntu 18.04",
+ *         },
+ *     },
+ *     networkConfiguration: {
+ *         publicIPAddressConfiguration: {
+ *             provision: azure_native.batch.v20200501.IPAddressProvisioningType.NoPublicIPAddresses,
+ *         },
+ *         subnetId: "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+ *     },
+ *     poolName: "testpool",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ *     vmSize: "STANDARD_D4",
+ * });
+ *
+ * ```
+ * ### CreatePool - Public IPs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.batch.v20200501.Pool("pool", {
+ *     accountName: "sampleacct",
+ *     deploymentConfiguration: {
+ *         virtualMachineConfiguration: {
+ *             imageReference: {
+ *                 id: "/subscriptions/subid/resourceGroups/networking-group/providers/Microsoft.Compute/images/image-123",
+ *             },
+ *             nodeAgentSkuId: "batch.node.ubuntu 18.04",
+ *         },
+ *     },
+ *     networkConfiguration: {
+ *         publicIPAddressConfiguration: {
+ *             ipAddressIds: ["/subscriptions/subid1/resourceGroups/rg13/providers/Microsoft.Network/publicIPAddresses/ip135"],
+ *             provision: azure_native.batch.v20200501.IPAddressProvisioningType.UserManaged,
+ *         },
+ *         subnetId: "/subscriptions/subid/resourceGroups/rg1234/providers/Microsoft.Network/virtualNetworks/network1234/subnets/subnet123",
+ *     },
+ *     poolName: "testpool",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ *     vmSize: "STANDARD_D4",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:batch/v20200501:Pool testpool /subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct/pools/testpool 
+ * ```
+ *
  * @deprecated Version 2020-05-01 will be removed in v2 of the provider.
  */
 export class Pool extends pulumi.CustomResource {

@@ -127,6 +127,31 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
         """
         A short term retention policy.
 
+        ## Example Usage
+        ### Update the short term retention policy for the database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_short_term_retention_policy = azure_native.sql.v20220801preview.BackupShortTermRetentionPolicy("backupShortTermRetentionPolicy",
+            database_name="testdb",
+            diff_backup_interval_in_hours=24,
+            policy_name="default",
+            resource_group_name="resourceGroup",
+            retention_days=7,
+            server_name="testsvr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testsvr/databases/testdb/backupShortTermRetentionPolicies/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database.
@@ -144,6 +169,31 @@ class BackupShortTermRetentionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A short term retention policy.
+
+        ## Example Usage
+        ### Update the short term retention policy for the database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_short_term_retention_policy = azure_native.sql.v20220801preview.BackupShortTermRetentionPolicy("backupShortTermRetentionPolicy",
+            database_name="testdb",
+            diff_backup_interval_in_hours=24,
+            policy_name="default",
+            resource_group_name="resourceGroup",
+            retention_days=7,
+            server_name="testsvr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:BackupShortTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testsvr/databases/testdb/backupShortTermRetentionPolicies/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackupShortTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.

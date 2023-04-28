@@ -9,6 +9,176 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create or update cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.NetworkCloud.V20221212Preview.Cluster("cluster", new()
+    ///     {
+    ///         AggregatorOrSingleRackDefinition = new AzureNative.NetworkCloud.V20221212Preview.Inputs.RackDefinitionArgs
+    ///         {
+    ///             BareMetalMachineConfigurationData = new[]
+    ///             {
+    ///                 new AzureNative.NetworkCloud.V20221212Preview.Inputs.BareMetalMachineConfigurationDataArgs
+    ///                 {
+    ///                     BmcCredentials = new AzureNative.NetworkCloud.V20221212Preview.Inputs.AdministrativeCredentialsArgs
+    ///                     {
+    ///                         Password = "{password}",
+    ///                         Username = "username",
+    ///                     },
+    ///                     BmcMacAddress = "AA:BB:CC:DD:EE:FF",
+    ///                     BootMacAddress = "00:BB:CC:DD:EE:FF",
+    ///                     MachineDetails = "extraDetails",
+    ///                     MachineName = "bmmName1",
+    ///                     RackSlot = 1,
+    ///                     SerialNumber = "BM1219XXX",
+    ///                 },
+    ///                 new AzureNative.NetworkCloud.V20221212Preview.Inputs.BareMetalMachineConfigurationDataArgs
+    ///                 {
+    ///                     BmcCredentials = new AzureNative.NetworkCloud.V20221212Preview.Inputs.AdministrativeCredentialsArgs
+    ///                     {
+    ///                         Password = "{password}",
+    ///                         Username = "username",
+    ///                     },
+    ///                     BmcMacAddress = "AA:BB:CC:DD:EE:00",
+    ///                     BootMacAddress = "00:BB:CC:DD:EE:00",
+    ///                     MachineDetails = "extraDetails",
+    ///                     MachineName = "bmmName2",
+    ///                     RackSlot = 2,
+    ///                     SerialNumber = "BM1219YYY",
+    ///                 },
+    ///             },
+    ///             NetworkRackId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName",
+    ///             RackLocation = "Foo Datacenter, Floor 3, Aisle 9, Rack 2",
+    ///             RackSerialNumber = "AA1234",
+    ///             RackSkuId = "/subscriptions/subscriptionId/providers/Microsoft.NetworkCloud/rackSkus/rackSkuName",
+    ///             StorageApplianceConfigurationData = new[]
+    ///             {
+    ///                 new AzureNative.NetworkCloud.V20221212Preview.Inputs.StorageApplianceConfigurationDataArgs
+    ///                 {
+    ///                     AdminCredentials = new AzureNative.NetworkCloud.V20221212Preview.Inputs.AdministrativeCredentialsArgs
+    ///                     {
+    ///                         Password = "{password}",
+    ///                         Username = "username",
+    ///                     },
+    ///                     RackSlot = 1,
+    ///                     SerialNumber = "BM1219XXX",
+    ///                     StorageApplianceName = "vmName",
+    ///                 },
+    ///             },
+    ///         },
+    ///         AnalyticsWorkspaceId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+    ///         ClusterLocation = "Foo Street, 3rd Floor, row 9",
+    ///         ClusterName = "clusterName",
+    ///         ClusterServicePrincipal = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ServicePrincipalInformationArgs
+    ///         {
+    ///             ApplicationId = "12345678-1234-1234-1234-123456789012",
+    ///             Password = "{password}",
+    ///             PrincipalId = "00000008-0004-0004-0004-000000000012",
+    ///             TenantId = "80000000-4000-4000-4000-120000000000",
+    ///         },
+    ///         ClusterType = "SingleRack",
+    ///         ClusterVersion = "1.0.0",
+    ///         ComputeDeploymentThreshold = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ValidationThresholdArgs
+    ///         {
+    ///             Grouping = "PerCluster",
+    ///             Type = "PercentSuccess",
+    ///             Value = 90,
+    ///         },
+    ///         ComputeRackDefinitions = new[]
+    ///         {
+    ///             new AzureNative.NetworkCloud.V20221212Preview.Inputs.RackDefinitionArgs
+    ///             {
+    ///                 BareMetalMachineConfigurationData = new[]
+    ///                 {
+    ///                     new AzureNative.NetworkCloud.V20221212Preview.Inputs.BareMetalMachineConfigurationDataArgs
+    ///                     {
+    ///                         BmcCredentials = new AzureNative.NetworkCloud.V20221212Preview.Inputs.AdministrativeCredentialsArgs
+    ///                         {
+    ///                             Password = "{password}",
+    ///                             Username = "username",
+    ///                         },
+    ///                         BmcMacAddress = "AA:BB:CC:DD:EE:FF",
+    ///                         BootMacAddress = "00:BB:CC:DD:EE:FF",
+    ///                         MachineDetails = "extraDetails",
+    ///                         MachineName = "bmmName1",
+    ///                         RackSlot = 1,
+    ///                         SerialNumber = "BM1219XXX",
+    ///                     },
+    ///                     new AzureNative.NetworkCloud.V20221212Preview.Inputs.BareMetalMachineConfigurationDataArgs
+    ///                     {
+    ///                         BmcCredentials = new AzureNative.NetworkCloud.V20221212Preview.Inputs.AdministrativeCredentialsArgs
+    ///                         {
+    ///                             Password = "{password}",
+    ///                             Username = "username",
+    ///                         },
+    ///                         BmcMacAddress = "AA:BB:CC:DD:EE:00",
+    ///                         BootMacAddress = "00:BB:CC:DD:EE:00",
+    ///                         MachineDetails = "extraDetails",
+    ///                         MachineName = "bmmName2",
+    ///                         RackSlot = 2,
+    ///                         SerialNumber = "BM1219YYY",
+    ///                     },
+    ///                 },
+    ///                 NetworkRackId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName",
+    ///                 RackLocation = "Foo Datacenter, Floor 3, Aisle 9, Rack 2",
+    ///                 RackSerialNumber = "AA1234",
+    ///                 RackSkuId = "/subscriptions/subscriptionId/providers/Microsoft.NetworkCloud/rackSkus/rackSkuName",
+    ///                 StorageApplianceConfigurationData = new[]
+    ///                 {
+    ///                     new AzureNative.NetworkCloud.V20221212Preview.Inputs.StorageApplianceConfigurationDataArgs
+    ///                     {
+    ///                         AdminCredentials = new AzureNative.NetworkCloud.V20221212Preview.Inputs.AdministrativeCredentialsArgs
+    ///                         {
+    ///                             Password = "{password}",
+    ///                             Username = "username",
+    ///                         },
+    ///                         RackSlot = 1,
+    ///                         SerialNumber = "BM1219XXX",
+    ///                         StorageApplianceName = "vmName",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         ManagedResourceGroupConfiguration = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ManagedResourceGroupConfigurationArgs
+    ///         {
+    ///             Location = "East US",
+    ///             Name = "my-managed-rg",
+    ///         },
+    ///         NetworkFabricId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/fabricName",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud/v20221212preview:Cluster clusterName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource
     {

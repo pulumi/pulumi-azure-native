@@ -9,6 +9,66 @@ import * as utilities from "../../utilities";
 
 /**
  * Pool resource
+ *
+ * ## Example Usage
+ * ### Pools_CreateOrUpdate_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.containerstorage.v20230301preview.Pool("pool", {
+ *     assignments: ["qvheujgnqksryltqtkjty"],
+ *     diskPoolProperties: {
+ *         csiParams: {
+ *             key3964: "og",
+ *         },
+ *         disks: ["wtsj"],
+ *         maxVolumeCapacityGiB: 11,
+ *     },
+ *     elasticSanPoolProperties: {
+ *         resourceGroup: "bjdqfuspbvlgkhsyt",
+ *         sanName: "gu",
+ *         volumeGroup: "csbzebtsmcnhxzqp",
+ *     },
+ *     ephemeralPoolProperties: {
+ *         diskFormat: true,
+ *         diskSelector: ["nvpe"],
+ *         disks: ["zokpazvsbrjvkwhsss"],
+ *     },
+ *     location: "jdfanwoyiigytvanvct",
+ *     poolCapacityGiB: 23,
+ *     poolName: "-EXNI2WK48",
+ *     poolType: 26,
+ *     resourceGroupName: "rgcontainerstorage",
+ *     tags: {
+ *         key5598: "fxughwwqpqkvojkkuur",
+ *     },
+ *     zones: ["mzjpggkkungkugtucivmxfjnxmzdj"],
+ * });
+ *
+ * ```
+ * ### Pools_CreateOrUpdate_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.containerstorage.v20230301preview.Pool("pool", {
+ *     location: "jdfanwoyiigytvanvct",
+ *     poolName: "J873cXX1w3sIX",
+ *     resourceGroupName: "rgcontainerstorage",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerstorage/v20230301preview:Pool rgzqqcqrypwtqhgnvcdilsbquamov a 
+ * ```
  */
 export class Pool extends pulumi.CustomResource {
     /**

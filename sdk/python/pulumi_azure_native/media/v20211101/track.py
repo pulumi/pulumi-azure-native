@@ -113,6 +113,35 @@ class Track(pulumi.CustomResource):
         """
         An Asset Track resource.
 
+        ## Example Usage
+        ### Creates a Track
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        track = azure_native.media.v20211101.Track("track",
+            account_name="contosomedia",
+            asset_name="ClimbingMountRainer",
+            resource_group_name="contoso",
+            track=azure_native.media.v20211101.TextTrackArgs(
+                display_name="A new track",
+                file_name="text3.ttml",
+                odata_type="#Microsoft.Media.TextTrack",
+                player_visibility="Visible",
+            ),
+            track_name="text3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20211101:Track text3 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountRainer/tracks/text3 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -129,6 +158,35 @@ class Track(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Asset Track resource.
+
+        ## Example Usage
+        ### Creates a Track
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        track = azure_native.media.v20211101.Track("track",
+            account_name="contosomedia",
+            asset_name="ClimbingMountRainer",
+            resource_group_name="contoso",
+            track=azure_native.media.v20211101.TextTrackArgs(
+                display_name="A new track",
+                file_name="text3.ttml",
+                odata_type="#Microsoft.Media.TextTrack",
+                player_visibility="Visible",
+            ),
+            track_name="text3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20211101:Track text3 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountRainer/tracks/text3 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TrackArgs args: The arguments to use to populate this resource's properties.

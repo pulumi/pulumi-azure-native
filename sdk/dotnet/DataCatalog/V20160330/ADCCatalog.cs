@@ -11,6 +11,59 @@ namespace Pulumi.AzureNative.DataCatalog.V20160330
 {
     /// <summary>
     /// Azure Data Catalog.
+    /// 
+    /// ## Example Usage
+    /// ### Create Azure Data Catalog Service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adcCatalog = new AzureNative.DataCatalog.V20160330.ADCCatalog("adcCatalog", new()
+    ///     {
+    ///         Admins = new[]
+    ///         {
+    ///             new AzureNative.DataCatalog.V20160330.Inputs.PrincipalsArgs
+    ///             {
+    ///                 ObjectId = "99999999-9999-9999-999999999999",
+    ///                 Upn = "myupn@microsoft.com",
+    ///             },
+    ///         },
+    ///         CatalogName = "exampleCatalog",
+    ///         EnableAutomaticUnitAdjustment = false,
+    ///         Location = "North US",
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "mykey", "myvalue" },
+    ///             { "mykey2", "myvalue2" },
+    ///         },
+    ///         Units = 1,
+    ///         Users = new[]
+    ///         {
+    ///             new AzureNative.DataCatalog.V20160330.Inputs.PrincipalsArgs
+    ///             {
+    ///                 ObjectId = "99999999-9999-9999-999999999999",
+    ///                 Upn = "myupn@microsoft.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datacatalog/v20160330:ADCCatalog exampleCatalog /subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataCatalog/catalogs/exampleCatalog 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datacatalog/v20160330:ADCCatalog")]
     public partial class ADCCatalog : global::Pulumi.CustomResource

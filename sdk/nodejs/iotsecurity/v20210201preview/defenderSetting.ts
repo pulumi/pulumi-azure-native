@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * IoT Defender settings
+ *
+ * ## Example Usage
+ * ### Create or update IoT Defender settings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const defenderSetting = new azure_native.iotsecurity.v20210201preview.DefenderSetting("defenderSetting", {
+ *     deviceQuota: 2000,
+ *     mdeIntegration: {
+ *         status: "Enabled",
+ *     },
+ *     onboardingKind: "Default",
+ *     sentinelWorkspaceResourceIds: ["/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1"],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotsecurity/v20210201preview:DefenderSetting default /subscriptions/{subscriptionId}/providers/Microsoft.IoTSecurity/defenderSettings/default 
+ * ```
  */
 export class DefenderSetting extends pulumi.CustomResource {
     /**

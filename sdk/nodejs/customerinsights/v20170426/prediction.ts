@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * The prediction resource format.
+ *
+ * ## Example Usage
+ * ### Predictions_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const prediction = new azure_native.customerinsights.v20170426.Prediction("prediction", {
+ *     autoAnalyze: true,
+ *     description: {
+ *         "en-us": "sdktest",
+ *     },
+ *     displayName: {
+ *         "en-us": "sdktest",
+ *     },
+ *     grades: [],
+ *     hubName: "sdkTestHub",
+ *     involvedInteractionTypes: [],
+ *     involvedKpiTypes: [],
+ *     involvedRelationships: [],
+ *     mappings: {
+ *         grade: "sdktest_Grade",
+ *         reason: "sdktest_Reason",
+ *         score: "sdktest_Score",
+ *     },
+ *     negativeOutcomeExpression: "Customers.FirstName = 'Mike'",
+ *     positiveOutcomeExpression: "Customers.FirstName = 'David'",
+ *     predictionName: "sdktest",
+ *     primaryProfileType: "Customers",
+ *     resourceGroupName: "TestHubRG",
+ *     scopeExpression: "*",
+ *     scoreLabel: "score label",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights/v20170426:Prediction sdkTestHub/sdktest /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/predictions/sdktest 
+ * ```
  */
 export class Prediction extends pulumi.CustomResource {
     /**

@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * The IpPrefixList resource definition.
+ *
+ * ## Example Usage
+ * ### IpPrefixLists_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ipPrefixList = new azure_native.managednetworkfabric.v20230201preview.IpPrefixList("ipPrefixList", {
+ *     action: "allow",
+ *     ipPrefixListName: "IpPrefixList1",
+ *     location: "EastUS",
+ *     networkAddress: "1.1.1.0/24",
+ *     resourceGroupName: "resourceGroupName",
+ *     sequenceNumber: 19,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric/v20230201preview:IpPrefixList myresource1 resourceId 
+ * ```
  */
 export class IpPrefixList extends pulumi.CustomResource {
     /**

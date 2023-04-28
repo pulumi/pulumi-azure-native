@@ -131,6 +131,31 @@ class OuContainer(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Domain Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ou_container = azure_native.aad.OuContainer("ouContainer",
+            account_name="AccountName1",
+            domain_service_name="OuContainer.com",
+            ou_container_name="OuContainer1",
+            password="<password>",
+            resource_group_name="OuContainerResourceGroup",
+            spn="Spn1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aad:OuContainer OuContainer.com/OuContainer1 /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/ouContainerResourceGroup/providers/Microsoft.AAD/domainServices/ouContainer.com/ouContainer/ouContainer1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The account name
@@ -150,6 +175,31 @@ class OuContainer(pulumi.CustomResource):
         Resource for OuContainer.
         API Version: 2022-12-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Domain Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ou_container = azure_native.aad.OuContainer("ouContainer",
+            account_name="AccountName1",
+            domain_service_name="OuContainer.com",
+            ou_container_name="OuContainer1",
+            password="<password>",
+            resource_group_name="OuContainerResourceGroup",
+            spn="Spn1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aad:OuContainer OuContainer.com/OuContainer1 /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/ouContainerResourceGroup/providers/Microsoft.AAD/domainServices/ouContainer.com/ouContainer/ouContainer1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OuContainerArgs args: The arguments to use to populate this resource's properties.

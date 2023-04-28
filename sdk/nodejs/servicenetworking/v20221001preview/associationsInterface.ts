@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Association Subresource of Traffic Controller
+ *
+ * ## Example Usage
+ * ### Put Association
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const associationsInterface = new azure_native.servicenetworking.v20221001preview.AssociationsInterface("associationsInterface", {
+ *     associationName: "as1",
+ *     associationType: azure_native.servicenetworking.v20221001preview.AssociationType.Subnets,
+ *     location: "NorthCentralUS",
+ *     resourceGroupName: "rg1",
+ *     subnet: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet-tc/subnets/tc-subnet",
+ *     },
+ *     trafficControllerName: "tc1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicenetworking/v20221001preview:AssociationsInterface associatedvnet-1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1/associations/as1 
+ * ```
  */
 export class AssociationsInterface extends pulumi.CustomResource {
     /**

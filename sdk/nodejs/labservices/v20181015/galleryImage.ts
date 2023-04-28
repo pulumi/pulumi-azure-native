@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an image from the Azure Marketplace
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:labservices/v20181015:GalleryImage myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labaccounts/{labAccountName}/galleryimages/{galleryImageName} 
+ * ```
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**

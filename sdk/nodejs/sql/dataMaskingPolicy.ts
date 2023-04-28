@@ -11,6 +11,47 @@ import * as utilities from "../utilities";
  * A database data masking policy.
  * API Version: 2021-11-01.
  * Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update data masking policy max
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataMaskingPolicy = new azure_native.sql.DataMaskingPolicy("dataMaskingPolicy", {
+ *     dataMaskingPolicyName: "Default",
+ *     dataMaskingState: azure_native.sql.DataMaskingState.Enabled,
+ *     databaseName: "sqlcrudtest-331",
+ *     exemptPrincipals: "testuser;",
+ *     resourceGroupName: "sqlcrudtest-6852",
+ *     serverName: "sqlcrudtest-2080",
+ * });
+ *
+ * ```
+ * ### Create or update data masking policy min.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataMaskingPolicy = new azure_native.sql.DataMaskingPolicy("dataMaskingPolicy", {
+ *     dataMaskingPolicyName: "Default",
+ *     dataMaskingState: azure_native.sql.DataMaskingState.Enabled,
+ *     databaseName: "sqlcrudtest-331",
+ *     resourceGroupName: "sqlcrudtest-6852",
+ *     serverName: "sqlcrudtest-2080",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:DataMaskingPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-331/dataMaskingPolicies/Default 
+ * ```
  */
 export class DataMaskingPolicy extends pulumi.CustomResource {
     /**

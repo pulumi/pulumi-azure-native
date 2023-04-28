@@ -11,6 +11,54 @@ import * as utilities from "../utilities";
  * Attached data network resource. Must be created in the same location as its parent packet core data plane.
  * API Version: 2022-11-01.
  * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create attached data network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const attachedDataNetwork = new azure_native.mobilenetwork.AttachedDataNetwork("attachedDataNetwork", {
+ *     attachedDataNetworkName: "TestAttachedDataNetwork",
+ *     dnsAddresses: ["1.1.1.1"],
+ *     location: "eastus",
+ *     naptConfiguration: {
+ *         enabled: "Enabled",
+ *         pinholeLimits: 65536,
+ *         pinholeTimeouts: {
+ *             icmp: 30,
+ *             tcp: 180,
+ *             udp: 30,
+ *         },
+ *         portRange: {
+ *             maxPort: 49999,
+ *             minPort: 1024,
+ *         },
+ *         portReuseHoldTime: {
+ *             tcp: 120,
+ *             udp: 60,
+ *         },
+ *     },
+ *     packetCoreControlPlaneName: "TestPacketCoreCP",
+ *     packetCoreDataPlaneName: "TestPacketCoreDP",
+ *     resourceGroupName: "rg1",
+ *     userEquipmentAddressPoolPrefix: ["2.2.0.0/16"],
+ *     userEquipmentStaticAddressPoolPrefix: ["2.4.0.0/16"],
+ *     userPlaneDataInterface: {
+ *         name: "N6",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork:AttachedDataNetwork TestAttachedDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork 
+ * ```
  */
 export class AttachedDataNetwork extends pulumi.CustomResource {
     /**

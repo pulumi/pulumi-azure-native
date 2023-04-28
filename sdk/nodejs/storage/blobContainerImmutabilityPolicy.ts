@@ -8,6 +8,48 @@ import * as utilities from "../utilities";
  * The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateImmutabilityPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerImmutabilityPolicy = new azure_native.storage.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", {
+ *     accountName: "sto7069",
+ *     allowProtectedAppendWrites: true,
+ *     containerName: "container6397",
+ *     immutabilityPeriodSinceCreationInDays: 3,
+ *     immutabilityPolicyName: "default",
+ *     resourceGroupName: "res1782",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdateImmutabilityPolicyWithAllowProtectedAppendWritesAll
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainerImmutabilityPolicy = new azure_native.storage.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy", {
+ *     accountName: "sto7069",
+ *     allowProtectedAppendWritesAll: true,
+ *     containerName: "container6397",
+ *     immutabilityPeriodSinceCreationInDays: 3,
+ *     immutabilityPolicyName: "default",
+ *     resourceGroupName: "res1782",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:BlobContainerImmutabilityPolicy default /subscriptions/{subscription-id}/resourceGroups/res1782/providers/Microsoft.Storage/storageAccounts/sto7069/blobServices/default/containers/container6397/immutabilityPolicies/default 
+ * ```
  */
 export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**

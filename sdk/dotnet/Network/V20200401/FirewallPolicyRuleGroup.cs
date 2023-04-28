@@ -11,6 +11,128 @@ namespace Pulumi.AzureNative.Network.V20200401
 {
     /// <summary>
     /// Rule Group resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create FirewallPolicyRuleGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var firewallPolicyRuleGroup = new AzureNative.Network.V20200401.FirewallPolicyRuleGroup("firewallPolicyRuleGroup", new()
+    ///     {
+    ///         FirewallPolicyName = "firewallPolicy",
+    ///         Priority = 110,
+    ///         ResourceGroupName = "rg1",
+    ///         RuleGroupName = "ruleGroup1",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20200401.Inputs.FirewallPolicyFilterRuleArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.V20200401.Inputs.FirewallPolicyFilterRuleActionArgs
+    ///                 {
+    ///                     Type = "Deny",
+    ///                 },
+    ///                 Name = "Example-Filter-Rule",
+    ///                 RuleConditions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20200401.Inputs.NetworkRuleConditionArgs
+    ///                     {
+    ///                         DestinationAddresses = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         IpProtocols = new[]
+    ///                         {
+    ///                             "TCP",
+    ///                         },
+    ///                         Name = "network-condition1",
+    ///                         RuleConditionType = "NetworkRuleCondition",
+    ///                         SourceAddresses = new[]
+    ///                         {
+    ///                             "10.1.25.0/24",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 RuleType = "FirewallPolicyFilterRule",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create FirewallPolicyRuleGroup With IpGroups
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var firewallPolicyRuleGroup = new AzureNative.Network.V20200401.FirewallPolicyRuleGroup("firewallPolicyRuleGroup", new()
+    ///     {
+    ///         FirewallPolicyName = "firewallPolicy",
+    ///         Priority = 110,
+    ///         ResourceGroupName = "rg1",
+    ///         RuleGroupName = "ruleGroup1",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20200401.Inputs.FirewallPolicyFilterRuleArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.V20200401.Inputs.FirewallPolicyFilterRuleActionArgs
+    ///                 {
+    ///                     Type = "Deny",
+    ///                 },
+    ///                 Name = "Example-Filter-Rule",
+    ///                 RuleConditions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20200401.Inputs.NetworkRuleConditionArgs
+    ///                     {
+    ///                         DestinationIpGroups = new[]
+    ///                         {
+    ///                             "/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2",
+    ///                         },
+    ///                         DestinationPorts = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                         IpProtocols = new[]
+    ///                         {
+    ///                             "TCP",
+    ///                         },
+    ///                         Name = "network-condition1",
+    ///                         RuleConditionType = "NetworkRuleCondition",
+    ///                         SourceIpGroups = new[]
+    ///                         {
+    ///                             "/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 RuleType = "FirewallPolicyFilterRule",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20200401:FirewallPolicyRuleGroup ruleGroup1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy/ruleGroups/ruleGroup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200401:FirewallPolicyRuleGroup")]
     public partial class FirewallPolicyRuleGroup : global::Pulumi.CustomResource

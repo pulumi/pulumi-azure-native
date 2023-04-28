@@ -110,6 +110,33 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
         """
         Defines binding between a resource and role
 
+        ## Example Usage
+        ### Create or update a trusted access role binding
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trusted_access_role_binding = azure_native.containerservice.v20220402preview.TrustedAccessRoleBinding("trustedAccessRoleBinding",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            roles=[
+                "Microsoft.MachineLearningServices/workspaces/reader",
+                "Microsoft.MachineLearningServices/workspaces/writer",
+            ],
+            source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/b/providers/Microsoft.MachineLearningServices/workspaces/c",
+            trusted_access_role_binding_name="binding1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding binding1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/trustedAccessRoleBindings/binding1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -126,6 +153,33 @@ class TrustedAccessRoleBinding(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines binding between a resource and role
+
+        ## Example Usage
+        ### Create or update a trusted access role binding
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trusted_access_role_binding = azure_native.containerservice.v20220402preview.TrustedAccessRoleBinding("trustedAccessRoleBinding",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            roles=[
+                "Microsoft.MachineLearningServices/workspaces/reader",
+                "Microsoft.MachineLearningServices/workspaces/writer",
+            ],
+            source_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/b/providers/Microsoft.MachineLearningServices/workspaces/c",
+            trusted_access_role_binding_name="binding1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding binding1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/trustedAccessRoleBindings/binding1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TrustedAccessRoleBindingArgs args: The arguments to use to populate this resource's properties.

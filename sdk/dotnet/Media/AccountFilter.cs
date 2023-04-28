@@ -13,6 +13,93 @@ namespace Pulumi.AzureNative.Media
     /// An Account Filter.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create an Account Filter
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accountFilter = new AzureNative.Media.AccountFilter("accountFilter", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         FilterName = "newAccountFilter",
+    ///         FirstQuality = new AzureNative.Media.Inputs.FirstQualityArgs
+    ///         {
+    ///             Bitrate = 128000,
+    ///         },
+    ///         PresentationTimeRange = new AzureNative.Media.Inputs.PresentationTimeRangeArgs
+    ///         {
+    ///             EndTimestamp = 170000000,
+    ///             ForceEndTimestamp = false,
+    ///             LiveBackoffDuration = 0,
+    ///             PresentationWindowDuration = 9223372036854774784,
+    ///             StartTimestamp = 0,
+    ///             Timescale = 10000000,
+    ///         },
+    ///         ResourceGroupName = "contosorg",
+    ///         Tracks = new[]
+    ///         {
+    ///             new AzureNative.Media.Inputs.FilterTrackSelectionArgs
+    ///             {
+    ///                 TrackSelections = new[]
+    ///                 {
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "Equal",
+    ///                         Property = "Type",
+    ///                         Value = "Audio",
+    ///                     },
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "NotEqual",
+    ///                         Property = "Language",
+    ///                         Value = "en",
+    ///                     },
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "NotEqual",
+    ///                         Property = "FourCC",
+    ///                         Value = "EC-3",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Media.Inputs.FilterTrackSelectionArgs
+    ///             {
+    ///                 TrackSelections = new[]
+    ///                 {
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "Equal",
+    ///                         Property = "Type",
+    ///                         Value = "Video",
+    ///                     },
+    ///                     new AzureNative.Media.Inputs.FilterTrackPropertyConditionArgs
+    ///                     {
+    ///                         Operation = "Equal",
+    ///                         Property = "Bitrate",
+    ///                         Value = "3000000-5000000",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media:AccountFilter newAccountFilter /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/accountFilters/newAccountFilter 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media:AccountFilter")]
     public partial class AccountFilter : global::Pulumi.CustomResource

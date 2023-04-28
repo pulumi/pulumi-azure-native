@@ -9,6 +9,59 @@ import * as utilities from "../../utilities";
 
 /**
  * Compute role.
+ *
+ * ## Example Usage
+ * ### RolePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ioTRole = new azure_native.databoxedge.v20200501preview.IoTRole("ioTRole", {
+ *     deviceName: "testedgedevice",
+ *     hostPlatform: "Linux",
+ *     ioTDeviceDetails: {
+ *         authentication: {
+ *             symmetricKey: {
+ *                 connectionString: {
+ *                     encryptionAlgorithm: "AES256",
+ *                     encryptionCertThumbprint: "348586569999244",
+ *                     value: "Encrypted<<HostName=iothub.azure-devices.net;DeviceId=iotDevice;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=>>",
+ *                 },
+ *             },
+ *         },
+ *         deviceId: "iotdevice",
+ *         ioTHostHub: "iothub.azure-devices.net",
+ *     },
+ *     ioTEdgeDeviceDetails: {
+ *         authentication: {
+ *             symmetricKey: {
+ *                 connectionString: {
+ *                     encryptionAlgorithm: "AES256",
+ *                     encryptionCertThumbprint: "1245475856069999244",
+ *                     value: "Encrypted<<HostName=iothub.azure-devices.net;DeviceId=iotEdge;SharedAccessKey=2C750FscEas3JmQ8Bnui5yQWZPyml0/UiRt1bQwd8=>>",
+ *                 },
+ *             },
+ *         },
+ *         deviceId: "iotEdge",
+ *         ioTHostHub: "iothub.azure-devices.net",
+ *     },
+ *     kind: "IOT",
+ *     name: "IoTRole1",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     roleStatus: "Enabled",
+ *     shareMappings: [],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge/v20200501preview:IoTRole IoTRole1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1 
+ * ```
  */
 export class IoTRole extends pulumi.CustomResource {
     /**

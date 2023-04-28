@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.StorSimple
     /// The storage account credential.
     /// API Version: 2017-06-01.
     /// Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountCredentialsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAccountCredential = new AzureNative.StorSimple.StorageAccountCredential("storageAccountCredential", new()
+    ///     {
+    ///         AccessKey = new AzureNative.StorSimple.Inputs.AsymmetricEncryptedSecretArgs
+    ///         {
+    ///             EncryptionAlgorithm = AzureNative.StorSimple.EncryptionAlgorithm.RSAES_PKCS1_v_1_5,
+    ///             EncryptionCertThumbprint = "A872A2DF196AC7682EE24791E7DE2E2A360F5926",
+    ///             Value = "ATuJSkmrFk4h8r1jrZ4nd3nthLSddcguEO5QLO/NECUtTuB9kL4dNv3/jC4WOvFkeVr3x1UvfhlIeMmJBF1SMr6hR1JzD0xNU/TtQqUeXN7V3jk7I+2l67P9StuHWR6OMd3XOLwvznxOEQtEWpweDiobZU1ZiY03WafcGZFpV5j6tEoHeopoZ1J/GhPtkYmx+TqxzUN6qnir5rP3NSYiZciImP/qu8U9yUV/xpVRv39KvFc2Yr5SpKpMMRUj55XW10UnPer63M6KovF8X9Wi/fNnrZAs1Esl5XddZETGrW/e5B++VMJ6w0Q/uvPR+UBwrOU0804l0SzwdIe3qVVd0Q==",
+    ///         },
+    ///         EndPoint = "blob.core.windows.net",
+    ///         ManagerName = "ManagerForSDKTest1",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         SslStatus = AzureNative.StorSimple.SslStatus.Enabled,
+    ///         StorageAccountCredentialName = "SACForTest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple:StorageAccountCredential SACForTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/storageAccountCredentials/SACForTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:StorageAccountCredential")]
     public partial class StorageAccountCredential : global::Pulumi.CustomResource

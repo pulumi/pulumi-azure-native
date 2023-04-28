@@ -9,6 +9,46 @@ import * as utilities from "../../utilities";
 
 /**
  * SecurityPolicy association for AzureFrontDoor profile
+ *
+ * ## Example Usage
+ * ### SecurityPolicies_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityPolicy = new azure_native.cdn.v20221101preview.SecurityPolicy("securityPolicy", {
+ *     parameters: {
+ *         associations: [{
+ *             domains: [
+ *                 {
+ *                     id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
+ *                 },
+ *                 {
+ *                     id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
+ *                 },
+ *             ],
+ *             patternsToMatch: ["/*"],
+ *         }],
+ *         type: "WebApplicationFirewall",
+ *         wafPolicy: {
+ *             id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/wafTest",
+ *         },
+ *     },
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     securityPolicyName: "securityPolicy1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn/v20221101preview:SecurityPolicy securityPolicy1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/securitypolicies/securityPolicy1 
+ * ```
  */
 export class SecurityPolicy extends pulumi.CustomResource {
     /**

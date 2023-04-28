@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * A notebook workspace resource
+ *
+ * ## Example Usage
+ * ### CosmosDBNotebookWorkspaceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const notebookWorkspace = new azure_native.documentdb.v20210315.NotebookWorkspace("notebookWorkspace", {
+ *     accountName: "ddb1",
+ *     notebookWorkspaceName: "default",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20210315:NotebookWorkspace default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/notebookWorkspaces/default 
+ * ```
  */
 export class NotebookWorkspace extends pulumi.CustomResource {
     /**

@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.AppConfiguration.V20190201Preview
 {
     /// <summary>
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationStores_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationStore = new AzureNative.AppConfiguration.V20190201Preview.ConfigurationStore("configurationStore", new()
+    ///     {
+    ///         ConfigStoreName = "fayeh",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "myTag", "myTagValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appconfiguration/v20190201preview:ConfigurationStore fayeh /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/fayeh 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-02-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:appconfiguration/v20190201preview:ConfigurationStore")]

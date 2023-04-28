@@ -9,6 +9,63 @@ import * as utilities from "../../utilities";
 
 /**
  * An event source that receives its data from an Azure EventHub.
+ *
+ * ## Example Usage
+ * ### CreateEventHubEventSource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventHubEventSource = new azure_native.timeseriesinsights.v20200515.EventHubEventSource("eventHubEventSource", {
+ *     consumerGroupName: "cgn",
+ *     environmentName: "env1",
+ *     eventHubName: "ehn",
+ *     eventSourceName: "es1",
+ *     eventSourceResourceId: "somePathInArm",
+ *     keyName: "managementKey",
+ *     kind: "Microsoft.EventHub",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     serviceBusNamespace: "sbn",
+ *     sharedAccessKey: "someSecretvalue",
+ *     timestampPropertyName: "someTimestampProperty",
+ *     type: "EarliestAvailable",
+ * });
+ *
+ * ```
+ * ### EventSourcesCreateEventHubWithCustomEnquedTime
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventHubEventSource = new azure_native.timeseriesinsights.v20200515.EventHubEventSource("eventHubEventSource", {
+ *     consumerGroupName: "cgn",
+ *     environmentName: "env1",
+ *     eventHubName: "ehn",
+ *     eventSourceName: "es1",
+ *     eventSourceResourceId: "somePathInArm",
+ *     keyName: "managementKey",
+ *     kind: "Microsoft.EventHub",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     serviceBusNamespace: "sbn",
+ *     sharedAccessKey: "someSecretvalue",
+ *     time: "2017-04-01T19:20:33.2288820Z",
+ *     timestampPropertyName: "someTimestampProperty",
+ *     type: "CustomEnqueuedTime",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:timeseriesinsights/v20200515:EventHubEventSource es1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/eventSources/es1 
+ * ```
  */
 export class EventHubEventSource extends pulumi.CustomResource {
     /**

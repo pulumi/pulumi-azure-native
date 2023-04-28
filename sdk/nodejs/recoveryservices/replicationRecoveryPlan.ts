@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * Recovery plan details.
  * API Version: 2023-02-01.
  * Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates a recovery plan with the given details.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationRecoveryPlan = new azure_native.recoveryservices.ReplicationRecoveryPlan("replicationRecoveryPlan", {
+ *     properties: {
+ *         failoverDeploymentModel: "ResourceManager",
+ *         groups: [{
+ *             endGroupActions: [],
+ *             groupType: "Boot",
+ *             replicationProtectedItems: [{
+ *                 id: "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b",
+ *                 virtualMachineId: "f8491e4f-817a-40dd-a90c-af773978c75b",
+ *             }],
+ *             startGroupActions: [],
+ *         }],
+ *         primaryFabricId: "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1",
+ *         recoveryFabricId: "Microsoft Azure",
+ *     },
+ *     recoveryPlanName: "RPtest1",
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ReplicationRecoveryPlan RPtest1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationRecoveryPlans/RPtest1 
+ * ```
  */
 export class ReplicationRecoveryPlan extends pulumi.CustomResource {
     /**

@@ -96,6 +96,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The private endpoint connection of an IotHub
 
+        ## Example Usage
+        ### PrivateEndpointConnection_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.devices.v20220430preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="myPrivateEndpointConnection",
+            properties=azure_native.devices.v20220430preview.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.devices.v20220430preview.PrivateLinkServiceConnectionStateArgs(
+                    description="Approved by johndoe@contoso.com",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="testHub")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20220430preview:PrivateEndpointConnection myPrivateEndpointConnection /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/testHub/PrivateEndpointConnections/myPrivateEndpointConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
@@ -111,6 +139,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection of an IotHub
+
+        ## Example Usage
+        ### PrivateEndpointConnection_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.devices.v20220430preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="myPrivateEndpointConnection",
+            properties=azure_native.devices.v20220430preview.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.devices.v20220430preview.PrivateLinkServiceConnectionStateArgs(
+                    description="Approved by johndoe@contoso.com",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="testHub")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20220430preview:PrivateEndpointConnection myPrivateEndpointConnection /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/testHub/PrivateEndpointConnections/myPrivateEndpointConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

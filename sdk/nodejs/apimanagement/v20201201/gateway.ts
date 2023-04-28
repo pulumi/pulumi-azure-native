@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Gateway details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateGateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gateway = new azure_native.apimanagement.v20201201.Gateway("gateway", {
+ *     description: "my gateway 1",
+ *     gatewayId: "gw1",
+ *     locationData: {
+ *         name: "my location",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:Gateway a1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1 
+ * ```
  */
 export class Gateway extends pulumi.CustomResource {
     /**

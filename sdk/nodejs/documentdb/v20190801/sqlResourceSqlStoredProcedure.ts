@@ -10,6 +10,36 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB storedProcedure.
  *
+ * ## Example Usage
+ * ### CosmosDBSqlStoredProcedureCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlResourceSqlStoredProcedure = new azure_native.documentdb.v20190801.SqlResourceSqlStoredProcedure("sqlResourceSqlStoredProcedure", {
+ *     accountName: "ddb1",
+ *     containerName: "containerName",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         body: "body",
+ *         id: "storedProcedureName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     storedProcedureName: "storedProcedureName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20190801:SqlResourceSqlStoredProcedure storedProcedureName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlStoredProcedures/storedProcedureName 
+ * ```
+ *
  * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
  */
 export class SqlResourceSqlStoredProcedure extends pulumi.CustomResource {

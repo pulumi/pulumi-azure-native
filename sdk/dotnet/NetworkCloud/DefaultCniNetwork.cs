@@ -12,6 +12,80 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// <summary>
     /// API Version: 2022-12-12-preview.
     /// Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update default CNI network
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var defaultCniNetwork = new AzureNative.NetworkCloud.DefaultCniNetwork("defaultCniNetwork", new()
+    ///     {
+    ///         CniBgpConfiguration = new AzureNative.NetworkCloud.Inputs.CniBgpConfigurationArgs
+    ///         {
+    ///             BgpPeers = new[]
+    ///             {
+    ///                 new AzureNative.NetworkCloud.Inputs.BgpPeerArgs
+    ///                 {
+    ///                     AsNumber = 64497,
+    ///                     PeerIp = "203.0.113.254",
+    ///                 },
+    ///             },
+    ///             CommunityAdvertisements = new[]
+    ///             {
+    ///                 new AzureNative.NetworkCloud.Inputs.CommunityAdvertisementArgs
+    ///                 {
+    ///                     Communities = new[]
+    ///                     {
+    ///                         "64512:100",
+    ///                     },
+    ///                     SubnetPrefix = "192.0.2.0/27",
+    ///                 },
+    ///             },
+    ///             ServiceExternalPrefixes = new[]
+    ///             {
+    ///                 "192.0.2.0/28",
+    ///             },
+    ///             ServiceLoadBalancerPrefixes = new[]
+    ///             {
+    ///                 "192.0.2.16/28",
+    ///             },
+    ///         },
+    ///         DefaultCniNetworkName = "defaultCniNetworkName",
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         IpAllocationType = "DualStack",
+    ///         Ipv4ConnectedPrefix = "203.0.113.0/24",
+    ///         Ipv6ConnectedPrefix = "2001:db8:0:3::/64",
+    ///         L3IsolationDomainId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+    ///         Location = "location",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///         Vlan = 12,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud:DefaultCniNetwork defaultcniNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/defaultcniNetworks/defaultcniNetworkName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:DefaultCniNetwork")]
     public partial class DefaultCniNetwork : global::Pulumi.CustomResource

@@ -199,6 +199,58 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
         API Version: 2020-03-01.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### privateLinkPolicyCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_for_azure_ad = azure_native.aadiam.PrivateLinkForAzureAd("privateLinkForAzureAd",
+            all_tenants=False,
+            name="myOrgPrivateLinkPolicy",
+            owner_tenant_id="950f8bca-bf4d-4a41-ad10-034e792a243d",
+            policy_name="ddb1",
+            resource_group="myOrgVnetRG",
+            resource_group_name="rg1",
+            resource_name_="myOrgVnetPrivateLink",
+            subscription_id="57849194-ea1f-470b-abda-d195b25634c1",
+            tenants=[
+                "3616657d-1c80-41ae-9d83-2a2776f2c9be",
+                "727b6ef1-18ab-4627-ac95-3f9cd945ed87",
+            ])
+
+        ```
+        ### privateLinkPolicyMinCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_for_azure_ad = azure_native.aadiam.PrivateLinkForAzureAd("privateLinkForAzureAd",
+            all_tenants=False,
+            name="myOrgPrivateLinkPolicy",
+            owner_tenant_id="950f8bca-bf4d-4a41-ad10-034e792a243d",
+            policy_name="ddb1",
+            resource_group="myOrgVnetRG",
+            resource_group_name="rg1",
+            resource_name_="myOrgVnetPrivateLink",
+            subscription_id="57849194-ea1f-470b-abda-d195b25634c1",
+            tenants=[
+                "3616657d-1c80-41ae-9d83-2a2776f2c9be",
+                "727b6ef1-18ab-4627-ac95-3f9cd945ed87",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aadiam:privateLinkForAzureAd myOrgPrivateLinkPolicy /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] all_tenants: Flag indicating whether all tenants are allowed
@@ -222,6 +274,58 @@ class PrivateLinkForAzureAd(pulumi.CustomResource):
         PrivateLink Policy configuration object.
         API Version: 2020-03-01.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### privateLinkPolicyCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_for_azure_ad = azure_native.aadiam.PrivateLinkForAzureAd("privateLinkForAzureAd",
+            all_tenants=False,
+            name="myOrgPrivateLinkPolicy",
+            owner_tenant_id="950f8bca-bf4d-4a41-ad10-034e792a243d",
+            policy_name="ddb1",
+            resource_group="myOrgVnetRG",
+            resource_group_name="rg1",
+            resource_name_="myOrgVnetPrivateLink",
+            subscription_id="57849194-ea1f-470b-abda-d195b25634c1",
+            tenants=[
+                "3616657d-1c80-41ae-9d83-2a2776f2c9be",
+                "727b6ef1-18ab-4627-ac95-3f9cd945ed87",
+            ])
+
+        ```
+        ### privateLinkPolicyMinCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_for_azure_ad = azure_native.aadiam.PrivateLinkForAzureAd("privateLinkForAzureAd",
+            all_tenants=False,
+            name="myOrgPrivateLinkPolicy",
+            owner_tenant_id="950f8bca-bf4d-4a41-ad10-034e792a243d",
+            policy_name="ddb1",
+            resource_group="myOrgVnetRG",
+            resource_group_name="rg1",
+            resource_name_="myOrgVnetPrivateLink",
+            subscription_id="57849194-ea1f-470b-abda-d195b25634c1",
+            tenants=[
+                "3616657d-1c80-41ae-9d83-2a2776f2c9be",
+                "727b6ef1-18ab-4627-ac95-3f9cd945ed87",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aadiam:privateLinkForAzureAd myOrgPrivateLinkPolicy /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/microsoft.aadiam/privateLinkForAzureAd/{policyName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkForAzureAdArgs args: The arguments to use to populate this resource's properties.

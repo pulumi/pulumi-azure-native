@@ -165,6 +165,51 @@ class Logger(pulumi.CustomResource):
         """
         Logger details.
 
+        ## Example Usage
+        ### ApiManagementCreateAILogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logger = azure_native.apimanagement.v20170301.Logger("logger",
+            credentials={
+                "instrumentationKey": "11................a1",
+            },
+            description="adding a new logger",
+            logger_type="applicationInsights",
+            loggerid="loggerId",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateEHLogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logger = azure_native.apimanagement.v20170301.Logger("logger",
+            credentials={
+                "connectionString": "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=",
+                "name": "hydraeventhub",
+            },
+            description="adding a new logger",
+            logger_type="azureEventHub",
+            loggerid="loggerId",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:Logger loggerId /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/loggers/loggerId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] credentials: The name and SendRule connection string of the event hub for azureEventHub logger.
@@ -185,6 +230,51 @@ class Logger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Logger details.
+
+        ## Example Usage
+        ### ApiManagementCreateAILogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logger = azure_native.apimanagement.v20170301.Logger("logger",
+            credentials={
+                "instrumentationKey": "11................a1",
+            },
+            description="adding a new logger",
+            logger_type="applicationInsights",
+            loggerid="loggerId",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateEHLogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        logger = azure_native.apimanagement.v20170301.Logger("logger",
+            credentials={
+                "connectionString": "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=",
+                "name": "hydraeventhub",
+            },
+            description="adding a new logger",
+            logger_type="azureEventHub",
+            loggerid="loggerId",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:Logger loggerId /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/loggers/loggerId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LoggerArgs args: The arguments to use to populate this resource's properties.

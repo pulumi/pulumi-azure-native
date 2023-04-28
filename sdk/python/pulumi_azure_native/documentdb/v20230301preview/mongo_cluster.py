@@ -202,6 +202,55 @@ class MongoCluster(pulumi.CustomResource):
         """
         Represents a mongo cluster resource.
 
+        ## Example Usage
+        ### Create a new mongo cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_cluster = azure_native.documentdb.v20230301preview.MongoCluster("mongoCluster",
+            administrator_login="mongoAdmin",
+            administrator_login_password="password",
+            location="westus2",
+            mongo_cluster_name="myMongoCluster",
+            node_group_specs=[azure_native.documentdb.v20230301preview.NodeGroupSpecArgs(
+                disk_size_gb=128,
+                enable_ha=True,
+                kind="Shard",
+                node_count=3,
+                sku="M30",
+            )],
+            resource_group_name="TestResourceGroup",
+            server_version="5.0")
+
+        ```
+        ### Create a new mongo cluster with point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_cluster = azure_native.documentdb.v20230301preview.MongoCluster("mongoCluster",
+            create_mode="PointInTimeRestore",
+            location="westus2",
+            mongo_cluster_name="myMongoCluster",
+            resource_group_name="TestResourceGroup",
+            restore_parameters=azure_native.documentdb.v20230301preview.MongoClusterRestoreParametersArgs(
+                point_in_time_utc="2023-01-13T20:07:35Z",
+                source_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20230301preview:MongoCluster myMongoCluster /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator's login for the mongo cluster.
@@ -223,6 +272,55 @@ class MongoCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a mongo cluster resource.
+
+        ## Example Usage
+        ### Create a new mongo cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_cluster = azure_native.documentdb.v20230301preview.MongoCluster("mongoCluster",
+            administrator_login="mongoAdmin",
+            administrator_login_password="password",
+            location="westus2",
+            mongo_cluster_name="myMongoCluster",
+            node_group_specs=[azure_native.documentdb.v20230301preview.NodeGroupSpecArgs(
+                disk_size_gb=128,
+                enable_ha=True,
+                kind="Shard",
+                node_count=3,
+                sku="M30",
+            )],
+            resource_group_name="TestResourceGroup",
+            server_version="5.0")
+
+        ```
+        ### Create a new mongo cluster with point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_cluster = azure_native.documentdb.v20230301preview.MongoCluster("mongoCluster",
+            create_mode="PointInTimeRestore",
+            location="westus2",
+            mongo_cluster_name="myMongoCluster",
+            resource_group_name="TestResourceGroup",
+            restore_parameters=azure_native.documentdb.v20230301preview.MongoClusterRestoreParametersArgs(
+                point_in_time_utc="2023-01-13T20:07:35Z",
+                source_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20230301preview:MongoCluster myMongoCluster /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MongoClusterArgs args: The arguments to use to populate this resource's properties.

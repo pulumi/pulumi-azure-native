@@ -13,6 +13,90 @@ namespace Pulumi.AzureNative.EventHub
     /// Description of topic resource.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceNetworkRuleSetCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceNetworkRuleSet = new AzureNative.EventHub.NamespaceNetworkRuleSet("namespaceNetworkRuleSet", new()
+    ///     {
+    ///         DefaultAction = "Deny",
+    ///         IpRules = new[]
+    ///         {
+    ///             new AzureNative.EventHub.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "1.1.1.1",
+    ///             },
+    ///             new AzureNative.EventHub.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "1.1.1.2",
+    ///             },
+    ///             new AzureNative.EventHub.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "1.1.1.3",
+    ///             },
+    ///             new AzureNative.EventHub.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "1.1.1.4",
+    ///             },
+    ///             new AzureNative.EventHub.Inputs.NWRuleSetIpRulesArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "1.1.1.5",
+    ///             },
+    ///         },
+    ///         NamespaceName = "sdk-Namespace-6019",
+    ///         ResourceGroupName = "ResourceGroup",
+    ///         VirtualNetworkRules = new[]
+    ///         {
+    ///             new AzureNative.EventHub.Inputs.NWRuleSetVirtualNetworkRulesArgs
+    ///             {
+    ///                 IgnoreMissingVnetServiceEndpoint = true,
+    ///                 Subnet = new AzureNative.EventHub.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2",
+    ///                 },
+    ///             },
+    ///             new AzureNative.EventHub.Inputs.NWRuleSetVirtualNetworkRulesArgs
+    ///             {
+    ///                 IgnoreMissingVnetServiceEndpoint = false,
+    ///                 Subnet = new AzureNative.EventHub.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3",
+    ///                 },
+    ///             },
+    ///             new AzureNative.EventHub.Inputs.NWRuleSetVirtualNetworkRulesArgs
+    ///             {
+    ///                 IgnoreMissingVnetServiceEndpoint = false,
+    ///                 Subnet = new AzureNative.EventHub.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:NamespaceNetworkRuleSet default /subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourceGroups/resourcegroupid/providers/Microsoft.EventHub/namespaces/sdk-Namespace-9659/networkruleset/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:NamespaceNetworkRuleSet")]
     public partial class NamespaceNetworkRuleSet : global::Pulumi.CustomResource

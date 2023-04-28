@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn/v20160402:Profile myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName} 
+ * ```
  *
  * @deprecated Version 2016-04-02 will be removed in v2 of the provider.
  */

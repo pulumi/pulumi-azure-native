@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
 {
     /// <summary>
     /// Class representing a read write database.
+    /// 
+    /// ## Example Usage
+    /// ### KustoPoolDatabasesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var readWriteDatabase = new AzureNative.Synapse.V20210401Preview.ReadWriteDatabase("readWriteDatabase", new()
+    ///     {
+    ///         DatabaseName = "KustoDatabase8",
+    ///         Kind = "ReadWrite",
+    ///         KustoPoolName = "kustoclusterrptest4",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///         SoftDeletePeriod = "P1D",
+    ///         WorkspaceName = "synapseWorkspaceName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210401preview:ReadWriteDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustopools/KustoClusterRPTest4/Databases/KustoDatabase8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210401preview:ReadWriteDatabase")]
     public partial class ReadWriteDatabase : global::Pulumi.CustomResource

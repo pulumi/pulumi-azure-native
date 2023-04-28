@@ -96,6 +96,29 @@ class Application(pulumi.CustomResource):
         """
         Security Application over a given scope
 
+        ## Example Usage
+        ### Create application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.security.v20220701preview.Application("application",
+            application_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            description="An application on critical recommendations",
+            display_name="Admin's application",
+            source_resource_type="Assessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20220701preview:Application 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/applications/ad9a8e26-29d9-4829-bb30-e597a58cdbb8 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The security Application key - unique key for the standard application
@@ -111,6 +134,29 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security Application over a given scope
+
+        ## Example Usage
+        ### Create application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.security.v20220701preview.Application("application",
+            application_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            description="An application on critical recommendations",
+            display_name="Admin's application",
+            source_resource_type="Assessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20220701preview:Application 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/applications/ad9a8e26-29d9-4829-bb30-e597a58cdbb8 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

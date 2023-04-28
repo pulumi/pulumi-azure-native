@@ -114,6 +114,34 @@ class RestorePointCollection(pulumi.CustomResource):
         """
         Create or update Restore Point collection parameters.
 
+        ## Example Usage
+        ### Create or update a restore point collection.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        restore_point_collection = azure_native.compute.v20210301.RestorePointCollection("restorePointCollection",
+            location="norwayeast",
+            resource_group_name="myResourceGroup",
+            restore_point_collection_name="myRpc",
+            source=azure_native.compute.v20210301.RestorePointCollectionSourcePropertiesArgs(
+                id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+            ),
+            tags={
+                "myTag1": "tagValue1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210301:RestorePointCollection myRpc /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/myRpc 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
@@ -130,6 +158,34 @@ class RestorePointCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Create or update Restore Point collection parameters.
+
+        ## Example Usage
+        ### Create or update a restore point collection.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        restore_point_collection = azure_native.compute.v20210301.RestorePointCollection("restorePointCollection",
+            location="norwayeast",
+            resource_group_name="myResourceGroup",
+            restore_point_collection_name="myRpc",
+            source=azure_native.compute.v20210301.RestorePointCollectionSourcePropertiesArgs(
+                id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+            ),
+            tags={
+                "myTag1": "tagValue1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210301:RestorePointCollection myRpc /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/myRpc 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RestorePointCollectionArgs args: The arguments to use to populate this resource's properties.

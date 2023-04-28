@@ -12,6 +12,102 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// API Version: 2022-10-01.
     /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Batch Deployment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var batchDeployment = new AzureNative.MachineLearningServices.BatchDeployment("batchDeployment", new()
+    ///     {
+    ///         BatchDeploymentProperties = new AzureNative.MachineLearningServices.Inputs.BatchDeploymentArgs
+    ///         {
+    ///             CodeConfiguration = new AzureNative.MachineLearningServices.Inputs.CodeConfigurationArgs
+    ///             {
+    ///                 CodeId = "string",
+    ///                 ScoringScript = "string",
+    ///             },
+    ///             Compute = "string",
+    ///             Description = "string",
+    ///             EnvironmentId = "string",
+    ///             EnvironmentVariables = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             ErrorThreshold = 1,
+    ///             LoggingLevel = "Info",
+    ///             MaxConcurrencyPerInstance = 1,
+    ///             MiniBatchSize = 1,
+    ///             Model = new AzureNative.MachineLearningServices.Inputs.IdAssetReferenceArgs
+    ///             {
+    ///                 AssetId = "string",
+    ///                 ReferenceType = "Id",
+    ///             },
+    ///             OutputAction = "SummaryOnly",
+    ///             OutputFileName = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Resources = new AzureNative.MachineLearningServices.Inputs.DeploymentResourceConfigurationArgs
+    ///             {
+    ///                 InstanceCount = 1,
+    ///                 InstanceType = "string",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "string", 
+    ///                     {
+    ///                         { "cd3c37dc-2876-4ca4-8a54-21bd7619724a", null },
+    ///                     } },
+    ///                 },
+    ///             },
+    ///             RetrySettings = new AzureNative.MachineLearningServices.Inputs.BatchRetrySettingsArgs
+    ///             {
+    ///                 MaxRetries = 1,
+    ///                 Timeout = "PT5M",
+    ///             },
+    ///         },
+    ///         DeploymentName = "testDeploymentName",
+    ///         EndpointName = "testEndpointName",
+    ///         Identity = new AzureNative.MachineLearningServices.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "string", null },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Sku = new AzureNative.MachineLearningServices.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "string",
+    ///             Name = "string",
+    ///             Size = "string",
+    ///             Tier = AzureNative.MachineLearningServices.SkuTier.Free,
+    ///         },
+    ///         Tags = null,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:BatchDeployment string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:BatchDeployment")]
     public partial class BatchDeployment : global::Pulumi.CustomResource

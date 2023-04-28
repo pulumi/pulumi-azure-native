@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Defines the inventory item.
  * API Version: 2020-06-05-preview.
  * Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateInventoryItem
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const inventoryItem = new azure_native.scvmm.InventoryItem("inventoryItem", {
+ *     inventoryItemName: "12345678-1234-1234-1234-123456789abc",
+ *     inventoryType: "Cloud",
+ *     resourceGroupName: "testrg",
+ *     vmmServerName: "ContosoVMMServer",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:scvmm:InventoryItem 12345678-1234-1234-1234-123456789abc /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer/InventoryItems/12345678-1234-1234-1234-123456789abc 
+ * ```
  */
 export class InventoryItem extends pulumi.CustomResource {
     /**

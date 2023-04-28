@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
 {
     /// <summary>
     /// A private link scoped resource
+    /// 
+    /// ## Example Usage
+    /// ### Update a scoped resource in a private link scope.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkScopedResource = new AzureNative.HybridCompute.V20200815Preview.PrivateLinkScopedResource("privateLinkScopedResource", new()
+    ///     {
+    ///         LinkedResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/machineName1",
+    ///         Name = "scoped-resource-name",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ScopeName = "myPrivateLinkScope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource scoped-resource-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/myPrivateLinkScope/scopedResources/scoped-resource-name 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute/v20200815preview:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : global::Pulumi.CustomResource

@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Database.
+ *
+ * ## Example Usage
+ * ### DatabaseCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.dbforpostgresql.v20171201.Database("database", {
+ *     charset: "UTF8",
+ *     collation: "English_United States.1252",
+ *     databaseName: "db1",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20171201:Database db1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver/databases/db1 
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

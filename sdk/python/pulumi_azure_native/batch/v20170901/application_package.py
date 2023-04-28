@@ -98,6 +98,29 @@ class ApplicationPackage(pulumi.CustomResource):
         """
         An application package which represents a particular version of an application.
 
+        ## Example Usage
+        ### ApplicationPackageCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_package = azure_native.batch.v20170901.ApplicationPackage("applicationPackage",
+            account_name="sampleacct",
+            application_id="app1",
+            resource_group_name="default-azurebatch-japaneast",
+            version="1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:batch/v20170901:ApplicationPackage myresource1 app1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
@@ -113,6 +136,29 @@ class ApplicationPackage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An application package which represents a particular version of an application.
+
+        ## Example Usage
+        ### ApplicationPackageCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_package = azure_native.batch.v20170901.ApplicationPackage("applicationPackage",
+            account_name="sampleacct",
+            application_id="app1",
+            resource_group_name="default-azurebatch-japaneast",
+            version="1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:batch/v20170901:ApplicationPackage myresource1 app1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationPackageArgs args: The arguments to use to populate this resource's properties.

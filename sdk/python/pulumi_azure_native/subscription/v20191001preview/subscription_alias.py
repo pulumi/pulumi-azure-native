@@ -70,6 +70,31 @@ class SubscriptionAlias(pulumi.CustomResource):
         """
         Subscription Information with the alias.
 
+        ## Example Usage
+        ### CreateAlias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_alias = azure_native.subscription.v20191001preview.SubscriptionAlias("subscriptionAlias",
+            alias_name="aliasForNewSub",
+            properties=azure_native.subscription.v20191001preview.PutAliasResponsePropertiesResponseArgs(
+                billing_scope="/providers/Microsoft.Billing/billingAccounts/e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31/billingProfiles/PE2Q-NOIT-BG7-TGB/invoiceSections/MTT4-OBS7-PJA-TGB",
+                display_name="Contoso MCA subscription",
+                workload="Production",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:subscription/v20191001preview:SubscriptionAlias aliasForNewSub /providers/Microsoft.Subscription/aliases/aliasForNewSub 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias_name: Name for this subscription creation request also known as alias. Note that this is not the same as subscription name and this doesn’t have any other lifecycle need beyond the request for subscription creation.
@@ -83,6 +108,31 @@ class SubscriptionAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subscription Information with the alias.
+
+        ## Example Usage
+        ### CreateAlias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_alias = azure_native.subscription.v20191001preview.SubscriptionAlias("subscriptionAlias",
+            alias_name="aliasForNewSub",
+            properties=azure_native.subscription.v20191001preview.PutAliasResponsePropertiesResponseArgs(
+                billing_scope="/providers/Microsoft.Billing/billingAccounts/e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31/billingProfiles/PE2Q-NOIT-BG7-TGB/invoiceSections/MTT4-OBS7-PJA-TGB",
+                display_name="Contoso MCA subscription",
+                workload="Production",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:subscription/v20191001preview:SubscriptionAlias aliasForNewSub /providers/Microsoft.Subscription/aliases/aliasForNewSub 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubscriptionAliasArgs args: The arguments to use to populate this resource's properties.

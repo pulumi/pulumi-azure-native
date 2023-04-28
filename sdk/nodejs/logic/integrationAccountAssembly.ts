@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * The assembly definition.
  * API Version: 2019-05-01.
  * Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update an account assembly
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const integrationAccountAssembly = new azure_native.logic.IntegrationAccountAssembly("integrationAccountAssembly", {
+ *     assemblyArtifactName: "testAssembly",
+ *     integrationAccountName: "testIntegrationAccount",
+ *     location: "westus",
+ *     properties: {
+ *         assemblyName: "System.IdentityModel.Tokens.Jwt",
+ *         content: "Base64 encoded Assembly Content",
+ *         metadata: {},
+ *     },
+ *     resourceGroupName: "testResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic:IntegrationAccountAssembly testAssembly /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/assemblies/testAssembly 
+ * ```
  */
 export class IntegrationAccountAssembly extends pulumi.CustomResource {
     /**

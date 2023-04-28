@@ -147,6 +147,34 @@ class ManagementAssociation(pulumi.CustomResource):
         API Version: 2015-11-01-preview.
         Previous API Version: 2015-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SolutionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_association = azure_native.operationsmanagement.ManagementAssociation("managementAssociation",
+            location="East US",
+            management_association_name="managementAssociation1",
+            properties=azure_native.operationsmanagement.ManagementAssociationPropertiesResponseArgs(
+                application_id="/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.Appliance/Appliances/appliance1",
+            ),
+            provider_name="providerName",
+            resource_group_name="rg1",
+            resource_name_="resourceName",
+            resource_type="resourceType")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationsmanagement:ManagementAssociation managementAssociation1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/ws1/Microsoft.OperationsManagement/ManagementAssociations/managementAssociation1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
@@ -167,6 +195,34 @@ class ManagementAssociation(pulumi.CustomResource):
         The container for solution.
         API Version: 2015-11-01-preview.
         Previous API Version: 2015-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SolutionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_association = azure_native.operationsmanagement.ManagementAssociation("managementAssociation",
+            location="East US",
+            management_association_name="managementAssociation1",
+            properties=azure_native.operationsmanagement.ManagementAssociationPropertiesResponseArgs(
+                application_id="/subscriptions/sub1/resourcegroups/rg1/providers/Microsoft.Appliance/Appliances/appliance1",
+            ),
+            provider_name="providerName",
+            resource_group_name="rg1",
+            resource_name_="resourceName",
+            resource_type="resourceType")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationsmanagement:ManagementAssociation managementAssociation1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/ws1/Microsoft.OperationsManagement/ManagementAssociations/managementAssociation1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementAssociationArgs args: The arguments to use to populate this resource's properties.

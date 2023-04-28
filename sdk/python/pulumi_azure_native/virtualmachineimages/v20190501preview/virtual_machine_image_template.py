@@ -203,6 +203,96 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
 
+        ## Example Usage
+        ### Create an Image Template with a user assigned identity configured
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_image_template = azure_native.virtualmachineimages.v20190501preview.VirtualMachineImageTemplate("virtualMachineImageTemplate",
+            customize=[azure_native.virtualmachineimages.v20190501preview.ImageTemplateShellCustomizerArgs(
+                name="Shell Customizer Example",
+                script_uri="https://example.com/path/to/script.sh",
+                type="Shell",
+            )],
+            distribute=[azure_native.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributorArgs(
+                artifact_tags={
+                    "tagName": "value",
+                },
+                image_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                location="1_location",
+                run_output_name="image_it_pir_1",
+                type="ManagedImage",
+            )],
+            identity=azure_native.virtualmachineimages.v20190501preview.ImageTemplateIdentityArgs(
+                type=azure_native.virtualmachineimages/v20190501preview.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1": {},
+                },
+            ),
+            image_template_name="myImageTemplate",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            source=azure_native.virtualmachineimages.v20190501preview.ImageTemplateManagedImageSourceArgs(
+                image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+                type="ManagedImage",
+            ),
+            tags={
+                "imagetemplate_tag1": "IT_T1",
+                "imagetemplate_tag2": "IT_T2",
+            },
+            vm_profile=azure_native.virtualmachineimages.v20190501preview.ImageTemplateVmProfileArgs(
+                vm_size="Standard_D2s_v3",
+            ))
+
+        ```
+        ### Create an Image Template.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_image_template = azure_native.virtualmachineimages.v20190501preview.VirtualMachineImageTemplate("virtualMachineImageTemplate",
+            customize=[azure_native.virtualmachineimages.v20190501preview.ImageTemplateShellCustomizerArgs(
+                name="Shell Customizer Example",
+                script_uri="https://example.com/path/to/script.sh",
+                type="Shell",
+            )],
+            distribute=[azure_native.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributorArgs(
+                artifact_tags={
+                    "tagName": "value",
+                },
+                image_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                location="1_location",
+                run_output_name="image_it_pir_1",
+                type="ManagedImage",
+            )],
+            image_template_name="myImageTemplate",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            source=azure_native.virtualmachineimages.v20190501preview.ImageTemplateManagedImageSourceArgs(
+                image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+                type="ManagedImage",
+            ),
+            tags={
+                "imagetemplate_tag1": "IT_T1",
+                "imagetemplate_tag2": "IT_T2",
+            },
+            vm_profile=azure_native.virtualmachineimages.v20190501preview.ImageTemplateVmProfileArgs(
+                vm_size="Standard_D2s_v3",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] build_timeout_in_minutes: Maximum duration to wait while building the image template. Omit or specify 0 to use the default (4 hours).
@@ -224,6 +314,96 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
+
+        ## Example Usage
+        ### Create an Image Template with a user assigned identity configured
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_image_template = azure_native.virtualmachineimages.v20190501preview.VirtualMachineImageTemplate("virtualMachineImageTemplate",
+            customize=[azure_native.virtualmachineimages.v20190501preview.ImageTemplateShellCustomizerArgs(
+                name="Shell Customizer Example",
+                script_uri="https://example.com/path/to/script.sh",
+                type="Shell",
+            )],
+            distribute=[azure_native.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributorArgs(
+                artifact_tags={
+                    "tagName": "value",
+                },
+                image_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                location="1_location",
+                run_output_name="image_it_pir_1",
+                type="ManagedImage",
+            )],
+            identity=azure_native.virtualmachineimages.v20190501preview.ImageTemplateIdentityArgs(
+                type=azure_native.virtualmachineimages/v20190501preview.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1": {},
+                },
+            ),
+            image_template_name="myImageTemplate",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            source=azure_native.virtualmachineimages.v20190501preview.ImageTemplateManagedImageSourceArgs(
+                image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+                type="ManagedImage",
+            ),
+            tags={
+                "imagetemplate_tag1": "IT_T1",
+                "imagetemplate_tag2": "IT_T2",
+            },
+            vm_profile=azure_native.virtualmachineimages.v20190501preview.ImageTemplateVmProfileArgs(
+                vm_size="Standard_D2s_v3",
+            ))
+
+        ```
+        ### Create an Image Template.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_image_template = azure_native.virtualmachineimages.v20190501preview.VirtualMachineImageTemplate("virtualMachineImageTemplate",
+            customize=[azure_native.virtualmachineimages.v20190501preview.ImageTemplateShellCustomizerArgs(
+                name="Shell Customizer Example",
+                script_uri="https://example.com/path/to/script.sh",
+                type="Shell",
+            )],
+            distribute=[azure_native.virtualmachineimages.v20190501preview.ImageTemplateManagedImageDistributorArgs(
+                artifact_tags={
+                    "tagName": "value",
+                },
+                image_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                location="1_location",
+                run_output_name="image_it_pir_1",
+                type="ManagedImage",
+            )],
+            image_template_name="myImageTemplate",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            source=azure_native.virtualmachineimages.v20190501preview.ImageTemplateManagedImageSourceArgs(
+                image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+                type="ManagedImage",
+            ),
+            tags={
+                "imagetemplate_tag1": "IT_T1",
+                "imagetemplate_tag2": "IT_T2",
+            },
+            vm_profile=azure_native.virtualmachineimages.v20190501preview.ImageTemplateVmProfileArgs(
+                vm_size="Standard_D2s_v3",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineImageTemplateArgs args: The arguments to use to populate this resource's properties.

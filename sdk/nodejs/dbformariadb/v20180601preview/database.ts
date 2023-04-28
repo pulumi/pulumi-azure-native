@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Database.
+ *
+ * ## Example Usage
+ * ### DatabaseCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.dbformariadb.v20180601preview.Database("database", {
+ *     charset: "utf8",
+ *     collation: "utf8_general_ci",
+ *     databaseName: "db1",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformariadb/v20180601preview:Database db1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMariaDB/servers/testserver/databases/db1 
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

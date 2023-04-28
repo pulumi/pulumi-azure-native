@@ -116,6 +116,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.cognitiveservices.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="sto9699",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            properties=azure_native.cognitiveservices.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.cognitiveservices.PrivateLinkServiceConnectionStateArgs(
+                    description="Auto-Approved",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="res7687")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.CognitiveServices/accounts/sto288/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of Cognitive Services account.
@@ -134,6 +162,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The Private Endpoint Connection resource.
         API Version: 2022-12-01.
         Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.cognitiveservices.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="sto9699",
+            private_endpoint_connection_name="{privateEndpointConnectionName}",
+            properties=azure_native.cognitiveservices.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.cognitiveservices.PrivateLinkServiceConnectionStateArgs(
+                    description="Auto-Approved",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="res7687")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:PrivateEndpointConnection {privateEndpointConnectionName} /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.CognitiveServices/accounts/sto288/privateEndpointConnections/{privateEndpointConnectionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

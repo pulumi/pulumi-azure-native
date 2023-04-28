@@ -12,6 +12,39 @@ namespace Pulumi.AzureNative.Automanage
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// API Version: 2022-05-04.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a HCI configuration profile assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfileHCIAssignment = new AzureNative.Automanage.ConfigurationProfileHCIAssignment("configurationProfileHCIAssignment", new()
+    ///     {
+    ///         ClusterName = "myClusterName",
+    ///         ConfigurationProfileAssignmentName = "default",
+    ///         Properties = new AzureNative.Automanage.Inputs.ConfigurationProfileAssignmentPropertiesArgs
+    ///         {
+    ///             ConfigurationProfile = "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automanage:ConfigurationProfileHCIAssignment default /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.AzureStackHci/clusters/myClusterName/providers/Microsoft.Automanage/configurationProfileAssignments/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfileHCIAssignment")]
     public partial class ConfigurationProfileHCIAssignment : global::Pulumi.CustomResource

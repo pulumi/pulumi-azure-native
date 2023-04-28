@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * The AccessControlList resource definition.
+ *
+ * ## Example Usage
+ * ### AccessControlLists_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accessControlList = new azure_native.managednetworkfabric.v20230201preview.AccessControlList("accessControlList", {
+ *     accessControlListName: "aclOne",
+ *     addressFamily: "ipv4",
+ *     conditions: [{
+ *         action: "allow",
+ *         destinationAddress: "1.1.1.1",
+ *         destinationPort: "21",
+ *         protocol: 6,
+ *         sequenceNumber: 3,
+ *         sourceAddress: "2.2.2.2",
+ *         sourcePort: "65000",
+ *     }],
+ *     location: "EastUs",
+ *     resourceGroupName: "resourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric/v20230201preview:AccessControlList aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaa 
+ * ```
  */
 export class AccessControlList extends pulumi.CustomResource {
     /**

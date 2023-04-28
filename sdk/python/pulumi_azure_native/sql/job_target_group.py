@@ -114,6 +114,71 @@ class JobTargetGroup(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a target group with all properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_target_group = azure_native.sql.JobTargetGroup("jobTargetGroup",
+            job_agent_name="agent1",
+            members=[
+                azure_native.sql.JobTargetArgs(
+                    database_name="database1",
+                    membership_type=azure_native.sql.JobTargetGroupMembershipType.EXCLUDE,
+                    server_name="server1",
+                    type="SqlDatabase",
+                ),
+                azure_native.sql.JobTargetArgs(
+                    membership_type=azure_native.sql.JobTargetGroupMembershipType.INCLUDE,
+                    refresh_credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+                    server_name="server1",
+                    type="SqlServer",
+                ),
+                azure_native.sql.JobTargetArgs(
+                    elastic_pool_name="pool1",
+                    membership_type=azure_native.sql.JobTargetGroupMembershipType.INCLUDE,
+                    refresh_credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+                    server_name="server2",
+                    type="SqlElasticPool",
+                ),
+                azure_native.sql.JobTargetArgs(
+                    membership_type=azure_native.sql.JobTargetGroupMembershipType.INCLUDE,
+                    refresh_credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+                    server_name="server3",
+                    shard_map_name="shardMap1",
+                    type="SqlShardMap",
+                ),
+            ],
+            resource_group_name="group1",
+            server_name="server1",
+            target_group_name="targetGroup1")
+
+        ```
+        ### Create or update a target group with minimal properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_target_group = azure_native.sql.JobTargetGroup("jobTargetGroup",
+            job_agent_name="agent1",
+            members=[],
+            resource_group_name="group1",
+            server_name="server1",
+            target_group_name="targetGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:JobTargetGroup targetGroup1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] job_agent_name: The name of the job agent.
@@ -132,6 +197,71 @@ class JobTargetGroup(pulumi.CustomResource):
         A group of job targets.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a target group with all properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_target_group = azure_native.sql.JobTargetGroup("jobTargetGroup",
+            job_agent_name="agent1",
+            members=[
+                azure_native.sql.JobTargetArgs(
+                    database_name="database1",
+                    membership_type=azure_native.sql.JobTargetGroupMembershipType.EXCLUDE,
+                    server_name="server1",
+                    type="SqlDatabase",
+                ),
+                azure_native.sql.JobTargetArgs(
+                    membership_type=azure_native.sql.JobTargetGroupMembershipType.INCLUDE,
+                    refresh_credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+                    server_name="server1",
+                    type="SqlServer",
+                ),
+                azure_native.sql.JobTargetArgs(
+                    elastic_pool_name="pool1",
+                    membership_type=azure_native.sql.JobTargetGroupMembershipType.INCLUDE,
+                    refresh_credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+                    server_name="server2",
+                    type="SqlElasticPool",
+                ),
+                azure_native.sql.JobTargetArgs(
+                    membership_type=azure_native.sql.JobTargetGroupMembershipType.INCLUDE,
+                    refresh_credential="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+                    server_name="server3",
+                    shard_map_name="shardMap1",
+                    type="SqlShardMap",
+                ),
+            ],
+            resource_group_name="group1",
+            server_name="server1",
+            target_group_name="targetGroup1")
+
+        ```
+        ### Create or update a target group with minimal properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_target_group = azure_native.sql.JobTargetGroup("jobTargetGroup",
+            job_agent_name="agent1",
+            members=[],
+            resource_group_name="group1",
+            server_name="server1",
+            target_group_name="targetGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:JobTargetGroup targetGroup1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobTargetGroupArgs args: The arguments to use to populate this resource's properties.

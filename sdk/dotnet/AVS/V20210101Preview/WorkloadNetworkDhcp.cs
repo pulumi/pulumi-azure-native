@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.AVS.V20210101Preview
 {
     /// <summary>
     /// NSX DHCP
+    /// 
+    /// ## Example Usage
+    /// ### WorkloadNetworks_CreateDhcp
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadNetworkDhcp = new AzureNative.AVS.V20210101Preview.WorkloadNetworkDhcp("workloadNetworkDhcp", new()
+    ///     {
+    ///         DhcpId = "dhcp1",
+    ///         DhcpType = "SERVER",
+    ///         DisplayName = "dhcpConfigurations1",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Revision = 1,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20210101preview:WorkloadNetworkDhcp dhcp1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/dhcpConfigurations/dhcpConfigurations1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20210101preview:WorkloadNetworkDhcp")]
     public partial class WorkloadNetworkDhcp : global::Pulumi.CustomResource

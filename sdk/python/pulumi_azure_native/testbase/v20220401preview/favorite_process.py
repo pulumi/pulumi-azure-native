@@ -110,6 +110,30 @@ class FavoriteProcess(pulumi.CustomResource):
         """
         A favorite process identifier.
 
+        ## Example Usage
+        ### FavoriteProcessCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        favorite_process = azure_native.testbase.v20220401preview.FavoriteProcess("favoriteProcess",
+            actual_process_name="testApp&.exe",
+            favorite_process_resource_name="testAppProcess",
+            package_name="contoso-package2",
+            resource_group_name="contoso-rg1",
+            test_base_account_name="contoso-testBaseAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase/v20220401preview:FavoriteProcess testAppProcess /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/packages/contoso-package2/favoriteProcesses/testAppProcess 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] actual_process_name: The actual name of the favorite process. It will be equal to resource name except for the scenario that the process name contains characters that are not allowed in the resource name.
@@ -126,6 +150,30 @@ class FavoriteProcess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A favorite process identifier.
+
+        ## Example Usage
+        ### FavoriteProcessCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        favorite_process = azure_native.testbase.v20220401preview.FavoriteProcess("favoriteProcess",
+            actual_process_name="testApp&.exe",
+            favorite_process_resource_name="testAppProcess",
+            package_name="contoso-package2",
+            resource_group_name="contoso-rg1",
+            test_base_account_name="contoso-testBaseAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase/v20220401preview:FavoriteProcess testAppProcess /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/packages/contoso-package2/favoriteProcesses/testAppProcess 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FavoriteProcessArgs args: The arguments to use to populate this resource's properties.

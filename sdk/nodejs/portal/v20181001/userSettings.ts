@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * Response to get user settings
+ *
+ * ## Example Usage
+ * ### PutUserSettings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const userSettings = new azure_native.portal.v20181001.UserSettings("userSettings", {
+ *     properties: {
+ *         preferredLocation: "eastus",
+ *         preferredOsType: "Linux",
+ *         preferredShellType: "bash",
+ *         storageProfile: {
+ *             diskSizeInGB: 5,
+ *             fileShareName: "string",
+ *             storageAccountResourceId: "string",
+ *         },
+ *         terminalSettings: {
+ *             fontSize: "Medium",
+ *             fontStyle: "Monospace",
+ *         },
+ *     },
+ *     userSettingsName: "cloudconsole",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:portal/v20181001:UserSettings myresource1 /providers/Microsoft.Portal/userSettings/{userSettingsName} 
+ * ```
  */
 export class UserSettings extends pulumi.CustomResource {
     /**

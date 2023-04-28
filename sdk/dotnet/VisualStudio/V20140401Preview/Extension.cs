@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.VisualStudio.V20140401Preview
 {
     /// <summary>
     /// The response to an extension resource GET request.
+    /// 
+    /// ## Example Usage
+    /// ### Create an extension resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extension = new AzureNative.VisualStudio.V20140401Preview.Extension("extension", new()
+    ///     {
+    ///         AccountResourceName = "ExampleAccount",
+    ///         ExtensionResourceName = "ms.example",
+    ///         Location = "Central US",
+    ///         Plan = new AzureNative.VisualStudio.V20140401Preview.Inputs.ExtensionResourcePlanArgs
+    ///         {
+    ///             Name = "ExamplePlan",
+    ///             Product = "ExampleExtensionName",
+    ///             PromotionCode = "",
+    ///             Publisher = "ExampleExtensionPublisher",
+    ///             Version = "1.0",
+    ///         },
+    ///         Properties = null,
+    ///         ResourceGroupName = "VS-Example-Group",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:visualstudio/v20140401preview:Extension ms.example /subscriptions/0de7f055-dbea-498d-8e9e-da287eedca90/resourceGroups/VS-Example-Group/providers/Microsoft.VisualStudio/account/ExampleAccount/extension/ms.example 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:visualstudio/v20140401preview:Extension")]
     public partial class Extension : global::Pulumi.CustomResource

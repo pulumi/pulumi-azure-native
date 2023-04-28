@@ -11,6 +11,100 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
 {
     /// <summary>
     /// Defines the PUT rollout request body.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update rollout
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rollout = new AzureNative.DeploymentManager.V20191101Preview.Rollout("rollout", new()
+    ///     {
+    ///         ArtifactSourceId = "/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/artifactSources/myArtifactSource",
+    ///         BuildVersion = "1.0.0.1",
+    ///         Identity = new AzureNative.DeploymentManager.V20191101Preview.Inputs.IdentityArgs
+    ///         {
+    ///             IdentityIds = new[]
+    ///             {
+    ///                 "/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userassignedidentities/myuseridentity",
+    ///             },
+    ///             Type = "userAssigned",
+    ///         },
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RolloutName = "myRollout",
+    ///         StepGroups = new[]
+    ///         {
+    ///             new AzureNative.DeploymentManager.V20191101Preview.Inputs.StepGroupArgs
+    ///             {
+    ///                 DeploymentTargetId = "Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit1'",
+    ///                 Name = "FirstRegion",
+    ///                 PostDeploymentSteps = new[]
+    ///                 {
+    ///                     new AzureNative.DeploymentManager.V20191101Preview.Inputs.PrePostStepArgs
+    ///                     {
+    ///                         StepId = "Microsoft.DeploymentManager/steps/postDeployStep1",
+    ///                     },
+    ///                 },
+    ///                 PreDeploymentSteps = new[]
+    ///                 {
+    ///                     new AzureNative.DeploymentManager.V20191101Preview.Inputs.PrePostStepArgs
+    ///                     {
+    ///                         StepId = "Microsoft.DeploymentManager/steps/preDeployStep1",
+    ///                     },
+    ///                     new AzureNative.DeploymentManager.V20191101Preview.Inputs.PrePostStepArgs
+    ///                     {
+    ///                         StepId = "Microsoft.DeploymentManager/steps/preDeployStep2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.DeploymentManager.V20191101Preview.Inputs.StepGroupArgs
+    ///             {
+    ///                 DependsOnStepGroups = new[]
+    ///                 {
+    ///                     "FirstRegion",
+    ///                 },
+    ///                 DeploymentTargetId = "Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit2'",
+    ///                 Name = "SecondRegion",
+    ///                 PostDeploymentSteps = new[]
+    ///                 {
+    ///                     new AzureNative.DeploymentManager.V20191101Preview.Inputs.PrePostStepArgs
+    ///                     {
+    ///                         StepId = "Microsoft.DeploymentManager/steps/postDeployStep5",
+    ///                     },
+    ///                 },
+    ///                 PreDeploymentSteps = new[]
+    ///                 {
+    ///                     new AzureNative.DeploymentManager.V20191101Preview.Inputs.PrePostStepArgs
+    ///                     {
+    ///                         StepId = "Microsoft.DeploymentManager/steps/preDeployStep3",
+    ///                     },
+    ///                     new AzureNative.DeploymentManager.V20191101Preview.Inputs.PrePostStepArgs
+    ///                     {
+    ///                         StepId = "Microsoft.DeploymentManager/steps/preDeployStep4",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///         TargetServiceTopologyId = "/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/serviceTopologies/myTopology",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deploymentmanager/v20191101preview:Rollout myRollout /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/rollouts/{rolloutName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager/v20191101preview:Rollout")]
     public partial class Rollout : global::Pulumi.CustomResource

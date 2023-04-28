@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Content type contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateContentTypeContentItem
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contentItem = new AzureNative.ApiManagement.V20201201.ContentItem("contentItem", new()
+    ///     {
+    ///         ContentItemId = "4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+    ///         ContentTypeId = "page",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:ContentItem 4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8 /contentTypes/page/contentItems/4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:ContentItem")]
     public partial class ContentItem : global::Pulumi.CustomResource

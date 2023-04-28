@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// Virtual Appliance Site resource.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualHubRouteTableV2Put
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualHubBgpConnection = new AzureNative.Network.V20201101.VirtualHubBgpConnection("virtualHubBgpConnection", new()
+    ///     {
+    ///         ConnectionName = "conn1",
+    ///         PeerAsn = 20000,
+    ///         PeerIp = "192.168.1.5",
+    ///         ResourceGroupName = "rg1",
+    ///         VirtualHubName = "hub1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:VirtualHubBgpConnection conn1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/bgpConnections/conn1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:VirtualHubBgpConnection")]
     public partial class VirtualHubBgpConnection : global::Pulumi.CustomResource

@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.ContainerService.V20170831
 {
     /// <summary>
     /// Managed cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Managed Cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.V20170831.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20170831.Inputs.ContainerServiceAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 1,
+    ///                 Name = "agentpool1",
+    ///                 VmSize = "Standard_D2_v2",
+    ///             },
+    ///         },
+    ///         DnsPrefix = "dnsprefix1",
+    ///         KubernetesVersion = "1.7.7",
+    ///         Location = "location1",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20170831:ManagedCluster mycluster1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-08-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerservice/v20170831:ManagedCluster")]

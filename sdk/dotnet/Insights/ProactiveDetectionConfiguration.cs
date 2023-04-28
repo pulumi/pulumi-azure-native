@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.Insights
     /// Properties that define a ProactiveDetection configuration.
     /// API Version: 2015-05-01.
     /// Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ProactiveDetectionConfigurationUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var proactiveDetectionConfiguration = new AzureNative.Insights.ProactiveDetectionConfiguration("proactiveDetectionConfiguration", new()
+    ///     {
+    ///         ConfigurationId = "slowpageloadtime",
+    ///         CustomEmails = new[]
+    ///         {
+    ///             "foo@microsoft.com",
+    ///             "foo2@microsoft.com",
+    ///         },
+    ///         Enabled = true,
+    ///         Name = "slowpageloadtime",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "my-component",
+    ///         RuleDefinitions = new AzureNative.Insights.Inputs.ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs
+    ///         {
+    ///             Description = "Smart Detection rules notify you of performance anomaly issues.",
+    ///             DisplayName = "Slow page load time",
+    ///             HelpUrl = "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+    ///             IsEnabledByDefault = true,
+    ///             IsHidden = false,
+    ///             IsInPreview = false,
+    ///             Name = "slowpageloadtime",
+    ///             SupportsEmailNotifications = true,
+    ///         },
+    ///         SendEmailsToSubscriptionOwners = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights:ProactiveDetectionConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ProactiveDetectionConfiguration")]
     public partial class ProactiveDetectionConfiguration : global::Pulumi.CustomResource

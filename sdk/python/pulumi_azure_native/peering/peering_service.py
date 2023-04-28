@@ -184,6 +184,32 @@ class PeeringService(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a  peering service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering_service = azure_native.peering.PeeringService("peeringService",
+            location="eastus",
+            peering_service_location="state1",
+            peering_service_name="peeringServiceName",
+            peering_service_provider="serviceProvider1",
+            provider_backup_peering_location="peeringLocation2",
+            provider_primary_peering_location="peeringLocation1",
+            resource_group_name="rgName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering:PeeringService peeringServiceName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource.
@@ -206,6 +232,32 @@ class PeeringService(pulumi.CustomResource):
         Peering Service
         API Version: 2022-10-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a  peering service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering_service = azure_native.peering.PeeringService("peeringService",
+            location="eastus",
+            peering_service_location="state1",
+            peering_service_name="peeringServiceName",
+            peering_service_provider="serviceProvider1",
+            provider_backup_peering_location="peeringLocation2",
+            provider_primary_peering_location="peeringLocation1",
+            resource_group_name="rgName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering:PeeringService peeringServiceName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PeeringServiceArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,184 @@ import * as utilities from "../utilities";
  * Blueprint artifact that deploys a Resource Manager template.
  * API Version: 2018-11-01-preview.
  * Previous API Version: 2018-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### MG-ARMTemplateArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const templateArtifact = new azure_native.blueprint.TemplateArtifact("templateArtifact", {
+ *     artifactName: "storageTemplate",
+ *     blueprintName: "simpleBlueprint",
+ *     kind: "template",
+ *     parameters: {
+ *         storageAccountType: {
+ *             value: "[parameters('storageAccountType')]",
+ *         },
+ *     },
+ *     resourceGroup: "storageRG",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ *     template: {
+ *         contentVersion: "1.0.0.0",
+ *         outputs: {
+ *             storageAccountName: {
+ *                 type: "string",
+ *                 value: "[variables('storageAccountName')]",
+ *             },
+ *         },
+ *         parameters: {
+ *             storageAccountType: {
+ *                 allowedValues: [
+ *                     "Standard_LRS",
+ *                     "Standard_GRS",
+ *                     "Standard_ZRS",
+ *                     "Premium_LRS",
+ *                 ],
+ *                 defaultValue: "Standard_LRS",
+ *                 metadata: {
+ *                     description: "Storage Account type",
+ *                 },
+ *                 type: "string",
+ *             },
+ *         },
+ *         resources: [{
+ *             apiVersion: "2016-01-01",
+ *             kind: "Storage",
+ *             location: "[resourceGroup().location]",
+ *             name: "[variables('storageAccountName')]",
+ *             properties: {},
+ *             sku: {
+ *                 name: "[parameters('storageAccountType')]",
+ *             },
+ *             type: "Microsoft.Storage/storageAccounts",
+ *         }],
+ *         variables: {
+ *             storageAccountName: "[concat(uniquestring(resourceGroup().id), 'standardsa')]",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### MG-PolicyAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const templateArtifact = new azure_native.blueprint.TemplateArtifact("templateArtifact", {
+ *     artifactName: "costCenterPolicy",
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### MG-RoleAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const templateArtifact = new azure_native.blueprint.TemplateArtifact("templateArtifact", {
+ *     artifactName: "ownerAssignment",
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### Sub-ARMTemplateArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const templateArtifact = new azure_native.blueprint.TemplateArtifact("templateArtifact", {
+ *     artifactName: "storageTemplate",
+ *     blueprintName: "simpleBlueprint",
+ *     kind: "template",
+ *     parameters: {
+ *         storageAccountType: {
+ *             value: "[parameters('storageAccountType')]",
+ *         },
+ *     },
+ *     resourceGroup: "storageRG",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ *     template: {
+ *         contentVersion: "1.0.0.0",
+ *         outputs: {
+ *             storageAccountName: {
+ *                 type: "string",
+ *                 value: "[variables('storageAccountName')]",
+ *             },
+ *         },
+ *         parameters: {
+ *             storageAccountType: {
+ *                 allowedValues: [
+ *                     "Standard_LRS",
+ *                     "Standard_GRS",
+ *                     "Standard_ZRS",
+ *                     "Premium_LRS",
+ *                 ],
+ *                 defaultValue: "Standard_LRS",
+ *                 metadata: {
+ *                     description: "Storage Account type",
+ *                 },
+ *                 type: "string",
+ *             },
+ *         },
+ *         resources: [{
+ *             apiVersion: "2016-01-01",
+ *             kind: "Storage",
+ *             location: "[resourceGroup().location]",
+ *             name: "[variables('storageAccountName')]",
+ *             properties: {},
+ *             sku: {
+ *                 name: "[parameters('storageAccountType')]",
+ *             },
+ *             type: "Microsoft.Storage/storageAccounts",
+ *         }],
+ *         variables: {
+ *             storageAccountName: "[concat(uniquestring(resourceGroup().id), 'standardsa')]",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Sub-PolicyAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const templateArtifact = new azure_native.blueprint.TemplateArtifact("templateArtifact", {
+ *     artifactName: "costCenterPolicy",
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ * ### Sub-RoleAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const templateArtifact = new azure_native.blueprint.TemplateArtifact("templateArtifact", {
+ *     artifactName: "ownerAssignment",
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blueprint:TemplateArtifact ownerAssignment /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+ * ```
  */
 export class TemplateArtifact extends pulumi.CustomResource {
     /**

@@ -11,6 +11,71 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
 {
     /// <summary>
     /// Response for Volume Group request.
+    /// 
+    /// ## Example Usage
+    /// ### VolumeGroups_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volumeGroup = new AzureNative.ElasticSan.V20211120Preview.VolumeGroup("volumeGroup", new()
+    ///     {
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         Encryption = "EncryptionAtRestWithPlatformKey",
+    ///         NetworkAcls = new AzureNative.ElasticSan.V20211120Preview.Inputs.NetworkRuleSetArgs
+    ///         {
+    ///             VirtualNetworkRules = new[]
+    ///             {
+    ///                 new AzureNative.ElasticSan.V20211120Preview.Inputs.VirtualNetworkRuleArgs
+    ///                 {
+    ///                     Action = AzureNative.ElasticSan.V20211120Preview.Action.Allow,
+    ///                     VirtualNetworkResourceId = "aaaaaaaaaaaaaaaa",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ProtocolType = "Iscsi",
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         Tags = 
+    ///         {
+    ///             { "key5933", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa" },
+    ///         },
+    ///         VolumeGroupName = "u_5I_1j4t3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### VolumeGroups_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volumeGroup = new AzureNative.ElasticSan.V20211120Preview.VolumeGroup("volumeGroup", new()
+    ///     {
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         VolumeGroupName = "u_5I_1j4t3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:elasticsan/v20211120preview:VolumeGroup aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan/v20211120preview:VolumeGroup")]
     public partial class VolumeGroup : global::Pulumi.CustomResource

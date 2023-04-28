@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A virtual machine.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualMachines_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.DevTestLab.V20180915.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         AllowClaim = true,
+    ///         DisallowPublicIpAddress = true,
+    ///         GalleryImageReference = new AzureNative.DevTestLab.V20180915.Inputs.GalleryImageReferenceArgs
+    ///         {
+    ///             Offer = "UbuntuServer",
+    ///             OsType = "Linux",
+    ///             Publisher = "Canonical",
+    ///             Sku = "16.04-LTS",
+    ///             Version = "Latest",
+    ///         },
+    ///         LabName = "{labName}",
+    ///         LabSubnetName = "{virtualNetworkName}Subnet",
+    ///         LabVirtualNetworkId = "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName}",
+    ///         Location = "{location}",
+    ///         Name = "{vmName}",
+    ///         Password = "{userPassword}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Size = "Standard_A2_v2",
+    ///         StorageType = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///         UserName = "{userName}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20180915:VirtualMachine {vmName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource

@@ -235,6 +235,172 @@ class Workspace(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a workspace which is ready for Customer-Managed Key (CMK) encryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            parameters=azure_native.databricks.WorkspaceCustomParametersArgs(
+                prepare_encryption=azure_native.databricks.WorkspaceCustomBooleanParameterArgs(
+                    value=True,
+                ),
+            ),
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create a workspace with Customer-Managed Key (CMK) encryption for Managed Disks
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            encryption=azure_native.databricks.WorkspacePropertiesResponseEncryptionArgs(
+                entities={
+                    "managedDisk": azure_native.databricks.ManagedDiskEncryptionArgs(
+                        key_source="Microsoft.Keyvault",
+                        key_vault_properties=azure_native.databricks.ManagedDiskEncryptionKeyVaultPropertiesArgs(
+                            key_name="test-cmk-key",
+                            key_vault_uri="https://test-vault-name.vault.azure.net/",
+                            key_version="00000000000000000000000000000000",
+                        ),
+                        rotation_to_latest_key_version_enabled=True,
+                    ),
+                },
+            ),
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create or update workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create or update workspace with custom parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            parameters=azure_native.databricks.WorkspaceCustomParametersArgs(
+                custom_private_subnet_name=azure_native.databricks.WorkspaceCustomStringParameterArgs(
+                    value="myPrivateSubnet",
+                ),
+                custom_public_subnet_name=azure_native.databricks.WorkspaceCustomStringParameterArgs(
+                    value="myPublicSubnet",
+                ),
+                custom_virtual_network_id=azure_native.databricks.WorkspaceCustomStringParameterArgs(
+                    value="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/myNetwork",
+                ),
+            ),
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            parameters=azure_native.databricks.WorkspaceCustomParametersResponseArgs(
+                encryption={
+                    "value": azure_native.databricks.EncryptionArgs(
+                        key_name="myKeyName",
+                        key_source="Microsoft.Keyvault",
+                        key_vault_uri="https://myKeyVault.vault.azure.net/",
+                        key_version="00000000000000000000000000000000",
+                    ),
+                },
+                prepare_encryption=azure_native.databricks.WorkspaceCustomBooleanParameterArgs(
+                    value=True,
+                ),
+            ),
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            parameters=azure_native.databricks.WorkspaceCustomParametersResponseArgs(
+                encryption={
+                    "value": azure_native.databricks.EncryptionArgs(
+                        key_source="Default",
+                    ),
+                },
+            ),
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Update a workspace with Customer-Managed Key (CMK) encryption for Managed Disks
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            encryption=azure_native.databricks.WorkspacePropertiesResponseEncryptionArgs(
+                entities={
+                    "managedDisk": azure_native.databricks.ManagedDiskEncryptionArgs(
+                        key_source="Microsoft.Keyvault",
+                        key_vault_properties=azure_native.databricks.ManagedDiskEncryptionKeyVaultPropertiesArgs(
+                            key_name="test-cmk-key",
+                            key_vault_uri="https://test-vault-name.vault.azure.net/",
+                            key_version="00000000000000000000000000000000",
+                        ),
+                        rotation_to_latest_key_version_enabled=True,
+                    ),
+                },
+            ),
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg",
+            tags={
+                "mytag1": "myvalue1",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databricks:Workspace myWorkspace /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Databricks/workspaces/myWorkspace 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkspaceProviderAuthorizationArgs']]]] authorizations: The workspace provider authorizations.
@@ -260,6 +426,172 @@ class Workspace(pulumi.CustomResource):
         Information about workspace.
         API Version: 2023-02-01.
         Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a workspace which is ready for Customer-Managed Key (CMK) encryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            parameters=azure_native.databricks.WorkspaceCustomParametersArgs(
+                prepare_encryption=azure_native.databricks.WorkspaceCustomBooleanParameterArgs(
+                    value=True,
+                ),
+            ),
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create a workspace with Customer-Managed Key (CMK) encryption for Managed Disks
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            encryption=azure_native.databricks.WorkspacePropertiesResponseEncryptionArgs(
+                entities={
+                    "managedDisk": azure_native.databricks.ManagedDiskEncryptionArgs(
+                        key_source="Microsoft.Keyvault",
+                        key_vault_properties=azure_native.databricks.ManagedDiskEncryptionKeyVaultPropertiesArgs(
+                            key_name="test-cmk-key",
+                            key_vault_uri="https://test-vault-name.vault.azure.net/",
+                            key_version="00000000000000000000000000000000",
+                        ),
+                        rotation_to_latest_key_version_enabled=True,
+                    ),
+                },
+            ),
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create or update workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create or update workspace with custom parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            parameters=azure_native.databricks.WorkspaceCustomParametersArgs(
+                custom_private_subnet_name=azure_native.databricks.WorkspaceCustomStringParameterArgs(
+                    value="myPrivateSubnet",
+                ),
+                custom_public_subnet_name=azure_native.databricks.WorkspaceCustomStringParameterArgs(
+                    value="myPublicSubnet",
+                ),
+                custom_virtual_network_id=azure_native.databricks.WorkspaceCustomStringParameterArgs(
+                    value="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/myNetwork",
+                ),
+            ),
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            parameters=azure_native.databricks.WorkspaceCustomParametersResponseArgs(
+                encryption={
+                    "value": azure_native.databricks.EncryptionArgs(
+                        key_name="myKeyName",
+                        key_source="Microsoft.Keyvault",
+                        key_vault_uri="https://myKeyVault.vault.azure.net/",
+                        key_version="00000000000000000000000000000000",
+                    ),
+                },
+                prepare_encryption=azure_native.databricks.WorkspaceCustomBooleanParameterArgs(
+                    value=True,
+                ),
+            ),
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            parameters=azure_native.databricks.WorkspaceCustomParametersResponseArgs(
+                encryption={
+                    "value": azure_native.databricks.EncryptionArgs(
+                        key_source="Default",
+                    ),
+                },
+            ),
+            resource_group_name="rg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Update a workspace with Customer-Managed Key (CMK) encryption for Managed Disks
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.databricks.Workspace("workspace",
+            encryption=azure_native.databricks.WorkspacePropertiesResponseEncryptionArgs(
+                entities={
+                    "managedDisk": azure_native.databricks.ManagedDiskEncryptionArgs(
+                        key_source="Microsoft.Keyvault",
+                        key_vault_properties=azure_native.databricks.ManagedDiskEncryptionKeyVaultPropertiesArgs(
+                            key_name="test-cmk-key",
+                            key_vault_uri="https://test-vault-name.vault.azure.net/",
+                            key_version="00000000000000000000000000000000",
+                        ),
+                        rotation_to_latest_key_version_enabled=True,
+                    ),
+                },
+            ),
+            location="westus",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg",
+            tags={
+                "mytag1": "myvalue1",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databricks:Workspace myWorkspace /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Databricks/workspaces/myWorkspace 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

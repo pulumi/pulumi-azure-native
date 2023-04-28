@@ -11,6 +11,60 @@ import * as utilities from "../utilities";
  * A web app, a mobile app backend, or an API app.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Clone web app slot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webAppSlot = new azure_native.web.WebAppSlot("webAppSlot", {
+ *     cloningInfo: {
+ *         appSettingsOverrides: {
+ *             Setting1: "NewValue1",
+ *             Setting3: "NewValue5",
+ *         },
+ *         cloneCustomHostNames: true,
+ *         cloneSourceControl: true,
+ *         configureLoadBalancing: false,
+ *         hostingEnvironment: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
+ *         overwrite: false,
+ *         sourceWebAppId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478/slot/qa",
+ *         sourceWebAppLocation: "West Europe",
+ *     },
+ *     kind: "app",
+ *     location: "East US",
+ *     name: "sitef6141",
+ *     resourceGroupName: "testrg123",
+ *     slot: "staging",
+ * });
+ *
+ * ```
+ * ### Create or Update Web App Slot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webAppSlot = new azure_native.web.WebAppSlot("webAppSlot", {
+ *     kind: "app",
+ *     location: "East US",
+ *     name: "sitef6141",
+ *     resourceGroupName: "testrg123",
+ *     serverFarmId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
+ *     slot: "staging",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:WebAppSlot sitef6141/staging /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/slots/staging 
+ * ```
  */
 export class WebAppSlot extends pulumi.CustomResource {
     /**

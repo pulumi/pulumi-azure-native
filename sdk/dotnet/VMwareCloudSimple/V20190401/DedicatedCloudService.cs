@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
 {
     /// <summary>
     /// Dedicated cloud service model
+    /// 
+    /// ## Example Usage
+    /// ### CreateDedicatedCloudService
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedCloudService = new AzureNative.VMwareCloudSimple.V20190401.DedicatedCloudService("dedicatedCloudService", new()
+    ///     {
+    ///         DedicatedCloudServiceName = "myService",
+    ///         GatewaySubnet = "10.0.0.0",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService myService /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VMwareCloudSimple/dedicatedCloudServices/myService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudService")]
     public partial class DedicatedCloudService : global::Pulumi.CustomResource

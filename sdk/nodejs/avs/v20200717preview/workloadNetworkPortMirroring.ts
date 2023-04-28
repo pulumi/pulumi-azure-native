@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * NSX Port Mirroring
+ *
+ * ## Example Usage
+ * ### WorkloadNetworks_CreatePortMirroring
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadNetworkPortMirroring = new azure_native.avs.v20200717preview.WorkloadNetworkPortMirroring("workloadNetworkPortMirroring", {
+ *     destination: "vmGroup2",
+ *     direction: "BIDIRECTIONAL",
+ *     displayName: "portMirroring1",
+ *     portMirroringId: "portMirroring1",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     revision: 1,
+ *     source: "vmGroup1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20200717preview:WorkloadNetworkPortMirroring portMirroring1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/portMirroringProfiles/portMirroring1 
+ * ```
  */
 export class WorkloadNetworkPortMirroring extends pulumi.CustomResource {
     /**

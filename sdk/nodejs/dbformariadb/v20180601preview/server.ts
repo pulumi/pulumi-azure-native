@@ -9,6 +9,119 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server.
+ *
+ * ## Example Usage
+ * ### Create a database as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbformariadb.v20180601preview.Server("server", {
+ *     location: "brazilsouth",
+ *     properties: {
+ *         createMode: "PointInTimeRestore",
+ *         restorePointInTime: "2017-12-14T00:00:37.467Z",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMariaDB/servers/sourceserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbformariadb.v20180601preview.Server("server", {
+ *     location: "westus",
+ *     properties: {
+ *         administratorLogin: "cloudsa",
+ *         administratorLoginPassword: "<administratorLoginPassword>",
+ *         createMode: "Default",
+ *         sslEnforcement: azure_native.dbformariadb.v20180601preview.SslEnforcementEnum.Enabled,
+ *         storageProfile: {
+ *             backupRetentionDays: 7,
+ *             geoRedundantBackup: "Enabled",
+ *             storageMB: 128000,
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     serverName: "mariadbtestsvc4",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a replica server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbformariadb.v20180601preview.Server("server", {
+ *     location: "westus",
+ *     properties: {
+ *         createMode: "Replica",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/MasterResourceGroup/providers/Microsoft.DBforMariaDB/servers/masterserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ * });
+ *
+ * ```
+ * ### Create a server as a geo restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbformariadb.v20180601preview.Server("server", {
+ *     location: "westus",
+ *     properties: {
+ *         createMode: "GeoRestore",
+ *         sourceServerId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMariaDB/servers/sourceserver",
+ *     },
+ *     resourceGroupName: "TargetResourceGroup",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen5",
+ *         name: "GP_Gen5_2",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformariadb/v20180601preview:Server targetserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMariaDB/servers/targetserver 
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

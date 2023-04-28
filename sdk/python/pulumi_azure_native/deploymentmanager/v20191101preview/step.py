@@ -114,6 +114,108 @@ class Step(pulumi.CustomResource):
         """
         The resource representation of a rollout step.
 
+        ## Example Usage
+        ### Create health check step
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        step = azure_native.deploymentmanager.v20191101preview.Step("step",
+            location="centralus",
+            properties=azure_native.deploymentmanager.v20191101preview.HealthCheckStepPropertiesArgs(
+                attributes=azure_native.deploymentmanager.v20191101preview.RestHealthCheckStepAttributesArgs(
+                    health_checks=[
+                        azure_native.deploymentmanager.v20191101preview.RestHealthCheckArgs(
+                            name="appHealth",
+                            request=azure_native.deploymentmanager.v20191101preview.RestRequestArgs(
+                                authentication=azure_native.deploymentmanager.v20191101preview.ApiKeyAuthenticationArgs(
+                                    in_=azure_native.deploymentmanager/v20191101preview.RestAuthLocation.QUERY,
+                                    name="Code",
+                                    type="ApiKey",
+                                    value="NBCapiMOBQyAAbCkeytoPadnvO0eGHmidwFz5rXpappznKp3Jt7LLg==",
+                                ),
+                                method=azure_native.deploymentmanager/v20191101preview.RestRequestMethod.GET,
+                                uri="https://resthealth.healthservice.com/api/applications/contosoApp/healthStatus",
+                            ),
+                            response=azure_native.deploymentmanager.v20191101preview.RestResponseArgs(
+                                regex=azure_native.deploymentmanager.v20191101preview.RestResponseRegexArgs(
+                                    match_quantifier=azure_native.deploymentmanager/v20191101preview.RestMatchQuantifier.ALL,
+                                    matches=[
+                                        "(?i)Contoso-App",
+                                        \"\"\"(?i)"health_status":((.|
+        )*)"(green|yellow)\"\"\"",
+                                        "(?mi)^(\\"application_host\\": 94781052)$",
+                                    ],
+                                ),
+                                success_status_codes=["OK"],
+                            ),
+                        ),
+                        azure_native.deploymentmanager.v20191101preview.RestHealthCheckArgs(
+                            name="serviceHealth",
+                            request=azure_native.deploymentmanager.v20191101preview.RestRequestArgs(
+                                authentication=azure_native.deploymentmanager.v20191101preview.ApiKeyAuthenticationArgs(
+                                    in_=azure_native.deploymentmanager/v20191101preview.RestAuthLocation.HEADER,
+                                    name="code",
+                                    type="ApiKey",
+                                    value="NBCapiMOBQyAAbCkeytoPadnvO0eGHmidwFz5rXpappznKp3Jt7LLg==",
+                                ),
+                                method=azure_native.deploymentmanager/v20191101preview.RestRequestMethod.GET,
+                                uri="https://resthealth.healthservice.com/api/services/contosoService/healthStatus",
+                            ),
+                            response=azure_native.deploymentmanager.v20191101preview.RestResponseArgs(
+                                regex=azure_native.deploymentmanager.v20191101preview.RestResponseRegexArgs(
+                                    match_quantifier=azure_native.deploymentmanager/v20191101preview.RestMatchQuantifier.ALL,
+                                    matches=[
+                                        "(?i)Contoso-Service-EndToEnd",
+                                        \"\"\"(?i)"health_status":((.|
+        )*)"(green)\"\"\"",
+                                    ],
+                                ),
+                                success_status_codes=["OK"],
+                            ),
+                        ),
+                    ],
+                    healthy_state_duration="PT2H",
+                    max_elastic_duration="PT30M",
+                    type="REST",
+                    wait_duration="PT15M",
+                ),
+                step_type="HealthCheck",
+            ),
+            resource_group_name="myResourceGroup",
+            step_name="healthCheckStep",
+            tags={})
+
+        ```
+        ### Create wait step
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        step = azure_native.deploymentmanager.v20191101preview.Step("step",
+            location="centralus",
+            properties=azure_native.deploymentmanager.v20191101preview.WaitStepPropertiesArgs(
+                attributes=azure_native.deploymentmanager.v20191101preview.WaitStepAttributesArgs(
+                    duration="PT20M",
+                ),
+                step_type="Wait",
+            ),
+            resource_group_name="myResourceGroup",
+            step_name="waitStep",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager/v20191101preview:Step waitStep /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/steps/{stepName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -130,6 +232,108 @@ class Step(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource representation of a rollout step.
+
+        ## Example Usage
+        ### Create health check step
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        step = azure_native.deploymentmanager.v20191101preview.Step("step",
+            location="centralus",
+            properties=azure_native.deploymentmanager.v20191101preview.HealthCheckStepPropertiesArgs(
+                attributes=azure_native.deploymentmanager.v20191101preview.RestHealthCheckStepAttributesArgs(
+                    health_checks=[
+                        azure_native.deploymentmanager.v20191101preview.RestHealthCheckArgs(
+                            name="appHealth",
+                            request=azure_native.deploymentmanager.v20191101preview.RestRequestArgs(
+                                authentication=azure_native.deploymentmanager.v20191101preview.ApiKeyAuthenticationArgs(
+                                    in_=azure_native.deploymentmanager/v20191101preview.RestAuthLocation.QUERY,
+                                    name="Code",
+                                    type="ApiKey",
+                                    value="NBCapiMOBQyAAbCkeytoPadnvO0eGHmidwFz5rXpappznKp3Jt7LLg==",
+                                ),
+                                method=azure_native.deploymentmanager/v20191101preview.RestRequestMethod.GET,
+                                uri="https://resthealth.healthservice.com/api/applications/contosoApp/healthStatus",
+                            ),
+                            response=azure_native.deploymentmanager.v20191101preview.RestResponseArgs(
+                                regex=azure_native.deploymentmanager.v20191101preview.RestResponseRegexArgs(
+                                    match_quantifier=azure_native.deploymentmanager/v20191101preview.RestMatchQuantifier.ALL,
+                                    matches=[
+                                        "(?i)Contoso-App",
+                                        \"\"\"(?i)"health_status":((.|
+        )*)"(green|yellow)\"\"\"",
+                                        "(?mi)^(\\"application_host\\": 94781052)$",
+                                    ],
+                                ),
+                                success_status_codes=["OK"],
+                            ),
+                        ),
+                        azure_native.deploymentmanager.v20191101preview.RestHealthCheckArgs(
+                            name="serviceHealth",
+                            request=azure_native.deploymentmanager.v20191101preview.RestRequestArgs(
+                                authentication=azure_native.deploymentmanager.v20191101preview.ApiKeyAuthenticationArgs(
+                                    in_=azure_native.deploymentmanager/v20191101preview.RestAuthLocation.HEADER,
+                                    name="code",
+                                    type="ApiKey",
+                                    value="NBCapiMOBQyAAbCkeytoPadnvO0eGHmidwFz5rXpappznKp3Jt7LLg==",
+                                ),
+                                method=azure_native.deploymentmanager/v20191101preview.RestRequestMethod.GET,
+                                uri="https://resthealth.healthservice.com/api/services/contosoService/healthStatus",
+                            ),
+                            response=azure_native.deploymentmanager.v20191101preview.RestResponseArgs(
+                                regex=azure_native.deploymentmanager.v20191101preview.RestResponseRegexArgs(
+                                    match_quantifier=azure_native.deploymentmanager/v20191101preview.RestMatchQuantifier.ALL,
+                                    matches=[
+                                        "(?i)Contoso-Service-EndToEnd",
+                                        \"\"\"(?i)"health_status":((.|
+        )*)"(green)\"\"\"",
+                                    ],
+                                ),
+                                success_status_codes=["OK"],
+                            ),
+                        ),
+                    ],
+                    healthy_state_duration="PT2H",
+                    max_elastic_duration="PT30M",
+                    type="REST",
+                    wait_duration="PT15M",
+                ),
+                step_type="HealthCheck",
+            ),
+            resource_group_name="myResourceGroup",
+            step_name="healthCheckStep",
+            tags={})
+
+        ```
+        ### Create wait step
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        step = azure_native.deploymentmanager.v20191101preview.Step("step",
+            location="centralus",
+            properties=azure_native.deploymentmanager.v20191101preview.WaitStepPropertiesArgs(
+                attributes=azure_native.deploymentmanager.v20191101preview.WaitStepAttributesArgs(
+                    duration="PT20M",
+                ),
+                step_type="Wait",
+            ),
+            resource_group_name="myResourceGroup",
+            step_name="waitStep",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager/v20191101preview:Step waitStep /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/steps/{stepName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StepArgs args: The arguments to use to populate this resource's properties.

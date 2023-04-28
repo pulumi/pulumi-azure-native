@@ -422,6 +422,81 @@ class Snapshot(pulumi.CustomResource):
         API Version: 2022-07-02.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a snapshot by importing an unmanaged blob from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.Snapshot("snapshot",
+            creation_data=azure_native.compute.CreationDataArgs(
+                create_option="Import",
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                storage_account_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+        ### Create a snapshot by importing an unmanaged blob from the same subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.Snapshot("snapshot",
+            creation_data=azure_native.compute.CreationDataArgs(
+                create_option="Import",
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+        ### Create a snapshot from an existing snapshot in the same or a different subscription in a different region.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.Snapshot("snapshot",
+            creation_data=azure_native.compute.CreationDataArgs(
+                create_option="CopyStart",
+                source_resource_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot2")
+
+        ```
+        ### Create a snapshot from an existing snapshot in the same or a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.Snapshot("snapshot",
+            creation_data=azure_native.compute.CreationDataArgs(
+                create_option="Copy",
+                source_resource_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:Snapshot mySnapshot2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/snapshots/{snapshotName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] completion_percent: Percentage complete for the background copy when a resource is created via the CopyStart operation.
@@ -458,6 +533,81 @@ class Snapshot(pulumi.CustomResource):
         Snapshot resource.
         API Version: 2022-07-02.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a snapshot by importing an unmanaged blob from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.Snapshot("snapshot",
+            creation_data=azure_native.compute.CreationDataArgs(
+                create_option="Import",
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                storage_account_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+        ### Create a snapshot by importing an unmanaged blob from the same subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.Snapshot("snapshot",
+            creation_data=azure_native.compute.CreationDataArgs(
+                create_option="Import",
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot1")
+
+        ```
+        ### Create a snapshot from an existing snapshot in the same or a different subscription in a different region.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.Snapshot("snapshot",
+            creation_data=azure_native.compute.CreationDataArgs(
+                create_option="CopyStart",
+                source_resource_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot2")
+
+        ```
+        ### Create a snapshot from an existing snapshot in the same or a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.compute.Snapshot("snapshot",
+            creation_data=azure_native.compute.CreationDataArgs(
+                create_option="Copy",
+                source_resource_id="subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup",
+            snapshot_name="mySnapshot2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:Snapshot mySnapshot2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/snapshots/{snapshotName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

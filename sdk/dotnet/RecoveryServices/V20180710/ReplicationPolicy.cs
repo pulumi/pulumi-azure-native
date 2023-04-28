@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
 {
     /// <summary>
     /// Protection profile details.
+    /// 
+    /// ## Example Usage
+    /// ### Creates the policy.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replicationPolicy = new AzureNative.RecoveryServices.V20180710.ReplicationPolicy("replicationPolicy", new()
+    ///     {
+    ///         PolicyName = "protectionprofile1",
+    ///         Properties = new AzureNative.RecoveryServices.V20180710.Inputs.CreatePolicyInputPropertiesArgs
+    ///         {
+    ///             ProviderSpecificInput = new AzureNative.RecoveryServices.V20180710.Inputs.HyperVReplicaAzurePolicyInputArgs
+    ///             {
+    ///                 InstanceType = "HyperVReplicaAzure",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "resourceGroupPS1",
+    ///         ResourceName = "vault1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20180710:ReplicationPolicy protectionprofile1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20180710:ReplicationPolicy")]
     public partial class ReplicationPolicy : global::Pulumi.CustomResource

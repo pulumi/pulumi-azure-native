@@ -9,6 +9,69 @@ import * as utilities from "../../utilities";
 
 /**
  * The Extension object.
+ *
+ * ## Example Usage
+ * ### Create Extension
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const extension = new azure_native.kubernetesconfiguration.v20221101.Extension("extension", {
+ *     autoUpgradeMinorVersion: true,
+ *     clusterName: "clusterName1",
+ *     clusterResourceName: "connectedClusters",
+ *     clusterRp: "Microsoft.Kubernetes",
+ *     configurationProtectedSettings: {
+ *         "omsagent.secret.key": "secretKeyValue01",
+ *     },
+ *     configurationSettings: {
+ *         "omsagent.env.clusterName": "clusterName1",
+ *         "omsagent.secret.wsid": "a38cef99-5a89-52ed-b6db-22095c23664b",
+ *     },
+ *     extensionName: "ClusterMonitor",
+ *     extensionType: "azuremonitor-containers",
+ *     releaseTrain: "Preview",
+ *     resourceGroupName: "rg1",
+ *     scope: {
+ *         cluster: {
+ *             releaseNamespace: "kube-system",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create Extension with Plan
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const extension = new azure_native.kubernetesconfiguration.v20221101.Extension("extension", {
+ *     autoUpgradeMinorVersion: true,
+ *     clusterName: "clusterName1",
+ *     clusterResourceName: "connectedClusters",
+ *     clusterRp: "Microsoft.Kubernetes",
+ *     extensionName: "azureVote",
+ *     extensionType: "azure-vote",
+ *     plan: {
+ *         name: "azure-vote-standard",
+ *         product: "azure-vote-standard-offer-id",
+ *         publisher: "Microsoft",
+ *     },
+ *     releaseTrain: "Preview",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kubernetesconfiguration/v20221101:Extension azureVote /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/extensions/azureVote 
+ * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**

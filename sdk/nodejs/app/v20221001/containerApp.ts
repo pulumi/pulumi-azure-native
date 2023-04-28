@@ -9,6 +9,196 @@ import * as utilities from "../../utilities";
 
 /**
  * Container App.
+ *
+ * ## Example Usage
+ * ### Create or Update Container App
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerApp = new azure_native.app.v20221001.ContainerApp("containerApp", {
+ *     configuration: {
+ *         dapr: {
+ *             appPort: 3000,
+ *             appProtocol: "http",
+ *             enableApiLogging: true,
+ *             enabled: true,
+ *             httpMaxRequestSize: 10,
+ *             httpReadBufferSize: 30,
+ *             logLevel: "debug",
+ *         },
+ *         ingress: {
+ *             clientCertificateMode: "accept",
+ *             corsPolicy: {
+ *                 allowCredentials: true,
+ *                 allowedHeaders: [
+ *                     "HEADER1",
+ *                     "HEADER2",
+ *                 ],
+ *                 allowedMethods: [
+ *                     "GET",
+ *                     "POST",
+ *                 ],
+ *                 allowedOrigins: [
+ *                     "https://a.test.com",
+ *                     "https://b.test.com",
+ *                 ],
+ *                 exposeHeaders: [
+ *                     "HEADER3",
+ *                     "HEADER4",
+ *                 ],
+ *                 maxAge: 1234,
+ *             },
+ *             customDomains: [
+ *                 {
+ *                     bindingType: "SniEnabled",
+ *                     certificateId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
+ *                     name: "www.my-name.com",
+ *                 },
+ *                 {
+ *                     bindingType: "SniEnabled",
+ *                     certificateId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com",
+ *                     name: "www.my-other-name.com",
+ *                 },
+ *             ],
+ *             external: true,
+ *             ipSecurityRestrictions: [
+ *                 {
+ *                     action: "Allow",
+ *                     description: "Allowing all IP's within the subnet below to access containerapp",
+ *                     ipAddressRange: "192.168.1.1/32",
+ *                     name: "Allow work IP A subnet",
+ *                 },
+ *                 {
+ *                     action: "Allow",
+ *                     description: "Allowing all IP's within the subnet below to access containerapp",
+ *                     ipAddressRange: "192.168.1.1/8",
+ *                     name: "Allow work IP B subnet",
+ *                 },
+ *             ],
+ *             targetPort: 3000,
+ *             traffic: [{
+ *                 label: "production",
+ *                 revisionName: "testcontainerApp0-ab1234",
+ *                 weight: 100,
+ *             }],
+ *         },
+ *         maxInactiveRevisions: 10,
+ *     },
+ *     containerAppName: "testcontainerApp0",
+ *     environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+ *     location: "East US",
+ *     resourceGroupName: "rg",
+ *     template: {
+ *         containers: [{
+ *             image: "repo/testcontainerApp0:v1",
+ *             name: "testcontainerApp0",
+ *             probes: [{
+ *                 httpGet: {
+ *                     httpHeaders: [{
+ *                         name: "Custom-Header",
+ *                         value: "Awesome",
+ *                     }],
+ *                     path: "/health",
+ *                     port: 8080,
+ *                 },
+ *                 initialDelaySeconds: 3,
+ *                 periodSeconds: 3,
+ *                 type: "Liveness",
+ *             }],
+ *         }],
+ *         initContainers: [{
+ *             args: [
+ *                 "-c",
+ *                 "while true; do echo hello; sleep 10;done",
+ *             ],
+ *             command: ["/bin/sh"],
+ *             image: "repo/testcontainerApp0:v4",
+ *             name: "testinitcontainerApp0",
+ *             resources: {
+ *                 cpu: 0.2,
+ *                 memory: "100Mi",
+ *             },
+ *         }],
+ *         scale: {
+ *             maxReplicas: 5,
+ *             minReplicas: 1,
+ *             rules: [{
+ *                 custom: {
+ *                     metadata: {
+ *                         concurrentRequests: "50",
+ *                     },
+ *                     type: "http",
+ *                 },
+ *                 name: "httpscalingrule",
+ *             }],
+ *         },
+ *     },
+ *     workloadProfileType: "GeneralPurpose",
+ * });
+ *
+ * ```
+ * ### Create or Update Tcp App
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerApp = new azure_native.app.v20221001.ContainerApp("containerApp", {
+ *     configuration: {
+ *         ingress: {
+ *             exposedPort: 4000,
+ *             external: true,
+ *             targetPort: 3000,
+ *             traffic: [{
+ *                 revisionName: "testcontainerAppTcp-ab1234",
+ *                 weight: 100,
+ *             }],
+ *             transport: "tcp",
+ *         },
+ *     },
+ *     containerAppName: "testcontainerAppTcp",
+ *     environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+ *     location: "East US",
+ *     resourceGroupName: "rg",
+ *     template: {
+ *         containers: [{
+ *             image: "repo/testcontainerAppTcp:v1",
+ *             name: "testcontainerAppTcp",
+ *             probes: [{
+ *                 initialDelaySeconds: 3,
+ *                 periodSeconds: 3,
+ *                 tcpSocket: {
+ *                     port: 8080,
+ *                 },
+ *                 type: "Liveness",
+ *             }],
+ *         }],
+ *         scale: {
+ *             maxReplicas: 5,
+ *             minReplicas: 1,
+ *             rules: [{
+ *                 name: "tcpscalingrule",
+ *                 tcp: {
+ *                     metadata: {
+ *                         concurrentConnections: "50",
+ *                     },
+ *                 },
+ *             }],
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20221001:ContainerApp testcontainerAppTcp /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/testcontainerAppTcp 
+ * ```
  */
 export class ContainerApp extends pulumi.CustomResource {
     /**

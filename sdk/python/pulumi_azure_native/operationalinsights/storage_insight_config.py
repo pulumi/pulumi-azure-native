@@ -165,6 +165,37 @@ class StorageInsightConfig(pulumi.CustomResource):
         API Version: 2020-08-01.
         Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### StorageInsightsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_insight_config = azure_native.operationalinsights.StorageInsightConfig("storageInsightConfig",
+            containers=["wad-iis-logfiles"],
+            resource_group_name="OIAutoRest5123",
+            storage_account=azure_native.operationalinsights.StorageAccountArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
+                key="1234",
+            ),
+            storage_insight_name="AzTestSI1110",
+            tables=[
+                "WADWindowsEventLogsTable",
+                "LinuxSyslogVer2v0",
+            ],
+            workspace_name="aztest5048")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:StorageInsightConfig AzTestSI1110 /subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/oiautorest6987/providers/microsoft.operationalinsights/workspaces/aztest5048/storageinsightconfigs/AzTestSI1110 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] containers: The names of the blob containers that the workspace should read
@@ -186,6 +217,37 @@ class StorageInsightConfig(pulumi.CustomResource):
         The top level storage insight resource container.
         API Version: 2020-08-01.
         Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### StorageInsightsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_insight_config = azure_native.operationalinsights.StorageInsightConfig("storageInsightConfig",
+            containers=["wad-iis-logfiles"],
+            resource_group_name="OIAutoRest5123",
+            storage_account=azure_native.operationalinsights.StorageAccountArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
+                key="1234",
+            ),
+            storage_insight_name="AzTestSI1110",
+            tables=[
+                "WADWindowsEventLogsTable",
+                "LinuxSyslogVer2v0",
+            ],
+            workspace_name="aztest5048")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:StorageInsightConfig AzTestSI1110 /subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/oiautorest6987/providers/microsoft.operationalinsights/workspaces/aztest5048/storageinsightconfigs/AzTestSI1110 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageInsightConfigArgs args: The arguments to use to populate this resource's properties.

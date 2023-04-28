@@ -11,6 +11,65 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
 {
     /// <summary>
     /// A Video Analyzer account.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Video Analyzer account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var videoAnalyzer = new AzureNative.VideoAnalyzer.V20210501Preview.VideoAnalyzer("videoAnalyzer", new()
+    ///     {
+    ///         AccountName = "contosotv",
+    ///         Encryption = new AzureNative.VideoAnalyzer.V20210501Preview.Inputs.AccountEncryptionArgs
+    ///         {
+    ///             Type = "SystemKey",
+    ///         },
+    ///         Identity = new AzureNative.VideoAnalyzer.V20210501Preview.Inputs.VideoAnalyzerIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", null },
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2", null },
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3", null },
+    ///             },
+    ///         },
+    ///         Location = "South Central US",
+    ///         ResourceGroupName = "contoso",
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new AzureNative.VideoAnalyzer.V20210501Preview.Inputs.StorageAccountArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/storage1",
+    ///                 Identity = new AzureNative.VideoAnalyzer.V20210501Preview.Inputs.ResourceIdentityArgs
+    ///                 {
+    ///                     UserAssignedIdentity = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer/v20210501preview:VideoAnalyzer contosomovies /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/videoAnalyzers/contosomovies 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20210501preview:VideoAnalyzer")]
     public partial class VideoAnalyzer : global::Pulumi.CustomResource

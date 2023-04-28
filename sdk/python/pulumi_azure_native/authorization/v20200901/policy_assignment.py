@@ -236,6 +236,126 @@ class PolicyAssignment(pulumi.CustomResource):
         """
         The policy assignment.
 
+        ## Example Usage
+        ### Create or update a policy assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment = azure_native.authorization.v20200901.PolicyAssignment("policyAssignment",
+            description="Force resource names to begin with given DeptA and end with -LC",
+            display_name="Enforce resource naming rules",
+            metadata={
+                "assignedBy": "Special Someone",
+            },
+            non_compliance_messages=[{
+                "message": "Resource names must start with 'DeptA' and end with '-LC'.",
+            }],
+            parameters={
+                "prefix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="DeptA",
+                ),
+                "suffix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="-LC",
+                ),
+            },
+            policy_assignment_name="EnforceNaming",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+        ### Create or update a policy assignment with a managed identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment = azure_native.authorization.v20200901.PolicyAssignment("policyAssignment",
+            description="Force resource names to begin with given DeptA and end with -LC",
+            display_name="Enforce resource naming rules",
+            enforcement_mode="Default",
+            identity=azure_native.authorization.v20200901.IdentityArgs(
+                type=azure_native.authorization/v20200901.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus",
+            metadata={
+                "assignedBy": "Foo Bar",
+            },
+            parameters={
+                "prefix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="DeptA",
+                ),
+                "suffix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="-LC",
+                ),
+            },
+            policy_assignment_name="EnforceNaming",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+        ### Create or update a policy assignment with multiple non-compliance messages
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment = azure_native.authorization.v20200901.PolicyAssignment("policyAssignment",
+            display_name="Enforce security policies",
+            non_compliance_messages=[
+                {
+                    "message": "Resources must comply with all internal security policies. See <internal site URL> for more info.",
+                },
+                {
+                    "message": "Resource names must start with 'DeptA' and end with '-LC'.",
+                    "policyDefinitionReferenceId": "10420126870854049575",
+                },
+                {
+                    "message": "Storage accounts must have firewall rules configured.",
+                    "policyDefinitionReferenceId": "8572513655450389710",
+                },
+            ],
+            policy_assignment_name="securityInitAssignment",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/securityInitiative",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+        ### Create or update a policy assignment without enforcing policy effect during resource creation or update.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment = azure_native.authorization.v20200901.PolicyAssignment("policyAssignment",
+            description="Force resource names to begin with given DeptA and end with -LC",
+            display_name="Enforce resource naming rules",
+            enforcement_mode="DoNotEnforce",
+            metadata={
+                "assignedBy": "Special Someone",
+            },
+            parameters={
+                "prefix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="DeptA",
+                ),
+                "suffix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="-LC",
+                ),
+            },
+            policy_assignment_name="EnforceNaming",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20200901:PolicyAssignment EnforceNaming /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: This message will be part of response in case of policy violation.
@@ -259,6 +379,126 @@ class PolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy assignment.
+
+        ## Example Usage
+        ### Create or update a policy assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment = azure_native.authorization.v20200901.PolicyAssignment("policyAssignment",
+            description="Force resource names to begin with given DeptA and end with -LC",
+            display_name="Enforce resource naming rules",
+            metadata={
+                "assignedBy": "Special Someone",
+            },
+            non_compliance_messages=[{
+                "message": "Resource names must start with 'DeptA' and end with '-LC'.",
+            }],
+            parameters={
+                "prefix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="DeptA",
+                ),
+                "suffix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="-LC",
+                ),
+            },
+            policy_assignment_name="EnforceNaming",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+        ### Create or update a policy assignment with a managed identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment = azure_native.authorization.v20200901.PolicyAssignment("policyAssignment",
+            description="Force resource names to begin with given DeptA and end with -LC",
+            display_name="Enforce resource naming rules",
+            enforcement_mode="Default",
+            identity=azure_native.authorization.v20200901.IdentityArgs(
+                type=azure_native.authorization/v20200901.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus",
+            metadata={
+                "assignedBy": "Foo Bar",
+            },
+            parameters={
+                "prefix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="DeptA",
+                ),
+                "suffix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="-LC",
+                ),
+            },
+            policy_assignment_name="EnforceNaming",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+        ### Create or update a policy assignment with multiple non-compliance messages
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment = azure_native.authorization.v20200901.PolicyAssignment("policyAssignment",
+            display_name="Enforce security policies",
+            non_compliance_messages=[
+                {
+                    "message": "Resources must comply with all internal security policies. See <internal site URL> for more info.",
+                },
+                {
+                    "message": "Resource names must start with 'DeptA' and end with '-LC'.",
+                    "policyDefinitionReferenceId": "10420126870854049575",
+                },
+                {
+                    "message": "Storage accounts must have firewall rules configured.",
+                    "policyDefinitionReferenceId": "8572513655450389710",
+                },
+            ],
+            policy_assignment_name="securityInitAssignment",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policySetDefinitions/securityInitiative",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+        ### Create or update a policy assignment without enforcing policy effect during resource creation or update.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment = azure_native.authorization.v20200901.PolicyAssignment("policyAssignment",
+            description="Force resource names to begin with given DeptA and end with -LC",
+            display_name="Enforce resource naming rules",
+            enforcement_mode="DoNotEnforce",
+            metadata={
+                "assignedBy": "Special Someone",
+            },
+            parameters={
+                "prefix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="DeptA",
+                ),
+                "suffix": azure_native.authorization.v20200901.ParameterValuesValueArgs(
+                    value="-LC",
+                ),
+            },
+            policy_assignment_name="EnforceNaming",
+            policy_definition_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20200901:PolicyAssignment EnforceNaming /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,234 @@ namespace Pulumi.AzureNative.Blueprint
     /// Represents a blueprint assignment.
     /// API Version: 2018-11-01-preview.
     /// Previous API Version: 2018-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Assignment with system-assigned managed identity at management group scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assignment = new AzureNative.Blueprint.Assignment("assignment", new()
+    ///     {
+    ///         AssignmentName = "assignSimpleBlueprint",
+    ///         BlueprintId = "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    ///         Description = "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    ///         Identity = new AzureNative.Blueprint.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "eastus",
+    ///         Parameters = 
+    ///         {
+    ///             { "costCenter", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "Contoso/Online/Shopping/Production",
+    ///             } },
+    ///             { "owners", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = new[]
+    ///                 {
+    ///                     "johnDoe@contoso.com",
+    ///                     "johnsteam@contoso.com",
+    ///                 },
+    ///             } },
+    ///             { "storageAccountType", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "Standard_LRS",
+    ///             } },
+    ///         },
+    ///         ResourceGroups = 
+    ///         {
+    ///             { "storageRG", new AzureNative.Blueprint.Inputs.ResourceGroupValueArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 Name = "defaultRG",
+    ///             } },
+    ///         },
+    ///         ResourceScope = "managementGroups/ContosoOnlineGroup",
+    ///         Scope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Assignment with system-assigned managed identity at subscription scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assignment = new AzureNative.Blueprint.Assignment("assignment", new()
+    ///     {
+    ///         AssignmentName = "assignSimpleBlueprint",
+    ///         BlueprintId = "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    ///         Description = "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    ///         Identity = new AzureNative.Blueprint.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "eastus",
+    ///         Parameters = 
+    ///         {
+    ///             { "costCenter", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "Contoso/Online/Shopping/Production",
+    ///             } },
+    ///             { "owners", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = new[]
+    ///                 {
+    ///                     "johnDoe@contoso.com",
+    ///                     "johnsteam@contoso.com",
+    ///                 },
+    ///             } },
+    ///             { "storageAccountType", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "Standard_LRS",
+    ///             } },
+    ///         },
+    ///         ResourceGroups = 
+    ///         {
+    ///             { "storageRG", new AzureNative.Blueprint.Inputs.ResourceGroupValueArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 Name = "defaultRG",
+    ///             } },
+    ///         },
+    ///         ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Assignment with user-assigned managed identity at management group scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assignment = new AzureNative.Blueprint.Assignment("assignment", new()
+    ///     {
+    ///         AssignmentName = "assignSimpleBlueprint",
+    ///         BlueprintId = "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    ///         Description = "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    ///         Identity = new AzureNative.Blueprint.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity", null },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         Parameters = 
+    ///         {
+    ///             { "costCenter", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "Contoso/Online/Shopping/Production",
+    ///             } },
+    ///             { "owners", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = new[]
+    ///                 {
+    ///                     "johnDoe@contoso.com",
+    ///                     "johnsteam@contoso.com",
+    ///                 },
+    ///             } },
+    ///             { "storageAccountType", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "Standard_LRS",
+    ///             } },
+    ///         },
+    ///         ResourceGroups = 
+    ///         {
+    ///             { "storageRG", new AzureNative.Blueprint.Inputs.ResourceGroupValueArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 Name = "defaultRG",
+    ///             } },
+    ///         },
+    ///         ResourceScope = "managementGroups/ContosoOnlineGroup",
+    ///         Scope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Assignment with user-assigned managed identity at subscription scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assignment = new AzureNative.Blueprint.Assignment("assignment", new()
+    ///     {
+    ///         AssignmentName = "assignSimpleBlueprint",
+    ///         BlueprintId = "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    ///         Description = "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    ///         Identity = new AzureNative.Blueprint.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity", null },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         Parameters = 
+    ///         {
+    ///             { "costCenter", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "Contoso/Online/Shopping/Production",
+    ///             } },
+    ///             { "owners", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = new[]
+    ///                 {
+    ///                     "johnDoe@contoso.com",
+    ///                     "johnsteam@contoso.com",
+    ///                 },
+    ///             } },
+    ///             { "storageAccountType", new AzureNative.Blueprint.Inputs.ParameterValueArgs
+    ///             {
+    ///                 Value = "Standard_LRS",
+    ///             } },
+    ///         },
+    ///         ResourceGroups = 
+    ///         {
+    ///             { "storageRG", new AzureNative.Blueprint.Inputs.ResourceGroupValueArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 Name = "defaultRG",
+    ///             } },
+    ///         },
+    ///         ResourceScope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blueprint:Assignment assignSimpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint:Assignment")]
     public partial class Assignment : global::Pulumi.CustomResource

@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.Resources.V20220801Preview
 {
     /// <summary>
     /// Deployment stack object.
+    /// 
+    /// ## Example Usage
+    /// ### DeploymentStacksCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deploymentStackAtSubscription = new AzureNative.Resources.V20220801Preview.DeploymentStackAtSubscription("deploymentStackAtSubscription", new()
+    ///     {
+    ///         ActionOnUnmanage = new AzureNative.Resources.V20220801Preview.Inputs.DeploymentStackPropertiesActionOnUnmanageArgs
+    ///         {
+    ///             ManagementGroups = "detach",
+    ///             ResourceGroups = "delete",
+    ///             Resources = "delete",
+    ///         },
+    ///         DeploymentStackName = "simpleDeploymentStack",
+    ///         Location = "eastus",
+    ///         Parameters = 
+    ///         {
+    ///             { "parameter1", 
+    ///             {
+    ///                 { "value", "a string" },
+    ///             } },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tagkey", "tagVal" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20220801preview:DeploymentStackAtSubscription simpleDeploymentStack /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/deploymentStacksRG/providers/Microsoft.Resources/deploymentStacks/simpleDeploymentStack 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20220801preview:DeploymentStackAtSubscription")]
     public partial class DeploymentStackAtSubscription : global::Pulumi.CustomResource

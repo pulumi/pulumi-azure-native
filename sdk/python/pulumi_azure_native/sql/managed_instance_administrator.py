@@ -141,6 +141,48 @@ class ManagedInstanceAdministrator(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create administrator of managed instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance_administrator = azure_native.sql.ManagedInstanceAdministrator("managedInstanceAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            sid="44444444-3333-2222-1111-000000000000",
+            tenant_id="55555555-4444-3333-2222-111111111111")
+
+        ```
+        ### Update administrator of managed instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance_administrator = azure_native.sql.ManagedInstanceAdministrator("managedInstanceAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            sid="44444444-3333-2222-1111-000000000000",
+            tenant_id="55555555-4444-3333-2222-111111111111")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ManagedInstanceAdministrator ActiveDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/managedInstance/administrators/ActiveDirectory 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ManagedInstanceAdministratorType']] administrator_type: Type of the managed instance administrator.
@@ -160,6 +202,48 @@ class ManagedInstanceAdministrator(pulumi.CustomResource):
         An Azure SQL managed instance administrator.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create administrator of managed instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance_administrator = azure_native.sql.ManagedInstanceAdministrator("managedInstanceAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            sid="44444444-3333-2222-1111-000000000000",
+            tenant_id="55555555-4444-3333-2222-111111111111")
+
+        ```
+        ### Update administrator of managed instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance_administrator = azure_native.sql.ManagedInstanceAdministrator("managedInstanceAdministrator",
+            administrator_name="ActiveDirectory",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            managed_instance_name="managedInstance",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            sid="44444444-3333-2222-1111-000000000000",
+            tenant_id="55555555-4444-3333-2222-111111111111")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ManagedInstanceAdministrator ActiveDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/managedInstance/administrators/ActiveDirectory 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceAdministratorArgs args: The arguments to use to populate this resource's properties.

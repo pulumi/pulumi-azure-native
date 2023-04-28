@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
 {
     /// <summary>
     /// The Managed Network Peering Policy resource
+    /// 
+    /// ## Example Usage
+    /// ### ManagedNetworkPeeringPoliciesPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedNetworkPeeringPolicy = new AzureNative.ManagedNetwork.V20190601Preview.ManagedNetworkPeeringPolicy("managedNetworkPeeringPolicy", new()
+    ///     {
+    ///         ManagedNetworkName = "myManagedNetwork",
+    ///         ManagedNetworkPeeringPolicyName = "myHubAndSpoke",
+    ///         Properties = new AzureNative.ManagedNetwork.V20190601Preview.Inputs.ManagedNetworkPeeringPolicyPropertiesArgs
+    ///         {
+    ///             Hub = new AzureNative.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///             {
+    ///                 Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myHubVnet",
+    ///             },
+    ///             Spokes = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1",
+    ///                 },
+    ///             },
+    ///             Type = "HubAndSpokeTopology",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy myHubAndSpoke /subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkPeeringPolicies/myHubAndSpoke 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetwork/v20190601preview:ManagedNetworkPeeringPolicy")]
     public partial class ManagedNetworkPeeringPolicy : global::Pulumi.CustomResource

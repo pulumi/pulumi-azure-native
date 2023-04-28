@@ -242,6 +242,32 @@ class Lab(pulumi.CustomResource):
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Labs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        lab = azure_native.devtestlab.Lab("lab",
+            lab_storage_type="{Standard|Premium}",
+            location="{location}",
+            name="{labName}",
+            resource_group_name="resourceGroupName",
+            tags={
+                "tagName1": "tagValue1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:Lab {labName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LabAnnouncementPropertiesArgs']] announcement: The properties of any lab announcement associated with this lab
@@ -269,6 +295,32 @@ class Lab(pulumi.CustomResource):
         A lab.
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Labs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        lab = azure_native.devtestlab.Lab("lab",
+            lab_storage_type="{Standard|Premium}",
+            location="{location}",
+            name="{labName}",
+            resource_group_name="resourceGroupName",
+            tags={
+                "tagName1": "tagValue1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:Lab {labName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.

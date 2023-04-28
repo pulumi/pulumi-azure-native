@@ -111,6 +111,29 @@ class IPSyncer(pulumi.CustomResource):
         """
         Settings with single toggle.
 
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_syncer = azure_native.securityinsights.v20190101preview.IPSyncer("ipSyncer",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20190101preview:IPSyncer EyesOn /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirInt/providers/Microsoft.SecurityInsights/settings/EyesOn 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: 
@@ -128,6 +151,29 @@ class IPSyncer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Settings with single toggle.
+
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_syncer = azure_native.securityinsights.v20190101preview.IPSyncer("ipSyncer",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20190101preview:IPSyncer EyesOn /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirInt/providers/Microsoft.SecurityInsights/settings/EyesOn 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IPSyncerArgs args: The arguments to use to populate this resource's properties.

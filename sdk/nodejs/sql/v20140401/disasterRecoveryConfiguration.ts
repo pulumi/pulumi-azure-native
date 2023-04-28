@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a disaster recovery configuration.
+ *
+ * ## Example Usage
+ * ### Update a disaster recovery configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disasterRecoveryConfiguration = new azure_native.sql.v20140401.DisasterRecoveryConfiguration("disasterRecoveryConfiguration", {
+ *     disasterRecoveryConfigurationName: "Default",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     serverName: "sqlcrudtest-5961",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20140401:DisasterRecoveryConfiguration Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/databases/testdw/geoBackupPolicies/Default 
+ * ```
  */
 export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**

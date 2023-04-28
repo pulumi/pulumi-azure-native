@@ -302,6 +302,38 @@ class Machine(pulumi.CustomResource):
         """
         Describes a hybrid machine.
 
+        ## Example Usage
+        ### Create or Update a Machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine = azure_native.hybridcompute.v20221227preview.Machine("machine",
+            client_public_key="string",
+            identity=azure_native.hybridcompute.v20221227preview.IdentityArgs(
+                type=azure_native.hybridcompute/v20221227preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            location_data=azure_native.hybridcompute.v20221227preview.LocationDataResponseArgs(
+                name="Redmond",
+            ),
+            machine_name="myMachine",
+            parent_cluster_resource_id="{AzureStackHCIResourceId}",
+            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+            resource_group_name="myResourceGroup",
+            vm_id="b7a098cc-b0b8-46e8-a205-62f301a62a8f")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute/v20221227preview:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/myMachine 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AgentUpgradeArgs']] agent_upgrade: The info of the machine w.r.t Agent Upgrade
@@ -329,6 +361,38 @@ class Machine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a hybrid machine.
+
+        ## Example Usage
+        ### Create or Update a Machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine = azure_native.hybridcompute.v20221227preview.Machine("machine",
+            client_public_key="string",
+            identity=azure_native.hybridcompute.v20221227preview.IdentityArgs(
+                type=azure_native.hybridcompute/v20221227preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            location_data=azure_native.hybridcompute.v20221227preview.LocationDataResponseArgs(
+                name="Redmond",
+            ),
+            machine_name="myMachine",
+            parent_cluster_resource_id="{AzureStackHCIResourceId}",
+            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+            resource_group_name="myResourceGroup",
+            vm_id="b7a098cc-b0b8-46e8-a205-62f301a62a8f")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute/v20221227preview:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/myMachine 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MachineArgs args: The arguments to use to populate this resource's properties.

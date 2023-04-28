@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Definition of the automation account type.
  * API Version: 2022-08-08.
  * Previous API Version: 2021-06-22. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update automation account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const automationAccount = new azure_native.automation.AutomationAccount("automationAccount", {
+ *     automationAccountName: "myAutomationAccount9",
+ *     location: "East US 2",
+ *     name: "myAutomationAccount9",
+ *     resourceGroupName: "rg",
+ *     sku: {
+ *         name: "Free",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:AutomationAccount ContoseAutomationAccount /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount9 
+ * ```
  */
 export class AutomationAccount extends pulumi.CustomResource {
     /**

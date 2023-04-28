@@ -11,6 +11,84 @@ import * as utilities from "../utilities";
  * An addon resource
  * API Version: 2022-05-01.
  * Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Addons_CreateOrUpdate_Arc
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const addon = new azure_native.avs.Addon("addon", {
+ *     addonName: "arc",
+ *     privateCloudName: "cloud1",
+ *     properties: {
+ *         addonType: "Arc",
+ *         vCenter: "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg_test/providers/Microsoft.ConnectedVMwarevSphere/VCenters/test-vcenter",
+ *     },
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ * ### Addons_CreateOrUpdate_HCX
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const addon = new azure_native.avs.Addon("addon", {
+ *     addonName: "hcx",
+ *     privateCloudName: "cloud1",
+ *     properties: {
+ *         addonType: "HCX",
+ *         offer: "VMware MaaS Cloud Provider (Enterprise)",
+ *     },
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ * ### Addons_CreateOrUpdate_SRM
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const addon = new azure_native.avs.Addon("addon", {
+ *     addonName: "srm",
+ *     privateCloudName: "cloud1",
+ *     properties: {
+ *         addonType: "SRM",
+ *         licenseKey: "41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+ *     },
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ * ### Addons_CreateOrUpdate_VR
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const addon = new azure_native.avs.Addon("addon", {
+ *     addonName: "vr",
+ *     privateCloudName: "cloud1",
+ *     properties: {
+ *         addonType: "VR",
+ *         vrsCount: 1,
+ *     },
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs:Addon vr /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/addons/vr 
+ * ```
  */
 export class Addon extends pulumi.CustomResource {
     /**

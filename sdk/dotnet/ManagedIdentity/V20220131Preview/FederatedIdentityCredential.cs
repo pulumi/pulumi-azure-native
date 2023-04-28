@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20220131Preview
 {
     /// <summary>
     /// Describes a federated identity credential.
+    /// 
+    /// ## Example Usage
+    /// ### FederatedIdentityCredentialCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var federatedIdentityCredential = new AzureNative.ManagedIdentity.V20220131Preview.FederatedIdentityCredential("federatedIdentityCredential", new()
+    ///     {
+    ///         Audiences = new[]
+    ///         {
+    ///             "api://AzureADTokenExchange",
+    ///         },
+    ///         FederatedIdentityCredentialResourceName = "ficResourceName",
+    ///         Issuer = "https://oidc.prod-aks.azure.com/IssuerGUID",
+    ///         ResourceGroupName = "rgName",
+    ///         ResourceName = "resourceName",
+    ///         Subject = "system:serviceaccount:ns:svcaccount",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managedidentity/v20220131preview:FederatedIdentityCredential ficResourceName /subscriptions/subid/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/federatedIdentityCredentials/ficResourceName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managedidentity/v20220131preview:FederatedIdentityCredential")]
     public partial class FederatedIdentityCredential : global::Pulumi.CustomResource

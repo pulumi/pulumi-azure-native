@@ -163,6 +163,59 @@ class InstancePool(pulumi.CustomResource):
         """
         An Azure SQL instance pool.
 
+        ## Example Usage
+        ### Create an instance pool with all properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_pool = azure_native.sql.v20201101preview.InstancePool("instancePool",
+            instance_pool_name="testIP",
+            license_type="LicenseIncluded",
+            location="japaneast",
+            resource_group_name="group1",
+            sku=azure_native.sql.v20201101preview.SkuResponseArgs(
+                family="Gen5",
+                name="GP_Gen5",
+                tier="GeneralPurpose",
+            ),
+            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+            tags={
+                "a": "b",
+            },
+            v_cores=8)
+
+        ```
+        ### Create an instance pool with min properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_pool = azure_native.sql.v20201101preview.InstancePool("instancePool",
+            instance_pool_name="testIP",
+            license_type="LicenseIncluded",
+            location="japaneast",
+            resource_group_name="group1",
+            sku=azure_native.sql.v20201101preview.SkuResponseArgs(
+                family="Gen5",
+                name="GP_Gen5",
+                tier="GeneralPurpose",
+            ),
+            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+            v_cores=8)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20201101preview:InstancePool testIP /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] instance_pool_name: The name of the instance pool to be created or updated.
@@ -182,6 +235,59 @@ class InstancePool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure SQL instance pool.
+
+        ## Example Usage
+        ### Create an instance pool with all properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_pool = azure_native.sql.v20201101preview.InstancePool("instancePool",
+            instance_pool_name="testIP",
+            license_type="LicenseIncluded",
+            location="japaneast",
+            resource_group_name="group1",
+            sku=azure_native.sql.v20201101preview.SkuResponseArgs(
+                family="Gen5",
+                name="GP_Gen5",
+                tier="GeneralPurpose",
+            ),
+            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+            tags={
+                "a": "b",
+            },
+            v_cores=8)
+
+        ```
+        ### Create an instance pool with min properties.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_pool = azure_native.sql.v20201101preview.InstancePool("instancePool",
+            instance_pool_name="testIP",
+            license_type="LicenseIncluded",
+            location="japaneast",
+            resource_group_name="group1",
+            sku=azure_native.sql.v20201101preview.SkuResponseArgs(
+                family="Gen5",
+                name="GP_Gen5",
+                tier="GeneralPurpose",
+            ),
+            subnet_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+            v_cores=8)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20201101preview:InstancePool testIP /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InstancePoolArgs args: The arguments to use to populate this resource's properties.

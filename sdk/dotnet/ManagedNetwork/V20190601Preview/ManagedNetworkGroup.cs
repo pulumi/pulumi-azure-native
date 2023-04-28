@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.ManagedNetwork.V20190601Preview
 {
     /// <summary>
     /// The Managed Network Group resource
+    /// 
+    /// ## Example Usage
+    /// ### ManagementNetworkGroupsPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedNetworkGroup = new AzureNative.ManagedNetwork.V20190601Preview.ManagedNetworkGroup("managedNetworkGroup", new()
+    ///     {
+    ///         ManagedNetworkGroupName = "myManagedNetworkGroup1",
+    ///         ManagedNetworkName = "myManagedNetwork",
+    ///         ManagementGroups = new[] {},
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Subnets = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///             {
+    ///                 Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
+    ///             },
+    ///         },
+    ///         Subscriptions = new[] {},
+    ///         VirtualNetworks = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///             {
+    ///                 Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+    ///             },
+    ///             new AzureNative.ManagedNetwork.V20190601Preview.Inputs.ResourceIdArgs
+    ///             {
+    ///                 Id = "/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetwork/v20190601preview:ManagedNetworkGroup myManagedNetworkGroup1 /subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetwork/v20190601preview:ManagedNetworkGroup")]
     public partial class ManagedNetworkGroup : global::Pulumi.CustomResource

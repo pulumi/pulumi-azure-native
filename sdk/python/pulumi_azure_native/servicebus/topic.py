@@ -268,6 +268,29 @@ class Topic(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### TopicCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.servicebus.Topic("topic",
+            enable_express=True,
+            namespace_name="sdk-Namespace-1617",
+            resource_group_name="ArunMonocle",
+            topic_name="sdk-Topics-5488")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:Topic sdk-Topics-5488 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1617/topics/sdk-Topics-5488 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
@@ -295,6 +318,29 @@ class Topic(pulumi.CustomResource):
         Description of topic resource.
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### TopicCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.servicebus.Topic("topic",
+            enable_express=True,
+            namespace_name="sdk-Namespace-1617",
+            resource_group_name="ArunMonocle",
+            topic_name="sdk-Topics-5488")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:Topic sdk-Topics-5488 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1617/topics/sdk-Topics-5488 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

@@ -405,6 +405,52 @@ class BigDataPool(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a Big Data pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        big_data_pool = azure_native.synapse.BigDataPool("bigDataPool",
+            auto_pause=azure_native.synapse.AutoPausePropertiesArgs(
+                delay_in_minutes=15,
+                enabled=True,
+            ),
+            auto_scale=azure_native.synapse.AutoScalePropertiesArgs(
+                enabled=True,
+                max_node_count=50,
+                min_node_count=3,
+            ),
+            big_data_pool_name="ExamplePool",
+            default_spark_log_folder="/logs",
+            is_autotune_enabled=False,
+            library_requirements=azure_native.synapse.LibraryRequirementsArgs(
+                content="",
+                filename="requirements.txt",
+            ),
+            location="West US 2",
+            node_count=4,
+            node_size="Medium",
+            node_size_family="MemoryOptimized",
+            resource_group_name="ExampleResourceGroup",
+            spark_events_folder="/events",
+            spark_version="3.3",
+            tags={
+                "key": "value",
+            },
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:BigDataPool ExamplePool /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/bigDataPools/ExamplePool 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AutoPausePropertiesArgs']] auto_pause: Auto-pausing properties
@@ -440,6 +486,52 @@ class BigDataPool(pulumi.CustomResource):
         A Big Data pool
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a Big Data pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        big_data_pool = azure_native.synapse.BigDataPool("bigDataPool",
+            auto_pause=azure_native.synapse.AutoPausePropertiesArgs(
+                delay_in_minutes=15,
+                enabled=True,
+            ),
+            auto_scale=azure_native.synapse.AutoScalePropertiesArgs(
+                enabled=True,
+                max_node_count=50,
+                min_node_count=3,
+            ),
+            big_data_pool_name="ExamplePool",
+            default_spark_log_folder="/logs",
+            is_autotune_enabled=False,
+            library_requirements=azure_native.synapse.LibraryRequirementsArgs(
+                content="",
+                filename="requirements.txt",
+            ),
+            location="West US 2",
+            node_count=4,
+            node_size="Medium",
+            node_size_family="MemoryOptimized",
+            resource_group_name="ExampleResourceGroup",
+            spark_events_folder="/events",
+            spark_version="3.3",
+            tags={
+                "key": "value",
+            },
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:BigDataPool ExamplePool /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/bigDataPools/ExamplePool 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BigDataPoolArgs args: The arguments to use to populate this resource's properties.

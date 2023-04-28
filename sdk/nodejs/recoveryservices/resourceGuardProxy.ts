@@ -10,6 +10,32 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2023-02-01.
  * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create ResourceGuardProxy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceGuardProxy = new azure_native.recoveryservices.ResourceGuardProxy("resourceGuardProxy", {
+ *     properties: {
+ *         resourceGuardResourceId: "/subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew",
+ *     },
+ *     resourceGroupName: "SampleResourceGroup",
+ *     resourceGuardProxyName: "swaggerExample",
+ *     vaultName: "sampleVault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ResourceGuardProxy swaggerExample /backupmanagement/resources/sampleVault/backupResourceGuardProxies/swaggerExample 
+ * ```
  */
 export class ResourceGuardProxy extends pulumi.CustomResource {
     /**

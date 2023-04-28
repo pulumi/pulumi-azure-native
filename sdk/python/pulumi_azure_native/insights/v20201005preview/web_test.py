@@ -307,6 +307,141 @@ class WebTest(pulumi.CustomResource):
         """
         An Application Insights WebTest definition.
 
+        ## Example Usage
+        ### webTestCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_test = azure_native.insights.v20201005preview.WebTest("webTest",
+            configuration=azure_native.insights.v20201005preview.WebTestPropertiesConfigurationArgs(
+                web_test="<WebTest Name=\\"my-webtest\\" Id=\\"678ddf96-1ab8-44c8-9274-123456789abc\\" Enabled=\\"True\\" CssProjectStructure=\\"\\" CssIteration=\\"\\" Timeout=\\"120\\" WorkItemIds=\\"\\" xmlns=\\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\\" Description=\\"\\" CredentialUserName=\\"\\" CredentialPassword=\\"\\" PreAuthenticate=\\"True\\" Proxy=\\"default\\" StopOnError=\\"False\\" RecordedResultFile=\\"\\" ResultsLocale=\\"\\" ><Items><Request Method=\\"GET\\" Guid=\\"a4162485-9114-fcfc-e086-123456789abc\\" Version=\\"1.1\\" Url=\\"http://my-component.azurewebsites.net\\" ThinkTime=\\"0\\" Timeout=\\"120\\" ParseDependentRequests=\\"True\\" FollowRedirects=\\"True\\" RecordResult=\\"True\\" Cache=\\"False\\" ResponseTimeGoal=\\"0\\" Encoding=\\"utf-8\\" ExpectedHttpStatusCode=\\"200\\" ExpectedResponseUrl=\\"\\" ReportingName=\\"\\" IgnoreHttpStatusCode=\\"False\\" /></Items></WebTest>",
+            ),
+            description="Ping web test alert for mytestwebapp",
+            enabled=True,
+            frequency=900,
+            kind=azure_native.insights/v20201005preview.WebTestKind.PING,
+            location="South Central US",
+            locations=[azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                location="us-fl-mia-edge",
+            )],
+            resource_group_name="my-resource-group",
+            retry_enabled=True,
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=120,
+            web_test_kind=azure_native.insights/v20201005preview.WebTestKindEnum.PING,
+            web_test_name="my-webtest-my-component")
+
+        ```
+        ### webTestCreateBasic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_test = azure_native.insights.v20201005preview.WebTest("webTest",
+            description="Ping web test alert for mytestwebapp",
+            enabled=True,
+            frequency=900,
+            location="South Central US",
+            locations=[azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                location="us-fl-mia-edge",
+            )],
+            request=azure_native.insights.v20201005preview.WebTestPropertiesRequestArgs(
+                parse_dependent_requests=True,
+                request_url="https://www.bing.com",
+            ),
+            resource_group_name="my-resource-group",
+            retry_enabled=True,
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=120,
+            validation_rules=azure_native.insights.v20201005preview.WebTestPropertiesValidationRulesArgs(
+                expected_http_status_code=200,
+                s_sl_check=True,
+            ),
+            web_test_kind=azure_native.insights/v20201005preview.WebTestKindEnum.BASIC,
+            web_test_name="my-webtest-my-component")
+
+        ```
+        ### webTestCreateStandard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_test = azure_native.insights.v20201005preview.WebTest("webTest",
+            description="Ping web test alert for mytestwebapp",
+            enabled=True,
+            frequency=900,
+            location="South Central US",
+            locations=[azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                location="us-fl-mia-edge",
+            )],
+            request=azure_native.insights.v20201005preview.WebTestPropertiesResponseRequestArgs(
+                headers=[
+                    azure_native.insights.v20201005preview.HeaderFieldArgs(
+                        header_field_name="Content-Language",
+                        header_field_value="de-DE",
+                    ),
+                    azure_native.insights.v20201005preview.HeaderFieldArgs(
+                        header_field_name="Accept-Language",
+                        header_field_value="de-DE",
+                    ),
+                ],
+                http_verb="POST",
+                request_body="SGVsbG8gd29ybGQ=",
+                request_url="https://bing.com",
+            ),
+            resource_group_name="my-resource-group",
+            retry_enabled=True,
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=120,
+            validation_rules=azure_native.insights.v20201005preview.WebTestPropertiesValidationRulesArgs(
+                s_sl_cert_remaining_lifetime_check=100,
+                s_sl_check=True,
+            ),
+            web_test_kind=azure_native.insights/v20201005preview.WebTestKindEnum.STANDARD,
+            web_test_name="my-webtest-my-component")
+
+        ```
+        ### webTestUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_test = azure_native.insights.v20201005preview.WebTest("webTest",
+            configuration=azure_native.insights.v20201005preview.WebTestPropertiesConfigurationArgs(
+                web_test="<WebTest Name=\\"my-webtest\\" Id=\\"678ddf96-1ab8-44c8-9274-123456789abc\\" Enabled=\\"True\\" CssProjectStructure=\\"\\" CssIteration=\\"\\" Timeout=\\"30\\" WorkItemIds=\\"\\" xmlns=\\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\\" Description=\\"\\" CredentialUserName=\\"\\" CredentialPassword=\\"\\" PreAuthenticate=\\"True\\" Proxy=\\"default\\" StopOnError=\\"False\\" RecordedResultFile=\\"\\" ResultsLocale=\\"\\" ><Items><Request Method=\\"GET\\" Guid=\\"a4162485-9114-fcfc-e086-123456789abc\\" Version=\\"1.1\\" Url=\\"http://my-component.azurewebsites.net\\" ThinkTime=\\"0\\" Timeout=\\"30\\" ParseDependentRequests=\\"True\\" FollowRedirects=\\"True\\" RecordResult=\\"True\\" Cache=\\"False\\" ResponseTimeGoal=\\"0\\" Encoding=\\"utf-8\\" ExpectedHttpStatusCode=\\"200\\" ExpectedResponseUrl=\\"\\" ReportingName=\\"\\" IgnoreHttpStatusCode=\\"False\\" /></Items></WebTest>",
+            ),
+            frequency=600,
+            kind=azure_native.insights/v20201005preview.WebTestKind.PING,
+            location="South Central US",
+            locations=[
+                azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                    location="us-fl-mia-edge",
+                ),
+                azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                    location="apac-hk-hkn-azr",
+                ),
+            ],
+            resource_group_name="my-resource-group",
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=30,
+            web_test_kind=azure_native.insights/v20201005preview.WebTestKindEnum.PING,
+            web_test_name="my-webtest-my-component")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20201005preview:WebTest my-webtest-my-component /subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['WebTestPropertiesConfigurationArgs']] configuration: An XML configuration specification for a WebTest.
@@ -334,6 +469,141 @@ class WebTest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Application Insights WebTest definition.
+
+        ## Example Usage
+        ### webTestCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_test = azure_native.insights.v20201005preview.WebTest("webTest",
+            configuration=azure_native.insights.v20201005preview.WebTestPropertiesConfigurationArgs(
+                web_test="<WebTest Name=\\"my-webtest\\" Id=\\"678ddf96-1ab8-44c8-9274-123456789abc\\" Enabled=\\"True\\" CssProjectStructure=\\"\\" CssIteration=\\"\\" Timeout=\\"120\\" WorkItemIds=\\"\\" xmlns=\\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\\" Description=\\"\\" CredentialUserName=\\"\\" CredentialPassword=\\"\\" PreAuthenticate=\\"True\\" Proxy=\\"default\\" StopOnError=\\"False\\" RecordedResultFile=\\"\\" ResultsLocale=\\"\\" ><Items><Request Method=\\"GET\\" Guid=\\"a4162485-9114-fcfc-e086-123456789abc\\" Version=\\"1.1\\" Url=\\"http://my-component.azurewebsites.net\\" ThinkTime=\\"0\\" Timeout=\\"120\\" ParseDependentRequests=\\"True\\" FollowRedirects=\\"True\\" RecordResult=\\"True\\" Cache=\\"False\\" ResponseTimeGoal=\\"0\\" Encoding=\\"utf-8\\" ExpectedHttpStatusCode=\\"200\\" ExpectedResponseUrl=\\"\\" ReportingName=\\"\\" IgnoreHttpStatusCode=\\"False\\" /></Items></WebTest>",
+            ),
+            description="Ping web test alert for mytestwebapp",
+            enabled=True,
+            frequency=900,
+            kind=azure_native.insights/v20201005preview.WebTestKind.PING,
+            location="South Central US",
+            locations=[azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                location="us-fl-mia-edge",
+            )],
+            resource_group_name="my-resource-group",
+            retry_enabled=True,
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=120,
+            web_test_kind=azure_native.insights/v20201005preview.WebTestKindEnum.PING,
+            web_test_name="my-webtest-my-component")
+
+        ```
+        ### webTestCreateBasic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_test = azure_native.insights.v20201005preview.WebTest("webTest",
+            description="Ping web test alert for mytestwebapp",
+            enabled=True,
+            frequency=900,
+            location="South Central US",
+            locations=[azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                location="us-fl-mia-edge",
+            )],
+            request=azure_native.insights.v20201005preview.WebTestPropertiesRequestArgs(
+                parse_dependent_requests=True,
+                request_url="https://www.bing.com",
+            ),
+            resource_group_name="my-resource-group",
+            retry_enabled=True,
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=120,
+            validation_rules=azure_native.insights.v20201005preview.WebTestPropertiesValidationRulesArgs(
+                expected_http_status_code=200,
+                s_sl_check=True,
+            ),
+            web_test_kind=azure_native.insights/v20201005preview.WebTestKindEnum.BASIC,
+            web_test_name="my-webtest-my-component")
+
+        ```
+        ### webTestCreateStandard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_test = azure_native.insights.v20201005preview.WebTest("webTest",
+            description="Ping web test alert for mytestwebapp",
+            enabled=True,
+            frequency=900,
+            location="South Central US",
+            locations=[azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                location="us-fl-mia-edge",
+            )],
+            request=azure_native.insights.v20201005preview.WebTestPropertiesResponseRequestArgs(
+                headers=[
+                    azure_native.insights.v20201005preview.HeaderFieldArgs(
+                        header_field_name="Content-Language",
+                        header_field_value="de-DE",
+                    ),
+                    azure_native.insights.v20201005preview.HeaderFieldArgs(
+                        header_field_name="Accept-Language",
+                        header_field_value="de-DE",
+                    ),
+                ],
+                http_verb="POST",
+                request_body="SGVsbG8gd29ybGQ=",
+                request_url="https://bing.com",
+            ),
+            resource_group_name="my-resource-group",
+            retry_enabled=True,
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=120,
+            validation_rules=azure_native.insights.v20201005preview.WebTestPropertiesValidationRulesArgs(
+                s_sl_cert_remaining_lifetime_check=100,
+                s_sl_check=True,
+            ),
+            web_test_kind=azure_native.insights/v20201005preview.WebTestKindEnum.STANDARD,
+            web_test_name="my-webtest-my-component")
+
+        ```
+        ### webTestUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_test = azure_native.insights.v20201005preview.WebTest("webTest",
+            configuration=azure_native.insights.v20201005preview.WebTestPropertiesConfigurationArgs(
+                web_test="<WebTest Name=\\"my-webtest\\" Id=\\"678ddf96-1ab8-44c8-9274-123456789abc\\" Enabled=\\"True\\" CssProjectStructure=\\"\\" CssIteration=\\"\\" Timeout=\\"30\\" WorkItemIds=\\"\\" xmlns=\\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\\" Description=\\"\\" CredentialUserName=\\"\\" CredentialPassword=\\"\\" PreAuthenticate=\\"True\\" Proxy=\\"default\\" StopOnError=\\"False\\" RecordedResultFile=\\"\\" ResultsLocale=\\"\\" ><Items><Request Method=\\"GET\\" Guid=\\"a4162485-9114-fcfc-e086-123456789abc\\" Version=\\"1.1\\" Url=\\"http://my-component.azurewebsites.net\\" ThinkTime=\\"0\\" Timeout=\\"30\\" ParseDependentRequests=\\"True\\" FollowRedirects=\\"True\\" RecordResult=\\"True\\" Cache=\\"False\\" ResponseTimeGoal=\\"0\\" Encoding=\\"utf-8\\" ExpectedHttpStatusCode=\\"200\\" ExpectedResponseUrl=\\"\\" ReportingName=\\"\\" IgnoreHttpStatusCode=\\"False\\" /></Items></WebTest>",
+            ),
+            frequency=600,
+            kind=azure_native.insights/v20201005preview.WebTestKind.PING,
+            location="South Central US",
+            locations=[
+                azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                    location="us-fl-mia-edge",
+                ),
+                azure_native.insights.v20201005preview.WebTestGeolocationArgs(
+                    location="apac-hk-hkn-azr",
+                ),
+            ],
+            resource_group_name="my-resource-group",
+            synthetic_monitor_id="my-webtest-my-component",
+            timeout=30,
+            web_test_kind=azure_native.insights/v20201005preview.WebTestKindEnum.PING,
+            web_test_name="my-webtest-my-component")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20201005preview:WebTest my-webtest-my-component /subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/webtests/my-webtest-my-component 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebTestArgs args: The arguments to use to populate this resource's properties.

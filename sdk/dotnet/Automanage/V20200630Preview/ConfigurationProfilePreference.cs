@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
 {
     /// <summary>
     /// Definition of the configuration profile preference.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update configuration profile preference
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfilePreference = new AzureNative.Automanage.V20200630Preview.ConfigurationProfilePreference("configurationProfilePreference", new()
+    ///     {
+    ///         ConfigurationProfilePreferenceName = "defaultProfilePreference",
+    ///         Location = "East US",
+    ///         Properties = new AzureNative.Automanage.V20200630Preview.Inputs.ConfigurationProfilePreferencePropertiesArgs
+    ///         {
+    ///             AntiMalware = new AzureNative.Automanage.V20200630Preview.Inputs.ConfigurationProfilePreferenceAntiMalwareArgs
+    ///             {
+    ///                 EnableRealTimeProtection = "True",
+    ///             },
+    ///             VmBackup = new AzureNative.Automanage.V20200630Preview.Inputs.ConfigurationProfilePreferenceVmBackupArgs
+    ///             {
+    ///                 TimeZone = "Pacific Standard Time",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "Organization", "Administration" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automanage/v20200630preview:ConfigurationProfilePreference defaultProfilePreference /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfilePreferences/defaultProfilePreference 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20200630preview:ConfigurationProfilePreference")]
     public partial class ConfigurationProfilePreference : global::Pulumi.CustomResource

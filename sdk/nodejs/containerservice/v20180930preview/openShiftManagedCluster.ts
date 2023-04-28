@@ -10,6 +10,78 @@ import * as utilities from "../../utilities";
 /**
  * OpenShift Managed cluster.
  *
+ * ## Example Usage
+ * ### Create/Update OpenShift Managed Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const openShiftManagedCluster = new azure_native.containerservice.v20180930preview.OpenShiftManagedCluster("openShiftManagedCluster", {
+ *     agentPoolProfiles: [
+ *         {
+ *             count: 2,
+ *             name: "infra",
+ *             osType: "Linux",
+ *             role: "infra",
+ *             subnetCidr: "10.0.0.0/24",
+ *             vmSize: "Standard_D4s_v3",
+ *         },
+ *         {
+ *             count: 4,
+ *             name: "compute",
+ *             osType: "Linux",
+ *             role: "compute",
+ *             subnetCidr: "10.0.0.0/24",
+ *             vmSize: "Standard_D4s_v3",
+ *         },
+ *     ],
+ *     authProfile: {
+ *         identityProviders: [{
+ *             name: "Azure AD",
+ *             provider: {
+ *                 clientId: "{clientId}",
+ *                 customerAdminGroupId: "{customerAdminGroupId}",
+ *                 kind: "AADIdentityProvider",
+ *                 secret: "secret",
+ *                 tenantId: "{tenantId}",
+ *             },
+ *         }],
+ *     },
+ *     fqdn: "clustername1.location1.cloudapp.azure.com",
+ *     location: "location1",
+ *     masterPoolProfile: {
+ *         count: 3,
+ *         name: "master",
+ *         osType: "Linux",
+ *         subnetCidr: "10.0.0.0/24",
+ *         vmSize: "Standard_D4s_v3",
+ *     },
+ *     networkProfile: {
+ *         vnetCidr: "10.0.0.0/8",
+ *     },
+ *     openShiftVersion: "v3.10",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     routerProfiles: [{
+ *         name: "default",
+ *     }],
+ *     tags: {
+ *         archv2: "",
+ *         tier: "production",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20180930preview:OpenShiftManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/openShiftManagedClusters/clustername1 
+ * ```
+ *
  * @deprecated Version 2018-09-30-preview will be removed in v2 of the provider.
  */
 export class OpenShiftManagedCluster extends pulumi.CustomResource {

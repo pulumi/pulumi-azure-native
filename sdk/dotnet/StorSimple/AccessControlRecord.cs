@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.StorSimple
     /// The access control record.
     /// API Version: 2017-06-01.
     /// Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### AccessControlRecordsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessControlRecord = new AzureNative.StorSimple.AccessControlRecord("accessControlRecord", new()
+    ///     {
+    ///         AccessControlRecordName = "ACRForTest",
+    ///         InitiatorName = "iqn.2017-06.com.contoso:ForTest",
+    ///         ManagerName = "ManagerForSDKTest1",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple:AccessControlRecord ACRForTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACRForTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:AccessControlRecord")]
     public partial class AccessControlRecord : global::Pulumi.CustomResource

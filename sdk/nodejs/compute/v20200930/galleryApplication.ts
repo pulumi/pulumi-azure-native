@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the gallery Application Definition that you want to create or update.
+ *
+ * ## Example Usage
+ * ### Create or update a simple gallery Application.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryApplication = new azure_native.compute.v20200930.GalleryApplication("galleryApplication", {
+ *     description: "This is the gallery application description.",
+ *     eula: "This is the gallery application EULA.",
+ *     galleryApplicationName: "myGalleryApplicationName",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     privacyStatementUri: "myPrivacyStatementUri}",
+ *     releaseNoteUri: "myReleaseNoteUri",
+ *     resourceGroupName: "myResourceGroup",
+ *     supportedOSType: azure_native.compute.v20200930.OperatingSystemTypes.Windows,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20200930:GalleryApplication myGalleryApplicationName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/applications/myGalleryApplicationName 
+ * ```
  */
 export class GalleryApplication extends pulumi.CustomResource {
     /**

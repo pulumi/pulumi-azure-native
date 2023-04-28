@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Restore Point details.
+ *
+ * ## Example Usage
+ * ### Create a restore point
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const restorePoint = new azure_native.compute.v20210301.RestorePoint("restorePoint", {
+ *     excludeDisks: [{
+ *         id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+ *     }],
+ *     resourceGroupName: "myResourceGroup",
+ *     restorePointCollectionName: "rpcName",
+ *     restorePointName: "rpName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20210301:RestorePoint rpName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName/restorePoints/rpName 
+ * ```
  */
 export class RestorePoint extends pulumi.CustomResource {
     /**

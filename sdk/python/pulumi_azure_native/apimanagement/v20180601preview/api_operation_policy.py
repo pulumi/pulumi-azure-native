@@ -145,6 +145,32 @@ class ApiOperationPolicy(pulumi.CustomResource):
         """
         Policy Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiOperationPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_operation_policy = azure_native.apimanagement.v20180601preview.ApiOperationPolicy("apiOperationPolicy",
+            api_id="5600b57e7e8880006a040001",
+            content_format="xml",
+            operation_id="5600b57e7e8880006a080001",
+            policy_content="<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180601preview:ApiOperationPolicy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/5600b57e7e8880006a040001/operations/5600b57e7e8880006a080001/policies/policy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -163,6 +189,32 @@ class ApiOperationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Policy Contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiOperationPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_operation_policy = azure_native.apimanagement.v20180601preview.ApiOperationPolicy("apiOperationPolicy",
+            api_id="5600b57e7e8880006a040001",
+            content_format="xml",
+            operation_id="5600b57e7e8880006a080001",
+            policy_content="<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180601preview:ApiOperationPolicy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/5600b57e7e8880006a040001/operations/5600b57e7e8880006a080001/policies/policy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiOperationPolicyArgs args: The arguments to use to populate this resource's properties.

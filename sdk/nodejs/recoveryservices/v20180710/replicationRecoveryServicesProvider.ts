@@ -9,6 +9,47 @@ import * as utilities from "../../utilities";
 
 /**
  * Provider details.
+ *
+ * ## Example Usage
+ * ### Adds a recovery services provider.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationRecoveryServicesProvider = new azure_native.recoveryservices.v20180710.ReplicationRecoveryServicesProvider("replicationRecoveryServicesProvider", {
+ *     fabricName: "vmwarefabric1",
+ *     properties: {
+ *         authenticationIdentityInput: {
+ *             aadAuthority: "https://login.microsoftonline.com",
+ *             applicationId: "f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
+ *             audience: "https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
+ *             objectId: "141360b8-5686-4240-a027-5e24e6affeba",
+ *             tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *         },
+ *         machineName: "vmwareprovider1",
+ *         resourceAccessIdentityInput: {
+ *             aadAuthority: "https://login.microsoftonline.com",
+ *             applicationId: "f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
+ *             audience: "https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
+ *             objectId: "141360b8-5686-4240-a027-5e24e6affeba",
+ *             tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *         },
+ *     },
+ *     providerName: "vmwareprovider1",
+ *     resourceGroupName: "resourcegroup1",
+ *     resourceName: "migrationvault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20180710:ReplicationRecoveryServicesProvider vmwareprovider1 /Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationFabrics/vmwarefabric1/replicationRecoveryServicesProviders/vmwareprovider1 
+ * ```
  */
 export class ReplicationRecoveryServicesProvider extends pulumi.CustomResource {
     /**

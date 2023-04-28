@@ -115,6 +115,32 @@ class Account(pulumi.CustomResource):
         API Version: 2020-10-30-preview.
         Previous API Version: 2020-10-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.powerplatform.Account("account",
+            account_name="account",
+            description="Description of the account.",
+            location="East US",
+            resource_group_name="resourceGroup",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerplatform:Account account /subscriptions/subid/resourceGroups/resourceGroup/providers/Microsoft.PowerPlatform/accounts/account 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of the account.
@@ -133,6 +159,32 @@ class Account(pulumi.CustomResource):
         Definition of the account.
         API Version: 2020-10-30-preview.
         Previous API Version: 2020-10-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.powerplatform.Account("account",
+            account_name="account",
+            description="Description of the account.",
+            location="East US",
+            resource_group_name="resourceGroup",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerplatform:Account account /subscriptions/subid/resourceGroups/resourceGroup/providers/Microsoft.PowerPlatform/accounts/account 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

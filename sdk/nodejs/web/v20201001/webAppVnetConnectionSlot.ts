@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network information contract.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201001:WebAppVnetConnectionSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/virtualNetworkConnections/{vnetName} 
+ * ```
  */
 export class WebAppVnetConnectionSlot extends pulumi.CustomResource {
     /**

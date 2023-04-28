@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of hybrid runbook worker.
+ *
+ * ## Example Usage
+ * ### Create a V2 hybrid runbook worker
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hybridRunbookWorker = new azure_native.automation.v20210622.HybridRunbookWorker("hybridRunbookWorker", {
+ *     automationAccountName: "testaccount",
+ *     hybridRunbookWorkerGroupName: "TestHybridGroup",
+ *     hybridRunbookWorkerId: "c010ad12-ef14-4a2a-aa9e-ef22c4745ddd",
+ *     resourceGroupName: "rg",
+ *     vmResourceId: "/subscriptions/vmsubid/resourceGroups/vmrg/providers/Microsoft.Compute/virtualMachines/vmname",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation/v20210622:HybridRunbookWorker c010ad12-ef14-4a2a-aa9e-ef22c4745ddd /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/testaccount/hybridRunbookWorkerGroups/TestHybridGroup/hybridRunbookWorkers/c010ad12-ef14-4a2a-aa9e-ef22c4745ddd 
+ * ```
  */
 export class HybridRunbookWorker extends pulumi.CustomResource {
     /**

@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.Confluent
     /// Organization resource.
     /// API Version: 2021-12-01.
     /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Organization_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var organization = new AzureNative.Confluent.Organization("organization", new()
+    ///     {
+    ///         Location = "West US",
+    ///         OfferDetail = new AzureNative.Confluent.Inputs.OfferDetailArgs
+    ///         {
+    ///             Id = "string",
+    ///             PlanId = "string",
+    ///             PlanName = "string",
+    ///             PublisherId = "string",
+    ///             TermUnit = "string",
+    ///         },
+    ///         OrganizationName = "myOrganization",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Dev" },
+    ///         },
+    ///         UserDetail = new AzureNative.Confluent.Inputs.UserDetailArgs
+    ///         {
+    ///             EmailAddress = "contoso@microsoft.com",
+    ///             FirstName = "string",
+    ///             LastName = "string",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:confluent:Organization myOrganization /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Confluent/organizations/myOrganization 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:confluent:Organization")]
     public partial class Organization : global::Pulumi.CustomResource

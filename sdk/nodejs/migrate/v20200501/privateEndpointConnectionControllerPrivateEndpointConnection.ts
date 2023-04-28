@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * REST model used to encapsulate the user visible state of a PrivateEndpoint.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnection_Put
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnectionControllerPrivateEndpointConnection = new azure_native.migrate.v20200501.PrivateEndpointConnectionControllerPrivateEndpointConnection("privateEndpointConnectionControllerPrivateEndpointConnection", {
+ *     migrateProjectName: "proj567",
+ *     peConnectionName: "proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6",
+ *     properties: {
+ *         privateLinkServiceConnectionState: {
+ *             actionsRequired: "",
+ *             status: "Approved",
+ *         },
+ *     },
+ *     resourceGroupName: "pajindTest1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest1/providers/Microsoft.Migrate/MigrateProjects/proj567/privateEndpointConnections/proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 
+ * ```
  */
 export class PrivateEndpointConnectionControllerPrivateEndpointConnection extends pulumi.CustomResource {
     /**

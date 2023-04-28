@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// App Service Environment ARM resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an App Service Environment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appServiceEnvironment = new AzureNative.Web.V20220901.AppServiceEnvironment("appServiceEnvironment", new()
+    ///     {
+    ///         Kind = "Asev3",
+    ///         Location = "South Central US",
+    ///         Name = "test-ase",
+    ///         ResourceGroupName = "test-rg",
+    ///         VirtualNetwork = new AzureNative.Web.V20220901.Inputs.VirtualNetworkProfileArgs
+    ///         {
+    ///             Id = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/delegated",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:AppServiceEnvironment test-ase /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:AppServiceEnvironment")]
     public partial class AppServiceEnvironment : global::Pulumi.CustomResource

@@ -95,6 +95,35 @@ class CodeContainer(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Code Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        code_container = azure_native.machinelearningservices.v20210301preview.CodeContainer("codeContainer",
+            name="testContainer",
+            properties=azure_native.machinelearningservices.v20210301preview.CodeContainerArgs(
+                description="string",
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:CodeContainer testContainer /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/testContainer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Container name.
@@ -110,6 +139,35 @@ class CodeContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Code Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        code_container = azure_native.machinelearningservices.v20210301preview.CodeContainer("codeContainer",
+            name="testContainer",
+            properties=azure_native.machinelearningservices.v20210301preview.CodeContainerArgs(
+                description="string",
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:CodeContainer testContainer /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/testContainer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CodeContainerInitArgs args: The arguments to use to populate this resource's properties.

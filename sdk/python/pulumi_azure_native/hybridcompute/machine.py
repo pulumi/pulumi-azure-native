@@ -287,6 +287,38 @@ class Machine(pulumi.CustomResource):
         API Version: 2022-11-10.
         Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or Update a Machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine = azure_native.hybridcompute.Machine("machine",
+            client_public_key="string",
+            identity=azure_native.hybridcompute.IdentityArgs(
+                type=azure_native.hybridcompute.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            location_data=azure_native.hybridcompute.LocationDataResponseArgs(
+                name="Redmond",
+            ),
+            machine_name="myMachine",
+            parent_cluster_resource_id="{AzureStackHCIResourceId}",
+            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+            resource_group_name="myResourceGroup",
+            vm_id="b7a098cc-b0b8-46e8-a205-62f301a62a8f")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/myMachine 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_public_key: Public Key that the client provides to be used during initial resource onboarding
@@ -315,6 +347,38 @@ class Machine(pulumi.CustomResource):
         Describes a hybrid machine.
         API Version: 2022-11-10.
         Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or Update a Machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine = azure_native.hybridcompute.Machine("machine",
+            client_public_key="string",
+            identity=azure_native.hybridcompute.IdentityArgs(
+                type=azure_native.hybridcompute.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            location_data=azure_native.hybridcompute.LocationDataResponseArgs(
+                name="Redmond",
+            ),
+            machine_name="myMachine",
+            parent_cluster_resource_id="{AzureStackHCIResourceId}",
+            private_link_scope_resource_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+            resource_group_name="myResourceGroup",
+            vm_id="b7a098cc-b0b8-46e8-a205-62f301a62a8f")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/myMachine 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MachineArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,57 @@ namespace Pulumi.AzureNative.Compute.V20221101
 {
     /// <summary>
     /// Describes a Virtual Machine run command.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a run command.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineRunCommandByVirtualMachine = new AzureNative.Compute.V20221101.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine", new()
+    ///     {
+    ///         AsyncExecution = false,
+    ///         Location = "West US",
+    ///         Parameters = new[]
+    ///         {
+    ///             new AzureNative.Compute.V20221101.Inputs.RunCommandInputParameterArgs
+    ///             {
+    ///                 Name = "param1",
+    ///                 Value = "value1",
+    ///             },
+    ///             new AzureNative.Compute.V20221101.Inputs.RunCommandInputParameterArgs
+    ///             {
+    ///                 Name = "param2",
+    ///                 Value = "value2",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RunAsPassword = "&lt;runAsPassword&gt;",
+    ///         RunAsUser = "user1",
+    ///         RunCommandName = "myRunCommand",
+    ///         Source = new AzureNative.Compute.V20221101.Inputs.VirtualMachineRunCommandScriptSourceArgs
+    ///         {
+    ///             Script = "Write-Host Hello World!",
+    ///         },
+    ///         TimeoutInSeconds = 3600,
+    ///         VmName = "myVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/runCommands/myRunCommand 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20221101:VirtualMachineRunCommandByVirtualMachine")]
     public partial class VirtualMachineRunCommandByVirtualMachine : global::Pulumi.CustomResource

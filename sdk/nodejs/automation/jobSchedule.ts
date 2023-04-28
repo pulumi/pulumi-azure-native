@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * Definition of the job schedule.
  * API Version: 2022-08-08.
  * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a job schedule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jobSchedule = new azure_native.automation.JobSchedule("jobSchedule", {
+ *     automationAccountName: "ContoseAutomationAccount",
+ *     jobScheduleId: "0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc",
+ *     parameters: {
+ *         jobscheduletag01: "jobschedulevalue01",
+ *         jobscheduletag02: "jobschedulevalue02",
+ *     },
+ *     resourceGroupName: "rg",
+ *     runbook: {
+ *         name: "TestRunbook",
+ *     },
+ *     schedule: {
+ *         name: "ScheduleNameGoesHere332204b5-debe-4348-a5c7-6357457189f2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:JobSchedule myresource1 /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobSchedules/0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc 
+ * ```
  */
 export class JobSchedule extends pulumi.CustomResource {
     /**

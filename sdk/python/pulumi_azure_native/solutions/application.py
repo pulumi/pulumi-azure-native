@@ -252,6 +252,30 @@ class Application(pulumi.CustomResource):
         API Version: 2021-07-01.
         Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update managed application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.solutions.Application("application",
+            application_definition_id="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
+            application_name="myManagedApplication",
+            kind="ServiceCatalog",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions:Application myManagedApplication /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applications/myManagedApplication 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_definition_id: The fully qualified path of managed application definition Id.
@@ -278,6 +302,30 @@ class Application(pulumi.CustomResource):
         Information about managed application.
         API Version: 2021-07-01.
         Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update managed application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.solutions.Application("application",
+            application_definition_id="/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
+            application_name="myManagedApplication",
+            kind="ServiceCatalog",
+            managed_resource_group_id="/subscriptions/subid/resourceGroups/myManagedRG",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions:Application myManagedApplication /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applications/myManagedApplication 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

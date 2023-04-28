@@ -95,6 +95,31 @@ class EnvironmentType(pulumi.CustomResource):
         """
         Represents an environment type.
 
+        ## Example Usage
+        ### EnvironmentTypes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment_type = azure_native.devcenter.v20230101preview.EnvironmentType("environmentType",
+            dev_center_name="Contoso",
+            environment_type_name="DevTest",
+            resource_group_name="rg1",
+            tags={
+                "Owner": "superuser",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:EnvironmentType DevTest /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/environmentTypes/DevTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
@@ -110,6 +135,31 @@ class EnvironmentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an environment type.
+
+        ## Example Usage
+        ### EnvironmentTypes_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment_type = azure_native.devcenter.v20230101preview.EnvironmentType("environmentType",
+            dev_center_name="Contoso",
+            environment_type_name="DevTest",
+            resource_group_name="rg1",
+            tags={
+                "Owner": "superuser",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:EnvironmentType DevTest /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/environmentTypes/DevTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentTypeArgs args: The arguments to use to populate this resource's properties.

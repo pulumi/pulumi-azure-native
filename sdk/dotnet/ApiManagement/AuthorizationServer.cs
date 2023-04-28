@@ -13,6 +13,61 @@ namespace Pulumi.AzureNative.ApiManagement
     /// External OAuth authorization server settings.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateAuthorizationServer
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var authorizationServer = new AzureNative.ApiManagement.AuthorizationServer("authorizationServer", new()
+    ///     {
+    ///         AuthorizationEndpoint = "https://www.contoso.com/oauth2/auth",
+    ///         AuthorizationMethods = new[]
+    ///         {
+    ///             AzureNative.ApiManagement.AuthorizationMethod.GET,
+    ///         },
+    ///         Authsid = "newauthServer",
+    ///         BearerTokenSendingMethods = new[]
+    ///         {
+    ///             "authorizationHeader",
+    ///         },
+    ///         ClientId = "1",
+    ///         ClientRegistrationEndpoint = "https://www.contoso.com/apps",
+    ///         ClientSecret = "2",
+    ///         DefaultScope = "read write",
+    ///         Description = "test server",
+    ///         DisplayName = "test2",
+    ///         GrantTypes = new[]
+    ///         {
+    ///             "authorizationCode",
+    ///             "implicit",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceOwnerPassword = "pwd",
+    ///         ResourceOwnerUsername = "un",
+    ///         ServiceName = "apimService1",
+    ///         SupportState = true,
+    ///         TokenEndpoint = "https://www.contoso.com/oauth2/token",
+    ///         UseInApiDocumentation = true,
+    ///         UseInTestConsole = false,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:AuthorizationServer newauthServer /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationServers/newauthServer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:AuthorizationServer")]
     public partial class AuthorizationServer : global::Pulumi.CustomResource

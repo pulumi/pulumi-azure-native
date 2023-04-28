@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * The description of the provisioning service.
  * API Version: 2022-12-12.
  * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### DPSCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotDpsResource = new azure_native.devices.IotDpsResource("iotDpsResource", {
+ *     location: "East US",
+ *     properties: {
+ *         enableDataResidency: false,
+ *     },
+ *     provisioningServiceName: "myFirstProvisioningService",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devices:IotDpsResource myFirstProvisioningService /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups//providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService 
+ * ```
  */
 export class IotDpsResource extends pulumi.CustomResource {
     /**

@@ -101,6 +101,34 @@ class ConfigurationProfile(pulumi.CustomResource):
         API Version: 2020-04-01-preview.
         Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ConfigurationProfile_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile = azure_native.changeanalysis.ConfigurationProfile("configurationProfile", profile_name="default")
+
+        ```
+        ### ConfigurationProfile_CreateWithIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile = azure_native.changeanalysis.ConfigurationProfile("configurationProfile", profile_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:changeanalysis:ConfigurationProfile default /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/providers/Microsoft.ChangeAnalysis/profile/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceIdentityArgs']] identity: The identity block returned by ARM resource that supports managed identity.
@@ -118,6 +146,34 @@ class ConfigurationProfile(pulumi.CustomResource):
         A profile object that contains change analysis configuration, such as notification settings, for this subscription
         API Version: 2020-04-01-preview.
         Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ConfigurationProfile_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile = azure_native.changeanalysis.ConfigurationProfile("configurationProfile", profile_name="default")
+
+        ```
+        ### ConfigurationProfile_CreateWithIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile = azure_native.changeanalysis.ConfigurationProfile("configurationProfile", profile_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:changeanalysis:ConfigurationProfile default /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/providers/Microsoft.ChangeAnalysis/profile/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileArgs args: The arguments to use to populate this resource's properties.

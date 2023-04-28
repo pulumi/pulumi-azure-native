@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.Network.V20200401
 {
     /// <summary>
     /// FirewallPolicy Resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create FirewallPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var firewallPolicy = new AzureNative.Network.V20200401.FirewallPolicy("firewallPolicy", new()
+    ///     {
+    ///         FirewallPolicyName = "firewallPolicy",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         ThreatIntelMode = "Alert",
+    ///         ThreatIntelWhitelist = new AzureNative.Network.V20200401.Inputs.FirewallPolicyThreatIntelWhitelistArgs
+    ///         {
+    ///             Fqdns = new[]
+    ///             {
+    ///                 "*.microsoft.com",
+    ///             },
+    ///             IpAddresses = new[]
+    ///             {
+    ///                 "20.3.4.5",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20200401:FirewallPolicy firewallPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200401:FirewallPolicy")]
     public partial class FirewallPolicy : global::Pulumi.CustomResource

@@ -115,6 +115,35 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2019-10-01.
         Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PrivateEndpointConnections_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.migrate.PrivateEndpointConnection("privateEndpointConnection",
+            e_tag="\\"00009300-0000-0300-0000-602b967b0000\\"",
+            private_endpoint_connection_name="custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties=azure_native.migrate.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.migrate.PrivateLinkServiceConnectionStateArgs(
+                    actions_required="",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:PrivateEndpointConnection custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/madhavicus/providers/Microsoft.Migrate/assessmentprojects/custestpece80project/privateEndpointConnections/custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
@@ -133,6 +162,35 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         A private endpoint connection for a project.
         API Version: 2019-10-01.
         Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PrivateEndpointConnections_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.migrate.PrivateEndpointConnection("privateEndpointConnection",
+            e_tag="\\"00009300-0000-0300-0000-602b967b0000\\"",
+            private_endpoint_connection_name="custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43",
+            project_name="abgoyalWEselfhostb72bproject",
+            properties=azure_native.migrate.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.migrate.PrivateLinkServiceConnectionStateArgs(
+                    actions_required="",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="abgoyal-westEurope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:PrivateEndpointConnection custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/madhavicus/providers/Microsoft.Migrate/assessmentprojects/custestpece80project/privateEndpointConnections/custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

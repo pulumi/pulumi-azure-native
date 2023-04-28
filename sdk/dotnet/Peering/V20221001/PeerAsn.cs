@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.Peering.V20221001
 {
     /// <summary>
     /// The essential information related to the peer's ASN.
+    /// 
+    /// ## Example Usage
+    /// ### Create a peer ASN
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var peerAsn = new AzureNative.Peering.V20221001.PeerAsn("peerAsn", new()
+    ///     {
+    ///         PeerAsn = 65000,
+    ///         PeerAsnName = "peerAsnName",
+    ///         PeerContactDetail = new[]
+    ///         {
+    ///             new AzureNative.Peering.V20221001.Inputs.ContactDetailArgs
+    ///             {
+    ///                 Email = "noc@contoso.com",
+    ///                 Phone = "+1 (234) 567-8999",
+    ///                 Role = "Noc",
+    ///             },
+    ///             new AzureNative.Peering.V20221001.Inputs.ContactDetailArgs
+    ///             {
+    ///                 Email = "abc@contoso.com",
+    ///                 Phone = "+1 (234) 567-8900",
+    ///                 Role = "Policy",
+    ///             },
+    ///             new AzureNative.Peering.V20221001.Inputs.ContactDetailArgs
+    ///             {
+    ///                 Email = "xyz@contoso.com",
+    ///                 Phone = "+1 (234) 567-8900",
+    ///                 Role = "Technical",
+    ///             },
+    ///         },
+    ///         PeerName = "Contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering/v20221001:PeerAsn peerAsnName /subscriptions/subId/providers/Microsoft.Peering/peerAsns/peerAsnName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering/v20221001:PeerAsn")]
     public partial class PeerAsn : global::Pulumi.CustomResource

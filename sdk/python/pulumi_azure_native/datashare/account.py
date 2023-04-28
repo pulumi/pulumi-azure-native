@@ -116,6 +116,35 @@ class Account(pulumi.CustomResource):
         API Version: 2021-08-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Accounts_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.datashare.Account("account",
+            account_name="Account1",
+            identity=azure_native.datashare.IdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="West US 2",
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "tag1": "Red",
+                "tag2": "White",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:Account Account1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -134,6 +163,35 @@ class Account(pulumi.CustomResource):
         An account data transfer object.
         API Version: 2021-08-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Accounts_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.datashare.Account("account",
+            account_name="Account1",
+            identity=azure_native.datashare.IdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="West US 2",
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "tag1": "Red",
+                "tag2": "White",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:Account Account1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

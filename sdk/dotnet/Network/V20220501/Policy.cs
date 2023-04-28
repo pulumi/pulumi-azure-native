@@ -11,6 +11,167 @@ namespace Pulumi.AzureNative.Network.V20220501
 {
     /// <summary>
     /// Defines web application firewall policy.
+    /// 
+    /// ## Example Usage
+    /// ### Creates specific policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policy = new AzureNative.Network.V20220501.Policy("policy", new()
+    ///     {
+    ///         CustomRules = new AzureNative.Network.V20220501.Inputs.CustomRuleListArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Network.V20220501.Inputs.CustomRuleArgs
+    ///                 {
+    ///                     Action = "Block",
+    ///                     MatchConditions = new[]
+    ///                     {
+    ///                         new AzureNative.Network.V20220501.Inputs.FrontDoorMatchConditionArgs
+    ///                         {
+    ///                             MatchValue = new[]
+    ///                             {
+    ///                                 "192.168.1.0/24",
+    ///                                 "10.0.0.0/24",
+    ///                             },
+    ///                             MatchVariable = "RemoteAddr",
+    ///                             Operator = "IPMatch",
+    ///                         },
+    ///                     },
+    ///                     Name = "Rule1",
+    ///                     Priority = 1,
+    ///                     RateLimitThreshold = 1000,
+    ///                     RuleType = "RateLimitRule",
+    ///                 },
+    ///                 new AzureNative.Network.V20220501.Inputs.CustomRuleArgs
+    ///                 {
+    ///                     Action = "Block",
+    ///                     MatchConditions = new[]
+    ///                     {
+    ///                         new AzureNative.Network.V20220501.Inputs.FrontDoorMatchConditionArgs
+    ///                         {
+    ///                             MatchValue = new[]
+    ///                             {
+    ///                                 "CH",
+    ///                             },
+    ///                             MatchVariable = "RemoteAddr",
+    ///                             Operator = "GeoMatch",
+    ///                         },
+    ///                         new AzureNative.Network.V20220501.Inputs.FrontDoorMatchConditionArgs
+    ///                         {
+    ///                             MatchValue = new[]
+    ///                             {
+    ///                                 "windows",
+    ///                             },
+    ///                             MatchVariable = "RequestHeader",
+    ///                             Operator = "Contains",
+    ///                             Selector = "UserAgent",
+    ///                             Transforms = new[]
+    ///                             {
+    ///                                 "Lowercase",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "Rule2",
+    ///                     Priority = 2,
+    ///                     RuleType = "MatchRule",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ManagedRules = new AzureNative.Network.V20220501.Inputs.ManagedRuleSetListArgs
+    ///         {
+    ///             ManagedRuleSets = new[]
+    ///             {
+    ///                 new AzureNative.Network.V20220501.Inputs.FrontDoorManagedRuleSetArgs
+    ///                 {
+    ///                     Exclusions = new[]
+    ///                     {
+    ///                         new AzureNative.Network.V20220501.Inputs.ManagedRuleExclusionArgs
+    ///                         {
+    ///                             MatchVariable = "RequestHeaderNames",
+    ///                             Selector = "User-Agent",
+    ///                             SelectorMatchOperator = "Equals",
+    ///                         },
+    ///                     },
+    ///                     RuleGroupOverrides = new[]
+    ///                     {
+    ///                         new AzureNative.Network.V20220501.Inputs.FrontDoorManagedRuleGroupOverrideArgs
+    ///                         {
+    ///                             Exclusions = new[]
+    ///                             {
+    ///                                 new AzureNative.Network.V20220501.Inputs.ManagedRuleExclusionArgs
+    ///                                 {
+    ///                                     MatchVariable = "RequestCookieNames",
+    ///                                     Selector = "token",
+    ///                                     SelectorMatchOperator = "StartsWith",
+    ///                                 },
+    ///                             },
+    ///                             RuleGroupName = "SQLI",
+    ///                             Rules = new[]
+    ///                             {
+    ///                                 new AzureNative.Network.V20220501.Inputs.FrontDoorManagedRuleOverrideArgs
+    ///                                 {
+    ///                                     Action = "Redirect",
+    ///                                     EnabledState = "Enabled",
+    ///                                     Exclusions = new[]
+    ///                                     {
+    ///                                         new AzureNative.Network.V20220501.Inputs.ManagedRuleExclusionArgs
+    ///                                         {
+    ///                                             MatchVariable = "QueryStringArgNames",
+    ///                                             Selector = "query",
+    ///                                             SelectorMatchOperator = "Equals",
+    ///                                         },
+    ///                                     },
+    ///                                     RuleId = "942100",
+    ///                                 },
+    ///                                 new AzureNative.Network.V20220501.Inputs.FrontDoorManagedRuleOverrideArgs
+    ///                                 {
+    ///                                     EnabledState = "Disabled",
+    ///                                     RuleId = "942110",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     RuleSetAction = "Block",
+    ///                     RuleSetType = "DefaultRuleSet",
+    ///                     RuleSetVersion = "1.0",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PolicyName = "Policy1",
+    ///         PolicySettings = new AzureNative.Network.V20220501.Inputs.FrontDoorPolicySettingsArgs
+    ///         {
+    ///             CustomBlockResponseBody = "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+    ///             CustomBlockResponseStatusCode = 499,
+    ///             EnabledState = "Enabled",
+    ///             Mode = "Prevention",
+    ///             RedirectUrl = "http://www.bing.com",
+    ///             RequestBodyCheck = "Disabled",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20220501.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Classic_AzureFrontDoor",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220501:Policy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/FrontDoorWebApplicationFirewallPolicies/Policy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220501:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

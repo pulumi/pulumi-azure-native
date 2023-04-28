@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Aad.V20210301
 {
     /// <summary>
     /// Resource for OuContainer.
+    /// 
+    /// ## Example Usage
+    /// ### Create Domain Service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ouContainer = new AzureNative.Aad.V20210301.OuContainer("ouContainer", new()
+    ///     {
+    ///         AccountName = "AccountName1",
+    ///         DomainServiceName = "OuContainer.com",
+    ///         OuContainerName = "OuContainer1",
+    ///         Password = "&lt;password&gt;",
+    ///         ResourceGroupName = "OuContainerResourceGroup",
+    ///         Spn = "Spn1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:aad/v20210301:OuContainer OuContainer.com/OuContainer1 /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/ouContainerResourceGroup/providers/Microsoft.AAD/domainServices/ouContainer.com/ouContainer/ouContainer1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:aad/v20210301:OuContainer")]
     public partial class OuContainer : global::Pulumi.CustomResource

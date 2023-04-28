@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
 {
     /// <summary>
     /// Security Standard on a resource
+    /// 
+    /// ## Example Usage
+    /// ### Create a security standard on a specified scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var standard = new AzureNative.Security.V20210801Preview.Standard("standard", new()
+    ///     {
+    ///         Category = "SecurityCenter",
+    ///         Components = new[]
+    ///         {
+    ///             new AzureNative.Security.V20210801Preview.Inputs.StandardComponentPropertiesArgs
+    ///             {
+    ///                 Key = "1195afff-c881-495e-9bc5-1486211ae03f",
+    ///             },
+    ///             new AzureNative.Security.V20210801Preview.Inputs.StandardComponentPropertiesArgs
+    ///             {
+    ///                 Key = "dbd0cb49-b563-45e7-9724-889e799fa648",
+    ///             },
+    ///         },
+    ///         Description = "description of Azure Test Security Standard 1",
+    ///         DisplayName = "Azure Test Security Standard 1",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StandardId = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+    ///         SupportedClouds = new[]
+    ///         {
+    ///             AzureNative.Security.V20210801Preview.StandardSupportedClouds.GCP,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20210801preview:Standard 8bb8be0a-6010-4789-812f-e4d661c4ed0e /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myResourceGroup/provider/Microsoft.Security/standards/8bb8be0a-6010-4789-812f-e4d661c4ed0e 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20210801preview:Standard")]
     public partial class Standard : global::Pulumi.CustomResource

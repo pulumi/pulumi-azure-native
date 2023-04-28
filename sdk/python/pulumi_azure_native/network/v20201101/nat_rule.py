@@ -199,6 +199,37 @@ class NatRule(pulumi.CustomResource):
         """
         VpnGatewayNatRule Resource.
 
+        ## Example Usage
+        ### NatRulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nat_rule = azure_native.network.v20201101.NatRule("natRule",
+            external_mappings=[azure_native.network.v20201101.VpnNatRuleMappingArgs(
+                address_space="192.168.21.0/24",
+            )],
+            gateway_name="gateway1",
+            internal_mappings=[azure_native.network.v20201101.VpnNatRuleMappingArgs(
+                address_space="10.4.0.0/24",
+            )],
+            ip_configuration_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/cloudnet1-VNG/ipConfigurations/default",
+            mode="EgressSnat",
+            nat_rule_name="natRule1",
+            resource_group_name="rg1",
+            type="Static")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:NatRule natRule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/natRules/natRule1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VpnNatRuleMappingArgs']]]] external_mappings: The private IP address external mapping for NAT.
@@ -220,6 +251,37 @@ class NatRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnGatewayNatRule Resource.
+
+        ## Example Usage
+        ### NatRulePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nat_rule = azure_native.network.v20201101.NatRule("natRule",
+            external_mappings=[azure_native.network.v20201101.VpnNatRuleMappingArgs(
+                address_space="192.168.21.0/24",
+            )],
+            gateway_name="gateway1",
+            internal_mappings=[azure_native.network.v20201101.VpnNatRuleMappingArgs(
+                address_space="10.4.0.0/24",
+            )],
+            ip_configuration_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/cloudnet1-VNG/ipConfigurations/default",
+            mode="EgressSnat",
+            nat_rule_name="natRule1",
+            resource_group_name="rg1",
+            type="Static")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:NatRule natRule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/natRules/natRule1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NatRuleInitArgs args: The arguments to use to populate this resource's properties.

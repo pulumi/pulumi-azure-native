@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Network related settings
+ *
+ * ## Example Usage
+ * ### NetworkConnections_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkConnection = new azure_native.devcenter.v20220901preview.NetworkConnection("networkConnection", {
+ *     domainJoinType: "HybridAzureADJoin",
+ *     domainName: "mydomaincontroller.local",
+ *     domainPassword: "Password value for user",
+ *     domainUsername: "testuser@mydomaincontroller.local",
+ *     location: "centralus",
+ *     networkConnectionName: "uswest3network",
+ *     networkingResourceGroupName: "NetworkInterfaces",
+ *     resourceGroupName: "rg1",
+ *     subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter/v20220901preview:NetworkConnection uswest3network /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/networkconnections/uswest3network 
+ * ```
  */
 export class NetworkConnection extends pulumi.CustomResource {
     /**

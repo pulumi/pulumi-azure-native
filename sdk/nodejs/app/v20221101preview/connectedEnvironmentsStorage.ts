@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Storage resource for connectedEnvironment.
+ *
+ * ## Example Usage
+ * ### Create or update environments storage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectedEnvironmentsStorage = new azure_native.app.v20221101preview.ConnectedEnvironmentsStorage("connectedEnvironmentsStorage", {
+ *     connectedEnvironmentName: "env",
+ *     properties: {
+ *         azureFile: {
+ *             accessMode: "ReadOnly",
+ *             accountKey: "key",
+ *             accountName: "account1",
+ *             shareName: "share1",
+ *         },
+ *     },
+ *     resourceGroupName: "examplerg",
+ *     storageName: "jlaw-demo1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20221101preview:ConnectedEnvironmentsStorage jlaw-demo1 /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/env/storages/jlaw-demo1 
+ * ```
  */
 export class ConnectedEnvironmentsStorage extends pulumi.CustomResource {
     /**

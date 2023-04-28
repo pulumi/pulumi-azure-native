@@ -9,6 +9,76 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account RosettaNet process configuration.
+ *
+ * ## Example Usage
+ * ### Create or update an RosettaNetProcessConfiguration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rosettaNetProcessConfiguration = new azure_native.logic.v20160601.RosettaNetProcessConfiguration("rosettaNetProcessConfiguration", {
+ *     activitySettings: {
+ *         acknowledgmentOfReceiptSettings: {
+ *             isNonRepudiationRequired: false,
+ *             timeToAcknowledgeInSeconds: 600,
+ *         },
+ *         activityBehavior: {
+ *             actionType: azure_native.logic.v20160601.RosettaNetActionType.DoubleAction,
+ *             isAuthorizationRequired: false,
+ *             isSecuredTransportRequired: false,
+ *             nonRepudiationOfOriginAndContent: false,
+ *             persistentConfidentialityScope: azure_native.logic.v20160601.RosettaNetPipConfidentialityScope.None,
+ *             responseType: azure_native.logic.v20160601.RosettaNetResponseType.Async,
+ *             retryCount: 2,
+ *             timeToPerformInSeconds: 7200,
+ *         },
+ *         activityType: azure_native.logic.v20160601.RosettaNetPipActivityType.RequestResponse,
+ *     },
+ *     description: "Test description",
+ *     initiatorRoleSettings: {
+ *         action: "Purchase Order Request",
+ *         businessDocument: {
+ *             description: "A request to accept a purchase order for fulfillment..",
+ *             name: "Purchase Order Request",
+ *             version: "V02.02.00",
+ *         },
+ *         description: "This partner role creates a demand for a product or service.",
+ *         role: "Buyer",
+ *         roleType: azure_native.logic.v20160601.RosettaNetPipRoleType.Functional,
+ *         service: "Buyer Service",
+ *         serviceClassification: "Business Service",
+ *     },
+ *     integrationAccountName: "testia123",
+ *     processCode: "3A4",
+ *     processName: "Request Purchase Order",
+ *     processVersion: "V02.02.00",
+ *     resourceGroupName: "testrg123",
+ *     responderRoleSettings: {
+ *         action: "Purchase Order Confirmation Action",
+ *         businessDocument: {
+ *             description: "Formally confirms the status of line item(s) in a Purchase Order. A Purchase Order line item may have one of the following states: accepted, rejected, or pending.",
+ *             name: "Purchase Order Confirmation",
+ *             version: "V02.02.00",
+ *         },
+ *         description: "An organization that sells products to partners in the supply chain.",
+ *         role: "Seller",
+ *         roleType: azure_native.logic.v20160601.RosettaNetPipRoleType.Organizational,
+ *         service: "Seller Service",
+ *         serviceClassification: "Business Service",
+ *     },
+ *     rosettaNetProcessConfigurationName: "3A4",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic/v20160601:RosettaNetProcessConfiguration 3A4 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/rosettaNetProcessConfigurations/3A4 
+ * ```
  */
 export class RosettaNetProcessConfiguration extends pulumi.CustomResource {
     /**

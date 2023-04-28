@@ -111,6 +111,30 @@ class ServerKey(pulumi.CustomResource):
         """
         A MariaDB Server key.
 
+        ## Example Usage
+        ### Creates or updates a MariaDB Server key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_key = azure_native.dbformariadb.v20200101privatepreview.ServerKey("serverKey",
+            key_name="someVault_someKey_01234567890123456789012345678901",
+            resource_group_name="testrg",
+            server_key_type="AzureKeyVault",
+            server_name="testserver",
+            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformariadb/v20200101privatepreview:ServerKey omeVault_someKey_01234567890123456789012345678901 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMariaDB/servers/testserver/keys/someVault_someKey_01234567890123456789012345678901 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of the MariaDB Server key to be operated on (updated or created).
@@ -127,6 +151,30 @@ class ServerKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A MariaDB Server key.
+
+        ## Example Usage
+        ### Creates or updates a MariaDB Server key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_key = azure_native.dbformariadb.v20200101privatepreview.ServerKey("serverKey",
+            key_name="someVault_someKey_01234567890123456789012345678901",
+            resource_group_name="testrg",
+            server_key_type="AzureKeyVault",
+            server_name="testserver",
+            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformariadb/v20200101privatepreview:ServerKey omeVault_someKey_01234567890123456789012345678901 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMariaDB/servers/testserver/keys/someVault_someKey_01234567890123456789012345678901 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerKeyArgs args: The arguments to use to populate this resource's properties.

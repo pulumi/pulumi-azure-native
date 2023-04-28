@@ -11,6 +11,63 @@ namespace Pulumi.AzureNative.ContainerInstance.V20170801Preview
 {
     /// <summary>
     /// A container group.
+    /// 
+    /// ## Example Usage
+    /// ### ContainerGroupsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerGroup = new AzureNative.ContainerInstance.V20170801Preview.ContainerGroup("containerGroup", new()
+    ///     {
+    ///         ContainerGroupName = "demo1",
+    ///         Containers = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20170801Preview.Inputs.ContainerArgs
+    ///             {
+    ///                 EnvironmentVariables = new[] {},
+    ///                 Image = "nginx",
+    ///                 Name = "demo1",
+    ///                 Ports = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerInstance.V20170801Preview.Inputs.ContainerPortArgs
+    ///                     {
+    ///                         Port = 80,
+    ///                     },
+    ///                 },
+    ///                 Resources = new AzureNative.ContainerInstance.V20170801Preview.Inputs.ResourceRequirementsArgs
+    ///                 {
+    ///                     Requests = new AzureNative.ContainerInstance.V20170801Preview.Inputs.ResourceRequestsArgs
+    ///                     {
+    ///                         Cpu = 1,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         IpAddress = new AzureNative.ContainerInstance.V20170801Preview.Inputs.IpAddressArgs
+    ///         {
+    ///             Type = "Public",
+    ///         },
+    ///         Location = "west us",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "demo",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerinstance/v20170801preview:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-08-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerinstance/v20170801preview:ContainerGroup")]

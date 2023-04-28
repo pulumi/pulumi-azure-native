@@ -147,6 +147,42 @@ class ReadWriteDatabase(pulumi.CustomResource):
         """
         Class representing a read write database.
 
+        ## Example Usage
+        ### Kusto ReadOnly database update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        read_write_database = azure_native.kusto.v20210101.ReadWriteDatabase("readWriteDatabase",
+            cluster_name="kustoclusterrptest4",
+            database_name="KustoreadOnlyDatabase",
+            resource_group_name="kustorptest")
+
+        ```
+        ### Kusto ReadWrite database create or update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        read_write_database = azure_native.kusto.v20210101.ReadWriteDatabase("readWriteDatabase",
+            cluster_name="kustoclusterrptest4",
+            database_name="KustoDatabase8",
+            location="westus",
+            resource_group_name="kustorptest",
+            soft_delete_period="P1D")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210101:ReadWriteDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -166,6 +202,42 @@ class ReadWriteDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a read write database.
+
+        ## Example Usage
+        ### Kusto ReadOnly database update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        read_write_database = azure_native.kusto.v20210101.ReadWriteDatabase("readWriteDatabase",
+            cluster_name="kustoclusterrptest4",
+            database_name="KustoreadOnlyDatabase",
+            resource_group_name="kustorptest")
+
+        ```
+        ### Kusto ReadWrite database create or update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        read_write_database = azure_native.kusto.v20210101.ReadWriteDatabase("readWriteDatabase",
+            cluster_name="kustoclusterrptest4",
+            database_name="KustoDatabase8",
+            location="westus",
+            resource_group_name="kustorptest",
+            soft_delete_period="P1D")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210101:ReadWriteDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReadWriteDatabaseArgs args: The arguments to use to populate this resource's properties.

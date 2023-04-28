@@ -181,6 +181,37 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
         """
         An Azure Cosmos DB User Definition
 
+        ## Example Usage
+        ### CosmosDBMongoDBUserDefinitionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_user_definition = azure_native.documentdb.v20221115preview.MongoDBResourceMongoUserDefinition("mongoDBResourceMongoUserDefinition",
+            account_name="myAccountName",
+            custom_data="My custom data",
+            database_name="sales",
+            mechanisms="SCRAM-SHA-256",
+            mongo_user_definition_id="myMongoUserDefinitionId",
+            password="myPassword",
+            resource_group_name="myResourceGroupName",
+            roles=[azure_native.documentdb.v20221115preview.RoleArgs(
+                db="sales",
+                role="myReadRole",
+            )],
+            user_name="myUserName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20221115preview:MongoDBResourceMongoUserDefinition myUserName /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbUserDefinitions/myUserId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -201,6 +232,37 @@ class MongoDBResourceMongoUserDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB User Definition
+
+        ## Example Usage
+        ### CosmosDBMongoDBUserDefinitionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mongo_db_resource_mongo_user_definition = azure_native.documentdb.v20221115preview.MongoDBResourceMongoUserDefinition("mongoDBResourceMongoUserDefinition",
+            account_name="myAccountName",
+            custom_data="My custom data",
+            database_name="sales",
+            mechanisms="SCRAM-SHA-256",
+            mongo_user_definition_id="myMongoUserDefinitionId",
+            password="myPassword",
+            resource_group_name="myResourceGroupName",
+            roles=[azure_native.documentdb.v20221115preview.RoleArgs(
+                db="sales",
+                role="myReadRole",
+            )],
+            user_name="myUserName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20221115preview:MongoDBResourceMongoUserDefinition myUserName /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbUserDefinitions/myUserId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MongoDBResourceMongoUserDefinitionArgs args: The arguments to use to populate this resource's properties.

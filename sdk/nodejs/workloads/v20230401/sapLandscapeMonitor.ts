@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * configuration associated with SAP Landscape Monitor Dashboard.
+ *
+ * ## Example Usage
+ * ### Create for SAP Landscape monitor Dashboard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sapLandscapeMonitor = new azure_native.workloads.v20230401.SapLandscapeMonitor("sapLandscapeMonitor", {
+ *     grouping: {
+ *         landscape: [{
+ *             name: "Prod",
+ *             topSid: [
+ *                 "SID1",
+ *                 "SID2",
+ *             ],
+ *         }],
+ *         sapApplication: [{
+ *             name: "ERP1",
+ *             topSid: [
+ *                 "SID1",
+ *                 "SID2",
+ *             ],
+ *         }],
+ *     },
+ *     monitorName: "mySapMonitor",
+ *     resourceGroupName: "myResourceGroup",
+ *     topMetricsThresholds: [{
+ *         green: 90,
+ *         name: "Instance Availability",
+ *         red: 50,
+ *         yellow: 75,
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads/v20230401:SapLandscapeMonitor default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/myMonitor/sapLandscapeMonitor/default 
+ * ```
  */
 export class SapLandscapeMonitor extends pulumi.CustomResource {
     /**

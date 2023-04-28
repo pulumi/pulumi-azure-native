@@ -134,7 +134,28 @@ class SubAccount(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a SubAccount resource with the given unique name, props, and options.
+        ## Example Usage
+        ### subAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sub_account = azure_native.logz.v20220101preview.SubAccount("subAccount",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            sub_account_name="SubAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logz/v20220101preview:SubAccount myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/accounts/SubAccount1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_name: Monitor resource name
@@ -149,7 +170,28 @@ class SubAccount(pulumi.CustomResource):
                  args: SubAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SubAccount resource with the given unique name, props, and options.
+        ## Example Usage
+        ### subAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sub_account = azure_native.logz.v20220101preview.SubAccount("subAccount",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            sub_account_name="SubAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logz/v20220101preview:SubAccount myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/accounts/SubAccount1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param SubAccountArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

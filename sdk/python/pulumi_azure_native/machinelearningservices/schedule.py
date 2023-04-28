@@ -97,6 +97,52 @@ class Schedule(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         API Version: 2022-10-01.
 
+        ## Example Usage
+        ### CreateOrUpdate Schedule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.machinelearningservices.Schedule("schedule",
+            name="string",
+            resource_group_name="test-rg",
+            schedule_properties=azure_native.machinelearningservices.ScheduleResponseArgs(
+                action=azure_native.machinelearningservices.EndpointScheduleActionArgs(
+                    action_type="InvokeBatchEndpoint",
+                    endpoint_invocation_definition={
+                        "9965593e-526f-4b89-bb36-761138cf2794": None,
+                    },
+                ),
+                description="string",
+                display_name="string",
+                is_enabled=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+                trigger=azure_native.machinelearningservices.CronTriggerArgs(
+                    end_time="string",
+                    expression="string",
+                    start_time="string",
+                    time_zone="string",
+                    trigger_type="Cron",
+                ),
+            ),
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:Schedule string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Schedule name.
@@ -113,6 +159,52 @@ class Schedule(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
         API Version: 2022-10-01.
+
+        ## Example Usage
+        ### CreateOrUpdate Schedule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.machinelearningservices.Schedule("schedule",
+            name="string",
+            resource_group_name="test-rg",
+            schedule_properties=azure_native.machinelearningservices.ScheduleResponseArgs(
+                action=azure_native.machinelearningservices.EndpointScheduleActionArgs(
+                    action_type="InvokeBatchEndpoint",
+                    endpoint_invocation_definition={
+                        "9965593e-526f-4b89-bb36-761138cf2794": None,
+                    },
+                ),
+                description="string",
+                display_name="string",
+                is_enabled=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+                trigger=azure_native.machinelearningservices.CronTriggerArgs(
+                    end_time="string",
+                    expression="string",
+                    start_time="string",
+                    time_zone="string",
+                    trigger_type="Cron",
+                ),
+            ),
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:Schedule string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduleInitArgs args: The arguments to use to populate this resource's properties.

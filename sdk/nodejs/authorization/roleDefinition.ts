@@ -11,6 +11,28 @@ import * as utilities from "../utilities";
  * Role definition.
  * API Version: 2022-04-01.
  * Previous API Version: 2018-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create role definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleDefinition = new azure_native.authorization.RoleDefinition("roleDefinition", {
+ *     roleDefinitionId: "roleDefinitionId",
+ *     scope: "scope",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization:RoleDefinition roleDefinitionId /subscriptions/subID/providers/Microsoft.Authorization/roleDefinitions/roleDefinitionId 
+ * ```
  */
 export class RoleDefinition extends pulumi.CustomResource {
     /**

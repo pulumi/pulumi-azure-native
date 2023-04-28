@@ -182,6 +182,41 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
         """
         The management group diagnostic setting resource.
 
+        ## Example Usage
+        ### Creates or Updates the management group diagnostic setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_diagnostic_setting = azure_native.insights.v20200101preview.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[
+                {
+                    "category": "Administrative",
+                    "enabled": True,
+                },
+                {
+                    "category": "Policy",
+                    "enabled": True,
+                },
+            ],
+            management_group_id="testChildMG7",
+            name="setting1",
+            storage_account_id="/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+            workspace_id="/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting setting1 providers/Microsoft.Management/managementGroups/testChildMG7/providers/microsoft.insights/diagnosticSettings/setting1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
@@ -202,6 +237,41 @@ class ManagementGroupDiagnosticSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The management group diagnostic setting resource.
+
+        ## Example Usage
+        ### Creates or Updates the management group diagnostic setting
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group_diagnostic_setting = azure_native.insights.v20200101preview.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[
+                {
+                    "category": "Administrative",
+                    "enabled": True,
+                },
+                {
+                    "category": "Policy",
+                    "enabled": True,
+                },
+            ],
+            management_group_id="testChildMG7",
+            name="setting1",
+            storage_account_id="/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+            workspace_id="/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20200101preview:ManagementGroupDiagnosticSetting setting1 providers/Microsoft.Management/managementGroups/testChildMG7/providers/microsoft.insights/diagnosticSettings/setting1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupDiagnosticSettingArgs args: The arguments to use to populate this resource's properties.

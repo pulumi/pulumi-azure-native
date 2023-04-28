@@ -10,6 +10,29 @@ import * as utilities from "../utilities";
 /**
  * Secret represents a secret.
  * API Version: 2022-09-04.
+ *
+ * ## Example Usage
+ * ### Creates or updates a Secret with the specified subscription, resource group and resource name.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const secret = new azure_native.redhatopenshift.Secret("secret", {
+ *     childResourceName: "childResourceName",
+ *     resourceGroupName: "resourceGroup",
+ *     resourceName: "resourceName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:redhatopenshift:Secret mySecret /subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/resourceName/secret/mySecret 
+ * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

@@ -100,6 +100,38 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create deployment at tenant scope.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_tenant_scope = azure_native.resources.DeploymentAtTenantScope("deploymentAtTenantScope",
+            deployment_name="tenant-dep01",
+            location="eastus",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            tags={
+                "tagKey1": "tag-value-1",
+                "tagKey2": "tag-value-2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:DeploymentAtTenantScope tenant-dep01 /providers/Microsoft.Resources/deployments/tenant-dep01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: The name of the deployment.
@@ -117,6 +149,38 @@ class DeploymentAtTenantScope(pulumi.CustomResource):
         Deployment information.
         API Version: 2022-09-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create deployment at tenant scope.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_tenant_scope = azure_native.resources.DeploymentAtTenantScope("deploymentAtTenantScope",
+            deployment_name="tenant-dep01",
+            location="eastus",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            tags={
+                "tagKey1": "tag-value-1",
+                "tagKey2": "tag-value-2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:DeploymentAtTenantScope tenant-dep01 /providers/Microsoft.Resources/deployments/tenant-dep01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtTenantScopeArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,93 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// DSCP Configuration in a resource group.
+    /// 
+    /// ## Example Usage
+    /// ### Create DSCP Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dscpConfiguration = new AzureNative.Network.V20201101.DscpConfiguration("dscpConfiguration", new()
+    ///     {
+    ///         DestinationIpRanges = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.QosIpRangeArgs
+    ///             {
+    ///                 EndIP = "127.0.10.2",
+    ///                 StartIP = "127.0.10.1",
+    ///             },
+    ///             new AzureNative.Network.V20201101.Inputs.QosIpRangeArgs
+    ///             {
+    ///                 EndIP = "127.0.11.2",
+    ///                 StartIP = "127.0.11.1",
+    ///             },
+    ///         },
+    ///         DestinationPortRanges = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.QosPortRangeArgs
+    ///             {
+    ///                 End = 15,
+    ///                 Start = 15,
+    ///             },
+    ///             new AzureNative.Network.V20201101.Inputs.QosPortRangeArgs
+    ///             {
+    ///                 End = 27,
+    ///                 Start = 26,
+    ///             },
+    ///         },
+    ///         DscpConfigurationName = "mydscpconfig",
+    ///         Location = "eastus",
+    ///         Markings = new[]
+    ///         {
+    ///             46,
+    ///             10,
+    ///         },
+    ///         Protocol = "Tcp",
+    ///         ResourceGroupName = "rg1",
+    ///         SourceIpRanges = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.QosIpRangeArgs
+    ///             {
+    ///                 EndIP = "127.0.0.2",
+    ///                 StartIP = "127.0.0.1",
+    ///             },
+    ///             new AzureNative.Network.V20201101.Inputs.QosIpRangeArgs
+    ///             {
+    ///                 EndIP = "127.0.1.2",
+    ///                 StartIP = "127.0.1.1",
+    ///             },
+    ///         },
+    ///         SourcePortRanges = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.QosPortRangeArgs
+    ///             {
+    ///                 End = 11,
+    ///                 Start = 10,
+    ///             },
+    ///             new AzureNative.Network.V20201101.Inputs.QosPortRangeArgs
+    ///             {
+    ///                 End = 21,
+    ///                 Start = 20,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:DscpConfiguration mydscpConfig /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dscpConfiguration/mydscpConfig 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:DscpConfiguration")]
     public partial class DscpConfiguration : global::Pulumi.CustomResource

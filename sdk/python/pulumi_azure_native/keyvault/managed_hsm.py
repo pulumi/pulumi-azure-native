@@ -134,6 +134,43 @@ class ManagedHsm(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a new managed HSM Pool or update an existing managed HSM Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_hsm = azure_native.keyvault.ManagedHsm("managedHsm",
+            location="westus",
+            name="hsm1",
+            properties=azure_native.keyvault.ManagedHsmPropertiesArgs(
+                enable_purge_protection=False,
+                enable_soft_delete=True,
+                initial_admin_object_ids=["00000000-0000-0000-0000-000000000000"],
+                soft_delete_retention_in_days=90,
+                tenant_id="00000000-0000-0000-0000-000000000000",
+            ),
+            resource_group_name="hsm-group",
+            sku=azure_native.keyvault.ManagedHsmSkuResponseArgs(
+                family="B",
+                name=azure_native.keyvault.ManagedHsmSkuName.STANDARD_B1,
+            ),
+            tags={
+                "Dept": "hsm",
+                "Environment": "dogfood",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:ManagedHsm hsm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.KeyVault/managedHSMs/hsm1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the managed HSM Pool should be created.
@@ -153,6 +190,43 @@ class ManagedHsm(pulumi.CustomResource):
         Resource information with extended details.
         API Version: 2023-02-01.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a new managed HSM Pool or update an existing managed HSM Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_hsm = azure_native.keyvault.ManagedHsm("managedHsm",
+            location="westus",
+            name="hsm1",
+            properties=azure_native.keyvault.ManagedHsmPropertiesArgs(
+                enable_purge_protection=False,
+                enable_soft_delete=True,
+                initial_admin_object_ids=["00000000-0000-0000-0000-000000000000"],
+                soft_delete_retention_in_days=90,
+                tenant_id="00000000-0000-0000-0000-000000000000",
+            ),
+            resource_group_name="hsm-group",
+            sku=azure_native.keyvault.ManagedHsmSkuResponseArgs(
+                family="B",
+                name=azure_native.keyvault.ManagedHsmSkuName.STANDARD_B1,
+            ),
+            tags={
+                "Dept": "hsm",
+                "Environment": "dogfood",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:ManagedHsm hsm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.KeyVault/managedHSMs/hsm1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedHsmArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Schedule to execute a task.
+ *
+ * ## Example Usage
+ * ### Schedules_CreateDailyShutdownPoolSchedule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const schedule = new azure_native.devcenter.v20220901preview.Schedule("schedule", {
+ *     frequency: "Daily",
+ *     poolName: "DevPool",
+ *     projectName: "DevProject",
+ *     resourceGroupName: "rg1",
+ *     scheduleName: "autoShutdown",
+ *     state: "Enabled",
+ *     time: "17:30",
+ *     timeZone: "America/Los_Angeles",
+ *     type: "StopDevBox",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter/v20220901preview:Schedule autoShutdown /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/TestProject/pools/DevPool/schedules/autoShutdown 
+ * ```
  */
 export class Schedule extends pulumi.CustomResource {
     /**

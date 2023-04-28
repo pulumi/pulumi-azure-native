@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * The volume.
  * API Version: 2017-06-01.
  * Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### VolumesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volume = new azure_native.storsimple.Volume("volume", {
+ *     accessControlRecordIds: ["/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2"],
+ *     deviceName: "Device05ForSDKTest",
+ *     managerName: "ManagerForSDKTest1",
+ *     monitoringStatus: azure_native.storsimple.MonitoringStatus.Enabled,
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     sizeInBytes: 5368709120,
+ *     volumeContainerName: "VolumeContainerForSDKTest",
+ *     volumeName: "Volume1ForSDKTest",
+ *     volumeStatus: azure_native.storsimple.VolumeStatus.Offline,
+ *     volumeType: azure_native.storsimple.VolumeType.Tiered,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple:Volume Volume1ForSDKTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/VolumeContainerForSDKTest/volumes/Volume1ForSDKTest 
+ * ```
  */
 export class Volume extends pulumi.CustomResource {
     /**

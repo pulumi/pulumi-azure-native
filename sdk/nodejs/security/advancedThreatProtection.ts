@@ -8,6 +8,29 @@ import * as utilities from "../utilities";
  * The Advanced Threat Protection resource.
  * API Version: 2019-01-01.
  * Previous API Version: 2019-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates or updates the Advanced Threat Protection settings on a specified resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const advancedThreatProtection = new azure_native.security.AdvancedThreatProtection("advancedThreatProtection", {
+ *     isEnabled: true,
+ *     resourceId: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount",
+ *     settingName: "current",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:AdvancedThreatProtection current /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/current 
+ * ```
  */
 export class AdvancedThreatProtection extends pulumi.CustomResource {
     /**

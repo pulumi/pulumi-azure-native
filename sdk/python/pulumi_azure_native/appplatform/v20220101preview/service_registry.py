@@ -78,6 +78,28 @@ class ServiceRegistry(pulumi.CustomResource):
         """
         Service Registry resource
 
+        ## Example Usage
+        ### ServiceRegistries_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_registry = azure_native.appplatform.v20220101preview.ServiceRegistry("serviceRegistry",
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            service_registry_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20220101preview:ServiceRegistry default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -92,6 +114,28 @@ class ServiceRegistry(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Service Registry resource
+
+        ## Example Usage
+        ### ServiceRegistries_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_registry = azure_native.appplatform.v20220101preview.ServiceRegistry("serviceRegistry",
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            service_registry_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20220101preview:ServiceRegistry default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceRegistryArgs args: The arguments to use to populate this resource's properties.

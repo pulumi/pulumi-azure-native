@@ -214,6 +214,37 @@ class LiveOutput(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a LiveOutput
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        live_output = azure_native.media.LiveOutput("liveOutput",
+            account_name="slitestmedia10",
+            archive_window_length="PT5M",
+            asset_name="6f3264f5-a189-48b4-a29a-a40f22575212",
+            description="test live output 1",
+            hls=azure_native.media.HlsArgs(
+                fragments_per_ts_segment=5,
+            ),
+            live_event_name="myLiveEvent1",
+            live_output_name="myLiveOutput1",
+            manifest_name="testmanifest",
+            resource_group_name="mediaresources",
+            rewind_window_length="PT4M")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media:LiveOutput myLiveOutput1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/liveevents/myLiveEvent1/liveoutputs/myLiveOutput1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -238,6 +269,37 @@ class LiveOutput(pulumi.CustomResource):
         The Live Output.
         API Version: 2022-11-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a LiveOutput
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        live_output = azure_native.media.LiveOutput("liveOutput",
+            account_name="slitestmedia10",
+            archive_window_length="PT5M",
+            asset_name="6f3264f5-a189-48b4-a29a-a40f22575212",
+            description="test live output 1",
+            hls=azure_native.media.HlsArgs(
+                fragments_per_ts_segment=5,
+            ),
+            live_event_name="myLiveEvent1",
+            live_output_name="myLiveOutput1",
+            manifest_name="testmanifest",
+            resource_group_name="mediaresources",
+            rewind_window_length="PT4M")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media:LiveOutput myLiveOutput1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/liveevents/myLiveEvent1/liveoutputs/myLiveOutput1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LiveOutputArgs args: The arguments to use to populate this resource's properties.

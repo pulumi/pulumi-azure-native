@@ -96,6 +96,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.hybridcompute.v20210325preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="private-endpoint-connection-name",
+            properties=azure_native.hybridcompute.v20210325preview.PrivateEndpointConnectionPropertiesArgs(
+                private_link_service_connection_state=azure_native.hybridcompute.v20210325preview.PrivateLinkServiceConnectionStatePropertyArgs(
+                    description="Approved by johndoe@contoso.com",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            scope_name="myPrivateLinkScope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/myPrivateLinkScope/privateEndpointConnections/private-endpoint-connection-name 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
@@ -111,6 +139,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection
+
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.hybridcompute.v20210325preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="private-endpoint-connection-name",
+            properties=azure_native.hybridcompute.v20210325preview.PrivateEndpointConnectionPropertiesArgs(
+                private_link_service_connection_state=azure_native.hybridcompute.v20210325preview.PrivateLinkServiceConnectionStatePropertyArgs(
+                    description="Approved by johndoe@contoso.com",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            scope_name="myPrivateLinkScope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute/v20210325preview:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/myPrivateLinkScope/privateEndpointConnections/private-endpoint-connection-name 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

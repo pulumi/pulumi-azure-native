@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine run command.
+ *
+ * ## Example Usage
+ * ### Create VirtualMachineScaleSet VM run command.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineScaleSetVMRunCommand = new azure_native.compute.v20210301.VirtualMachineScaleSetVMRunCommand("virtualMachineScaleSetVMRunCommand", {
+ *     asyncExecution: false,
+ *     instanceId: "0",
+ *     location: "West US",
+ *     parameters: [
+ *         {
+ *             name: "param1",
+ *             value: "value1",
+ *         },
+ *         {
+ *             name: "param2",
+ *             value: "value2",
+ *         },
+ *     ],
+ *     resourceGroupName: "myResourceGroup",
+ *     runAsPassword: "<runAsPassword>",
+ *     runAsUser: "user1",
+ *     runCommandName: "myRunCommand",
+ *     source: {
+ *         script: "Write-Host Hello World!",
+ *     },
+ *     timeoutInSeconds: 3600,
+ *     vmScaleSetName: "myvmScaleSet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20210301:VirtualMachineScaleSetVMRunCommand myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myvmScaleSet/virtualMachines/0/runCommands/myRunCommand 
+ * ```
  */
 export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
     /**

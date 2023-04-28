@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Linked workspace.
+ *
+ * ## Example Usage
+ * ### CreateLinkedWorkspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedWorkspace = new azure_native.machinelearningservices.v20200301.LinkedWorkspace("linkedWorkspace", {
+ *     linkName: "link-1",
+ *     name: "link-1",
+ *     properties: {
+ *         linkedWorkspaceResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/linkedWorkspace-1",
+ *         userAssignedIdentityResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1",
+ *     },
+ *     resourceGroupName: "resourceGroup-1",
+ *     workspaceName: "workspace-1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20200301:LinkedWorkspace link-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/linkedWorkspaces/link-1 
+ * ```
  */
 export class LinkedWorkspace extends pulumi.CustomResource {
     /**

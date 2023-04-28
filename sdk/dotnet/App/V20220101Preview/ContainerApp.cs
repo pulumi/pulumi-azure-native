@@ -11,6 +11,118 @@ namespace Pulumi.AzureNative.App.V20220101Preview
 {
     /// <summary>
     /// Container App.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Container App
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerApp = new AzureNative.App.V20220101Preview.ContainerApp("containerApp", new()
+    ///     {
+    ///         Configuration = new AzureNative.App.V20220101Preview.Inputs.ConfigurationArgs
+    ///         {
+    ///             Dapr = new AzureNative.App.V20220101Preview.Inputs.DaprArgs
+    ///             {
+    ///                 AppPort = 3000,
+    ///                 AppProtocol = "http",
+    ///                 Enabled = true,
+    ///             },
+    ///             Ingress = new AzureNative.App.V20220101Preview.Inputs.IngressArgs
+    ///             {
+    ///                 CustomDomains = new[]
+    ///                 {
+    ///                     new AzureNative.App.V20220101Preview.Inputs.CustomDomainArgs
+    ///                     {
+    ///                         BindingType = "SniEnabled",
+    ///                         CertificateId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
+    ///                         Name = "www.my-name.com",
+    ///                     },
+    ///                     new AzureNative.App.V20220101Preview.Inputs.CustomDomainArgs
+    ///                     {
+    ///                         BindingType = "SniEnabled",
+    ///                         CertificateId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com",
+    ///                         Name = "www.my-other-name.com",
+    ///                     },
+    ///                 },
+    ///                 External = true,
+    ///                 TargetPort = 3000,
+    ///             },
+    ///         },
+    ///         Location = "East US",
+    ///         ManagedEnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    ///         Name = "testcontainerApp0",
+    ///         ResourceGroupName = "rg",
+    ///         Template = new AzureNative.App.V20220101Preview.Inputs.TemplateArgs
+    ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new AzureNative.App.V20220101Preview.Inputs.ContainerArgs
+    ///                 {
+    ///                     Image = "repo/testcontainerApp0:v1",
+    ///                     Name = "testcontainerApp0",
+    ///                     Probes = new[]
+    ///                     {
+    ///                         new AzureNative.App.V20220101Preview.Inputs.ContainerAppProbeArgs
+    ///                         {
+    ///                             HttpGet = new AzureNative.App.V20220101Preview.Inputs.ContainerAppProbeHttpGetArgs
+    ///                             {
+    ///                                 HttpHeaders = new[]
+    ///                                 {
+    ///                                     new AzureNative.App.V20220101Preview.Inputs.ContainerAppProbeHttpHeadersArgs
+    ///                                     {
+    ///                                         Name = "Custom-Header",
+    ///                                         Value = "Awesome",
+    ///                                     },
+    ///                                 },
+    ///                                 Path = "/health",
+    ///                                 Port = 8080,
+    ///                             },
+    ///                             InitialDelaySeconds = 3,
+    ///                             PeriodSeconds = 3,
+    ///                             Type = "Liveness",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Scale = new AzureNative.App.V20220101Preview.Inputs.ScaleArgs
+    ///             {
+    ///                 MaxReplicas = 5,
+    ///                 MinReplicas = 1,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.App.V20220101Preview.Inputs.ScaleRuleArgs
+    ///                     {
+    ///                         Custom = new AzureNative.App.V20220101Preview.Inputs.CustomScaleRuleArgs
+    ///                         {
+    ///                             Metadata = 
+    ///                             {
+    ///                                 { "concurrentRequests", "50" },
+    ///                             },
+    ///                             Type = "http",
+    ///                         },
+    ///                         Name = "httpscalingrule",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20220101preview:ContainerApp testcontainerApp0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/testcontainerApp0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20220101preview:ContainerApp")]
     public partial class ContainerApp : global::Pulumi.CustomResource

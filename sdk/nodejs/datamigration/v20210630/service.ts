@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * A Database Migration Service resource
+ *
+ * ## Example Usage
+ * ### Services_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.datamigration.v20210630.Service("service", {
+ *     groupName: "DmsSdkRg",
+ *     location: "southcentralus",
+ *     serviceName: "DmsSdkService",
+ *     sku: {
+ *         name: "Basic_1vCore",
+ *     },
+ *     virtualSubnetId: "/subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkTestNetwork/providers/Microsoft.Network/virtualNetworks/DmsSdkTestNetwork/subnets/default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration/v20210630:Service DmsSdkService /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService 
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

@@ -8,6 +8,31 @@ import * as utilities from "../utilities";
  * A virtual network rule.
  * API Version: 2021-11-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a virtual network rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetworkRule = new azure_native.sql.VirtualNetworkRule("virtualNetworkRule", {
+ *     ignoreMissingVnetServiceEndpoint: false,
+ *     resourceGroupName: "Default",
+ *     serverName: "vnet-test-svr",
+ *     virtualNetworkRuleName: "vnet-firewall-rule",
+ *     virtualNetworkSubnetId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:VirtualNetworkRule vnet-firewall-rule /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/vnet-test-svr/virtualNetworkRules/vnet-firewall-rule 
+ * ```
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

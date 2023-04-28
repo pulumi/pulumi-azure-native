@@ -134,6 +134,35 @@ class MoveCollection(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### MoveCollections_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        move_collection = azure_native.migrate.MoveCollection("moveCollection",
+            identity=azure_native.migrate.IdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="eastus2",
+            move_collection_name="movecollection1",
+            properties=azure_native.migrate.MoveCollectionPropertiesResponseArgs(
+                source_region="eastus",
+                target_region="westus",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:MoveCollection movecollection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Migrate/MoveCollections/movecollection1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityArgs']] identity: Defines the MSI properties of the Move Collection.
@@ -153,6 +182,35 @@ class MoveCollection(pulumi.CustomResource):
         Define the move collection.
         API Version: 2022-08-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### MoveCollections_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        move_collection = azure_native.migrate.MoveCollection("moveCollection",
+            identity=azure_native.migrate.IdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="eastus2",
+            move_collection_name="movecollection1",
+            properties=azure_native.migrate.MoveCollectionPropertiesResponseArgs(
+                source_region="eastus",
+                target_region="westus",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:MoveCollection movecollection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Migrate/MoveCollections/movecollection1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MoveCollectionArgs args: The arguments to use to populate this resource's properties.

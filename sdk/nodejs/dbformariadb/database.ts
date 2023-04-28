@@ -8,6 +8,31 @@ import * as utilities from "../utilities";
  * Represents a Database.
  * API Version: 2018-06-01.
  * Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### DatabaseCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.dbformariadb.Database("database", {
+ *     charset: "utf8",
+ *     collation: "utf8_general_ci",
+ *     databaseName: "db1",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformariadb:Database db1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMariaDB/servers/testserver/databases/db1 
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

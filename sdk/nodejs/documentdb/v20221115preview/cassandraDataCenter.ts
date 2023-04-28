@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * A managed Cassandra data center.
+ *
+ * ## Example Usage
+ * ### CosmosDBManagedCassandraDataCenterCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cassandraDataCenter = new azure_native.documentdb.v20221115preview.CassandraDataCenter("cassandraDataCenter", {
+ *     clusterName: "cassandra-prod",
+ *     dataCenterName: "dc1",
+ *     properties: {
+ *         base64EncodedCassandraYamlFragment: "Y29tcGFjdGlvbl90aHJvdWdocHV0X21iX3Blcl9zZWM6IDMyCmNvbXBhY3Rpb25fbGFyZ2VfcGFydGl0aW9uX3dhcm5pbmdfdGhyZXNob2xkX21iOiAxMDA=",
+ *         dataCenterLocation: "West US 2",
+ *         delegatedSubnetId: "/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet",
+ *         nodeCount: 9,
+ *     },
+ *     resourceGroupName: "cassandra-prod-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20221115preview:CassandraDataCenter dc1 /subscriptions/subid/resourceGroups/cassandra-prod-rg/providers/Microsoft.DocumentDB/cassandraClusters/cassandra-prod/dataCenters/dc1 
+ * ```
  */
 export class CassandraDataCenter extends pulumi.CustomResource {
     /**

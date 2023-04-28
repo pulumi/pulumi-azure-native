@@ -11,6 +11,130 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
 {
     /// <summary>
     /// The connector setting
+    /// 
+    /// ## Example Usage
+    /// ### AwsAssumeRole - Create a cloud account connector for a subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connector = new AzureNative.Security.V20200101Preview.Connector("connector", new()
+    ///     {
+    ///         AuthenticationDetails = new AzureNative.Security.V20200101Preview.Inputs.AwAssumeRoleAuthenticationDetailsPropertiesArgs
+    ///         {
+    ///             AuthenticationType = "awsAssumeRole",
+    ///             AwsAssumeRoleArn = "arn:aws:iam::81231569658:role/AscConnector",
+    ///             AwsExternalId = "20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    ///         },
+    ///         ConnectorName = "aws_dev2",
+    ///         HybridComputeSettings = new AzureNative.Security.V20200101Preview.Inputs.HybridComputeSettingsPropertiesArgs
+    ///         {
+    ///             AutoProvision = "On",
+    ///             ProxyServer = new AzureNative.Security.V20200101Preview.Inputs.ProxyServerPropertiesArgs
+    ///             {
+    ///                 Ip = "167.220.197.140",
+    ///                 Port = "34",
+    ///             },
+    ///             Region = "West US 2",
+    ///             ResourceGroupName = "AwsConnectorRG",
+    ///             ServicePrincipal = new AzureNative.Security.V20200101Preview.Inputs.ServicePrincipalPropertiesArgs
+    ///             {
+    ///                 ApplicationId = "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+    ///                 Secret = "&lt;secret&gt;",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### AwsCred - Create a cloud account connector for a subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connector = new AzureNative.Security.V20200101Preview.Connector("connector", new()
+    ///     {
+    ///         AuthenticationDetails = new AzureNative.Security.V20200101Preview.Inputs.AwsCredsAuthenticationDetailsPropertiesArgs
+    ///         {
+    ///             AuthenticationType = "awsCreds",
+    ///             AwsAccessKeyId = "AKIARPZCNODDNAEQFSOE",
+    ///             AwsSecretAccessKey = "&lt;awsSecretAccessKey&gt;",
+    ///         },
+    ///         ConnectorName = "aws_dev1",
+    ///         HybridComputeSettings = new AzureNative.Security.V20200101Preview.Inputs.HybridComputeSettingsPropertiesArgs
+    ///         {
+    ///             AutoProvision = "On",
+    ///             ProxyServer = new AzureNative.Security.V20200101Preview.Inputs.ProxyServerPropertiesArgs
+    ///             {
+    ///                 Ip = "167.220.197.140",
+    ///                 Port = "34",
+    ///             },
+    ///             Region = "West US 2",
+    ///             ResourceGroupName = "AwsConnectorRG",
+    ///             ServicePrincipal = new AzureNative.Security.V20200101Preview.Inputs.ServicePrincipalPropertiesArgs
+    ///             {
+    ///                 ApplicationId = "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+    ///                 Secret = "&lt;secret&gt;",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### gcpCredentials - Create a cloud account connector for a subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connector = new AzureNative.Security.V20200101Preview.Connector("connector", new()
+    ///     {
+    ///         AuthenticationDetails = new AzureNative.Security.V20200101Preview.Inputs.GcpCredentialsDetailsPropertiesArgs
+    ///         {
+    ///             AuthProviderX509CertUrl = "https://www.googleapis.com/oauth2/v1/certs",
+    ///             AuthUri = "https://accounts.google.com/o/oauth2/auth",
+    ///             AuthenticationType = "gcpCredentials",
+    ///             ClientEmail = "asc-135@asc-project-1234.iam.gserviceaccount.com",
+    ///             ClientId = "105889053725632919854",
+    ///             ClientX509CertUrl = "https://www.googleapis.com/robot/v1/metadata/x509/asc-135%40asc-project-1234.iam.gserviceaccount.com",
+    ///             OrganizationId = "AscDemoOrg",
+    ///             PrivateKey = "******",
+    ///             PrivateKeyId = "6efg587hra2568as34d22326b044cc20dc2af",
+    ///             ProjectId = "asc-project-1234",
+    ///             TokenUri = "https://oauth2.googleapis.com/token",
+    ///             Type = "service_account",
+    ///         },
+    ///         ConnectorName = "gcp_dev",
+    ///         HybridComputeSettings = new AzureNative.Security.V20200101Preview.Inputs.HybridComputeSettingsPropertiesArgs
+    ///         {
+    ///             AutoProvision = "Off",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20200101preview:Connector gcp_dev /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/connectors/gcp_dev 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20200101preview:Connector")]
     public partial class Connector : global::Pulumi.CustomResource

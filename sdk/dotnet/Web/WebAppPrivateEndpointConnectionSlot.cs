@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.Web
     /// Remote Private Endpoint Connection ARM resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Approves or rejects a private endpoint connection for a site.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppPrivateEndpointConnectionSlot = new AzureNative.Web.WebAppPrivateEndpointConnectionSlot("webAppPrivateEndpointConnectionSlot", new()
+    ///     {
+    ///         Name = "testSite",
+    ///         PrivateEndpointConnectionName = "connection",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Web.Inputs.PrivateLinkConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "",
+    ///             Description = "Approved by admin.",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         Slot = "stage",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:WebAppPrivateEndpointConnectionSlot myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/sites/testSite/slots/stage/privateEndpointConnections/connection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppPrivateEndpointConnectionSlot")]
     public partial class WebAppPrivateEndpointConnectionSlot : global::Pulumi.CustomResource

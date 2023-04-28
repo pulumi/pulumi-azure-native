@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### SBAliasCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disasterRecoveryConfig = new azure_native.servicebus.DisasterRecoveryConfig("disasterRecoveryConfig", {
+ *     alias: "sdk-Namespace-8860",
+ *     alternateName: "alternameforAlias-Namespace-8860",
+ *     namespaceName: "sdk-Namespace-8860",
+ *     partnerNamespace: "sdk-Namespace-37",
+ *     resourceGroupName: "ardsouzatestRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus:DisasterRecoveryConfig sdk-Namespace-8860 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ardsouzatestRG/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-8860/disasterRecoveryConfig/sdk-Namespace-8860 
+ * ```
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**

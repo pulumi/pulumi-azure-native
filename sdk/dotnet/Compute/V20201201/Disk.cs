@@ -11,6 +11,361 @@ namespace Pulumi.AzureNative.Compute.V20201201
 {
     /// <summary>
     /// Disk resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create a managed disk and associate with disk access resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Empty",
+    ///         },
+    ///         DiskAccessId = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/{existing-diskAccess-name}",
+    ///         DiskName = "myDisk",
+    ///         DiskSizeGB = 200,
+    ///         Location = "West US",
+    ///         NetworkAccessPolicy = "AllowPrivate",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a managed disk and associate with disk encryption set.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Empty",
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         DiskSizeGB = 200,
+    ///         Encryption = new AzureNative.Compute.V20201201.Inputs.EncryptionArgs
+    ///         {
+    ///             DiskEncryptionSetId = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a managed disk by copying a snapshot.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Copy",
+    ///             SourceResourceId = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a managed disk by importing an unmanaged blob from a different subscription.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Import",
+    ///             SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///             StorageAccountId = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a managed disk by importing an unmanaged blob from the same subscription.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Import",
+    ///             SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a managed disk from a platform image.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "FromImage",
+    ///             ImageReference = new AzureNative.Compute.V20201201.Inputs.ImageDiskReferenceArgs
+    ///             {
+    ///                 Id = "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus/Publishers/{publisher}/ArtifactTypes/VMImage/Offers/{offer}/Skus/{sku}/Versions/1.0.0",
+    ///             },
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         Location = "West US",
+    ///         OsType = AzureNative.Compute.V20201201.OperatingSystemTypes.Windows,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a managed disk from an existing managed disk in the same or different subscription.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Copy",
+    ///             SourceResourceId = "subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk1",
+    ///         },
+    ///         DiskName = "myDisk2",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a managed disk with security profile
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "FromImage",
+    ///             ImageReference = new AzureNative.Compute.V20201201.Inputs.ImageDiskReferenceArgs
+    ///             {
+    ///                 Id = "/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}",
+    ///             },
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         Location = "North Central US",
+    ///         OsType = AzureNative.Compute.V20201201.OperatingSystemTypes.Windows,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SecurityProfile = new AzureNative.Compute.V20201201.Inputs.DiskSecurityProfileArgs
+    ///         {
+    ///             SecurityType = "TrustedLaunch",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a managed disk with ssd zrs account type.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Empty",
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         DiskSizeGB = 200,
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Compute.V20201201.Inputs.DiskSkuArgs
+    ///         {
+    ///             Name = "Premium_ZRS",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a managed upload disk.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Upload",
+    ///             UploadSizeBytes = 10737418752,
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an empty managed disk in extended location.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Empty",
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         DiskSizeGB = 200,
+    ///         ExtendedLocation = new AzureNative.Compute.V20201201.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "{edge-zone-id}",
+    ///             Type = "EdgeZone",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an empty managed disk.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Empty",
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         DiskSizeGB = 200,
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an ultra managed disk with logicalSectorSize 512E
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disk = new AzureNative.Compute.V20201201.Disk("disk", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20201201.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = "Empty",
+    ///             LogicalSectorSize = 512,
+    ///         },
+    ///         DiskName = "myDisk",
+    ///         DiskSizeGB = 200,
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Compute.V20201201.Inputs.DiskSkuArgs
+    ///         {
+    ///             Name = "UltraSSD_LRS",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20201201:Disk myDisk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/disks/{diskName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20201201:Disk")]
     public partial class Disk : global::Pulumi.CustomResource

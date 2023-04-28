@@ -13,6 +13,56 @@ namespace Pulumi.AzureNative.Network
     /// The routing intent child resource of a Virtual hub.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### RouteTablePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var routingIntent = new AzureNative.Network.RoutingIntent("routingIntent", new()
+    ///     {
+    ///         ResourceGroupName = "rg1",
+    ///         RoutingIntentName = "Intent1",
+    ///         RoutingPolicies = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.RoutingPolicyArgs
+    ///             {
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "Internet",
+    ///                 },
+    ///                 Name = "InternetTraffic",
+    ///                 NextHop = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+    ///             },
+    ///             new AzureNative.Network.Inputs.RoutingPolicyArgs
+    ///             {
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "PrivateTraffic",
+    ///                 },
+    ///                 Name = "PrivateTrafficPolicy",
+    ///                 NextHop = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+    ///             },
+    ///         },
+    ///         VirtualHubName = "virtualHub1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:RoutingIntent Intent1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routingIntent/Intent1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RoutingIntent")]
     public partial class RoutingIntent : global::Pulumi.CustomResource

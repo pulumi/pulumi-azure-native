@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * A logical database transparent data encryption state.
+ *
+ * ## Example Usage
+ * ### Update a database's Transparent Data Encryption state with minimal parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const transparentDataEncryption = new azure_native.sql.v20220801preview.TransparentDataEncryption("transparentDataEncryption", {
+ *     databaseName: "testdb",
+ *     resourceGroupName: "securitytde-42-rg",
+ *     serverName: "securitytde-42",
+ *     state: azure_native.sql.v20220801preview.TransparentDataEncryptionState.Enabled,
+ *     tdeName: "current",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:TransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securitytde-42-rg/providers/Microsoft.Sql/servers/securitytde-42/databases/testdb/transparentDataEncryption 
+ * ```
  */
 export class TransparentDataEncryption extends pulumi.CustomResource {
     /**

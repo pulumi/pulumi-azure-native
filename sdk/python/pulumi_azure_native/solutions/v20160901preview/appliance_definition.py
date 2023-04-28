@@ -253,6 +253,36 @@ class ApplianceDefinition(pulumi.CustomResource):
         """
         Information about appliance definition.
 
+        ## Example Usage
+        ### Create or update appliance definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        appliance_definition = azure_native.solutions.v20160901preview.ApplianceDefinition("applianceDefinition",
+            appliance_definition_name="myApplianceDef",
+            authorizations=[azure_native.solutions.v20160901preview.ApplianceProviderAuthorizationArgs(
+                principal_id="validprincipalguid",
+                role_definition_id="validroleguid",
+            )],
+            description="myApplianceDef description",
+            display_name="myApplianceDef",
+            location="East US 2",
+            lock_level=azure_native.solutions/v20160901preview.ApplianceLockLevel.NONE,
+            package_file_uri="https://path/to/packagezipfile",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions/v20160901preview:ApplianceDefinition myApplianceDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myApplianceDef 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] appliance_definition_name: The name of the appliance definition.
@@ -277,6 +307,36 @@ class ApplianceDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about appliance definition.
+
+        ## Example Usage
+        ### Create or update appliance definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        appliance_definition = azure_native.solutions.v20160901preview.ApplianceDefinition("applianceDefinition",
+            appliance_definition_name="myApplianceDef",
+            authorizations=[azure_native.solutions.v20160901preview.ApplianceProviderAuthorizationArgs(
+                principal_id="validprincipalguid",
+                role_definition_id="validroleguid",
+            )],
+            description="myApplianceDef description",
+            display_name="myApplianceDef",
+            location="East US 2",
+            lock_level=azure_native.solutions/v20160901preview.ApplianceLockLevel.NONE,
+            package_file_uri="https://path/to/packagezipfile",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions/v20160901preview:ApplianceDefinition myApplianceDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myApplianceDef 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplianceDefinitionArgs args: The arguments to use to populate this resource's properties.

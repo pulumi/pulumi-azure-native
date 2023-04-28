@@ -112,6 +112,30 @@ class Configuration(pulumi.CustomResource):
         """
         Represents a Configuration.
 
+        ## Example Usage
+        ### Update a user configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration = azure_native.dbforpostgresql.v20221201.Configuration("configuration",
+            configuration_name="event_scheduler",
+            resource_group_name="testrg",
+            server_name="testserver",
+            source="user-override",
+            value="on")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221201:Configuration event_scheduler /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/configurations/event_scheduler 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the server configuration.
@@ -128,6 +152,30 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Configuration.
+
+        ## Example Usage
+        ### Update a user configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration = azure_native.dbforpostgresql.v20221201.Configuration("configuration",
+            configuration_name="event_scheduler",
+            resource_group_name="testrg",
+            server_name="testserver",
+            source="user-override",
+            value="on")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221201:Configuration event_scheduler /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/configurations/event_scheduler 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

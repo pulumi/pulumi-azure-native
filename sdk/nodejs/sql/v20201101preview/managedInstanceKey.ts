@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * A managed instance key.
+ *
+ * ## Example Usage
+ * ### Creates or updates a managed instance key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstanceKey = new azure_native.sql.v20201101preview.ManagedInstanceKey("managedInstanceKey", {
+ *     keyName: "someVault_someKey_01234567890123456789012345678901",
+ *     managedInstanceName: "sqlcrudtest-4645",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverKeyType: "AzureKeyVault",
+ *     uri: "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20201101preview:ManagedInstanceKey sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/managedInstances/sqlcrudtest-4645/keys/someVault_someKey_01234567890123456789012345678901 
+ * ```
  */
 export class ManagedInstanceKey extends pulumi.CustomResource {
     /**

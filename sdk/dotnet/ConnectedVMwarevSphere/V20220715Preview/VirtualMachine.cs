@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20220715Preview
 {
     /// <summary>
     /// Define the virtualMachine.
+    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualMachine
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.ConnectedVMwarevSphere.V20220715Preview.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.ConnectedVMwarevSphere.V20220715Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+    ///             Type = "customLocation",
+    ///         },
+    ///         HardwareProfile = new AzureNative.ConnectedVMwarevSphere.V20220715Preview.Inputs.HardwareProfileArgs
+    ///         {
+    ///             MemorySizeMB = 4196,
+    ///             NumCPUs = 4,
+    ///         },
+    ///         Location = "East US",
+    ///         ResourceGroupName = "testrg",
+    ///         ResourcePoolId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/ResourcePools/HRPool",
+    ///         TemplateId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualMachineTemplates/WebFrontEndTemplate",
+    ///         VCenterId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+    ///         VirtualMachineName = "DemoVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine DemoVM /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualMachines/DemoVM 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20220715preview:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource

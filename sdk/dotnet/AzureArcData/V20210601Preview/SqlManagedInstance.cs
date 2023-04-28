@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.AzureArcData.V20210601Preview
 {
     /// <summary>
     /// A SqlManagedInstance.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a SQL Managed Instance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlManagedInstance = new AzureNative.AzureArcData.V20210601Preview.SqlManagedInstance("sqlManagedInstance", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureArcData.V20210601Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "northeurope",
+    ///         Properties = new AzureNative.AzureArcData.V20210601Preview.Inputs.SqlManagedInstancePropertiesArgs
+    ///         {
+    ///             Admin = "Admin user",
+    ///             BasicLoginInformation = new AzureNative.AzureArcData.V20210601Preview.Inputs.BasicLoginInformationArgs
+    ///             {
+    ///                 Password = "********",
+    ///                 Username = "username",
+    ///             },
+    ///             EndTime = "Instance end time",
+    ///             StartTime = "Instance start time",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Sku = new AzureNative.AzureArcData.V20210601Preview.Inputs.SqlManagedInstanceSkuArgs
+    ///         {
+    ///             Dev = true,
+    ///             Name = "default",
+    ///             Tier = AzureNative.AzureArcData.V20210601Preview.SqlManagedInstanceSkuTier.GeneralPurpose,
+    ///         },
+    ///         SqlManagedInstanceName = "testsqlManagedInstance",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata/v20210601preview:SqlManagedInstance testsqlManagedInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testsqlManagedInstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20210601preview:SqlManagedInstance")]
     public partial class SqlManagedInstance : global::Pulumi.CustomResource

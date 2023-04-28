@@ -11,6 +11,98 @@ namespace Pulumi.AzureNative.DocumentDB.V20230301Preview
 {
     /// <summary>
     /// An Azure Cosmos DB Gremlin graph.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBGremlinGraphCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gremlinResourceGremlinGraph = new AzureNative.DocumentDB.V20230301Preview.GremlinResourceGremlinGraph("gremlinResourceGremlinGraph", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseName = "databaseName",
+    ///         GraphName = "graphName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20230301Preview.Inputs.GremlinGraphResourceArgs
+    ///         {
+    ///             ConflictResolutionPolicy = new AzureNative.DocumentDB.V20230301Preview.Inputs.ConflictResolutionPolicyArgs
+    ///             {
+    ///                 ConflictResolutionPath = "/path",
+    ///                 Mode = "LastWriterWins",
+    ///             },
+    ///             DefaultTtl = 100,
+    ///             Id = "graphName",
+    ///             IndexingPolicy = new AzureNative.DocumentDB.V20230301Preview.Inputs.IndexingPolicyArgs
+    ///             {
+    ///                 Automatic = true,
+    ///                 ExcludedPaths = new[] {},
+    ///                 IncludedPaths = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20230301Preview.Inputs.IncludedPathArgs
+    ///                     {
+    ///                         Indexes = new[]
+    ///                         {
+    ///                             new AzureNative.DocumentDB.V20230301Preview.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = "String",
+    ///                                 Kind = "Range",
+    ///                                 Precision = -1,
+    ///                             },
+    ///                             new AzureNative.DocumentDB.V20230301Preview.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = "Number",
+    ///                                 Kind = "Range",
+    ///                                 Precision = -1,
+    ///                             },
+    ///                         },
+    ///                         Path = "/*",
+    ///                     },
+    ///                 },
+    ///                 IndexingMode = "consistent",
+    ///             },
+    ///             PartitionKey = new AzureNative.DocumentDB.V20230301Preview.Inputs.ContainerPartitionKeyArgs
+    ///             {
+    ///                 Kind = "Hash",
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/AccountNumber",
+    ///                 },
+    ///             },
+    ///             UniqueKeyPolicy = new AzureNative.DocumentDB.V20230301Preview.Inputs.UniqueKeyPolicyArgs
+    ///             {
+    ///                 UniqueKeys = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20230301Preview.Inputs.UniqueKeyArgs
+    ///                     {
+    ///                         Paths = new[]
+    ///                         {
+    ///                             "/testPath",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20230301preview:GremlinResourceGremlinGraph graphName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName/gremlinGraphs/graphName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20230301preview:GremlinResourceGremlinGraph")]
     public partial class GremlinResourceGremlinGraph : global::Pulumi.CustomResource

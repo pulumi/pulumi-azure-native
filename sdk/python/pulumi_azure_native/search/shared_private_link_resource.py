@@ -99,6 +99,33 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SharedPrivateLinkResourceCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        shared_private_link_resource = azure_native.search.SharedPrivateLinkResource("sharedPrivateLinkResource",
+            properties=azure_native.search.SharedPrivateLinkResourcePropertiesArgs(
+                group_id="blob",
+                private_link_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/storageAccountName",
+                request_message="please approve",
+            ),
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            shared_private_link_resource_name="testResource")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:search:SharedPrivateLinkResource testResource /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice/sharedPrivateLinkResources/testResource 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SharedPrivateLinkResourcePropertiesArgs']] properties: Describes the properties of a Shared Private Link Resource managed by the Azure Cognitive Search service.
@@ -116,6 +143,33 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
         API Version: 2022-09-01.
         Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SharedPrivateLinkResourceCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        shared_private_link_resource = azure_native.search.SharedPrivateLinkResource("sharedPrivateLinkResource",
+            properties=azure_native.search.SharedPrivateLinkResourcePropertiesArgs(
+                group_id="blob",
+                private_link_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/storageAccountName",
+                request_message="please approve",
+            ),
+            resource_group_name="rg1",
+            search_service_name="mysearchservice",
+            shared_private_link_resource_name="testResource")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:search:SharedPrivateLinkResource testResource /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice/sharedPrivateLinkResources/testResource 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.

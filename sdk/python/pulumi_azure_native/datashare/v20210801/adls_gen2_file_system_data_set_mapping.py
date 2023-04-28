@@ -192,6 +192,81 @@ class ADLSGen2FileSystemDataSetMapping(pulumi.CustomResource):
         """
         An ADLS Gen2 file system data set mapping.
 
+        ## Example Usage
+        ### DataSetMappings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDB_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDW_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="consumerAccount",
+            data_set_mapping_name="datasetMappingName1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping datasetMappingName /subscriptions/4e745bb7-c420-479b-b0d6-a0f92d48a227/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/consumerAccount/shareSubscriptions/ShareSubscription1/dataSetMappings/datasetMappingName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -214,6 +289,81 @@ class ADLSGen2FileSystemDataSetMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An ADLS Gen2 file system data set mapping.
+
+        ## Example Usage
+        ### DataSetMappings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDB_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SqlDW_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="Account1",
+            data_set_mapping_name="DatasetMapping1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+        ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adls_gen2_file_system_data_set_mapping = azure_native.datashare.v20210801.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping",
+            account_name="consumerAccount",
+            data_set_mapping_name="datasetMappingName1",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20210801:ADLSGen2FileSystemDataSetMapping datasetMappingName /subscriptions/4e745bb7-c420-479b-b0d6-a0f92d48a227/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/consumerAccount/shareSubscriptions/ShareSubscription1/dataSetMappings/datasetMappingName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ADLSGen2FileSystemDataSetMappingArgs args: The arguments to use to populate this resource's properties.

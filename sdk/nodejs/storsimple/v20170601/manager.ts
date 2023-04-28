@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The StorSimple Manager.
+ *
+ * ## Example Usage
+ * ### ManagersCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const manager = new azure_native.storsimple.v20170601.Manager("manager", {
+ *     cisIntrinsicSettings: {
+ *         type: azure_native.storsimple.v20170601.ManagerType.GardaV1,
+ *     },
+ *     location: "westus",
+ *     managerName: "ManagerForSDKTest2",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     sku: {
+ *         name: azure_native.storsimple.v20170601.ManagerSkuType.Standard,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple/v20170601:Manager ManagerForSDKTest2 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/Managers/ManagerForSDKTest2 
+ * ```
  */
 export class Manager extends pulumi.CustomResource {
     /**

@@ -162,6 +162,31 @@ class IpPrefixList(pulumi.CustomResource):
         """
         The IpPrefixList resource definition.
 
+        ## Example Usage
+        ### IpPrefixLists_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_prefix_list = azure_native.managednetworkfabric.v20230201preview.IpPrefixList("ipPrefixList",
+            action="allow",
+            ip_prefix_list_name="IpPrefixList1",
+            location="EastUS",
+            network_address="1.1.1.0/24",
+            resource_group_name="resourceGroupName",
+            sequence_number=19)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:IpPrefixList myresource1 resourceId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'PrefixActionType']] action: action. Example: allow | deny.
@@ -181,6 +206,31 @@ class IpPrefixList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The IpPrefixList resource definition.
+
+        ## Example Usage
+        ### IpPrefixLists_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_prefix_list = azure_native.managednetworkfabric.v20230201preview.IpPrefixList("ipPrefixList",
+            action="allow",
+            ip_prefix_list_name="IpPrefixList1",
+            location="EastUS",
+            network_address="1.1.1.0/24",
+            resource_group_name="resourceGroupName",
+            sequence_number=19)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:IpPrefixList myresource1 resourceId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IpPrefixListArgs args: The arguments to use to populate this resource's properties.

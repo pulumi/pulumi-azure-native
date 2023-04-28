@@ -129,6 +129,29 @@ class CommunicationService(pulumi.CustomResource):
         """
         A class representing a CommunicationService resource.
 
+        ## Example Usage
+        ### Create or update resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        communication_service = azure_native.communication.v20230301preview.CommunicationService("communicationService",
+            communication_service_name="MyCommunicationResource",
+            data_location="United States",
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication/v20230301preview:CommunicationService MyCommunicationResource /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/CommunicationServices/MyCommunicationResource 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] communication_service_name: The name of the CommunicationService resource.
@@ -146,6 +169,29 @@ class CommunicationService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class representing a CommunicationService resource.
+
+        ## Example Usage
+        ### Create or update resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        communication_service = azure_native.communication.v20230301preview.CommunicationService("communicationService",
+            communication_service_name="MyCommunicationResource",
+            data_location="United States",
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication/v20230301preview:CommunicationService MyCommunicationResource /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/CommunicationServices/MyCommunicationResource 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CommunicationServiceArgs args: The arguments to use to populate this resource's properties.

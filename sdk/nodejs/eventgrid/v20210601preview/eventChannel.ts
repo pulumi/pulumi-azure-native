@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Event Channel.
+ *
+ * ## Example Usage
+ * ### EventChannels_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventChannel = new azure_native.eventgrid.v20210601preview.EventChannel("eventChannel", {
+ *     destination: {
+ *         azureSubscriptionId: "5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+ *         partnerTopicName: "examplePartnerTopic1",
+ *         resourceGroup: "examplerg2",
+ *     },
+ *     eventChannelName: "exampleEventChannelName1",
+ *     partnerNamespaceName: "examplePartnerNamespaceName1",
+ *     resourceGroupName: "examplerg",
+ *     source: {
+ *         source: "ContosoCorp.Accounts.User1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid/v20210601preview:EventChannel exampleEventChannelName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerNamespaces/partnerNamespace123/eventChannels/exampleEventChannelName1 
+ * ```
  */
 export class EventChannel extends pulumi.CustomResource {
     /**

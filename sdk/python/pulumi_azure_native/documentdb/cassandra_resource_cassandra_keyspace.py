@@ -148,6 +148,34 @@ class CassandraResourceCassandraKeyspace(pulumi.CustomResource):
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CosmosDBCassandraKeyspaceCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_resource_cassandra_keyspace = azure_native.documentdb.CassandraResourceCassandraKeyspace("cassandraResourceCassandraKeyspace",
+            account_name="ddb1",
+            keyspace_name="keyspaceName",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.CassandraKeyspaceResourceArgs(
+                id="keyspaceName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:CassandraResourceCassandraKeyspace keyspaceName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspaceName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -168,6 +196,34 @@ class CassandraResourceCassandraKeyspace(pulumi.CustomResource):
         An Azure Cosmos DB Cassandra keyspace.
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CosmosDBCassandraKeyspaceCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_resource_cassandra_keyspace = azure_native.documentdb.CassandraResourceCassandraKeyspace("cassandraResourceCassandraKeyspace",
+            account_name="ddb1",
+            keyspace_name="keyspaceName",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.CassandraKeyspaceResourceArgs(
+                id="keyspaceName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:CassandraResourceCassandraKeyspace keyspaceName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspaceName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CassandraResourceCassandraKeyspaceArgs args: The arguments to use to populate this resource's properties.

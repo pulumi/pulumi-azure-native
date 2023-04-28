@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
 {
     /// <summary>
     /// NSX DNS Service
+    /// 
+    /// ## Example Usage
+    /// ### WorkloadNetworks_CreateDnsService
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadNetworkDnsService = new AzureNative.AVS.V20200717Preview.WorkloadNetworkDnsService("workloadNetworkDnsService", new()
+    ///     {
+    ///         DefaultDnsZone = "defaultDnsZone1",
+    ///         DisplayName = "dnsService1",
+    ///         DnsServiceId = "dnsService1",
+    ///         DnsServiceIp = "5.5.5.5",
+    ///         FqdnZones = new[]
+    ///         {
+    ///             "fqdnZone1",
+    ///         },
+    ///         LogLevel = "INFO",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Revision = 1,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20200717preview:WorkloadNetworkDnsService dnsService1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/dnsServices/dnsService1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200717preview:WorkloadNetworkDnsService")]
     public partial class WorkloadNetworkDnsService : global::Pulumi.CustomResource

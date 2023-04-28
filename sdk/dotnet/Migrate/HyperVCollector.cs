@@ -12,6 +12,51 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// API Version: 2019-10-01.
     /// Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### HyperVCollectors_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hyperVCollector = new AzureNative.Migrate.HyperVCollector("hyperVCollector", new()
+    ///     {
+    ///         ETag = "\"00000981-0000-0300-0000-5d74cd5f0000\"",
+    ///         HyperVCollectorName = "migrateprojectce73collector",
+    ///         ProjectName = "migrateprojectce73project",
+    ///         Properties = new AzureNative.Migrate.Inputs.CollectorPropertiesArgs
+    ///         {
+    ///             AgentProperties = new AzureNative.Migrate.Inputs.CollectorAgentPropertiesArgs
+    ///             {
+    ///                 SpnDetails = new AzureNative.Migrate.Inputs.CollectorBodyAgentSpnPropertiesArgs
+    ///                 {
+    ///                     ApplicationId = "827f1053-44dc-439f-b832-05416dcce12b",
+    ///                     Audience = "https://72f988bf-86f1-41af-91ab-2d7cd011db47/migrateprojectce73agentauthaadapp",
+    ///                     Authority = "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///                     ObjectId = "be75098e-c0fc-4ac4-98c7-282ebbcf8370",
+    ///                     TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///                 },
+    ///             },
+    ///             DiscoverySiteId = "/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/resourceGroups/ContosoITHyperV/providers/Microsoft.OffAzure/HyperVSites/migrateprojectce73site",
+    ///         },
+    ///         ResourceGroupName = "contosoithyperv",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:HyperVCollector migrateprojectce73collector /subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/resourceGroups/contosoithyperv/providers/Microsoft.Migrate/assessmentprojects/migrateprojectce73project/hypervcollectors/migrateprojectce73collector 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:HyperVCollector")]
     public partial class HyperVCollector : global::Pulumi.CustomResource

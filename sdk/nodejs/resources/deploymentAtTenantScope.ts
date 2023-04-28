@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * Deployment information.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create deployment at tenant scope.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentAtTenantScope = new azure_native.resources.DeploymentAtTenantScope("deploymentAtTenantScope", {
+ *     deploymentName: "tenant-dep01",
+ *     location: "eastus",
+ *     properties: {
+ *         mode: azure_native.resources.DeploymentMode.Incremental,
+ *         parameters: {},
+ *         templateLink: {
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ *     tags: {
+ *         tagKey1: "tag-value-1",
+ *         tagKey2: "tag-value-2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:DeploymentAtTenantScope tenant-dep01 /providers/Microsoft.Resources/deployments/tenant-dep01 
+ * ```
  */
 export class DeploymentAtTenantScope extends pulumi.CustomResource {
     /**

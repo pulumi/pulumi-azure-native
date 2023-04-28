@@ -151,6 +151,48 @@ class GalleryImageVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery Image Version that you want to create or update.
 
+        ## Example Usage
+        ### Create or update a simple Gallery Image Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20190301.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20190301.GalleryImageVersionPublishingProfileResponseArgs(
+                source=azure_native.compute.v20190301.GalleryArtifactSourceArgs(
+                    managed_image=azure_native.compute.v20190301.ManagedArtifactArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                    ),
+                ),
+                target_regions=[
+                    azure_native.compute.v20190301.TargetRegionArgs(
+                        name="West US",
+                        regional_replica_count=1,
+                    ),
+                    azure_native.compute.v20190301.TargetRegionArgs(
+                        name="East US",
+                        regional_replica_count=2,
+                        storage_account_type="Standard_ZRS",
+                    ),
+                ],
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20190301:GalleryImageVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{galleryImageVersionName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gallery_image_name: The name of the gallery Image Definition in which the Image Version is to be created.
@@ -169,6 +211,48 @@ class GalleryImageVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery Image Version that you want to create or update.
+
+        ## Example Usage
+        ### Create or update a simple Gallery Image Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20190301.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20190301.GalleryImageVersionPublishingProfileResponseArgs(
+                source=azure_native.compute.v20190301.GalleryArtifactSourceArgs(
+                    managed_image=azure_native.compute.v20190301.ManagedArtifactArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                    ),
+                ),
+                target_regions=[
+                    azure_native.compute.v20190301.TargetRegionArgs(
+                        name="West US",
+                        regional_replica_count=1,
+                    ),
+                    azure_native.compute.v20190301.TargetRegionArgs(
+                        name="East US",
+                        regional_replica_count=2,
+                        storage_account_type="Standard_ZRS",
+                    ),
+                ],
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20190301:GalleryImageVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{galleryImageVersionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GalleryImageVersionArgs args: The arguments to use to populate this resource's properties.

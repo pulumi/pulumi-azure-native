@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Description of subscription resource.
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### SubscriptionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subscription = new azure_native.servicebus.Subscription("subscription", {
+ *     enableBatchedOperations: true,
+ *     namespaceName: "sdk-Namespace-1349",
+ *     resourceGroupName: "ResourceGroup",
+ *     subscriptionName: "sdk-Subscriptions-2178",
+ *     topicName: "sdk-Topics-8740",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus:Subscription sdk-Subscriptions-2178 /subscriptions/Subscriptionid/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1349/topics/sdk-Topics-8740/subscriptions/sdk-Subscriptions-2178 
+ * ```
  */
 export class Subscription extends pulumi.CustomResource {
     /**

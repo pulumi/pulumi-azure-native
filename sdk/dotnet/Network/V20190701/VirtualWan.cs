@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Network.V20190701
 {
     /// <summary>
     /// VirtualWAN Resource.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualWANCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualWan = new AzureNative.Network.V20190701.VirtualWan("virtualWan", new()
+    ///     {
+    ///         DisableVpnEncryption = false,
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualWANName = "wan1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190701:VirtualWan wan1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190701:VirtualWan")]
     public partial class VirtualWan : global::Pulumi.CustomResource

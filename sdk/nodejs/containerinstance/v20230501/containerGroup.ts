@@ -9,6 +9,309 @@ import * as utilities from "../../utilities";
 
 /**
  * A container group.
+ *
+ * ## Example Usage
+ * ### ConfidentialContainerGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerGroup = new azure_native.containerinstance.v20230501.ContainerGroup("containerGroup", {
+ *     confidentialComputeProperties: {
+ *         ccePolicy: "eyJhbGxvd19hbGwiOiB0cnVlLCAiY29udGFpbmVycyI6IHsibGVuZ3RoIjogMCwgImVsZW1lbnRzIjogbnVsbH19",
+ *     },
+ *     containerGroupName: "demo1",
+ *     containers: [{
+ *         command: [],
+ *         environmentVariables: [],
+ *         image: "confiimage",
+ *         name: "accdemo",
+ *         ports: [{
+ *             port: 8000,
+ *         }],
+ *         resources: {
+ *             requests: {
+ *                 cpu: 1,
+ *                 memoryInGB: 1.5,
+ *             },
+ *         },
+ *         securityContext: {
+ *             capabilities: {
+ *                 add: ["CAP_NET_ADMIN"],
+ *             },
+ *             privileged: false,
+ *         },
+ *     }],
+ *     imageRegistryCredentials: [],
+ *     ipAddress: {
+ *         ports: [{
+ *             port: 8000,
+ *             protocol: "TCP",
+ *         }],
+ *         type: "Public",
+ *     },
+ *     location: "westeurope",
+ *     osType: "Linux",
+ *     resourceGroupName: "demo",
+ *     sku: "Confidential",
+ * });
+ *
+ * ```
+ * ### ContainerGroupCreateWithExtensions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerGroup = new azure_native.containerinstance.v20230501.ContainerGroup("containerGroup", {
+ *     containerGroupName: "demo1",
+ *     containers: [{
+ *         command: [],
+ *         environmentVariables: [],
+ *         image: "nginx",
+ *         name: "demo1",
+ *         ports: [{
+ *             port: 80,
+ *         }],
+ *         resources: {
+ *             requests: {
+ *                 cpu: 1,
+ *                 memoryInGB: 1.5,
+ *             },
+ *         },
+ *     }],
+ *     extensions: [
+ *         {
+ *             extensionType: "kube-proxy",
+ *             name: "kube-proxy",
+ *             protectedSettings: {
+ *                 kubeConfig: "<kubeconfig encoded string>",
+ *             },
+ *             settings: {
+ *                 clusterCidr: "10.240.0.0/16",
+ *                 kubeVersion: "v1.9.10",
+ *             },
+ *             version: "1.0",
+ *         },
+ *         {
+ *             extensionType: "realtime-metrics",
+ *             name: "vk-realtime-metrics",
+ *             version: "1.0",
+ *         },
+ *     ],
+ *     imageRegistryCredentials: [],
+ *     ipAddress: {
+ *         ports: [{
+ *             port: 80,
+ *             protocol: "TCP",
+ *         }],
+ *         type: "Private",
+ *     },
+ *     location: "eastus2",
+ *     osType: "Linux",
+ *     resourceGroupName: "demo",
+ *     subnetIds: [{
+ *         id: "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-rg-vnet/subnets/test-subnet",
+ *     }],
+ * });
+ *
+ * ```
+ * ### ContainerGroupWithEncryptionProperties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerGroup = new azure_native.containerinstance.v20230501.ContainerGroup("containerGroup", {
+ *     containerGroupName: "demo1",
+ *     containers: [{
+ *         command: [],
+ *         environmentVariables: [],
+ *         image: "nginx",
+ *         name: "demo1",
+ *         ports: [{
+ *             port: 80,
+ *         }],
+ *         resources: {
+ *             requests: {
+ *                 cpu: 1,
+ *                 memoryInGB: 1.5,
+ *             },
+ *         },
+ *     }],
+ *     encryptionProperties: {
+ *         identity: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity",
+ *         keyName: "test-key",
+ *         keyVersion: "<key version>",
+ *         vaultBaseUrl: "https://testkeyvault.vault.azure.net",
+ *     },
+ *     identity: {
+ *         type: azure_native.containerinstance.v20230501.ResourceIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity": {},
+ *         },
+ *     },
+ *     imageRegistryCredentials: [],
+ *     ipAddress: {
+ *         ports: [{
+ *             port: 80,
+ *             protocol: "TCP",
+ *         }],
+ *         type: "Public",
+ *     },
+ *     location: "eastus2",
+ *     osType: "Linux",
+ *     resourceGroupName: "demo",
+ * });
+ *
+ * ```
+ * ### ContainerGroupsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerGroup = new azure_native.containerinstance.v20230501.ContainerGroup("containerGroup", {
+ *     containerGroupName: "demo1",
+ *     containers: [{
+ *         command: [],
+ *         environmentVariables: [],
+ *         image: "nginx",
+ *         name: "demo1",
+ *         ports: [{
+ *             port: 80,
+ *         }],
+ *         resources: {
+ *             requests: {
+ *                 cpu: 1,
+ *                 gpu: {
+ *                     count: 1,
+ *                     sku: "K80",
+ *                 },
+ *                 memoryInGB: 1.5,
+ *             },
+ *         },
+ *         volumeMounts: [
+ *             {
+ *                 mountPath: "/mnt/volume1",
+ *                 name: "volume1",
+ *                 readOnly: false,
+ *             },
+ *             {
+ *                 mountPath: "/mnt/volume2",
+ *                 name: "volume2",
+ *                 readOnly: false,
+ *             },
+ *             {
+ *                 mountPath: "/mnt/volume3",
+ *                 name: "volume3",
+ *                 readOnly: true,
+ *             },
+ *         ],
+ *     }],
+ *     diagnostics: {
+ *         logAnalytics: {
+ *             logType: "ContainerInsights",
+ *             metadata: {
+ *                 "test-key": "test-metadata-value",
+ *             },
+ *             workspaceId: "workspaceid",
+ *             workspaceKey: "workspaceKey",
+ *             workspaceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg/providers/microsoft.operationalinsights/workspaces/workspace",
+ *         },
+ *     },
+ *     dnsConfig: {
+ *         nameServers: ["1.1.1.1"],
+ *         options: "ndots:2",
+ *         searchDomains: "cluster.local svc.cluster.local",
+ *     },
+ *     identity: {
+ *         type: azure_native.containerinstance.v20230501.ResourceIdentityType.SystemAssigned_UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name": {},
+ *         },
+ *     },
+ *     imageRegistryCredentials: [],
+ *     ipAddress: {
+ *         autoGeneratedDomainNameLabelScope: "Unsecure",
+ *         dnsNameLabel: "dnsnamelabel1",
+ *         ports: [{
+ *             port: 80,
+ *             protocol: "TCP",
+ *         }],
+ *         type: "Public",
+ *     },
+ *     location: "west us",
+ *     osType: "Linux",
+ *     resourceGroupName: "demo",
+ *     subnetIds: [{
+ *         id: "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]",
+ *     }],
+ *     volumes: [
+ *         {
+ *             azureFile: {
+ *                 shareName: "shareName",
+ *                 storageAccountKey: "accountKey",
+ *                 storageAccountName: "accountName",
+ *             },
+ *             name: "volume1",
+ *         },
+ *         {
+ *             emptyDir: {},
+ *             name: "volume2",
+ *         },
+ *         {
+ *             name: "volume3",
+ *             secret: {
+ *                 secretKey1: "SecretValue1InBase64",
+ *                 secretKey2: "SecretValue2InBase64",
+ *             },
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ * ### ContainerGroupsCreateWithPriority
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerGroup = new azure_native.containerinstance.v20230501.ContainerGroup("containerGroup", {
+ *     containerGroupName: "demo1",
+ *     containers: [{
+ *         command: [
+ *             "/bin/sh",
+ *             "-c",
+ *             "sleep 10",
+ *         ],
+ *         image: "alpine:latest",
+ *         name: "test-container-001",
+ *         resources: {
+ *             requests: {
+ *                 cpu: 1,
+ *                 memoryInGB: 1,
+ *             },
+ *         },
+ *     }],
+ *     location: "eastus",
+ *     osType: "Linux",
+ *     priority: "Spot",
+ *     resourceGroupName: "demo",
+ *     restartPolicy: "Never",
+ *     sku: "Standard",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerinstance/v20230501:ContainerGroup demo1 /subscriptions/subId/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+ * ```
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**

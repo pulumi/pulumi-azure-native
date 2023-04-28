@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// A failover group.
+    /// 
+    /// ## Example Usage
+    /// ### Create failover group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var failoverGroup = new AzureNative.Sql.V20220801Preview.FailoverGroup("failoverGroup", new()
+    ///     {
+    ///         Databases = new[]
+    ///         {
+    ///             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-1",
+    ///             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-2",
+    ///         },
+    ///         FailoverGroupName = "failover-group-test-3",
+    ///         PartnerServers = new[]
+    ///         {
+    ///             new AzureNative.Sql.V20220801Preview.Inputs.PartnerInfoArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-secondary-server",
+    ///             },
+    ///         },
+    ///         ReadOnlyEndpoint = new AzureNative.Sql.V20220801Preview.Inputs.FailoverGroupReadOnlyEndpointArgs
+    ///         {
+    ///             FailoverPolicy = "Disabled",
+    ///         },
+    ///         ReadWriteEndpoint = new AzureNative.Sql.V20220801Preview.Inputs.FailoverGroupReadWriteEndpointArgs
+    ///         {
+    ///             FailoverPolicy = "Automatic",
+    ///             FailoverWithDataLossGracePeriodMinutes = 480,
+    ///         },
+    ///         ResourceGroupName = "Default",
+    ///         ServerName = "failover-group-primary-server",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:FailoverGroup failover-group-test-3 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/failoverGroups/failover-group-test-3 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:FailoverGroup")]
     public partial class FailoverGroup : global::Pulumi.CustomResource

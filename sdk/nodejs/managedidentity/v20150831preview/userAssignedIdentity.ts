@@ -7,6 +7,33 @@ import * as utilities from "../../utilities";
 /**
  * Describes an identity resource.
  *
+ * ## Example Usage
+ * ### IdentityCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const userAssignedIdentity = new azure_native.managedidentity.v20150831preview.UserAssignedIdentity("userAssignedIdentity", {
+ *     location: "cus",
+ *     resourceGroupName: "rgName",
+ *     resourceName: "resourceName",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managedidentity/v20150831preview:UserAssignedIdentity identityName /subscriptions/subid/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName 
+ * ```
+ *
  * @deprecated Version 2015-08-31-preview will be removed in v2 of the provider.
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {

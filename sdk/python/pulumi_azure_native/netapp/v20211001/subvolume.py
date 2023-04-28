@@ -161,6 +161,31 @@ class Subvolume(pulumi.CustomResource):
         """
         Subvolume Information properties
 
+        ## Example Usage
+        ### Subvolumes_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subvolume = azure_native.netapp.v20211001.Subvolume("subvolume",
+            account_name="account1",
+            path="/subvolumePath",
+            pool_name="pool1",
+            resource_group_name="myRG",
+            subvolume_name="subvolume1",
+            volume_name="volume1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20211001:Subvolume account1/pool1/volume1/subvolume1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/subvolumes/subvolume1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -180,6 +205,31 @@ class Subvolume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subvolume Information properties
+
+        ## Example Usage
+        ### Subvolumes_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subvolume = azure_native.netapp.v20211001.Subvolume("subvolume",
+            account_name="account1",
+            path="/subvolumePath",
+            pool_name="pool1",
+            resource_group_name="myRG",
+            subvolume_name="subvolume1",
+            volume_name="volume1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20211001:Subvolume account1/pool1/volume1/subvolume1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/subvolumes/subvolume1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubvolumeArgs args: The arguments to use to populate this resource's properties.

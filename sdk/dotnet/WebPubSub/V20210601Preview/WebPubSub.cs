@@ -11,6 +11,111 @@ namespace Pulumi.AzureNative.WebPubSub.V20210601Preview
 {
     /// <summary>
     /// A class represent a resource.
+    /// 
+    /// ## Example Usage
+    /// ### WebPubSub_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webPubSub = new AzureNative.WebPubSub.V20210601Preview.WebPubSub("webPubSub", new()
+    ///     {
+    ///         DiagnosticConfiguration = new AzureNative.WebPubSub.V20210601Preview.Inputs.DiagnosticConfigurationArgs
+    ///         {
+    ///             EnableConnectivityLogs = "Disabled",
+    ///             EnableLiveTrace = "Disabled",
+    ///             EnableMessagingLogs = "Disabled",
+    ///         },
+    ///         DisableAadAuth = false,
+    ///         DisableLocalAuth = false,
+    ///         EventHandler = new AzureNative.WebPubSub.V20210601Preview.Inputs.EventHandlerSettingsArgs
+    ///         {
+    ///             Items = 
+    ///             {
+    ///                 { "hub1", new[]
+    ///                 {
+    ///                     new AzureNative.WebPubSub.V20210601Preview.Inputs.EventHandlerTemplateArgs
+    ///                     {
+    ///                         UrlTemplate = "https://example.com/chat/api/hub1",
+    ///                         UserEventPattern = "*",
+    ///                     },
+    ///                 } },
+    ///                 { "hub2", new[]
+    ///                 {
+    ///                     new AzureNative.WebPubSub.V20210601Preview.Inputs.EventHandlerTemplateArgs
+    ///                     {
+    ///                         UrlTemplate = "https://example.com/chat/api/hub2/example1",
+    ///                         UserEventPattern = "example1",
+    ///                     },
+    ///                     new AzureNative.WebPubSub.V20210601Preview.Inputs.EventHandlerTemplateArgs
+    ///                     {
+    ///                         UrlTemplate = "https://example.com/chat/api/hub2/example2",
+    ///                         UserEventPattern = "example2",
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.WebPubSub.V20210601Preview.Inputs.ManagedIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "eastus",
+    ///         NetworkACLs = new AzureNative.WebPubSub.V20210601Preview.Inputs.WebPubSubNetworkACLsArgs
+    ///         {
+    ///             DefaultAction = "Deny",
+    ///             PrivateEndpoints = new[]
+    ///             {
+    ///                 new AzureNative.WebPubSub.V20210601Preview.Inputs.PrivateEndpointACLArgs
+    ///                 {
+    ///                     Allow = new[]
+    ///                     {
+    ///                         "ServerConnection",
+    ///                     },
+    ///                     Name = "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    ///                 },
+    ///             },
+    ///             PublicNetwork = new AzureNative.WebPubSub.V20210601Preview.Inputs.NetworkACLArgs
+    ///             {
+    ///                 Allow = new[]
+    ///                 {
+    ///                     "ClientConnection",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "myWebPubSubService",
+    ///         Sku = new AzureNative.WebPubSub.V20210601Preview.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Standard_S1",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         Tls = new AzureNative.WebPubSub.V20210601Preview.Inputs.WebPubSubTlsSettingsArgs
+    ///         {
+    ///             ClientCertEnabled = false,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:webpubsub/v20210601preview:WebPubSub myWebPubSubService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub/v20210601preview:WebPubSub")]
     public partial class WebPubSub : global::Pulumi.CustomResource

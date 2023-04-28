@@ -127,6 +127,31 @@ class HuntRelation(pulumi.CustomResource):
         """
         Represents a Hunt Relation in Azure Security Insights.
 
+        ## Example Usage
+        ### Creates or updates a hunt relation.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hunt_relation = azure_native.securityinsights.v20230401preview.HuntRelation("huntRelation",
+            hunt_id="163e7b2a-a2ec-4041-aaba-d878a38f265f",
+            hunt_relation_id="2216d0e1-91e3-4902-89fd-d2df8c535096",
+            labels=["Test Label"],
+            related_resource_id="/subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/Bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:HuntRelation 2216d0e1-91e3-4902-89fd-d2df8c535096 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f/relations/2216d0e1-91e3-4902-89fd-d2df8c535096 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hunt_id: The hunt id (GUID)
@@ -144,6 +169,31 @@ class HuntRelation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Hunt Relation in Azure Security Insights.
+
+        ## Example Usage
+        ### Creates or updates a hunt relation.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hunt_relation = azure_native.securityinsights.v20230401preview.HuntRelation("huntRelation",
+            hunt_id="163e7b2a-a2ec-4041-aaba-d878a38f265f",
+            hunt_relation_id="2216d0e1-91e3-4902-89fd-d2df8c535096",
+            labels=["Test Label"],
+            related_resource_id="/subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/Bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:HuntRelation 2216d0e1-91e3-4902-89fd-d2df8c535096 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f/relations/2216d0e1-91e3-4902-89fd-d2df8c535096 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HuntRelationArgs args: The arguments to use to populate this resource's properties.

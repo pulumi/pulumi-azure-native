@@ -96,6 +96,41 @@ class Secret(pulumi.CustomResource):
         """
         Friendly Secret name mapping to the any Secret or secret related information.
 
+        ## Example Usage
+        ### Secrets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.cdn.v20200901.Secret("secret",
+            parameters=azure_native.cdn.v20200901.CustomerCertificateParametersArgs(
+                certificate_authority="Symantec",
+                secret_source=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                    id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.KeyVault/vault/kvName/certificate/certName",
+                ),
+                secret_version="67c452f83c804aed80aa3a21e523c226",
+                subject_alternative_names=[
+                    "foo.contoso.com",
+                    "www3.foo.contoso.com",
+                ],
+                type="CustomerCertificate",
+                use_latest_version=False,
+            ),
+            profile_name="profile1",
+            resource_group_name="RG",
+            secret_name="secret1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Secret secret1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['CustomerCertificateParametersArgs'], pulumi.InputType['ManagedCertificateParametersArgs'], pulumi.InputType['UrlSigningKeyParametersArgs']]] parameters: object which contains secret parameters
@@ -111,6 +146,41 @@ class Secret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly Secret name mapping to the any Secret or secret related information.
+
+        ## Example Usage
+        ### Secrets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.cdn.v20200901.Secret("secret",
+            parameters=azure_native.cdn.v20200901.CustomerCertificateParametersArgs(
+                certificate_authority="Symantec",
+                secret_source=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                    id="/subscriptions/subid/resourcegroups/RG/providers/Microsoft.KeyVault/vault/kvName/certificate/certName",
+                ),
+                secret_version="67c452f83c804aed80aa3a21e523c226",
+                subject_alternative_names=[
+                    "foo.contoso.com",
+                    "www3.foo.contoso.com",
+                ],
+                type="CustomerCertificate",
+                use_latest_version=False,
+            ),
+            profile_name="profile1",
+            resource_group_name="RG",
+            secret_name="secret1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Secret secret1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

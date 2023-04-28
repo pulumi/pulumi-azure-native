@@ -13,6 +13,323 @@ namespace Pulumi.AzureNative.Network
     /// Virtual Network resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create virtual network
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.Network.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         FlowTimeoutInMinutes = 10,
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "rg1",
+    ///         VirtualNetworkName = "test-vnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create virtual network with Bgp Communities
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.Network.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         BgpCommunities = new AzureNative.Network.Inputs.VirtualNetworkBgpCommunitiesArgs
+    ///         {
+    ///             VirtualNetworkCommunity = "12076:20000",
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "rg1",
+    ///         Subnets = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SubnetArgs
+    ///             {
+    ///                 AddressPrefix = "10.0.0.0/24",
+    ///                 Name = "test-1",
+    ///             },
+    ///         },
+    ///         VirtualNetworkName = "test-vnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create virtual network with delegated subnets
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.Network.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "rg1",
+    ///         Subnets = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SubnetArgs
+    ///             {
+    ///                 AddressPrefix = "10.0.0.0/24",
+    ///                 Delegations = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.DelegationArgs
+    ///                     {
+    ///                         Name = "myDelegation",
+    ///                         ServiceName = "Microsoft.Sql/managedInstances",
+    ///                     },
+    ///                 },
+    ///                 Name = "test-1",
+    ///             },
+    ///         },
+    ///         VirtualNetworkName = "test-vnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create virtual network with encryption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.Network.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         Encryption = new AzureNative.Network.Inputs.VirtualNetworkEncryptionArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Enforcement = "AllowUnencrypted",
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "rg1",
+    ///         Subnets = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SubnetArgs
+    ///             {
+    ///                 AddressPrefix = "10.0.0.0/24",
+    ///                 Name = "test-1",
+    ///             },
+    ///         },
+    ///         VirtualNetworkName = "test-vnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create virtual network with service endpoints
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.Network.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "vnetTest",
+    ///         Subnets = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SubnetArgs
+    ///             {
+    ///                 AddressPrefix = "10.0.0.0/16",
+    ///                 Name = "test-1",
+    ///                 ServiceEndpoints = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.ServiceEndpointPropertiesFormatArgs
+    ///                     {
+    ///                         Service = "Microsoft.Storage",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         VirtualNetworkName = "vnet1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create virtual network with service endpoints and service endpoint policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.Network.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         ResourceGroupName = "vnetTest",
+    ///         Subnets = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SubnetArgs
+    ///             {
+    ///                 AddressPrefix = "10.0.0.0/16",
+    ///                 Name = "test-1",
+    ///                 ServiceEndpointPolicies = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.ServiceEndpointPolicyArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/serviceEndpointPolicies/ServiceEndpointPolicy1",
+    ///                     },
+    ///                 },
+    ///                 ServiceEndpoints = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.ServiceEndpointPropertiesFormatArgs
+    ///                     {
+    ///                         Service = "Microsoft.Storage",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         VirtualNetworkName = "vnet1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create virtual network with subnet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.Network.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "rg1",
+    ///         Subnets = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SubnetArgs
+    ///             {
+    ///                 AddressPrefix = "10.0.0.0/24",
+    ///                 Name = "test-1",
+    ///             },
+    ///         },
+    ///         VirtualNetworkName = "test-vnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create virtual network with subnet containing address prefixes
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.Network.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         AddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.0.0.0/16",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "rg1",
+    ///         Subnets = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SubnetArgs
+    ///             {
+    ///                 AddressPrefixes = new[]
+    ///                 {
+    ///                     "10.0.0.0/28",
+    ///                     "10.0.1.0/28",
+    ///                 },
+    ///                 Name = "test-2",
+    ///             },
+    ///         },
+    ///         VirtualNetworkName = "test-vnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VirtualNetwork test-vnet /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource

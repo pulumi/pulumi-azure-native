@@ -185,6 +185,32 @@ class EventHub(pulumi.CustomResource):
         """
         Single item in List or Get Event Hub operation
 
+        ## Example Usage
+        ### EventHubCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub = azure_native.eventhub.v20150801.EventHub("eventHub",
+            event_hub_name="sdk-EventHub6448",
+            location="West US",
+            message_retention_in_days=7,
+            namespace_name="sdk-Namespace7834",
+            partition_count=4,
+            resource_group_name="Default-ServiceBus-WestUS",
+            status=azure_native.eventhub/v20150801.EntityStatus.ACTIVE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20150801:EventHub sdk-EventHub6448 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace7834/eventhubs/sdk-EventHub6448 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_hub_name: The Event Hub name
@@ -205,6 +231,32 @@ class EventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Event Hub operation
+
+        ## Example Usage
+        ### EventHubCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub = azure_native.eventhub.v20150801.EventHub("eventHub",
+            event_hub_name="sdk-EventHub6448",
+            location="West US",
+            message_retention_in_days=7,
+            namespace_name="sdk-Namespace7834",
+            partition_count=4,
+            resource_group_name="Default-ServiceBus-WestUS",
+            status=azure_native.eventhub/v20150801.EntityStatus.ACTIVE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20150801:EventHub sdk-EventHub6448 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace7834/eventhubs/sdk-EventHub6448 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventHubArgs args: The arguments to use to populate this resource's properties.

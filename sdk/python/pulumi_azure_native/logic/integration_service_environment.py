@@ -151,6 +151,62 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         API Version: 2019-05-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update an integration service environment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_service_environment = azure_native.logic.IntegrationServiceEnvironment("integrationServiceEnvironment",
+            integration_service_environment_name="testIntegrationServiceEnvironment",
+            location="brazilsouth",
+            properties=azure_native.logic.IntegrationServiceEnvironmentPropertiesResponseArgs(
+                encryption_configuration={
+                    "encryptionKeyReference": {
+                        "keyName": "testKeyName",
+                        "keyVault": azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.KeyVault/vaults/testKeyVault",
+                        ),
+                        "keyVersion": "13b261d30b984753869902d7f47f4d55",
+                    },
+                },
+                network_configuration={
+                    "accessEndpoint": azure_native.logic.IntegrationServiceEnvironmentAccessEndpointArgs(
+                        type="Internal",
+                    ),
+                    "subnets": [
+                        azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s1",
+                        ),
+                        azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s2",
+                        ),
+                        azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s3",
+                        ),
+                        azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s4",
+                        ),
+                    ],
+                },
+            ),
+            resource_group="testResourceGroup",
+            sku=azure_native.logic.IntegrationServiceEnvironmentSkuArgs(
+                capacity=2,
+                name="Premium",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationServiceEnvironment testIntegrationServiceEnvironment /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity properties.
@@ -171,6 +227,62 @@ class IntegrationServiceEnvironment(pulumi.CustomResource):
         The integration service environment.
         API Version: 2019-05-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update an integration service environment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_service_environment = azure_native.logic.IntegrationServiceEnvironment("integrationServiceEnvironment",
+            integration_service_environment_name="testIntegrationServiceEnvironment",
+            location="brazilsouth",
+            properties=azure_native.logic.IntegrationServiceEnvironmentPropertiesResponseArgs(
+                encryption_configuration={
+                    "encryptionKeyReference": {
+                        "keyName": "testKeyName",
+                        "keyVault": azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.KeyVault/vaults/testKeyVault",
+                        ),
+                        "keyVersion": "13b261d30b984753869902d7f47f4d55",
+                    },
+                },
+                network_configuration={
+                    "accessEndpoint": azure_native.logic.IntegrationServiceEnvironmentAccessEndpointArgs(
+                        type="Internal",
+                    ),
+                    "subnets": [
+                        azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s1",
+                        ),
+                        azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s2",
+                        ),
+                        azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s3",
+                        ),
+                        azure_native.logic.ResourceReferenceArgs(
+                            id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Network/virtualNetworks/testVNET/subnets/s4",
+                        ),
+                    ],
+                },
+            ),
+            resource_group="testResourceGroup",
+            sku=azure_native.logic.IntegrationServiceEnvironmentSkuArgs(
+                capacity=2,
+                name="Premium",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationServiceEnvironment testIntegrationServiceEnvironment /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationServiceEnvironments/testIntegrationServiceEnvironment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IntegrationServiceEnvironmentArgs args: The arguments to use to populate this resource's properties.

@@ -175,7 +175,40 @@ class Rack(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Rack resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update rack
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rack = azure_native.networkcloud.v20221212preview.Rack("rack",
+            availability_zone="1",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            rack_location="Rack 28",
+            rack_name="rackName",
+            rack_serial_number="RACK_SERIAL_NUMBER",
+            rack_sku_id="RACK-TYPE-1",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:Rack rackName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] availability_zone: The value that will be used for machines in this rack to represent the availability zones that can be referenced by Hybrid AKS Clusters for node arrangement.
@@ -195,7 +228,40 @@ class Rack(pulumi.CustomResource):
                  args: RackArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Rack resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update rack
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rack = azure_native.networkcloud.v20221212preview.Rack("rack",
+            availability_zone="1",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            rack_location="Rack 28",
+            rack_name="rackName",
+            rack_serial_number="RACK_SERIAL_NUMBER",
+            rack_sku_id="RACK-TYPE-1",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:Rack rackName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param RackArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

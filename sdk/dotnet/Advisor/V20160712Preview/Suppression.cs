@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Advisor.V20160712Preview
 {
     /// <summary>
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+    /// 
+    /// ## Example Usage
+    /// ### CreateSuppression
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var suppression = new AzureNative.Advisor.V20160712Preview.Suppression("suppression", new()
+    ///     {
+    ///         Name = "suppressionName1",
+    ///         RecommendationId = "recommendationId",
+    ///         ResourceUri = "resourceUri",
+    ///         Ttl = "07:00:00:00",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:advisor/v20160712preview:Suppression suppressionName1 /resourceUri/providers/Microsoft.Advisor/recommendations/recommendationId/suppressions/suppressionName1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-07-12-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:advisor/v20160712preview:Suppression")]

@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnection_UpdateByWorkspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnectionByWorkspace = new azure_native.desktopvirtualization.v20210401preview.PrivateEndpointConnectionByWorkspace("privateEndpointConnectionByWorkspace", {
+ *     privateEndpointConnectionName: "workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "None",
+ *         description: "Approved by admin@consoto.com",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "resourceGroup1",
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization/v20210401preview:PrivateEndpointConnectionByWorkspace workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/workspaces/workspace1/privateEndpointConnections/workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b 
+ * ```
  */
 export class PrivateEndpointConnectionByWorkspace extends pulumi.CustomResource {
     /**

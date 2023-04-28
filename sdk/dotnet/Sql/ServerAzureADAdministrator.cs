@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.Sql
     /// Azure Active Directory administrator.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an existing Azure Active Directory administrator.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverAzureADAdministrator = new AzureNative.Sql.ServerAzureADAdministrator("serverAzureADAdministrator", new()
+    ///     {
+    ///         AdministratorName = "ActiveDirectory",
+    ///         AdministratorType = "ActiveDirectory",
+    ///         Login = "bob@contoso.com",
+    ///         ResourceGroupName = "sqlcrudtest-4799",
+    ///         ServerName = "sqlcrudtest-6440",
+    ///         Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///         TenantId = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:ServerAzureADAdministrator ActiveDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-6440/administrators/ActiveDirectory 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerAzureADAdministrator")]
     public partial class ServerAzureADAdministrator : global::Pulumi.CustomResource

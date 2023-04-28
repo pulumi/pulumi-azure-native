@@ -11,6 +11,56 @@ import * as utilities from "../utilities";
  * Base class for backup items.
  * API Version: 2023-02-01.
  * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Enable Protection on Azure IaasVm
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectedItem = new azure_native.recoveryservices.ProtectedItem("protectedItem", {
+ *     containerName: "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+ *     fabricName: "Azure",
+ *     properties: {
+ *         policyId: "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/NetSDKTestRsVault/backupPolicies/DefaultPolicy",
+ *         protectedItemType: "Microsoft.Compute/virtualMachines",
+ *         sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
+ *     },
+ *     protectedItemName: "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "NetSDKTestRsVault",
+ * });
+ *
+ * ```
+ * ### Stop Protection with retain data on Azure IaasVm
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectedItem = new azure_native.recoveryservices.ProtectedItem("protectedItem", {
+ *     containerName: "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+ *     fabricName: "Azure",
+ *     properties: {
+ *         protectedItemType: "Microsoft.Compute/virtualMachines",
+ *         protectionState: "ProtectionStopped",
+ *         sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
+ *     },
+ *     protectedItemName: "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "NetSDKTestRsVault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices:ProtectedItem VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PythonSDKBackupTestRg/providers/Microsoft.RecoveryServices/vaults/PySDKBackupTestRsVault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1/protectedItems/VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1 
+ * ```
  */
 export class ProtectedItem extends pulumi.CustomResource {
     /**

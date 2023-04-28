@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * The role assignment
+ *
+ * ## Example Usage
+ * ### PutEnrollmentDepartmentAdministratorRoleAssignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const billingRoleAssignmentByDepartment = new azure_native.billing.v20191001preview.BillingRoleAssignmentByDepartment("billingRoleAssignmentByDepartment", {
+ *     billingAccountName: "{billingAccountName}",
+ *     billingRoleAssignmentName: "{billingRoleAssignmentName}",
+ *     departmentName: "{departmentName}",
+ *     principalId: "99a1a759-30dd-42c2-828c-db398826bb67",
+ *     principalTenantId: "7ca289b9-c32d-4f01-8566-7ff93261d76f",
+ *     roleDefinitionId: "/providers/Microsoft.Billing/billingAccounts/7898901/departments/97603/billingRoleDefinitions/fb2cf67f-be5b-42e7-8025-4683c668f840",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment 9dfd08c2-62a3-4d47-85bd-1cdba1408402 /providers/Microsoft.Billing/billingAccounts/7898901/departments/97603/billingRoleAssignments/9dfd08c2-62a3-4d47-85bd-1cdba1408402 
+ * ```
  */
 export class BillingRoleAssignmentByDepartment extends pulumi.CustomResource {
     /**

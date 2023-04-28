@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the ExternalNetwork item.
+ *
+ * ## Example Usage
+ * ### ExternalNetworks_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const externalNetwork = new azure_native.managednetworkfabric.v20230201preview.ExternalNetwork("externalNetwork", {
+ *     exportRoutePolicyId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+ *     externalNetworkName: "example-externalnetwork",
+ *     importRoutePolicyId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+ *     l3IsolationDomainName: "example-l3domain",
+ *     optionAProperties: {
+ *         mtu: 1500,
+ *         peerASN: 65047,
+ *         primaryIpv4Prefix: "10.1.1.0/30",
+ *         primaryIpv6Prefix: "3FFE:FFFF:0:CD30::a0/126",
+ *         secondaryIpv4Prefix: "10.1.1.4/30",
+ *         secondaryIpv6Prefix: "3FFE:FFFF:0:CD30::a4/126",
+ *         vlanId: 1001,
+ *     },
+ *     optionBProperties: {
+ *         exportRouteTargets: ["65046:10039"],
+ *         importRouteTargets: ["65046:10039"],
+ *     },
+ *     peeringOption: "OptionA",
+ *     resourceGroupName: "resourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric/v20230201preview:ExternalNetwork example-externalnetwork /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/example-l3domain/externalNetworks/example-externalnetwork 
+ * ```
  */
 export class ExternalNetwork extends pulumi.CustomResource {
     /**

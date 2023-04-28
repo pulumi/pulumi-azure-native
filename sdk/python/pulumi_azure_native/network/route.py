@@ -198,6 +198,30 @@ class Route(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create route
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route = azure_native.network.Route("route",
+            address_prefix="10.0.3.0/24",
+            next_hop_type="VirtualNetworkGateway",
+            resource_group_name="rg1",
+            route_name="route1",
+            route_table_name="testrt")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:Route route1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeTables/testrt/routes/route1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: The destination CIDR to which the route applies.
@@ -221,6 +245,30 @@ class Route(pulumi.CustomResource):
         Route resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create route
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route = azure_native.network.Route("route",
+            address_prefix="10.0.3.0/24",
+            next_hop_type="VirtualNetworkGateway",
+            resource_group_name="rg1",
+            route_name="route1",
+            route_table_name="testrt")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:Route route1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeTables/testrt/routes/route1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteInitArgs args: The arguments to use to populate this resource's properties.

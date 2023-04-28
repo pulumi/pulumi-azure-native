@@ -11,6 +11,44 @@ import * as utilities from "../utilities";
  * Organization resource.
  * API Version: 2021-12-01.
  * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Organization_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const organization = new azure_native.confluent.Organization("organization", {
+ *     location: "West US",
+ *     offerDetail: {
+ *         id: "string",
+ *         planId: "string",
+ *         planName: "string",
+ *         publisherId: "string",
+ *         termUnit: "string",
+ *     },
+ *     organizationName: "myOrganization",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         Environment: "Dev",
+ *     },
+ *     userDetail: {
+ *         emailAddress: "contoso@microsoft.com",
+ *         firstName: "string",
+ *         lastName: "string",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:confluent:Organization myOrganization /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Confluent/organizations/myOrganization 
+ * ```
  */
 export class Organization extends pulumi.CustomResource {
     /**

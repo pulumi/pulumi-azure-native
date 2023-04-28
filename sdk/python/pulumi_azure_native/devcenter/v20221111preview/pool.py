@@ -177,6 +177,33 @@ class Pool(pulumi.CustomResource):
         """
         A pool of Virtual Machines.
 
+        ## Example Usage
+        ### Pools_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pool = azure_native.devcenter.v20221111preview.Pool("pool",
+            dev_box_definition_name="WebDevBox",
+            license_type="Windows_Client",
+            local_administrator="Enabled",
+            location="centralus",
+            network_connection_name="Network1-westus2",
+            pool_name="DevPool",
+            project_name="DevProject",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20221111preview:Pool DevPool /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/DevProject/pools/DevPool 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_box_definition_name: Name of a Dev Box definition in parent Project of this Pool
@@ -197,6 +224,33 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A pool of Virtual Machines.
+
+        ## Example Usage
+        ### Pools_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pool = azure_native.devcenter.v20221111preview.Pool("pool",
+            dev_box_definition_name="WebDevBox",
+            license_type="Windows_Client",
+            local_administrator="Enabled",
+            location="centralus",
+            network_connection_name="Network1-westus2",
+            pool_name="DevPool",
+            project_name="DevProject",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20221111preview:Pool DevPool /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/DevProject/pools/DevPool 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

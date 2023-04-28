@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.DataShare.V20191101
 {
     /// <summary>
     /// A type of synchronization setting based on schedule
+    /// 
+    /// ## Example Usage
+    /// ### SynchronizationSettings_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledSynchronizationSetting = new AzureNative.DataShare.V20191101.ScheduledSynchronizationSetting("scheduledSynchronizationSetting", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         Kind = "ScheduleBased",
+    ///         RecurrenceInterval = "Day",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///         SynchronizationSettingName = "Dataset1",
+    ///         SynchronizationTime = "2018-11-14T04:47:52.9614956Z",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare/v20191101:ScheduledSynchronizationSetting SynchronizationSetting1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1/synchronizationSettings/SynchronizationSetting1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20191101:ScheduledSynchronizationSetting")]
     public partial class ScheduledSynchronizationSetting : global::Pulumi.CustomResource

@@ -130,6 +130,40 @@ class RoutingIntent(pulumi.CustomResource):
         """
         The routing intent child resource of a Virtual hub.
 
+        ## Example Usage
+        ### RouteTablePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        routing_intent = azure_native.network.v20220101.RoutingIntent("routingIntent",
+            resource_group_name="rg1",
+            routing_intent_name="Intent1",
+            routing_policies=[
+                {
+                    "destinations": ["Internet"],
+                    "name": "InternetTraffic",
+                    "nextHop": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+                },
+                {
+                    "destinations": ["PrivateTraffic"],
+                    "name": "PrivateTrafficPolicy",
+                    "nextHop": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+                },
+            ],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220101:RoutingIntent Intent1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routingIntent/Intent1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -147,6 +181,40 @@ class RoutingIntent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The routing intent child resource of a Virtual hub.
+
+        ## Example Usage
+        ### RouteTablePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        routing_intent = azure_native.network.v20220101.RoutingIntent("routingIntent",
+            resource_group_name="rg1",
+            routing_intent_name="Intent1",
+            routing_policies=[
+                {
+                    "destinations": ["Internet"],
+                    "name": "InternetTraffic",
+                    "nextHop": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+                },
+                {
+                    "destinations": ["PrivateTraffic"],
+                    "name": "PrivateTrafficPolicy",
+                    "nextHop": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+                },
+            ],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220101:RoutingIntent Intent1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routingIntent/Intent1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RoutingIntentArgs args: The arguments to use to populate this resource's properties.

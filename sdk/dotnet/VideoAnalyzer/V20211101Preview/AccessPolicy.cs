@@ -11,6 +11,80 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
 {
     /// <summary>
     /// Access policies help define the authentication rules, and control access to specific video resources.
+    /// 
+    /// ## Example Usage
+    /// ### Register access policy entity.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessPolicy = new AzureNative.VideoAnalyzer.V20211101Preview.AccessPolicy("accessPolicy", new()
+    ///     {
+    ///         AccessPolicyName = "accessPolicyName1",
+    ///         AccountName = "testaccount2",
+    ///         Authentication = new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.JwtAuthenticationArgs
+    ///         {
+    ///             Audiences = new[]
+    ///             {
+    ///                 "audience1",
+    ///             },
+    ///             Claims = new[]
+    ///             {
+    ///                 new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.TokenClaimArgs
+    ///                 {
+    ///                     Name = "claimname1",
+    ///                     Value = "claimvalue1",
+    ///                 },
+    ///                 new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.TokenClaimArgs
+    ///                 {
+    ///                     Name = "claimname2",
+    ///                     Value = "claimvalue2",
+    ///                 },
+    ///             },
+    ///             Issuers = new[]
+    ///             {
+    ///                 "issuer1",
+    ///                 "issuer2",
+    ///             },
+    ///             Keys = 
+    ///             {
+    ///                 new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.RsaTokenKeyArgs
+    ///                 {
+    ///                     Alg = "RS256",
+    ///                     E = "ZLFzZTY0IQ==",
+    ///                     Kid = "123",
+    ///                     N = "YmFzZTY0IQ==",
+    ///                     Type = "#Microsoft.VideoAnalyzer.RsaTokenKey",
+    ///                 },
+    ///                 new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.EccTokenKeyArgs
+    ///                 {
+    ///                     Alg = "ES256",
+    ///                     Kid = "124",
+    ///                     Type = "#Microsoft.VideoAnalyzer.EccTokenKey",
+    ///                     X = "XX==",
+    ///                     Y = "YY==",
+    ///                 },
+    ///             },
+    ///             Type = "#Microsoft.VideoAnalyzer.JwtAuthentication",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer/v20211101preview:AccessPolicy accessPolicyName1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/accesspolicies/accessPolicyName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20211101preview:AccessPolicy")]
     public partial class AccessPolicy : global::Pulumi.CustomResource

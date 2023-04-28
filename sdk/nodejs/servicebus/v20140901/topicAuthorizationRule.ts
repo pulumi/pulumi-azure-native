@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus/v20140901:TopicAuthorizationRule myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/topics/{topicName}/authorizationRules/{authorizationRuleName} 
+ * ```
  *
  * @deprecated Version 2014-09-01 will be removed in v2 of the provider.
  */

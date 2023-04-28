@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a virtual machine scale set virtual machine.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20210301:VirtualMachineScaleSetVM myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId} 
+ * ```
  */
 export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**

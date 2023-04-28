@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
 {
     /// <summary>
     /// A private link scoped resource
+    /// 
+    /// ## Example Usage
+    /// ### Update a scoped resource in a private link scope.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkScopedResource = new AzureNative.Insights.V20191017Preview.PrivateLinkScopedResource("privateLinkScopedResource", new()
+    ///     {
+    ///         LinkedResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/components/my-component",
+    ///         Name = "scoped-resource-name",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///         ScopeName = "MyPrivateLinkScope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20191017preview:PrivateLinkScopedResource scoped-resource-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/privateLinkScopes/MyPrivateLinkScope/scopedResources/scoped-resource-name 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20191017preview:PrivateLinkScopedResource")]
     public partial class PrivateLinkScopedResource : global::Pulumi.CustomResource

@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Represents a Configuration.
     /// API Version: 2021-05-01.
     /// Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update a user configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configuration = new AzureNative.DBforMySQL.Configuration("configuration", new()
+    ///     {
+    ///         ConfigurationName = "event_scheduler",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "testserver",
+    ///         Source = "user-override",
+    ///         Value = "on",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformysql:Configuration event_scheduler /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMySQL/flexibleServers/testserver/configurations/event_scheduler 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource

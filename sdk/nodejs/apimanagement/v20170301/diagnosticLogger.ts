@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Logger details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateDiagnosticLogger
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const diagnosticLogger = new azure_native.apimanagement.v20170301.DiagnosticLogger("diagnosticLogger", {
+ *     diagnosticId: "default",
+ *     loggerid: "applicationinsights",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20170301:DiagnosticLogger applicationinsights /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default/loggers/applicationinsights 
+ * ```
  */
 export class DiagnosticLogger extends pulumi.CustomResource {
     /**

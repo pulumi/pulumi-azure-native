@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.Security.V20210601
 {
     /// <summary>
     /// Security assessment metadata response
+    /// 
+    /// ## Example Usage
+    /// ### Create security assessment metadata for subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assessmentMetadataInSubscription = new AzureNative.Security.V20210601.AssessmentMetadataInSubscription("assessmentMetadataInSubscription", new()
+    ///     {
+    ///         AssessmentMetadataName = "ca039e75-a276-4175-aebc-bcd41e4b14b7",
+    ///         AssessmentType = "CustomerManaged",
+    ///         Categories = new[]
+    ///         {
+    ///             "Compute",
+    ///         },
+    ///         Description = "Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
+    ///         DisplayName = "Install endpoint protection solution on virtual machine scale sets",
+    ///         ImplementationEffort = "Low",
+    ///         RemediationDescription = "To install an endpoint protection solution: 1.  &lt;a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\"&gt;Follow the instructions in How do I turn on antimalware in my virtual machine scale set&lt;/a&gt;",
+    ///         Severity = "Medium",
+    ///         Threats = new[]
+    ///         {
+    ///             "dataExfiltration",
+    ///             "dataSpillage",
+    ///             "maliciousInsider",
+    ///         },
+    ///         UserImpact = "Low",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20210601:AssessmentMetadataInSubscription ca039e75-a276-4175-aebc-bcd41e4b14b7 /providers/Microsoft.Security/assessmentMetadata/ca039e75-a276-4175-aebc-bcd41e4b14b7 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20210601:AssessmentMetadataInSubscription")]
     public partial class AssessmentMetadataInSubscription : global::Pulumi.CustomResource

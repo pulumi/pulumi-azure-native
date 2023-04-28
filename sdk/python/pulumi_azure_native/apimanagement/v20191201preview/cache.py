@@ -127,6 +127,31 @@ class Cache(pulumi.CustomResource):
         """
         Cache details.
 
+        ## Example Usage
+        ### ApiManagementCreateCache
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.apimanagement.v20191201preview.Cache("cache",
+            cache_id="westindia",
+            connection_string="contoso5.redis.cache.windows.net,ssl=true,password=...",
+            description="Redis cache instances in West India",
+            resource_group_name="rg1",
+            resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/contoso5",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20191201preview:Cache westindia /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/caches/westindia 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_id: Identifier of the Cache entity. Cache identifier (should be either 'default' or valid Azure region identifier).
@@ -144,6 +169,31 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cache details.
+
+        ## Example Usage
+        ### ApiManagementCreateCache
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.apimanagement.v20191201preview.Cache("cache",
+            cache_id="westindia",
+            connection_string="contoso5.redis.cache.windows.net,ssl=true,password=...",
+            description="Redis cache instances in West India",
+            resource_group_name="rg1",
+            resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/contoso5",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20191201preview:Cache westindia /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/caches/westindia 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CacheArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,81 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Blueprint artifact applies Policy assignments.
+    /// 
+    /// ## Example Usage
+    /// ### ARMTemplateArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignmentArtifact = new AzureNative.Blueprint.V20171111Preview.PolicyAssignmentArtifact("policyAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "storageTemplate",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PolicyAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignmentArtifact = new AzureNative.Blueprint.V20171111Preview.PolicyAssignmentArtifact("policyAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "costCenterPolicy",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         DisplayName = "force costCenter tag on all resources",
+    ///         Kind = "policyAssignment",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///         Parameters = 
+    ///         {
+    ///             { "tagName", null },
+    ///             { "tagValue", null },
+    ///         },
+    ///         PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RoleAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignmentArtifact = new AzureNative.Blueprint.V20171111Preview.PolicyAssignmentArtifact("policyAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "ownerAssignment",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blueprint/v20171111preview:PolicyAssignmentArtifact ownerAssignment /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:PolicyAssignmentArtifact")]
     public partial class PolicyAssignmentArtifact : global::Pulumi.CustomResource

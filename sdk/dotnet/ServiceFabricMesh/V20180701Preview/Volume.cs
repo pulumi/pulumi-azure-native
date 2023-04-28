@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 {
     /// <summary>
     /// This type describes a volume resource.
+    /// 
+    /// ## Example Usage
+    /// ### VolumeCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.ServiceFabricMesh.V20180701Preview.Volume("volume", new()
+    ///     {
+    ///         AzureFileParameters = new AzureNative.ServiceFabricMesh.V20180701Preview.Inputs.VolumeProviderParametersAzureFileArgs
+    ///         {
+    ///             AccountKey = "provide-account-key-here",
+    ///             AccountName = "sbzdemoaccount",
+    ///             ShareName = "sharel",
+    ///         },
+    ///         Description = "File share backed by Azure Files storage.",
+    ///         Location = "eastus",
+    ///         Provider = "SFAzureFile",
+    ///         ResourceGroupName = "sbz_demo",
+    ///         VolumeName = "sbzDemoVolume",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabricmesh/v20180701preview:Volume sbzDemoVolume /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/volumes/sbzDemoVolume 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180701preview:Volume")]

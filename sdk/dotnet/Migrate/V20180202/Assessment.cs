@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Migrate.V20180202
 {
     /// <summary>
     /// An assessment created for a group in the Migration project.
+    /// 
+    /// ## Example Usage
+    /// ### Assessments_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assessment = new AzureNative.Migrate.V20180202.Assessment("assessment", new()
+    ///     {
+    ///         AssessmentName = "assessment01",
+    ///         AzureHybridUseBenefit = "Yes",
+    ///         AzureLocation = "WestUs",
+    ///         AzureOfferCode = "MSAZR0003P",
+    ///         AzurePricingTier = "Standard",
+    ///         AzureStorageRedundancy = "LocallyRedundant",
+    ///         Currency = "USD",
+    ///         DiscountPercentage = 100,
+    ///         ETag = "\"1100637e-0000-0000-0000-59f6ed1f0000\"",
+    ///         GroupName = "group01",
+    ///         Percentile = "Percentile50",
+    ///         ProjectName = "project01",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ScalingFactor = 1.2,
+    ///         SizingCriterion = "PerformanceBased",
+    ///         Stage = "InProgress",
+    ///         TimeRange = "Day",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20180202:Assessment assessment01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/groups/group01/assessments/assessment01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20180202:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource

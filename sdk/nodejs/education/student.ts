@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * Student details.
  * API Version: 2021-12-01-preview.
  * Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Student
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const student = new azure_native.education.Student("student", {
+ *     billingAccountName: "{billingAccountName}",
+ *     billingProfileName: "{billingProfileName}",
+ *     budget: {
+ *         currency: "USD",
+ *         value: 100,
+ *     },
+ *     email: "test@contoso.com",
+ *     expirationDate: "2021-11-09T22:13:21.795Z",
+ *     firstName: "test",
+ *     invoiceSectionName: "{invoiceSectionName}",
+ *     lastName: "user",
+ *     role: "Student",
+ *     studentAlias: "{studentAlias}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:education:Student {studentAlias} /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default/students/{studentAlias} 
+ * ```
  */
 export class Student extends pulumi.CustomResource {
     /**

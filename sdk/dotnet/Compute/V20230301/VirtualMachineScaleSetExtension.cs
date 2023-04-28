@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.Compute.V20230301
 {
     /// <summary>
     /// Describes a Virtual Machine Scale Set Extension.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualMachineScaleSetExtension_CreateOrUpdate_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineScaleSetExtension = new AzureNative.Compute.V20230301.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension", new()
+    ///     {
+    ///         AutoUpgradeMinorVersion = true,
+    ///         EnableAutomaticUpgrade = true,
+    ///         ForceUpdateTag = "aaaaaaaaa",
+    ///         Name = "{extension-name}",
+    ///         ProtectedSettings = null,
+    ///         ProvisionAfterExtensions = new[]
+    ///         {
+    ///             "aa",
+    ///         },
+    ///         Publisher = "{extension-Publisher}",
+    ///         ResourceGroupName = "rgcompute",
+    ///         Settings = null,
+    ///         SuppressFailures = true,
+    ///         Type = "{extension-Type}",
+    ///         TypeHandlerVersion = "{handler-version}",
+    ///         VmScaleSetName = "aaaaaaa",
+    ///         VmssExtensionName = "aaaaaaaaaaaaaaaaaaaaa",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### VirtualMachineScaleSetExtension_CreateOrUpdate_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineScaleSetExtension = new AzureNative.Compute.V20230301.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension", new()
+    ///     {
+    ///         ResourceGroupName = "rgcompute",
+    ///         VmScaleSetName = "aaaaaaaaaaa",
+    ///         VmssExtensionName = "aaaaaaaaaaa",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20230301:VirtualMachineScaleSetExtension {extension-name} aaaaaaaa 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20230301:VirtualMachineScaleSetExtension")]
     public partial class VirtualMachineScaleSetExtension : global::Pulumi.CustomResource

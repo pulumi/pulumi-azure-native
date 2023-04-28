@@ -11,6 +11,92 @@ namespace Pulumi.AzureNative.Network.V20180201
 {
     /// <summary>
     /// Class representing a Traffic Manager profile.
+    /// 
+    /// ## Example Usage
+    /// ### Profile-PUT-NoEndpoints
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Network.V20180201.Profile("profile", new()
+    ///     {
+    ///         DnsConfig = new AzureNative.Network.V20180201.Inputs.DnsConfigArgs
+    ///         {
+    ///             RelativeName = "azsmnet6386",
+    ///             Ttl = 35,
+    ///         },
+    ///         Location = "global",
+    ///         MonitorConfig = new AzureNative.Network.V20180201.Inputs.MonitorConfigArgs
+    ///         {
+    ///             Path = "/testpath.aspx",
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///         },
+    ///         ProfileName = "azsmnet6386",
+    ///         ProfileStatus = "Enabled",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///         TrafficRoutingMethod = "Performance",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Profile-PUT-WithEndpoints
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var profile = new AzureNative.Network.V20180201.Profile("profile", new()
+    ///     {
+    ///         DnsConfig = new AzureNative.Network.V20180201.Inputs.DnsConfigArgs
+    ///         {
+    ///             RelativeName = "azuresdkfornetautoresttrafficmanager6192",
+    ///             Ttl = 35,
+    ///         },
+    ///         Endpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180201.Inputs.EndpointArgs
+    ///             {
+    ///                 EndpointLocation = "North Europe",
+    ///                 EndpointStatus = "Enabled",
+    ///                 Target = "foobar.contoso.com",
+    ///             },
+    ///         },
+    ///         Location = "global",
+    ///         MonitorConfig = new AzureNative.Network.V20180201.Inputs.MonitorConfigArgs
+    ///         {
+    ///             IntervalInSeconds = 10,
+    ///             Path = "/testpath.aspx",
+    ///             Port = 80,
+    ///             Protocol = "HTTP",
+    ///             TimeoutInSeconds = 5,
+    ///             ToleratedNumberOfFailures = 2,
+    ///         },
+    ///         ProfileName = "azuresdkfornetautoresttrafficmanager6192",
+    ///         ProfileStatus = "Enabled",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager2583",
+    ///         TrafficRoutingMethod = "Performance",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180201:Profile azuresdkfornetautoresttrafficmanager6192 /subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180201:Profile")]

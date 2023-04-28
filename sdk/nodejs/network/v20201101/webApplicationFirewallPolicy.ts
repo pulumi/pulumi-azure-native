@@ -9,6 +9,76 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines web application firewall policy.
+ *
+ * ## Example Usage
+ * ### Creates or updates a WAF policy within a resource group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webApplicationFirewallPolicy = new azure_native.network.v20201101.WebApplicationFirewallPolicy("webApplicationFirewallPolicy", {
+ *     customRules: [
+ *         {
+ *             action: "Block",
+ *             matchConditions: [{
+ *                 matchValues: [
+ *                     "192.168.1.0/24",
+ *                     "10.0.0.0/24",
+ *                 ],
+ *                 matchVariables: [{
+ *                     variableName: "RemoteAddr",
+ *                 }],
+ *                 operator: "IPMatch",
+ *             }],
+ *             name: "Rule1",
+ *             priority: 1,
+ *             ruleType: "MatchRule",
+ *         },
+ *         {
+ *             action: "Block",
+ *             matchConditions: [
+ *                 {
+ *                     matchValues: ["192.168.1.0/24"],
+ *                     matchVariables: [{
+ *                         variableName: "RemoteAddr",
+ *                     }],
+ *                     operator: "IPMatch",
+ *                 },
+ *                 {
+ *                     matchValues: ["Windows"],
+ *                     matchVariables: [{
+ *                         selector: "UserAgent",
+ *                         variableName: "RequestHeaders",
+ *                     }],
+ *                     operator: "Contains",
+ *                 },
+ *             ],
+ *             name: "Rule2",
+ *             priority: 2,
+ *             ruleType: "MatchRule",
+ *         },
+ *     ],
+ *     location: "WestUs",
+ *     managedRules: {
+ *         managedRuleSets: [{
+ *             ruleSetType: "OWASP",
+ *             ruleSetVersion: "3.0",
+ *         }],
+ *     },
+ *     policyName: "Policy1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:WebApplicationFirewallPolicy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/Policy1 
+ * ```
  */
 export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     /**

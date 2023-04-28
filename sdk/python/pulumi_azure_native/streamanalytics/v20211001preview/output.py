@@ -182,6 +182,353 @@ class Output(pulumi.CustomResource):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
 
+        ## Example Usage
+        ### Create a Delta Lake output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.BlobOutputDataSourceArgs(
+                container="deltaoutput",
+                storage_accounts=[azure_native.streamanalytics.v20211001preview.StorageAccountArgs(
+                    account_key="accountKey==",
+                    account_name="someAccountName",
+                )],
+                type="Microsoft.Storage/Blob",
+            ),
+            job_name="sjName",
+            output_name="output1221",
+            resource_group_name="sjrg",
+            serialization=azure_native.streamanalytics.v20211001preview.DeltaSerializationArgs(
+                delta_table_path="/folder1/table1",
+                partition_columns=["column1"],
+                type="Delta",
+            ))
+
+        ```
+        ### Create a DocumentDB output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.DocumentDbOutputDataSourceArgs(
+                account_id="someAccountId",
+                account_key="accountKey==",
+                authentication_mode="Msi",
+                collection_name_pattern="collection",
+                database="db01",
+                document_id="documentId",
+                partition_key="key",
+                type="Microsoft.Storage/DocumentDB",
+            ),
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+        ### Create a Gateway Message Bus output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.GatewayMessageBusOutputDataSourceArgs(
+                topic="EdgeTopic1",
+                type="GatewayMessageBus",
+            ),
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+        ### Create a PostgreSQL output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.PostgreSQLOutputDataSourceArgs(
+                authentication_mode="Msi",
+                database="someDatabase",
+                max_writer_count=1,
+                password="somePassword",
+                server="someServer",
+                table="someTable",
+                type="Microsoft.DBForPostgreSQL/servers/databases",
+                user="user",
+            ),
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+        ### Create a Power BI output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.PowerBIOutputDataSourceArgs(
+                dataset="someDataset",
+                group_id="ac40305e-3e8d-43ac-8161-c33799f43e95",
+                group_name="MyPowerBIGroup",
+                refresh_token="someRefreshToken==",
+                table="someTable",
+                token_user_display_name="Bob Smith",
+                token_user_principal_name="bobsmith@contoso.com",
+                type="PowerBI",
+            ),
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+        ### Create a Service Bus Queue output with Avro serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.ServiceBusQueueOutputDataSourceArgs(
+                property_columns=[
+                    "column1",
+                    "column2",
+                ],
+                queue_name="sdkqueue",
+                service_bus_namespace="sdktest",
+                shared_access_policy_key="sharedAccessPolicyKey=",
+                shared_access_policy_name="RootManageSharedAccessKey",
+                system_property_columns={
+                    "MessageId": "col3",
+                    "PartitionKey": "col4",
+                },
+                type="Microsoft.ServiceBus/Queue",
+            ),
+            job_name="sj5095",
+            output_name="output3456",
+            resource_group_name="sjrg3410",
+            serialization=azure_native.streamanalytics.v20211001preview.AvroSerializationArgs(
+                type="Avro",
+            ))
+
+        ```
+        ### Create a Service Bus Topic output with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.ServiceBusTopicOutputDataSourceArgs(
+                property_columns=[
+                    "column1",
+                    "column2",
+                ],
+                service_bus_namespace="sdktest",
+                shared_access_policy_key="sharedAccessPolicyKey=",
+                shared_access_policy_name="RootManageSharedAccessKey",
+                topic_name="sdktopic",
+                type="Microsoft.ServiceBus/Topic",
+            ),
+            job_name="sj7094",
+            output_name="output7886",
+            resource_group_name="sjrg6450",
+            serialization=azure_native.streamanalytics.v20211001preview.CsvSerializationArgs(
+                encoding="UTF8",
+                field_delimiter=",",
+                type="Csv",
+            ))
+
+        ```
+        ### Create a blob output with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.BlobOutputDataSourceArgs(
+                blob_path_prefix="my/path",
+                blob_write_mode="Once",
+                container="state",
+                date_format="yyyy/MM/dd",
+                path_pattern="{date}/{time}",
+                storage_accounts=[azure_native.streamanalytics.v20211001preview.StorageAccountArgs(
+                    account_key="accountKey==",
+                    account_name="someAccountName",
+                )],
+                time_format="HH",
+                type="Microsoft.Storage/Blob",
+            ),
+            job_name="sj900",
+            output_name="output1623",
+            resource_group_name="sjrg5023",
+            serialization=azure_native.streamanalytics.v20211001preview.CsvSerializationArgs(
+                encoding="UTF8",
+                field_delimiter=",",
+                type="Csv",
+            ))
+
+        ```
+        ### Create an Azure Data Lake Store output with JSON serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureDataLakeStoreOutputDataSourceArgs(
+                account_name="someaccount",
+                date_format="yyyy/MM/dd",
+                file_path_prefix="{date}/{time}",
+                refresh_token="someRefreshToken==",
+                tenant_id="cea4e98b-c798-49e7-8c40-4a2b3beb47dd",
+                time_format="HH",
+                token_user_display_name="Bob Smith",
+                token_user_principal_name="bobsmith@contoso.com",
+                type="Microsoft.DataLake/Accounts",
+            ),
+            job_name="sj3310",
+            output_name="output5195",
+            resource_group_name="sjrg6912",
+            serialization=azure_native.streamanalytics.v20211001preview.JsonSerializationArgs(
+                encoding="UTF8",
+                format="Array",
+                type="Json",
+            ))
+
+        ```
+        ### Create an Azure Data Warehouse output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureSynapseOutputDataSourceArgs(
+                authentication_mode="Msi",
+                database="zhayaSQLpool",
+                password="password123",
+                server="asatestserver",
+                table="test2",
+                type="Microsoft.Sql/Server/DataWarehouse",
+                user="tolladmin",
+            ),
+            job_name="sjName",
+            output_name="dwOutput",
+            resource_group_name="sjrg")
+
+        ```
+        ### Create an Azure Function output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureFunctionOutputDataSourceArgs(
+                function_app_name="functionappforasaautomation",
+                function_name="HttpTrigger2",
+                max_batch_count=100,
+                max_batch_size=256,
+                type="Microsoft.AzureFunction",
+            ),
+            job_name="sjName",
+            output_name="azureFunction1",
+            resource_group_name="sjrg")
+
+        ```
+        ### Create an Azure SQL database output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureSqlDatabaseOutputDataSourceArgs(
+                database="someDatabase",
+                password="somePassword",
+                server="someServer",
+                table="someTable",
+                type="Microsoft.Sql/Server/Database",
+                user="<user>",
+            ),
+            job_name="sj6458",
+            output_name="output1755",
+            resource_group_name="sjrg2157")
+
+        ```
+        ### Create an Azure Table output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureTableOutputDataSourceArgs(
+                account_key="accountKey==",
+                account_name="someAccountName",
+                batch_size=25,
+                columns_to_remove=[
+                    "column1",
+                    "column2",
+                ],
+                partition_key="partitionKey",
+                row_key="rowKey",
+                table="samples",
+                type="Microsoft.Storage/Table",
+            ),
+            job_name="sj2790",
+            output_name="output958",
+            resource_group_name="sjrg5176")
+
+        ```
+        ### Create an Event Hub output with JSON serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.EventHubOutputDataSourceArgs(
+                event_hub_name="sdkeventhub",
+                partition_key="partitionKey",
+                service_bus_namespace="sdktest",
+                shared_access_policy_key="sharedAccessPolicyKey=",
+                shared_access_policy_name="RootManageSharedAccessKey",
+                type="Microsoft.ServiceBus/EventHub",
+            ),
+            job_name="sj3310",
+            output_name="output5195",
+            resource_group_name="sjrg6912",
+            serialization=azure_native.streamanalytics.v20211001preview.JsonSerializationArgs(
+                encoding="UTF8",
+                format="Array",
+                type="Json",
+            ),
+            watermark_settings=azure_native.streamanalytics.v20211001preview.OutputWatermarkPropertiesArgs(
+                max_watermark_difference_across_partitions="16:14:30",
+                watermark_mode="SendCurrentPartitionWatermark",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics/v20211001preview:Output output5195 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg6912/providers/Microsoft.StreamAnalytics/streamingjobs/sj3310/outputs/output5195 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AzureDataLakeStoreOutputDataSourceArgs'], pulumi.InputType['AzureFunctionOutputDataSourceArgs'], pulumi.InputType['AzureSqlDatabaseOutputDataSourceArgs'], pulumi.InputType['AzureSynapseOutputDataSourceArgs'], pulumi.InputType['AzureTableOutputDataSourceArgs'], pulumi.InputType['BlobOutputDataSourceArgs'], pulumi.InputType['DocumentDbOutputDataSourceArgs'], pulumi.InputType['EventHubOutputDataSourceArgs'], pulumi.InputType['EventHubV2OutputDataSourceArgs'], pulumi.InputType['GatewayMessageBusOutputDataSourceArgs'], pulumi.InputType['PostgreSQLOutputDataSourceArgs'], pulumi.InputType['PowerBIOutputDataSourceArgs'], pulumi.InputType['RawOutputDatasourceArgs'], pulumi.InputType['ServiceBusQueueOutputDataSourceArgs'], pulumi.InputType['ServiceBusTopicOutputDataSourceArgs']]] datasource: Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
@@ -202,6 +549,353 @@ class Output(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+
+        ## Example Usage
+        ### Create a Delta Lake output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.BlobOutputDataSourceArgs(
+                container="deltaoutput",
+                storage_accounts=[azure_native.streamanalytics.v20211001preview.StorageAccountArgs(
+                    account_key="accountKey==",
+                    account_name="someAccountName",
+                )],
+                type="Microsoft.Storage/Blob",
+            ),
+            job_name="sjName",
+            output_name="output1221",
+            resource_group_name="sjrg",
+            serialization=azure_native.streamanalytics.v20211001preview.DeltaSerializationArgs(
+                delta_table_path="/folder1/table1",
+                partition_columns=["column1"],
+                type="Delta",
+            ))
+
+        ```
+        ### Create a DocumentDB output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.DocumentDbOutputDataSourceArgs(
+                account_id="someAccountId",
+                account_key="accountKey==",
+                authentication_mode="Msi",
+                collection_name_pattern="collection",
+                database="db01",
+                document_id="documentId",
+                partition_key="key",
+                type="Microsoft.Storage/DocumentDB",
+            ),
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+        ### Create a Gateway Message Bus output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.GatewayMessageBusOutputDataSourceArgs(
+                topic="EdgeTopic1",
+                type="GatewayMessageBus",
+            ),
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+        ### Create a PostgreSQL output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.PostgreSQLOutputDataSourceArgs(
+                authentication_mode="Msi",
+                database="someDatabase",
+                max_writer_count=1,
+                password="somePassword",
+                server="someServer",
+                table="someTable",
+                type="Microsoft.DBForPostgreSQL/servers/databases",
+                user="user",
+            ),
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+        ### Create a Power BI output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.PowerBIOutputDataSourceArgs(
+                dataset="someDataset",
+                group_id="ac40305e-3e8d-43ac-8161-c33799f43e95",
+                group_name="MyPowerBIGroup",
+                refresh_token="someRefreshToken==",
+                table="someTable",
+                token_user_display_name="Bob Smith",
+                token_user_principal_name="bobsmith@contoso.com",
+                type="PowerBI",
+            ),
+            job_name="sj2331",
+            output_name="output3022",
+            resource_group_name="sjrg7983")
+
+        ```
+        ### Create a Service Bus Queue output with Avro serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.ServiceBusQueueOutputDataSourceArgs(
+                property_columns=[
+                    "column1",
+                    "column2",
+                ],
+                queue_name="sdkqueue",
+                service_bus_namespace="sdktest",
+                shared_access_policy_key="sharedAccessPolicyKey=",
+                shared_access_policy_name="RootManageSharedAccessKey",
+                system_property_columns={
+                    "MessageId": "col3",
+                    "PartitionKey": "col4",
+                },
+                type="Microsoft.ServiceBus/Queue",
+            ),
+            job_name="sj5095",
+            output_name="output3456",
+            resource_group_name="sjrg3410",
+            serialization=azure_native.streamanalytics.v20211001preview.AvroSerializationArgs(
+                type="Avro",
+            ))
+
+        ```
+        ### Create a Service Bus Topic output with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.ServiceBusTopicOutputDataSourceArgs(
+                property_columns=[
+                    "column1",
+                    "column2",
+                ],
+                service_bus_namespace="sdktest",
+                shared_access_policy_key="sharedAccessPolicyKey=",
+                shared_access_policy_name="RootManageSharedAccessKey",
+                topic_name="sdktopic",
+                type="Microsoft.ServiceBus/Topic",
+            ),
+            job_name="sj7094",
+            output_name="output7886",
+            resource_group_name="sjrg6450",
+            serialization=azure_native.streamanalytics.v20211001preview.CsvSerializationArgs(
+                encoding="UTF8",
+                field_delimiter=",",
+                type="Csv",
+            ))
+
+        ```
+        ### Create a blob output with CSV serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.BlobOutputDataSourceArgs(
+                blob_path_prefix="my/path",
+                blob_write_mode="Once",
+                container="state",
+                date_format="yyyy/MM/dd",
+                path_pattern="{date}/{time}",
+                storage_accounts=[azure_native.streamanalytics.v20211001preview.StorageAccountArgs(
+                    account_key="accountKey==",
+                    account_name="someAccountName",
+                )],
+                time_format="HH",
+                type="Microsoft.Storage/Blob",
+            ),
+            job_name="sj900",
+            output_name="output1623",
+            resource_group_name="sjrg5023",
+            serialization=azure_native.streamanalytics.v20211001preview.CsvSerializationArgs(
+                encoding="UTF8",
+                field_delimiter=",",
+                type="Csv",
+            ))
+
+        ```
+        ### Create an Azure Data Lake Store output with JSON serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureDataLakeStoreOutputDataSourceArgs(
+                account_name="someaccount",
+                date_format="yyyy/MM/dd",
+                file_path_prefix="{date}/{time}",
+                refresh_token="someRefreshToken==",
+                tenant_id="cea4e98b-c798-49e7-8c40-4a2b3beb47dd",
+                time_format="HH",
+                token_user_display_name="Bob Smith",
+                token_user_principal_name="bobsmith@contoso.com",
+                type="Microsoft.DataLake/Accounts",
+            ),
+            job_name="sj3310",
+            output_name="output5195",
+            resource_group_name="sjrg6912",
+            serialization=azure_native.streamanalytics.v20211001preview.JsonSerializationArgs(
+                encoding="UTF8",
+                format="Array",
+                type="Json",
+            ))
+
+        ```
+        ### Create an Azure Data Warehouse output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureSynapseOutputDataSourceArgs(
+                authentication_mode="Msi",
+                database="zhayaSQLpool",
+                password="password123",
+                server="asatestserver",
+                table="test2",
+                type="Microsoft.Sql/Server/DataWarehouse",
+                user="tolladmin",
+            ),
+            job_name="sjName",
+            output_name="dwOutput",
+            resource_group_name="sjrg")
+
+        ```
+        ### Create an Azure Function output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureFunctionOutputDataSourceArgs(
+                function_app_name="functionappforasaautomation",
+                function_name="HttpTrigger2",
+                max_batch_count=100,
+                max_batch_size=256,
+                type="Microsoft.AzureFunction",
+            ),
+            job_name="sjName",
+            output_name="azureFunction1",
+            resource_group_name="sjrg")
+
+        ```
+        ### Create an Azure SQL database output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureSqlDatabaseOutputDataSourceArgs(
+                database="someDatabase",
+                password="somePassword",
+                server="someServer",
+                table="someTable",
+                type="Microsoft.Sql/Server/Database",
+                user="<user>",
+            ),
+            job_name="sj6458",
+            output_name="output1755",
+            resource_group_name="sjrg2157")
+
+        ```
+        ### Create an Azure Table output
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.AzureTableOutputDataSourceArgs(
+                account_key="accountKey==",
+                account_name="someAccountName",
+                batch_size=25,
+                columns_to_remove=[
+                    "column1",
+                    "column2",
+                ],
+                partition_key="partitionKey",
+                row_key="rowKey",
+                table="samples",
+                type="Microsoft.Storage/Table",
+            ),
+            job_name="sj2790",
+            output_name="output958",
+            resource_group_name="sjrg5176")
+
+        ```
+        ### Create an Event Hub output with JSON serialization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        output = azure_native.streamanalytics.v20211001preview.Output("output",
+            datasource=azure_native.streamanalytics.v20211001preview.EventHubOutputDataSourceArgs(
+                event_hub_name="sdkeventhub",
+                partition_key="partitionKey",
+                service_bus_namespace="sdktest",
+                shared_access_policy_key="sharedAccessPolicyKey=",
+                shared_access_policy_name="RootManageSharedAccessKey",
+                type="Microsoft.ServiceBus/EventHub",
+            ),
+            job_name="sj3310",
+            output_name="output5195",
+            resource_group_name="sjrg6912",
+            serialization=azure_native.streamanalytics.v20211001preview.JsonSerializationArgs(
+                encoding="UTF8",
+                format="Array",
+                type="Json",
+            ),
+            watermark_settings=azure_native.streamanalytics.v20211001preview.OutputWatermarkPropertiesArgs(
+                max_watermark_difference_across_partitions="16:14:30",
+                watermark_mode="SendCurrentPartitionWatermark",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics/v20211001preview:Output output5195 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg6912/providers/Microsoft.StreamAnalytics/streamingjobs/sj3310/outputs/output5195 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OutputInitArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * The management group details.
  * API Version: 2021-04-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PutManagementGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementGroup = new azure_native.management.ManagementGroup("managementGroup", {
+ *     details: {
+ *         parent: {
+ *             id: "/providers/Microsoft.Management/managementGroups/RootGroup",
+ *         },
+ *     },
+ *     displayName: "ChildGroup",
+ *     groupId: "ChildGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:management:ManagementGroup ChildGroup /providers/Microsoft.Management/managementGroups/ChildGroup 
+ * ```
  */
 export class ManagementGroup extends pulumi.CustomResource {
     /**

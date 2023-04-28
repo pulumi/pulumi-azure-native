@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20180201Preview
 {
     /// <summary>
     /// Build step resource properties
+    /// 
+    /// ## Example Usage
+    /// ### BuildSteps_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var buildStep = new AzureNative.ContainerRegistry.V20180201Preview.BuildStep("buildStep", new()
+    ///     {
+    ///         BuildTaskName = "myBuildTask",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StepName = "myStep",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20180201preview:BuildStep myStep /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/buildTasks/myBuildTask/steps/myStep 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20180201preview:BuildStep")]
     public partial class BuildStep : global::Pulumi.CustomResource

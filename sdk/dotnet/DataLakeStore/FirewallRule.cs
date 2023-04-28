@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.DataLakeStore
     /// Data Lake Store firewall rule information.
     /// API Version: 2016-11-01.
     /// Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var firewallRule = new AzureNative.DataLakeStore.FirewallRule("firewallRule", new()
+    ///     {
+    ///         AccountName = "contosoadla",
+    ///         EndIpAddress = "2.2.2.2",
+    ///         FirewallRuleName = "test_rule",
+    ///         ResourceGroupName = "contosorg",
+    ///         StartIpAddress = "1.1.1.1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datalakestore:FirewallRule test_rule 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakestore:FirewallRule")]
     public partial class FirewallRule : global::Pulumi.CustomResource

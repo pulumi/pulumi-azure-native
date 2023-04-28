@@ -99,6 +99,28 @@ class ManagementConfiguration(pulumi.CustomResource):
         API Version: 2015-11-01-preview.
         Previous API Version: 2015-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ManagementConfigurationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_configuration = azure_native.operationsmanagement.ManagementConfiguration("managementConfiguration",
+            location="East US",
+            management_configuration_name="managementConfiguration1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationsmanagement:ManagementConfiguration managementConfiguration1 subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationsManagement/ManagementConfigurations/managementConfiguration1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
@@ -116,6 +138,28 @@ class ManagementConfiguration(pulumi.CustomResource):
         The container for solution.
         API Version: 2015-11-01-preview.
         Previous API Version: 2015-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ManagementConfigurationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_configuration = azure_native.operationsmanagement.ManagementConfiguration("managementConfiguration",
+            location="East US",
+            management_configuration_name="managementConfiguration1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationsmanagement:ManagementConfiguration managementConfiguration1 subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationsManagement/ManagementConfigurations/managementConfiguration1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementConfigurationArgs args: The arguments to use to populate this resource's properties.

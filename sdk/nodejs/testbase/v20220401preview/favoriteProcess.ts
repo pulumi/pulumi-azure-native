@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * A favorite process identifier.
+ *
+ * ## Example Usage
+ * ### FavoriteProcessCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const favoriteProcess = new azure_native.testbase.v20220401preview.FavoriteProcess("favoriteProcess", {
+ *     actualProcessName: "testApp&.exe",
+ *     favoriteProcessResourceName: "testAppProcess",
+ *     packageName: "contoso-package2",
+ *     resourceGroupName: "contoso-rg1",
+ *     testBaseAccountName: "contoso-testBaseAccount1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase/v20220401preview:FavoriteProcess testAppProcess /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/packages/contoso-package2/favoriteProcesses/testAppProcess 
+ * ```
  */
 export class FavoriteProcess extends pulumi.CustomResource {
     /**

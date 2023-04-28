@@ -151,6 +151,40 @@ class CommitmentPlan(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Commitment Plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        commitment_plan = azure_native.cognitiveservices.CommitmentPlan("commitmentPlan",
+            commitment_plan_name="commitmentPlanName",
+            kind="SpeechServices",
+            location="West US",
+            properties=azure_native.cognitiveservices.CommitmentPlanPropertiesResponseArgs(
+                auto_renew=True,
+                current=azure_native.cognitiveservices.CommitmentPeriodArgs(
+                    tier="T1",
+                ),
+                hosting_model="Web",
+                plan_type="STT",
+            ),
+            resource_group_name="resourceGroupName",
+            sku=azure_native.cognitiveservices.SkuResponseArgs(
+                name="S0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:CommitmentPlan commitmentPlanName /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/commitmentPlans/commitmentPlanName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] commitment_plan_name: The name of the commitmentPlan associated with the Cognitive Services Account
@@ -171,6 +205,40 @@ class CommitmentPlan(pulumi.CustomResource):
         Cognitive Services account commitment plan.
         API Version: 2022-12-01.
         Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Commitment Plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        commitment_plan = azure_native.cognitiveservices.CommitmentPlan("commitmentPlan",
+            commitment_plan_name="commitmentPlanName",
+            kind="SpeechServices",
+            location="West US",
+            properties=azure_native.cognitiveservices.CommitmentPlanPropertiesResponseArgs(
+                auto_renew=True,
+                current=azure_native.cognitiveservices.CommitmentPeriodArgs(
+                    tier="T1",
+                ),
+                hosting_model="Web",
+                plan_type="STT",
+            ),
+            resource_group_name="resourceGroupName",
+            sku=azure_native.cognitiveservices.SkuResponseArgs(
+                name="S0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices:CommitmentPlan commitmentPlanName /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/commitmentPlans/commitmentPlanName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CommitmentPlanArgs args: The arguments to use to populate this resource's properties.

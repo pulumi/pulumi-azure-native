@@ -9,6 +9,54 @@ import * as utilities from "../../utilities";
 
 /**
  * Attached data network resource.
+ *
+ * ## Example Usage
+ * ### Create attached data network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const attachedDataNetwork = new azure_native.mobilenetwork.v20220401preview.AttachedDataNetwork("attachedDataNetwork", {
+ *     attachedDataNetworkName: "TestAttachedDataNetwork",
+ *     dnsAddresses: ["1.1.1.1"],
+ *     location: "eastus",
+ *     naptConfiguration: {
+ *         enabled: "Enabled",
+ *         pinholeLimits: 65536,
+ *         pinholeTimeouts: {
+ *             icmp: 30,
+ *             tcp: 180,
+ *             udp: 30,
+ *         },
+ *         portRange: {
+ *             maxPort: 49999,
+ *             minPort: 1024,
+ *         },
+ *         portReuseHoldTime: {
+ *             tcp: 120,
+ *             udp: 60,
+ *         },
+ *     },
+ *     packetCoreControlPlaneName: "TestPacketCoreCP",
+ *     packetCoreDataPlaneName: "TestPacketCoreDP",
+ *     resourceGroupName: "rg1",
+ *     userEquipmentAddressPoolPrefix: ["2.2.0.0/16"],
+ *     userEquipmentStaticAddressPoolPrefix: ["2.4.0.0/16"],
+ *     userPlaneDataInterface: {
+ *         name: "N6",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork/v20220401preview:AttachedDataNetwork TestAttachedDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoresControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork 
+ * ```
  */
 export class AttachedDataNetwork extends pulumi.CustomResource {
     /**

@@ -200,6 +200,57 @@ class PrivateEndpoint(pulumi.CustomResource):
         """
         Private endpoint resource.
 
+        ## Example Usage
+        ### Create private endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint = azure_native.network.v20201101.PrivateEndpoint("privateEndpoint",
+            location="eastus2euap",
+            private_endpoint_name="testPe",
+            private_link_service_connections=[azure_native.network.v20201101.PrivateLinkServiceConnectionArgs(
+                group_ids=["groupIdFromResource"],
+                name="testPlc",
+                private_link_service_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+                request_message="Please approve my connection.",
+            )],
+            resource_group_name="rg1",
+            subnet=azure_native.network.v20201101.SubnetArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            ))
+
+        ```
+        ### Create private endpoint with manual approval connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint = azure_native.network.v20201101.PrivateEndpoint("privateEndpoint",
+            location="eastus",
+            manual_private_link_service_connections=[azure_native.network.v20201101.PrivateLinkServiceConnectionArgs(
+                group_ids=["groupIdFromResource"],
+                private_link_service_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+                request_message="Please manually approve my connection.",
+            )],
+            private_endpoint_name="testPe",
+            resource_group_name="rg1",
+            subnet=azure_native.network.v20201101.SubnetArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:PrivateEndpoint testPe /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateEndpoints/testPe 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomDnsConfigPropertiesFormatArgs']]]] custom_dns_configs: An array of custom dns configurations.
@@ -221,6 +272,57 @@ class PrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private endpoint resource.
+
+        ## Example Usage
+        ### Create private endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint = azure_native.network.v20201101.PrivateEndpoint("privateEndpoint",
+            location="eastus2euap",
+            private_endpoint_name="testPe",
+            private_link_service_connections=[azure_native.network.v20201101.PrivateLinkServiceConnectionArgs(
+                group_ids=["groupIdFromResource"],
+                name="testPlc",
+                private_link_service_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+                request_message="Please approve my connection.",
+            )],
+            resource_group_name="rg1",
+            subnet=azure_native.network.v20201101.SubnetArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            ))
+
+        ```
+        ### Create private endpoint with manual approval connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint = azure_native.network.v20201101.PrivateEndpoint("privateEndpoint",
+            location="eastus",
+            manual_private_link_service_connections=[azure_native.network.v20201101.PrivateLinkServiceConnectionArgs(
+                group_ids=["groupIdFromResource"],
+                private_link_service_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+                request_message="Please manually approve my connection.",
+            )],
+            private_endpoint_name="testPe",
+            resource_group_name="rg1",
+            subnet=azure_native.network.v20201101.SubnetArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:PrivateEndpoint testPe /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateEndpoints/testPe 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointArgs args: The arguments to use to populate this resource's properties.

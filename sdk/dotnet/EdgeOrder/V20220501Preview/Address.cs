@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.EdgeOrder.V20220501Preview
 {
     /// <summary>
     /// Address Resource.
+    /// 
+    /// ## Example Usage
+    /// ### CreateAddress
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var address = new AzureNative.EdgeOrder.V20220501Preview.Address("address", new()
+    ///     {
+    ///         AddressName = "TestAddressName2",
+    ///         ContactDetails = new AzureNative.EdgeOrder.V20220501Preview.Inputs.ContactDetailsArgs
+    ///         {
+    ///             ContactName = "XXXX XXXX",
+    ///             EmailList = new[]
+    ///             {
+    ///                 "xxxx@xxxx.xxx",
+    ///             },
+    ///             Phone = "0000000000",
+    ///             PhoneExtension = "",
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "YourResourceGroupName",
+    ///         ShippingAddress = new AzureNative.EdgeOrder.V20220501Preview.Inputs.ShippingAddressArgs
+    ///         {
+    ///             AddressType = "None",
+    ///             City = "San Francisco",
+    ///             CompanyName = "Microsoft",
+    ///             Country = "US",
+    ///             PostalCode = "94107",
+    ///             StateOrProvince = "CA",
+    ///             StreetAddress1 = "16 TOWNSEND ST",
+    ///             StreetAddress2 = "UNIT 1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edgeorder/v20220501preview:Address TestAddressName2 /subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/addresses/TestAddressName2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder/v20220501preview:Address")]
     public partial class Address : global::Pulumi.CustomResource

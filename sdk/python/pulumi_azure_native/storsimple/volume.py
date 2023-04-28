@@ -209,6 +209,35 @@ class Volume(pulumi.CustomResource):
         API Version: 2017-06-01.
         Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VolumesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.storsimple.Volume("volume",
+            access_control_record_ids=["/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2"],
+            device_name="Device05ForSDKTest",
+            manager_name="ManagerForSDKTest1",
+            monitoring_status=azure_native.storsimple.MonitoringStatus.ENABLED,
+            resource_group_name="ResourceGroupForSDKTest",
+            size_in_bytes=5368709120,
+            volume_container_name="VolumeContainerForSDKTest",
+            volume_name="Volume1ForSDKTest",
+            volume_status=azure_native.storsimple.VolumeStatus.OFFLINE,
+            volume_type=azure_native.storsimple.VolumeType.TIERED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple:Volume Volume1ForSDKTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/VolumeContainerForSDKTest/volumes/Volume1ForSDKTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] access_control_record_ids: The IDs of the access control records, associated with the volume.
@@ -233,6 +262,35 @@ class Volume(pulumi.CustomResource):
         The volume.
         API Version: 2017-06-01.
         Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VolumesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.storsimple.Volume("volume",
+            access_control_record_ids=["/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2"],
+            device_name="Device05ForSDKTest",
+            manager_name="ManagerForSDKTest1",
+            monitoring_status=azure_native.storsimple.MonitoringStatus.ENABLED,
+            resource_group_name="ResourceGroupForSDKTest",
+            size_in_bytes=5368709120,
+            volume_container_name="VolumeContainerForSDKTest",
+            volume_name="Volume1ForSDKTest",
+            volume_status=azure_native.storsimple.VolumeStatus.OFFLINE,
+            volume_type=azure_native.storsimple.VolumeType.TIERED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple:Volume Volume1ForSDKTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/VolumeContainerForSDKTest/volumes/Volume1ForSDKTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

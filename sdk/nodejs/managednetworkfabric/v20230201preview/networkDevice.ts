@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * The NetworkDevice resource definition.
+ *
+ * ## Example Usage
+ * ### NetworkDevices_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkDevice = new azure_native.managednetworkfabric.v20230201preview.NetworkDevice("networkDevice", {
+ *     annotation: "null",
+ *     hostName: "networkDeviceName",
+ *     location: "eastus",
+ *     networkDeviceName: "networkDeviceName",
+ *     networkDeviceRole: "CE",
+ *     networkDeviceSku: "DefaultSku",
+ *     resourceGroupName: "resourceGroupName",
+ *     serialNumber: "Arista;DCS-7280PR3-24;12.05;JPE21330382",
+ *     tags: {
+ *         keyID: "keyValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkDevice networkDeviceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/networkDeviceName 
+ * ```
  */
 export class NetworkDevice extends pulumi.CustomResource {
     /**

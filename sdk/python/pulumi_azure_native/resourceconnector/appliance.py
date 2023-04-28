@@ -187,6 +187,32 @@ class Appliance(pulumi.CustomResource):
         API Version: 2022-10-27.
         Previous API Version: 2021-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create/Update Appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        appliance = azure_native.resourceconnector.Appliance("appliance",
+            distro="AKSEdge",
+            infrastructure_config=azure_native.resourceconnector.AppliancePropertiesInfrastructureConfigArgs(
+                provider="VMWare",
+            ),
+            location="West US",
+            resource_group_name="testresourcegroup",
+            resource_name_="appliance01")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resourceconnector:Appliance appliance01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ResourceConnector/appliances/appliance01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Distro']] distro: Represents a supported Fabric/Infra. (AKSEdge etc...).
@@ -209,6 +235,32 @@ class Appliance(pulumi.CustomResource):
         Appliances definition.
         API Version: 2022-10-27.
         Previous API Version: 2021-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create/Update Appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        appliance = azure_native.resourceconnector.Appliance("appliance",
+            distro="AKSEdge",
+            infrastructure_config=azure_native.resourceconnector.AppliancePropertiesInfrastructureConfigArgs(
+                provider="VMWare",
+            ),
+            location="West US",
+            resource_group_name="testresourcegroup",
+            resource_name_="appliance01")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resourceconnector:Appliance appliance01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ResourceConnector/appliances/appliance01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplianceArgs args: The arguments to use to populate this resource's properties.

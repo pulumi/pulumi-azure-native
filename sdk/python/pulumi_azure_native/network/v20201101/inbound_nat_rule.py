@@ -233,6 +233,37 @@ class InboundNatRule(pulumi.CustomResource):
         """
         Inbound NAT rule of the load balancer.
 
+        ## Example Usage
+        ### InboundNatRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inbound_nat_rule = azure_native.network.v20201101.InboundNatRule("inboundNatRule",
+            backend_port=3389,
+            enable_floating_ip=False,
+            enable_tcp_reset=False,
+            frontend_ip_configuration=azure_native.network.v20201101.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/frontendIPConfigurations/ip1",
+            ),
+            frontend_port=3390,
+            idle_timeout_in_minutes=4,
+            inbound_nat_rule_name="natRule1.1",
+            load_balancer_name="lb1",
+            protocol="Tcp",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:InboundNatRule natRule1.1 /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/natRule1.1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] backend_port: The port used for the internal endpoint. Acceptable values range from 1 to 65535.
@@ -256,6 +287,37 @@ class InboundNatRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Inbound NAT rule of the load balancer.
+
+        ## Example Usage
+        ### InboundNatRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inbound_nat_rule = azure_native.network.v20201101.InboundNatRule("inboundNatRule",
+            backend_port=3389,
+            enable_floating_ip=False,
+            enable_tcp_reset=False,
+            frontend_ip_configuration=azure_native.network.v20201101.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/frontendIPConfigurations/ip1",
+            ),
+            frontend_port=3390,
+            idle_timeout_in_minutes=4,
+            inbound_nat_rule_name="natRule1.1",
+            load_balancer_name="lb1",
+            protocol="Tcp",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:InboundNatRule natRule1.1 /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/natRule1.1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InboundNatRuleInitArgs args: The arguments to use to populate this resource's properties.

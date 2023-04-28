@@ -132,6 +132,36 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2020-06-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Updates status of private endpoint connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.powerbi.PrivateEndpointConnection("privateEndpointConnection",
+            azure_resource_name="azureResourceName",
+            private_endpoint=azure_native.powerbi.PrivateEndpointArgs(
+                id="/subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpointName",
+            ),
+            private_endpoint_name="myPrivateEndpointName",
+            private_link_service_connection_state=azure_native.powerbi.ConnectionStateArgs(
+                actions_required="None",
+                description="",
+                status="Approved ",
+            ),
+            resource_group_name="resourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbi:PrivateEndpointConnection myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 /subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/azureResourceName/privateEndpointConnections/myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_resource_name: The name of the Azure resource.
@@ -150,6 +180,36 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         API Version: 2020-06-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Updates status of private endpoint connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.powerbi.PrivateEndpointConnection("privateEndpointConnection",
+            azure_resource_name="azureResourceName",
+            private_endpoint=azure_native.powerbi.PrivateEndpointArgs(
+                id="/subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpointName",
+            ),
+            private_endpoint_name="myPrivateEndpointName",
+            private_link_service_connection_state=azure_native.powerbi.ConnectionStateArgs(
+                actions_required="None",
+                description="",
+                status="Approved ",
+            ),
+            resource_group_name="resourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:powerbi:PrivateEndpointConnection myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 /subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/azureResourceName/privateEndpointConnections/myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

@@ -10,6 +10,98 @@ import * as utilities from "../../utilities";
 /**
  * Event Subscription
  *
+ * ## Example Usage
+ * ### EventSubscriptions_CreateForCustomTopic
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventSubscription = new azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription", {
+ *     destination: {
+ *         endpointType: "WebHook",
+ *         endpointUrl: "https://requestb.in/15ksip71",
+ *     },
+ *     eventSubscriptionName: "examplesubscription1",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *         subjectBeginsWith: "ExamplePrefix",
+ *         subjectEndsWith: "ExampleSuffix",
+ *     },
+ *     scope: "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1",
+ * });
+ *
+ * ```
+ * ### EventSubscriptions_CreateForResource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventSubscription = new azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription", {
+ *     destination: {
+ *         endpointType: "WebHook",
+ *         endpointUrl: "https://requestb.in/15ksip71",
+ *     },
+ *     eventSubscriptionName: "examplesubscription10",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *         subjectBeginsWith: "ExamplePrefix",
+ *         subjectEndsWith: "ExampleSuffix",
+ *     },
+ *     scope: "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1",
+ * });
+ *
+ * ```
+ * ### EventSubscriptions_CreateForResourceGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventSubscription = new azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription", {
+ *     destination: {
+ *         endpointType: "WebHook",
+ *         endpointUrl: "https://requestb.in/15ksip71",
+ *     },
+ *     eventSubscriptionName: "examplesubscription2",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *         subjectBeginsWith: "ExamplePrefix",
+ *         subjectEndsWith: "ExampleSuffix",
+ *     },
+ *     scope: "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg",
+ * });
+ *
+ * ```
+ * ### EventSubscriptions_CreateForSubscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventSubscription = new azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription", {
+ *     destination: {
+ *         endpointType: "WebHook",
+ *         endpointUrl: "https://requestb.in/15ksip71",
+ *     },
+ *     eventSubscriptionName: "examplesubscription3",
+ *     filter: {
+ *         isSubjectCaseSensitive: false,
+ *     },
+ *     scope: "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid/v20170615preview:EventSubscription examplesubscription3 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/providers/Microsoft.EventGrid/eventSubscriptions/examplesubscription3 
+ * ```
+ *
  * @deprecated Version 2017-06-15-preview will be removed in v2 of the provider.
  */
 export class EventSubscription extends pulumi.CustomResource {

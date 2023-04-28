@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     /// <summary>
     /// Managed private endpoint resource type.
+    /// 
+    /// ## Example Usage
+    /// ### ManagedVirtualNetworks_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedPrivateEndpoint = new AzureNative.DataFactory.V20180601.ManagedPrivateEndpoint("managedPrivateEndpoint", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         ManagedPrivateEndpointName = "exampleManagedPrivateEndpointName",
+    ///         ManagedVirtualNetworkName = "exampleManagedVirtualNetworkName",
+    ///         Properties = new AzureNative.DataFactory.V20180601.Inputs.ManagedPrivateEndpointArgs
+    ///         {
+    ///             Fqdns = new[] {},
+    ///             GroupId = "blob",
+    ///             PrivateLinkResourceId = "/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleBlobStorage",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory/v20180601:ManagedPrivateEndpoint exampleManagedPrivateEndpointName /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/managedVirtualNetworks/exampleManagedVirtualNetworkName/managedPrivateEndpoints/exampleManagedPrivateEndpointName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:ManagedPrivateEndpoint")]
     public partial class ManagedPrivateEndpoint : global::Pulumi.CustomResource

@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a read write database.
+ *
+ * ## Example Usage
+ * ### Kusto ReadOnly database update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const readWriteDatabase = new azure_native.kusto.v20210827.ReadWriteDatabase("readWriteDatabase", {
+ *     clusterName: "kustoclusterrptest4",
+ *     databaseName: "KustoreadOnlyDatabase",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
+ * ### Kusto ReadWrite database create or update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const readWriteDatabase = new azure_native.kusto.v20210827.ReadWriteDatabase("readWriteDatabase", {
+ *     clusterName: "kustoclusterrptest4",
+ *     databaseName: "KustoDatabase8",
+ *     kind: "ReadWrite",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     softDeletePeriod: "P1D",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto/v20210827:ReadWriteDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+ * ```
  */
 export class ReadWriteDatabase extends pulumi.CustomResource {
     /**

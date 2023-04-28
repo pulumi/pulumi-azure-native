@@ -181,6 +181,52 @@ class ActivityLogAlert(pulumi.CustomResource):
         """
         An activity log alert resource.
 
+        ## Example Usage
+        ### Create or update an activity log alert
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        activity_log_alert = azure_native.insights.v20170401.ActivityLogAlert("activityLogAlert",
+            actions=azure_native.insights.v20170401.ActivityLogAlertActionListResponseArgs(
+                action_groups=[azure_native.insights.v20170401.ActivityLogAlertActionGroupArgs(
+                    action_group_id="/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActionGroups/providers/microsoft.insights/actionGroups/SampleActionGroup",
+                    webhook_properties={
+                        "sampleWebhookProperty": "samplePropertyValue",
+                    },
+                )],
+            ),
+            activity_log_alert_name="SampleActivityLogAlert",
+            condition=azure_native.insights.v20170401.ActivityLogAlertAllOfConditionArgs(
+                all_of=[
+                    azure_native.insights.v20170401.ActivityLogAlertLeafConditionArgs(
+                        equals="Administrative",
+                        field="Category",
+                    ),
+                    azure_native.insights.v20170401.ActivityLogAlertLeafConditionArgs(
+                        equals="Error",
+                        field="Level",
+                    ),
+                ],
+            ),
+            description="Sample activity log alert description",
+            enabled=True,
+            location="Global",
+            resource_group_name="Default-ActivityLogAlerts",
+            scopes=["subscriptions/187f412d-1758-44d9-b052-169e2564721d"],
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20170401:ActivityLogAlert SampleActivityLogAlert /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActivityLogAlerts/providers/microsoft.insights/activityLogAlerts/SampleActivityLogAlert 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActivityLogAlertActionListArgs']] actions: The actions that will activate when the condition is met.
@@ -201,6 +247,52 @@ class ActivityLogAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An activity log alert resource.
+
+        ## Example Usage
+        ### Create or update an activity log alert
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        activity_log_alert = azure_native.insights.v20170401.ActivityLogAlert("activityLogAlert",
+            actions=azure_native.insights.v20170401.ActivityLogAlertActionListResponseArgs(
+                action_groups=[azure_native.insights.v20170401.ActivityLogAlertActionGroupArgs(
+                    action_group_id="/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActionGroups/providers/microsoft.insights/actionGroups/SampleActionGroup",
+                    webhook_properties={
+                        "sampleWebhookProperty": "samplePropertyValue",
+                    },
+                )],
+            ),
+            activity_log_alert_name="SampleActivityLogAlert",
+            condition=azure_native.insights.v20170401.ActivityLogAlertAllOfConditionArgs(
+                all_of=[
+                    azure_native.insights.v20170401.ActivityLogAlertLeafConditionArgs(
+                        equals="Administrative",
+                        field="Category",
+                    ),
+                    azure_native.insights.v20170401.ActivityLogAlertLeafConditionArgs(
+                        equals="Error",
+                        field="Level",
+                    ),
+                ],
+            ),
+            description="Sample activity log alert description",
+            enabled=True,
+            location="Global",
+            resource_group_name="Default-ActivityLogAlerts",
+            scopes=["subscriptions/187f412d-1758-44d9-b052-169e2564721d"],
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20170401:ActivityLogAlert SampleActivityLogAlert /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActivityLogAlerts/providers/microsoft.insights/activityLogAlerts/SampleActivityLogAlert 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ActivityLogAlertArgs args: The arguments to use to populate this resource's properties.

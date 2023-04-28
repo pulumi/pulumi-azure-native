@@ -9,6 +9,56 @@ import * as utilities from "../../utilities";
 
 /**
  * Arc Sql Server Availability Group
+ *
+ * ## Example Usage
+ * ### Create a Arc Sql Server availability group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlServerAvailabilityGroup = new azure_native.azurearcdata.v20230315preview.SqlServerAvailabilityGroup("sqlServerAvailabilityGroup", {
+ *     location: "southeastasia",
+ *     properties: {
+ *         availabilityGroupId: "00000000-1111-2222-3333-444444444444",
+ *         availabilityGroupName: "testAG",
+ *         configure: {
+ *             availabilityModeDesc: "SYNCHRONOUS_COMMIT",
+ *             backupPriority: 50,
+ *             endpointUrl: "TCP://mytest60-0.mytest60-svc:5022",
+ *             failoverModeDesc: "EXTERNAL",
+ *             primaryRoleAllowConnectionsDesc: "ALL",
+ *             secondaryRoleAllowConnectionsDesc: "ALL",
+ *             seedingModeDesc: "AUTOMATIC",
+ *             sessionTimeout: 10,
+ *         },
+ *         state: {
+ *             availabilityGroupReplicaRole: "SECONDARY",
+ *             connectedStateDesc: "CONNECTED",
+ *             lastConnectErrorDescription: "",
+ *             lastConnectErrorTimestamp: "2022-05-05T16:26:33.883Z",
+ *             operationalStateDesc: "ONLINE",
+ *             recoveryHealthDesc: "ONLINE_IN_PROGRESS",
+ *             synchronizationHealthDesc: "HEALTHY",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlAvailabilityGroupName: "testAG",
+ *     sqlServerInstanceName: "testSqlServerInstance",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata/v20230315preview:SqlServerAvailabilityGroup testAG /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlServerInstances/testSqlServerInstance/sqlAvailabilityGroups/testAG 
+ * ```
  */
 export class SqlServerAvailabilityGroup extends pulumi.CustomResource {
     /**

@@ -116,6 +116,96 @@ class Deployment(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a deployment that will deploy a template with a uri and queryString
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.resources.Deployment("deployment",
+            deployment_name="my-deployment",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    query_string="sv=2019-02-02&st=2019-04-29T22%3A18%3A26Z&se=2019-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=xxxxxxxx0xxxxxxxxxxxxx%2bxxxxxxxxxxxxxxxxxxxx%3d",
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            resource_group_name="my-resource-group")
+
+        ```
+        ### Create a deployment that will deploy a templateSpec with the given resourceId
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.resources.Deployment("deployment",
+            deployment_name="my-deployment",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+                ),
+            ),
+            resource_group_name="my-resource-group")
+
+        ```
+        ### Create a deployment that will redeploy another deployment on failure
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.resources.Deployment("deployment",
+            deployment_name="my-deployment",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.COMPLETE,
+                on_error_deployment=azure_native.resources.OnErrorDeploymentArgs(
+                    deployment_name="name-of-deployment-to-use",
+                    type=azure_native.resources.OnErrorDeploymentType.SPECIFIC_DEPLOYMENT,
+                ),
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            resource_group_name="my-resource-group")
+
+        ```
+        ### Create a deployment that will redeploy the last successful deployment on failure
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.resources.Deployment("deployment",
+            deployment_name="my-deployment",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.COMPLETE,
+                on_error_deployment=azure_native.resources.OnErrorDeploymentArgs(
+                    type=azure_native.resources.OnErrorDeploymentType.LAST_SUCCESSFUL,
+                ),
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            resource_group_name="my-resource-group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:Deployment my-deployment /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: The name of the deployment.
@@ -134,6 +224,96 @@ class Deployment(pulumi.CustomResource):
         Deployment information.
         API Version: 2022-09-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a deployment that will deploy a template with a uri and queryString
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.resources.Deployment("deployment",
+            deployment_name="my-deployment",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    query_string="sv=2019-02-02&st=2019-04-29T22%3A18%3A26Z&se=2019-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=xxxxxxxx0xxxxxxxxxxxxx%2bxxxxxxxxxxxxxxxxxxxx%3d",
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            resource_group_name="my-resource-group")
+
+        ```
+        ### Create a deployment that will deploy a templateSpec with the given resourceId
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.resources.Deployment("deployment",
+            deployment_name="my-deployment",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+                ),
+            ),
+            resource_group_name="my-resource-group")
+
+        ```
+        ### Create a deployment that will redeploy another deployment on failure
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.resources.Deployment("deployment",
+            deployment_name="my-deployment",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.COMPLETE,
+                on_error_deployment=azure_native.resources.OnErrorDeploymentArgs(
+                    deployment_name="name-of-deployment-to-use",
+                    type=azure_native.resources.OnErrorDeploymentType.SPECIFIC_DEPLOYMENT,
+                ),
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            resource_group_name="my-resource-group")
+
+        ```
+        ### Create a deployment that will redeploy the last successful deployment on failure
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.resources.Deployment("deployment",
+            deployment_name="my-deployment",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.COMPLETE,
+                on_error_deployment=azure_native.resources.OnErrorDeploymentArgs(
+                    type=azure_native.resources.OnErrorDeploymentType.LAST_SUCCESSFUL,
+                ),
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            resource_group_name="my-resource-group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:Deployment my-deployment /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

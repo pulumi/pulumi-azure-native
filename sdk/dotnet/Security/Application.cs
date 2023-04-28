@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.Security
     /// Security Application over a given scope
     /// API Version: 2022-07-01-preview.
     /// Previous API Version: 2022-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create application
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.Security.Application("application", new()
+    ///     {
+    ///         ApplicationId = "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+    ///         Description = "An application on critical recommendations",
+    ///         DisplayName = "Admin's application",
+    ///         SourceResourceType = "Assessments",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:Application 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/applications/ad9a8e26-29d9-4829-bb30-e597a58cdbb8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:Application")]
     public partial class Application : global::Pulumi.CustomResource

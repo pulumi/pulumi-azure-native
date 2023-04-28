@@ -9,6 +9,60 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20210201
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### QueueOperationPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queue = new AzureNative.Storage.V20210201.Queue("queue", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         QueueName = "queue6185",
+    ///         ResourceGroupName = "res3376",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### QueueOperationPutWithMetadata
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queue = new AzureNative.Storage.V20210201.Queue("queue", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         Metadata = 
+    ///         {
+    ///             { "sample1", "meta1" },
+    ///             { "sample2", "meta2" },
+    ///         },
+    ///         QueueName = "queue6185",
+    ///         ResourceGroupName = "res3376",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20210201:Queue queue6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/queueServices/default/queues/queue6185 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210201:Queue")]
     public partial class Queue : global::Pulumi.CustomResource
     {

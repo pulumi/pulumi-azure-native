@@ -149,6 +149,34 @@ class B2CTenant(pulumi.CustomResource):
         API Version: 2021-04-01.
         Previous API Version: 2019-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create tenant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        b2c_tenant = azure_native.azureactivedirectory.B2CTenant("b2cTenant",
+            country_code="US",
+            display_name="Contoso",
+            location="United States",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso.onmicrosoft.com",
+            sku=azure_native.azureactivedirectory.B2CResourceSKUArgs(
+                name="Standard",
+                tier="A0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory:B2CTenant contoso.onmicrosoft.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/b2cDirectories/contoso.onmicrosoft.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] country_code: Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
@@ -168,6 +196,34 @@ class B2CTenant(pulumi.CustomResource):
         """
         API Version: 2021-04-01.
         Previous API Version: 2019-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create tenant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        b2c_tenant = azure_native.azureactivedirectory.B2CTenant("b2cTenant",
+            country_code="US",
+            display_name="Contoso",
+            location="United States",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso.onmicrosoft.com",
+            sku=azure_native.azureactivedirectory.B2CResourceSKUArgs(
+                name="Standard",
+                tier="A0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory:B2CTenant contoso.onmicrosoft.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/b2cDirectories/contoso.onmicrosoft.com 
+        ```
 
         :param str resource_name: The name of the resource.
         :param B2CTenantArgs args: The arguments to use to populate this resource's properties.

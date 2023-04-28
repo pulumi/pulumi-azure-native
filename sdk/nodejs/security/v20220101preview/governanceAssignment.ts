@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Governance assignment over a given scope
+ *
+ * ## Example Usage
+ * ### Create Governance assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const governanceAssignment = new azure_native.security.v20220101preview.GovernanceAssignment("governanceAssignment", {
+ *     additionalData: {
+ *         ticketLink: "https://snow.com",
+ *         ticketNumber: 123123,
+ *         ticketStatus: "Active",
+ *     },
+ *     assessmentName: "6b9421dd-5555-2251-9b3d-2be58e2f82cd",
+ *     assignmentKey: "6634ff9f-127b-4bf2-8e6e-b1737f5e789c",
+ *     governanceEmailNotification: {
+ *         disableManagerEmailNotification: false,
+ *         disableOwnerEmailNotification: false,
+ *     },
+ *     isGracePeriod: true,
+ *     owner: "user@contoso.com",
+ *     remediationDueDate: "2022-01-07T13:00:00.0000000Z",
+ *     remediationEta: {
+ *         eta: "2022-01-08T13:00:00.0000000Z",
+ *         justification: "Justification of ETA",
+ *     },
+ *     scope: "subscriptions/c32e05d9-7207-4e22-bdf4-4f7d9c72e5fd/resourceGroups/compute_servers/providers/Microsoft.Compute/virtualMachines/win2012",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20220101preview:GovernanceAssignment 6634ff9f-127b-4bf2-8e6e-b1737f5e789c /subscriptions/c32e05d9-7207-4e22-bdf4-4f7d9c72e5fd/resourceGroups/compute_servers/providers/Microsoft.Compute/virtualMachines/win2012/providers/Microsoft.Security/assessments/6b9421dd-5555-2251-9b3d-2be58e2f82cd/governanceAssignments/6634ff9f-127b-4bf2-8e6e-b1737f5e789c 
+ * ```
  */
 export class GovernanceAssignment extends pulumi.CustomResource {
     /**

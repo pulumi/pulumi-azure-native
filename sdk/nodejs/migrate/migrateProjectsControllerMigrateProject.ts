@@ -10,6 +10,32 @@ import * as utilities from "../utilities";
 /**
  * Migrate project.
  * API Version: 2020-05-01.
+ *
+ * ## Example Usage
+ * ### MigrateProject_Put
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const migrateProjectsControllerMigrateProject = new azure_native.migrate.MigrateProjectsControllerMigrateProject("migrateProjectsControllerMigrateProject", {
+ *     location: "eastus",
+ *     migrateProjectName: "projTest1",
+ *     properties: {
+ *         publicNetworkAccess: "Enabled",
+ *     },
+ *     resourceGroupName: "pajindTest1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate:MigrateProjectsControllerMigrateProject proj90 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest1/providers/Microsoft.Migrate/MigrateProjects/proj90 
+ * ```
  */
 export class MigrateProjectsControllerMigrateProject extends pulumi.CustomResource {
     /**

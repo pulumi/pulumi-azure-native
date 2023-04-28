@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.App.V20220101Preview
 {
     /// <summary>
     /// Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.App.V20220101Preview.Certificate("certificate", new()
+    ///     {
+    ///         Location = "East US",
+    ///         ManagedEnvironmentName = "testcontainerenv",
+    ///         Name = "certificate-firendly-name",
+    ///         Properties = new AzureNative.App.V20220101Preview.Inputs.CertificatePropertiesArgs
+    ///         {
+    ///             Password = "private key password",
+    ///             Value = "Y2VydA==",
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20220101preview:Certificate myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv/certificates/certificate-firendly-name 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20220101preview:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

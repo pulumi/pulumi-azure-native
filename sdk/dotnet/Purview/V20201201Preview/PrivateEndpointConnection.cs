@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Purview.V20201201Preview
 {
     /// <summary>
     /// A private endpoint connection class.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnections_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Purview.V20201201Preview.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         PrivateEndpointConnectionName = "privateEndpointConnection1",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Purview.V20201201Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Approved by johndoe@company.com",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:purview/v20201201preview:PrivateEndpointConnection privateEndpointConnection1 /subscriptions/12345678-1234-1234-12345678abc/resourceGroups/SampleResourceGroup/providers/Microsoft.Purview/accounts/account1/privateEndpointConnections/privateEndpointConnection1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:purview/v20201201preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

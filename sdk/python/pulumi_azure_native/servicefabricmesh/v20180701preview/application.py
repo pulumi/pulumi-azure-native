@@ -171,6 +171,50 @@ class Application(pulumi.CustomResource):
         """
         This type describes an application resource.
 
+        ## Example Usage
+        ### ApplicationCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.servicefabricmesh.v20180701preview.Application("application",
+            application_name="helloWorldApp",
+            description="SeaBreeze HelloWorld Application!",
+            location="EastUS",
+            resource_group_name="sbz_demo",
+            services=[{
+                "codePackages": [{
+                    "endpoints": [azure_native.servicefabricmesh.v20180701preview.EndpointPropertiesArgs(
+                        name="helloWorldListener",
+                        port=80,
+                    )],
+                    "image": "seabreeze/sbz-helloworld:1.0-alpine",
+                    "name": "helloWorldCode",
+                    "resources": {
+                        "requests": {
+                            "cpu": 1,
+                            "memoryInGB": 1,
+                        },
+                    },
+                }],
+                "description": "SeaBreeze Hello World Service.",
+                "name": "helloWorldService",
+                "osType": "linux",
+                "replicaCount": 1,
+            }],
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180701preview:Application myHelloWorldApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/applications/myHelloWorldApp 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The identity of the application.
@@ -190,6 +234,50 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This type describes an application resource.
+
+        ## Example Usage
+        ### ApplicationCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.servicefabricmesh.v20180701preview.Application("application",
+            application_name="helloWorldApp",
+            description="SeaBreeze HelloWorld Application!",
+            location="EastUS",
+            resource_group_name="sbz_demo",
+            services=[{
+                "codePackages": [{
+                    "endpoints": [azure_native.servicefabricmesh.v20180701preview.EndpointPropertiesArgs(
+                        name="helloWorldListener",
+                        port=80,
+                    )],
+                    "image": "seabreeze/sbz-helloworld:1.0-alpine",
+                    "name": "helloWorldCode",
+                    "resources": {
+                        "requests": {
+                            "cpu": 1,
+                            "memoryInGB": 1,
+                        },
+                    },
+                }],
+                "description": "SeaBreeze Hello World Service.",
+                "name": "helloWorldService",
+                "osType": "linux",
+                "replicaCount": 1,
+            }],
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180701preview:Application myHelloWorldApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/applications/myHelloWorldApp 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

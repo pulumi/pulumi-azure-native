@@ -114,6 +114,44 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         API Version: 2023-04-01.
         Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create SAP Application Server Instances for HA System with Availability Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_application_server_instance = azure_native.workloads.SAPApplicationServerInstance("sapApplicationServerInstance",
+            application_instance_name="app01",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+        ### SAPApplicationServerInstances_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_application_server_instance = azure_native.workloads.SAPApplicationServerInstance("sapApplicationServerInstance",
+            application_instance_name="app01",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SAPApplicationServerInstance app01 /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/applicationInstances/app01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_instance_name: The name of SAP Application Server instance resource.
@@ -132,6 +170,44 @@ class SAPApplicationServerInstance(pulumi.CustomResource):
         Define the SAP Application Server Instance resource.
         API Version: 2023-04-01.
         Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create SAP Application Server Instances for HA System with Availability Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_application_server_instance = azure_native.workloads.SAPApplicationServerInstance("sapApplicationServerInstance",
+            application_instance_name="app01",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+        ### SAPApplicationServerInstances_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_application_server_instance = azure_native.workloads.SAPApplicationServerInstance("sapApplicationServerInstance",
+            application_instance_name="app01",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SAPApplicationServerInstance app01 /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/applicationInstances/app01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SAPApplicationServerInstanceArgs args: The arguments to use to populate this resource's properties.

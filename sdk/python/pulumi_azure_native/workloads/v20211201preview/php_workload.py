@@ -364,6 +364,124 @@ class PhpWorkload(pulumi.CustomResource):
         """
         Php workload resource
 
+        ## Example Usage
+        ### Workloads
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        php_workload = azure_native.workloads.v20211201preview.PhpWorkload("phpWorkload",
+            admin_user_profile=azure_native.workloads.v20211201preview.UserProfileArgs(
+                ssh_public_key="===SSH=PUBLIC=KEY===",
+                user_name="wpadmin",
+            ),
+            app_location="eastus",
+            backup_profile=azure_native.workloads.v20211201preview.BackupProfileResponseArgs(
+                backup_enabled="Disabled",
+            ),
+            cache_profile=azure_native.workloads.v20211201preview.CacheProfileResponseArgs(
+                capacity=0,
+                family="C",
+                name="wp-cache",
+                sku_name="Basic",
+            ),
+            controller_profile=azure_native.workloads.v20211201preview.NodeProfileResponseArgs(
+                data_disks=[azure_native.workloads.v20211201preview.DiskInfoArgs(
+                    size_in_gb=100,
+                    storage_type=azure_native.workloads/v20211201preview.DiskStorageType.PREMIUM_LRS,
+                )],
+                name="contoller-vm",
+                node_sku="Standard_DS2_v2",
+                os_disk=azure_native.workloads.v20211201preview.DiskInfoArgs(
+                    storage_type=azure_native.workloads/v20211201preview.DiskStorageType.PREMIUM_LRS,
+                ),
+                os_image=azure_native.workloads.v20211201preview.OsImageProfileArgs(
+                    offer="UbuntuServer",
+                    publisher="Canonical",
+                    sku="18.0-LTS",
+                    version="latest",
+                ),
+            ),
+            database_profile=azure_native.workloads.v20211201preview.DatabaseProfileArgs(
+                backup_retention_days=7,
+                ha_enabled="Disabled",
+                server_name="wp-db-server",
+                sku="Standard_D32s_v4",
+                ssl_enforcement_enabled="Enabled",
+                storage_in_gb=128,
+                storage_iops=200,
+                storage_sku="Premium_LRS",
+                tier=azure_native.workloads/v20211201preview.DatabaseTier.GENERAL_PURPOSE,
+                type="MySql",
+                version="5.7",
+            ),
+            fileshare_profile=azure_native.workloads.v20211201preview.FileshareProfileResponseArgs(
+                share_size_in_gb=100,
+                share_type="AzureFiles",
+                storage_type="Premium_LRS",
+            ),
+            kind="WordPress",
+            location="eastus2",
+            managed_resource_group_configuration=azure_native.workloads.v20211201preview.ManagedRGConfigurationArgs(
+                name="php-mrg-wp39",
+            ),
+            network_profile=azure_native.workloads.v20211201preview.NetworkProfileResponseArgs(
+                azure_front_door_enabled="Enabled",
+                load_balancer_sku="Standard",
+                load_balancer_type="LoadBalancer",
+            ),
+            php_profile=azure_native.workloads.v20211201preview.PhpProfileResponseArgs(
+                version="7.3",
+            ),
+            php_workload_name="wp39",
+            resource_group_name="test-rg",
+            search_profile=azure_native.workloads.v20211201preview.SearchProfileResponseArgs(
+                node_sku="Standard_DS2_v2",
+                os_disk={
+                    "storageType": azure_native.workloads/v20211201preview.DiskStorageType.PREMIUM_LRS,
+                },
+                os_image=azure_native.workloads.v20211201preview.OsImageProfileArgs(
+                    offer="UbuntuServer",
+                    publisher="Canonical",
+                    sku="18.0-LTS",
+                    version="latest",
+                ),
+                search_type="Elastic",
+            ),
+            site_profile=azure_native.workloads.v20211201preview.SiteProfileArgs(
+                domain_name="www.example.com",
+            ),
+            sku=azure_native.workloads.v20211201preview.SkuResponseArgs(
+                name="Large",
+            ),
+            tags={},
+            web_nodes_profile=azure_native.workloads.v20211201preview.VmssNodesProfileResponseArgs(
+                auto_scale_max_count=1,
+                auto_scale_min_count=1,
+                name="web-server",
+                node_sku="Standard_DS2_v2",
+                os_disk=azure_native.workloads.v20211201preview.DiskInfoArgs(
+                    storage_type=azure_native.workloads/v20211201preview.DiskStorageType.PREMIUM_LRS,
+                ),
+                os_image=azure_native.workloads.v20211201preview.OsImageProfileArgs(
+                    offer="UbuntuServer",
+                    publisher="Canonical",
+                    sku="18.0-LTS",
+                    version="latest",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads/v20211201preview:PhpWorkload wp39 /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsot.Workloads/phpWorkloads/wp39 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['UserProfileArgs']] admin_user_profile: Admin user profile used for VM and VMSS
@@ -395,6 +513,124 @@ class PhpWorkload(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Php workload resource
+
+        ## Example Usage
+        ### Workloads
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        php_workload = azure_native.workloads.v20211201preview.PhpWorkload("phpWorkload",
+            admin_user_profile=azure_native.workloads.v20211201preview.UserProfileArgs(
+                ssh_public_key="===SSH=PUBLIC=KEY===",
+                user_name="wpadmin",
+            ),
+            app_location="eastus",
+            backup_profile=azure_native.workloads.v20211201preview.BackupProfileResponseArgs(
+                backup_enabled="Disabled",
+            ),
+            cache_profile=azure_native.workloads.v20211201preview.CacheProfileResponseArgs(
+                capacity=0,
+                family="C",
+                name="wp-cache",
+                sku_name="Basic",
+            ),
+            controller_profile=azure_native.workloads.v20211201preview.NodeProfileResponseArgs(
+                data_disks=[azure_native.workloads.v20211201preview.DiskInfoArgs(
+                    size_in_gb=100,
+                    storage_type=azure_native.workloads/v20211201preview.DiskStorageType.PREMIUM_LRS,
+                )],
+                name="contoller-vm",
+                node_sku="Standard_DS2_v2",
+                os_disk=azure_native.workloads.v20211201preview.DiskInfoArgs(
+                    storage_type=azure_native.workloads/v20211201preview.DiskStorageType.PREMIUM_LRS,
+                ),
+                os_image=azure_native.workloads.v20211201preview.OsImageProfileArgs(
+                    offer="UbuntuServer",
+                    publisher="Canonical",
+                    sku="18.0-LTS",
+                    version="latest",
+                ),
+            ),
+            database_profile=azure_native.workloads.v20211201preview.DatabaseProfileArgs(
+                backup_retention_days=7,
+                ha_enabled="Disabled",
+                server_name="wp-db-server",
+                sku="Standard_D32s_v4",
+                ssl_enforcement_enabled="Enabled",
+                storage_in_gb=128,
+                storage_iops=200,
+                storage_sku="Premium_LRS",
+                tier=azure_native.workloads/v20211201preview.DatabaseTier.GENERAL_PURPOSE,
+                type="MySql",
+                version="5.7",
+            ),
+            fileshare_profile=azure_native.workloads.v20211201preview.FileshareProfileResponseArgs(
+                share_size_in_gb=100,
+                share_type="AzureFiles",
+                storage_type="Premium_LRS",
+            ),
+            kind="WordPress",
+            location="eastus2",
+            managed_resource_group_configuration=azure_native.workloads.v20211201preview.ManagedRGConfigurationArgs(
+                name="php-mrg-wp39",
+            ),
+            network_profile=azure_native.workloads.v20211201preview.NetworkProfileResponseArgs(
+                azure_front_door_enabled="Enabled",
+                load_balancer_sku="Standard",
+                load_balancer_type="LoadBalancer",
+            ),
+            php_profile=azure_native.workloads.v20211201preview.PhpProfileResponseArgs(
+                version="7.3",
+            ),
+            php_workload_name="wp39",
+            resource_group_name="test-rg",
+            search_profile=azure_native.workloads.v20211201preview.SearchProfileResponseArgs(
+                node_sku="Standard_DS2_v2",
+                os_disk={
+                    "storageType": azure_native.workloads/v20211201preview.DiskStorageType.PREMIUM_LRS,
+                },
+                os_image=azure_native.workloads.v20211201preview.OsImageProfileArgs(
+                    offer="UbuntuServer",
+                    publisher="Canonical",
+                    sku="18.0-LTS",
+                    version="latest",
+                ),
+                search_type="Elastic",
+            ),
+            site_profile=azure_native.workloads.v20211201preview.SiteProfileArgs(
+                domain_name="www.example.com",
+            ),
+            sku=azure_native.workloads.v20211201preview.SkuResponseArgs(
+                name="Large",
+            ),
+            tags={},
+            web_nodes_profile=azure_native.workloads.v20211201preview.VmssNodesProfileResponseArgs(
+                auto_scale_max_count=1,
+                auto_scale_min_count=1,
+                name="web-server",
+                node_sku="Standard_DS2_v2",
+                os_disk=azure_native.workloads.v20211201preview.DiskInfoArgs(
+                    storage_type=azure_native.workloads/v20211201preview.DiskStorageType.PREMIUM_LRS,
+                ),
+                os_image=azure_native.workloads.v20211201preview.OsImageProfileArgs(
+                    offer="UbuntuServer",
+                    publisher="Canonical",
+                    sku="18.0-LTS",
+                    version="latest",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads/v20211201preview:PhpWorkload wp39 /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsot.Workloads/phpWorkloads/wp39 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PhpWorkloadArgs args: The arguments to use to populate this resource's properties.

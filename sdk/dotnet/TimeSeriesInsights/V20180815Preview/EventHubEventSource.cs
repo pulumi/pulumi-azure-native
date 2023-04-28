@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
 {
     /// <summary>
     /// An event source that receives its data from an Azure EventHub.
+    /// 
+    /// ## Example Usage
+    /// ### CreateEventHubEventSource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHubEventSource = new AzureNative.TimeSeriesInsights.V20180815Preview.EventHubEventSource("eventHubEventSource", new()
+    ///     {
+    ///         ConsumerGroupName = "cgn",
+    ///         EnvironmentName = "env1",
+    ///         EventHubName = "ehn",
+    ///         EventSourceName = "es1",
+    ///         EventSourceResourceId = "somePathInArm",
+    ///         KeyName = "managementKey",
+    ///         Kind = "Microsoft.EventHub",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceBusNamespace = "sbn",
+    ///         SharedAccessKey = "someSecretvalue",
+    ///         TimestampPropertyName = "someTimestampProperty",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights/v20180815preview:EventHubEventSource es1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/eventSources/es1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20180815preview:EventHubEventSource")]
     public partial class EventHubEventSource : global::Pulumi.CustomResource

@@ -11,6 +11,49 @@ import * as utilities from "../utilities";
  * Friendly Rules name mapping to the any Rules or secret related information.
  * API Version: 2021-06-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Rules_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rule = new azure_native.cdn.Rule("rule", {
+ *     actions: [{
+ *         name: "ModifyResponseHeader",
+ *         parameters: {
+ *             headerAction: "Overwrite",
+ *             headerName: "X-CDN",
+ *             typeName: "DeliveryRuleHeaderActionParameters",
+ *             value: "MSFT",
+ *         },
+ *     }],
+ *     conditions: [{
+ *         name: "RequestMethod",
+ *         parameters: {
+ *             matchValues: ["GET"],
+ *             negateCondition: false,
+ *             operator: "Equal",
+ *             typeName: "DeliveryRuleRequestMethodConditionParameters",
+ *         },
+ *     }],
+ *     order: 1,
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     ruleName: "rule1",
+ *     ruleSetName: "ruleSet1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:Rule rule1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/rulesets/ruleSet1/rules/rule1 
+ * ```
  */
 export class Rule extends pulumi.CustomResource {
     /**

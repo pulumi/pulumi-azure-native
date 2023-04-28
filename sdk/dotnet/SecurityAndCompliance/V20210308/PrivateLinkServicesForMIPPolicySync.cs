@@ -11,6 +11,125 @@ namespace Pulumi.AzureNative.SecurityAndCompliance.V20210308
 {
     /// <summary>
     /// The description of the service.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a service with all parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkServicesForMIPPolicySync = new AzureNative.SecurityAndCompliance.V20210308.PrivateLinkServicesForMIPPolicySync("privateLinkServicesForMIPPolicySync", new()
+    ///     {
+    ///         Identity = new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServicesResourceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Kind = AzureNative.SecurityAndCompliance.V20210308.Kind.Fhir_R4,
+    ///         Location = "westus2",
+    ///         Properties = new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServicesPropertiesArgs
+    ///         {
+    ///             AccessPolicies = new[]
+    ///             {
+    ///                 new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServiceAccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+    ///                 },
+    ///                 new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServiceAccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "5b307da8-43d4-492b-8b66-b0294ade872f",
+    ///                 },
+    ///             },
+    ///             AuthenticationConfiguration = new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServiceAuthenticationConfigurationInfoArgs
+    ///             {
+    ///                 Audience = "https://azurehealthcareapis.com",
+    ///                 Authority = "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
+    ///                 SmartProxyEnabled = true,
+    ///             },
+    ///             CorsConfiguration = new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServiceCorsConfigurationInfoArgs
+    ///             {
+    ///                 AllowCredentials = false,
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///                 MaxAge = 1440,
+    ///                 Methods = new[]
+    ///                 {
+    ///                     "DELETE",
+    ///                     "GET",
+    ///                     "OPTIONS",
+    ///                     "PATCH",
+    ///                     "POST",
+    ///                     "PUT",
+    ///                 },
+    ///                 Origins = new[]
+    ///                 {
+    ///                     "*",
+    ///                 },
+    ///             },
+    ///             CosmosDbConfiguration = new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServiceCosmosDbConfigurationInfoArgs
+    ///             {
+    ///                 KeyVaultKeyUri = "https://my-vault.vault.azure.net/keys/my-key",
+    ///                 OfferThroughput = 1000,
+    ///             },
+    ///             ExportConfiguration = new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServiceExportConfigurationInfoArgs
+    ///             {
+    ///                 StorageAccountName = "existingStorageAccount",
+    ///             },
+    ///             PrivateEndpointConnections = new[] {},
+    ///             PublicNetworkAccess = "Disabled",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "service1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update a service with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkServicesForMIPPolicySync = new AzureNative.SecurityAndCompliance.V20210308.PrivateLinkServicesForMIPPolicySync("privateLinkServicesForMIPPolicySync", new()
+    ///     {
+    ///         Kind = AzureNative.SecurityAndCompliance.V20210308.Kind.Fhir_R4,
+    ///         Location = "westus2",
+    ///         Properties = new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServicesPropertiesArgs
+    ///         {
+    ///             AccessPolicies = new[]
+    ///             {
+    ///                 new AzureNative.SecurityAndCompliance.V20210308.Inputs.ServiceAccessPolicyEntryArgs
+    ///                 {
+    ///                     ObjectId = "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "service2",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync service2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForMIPPolicySync/service2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityandcompliance/v20210308:privateLinkServicesForMIPPolicySync")]
     public partial class PrivateLinkServicesForMIPPolicySync : global::Pulumi.CustomResource

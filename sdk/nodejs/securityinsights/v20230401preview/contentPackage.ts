@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Package in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Install a package to the workspace.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const contentPackage = new azure_native.securityinsights.v20230401preview.ContentPackage("contentPackage", {
+ *     contentId: "str.azure-sentinel-solution-str",
+ *     contentKind: "Solution",
+ *     displayName: "str",
+ *     packageId: "str.azure-sentinel-solution-str",
+ *     resourceGroupName: "myRg",
+ *     version: "2.0.0",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:ContentPackage str.azure-sentinel-solution-str /subscriptions/d0cfeab2-9ae0-4464-9919-dccaee2e48f0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/contentPackages/str.azure-sentinel-solution-str 
+ * ```
  */
 export class ContentPackage extends pulumi.CustomResource {
     /**

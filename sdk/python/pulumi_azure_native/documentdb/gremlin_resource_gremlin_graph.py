@@ -165,6 +165,69 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CosmosDBGremlinGraphCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gremlin_resource_gremlin_graph = azure_native.documentdb.GremlinResourceGremlinGraph("gremlinResourceGremlinGraph",
+            account_name="ddb1",
+            database_name="databaseName",
+            graph_name="graphName",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.GremlinGraphGetPropertiesResponseResourceArgs(
+                conflict_resolution_policy=azure_native.documentdb.ConflictResolutionPolicyArgs(
+                    conflict_resolution_path="/path",
+                    mode="LastWriterWins",
+                ),
+                default_ttl=100,
+                id="graphName",
+                indexing_policy={
+                    "automatic": True,
+                    "excludedPaths": [],
+                    "includedPaths": [{
+                        "indexes": [
+                            azure_native.documentdb.IndexesArgs(
+                                data_type="String",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                            azure_native.documentdb.IndexesArgs(
+                                data_type="Number",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                        ],
+                        "path": "/*",
+                    }],
+                    "indexingMode": "consistent",
+                },
+                partition_key=azure_native.documentdb.ContainerPartitionKeyArgs(
+                    kind="Hash",
+                    paths=["/AccountNumber"],
+                ),
+                unique_key_policy={
+                    "uniqueKeys": [azure_native.documentdb.UniqueKeyArgs(
+                        paths=["/testPath"],
+                    )],
+                },
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:GremlinResourceGremlinGraph graphName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName/gremlinGraphs/graphName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -186,6 +249,69 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
         An Azure Cosmos DB Gremlin graph.
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CosmosDBGremlinGraphCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gremlin_resource_gremlin_graph = azure_native.documentdb.GremlinResourceGremlinGraph("gremlinResourceGremlinGraph",
+            account_name="ddb1",
+            database_name="databaseName",
+            graph_name="graphName",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.GremlinGraphGetPropertiesResponseResourceArgs(
+                conflict_resolution_policy=azure_native.documentdb.ConflictResolutionPolicyArgs(
+                    conflict_resolution_path="/path",
+                    mode="LastWriterWins",
+                ),
+                default_ttl=100,
+                id="graphName",
+                indexing_policy={
+                    "automatic": True,
+                    "excludedPaths": [],
+                    "includedPaths": [{
+                        "indexes": [
+                            azure_native.documentdb.IndexesArgs(
+                                data_type="String",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                            azure_native.documentdb.IndexesArgs(
+                                data_type="Number",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                        ],
+                        "path": "/*",
+                    }],
+                    "indexingMode": "consistent",
+                },
+                partition_key=azure_native.documentdb.ContainerPartitionKeyArgs(
+                    kind="Hash",
+                    paths=["/AccountNumber"],
+                ),
+                unique_key_policy={
+                    "uniqueKeys": [azure_native.documentdb.UniqueKeyArgs(
+                        paths=["/testPath"],
+                    )],
+                },
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:GremlinResourceGremlinGraph graphName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName/gremlinGraphs/graphName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GremlinResourceGremlinGraphArgs args: The arguments to use to populate this resource's properties.

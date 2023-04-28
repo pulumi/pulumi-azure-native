@@ -8,6 +8,30 @@ import * as utilities from "../utilities";
  * Tag Contract details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateProductTag
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tagByProduct = new azure_native.apimanagement.TagByProduct("tagByProduct", {
+ *     productId: "5931a75ae4bbd512a88c680b",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     tagId: "tagId1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:TagByProduct tagId1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/tagId1 
+ * ```
  */
 export class TagByProduct extends pulumi.CustomResource {
     /**

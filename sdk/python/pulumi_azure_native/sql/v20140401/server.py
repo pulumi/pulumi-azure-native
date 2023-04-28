@@ -147,6 +147,48 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
+        ## Example Usage
+        ### Create server max
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.sql.v20140401.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="<administratorLoginPassword>",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645",
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            version="12.0")
+
+        ```
+        ### Create server min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.sql.v20140401.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="<administratorLoginPassword>",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20140401:Server sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Can only be specified when the server is being created (and is required for creation).
@@ -165,6 +207,48 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
+
+        ## Example Usage
+        ### Create server max
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.sql.v20140401.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="<administratorLoginPassword>",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645",
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            version="12.0")
+
+        ```
+        ### Create server min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.sql.v20140401.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="<administratorLoginPassword>",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20140401:Server sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

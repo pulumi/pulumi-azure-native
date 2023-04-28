@@ -7,6 +7,52 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### ProviderRegistrations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerRegistration = new azure_native.providerhub.v20210901preview.ProviderRegistration("providerRegistration", {
+ *     properties: {
+ *         capabilities: [
+ *             {
+ *                 effect: "Allow",
+ *                 quotaId: "CSP_2015-05-01",
+ *             },
+ *             {
+ *                 effect: "Allow",
+ *                 quotaId: "CSP_MG_2017-12-01",
+ *             },
+ *         ],
+ *         management: {
+ *             incidentContactEmail: "helpme@contoso.com",
+ *             incidentRoutingService: "Contoso Resource Provider",
+ *             incidentRoutingTeam: "Contoso Triage",
+ *             serviceTreeInfos: [{
+ *                 componentId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+ *                 readiness: "InDevelopment",
+ *                 serviceId: "d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+ *             }],
+ *         },
+ *         providerType: "Internal",
+ *         providerVersion: "2.0",
+ *     },
+ *     providerNamespace: "Microsoft.Contoso",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:providerhub/v20210901preview:ProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace} 
+ * ```
+ */
 export class ProviderRegistration extends pulumi.CustomResource {
     /**
      * Get an existing ProviderRegistration resource's state with the given name, ID, and optional extra

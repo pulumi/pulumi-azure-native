@@ -13,6 +13,65 @@ namespace Pulumi.AzureNative.ContainerStorage
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
     /// API Version: 2023-03-01-preview.
     /// Previous API Version: 2023-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Volumes_CreateOrUpdate_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.ContainerStorage.Volume("volume", new()
+    ///     {
+    ///         CapacityGiB = 4,
+    ///         Labels = 
+    ///         {
+    ///             { "key6929", "cylq" },
+    ///         },
+    ///         MountOptions = new[]
+    ///         {
+    ///             "bztwmyruogigzqnwzpnjxjo",
+    ///         },
+    ///         PoolName = "L-7Vr5xE3",
+    ///         ReclaimPolicy = "Delete",
+    ///         ResourceGroupName = "rgcontainerstorage",
+    ///         VolumeMode = "Filesystem",
+    ///         VolumeName = "y4borPc1GHLej48W3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Volumes_CreateOrUpdate_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.ContainerStorage.Volume("volume", new()
+    ///     {
+    ///         PoolName = "-3-0",
+    ///         ResourceGroupName = "rgcontainerstorage",
+    ///         VolumeName = "q-r6KY54UA6G5TPSTL83",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerstorage:Volume qw uhsbnbojqymtspvbxzzjoepbyhgr 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerstorage:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

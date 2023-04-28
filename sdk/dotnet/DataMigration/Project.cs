@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.DataMigration
     /// A project resource
     /// API Version: 2021-06-30.
     /// Previous API Version: 2018-04-19. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Projects_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var project = new AzureNative.DataMigration.Project("project", new()
+    ///     {
+    ///         GroupName = "DmsSdkRg",
+    ///         Location = "southcentralus",
+    ///         ProjectName = "DmsSdkProject",
+    ///         ServiceName = "DmsSdkService",
+    ///         SourcePlatform = "SQL",
+    ///         TargetPlatform = "SQLDB",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datamigration:Project DmsSdkProject /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:Project")]
     public partial class Project : global::Pulumi.CustomResource

@@ -315,6 +315,45 @@ class Bookmark(pulumi.CustomResource):
         """
         Represents a bookmark in Azure Security Insights.
 
+        ## Example Usage
+        ### Creates or updates a bookmark.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bookmark = azure_native.securityinsights.v20190101preview.Bookmark("bookmark",
+            bookmark_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            created="2019-01-01T13:15:30Z",
+            created_by=azure_native.securityinsights.v20190101preview.UserInfoArgs(
+                object_id="2046feea-040d-4a46-9e2b-91c2941bfa70",
+            ),
+            display_name="My bookmark",
+            labels=[
+                "Tag1",
+                "Tag2",
+            ],
+            notes="Found a suspicious activity",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            query="SecurityEvent | where TimeGenerated > ago(1d) and TimeGenerated < ago(2d)",
+            query_result="Security Event query result",
+            resource_group_name="myRg",
+            updated="2019-01-01T13:15:30Z",
+            updated_by=azure_native.securityinsights.v20190101preview.UserInfoArgs(
+                object_id="2046feea-040d-4a46-9e2b-91c2941bfa70",
+            ),
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20190101preview:Bookmark 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/bookmarks/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bookmark_id: Bookmark ID
@@ -343,6 +382,45 @@ class Bookmark(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a bookmark in Azure Security Insights.
+
+        ## Example Usage
+        ### Creates or updates a bookmark.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bookmark = azure_native.securityinsights.v20190101preview.Bookmark("bookmark",
+            bookmark_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            created="2019-01-01T13:15:30Z",
+            created_by=azure_native.securityinsights.v20190101preview.UserInfoArgs(
+                object_id="2046feea-040d-4a46-9e2b-91c2941bfa70",
+            ),
+            display_name="My bookmark",
+            labels=[
+                "Tag1",
+                "Tag2",
+            ],
+            notes="Found a suspicious activity",
+            operational_insights_resource_provider="Microsoft.OperationalInsights",
+            query="SecurityEvent | where TimeGenerated > ago(1d) and TimeGenerated < ago(2d)",
+            query_result="Security Event query result",
+            resource_group_name="myRg",
+            updated="2019-01-01T13:15:30Z",
+            updated_by=azure_native.securityinsights.v20190101preview.UserInfoArgs(
+                object_id="2046feea-040d-4a46-9e2b-91c2941bfa70",
+            ),
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20190101preview:Bookmark 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/bookmarks/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BookmarkArgs args: The arguments to use to populate this resource's properties.

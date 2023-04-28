@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * A FluidRelay Server.
+ *
+ * ## Example Usage
+ * ### Create a Fluid Relay server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fluidRelayServer = new azure_native.fluidrelay.v20210312preview.FluidRelayServer("fluidRelayServer", {
+ *     location: "west-us",
+ *     name: "myFluidRelayServer",
+ *     resourceGroup: "myResourceGroup",
+ *     tags: {
+ *         Category: "sales",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:fluidrelay/v20210312preview:FluidRelayServer myFluidRelayServer /subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/Microsoft.FluidRelay/fluidRelayServers/myFluidRelayServer 
+ * ```
  */
 export class FluidRelayServer extends pulumi.CustomResource {
     /**

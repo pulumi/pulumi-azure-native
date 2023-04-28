@@ -168,6 +168,36 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or Update a proximity placement group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        proximity_placement_group = azure_native.compute.ProximityPlacementGroup("proximityPlacementGroup",
+            intent=azure_native.compute.ProximityPlacementGroupPropertiesIntentArgs(
+                vm_sizes=[
+                    "Basic_A0",
+                    "Basic_A2",
+                ],
+            ),
+            location="westus",
+            proximity_placement_group_name="myProximityPlacementGroup",
+            proximity_placement_group_type="Standard",
+            resource_group_name="myResourceGroup",
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:ProximityPlacementGroup myProximityPlacementGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myProximityPlacementGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['InstanceViewStatusArgs']] colocation_status: Describes colocation status of the Proximity Placement Group.
@@ -189,6 +219,36 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         Specifies information about the proximity placement group.
         API Version: 2022-11-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or Update a proximity placement group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        proximity_placement_group = azure_native.compute.ProximityPlacementGroup("proximityPlacementGroup",
+            intent=azure_native.compute.ProximityPlacementGroupPropertiesIntentArgs(
+                vm_sizes=[
+                    "Basic_A0",
+                    "Basic_A2",
+                ],
+            ),
+            location="westus",
+            proximity_placement_group_name="myProximityPlacementGroup",
+            proximity_placement_group_type="Standard",
+            resource_group_name="myResourceGroup",
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:ProximityPlacementGroup myProximityPlacementGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myProximityPlacementGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProximityPlacementGroupArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.StorageMover.V20220701Preview
 {
     /// <summary>
     /// The Project resource.
+    /// 
+    /// ## Example Usage
+    /// ### Projects_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var project = new AzureNative.StorageMover.V20220701Preview.Project("project", new()
+    ///     {
+    ///         Description = "Example Project Description",
+    ///         ProjectName = "examples-projectName",
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagemover/v20220701preview:Project examples-projectName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/agents/examples-projectName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover/v20220701preview:Project")]
     public partial class Project : global::Pulumi.CustomResource

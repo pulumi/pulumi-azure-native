@@ -13,6 +13,84 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// The Video Analyzer account.
     /// API Version: 2021-11-01-preview.
     /// Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Video Analyzer account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var videoAnalyzer = new AzureNative.VideoAnalyzer.VideoAnalyzer("videoAnalyzer", new()
+    ///     {
+    ///         AccountName = "contosotv",
+    ///         Encryption = new AzureNative.VideoAnalyzer.Inputs.AccountEncryptionArgs
+    ///         {
+    ///             Type = "SystemKey",
+    ///         },
+    ///         Identity = new AzureNative.VideoAnalyzer.Inputs.VideoAnalyzerIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", null },
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2", null },
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3", null },
+    ///             },
+    ///         },
+    ///         IotHubs = new[]
+    ///         {
+    ///             new AzureNative.VideoAnalyzer.Inputs.IotHubArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Devices/IotHubs/hub1",
+    ///                 Identity = new AzureNative.VideoAnalyzer.Inputs.ResourceIdentityArgs
+    ///                 {
+    ///                     UserAssignedIdentity = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3",
+    ///                 },
+    ///             },
+    ///             new AzureNative.VideoAnalyzer.Inputs.IotHubArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Devices/IotHubs/hub2",
+    ///                 Identity = new AzureNative.VideoAnalyzer.Inputs.ResourceIdentityArgs
+    ///                 {
+    ///                     UserAssignedIdentity = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "South Central US",
+    ///         ResourceGroupName = "contoso",
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new AzureNative.VideoAnalyzer.Inputs.StorageAccountArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/storage1",
+    ///                 Identity = new AzureNative.VideoAnalyzer.Inputs.ResourceIdentityArgs
+    ///                 {
+    ///                     UserAssignedIdentity = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer:VideoAnalyzer contosomovies /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/videoAnalyzers/contosomovies 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:VideoAnalyzer")]
     public partial class VideoAnalyzer : global::Pulumi.CustomResource

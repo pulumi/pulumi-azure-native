@@ -254,6 +254,121 @@ class ManagedEnvironment(pulumi.CustomResource):
         """
         An environment for hosting container apps
 
+        ## Example Usage
+        ### Create environment with custom infrastructureResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environment = azure_native.app.v20221101preview.ManagedEnvironment("managedEnvironment",
+            app_logs_configuration=azure_native.app.v20221101preview.AppLogsConfigurationResponseArgs(
+                log_analytics_configuration=azure_native.app.v20221101preview.LogAnalyticsConfigurationArgs(
+                    customer_id="string",
+                    shared_key="string",
+                ),
+            ),
+            custom_domain_configuration=azure_native.app.v20221101preview.CustomDomainConfigurationArgs(
+                certificate_password="1234",
+                certificate_value="Y2VydA==",
+                dns_suffix="www.my-name.com",
+            ),
+            dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+            environment_name="testcontainerenv",
+            infrastructure_resource_group="myInfrastructureRgName",
+            location="East US",
+            resource_group_name="examplerg",
+            vnet_configuration=azure_native.app.v20221101preview.VnetConfigurationArgs(
+                infrastructure_subnet_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1",
+            ),
+            workload_profiles=[
+                {
+                    "maximumCount": 12,
+                    "minimumCount": 3,
+                    "name": "My-GP-01",
+                    "workloadProfileType": "GeneralPurpose",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "name": "My-MO-01",
+                    "workloadProfileType": "MemoryOptimized",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "name": "My-CO-01",
+                    "workloadProfileType": "ComputeOptimized",
+                },
+                {
+                    "name": "My-consumption-01",
+                    "workloadProfileType": "Consumption",
+                },
+            ],
+            zone_redundant=True)
+
+        ```
+        ### Create environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environment = azure_native.app.v20221101preview.ManagedEnvironment("managedEnvironment",
+            app_logs_configuration=azure_native.app.v20221101preview.AppLogsConfigurationResponseArgs(
+                log_analytics_configuration=azure_native.app.v20221101preview.LogAnalyticsConfigurationArgs(
+                    customer_id="string",
+                    shared_key="string",
+                ),
+            ),
+            custom_domain_configuration=azure_native.app.v20221101preview.CustomDomainConfigurationArgs(
+                certificate_password="1234",
+                certificate_value="Y2VydA==",
+                dns_suffix="www.my-name.com",
+            ),
+            dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+            environment_name="testcontainerenv",
+            location="East US",
+            resource_group_name="examplerg",
+            vnet_configuration=azure_native.app.v20221101preview.VnetConfigurationArgs(
+                infrastructure_subnet_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1",
+            ),
+            workload_profiles=[
+                {
+                    "maximumCount": 12,
+                    "minimumCount": 3,
+                    "name": "My-GP-01",
+                    "workloadProfileType": "GeneralPurpose",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "name": "My-MO-01",
+                    "workloadProfileType": "MemoryOptimized",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "name": "My-CO-01",
+                    "workloadProfileType": "ComputeOptimized",
+                },
+                {
+                    "name": "My-consumption-01",
+                    "workloadProfileType": "Consumption",
+                },
+            ],
+            zone_redundant=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221101preview:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']] app_logs_configuration: Cluster configuration which enables the log daemon to export
@@ -280,6 +395,121 @@ class ManagedEnvironment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment for hosting container apps
+
+        ## Example Usage
+        ### Create environment with custom infrastructureResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environment = azure_native.app.v20221101preview.ManagedEnvironment("managedEnvironment",
+            app_logs_configuration=azure_native.app.v20221101preview.AppLogsConfigurationResponseArgs(
+                log_analytics_configuration=azure_native.app.v20221101preview.LogAnalyticsConfigurationArgs(
+                    customer_id="string",
+                    shared_key="string",
+                ),
+            ),
+            custom_domain_configuration=azure_native.app.v20221101preview.CustomDomainConfigurationArgs(
+                certificate_password="1234",
+                certificate_value="Y2VydA==",
+                dns_suffix="www.my-name.com",
+            ),
+            dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+            environment_name="testcontainerenv",
+            infrastructure_resource_group="myInfrastructureRgName",
+            location="East US",
+            resource_group_name="examplerg",
+            vnet_configuration=azure_native.app.v20221101preview.VnetConfigurationArgs(
+                infrastructure_subnet_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1",
+            ),
+            workload_profiles=[
+                {
+                    "maximumCount": 12,
+                    "minimumCount": 3,
+                    "name": "My-GP-01",
+                    "workloadProfileType": "GeneralPurpose",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "name": "My-MO-01",
+                    "workloadProfileType": "MemoryOptimized",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "name": "My-CO-01",
+                    "workloadProfileType": "ComputeOptimized",
+                },
+                {
+                    "name": "My-consumption-01",
+                    "workloadProfileType": "Consumption",
+                },
+            ],
+            zone_redundant=True)
+
+        ```
+        ### Create environments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environment = azure_native.app.v20221101preview.ManagedEnvironment("managedEnvironment",
+            app_logs_configuration=azure_native.app.v20221101preview.AppLogsConfigurationResponseArgs(
+                log_analytics_configuration=azure_native.app.v20221101preview.LogAnalyticsConfigurationArgs(
+                    customer_id="string",
+                    shared_key="string",
+                ),
+            ),
+            custom_domain_configuration=azure_native.app.v20221101preview.CustomDomainConfigurationArgs(
+                certificate_password="1234",
+                certificate_value="Y2VydA==",
+                dns_suffix="www.my-name.com",
+            ),
+            dapr_ai_connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+            environment_name="testcontainerenv",
+            location="East US",
+            resource_group_name="examplerg",
+            vnet_configuration=azure_native.app.v20221101preview.VnetConfigurationArgs(
+                infrastructure_subnet_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/RGName/providers/Microsoft.Network/virtualNetworks/VNetName/subnets/subnetName1",
+            ),
+            workload_profiles=[
+                {
+                    "maximumCount": 12,
+                    "minimumCount": 3,
+                    "name": "My-GP-01",
+                    "workloadProfileType": "GeneralPurpose",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "name": "My-MO-01",
+                    "workloadProfileType": "MemoryOptimized",
+                },
+                {
+                    "maximumCount": 6,
+                    "minimumCount": 3,
+                    "name": "My-CO-01",
+                    "workloadProfileType": "ComputeOptimized",
+                },
+                {
+                    "name": "My-consumption-01",
+                    "workloadProfileType": "Consumption",
+                },
+            ],
+            zone_redundant=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221101preview:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentArgs args: The arguments to use to populate this resource's properties.

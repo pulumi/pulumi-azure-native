@@ -434,6 +434,76 @@ class Watchlist(pulumi.CustomResource):
         """
         Represents a Watchlist in Azure Security Insights.
 
+        ## Example Usage
+        ### Create or update a watchlist and bulk creates watchlist items from SAL URI.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.v20220101preview.Watchlist("watchlist",
+            description="Watchlist from a large CSV file under Blob storage",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            number_of_lines_to_skip=1,
+            provider="Microsoft",
+            resource_group_name="myRg",
+            sas_uri="https://storagesample.blob.core.windows.net/sample-contaier/sampleBlob.csv?sp=r&st=2021-09-24T01:15:52Z&se=2021-10-01T09:15:52Z&spr=https&sv=2020-08-04&sr=b&sig=HRRRMc43ZJz634eBc402X%2FFPxam5sZVPSkLOY14baEd%4Z",
+            source_type="Remote storage",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a watchlist and bulk creates watchlist items.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.v20220101preview.Watchlist("watchlist",
+            content_type="text/csv",
+            description="Watchlist from CSV content",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            number_of_lines_to_skip=1,
+            provider="Microsoft",
+            raw_content=\"\"\"This line will be skipped
+        header1,header2
+        value1,value2\"\"\",
+            resource_group_name="myRg",
+            source="watchlist.csv",
+            source_type="Local file",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a watchlist.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.v20220101preview.Watchlist("watchlist",
+            description="Watchlist from CSV content",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            provider="Microsoft",
+            resource_group_name="myRg",
+            source="watchlist.csv",
+            source_type="Local file",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220101preview:Watchlist highValueAsset /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/watchlists/highValueAsset 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: The content type of the raw content. Example : text/csv or text/tsv 
@@ -469,6 +539,76 @@ class Watchlist(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Watchlist in Azure Security Insights.
+
+        ## Example Usage
+        ### Create or update a watchlist and bulk creates watchlist items from SAL URI.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.v20220101preview.Watchlist("watchlist",
+            description="Watchlist from a large CSV file under Blob storage",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            number_of_lines_to_skip=1,
+            provider="Microsoft",
+            resource_group_name="myRg",
+            sas_uri="https://storagesample.blob.core.windows.net/sample-contaier/sampleBlob.csv?sp=r&st=2021-09-24T01:15:52Z&se=2021-10-01T09:15:52Z&spr=https&sv=2020-08-04&sr=b&sig=HRRRMc43ZJz634eBc402X%2FFPxam5sZVPSkLOY14baEd%4Z",
+            source_type="Remote storage",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a watchlist and bulk creates watchlist items.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.v20220101preview.Watchlist("watchlist",
+            content_type="text/csv",
+            description="Watchlist from CSV content",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            number_of_lines_to_skip=1,
+            provider="Microsoft",
+            raw_content=\"\"\"This line will be skipped
+        header1,header2
+        value1,value2\"\"\",
+            resource_group_name="myRg",
+            source="watchlist.csv",
+            source_type="Local file",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a watchlist.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.v20220101preview.Watchlist("watchlist",
+            description="Watchlist from CSV content",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            provider="Microsoft",
+            resource_group_name="myRg",
+            source="watchlist.csv",
+            source_type="Local file",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220101preview:Watchlist highValueAsset /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/watchlists/highValueAsset 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WatchlistArgs args: The arguments to use to populate this resource's properties.

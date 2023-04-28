@@ -176,6 +176,125 @@ class SqlDBTableDataSet(pulumi.CustomResource):
         """
         A SQL DB table data set.
 
+        ## Example Usage
+        ### DataSets_ADLSGen2StorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_BlobStorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            database_name="SqlDB1",
+            kind="SqlDBTable",
+            resource_group_name="SampleResourceGroup",
+            schema_name="dbo",
+            share_name="Share1",
+            sql_server_resource_id="/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Sql/servers/Server1",
+            table_name="Table1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20201001preview:SqlDBTableDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -197,6 +316,125 @@ class SqlDBTableDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL DB table data set.
+
+        ## Example Usage
+        ### DataSets_ADLSGen2StorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_BlobStorageAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoCluster_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_KustoDatabase_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SqlDBTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            database_name="SqlDB1",
+            kind="SqlDBTable",
+            resource_group_name="SampleResourceGroup",
+            schema_name="dbo",
+            share_name="Share1",
+            sql_server_resource_id="/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Sql/servers/Server1",
+            table_name="Table1")
+
+        ```
+        ### DataSets_SqlDWTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="Account1",
+            data_set_name="Dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1")
+
+        ```
+        ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_db_table_data_set = azure_native.datashare.v20201001preview.SqlDBTableDataSet("sqlDBTableDataSet",
+            account_name="sourceAccount",
+            data_set_name="dataset1",
+            resource_group_name="SampleResourceGroup",
+            share_name="share1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20201001preview:SqlDBTableDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlDBTableDataSetArgs args: The arguments to use to populate this resource's properties.

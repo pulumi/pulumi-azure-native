@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Workspace Model Container.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var modelContainer = new AzureNative.MachineLearningServices.V20230401Preview.ModelContainer("modelContainer", new()
+    ///     {
+    ///         ModelContainerProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ModelContainerArgs
+    ///         {
+    ///             Description = "Model container description",
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         },
+    ///         Name = "testContainer",
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspace123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:ModelContainer testContainer /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/models/testContainer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:ModelContainer")]
     public partial class ModelContainer : global::Pulumi.CustomResource

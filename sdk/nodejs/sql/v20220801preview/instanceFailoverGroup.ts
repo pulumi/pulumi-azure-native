@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * An instance failover group.
+ *
+ * ## Example Usage
+ * ### Create failover group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const instanceFailoverGroup = new azure_native.sql.v20220801preview.InstanceFailoverGroup("instanceFailoverGroup", {
+ *     failoverGroupName: "failover-group-test-3",
+ *     locationName: "Japan East",
+ *     managedInstancePairs: [{
+ *         partnerManagedInstanceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-secondary-mngdInstance",
+ *         primaryManagedInstanceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-primary-mngdInstance",
+ *     }],
+ *     partnerRegions: [{
+ *         location: "Japan West",
+ *     }],
+ *     readOnlyEndpoint: {
+ *         failoverPolicy: "Disabled",
+ *     },
+ *     readWriteEndpoint: {
+ *         failoverPolicy: "Automatic",
+ *         failoverWithDataLossGracePeriodMinutes: 480,
+ *     },
+ *     resourceGroupName: "Default",
+ *     secondaryType: "Geo",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:InstanceFailoverGroup failover-group-test-3 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/locations/JapanEast/instanceFailoverGroups/failover-group-test-3 
+ * ```
  */
 export class InstanceFailoverGroup extends pulumi.CustomResource {
     /**

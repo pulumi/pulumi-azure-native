@@ -9,6 +9,118 @@ import * as utilities from "../../utilities";
 
 /**
  * A streaming job object, containing all information associated with the named streaming job.
+ *
+ * ## Example Usage
+ * ### Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const streamingJob = new azure_native.streamanalytics.v20211001preview.StreamingJob("streamingJob", {
+ *     compatibilityLevel: "1.0",
+ *     dataLocale: "en-US",
+ *     eventsLateArrivalMaxDelayInSeconds: 5,
+ *     eventsOutOfOrderMaxDelayInSeconds: 0,
+ *     eventsOutOfOrderPolicy: "Drop",
+ *     externals: {
+ *         container: "mycontainer",
+ *         path: "UserCustomCode.zip",
+ *         refreshConfiguration: {
+ *             dateFormat: "yyyy-dd-MM",
+ *             pathPattern: "{date}\\\\{time}",
+ *             refreshInterval: "00:01:00",
+ *             refreshType: "Nonblocking",
+ *             timeFormat: "HH",
+ *         },
+ *         storageAccount: {
+ *             accountKey: "mykey",
+ *             accountName: "mystorageaccount",
+ *         },
+ *     },
+ *     functions: [],
+ *     inputs: [{
+ *         name: "inputtest",
+ *         properties: {
+ *             datasource: {
+ *                 container: "containerName",
+ *                 pathPattern: "",
+ *                 storageAccounts: [{
+ *                     accountKey: "yourAccountKey==",
+ *                     accountName: "yourAccountName",
+ *                 }],
+ *                 type: "Microsoft.Storage/Blob",
+ *             },
+ *             serialization: {
+ *                 encoding: "UTF8",
+ *                 type: "Json",
+ *             },
+ *             type: "Stream",
+ *         },
+ *     }],
+ *     jobName: "sj7804",
+ *     location: "West US",
+ *     outputErrorPolicy: "Drop",
+ *     outputs: [{
+ *         datasource: {
+ *             database: "databaseName",
+ *             password: "userPassword",
+ *             server: "serverName",
+ *             table: "tableName",
+ *             type: "Microsoft.Sql/Server/Database",
+ *             user: "<user>",
+ *         },
+ *         name: "outputtest",
+ *     }],
+ *     resourceGroupName: "sjrg3276",
+ *     tags: {
+ *         key1: "value1",
+ *         key3: "value3",
+ *         randomKey: "randomValue",
+ *     },
+ *     transformation: {
+ *         name: "transformationtest",
+ *         query: "Select Id, Name from inputtest",
+ *         streamingUnits: 1,
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const streamingJob = new azure_native.streamanalytics.v20211001preview.StreamingJob("streamingJob", {
+ *     compatibilityLevel: "1.0",
+ *     dataLocale: "en-US",
+ *     eventsLateArrivalMaxDelayInSeconds: 16,
+ *     eventsOutOfOrderMaxDelayInSeconds: 5,
+ *     eventsOutOfOrderPolicy: "Drop",
+ *     functions: [],
+ *     inputs: [],
+ *     jobName: "sj59",
+ *     location: "West US",
+ *     outputErrorPolicy: "Drop",
+ *     outputs: [],
+ *     resourceGroupName: "sjrg6936",
+ *     tags: {
+ *         key1: "value1",
+ *         key3: "value3",
+ *         randomKey: "randomValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:streamanalytics/v20211001preview:StreamingJob sj59 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg6936/providers/Microsoft.StreamAnalytics/streamingjobs/sj59 
+ * ```
  */
 export class StreamingJob extends pulumi.CustomResource {
     /**

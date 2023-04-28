@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Deployment information.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a deployment that will deploy a templateSpec with the given resourceId
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentAtSubscriptionScope = new azure_native.resources.DeploymentAtSubscriptionScope("deploymentAtSubscriptionScope", {
+ *     deploymentName: "my-deployment",
+ *     location: "eastus",
+ *     properties: {
+ *         mode: azure_native.resources.DeploymentMode.Incremental,
+ *         parameters: {},
+ *         templateLink: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:DeploymentAtSubscriptionScope my-deployment /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.Resources/deployments/my-deployment 
+ * ```
  */
 export class DeploymentAtSubscriptionScope extends pulumi.CustomResource {
     /**

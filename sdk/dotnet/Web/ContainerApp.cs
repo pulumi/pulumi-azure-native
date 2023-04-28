@@ -12,6 +12,81 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Container App.
     /// API Version: 2022-09-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Container App
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerApp = new AzureNative.Web.ContainerApp("containerApp", new()
+    ///     {
+    ///         Configuration = new AzureNative.Web.Inputs.ConfigurationArgs
+    ///         {
+    ///             Ingress = new AzureNative.Web.Inputs.IngressArgs
+    ///             {
+    ///                 External = true,
+    ///                 TargetPort = 3000,
+    ///             },
+    ///         },
+    ///         Kind = "containerApp",
+    ///         KubeEnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/kubeEnvironments/demokube",
+    ///         Location = "East US",
+    ///         Name = "testcontainerApp0",
+    ///         ResourceGroupName = "rg",
+    ///         Template = new AzureNative.Web.Inputs.TemplateArgs
+    ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new AzureNative.Web.Inputs.ContainerArgs
+    ///                 {
+    ///                     Image = "repo/testcontainerApp0:v1",
+    ///                     Name = "testcontainerApp0",
+    ///                 },
+    ///             },
+    ///             Dapr = new AzureNative.Web.Inputs.DaprArgs
+    ///             {
+    ///                 AppPort = 3000,
+    ///                 Enabled = true,
+    ///             },
+    ///             Scale = new AzureNative.Web.Inputs.ScaleArgs
+    ///             {
+    ///                 MaxReplicas = 5,
+    ///                 MinReplicas = 1,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.Web.Inputs.ScaleRuleArgs
+    ///                     {
+    ///                         Custom = new AzureNative.Web.Inputs.CustomScaleRuleArgs
+    ///                         {
+    ///                             Metadata = 
+    ///                             {
+    ///                                 { "concurrentRequests", "50" },
+    ///                             },
+    ///                             Type = "http",
+    ///                         },
+    ///                         Name = "httpscalingrule",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:ContainerApp testcontainerApp0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/containerApps/testcontainerApp0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:ContainerApp")]
     public partial class ContainerApp : global::Pulumi.CustomResource

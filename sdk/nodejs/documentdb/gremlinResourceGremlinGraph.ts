@@ -11,6 +11,70 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB Gremlin graph.
  * API Version: 2022-11-15.
  * Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CosmosDBGremlinGraphCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gremlinResourceGremlinGraph = new azure_native.documentdb.GremlinResourceGremlinGraph("gremlinResourceGremlinGraph", {
+ *     accountName: "ddb1",
+ *     databaseName: "databaseName",
+ *     graphName: "graphName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         conflictResolutionPolicy: {
+ *             conflictResolutionPath: "/path",
+ *             mode: "LastWriterWins",
+ *         },
+ *         defaultTtl: 100,
+ *         id: "graphName",
+ *         indexingPolicy: {
+ *             automatic: true,
+ *             excludedPaths: [],
+ *             includedPaths: [{
+ *                 indexes: [
+ *                     {
+ *                         dataType: "String",
+ *                         kind: "Range",
+ *                         precision: -1,
+ *                     },
+ *                     {
+ *                         dataType: "Number",
+ *                         kind: "Range",
+ *                         precision: -1,
+ *                     },
+ *                 ],
+ *                 path: "/*",
+ *             }],
+ *             indexingMode: "consistent",
+ *         },
+ *         partitionKey: {
+ *             kind: "Hash",
+ *             paths: ["/AccountNumber"],
+ *         },
+ *         uniqueKeyPolicy: {
+ *             uniqueKeys: [{
+ *                 paths: ["/testPath"],
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb:GremlinResourceGremlinGraph graphName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/gremlinDatabases/databaseName/gremlinGraphs/graphName 
+ * ```
  */
 export class GremlinResourceGremlinGraph extends pulumi.CustomResource {
     /**

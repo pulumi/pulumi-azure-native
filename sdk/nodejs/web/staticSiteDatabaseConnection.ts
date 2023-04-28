@@ -10,6 +10,33 @@ import * as utilities from "../utilities";
 /**
  * Static Site Database Connection resource.
  * API Version: 2022-09-01.
+ *
+ * ## Example Usage
+ * ### Create or update a database connection for a static site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const staticSiteDatabaseConnection = new azure_native.web.StaticSiteDatabaseConnection("staticSiteDatabaseConnection", {
+ *     connectionIdentity: "SystemAssigned",
+ *     connectionString: "AccountEndpoint=https://exampleDatabaseName.documents.azure.com:443/;Database=mydb;",
+ *     databaseConnectionName: "default",
+ *     name: "testStaticSite0",
+ *     region: "West US 2",
+ *     resourceGroupName: "rg",
+ *     resourceId: "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/databaseRG/providers/Microsoft.DocumentDB/databaseAccounts/exampleDatabaseName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:StaticSiteDatabaseConnection default /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/databaseConnections/default 
+ * ```
  */
 export class StaticSiteDatabaseConnection extends pulumi.CustomResource {
     /**

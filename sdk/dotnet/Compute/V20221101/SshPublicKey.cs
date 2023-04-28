@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Compute.V20221101
 {
     /// <summary>
     /// Specifies information about the SSH public key.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new SSH public key resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sshPublicKey = new AzureNative.Compute.V20221101.SshPublicKey("sshPublicKey", new()
+    ///     {
+    ///         Location = "westus",
+    ///         PublicKey = "{ssh-rsa public key}",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SshPublicKeyName = "mySshPublicKeyName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20221101:SshPublicKey mySshPublicKeyName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/sshPublicKeys/mySshPublicKeyName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20221101:SshPublicKey")]
     public partial class SshPublicKey : global::Pulumi.CustomResource

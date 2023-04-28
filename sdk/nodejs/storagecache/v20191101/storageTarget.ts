@@ -10,6 +10,46 @@ import * as utilities from "../../utilities";
 /**
  * A storage system being cached by a Cache.
  *
+ * ## Example Usage
+ * ### StorageTargets_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageTarget = new azure_native.storagecache.v20191101.StorageTarget("storageTarget", {
+ *     cacheName: "sc1",
+ *     junctions: [
+ *         {
+ *             namespacePath: "/path/on/cache",
+ *             nfsExport: "exp1",
+ *             targetPath: "/path/on/exp1",
+ *         },
+ *         {
+ *             namespacePath: "/path2/on/cache",
+ *             nfsExport: "exp2",
+ *             targetPath: "/path2/on/exp2",
+ *         },
+ *     ],
+ *     nfs3: {
+ *         target: "10.0.44.44",
+ *         usageModel: "READ_HEAVY_INFREQ",
+ *     },
+ *     resourceGroupName: "scgroup",
+ *     storageTargetName: "st1",
+ *     targetType: "nfs3",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagecache/v20191101:StorageTarget st1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1/storagetargets/st1 
+ * ```
+ *
  * @deprecated Version 2019-11-01 will be removed in v2 of the provider.
  */
 export class StorageTarget extends pulumi.CustomResource {

@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
 {
     /// <summary>
     /// Device Update account details.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates Account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.DeviceUpdate.V20221201Preview.Account("account", new()
+    ///     {
+    ///         AccountName = "contoso",
+    ///         Encryption = new AzureNative.DeviceUpdate.V20221201Preview.Inputs.EncryptionArgs
+    ///         {
+    ///             KeyVaultKeyUri = "https://contoso.vault.azure.net/keys/contoso",
+    ///             UserAssignedIdentity = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+    ///         },
+    ///         Identity = new AzureNative.DeviceUpdate.V20221201Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", null },
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deviceupdate/v20221201preview:Account contoso /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate/v20221201preview:Account")]
     public partial class Account : global::Pulumi.CustomResource

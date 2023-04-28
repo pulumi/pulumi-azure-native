@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Factory resource type.
+ *
+ * ## Example Usage
+ * ### Factories_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const factory = new azure_native.datafactory.v20180601.Factory("factory", {
+ *     factoryName: "exampleFactoryName",
+ *     location: "East US",
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datafactory/v20180601:Factory exampleFactoryName /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName 
+ * ```
  */
 export class Factory extends pulumi.CustomResource {
     /**

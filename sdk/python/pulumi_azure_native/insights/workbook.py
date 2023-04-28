@@ -250,6 +250,64 @@ class Workbook(pulumi.CustomResource):
         API Version: 2022-04-01.
         Previous API Version: 2020-10-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### WorkbookAdd
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workbook = azure_native.insights.Workbook("workbook",
+            category="workbook",
+            description="Sample workbook",
+            display_name="Sample workbook",
+            kind="shared",
+            location="westus",
+            resource_group_name="my-resource-group",
+            resource_name_="deadb33f-5e0d-4064-8ebb-1a4ed0313eb2",
+            serialized_data="{\\"version\\":\\"Notebook/1.0\\",\\"items\\":[{\\"type\\":1,\\"content\\":\\"{\\"json\\":\\"## New workbook\\\\r\\\\n---\\\\r\\\\n\\\\r\\\\nWelcome to your new workbook.  This area will display text formatted as markdown.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\\"}\\",\\"halfWidth\\":null,\\"conditionalVisibility\\":null},{\\"type\\":3,\\"content\\":\\"{\\"version\\":\\"KqlItem/1.0\\",\\"query\\":\\"union withsource=TableName *\\\\n| summarize Count=count() by TableName\\\\n| render barchart\\",\\"showQuery\\":false,\\"size\\":1,\\"aggregation\\":0,\\"showAnnotations\\":false}\\",\\"halfWidth\\":null,\\"conditionalVisibility\\":null}],\\"isLocked\\":false}",
+            source_id="/subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourcegroups/my-resource-group",
+            tags={
+                "TagSample01": "sample01",
+                "TagSample02": "sample02",
+            })
+
+        ```
+        ### WorkbookManagedAdd
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workbook = azure_native.insights.Workbook("workbook",
+            category="workbook",
+            description="Sample workbook",
+            display_name="Sample workbook",
+            identity=azure_native.insights.WorkbookResourceResponseIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myid": {},
+                },
+            ),
+            kind="shared",
+            location="westus",
+            resource_group_name="my-resource-group",
+            resource_name_="deadb33f-5e0d-4064-8ebb-1a4ed0313eb2",
+            serialized_data="{\\"version\\":\\"Notebook/1.0\\",\\"items\\":[{\\"type\\":1,\\"content\\":{\\"json\\":\\"test\\"},\\"name\\":\\"text - 0\\"}],\\"isLocked\\":false,\\"fallbackResourceIds\\":[\\"/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/my-resource-group\\"]}",
+            source_id="/subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourcegroups/my-resource-group",
+            storage_uri="/subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourceGroups/my-resource-group/providers/Microsoft.Storage/storageAccounts/mystorage/blobServices/default/containers/mycontainer",
+            version="Notebook/1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights:Workbook deadb33f-5e0d-4064-8ebb-1a4ed0313eb2 /subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourcegroups/my-resource-group/providers/Microsoft.Insights/workbooks/deadb33f-5e0d-4064-8ebb-1a4ed0313eb2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: Workbook category, as defined by the user at creation time.
@@ -276,6 +334,64 @@ class Workbook(pulumi.CustomResource):
         A workbook definition.
         API Version: 2022-04-01.
         Previous API Version: 2020-10-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### WorkbookAdd
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workbook = azure_native.insights.Workbook("workbook",
+            category="workbook",
+            description="Sample workbook",
+            display_name="Sample workbook",
+            kind="shared",
+            location="westus",
+            resource_group_name="my-resource-group",
+            resource_name_="deadb33f-5e0d-4064-8ebb-1a4ed0313eb2",
+            serialized_data="{\\"version\\":\\"Notebook/1.0\\",\\"items\\":[{\\"type\\":1,\\"content\\":\\"{\\"json\\":\\"## New workbook\\\\r\\\\n---\\\\r\\\\n\\\\r\\\\nWelcome to your new workbook.  This area will display text formatted as markdown.\\\\r\\\\n\\\\r\\\\n\\\\r\\\\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\\"}\\",\\"halfWidth\\":null,\\"conditionalVisibility\\":null},{\\"type\\":3,\\"content\\":\\"{\\"version\\":\\"KqlItem/1.0\\",\\"query\\":\\"union withsource=TableName *\\\\n| summarize Count=count() by TableName\\\\n| render barchart\\",\\"showQuery\\":false,\\"size\\":1,\\"aggregation\\":0,\\"showAnnotations\\":false}\\",\\"halfWidth\\":null,\\"conditionalVisibility\\":null}],\\"isLocked\\":false}",
+            source_id="/subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourcegroups/my-resource-group",
+            tags={
+                "TagSample01": "sample01",
+                "TagSample02": "sample02",
+            })
+
+        ```
+        ### WorkbookManagedAdd
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workbook = azure_native.insights.Workbook("workbook",
+            category="workbook",
+            description="Sample workbook",
+            display_name="Sample workbook",
+            identity=azure_native.insights.WorkbookResourceResponseIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myid": {},
+                },
+            ),
+            kind="shared",
+            location="westus",
+            resource_group_name="my-resource-group",
+            resource_name_="deadb33f-5e0d-4064-8ebb-1a4ed0313eb2",
+            serialized_data="{\\"version\\":\\"Notebook/1.0\\",\\"items\\":[{\\"type\\":1,\\"content\\":{\\"json\\":\\"test\\"},\\"name\\":\\"text - 0\\"}],\\"isLocked\\":false,\\"fallbackResourceIds\\":[\\"/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/my-resource-group\\"]}",
+            source_id="/subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourcegroups/my-resource-group",
+            storage_uri="/subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourceGroups/my-resource-group/providers/Microsoft.Storage/storageAccounts/mystorage/blobServices/default/containers/mycontainer",
+            version="Notebook/1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights:Workbook deadb33f-5e0d-4064-8ebb-1a4ed0313eb2 /subscriptions/6b643656-33eb-422f-aee8-3ac145d124af/resourcegroups/my-resource-group/providers/Microsoft.Insights/workbooks/deadb33f-5e0d-4064-8ebb-1a4ed0313eb2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkbookArgs args: The arguments to use to populate this resource's properties.

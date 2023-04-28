@@ -134,6 +134,70 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
         """
         Managed instance's Start/Stop schedule.
 
+        ## Example Usage
+        ### Creates or updates the managed instance's Start/Stop schedule with all optional parameters specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        start_stop_managed_instance_schedule = azure_native.sql.v20220801preview.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule",
+            description="This is a schedule for our Dev/Test environment.",
+            managed_instance_name="schedulemi",
+            resource_group_name="schedulerg",
+            schedule_list=[
+                azure_native.sql.v20220801preview.ScheduleItemArgs(
+                    start_day="Thursday",
+                    start_time="18:00",
+                    stop_day="Thursday",
+                    stop_time="17:00",
+                ),
+                azure_native.sql.v20220801preview.ScheduleItemArgs(
+                    start_day="Thursday",
+                    start_time="15:00",
+                    stop_day="Thursday",
+                    stop_time="14:00",
+                ),
+            ],
+            start_stop_schedule_name="default",
+            time_zone_id="Central European Standard Time")
+
+        ```
+        ### Creates or updates the managed instance's Start/Stop schedule with no optional parameters specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        start_stop_managed_instance_schedule = azure_native.sql.v20220801preview.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule",
+            managed_instance_name="schedulemi",
+            resource_group_name="schedulerg",
+            schedule_list=[
+                azure_native.sql.v20220801preview.ScheduleItemArgs(
+                    start_day="Thursday",
+                    start_time="18:00",
+                    stop_day="Thursday",
+                    stop_time="17:00",
+                ),
+                azure_native.sql.v20220801preview.ScheduleItemArgs(
+                    start_day="Thursday",
+                    start_time="15:00",
+                    stop_day="Thursday",
+                    stop_time="14:00",
+                ),
+            ],
+            start_stop_schedule_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/schedulerg/providers/Microsoft.Sql/managedInstances/schedulemi/startStopSchedules/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the schedule.
@@ -151,6 +215,70 @@ class StartStopManagedInstanceSchedule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed instance's Start/Stop schedule.
+
+        ## Example Usage
+        ### Creates or updates the managed instance's Start/Stop schedule with all optional parameters specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        start_stop_managed_instance_schedule = azure_native.sql.v20220801preview.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule",
+            description="This is a schedule for our Dev/Test environment.",
+            managed_instance_name="schedulemi",
+            resource_group_name="schedulerg",
+            schedule_list=[
+                azure_native.sql.v20220801preview.ScheduleItemArgs(
+                    start_day="Thursday",
+                    start_time="18:00",
+                    stop_day="Thursday",
+                    stop_time="17:00",
+                ),
+                azure_native.sql.v20220801preview.ScheduleItemArgs(
+                    start_day="Thursday",
+                    start_time="15:00",
+                    stop_day="Thursday",
+                    stop_time="14:00",
+                ),
+            ],
+            start_stop_schedule_name="default",
+            time_zone_id="Central European Standard Time")
+
+        ```
+        ### Creates or updates the managed instance's Start/Stop schedule with no optional parameters specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        start_stop_managed_instance_schedule = azure_native.sql.v20220801preview.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule",
+            managed_instance_name="schedulemi",
+            resource_group_name="schedulerg",
+            schedule_list=[
+                azure_native.sql.v20220801preview.ScheduleItemArgs(
+                    start_day="Thursday",
+                    start_time="18:00",
+                    stop_day="Thursday",
+                    stop_time="17:00",
+                ),
+                azure_native.sql.v20220801preview.ScheduleItemArgs(
+                    start_day="Thursday",
+                    start_time="15:00",
+                    stop_day="Thursday",
+                    stop_time="14:00",
+                ),
+            ],
+            start_stop_schedule_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/schedulerg/providers/Microsoft.Sql/managedInstances/schedulemi/startStopSchedules/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StartStopManagedInstanceScheduleArgs args: The arguments to use to populate this resource's properties.

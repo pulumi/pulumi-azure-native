@@ -471,6 +471,106 @@ class AgentPool(pulumi.CustomResource):
         """
         Agent Pool.
 
+        ## Example Usage
+        ### Create Agent Pool with PPG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20200601.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            orchestrator_version="",
+            os_type="Linux",
+            proximity_placement_group_id="/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Spot Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20200601.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            node_labels={
+                "key1": "val1",
+            },
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            tags={
+                "name1": "val1",
+            },
+            vm_size="Standard_DS1_v2")
+
+        ```
+        ### Create/Update Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20200601.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            mode="User",
+            node_labels={
+                "key1": "val1",
+            },
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            tags={
+                "name1": "val1",
+            },
+            vm_size="Standard_DS1_v2")
+
+        ```
+        ### Update Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20200601.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_auto_scaling=True,
+            max_count=2,
+            min_count=2,
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            vm_size="Standard_DS1_v2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20200601:AgentPool agentpool1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/agentPools/agentpool1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
@@ -508,6 +608,106 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Agent Pool.
+
+        ## Example Usage
+        ### Create Agent Pool with PPG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20200601.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            orchestrator_version="",
+            os_type="Linux",
+            proximity_placement_group_id="/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Spot Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20200601.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            node_labels={
+                "key1": "val1",
+            },
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            tags={
+                "name1": "val1",
+            },
+            vm_size="Standard_DS1_v2")
+
+        ```
+        ### Create/Update Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20200601.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            mode="User",
+            node_labels={
+                "key1": "val1",
+            },
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            tags={
+                "name1": "val1",
+            },
+            vm_size="Standard_DS1_v2")
+
+        ```
+        ### Update Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20200601.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_auto_scaling=True,
+            max_count=2,
+            min_count=2,
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            vm_size="Standard_DS1_v2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20200601:AgentPool agentpool1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/agentPools/agentpool1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.

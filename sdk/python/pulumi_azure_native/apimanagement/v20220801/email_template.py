@@ -164,6 +164,29 @@ class EmailTemplate(pulumi.CustomResource):
         """
         Email Template details.
 
+        ## Example Usage
+        ### ApiManagementCreateTemplate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        email_template = azure_native.apimanagement.v20220801.EmailTemplate("emailTemplate",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            subject="Your request for $IssueName was successfully received.",
+            template_name="newIssueNotificationMessage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:EmailTemplate NewIssueNotificationMessage /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/templates/NewIssueNotificationMessage 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: Email Template Body. This should be a valid XDocument
@@ -183,6 +206,29 @@ class EmailTemplate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Email Template details.
+
+        ## Example Usage
+        ### ApiManagementCreateTemplate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        email_template = azure_native.apimanagement.v20220801.EmailTemplate("emailTemplate",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            subject="Your request for $IssueName was successfully received.",
+            template_name="newIssueNotificationMessage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:EmailTemplate NewIssueNotificationMessage /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/templates/NewIssueNotificationMessage 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EmailTemplateArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * The variable.
+ *
+ * ## Example Usage
+ * ### Create or update a variable at management group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const variableAtManagementGroup = new azure_native.authorization.v20220801preview.VariableAtManagementGroup("variableAtManagementGroup", {
+ *     columns: [{
+ *         columnName: "TestColumn",
+ *     }],
+ *     managementGroupId: "DevOrg",
+ *     variableName: "DemoTestVariable",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20220801preview:VariableAtManagementGroup DemoTestVariable /providers/Microsoft.Management/managementGroups/DevOrg/providers/Microsoft.Authorization/variables/DemoTestVariable 
+ * ```
  */
 export class VariableAtManagementGroup extends pulumi.CustomResource {
     /**

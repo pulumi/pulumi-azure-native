@@ -232,6 +232,32 @@ class PacketCoreDataPlane(pulumi.CustomResource):
         """
         Packet core data plane resource.
 
+        ## Example Usage
+        ### Create packet core data plane
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        packet_core_data_plane = azure_native.mobilenetwork.v20220401preview.PacketCoreDataPlane("packetCoreDataPlane",
+            location="eastus",
+            packet_core_control_plane_name="testPacketCoreCP",
+            packet_core_data_plane_name="testPacketCoreDP",
+            resource_group_name="rg1",
+            user_plane_access_interface=azure_native.mobilenetwork.v20220401preview.InterfacePropertiesArgs(
+                name="N3",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane TestPacketCoreDP /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
@@ -255,6 +281,32 @@ class PacketCoreDataPlane(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Packet core data plane resource.
+
+        ## Example Usage
+        ### Create packet core data plane
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        packet_core_data_plane = azure_native.mobilenetwork.v20220401preview.PacketCoreDataPlane("packetCoreDataPlane",
+            location="eastus",
+            packet_core_control_plane_name="testPacketCoreCP",
+            packet_core_data_plane_name="testPacketCoreDP",
+            resource_group_name="rg1",
+            user_plane_access_interface=azure_native.mobilenetwork.v20220401preview.InterfacePropertiesArgs(
+                name="N3",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork/v20220401preview:PacketCoreDataPlane TestPacketCoreDP /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PacketCoreDataPlaneArgs args: The arguments to use to populate this resource's properties.

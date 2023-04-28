@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB trigger.
  * API Version: 2022-11-15.
  * Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CosmosDBSqlTriggerCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlResourceSqlTrigger = new azure_native.documentdb.SqlResourceSqlTrigger("sqlResourceSqlTrigger", {
+ *     accountName: "ddb1",
+ *     containerName: "containerName",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         body: "body",
+ *         id: "triggerName",
+ *         triggerOperation: "triggerOperation",
+ *         triggerType: "triggerType",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     triggerName: "triggerName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb:SqlResourceSqlTrigger triggerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlTriggers/triggerName 
+ * ```
  */
 export class SqlResourceSqlTrigger extends pulumi.CustomResource {
     /**

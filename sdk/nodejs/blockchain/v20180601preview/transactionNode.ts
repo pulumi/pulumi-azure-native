@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Payload of the transaction node which is the request/response of the resource provider.
+ *
+ * ## Example Usage
+ * ### TransactionNodes_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const transactionNode = new azure_native.blockchain.v20180601preview.TransactionNode("transactionNode", {
+ *     blockchainMemberName: "contosemember1",
+ *     location: "southeastasia",
+ *     password: "<password>",
+ *     resourceGroupName: "mygroup",
+ *     transactionNodeName: "txnode2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blockchain/v20180601preview:TransactionNode txnode2 /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Blockchain/blockchainMembers/contosemember1/transactionNodes/txnode2 
+ * ```
  */
 export class TransactionNode extends pulumi.CustomResource {
     /**

@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Policy Contract details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreatePolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policy = new azure_native.apimanagement.Policy("policy", {
+ *     format: "xml",
+ *     policyId: "policy",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     value: `<policies>
+ *   <inbound />
+ *   <backend>
+ *     <forward-request />
+ *   </backend>
+ *   <outbound />
+ * </policies>`,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:Policy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/policies/policy 
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

@@ -13,6 +13,214 @@ namespace Pulumi.AzureNative.AppPlatform
     /// App resource payload
     /// API Version: 2022-12-01.
     /// Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Apps_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app = new AzureNative.AppPlatform.App("app", new()
+    ///     {
+    ///         AppName = "myapp",
+    ///         Identity = new AzureNative.AppPlatform.Inputs.ManagedIdentityPropertiesArgs
+    ///         {
+    ///             Type = "SystemAssigned,UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", 
+    ///                 {
+    ///                     { "clientId", null },
+    ///                     { "principalId", null },
+    ///                 } },
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2", 
+    ///                 {
+    ///                     { "clientId", null },
+    ///                     { "principalId", null },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.AppResourcePropertiesArgs
+    ///         {
+    ///             AddonConfigs = 
+    ///             {
+    ///                 { "ApplicationConfigurationService", 
+    ///                 {
+    ///                     { "resourceId", "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/myacs" },
+    ///                 } },
+    ///                 { "ServiceRegistry", 
+    ///                 {
+    ///                     { "resourceId", "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/myServiceRegistry" },
+    ///                 } },
+    ///             },
+    ///             CustomPersistentDisks = new[]
+    ///             {
+    ///                 new AzureNative.AppPlatform.Inputs.CustomPersistentDiskResourceArgs
+    ///                 {
+    ///                     CustomPersistentDiskProperties = 
+    ///                     {
+    ///                         { "mountOptions", new[]
+    ///                         {
+    ///                             "uid=0",
+    ///                             "gid=0",
+    ///                             "dir_mode=0777",
+    ///                             "file_mode=0777",
+    ///                         } },
+    ///                         { "mountPath", "/mypath1/mypath2" },
+    ///                         { "shareName", "myFileShare" },
+    ///                         { "type", "AzureFileVolume" },
+    ///                     },
+    ///                     StorageId = "myASCStorageID",
+    ///                 },
+    ///             },
+    ///             EnableEndToEndTLS = false,
+    ///             HttpsOnly = false,
+    ///             LoadedCertificates = new[]
+    ///             {
+    ///                 new AzureNative.AppPlatform.Inputs.LoadedCertificateArgs
+    ///                 {
+    ///                     LoadTrustStore = false,
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+    ///                 },
+    ///                 new AzureNative.AppPlatform.Inputs.LoadedCertificateArgs
+    ///                 {
+    ///                     LoadTrustStore = true,
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+    ///                 },
+    ///             },
+    ///             PersistentDisk = new AzureNative.AppPlatform.Inputs.PersistentDiskArgs
+    ///             {
+    ///                 MountPath = "/mypersistentdisk",
+    ///                 SizeInGB = 2,
+    ///             },
+    ///             Public = true,
+    ///             TemporaryDisk = new AzureNative.AppPlatform.Inputs.TemporaryDiskArgs
+    ///             {
+    ///                 MountPath = "/mytemporarydisk",
+    ///                 SizeInGB = 2,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Apps_CreateOrUpdate_VNetInjection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app = new AzureNative.AppPlatform.App("app", new()
+    ///     {
+    ///         AppName = "myapp",
+    ///         Identity = new AzureNative.AppPlatform.Inputs.ManagedIdentityPropertiesArgs
+    ///         {
+    ///             Type = "SystemAssigned,UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", 
+    ///                 {
+    ///                     { "clientId", null },
+    ///                     { "principalId", null },
+    ///                 } },
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2", 
+    ///                 {
+    ///                     { "clientId", null },
+    ///                     { "principalId", null },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.AppResourcePropertiesArgs
+    ///         {
+    ///             AddonConfigs = 
+    ///             {
+    ///                 { "ApplicationConfigurationService", 
+    ///                 {
+    ///                     { "resourceId", "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/myacs" },
+    ///                 } },
+    ///                 { "ServiceRegistry", 
+    ///                 {
+    ///                     { "resourceId", "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/myServiceRegistry" },
+    ///                 } },
+    ///             },
+    ///             CustomPersistentDisks = new[]
+    ///             {
+    ///                 new AzureNative.AppPlatform.Inputs.CustomPersistentDiskResourceArgs
+    ///                 {
+    ///                     CustomPersistentDiskProperties = 
+    ///                     {
+    ///                         { "mountOptions", new[]
+    ///                         {
+    ///                             "uid=0",
+    ///                             "gid=0",
+    ///                             "dir_mode=0777",
+    ///                             "file_mode=0777",
+    ///                         } },
+    ///                         { "mountPath", "/mypath1/mypath2" },
+    ///                         { "shareName", "myFileShare" },
+    ///                         { "type", "AzureFileVolume" },
+    ///                     },
+    ///                     StorageId = "myASCStorageID",
+    ///                 },
+    ///             },
+    ///             EnableEndToEndTLS = false,
+    ///             HttpsOnly = false,
+    ///             LoadedCertificates = new[]
+    ///             {
+    ///                 new AzureNative.AppPlatform.Inputs.LoadedCertificateArgs
+    ///                 {
+    ///                     LoadTrustStore = false,
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+    ///                 },
+    ///                 new AzureNative.AppPlatform.Inputs.LoadedCertificateArgs
+    ///                 {
+    ///                     LoadTrustStore = true,
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+    ///                 },
+    ///             },
+    ///             PersistentDisk = new AzureNative.AppPlatform.Inputs.PersistentDiskArgs
+    ///             {
+    ///                 MountPath = "/mypersistentdisk",
+    ///                 SizeInGB = 2,
+    ///             },
+    ///             Public = true,
+    ///             TemporaryDisk = new AzureNative.AppPlatform.Inputs.TemporaryDiskArgs
+    ///             {
+    ///                 MountPath = "/mytemporarydisk",
+    ///                 SizeInGB = 2,
+    ///             },
+    ///             VnetAddons = new AzureNative.AppPlatform.Inputs.AppVNetAddonsArgs
+    ///             {
+    ///                 PublicEndpoint = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:App myapp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:App")]
     public partial class App : global::Pulumi.CustomResource

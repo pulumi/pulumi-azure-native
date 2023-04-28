@@ -182,6 +182,37 @@ class AttestationAtResourceGroup(pulumi.CustomResource):
         """
         An attestation resource.
 
+        ## Example Usage
+        ### Create attestation at resource group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attestation_at_resource_group = azure_native.policyinsights.v20210101.AttestationAtResourceGroup("attestationAtResourceGroup",
+            attestation_name="790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
+            comments="This subscription has passed a security audit.",
+            compliance_state="Compliant",
+            evidence=[azure_native.policyinsights.v20210101.AttestationEvidenceArgs(
+                description="The results of the security audit.",
+                source_uri="https://gist.github.com/contoso/9573e238762c60166c090ae16b814011",
+            )],
+            expires_on="2021-06-15T00:00:00Z",
+            owner="55a32e28-3aa5-4eea-9b5a-4cd85153b966",
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="0b158b46-ff42-4799-8e39-08a5c23b4551",
+            resource_group_name="myRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights/v20210101:AttestationAtResourceGroup 790996e6-9871-4b1f-9cd9-ec42cd6ced1e /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourcegroups/myrg/providers/microsoft.policyinsights/attestations/790996e6-9871-4b1f-9cd9-ec42cd6ced1e 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attestation_name: The name of the attestation.
@@ -202,6 +233,37 @@ class AttestationAtResourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An attestation resource.
+
+        ## Example Usage
+        ### Create attestation at resource group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attestation_at_resource_group = azure_native.policyinsights.v20210101.AttestationAtResourceGroup("attestationAtResourceGroup",
+            attestation_name="790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
+            comments="This subscription has passed a security audit.",
+            compliance_state="Compliant",
+            evidence=[azure_native.policyinsights.v20210101.AttestationEvidenceArgs(
+                description="The results of the security audit.",
+                source_uri="https://gist.github.com/contoso/9573e238762c60166c090ae16b814011",
+            )],
+            expires_on="2021-06-15T00:00:00Z",
+            owner="55a32e28-3aa5-4eea-9b5a-4cd85153b966",
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="0b158b46-ff42-4799-8e39-08a5c23b4551",
+            resource_group_name="myRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights/v20210101:AttestationAtResourceGroup 790996e6-9871-4b1f-9cd9-ec42cd6ced1e /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourcegroups/myrg/providers/microsoft.policyinsights/attestations/790996e6-9871-4b1f-9cd9-ec42cd6ced1e 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AttestationAtResourceGroupArgs args: The arguments to use to populate this resource's properties.

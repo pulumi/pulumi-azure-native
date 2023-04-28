@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.DomainRegistration.V20220901
 {
     /// <summary>
     /// Domain ownership Identifier.
+    /// 
+    /// ## Example Usage
+    /// ### Create App Service Domain OwnershipIdentifier
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domainOwnershipIdentifier = new AzureNative.DomainRegistration.V20220901.DomainOwnershipIdentifier("domainOwnershipIdentifier", new()
+    ///     {
+    ///         DomainName = "example.com",
+    ///         Name = "SampleOwnershipId",
+    ///         OwnershipId = "SampleOwnershipId",
+    ///         ResourceGroupName = "testrg123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:domainregistration/v20220901:DomainOwnershipIdentifier SampleOwnershipId /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.DomainRegistration/domains/example.com/domainownershipidentifiers/SampleOwnershipId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration/v20220901:DomainOwnershipIdentifier")]
     public partial class DomainOwnershipIdentifier : global::Pulumi.CustomResource

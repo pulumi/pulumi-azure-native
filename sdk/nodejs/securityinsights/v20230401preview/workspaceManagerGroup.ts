@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The workspace manager group
+ *
+ * ## Example Usage
+ * ### Creates or updates a workspace manager group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceManagerGroup = new azure_native.securityinsights.v20230401preview.WorkspaceManagerGroup("workspaceManagerGroup", {
+ *     description: "Group of all financial and banking institutions",
+ *     displayName: "Banks",
+ *     memberResourceNames: [
+ *         "afbd324f-6c48-459c-8710-8d1e1cd03812",
+ *         "f5fa104e-c0e3-4747-9182-d342dc048a9e",
+ *     ],
+ *     resourceGroupName: "myRg",
+ *     workspaceManagerGroupName: "37207a7a-3b8a-438f-a559-c7df400e1b96",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerGroup 37207a7a-3b8a-438f-a559-c7df400e1b96 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerGroups/37207a7a-3b8a-438f-a559-c7df400e1b96 
+ * ```
  */
 export class WorkspaceManagerGroup extends pulumi.CustomResource {
     /**

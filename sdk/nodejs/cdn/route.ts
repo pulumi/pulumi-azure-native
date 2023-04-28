@@ -11,6 +11,59 @@ import * as utilities from "../utilities";
  * Friendly Routes name mapping to the any Routes or secret related information.
  * API Version: 2021-06-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Routes_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const route = new azure_native.cdn.Route("route", {
+ *     cacheConfiguration: {
+ *         compressionSettings: {
+ *             contentTypesToCompress: [
+ *                 "text/html",
+ *                 "application/octet-stream",
+ *             ],
+ *             isCompressionEnabled: true,
+ *         },
+ *         queryParameters: "querystring=test",
+ *         queryStringCachingBehavior: "IgnoreSpecifiedQueryStrings",
+ *     },
+ *     customDomains: [{
+ *         id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/customDomains/domain1",
+ *     }],
+ *     enabledState: "Enabled",
+ *     endpointName: "endpoint1",
+ *     forwardingProtocol: "MatchRequest",
+ *     httpsRedirect: "Enabled",
+ *     linkToDefaultDomain: "Enabled",
+ *     originGroup: {
+ *         id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1",
+ *     },
+ *     patternsToMatch: ["/*"],
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     routeName: "route1",
+ *     ruleSets: [{
+ *         id: "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1",
+ *     }],
+ *     supportedProtocols: [
+ *         "Https",
+ *         "Http",
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:Route route1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afdendpoints/endpoint1/routes/route1 
+ * ```
  */
 export class Route extends pulumi.CustomResource {
     /**

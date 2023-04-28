@@ -9,6 +9,81 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL managed instance.
+ *
+ * ## Example Usage
+ * ### Create managed instance with all properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstance = new azure_native.sql.v20210201preview.ManagedInstance("managedInstance", {
+ *     administratorLogin: "dummylogin",
+ *     administratorLoginPassword: "PLACEHOLDER",
+ *     administrators: {
+ *         azureADOnlyAuthentication: true,
+ *         login: "bob@contoso.com",
+ *         principalType: "User",
+ *         sid: "00000011-1111-2222-2222-123456789111",
+ *         tenantId: "00000011-1111-2222-2222-123456789111",
+ *     },
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     dnsZonePartner: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+ *     instancePoolId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1",
+ *     licenseType: "LicenseIncluded",
+ *     location: "Japan East",
+ *     maintenanceConfigurationId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_MI_1",
+ *     managedInstanceName: "testinstance",
+ *     minimalTlsVersion: "1.2",
+ *     proxyOverride: "Redirect",
+ *     publicDataEndpointEnabled: false,
+ *     resourceGroupName: "testrg",
+ *     sku: {
+ *         name: "GP_Gen5",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storageAccountType: "GRS",
+ *     storageSizeInGB: 1024,
+ *     subnetId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+ *     tags: {
+ *         tagKey1: "TagValue1",
+ *     },
+ *     timezoneId: "UTC",
+ *     vCores: 8,
+ * });
+ *
+ * ```
+ * ### Create managed instance with minimal properties
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstance = new azure_native.sql.v20210201preview.ManagedInstance("managedInstance", {
+ *     administratorLogin: "dummylogin",
+ *     administratorLoginPassword: "PLACEHOLDER",
+ *     licenseType: "LicenseIncluded",
+ *     location: "Japan East",
+ *     managedInstanceName: "testinstance",
+ *     resourceGroupName: "testrg",
+ *     sku: {
+ *         name: "GP_Gen4",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storageSizeInGB: 1024,
+ *     subnetId: "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+ *     vCores: 8,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20210201preview:ManagedInstance testinstance /subscriptions/20d7082a-0fc7-4468-82bd-542694d5042b/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance 
+ * ```
  */
 export class ManagedInstance extends pulumi.CustomResource {
     /**

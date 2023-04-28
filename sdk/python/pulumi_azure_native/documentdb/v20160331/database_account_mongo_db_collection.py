@@ -132,6 +132,45 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
         """
         An Azure Cosmos DB MongoDB collection.
 
+        ## Example Usage
+        ### CosmosDBMongoDBCollectionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account_mongo_db_collection = azure_native.documentdb.v20160331.DatabaseAccountMongoDBCollection("databaseAccountMongoDBCollection",
+            account_name="ddb1",
+            collection_name="collectionName",
+            database_name="databaseName",
+            options={},
+            resource=azure_native.documentdb.v20160331.MongoDBCollectionResourceArgs(
+                id="testcoll",
+                indexes=[azure_native.documentdb.v20160331.MongoIndexArgs(
+                    key=azure_native.documentdb.v20160331.MongoIndexKeysArgs(
+                        keys=["testKey"],
+                    ),
+                    options=azure_native.documentdb.v20160331.MongoIndexOptionsArgs(
+                        expire_after_seconds=100,
+                        unique=True,
+                    ),
+                )],
+                shard_key={
+                    "testKey": "Hash",
+                },
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection collectionName collectionName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -149,6 +188,45 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB MongoDB collection.
+
+        ## Example Usage
+        ### CosmosDBMongoDBCollectionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account_mongo_db_collection = azure_native.documentdb.v20160331.DatabaseAccountMongoDBCollection("databaseAccountMongoDBCollection",
+            account_name="ddb1",
+            collection_name="collectionName",
+            database_name="databaseName",
+            options={},
+            resource=azure_native.documentdb.v20160331.MongoDBCollectionResourceArgs(
+                id="testcoll",
+                indexes=[azure_native.documentdb.v20160331.MongoIndexArgs(
+                    key=azure_native.documentdb.v20160331.MongoIndexKeysArgs(
+                        keys=["testKey"],
+                    ),
+                    options=azure_native.documentdb.v20160331.MongoIndexOptionsArgs(
+                        expire_after_seconds=100,
+                        unique=True,
+                    ),
+                )],
+                shard_key={
+                    "testKey": "Hash",
+                },
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection collectionName collectionName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseAccountMongoDBCollectionArgs args: The arguments to use to populate this resource's properties.

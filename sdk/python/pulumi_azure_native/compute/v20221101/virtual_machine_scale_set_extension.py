@@ -283,6 +283,51 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
         """
         Describes a Virtual Machine Scale Set Extension.
 
+        ## Example Usage
+        ### VirtualMachineScaleSetExtension_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_extension = azure_native.compute.v20221101.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension",
+            auto_upgrade_minor_version=True,
+            enable_automatic_upgrade=True,
+            force_update_tag="aaaaaaaaa",
+            name="{extension-name}",
+            protected_settings={},
+            provision_after_extensions=["aa"],
+            publisher="{extension-Publisher}",
+            resource_group_name="rgcompute",
+            settings={},
+            suppress_failures=True,
+            type="{extension-Type}",
+            type_handler_version="{handler-version}",
+            vm_scale_set_name="aaaaaaa",
+            vmss_extension_name="aaaaaaaaaaaaaaaaaaaaa")
+
+        ```
+        ### VirtualMachineScaleSetExtension_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_extension = azure_native.compute.v20221101.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension",
+            resource_group_name="rgcompute",
+            vm_scale_set_name="aaaaaaaaaaa",
+            vmss_extension_name="aaaaaaaaaaa")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20221101:VirtualMachineScaleSetExtension {extension-name} aaaaaaaa 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_upgrade_minor_version: Indicates whether the extension should use a newer minor version if one is available at deployment time. Once deployed, however, the extension will not upgrade minor versions unless redeployed, even with this property set to true.
@@ -309,6 +354,51 @@ class VirtualMachineScaleSetExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine Scale Set Extension.
+
+        ## Example Usage
+        ### VirtualMachineScaleSetExtension_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_extension = azure_native.compute.v20221101.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension",
+            auto_upgrade_minor_version=True,
+            enable_automatic_upgrade=True,
+            force_update_tag="aaaaaaaaa",
+            name="{extension-name}",
+            protected_settings={},
+            provision_after_extensions=["aa"],
+            publisher="{extension-Publisher}",
+            resource_group_name="rgcompute",
+            settings={},
+            suppress_failures=True,
+            type="{extension-Type}",
+            type_handler_version="{handler-version}",
+            vm_scale_set_name="aaaaaaa",
+            vmss_extension_name="aaaaaaaaaaaaaaaaaaaaa")
+
+        ```
+        ### VirtualMachineScaleSetExtension_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_extension = azure_native.compute.v20221101.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension",
+            resource_group_name="rgcompute",
+            vm_scale_set_name="aaaaaaaaaaa",
+            vmss_extension_name="aaaaaaaaaaa")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20221101:VirtualMachineScaleSetExtension {extension-name} aaaaaaaa 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetExtensionInitArgs args: The arguments to use to populate this resource's properties.

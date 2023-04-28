@@ -199,6 +199,44 @@ class P2sVpnGateway(pulumi.CustomResource):
         """
         P2SVpnGateway Resource.
 
+        ## Example Usage
+        ### P2SVpnGatewayPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        p2s_vpn_gateway = azure_native.network.v20190701.P2sVpnGateway("p2sVpnGateway",
+            custom_routes=azure_native.network.v20190701.AddressSpaceArgs(
+                address_prefixes=["101.168.0.6/32"],
+            ),
+            gateway_name="p2sVpnGateway1",
+            location="West US",
+            p2_s_vpn_server_configuration=azure_native.network.v20190701.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1/p2sVpnServerConfigurations/p2sVpnServerConfiguration1",
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.v20190701.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+            ),
+            vpn_client_address_pool=azure_native.network.v20190701.AddressSpaceArgs(
+                address_prefixes=["101.3.0.0/16"],
+            ),
+            vpn_gateway_scale_unit=1)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190701:P2sVpnGateway p2sVpnGateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/P2SvpnGateways/p2sVpnGateway1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] custom_routes: The reference of the address space resource which represents the custom routes specified by the customer for P2SVpnGateway and P2S VpnClient.
@@ -220,6 +258,44 @@ class P2sVpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         P2SVpnGateway Resource.
+
+        ## Example Usage
+        ### P2SVpnGatewayPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        p2s_vpn_gateway = azure_native.network.v20190701.P2sVpnGateway("p2sVpnGateway",
+            custom_routes=azure_native.network.v20190701.AddressSpaceArgs(
+                address_prefixes=["101.168.0.6/32"],
+            ),
+            gateway_name="p2sVpnGateway1",
+            location="West US",
+            p2_s_vpn_server_configuration=azure_native.network.v20190701.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1/p2sVpnServerConfigurations/p2sVpnServerConfiguration1",
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.v20190701.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+            ),
+            vpn_client_address_pool=azure_native.network.v20190701.AddressSpaceArgs(
+                address_prefixes=["101.3.0.0/16"],
+            ),
+            vpn_gateway_scale_unit=1)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190701:P2sVpnGateway p2sVpnGateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/P2SvpnGateways/p2sVpnGateway1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param P2sVpnGatewayArgs args: The arguments to use to populate this resource's properties.

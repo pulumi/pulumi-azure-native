@@ -77,6 +77,28 @@ class HcxEnterpriseSite(pulumi.CustomResource):
         """
         An HCX Enterprise Site resource
 
+        ## Example Usage
+        ### HcxEnterpriseSites_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hcx_enterprise_site = azure_native.avs.v20200320.HcxEnterpriseSite("hcxEnterpriseSite",
+            hcx_enterprise_site_name="site1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20200320:HcxEnterpriseSite site1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/hcxEnterpriseSites/site1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
@@ -91,6 +113,28 @@ class HcxEnterpriseSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An HCX Enterprise Site resource
+
+        ## Example Usage
+        ### HcxEnterpriseSites_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hcx_enterprise_site = azure_native.avs.v20200320.HcxEnterpriseSite("hcxEnterpriseSite",
+            hcx_enterprise_site_name="site1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20200320:HcxEnterpriseSite site1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/hcxEnterpriseSites/site1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HcxEnterpriseSiteArgs args: The arguments to use to populate this resource's properties.

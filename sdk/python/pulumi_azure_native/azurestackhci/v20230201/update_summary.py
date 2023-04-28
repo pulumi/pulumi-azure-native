@@ -198,6 +198,33 @@ class UpdateSummary(pulumi.CustomResource):
         """
         Get the update summaries for the cluster
 
+        ## Example Usage
+        ### Put Update summaries under cluster resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        update_summary = azure_native.azurestackhci.v20230201.UpdateSummary("updateSummary",
+            cluster_name="testcluster",
+            current_version="4.2203.2.32",
+            hardware_model="PowerEdge R730xd",
+            last_checked="2022-04-07T18:04:07Z",
+            last_updated="2022-04-06T14:08:18.254Z",
+            oem_family="DellEMC",
+            resource_group_name="testrg",
+            state="AppliedSuccessfully")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20230201:UpdateSummary default /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updateSummaries/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -219,6 +246,33 @@ class UpdateSummary(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Get the update summaries for the cluster
+
+        ## Example Usage
+        ### Put Update summaries under cluster resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        update_summary = azure_native.azurestackhci.v20230201.UpdateSummary("updateSummary",
+            cluster_name="testcluster",
+            current_version="4.2203.2.32",
+            hardware_model="PowerEdge R730xd",
+            last_checked="2022-04-07T18:04:07Z",
+            last_updated="2022-04-06T14:08:18.254Z",
+            oem_family="DellEMC",
+            resource_group_name="testrg",
+            state="AppliedSuccessfully")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20230201:UpdateSummary default /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updateSummaries/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UpdateSummaryArgs args: The arguments to use to populate this resource's properties.

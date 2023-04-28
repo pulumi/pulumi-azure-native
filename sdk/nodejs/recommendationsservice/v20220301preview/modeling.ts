@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * Modeling resource details.
+ *
+ * ## Example Usage
+ * ### Create or update Modeling resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const modeling = new azure_native.recommendationsservice.v20220301preview.Modeling("modeling", {
+ *     accountName: "sampleAccount",
+ *     location: "West US",
+ *     modelingName: "c1",
+ *     properties: {
+ *         features: "Standard",
+ *         frequency: "High",
+ *         inputData: {
+ *             connectionString: "https://storageAccount.blob.core.windows.net/container/root",
+ *         },
+ *         size: "Medium",
+ *     },
+ *     resourceGroupName: "rg",
+ *     tags: {
+ *         Environment: "Prod",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recommendationsservice/v20220301preview:Modeling c1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount/modeling/c1 
+ * ```
  */
 export class Modeling extends pulumi.CustomResource {
     /**

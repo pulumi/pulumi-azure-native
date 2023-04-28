@@ -11,6 +11,53 @@ import * as utilities from "../utilities";
  * Lab Plans act as a permission container for creating labs via labs.azure.com. Additionally, they can provide a set of default configurations that will apply at the time of creating a lab, but these defaults can still be overwritten.
  * API Version: 2022-08-01.
  * Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### putLabPlan
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const labPlan = new azure_native.labservices.LabPlan("labPlan", {
+ *     defaultAutoShutdownProfile: {
+ *         disconnectDelay: "PT5M",
+ *         idleDelay: "PT5M",
+ *         noConnectDelay: "PT5M",
+ *         shutdownOnDisconnect: azure_native.labservices.EnableState.Enabled,
+ *         shutdownOnIdle: azure_native.labservices.ShutdownOnIdleMode.UserAbsence,
+ *         shutdownWhenNotConnected: azure_native.labservices.EnableState.Enabled,
+ *     },
+ *     defaultConnectionProfile: {
+ *         clientRdpAccess: azure_native.labservices.ConnectionType.Public,
+ *         clientSshAccess: azure_native.labservices.ConnectionType.Public,
+ *         webRdpAccess: azure_native.labservices.ConnectionType.None,
+ *         webSshAccess: azure_native.labservices.ConnectionType.None,
+ *     },
+ *     defaultNetworkProfile: {
+ *         subnetId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+ *     },
+ *     labPlanName: "testlabplan",
+ *     location: "westus",
+ *     resourceGroupName: "testrg123",
+ *     sharedGalleryId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Compute/galleries/testsig",
+ *     supportInfo: {
+ *         email: "help@contoso.com",
+ *         instructions: "Contact support for help.",
+ *         phone: "+1-202-555-0123",
+ *         url: "help.contoso.com",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:labservices:LabPlan testlabplan /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labPlans/testlabplan 
+ * ```
  */
 export class LabPlan extends pulumi.CustomResource {
     /**

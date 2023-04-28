@@ -114,6 +114,30 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
 
+        ## Example Usage
+        ### CreateOrUpdateImmutabilityPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_container_immutability_policy = azure_native.storage.v20190401.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy",
+            account_name="sto7069",
+            container_name="container6397",
+            immutability_period_since_creation_in_days=3,
+            immutability_policy_name="default",
+            resource_group_name="res1782")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20190401:BlobContainerImmutabilityPolicy default /subscriptions/{subscription-id}/resourceGroups/res1782/providers/Microsoft.Storage/storageAccounts/sto7069/blobServices/default/containers/container6397/immutabilityPolicies/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -130,6 +154,30 @@ class BlobContainerImmutabilityPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
+
+        ## Example Usage
+        ### CreateOrUpdateImmutabilityPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_container_immutability_policy = azure_native.storage.v20190401.BlobContainerImmutabilityPolicy("blobContainerImmutabilityPolicy",
+            account_name="sto7069",
+            container_name="container6397",
+            immutability_period_since_creation_in_days=3,
+            immutability_policy_name="default",
+            resource_group_name="res1782")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20190401:BlobContainerImmutabilityPolicy default /subscriptions/{subscription-id}/resourceGroups/res1782/providers/Microsoft.Storage/storageAccounts/sto7069/blobServices/default/containers/container6397/immutabilityPolicies/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlobContainerImmutabilityPolicyArgs args: The arguments to use to populate this resource's properties.

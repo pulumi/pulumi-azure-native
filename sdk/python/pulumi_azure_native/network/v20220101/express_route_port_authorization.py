@@ -111,6 +111,28 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
         """
         ExpressRoutePort Authorization resource definition.
 
+        ## Example Usage
+        ### Create ExpressRoutePort Authorization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_port_authorization = azure_native.network.v20220101.ExpressRoutePortAuthorization("expressRoutePortAuthorization",
+            authorization_name="authorizatinName",
+            express_route_port_name="expressRoutePortName",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220101:ExpressRoutePortAuthorization authorizationName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ExpressRoutePorts/expressRoutePortName/authorizations/authorizationName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_name: The name of the authorization.
@@ -127,6 +149,28 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ExpressRoutePort Authorization resource definition.
+
+        ## Example Usage
+        ### Create ExpressRoutePort Authorization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_port_authorization = azure_native.network.v20220101.ExpressRoutePortAuthorization("expressRoutePortAuthorization",
+            authorization_name="authorizatinName",
+            express_route_port_name="expressRoutePortName",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220101:ExpressRoutePortAuthorization authorizationName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ExpressRoutePorts/expressRoutePortName/authorizations/authorizationName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRoutePortAuthorizationArgs args: The arguments to use to populate this resource's properties.

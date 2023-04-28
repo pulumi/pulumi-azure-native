@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.AppComplianceAutomation
     /// A class represent an AppComplianceAutomation report resource.
     /// API Version: 2022-11-16-preview.
     /// Previous API Version: 2022-11-16-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Report_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var report = new AzureNative.AppComplianceAutomation.Report("report", new()
+    ///     {
+    ///         Properties = new AzureNative.AppComplianceAutomation.Inputs.ReportPropertiesArgs
+    ///         {
+    ///             OfferGuid = "0000",
+    ///             Resources = new[]
+    ///             {
+    ///                 new AzureNative.AppComplianceAutomation.Inputs.ResourceMetadataArgs
+    ///                 {
+    ///                     ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+    ///                     Tags = 
+    ///                     {
+    ///                         { "key1", "value1" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TimeZone = "GMT Standard Time",
+    ///             TriggerTime = "2022-03-04T05:11:56.197Z",
+    ///         },
+    ///         ReportName = "testReportName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appcomplianceautomation:Report testReportName /provider/Microsfot.AppComplianceAutomation/reports/testReportName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appcomplianceautomation:Report")]
     public partial class Report : global::Pulumi.CustomResource

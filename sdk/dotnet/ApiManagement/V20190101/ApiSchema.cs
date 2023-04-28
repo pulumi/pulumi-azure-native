@@ -11,6 +11,146 @@ namespace Pulumi.AzureNative.ApiManagement.V20190101
 {
     /// <summary>
     /// Schema Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiSchema
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiSchema = new AzureNative.ApiManagement.V20190101.ApiSchema("apiSchema", new()
+    ///     {
+    ///         ApiId = "59d6bb8f1f7fab13dc67ec9b",
+    ///         ContentType = "application/vnd.ms-azure-apim.xsd+xml",
+    ///         ResourceGroupName = "rg1",
+    ///         SchemaId = "ec12520d-9d48-4e7b-8f39-698ca2ac63f1",
+    ///         ServiceName = "apimService1",
+    ///         Value = @"&lt;s:schema elementFormDefault=""qualified"" targetNamespace=""http://ws.cdyne.com/WeatherWS/"" xmlns:tns=""http://ws.cdyne.com/WeatherWS/"" xmlns:s=""http://www.w3.org/2001/XMLSchema"" xmlns:soap12=""http://schemas.xmlsoap.org/wsdl/soap12/"" xmlns:mime=""http://schemas.xmlsoap.org/wsdl/mime/"" xmlns:soap=""http://schemas.xmlsoap.org/wsdl/soap/"" xmlns:tm=""http://microsoft.com/wsdl/mime/textMatching/"" xmlns:http=""http://schemas.xmlsoap.org/wsdl/http/"" xmlns:soapenc=""http://schemas.xmlsoap.org/soap/encoding/"" xmlns:wsdl=""http://schemas.xmlsoap.org/wsdl/"" xmlns:apim-wsdltns=""http://ws.cdyne.com/WeatherWS/""&gt;
+    ///   &lt;s:element name=""GetWeatherInformation""&gt;
+    ///     &lt;s:complexType /&gt;
+    ///   &lt;/s:element&gt;
+    ///   &lt;s:element name=""GetWeatherInformationResponse""&gt;
+    ///     &lt;s:complexType&gt;
+    ///       &lt;s:sequence&gt;
+    ///         &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""GetWeatherInformationResult"" type=""tns:ArrayOfWeatherDescription"" /&gt;
+    ///       &lt;/s:sequence&gt;
+    ///     &lt;/s:complexType&gt;
+    ///   &lt;/s:element&gt;
+    ///   &lt;s:complexType name=""ArrayOfWeatherDescription""&gt;
+    ///     &lt;s:sequence&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""unbounded"" name=""WeatherDescription"" type=""tns:WeatherDescription"" /&gt;
+    ///     &lt;/s:sequence&gt;
+    ///   &lt;/s:complexType&gt;
+    ///   &lt;s:complexType name=""WeatherDescription""&gt;
+    ///     &lt;s:sequence&gt;
+    ///       &lt;s:element minOccurs=""1"" maxOccurs=""1"" name=""WeatherID"" type=""s:short"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Description"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""PictureURL"" type=""s:string"" /&gt;
+    ///     &lt;/s:sequence&gt;
+    ///   &lt;/s:complexType&gt;
+    ///   &lt;s:element name=""GetCityForecastByZIP""&gt;
+    ///     &lt;s:complexType&gt;
+    ///       &lt;s:sequence&gt;
+    ///         &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""ZIP"" type=""s:string"" /&gt;
+    ///       &lt;/s:sequence&gt;
+    ///     &lt;/s:complexType&gt;
+    ///   &lt;/s:element&gt;
+    ///   &lt;s:element name=""GetCityForecastByZIPResponse""&gt;
+    ///     &lt;s:complexType&gt;
+    ///       &lt;s:sequence&gt;
+    ///         &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""GetCityForecastByZIPResult"" type=""tns:ForecastReturn"" /&gt;
+    ///       &lt;/s:sequence&gt;
+    ///     &lt;/s:complexType&gt;
+    ///   &lt;/s:element&gt;
+    ///   &lt;s:complexType name=""ForecastReturn""&gt;
+    ///     &lt;s:sequence&gt;
+    ///       &lt;s:element minOccurs=""1"" maxOccurs=""1"" name=""Success"" type=""s:boolean"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""ResponseText"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""State"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""City"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""WeatherStationCity"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""ForecastResult"" type=""tns:ArrayOfForecast"" /&gt;
+    ///     &lt;/s:sequence&gt;
+    ///   &lt;/s:complexType&gt;
+    ///   &lt;s:complexType name=""ArrayOfForecast""&gt;
+    ///     &lt;s:sequence&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""unbounded"" name=""Forecast"" nillable=""true"" type=""tns:Forecast"" /&gt;
+    ///     &lt;/s:sequence&gt;
+    ///   &lt;/s:complexType&gt;
+    ///   &lt;s:complexType name=""Forecast""&gt;
+    ///     &lt;s:sequence&gt;
+    ///       &lt;s:element minOccurs=""1"" maxOccurs=""1"" name=""Date"" type=""s:dateTime"" /&gt;
+    ///       &lt;s:element minOccurs=""1"" maxOccurs=""1"" name=""WeatherID"" type=""s:short"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Desciption"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""1"" maxOccurs=""1"" name=""Temperatures"" type=""tns:temp"" /&gt;
+    ///       &lt;s:element minOccurs=""1"" maxOccurs=""1"" name=""ProbabilityOfPrecipiation"" type=""tns:POP"" /&gt;
+    ///     &lt;/s:sequence&gt;
+    ///   &lt;/s:complexType&gt;
+    ///   &lt;s:complexType name=""temp""&gt;
+    ///     &lt;s:sequence&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""MorningLow"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""DaytimeHigh"" type=""s:string"" /&gt;
+    ///     &lt;/s:sequence&gt;
+    ///   &lt;/s:complexType&gt;
+    ///   &lt;s:complexType name=""POP""&gt;
+    ///     &lt;s:sequence&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Nighttime"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Daytime"" type=""s:string"" /&gt;
+    ///     &lt;/s:sequence&gt;
+    ///   &lt;/s:complexType&gt;
+    ///   &lt;s:element name=""GetCityWeatherByZIP""&gt;
+    ///     &lt;s:complexType&gt;
+    ///       &lt;s:sequence&gt;
+    ///         &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""ZIP"" type=""s:string"" /&gt;
+    ///       &lt;/s:sequence&gt;
+    ///     &lt;/s:complexType&gt;
+    ///   &lt;/s:element&gt;
+    ///   &lt;s:element name=""GetCityWeatherByZIPResponse""&gt;
+    ///     &lt;s:complexType&gt;
+    ///       &lt;s:sequence&gt;
+    ///         &lt;s:element minOccurs=""1"" maxOccurs=""1"" name=""GetCityWeatherByZIPResult"" type=""tns:WeatherReturn"" /&gt;
+    ///       &lt;/s:sequence&gt;
+    ///     &lt;/s:complexType&gt;
+    ///   &lt;/s:element&gt;
+    ///   &lt;s:complexType name=""WeatherReturn""&gt;
+    ///     &lt;s:sequence&gt;
+    ///       &lt;s:element minOccurs=""1"" maxOccurs=""1"" name=""Success"" type=""s:boolean"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""ResponseText"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""State"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""City"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""WeatherStationCity"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""1"" maxOccurs=""1"" name=""WeatherID"" type=""s:short"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Description"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Temperature"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""RelativeHumidity"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Wind"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Pressure"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Visibility"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""WindChill"" type=""s:string"" /&gt;
+    ///       &lt;s:element minOccurs=""0"" maxOccurs=""1"" name=""Remarks"" type=""s:string"" /&gt;
+    ///     &lt;/s:sequence&gt;
+    ///   &lt;/s:complexType&gt;
+    ///   &lt;s:element name=""ArrayOfWeatherDescription"" nillable=""true"" type=""tns:ArrayOfWeatherDescription"" /&gt;
+    ///   &lt;s:element name=""ForecastReturn"" nillable=""true"" type=""tns:ForecastReturn"" /&gt;
+    ///   &lt;s:element name=""WeatherReturn"" type=""tns:WeatherReturn"" /&gt;
+    /// &lt;/s:schema&gt;",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20190101:ApiSchema ec12520d-9d48-4e7b-8f39-698ca2ac63f1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/59d6bb8f1f7fab13dc67ec9b/schemas/ec12520d-9d48-4e7b-8f39-698ca2ac63f1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20190101:ApiSchema")]
     public partial class ApiSchema : global::Pulumi.CustomResource

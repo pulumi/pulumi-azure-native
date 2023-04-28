@@ -148,6 +148,42 @@ class CollectorPolicy(pulumi.CustomResource):
         """
         Collector policy resource.
 
+        ## Example Usage
+        ### Create a collection policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        collector_policy = azure_native.networkfunction.v20221101.CollectorPolicy("collectorPolicy",
+            azure_traffic_collector_name="atc",
+            collector_policy_name="cp1",
+            emission_policies=[{
+                "emissionDestinations": [azure_native.networkfunction.v20221101.EmissionPolicyDestinationArgs(
+                    destination_type="AzureMonitor",
+                )],
+                "emissionType": "IPFIX",
+            }],
+            ingestion_policy=azure_native.networkfunction.v20221101.IngestionPolicyPropertiesFormatResponseArgs(
+                ingestion_sources=[azure_native.networkfunction.v20221101.IngestionSourcesPropertiesFormatArgs(
+                    resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName",
+                    source_type="Resource",
+                )],
+                ingestion_type="IPFIX",
+            ),
+            location="West US",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkfunction/v20221101:CollectorPolicy cp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.NetworkFunction/AzureTrafficCollector/atc/collectorPolicies/cp1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_traffic_collector_name: Azure Traffic Collector name
@@ -166,6 +202,42 @@ class CollectorPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Collector policy resource.
+
+        ## Example Usage
+        ### Create a collection policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        collector_policy = azure_native.networkfunction.v20221101.CollectorPolicy("collectorPolicy",
+            azure_traffic_collector_name="atc",
+            collector_policy_name="cp1",
+            emission_policies=[{
+                "emissionDestinations": [azure_native.networkfunction.v20221101.EmissionPolicyDestinationArgs(
+                    destination_type="AzureMonitor",
+                )],
+                "emissionType": "IPFIX",
+            }],
+            ingestion_policy=azure_native.networkfunction.v20221101.IngestionPolicyPropertiesFormatResponseArgs(
+                ingestion_sources=[azure_native.networkfunction.v20221101.IngestionSourcesPropertiesFormatArgs(
+                    resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName",
+                    source_type="Resource",
+                )],
+                ingestion_type="IPFIX",
+            ),
+            location="West US",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkfunction/v20221101:CollectorPolicy cp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.NetworkFunction/AzureTrafficCollector/atc/collectorPolicies/cp1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CollectorPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220401Preview
 {
     /// <summary>
     /// Represents a ScalingPlanPooledSchedule definition.
+    /// 
+    /// ## Example Usage
+    /// ### ScalingPlanPooledSchedules_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scalingPlanPooledSchedule = new AzureNative.DesktopVirtualization.V20220401Preview.ScalingPlanPooledSchedule("scalingPlanPooledSchedule", new()
+    ///     {
+    ///         DaysOfWeek = new[]
+    ///         {
+    ///             "Monday",
+    ///             "Tuesday",
+    ///             "Wednesday",
+    ///             "Thursday",
+    ///             "Friday",
+    ///         },
+    ///         OffPeakLoadBalancingAlgorithm = "DepthFirst",
+    ///         OffPeakStartTime = new AzureNative.DesktopVirtualization.V20220401Preview.Inputs.TimeArgs
+    ///         {
+    ///             Hour = 20,
+    ///             Minute = 0,
+    ///         },
+    ///         PeakLoadBalancingAlgorithm = "BreadthFirst",
+    ///         PeakStartTime = new AzureNative.DesktopVirtualization.V20220401Preview.Inputs.TimeArgs
+    ///         {
+    ///             Hour = 8,
+    ///             Minute = 0,
+    ///         },
+    ///         RampDownCapacityThresholdPct = 50,
+    ///         RampDownForceLogoffUsers = true,
+    ///         RampDownLoadBalancingAlgorithm = "DepthFirst",
+    ///         RampDownMinimumHostsPct = 20,
+    ///         RampDownNotificationMessage = "message",
+    ///         RampDownStartTime = new AzureNative.DesktopVirtualization.V20220401Preview.Inputs.TimeArgs
+    ///         {
+    ///             Hour = 18,
+    ///             Minute = 0,
+    ///         },
+    ///         RampDownWaitTimeMinutes = 30,
+    ///         RampUpCapacityThresholdPct = 80,
+    ///         RampUpLoadBalancingAlgorithm = "DepthFirst",
+    ///         RampUpMinimumHostsPct = 20,
+    ///         RampUpStartTime = new AzureNative.DesktopVirtualization.V20220401Preview.Inputs.TimeArgs
+    ///         {
+    ///             Hour = 6,
+    ///             Minute = 0,
+    ///         },
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         ScalingPlanName = "scalingPlan1",
+    ///         ScalingPlanScheduleName = "scalingPlanScheduleWeekdays1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule scalingPlanScheduleWeekdays1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/scalingPlan1/pooledSchedules/scalingPlanScheduleWeekdays1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20220401preview:ScalingPlanPooledSchedule")]
     public partial class ScalingPlanPooledSchedule : global::Pulumi.CustomResource

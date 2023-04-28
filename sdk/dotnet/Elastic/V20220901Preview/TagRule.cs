@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Elastic.V20220901Preview
 {
     /// <summary>
     /// Capture logs and metrics of Azure resources based on ARM tags.
+    /// 
+    /// ## Example Usage
+    /// ### TagRules_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tagRule = new AzureNative.Elastic.V20220901Preview.TagRule("tagRule", new()
+    ///     {
+    ///         MonitorName = "myMonitor",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RuleSetName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:elastic/v20220901preview:TagRule default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Datadog/monitors/myMonitor/tagRules/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:elastic/v20220901preview:TagRule")]
     public partial class TagRule : global::Pulumi.CustomResource

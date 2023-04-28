@@ -316,6 +316,38 @@ class Extension(pulumi.CustomResource):
         """
         Details of a particular extension in HCI Cluster.
 
+        ## Example Usage
+        ### Create Arc Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.azurestackhci.v20221001.Extension("extension",
+            arc_setting_name="default",
+            cluster_name="myCluster",
+            extension_name="MicrosoftMonitoringAgent",
+            protected_settings={
+                "workspaceKey": "xx",
+            },
+            publisher="Microsoft.Compute",
+            resource_group_name="test-rg",
+            settings={
+                "workspaceId": "xx",
+            },
+            type="MicrosoftMonitoringAgent",
+            type_handler_version="1.10")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20221001:Extension MicrosoftMonitoringAgent /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster/arcSettings/default/extensions/MicrosoftMonitoringAgent 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arc_setting_name: The name of the proxy resource holding details of HCI ArcSetting information.
@@ -344,6 +376,38 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Details of a particular extension in HCI Cluster.
+
+        ## Example Usage
+        ### Create Arc Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.azurestackhci.v20221001.Extension("extension",
+            arc_setting_name="default",
+            cluster_name="myCluster",
+            extension_name="MicrosoftMonitoringAgent",
+            protected_settings={
+                "workspaceKey": "xx",
+            },
+            publisher="Microsoft.Compute",
+            resource_group_name="test-rg",
+            settings={
+                "workspaceId": "xx",
+            },
+            type="MicrosoftMonitoringAgent",
+            type_handler_version="1.10")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20221001:Extension MicrosoftMonitoringAgent /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster/arcSettings/default/extensions/MicrosoftMonitoringAgent 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

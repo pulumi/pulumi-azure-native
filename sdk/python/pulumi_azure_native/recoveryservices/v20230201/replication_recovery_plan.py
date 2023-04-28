@@ -96,6 +96,42 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
         """
         Recovery plan details.
 
+        ## Example Usage
+        ### Creates a recovery plan with the given details.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_recovery_plan = azure_native.recoveryservices.v20230201.ReplicationRecoveryPlan("replicationRecoveryPlan",
+            properties=azure_native.recoveryservices.v20230201.RecoveryPlanPropertiesResponseArgs(
+                failover_deployment_model="ResourceManager",
+                groups=[{
+                    "endGroupActions": [],
+                    "groupType": "Boot",
+                    "replicationProtectedItems": [azure_native.recoveryservices.v20230201.RecoveryPlanProtectedItemArgs(
+                        id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b",
+                        virtual_machine_id="f8491e4f-817a-40dd-a90c-af773978c75b",
+                    )],
+                    "startGroupActions": [],
+                }],
+                primary_fabric_id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1",
+                recovery_fabric_id="Microsoft Azure",
+            ),
+            recovery_plan_name="RPtest1",
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan RPtest1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationRecoveryPlans/RPtest1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreateRecoveryPlanInputPropertiesArgs']] properties: Recovery plan creation properties.
@@ -111,6 +147,42 @@ class ReplicationRecoveryPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Recovery plan details.
+
+        ## Example Usage
+        ### Creates a recovery plan with the given details.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_recovery_plan = azure_native.recoveryservices.v20230201.ReplicationRecoveryPlan("replicationRecoveryPlan",
+            properties=azure_native.recoveryservices.v20230201.RecoveryPlanPropertiesResponseArgs(
+                failover_deployment_model="ResourceManager",
+                groups=[{
+                    "endGroupActions": [],
+                    "groupType": "Boot",
+                    "replicationProtectedItems": [azure_native.recoveryservices.v20230201.RecoveryPlanProtectedItemArgs(
+                        id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b",
+                        virtual_machine_id="f8491e4f-817a-40dd-a90c-af773978c75b",
+                    )],
+                    "startGroupActions": [],
+                }],
+                primary_fabric_id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1",
+                recovery_fabric_id="Microsoft Azure",
+            ),
+            recovery_plan_name="RPtest1",
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan RPtest1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationRecoveryPlans/RPtest1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationRecoveryPlanArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,102 @@ import * as utilities from "../../utilities";
 
 /**
  * The connector setting
+ *
+ * ## Example Usage
+ * ### AwsAssumeRole - Create a cloud account connector for a subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connector = new azure_native.security.v20200101preview.Connector("connector", {
+ *     authenticationDetails: {
+ *         authenticationType: "awsAssumeRole",
+ *         awsAssumeRoleArn: "arn:aws:iam::81231569658:role/AscConnector",
+ *         awsExternalId: "20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+ *     },
+ *     connectorName: "aws_dev2",
+ *     hybridComputeSettings: {
+ *         autoProvision: "On",
+ *         proxyServer: {
+ *             ip: "167.220.197.140",
+ *             port: "34",
+ *         },
+ *         region: "West US 2",
+ *         resourceGroupName: "AwsConnectorRG",
+ *         servicePrincipal: {
+ *             applicationId: "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+ *             secret: "<secret>",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### AwsCred - Create a cloud account connector for a subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connector = new azure_native.security.v20200101preview.Connector("connector", {
+ *     authenticationDetails: {
+ *         authenticationType: "awsCreds",
+ *         awsAccessKeyId: "AKIARPZCNODDNAEQFSOE",
+ *         awsSecretAccessKey: "<awsSecretAccessKey>",
+ *     },
+ *     connectorName: "aws_dev1",
+ *     hybridComputeSettings: {
+ *         autoProvision: "On",
+ *         proxyServer: {
+ *             ip: "167.220.197.140",
+ *             port: "34",
+ *         },
+ *         region: "West US 2",
+ *         resourceGroupName: "AwsConnectorRG",
+ *         servicePrincipal: {
+ *             applicationId: "ad9bcd79-be9c-45ab-abd8-80ca1654a7d1",
+ *             secret: "<secret>",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### gcpCredentials - Create a cloud account connector for a subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connector = new azure_native.security.v20200101preview.Connector("connector", {
+ *     authenticationDetails: {
+ *         authProviderX509CertUrl: "https://www.googleapis.com/oauth2/v1/certs",
+ *         authUri: "https://accounts.google.com/o/oauth2/auth",
+ *         authenticationType: "gcpCredentials",
+ *         clientEmail: "asc-135@asc-project-1234.iam.gserviceaccount.com",
+ *         clientId: "105889053725632919854",
+ *         clientX509CertUrl: `https://www.googleapis.com/robot/v1/metadata/x509/asc-135%40asc-project-1234.iam.gserviceaccount.com`,
+ *         organizationId: "AscDemoOrg",
+ *         privateKey: "******",
+ *         privateKeyId: "6efg587hra2568as34d22326b044cc20dc2af",
+ *         projectId: "asc-project-1234",
+ *         tokenUri: "https://oauth2.googleapis.com/token",
+ *         type: "service_account",
+ *     },
+ *     connectorName: "gcp_dev",
+ *     hybridComputeSettings: {
+ *         autoProvision: "Off",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20200101preview:Connector gcp_dev /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/connectors/gcp_dev 
+ * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

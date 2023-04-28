@@ -10,6 +10,35 @@ import * as utilities from "../../utilities";
 /**
  * Volume resource
  *
+ * ## Example Usage
+ * ### Volumes_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volume = new azure_native.netapp.v20200201.Volume("volume", {
+ *     accountName: "account1",
+ *     creationToken: "my-unique-file-path",
+ *     location: "eastus",
+ *     poolName: "pool1",
+ *     resourceGroupName: "myRG",
+ *     serviceLevel: "Premium",
+ *     subnetId: "/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+ *     usageThreshold: 107374182400,
+ *     volumeName: "volume1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp/v20200201:Volume account1/pool1/volume1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1 
+ * ```
+ *
  * @deprecated Version 2020-02-01 will be removed in v2 of the provider.
  */
 export class Volume extends pulumi.CustomResource {

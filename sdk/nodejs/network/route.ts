@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Route resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create route
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const route = new azure_native.network.Route("route", {
+ *     addressPrefix: "10.0.3.0/24",
+ *     nextHopType: "VirtualNetworkGateway",
+ *     resourceGroupName: "rg1",
+ *     routeName: "route1",
+ *     routeTableName: "testrt",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:Route route1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeTables/testrt/routes/route1 
+ * ```
  */
 export class Route extends pulumi.CustomResource {
     /**

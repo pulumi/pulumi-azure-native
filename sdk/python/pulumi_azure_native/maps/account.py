@@ -150,6 +150,60 @@ class Account(pulumi.CustomResource):
         API Version: 2021-02-01.
         Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Gen1 Account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.maps.Account("account",
+            account_name="myMapsAccount",
+            kind="Gen1",
+            location="global",
+            properties=azure_native.maps.MapsAccountPropertiesArgs(
+                disable_local_auth=False,
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.maps.SkuArgs(
+                name="S0",
+            ),
+            tags={
+                "test": "true",
+            })
+
+        ```
+        ### Create Gen2 Account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.maps.Account("account",
+            account_name="myMapsAccount",
+            kind="Gen2",
+            location="global",
+            properties=azure_native.maps.MapsAccountPropertiesArgs(
+                disable_local_auth=True,
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.maps.SkuArgs(
+                name="G2",
+            ),
+            tags={
+                "test": "true",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maps:Account myMapsAccount /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Maps Account.
@@ -170,6 +224,60 @@ class Account(pulumi.CustomResource):
         An Azure resource which represents access to a suite of Maps REST APIs.
         API Version: 2021-02-01.
         Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Gen1 Account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.maps.Account("account",
+            account_name="myMapsAccount",
+            kind="Gen1",
+            location="global",
+            properties=azure_native.maps.MapsAccountPropertiesArgs(
+                disable_local_auth=False,
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.maps.SkuArgs(
+                name="S0",
+            ),
+            tags={
+                "test": "true",
+            })
+
+        ```
+        ### Create Gen2 Account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.maps.Account("account",
+            account_name="myMapsAccount",
+            kind="Gen2",
+            location="global",
+            properties=azure_native.maps.MapsAccountPropertiesArgs(
+                disable_local_auth=True,
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.maps.SkuArgs(
+                name="G2",
+            ),
+            tags={
+                "test": "true",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maps:Account myMapsAccount /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

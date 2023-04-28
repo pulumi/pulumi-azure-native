@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.SignalRService.V20230301Preview
 {
     /// <summary>
     /// A private endpoint connection to an azure resource
+    /// 
+    /// ## Example Usage
+    /// ### SignalRPrivateEndpointConnections_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var signalRPrivateEndpointConnection = new AzureNative.SignalRService.V20230301Preview.SignalRPrivateEndpointConnection("signalRPrivateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpoint = null,
+    ///         PrivateEndpointConnectionName = "mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.SignalRService.V20230301Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "mySignalRService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/privateEndpointConnections/mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice/v20230301preview:SignalRPrivateEndpointConnection")]
     public partial class SignalRPrivateEndpointConnection : global::Pulumi.CustomResource

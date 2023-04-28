@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * NetworkSecurityGroup resource
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20160330:NetworkSecurityGroup myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/networkSecurityGroups/{networkSecurityGroupName} 
+ * ```
  *
  * @deprecated Version 2016-03-30 will be removed in v2 of the provider.
  */

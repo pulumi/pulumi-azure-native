@@ -12,6 +12,54 @@ namespace Pulumi.AzureNative.AzureArcData
     /// <summary>
     /// A SqlAvailabilityGroup.
     /// API Version: 2023-03-15-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Updates a SQL Availability Group tags.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlAvailabilityGroup = new AzureNative.AzureArcData.SqlAvailabilityGroup("sqlAvailabilityGroup", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         Properties = new AzureNative.AzureArcData.Inputs.SqlAvailabilityGroupPropertiesArgs
+    ///         {
+    ///             AvailabilityGroupId = "00000000-1111-2222-3333-444444444444",
+    ///             AvailabilityGroupName = "myAvailabilityGroup",
+    ///             BasicFeatures = false,
+    ///             ClusterTypeDesc = "WSFC",
+    ///             CollectionTimestamp = "2022-05-05T16:26:33.883Z",
+    ///             DbFailover = true,
+    ///             DtcSupport = false,
+    ///             InstanceName = "testInstance",
+    ///             IsContained = false,
+    ///             IsDistributed = false,
+    ///             RequiredSynchronizedSecondariesCommit = 0,
+    ///             Version = 0,
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SqlAvailabilityGroupName = "testsqlAvailabilityGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata:SqlAvailabilityGroup testsqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlAvailabilityGroups/testsqlAvailabilityGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlAvailabilityGroup")]
     public partial class SqlAvailabilityGroup : global::Pulumi.CustomResource

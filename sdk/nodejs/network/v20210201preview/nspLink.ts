@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The network security perimeter link resource
+ *
+ * ## Example Usage
+ * ### NspLinksPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nspLink = new azure_native.network.v20210201preview.NspLink("nspLink", {
+ *     autoApprovedRemotePerimeterResourceId: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp2",
+ *     linkName: "link1",
+ *     networkSecurityPerimeterName: "nsp1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210201preview:NspLink link1 /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/links/link1 
+ * ```
  */
 export class NspLink extends pulumi.CustomResource {
     /**

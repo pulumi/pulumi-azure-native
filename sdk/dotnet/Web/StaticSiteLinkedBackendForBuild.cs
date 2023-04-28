@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.Web
     /// Static Site Linked Backend ARM resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Link a backend to a static site build
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var staticSiteLinkedBackendForBuild = new AzureNative.Web.StaticSiteLinkedBackendForBuild("staticSiteLinkedBackendForBuild", new()
+    ///     {
+    ///         BackendResourceId = "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/backendRg/providers/Microsoft.Web/sites/testBackend",
+    ///         EnvironmentName = "default",
+    ///         LinkedBackendName = "testBackend",
+    ///         Name = "testStaticSite0",
+    ///         Region = "West US 2",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:StaticSiteLinkedBackendForBuild testBackend /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/builds/default/linkedBackends/testBackend 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteLinkedBackendForBuild")]
     public partial class StaticSiteLinkedBackendForBuild : global::Pulumi.CustomResource

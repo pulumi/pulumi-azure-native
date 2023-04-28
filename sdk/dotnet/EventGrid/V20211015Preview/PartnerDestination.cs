@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
 {
     /// <summary>
     /// Event Grid Partner Destination.
+    /// 
+    /// ## Example Usage
+    /// ### PartnerDestinations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var partnerDestination = new AzureNative.EventGrid.V20211015Preview.PartnerDestination("partnerDestination", new()
+    ///     {
+    ///         EndpointBaseUrl = "https://www.example/endpoint",
+    ///         EndpointServiceContext = "This is an example",
+    ///         ExpirationTimeIfNotActivatedUtc = "2022-03-14T19:33:43.430Z",
+    ///         Location = "westus2",
+    ///         MessageForActivation = "Sample Activation message",
+    ///         PartnerDestinationName = "examplePartnerDestinationName1",
+    ///         PartnerRegistrationImmutableId = "0bd70ee2-7d95-447e-ab1f-c4f320019404",
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20211015preview:PartnerDestination examplePartnerDestinationName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerDestinations/examplePartnerDestinationName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20211015preview:PartnerDestination")]
     public partial class PartnerDestination : global::Pulumi.CustomResource

@@ -128,6 +128,30 @@ class GraphQuery(pulumi.CustomResource):
         """
         Graph Query entity definition.
 
+        ## Example Usage
+        ### Create Graph Query
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        graph_query = azure_native.resourcegraph.v20180901preview.GraphQuery("graphQuery",
+            description="Docker VMs in PROD",
+            query="where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+            resource_group_name="my-resource-group",
+            resource_name_="MyDockerVMs",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resourcegraph/v20180901preview:GraphQuery MyDockerVMs  /subscriptions/024e2271-06fa-46b6-9079-f1ed3c7b070e/resources/my-resource-group/providers/Microsoft.ResourceGraph/queries/MyDockerVMs 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of a graph query.
@@ -145,6 +169,30 @@ class GraphQuery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Graph Query entity definition.
+
+        ## Example Usage
+        ### Create Graph Query
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        graph_query = azure_native.resourcegraph.v20180901preview.GraphQuery("graphQuery",
+            description="Docker VMs in PROD",
+            query="where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+            resource_group_name="my-resource-group",
+            resource_name_="MyDockerVMs",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resourcegraph/v20180901preview:GraphQuery MyDockerVMs  /subscriptions/024e2271-06fa-46b6-9079-f1ed3c7b070e/resources/my-resource-group/providers/Microsoft.ResourceGraph/queries/MyDockerVMs 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GraphQueryArgs args: The arguments to use to populate this resource's properties.

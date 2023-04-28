@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Application Live View resource
+ *
+ * ## Example Usage
+ * ### ApplicationLiveViews_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationLiveView = new azure_native.appplatform.v20230301preview.ApplicationLiveView("applicationLiveView", {
+ *     applicationLiveViewName: "default",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230301preview:ApplicationLiveView default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationLiveViews/default 
+ * ```
  */
 export class ApplicationLiveView extends pulumi.CustomResource {
     /**

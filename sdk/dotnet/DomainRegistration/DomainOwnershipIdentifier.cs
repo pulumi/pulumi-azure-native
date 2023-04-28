@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.DomainRegistration
     /// Domain ownership Identifier.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create App Service Domain OwnershipIdentifier
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domainOwnershipIdentifier = new AzureNative.DomainRegistration.DomainOwnershipIdentifier("domainOwnershipIdentifier", new()
+    ///     {
+    ///         DomainName = "example.com",
+    ///         Name = "SampleOwnershipId",
+    ///         OwnershipId = "SampleOwnershipId",
+    ///         ResourceGroupName = "testrg123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:domainregistration:DomainOwnershipIdentifier SampleOwnershipId /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.DomainRegistration/domains/example.com/domainownershipidentifiers/SampleOwnershipId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration:DomainOwnershipIdentifier")]
     public partial class DomainOwnershipIdentifier : global::Pulumi.CustomResource

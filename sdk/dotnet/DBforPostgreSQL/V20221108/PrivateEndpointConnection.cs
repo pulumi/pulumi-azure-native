@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221108
 {
     /// <summary>
     /// The private endpoint connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### Approves or Rejects a Private Endpoint Connection with a given name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.DBforPostgreSQL.V20221108.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         ClusterName = "testcluster",
+    ///         PrivateEndpointConnectionName = "private-endpoint-connection-name",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.DBforPostgreSQL.V20221108.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Approved by johndoe@contoso.com",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "TestGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/testcluster/privateEndpointConnections/private-endpoint-connection-name 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221108:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

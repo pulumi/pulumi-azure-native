@@ -133,6 +133,31 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Network Interface Tap Configurations
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_interface_tap_configuration = azure_native.network.NetworkInterfaceTapConfiguration("networkInterfaceTapConfiguration",
+            network_interface_name="mynic",
+            resource_group_name="testrg",
+            tap_configuration_name="tapconfiguration1",
+            virtual_network_tap=azure_native.network.VirtualNetworkTapArgs(
+                id="/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkTaps/testvtap",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:NetworkInterfaceTapConfiguration tapConfiguration1 /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/networkInterfaces/mynic/tapConfigurations/tapConfiguration1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -152,6 +177,31 @@ class NetworkInterfaceTapConfiguration(pulumi.CustomResource):
         Tap configuration in a Network Interface.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Network Interface Tap Configurations
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_interface_tap_configuration = azure_native.network.NetworkInterfaceTapConfiguration("networkInterfaceTapConfiguration",
+            network_interface_name="mynic",
+            resource_group_name="testrg",
+            tap_configuration_name="tapconfiguration1",
+            virtual_network_tap=azure_native.network.VirtualNetworkTapArgs(
+                id="/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkTaps/testvtap",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:NetworkInterfaceTapConfiguration tapConfiguration1 /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/networkInterfaces/mynic/tapConfigurations/tapConfiguration1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceTapConfigurationArgs args: The arguments to use to populate this resource's properties.

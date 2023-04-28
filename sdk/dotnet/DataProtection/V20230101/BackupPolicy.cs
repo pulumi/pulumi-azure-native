@@ -11,6 +11,152 @@ namespace Pulumi.AzureNative.DataProtection.V20230101
 {
     /// <summary>
     /// BaseBackupPolicy resource
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate BackupPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupPolicy = new AzureNative.DataProtection.V20230101.BackupPolicy("backupPolicy", new()
+    ///     {
+    ///         BackupPolicyName = "OSSDBPolicy",
+    ///         Properties = new AzureNative.DataProtection.V20230101.Inputs.BackupPolicyArgs
+    ///         {
+    ///             DatasourceTypes = new[]
+    ///             {
+    ///                 "OssDB",
+    ///             },
+    ///             ObjectType = "BackupPolicy",
+    ///             PolicyRules = 
+    ///             {
+    ///                 new AzureNative.DataProtection.V20230101.Inputs.AzureBackupRuleArgs
+    ///                 {
+    ///                     BackupParameters = new AzureNative.DataProtection.V20230101.Inputs.AzureBackupParamsArgs
+    ///                     {
+    ///                         BackupType = "Full",
+    ///                         ObjectType = "AzureBackupParams",
+    ///                     },
+    ///                     DataStore = new AzureNative.DataProtection.V20230101.Inputs.DataStoreInfoBaseArgs
+    ///                     {
+    ///                         DataStoreType = "VaultStore",
+    ///                         ObjectType = "DataStoreInfoBase",
+    ///                     },
+    ///                     Name = "BackupWeekly",
+    ///                     ObjectType = "AzureBackupRule",
+    ///                     Trigger = new AzureNative.DataProtection.V20230101.Inputs.ScheduleBasedTriggerContextArgs
+    ///                     {
+    ///                         ObjectType = "ScheduleBasedTriggerContext",
+    ///                         Schedule = new AzureNative.DataProtection.V20230101.Inputs.BackupScheduleArgs
+    ///                         {
+    ///                             RepeatingTimeIntervals = new[]
+    ///                             {
+    ///                                 "R/2019-11-20T08:00:00-08:00/P1W",
+    ///                             },
+    ///                         },
+    ///                         TaggingCriteria = new[]
+    ///                         {
+    ///                             new AzureNative.DataProtection.V20230101.Inputs.TaggingCriteriaArgs
+    ///                             {
+    ///                                 IsDefault = true,
+    ///                                 TagInfo = new AzureNative.DataProtection.V20230101.Inputs.RetentionTagArgs
+    ///                                 {
+    ///                                     TagName = "Default",
+    ///                                 },
+    ///                                 TaggingPriority = 99,
+    ///                             },
+    ///                             new AzureNative.DataProtection.V20230101.Inputs.TaggingCriteriaArgs
+    ///                             {
+    ///                                 Criteria = new[]
+    ///                                 {
+    ///                                     new AzureNative.DataProtection.V20230101.Inputs.ScheduleBasedBackupCriteriaArgs
+    ///                                     {
+    ///                                         DaysOfTheWeek = new[]
+    ///                                         {
+    ///                                             "Sunday",
+    ///                                         },
+    ///                                         ObjectType = "ScheduleBasedBackupCriteria",
+    ///                                         ScheduleTimes = new[]
+    ///                                         {
+    ///                                             "2019-03-01T13:00:00Z",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 IsDefault = false,
+    ///                                 TagInfo = new AzureNative.DataProtection.V20230101.Inputs.RetentionTagArgs
+    ///                                 {
+    ///                                     TagName = "Weekly",
+    ///                                 },
+    ///                                 TaggingPriority = 20,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.DataProtection.V20230101.Inputs.AzureRetentionRuleArgs
+    ///                 {
+    ///                     IsDefault = true,
+    ///                     Lifecycles = new[]
+    ///                     {
+    ///                         new AzureNative.DataProtection.V20230101.Inputs.SourceLifeCycleArgs
+    ///                         {
+    ///                             DeleteAfter = new AzureNative.DataProtection.V20230101.Inputs.AbsoluteDeleteOptionArgs
+    ///                             {
+    ///                                 Duration = "P1W",
+    ///                                 ObjectType = "AbsoluteDeleteOption",
+    ///                             },
+    ///                             SourceDataStore = new AzureNative.DataProtection.V20230101.Inputs.DataStoreInfoBaseArgs
+    ///                             {
+    ///                                 DataStoreType = "VaultStore",
+    ///                                 ObjectType = "DataStoreInfoBase",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "Default",
+    ///                     ObjectType = "AzureRetentionRule",
+    ///                 },
+    ///                 new AzureNative.DataProtection.V20230101.Inputs.AzureRetentionRuleArgs
+    ///                 {
+    ///                     IsDefault = false,
+    ///                     Lifecycles = new[]
+    ///                     {
+    ///                         new AzureNative.DataProtection.V20230101.Inputs.SourceLifeCycleArgs
+    ///                         {
+    ///                             DeleteAfter = new AzureNative.DataProtection.V20230101.Inputs.AbsoluteDeleteOptionArgs
+    ///                             {
+    ///                                 Duration = "P12W",
+    ///                                 ObjectType = "AbsoluteDeleteOption",
+    ///                             },
+    ///                             SourceDataStore = new AzureNative.DataProtection.V20230101.Inputs.DataStoreInfoBaseArgs
+    ///                             {
+    ///                                 DataStoreType = "VaultStore",
+    ///                                 ObjectType = "DataStoreInfoBase",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "Weekly",
+    ///                     ObjectType = "AzureRetentionRule",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "000pikumar",
+    ///         VaultName = "PrivatePreviewVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dataprotection/v20230101:BackupPolicy OSSDBPolicy /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/backupVaults/PrivatePreviewVault/backupPolicies/OSSDBPolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection/v20230101:BackupPolicy")]
     public partial class BackupPolicy : global::Pulumi.CustomResource

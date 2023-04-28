@@ -9,6 +9,16 @@ import * as utilities from "../../utilities";
 
 /**
  * The Connector model definition
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement/v20180801preview:Connector AWSBillingAccount /subscriptions/01234567-89ab-cdef-0123-456789abcdef/resourceGroups/rg1/providers/Microsoft.CostManagement/connectors/AWSBillingAccount 
+ * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

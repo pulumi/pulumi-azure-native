@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * A common class for general resource information.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateLocalNetworkGateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const localNetworkGateway = new azure_native.network.LocalNetworkGateway("localNetworkGateway", {
+ *     fqdn: "site1.contoso.com",
+ *     gatewayIpAddress: "11.12.13.14",
+ *     localNetworkAddressSpace: {
+ *         addressPrefixes: ["10.1.0.0/16"],
+ *     },
+ *     localNetworkGatewayName: "localgw",
+ *     location: "Central US",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:LocalNetworkGateway localgw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw 
+ * ```
  */
 export class LocalNetworkGateway extends pulumi.CustomResource {
     /**

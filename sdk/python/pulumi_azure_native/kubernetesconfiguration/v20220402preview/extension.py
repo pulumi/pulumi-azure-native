@@ -303,6 +303,67 @@ class Extension(pulumi.CustomResource):
         """
         The Extension object.
 
+        ## Example Usage
+        ### Create Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.kubernetesconfiguration.v20220402preview.Extension("extension",
+            auto_upgrade_minor_version=True,
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            configuration_protected_settings={
+                "omsagent.secret.key": "secretKeyValue01",
+            },
+            configuration_settings={
+                "omsagent.env.clusterName": "clusterName1",
+                "omsagent.secret.wsid": "a38cef99-5a89-52ed-b6db-22095c23664b",
+            },
+            extension_name="ClusterMonitor",
+            extension_type="azuremonitor-containers",
+            release_train="Preview",
+            resource_group_name="rg1",
+            scope=azure_native.kubernetesconfiguration.v20220402preview.ScopeResponseArgs(
+                cluster=azure_native.kubernetesconfiguration.v20220402preview.ScopeClusterArgs(
+                    release_namespace="kube-system",
+                ),
+            ))
+
+        ```
+        ### Create Extension with Plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.kubernetesconfiguration.v20220402preview.Extension("extension",
+            auto_upgrade_minor_version=True,
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            extension_name="azureVote",
+            extension_type="azure-vote",
+            plan=azure_native.kubernetesconfiguration.v20220402preview.PlanResponseArgs(
+                name="azure-vote-standard",
+                product="azure-vote-standard-offer-id",
+                publisher="Microsoft",
+            ),
+            release_train="Preview",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesconfiguration/v20220402preview:Extension azureVote /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/extensions/azureVote 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtensionAksAssignedIdentityArgs']] aks_assigned_identity: Identity of the Extension resource in an AKS cluster
@@ -330,6 +391,67 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Extension object.
+
+        ## Example Usage
+        ### Create Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.kubernetesconfiguration.v20220402preview.Extension("extension",
+            auto_upgrade_minor_version=True,
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            configuration_protected_settings={
+                "omsagent.secret.key": "secretKeyValue01",
+            },
+            configuration_settings={
+                "omsagent.env.clusterName": "clusterName1",
+                "omsagent.secret.wsid": "a38cef99-5a89-52ed-b6db-22095c23664b",
+            },
+            extension_name="ClusterMonitor",
+            extension_type="azuremonitor-containers",
+            release_train="Preview",
+            resource_group_name="rg1",
+            scope=azure_native.kubernetesconfiguration.v20220402preview.ScopeResponseArgs(
+                cluster=azure_native.kubernetesconfiguration.v20220402preview.ScopeClusterArgs(
+                    release_namespace="kube-system",
+                ),
+            ))
+
+        ```
+        ### Create Extension with Plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.kubernetesconfiguration.v20220402preview.Extension("extension",
+            auto_upgrade_minor_version=True,
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            extension_name="azureVote",
+            extension_type="azure-vote",
+            plan=azure_native.kubernetesconfiguration.v20220402preview.PlanResponseArgs(
+                name="azure-vote-standard",
+                product="azure-vote-standard-offer-id",
+                publisher="Microsoft",
+            ),
+            release_train="Preview",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesconfiguration/v20220402preview:Extension azureVote /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/extensions/azureVote 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

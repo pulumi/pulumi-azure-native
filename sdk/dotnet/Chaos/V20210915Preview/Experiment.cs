@@ -11,6 +11,16 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
 {
     /// <summary>
     /// Model that represents a Experiment resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:chaos/v20210915preview:Experiment exampleExperiment /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos/v20210915preview:Experiment")]
     public partial class Experiment : global::Pulumi.CustomResource

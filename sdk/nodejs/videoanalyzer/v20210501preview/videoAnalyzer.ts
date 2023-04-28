@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * A Video Analyzer account.
+ *
+ * ## Example Usage
+ * ### Create a Video Analyzer account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const videoAnalyzer = new azure_native.videoanalyzer.v20210501preview.VideoAnalyzer("videoAnalyzer", {
+ *     accountName: "contosotv",
+ *     encryption: {
+ *         type: "SystemKey",
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {},
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3": {},
+ *         },
+ *     },
+ *     location: "South Central US",
+ *     resourceGroupName: "contoso",
+ *     storageAccounts: [{
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/storage1",
+ *         identity: {
+ *             userAssignedIdentity: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2",
+ *         },
+ *     }],
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:videoanalyzer/v20210501preview:VideoAnalyzer contosomovies /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/videoAnalyzers/contosomovies 
+ * ```
  */
 export class VideoAnalyzer extends pulumi.CustomResource {
     /**

@@ -6,6 +6,33 @@ import * as utilities from "../../utilities";
 
 /**
  * GraphQL API Resolver details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateGraphQLApiResolver
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const graphQLApiResolver = new azure_native.apimanagement.v20220801.GraphQLApiResolver("graphQLApiResolver", {
+ *     apiId: "someAPI",
+ *     description: "A GraphQL Resolver example",
+ *     displayName: "Query Users",
+ *     path: "Query/users",
+ *     resolverId: "newResolver",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:GraphQLApiResolver newResolver /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/someAPI/resolvers/newResolver 
+ * ```
  */
 export class GraphQLApiResolver extends pulumi.CustomResource {
     /**

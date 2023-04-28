@@ -279,7 +279,138 @@ class Cluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Cluster resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.networkcloud.v20221212preview.Cluster("cluster",
+            aggregator_or_single_rack_definition=azure_native.networkcloud.v20221212preview.RackDefinitionResponseArgs(
+                bare_metal_machine_configuration_data=[
+                    azure_native.networkcloud.v20221212preview.BareMetalMachineConfigurationDataArgs(
+                        bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                            password="{password}",
+                            username="username",
+                        ),
+                        bmc_mac_address="AA:BB:CC:DD:EE:FF",
+                        boot_mac_address="00:BB:CC:DD:EE:FF",
+                        machine_details="extraDetails",
+                        machine_name="bmmName1",
+                        rack_slot=1,
+                        serial_number="BM1219XXX",
+                    ),
+                    azure_native.networkcloud.v20221212preview.BareMetalMachineConfigurationDataArgs(
+                        bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                            password="{password}",
+                            username="username",
+                        ),
+                        bmc_mac_address="AA:BB:CC:DD:EE:00",
+                        boot_mac_address="00:BB:CC:DD:EE:00",
+                        machine_details="extraDetails",
+                        machine_name="bmmName2",
+                        rack_slot=2,
+                        serial_number="BM1219YYY",
+                    ),
+                ],
+                network_rack_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName",
+                rack_location="Foo Datacenter, Floor 3, Aisle 9, Rack 2",
+                rack_serial_number="AA1234",
+                rack_sku_id="/subscriptions/subscriptionId/providers/Microsoft.NetworkCloud/rackSkus/rackSkuName",
+                storage_appliance_configuration_data=[azure_native.networkcloud.v20221212preview.StorageApplianceConfigurationDataArgs(
+                    admin_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                        password="{password}",
+                        username="username",
+                    ),
+                    rack_slot=1,
+                    serial_number="BM1219XXX",
+                    storage_appliance_name="vmName",
+                )],
+            ),
+            analytics_workspace_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+            cluster_location="Foo Street, 3rd Floor, row 9",
+            cluster_name="clusterName",
+            cluster_service_principal=azure_native.networkcloud.v20221212preview.ServicePrincipalInformationResponseArgs(
+                application_id="12345678-1234-1234-1234-123456789012",
+                password="{password}",
+                principal_id="00000008-0004-0004-0004-000000000012",
+                tenant_id="80000000-4000-4000-4000-120000000000",
+            ),
+            cluster_type="SingleRack",
+            cluster_version="1.0.0",
+            compute_deployment_threshold=azure_native.networkcloud.v20221212preview.ValidationThresholdResponseArgs(
+                grouping="PerCluster",
+                type="PercentSuccess",
+                value=90,
+            ),
+            compute_rack_definitions=[{
+                "bareMetalMachineConfigurationData": [
+                    azure_native.networkcloud.v20221212preview.BareMetalMachineConfigurationDataArgs(
+                        bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                            password="{password}",
+                            username="username",
+                        ),
+                        bmc_mac_address="AA:BB:CC:DD:EE:FF",
+                        boot_mac_address="00:BB:CC:DD:EE:FF",
+                        machine_details="extraDetails",
+                        machine_name="bmmName1",
+                        rack_slot=1,
+                        serial_number="BM1219XXX",
+                    ),
+                    azure_native.networkcloud.v20221212preview.BareMetalMachineConfigurationDataArgs(
+                        bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                            password="{password}",
+                            username="username",
+                        ),
+                        bmc_mac_address="AA:BB:CC:DD:EE:00",
+                        boot_mac_address="00:BB:CC:DD:EE:00",
+                        machine_details="extraDetails",
+                        machine_name="bmmName2",
+                        rack_slot=2,
+                        serial_number="BM1219YYY",
+                    ),
+                ],
+                "networkRackId": "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName",
+                "rackLocation": "Foo Datacenter, Floor 3, Aisle 9, Rack 2",
+                "rackSerialNumber": "AA1234",
+                "rackSkuId": "/subscriptions/subscriptionId/providers/Microsoft.NetworkCloud/rackSkus/rackSkuName",
+                "storageApplianceConfigurationData": [azure_native.networkcloud.v20221212preview.StorageApplianceConfigurationDataArgs(
+                    admin_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                        password="{password}",
+                        username="username",
+                    ),
+                    rack_slot=1,
+                    serial_number="BM1219XXX",
+                    storage_appliance_name="vmName",
+                )],
+            }],
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            managed_resource_group_configuration=azure_native.networkcloud.v20221212preview.ManagedResourceGroupConfigurationArgs(
+                location="East US",
+                name="my-managed-rg",
+            ),
+            network_fabric_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/fabricName",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:Cluster clusterName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RackDefinitionArgs']] aggregator_or_single_rack_definition: The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
@@ -306,7 +437,138 @@ class Cluster(pulumi.CustomResource):
                  args: ClusterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Cluster resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.networkcloud.v20221212preview.Cluster("cluster",
+            aggregator_or_single_rack_definition=azure_native.networkcloud.v20221212preview.RackDefinitionResponseArgs(
+                bare_metal_machine_configuration_data=[
+                    azure_native.networkcloud.v20221212preview.BareMetalMachineConfigurationDataArgs(
+                        bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                            password="{password}",
+                            username="username",
+                        ),
+                        bmc_mac_address="AA:BB:CC:DD:EE:FF",
+                        boot_mac_address="00:BB:CC:DD:EE:FF",
+                        machine_details="extraDetails",
+                        machine_name="bmmName1",
+                        rack_slot=1,
+                        serial_number="BM1219XXX",
+                    ),
+                    azure_native.networkcloud.v20221212preview.BareMetalMachineConfigurationDataArgs(
+                        bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                            password="{password}",
+                            username="username",
+                        ),
+                        bmc_mac_address="AA:BB:CC:DD:EE:00",
+                        boot_mac_address="00:BB:CC:DD:EE:00",
+                        machine_details="extraDetails",
+                        machine_name="bmmName2",
+                        rack_slot=2,
+                        serial_number="BM1219YYY",
+                    ),
+                ],
+                network_rack_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName",
+                rack_location="Foo Datacenter, Floor 3, Aisle 9, Rack 2",
+                rack_serial_number="AA1234",
+                rack_sku_id="/subscriptions/subscriptionId/providers/Microsoft.NetworkCloud/rackSkus/rackSkuName",
+                storage_appliance_configuration_data=[azure_native.networkcloud.v20221212preview.StorageApplianceConfigurationDataArgs(
+                    admin_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                        password="{password}",
+                        username="username",
+                    ),
+                    rack_slot=1,
+                    serial_number="BM1219XXX",
+                    storage_appliance_name="vmName",
+                )],
+            ),
+            analytics_workspace_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+            cluster_location="Foo Street, 3rd Floor, row 9",
+            cluster_name="clusterName",
+            cluster_service_principal=azure_native.networkcloud.v20221212preview.ServicePrincipalInformationResponseArgs(
+                application_id="12345678-1234-1234-1234-123456789012",
+                password="{password}",
+                principal_id="00000008-0004-0004-0004-000000000012",
+                tenant_id="80000000-4000-4000-4000-120000000000",
+            ),
+            cluster_type="SingleRack",
+            cluster_version="1.0.0",
+            compute_deployment_threshold=azure_native.networkcloud.v20221212preview.ValidationThresholdResponseArgs(
+                grouping="PerCluster",
+                type="PercentSuccess",
+                value=90,
+            ),
+            compute_rack_definitions=[{
+                "bareMetalMachineConfigurationData": [
+                    azure_native.networkcloud.v20221212preview.BareMetalMachineConfigurationDataArgs(
+                        bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                            password="{password}",
+                            username="username",
+                        ),
+                        bmc_mac_address="AA:BB:CC:DD:EE:FF",
+                        boot_mac_address="00:BB:CC:DD:EE:FF",
+                        machine_details="extraDetails",
+                        machine_name="bmmName1",
+                        rack_slot=1,
+                        serial_number="BM1219XXX",
+                    ),
+                    azure_native.networkcloud.v20221212preview.BareMetalMachineConfigurationDataArgs(
+                        bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                            password="{password}",
+                            username="username",
+                        ),
+                        bmc_mac_address="AA:BB:CC:DD:EE:00",
+                        boot_mac_address="00:BB:CC:DD:EE:00",
+                        machine_details="extraDetails",
+                        machine_name="bmmName2",
+                        rack_slot=2,
+                        serial_number="BM1219YYY",
+                    ),
+                ],
+                "networkRackId": "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName",
+                "rackLocation": "Foo Datacenter, Floor 3, Aisle 9, Rack 2",
+                "rackSerialNumber": "AA1234",
+                "rackSkuId": "/subscriptions/subscriptionId/providers/Microsoft.NetworkCloud/rackSkus/rackSkuName",
+                "storageApplianceConfigurationData": [azure_native.networkcloud.v20221212preview.StorageApplianceConfigurationDataArgs(
+                    admin_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                        password="{password}",
+                        username="username",
+                    ),
+                    rack_slot=1,
+                    serial_number="BM1219XXX",
+                    storage_appliance_name="vmName",
+                )],
+            }],
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            managed_resource_group_configuration=azure_native.networkcloud.v20221212preview.ManagedResourceGroupConfigurationArgs(
+                location="East US",
+                name="my-managed-rg",
+            ),
+            network_fabric_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/fabricName",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:Cluster clusterName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

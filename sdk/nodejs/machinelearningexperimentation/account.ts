@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * An object that represents a machine learning team account.
  * API Version: 2017-05-01-preview.
  * Previous API Version: 2017-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### AccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.machinelearningexperimentation.Account("account", {
+ *     accountName: "accountcrud5678",
+ *     keyVaultId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.KeyVault/vaults/testkv",
+ *     location: "East US",
+ *     resourceGroupName: "accountcrud-1234",
+ *     storageAccount: {
+ *         accessKey: "key",
+ *         storageAccountId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+ *     },
+ *     tags: {
+ *         tagKey1: "TagValue1",
+ *     },
+ *     vsoAccountId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/microsoft.visualstudio/account/vsotest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningexperimentation:Account accountcrud5678 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.MachineLearningExperimentation/accounts/accountcrud5678 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

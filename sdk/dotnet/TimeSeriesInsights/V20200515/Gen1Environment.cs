@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20200515
 {
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Gen1 environments have data retention limits.
+    /// 
+    /// ## Example Usage
+    /// ### EnvironmentsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var gen1Environment = new AzureNative.TimeSeriesInsights.V20200515.Gen1Environment("gen1Environment", new()
+    ///     {
+    ///         DataRetentionTime = "P31D",
+    ///         EnvironmentName = "env1",
+    ///         Kind = "Gen1",
+    ///         Location = "West US",
+    ///         PartitionKeyProperties = new[]
+    ///         {
+    ///             new AzureNative.TimeSeriesInsights.V20200515.Inputs.TimeSeriesIdPropertyArgs
+    ///             {
+    ///                 Name = "DeviceId1",
+    ///                 Type = "String",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.TimeSeriesInsights.V20200515.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "S1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights/v20200515:Gen1Environment env1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20200515:Gen1Environment")]
     public partial class Gen1Environment : global::Pulumi.CustomResource

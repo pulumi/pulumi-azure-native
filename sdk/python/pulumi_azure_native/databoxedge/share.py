@@ -232,6 +232,42 @@ class Share(pulumi.CustomResource):
         API Version: 2022-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SharePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        share = azure_native.databoxedge.Share("share",
+            access_protocol="SMB",
+            azure_container_info=azure_native.databoxedge.AzureContainerInfoResponseArgs(
+                container_name="testContainerSMB",
+                data_format="BlockBlob",
+                storage_account_credential_id="/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+            ),
+            data_policy="Cloud",
+            description="",
+            device_name="testedgedevice",
+            monitoring_status="Enabled",
+            name="smbshare",
+            resource_group_name="GroupForEdgeAutomation",
+            share_status="Online",
+            user_access_rights=[{
+                "accessType": "Change",
+                "userId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:Share smbshare /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/smbshare 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ShareAccessProtocol']] access_protocol: Access protocol to be used by the share.
@@ -257,6 +293,42 @@ class Share(pulumi.CustomResource):
         Represents a share on the  Data Box Edge/Gateway device.
         API Version: 2022-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SharePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        share = azure_native.databoxedge.Share("share",
+            access_protocol="SMB",
+            azure_container_info=azure_native.databoxedge.AzureContainerInfoResponseArgs(
+                container_name="testContainerSMB",
+                data_format="BlockBlob",
+                storage_account_credential_id="/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1",
+            ),
+            data_policy="Cloud",
+            description="",
+            device_name="testedgedevice",
+            monitoring_status="Enabled",
+            name="smbshare",
+            resource_group_name="GroupForEdgeAutomation",
+            share_status="Online",
+            user_access_rights=[{
+                "accessType": "Change",
+                "userId": "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user2",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:Share smbshare /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/smbshare 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.

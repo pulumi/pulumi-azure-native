@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * An Asset.
+ *
+ * ## Example Usage
+ * ### Create an Asset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const asset = new azure_native.media.v20200501.Asset("asset", {
+ *     accountName: "contosomedia",
+ *     assetName: "ClimbingMountLogan",
+ *     description: "A documentary showing the ascent of Mount Logan",
+ *     resourceGroupName: "contoso",
+ *     storageAccountName: "storage0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media/v20200501:Asset ClimbingMountLogan /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan 
+ * ```
  */
 export class Asset extends pulumi.CustomResource {
     /**

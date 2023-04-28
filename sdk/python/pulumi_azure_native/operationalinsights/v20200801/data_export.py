@@ -194,6 +194,30 @@ class DataExport(pulumi.CustomResource):
         """
         The top level data export resource container.
 
+        ## Example Usage
+        ### DataExportCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_export = azure_native.operationalinsights.v20200801.DataExport("dataExport",
+            data_export_name="export1",
+            resource_group_name="RgTest1",
+            resource_id="/subscriptions/192b9f85-a39a-4276-b96d-d5cd351703f9/resourceGroups/OIAutoRest1234/providers/Microsoft.EventHub/namespaces/test",
+            table_names=["Heartbeat"],
+            workspace_name="DeWnTest1234")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20200801:DataExport export1 /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/RgTest1/providers/microsoft.operationalinsights/workspaces/DeWnTest1234/export/export1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_date: The latest data export rule modification time.
@@ -215,6 +239,30 @@ class DataExport(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The top level data export resource container.
+
+        ## Example Usage
+        ### DataExportCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_export = azure_native.operationalinsights.v20200801.DataExport("dataExport",
+            data_export_name="export1",
+            resource_group_name="RgTest1",
+            resource_id="/subscriptions/192b9f85-a39a-4276-b96d-d5cd351703f9/resourceGroups/OIAutoRest1234/providers/Microsoft.EventHub/namespaces/test",
+            table_names=["Heartbeat"],
+            workspace_name="DeWnTest1234")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20200801:DataExport export1 /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/RgTest1/providers/microsoft.operationalinsights/workspaces/DeWnTest1234/export/export1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataExportArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.DeploymentManager
     /// Represents the response of a service unit resource.
     /// API Version: 2019-11-01-preview.
     /// Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create service unit using SAS URIs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceUnit = new AzureNative.DeploymentManager.ServiceUnit("serviceUnit", new()
+    ///     {
+    ///         Artifacts = new AzureNative.DeploymentManager.Inputs.ServiceUnitArtifactsArgs
+    ///         {
+    ///             ParametersUri = "https://mystorageaccount.blob.core.windows.net/myartifactsource/parameter/myTopologyUnit.parameters.json?st=2018-07-07T14%3A10%3A00Z&amp;se=2019-12-31T15%3A10%3A00Z&amp;sp=rl&amp;sv=2017-04-17&amp;sr=c&amp;sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
+    ///             TemplateUri = "https://mystorageaccount.blob.core.windows.net/myartifactsource/templates/myTopologyUnit.template.json?st=2018-07-07T14%3A10%3A00Z&amp;se=2019-12-31T15%3A10%3A00Z&amp;sp=rl&amp;sv=2017-04-17&amp;sr=c&amp;sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
+    ///         },
+    ///         DeploymentMode = AzureNative.DeploymentManager.DeploymentMode.Incremental,
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myService",
+    ///         ServiceTopologyName = "myTopology",
+    ///         ServiceUnitName = "myServiceUnit",
+    ///         Tags = null,
+    ///         TargetResourceGroup = "myDeploymentResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create service unit using relative paths into the artifact source
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceUnit = new AzureNative.DeploymentManager.ServiceUnit("serviceUnit", new()
+    ///     {
+    ///         Artifacts = new AzureNative.DeploymentManager.Inputs.ServiceUnitArtifactsArgs
+    ///         {
+    ///             ParametersArtifactSourceRelativePath = "parameter/myTopologyUnit.parameters.json",
+    ///             TemplateArtifactSourceRelativePath = "templates/myTopologyUnit.template.json",
+    ///         },
+    ///         DeploymentMode = AzureNative.DeploymentManager.DeploymentMode.Incremental,
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myService",
+    ///         ServiceTopologyName = "myTopology",
+    ///         ServiceUnitName = "myServiceUnit",
+    ///         Tags = null,
+    ///         TargetResourceGroup = "myDeploymentResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deploymentmanager:ServiceUnit myServiceUnit /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/serviceTopologies/{serviceTopologyName}/services/{serviceName}/serviceUnits/{serviceUnitName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager:ServiceUnit")]
     public partial class ServiceUnit : global::Pulumi.CustomResource

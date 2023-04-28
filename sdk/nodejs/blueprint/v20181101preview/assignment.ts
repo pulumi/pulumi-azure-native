@@ -9,6 +9,176 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a blueprint assignment.
+ *
+ * ## Example Usage
+ * ### Assignment with system-assigned managed identity at management group scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assignment = new azure_native.blueprint.v20181101preview.Assignment("assignment", {
+ *     assignmentName: "assignSimpleBlueprint",
+ *     blueprintId: "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+ *     description: "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "eastus",
+ *     parameters: {
+ *         costCenter: {
+ *             value: "Contoso/Online/Shopping/Production",
+ *         },
+ *         owners: {
+ *             value: [
+ *                 "johnDoe@contoso.com",
+ *                 "johnsteam@contoso.com",
+ *             ],
+ *         },
+ *         storageAccountType: {
+ *             value: "Standard_LRS",
+ *         },
+ *     },
+ *     resourceGroups: {
+ *         storageRG: {
+ *             location: "eastus",
+ *             name: "defaultRG",
+ *         },
+ *     },
+ *     resourceScope: "managementGroups/ContosoOnlineGroup",
+ *     scope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ * ### Assignment with system-assigned managed identity at subscription scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assignment = new azure_native.blueprint.v20181101preview.Assignment("assignment", {
+ *     assignmentName: "assignSimpleBlueprint",
+ *     blueprintId: "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+ *     description: "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "eastus",
+ *     parameters: {
+ *         costCenter: {
+ *             value: "Contoso/Online/Shopping/Production",
+ *         },
+ *         owners: {
+ *             value: [
+ *                 "johnDoe@contoso.com",
+ *                 "johnsteam@contoso.com",
+ *             ],
+ *         },
+ *         storageAccountType: {
+ *             value: "Standard_LRS",
+ *         },
+ *     },
+ *     resourceGroups: {
+ *         storageRG: {
+ *             location: "eastus",
+ *             name: "defaultRG",
+ *         },
+ *     },
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ * ### Assignment with user-assigned managed identity at management group scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assignment = new azure_native.blueprint.v20181101preview.Assignment("assignment", {
+ *     assignmentName: "assignSimpleBlueprint",
+ *     blueprintId: "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+ *     description: "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     parameters: {
+ *         costCenter: {
+ *             value: "Contoso/Online/Shopping/Production",
+ *         },
+ *         owners: {
+ *             value: [
+ *                 "johnDoe@contoso.com",
+ *                 "johnsteam@contoso.com",
+ *             ],
+ *         },
+ *         storageAccountType: {
+ *             value: "Standard_LRS",
+ *         },
+ *     },
+ *     resourceGroups: {
+ *         storageRG: {
+ *             location: "eastus",
+ *             name: "defaultRG",
+ *         },
+ *     },
+ *     resourceScope: "managementGroups/ContosoOnlineGroup",
+ *     scope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ * ### Assignment with user-assigned managed identity at subscription scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assignment = new azure_native.blueprint.v20181101preview.Assignment("assignment", {
+ *     assignmentName: "assignSimpleBlueprint",
+ *     blueprintId: "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+ *     description: "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     parameters: {
+ *         costCenter: {
+ *             value: "Contoso/Online/Shopping/Production",
+ *         },
+ *         owners: {
+ *             value: [
+ *                 "johnDoe@contoso.com",
+ *                 "johnsteam@contoso.com",
+ *             ],
+ *         },
+ *         storageAccountType: {
+ *             value: "Standard_LRS",
+ *         },
+ *     },
+ *     resourceGroups: {
+ *         storageRG: {
+ *             location: "eastus",
+ *             name: "defaultRG",
+ *         },
+ *     },
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blueprint/v20181101preview:Assignment assignSimpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint 
+ * ```
  */
 export class Assignment extends pulumi.CustomResource {
     /**

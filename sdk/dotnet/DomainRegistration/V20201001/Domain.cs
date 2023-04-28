@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20201001
 {
     /// <summary>
     /// Information about a domain.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:domainregistration/v20201001:Domain myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration/v20201001:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

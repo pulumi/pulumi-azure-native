@@ -132,6 +132,37 @@ class NetworkProfile(pulumi.CustomResource):
         """
         Network profile resource.
 
+        ## Example Usage
+        ### Create network profile defaults
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_profile = azure_native.network.v20220901.NetworkProfile("networkProfile",
+            container_network_interface_configurations=[{
+                "ipConfigurations": [{
+                    "name": "ipconfig1",
+                    "subnet": azure_native.network.v20220901.SubnetArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1",
+                    ),
+                }],
+                "name": "eth1",
+            }],
+            location="westus",
+            network_profile_name="networkProfile1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:NetworkProfile networkProfile1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerNetworkInterfaceConfigurationArgs']]]] container_network_interface_configurations: List of chid container network interface configurations.
@@ -149,6 +180,37 @@ class NetworkProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network profile resource.
+
+        ## Example Usage
+        ### Create network profile defaults
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_profile = azure_native.network.v20220901.NetworkProfile("networkProfile",
+            container_network_interface_configurations=[{
+                "ipConfigurations": [{
+                    "name": "ipconfig1",
+                    "subnet": azure_native.network.v20220901.SubnetArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1",
+                    ),
+                }],
+                "name": "eth1",
+            }],
+            location="westus",
+            network_profile_name="networkProfile1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:NetworkProfile networkProfile1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkProfileArgs args: The arguments to use to populate this resource's properties.

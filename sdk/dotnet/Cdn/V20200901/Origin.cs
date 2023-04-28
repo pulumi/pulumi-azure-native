@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+    /// 
+    /// ## Example Usage
+    /// ### Origins_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var origin = new AzureNative.Cdn.V20200901.Origin("origin", new()
+    ///     {
+    ///         Enabled = true,
+    ///         EndpointName = "endpoint1",
+    ///         HostName = "www.someDomain.net",
+    ///         HttpPort = 80,
+    ///         HttpsPort = 443,
+    ///         OriginHostHeader = "www.someDomain.net",
+    ///         OriginName = "www-someDomain-net",
+    ///         Priority = 1,
+    ///         PrivateLinkApprovalMessage = "Please approve the connection request for this Private Link",
+    ///         PrivateLinkLocation = "eastus",
+    ///         PrivateLinkResourceId = "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         Weight = 50,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20200901:Origin www-someDomain-net /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/www-someDomain-net 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:Origin")]
     public partial class Origin : global::Pulumi.CustomResource

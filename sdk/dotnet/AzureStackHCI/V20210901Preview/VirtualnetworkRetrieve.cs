@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 {
     /// <summary>
     /// The virtual network resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutVirtualNetwork
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualnetworkRetrieve = new AzureNative.AzureStackHCI.V20210901Preview.VirtualnetworkRetrieve("virtualnetworkRetrieve", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "West US2",
+    ///         NetworkType = "Transparent",
+    ///         ResourceGroupName = "test-rg",
+    ///         VirtualnetworksName = "test-vnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve test-vnet /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualnetworks/test-vnet 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve")]
     public partial class VirtualnetworkRetrieve : global::Pulumi.CustomResource

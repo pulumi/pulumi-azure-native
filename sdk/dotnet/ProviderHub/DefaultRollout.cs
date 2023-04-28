@@ -13,6 +13,51 @@ namespace Pulumi.AzureNative.ProviderHub
     /// Default rollout definition.
     /// API Version: 2020-11-20.
     /// Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### DefaultRollouts_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var defaultRollout = new AzureNative.ProviderHub.DefaultRollout("defaultRollout", new()
+    ///     {
+    ///         Properties = new AzureNative.ProviderHub.Inputs.DefaultRolloutPropertiesArgs
+    ///         {
+    ///             Specification = new AzureNative.ProviderHub.Inputs.DefaultRolloutPropertiesSpecificationArgs
+    ///             {
+    ///                 Canary = new AzureNative.ProviderHub.Inputs.DefaultRolloutSpecificationCanaryArgs
+    ///                 {
+    ///                     SkipRegions = new[]
+    ///                     {
+    ///                         "eastus2euap",
+    ///                     },
+    ///                 },
+    ///                 RestOfTheWorldGroupTwo = new AzureNative.ProviderHub.Inputs.DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs
+    ///                 {
+    ///                     WaitDuration = "PT4H",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///         RolloutName = "2020week10",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub:DefaultRollout Microsoft.Contoso/2020week10 /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/defaultRollouts/2020week10 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:providerhub:DefaultRollout")]
     public partial class DefaultRollout : global::Pulumi.CustomResource

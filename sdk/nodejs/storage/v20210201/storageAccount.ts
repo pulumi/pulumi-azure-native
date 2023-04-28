@@ -9,6 +9,143 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account.
+ *
+ * ## Example Usage
+ * ### NfsV3AccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.v20210201.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     enableHttpsTrafficOnly: false,
+ *     enableNfsV3: true,
+ *     isHnsEnabled: true,
+ *     kind: "BlockBlobStorage",
+ *     location: "eastus",
+ *     networkRuleSet: {
+ *         bypass: "AzureServices",
+ *         defaultAction: azure_native.storage.v20210201.DefaultAction.Allow,
+ *         ipRules: [],
+ *         virtualNetworkRules: [{
+ *             virtualNetworkResourceId: "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Network/virtualNetworks/net123/subnets/subnet12",
+ *         }],
+ *     },
+ *     resourceGroupName: "res9101",
+ *     sku: {
+ *         name: "Premium_LRS",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.v20210201.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     allowBlobPublicAccess: false,
+ *     allowSharedKeyAccess: true,
+ *     encryption: {
+ *         keySource: "Microsoft.Storage",
+ *         requireInfrastructureEncryption: false,
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     extendedLocation: {
+ *         name: "losangeles001",
+ *         type: "EdgeZone",
+ *     },
+ *     isHnsEnabled: true,
+ *     keyPolicy: {
+ *         keyExpirationPeriodInDays: 20,
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     minimumTlsVersion: "TLS1_2",
+ *     resourceGroupName: "res9101",
+ *     routingPreference: {
+ *         publishInternetEndpoints: true,
+ *         publishMicrosoftEndpoints: true,
+ *         routingChoice: "MicrosoftRouting",
+ *     },
+ *     sasPolicy: {
+ *         expirationAction: "Log",
+ *         sasExpirationPeriod: "1.15:59:59",
+ *     },
+ *     sku: {
+ *         name: "Standard_GRS",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateUserAssignedEncryptionIdentityWithCMK
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccount = new azure_native.storage.v20210201.StorageAccount("storageAccount", {
+ *     accountName: "sto4445",
+ *     encryption: {
+ *         encryptionIdentity: {
+ *             encryptionUserAssignedIdentity: "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}",
+ *         },
+ *         keySource: "Microsoft.Keyvault",
+ *         keyVaultProperties: {
+ *             keyName: "wrappingKey",
+ *             keyVaultUri: "https://myvault8569.vault.azure.net",
+ *             keyVersion: "",
+ *         },
+ *         services: {
+ *             blob: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *             file: {
+ *                 enabled: true,
+ *                 keyType: "Account",
+ *             },
+ *         },
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}": {},
+ *         },
+ *     },
+ *     kind: "Storage",
+ *     location: "eastus",
+ *     resourceGroupName: "res9101",
+ *     sku: {
+ *         name: "Standard_LRS",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20210201:StorageAccount sto4445 /subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445 
+ * ```
  */
 export class StorageAccount extends pulumi.CustomResource {
     /**

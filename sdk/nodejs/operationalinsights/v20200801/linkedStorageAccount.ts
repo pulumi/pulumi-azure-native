@@ -6,6 +6,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Linked storage accounts top level resource container.
+ *
+ * ## Example Usage
+ * ### LinkedStorageAccountsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedStorageAccount = new azure_native.operationalinsights.v20200801.LinkedStorageAccount("linkedStorageAccount", {
+ *     dataSourceType: "CustomLogs",
+ *     resourceGroupName: "mms-eus",
+ *     storageAccountIds: [
+ *         "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageA",
+ *         "/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/mms-eus/providers/Microsoft.Storage/storageAccounts/testStorageB",
+ *     ],
+ *     workspaceName: "testLinkStorageAccountsWS",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights/v20200801:LinkedStorageAccount CustomLogs /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/mms-eus/providers/microsoft.operationalinsights/workspaces/testLinkStorageAccountsWS/linkedStorageAccounts/CustomLogs 
+ * ```
  */
 export class LinkedStorageAccount extends pulumi.CustomResource {
     /**

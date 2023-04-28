@@ -96,6 +96,52 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         """
         The storage account blob inventory policy.
 
+        ## Example Usage
+        ### StorageAccountSetBlobInventoryPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_inventory_policy = azure_native.storage.v20210201.BlobInventoryPolicy("blobInventoryPolicy",
+            account_name="sto9699",
+            blob_inventory_policy_name="default",
+            policy=azure_native.storage.v20210201.BlobInventoryPolicySchemaResponseArgs(
+                destination="containerName",
+                enabled=True,
+                rules=[{
+                    "definition": {
+                        "filters": azure_native.storage.v20210201.BlobInventoryPolicyFilterArgs(
+                            blob_types=[
+                                "blockBlob",
+                                "appendBlob",
+                                "pageBlob",
+                            ],
+                            include_blob_versions=True,
+                            include_snapshots=True,
+                            prefix_match=[
+                                "inventoryprefix1",
+                                "inventoryprefix2",
+                            ],
+                        ),
+                    },
+                    "enabled": True,
+                    "name": "inventoryPolicyRule1",
+                }],
+                type="Inventory",
+            ),
+            resource_group_name="res7687")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20210201:BlobInventoryPolicy DefaultInventoryPolicy /subscriptions/{subscription-id}/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -111,6 +157,52 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage account blob inventory policy.
+
+        ## Example Usage
+        ### StorageAccountSetBlobInventoryPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_inventory_policy = azure_native.storage.v20210201.BlobInventoryPolicy("blobInventoryPolicy",
+            account_name="sto9699",
+            blob_inventory_policy_name="default",
+            policy=azure_native.storage.v20210201.BlobInventoryPolicySchemaResponseArgs(
+                destination="containerName",
+                enabled=True,
+                rules=[{
+                    "definition": {
+                        "filters": azure_native.storage.v20210201.BlobInventoryPolicyFilterArgs(
+                            blob_types=[
+                                "blockBlob",
+                                "appendBlob",
+                                "pageBlob",
+                            ],
+                            include_blob_versions=True,
+                            include_snapshots=True,
+                            prefix_match=[
+                                "inventoryprefix1",
+                                "inventoryprefix2",
+                            ],
+                        ),
+                    },
+                    "enabled": True,
+                    "name": "inventoryPolicyRule1",
+                }],
+                type="Inventory",
+            ),
+            resource_group_name="res7687")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20210201:BlobInventoryPolicy DefaultInventoryPolicy /subscriptions/{subscription-id}/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlobInventoryPolicyArgs args: The arguments to use to populate this resource's properties.

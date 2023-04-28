@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.ServiceBus.V20140901
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20140901:NamespaceAuthorizationRule myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}/AuthorizationRules/{authorizationRuleName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2014-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicebus/v20140901:NamespaceAuthorizationRule")]

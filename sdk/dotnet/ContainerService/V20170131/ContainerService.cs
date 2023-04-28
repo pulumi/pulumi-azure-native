@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.ContainerService.V20170131
 {
     /// <summary>
     /// Container service.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Container Service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerService = new AzureNative.ContainerService.V20170131.ContainerService("containerService", new()
+    ///     {
+    ///         ContainerServiceName = "acs1",
+    ///         Location = "location1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20170131:ContainerService acs1 /subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/containerServices/acs1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-01-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerservice/v20170131:ContainerService")]

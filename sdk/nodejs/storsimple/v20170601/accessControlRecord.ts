@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The access control record.
+ *
+ * ## Example Usage
+ * ### AccessControlRecordsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accessControlRecord = new azure_native.storsimple.v20170601.AccessControlRecord("accessControlRecord", {
+ *     accessControlRecordName: "ACRForTest",
+ *     initiatorName: "iqn.2017-06.com.contoso:ForTest",
+ *     managerName: "ManagerForSDKTest1",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple/v20170601:AccessControlRecord ACRForTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACRForTest 
+ * ```
  */
 export class AccessControlRecord extends pulumi.CustomResource {
     /**

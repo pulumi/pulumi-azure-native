@@ -94,6 +94,29 @@ class RegisteredPrefix(pulumi.CustomResource):
         """
         The customer's prefix that is registered by the peering service provider.
 
+        ## Example Usage
+        ### Create or update a registered prefix for the peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registered_prefix = azure_native.peering.v20221001.RegisteredPrefix("registeredPrefix",
+            peering_name="peeringName",
+            prefix="10.22.20.0/24",
+            registered_prefix_name="registeredPrefixName",
+            resource_group_name="rgName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20221001:RegisteredPrefix registeredPrefixName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName/registeredPrefixes/registeredPrefixName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] peering_name: The name of the peering.
@@ -109,6 +132,29 @@ class RegisteredPrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The customer's prefix that is registered by the peering service provider.
+
+        ## Example Usage
+        ### Create or update a registered prefix for the peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registered_prefix = azure_native.peering.v20221001.RegisteredPrefix("registeredPrefix",
+            peering_name="peeringName",
+            prefix="10.22.20.0/24",
+            registered_prefix_name="registeredPrefixName",
+            resource_group_name="rgName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20221001:RegisteredPrefix registeredPrefixName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName/registeredPrefixes/registeredPrefixName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegisteredPrefixArgs args: The arguments to use to populate this resource's properties.

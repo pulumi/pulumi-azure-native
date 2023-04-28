@@ -128,6 +128,31 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
         """
         Workspace active directory administrator
 
+        ## Example Usage
+        ### Create or update workspace active directory admin
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_sql_aad_admin = azure_native.synapse.v20210601preview.WorkspaceSqlAadAdmin("workspaceSqlAadAdmin",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            resource_group_name="resourceGroup1",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin activeDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/administrators/activeDirectory 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_type: Workspace active directory administrator type
@@ -145,6 +170,31 @@ class WorkspaceSqlAadAdmin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workspace active directory administrator
+
+        ## Example Usage
+        ### Create or update workspace active directory admin
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_sql_aad_admin = azure_native.synapse.v20210601preview.WorkspaceSqlAadAdmin("workspaceSqlAadAdmin",
+            administrator_type="ActiveDirectory",
+            login="bob@contoso.com",
+            resource_group_name="resourceGroup1",
+            sid="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            tenant_id="c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin activeDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/administrators/activeDirectory 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceSqlAadAdminArgs args: The arguments to use to populate this resource's properties.

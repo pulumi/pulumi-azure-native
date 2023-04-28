@@ -83,6 +83,28 @@ class PublishedBlueprint(pulumi.CustomResource):
         """
         Represents a published Blueprint.
 
+        ## Example Usage
+        ### PublishedBlueprint_Publish
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        published_blueprint = azure_native.blueprint.v20171111preview.PublishedBlueprint("publishedBlueprint",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup",
+            version_id="v2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:PublishedBlueprint v2 /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blueprint_name: name of the blueprint.
@@ -97,6 +119,28 @@ class PublishedBlueprint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a published Blueprint.
+
+        ## Example Usage
+        ### PublishedBlueprint_Publish
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        published_blueprint = azure_native.blueprint.v20171111preview.PublishedBlueprint("publishedBlueprint",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup",
+            version_id="v2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:PublishedBlueprint v2 /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PublishedBlueprintArgs args: The arguments to use to populate this resource's properties.

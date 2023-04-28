@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Compute.V20191201
 {
     /// <summary>
     /// Describes a Virtual Machine Extension.
+    /// 
+    /// ## Example Usage
+    /// ### Create VirtualMachineScaleSet VM extension.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineScaleSetVMExtension = new AzureNative.Compute.V20191201.VirtualMachineScaleSetVMExtension("virtualMachineScaleSetVMExtension", new()
+    ///     {
+    ///         AutoUpgradeMinorVersion = true,
+    ///         InstanceId = "0",
+    ///         Location = "westus",
+    ///         Publisher = "extPublisher",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Settings = 
+    ///         {
+    ///             { "UserName", "xyz@microsoft.com" },
+    ///         },
+    ///         Type = "extType",
+    ///         TypeHandlerVersion = "1.2",
+    ///         VmExtensionName = "myVMExtension",
+    ///         VmScaleSetName = "myvmScaleSet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension myVMExtension /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myvmScaleSet/virtualMachines/0/extensions/myVMExtension 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension")]

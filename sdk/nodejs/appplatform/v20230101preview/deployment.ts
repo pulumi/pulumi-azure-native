@@ -9,6 +9,145 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment resource payload
+ *
+ * ## Example Usage
+ * ### Deployments_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deployment = new azure_native.appplatform.v20230101preview.Deployment("deployment", {
+ *     appName: "myapp",
+ *     deploymentName: "mydeployment",
+ *     properties: {
+ *         deploymentSettings: {
+ *             addonConfigs: {
+ *                 ApplicationConfigurationService: {
+ *                     patterns: ["mypattern"],
+ *                 },
+ *             },
+ *             environmentVariables: {
+ *                 env: "test",
+ *             },
+ *             livenessProbe: {
+ *                 disableProbe: false,
+ *                 failureThreshold: 3,
+ *                 initialDelaySeconds: 30,
+ *                 periodSeconds: 10,
+ *                 probeAction: {
+ *                     path: "/health",
+ *                     scheme: "HTTP",
+ *                     type: "HTTPGetAction",
+ *                 },
+ *             },
+ *             readinessProbe: {
+ *                 disableProbe: false,
+ *                 failureThreshold: 3,
+ *                 initialDelaySeconds: 30,
+ *                 periodSeconds: 10,
+ *                 probeAction: {
+ *                     path: "/health",
+ *                     scheme: "HTTP",
+ *                     type: "HTTPGetAction",
+ *                 },
+ *             },
+ *             resourceRequests: {
+ *                 cpu: "1000m",
+ *                 memory: "3Gi",
+ *             },
+ *             terminationGracePeriodSeconds: 30,
+ *         },
+ *         source: {
+ *             artifactSelector: "sub-module-1",
+ *             relativePath: "resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc",
+ *             type: "Source",
+ *             version: "1.0",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Deployments_CreateOrUpdate_CustomContainer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deployment = new azure_native.appplatform.v20230101preview.Deployment("deployment", {
+ *     appName: "myapp",
+ *     deploymentName: "mydeployment",
+ *     properties: {
+ *         deploymentSettings: {
+ *             environmentVariables: {
+ *                 env: "test",
+ *             },
+ *             livenessProbe: {
+ *                 disableProbe: false,
+ *                 failureThreshold: 3,
+ *                 initialDelaySeconds: 30,
+ *                 periodSeconds: 10,
+ *                 probeAction: {
+ *                     path: "/health",
+ *                     scheme: "HTTP",
+ *                     type: "HTTPGetAction",
+ *                 },
+ *             },
+ *             readinessProbe: {
+ *                 disableProbe: false,
+ *                 failureThreshold: 3,
+ *                 initialDelaySeconds: 30,
+ *                 periodSeconds: 10,
+ *                 probeAction: {
+ *                     path: "/health",
+ *                     scheme: "HTTP",
+ *                     type: "HTTPGetAction",
+ *                 },
+ *             },
+ *             resourceRequests: {
+ *                 cpu: "1000m",
+ *                 memory: "3Gi",
+ *             },
+ *             terminationGracePeriodSeconds: 30,
+ *         },
+ *         source: {
+ *             customContainer: {
+ *                 args: [
+ *                     "-c",
+ *                     "while true; do echo hello; sleep 10;done",
+ *                 ],
+ *                 command: ["/bin/sh"],
+ *                 containerImage: "myContainerImage:v1",
+ *                 imageRegistryCredential: {
+ *                     password: "myPassword",
+ *                     username: "myUsername",
+ *                 },
+ *                 languageFramework: "springboot",
+ *                 server: "myacr.azurecr.io",
+ *             },
+ *             type: "Container",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230101preview:Deployment mydeployment /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/deployments/mydeployment 
+ * ```
  */
 export class Deployment extends pulumi.CustomResource {
     /**

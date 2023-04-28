@@ -97,6 +97,28 @@ class ScopeAssignment(pulumi.CustomResource):
         API Version: 2019-06-01-preview.
         Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ScopeAssignmentsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_assignment = azure_native.managednetwork.ScopeAssignment("scopeAssignment",
+            assigned_managed_network="/subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork",
+            scope="subscriptions/subscriptionC",
+            scope_assignment_name="subscriptionCAssignment")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork:ScopeAssignment subscriptionCAssignment /subscriptions/subscriptionC/providers/Microsoft.ManagedNetwork/scopeAssignments/subscriptionCAssignment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assigned_managed_network: The managed network ID with scope will be assigned to.
@@ -114,6 +136,28 @@ class ScopeAssignment(pulumi.CustomResource):
         The Managed Network resource
         API Version: 2019-06-01-preview.
         Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ScopeAssignmentsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_assignment = azure_native.managednetwork.ScopeAssignment("scopeAssignment",
+            assigned_managed_network="/subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork",
+            scope="subscriptions/subscriptionC",
+            scope_assignment_name="subscriptionCAssignment")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork:ScopeAssignment subscriptionCAssignment /subscriptions/subscriptionC/providers/Microsoft.ManagedNetwork/scopeAssignments/subscriptionCAssignment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScopeAssignmentArgs args: The arguments to use to populate this resource's properties.

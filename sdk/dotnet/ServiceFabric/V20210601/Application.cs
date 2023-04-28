@@ -11,6 +11,135 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
 {
     /// <summary>
     /// The application resource.
+    /// 
+    /// ## Example Usage
+    /// ### Put an application with maximum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.ServiceFabric.V20210601.Application("application", new()
+    ///     {
+    ///         ApplicationName = "myApp",
+    ///         ClusterName = "myCluster",
+    ///         MaximumNodes = 3,
+    ///         Metrics = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20210601.Inputs.ApplicationMetricDescriptionArgs
+    ///             {
+    ///                 MaximumCapacity = 3,
+    ///                 Name = "metric1",
+    ///                 ReservationCapacity = 1,
+    ///                 TotalApplicationCapacity = 5,
+    ///             },
+    ///         },
+    ///         MinimumNodes = 1,
+    ///         Parameters = 
+    ///         {
+    ///             { "param1", "value1" },
+    ///         },
+    ///         RemoveApplicationCapacity = false,
+    ///         ResourceGroupName = "resRg",
+    ///         Tags = null,
+    ///         TypeName = "myAppType",
+    ///         TypeVersion = "1.0",
+    ///         UpgradePolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ApplicationUpgradePolicyArgs
+    ///         {
+    ///             ApplicationHealthPolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ArmApplicationHealthPolicyArgs
+    ///             {
+    ///                 ConsiderWarningAsError = true,
+    ///                 DefaultServiceTypeHealthPolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ArmServiceTypeHealthPolicyArgs
+    ///                 {
+    ///                     MaxPercentUnhealthyPartitionsPerService = 0,
+    ///                     MaxPercentUnhealthyReplicasPerPartition = 0,
+    ///                     MaxPercentUnhealthyServices = 0,
+    ///                 },
+    ///                 MaxPercentUnhealthyDeployedApplications = 0,
+    ///             },
+    ///             ForceRestart = false,
+    ///             RollingUpgradeMonitoringPolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ArmRollingUpgradeMonitoringPolicyArgs
+    ///             {
+    ///                 FailureAction = "Rollback",
+    ///                 HealthCheckRetryTimeout = "00:10:00",
+    ///                 HealthCheckStableDuration = "00:05:00",
+    ///                 HealthCheckWaitDuration = "00:02:00",
+    ///                 UpgradeDomainTimeout = "1.06:00:00",
+    ///                 UpgradeTimeout = "01:00:00",
+    ///             },
+    ///             UpgradeMode = "Monitored",
+    ///             UpgradeReplicaSetCheckTimeout = "01:00:00",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put an application with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.ServiceFabric.V20210601.Application("application", new()
+    ///     {
+    ///         ApplicationName = "myApp",
+    ///         ClusterName = "myCluster",
+    ///         Location = "eastus",
+    ///         RemoveApplicationCapacity = false,
+    ///         ResourceGroupName = "resRg",
+    ///         Tags = null,
+    ///         TypeName = "myAppType",
+    ///         TypeVersion = "1.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put an application with recreate option
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.ServiceFabric.V20210601.Application("application", new()
+    ///     {
+    ///         ApplicationName = "myApp",
+    ///         ClusterName = "myCluster",
+    ///         Parameters = 
+    ///         {
+    ///             { "param1", "value1" },
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         Tags = null,
+    ///         TypeName = "myAppType",
+    ///         TypeVersion = "1.0",
+    ///         UpgradePolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ApplicationUpgradePolicyArgs
+    ///         {
+    ///             RecreateApplication = true,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabric/v20210601:Application myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/clusters/myCluster/applications/myApp 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20210601:Application")]
     public partial class Application : global::Pulumi.CustomResource

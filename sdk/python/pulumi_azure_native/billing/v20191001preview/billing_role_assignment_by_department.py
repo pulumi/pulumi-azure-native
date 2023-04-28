@@ -162,6 +162,31 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
         """
         The role assignment
 
+        ## Example Usage
+        ### PutEnrollmentDepartmentAdministratorRoleAssignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        billing_role_assignment_by_department = azure_native.billing.v20191001preview.BillingRoleAssignmentByDepartment("billingRoleAssignmentByDepartment",
+            billing_account_name="{billingAccountName}",
+            billing_role_assignment_name="{billingRoleAssignmentName}",
+            department_name="{departmentName}",
+            principal_id="99a1a759-30dd-42c2-828c-db398826bb67",
+            principal_tenant_id="7ca289b9-c32d-4f01-8566-7ff93261d76f",
+            role_definition_id="/providers/Microsoft.Billing/billingAccounts/7898901/departments/97603/billingRoleDefinitions/fb2cf67f-be5b-42e7-8025-4683c668f840")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment 9dfd08c2-62a3-4d47-85bd-1cdba1408402 /providers/Microsoft.Billing/billingAccounts/7898901/departments/97603/billingRoleAssignments/9dfd08c2-62a3-4d47-85bd-1cdba1408402 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
@@ -181,6 +206,31 @@ class BillingRoleAssignmentByDepartment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The role assignment
+
+        ## Example Usage
+        ### PutEnrollmentDepartmentAdministratorRoleAssignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        billing_role_assignment_by_department = azure_native.billing.v20191001preview.BillingRoleAssignmentByDepartment("billingRoleAssignmentByDepartment",
+            billing_account_name="{billingAccountName}",
+            billing_role_assignment_name="{billingRoleAssignmentName}",
+            department_name="{departmentName}",
+            principal_id="99a1a759-30dd-42c2-828c-db398826bb67",
+            principal_tenant_id="7ca289b9-c32d-4f01-8566-7ff93261d76f",
+            role_definition_id="/providers/Microsoft.Billing/billingAccounts/7898901/departments/97603/billingRoleDefinitions/fb2cf67f-be5b-42e7-8025-4683c668f840")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:billing/v20191001preview:BillingRoleAssignmentByDepartment 9dfd08c2-62a3-4d47-85bd-1cdba1408402 /providers/Microsoft.Billing/billingAccounts/7898901/departments/97603/billingRoleAssignments/9dfd08c2-62a3-4d47-85bd-1cdba1408402 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BillingRoleAssignmentByDepartmentArgs args: The arguments to use to populate this resource's properties.

@@ -114,6 +114,53 @@ class Application(pulumi.CustomResource):
         """
         The HDInsight cluster application
 
+        ## Example Usage
+        ### Create Application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.hdinsight.v20180601preview.Application("application",
+            application_name="hue",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ApplicationPropertiesResponseArgs(
+                application_type="CustomApplication",
+                compute_profile={
+                    "roles": [{
+                        "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                            vm_size="Standard_D12_v2",
+                        ),
+                        "name": "edgenode",
+                        "targetInstanceCount": 1,
+                    }],
+                },
+                errors=[],
+                https_endpoints=[azure_native.hdinsight.v20180601preview.ApplicationGetHttpsEndpointArgs(
+                    access_modes=["WebPage"],
+                    destination_port=20000,
+                    sub_domain_suffix="dss",
+                )],
+                install_script_actions=[azure_native.hdinsight.v20180601preview.RuntimeScriptActionArgs(
+                    name="app-install-app1",
+                    parameters="-version latest -port 20000",
+                    roles=["edgenode"],
+                    uri="https://.../install.sh",
+                )],
+                uninstall_script_actions=[],
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hdinsight/v20180601preview:Application hue /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1/applications/hue 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The constant value for the application name.
@@ -130,6 +177,53 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The HDInsight cluster application
+
+        ## Example Usage
+        ### Create Application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.hdinsight.v20180601preview.Application("application",
+            application_name="hue",
+            cluster_name="cluster1",
+            properties=azure_native.hdinsight.v20180601preview.ApplicationPropertiesResponseArgs(
+                application_type="CustomApplication",
+                compute_profile={
+                    "roles": [{
+                        "hardwareProfile": azure_native.hdinsight.v20180601preview.HardwareProfileArgs(
+                            vm_size="Standard_D12_v2",
+                        ),
+                        "name": "edgenode",
+                        "targetInstanceCount": 1,
+                    }],
+                },
+                errors=[],
+                https_endpoints=[azure_native.hdinsight.v20180601preview.ApplicationGetHttpsEndpointArgs(
+                    access_modes=["WebPage"],
+                    destination_port=20000,
+                    sub_domain_suffix="dss",
+                )],
+                install_script_actions=[azure_native.hdinsight.v20180601preview.RuntimeScriptActionArgs(
+                    name="app-install-app1",
+                    parameters="-version latest -port 20000",
+                    roles=["edgenode"],
+                    uri="https://.../install.sh",
+                )],
+                uninstall_script_actions=[],
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hdinsight/v20180601preview:Application hue /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1/applications/hue 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

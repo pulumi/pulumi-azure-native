@@ -9,6 +9,28 @@ import * as utilities from "../../utilities";
 
 /**
  * Guest Usages Resource
+ *
+ * ## Example Usage
+ * ### GuestUsages_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const guestUsage = new azure_native.azureactivedirectory.v20230118preview.GuestUsage("guestUsage", {
+ *     resourceGroupName: "contosoResourceGroup",
+ *     resourceName: "contoso.onmicrosoft.com",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azureactivedirectory/v20230118preview:GuestUsage contoso.onmicrosoft.com /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/guestUsages/contoso.onmicrosoft.com 
+ * ```
  */
 export class GuestUsage extends pulumi.CustomResource {
     /**

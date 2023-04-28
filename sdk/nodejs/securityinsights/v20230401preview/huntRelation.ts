@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Hunt Relation in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Creates or updates a hunt relation.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const huntRelation = new azure_native.securityinsights.v20230401preview.HuntRelation("huntRelation", {
+ *     huntId: "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+ *     huntRelationId: "2216d0e1-91e3-4902-89fd-d2df8c535096",
+ *     labels: ["Test Label"],
+ *     relatedResourceId: "/subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/Bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:HuntRelation 2216d0e1-91e3-4902-89fd-d2df8c535096 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f/relations/2216d0e1-91e3-4902-89fd-d2df8c535096 
+ * ```
  */
 export class HuntRelation extends pulumi.CustomResource {
     /**

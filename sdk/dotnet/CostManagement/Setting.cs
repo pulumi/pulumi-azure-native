@@ -13,6 +13,16 @@ namespace Pulumi.AzureNative.CostManagement
     /// State of the myscope setting.
     /// API Version: 2019-11-01.
     /// Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement:Setting myscope /providers/Microsoft.CostManagement/settings/myscope 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement:Setting")]
     public partial class Setting : global::Pulumi.CustomResource

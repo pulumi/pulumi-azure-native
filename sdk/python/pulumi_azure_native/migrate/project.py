@@ -134,6 +134,34 @@ class Project(pulumi.CustomResource):
         API Version: 2019-10-01.
         Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Projects_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.migrate.Project("project",
+            e_tag="",
+            location="West Europe",
+            project_name="abGoyalProject2",
+            properties=azure_native.migrate.ProjectPropertiesArgs(
+                assessment_solution_id="/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourcegroups/abgoyal-westeurope/providers/microsoft.migrate/migrateprojects/abgoyalweselfhost/Solutions/Servers-Assessment-ServerAssessment",
+                project_status="Active",
+            ),
+            resource_group_name="abgoyal-westEurope",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:Project abGoyalProject2 /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abGoyalProject2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: For optimistic concurrency control.
@@ -153,6 +181,34 @@ class Project(pulumi.CustomResource):
         Azure Migrate Project.
         API Version: 2019-10-01.
         Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Projects_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.migrate.Project("project",
+            e_tag="",
+            location="West Europe",
+            project_name="abGoyalProject2",
+            properties=azure_native.migrate.ProjectPropertiesArgs(
+                assessment_solution_id="/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourcegroups/abgoyal-westeurope/providers/microsoft.migrate/migrateprojects/abgoyalweselfhost/Solutions/Servers-Assessment-ServerAssessment",
+                project_status="Active",
+            ),
+            resource_group_name="abgoyal-westEurope",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate:Project abGoyalProject2 /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abGoyalProject2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

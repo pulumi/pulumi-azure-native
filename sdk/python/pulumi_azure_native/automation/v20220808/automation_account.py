@@ -200,6 +200,32 @@ class AutomationAccount(pulumi.CustomResource):
         """
         Definition of the automation account type.
 
+        ## Example Usage
+        ### Create or update automation account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        automation_account = azure_native.automation.v20220808.AutomationAccount("automationAccount",
+            automation_account_name="myAutomationAccount9",
+            location="East US 2",
+            name="myAutomationAccount9",
+            resource_group_name="rg",
+            sku=azure_native.automation.v20220808.SkuResponseArgs(
+                name="Free",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:AutomationAccount ContoseAutomationAccount /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount9 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -221,6 +247,32 @@ class AutomationAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the automation account type.
+
+        ## Example Usage
+        ### Create or update automation account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        automation_account = azure_native.automation.v20220808.AutomationAccount("automationAccount",
+            automation_account_name="myAutomationAccount9",
+            location="East US 2",
+            name="myAutomationAccount9",
+            resource_group_name="rg",
+            sku=azure_native.automation.v20220808.SkuResponseArgs(
+                name="Free",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:AutomationAccount ContoseAutomationAccount /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount9 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AutomationAccountArgs args: The arguments to use to populate this resource's properties.

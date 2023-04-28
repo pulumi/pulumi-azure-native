@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.EventGrid
     /// Channel info.
     /// API Version: 2022-06-15.
     /// Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Channels_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var channel = new AzureNative.EventGrid.Channel("channel", new()
+    ///     {
+    ///         ChannelName = "exampleChannelName1",
+    ///         ChannelType = "PartnerTopic",
+    ///         ExpirationTimeIfNotActivatedUtc = "2021-10-21T22:50:25.410433Z",
+    ///         MessageForActivation = "Example message to approver",
+    ///         PartnerNamespaceName = "examplePartnerNamespaceName1",
+    ///         PartnerTopicInfo = new AzureNative.EventGrid.Inputs.PartnerTopicInfoArgs
+    ///         {
+    ///             AzureSubscriptionId = "5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+    ///             Name = "examplePartnerTopic1",
+    ///             ResourceGroupName = "examplerg2",
+    ///             Source = "ContosoCorp.Accounts.User1",
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid:Channel exampleChannelName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerNamespaces/examplePartnerNamespaceName1/changes/exampleChannelName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Channel")]
     public partial class Channel : global::Pulumi.CustomResource

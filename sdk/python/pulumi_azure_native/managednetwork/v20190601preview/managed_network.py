@@ -114,6 +114,63 @@ class ManagedNetwork(pulumi.CustomResource):
         """
         The Managed Network resource
 
+        ## Example Usage
+        ### ManagedNetworksPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network = azure_native.managednetwork.v20190601preview.ManagedNetwork("managedNetwork",
+            location="eastus",
+            managed_network_name="myManagedNetwork",
+            resource_group_name="myResourceGroup",
+            scope=azure_native.managednetwork.v20190601preview.ScopeResponseArgs(
+                management_groups=[
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/providers/Microsoft.Management/managementGroups/20000000-0001-0000-0000-000000000000",
+                    ),
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/providers/Microsoft.Management/managementGroups/20000000-0002-0000-0000-000000000000",
+                    ),
+                ],
+                subnets=[
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetA",
+                    ),
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetB",
+                    ),
+                ],
+                subscriptions=[
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="subscriptionA",
+                    ),
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="subscriptionB",
+                    ),
+                ],
+                virtual_networks=[
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+                    ),
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+                    ),
+                ],
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork/v20190601preview:ManagedNetwork myManagedNetwork /subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -130,6 +187,63 @@ class ManagedNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Managed Network resource
+
+        ## Example Usage
+        ### ManagedNetworksPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network = azure_native.managednetwork.v20190601preview.ManagedNetwork("managedNetwork",
+            location="eastus",
+            managed_network_name="myManagedNetwork",
+            resource_group_name="myResourceGroup",
+            scope=azure_native.managednetwork.v20190601preview.ScopeResponseArgs(
+                management_groups=[
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/providers/Microsoft.Management/managementGroups/20000000-0001-0000-0000-000000000000",
+                    ),
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/providers/Microsoft.Management/managementGroups/20000000-0002-0000-0000-000000000000",
+                    ),
+                ],
+                subnets=[
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetA",
+                    ),
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetB",
+                    ),
+                ],
+                subscriptions=[
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="subscriptionA",
+                    ),
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="subscriptionB",
+                    ),
+                ],
+                virtual_networks=[
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+                    ),
+                    azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                        id="/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+                    ),
+                ],
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork/v20190601preview:ManagedNetwork myManagedNetwork /subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedNetworkArgs args: The arguments to use to populate this resource's properties.

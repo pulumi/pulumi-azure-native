@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20220125
 {
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update guest configuration assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestConfigurationAssignmentsVMSS = new AzureNative.GuestConfiguration.V20220125.GuestConfigurationAssignmentsVMSS("guestConfigurationAssignmentsVMSS", new()
+    ///     {
+    ///         Location = "westcentralus",
+    ///         Name = "NotInstalledApplicationForWindows",
+    ///         Properties = new AzureNative.GuestConfiguration.V20220125.Inputs.GuestConfigurationAssignmentPropertiesArgs
+    ///         {
+    ///             Context = "Azure policy",
+    ///             GuestConfiguration = new AzureNative.GuestConfiguration.V20220125.Inputs.GuestConfigurationNavigationArgs
+    ///             {
+    ///                 AssignmentType = "ApplyAndAutoCorrect",
+    ///                 ConfigurationParameter = new[]
+    ///                 {
+    ///                     new AzureNative.GuestConfiguration.V20220125.Inputs.ConfigurationParameterArgs
+    ///                     {
+    ///                         Name = "[InstalledApplication]NotInstalledApplicationResource1;Name",
+    ///                         Value = "NotePad,sql",
+    ///                     },
+    ///                 },
+    ///                 ContentHash = "123contenthash",
+    ///                 ContentUri = "https://thisisfake/pacakge",
+    ///                 Name = "NotInstalledApplicationForWindows",
+    ///                 Version = "1.0.0.3",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         VmssName = "myVMSSName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS NotInstalledApplicationForWindows /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualmachinescalesets/myvmssname/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS")]
     public partial class GuestConfigurationAssignmentsVMSS : global::Pulumi.CustomResource

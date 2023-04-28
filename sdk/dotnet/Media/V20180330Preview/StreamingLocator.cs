@@ -11,6 +11,103 @@ namespace Pulumi.AzureNative.Media.V20180330Preview
 {
     /// <summary>
     /// A Streaming Locator resource
+    /// 
+    /// ## Example Usage
+    /// ### Creates a Streaming Locator with clear streaming
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingLocator = new AzureNative.Media.V20180330Preview.StreamingLocator("streamingLocator", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         AssetName = "ClimbingMountRainier",
+    ///         ResourceGroupName = "contoso",
+    ///         StreamingLocatorName = "UserCreatedClearStreamingLocator",
+    ///         StreamingPolicyName = "clearStreamingPolicy",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a Streaming Locator with secure streaming
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingLocator = new AzureNative.Media.V20180330Preview.StreamingLocator("streamingLocator", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         AssetName = "ClimbingMountRainier",
+    ///         EndTime = "2028-12-31T23:59:59.9999999Z",
+    ///         ResourceGroupName = "contoso",
+    ///         StartTime = "2018-03-01T00:00:00Z",
+    ///         StreamingLocatorName = "UserCreatedSecureStreamingLocator",
+    ///         StreamingPolicyName = "secureStreamingPolicy",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a Streaming Locator with user defined content keys
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingLocator = new AzureNative.Media.V20180330Preview.StreamingLocator("streamingLocator", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         AssetName = "ClimbingMountRainier",
+    ///         ContentKeys = new[]
+    ///         {
+    ///             new AzureNative.Media.V20180330Preview.Inputs.StreamingLocatorUserDefinedContentKeyArgs
+    ///             {
+    ///                 Id = "60000000-0000-0000-0000-000000000001",
+    ///                 Label = "aesDefaultKey",
+    ///                 Value = "1UqLohAfWsEGkULYxHjYZg==",
+    ///             },
+    ///             new AzureNative.Media.V20180330Preview.Inputs.StreamingLocatorUserDefinedContentKeyArgs
+    ///             {
+    ///                 Id = "60000000-0000-0000-0000-000000000004",
+    ///                 Label = "cencDefaultKey",
+    ///                 Value = "4UqLohAfWsEGkULYxHjYZg==",
+    ///             },
+    ///             new AzureNative.Media.V20180330Preview.Inputs.StreamingLocatorUserDefinedContentKeyArgs
+    ///             {
+    ///                 Id = "60000000-0000-0000-0000-000000000007",
+    ///                 Label = "cbcsDefaultKey",
+    ///                 Value = "7UqLohAfWsEGkULYxHjYZg==",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contoso",
+    ///         StreamingLocatorId = "90000000-0000-0000-0000-00000000000A",
+    ///         StreamingLocatorName = "UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys",
+    ///         StreamingPolicyName = "secureStreamingPolicy",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20180330preview:StreamingLocator UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/streamingLocators/UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20180330preview:StreamingLocator")]
     public partial class StreamingLocator : global::Pulumi.CustomResource

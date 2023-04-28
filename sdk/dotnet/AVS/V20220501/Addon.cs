@@ -11,6 +11,112 @@ namespace Pulumi.AzureNative.AVS.V20220501
 {
     /// <summary>
     /// An addon resource
+    /// 
+    /// ## Example Usage
+    /// ### Addons_CreateOrUpdate_Arc
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var addon = new AzureNative.AVS.V20220501.Addon("addon", new()
+    ///     {
+    ///         AddonName = "arc",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.V20220501.Inputs.AddonArcPropertiesArgs
+    ///         {
+    ///             AddonType = "Arc",
+    ///             VCenter = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg_test/providers/Microsoft.ConnectedVMwarevSphere/VCenters/test-vcenter",
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Addons_CreateOrUpdate_HCX
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var addon = new AzureNative.AVS.V20220501.Addon("addon", new()
+    ///     {
+    ///         AddonName = "hcx",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.V20220501.Inputs.AddonHcxPropertiesArgs
+    ///         {
+    ///             AddonType = "HCX",
+    ///             Offer = "VMware MaaS Cloud Provider (Enterprise)",
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Addons_CreateOrUpdate_SRM
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var addon = new AzureNative.AVS.V20220501.Addon("addon", new()
+    ///     {
+    ///         AddonName = "srm",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.V20220501.Inputs.AddonSrmPropertiesArgs
+    ///         {
+    ///             AddonType = "SRM",
+    ///             LicenseKey = "41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Addons_CreateOrUpdate_VR
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var addon = new AzureNative.AVS.V20220501.Addon("addon", new()
+    ///     {
+    ///         AddonName = "vr",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.V20220501.Inputs.AddonVrPropertiesArgs
+    ///         {
+    ///             AddonType = "VR",
+    ///             VrsCount = 1,
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20220501:Addon vr /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/addons/vr 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20220501:Addon")]
     public partial class Addon : global::Pulumi.CustomResource

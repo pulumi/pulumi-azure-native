@@ -11,6 +11,138 @@ import * as utilities from "../utilities";
  * An Activity Log Alert rule resource.
  * API Version: 2020-10-01.
  * Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update an Activity Log Alert rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const activityLogAlert = new azure_native.insights.ActivityLogAlert("activityLogAlert", {
+ *     actions: {
+ *         actionGroups: [{
+ *             actionGroupId: "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+ *             webhookProperties: {
+ *                 sampleWebhookProperty: "SamplePropertyValue",
+ *             },
+ *         }],
+ *     },
+ *     activityLogAlertName: "SampleActivityLogAlertRule",
+ *     condition: {
+ *         allOf: [
+ *             {
+ *                 equals: "Administrative",
+ *                 field: "category",
+ *             },
+ *             {
+ *                 equals: "Error",
+ *                 field: "level",
+ *             },
+ *         ],
+ *     },
+ *     description: "Description of sample Activity Log Alert rule.",
+ *     enabled: true,
+ *     location: "Global",
+ *     resourceGroupName: "MyResourceGroup",
+ *     scopes: ["/subscriptions/187f412d-1758-44d9-b052-169e2564721d"],
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or update an Activity Log Alert rule with 'anyOf' condition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const activityLogAlert = new azure_native.insights.ActivityLogAlert("activityLogAlert", {
+ *     actions: {
+ *         actionGroups: [{
+ *             actionGroupId: "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+ *             webhookProperties: {
+ *                 sampleWebhookProperty: "SamplePropertyValue",
+ *             },
+ *         }],
+ *     },
+ *     activityLogAlertName: "SampleActivityLogAlertRuleWithAnyOfCondition",
+ *     condition: {
+ *         allOf: [
+ *             {
+ *                 equals: "ServiceHealth",
+ *                 field: "category",
+ *             },
+ *             {
+ *                 anyOf: [
+ *                     {
+ *                         equals: "Incident",
+ *                         field: "properties.incidentType",
+ *                     },
+ *                     {
+ *                         equals: "Maintenance",
+ *                         field: "properties.incidentType",
+ *                     },
+ *                 ],
+ *             },
+ *         ],
+ *     },
+ *     description: "Description of sample Activity Log Alert rule with 'anyOf' condition.",
+ *     enabled: true,
+ *     location: "Global",
+ *     resourceGroupName: "MyResourceGroup",
+ *     scopes: ["subscriptions/187f412d-1758-44d9-b052-169e2564721d"],
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or update an Activity Log Alert rule with 'containsAny'
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const activityLogAlert = new azure_native.insights.ActivityLogAlert("activityLogAlert", {
+ *     actions: {
+ *         actionGroups: [{
+ *             actionGroupId: "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+ *             webhookProperties: {
+ *                 sampleWebhookProperty: "SamplePropertyValue",
+ *             },
+ *         }],
+ *     },
+ *     activityLogAlertName: "SampleActivityLogAlertRuleWithContainsAny",
+ *     condition: {
+ *         allOf: [
+ *             {
+ *                 equals: "ServiceHealth",
+ *                 field: "category",
+ *             },
+ *             {
+ *                 containsAny: [
+ *                     "North Europe",
+ *                     "West Europe",
+ *                 ],
+ *                 field: "properties.impactedServices[*].ImpactedRegions[*].RegionName",
+ *             },
+ *         ],
+ *     },
+ *     description: "Description of sample Activity Log Alert rule with 'containsAny'.",
+ *     enabled: true,
+ *     location: "Global",
+ *     resourceGroupName: "MyResourceGroup",
+ *     scopes: ["subscriptions/187f412d-1758-44d9-b052-169e2564721d"],
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights:ActivityLogAlert SampleActivityLogAlertRuleWithContainsAny /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/microsoft.insights/activityLogAlerts/SampleActivityLogAlertRuleWithContainsAny 
+ * ```
  */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**

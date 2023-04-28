@@ -164,6 +164,36 @@ class ResourceSyncRule(pulumi.CustomResource):
         """
         Resource Sync Rules definition.
 
+        ## Example Usage
+        ### Create/Update Resource Sync Rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_sync_rule = azure_native.extendedlocation.v20210831preview.ResourceSyncRule("resourceSyncRule",
+            child_resource_name="resourceSyncRule01",
+            location="West US",
+            priority=999,
+            resource_group_name="testresourcegroup",
+            resource_name_="customLocation01",
+            selector=azure_native.extendedlocation.v20210831preview.ResourceSyncRulePropertiesSelectorArgs(
+                match_labels={
+                    "key1": "value1",
+                },
+            ),
+            target_resource_group="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:extendedlocation/v20210831preview:ResourceSyncRule resourceSyncRule01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ExtendedLocation/customLocations/customLocation01/resourcesyncrules/resourceSyncRule01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] child_resource_name: Resource Sync Rule name.
@@ -183,6 +213,36 @@ class ResourceSyncRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Sync Rules definition.
+
+        ## Example Usage
+        ### Create/Update Resource Sync Rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_sync_rule = azure_native.extendedlocation.v20210831preview.ResourceSyncRule("resourceSyncRule",
+            child_resource_name="resourceSyncRule01",
+            location="West US",
+            priority=999,
+            resource_group_name="testresourcegroup",
+            resource_name_="customLocation01",
+            selector=azure_native.extendedlocation.v20210831preview.ResourceSyncRulePropertiesSelectorArgs(
+                match_labels={
+                    "key1": "value1",
+                },
+            ),
+            target_resource_group="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:extendedlocation/v20210831preview:ResourceSyncRule resourceSyncRule01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ExtendedLocation/customLocations/customLocation01/resourcesyncrules/resourceSyncRule01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceSyncRuleArgs args: The arguments to use to populate this resource's properties.

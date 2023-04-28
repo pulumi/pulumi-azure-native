@@ -132,6 +132,36 @@ class Cluster(pulumi.CustomResource):
         """
         Single Event Hubs Cluster resource in List or Get operations.
 
+        ## Example Usage
+        ### ClusterPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.eventhub.v20221001preview.Cluster("cluster",
+            cluster_name="testCluster",
+            location="South Central US",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.eventhub.v20221001preview.ClusterSkuResponseArgs(
+                capacity=1,
+                name="Dedicated",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20221001preview:Cluster testCluster /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/myResourceGroup/providers/Microsoft.EventHub/clusters/testCluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Event Hubs Cluster.
@@ -149,6 +179,36 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single Event Hubs Cluster resource in List or Get operations.
+
+        ## Example Usage
+        ### ClusterPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.eventhub.v20221001preview.Cluster("cluster",
+            cluster_name="testCluster",
+            location="South Central US",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.eventhub.v20221001preview.ClusterSkuResponseArgs(
+                capacity=1,
+                name="Dedicated",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20221001preview:Cluster testCluster /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/myResourceGroup/providers/Microsoft.EventHub/clusters/testCluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

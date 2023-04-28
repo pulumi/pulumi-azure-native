@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an incident in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Creates or updates an incident.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const incident = new azure_native.securityinsights.v20210301preview.Incident("incident", {
+ *     classification: "FalsePositive",
+ *     classificationComment: "Not a malicious activity",
+ *     classificationReason: "IncorrectAlertLogic",
+ *     description: "This is a demo incident",
+ *     firstActivityTimeUtc: "2019-01-01T13:00:30Z",
+ *     incidentId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     lastActivityTimeUtc: "2019-01-01T13:05:30Z",
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     owner: {
+ *         objectId: "2046feea-040d-4a46-9e2b-91c2941bfa70",
+ *     },
+ *     resourceGroupName: "myRg",
+ *     severity: "High",
+ *     status: "Closed",
+ *     title: "My incident",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20210301preview:Incident 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class Incident extends pulumi.CustomResource {
     /**

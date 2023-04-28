@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform
     /// ADP account
     /// API Version: 2021-11-01-preview.
     /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Put account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.AutonomousDevelopmentPlatform.Account("account", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         Location = "Global",
+    ///         ResourceGroupName = "adpClient",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:autonomousdevelopmentplatform:Account adp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.AutonomousDevelopmentPlatform/accounts/adp1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform:Account")]
     public partial class Account : global::Pulumi.CustomResource

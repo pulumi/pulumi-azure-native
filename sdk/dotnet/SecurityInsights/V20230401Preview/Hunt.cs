@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
     /// <summary>
     /// Represents a Hunt in Azure Security Insights.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a hunt.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hunt = new AzureNative.SecurityInsights.V20230401Preview.Hunt("hunt", new()
+    ///     {
+    ///         AttackTactics = new[]
+    ///         {
+    ///             "Reconnaissance",
+    ///         },
+    ///         AttackTechniques = new[]
+    ///         {
+    ///             "T1595",
+    ///         },
+    ///         Description = "Log4J Hunt Description",
+    ///         DisplayName = "Log4J new hunt",
+    ///         HuntId = "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+    ///         HypothesisStatus = "Unknown",
+    ///         Labels = new[]
+    ///         {
+    ///             "Label1",
+    ///             "Label2",
+    ///         },
+    ///         Owner = new AzureNative.SecurityInsights.V20230401Preview.Inputs.HuntOwnerArgs
+    ///         {
+    ///             ObjectId = "873b5263-5d34-4149-b356-ad341b01e123",
+    ///         },
+    ///         ResourceGroupName = "myRg",
+    ///         Status = "New",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:Hunt 163e7b2a-a2ec-4041-aaba-d878a38f265f /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:Hunt")]
     public partial class Hunt : global::Pulumi.CustomResource

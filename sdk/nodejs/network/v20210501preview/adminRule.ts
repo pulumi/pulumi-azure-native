@@ -9,6 +9,62 @@ import * as utilities from "../../utilities";
 
 /**
  * Network admin rule.
+ *
+ * ## Example Usage
+ * ### Create a default admin rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adminRule = new azure_native.network.v20210501preview.AdminRule("adminRule", {
+ *     configurationName: "myTestSecurityConfig",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ *     ruleName: "SampleDefaultAdminRule",
+ * });
+ *
+ * ```
+ * ### Create an admin rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adminRule = new azure_native.network.v20210501preview.AdminRule("adminRule", {
+ *     access: "Deny",
+ *     configurationName: "myTestSecurityConfig",
+ *     description: "This is Sample Admin Rule",
+ *     destinationPortRanges: ["22"],
+ *     destinations: [{
+ *         addressPrefix: "*",
+ *         addressPrefixType: "IPPrefix",
+ *     }],
+ *     direction: "Inbound",
+ *     kind: "Custom",
+ *     networkManagerName: "testNetworkManager",
+ *     priority: 1,
+ *     protocol: "Tcp",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ *     ruleName: "SampleAdminRule",
+ *     sourcePortRanges: ["0-65535"],
+ *     sources: [{
+ *         addressPrefix: "Internet",
+ *         addressPrefixType: "ServiceTag",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210501preview:AdminRule SampleAdminRule /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection/rules/SampleAdminRule 
+ * ```
  */
 export class AdminRule extends pulumi.CustomResource {
     /**

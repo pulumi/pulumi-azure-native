@@ -11,6 +11,60 @@ namespace Pulumi.AzureNative.StoragePool.V20210801
 {
     /// <summary>
     /// Response for Disk Pool request.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Disk pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diskPool = new AzureNative.StoragePool.V20210801.DiskPool("diskPool", new()
+    ///     {
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///         DiskPoolName = "myDiskPool",
+    ///         Disks = new[]
+    ///         {
+    ///             new AzureNative.StoragePool.V20210801.Inputs.DiskArgs
+    ///             {
+    ///                 Id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_0",
+    ///             },
+    ///             new AzureNative.StoragePool.V20210801.Inputs.DiskArgs
+    ///             {
+    ///                 Id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.StoragePool.V20210801.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Basic_V1",
+    ///             Tier = "Basic",
+    ///         },
+    ///         SubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagepool/v20210801:DiskPool myDiskPool /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool/v20210801:DiskPool")]
     public partial class DiskPool : global::Pulumi.CustomResource

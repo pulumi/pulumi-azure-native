@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Definition of hybrid runbook worker group.
  * API Version: 2022-08-08.
  * Previous API Version: 2021-06-22. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a hybrid worker group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hybridRunbookWorkerGroup = new azure_native.automation.HybridRunbookWorkerGroup("hybridRunbookWorkerGroup", {
+ *     automationAccountName: "testaccount",
+ *     credential: {
+ *         name: "myRunAsCredentialName",
+ *     },
+ *     hybridRunbookWorkerGroupName: "TestHybridGroup",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:HybridRunbookWorkerGroup TestHybridGroup /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/testaccount/hybridRunbookWorkerGroups/TestHybridGroup 
+ * ```
  */
 export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
     /**

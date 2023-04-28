@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
 {
     /// <summary>
     /// The Network Manager Connection resource
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Subscription Network Manager Connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subscriptionNetworkManagerConnection = new AzureNative.Network.V20220201Preview.SubscriptionNetworkManagerConnection("subscriptionNetworkManagerConnection", new()
+    ///     {
+    ///         NetworkManagerConnectionName = "TestNMConnection",
+    ///         NetworkManagerId = "/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection TestNMConnection /subscriptions/subscriptionA/providers/Microsoft.Network/networkManagerConnections/TestNMConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection")]
     public partial class SubscriptionNetworkManagerConnection : global::Pulumi.CustomResource

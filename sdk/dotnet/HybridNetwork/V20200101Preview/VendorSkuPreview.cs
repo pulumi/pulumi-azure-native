@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.HybridNetwork.V20200101Preview
 {
     /// <summary>
     /// Customer subscription which can use a sku.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update preview subscription of vendor sku sub resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vendorSkuPreview = new AzureNative.HybridNetwork.V20200101Preview.VendorSkuPreview("vendorSkuPreview", new()
+    ///     {
+    ///         PreviewSubscription = "previewSub",
+    ///         SkuName = "TestSku",
+    ///         VendorName = "TestVendor",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridnetwork/v20200101preview:VendorSkuPreview previewSub /subscriptions/subid/providers/Microsoft.HybridNetwork/vendors/TestVendor/vendorskus/TestSku/previewsubscriptions/previewSub 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridnetwork/v20200101preview:VendorSkuPreview")]
     public partial class VendorSkuPreview : global::Pulumi.CustomResource

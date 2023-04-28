@@ -6,6 +6,35 @@ import * as utilities from "../../utilities";
 
 /**
  * A group created in a Migration project.
+ *
+ * ## Example Usage
+ * ### Groups_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const group = new azure_native.migrate.v20180202.Group("group", {
+ *     eTag: "\"1100637e-0000-0000-0000-59f6ed1f0000\"",
+ *     groupName: "group01",
+ *     machines: [
+ *         "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm1",
+ *         "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm2",
+ *         "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm3",
+ *     ],
+ *     projectName: "project01",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20180202:Group group01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/groups/group01 
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

@@ -13,6 +13,52 @@ namespace Pulumi.AzureNative.EventGrid
     /// Partner configuration information
     /// API Version: 2022-06-15.
     /// Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PartnerConfigurations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var partnerConfiguration = new AzureNative.EventGrid.PartnerConfiguration("partnerConfiguration", new()
+    ///     {
+    ///         PartnerAuthorization = new AzureNative.EventGrid.Inputs.PartnerAuthorizationArgs
+    ///         {
+    ///             AuthorizedPartnersList = new[]
+    ///             {
+    ///                 new AzureNative.EventGrid.Inputs.PartnerArgs
+    ///                 {
+    ///                     AuthorizationExpirationTimeInUtc = "2022-01-28T01:20:55.142Z",
+    ///                     PartnerName = "Contoso.Finance",
+    ///                     PartnerRegistrationImmutableId = "941892bc-f5d0-4d1c-8fb5-477570fc2b71",
+    ///                 },
+    ///                 new AzureNative.EventGrid.Inputs.PartnerArgs
+    ///                 {
+    ///                     AuthorizationExpirationTimeInUtc = "2022-02-20T01:00:00.142Z",
+    ///                     PartnerName = "fabrikam.HR",
+    ///                     PartnerRegistrationImmutableId = "5362bdb6-ce3e-4d0d-9a5b-3eb92c8aab38",
+    ///                 },
+    ///             },
+    ///             DefaultMaximumExpirationTimeInDays = 10,
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid:PartnerConfiguration default /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerConfigurations/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:PartnerConfiguration")]
     public partial class PartnerConfiguration : global::Pulumi.CustomResource

@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
     /// <summary>
     /// The workspace manager member
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a workspace manager member
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceManagerMember = new AzureNative.SecurityInsights.V20230401Preview.WorkspaceManagerMember("workspaceManagerMember", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         TargetWorkspaceId = "/subscriptions/7aef9d48-814f-45ad-b644-b0343316e174/resourceGroups/otherRg/providers/Microsoft.OperationalInsights/workspaces/Example_Workspace",
+    ///         TargetWorkspaceTenantId = "f676d436-8d16-42db-81b7-ab578e110ccd",
+    ///         WorkspaceManagerMemberName = "afbd324f-6c48-459c-8710-8d1e1cd03812",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerMember afbd324f-6c48-459c-8710-8d1e1cd03812 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerMembers/afbd324f-6c48-459c-8710-8d1e1cd03812 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:WorkspaceManagerMember")]
     public partial class WorkspaceManagerMember : global::Pulumi.CustomResource

@@ -11,6 +11,62 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Environment Specification Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var environmentSpecificationVersion = new AzureNative.MachineLearningServices.V20210301Preview.EnvironmentSpecificationVersion("environmentSpecificationVersion", new()
+    ///     {
+    ///         Name = "testEnvironment",
+    ///         Properties = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.EnvironmentSpecificationVersionArgs
+    ///         {
+    ///             CondaFile = @"channels:
+    /// - defaults
+    /// dependencies:
+    /// - python=3.7.7
+    /// name: my-env",
+    ///             Description = "string",
+    ///             Docker = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.DockerBuildArgs
+    ///             {
+    ///                 DockerSpecificationType = "Build",
+    ///                 Dockerfile = "FROM myimage",
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         Version = "1",
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion 1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/testEnvironment/versions/1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:EnvironmentSpecificationVersion")]
     public partial class EnvironmentSpecificationVersion : global::Pulumi.CustomResource

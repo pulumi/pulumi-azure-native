@@ -12,6 +12,80 @@ namespace Pulumi.AzureNative.Network
     /// <summary>
     /// The RouteMap child resource of a Virtual hub.
     /// API Version: 2022-09-01.
+    /// 
+    /// ## Example Usage
+    /// ### RouteMapPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var routeMap = new AzureNative.Network.RouteMap("routeMap", new()
+    ///     {
+    ///         AssociatedInboundConnections = new[]
+    ///         {
+    ///             "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteGateways/exrGateway1/expressRouteConnections/exrConn1",
+    ///         },
+    ///         AssociatedOutboundConnections = new[] {},
+    ///         ResourceGroupName = "rg1",
+    ///         RouteMapName = "routeMap1",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.RouteMapRuleArgs
+    ///             {
+    ///                 Actions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.ActionArgs
+    ///                     {
+    ///                         Parameters = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.ParameterArgs
+    ///                             {
+    ///                                 AsPath = new[]
+    ///                                 {
+    ///                                     "22334",
+    ///                                 },
+    ///                                 Community = new[] {},
+    ///                                 RoutePrefix = new[] {},
+    ///                             },
+    ///                         },
+    ///                         Type = "Add",
+    ///                     },
+    ///                 },
+    ///                 MatchCriteria = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.CriterionArgs
+    ///                     {
+    ///                         AsPath = new[] {},
+    ///                         Community = new[] {},
+    ///                         MatchCondition = "Contains",
+    ///                         RoutePrefix = new[]
+    ///                         {
+    ///                             "10.0.0.0/8",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Name = "rule1",
+    ///                 NextStepIfMatched = "Continue",
+    ///             },
+    ///         },
+    ///         VirtualHubName = "virtualHub1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:RouteMap routeMap1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RouteMap")]
     public partial class RouteMap : global::Pulumi.CustomResource

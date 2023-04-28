@@ -98,6 +98,33 @@ class ReplicationFabric(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates an Azure Site Recovery fabric.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_fabric = azure_native.recoveryservices.ReplicationFabric("replicationFabric",
+            fabric_name="cloud1",
+            properties=azure_native.recoveryservices.FabricPropertiesResponseArgs(
+                custom_details={
+                    "instanceType": "FabricSpecificCreationInput",
+                },
+            ),
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationFabric cloud1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Name of the ASR fabric.
@@ -115,6 +142,33 @@ class ReplicationFabric(pulumi.CustomResource):
         Fabric definition.
         API Version: 2023-02-01.
         Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates an Azure Site Recovery fabric.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_fabric = azure_native.recoveryservices.ReplicationFabric("replicationFabric",
+            fabric_name="cloud1",
+            properties=azure_native.recoveryservices.FabricPropertiesResponseArgs(
+                custom_details={
+                    "instanceType": "FabricSpecificCreationInput",
+                },
+            ),
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationFabric cloud1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationFabricArgs args: The arguments to use to populate this resource's properties.

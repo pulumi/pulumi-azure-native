@@ -13,6 +13,85 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     /// A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
     /// API Version: 2019-11-01-preview.
     /// Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.DataLakeAnalytics.Account("account", new()
+    ///     {
+    ///         AccountName = "contosoadla",
+    ///         ComputePolicies = new[]
+    ///         {
+    ///             new AzureNative.DataLakeAnalytics.Inputs.CreateComputePolicyWithAccountParametersArgs
+    ///             {
+    ///                 MaxDegreeOfParallelismPerJob = 1,
+    ///                 MinPriorityPerJob = 1,
+    ///                 Name = "test_policy",
+    ///                 ObjectId = "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+    ///                 ObjectType = "User",
+    ///             },
+    ///         },
+    ///         DataLakeStoreAccounts = new[]
+    ///         {
+    ///             new AzureNative.DataLakeAnalytics.Inputs.AddDataLakeStoreWithAccountParametersArgs
+    ///             {
+    ///                 Name = "test_adls",
+    ///                 Suffix = "test_suffix",
+    ///             },
+    ///         },
+    ///         DefaultDataLakeStoreAccount = "test_adls",
+    ///         FirewallAllowAzureIps = AzureNative.DataLakeAnalytics.FirewallAllowAzureIpsState.Enabled,
+    ///         FirewallRules = new[]
+    ///         {
+    ///             new AzureNative.DataLakeAnalytics.Inputs.CreateFirewallRuleWithAccountParametersArgs
+    ///             {
+    ///                 EndIpAddress = "2.2.2.2",
+    ///                 Name = "test_rule",
+    ///                 StartIpAddress = "1.1.1.1",
+    ///             },
+    ///         },
+    ///         FirewallState = AzureNative.DataLakeAnalytics.FirewallState.Enabled,
+    ///         Location = "eastus2",
+    ///         MaxDegreeOfParallelism = 30,
+    ///         MaxDegreeOfParallelismPerJob = 1,
+    ///         MaxJobCount = 3,
+    ///         MinPriorityPerJob = 1,
+    ///         NewTier = AzureNative.DataLakeAnalytics.TierType.Consumption,
+    ///         QueryStoreRetention = 30,
+    ///         ResourceGroupName = "contosorg",
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new AzureNative.DataLakeAnalytics.Inputs.AddStorageAccountWithAccountParametersArgs
+    ///             {
+    ///                 AccessKey = "34adfa4f-cedf-4dc0-ba29-b6d1a69ab346",
+    ///                 Name = "test_storage",
+    ///                 Suffix = "test_suffix",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "test_key", "test_value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datalakeanalytics:Account test_account /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rgaba12041/providers/Microsoft.DataLakeAnalytics/accounts/testaba15818 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics:Account")]
     public partial class Account : global::Pulumi.CustomResource

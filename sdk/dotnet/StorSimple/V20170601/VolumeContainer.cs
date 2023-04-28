@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
 {
     /// <summary>
     /// The volume container.
+    /// 
+    /// ## Example Usage
+    /// ### VolumeContainersCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volumeContainer = new AzureNative.StorSimple.V20170601.VolumeContainer("volumeContainer", new()
+    ///     {
+    ///         BandwidthSettingId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/bandwidthSettings/bandwidthSetting1",
+    ///         DeviceName = "Device05ForSDKTest",
+    ///         EncryptionKey = new AzureNative.StorSimple.V20170601.Inputs.AsymmetricEncryptedSecretArgs
+    ///         {
+    ///             EncryptionAlgorithm = AzureNative.StorSimple.V20170601.EncryptionAlgorithm.RSAES_PKCS1_v_1_5,
+    ///             EncryptionCertThumbprint = "A872A2DF196AC7682EE24791E7DE2E2A360F5926",
+    ///             Value = "R//pyVLx/fn58ia098JiLgZB5RY7fVT+6o8a4fmsvjy+ls2UgJphMf25XVqEQCZnsp/5uxteN1M/9ArPIICdhM7M1+b/Ur7kJ0FH0ktxfk7CrPWWJLI4q20LZoduJGI56lREav1VpuLdqw5F9fRcq7zbfgPQ3B/SD0mfumNRiV+AnwbC6msfavIuWrhVDl9iSzEPE+zU06/kpsexnrS81yYT2QlVVUbvpY4F3zfH8TQPpAROTbv2pld6JO4eGOrZ5O1iOr6XCg2TY2W/jf+Ev4z5tqC9VWXE5kh65gjBfpWN0bDWXKekqEhor2crHAxZi4dybdY8Ok1MDWd1CSU8kw==",
+    ///         },
+    ///         ManagerName = "ManagerForSDKTest1",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         StorageAccountCredentialId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/storageAccountCredentials/safortestrecording",
+    ///         VolumeContainerName = "VolumeContainerForSDKTest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20170601:VolumeContainer VolumeContainerForSDKTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/VolumeContainerForSDKTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple/v20170601:VolumeContainer")]
     public partial class VolumeContainer : global::Pulumi.CustomResource

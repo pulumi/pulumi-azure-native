@@ -12,6 +12,39 @@ namespace Pulumi.AzureNative.DataProtection
     /// <summary>
     /// ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
     /// API Version: 2023-01-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create ResourceGuardProxy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dppResourceGuardProxy = new AzureNative.DataProtection.DppResourceGuardProxy("dppResourceGuardProxy", new()
+    ///     {
+    ///         Properties = new AzureNative.DataProtection.Inputs.ResourceGuardProxyBaseArgs
+    ///         {
+    ///             ResourceGuardResourceId = "/subscriptions/f9e67185-f313-4e79-aa71-6458d429369d/resourceGroups/ResourceGuardSecurityAdminRG/providers/Microsoft.DataProtection/resourceGuards/ResourceGuardTestResource",
+    ///         },
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ResourceGuardProxyName = "swaggerExample",
+    ///         VaultName = "sampleVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dataprotection:DppResourceGuardProxy swaggerExample /subscriptions/5e13b949-1218-4d18-8b99-7e12155ec4f7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/backupVaults/sampleVault/backupResourceGuardProxies/swaggerExample 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:DppResourceGuardProxy")]
     public partial class DppResourceGuardProxy : global::Pulumi.CustomResource

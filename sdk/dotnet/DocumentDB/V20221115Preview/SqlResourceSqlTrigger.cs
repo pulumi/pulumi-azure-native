@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115Preview
 {
     /// <summary>
     /// An Azure Cosmos DB trigger.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlTriggerCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlTrigger = new AzureNative.DocumentDB.V20221115Preview.SqlResourceSqlTrigger("sqlResourceSqlTrigger", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ContainerName = "containerName",
+    ///         DatabaseName = "databaseName",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20221115Preview.Inputs.SqlTriggerResourceArgs
+    ///         {
+    ///             Body = "body",
+    ///             Id = "triggerName",
+    ///             TriggerOperation = "triggerOperation",
+    ///             TriggerType = "triggerType",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         TriggerName = "triggerName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20221115preview:SqlResourceSqlTrigger triggerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlTriggers/triggerName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20221115preview:SqlResourceSqlTrigger")]
     public partial class SqlResourceSqlTrigger : global::Pulumi.CustomResource

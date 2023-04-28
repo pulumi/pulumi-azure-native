@@ -13,6 +13,58 @@ namespace Pulumi.AzureNative.AppPlatform
     /// KPack Builder resource
     /// API Version: 2022-12-01.
     /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### BuildServiceBuilder_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var buildServiceBuilder = new AzureNative.AppPlatform.BuildServiceBuilder("buildServiceBuilder", new()
+    ///     {
+    ///         BuildServiceName = "default",
+    ///         BuilderName = "mybuilder",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.BuilderPropertiesArgs
+    ///         {
+    ///             BuildpackGroups = new[]
+    ///             {
+    ///                 new AzureNative.AppPlatform.Inputs.BuildpacksGroupPropertiesArgs
+    ///                 {
+    ///                     Buildpacks = new[]
+    ///                     {
+    ///                         new AzureNative.AppPlatform.Inputs.BuildpackPropertiesArgs
+    ///                         {
+    ///                             Id = "tanzu-buildpacks/java-azure",
+    ///                         },
+    ///                     },
+    ///                     Name = "mix",
+    ///                 },
+    ///             },
+    ///             Stack = new AzureNative.AppPlatform.Inputs.StackPropertiesArgs
+    ///             {
+    ///                 Id = "io.buildpacks.stacks.bionic",
+    ///                 Version = "base",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:BuildServiceBuilder mybuilder /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/mybuilder 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:BuildServiceBuilder")]
     public partial class BuildServiceBuilder : global::Pulumi.CustomResource

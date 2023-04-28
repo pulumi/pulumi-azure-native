@@ -13,6 +13,46 @@ namespace Pulumi.AzureNative.AVS
     /// NSX Segment
     /// API Version: 2022-05-01.
     /// Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### WorkloadNetworks_CreateSegments
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadNetworkSegment = new AzureNative.AVS.WorkloadNetworkSegment("workloadNetworkSegment", new()
+    ///     {
+    ///         ConnectedGateway = "/infra/tier-1s/gateway",
+    ///         DisplayName = "segment1",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Revision = 1,
+    ///         SegmentId = "segment1",
+    ///         Subnet = new AzureNative.AVS.Inputs.WorkloadNetworkSegmentSubnetArgs
+    ///         {
+    ///             DhcpRanges = new[]
+    ///             {
+    ///                 "40.20.0.0-40.20.0.1",
+    ///             },
+    ///             GatewayAddress = "40.20.20.20/16",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs:WorkloadNetworkSegment segment1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/segments/segment1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:WorkloadNetworkSegment")]
     public partial class WorkloadNetworkSegment : global::Pulumi.CustomResource

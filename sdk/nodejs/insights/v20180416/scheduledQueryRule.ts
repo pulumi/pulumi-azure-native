@@ -9,6 +9,127 @@ import * as utilities from "../../utilities";
 
 /**
  * The Log Search Rule resource.
+ *
+ * ## Example Usage
+ * ### Create or Update rule - AlertingAction
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scheduledQueryRule = new azure_native.insights.v20180416.ScheduledQueryRule("scheduledQueryRule", {
+ *     action: {
+ *         aznsAction: {
+ *             actionGroup: [],
+ *             customWebhookPayload: "{}",
+ *             emailSubject: "Email Header",
+ *         },
+ *         odataType: "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+ *         severity: "1",
+ *         trigger: {
+ *             metricTrigger: {
+ *                 metricColumn: "Computer",
+ *                 metricTriggerType: "Consecutive",
+ *                 threshold: 5,
+ *                 thresholdOperator: "GreaterThan",
+ *             },
+ *             threshold: 3,
+ *             thresholdOperator: "GreaterThan",
+ *         },
+ *     },
+ *     description: "log alert description",
+ *     enabled: "true",
+ *     location: "eastus",
+ *     resourceGroupName: "Rac46PostSwapRG",
+ *     ruleName: "logalertfoo",
+ *     schedule: {
+ *         frequencyInMinutes: 15,
+ *         timeWindowInMinutes: 15,
+ *     },
+ *     source: {
+ *         dataSourceId: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+ *         query: "Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)",
+ *         queryType: "ResultCount",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or Update rule - AlertingAction with Cross-Resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scheduledQueryRule = new azure_native.insights.v20180416.ScheduledQueryRule("scheduledQueryRule", {
+ *     action: {
+ *         aznsAction: {
+ *             actionGroup: ["/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/actiongroups/test-ag"],
+ *             emailSubject: "Cross Resource Mail!!",
+ *         },
+ *         odataType: "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+ *         severity: "3",
+ *         trigger: {
+ *             threshold: 5000,
+ *             thresholdOperator: "GreaterThan",
+ *         },
+ *     },
+ *     description: "Sample Cross Resource alert",
+ *     enabled: "true",
+ *     location: "eastus",
+ *     resourceGroupName: "Rac46PostSwapRG",
+ *     ruleName: "SampleCrossResourceAlert",
+ *     schedule: {
+ *         frequencyInMinutes: 60,
+ *         timeWindowInMinutes: 60,
+ *     },
+ *     source: {
+ *         authorizedResources: [
+ *             "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+ *             "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+ *         ],
+ *         dataSourceId: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+ *         query: "union requests, workspace(\"sampleWorkspace\").Update",
+ *         queryType: "ResultCount",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or Update rule - LogToMetricAction
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scheduledQueryRule = new azure_native.insights.v20180416.ScheduledQueryRule("scheduledQueryRule", {
+ *     action: {
+ *         criteria: [{
+ *             dimensions: [],
+ *             metricName: `Average_% Idle Time`,
+ *         }],
+ *         odataType: "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
+ *     },
+ *     description: "log to metric description",
+ *     enabled: "true",
+ *     location: "West Europe",
+ *     resourceGroupName: "alertsweu",
+ *     ruleName: "logtometricfoo",
+ *     source: {
+ *         dataSourceId: "/subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/Microsoft.OperationalInsights/workspaces/alertsweu",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20180416:ScheduledQueryRule logtometricfoo /subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/microsoft.insights/scheduledqueryrules/logtometricfoo 
+ * ```
  */
 export class ScheduledQueryRule extends pulumi.CustomResource {
     /**

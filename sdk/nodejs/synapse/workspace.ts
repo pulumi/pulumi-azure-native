@@ -11,6 +11,79 @@ import * as utilities from "../utilities";
  * A workspace
  * API Version: 2021-06-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.synapse.Workspace("workspace", {
+ *     cspWorkspaceAdminProperties: {
+ *         initialWorkspaceAdminObjectId: "6c20646f-8050-49ec-b3b1-80a0e58e454d",
+ *     },
+ *     defaultDataLakeStorage: {
+ *         accountUrl: "https://accountname.dfs.core.windows.net",
+ *         filesystem: "default",
+ *     },
+ *     encryption: {
+ *         cmk: {
+ *             kekIdentity: {
+ *                 useSystemAssignedIdentity: false,
+ *                 userAssignedIdentity: "/subscriptions/b64d7b94-73e7-4d36-94b2-7764ea3fd74a/resourcegroups/SynapseCI/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami1",
+ *             },
+ *             key: {
+ *                 keyVaultUrl: "https://vault.azure.net/keys/key1",
+ *                 name: "default",
+ *             },
+ *         },
+ *     },
+ *     identity: {
+ *         type: azure_native.synapse.ResourceIdentityType.SystemAssigned_UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/resourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami1": {},
+ *         },
+ *     },
+ *     location: "East US",
+ *     managedResourceGroupName: "workspaceManagedResourceGroupUnique",
+ *     managedVirtualNetwork: "default",
+ *     managedVirtualNetworkSettings: {
+ *         allowedAadTenantIdsForLinking: ["740239CE-A25B-485B-86A0-262F29F6EBDB"],
+ *         linkedAccessCheckOnTargetResource: false,
+ *         preventDataExfiltration: false,
+ *     },
+ *     publicNetworkAccess: "Enabled",
+ *     purviewConfiguration: {
+ *         purviewResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.ProjectPurview/accounts/accountname1",
+ *     },
+ *     resourceGroupName: "resourceGroup1",
+ *     sqlAdministratorLogin: "login",
+ *     sqlAdministratorLoginPassword: "password",
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     workspaceName: "workspace1",
+ *     workspaceRepositoryConfiguration: {
+ *         accountName: "mygithubaccount",
+ *         collaborationBranch: "master",
+ *         hostName: "",
+ *         projectName: "myproject",
+ *         repositoryName: "myrepository",
+ *         rootFolder: "/",
+ *         type: "FactoryGitHubConfiguration",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:Workspace workspace1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1 
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

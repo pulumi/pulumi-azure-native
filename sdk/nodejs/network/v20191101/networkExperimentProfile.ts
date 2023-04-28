@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines an Network Experiment Profile and lists of Experiments
+ *
+ * ## Example Usage
+ * ### Creates an NetworkExperiment Profile in a Resource Group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkExperimentProfile = new azure_native.network.v20191101.NetworkExperimentProfile("networkExperimentProfile", {
+ *     enabledState: "Enabled",
+ *     location: "WestUs",
+ *     profileName: "MyProfile",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20191101:NetworkExperimentProfile MyProfile /subscriptions/subid/resourceGroups/MyResourceGroup/providers/Microsoft.Network/NetworkExperimentProfiles/MyProfile 
+ * ```
  */
 export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**

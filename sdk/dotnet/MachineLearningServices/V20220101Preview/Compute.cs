@@ -11,6 +11,294 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
 {
     /// <summary>
     /// Machine Learning compute object wrapped into ARM resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### Attach a Kubernetes Compute
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var compute = new AzureNative.MachineLearningServices.V20220101Preview.Compute("compute", new()
+    ///     {
+    ///         ComputeName = "compute123",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.KubernetesArgs
+    ///         {
+    ///             ComputeType = "Kubernetes",
+    ///             Description = "some compute",
+    ///             Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.KubernetesPropertiesArgs
+    ///             {
+    ///                 DefaultInstanceType = "defaultInstanceType",
+    ///                 InstanceTypes = 
+    ///                 {
+    ///                     { "defaultInstanceType", new AzureNative.MachineLearningServices.V20220101Preview.Inputs.InstanceTypeSchemaArgs
+    ///                     {
+    ///                         Resources = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.InstanceTypeSchemaResourcesArgs
+    ///                         {
+    ///                             Limits = 
+    ///                             {
+    ///                                 { "cpu", "1" },
+    ///                                 { "memory", "4Gi" },
+    ///                                 { "nvidia.com/gpu", null },
+    ///                             },
+    ///                             Requests = 
+    ///                             {
+    ///                                 { "cpu", "1" },
+    ///                                 { "memory", "4Gi" },
+    ///                                 { "nvidia.com/gpu", null },
+    ///                             },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///                 Namespace = "default",
+    ///             },
+    ///             ResourceId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/Microsoft.ContainerService/managedClusters/compute123-56826-c9b00420020b2",
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a AML Compute
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var compute = new AzureNative.MachineLearningServices.V20220101Preview.Compute("compute", new()
+    ///     {
+    ///         ComputeName = "compute123",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.AmlComputeArgs
+    ///         {
+    ///             ComputeType = "AmlCompute",
+    ///             Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.AmlComputePropertiesArgs
+    ///             {
+    ///                 EnableNodePublicIp = true,
+    ///                 IsolatedNetwork = false,
+    ///                 OsType = "Windows",
+    ///                 RemoteLoginPortPublicAccess = "NotSpecified",
+    ///                 ScaleSettings = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.ScaleSettingsArgs
+    ///                 {
+    ///                     MaxNodeCount = 1,
+    ///                     MinNodeCount = 0,
+    ///                     NodeIdleTimeBeforeScaleDown = "PT5M",
+    ///                 },
+    ///                 VirtualMachineImage = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.VirtualMachineImageArgs
+    ///                 {
+    ///                     Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition/versions/0.0.1",
+    ///                 },
+    ///                 VmPriority = "Dedicated",
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a DataFactory Compute
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var compute = new AzureNative.MachineLearningServices.V20220101Preview.Compute("compute", new()
+    ///     {
+    ///         ComputeName = "compute123",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.DataFactoryArgs
+    ///         {
+    ///             ComputeType = "DataFactory",
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an AKS Compute
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var compute = new AzureNative.MachineLearningServices.V20220101Preview.Compute("compute", new()
+    ///     {
+    ///         ComputeName = "compute123",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.AKSArgs
+    ///         {
+    ///             ComputeType = "AKS",
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an ComputeInstance Compute
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var compute = new AzureNative.MachineLearningServices.V20220101Preview.Compute("compute", new()
+    ///     {
+    ///         ComputeName = "compute123",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.ComputeInstanceArgs
+    ///         {
+    ///             ComputeType = "ComputeInstance",
+    ///             Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.ComputeInstancePropertiesArgs
+    ///             {
+    ///                 ApplicationSharingPolicy = "Personal",
+    ///                 ComputeInstanceAuthorizationType = "personal",
+    ///                 PersonalComputeInstanceSettings = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.PersonalComputeInstanceSettingsArgs
+    ///                 {
+    ///                     AssignedUser = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.AssignedUserArgs
+    ///                     {
+    ///                         ObjectId = "00000000-0000-0000-0000-000000000000",
+    ///                         TenantId = "00000000-0000-0000-0000-000000000000",
+    ///                     },
+    ///                 },
+    ///                 SshSettings = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.ComputeInstanceSshSettingsArgs
+    ///                 {
+    ///                     SshPublicAccess = "Disabled",
+    ///                 },
+    ///                 Subnet = "test-subnet-resource-id",
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an ComputeInstance Compute with minimal inputs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var compute = new AzureNative.MachineLearningServices.V20220101Preview.Compute("compute", new()
+    ///     {
+    ///         ComputeName = "compute123",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.ComputeInstanceArgs
+    ///         {
+    ///             ComputeType = "ComputeInstance",
+    ///             Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.ComputeInstancePropertiesArgs
+    ///             {
+    ///                 VmSize = "STANDARD_NC6",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update a AML Compute
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var compute = new AzureNative.MachineLearningServices.V20220101Preview.Compute("compute", new()
+    ///     {
+    ///         ComputeName = "compute123",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.AmlComputeArgs
+    ///         {
+    ///             ComputeType = "AmlCompute",
+    ///             Description = "some compute",
+    ///             Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.AmlComputePropertiesArgs
+    ///             {
+    ///                 ScaleSettings = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.ScaleSettingsArgs
+    ///                 {
+    ///                     MaxNodeCount = 4,
+    ///                     MinNodeCount = 4,
+    ///                     NodeIdleTimeBeforeScaleDown = "PT5M",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update an AKS Compute
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var compute = new AzureNative.MachineLearningServices.V20220101Preview.Compute("compute", new()
+    ///     {
+    ///         ComputeName = "compute123",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.AKSArgs
+    ///         {
+    ///             ComputeType = "AKS",
+    ///             Description = "some compute",
+    ///             Properties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.AKSPropertiesArgs
+    ///             {
+    ///                 AgentCount = 4,
+    ///             },
+    ///             ResourceId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/Microsoft.ContainerService/managedClusters/compute123-56826-c9b00420020b2",
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20220101preview:Compute compute123 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/computes/compute123 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220101preview:Compute")]
     public partial class Compute : global::Pulumi.CustomResource

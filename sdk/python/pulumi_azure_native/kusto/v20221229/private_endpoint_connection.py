@@ -95,6 +95,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.kusto.v20221229.PrivateEndpointConnection("privateEndpointConnection",
+            cluster_name="kustoclusterrptest4",
+            private_endpoint_connection_name="privateEndpointTest",
+            private_link_service_connection_state=azure_native.kusto.v20221229.PrivateLinkServiceConnectionStatePropertyArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20221229:PrivateEndpointConnection privateEndpointTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/privateEndpointConnections/privateEndpointTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -110,6 +136,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection
+
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.kusto.v20221229.PrivateEndpointConnection("privateEndpointConnection",
+            cluster_name="kustoclusterrptest4",
+            private_endpoint_connection_name="privateEndpointTest",
+            private_link_service_connection_state=azure_native.kusto.v20221229.PrivateLinkServiceConnectionStatePropertyArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20221229:PrivateEndpointConnection privateEndpointTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/privateEndpointConnections/privateEndpointTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Logic.V20150801Preview
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic/v20150801preview:IntegrationAccountMap myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName}/maps/{mapName} 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20150801preview:IntegrationAccountMap")]
     public partial class IntegrationAccountMap : global::Pulumi.CustomResource
     {

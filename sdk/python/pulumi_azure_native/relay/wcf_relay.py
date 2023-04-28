@@ -149,6 +149,31 @@ class WCFRelay(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RelayCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        wcf_relay = azure_native.relay.WCFRelay("wcfRelay",
+            namespace_name="example-RelayNamespace-9953",
+            relay_name="example-Relay-Wcf-1194",
+            relay_type=azure_native.relay.Relaytype.NET_TCP,
+            requires_client_authorization=True,
+            requires_transport_security=True,
+            resource_group_name="resourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:WCFRelay example-Relay-Wcf-1194 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-9953/WcfRelays/example-Relay-Wcf-1194 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] namespace_name: The namespace name
@@ -169,6 +194,31 @@ class WCFRelay(pulumi.CustomResource):
         Description of the WCF relay resource.
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RelayCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        wcf_relay = azure_native.relay.WCFRelay("wcfRelay",
+            namespace_name="example-RelayNamespace-9953",
+            relay_name="example-Relay-Wcf-1194",
+            relay_type=azure_native.relay.Relaytype.NET_TCP,
+            requires_client_authorization=True,
+            requires_transport_security=True,
+            resource_group_name="resourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:WCFRelay example-Relay-Wcf-1194 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-9953/WcfRelays/example-Relay-Wcf-1194 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WCFRelayArgs args: The arguments to use to populate this resource's properties.

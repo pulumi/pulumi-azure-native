@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  * API Version: 2021-11-01-preview.
  * Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Update private endpoint connection.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.videoanalyzer.PrivateEndpointConnection("privateEndpointConnection", {
+ *     accountName: "contososports",
+ *     name: "10000000-0000-0000-0000-000000000000",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Test description.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "contoso",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:videoanalyzer:PrivateEndpointConnection 10000000-0000-0000-0000-000000000000 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fabrikam/providers/Microsoft.Media/videoanalyzers/contososports/privateEndpointConnections/10000000-0000-0000-0000-000000000000 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

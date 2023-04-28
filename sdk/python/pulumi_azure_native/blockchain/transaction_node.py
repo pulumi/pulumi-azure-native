@@ -132,6 +132,30 @@ class TransactionNode(pulumi.CustomResource):
         API Version: 2018-06-01-preview.
         Previous API Version: 2018-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### TransactionNodes_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        transaction_node = azure_native.blockchain.TransactionNode("transactionNode",
+            blockchain_member_name="contosemember1",
+            location="southeastasia",
+            password="<password>",
+            resource_group_name="mygroup",
+            transaction_node_name="txnode2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blockchain:TransactionNode txnode2 /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Blockchain/blockchainMembers/contosemember1/transactionNodes/txnode2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blockchain_member_name: Blockchain member name.
@@ -151,6 +175,30 @@ class TransactionNode(pulumi.CustomResource):
         Payload of the transaction node which is the request/response of the resource provider.
         API Version: 2018-06-01-preview.
         Previous API Version: 2018-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### TransactionNodes_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        transaction_node = azure_native.blockchain.TransactionNode("transactionNode",
+            blockchain_member_name="contosemember1",
+            location="southeastasia",
+            password="<password>",
+            resource_group_name="mygroup",
+            transaction_node_name="txnode2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blockchain:TransactionNode txnode2 /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Blockchain/blockchainMembers/contosemember1/transactionNodes/txnode2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TransactionNodeArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,61 @@ import * as utilities from "../../utilities";
 
 /**
  * A hub setting
+ *
+ * ## Example Usage
+ * ### WebPubSubHubs_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webPubSubHub = new azure_native.webpubsub.v20230201.WebPubSubHub("webPubSubHub", {
+ *     hubName: "exampleHub",
+ *     properties: {
+ *         anonymousConnectPolicy: "allow",
+ *         eventHandlers: [{
+ *             auth: {
+ *                 managedIdentity: {
+ *                     resource: "abc",
+ *                 },
+ *                 type: "ManagedIdentity",
+ *             },
+ *             systemEvents: [
+ *                 "connect",
+ *                 "connected",
+ *             ],
+ *             urlTemplate: "http://host.com",
+ *             userEventPattern: "*",
+ *         }],
+ *         eventListeners: [{
+ *             endpoint: {
+ *                 eventHubName: "eventHubName1",
+ *                 fullyQualifiedNamespace: "example.servicebus.windows.net",
+ *                 type: "EventHub",
+ *             },
+ *             filter: {
+ *                 systemEvents: [
+ *                     "connected",
+ *                     "disconnected",
+ *                 ],
+ *                 type: "EventName",
+ *                 userEventPattern: "*",
+ *             },
+ *         }],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myWebPubSubService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:webpubsub/v20230201:WebPubSubHub exampleHub /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/hubs/exampleHub 
+ * ```
  */
 export class WebPubSubHub extends pulumi.CustomResource {
     /**

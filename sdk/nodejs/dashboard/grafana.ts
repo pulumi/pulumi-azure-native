@@ -11,6 +11,49 @@ import * as utilities from "../utilities";
  * The grafana resource type.
  * API Version: 2022-08-01.
  * Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Grafana_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const grafana = new azure_native.dashboard.Grafana("grafana", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "West US",
+ *     properties: {
+ *         apiKey: "Enabled",
+ *         deterministicOutboundIP: "Enabled",
+ *         grafanaIntegrations: {
+ *             azureMonitorWorkspaceIntegrations: [{
+ *                 azureMonitorWorkspaceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.monitor/accounts/myAzureMonitorWorkspace",
+ *             }],
+ *         },
+ *         publicNetworkAccess: "Enabled",
+ *         zoneRedundancy: "Enabled",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     tags: {
+ *         Environment: "Dev",
+ *     },
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dashboard:Grafana myWorkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/grafana/myWorkspace 
+ * ```
  */
 export class Grafana extends pulumi.CustomResource {
     /**

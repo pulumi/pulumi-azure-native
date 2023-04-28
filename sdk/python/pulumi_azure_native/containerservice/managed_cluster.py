@@ -627,6 +627,1609 @@ class ManagedCluster(pulumi.CustomResource):
         API Version: 2023-01-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Managed Cluster using an agent pool snapshot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "creationData": azure_native.containerservice.CreationDataArgs(
+                    source_resource_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1",
+                ),
+                "enableFIPS": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=False,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with AKS-managed NAT gateway as outbound type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": False,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_sku="standard",
+                nat_gateway_profile={
+                    "managedOutboundIPProfile": azure_native.containerservice.ManagedClusterManagedOutboundIPProfileArgs(
+                        count=2,
+                    ),
+                },
+                outbound_type="managedNATGateway",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with Azure KeyVault Secrets Provider Addon
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={
+                "azureKeyvaultSecretsProvider": azure_native.containerservice.ManagedClusterAddonProfileArgs(
+                    config={
+                        "enableSecretRotation": "true",
+                        "rotationPollInterval": "2m",
+                    },
+                    enabled=True,
+                ),
+            },
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with Dedicated Host Group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "hostGroupID": "/subscriptions/subid1/resourcegroups/rg/providers/Microsoft.Compute/hostGroups/hostgroup1",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=False,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with EncryptionAtHost enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableEncryptionAtHost": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with FIPS enabled OS
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableFIPS": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=False,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with GPUMIG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "gpuInstanceProfile": "MIG3g",
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_ND96asr_v4",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            http_proxy_config=azure_native.containerservice.ManagedClusterHTTPProxyConfigArgs(
+                http_proxy="http://myproxy.server.com:8080",
+                https_proxy="https://myproxy.server.com:8080",
+                no_proxy=[
+                    "localhost",
+                    "127.0.0.1",
+                ],
+                trusted_ca="Q29uZ3JhdHMhIFlvdSBoYXZlIGZvdW5kIGEgaGlkZGVuIG1lc3NhZ2U=",
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with HTTP proxy configured
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            http_proxy_config=azure_native.containerservice.ManagedClusterHTTPProxyConfigArgs(
+                http_proxy="http://myproxy.server.com:8080",
+                https_proxy="https://myproxy.server.com:8080",
+                no_proxy=[
+                    "localhost",
+                    "127.0.0.1",
+                ],
+                trusted_ca="Q29uZ3JhdHMhIFlvdSBoYXZlIGZvdW5kIGEgaGlkZGVuIG1lc3NhZ2U=",
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with Node Public IP Prefix
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "nodePublicIPPrefixID": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.Network/publicIPPrefixes/public-ip-prefix",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with OSSKU
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osSKU": "CBLMariner",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            http_proxy_config=azure_native.containerservice.ManagedClusterHTTPProxyConfigArgs(
+                http_proxy="http://myproxy.server.com:8080",
+                https_proxy="https://myproxy.server.com:8080",
+                no_proxy=[
+                    "localhost",
+                    "127.0.0.1",
+                ],
+                trusted_ca="Q29uZ3JhdHMhIFlvdSBoYXZlIGZvdW5kIGEgaGlkZGVuIG1lc3NhZ2U=",
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with PPG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "proximityPlacementGroupID": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.Compute/proximityPlacementGroups/ppg1",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with PodIdentity enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            pod_identity_profile=azure_native.containerservice.ManagedClusterPodIdentityProfileArgs(
+                allow_network_plugin_kubenet=True,
+                enabled=True,
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with RunCommand disabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableEncryptionAtHost": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            api_server_access_profile=azure_native.containerservice.ManagedClusterAPIServerAccessProfileArgs(
+                disable_run_command=True,
+            ),
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with Security Profile configured
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            dns_prefix="dnsprefix1",
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            security_profile=azure_native.containerservice.ManagedClusterSecurityProfileResponseArgs(
+                defender={
+                    "logAnalyticsWorkspaceResourceId": "/subscriptions/SUB_ID/resourcegroups/RG_NAME/providers/microsoft.operationalinsights/workspaces/WORKSPACE_NAME",
+                    "securityMonitoring": azure_native.containerservice.ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs(
+                        enabled=True,
+                    ),
+                },
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+        ### Create Managed Cluster with UltraSSD enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "enableUltraSSD": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with user-assigned NAT gateway as outbound type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": False,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileArgs(
+                load_balancer_sku="standard",
+                outbound_type="userAssignedNATGateway",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Private Cluster with Public FQDN specified
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableEncryptionAtHost": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            api_server_access_profile=azure_native.containerservice.ManagedClusterAPIServerAccessProfileArgs(
+                enable_private_cluster=True,
+                enable_private_cluster_public_fqdn=True,
+            ),
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Private Cluster with fqdn subdomain specified
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableEncryptionAtHost": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            api_server_access_profile=azure_native.containerservice.ManagedClusterAPIServerAccessProfileArgs(
+                enable_private_cluster=True,
+                private_dns_zone="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.Network/privateDnsZones/privatelink.location1.azmk8s.io",
+            ),
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            fqdn_subdomain="domain1",
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create/Update AAD Managed Cluster with EnableAzureRBAC
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            aad_profile=azure_native.containerservice.ManagedClusterAADProfileArgs(
+                enable_azure_rbac=True,
+                managed=True,
+            ),
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create/Update Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "scaleDownMode": "Deallocate",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                balance_similar_node_groups="true",
+                expander="priority",
+                max_node_provision_time="15m",
+                new_pod_scale_up_delay="1m",
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+                skip_nodes_with_system_pods="false",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            identity=azure_native.containerservice.ManagedClusterIdentityArgs(
+                type=azure_native.containerservice.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create/Update Managed Cluster with EnableAHUB
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            identity=azure_native.containerservice.ManagedClusterIdentityArgs(
+                type=azure_native.containerservice.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+                license_type="Windows_Server",
+            ))
+
+        ```
+        ### Create/Update Managed Cluster with Windows gMSA enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            identity=azure_native.containerservice.ManagedClusterIdentityArgs(
+                type=azure_native.containerservice.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+                gmsa_profile=azure_native.containerservice.WindowsGmsaProfileArgs(
+                    enabled=True,
+                ),
+            ))
+
+        ```
+        ### Create/Update Managed Cluster with dual-stack networking
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "scaleDownMode": "Deallocate",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                balance_similar_node_groups="true",
+                expander="priority",
+                max_node_provision_time="15m",
+                new_pod_scale_up_delay="1m",
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+                skip_nodes_with_system_pods="false",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            identity=azure_native.containerservice.ManagedClusterIdentityArgs(
+                type=azure_native.containerservice.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                ip_families=[
+                    "IPv4",
+                    "IPv6",
+                ],
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice:ManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedClusterAADProfileArgs']] aad_profile: The Azure Active Directory configuration.
@@ -675,6 +2278,1609 @@ class ManagedCluster(pulumi.CustomResource):
         Managed cluster.
         API Version: 2023-01-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Managed Cluster using an agent pool snapshot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "creationData": azure_native.containerservice.CreationDataArgs(
+                    source_resource_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1",
+                ),
+                "enableFIPS": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=False,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with AKS-managed NAT gateway as outbound type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": False,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_sku="standard",
+                nat_gateway_profile={
+                    "managedOutboundIPProfile": azure_native.containerservice.ManagedClusterManagedOutboundIPProfileArgs(
+                        count=2,
+                    ),
+                },
+                outbound_type="managedNATGateway",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with Azure KeyVault Secrets Provider Addon
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={
+                "azureKeyvaultSecretsProvider": azure_native.containerservice.ManagedClusterAddonProfileArgs(
+                    config={
+                        "enableSecretRotation": "true",
+                        "rotationPollInterval": "2m",
+                    },
+                    enabled=True,
+                ),
+            },
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with Dedicated Host Group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "hostGroupID": "/subscriptions/subid1/resourcegroups/rg/providers/Microsoft.Compute/hostGroups/hostgroup1",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=False,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with EncryptionAtHost enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableEncryptionAtHost": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with FIPS enabled OS
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableFIPS": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=False,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with GPUMIG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "gpuInstanceProfile": "MIG3g",
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_ND96asr_v4",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            http_proxy_config=azure_native.containerservice.ManagedClusterHTTPProxyConfigArgs(
+                http_proxy="http://myproxy.server.com:8080",
+                https_proxy="https://myproxy.server.com:8080",
+                no_proxy=[
+                    "localhost",
+                    "127.0.0.1",
+                ],
+                trusted_ca="Q29uZ3JhdHMhIFlvdSBoYXZlIGZvdW5kIGEgaGlkZGVuIG1lc3NhZ2U=",
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with HTTP proxy configured
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            http_proxy_config=azure_native.containerservice.ManagedClusterHTTPProxyConfigArgs(
+                http_proxy="http://myproxy.server.com:8080",
+                https_proxy="https://myproxy.server.com:8080",
+                no_proxy=[
+                    "localhost",
+                    "127.0.0.1",
+                ],
+                trusted_ca="Q29uZ3JhdHMhIFlvdSBoYXZlIGZvdW5kIGEgaGlkZGVuIG1lc3NhZ2U=",
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with Node Public IP Prefix
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "nodePublicIPPrefixID": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.Network/publicIPPrefixes/public-ip-prefix",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with OSSKU
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osSKU": "CBLMariner",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            http_proxy_config=azure_native.containerservice.ManagedClusterHTTPProxyConfigArgs(
+                http_proxy="http://myproxy.server.com:8080",
+                https_proxy="https://myproxy.server.com:8080",
+                no_proxy=[
+                    "localhost",
+                    "127.0.0.1",
+                ],
+                trusted_ca="Q29uZ3JhdHMhIFlvdSBoYXZlIGZvdW5kIGEgaGlkZGVuIG1lc3NhZ2U=",
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with PPG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "proximityPlacementGroupID": "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.Compute/proximityPlacementGroups/ppg1",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with PodIdentity enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            pod_identity_profile=azure_native.containerservice.ManagedClusterPodIdentityProfileArgs(
+                allow_network_plugin_kubenet=True,
+                enabled=True,
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with RunCommand disabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableEncryptionAtHost": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            api_server_access_profile=azure_native.containerservice.ManagedClusterAPIServerAccessProfileArgs(
+                disable_run_command=True,
+            ),
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with Security Profile configured
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            dns_prefix="dnsprefix1",
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            security_profile=azure_native.containerservice.ManagedClusterSecurityProfileResponseArgs(
+                defender={
+                    "logAnalyticsWorkspaceResourceId": "/subscriptions/SUB_ID/resourcegroups/RG_NAME/providers/microsoft.operationalinsights/workspaces/WORKSPACE_NAME",
+                    "securityMonitoring": azure_native.containerservice.ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs(
+                        enabled=True,
+                    ),
+                },
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+        ### Create Managed Cluster with UltraSSD enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": True,
+                "enableUltraSSD": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Cluster with user-assigned NAT gateway as outbound type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableNodePublicIP": False,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileArgs(
+                load_balancer_sku="standard",
+                outbound_type="userAssignedNATGateway",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Private Cluster with Public FQDN specified
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableEncryptionAtHost": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            api_server_access_profile=azure_native.containerservice.ManagedClusterAPIServerAccessProfileArgs(
+                enable_private_cluster=True,
+                enable_private_cluster_public_fqdn=True,
+            ),
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create Managed Private Cluster with fqdn subdomain specified
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "count": 3,
+                "enableEncryptionAtHost": True,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS2_v2",
+            }],
+            api_server_access_profile=azure_native.containerservice.ManagedClusterAPIServerAccessProfileArgs(
+                enable_private_cluster=True,
+                private_dns_zone="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.Network/privateDnsZones/privatelink.location1.azmk8s.io",
+            ),
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            fqdn_subdomain="domain1",
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create/Update AAD Managed Cluster with EnableAzureRBAC
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            aad_profile=azure_native.containerservice.ManagedClusterAADProfileArgs(
+                enable_azure_rbac=True,
+                managed=True,
+            ),
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create/Update Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "scaleDownMode": "Deallocate",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                balance_similar_node_groups="true",
+                expander="priority",
+                max_node_provision_time="15m",
+                new_pod_scale_up_delay="1m",
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+                skip_nodes_with_system_pods="false",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            identity=azure_native.containerservice.ManagedClusterIdentityArgs(
+                type=azure_native.containerservice.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+        ### Create/Update Managed Cluster with EnableAHUB
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            identity=azure_native.containerservice.ManagedClusterIdentityArgs(
+                type=azure_native.containerservice.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+                license_type="Windows_Server",
+            ))
+
+        ```
+        ### Create/Update Managed Cluster with Windows gMSA enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            identity=azure_native.containerservice.ManagedClusterIdentityArgs(
+                type=azure_native.containerservice.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+                gmsa_profile=azure_native.containerservice.WindowsGmsaProfileArgs(
+                    enabled=True,
+                ),
+            ))
+
+        ```
+        ### Create/Update Managed Cluster with dual-stack networking
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.ManagedCluster("managedCluster",
+            addon_profiles={},
+            agent_pool_profiles=[{
+                "availabilityZones": [
+                    "1",
+                    "2",
+                    "3",
+                ],
+                "count": 3,
+                "enableNodePublicIP": True,
+                "mode": "System",
+                "name": "nodepool1",
+                "osType": "Linux",
+                "scaleDownMode": "Deallocate",
+                "type": "VirtualMachineScaleSets",
+                "vmSize": "Standard_DS1_v2",
+            }],
+            auto_scaler_profile=azure_native.containerservice.ManagedClusterPropertiesAutoScalerProfileArgs(
+                balance_similar_node_groups="true",
+                expander="priority",
+                max_node_provision_time="15m",
+                new_pod_scale_up_delay="1m",
+                scale_down_delay_after_add="15m",
+                scan_interval="20s",
+                skip_nodes_with_system_pods="false",
+            ),
+            disk_encryption_set_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+            dns_prefix="dnsprefix1",
+            enable_pod_security_policy=True,
+            enable_rbac=True,
+            identity=azure_native.containerservice.ManagedClusterIdentityArgs(
+                type=azure_native.containerservice.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            kubernetes_version="",
+            linux_profile=azure_native.containerservice.ContainerServiceLinuxProfileResponseArgs(
+                admin_username="azureuser",
+                ssh={
+                    "publicKeys": [{
+                        "keyData": "keydata",
+                    }],
+                },
+            ),
+            location="location1",
+            network_profile=azure_native.containerservice.ContainerServiceNetworkProfileResponseArgs(
+                ip_families=[
+                    "IPv4",
+                    "IPv6",
+                ],
+                load_balancer_profile={
+                    "managedOutboundIPs": azure_native.containerservice.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs(
+                        count=2,
+                    ),
+                },
+                load_balancer_sku="standard",
+                outbound_type="loadBalancer",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            service_principal_profile=azure_native.containerservice.ManagedClusterServicePrincipalProfileResponseArgs(
+                client_id="clientid",
+                secret="secret",
+            ),
+            sku=azure_native.containerservice.ManagedClusterSKUArgs(
+                name="Basic",
+                tier="Free",
+            ),
+            tags={
+                "archv2": "",
+                "tier": "production",
+            },
+            windows_profile=azure_native.containerservice.ManagedClusterWindowsProfileResponseArgs(
+                admin_password="replacePassword1234$",
+                admin_username="azureuser",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice:ManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.

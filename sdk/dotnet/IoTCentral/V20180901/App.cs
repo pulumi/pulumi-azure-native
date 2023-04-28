@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
 {
     /// <summary>
     /// The IoT Central application.
+    /// 
+    /// ## Example Usage
+    /// ### Apps_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var app = new AzureNative.IoTCentral.V20180901.App("app", new()
+    ///     {
+    ///         DisplayName = "My IoT Central App",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myIoTCentralApp",
+    ///         Sku = new AzureNative.IoTCentral.V20180901.Inputs.AppSkuInfoArgs
+    ///         {
+    ///             Name = "F1",
+    ///         },
+    ///         Subdomain = "my-iot-central-app",
+    ///         Template = "iotc-default@1.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotcentral/v20180901:App myIoTCentralApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.IoTCentral/IoTApps/myIoTCentralApp 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:iotcentral/v20180901:App")]

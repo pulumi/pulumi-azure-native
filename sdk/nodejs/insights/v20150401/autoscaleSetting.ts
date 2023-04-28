@@ -9,6 +9,159 @@ import * as utilities from "../../utilities";
 
 /**
  * The autoscale setting resource.
+ *
+ * ## Example Usage
+ * ### Create or update an autoscale setting
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const autoscaleSetting = new azure_native.insights.v20150401.AutoscaleSetting("autoscaleSetting", {
+ *     autoscaleSettingName: "MySetting",
+ *     enabled: true,
+ *     location: "West US",
+ *     notifications: [{
+ *         email: {
+ *             customEmails: [
+ *                 "gu@ms.com",
+ *                 "ge@ns.net",
+ *             ],
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrators: true,
+ *         },
+ *         operation: azure_native.insights.v20150401.OperationType.Scale,
+ *         webhooks: [{
+ *             properties: {},
+ *             serviceUri: "http://myservice.com",
+ *         }],
+ *     }],
+ *     profiles: [
+ *         {
+ *             capacity: {
+ *                 "default": "1",
+ *                 maximum: "10",
+ *                 minimum: "1",
+ *             },
+ *             fixedDate: {
+ *                 end: "2015-03-05T14:30:00Z",
+ *                 start: "2015-03-05T14:00:00Z",
+ *                 timeZone: "UTC",
+ *             },
+ *             name: "adios",
+ *             rules: [
+ *                 {
+ *                     metricTrigger: {
+ *                         dividePerInstance: false,
+ *                         metricName: "Percentage CPU",
+ *                         metricResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ *                         operator: azure_native.insights.v20150401.ComparisonOperationType.GreaterThan,
+ *                         statistic: azure_native.insights.v20150401.MetricStatisticType.Average,
+ *                         threshold: 10,
+ *                         timeAggregation: azure_native.insights.v20150401.TimeAggregationType.Average,
+ *                         timeGrain: "PT1M",
+ *                         timeWindow: "PT5M",
+ *                     },
+ *                     scaleAction: {
+ *                         cooldown: "PT5M",
+ *                         direction: azure_native.insights.v20150401.ScaleDirection.Increase,
+ *                         type: azure_native.insights.v20150401.ScaleType.ChangeCount,
+ *                         value: "1",
+ *                     },
+ *                 },
+ *                 {
+ *                     metricTrigger: {
+ *                         dividePerInstance: false,
+ *                         metricName: "Percentage CPU",
+ *                         metricResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ *                         operator: azure_native.insights.v20150401.ComparisonOperationType.GreaterThan,
+ *                         statistic: azure_native.insights.v20150401.MetricStatisticType.Average,
+ *                         threshold: 15,
+ *                         timeAggregation: azure_native.insights.v20150401.TimeAggregationType.Average,
+ *                         timeGrain: "PT2M",
+ *                         timeWindow: "PT5M",
+ *                     },
+ *                     scaleAction: {
+ *                         cooldown: "PT6M",
+ *                         direction: azure_native.insights.v20150401.ScaleDirection.Decrease,
+ *                         type: azure_native.insights.v20150401.ScaleType.ChangeCount,
+ *                         value: "2",
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             capacity: {
+ *                 "default": "1",
+ *                 maximum: "10",
+ *                 minimum: "1",
+ *             },
+ *             name: "saludos",
+ *             recurrence: {
+ *                 frequency: azure_native.insights.v20150401.RecurrenceFrequency.Week,
+ *                 schedule: {
+ *                     days: ["1"],
+ *                     hours: [5],
+ *                     minutes: [15],
+ *                     timeZone: "UTC",
+ *                 },
+ *             },
+ *             rules: [
+ *                 {
+ *                     metricTrigger: {
+ *                         dividePerInstance: false,
+ *                         metricName: "Percentage CPU",
+ *                         metricResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ *                         operator: azure_native.insights.v20150401.ComparisonOperationType.GreaterThan,
+ *                         statistic: azure_native.insights.v20150401.MetricStatisticType.Average,
+ *                         threshold: 10,
+ *                         timeAggregation: azure_native.insights.v20150401.TimeAggregationType.Average,
+ *                         timeGrain: "PT1M",
+ *                         timeWindow: "PT5M",
+ *                     },
+ *                     scaleAction: {
+ *                         cooldown: "PT5M",
+ *                         direction: azure_native.insights.v20150401.ScaleDirection.Increase,
+ *                         type: azure_native.insights.v20150401.ScaleType.ChangeCount,
+ *                         value: "1",
+ *                     },
+ *                 },
+ *                 {
+ *                     metricTrigger: {
+ *                         dividePerInstance: false,
+ *                         metricName: "Percentage CPU",
+ *                         metricResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ *                         operator: azure_native.insights.v20150401.ComparisonOperationType.GreaterThan,
+ *                         statistic: azure_native.insights.v20150401.MetricStatisticType.Average,
+ *                         threshold: 15,
+ *                         timeAggregation: azure_native.insights.v20150401.TimeAggregationType.Average,
+ *                         timeGrain: "PT2M",
+ *                         timeWindow: "PT5M",
+ *                     },
+ *                     scaleAction: {
+ *                         cooldown: "PT6M",
+ *                         direction: azure_native.insights.v20150401.ScaleDirection.Decrease,
+ *                         type: azure_native.insights.v20150401.ScaleType.ChangeCount,
+ *                         value: "2",
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ *     resourceGroupName: "TestingMetricsScaleSet",
+ *     tags: {},
+ *     targetResourceUri: "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/Microsoft.Compute/virtualMachineScaleSets/testingsc",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20150401:AutoscaleSetting MySetting /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/TestingMetricsScaleSet/providers/microsoft.insights/autoscalesettings/MySetting 
+ * ```
  */
 export class AutoscaleSetting extends pulumi.CustomResource {
     /**

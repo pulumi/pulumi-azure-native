@@ -131,6 +131,31 @@ class AccessPolicy(pulumi.CustomResource):
         API Version: 2020-05-15.
         Previous API Version: 2020-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### AccessPoliciesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_policy = azure_native.timeseriesinsights.AccessPolicy("accessPolicy",
+            access_policy_name="ap1",
+            description="some description",
+            environment_name="env1",
+            principal_object_id="aGuid",
+            resource_group_name="rg1",
+            roles=["Reader"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights:AccessPolicy ap1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/accessPolicies/ap1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policy_name: Name of the access policy.
@@ -150,6 +175,31 @@ class AccessPolicy(pulumi.CustomResource):
         An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
         API Version: 2020-05-15.
         Previous API Version: 2020-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### AccessPoliciesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_policy = azure_native.timeseriesinsights.AccessPolicy("accessPolicy",
+            access_policy_name="ap1",
+            description="some description",
+            environment_name="env1",
+            principal_object_id="aGuid",
+            resource_group_name="rg1",
+            roles=["Reader"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights:AccessPolicy ap1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/accessPolicies/ap1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

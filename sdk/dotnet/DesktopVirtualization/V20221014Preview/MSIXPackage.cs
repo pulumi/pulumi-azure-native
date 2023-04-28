@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
 {
     /// <summary>
     /// Schema for MSIX Package properties.
+    /// 
+    /// ## Example Usage
+    /// ### MSIXPackage_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var msixPackage = new AzureNative.DesktopVirtualization.V20221014Preview.MSIXPackage("msixPackage", new()
+    ///     {
+    ///         DisplayName = "displayname",
+    ///         HostPoolName = "hostpool1",
+    ///         ImagePath = "imagepath",
+    ///         IsActive = false,
+    ///         IsRegularRegistration = false,
+    ///         LastUpdated = "2008-09-22T14:01:54.9571247Z",
+    ///         MsixPackageFullName = "msixpackagefullname",
+    ///         PackageApplications = new[]
+    ///         {
+    ///             new AzureNative.DesktopVirtualization.V20221014Preview.Inputs.MsixPackageApplicationsArgs
+    ///             {
+    ///                 AppId = "ApplicationId",
+    ///                 AppUserModelID = "AppUserModelId",
+    ///                 Description = "application-desc",
+    ///                 FriendlyName = "friendlyname",
+    ///                 IconImageName = "Apptile",
+    ///                 RawIcon = "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+    ///                 RawPng = "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+    ///             },
+    ///         },
+    ///         PackageDependencies = new[]
+    ///         {
+    ///             new AzureNative.DesktopVirtualization.V20221014Preview.Inputs.MsixPackageDependenciesArgs
+    ///             {
+    ///                 DependencyName = "MsixTest_Dependency_Name",
+    ///                 MinVersion = "version",
+    ///                 Publisher = "PublishedName",
+    ///             },
+    ///         },
+    ///         PackageFamilyName = "MsixPackage_FamilyName",
+    ///         PackageName = "MsixPackage_name",
+    ///         PackageRelativePath = "packagerelativepath",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Version = "version",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization/v20221014preview:MSIXPackage hostpool1/MsixPackageFullName /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourcegroups/resourcegroup1/providers/Microsoft.DesktopVirtualization/hostpools/hostpool1/msixpackages/msixPackageFullName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20221014preview:MSIXPackage")]
     public partial class MSIXPackage : global::Pulumi.CustomResource

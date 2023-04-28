@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Security.V20190101
 {
     /// <summary>
     /// The Advanced Threat Protection resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the Advanced Threat Protection settings on a specified resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var advancedThreatProtection = new AzureNative.Security.V20190101.AdvancedThreatProtection("advancedThreatProtection", new()
+    ///     {
+    ///         IsEnabled = true,
+    ///         ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount",
+    ///         SettingName = "current",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20190101:AdvancedThreatProtection current /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Storage/storageAccounts/samplestorageaccount/providers/Microsoft.Security/advancedThreatProtectionSettings/current 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20190101:AdvancedThreatProtection")]
     public partial class AdvancedThreatProtection : global::Pulumi.CustomResource

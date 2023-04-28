@@ -218,6 +218,33 @@ class IpAllocation(pulumi.CustomResource):
         """
         IpAllocation resource.
 
+        ## Example Usage
+        ### Create IpAllocation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_allocation = azure_native.network.v20201101.IpAllocation("ipAllocation",
+            allocation_tags={
+                "VNetID": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1",
+            },
+            ip_allocation_name="test-ipallocation",
+            location="centraluseuap",
+            prefix="3.2.5.0/24",
+            resource_group_name="rg1",
+            type="Hypernet")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:IpAllocation test-ipallocation /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/IpAllocations/test-ipallocation 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] allocation_tags: IpAllocation tags.
@@ -240,6 +267,33 @@ class IpAllocation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IpAllocation resource.
+
+        ## Example Usage
+        ### Create IpAllocation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_allocation = azure_native.network.v20201101.IpAllocation("ipAllocation",
+            allocation_tags={
+                "VNetID": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1",
+            },
+            ip_allocation_name="test-ipallocation",
+            location="centraluseuap",
+            prefix="3.2.5.0/24",
+            resource_group_name="rg1",
+            type="Hypernet")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:IpAllocation test-ipallocation /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/IpAllocations/test-ipallocation 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IpAllocationArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * A failover group resource.
+ *
+ * ## Example Usage
+ * ### Create or update a failover group instance.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const failoverGroup = new azure_native.azurearcdata.v20230315preview.FailoverGroup("failoverGroup", {
+ *     failoverGroupName: "testFailoverGroupName",
+ *     properties: {
+ *         partnerManagedInstanceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/partnerMI",
+ *         spec: {
+ *             partnerSyncMode: "async",
+ *             role: "primary",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlManagedInstanceName: "testSqlManagedInstance",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata/v20230315preview:FailoverGroup testFailoverGroupName /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testSqlManagedInstance/failoverGroups/testFailoverGroupName 
+ * ```
  */
 export class FailoverGroup extends pulumi.CustomResource {
     /**

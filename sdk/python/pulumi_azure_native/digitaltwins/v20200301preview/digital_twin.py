@@ -120,6 +120,28 @@ class DigitalTwin(pulumi.CustomResource):
         """
         The description of the DigitalTwins service.
 
+        ## Example Usage
+        ### Put a DigitalTwinsInstance resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twin = azure_native.digitaltwins.v20200301preview.DigitalTwin("digitalTwin",
+            location="WestUS",
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins/v20200301preview:DigitalTwin myDigitalTwinsService /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/DigitalTwinsInstance/myDigitalTwinsService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The resource location.
@@ -136,6 +158,28 @@ class DigitalTwin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the DigitalTwins service.
+
+        ## Example Usage
+        ### Put a DigitalTwinsInstance resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twin = azure_native.digitaltwins.v20200301preview.DigitalTwin("digitalTwin",
+            location="WestUS",
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins/v20200301preview:DigitalTwin myDigitalTwinsService /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/DigitalTwinsInstance/myDigitalTwinsService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DigitalTwinArgs args: The arguments to use to populate this resource's properties.

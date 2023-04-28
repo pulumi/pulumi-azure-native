@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Security Partner Provider resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Security Partner Provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityPartnerProvider = new azure_native.network.SecurityPartnerProvider("securityPartnerProvider", {
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     securityPartnerProviderName: "securityPartnerProvider",
+ *     securityProviderName: "ZScaler",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualHub: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:SecurityPartnerProvider securityPartnerProvider /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/securityPartnerProviders/securityPartnerProvider 
+ * ```
  */
 export class SecurityPartnerProvider extends pulumi.CustomResource {
     /**

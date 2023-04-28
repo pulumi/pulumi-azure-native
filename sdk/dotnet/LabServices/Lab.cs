@@ -13,6 +13,87 @@ namespace Pulumi.AzureNative.LabServices
     /// The lab resource.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2018-10-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### putLab
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var lab = new AzureNative.LabServices.Lab("lab", new()
+    ///     {
+    ///         AutoShutdownProfile = new AzureNative.LabServices.Inputs.AutoShutdownProfileArgs
+    ///         {
+    ///             DisconnectDelay = "PT5M",
+    ///             IdleDelay = "PT5M",
+    ///             NoConnectDelay = "PT5M",
+    ///             ShutdownOnDisconnect = AzureNative.LabServices.EnableState.Enabled,
+    ///             ShutdownOnIdle = AzureNative.LabServices.ShutdownOnIdleMode.UserAbsence,
+    ///             ShutdownWhenNotConnected = AzureNative.LabServices.EnableState.Enabled,
+    ///         },
+    ///         ConnectionProfile = new AzureNative.LabServices.Inputs.ConnectionProfileArgs
+    ///         {
+    ///             ClientRdpAccess = AzureNative.LabServices.ConnectionType.Public,
+    ///             ClientSshAccess = AzureNative.LabServices.ConnectionType.Public,
+    ///             WebRdpAccess = AzureNative.LabServices.ConnectionType.None,
+    ///             WebSshAccess = AzureNative.LabServices.ConnectionType.None,
+    ///         },
+    ///         Description = "This is a test lab.",
+    ///         LabName = "testlab",
+    ///         LabPlanId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labPlans/testlabplan",
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.LabServices.Inputs.LabNetworkProfileArgs
+    ///         {
+    ///             SubnetId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         SecurityProfile = new AzureNative.LabServices.Inputs.SecurityProfileArgs
+    ///         {
+    ///             OpenAccess = AzureNative.LabServices.EnableState.Disabled,
+    ///         },
+    ///         Title = "Test Lab",
+    ///         VirtualMachineProfile = new AzureNative.LabServices.Inputs.VirtualMachineProfileArgs
+    ///         {
+    ///             AdditionalCapabilities = new AzureNative.LabServices.Inputs.VirtualMachineAdditionalCapabilitiesArgs
+    ///             {
+    ///                 InstallGpuDrivers = AzureNative.LabServices.EnableState.Disabled,
+    ///             },
+    ///             AdminUser = new AzureNative.LabServices.Inputs.CredentialsArgs
+    ///             {
+    ///                 Username = "test-user",
+    ///             },
+    ///             CreateOption = AzureNative.LabServices.CreateOption.TemplateVM,
+    ///             ImageReference = new AzureNative.LabServices.Inputs.ImageReferenceArgs
+    ///             {
+    ///                 Offer = "WindowsServer",
+    ///                 Publisher = "Microsoft",
+    ///                 Sku = "2019-Datacenter",
+    ///                 Version = "2019.0.20190410",
+    ///             },
+    ///             Sku = new AzureNative.LabServices.Inputs.SkuArgs
+    ///             {
+    ///                 Name = "Medium",
+    ///             },
+    ///             UsageQuota = "PT10H",
+    ///             UseSharedPassword = AzureNative.LabServices.EnableState.Disabled,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:labservices:Lab testlabplan /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labs/testlab 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices:Lab")]
     public partial class Lab : global::Pulumi.CustomResource

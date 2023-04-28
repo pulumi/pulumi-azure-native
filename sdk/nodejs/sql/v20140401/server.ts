@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server.
+ *
+ * ## Example Usage
+ * ### Create server max
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.sql.v20140401.Server("server", {
+ *     administratorLogin: "dummylogin",
+ *     administratorLoginPassword: "<administratorLoginPassword>",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverName: "sqlcrudtest-4645",
+ *     tags: {
+ *         tagKey1: "TagValue1",
+ *     },
+ *     version: "12.0",
+ * });
+ *
+ * ```
+ * ### Create server min
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.sql.v20140401.Server("server", {
+ *     administratorLogin: "dummylogin",
+ *     administratorLoginPassword: "<administratorLoginPassword>",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverName: "sqlcrudtest-4645",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20140401:Server sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645 
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

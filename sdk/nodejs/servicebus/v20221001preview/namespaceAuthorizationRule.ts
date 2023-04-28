@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
+ *
+ * ## Example Usage
+ * ### NameSpaceAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceAuthorizationRule = new azure_native.servicebus.v20221001preview.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
+ *     authorizationRuleName: "sdk-AuthRules-1788",
+ *     namespaceName: "sdk-Namespace-6914",
+ *     resourceGroupName: "ArunMonocle",
+ *     rights: [
+ *         azure_native.servicebus.v20221001preview.AccessRights.Listen,
+ *         azure_native.servicebus.v20221001preview.AccessRights.Send,
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule sdk-AuthRules-1788 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-6914/AuthorizationRules/sdk-AuthRules-1788 
+ * ```
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**

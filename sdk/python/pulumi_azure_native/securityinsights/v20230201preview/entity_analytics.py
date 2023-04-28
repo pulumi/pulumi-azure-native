@@ -114,6 +114,28 @@ class EntityAnalytics(pulumi.CustomResource):
         """
         Settings with single toggle.
 
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        entity_analytics = azure_native.securityinsights.v20230201preview.EntityAnalytics("entityAnalytics",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230201preview:EntityAnalytics EyesOn /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirInt/providers/Microsoft.SecurityInsights/settings/EyesOn 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'EntityProviders']]]] entity_providers: The relevant entity providers that are synced
@@ -131,6 +153,28 @@ class EntityAnalytics(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Settings with single toggle.
+
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        entity_analytics = azure_native.securityinsights.v20230201preview.EntityAnalytics("entityAnalytics",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230201preview:EntityAnalytics EyesOn /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirInt/providers/Microsoft.SecurityInsights/settings/EyesOn 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EntityAnalyticsArgs args: The arguments to use to populate this resource's properties.

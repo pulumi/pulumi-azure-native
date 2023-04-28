@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.HybridContainerService.V20220901Preview
 {
     /// <summary>
     /// The virtualNetworks resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutVirtualNetwork
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkRetrieve = new AzureNative.HybridContainerService.V20220901Preview.VirtualNetworkRetrieve("virtualNetworkRetrieve", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.HybridContainerService.V20220901Preview.Inputs.VirtualNetworksExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.HybridContainerService.V20220901Preview.Inputs.VirtualNetworksPropertiesArgs
+    ///         {
+    ///             InfraVnetProfile = new AzureNative.HybridContainerService.V20220901Preview.Inputs.VirtualNetworksPropertiesInfraVnetProfileArgs
+    ///             {
+    ///                 Hci = new AzureNative.HybridContainerService.V20220901Preview.Inputs.VirtualNetworksPropertiesHciArgs
+    ///                 {
+    ///                     MocGroup = "target-group",
+    ///                     MocLocation = "MocLocation",
+    ///                     MocVnetName = "test-vnet",
+    ///                 },
+    ///             },
+    ///             VipPool = new[]
+    ///             {
+    ///                 new AzureNative.HybridContainerService.V20220901Preview.Inputs.VirtualNetworksPropertiesVipPoolArgs
+    ///                 {
+    ///                     EndIP = "192.168.0.50",
+    ///                     StartIP = "192.168.0.10",
+    ///                 },
+    ///             },
+    ///             VmipPool = new[]
+    ///             {
+    ///                 new AzureNative.HybridContainerService.V20220901Preview.Inputs.VirtualNetworksPropertiesVmipPoolArgs
+    ///                 {
+    ///                     EndIP = "192.168.0.130",
+    ///                     StartIP = "192.168.0.110",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-arcappliance-resgrp",
+    ///         VirtualNetworksName = "test-vnet-static",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcontainerservice/v20220901preview:virtualNetworkRetrieve test-vnet-static /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/virtualNetworks/test-vnet-static 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcontainerservice/v20220901preview:virtualNetworkRetrieve")]
     public partial class VirtualNetworkRetrieve : global::Pulumi.CustomResource

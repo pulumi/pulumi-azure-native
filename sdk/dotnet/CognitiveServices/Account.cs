@@ -13,6 +13,93 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
     /// API Version: 2022-12-01.
     /// Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.CognitiveServices.Account("account", new()
+    ///     {
+    ///         AccountName = "testCreate1",
+    ///         Identity = new AzureNative.CognitiveServices.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.CognitiveServices.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Kind = "Emotion",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.AccountPropertiesArgs
+    ///         {
+    ///             Encryption = new AzureNative.CognitiveServices.Inputs.EncryptionArgs
+    ///             {
+    ///                 KeySource = "Microsoft.KeyVault",
+    ///                 KeyVaultProperties = new AzureNative.CognitiveServices.Inputs.KeyVaultPropertiesArgs
+    ///                 {
+    ///                     KeyName = "KeyName",
+    ///                     KeyVaultUri = "https://pltfrmscrts-use-pc-dev.vault.azure.net/",
+    ///                     KeyVersion = "891CF236-D241-4738-9462-D506AF493DFA",
+    ///                 },
+    ///             },
+    ///             UserOwnedStorage = new[]
+    ///             {
+    ///                 new AzureNative.CognitiveServices.Inputs.UserOwnedStorageArgs
+    ///                 {
+    ///                     ResourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.CognitiveServices.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Account Min
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.CognitiveServices.Account("account", new()
+    ///     {
+    ///         AccountName = "testCreate1",
+    ///         Identity = new AzureNative.CognitiveServices.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.CognitiveServices.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Kind = "CognitiveServices",
+    ///         Location = "West US",
+    ///         Properties = null,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.CognitiveServices.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:Account testCreate1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.CognitiveServices/accounts/testCreate1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Account")]
     public partial class Account : global::Pulumi.CustomResource

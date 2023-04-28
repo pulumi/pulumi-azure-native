@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
 {
     /// <summary>
     /// Certificate resource payload.
+    /// 
+    /// ## Example Usage
+    /// ### Certificates_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.AppPlatform.V20200701.Certificate("certificate", new()
+    ///     {
+    ///         CertificateName = "mycertificate",
+    ///         Properties = new AzureNative.AppPlatform.V20200701.Inputs.CertificatePropertiesArgs
+    ///         {
+    ///             CertVersion = "08a219d06d874795a96db47e06fbb01e",
+    ///             KeyVaultCertName = "mycert",
+    ///             VaultUri = "https://myvault.vault.azure.net",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20200701:Certificate mycertificate /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycertificate 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20200701:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

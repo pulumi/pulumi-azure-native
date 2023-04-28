@@ -128,6 +128,44 @@ class IPv6FirewallRule(pulumi.CustomResource):
         """
         An IPv6 server firewall rule.
 
+        ## Example Usage
+        ### Create an IPv6 firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        i_pv6_firewall_rule = azure_native.sql.v20220801preview.IPv6FirewallRule("iPv6FirewallRule",
+            end_i_pv6_address="0000:0000:0000:0000:0000:ffff:0000:0003",
+            firewall_rule_name="firewallrulecrudtest-5370",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_i_pv6_address="0000:0000:0000:0000:0000:ffff:0000:0003")
+
+        ```
+        ### Update an IPv6 firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        i_pv6_firewall_rule = azure_native.sql.v20220801preview.IPv6FirewallRule("iPv6FirewallRule",
+            end_i_pv6_address="0000:0000:0000:0000:0000:ffff:0000:0001",
+            firewall_rule_name="firewallrulecrudtest-3927",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_i_pv6_address="0000:0000:0000:0000:0000:ffff:0000:0001")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:IPv6FirewallRule firewallrulecrudtest-3927 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.Sql/servers/firewallrulecrudtest-6285/ipv6FirewallRules/firewallrulecrudtest-3927 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_i_pv6_address: The end IP address of the firewall rule. Must be IPv6 format. Must be greater than or equal to startIpAddress.
@@ -145,6 +183,44 @@ class IPv6FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An IPv6 server firewall rule.
+
+        ## Example Usage
+        ### Create an IPv6 firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        i_pv6_firewall_rule = azure_native.sql.v20220801preview.IPv6FirewallRule("iPv6FirewallRule",
+            end_i_pv6_address="0000:0000:0000:0000:0000:ffff:0000:0003",
+            firewall_rule_name="firewallrulecrudtest-5370",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_i_pv6_address="0000:0000:0000:0000:0000:ffff:0000:0003")
+
+        ```
+        ### Update an IPv6 firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        i_pv6_firewall_rule = azure_native.sql.v20220801preview.IPv6FirewallRule("iPv6FirewallRule",
+            end_i_pv6_address="0000:0000:0000:0000:0000:ffff:0000:0001",
+            firewall_rule_name="firewallrulecrudtest-3927",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_i_pv6_address="0000:0000:0000:0000:0000:ffff:0000:0001")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:IPv6FirewallRule firewallrulecrudtest-3927 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.Sql/servers/firewallrulecrudtest-6285/ipv6FirewallRules/firewallrulecrudtest-3927 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IPv6FirewallRuleArgs args: The arguments to use to populate this resource's properties.

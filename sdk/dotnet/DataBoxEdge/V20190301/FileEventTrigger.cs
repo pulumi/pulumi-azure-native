@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20190301
 {
     /// <summary>
     /// Trigger details.
+    /// 
+    /// ## Example Usage
+    /// ### TriggerPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileEventTrigger = new AzureNative.DataBoxEdge.V20190301.FileEventTrigger("fileEventTrigger", new()
+    ///     {
+    ///         CustomContextTag = "CustomContextTags-1235346475",
+    ///         DeviceName = "testedgedevice",
+    ///         Kind = "FileEvent",
+    ///         Name = "trigger1",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         SinkInfo = new AzureNative.DataBoxEdge.V20190301.Inputs.RoleSinkInfoArgs
+    ///         {
+    ///             RoleId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/role1",
+    ///         },
+    ///         SourceInfo = new AzureNative.DataBoxEdge.V20190301.Inputs.FileSourceInfoArgs
+    ///         {
+    ///             ShareId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/shares/share1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20190301:FileEventTrigger trigger1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/triggers/trigger1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20190301:FileEventTrigger")]
     public partial class FileEventTrigger : global::Pulumi.CustomResource

@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.Compute.V20220303
 {
     /// <summary>
     /// Specifies information about the gallery Application Definition that you want to create or update.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple gallery Application.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var galleryApplication = new AzureNative.Compute.V20220303.GalleryApplication("galleryApplication", new()
+    ///     {
+    ///         CustomActions = new[]
+    ///         {
+    ///             new AzureNative.Compute.V20220303.Inputs.GalleryApplicationCustomActionArgs
+    ///             {
+    ///                 Description = "This is the custom action description.",
+    ///                 Name = "myCustomAction",
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new AzureNative.Compute.V20220303.Inputs.GalleryApplicationCustomActionParameterArgs
+    ///                     {
+    ///                         DefaultValue = "default value of parameter.",
+    ///                         Description = "This is the description of the parameter",
+    ///                         Name = "myCustomActionParameter",
+    ///                         Required = false,
+    ///                         Type = AzureNative.Compute.V20220303.GalleryApplicationCustomActionParameterType.String,
+    ///                     },
+    ///                 },
+    ///                 Script = "myCustomActionScript",
+    ///             },
+    ///         },
+    ///         Description = "This is the gallery application description.",
+    ///         Eula = "This is the gallery application EULA.",
+    ///         GalleryApplicationName = "myGalleryApplicationName",
+    ///         GalleryName = "myGalleryName",
+    ///         Location = "West US",
+    ///         PrivacyStatementUri = "myPrivacyStatementUri}",
+    ///         ReleaseNoteUri = "myReleaseNoteUri",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SupportedOSType = AzureNative.Compute.V20220303.OperatingSystemTypes.Windows,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20220303:GalleryApplication myGalleryApplicationName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/applications/myGalleryApplicationName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20220303:GalleryApplication")]
     public partial class GalleryApplication : global::Pulumi.CustomResource

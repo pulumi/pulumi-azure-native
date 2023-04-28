@@ -99,6 +99,59 @@ class ManagementPolicy(pulumi.CustomResource):
         """
         The Get Storage Account ManagementPolicies operation response.
 
+        ## Example Usage
+        ### StorageAccountSetManagementPolicies
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_policy = azure_native.storage.v20180301preview.ManagementPolicy("managementPolicy",
+            account_name="sto9699",
+            management_policy_name="default",
+            policy={
+                "rules": [{
+                    "definition": {
+                        "actions": {
+                            "baseBlob": {
+                                "delete": {
+                                    "daysAfterModificationGreaterThan": 1000,
+                                },
+                                "tierToArchive": {
+                                    "daysAfterModificationGreaterThan": 90,
+                                },
+                                "tierToCool": {
+                                    "daysAfterModificationGreaterThan": 30,
+                                },
+                            },
+                            "snapshot": {
+                                "delete": {
+                                    "daysAfterCreationGreaterThan": 30,
+                                },
+                            },
+                        },
+                        "filters": {
+                            "blobTypes": ["blockBlob"],
+                            "prefixMatch": ["olcmtestcontainer"],
+                        },
+                    },
+                    "name": "olcmtest",
+                    "type": "Lifecycle",
+                }],
+                "version": "0.5",
+            },
+            resource_group_name="res7687")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20180301preview:ManagementPolicy DefaultManagementPolicy /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.Storage/storageAccounts/sto288/managementPolicies/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -114,6 +167,59 @@ class ManagementPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Get Storage Account ManagementPolicies operation response.
+
+        ## Example Usage
+        ### StorageAccountSetManagementPolicies
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_policy = azure_native.storage.v20180301preview.ManagementPolicy("managementPolicy",
+            account_name="sto9699",
+            management_policy_name="default",
+            policy={
+                "rules": [{
+                    "definition": {
+                        "actions": {
+                            "baseBlob": {
+                                "delete": {
+                                    "daysAfterModificationGreaterThan": 1000,
+                                },
+                                "tierToArchive": {
+                                    "daysAfterModificationGreaterThan": 90,
+                                },
+                                "tierToCool": {
+                                    "daysAfterModificationGreaterThan": 30,
+                                },
+                            },
+                            "snapshot": {
+                                "delete": {
+                                    "daysAfterCreationGreaterThan": 30,
+                                },
+                            },
+                        },
+                        "filters": {
+                            "blobTypes": ["blockBlob"],
+                            "prefixMatch": ["olcmtestcontainer"],
+                        },
+                    },
+                    "name": "olcmtest",
+                    "type": "Lifecycle",
+                }],
+                "version": "0.5",
+            },
+            resource_group_name="res7687")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20180301preview:ManagementPolicy DefaultManagementPolicy /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.Storage/storageAccounts/sto288/managementPolicies/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20180301Preview
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
+    /// 
+    /// ## Example Usage
+    /// ### Create Workspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.MachineLearningServices.V20180301Preview.Workspace("workspace", new()
+    ///     {
+    ///         ApplicationInsights = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+    ///         BatchaiWorkspace = "/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/workspace-1234/providers/Microsoft.BatchAI/workspaces/testBatchAIWorkspace",
+    ///         ContainerRegistry = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+    ///         Description = "test description",
+    ///         FriendlyName = "HelloName",
+    ///         Identity = new AzureNative.MachineLearningServices.V20180301Preview.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.MachineLearningServices.V20180301Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         KeyVault = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+    ///         Location = "eastus2euap",
+    ///         ResourceGroupName = "workspace-1234",
+    ///         StorageAccount = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20180301preview:Workspace testworkspace /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:machinelearningservices/v20180301preview:Workspace")]

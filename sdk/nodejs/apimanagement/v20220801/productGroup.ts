@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateProductGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const productGroup = new azure_native.apimanagement.v20220801.ProductGroup("productGroup", {
+ *     groupId: "templateGroup",
+ *     productId: "testproduct",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:ProductGroup templateGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/groups/templateGroup 
+ * ```
  */
 export class ProductGroup extends pulumi.CustomResource {
     /**

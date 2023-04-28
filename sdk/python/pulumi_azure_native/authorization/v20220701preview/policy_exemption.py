@@ -217,6 +217,65 @@ class PolicyExemption(pulumi.CustomResource):
         """
         The policy exemption.
 
+        ## Example Usage
+        ### Create or update a policy exemption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_exemption = azure_native.authorization.v20220701preview.PolicyExemption("policyExemption",
+            description="Exempt demo cluster from limit sku",
+            display_name="Exempt demo cluster",
+            exemption_category="Waiver",
+            metadata={
+                "reason": "Temporary exemption for a expensive VM demo",
+            },
+            policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+            policy_definition_reference_ids=["Limit_Skus"],
+            policy_exemption_name="DemoExpensiveVM",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")
+
+        ```
+        ### Create or update a policy exemption with resource selectors
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_exemption = azure_native.authorization.v20220701preview.PolicyExemption("policyExemption",
+            assignment_scope_validation="Default",
+            description="Exempt demo cluster from limit sku",
+            display_name="Exempt demo cluster",
+            exemption_category="Waiver",
+            metadata={
+                "reason": "Temporary exemption for a expensive VM demo",
+            },
+            policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+            policy_definition_reference_ids=["Limit_Skus"],
+            policy_exemption_name="DemoExpensiveVM",
+            resource_selectors=[{
+                "name": "SDPRegions",
+                "selectors": [azure_native.authorization.v20220701preview.SelectorArgs(
+                    in_=[
+                        "eastus2euap",
+                        "centraluseuap",
+                    ],
+                    kind="resourceLocation",
+                )],
+            }],
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220701preview:PolicyExemption DemoExpensiveVM /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster/providers/Microsoft.Authorization/policyExemptions/DemoExpensiveVM 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AssignmentScopeValidation']] assignment_scope_validation: The option whether validate the exemption is at or under the assignment scope.
@@ -239,6 +298,65 @@ class PolicyExemption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy exemption.
+
+        ## Example Usage
+        ### Create or update a policy exemption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_exemption = azure_native.authorization.v20220701preview.PolicyExemption("policyExemption",
+            description="Exempt demo cluster from limit sku",
+            display_name="Exempt demo cluster",
+            exemption_category="Waiver",
+            metadata={
+                "reason": "Temporary exemption for a expensive VM demo",
+            },
+            policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+            policy_definition_reference_ids=["Limit_Skus"],
+            policy_exemption_name="DemoExpensiveVM",
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")
+
+        ```
+        ### Create or update a policy exemption with resource selectors
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_exemption = azure_native.authorization.v20220701preview.PolicyExemption("policyExemption",
+            assignment_scope_validation="Default",
+            description="Exempt demo cluster from limit sku",
+            display_name="Exempt demo cluster",
+            exemption_category="Waiver",
+            metadata={
+                "reason": "Temporary exemption for a expensive VM demo",
+            },
+            policy_assignment_id="/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+            policy_definition_reference_ids=["Limit_Skus"],
+            policy_exemption_name="DemoExpensiveVM",
+            resource_selectors=[{
+                "name": "SDPRegions",
+                "selectors": [azure_native.authorization.v20220701preview.SelectorArgs(
+                    in_=[
+                        "eastus2euap",
+                        "centraluseuap",
+                    ],
+                    kind="resourceLocation",
+                )],
+            }],
+            scope="subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220701preview:PolicyExemption DemoExpensiveVM /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster/providers/Microsoft.Authorization/policyExemptions/DemoExpensiveVM 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyExemptionArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * A cluster resource
  * API Version: 2022-05-01.
  * Previous API Version: 2020-03-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Clusters_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.avs.Cluster("cluster", {
+ *     clusterName: "cluster1",
+ *     clusterSize: 3,
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     sku: {
+ *         name: "AV20",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

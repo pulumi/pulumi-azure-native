@@ -9,6 +9,52 @@ import * as utilities from "../../utilities";
 
 /**
  * Schema for MSIX Package properties.
+ *
+ * ## Example Usage
+ * ### MSIXPackage_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const msixPackage = new azure_native.desktopvirtualization.v20221014preview.MSIXPackage("msixPackage", {
+ *     displayName: "displayname",
+ *     hostPoolName: "hostpool1",
+ *     imagePath: "imagepath",
+ *     isActive: false,
+ *     isRegularRegistration: false,
+ *     lastUpdated: "2008-09-22T14:01:54.9571247Z",
+ *     msixPackageFullName: "msixpackagefullname",
+ *     packageApplications: [{
+ *         appId: "ApplicationId",
+ *         appUserModelID: "AppUserModelId",
+ *         description: "application-desc",
+ *         friendlyName: "friendlyname",
+ *         iconImageName: "Apptile",
+ *         rawIcon: "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+ *         rawPng: "VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+ *     }],
+ *     packageDependencies: [{
+ *         dependencyName: "MsixTest_Dependency_Name",
+ *         minVersion: "version",
+ *         publisher: "PublishedName",
+ *     }],
+ *     packageFamilyName: "MsixPackage_FamilyName",
+ *     packageName: "MsixPackage_name",
+ *     packageRelativePath: "packagerelativepath",
+ *     resourceGroupName: "resourceGroup1",
+ *     version: "version",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization/v20221014preview:MSIXPackage hostpool1/MsixPackageFullName /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourcegroups/resourcegroup1/providers/Microsoft.DesktopVirtualization/hostpools/hostpool1/msixpackages/msixPackageFullName 
+ * ```
  */
 export class MSIXPackage extends pulumi.CustomResource {
     /**

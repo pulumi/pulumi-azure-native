@@ -9,6 +9,59 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Watchlist in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Creates or updates a watchlist and bulk creates watchlist items.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const watchlist = new azure_native.securityinsights.v20230401preview.Watchlist("watchlist", {
+ *     contentType: "text/csv",
+ *     description: "Watchlist from CSV content",
+ *     displayName: "High Value Assets Watchlist",
+ *     itemsSearchKey: "header1",
+ *     numberOfLinesToSkip: 1,
+ *     provider: "Microsoft",
+ *     rawContent: `This line will be skipped
+ * header1,header2
+ * value1,value2`,
+ *     resourceGroupName: "myRg",
+ *     source: "watchlist.csv",
+ *     sourceType: "Local file",
+ *     watchlistAlias: "highValueAsset",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a watchlist.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const watchlist = new azure_native.securityinsights.v20230401preview.Watchlist("watchlist", {
+ *     description: "Watchlist from CSV content",
+ *     displayName: "High Value Assets Watchlist",
+ *     itemsSearchKey: "header1",
+ *     provider: "Microsoft",
+ *     resourceGroupName: "myRg",
+ *     source: "watchlist.csv",
+ *     sourceType: "Local file",
+ *     watchlistAlias: "highValueAsset",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:Watchlist highValueAsset /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/watchlists/highValueAsset 
+ * ```
  */
 export class Watchlist extends pulumi.CustomResource {
     /**

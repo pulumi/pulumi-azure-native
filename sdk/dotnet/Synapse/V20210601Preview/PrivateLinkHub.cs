@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
     /// <summary>
     /// A privateLinkHub
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a privateLinkHub
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkHub = new AzureNative.Synapse.V20210601Preview.PrivateLinkHub("privateLinkHub", new()
+    ///     {
+    ///         Location = "East US",
+    ///         PrivateLinkHubName = "privateLinkHub1",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210601preview:PrivateLinkHub privateLinkHub1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/privateLinkHubs/privateLinkHub1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:PrivateLinkHub")]
     public partial class PrivateLinkHub : global::Pulumi.CustomResource

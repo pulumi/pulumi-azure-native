@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.PowerPlatform
     /// Definition of the EnterprisePolicy.
     /// API Version: 2020-10-30-preview.
     /// Previous API Version: 2020-10-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update EnterprisePolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var enterprisePolicy = new AzureNative.PowerPlatform.EnterprisePolicy("enterprisePolicy", new()
+    ///     {
+    ///         EnterprisePolicyName = "enterprisePolicy",
+    ///         Identity = new AzureNative.PowerPlatform.Inputs.EnterprisePolicyIdentityArgs
+    ///         {
+    ///             Type = AzureNative.PowerPlatform.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Kind = "Lockbox",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Organization", "Administration" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:powerplatform:EnterprisePolicy enterprisePolicy /subscriptions/subid/resourceGroups/resourceGroup/providers/Microsoft.PowerPlatform/enterprisePolicies/enterprisePolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:powerplatform:EnterprisePolicy")]
     public partial class EnterprisePolicy : global::Pulumi.CustomResource

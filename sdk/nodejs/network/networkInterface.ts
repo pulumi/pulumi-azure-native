@@ -11,6 +11,66 @@ import * as utilities from "../utilities";
  * A network interface in a resource group.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create network interface
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkInterface = new azure_native.network.NetworkInterface("networkInterface", {
+ *     disableTcpStateTracking: true,
+ *     enableAcceleratedNetworking: true,
+ *     ipConfigurations: [{
+ *         name: "ipconfig1",
+ *         publicIPAddress: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+ *         },
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+ *         },
+ *     }],
+ *     location: "eastus",
+ *     networkInterfaceName: "test-nic",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### Create network interface with Gateway Load Balancer Consumer configured
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkInterface = new azure_native.network.NetworkInterface("networkInterface", {
+ *     enableAcceleratedNetworking: true,
+ *     ipConfigurations: [{
+ *         gatewayLoadBalancer: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb-provider",
+ *         },
+ *         name: "ipconfig1",
+ *         publicIPAddress: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+ *         },
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+ *         },
+ *     }],
+ *     location: "eastus",
+ *     networkInterfaceName: "test-nic",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:NetworkInterface test-nic /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic 
+ * ```
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**

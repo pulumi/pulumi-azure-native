@@ -9,6 +9,104 @@ import * as utilities from "../../utilities";
 
 /**
  * BaseBackupPolicy resource
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate BackupPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const backupPolicy = new azure_native.dataprotection.v20210101.BackupPolicy("backupPolicy", {
+ *     backupPolicyName: "OSSDBPolicy",
+ *     properties: {
+ *         datasourceTypes: ["OssDB"],
+ *         objectType: "BackupPolicy",
+ *         policyRules: [
+ *             {
+ *                 backupParameters: {
+ *                     backupType: "Full",
+ *                     objectType: "AzureBackupParams",
+ *                 },
+ *                 dataStore: {
+ *                     dataStoreType: "VaultStore",
+ *                     objectType: "DataStoreInfoBase",
+ *                 },
+ *                 name: "BackupWeekly",
+ *                 objectType: "AzureBackupRule",
+ *                 trigger: {
+ *                     objectType: "ScheduleBasedTriggerContext",
+ *                     schedule: {
+ *                         repeatingTimeIntervals: ["R/2019-11-20T08:00:00-08:00/P1W"],
+ *                     },
+ *                     taggingCriteria: [
+ *                         {
+ *                             isDefault: true,
+ *                             tagInfo: {
+ *                                 tagName: "Default",
+ *                             },
+ *                             taggingPriority: 99,
+ *                         },
+ *                         {
+ *                             criteria: [{
+ *                                 daysOfTheWeek: ["Sunday"],
+ *                                 objectType: "ScheduleBasedBackupCriteria",
+ *                                 scheduleTimes: ["2019-03-01T13:00:00Z"],
+ *                             }],
+ *                             isDefault: false,
+ *                             tagInfo: {
+ *                                 tagName: "Weekly",
+ *                             },
+ *                             taggingPriority: 20,
+ *                         },
+ *                     ],
+ *                 },
+ *             },
+ *             {
+ *                 isDefault: true,
+ *                 lifecycles: [{
+ *                     deleteAfter: {
+ *                         duration: "P1W",
+ *                         objectType: "AbsoluteDeleteOption",
+ *                     },
+ *                     sourceDataStore: {
+ *                         dataStoreType: "VaultStore",
+ *                         objectType: "DataStoreInfoBase",
+ *                     },
+ *                 }],
+ *                 name: "Default",
+ *                 objectType: "AzureRetentionRule",
+ *             },
+ *             {
+ *                 isDefault: false,
+ *                 lifecycles: [{
+ *                     deleteAfter: {
+ *                         duration: "P12W",
+ *                         objectType: "AbsoluteDeleteOption",
+ *                     },
+ *                     sourceDataStore: {
+ *                         dataStoreType: "VaultStore",
+ *                         objectType: "DataStoreInfoBase",
+ *                     },
+ *                 }],
+ *                 name: "Weekly",
+ *                 objectType: "AzureRetentionRule",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "000pikumar",
+ *     vaultName: "PrivatePreviewVault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dataprotection/v20210101:BackupPolicy OSSDBPolicy /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/backupVaults/PrivatePreviewVault/backupPolicies/OSSDBPolicy 
+ * ```
  */
 export class BackupPolicy extends pulumi.CustomResource {
     /**

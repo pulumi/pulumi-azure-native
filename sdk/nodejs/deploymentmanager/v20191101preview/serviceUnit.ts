@@ -9,6 +9,60 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents the response of a service unit resource.
+ *
+ * ## Example Usage
+ * ### Create service unit using SAS URIs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceUnit = new azure_native.deploymentmanager.v20191101preview.ServiceUnit("serviceUnit", {
+ *     artifacts: {
+ *         parametersUri: `https://mystorageaccount.blob.core.windows.net/myartifactsource/parameter/myTopologyUnit.parameters.json?st=2018-07-07T14%3A10%3A00Z&se=2019-12-31T15%3A10%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D`,
+ *         templateUri: `https://mystorageaccount.blob.core.windows.net/myartifactsource/templates/myTopologyUnit.template.json?st=2018-07-07T14%3A10%3A00Z&se=2019-12-31T15%3A10%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D`,
+ *     },
+ *     deploymentMode: azure_native.deploymentmanager.v20191101preview.DeploymentMode.Incremental,
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myService",
+ *     serviceTopologyName: "myTopology",
+ *     serviceUnitName: "myServiceUnit",
+ *     tags: {},
+ *     targetResourceGroup: "myDeploymentResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create service unit using relative paths into the artifact source
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceUnit = new azure_native.deploymentmanager.v20191101preview.ServiceUnit("serviceUnit", {
+ *     artifacts: {
+ *         parametersArtifactSourceRelativePath: "parameter/myTopologyUnit.parameters.json",
+ *         templateArtifactSourceRelativePath: "templates/myTopologyUnit.template.json",
+ *     },
+ *     deploymentMode: azure_native.deploymentmanager.v20191101preview.DeploymentMode.Incremental,
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myService",
+ *     serviceTopologyName: "myTopology",
+ *     serviceUnitName: "myServiceUnit",
+ *     tags: {},
+ *     targetResourceGroup: "myDeploymentResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deploymentmanager/v20191101preview:ServiceUnit myServiceUnit /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/serviceTopologies/{serviceTopologyName}/services/{serviceName}/serviceUnits/{serviceUnitName} 
+ * ```
  */
 export class ServiceUnit extends pulumi.CustomResource {
     /**

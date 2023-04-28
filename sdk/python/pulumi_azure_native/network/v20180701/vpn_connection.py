@@ -199,6 +199,32 @@ class VpnConnection(pulumi.CustomResource):
         """
         VpnConnection Resource.
 
+        ## Example Usage
+        ### VpnConnectionPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_connection = azure_native.network.v20180701.VpnConnection("vpnConnection",
+            connection_name="vpnConnection1",
+            gateway_name="gateway1",
+            remote_vpn_site=azure_native.network.v20180701.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+            ),
+            resource_group_name="rg1",
+            shared_key="key")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180701:VpnConnection vpnConnection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: The name of the connection.
@@ -220,6 +246,32 @@ class VpnConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnConnection Resource.
+
+        ## Example Usage
+        ### VpnConnectionPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_connection = azure_native.network.v20180701.VpnConnection("vpnConnection",
+            connection_name="vpnConnection1",
+            gateway_name="gateway1",
+            remote_vpn_site=azure_native.network.v20180701.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+            ),
+            resource_group_name="rg1",
+            shared_key="key")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180701:VpnConnection vpnConnection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionInitArgs args: The arguments to use to populate this resource's properties.

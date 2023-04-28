@@ -202,6 +202,37 @@ class NatGateway(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create nat gateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nat_gateway = azure_native.network.NatGateway("natGateway",
+            location="westus",
+            nat_gateway_name="test-natgateway",
+            public_ip_addresses=[azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+            )],
+            public_ip_prefixes=[azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+            )],
+            resource_group_name="rg1",
+            sku=azure_native.network.NatGatewaySkuArgs(
+                name="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:NatGateway test-natGateway /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/natGateways/test-natGateway 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -225,6 +256,37 @@ class NatGateway(pulumi.CustomResource):
         Nat Gateway resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create nat gateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nat_gateway = azure_native.network.NatGateway("natGateway",
+            location="westus",
+            nat_gateway_name="test-natgateway",
+            public_ip_addresses=[azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+            )],
+            public_ip_prefixes=[azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+            )],
+            resource_group_name="rg1",
+            sku=azure_native.network.NatGatewaySkuArgs(
+                name="Standard",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:NatGateway test-natGateway /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/natGateways/test-natGateway 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NatGatewayInitArgs args: The arguments to use to populate this resource's properties.

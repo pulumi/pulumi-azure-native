@@ -10,6 +10,34 @@ import * as utilities from "../../utilities";
 /**
  * Single item in a List or Get AuthorizationRule operation
  *
+ * ## Example Usage
+ * ### EventHubAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventHubAuthorizationRule = new azure_native.eventhub.v20150801.EventHubAuthorizationRule("eventHubAuthorizationRule", {
+ *     authorizationRuleName: "sdk-Authrules9261",
+ *     eventHubName: "sdk-EventHub8887",
+ *     namespaceName: "sdk-Namespace2290",
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ *     rights: [
+ *         azure_native.eventhub.v20150801.AccessRights.Listen,
+ *         azure_native.eventhub.v20150801.AccessRights.Send,
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub/v20150801:EventHubAuthorizationRule sdk-Authrules9261 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace2290/eventhubs/sdk-EventHub8887/authorizationRules/sdk-Authrules9261 
+ * ```
+ *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class EventHubAuthorizationRule extends pulumi.CustomResource {

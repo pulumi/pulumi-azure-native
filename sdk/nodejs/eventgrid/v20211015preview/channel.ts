@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Channel info.
+ *
+ * ## Example Usage
+ * ### Channels_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const channel = new azure_native.eventgrid.v20211015preview.Channel("channel", {
+ *     channelName: "exampleChannelName1",
+ *     channelType: "PartnerTopic",
+ *     expirationTimeIfNotActivatedUtc: "2021-10-21T22:50:25.410433Z",
+ *     messageForActivation: "Example message to approver",
+ *     partnerNamespaceName: "examplePartnerNamespaceName1",
+ *     partnerTopicInfo: {
+ *         azureSubscriptionId: "5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+ *         name: "examplePartnerTopic1",
+ *         resourceGroupName: "examplerg2",
+ *         source: "ContosoCorp.Accounts.User1",
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid/v20211015preview:Channel exampleChannelName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerNamespaces/examplePartnerNamespaceName1/changes/exampleChannelName1 
+ * ```
  */
 export class Channel extends pulumi.CustomResource {
     /**

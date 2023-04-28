@@ -9,6 +9,290 @@ import * as utilities from "../../utilities";
 
 /**
  * Agent Pool.
+ *
+ * ## Example Usage
+ * ### Create Agent Pool with EncryptionAtHost enabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     enableEncryptionAtHost: true,
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_DS2_v2",
+ * });
+ *
+ * ```
+ * ### Create Agent Pool with Ephemeral OS Disk
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     orchestratorVersion: "",
+ *     osDiskSizeGB: 64,
+ *     osDiskType: "Ephemeral",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_DS2_v2",
+ * });
+ *
+ * ```
+ * ### Create Agent Pool with FIPS enabled OS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     enableFIPS: true,
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_DS2_v2",
+ * });
+ *
+ * ```
+ * ### Create Agent Pool with GPUMIG
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     gpuInstanceProfile: "MIG2g",
+ *     kubeletConfig: {
+ *         allowedUnsafeSysctls: [
+ *             "kernel.msg*",
+ *             "net.core.somaxconn",
+ *         ],
+ *         cpuCfsQuota: true,
+ *         cpuCfsQuotaPeriod: "200ms",
+ *         cpuManagerPolicy: "static",
+ *         failSwapOn: false,
+ *         imageGcHighThreshold: 90,
+ *         imageGcLowThreshold: 70,
+ *         topologyManagerPolicy: "best-effort",
+ *     },
+ *     linuxOSConfig: {
+ *         swapFileSizeMB: 1500,
+ *         sysctls: {
+ *             kernelThreadsMax: 99999,
+ *             netCoreWmemDefault: 12345,
+ *             netIpv4IpLocalPortRange: "20000 60000",
+ *             netIpv4TcpTwReuse: true,
+ *         },
+ *         transparentHugePageDefrag: "madvise",
+ *         transparentHugePageEnabled: "always",
+ *     },
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_ND96asr_v4",
+ * });
+ *
+ * ```
+ * ### Create Agent Pool with KubeletConfig and LinuxOSConfig
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     kubeletConfig: {
+ *         allowedUnsafeSysctls: [
+ *             "kernel.msg*",
+ *             "net.core.somaxconn",
+ *         ],
+ *         cpuCfsQuota: true,
+ *         cpuCfsQuotaPeriod: "200ms",
+ *         cpuManagerPolicy: "static",
+ *         failSwapOn: false,
+ *         imageGcHighThreshold: 90,
+ *         imageGcLowThreshold: 70,
+ *         topologyManagerPolicy: "best-effort",
+ *     },
+ *     linuxOSConfig: {
+ *         swapFileSizeMB: 1500,
+ *         sysctls: {
+ *             kernelThreadsMax: 99999,
+ *             netCoreWmemDefault: 12345,
+ *             netIpv4IpLocalPortRange: "20000 60000",
+ *             netIpv4TcpTwReuse: true,
+ *         },
+ *         transparentHugePageDefrag: "madvise",
+ *         transparentHugePageEnabled: "always",
+ *     },
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_DS2_v2",
+ * });
+ *
+ * ```
+ * ### Create Agent Pool with OSSKU
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     kubeletConfig: {
+ *         allowedUnsafeSysctls: [
+ *             "kernel.msg*",
+ *             "net.core.somaxconn",
+ *         ],
+ *         cpuCfsQuota: true,
+ *         cpuCfsQuotaPeriod: "200ms",
+ *         cpuManagerPolicy: "static",
+ *         failSwapOn: false,
+ *         imageGcHighThreshold: 90,
+ *         imageGcLowThreshold: 70,
+ *         topologyManagerPolicy: "best-effort",
+ *     },
+ *     linuxOSConfig: {
+ *         swapFileSizeMB: 1500,
+ *         sysctls: {
+ *             kernelThreadsMax: 99999,
+ *             netCoreWmemDefault: 12345,
+ *             netIpv4IpLocalPortRange: "20000 60000",
+ *             netIpv4TcpTwReuse: true,
+ *         },
+ *         transparentHugePageDefrag: "madvise",
+ *         transparentHugePageEnabled: "always",
+ *     },
+ *     orchestratorVersion: "",
+ *     osSKU: "CBLMariner",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_DS2_v2",
+ * });
+ *
+ * ```
+ * ### Create Agent Pool with PPG
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     proximityPlacementGroupID: "/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     vmSize: "Standard_DS2_v2",
+ * });
+ *
+ * ```
+ * ### Create Spot Agent Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     nodeLabels: {
+ *         key1: "val1",
+ *     },
+ *     nodeTaints: ["Key1=Value1:NoSchedule"],
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     scaleSetEvictionPolicy: "Delete",
+ *     scaleSetPriority: "Spot",
+ *     tags: {
+ *         name1: "val1",
+ *     },
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ *
+ * ```
+ * ### Create/Update Agent Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     mode: "User",
+ *     nodeLabels: {
+ *         key1: "val1",
+ *     },
+ *     nodeTaints: ["Key1=Value1:NoSchedule"],
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     scaleSetEvictionPolicy: "Delete",
+ *     scaleSetPriority: "Spot",
+ *     tags: {
+ *         name1: "val1",
+ *     },
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ *
+ * ```
+ * ### Update Agent Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerservice.v20210301.AgentPool("agentPool", {
+ *     agentPoolName: "agentpool1",
+ *     count: 3,
+ *     enableAutoScaling: true,
+ *     maxCount: 2,
+ *     minCount: 2,
+ *     nodeTaints: ["Key1=Value1:NoSchedule"],
+ *     orchestratorVersion: "",
+ *     osType: "Linux",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     scaleSetEvictionPolicy: "Delete",
+ *     scaleSetPriority: "Spot",
+ *     vmSize: "Standard_DS1_v2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20210301:AgentPool agentpool1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/agentPools/agentpool1 
+ * ```
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

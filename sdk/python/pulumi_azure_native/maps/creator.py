@@ -131,6 +131,35 @@ class Creator(pulumi.CustomResource):
         API Version: 2021-02-01.
         Previous API Version: 2020-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Creator Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        creator = azure_native.maps.Creator("creator",
+            account_name="myMapsAccount",
+            creator_name="myCreator",
+            location="eastus2",
+            properties=azure_native.maps.CreatorPropertiesArgs(
+                storage_units=5,
+            ),
+            resource_group_name="myResourceGroup",
+            tags={
+                "test": "true",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maps:Creator myCreator /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount/creators/myCreator 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Maps Account.
@@ -150,6 +179,35 @@ class Creator(pulumi.CustomResource):
         An Azure resource which represents Maps Creator product and provides ability to manage private location data.
         API Version: 2021-02-01.
         Previous API Version: 2020-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Creator Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        creator = azure_native.maps.Creator("creator",
+            account_name="myMapsAccount",
+            creator_name="myCreator",
+            location="eastus2",
+            properties=azure_native.maps.CreatorPropertiesArgs(
+                storage_units=5,
+            ),
+            resource_group_name="myResourceGroup",
+            tags={
+                "test": "true",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maps:Creator myCreator /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount/creators/myCreator 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CreatorArgs args: The arguments to use to populate this resource's properties.

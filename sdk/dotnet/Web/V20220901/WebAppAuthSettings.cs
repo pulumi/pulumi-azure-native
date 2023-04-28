@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
+    /// 
+    /// ## Example Usage
+    /// ### Update Auth Settings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppAuthSettings = new AzureNative.Web.V20220901.WebAppAuthSettings("webAppAuthSettings", new()
+    ///     {
+    ///         AllowedExternalRedirectUrls = new[]
+    ///         {
+    ///             "sitef6141.customdomain.net",
+    ///             "sitef6141.customdomain.info",
+    ///         },
+    ///         ClientId = "42d795a9-8abb-4d06-8534-39528af40f8e.apps.googleusercontent.com",
+    ///         DefaultProvider = AzureNative.Web.V20220901.BuiltInAuthenticationProvider.Google,
+    ///         Enabled = true,
+    ///         Name = "sitef6141",
+    ///         ResourceGroupName = "testrg123",
+    ///         RuntimeVersion = "~1",
+    ///         TokenRefreshExtensionHours = 120,
+    ///         TokenStoreEnabled = true,
+    ///         UnauthenticatedClientAction = AzureNative.Web.V20220901.UnauthenticatedClientAction.RedirectToLoginPage,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:WebAppAuthSettings authsettings /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/authsettings 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:WebAppAuthSettings")]
     public partial class WebAppAuthSettings : global::Pulumi.CustomResource

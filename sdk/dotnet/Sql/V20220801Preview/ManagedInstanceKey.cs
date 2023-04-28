@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// A managed instance key.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a managed instance key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedInstanceKey = new AzureNative.Sql.V20220801Preview.ManagedInstanceKey("managedInstanceKey", new()
+    ///     {
+    ///         KeyName = "someVault_someKey_01234567890123456789012345678901",
+    ///         ManagedInstanceName = "sqlcrudtest-4645",
+    ///         ResourceGroupName = "sqlcrudtest-7398",
+    ///         ServerKeyType = "AzureKeyVault",
+    ///         Uri = "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:ManagedInstanceKey sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/managedInstances/sqlcrudtest-4645/keys/someVault_someKey_01234567890123456789012345678901 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:ManagedInstanceKey")]
     public partial class ManagedInstanceKey : global::Pulumi.CustomResource

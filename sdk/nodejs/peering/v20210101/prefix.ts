@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * The peering service prefix class.
+ *
+ * ## Example Usage
+ * ### Create or update a prefix for the peering service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const prefix = new azure_native.peering.v20210101.Prefix("prefix", {
+ *     peeringServiceName: "peeringServiceName",
+ *     peeringServicePrefixKey: "00000000-0000-0000-0000-000000000000",
+ *     prefix: "192.168.1.0/24",
+ *     prefixName: "peeringServicePrefixName",
+ *     resourceGroupName: "rgName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:peering/v20210101:Prefix peeringServicePrefixName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName/prefixes/peeringServicePrefixName 
+ * ```
  */
 export class Prefix extends pulumi.CustomResource {
     /**

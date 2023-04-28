@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// API Version Set Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiVersionSet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiVersionSet = new AzureNative.ApiManagement.V20220801.ApiVersionSet("apiVersionSet", new()
+    ///     {
+    ///         Description = "Version configuration",
+    ///         DisplayName = "api set 1",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         VersionSetId = "api1",
+    ///         VersioningScheme = "Segment",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:ApiVersionSet api1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apiVersionSets/api1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiVersionSet")]
     public partial class ApiVersionSet : global::Pulumi.CustomResource

@@ -147,6 +147,45 @@ class Group(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group = azure_native.apimanagement.Group("group",
+            display_name="temp group",
+            group_id="tempgroup",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateGroupExternal
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group = azure_native.apimanagement.Group("group",
+            description="new group to test",
+            display_name="NewGroup (samiraad.onmicrosoft.com)",
+            external_id="aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d",
+            group_id="aadGroup",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            type=azure_native.apimanagement.GroupType.EXTERNAL)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Group aadGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/groups/aadGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Group description.
@@ -167,6 +206,45 @@ class Group(pulumi.CustomResource):
         Contract details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group = azure_native.apimanagement.Group("group",
+            display_name="temp group",
+            group_id="tempgroup",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateGroupExternal
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group = azure_native.apimanagement.Group("group",
+            description="new group to test",
+            display_name="NewGroup (samiraad.onmicrosoft.com)",
+            external_id="aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d",
+            group_id="aadGroup",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            type=azure_native.apimanagement.GroupType.EXTERNAL)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Group aadGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/groups/aadGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

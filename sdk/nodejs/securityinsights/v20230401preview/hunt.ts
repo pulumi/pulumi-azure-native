@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Hunt in Azure Security Insights.
+ *
+ * ## Example Usage
+ * ### Creates or updates a hunt.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hunt = new azure_native.securityinsights.v20230401preview.Hunt("hunt", {
+ *     attackTactics: ["Reconnaissance"],
+ *     attackTechniques: ["T1595"],
+ *     description: "Log4J Hunt Description",
+ *     displayName: "Log4J new hunt",
+ *     huntId: "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+ *     hypothesisStatus: "Unknown",
+ *     labels: [
+ *         "Label1",
+ *         "Label2",
+ *     ],
+ *     owner: {
+ *         objectId: "873b5263-5d34-4149-b356-ad341b01e123",
+ *     },
+ *     resourceGroupName: "myRg",
+ *     status: "New",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:Hunt 163e7b2a-a2ec-4041-aaba-d878a38f265f /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f 
+ * ```
  */
 export class Hunt extends pulumi.CustomResource {
     /**

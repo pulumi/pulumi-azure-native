@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * A lab.
+ *
+ * ## Example Usage
+ * ### Labs_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const lab = new azure_native.devtestlab.v20180915.Lab("lab", {
+ *     labStorageType: "{Standard|Premium}",
+ *     location: "{location}",
+ *     name: "{labName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:Lab {labName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName} 
+ * ```
  */
 export class Lab extends pulumi.CustomResource {
     /**

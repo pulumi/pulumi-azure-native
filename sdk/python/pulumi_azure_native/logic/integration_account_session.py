@@ -130,6 +130,32 @@ class IntegrationAccountSession(pulumi.CustomResource):
         API Version: 2019-05-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update an integration account session
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_session = azure_native.logic.IntegrationAccountSession("integrationAccountSession",
+            content={
+                "controlNumber": "1234",
+                "controlNumberChangedTime": "2017-02-21T22:30:11.9923759Z",
+            },
+            integration_account_name="testia123",
+            resource_group_name="testrg123",
+            session_name="testsession123-ICN")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationAccountSession testsession123-ICN /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/testsession123-ICN 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any content: The session content.
@@ -149,6 +175,32 @@ class IntegrationAccountSession(pulumi.CustomResource):
         The integration account session.
         API Version: 2019-05-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update an integration account session
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_session = azure_native.logic.IntegrationAccountSession("integrationAccountSession",
+            content={
+                "controlNumber": "1234",
+                "controlNumberChangedTime": "2017-02-21T22:30:11.9923759Z",
+            },
+            integration_account_name="testia123",
+            resource_group_name="testrg123",
+            session_name="testsession123-ICN")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic:IntegrationAccountSession testsession123-ICN /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Logic/integrationAccounts/testia123/sessions/testsession123-ICN 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountSessionArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20210501Preview
 {
     /// <summary>
     /// The representation of a single video in a Video Analyzer account.
+    /// 
+    /// ## Example Usage
+    /// ### Register video entity.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var video = new AzureNative.VideoAnalyzer.V20210501Preview.Video("video", new()
+    ///     {
+    ///         AccountName = "testaccount2",
+    ///         Description = "Sample Description 1",
+    ///         ResourceGroupName = "testrg",
+    ///         Title = "Sample Title 1",
+    ///         VideoName = "video1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer/v20210501preview:Video video1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/videos/video1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20210501preview:Video")]
     public partial class Video : global::Pulumi.CustomResource

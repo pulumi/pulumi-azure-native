@@ -13,6 +13,57 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// The metric setting details for the role
     /// API Version: 2022-03-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PutMonitoringConfig
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitoringConfig = new AzureNative.DataBoxEdge.MonitoringConfig("monitoringConfig", new()
+    ///     {
+    ///         DeviceName = "testedgedevice",
+    ///         MetricConfigurations = new[]
+    ///         {
+    ///             new AzureNative.DataBoxEdge.Inputs.MetricConfigurationArgs
+    ///             {
+    ///                 CounterSets = new[]
+    ///                 {
+    ///                     new AzureNative.DataBoxEdge.Inputs.MetricCounterSetArgs
+    ///                     {
+    ///                         Counters = new[]
+    ///                         {
+    ///                             new AzureNative.DataBoxEdge.Inputs.MetricCounterArgs
+    ///                             {
+    ///                                 Name = "test",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 MdmAccount = "test",
+    ///                 MetricNameSpace = "test",
+    ///                 ResourceId = "test",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         RoleName = "testrole",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:MonitoringConfig myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName}/roles/{roleName}/monitoringConfig/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:MonitoringConfig")]
     public partial class MonitoringConfig : global::Pulumi.CustomResource

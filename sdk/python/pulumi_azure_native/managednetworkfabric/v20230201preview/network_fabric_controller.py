@@ -199,6 +199,42 @@ class NetworkFabricController(pulumi.CustomResource):
         """
         The NetworkFabricController resource definition.
 
+        ## Example Usage
+        ### NetworkFabricControllers_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_fabric_controller = azure_native.managednetworkfabric.v20230201preview.NetworkFabricController("networkFabricController",
+            annotation="lab 1",
+            infrastructure_express_route_connections=[{
+                "expressRouteAuthorizationKey": "xxxxxxx",
+                "expressRouteCircuitId": "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+            }],
+            ipv4_address_space="172.253.0.0/19",
+            location="eastus",
+            managed_resource_group_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs(
+                location="eastus",
+                name="managedResourceGroupName",
+            ),
+            network_fabric_controller_name="NetworkControllerName",
+            resource_group_name="resourceGroupName",
+            workload_express_route_connections=[{
+                "expressRouteAuthorizationKey": "xxxxx",
+                "expressRouteCircuitId": "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkFabricController NetworkFabricName /subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/networkFabricControllerName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
@@ -220,6 +256,42 @@ class NetworkFabricController(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NetworkFabricController resource definition.
+
+        ## Example Usage
+        ### NetworkFabricControllers_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_fabric_controller = azure_native.managednetworkfabric.v20230201preview.NetworkFabricController("networkFabricController",
+            annotation="lab 1",
+            infrastructure_express_route_connections=[{
+                "expressRouteAuthorizationKey": "xxxxxxx",
+                "expressRouteCircuitId": "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+            }],
+            ipv4_address_space="172.253.0.0/19",
+            location="eastus",
+            managed_resource_group_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs(
+                location="eastus",
+                name="managedResourceGroupName",
+            ),
+            network_fabric_controller_name="NetworkControllerName",
+            resource_group_name="resourceGroupName",
+            workload_express_route_connections=[{
+                "expressRouteAuthorizationKey": "xxxxx",
+                "expressRouteCircuitId": "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkFabricController NetworkFabricName /subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/networkFabricControllerName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkFabricControllerArgs args: The arguments to use to populate this resource's properties.

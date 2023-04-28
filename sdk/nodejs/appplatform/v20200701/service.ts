@@ -9,6 +9,66 @@ import * as utilities from "../../utilities";
 
 /**
  * Service resource
+ *
+ * ## Example Usage
+ * ### Services_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.appplatform.v20200701.Service("service", {
+ *     location: "eastus",
+ *     properties: {},
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Services_CreateOrUpdate_VNetInjection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.appplatform.v20200701.Service("service", {
+ *     location: "eastus",
+ *     properties: {
+ *         networkProfile: {
+ *             appNetworkResourceGroup: "my-app-network-rg",
+ *             appSubnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/apps",
+ *             serviceCidr: "10.8.0.0/16,10.244.0.0/16,10.245.0.1/16",
+ *             serviceRuntimeNetworkResourceGroup: "my-service-runtime-network-rg",
+ *             serviceRuntimeSubnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/serviceRuntime",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20200701:Service myservice /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice 
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

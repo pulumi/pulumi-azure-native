@@ -333,6 +333,61 @@ class Account(pulumi.CustomResource):
         API Version: 2019-11-01-preview.
         Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.datalakeanalytics.Account("account",
+            account_name="contosoadla",
+            compute_policies=[{
+                "maxDegreeOfParallelismPerJob": 1,
+                "minPriorityPerJob": 1,
+                "name": "test_policy",
+                "objectId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+                "objectType": "User",
+            }],
+            data_lake_store_accounts=[azure_native.datalakeanalytics.AddDataLakeStoreWithAccountParametersArgs(
+                name="test_adls",
+                suffix="test_suffix",
+            )],
+            default_data_lake_store_account="test_adls",
+            firewall_allow_azure_ips=azure_native.datalakeanalytics.FirewallAllowAzureIpsState.ENABLED,
+            firewall_rules=[{
+                "endIpAddress": "2.2.2.2",
+                "name": "test_rule",
+                "startIpAddress": "1.1.1.1",
+            }],
+            firewall_state=azure_native.datalakeanalytics.FirewallState.ENABLED,
+            location="eastus2",
+            max_degree_of_parallelism=30,
+            max_degree_of_parallelism_per_job=1,
+            max_job_count=3,
+            min_priority_per_job=1,
+            new_tier=azure_native.datalakeanalytics.TierType.CONSUMPTION,
+            query_store_retention=30,
+            resource_group_name="contosorg",
+            storage_accounts=[{
+                "accessKey": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab346",
+                "name": "test_storage",
+                "suffix": "test_suffix",
+            }],
+            tags={
+                "test_key": "test_value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakeanalytics:Account test_account /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rgaba12041/providers/Microsoft.DataLakeAnalytics/accounts/testaba15818 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Analytics account.
@@ -363,6 +418,61 @@ class Account(pulumi.CustomResource):
         A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
         API Version: 2019-11-01-preview.
         Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates the specified Data Lake Analytics account. This supplies the user with computation services for Data Lake Analytics workloads.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.datalakeanalytics.Account("account",
+            account_name="contosoadla",
+            compute_policies=[{
+                "maxDegreeOfParallelismPerJob": 1,
+                "minPriorityPerJob": 1,
+                "name": "test_policy",
+                "objectId": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+                "objectType": "User",
+            }],
+            data_lake_store_accounts=[azure_native.datalakeanalytics.AddDataLakeStoreWithAccountParametersArgs(
+                name="test_adls",
+                suffix="test_suffix",
+            )],
+            default_data_lake_store_account="test_adls",
+            firewall_allow_azure_ips=azure_native.datalakeanalytics.FirewallAllowAzureIpsState.ENABLED,
+            firewall_rules=[{
+                "endIpAddress": "2.2.2.2",
+                "name": "test_rule",
+                "startIpAddress": "1.1.1.1",
+            }],
+            firewall_state=azure_native.datalakeanalytics.FirewallState.ENABLED,
+            location="eastus2",
+            max_degree_of_parallelism=30,
+            max_degree_of_parallelism_per_job=1,
+            max_job_count=3,
+            min_priority_per_job=1,
+            new_tier=azure_native.datalakeanalytics.TierType.CONSUMPTION,
+            query_store_retention=30,
+            resource_group_name="contosorg",
+            storage_accounts=[{
+                "accessKey": "34adfa4f-cedf-4dc0-ba29-b6d1a69ab346",
+                "name": "test_storage",
+                "suffix": "test_suffix",
+            }],
+            tags={
+                "test_key": "test_value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakeanalytics:Account test_account /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rgaba12041/providers/Microsoft.DataLakeAnalytics/accounts/testaba15818 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

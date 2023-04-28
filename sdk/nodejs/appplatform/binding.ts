@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Binding resource payload
  * API Version: 2022-12-01.
  * Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Bindings_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const binding = new azure_native.appplatform.Binding("binding", {
+ *     appName: "myapp",
+ *     bindingName: "mybinding",
+ *     properties: {
+ *         bindingParameters: {
+ *             apiType: "SQL",
+ *             databaseName: "db1",
+ *         },
+ *         key: "xxxx",
+ *         resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DocumentDB/databaseAccounts/my-cosmosdb-1",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform:Binding mybinding /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/bindings/mybinding 
+ * ```
  */
 export class Binding extends pulumi.CustomResource {
     /**

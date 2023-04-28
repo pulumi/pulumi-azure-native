@@ -151,6 +151,43 @@ class Workspace(pulumi.CustomResource):
         API Version: 2022-01-10-preview.
         Previous API Version: 2019-11-04-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### QuantumWorkspacesPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.quantum.Workspace("workspace",
+            location="West US",
+            providers=[
+                azure_native.quantum.ProviderArgs(
+                    provider_id="Honeywell",
+                    provider_sku="Basic",
+                ),
+                azure_native.quantum.ProviderArgs(
+                    provider_id="IonQ",
+                    provider_sku="Basic",
+                ),
+                azure_native.quantum.ProviderArgs(
+                    provider_id="OneQBit",
+                    provider_sku="Basic",
+                ),
+            ],
+            resource_group_name="quantumResourcegroup",
+            storage_account="/subscriptions/1C4B2828-7D49-494F-933D-061373BE28C2/resourceGroups/quantumResourcegroup/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            workspace_name="quantumworkspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:quantum:Workspace quantumworkspace1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/quantumResourcegroup/providers/Microsoft.Quantum/Workspaces/quantumworkspace1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['QuantumWorkspaceIdentityArgs']] identity: Managed Identity information.
@@ -171,6 +208,43 @@ class Workspace(pulumi.CustomResource):
         The resource proxy definition object for quantum workspace.
         API Version: 2022-01-10-preview.
         Previous API Version: 2019-11-04-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### QuantumWorkspacesPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.quantum.Workspace("workspace",
+            location="West US",
+            providers=[
+                azure_native.quantum.ProviderArgs(
+                    provider_id="Honeywell",
+                    provider_sku="Basic",
+                ),
+                azure_native.quantum.ProviderArgs(
+                    provider_id="IonQ",
+                    provider_sku="Basic",
+                ),
+                azure_native.quantum.ProviderArgs(
+                    provider_id="OneQBit",
+                    provider_sku="Basic",
+                ),
+            ],
+            resource_group_name="quantumResourcegroup",
+            storage_account="/subscriptions/1C4B2828-7D49-494F-933D-061373BE28C2/resourceGroups/quantumResourcegroup/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            workspace_name="quantumworkspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:quantum:Workspace quantumworkspace1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/quantumResourcegroup/providers/Microsoft.Quantum/Workspaces/quantumworkspace1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

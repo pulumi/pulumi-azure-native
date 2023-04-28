@@ -11,6 +11,124 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// VpnGateway Resource.
+    /// 
+    /// ## Example Usage
+    /// ### VpnGatewayPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpnGateway = new AzureNative.Network.V20201101.VpnGateway("vpnGateway", new()
+    ///     {
+    ///         BgpSettings = new AzureNative.Network.V20201101.Inputs.BgpSettingsArgs
+    ///         {
+    ///             Asn = 65515,
+    ///             BgpPeeringAddresses = new[]
+    ///             {
+    ///                 new AzureNative.Network.V20201101.Inputs.IPConfigurationBgpPeeringAddressArgs
+    ///                 {
+    ///                     CustomBgpIpAddresses = new[]
+    ///                     {
+    ///                         "169.254.21.5",
+    ///                     },
+    ///                     IpconfigurationId = "Instance0",
+    ///                 },
+    ///                 new AzureNative.Network.V20201101.Inputs.IPConfigurationBgpPeeringAddressArgs
+    ///                 {
+    ///                     CustomBgpIpAddresses = new[]
+    ///                     {
+    ///                         "169.254.21.10",
+    ///                     },
+    ///                     IpconfigurationId = "Instance1",
+    ///                 },
+    ///             },
+    ///             PeerWeight = 0,
+    ///         },
+    ///         Connections = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.VpnConnectionArgs
+    ///             {
+    ///                 Name = "vpnConnection1",
+    ///                 RemoteVpnSite = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+    ///                 },
+    ///                 VpnLinkConnections = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20201101.Inputs.VpnSiteLinkConnectionArgs
+    ///                     {
+    ///                         ConnectionBandwidth = 200,
+    ///                         EgressNatRules = new[]
+    ///                         {
+    ///                             new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                             {
+    ///                                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/natRules/nat03",
+    ///                             },
+    ///                         },
+    ///                         Name = "Connection-Link1",
+    ///                         SharedKey = "key",
+    ///                         VpnConnectionProtocolType = "IKEv2",
+    ///                         VpnSiteLink = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         GatewayName = "gateway1",
+    ///         IsRoutingPreferenceInternet = false,
+    ///         Location = "westcentralus",
+    ///         NatRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.VpnGatewayNatRuleArgs
+    ///             {
+    ///                 ExternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20201101.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "192.168.0.0/26",
+    ///                     },
+    ///                 },
+    ///                 InternalMappings = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20201101.Inputs.VpnNatRuleMappingArgs
+    ///                     {
+    ///                         AddressSpace = "0.0.0.0/26",
+    ///                     },
+    ///                 },
+    ///                 IpConfigurationId = "",
+    ///                 Mode = "EgressSnat",
+    ///                 Name = "nat03",
+    ///                 Type = "Static",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualHub = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:VpnGateway gateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:VpnGateway")]
     public partial class VpnGateway : global::Pulumi.CustomResource

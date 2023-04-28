@@ -9,6 +9,79 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a scaling plan definition.
+ *
+ * ## Example Usage
+ * ### ScalingPlans_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scalingPlan = new azure_native.desktopvirtualization.v20221014preview.ScalingPlan("scalingPlan", {
+ *     description: "Description of Scaling Plan",
+ *     exclusionTag: "value",
+ *     friendlyName: "Scaling Plan 1",
+ *     hostPoolReferences: [{
+ *         hostPoolArmPath: "/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
+ *         scalingPlanEnabled: true,
+ *     }],
+ *     hostPoolType: "Pooled",
+ *     location: "centralus",
+ *     resourceGroupName: "resourceGroup1",
+ *     scalingPlanName: "scalingPlan1",
+ *     schedules: [{
+ *         daysOfWeek: [
+ *             "Monday",
+ *             "Tuesday",
+ *             "Wednesday",
+ *             "Thursday",
+ *             "Friday",
+ *         ],
+ *         name: "schedule1",
+ *         offPeakLoadBalancingAlgorithm: "DepthFirst",
+ *         offPeakStartTime: {
+ *             hour: 20,
+ *             minute: 0,
+ *         },
+ *         peakLoadBalancingAlgorithm: "BreadthFirst",
+ *         peakStartTime: {
+ *             hour: 8,
+ *             minute: 0,
+ *         },
+ *         rampDownCapacityThresholdPct: 50,
+ *         rampDownForceLogoffUsers: true,
+ *         rampDownLoadBalancingAlgorithm: "DepthFirst",
+ *         rampDownMinimumHostsPct: 20,
+ *         rampDownNotificationMessage: "message",
+ *         rampDownStartTime: {
+ *             hour: 18,
+ *             minute: 0,
+ *         },
+ *         rampDownWaitTimeMinutes: 30,
+ *         rampUpCapacityThresholdPct: 80,
+ *         rampUpLoadBalancingAlgorithm: "DepthFirst",
+ *         rampUpMinimumHostsPct: 20,
+ *         rampUpStartTime: {
+ *             hour: 6,
+ *             minute: 0,
+ *         },
+ *     }],
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     timeZone: "Central Standard Time",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization/v20221014preview:ScalingPlan scalingPlan1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/scalingPlan1 
+ * ```
  */
 export class ScalingPlan extends pulumi.CustomResource {
     /**

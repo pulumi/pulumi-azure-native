@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  * The RoutePolicy resource definition.
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RoutePolicies_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const routePolicy = new azure_native.managednetworkfabric.RoutePolicy("routePolicy", {
+ *     annotation: "example routepolicy",
+ *     conditions: [{
+ *         action: {
+ *             action: "allow",
+ *             set: {
+ *                 set: {
+ *                     ipCommunityListIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName"],
+ *                     ipExtendedCommunityListIds: [""],
+ *                 },
+ *             },
+ *         },
+ *         annotation: "",
+ *         match: {
+ *             accessControlListIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/accessControlLists/accessControlListName"],
+ *             ipCommunityListIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName"],
+ *             ipExtendedCommunityListIds: [""],
+ *         },
+ *         sequenceNumber: 7,
+ *     }],
+ *     description: "RPexample",
+ *     location: "EastUS",
+ *     resourceGroupName: "rgRoutePolicies",
+ *     routePolicyName: "example RoutePolicy",
+ *     tags: {
+ *         key8254: "",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:RoutePolicy routePolicyName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName 
+ * ```
  */
 export class RoutePolicy extends pulumi.CustomResource {
     /**

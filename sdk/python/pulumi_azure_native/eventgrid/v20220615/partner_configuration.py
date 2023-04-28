@@ -115,6 +115,41 @@ class PartnerConfiguration(pulumi.CustomResource):
         """
         Partner configuration information
 
+        ## Example Usage
+        ### PartnerConfigurations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner_configuration = azure_native.eventgrid.v20220615.PartnerConfiguration("partnerConfiguration",
+            partner_authorization=azure_native.eventgrid.v20220615.PartnerAuthorizationResponseArgs(
+                authorized_partners_list=[
+                    azure_native.eventgrid.v20220615.PartnerArgs(
+                        authorization_expiration_time_in_utc="2022-01-28T01:20:55.142Z",
+                        partner_name="Contoso.Finance",
+                        partner_registration_immutable_id="941892bc-f5d0-4d1c-8fb5-477570fc2b71",
+                    ),
+                    azure_native.eventgrid.v20220615.PartnerArgs(
+                        authorization_expiration_time_in_utc="2022-02-20T01:00:00.142Z",
+                        partner_name="fabrikam.HR",
+                        partner_registration_immutable_id="5362bdb6-ce3e-4d0d-9a5b-3eb92c8aab38",
+                    ),
+                ],
+                default_maximum_expiration_time_in_days=10,
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20220615:PartnerConfiguration default /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerConfigurations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource.
@@ -131,6 +166,41 @@ class PartnerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Partner configuration information
+
+        ## Example Usage
+        ### PartnerConfigurations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner_configuration = azure_native.eventgrid.v20220615.PartnerConfiguration("partnerConfiguration",
+            partner_authorization=azure_native.eventgrid.v20220615.PartnerAuthorizationResponseArgs(
+                authorized_partners_list=[
+                    azure_native.eventgrid.v20220615.PartnerArgs(
+                        authorization_expiration_time_in_utc="2022-01-28T01:20:55.142Z",
+                        partner_name="Contoso.Finance",
+                        partner_registration_immutable_id="941892bc-f5d0-4d1c-8fb5-477570fc2b71",
+                    ),
+                    azure_native.eventgrid.v20220615.PartnerArgs(
+                        authorization_expiration_time_in_utc="2022-02-20T01:00:00.142Z",
+                        partner_name="fabrikam.HR",
+                        partner_registration_immutable_id="5362bdb6-ce3e-4d0d-9a5b-3eb92c8aab38",
+                    ),
+                ],
+                default_maximum_expiration_time_in_days=10,
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20220615:PartnerConfiguration default /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerConfigurations/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PartnerConfigurationArgs args: The arguments to use to populate this resource's properties.

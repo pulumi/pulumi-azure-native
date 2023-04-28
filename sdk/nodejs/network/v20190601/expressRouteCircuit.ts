@@ -9,6 +9,64 @@ import * as utilities from "../../utilities";
 
 /**
  * ExpressRouteCircuit resource.
+ *
+ * ## Example Usage
+ * ### Create ExpressRouteCircuit
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteCircuit = new azure_native.network.v20190601.ExpressRouteCircuit("expressRouteCircuit", {
+ *     allowClassicOperations: false,
+ *     authorizations: [],
+ *     circuitName: "circuitName",
+ *     location: "Brazil South",
+ *     peerings: [],
+ *     resourceGroupName: "rg1",
+ *     serviceProviderProperties: {
+ *         bandwidthInMbps: 200,
+ *         peeringLocation: "Silicon Valley",
+ *         serviceProviderName: "Equinix",
+ *     },
+ *     sku: {
+ *         family: "MeteredData",
+ *         name: "Standard_MeteredData",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create ExpressRouteCircuit on ExpressRoutePort
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteCircuit = new azure_native.network.v20190601.ExpressRouteCircuit("expressRouteCircuit", {
+ *     bandwidthInGbps: 10,
+ *     circuitName: "expressRouteCircuit1",
+ *     expressRoutePort: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName",
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         family: "MeteredData",
+ *         name: "Premium_MeteredData",
+ *         tier: "Premium",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20190601:ExpressRouteCircuit expressRouteCircuit1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuit1 
+ * ```
  */
 export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**

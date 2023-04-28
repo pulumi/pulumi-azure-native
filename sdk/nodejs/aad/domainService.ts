@@ -11,6 +11,53 @@ import * as utilities from "../utilities";
  * Domain service.
  * API Version: 2022-12-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Domain Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const domainService = new azure_native.aad.DomainService("domainService", {
+ *     domainName: "TestDomainService.com",
+ *     domainSecuritySettings: {
+ *         ntlmV1: "Enabled",
+ *         syncNtlmPasswords: "Enabled",
+ *         tlsV1: "Disabled",
+ *     },
+ *     domainServiceName: "TestDomainService.com",
+ *     filteredSync: "Enabled",
+ *     ldapsSettings: {
+ *         externalAccess: "Enabled",
+ *         ldaps: "Enabled",
+ *         pfxCertificate: "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+ *         pfxCertificatePassword: "<pfxCertificatePassword>",
+ *     },
+ *     notificationSettings: {
+ *         additionalRecipients: [
+ *             "jicha@microsoft.com",
+ *             "caalmont@microsoft.com",
+ *         ],
+ *         notifyDcAdmins: "Enabled",
+ *         notifyGlobalAdmins: "Enabled",
+ *     },
+ *     replicaSets: [{
+ *         location: "West US",
+ *         subnetId: "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
+ *     }],
+ *     resourceGroupName: "TestResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:aad:DomainService TestDomainService.com /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestResourceGroup/providers/Microsoft.AAD/DomainServices/TestDomainService.com 
+ * ```
  */
 export class DomainService extends pulumi.CustomResource {
     /**

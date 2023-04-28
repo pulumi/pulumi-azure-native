@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
+ *
+ * ## Example Usage
+ * ### RegisterAzure Storage ProtectionContainers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const protectionContainer = new azure_native.recoveryservices.v20230201.ProtectionContainer("protectionContainer", {
+ *     containerName: "StorageContainer;Storage;SwaggerTestRg;swaggertestsa",
+ *     fabricName: "Azure",
+ *     properties: {
+ *         acquireStorageAccountLock: "Acquire",
+ *         backupManagementType: "AzureStorage",
+ *         containerType: "StorageContainer",
+ *         friendlyName: "swaggertestsa",
+ *         sourceResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/SwaggerTestRg/providers/Microsoft.Storage/storageAccounts/swaggertestsa",
+ *     },
+ *     resourceGroupName: "SwaggerTestRg",
+ *     vaultName: "swaggertestvault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20230201:ProtectionContainer StorageContainer;Storage;SwaggerTestRg;swaggertestsa /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/swaggertestvault/backupFabrics/Azure/protectionContainers/StorageContainer;Storage;SwaggerTestRg;swaggertestsa 
+ * ```
  */
 export class ProtectionContainer extends pulumi.CustomResource {
     /**

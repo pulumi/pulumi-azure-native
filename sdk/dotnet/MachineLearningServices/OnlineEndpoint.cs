@@ -12,6 +12,68 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// API Version: 2022-10-01.
     /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Online Endpoint.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var onlineEndpoint = new AzureNative.MachineLearningServices.OnlineEndpoint("onlineEndpoint", new()
+    ///     {
+    ///         EndpointName = "testEndpointName",
+    ///         Identity = new AzureNative.MachineLearningServices.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "string", null },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         OnlineEndpointProperties = new AzureNative.MachineLearningServices.Inputs.OnlineEndpointArgs
+    ///         {
+    ///             AuthMode = "AMLToken",
+    ///             Compute = "string",
+    ///             Description = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Traffic = 
+    ///             {
+    ///                 { "string", 1 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         Sku = new AzureNative.MachineLearningServices.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "string",
+    ///             Name = "string",
+    ///             Size = "string",
+    ///             Tier = AzureNative.MachineLearningServices.SkuTier.Free,
+    ///         },
+    ///         Tags = null,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:OnlineEndpoint string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:OnlineEndpoint")]
     public partial class OnlineEndpoint : global::Pulumi.CustomResource

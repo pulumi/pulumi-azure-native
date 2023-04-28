@@ -34,6 +34,25 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
         """
         Class representing a Traffic Manager Real User Metrics key response.
 
+        ## Example Usage
+        ### TrafficManagerUserMetricsKeys-PUT
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        traffic_manager_user_metrics_key = azure_native.network.v20170901preview.TrafficManagerUserMetricsKey("trafficManagerUserMetricsKey")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20170901preview:TrafficManagerUserMetricsKey default /providers/Microsoft.Network/trafficManagerUserMetricsKeys/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
@@ -45,6 +64,25 @@ class TrafficManagerUserMetricsKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Traffic Manager Real User Metrics key response.
+
+        ## Example Usage
+        ### TrafficManagerUserMetricsKeys-PUT
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        traffic_manager_user_metrics_key = azure_native.network.v20170901preview.TrafficManagerUserMetricsKey("trafficManagerUserMetricsKey")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20170901preview:TrafficManagerUserMetricsKey default /providers/Microsoft.Network/trafficManagerUserMetricsKeys/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TrafficManagerUserMetricsKeyArgs args: The arguments to use to populate this resource's properties.

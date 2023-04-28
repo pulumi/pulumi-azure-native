@@ -13,6 +13,121 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Service resource
     /// API Version: 2022-12-01.
     /// Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Services_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.AppPlatform.Service("service", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = null,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Services_CreateOrUpdate_Enterprise
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.AppPlatform.Service("service", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = null,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+    ///         {
+    ///             Name = "E0",
+    ///             Tier = "Enterprise",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Services_CreateOrUpdate_VNetInjection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.AppPlatform.Service("service", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.ClusterResourcePropertiesArgs
+    ///         {
+    ///             NetworkProfile = new AzureNative.AppPlatform.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 AppNetworkResourceGroup = "my-app-network-rg",
+    ///                 AppSubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/apps",
+    ///                 IngressConfig = new AzureNative.AppPlatform.Inputs.IngressConfigArgs
+    ///                 {
+    ///                     ReadTimeoutInSeconds = 300,
+    ///                 },
+    ///                 ServiceCidr = "10.8.0.0/16,10.244.0.0/16,10.245.0.1/16",
+    ///                 ServiceRuntimeNetworkResourceGroup = "my-service-runtime-network-rg",
+    ///                 ServiceRuntimeSubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/serviceRuntime",
+    ///             },
+    ///             VnetAddons = new AzureNative.AppPlatform.Inputs.ServiceVNetAddonsArgs
+    ///             {
+    ///                 LogStreamPublicEndpoint = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:Service myservice /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:Service")]
     public partial class Service : global::Pulumi.CustomResource

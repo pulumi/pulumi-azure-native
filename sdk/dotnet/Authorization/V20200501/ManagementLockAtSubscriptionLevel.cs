@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.Authorization.V20200501
 {
     /// <summary>
     /// The lock information.
+    /// 
+    /// ## Example Usage
+    /// ### Create management lock at subscription level
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementLockAtSubscriptionLevel = new AzureNative.Authorization.V20200501.ManagementLockAtSubscriptionLevel("managementLockAtSubscriptionLevel", new()
+    ///     {
+    ///         Level = "ReadOnly",
+    ///         LockName = "testlock",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel testlock /subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.Authorization/locks/testlock 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20200501:ManagementLockAtSubscriptionLevel")]
     public partial class ManagementLockAtSubscriptionLevel : global::Pulumi.CustomResource

@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a ApplicationGroup definition.
+ *
+ * ## Example Usage
+ * ### ApplicationGroup_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationGroup = new azure_native.desktopvirtualization.v20210201preview.ApplicationGroup("applicationGroup", {
+ *     applicationGroupName: "applicationGroup1",
+ *     applicationGroupType: "RemoteApp",
+ *     description: "des1",
+ *     friendlyName: "friendly",
+ *     hostPoolArmPath: "/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
+ *     location: "centralus",
+ *     migrationRequest: {
+ *         migrationPath: "TenantGroups/{defaultV1TenantGroup.Name}/Tenants/{defaultV1Tenant.Name}/HostPools/{sessionHostPool.Name}",
+ *         operation: "Start",
+ *     },
+ *     resourceGroupName: "resourceGroup1",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization/v20210201preview:ApplicationGroup applicationGroup1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/applicationGroup1 
+ * ```
  */
 export class ApplicationGroup extends pulumi.CustomResource {
     /**

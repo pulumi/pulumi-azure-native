@@ -9,6 +9,49 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Registry Model Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registryModelVersion = new azure_native.machinelearningservices.v20230401preview.RegistryModelVersion("registryModelVersion", {
+ *     modelName: "string",
+ *     modelVersionProperties: {
+ *         description: "string",
+ *         flavors: {
+ *             string: {
+ *                 data: {
+ *                     string: "string",
+ *                 },
+ *             },
+ *         },
+ *         isAnonymous: false,
+ *         modelType: "CustomModel",
+ *         modelUri: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     registryName: "my-aml-registry",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryModelVersion string string 
+ * ```
  */
 export class RegistryModelVersion extends pulumi.CustomResource {
     /**

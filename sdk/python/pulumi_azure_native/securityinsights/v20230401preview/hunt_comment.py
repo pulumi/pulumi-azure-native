@@ -110,6 +110,30 @@ class HuntComment(pulumi.CustomResource):
         """
         Represents a Hunt Comment in Azure Security Insights
 
+        ## Example Usage
+        ### Creates or updates a hunt comment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hunt_comment = azure_native.securityinsights.v20230401preview.HuntComment("huntComment",
+            hunt_comment_id="2216d0e1-91e3-4902-89fd-d2df8c535096",
+            hunt_id="163e7b2a-a2ec-4041-aaba-d878a38f265f",
+            message="This is a test comment.",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:HuntComment 2216d0e1-91e3-4902-89fd-d2df8c123456 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f/comments/2216d0e1-91e3-4902-89fd-d2df8c123456 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hunt_comment_id: The hunt comment id (GUID)
@@ -126,6 +150,30 @@ class HuntComment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Hunt Comment in Azure Security Insights
+
+        ## Example Usage
+        ### Creates or updates a hunt comment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hunt_comment = azure_native.securityinsights.v20230401preview.HuntComment("huntComment",
+            hunt_comment_id="2216d0e1-91e3-4902-89fd-d2df8c535096",
+            hunt_id="163e7b2a-a2ec-4041-aaba-d878a38f265f",
+            message="This is a test comment.",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:HuntComment 2216d0e1-91e3-4902-89fd-d2df8c123456 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f/comments/2216d0e1-91e3-4902-89fd-d2df8c123456 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HuntCommentArgs args: The arguments to use to populate this resource's properties.

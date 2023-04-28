@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of queue Resource.
+ *
+ * ## Example Usage
+ * ### QueueCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const queue = new azure_native.servicebus.v20221001preview.Queue("queue", {
+ *     enablePartitioning: true,
+ *     namespaceName: "sdk-Namespace-3174",
+ *     queueName: "sdk-Queues-5647",
+ *     resourceGroupName: "ArunMonocle",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus/v20221001preview:Queue sdk-Queues-5647 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-3174/queues/sdk-Queues-5647 
+ * ```
  */
 export class Queue extends pulumi.CustomResource {
     /**

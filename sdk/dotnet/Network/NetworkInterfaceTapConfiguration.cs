@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.Network
     /// Tap configuration in a Network Interface.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Network Interface Tap Configurations
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkInterfaceTapConfiguration = new AzureNative.Network.NetworkInterfaceTapConfiguration("networkInterfaceTapConfiguration", new()
+    ///     {
+    ///         NetworkInterfaceName = "mynic",
+    ///         ResourceGroupName = "testrg",
+    ///         TapConfigurationName = "tapconfiguration1",
+    ///         VirtualNetworkTap = new AzureNative.Network.Inputs.VirtualNetworkTapArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkTaps/testvtap",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:NetworkInterfaceTapConfiguration tapConfiguration1 /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/networkInterfaces/mynic/tapConfigurations/tapConfiguration1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkInterfaceTapConfiguration")]
     public partial class NetworkInterfaceTapConfiguration : global::Pulumi.CustomResource

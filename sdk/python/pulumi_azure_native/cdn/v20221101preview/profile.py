@@ -148,6 +148,31 @@ class Profile(pulumi.CustomResource):
         """
         A profile is a logical grouping of endpoints that share the same settings.
 
+        ## Example Usage
+        ### Profiles_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.cdn.v20221101preview.Profile("profile",
+            location="global",
+            profile_name="profile1",
+            resource_group_name="RG",
+            sku=azure_native.cdn.v20221101preview.SkuArgs(
+                name="Premium_AzureFrontDoor",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20221101preview:Profile profile1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities).
@@ -166,6 +191,31 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A profile is a logical grouping of endpoints that share the same settings.
+
+        ## Example Usage
+        ### Profiles_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.cdn.v20221101preview.Profile("profile",
+            location="global",
+            profile_name="profile1",
+            resource_group_name="RG",
+            sku=azure_native.cdn.v20221101preview.SkuArgs(
+                name="Premium_AzureFrontDoor",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20221101preview:Profile profile1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

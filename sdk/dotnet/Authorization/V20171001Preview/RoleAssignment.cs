@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Authorization.V20171001Preview
 {
     /// <summary>
     /// Role Assignments
+    /// 
+    /// ## Example Usage
+    /// ### Create role assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleAssignment = new AzureNative.Authorization.V20171001Preview.RoleAssignment("roleAssignment", new()
+    ///     {
+    ///         CanDelegate = false,
+    ///         PrincipalId = "d93a38bc-d029-4160-bfb0-fbda779ac214",
+    ///         RoleAssignmentName = "roleAssignmentName",
+    ///         RoleDefinitionId = "/subscriptions/4004a9fd-d58e-48dc-aeb2-4a4aec58606f/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772",
+    ///         Scope = "scope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20171001preview:RoleAssignment roleassignmentId /subscriptions/subId/resourcegroups/rgname/providers/Microsoft.Authorization/roleAssignments/roleassignmentId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20171001preview:RoleAssignment")]
     public partial class RoleAssignment : global::Pulumi.CustomResource

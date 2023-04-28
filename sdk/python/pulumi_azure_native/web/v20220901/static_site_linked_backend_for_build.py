@@ -144,6 +144,31 @@ class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
         """
         Static Site Linked Backend ARM resource.
 
+        ## Example Usage
+        ### Link a backend to a static site build
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site_linked_backend_for_build = azure_native.web.v20220901.StaticSiteLinkedBackendForBuild("staticSiteLinkedBackendForBuild",
+            backend_resource_id="/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/backendRg/providers/Microsoft.Web/sites/testBackend",
+            environment_name="default",
+            linked_backend_name="testBackend",
+            name="testStaticSite0",
+            region="West US 2",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:StaticSiteLinkedBackendForBuild testBackend /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/builds/default/linkedBackends/testBackend 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_resource_id: The resource id of the backend linked to the static site
@@ -162,6 +187,31 @@ class StaticSiteLinkedBackendForBuild(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Static Site Linked Backend ARM resource.
+
+        ## Example Usage
+        ### Link a backend to a static site build
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site_linked_backend_for_build = azure_native.web.v20220901.StaticSiteLinkedBackendForBuild("staticSiteLinkedBackendForBuild",
+            backend_resource_id="/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/backendRg/providers/Microsoft.Web/sites/testBackend",
+            environment_name="default",
+            linked_backend_name="testBackend",
+            name="testStaticSite0",
+            region="West US 2",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:StaticSiteLinkedBackendForBuild testBackend /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/builds/default/linkedBackends/testBackend 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StaticSiteLinkedBackendForBuildArgs args: The arguments to use to populate this resource's properties.

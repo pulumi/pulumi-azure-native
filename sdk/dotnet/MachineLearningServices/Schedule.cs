@@ -12,6 +12,65 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Azure Resource Manager resource envelope.
     /// API Version: 2022-10-01.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Schedule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schedule = new AzureNative.MachineLearningServices.Schedule("schedule", new()
+    ///     {
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         ScheduleProperties = new AzureNative.MachineLearningServices.Inputs.ScheduleArgs
+    ///         {
+    ///             Action = new AzureNative.MachineLearningServices.Inputs.EndpointScheduleActionArgs
+    ///             {
+    ///                 ActionType = "InvokeBatchEndpoint",
+    ///                 EndpointInvocationDefinition = 
+    ///                 {
+    ///                     { "9965593e-526f-4b89-bb36-761138cf2794", null },
+    ///                 },
+    ///             },
+    ///             Description = "string",
+    ///             DisplayName = "string",
+    ///             IsEnabled = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Trigger = new AzureNative.MachineLearningServices.Inputs.CronTriggerArgs
+    ///             {
+    ///                 EndTime = "string",
+    ///                 Expression = "string",
+    ///                 StartTime = "string",
+    ///                 TimeZone = "string",
+    ///                 TriggerType = "Cron",
+    ///             },
+    ///         },
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:Schedule string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

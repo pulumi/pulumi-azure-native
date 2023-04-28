@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.StorSimple
     /// The volume.
     /// API Version: 2017-06-01.
     /// Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### VolumesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.StorSimple.Volume("volume", new()
+    ///     {
+    ///         AccessControlRecordIds = new[]
+    ///         {
+    ///             "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2",
+    ///         },
+    ///         DeviceName = "Device05ForSDKTest",
+    ///         ManagerName = "ManagerForSDKTest1",
+    ///         MonitoringStatus = AzureNative.StorSimple.MonitoringStatus.Enabled,
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         SizeInBytes = 5368709120,
+    ///         VolumeContainerName = "VolumeContainerForSDKTest",
+    ///         VolumeName = "Volume1ForSDKTest",
+    ///         VolumeStatus = AzureNative.StorSimple.VolumeStatus.Offline,
+    ///         VolumeType = AzureNative.StorSimple.VolumeType.Tiered,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple:Volume Volume1ForSDKTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/VolumeContainerForSDKTest/volumes/Volume1ForSDKTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

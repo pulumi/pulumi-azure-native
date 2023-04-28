@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the connection type.
+ *
+ * ## Example Usage
+ * ### Create or update connection type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectionType = new azure_native.automation.v20220808.ConnectionType("connectionType", {
+ *     automationAccountName: "myAutomationAccount22",
+ *     connectionTypeName: "myCT",
+ *     fieldDefinitions: {
+ *         myBoolField: {
+ *             isEncrypted: false,
+ *             isOptional: false,
+ *             type: "bool",
+ *         },
+ *         myStringField: {
+ *             isEncrypted: false,
+ *             isOptional: false,
+ *             type: "string",
+ *         },
+ *         myStringFieldEncrypted: {
+ *             isEncrypted: true,
+ *             isOptional: false,
+ *             type: "string",
+ *         },
+ *     },
+ *     isGlobal: false,
+ *     name: "myCT",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation/v20220808:ConnectionType myCT /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount22/connectionTypes/myCT 
+ * ```
  */
 export class ConnectionType extends pulumi.CustomResource {
     /**

@@ -11,6 +11,44 @@ import * as utilities from "../utilities";
  * The L3IsolationDomain resource definition.
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### L3IsolationDomains_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const l3IsolationDomain = new azure_native.managednetworkfabric.L3IsolationDomain("l3IsolationDomain", {
+ *     aggregateRouteConfiguration: {
+ *         ipv4Routes: [{
+ *             prefix: "10.0.0.0/24",
+ *         }],
+ *         ipv6Routes: [{
+ *             prefix: "10.0.0.1",
+ *         }],
+ *     },
+ *     connectedSubnetRoutePolicy: {
+ *         exportRoutePolicyId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+ *     },
+ *     description: "creating L3 isolation domain",
+ *     l3IsolationDomainName: "example-l3domain",
+ *     location: "eastus",
+ *     networkFabricId: "/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+ *     redistributeConnectedSubnets: "True",
+ *     redistributeStaticRoutes: "False",
+ *     resourceGroupName: "resourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:L3IsolationDomain example-l3domain /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain 
+ * ```
  */
 export class L3IsolationDomain extends pulumi.CustomResource {
     /**

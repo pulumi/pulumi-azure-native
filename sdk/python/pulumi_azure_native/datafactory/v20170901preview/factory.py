@@ -137,6 +137,37 @@ class Factory(pulumi.CustomResource):
         """
         Factory resource type.
 
+        ## Example Usage
+        ### Factories_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        factory = azure_native.datafactory.v20170901preview.Factory("factory",
+            factory_name="exampleFactoryName",
+            location="East US",
+            resource_group_name="exampleResourceGroup",
+            vsts_configuration=azure_native.datafactory.v20170901preview.FactoryVSTSConfigurationArgs(
+                account_name="msdata",
+                collaboration_branch="master",
+                last_commit_id="",
+                project_name="datafactory",
+                repository_name="exampleRepo",
+                root_folder="/",
+                tenant_id="12f988bf-86d1-41af-91ab-2d7cd011db49",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory/v20170901preview:Factory exampleFactoryName /subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleresourcegroup/providers/Microsoft.DataFactory/factories/examplefactoryname 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.
@@ -154,6 +185,37 @@ class Factory(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Factory resource type.
+
+        ## Example Usage
+        ### Factories_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        factory = azure_native.datafactory.v20170901preview.Factory("factory",
+            factory_name="exampleFactoryName",
+            location="East US",
+            resource_group_name="exampleResourceGroup",
+            vsts_configuration=azure_native.datafactory.v20170901preview.FactoryVSTSConfigurationArgs(
+                account_name="msdata",
+                collaboration_branch="master",
+                last_commit_id="",
+                project_name="datafactory",
+                repository_name="exampleRepo",
+                root_folder="/",
+                tenant_id="12f988bf-86d1-41af-91ab-2d7cd011db49",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory/v20170901preview:Factory exampleFactoryName /subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleresourcegroup/providers/Microsoft.DataFactory/factories/examplefactoryname 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FactoryArgs args: The arguments to use to populate this resource's properties.

@@ -10,6 +10,32 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2023-01-01.
  * Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create ResourceGuard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceGuard = new azure_native.dataprotection.ResourceGuard("resourceGuard", {
+ *     location: "WestUS",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     resourceGuardsName: "swaggerExample",
+ *     tags: {
+ *         key1: "val1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dataprotection:ResourceGuard VaultGuardTestNew /subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew 
+ * ```
  */
 export class ResourceGuard extends pulumi.CustomResource {
     /**

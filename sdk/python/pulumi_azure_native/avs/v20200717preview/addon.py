@@ -112,6 +112,30 @@ class Addon(pulumi.CustomResource):
         """
         An addon resource
 
+        ## Example Usage
+        ### Addons_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.v20200717preview.Addon("addon",
+            addon_name="srm",
+            addon_type="SRM",
+            license_key="41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20200717preview:Addon srm /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/addons/srm 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_name: Name of the addon for the private cloud
@@ -128,6 +152,30 @@ class Addon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An addon resource
+
+        ## Example Usage
+        ### Addons_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        addon = azure_native.avs.v20200717preview.Addon("addon",
+            addon_name="srm",
+            addon_type="SRM",
+            license_key="41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20200717preview:Addon srm /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/addons/srm 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AddonArgs args: The arguments to use to populate this resource's properties.

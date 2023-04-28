@@ -114,6 +114,43 @@ class GuestConfigurationAssignmentsVMSS(pulumi.CustomResource):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
 
+        ## Example Usage
+        ### Create or update guest configuration assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_configuration_assignments_vmss = azure_native.guestconfiguration.v20220125.GuestConfigurationAssignmentsVMSS("guestConfigurationAssignmentsVMSS",
+            location="westcentralus",
+            name="NotInstalledApplicationForWindows",
+            properties=azure_native.guestconfiguration.v20220125.GuestConfigurationAssignmentPropertiesResponseArgs(
+                context="Azure policy",
+                guest_configuration={
+                    "assignmentType": "ApplyAndAutoCorrect",
+                    "configurationParameter": [azure_native.guestconfiguration.v20220125.ConfigurationParameterArgs(
+                        name="[InstalledApplication]NotInstalledApplicationResource1;Name",
+                        value="NotePad,sql",
+                    )],
+                    "contentHash": "123contenthash",
+                    "contentUri": "https://thisisfake/pacakge",
+                    "name": "NotInstalledApplicationForWindows",
+                    "version": "1.0.0.3",
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            vmss_name="myVMSSName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS NotInstalledApplicationForWindows /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualmachinescalesets/myvmssname/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Region where the VM is located.
@@ -130,6 +167,43 @@ class GuestConfigurationAssignmentsVMSS(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
+
+        ## Example Usage
+        ### Create or update guest configuration assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_configuration_assignments_vmss = azure_native.guestconfiguration.v20220125.GuestConfigurationAssignmentsVMSS("guestConfigurationAssignmentsVMSS",
+            location="westcentralus",
+            name="NotInstalledApplicationForWindows",
+            properties=azure_native.guestconfiguration.v20220125.GuestConfigurationAssignmentPropertiesResponseArgs(
+                context="Azure policy",
+                guest_configuration={
+                    "assignmentType": "ApplyAndAutoCorrect",
+                    "configurationParameter": [azure_native.guestconfiguration.v20220125.ConfigurationParameterArgs(
+                        name="[InstalledApplication]NotInstalledApplicationResource1;Name",
+                        value="NotePad,sql",
+                    )],
+                    "contentHash": "123contenthash",
+                    "contentUri": "https://thisisfake/pacakge",
+                    "name": "NotInstalledApplicationForWindows",
+                    "version": "1.0.0.3",
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            vmss_name="myVMSSName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:guestconfiguration/v20220125:GuestConfigurationAssignmentsVMSS NotInstalledApplicationForWindows /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualmachinescalesets/myvmssname/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GuestConfigurationAssignmentsVMSSArgs args: The arguments to use to populate this resource's properties.

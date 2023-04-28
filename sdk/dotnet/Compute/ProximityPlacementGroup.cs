@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.Compute
     /// Specifies information about the proximity placement group.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a proximity placement group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var proximityPlacementGroup = new AzureNative.Compute.ProximityPlacementGroup("proximityPlacementGroup", new()
+    ///     {
+    ///         Intent = new AzureNative.Compute.Inputs.ProximityPlacementGroupPropertiesIntentArgs
+    ///         {
+    ///             VmSizes = new[]
+    ///             {
+    ///                 "Basic_A0",
+    ///                 "Basic_A2",
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         ProximityPlacementGroupName = "myProximityPlacementGroup",
+    ///         ProximityPlacementGroupType = "Standard",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:ProximityPlacementGroup myProximityPlacementGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myProximityPlacementGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:ProximityPlacementGroup")]
     public partial class ProximityPlacementGroup : global::Pulumi.CustomResource

@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
 {
     /// <summary>
     /// Network related settings
+    /// 
+    /// ## Example Usage
+    /// ### NetworkConnections_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkConnection = new AzureNative.DevCenter.V20220901Preview.NetworkConnection("networkConnection", new()
+    ///     {
+    ///         DomainJoinType = "HybridAzureADJoin",
+    ///         DomainName = "mydomaincontroller.local",
+    ///         DomainPassword = "Password value for user",
+    ///         DomainUsername = "testuser@mydomaincontroller.local",
+    ///         Location = "centralus",
+    ///         NetworkConnectionName = "uswest3network",
+    ///         NetworkingResourceGroupName = "NetworkInterfaces",
+    ///         ResourceGroupName = "rg1",
+    ///         SubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter/v20220901preview:NetworkConnection uswest3network /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/networkconnections/uswest3network 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220901preview:NetworkConnection")]
     public partial class NetworkConnection : global::Pulumi.CustomResource

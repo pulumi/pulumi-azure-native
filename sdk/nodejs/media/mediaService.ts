@@ -11,6 +11,83 @@ import * as utilities from "../utilities";
  * A Media Services account.
  * API Version: 2023-01-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a Media Services account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mediaService = new azure_native.media.MediaService("mediaService", {
+ *     accountName: "contososports",
+ *     location: "South Central US",
+ *     resourceGroupName: "contosorg",
+ *     storageAccounts: [{
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/teststorageaccount",
+ *         type: "Primary",
+ *     }],
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a Media Services account-managed-identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mediaService = new azure_native.media.MediaService("mediaService", {
+ *     accountName: "contososports",
+ *     encryption: {
+ *         identity: {
+ *             useSystemAssignedIdentity: false,
+ *             userAssignedIdentity: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+ *         },
+ *         type: "CustomerKey",
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {},
+ *         },
+ *     },
+ *     keyDelivery: {
+ *         accessControl: {
+ *             defaultAction: "Allow",
+ *         },
+ *     },
+ *     location: "South Central US",
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "contosorg",
+ *     storageAccounts: [{
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Storage/storageAccounts/contososportsstore",
+ *         identity: {
+ *             useSystemAssignedIdentity: false,
+ *             userAssignedIdentity: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+ *         },
+ *         type: "Primary",
+ *     }],
+ *     storageAuthentication: "ManagedIdentity",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media:MediaService contososports /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contososports 
+ * ```
  */
 export class MediaService extends pulumi.CustomResource {
     /**

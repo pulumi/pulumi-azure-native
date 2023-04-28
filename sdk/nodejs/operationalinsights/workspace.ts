@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * The top level Workspace resource container.
  * API Version: 2022-10-01.
  * Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### WorkspacesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.operationalinsights.Workspace("workspace", {
+ *     location: "australiasoutheast",
+ *     resourceGroupName: "oiautorest6685",
+ *     retentionInDays: 30,
+ *     sku: {
+ *         name: "PerGB2018",
+ *     },
+ *     tags: {
+ *         tag1: "val1",
+ *     },
+ *     workspaceName: "oiautorest6685",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights:Workspace AzTest2170 /subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/oiautorest6685/providers/microsoft.operationalinsights/workspaces/aztest2170 
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

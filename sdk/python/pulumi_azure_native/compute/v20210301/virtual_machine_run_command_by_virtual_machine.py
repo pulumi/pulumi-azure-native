@@ -268,6 +268,46 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         """
         Describes a Virtual Machine run command.
 
+        ## Example Usage
+        ### Create or update a run command.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_run_command_by_virtual_machine = azure_native.compute.v20210301.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine",
+            async_execution=False,
+            location="West US",
+            parameters=[
+                {
+                    "name": "param1",
+                    "value": "value1",
+                },
+                {
+                    "name": "param2",
+                    "value": "value2",
+                },
+            ],
+            resource_group_name="myResourceGroup",
+            run_as_password="<runAsPassword>",
+            run_as_user="user1",
+            run_command_name="myRunCommand",
+            source=azure_native.compute.v20210301.VirtualMachineRunCommandScriptSourceArgs(
+                script="Write-Host Hello World!",
+            ),
+            timeout_in_seconds=3600,
+            vm_name="myVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/runCommands/myRunCommand 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] async_execution: Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
@@ -293,6 +333,46 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine run command.
+
+        ## Example Usage
+        ### Create or update a run command.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_run_command_by_virtual_machine = azure_native.compute.v20210301.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine",
+            async_execution=False,
+            location="West US",
+            parameters=[
+                {
+                    "name": "param1",
+                    "value": "value1",
+                },
+                {
+                    "name": "param2",
+                    "value": "value2",
+                },
+            ],
+            resource_group_name="myResourceGroup",
+            run_as_password="<runAsPassword>",
+            run_as_user="user1",
+            run_command_name="myRunCommand",
+            source=azure_native.compute.v20210301.VirtualMachineRunCommandScriptSourceArgs(
+                script="Write-Host Hello World!",
+            ),
+            timeout_in_seconds=3600,
+            vm_name="myVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210301:VirtualMachineRunCommandByVirtualMachine myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/runCommands/myRunCommand 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineRunCommandByVirtualMachineArgs args: The arguments to use to populate this resource's properties.

@@ -62,6 +62,27 @@ class DeviceGroup(pulumi.CustomResource):
         """
         Device group
 
+        ## Example Usage
+        ### Create or update device group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device_group = azure_native.iotsecurity.v20210201preview.DeviceGroup("deviceGroup",
+            device_group_name="myGroup",
+            iot_defender_location="eastus")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity/v20210201preview:DeviceGroup myGroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.IoTSecurity/deviceGroups/myGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_group_name: Device group name
@@ -75,6 +96,27 @@ class DeviceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device group
+
+        ## Example Usage
+        ### Create or update device group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device_group = azure_native.iotsecurity.v20210201preview.DeviceGroup("deviceGroup",
+            device_group_name="myGroup",
+            iot_defender_location="eastus")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity/v20210201preview:DeviceGroup myGroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.IoTSecurity/deviceGroups/myGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeviceGroupArgs args: The arguments to use to populate this resource's properties.

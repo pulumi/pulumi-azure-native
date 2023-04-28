@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20171103Preview
 {
     /// <summary>
     /// HANA instance info on Azure (ARM properties and HANA properties)
+    /// 
+    /// ## Example Usage
+    /// ### Create a HANA instance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hanaInstance = new AzureNative.HanaOnAzure.V20171103Preview.HanaInstance("hanaInstance", new()
+    ///     {
+    ///         HanaInstanceName = "myHanaInstance",
+    ///         Location = "westus",
+    ///         NetworkProfile = new AzureNative.HanaOnAzure.V20171103Preview.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.HanaOnAzure.V20171103Preview.Inputs.IpAddressArgs
+    ///                 {
+    ///                     IpAddress = "100.100.100.100",
+    ///                 },
+    ///             },
+    ///         },
+    ///         OsProfile = new AzureNative.HanaOnAzure.V20171103Preview.Inputs.OSProfileArgs
+    ///         {
+    ///             ComputerName = "myComputerName",
+    ///             SshPublicKey = "AAAAB3NzaC1yc2EAAAABJQAAAQB/nAmOjTmezNUDKYvEeIRf2YnwM9/uUG1d0BYsc8/tRtx+RGi7N2lUbp728MXGwdnL9od4cItzky/zVdLZE2cycOa18xBK9cOWmcKS0A8FYBxEQWJ/q9YVUgZbFKfYGaGQxsER+A0w/fX8ALuk78ktP31K69LcQgxIsl7rNzxsoOQKJ/CIxOGMMxczYTiEoLvQhapFQMs3FL96didKr/QbrfB1WT6s3838SEaXfgZvLef1YB2xmfhbT9OXFE3FXvh2UPBfN+ffE7iiayQf/2XR+8j4N4bW30DiPtOQLGUrH1y5X/rpNZNlWW2+jGIxqZtgWg7lTy3mXy5x836Sj/6L",
+    ///         },
+    ///         PartnerNodeId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance2",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hanaonazure/v20171103preview:HanaInstance myHanaInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hanaonazure/v20171103preview:HanaInstance")]
     public partial class HanaInstance : global::Pulumi.CustomResource

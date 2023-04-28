@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Relay.V20160701
 {
     /// <summary>
     /// Description of WcfRelays Resource.
+    /// 
+    /// ## Example Usage
+    /// ### RelayCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var wcfRelay = new AzureNative.Relay.V20160701.WCFRelay("wcfRelay", new()
+    ///     {
+    ///         NamespaceName = "example-RelayNamespace-9953",
+    ///         RelayName = "example-Relay-Wcf-1194",
+    ///         RelayType = "NetTcp",
+    ///         RequiresClientAuthorization = true,
+    ///         RequiresTransportSecurity = true,
+    ///         ResourceGroupName = "resourcegroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relay/v20160701:WCFRelay example-Relay-Wcf-1194 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-9953/WcfRelays/example-Relay-Wcf-1194 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:relay/v20160701:WCFRelay")]

@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * The details are specific to the Network Cloud use of the Hybrid AKS cluster.
  * API Version: 2022-12-12-preview.
  * Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update Hybrid AKS provisioned cluster data
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hybridAksCluster = new azure_native.networkcloud.HybridAksCluster("hybridAksCluster", {
+ *     associatedNetworkIds: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName"],
+ *     controlPlaneCount: 4,
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     hybridAksClusterName: "hybridAksClusterName",
+ *     hybridAksProvisionedClusterId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridContainerService/provisionedClusters/hybridAksClusterName",
+ *     location: "location",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ *     workerCount: 8,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:HybridAksCluster HybridAksClusterName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/hybridAksClusters/hybridAksClusterName 
+ * ```
  */
 export class HybridAksCluster extends pulumi.CustomResource {
     /**

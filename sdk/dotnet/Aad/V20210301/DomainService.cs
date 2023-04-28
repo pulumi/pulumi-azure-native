@@ -11,6 +11,67 @@ namespace Pulumi.AzureNative.Aad.V20210301
 {
     /// <summary>
     /// Domain service.
+    /// 
+    /// ## Example Usage
+    /// ### Create Domain Service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domainService = new AzureNative.Aad.V20210301.DomainService("domainService", new()
+    ///     {
+    ///         DomainName = "TestDomainService.com",
+    ///         DomainSecuritySettings = new AzureNative.Aad.V20210301.Inputs.DomainSecuritySettingsArgs
+    ///         {
+    ///             NtlmV1 = "Enabled",
+    ///             SyncNtlmPasswords = "Enabled",
+    ///             TlsV1 = "Disabled",
+    ///         },
+    ///         DomainServiceName = "TestDomainService.com",
+    ///         FilteredSync = "Enabled",
+    ///         LdapsSettings = new AzureNative.Aad.V20210301.Inputs.LdapsSettingsArgs
+    ///         {
+    ///             ExternalAccess = "Enabled",
+    ///             Ldaps = "Enabled",
+    ///             PfxCertificate = "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+    ///             PfxCertificatePassword = "&lt;pfxCertificatePassword&gt;",
+    ///         },
+    ///         NotificationSettings = new AzureNative.Aad.V20210301.Inputs.NotificationSettingsArgs
+    ///         {
+    ///             AdditionalRecipients = new[]
+    ///             {
+    ///                 "jicha@microsoft.com",
+    ///                 "caalmont@microsoft.com",
+    ///             },
+    ///             NotifyDcAdmins = "Enabled",
+    ///             NotifyGlobalAdmins = "Enabled",
+    ///         },
+    ///         ReplicaSets = new[]
+    ///         {
+    ///             new AzureNative.Aad.V20210301.Inputs.ReplicaSetArgs
+    ///             {
+    ///                 Location = "West US",
+    ///                 SubnetId = "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:aad/v20210301:DomainService TestDomainService.com /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestResourceGroup/providers/Microsoft.AAD/DomainServices/TestDomainService.com 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:aad/v20210301:DomainService")]
     public partial class DomainService : global::Pulumi.CustomResource

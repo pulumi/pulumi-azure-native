@@ -10,6 +10,75 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB database account.
  *
+ * ## Example Usage
+ * ### CosmosDBDatabaseAccountCreateMax
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccount = new azure_native.documentdb.v20200301.DatabaseAccount("databaseAccount", {
+ *     accountName: "ddb1",
+ *     consistencyPolicy: {
+ *         defaultConsistencyLevel: azure_native.documentdb.v20200301.DefaultConsistencyLevel.BoundedStaleness,
+ *         maxIntervalInSeconds: 10,
+ *         maxStalenessPrefix: 200,
+ *     },
+ *     databaseAccountOfferType: azure_native.documentdb.v20200301.DatabaseAccountOfferType.Standard,
+ *     ipRangeFilter: "10.10.10.10",
+ *     isVirtualNetworkFilterEnabled: true,
+ *     keyVaultKeyUri: "https://myKeyVault.vault.azure.net",
+ *     kind: "GlobalDocumentDB",
+ *     location: "westus",
+ *     locations: [
+ *         {
+ *             failoverPriority: 0,
+ *             isZoneRedundant: false,
+ *             locationName: "southcentralus",
+ *         },
+ *         {
+ *             failoverPriority: 1,
+ *             isZoneRedundant: false,
+ *             locationName: "eastus",
+ *         },
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ *     virtualNetworkRules: [{
+ *         id: "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+ *         ignoreMissingVNetServiceEndpoint: false,
+ *     }],
+ * });
+ *
+ * ```
+ * ### CosmosDBDatabaseAccountCreateMin
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccount = new azure_native.documentdb.v20200301.DatabaseAccount("databaseAccount", {
+ *     accountName: "ddb1",
+ *     databaseAccountOfferType: azure_native.documentdb.v20200301.DatabaseAccountOfferType.Standard,
+ *     location: "westus",
+ *     locations: [{
+ *         failoverPriority: 0,
+ *         isZoneRedundant: false,
+ *         locationName: "southcentralus",
+ *     }],
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20200301:DatabaseAccount ddb1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1 
+ * ```
+ *
  * @deprecated Version 2020-03-01 will be removed in v2 of the provider.
  */
 export class DatabaseAccount extends pulumi.CustomResource {

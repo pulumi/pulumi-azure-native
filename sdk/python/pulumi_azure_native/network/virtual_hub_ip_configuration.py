@@ -184,6 +184,31 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VirtualHubIpConfigurationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_ip_configuration = azure_native.network.VirtualHubIpConfiguration("virtualHubIpConfiguration",
+            ip_config_name="ipconfig1",
+            resource_group_name="rg1",
+            subnet=azure_native.network.SubnetArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            ),
+            virtual_hub_name="hub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualHubIpConfiguration ipconfig1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/ipConfigurations/ipconfig1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -206,6 +231,31 @@ class VirtualHubIpConfiguration(pulumi.CustomResource):
         IpConfigurations.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VirtualHubIpConfigurationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_ip_configuration = azure_native.network.VirtualHubIpConfiguration("virtualHubIpConfiguration",
+            ip_config_name="ipconfig1",
+            resource_group_name="rg1",
+            subnet=azure_native.network.SubnetArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+            ),
+            virtual_hub_name="hub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualHubIpConfiguration ipconfig1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/ipConfigurations/ipconfig1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualHubIpConfigurationArgs args: The arguments to use to populate this resource's properties.

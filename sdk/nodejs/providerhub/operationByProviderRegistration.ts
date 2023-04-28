@@ -10,6 +10,36 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2020-11-20.
  * Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Operations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const operationByProviderRegistration = new azure_native.providerhub.OperationByProviderRegistration("operationByProviderRegistration", {
+ *     contents: [{
+ *         display: {
+ *             description: "Read employees",
+ *             operation: "Gets/List employee resources",
+ *             provider: "Microsoft.Contoso",
+ *             resource: "Employees",
+ *         },
+ *         name: "Microsoft.Contoso/Employees/Read",
+ *     }],
+ *     providerNamespace: "Microsoft.Contoso",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:providerhub:OperationByProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/operations/default 
+ * ```
  */
 export class OperationByProviderRegistration extends pulumi.CustomResource {
     /**

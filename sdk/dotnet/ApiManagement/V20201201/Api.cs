@@ -11,6 +11,331 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Api details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "tempgroup",
+    ///         AuthenticationSettings = new AzureNative.ApiManagement.V20201201.Inputs.AuthenticationSettingsContractArgs
+    ///         {
+    ///             OAuth2 = new AzureNative.ApiManagement.V20201201.Inputs.OAuth2AuthenticationSettingsContractArgs
+    ///             {
+    ///                 AuthorizationServerId = "authorizationServerId2283",
+    ///                 Scope = "oauth2scope2580",
+    ///             },
+    ///         },
+    ///         Description = "apidescription5200",
+    ///         DisplayName = "apiname1463",
+    ///         Path = "newapiPath",
+    ///         Protocols = new[]
+    ///         {
+    ///             AzureNative.ApiManagement.V20201201.Protocol.Https,
+    ///             AzureNative.ApiManagement.V20201201.Protocol.Http,
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         ServiceUrl = "http://newechoapi.cloudapp.net/api",
+    ///         SubscriptionKeyParameterNames = new AzureNative.ApiManagement.V20201201.Inputs.SubscriptionKeyParameterNamesContractArgs
+    ///         {
+    ///             Header = "header4520",
+    ///             Query = "query3037",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiClone
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "echo-api2",
+    ///         Description = "Copy of Existing Echo Api including Operations.",
+    ///         DisplayName = "Echo API2",
+    ///         IsCurrent = true,
+    ///         Path = "echo2",
+    ///         Protocols = new[]
+    ///         {
+    ///             AzureNative.ApiManagement.V20201201.Protocol.Http,
+    ///             AzureNative.ApiManagement.V20201201.Protocol.Https,
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         ServiceUrl = "http://echoapi.cloudapp.net/api",
+    ///         SourceApiId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/58a4aeac497000007d040001",
+    ///         SubscriptionRequired = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiNewVersionUsingExistingApi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "echoapiv3",
+    ///         ApiVersion = "v4",
+    ///         ApiVersionSetId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apiVersionSets/aa9c59e6-c0cd-4258-9356-9ca7d2f0b458",
+    ///         Description = "Create Echo API into a new Version using Existing Version Set and Copy all Operations.",
+    ///         DisplayName = "Echo API2",
+    ///         IsCurrent = true,
+    ///         Path = "echo2",
+    ///         Protocols = new[]
+    ///         {
+    ///             AzureNative.ApiManagement.V20201201.Protocol.Http,
+    ///             AzureNative.ApiManagement.V20201201.Protocol.Https,
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         ServiceUrl = "http://echoapi.cloudapp.net/api",
+    ///         SourceApiId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echoPath",
+    ///         SubscriptionRequired = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiRevisionFromExistingApi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "echo-api;rev=3",
+    ///         ApiRevisionDescription = "Creating a Revision of an existing API",
+    ///         Path = "echo",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         ServiceUrl = "http://echoapi.cloudapp.net/apiv3",
+    ///         SourceApiId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/echo-api",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiUsingImportOverrideServiceUrl
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "apidocs",
+    ///         Format = "swagger-link",
+    ///         Path = "petstoreapi123",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         ServiceUrl = "http://petstore.swagger.wordnik.com/api",
+    ///         Value = "http://apimpimportviaurl.azurewebsites.net/api/apidocs/",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiUsingOai3Import
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "petstore",
+    ///         Format = "openapi-link",
+    ///         Path = "petstore",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.yaml",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiUsingSwaggerImport
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "petstore",
+    ///         Format = "swagger-link-json",
+    ///         Path = "petstore",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = "http://petstore.swagger.io/v2/swagger.json",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiUsingWadlImport
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "petstore",
+    ///         Format = "wadl-link-json",
+    ///         Path = "collector",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = "https://developer.cisco.com/media/wae-release-6-2-api-reference/wae-collector-rest-api/application.wadl",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiWithOpenIdConnect
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "tempgroup",
+    ///         AuthenticationSettings = new AzureNative.ApiManagement.V20201201.Inputs.AuthenticationSettingsContractArgs
+    ///         {
+    ///             Openid = new AzureNative.ApiManagement.V20201201.Inputs.OpenIdAuthenticationSettingsContractArgs
+    ///             {
+    ///                 BearerTokenSendingMethods = new[]
+    ///                 {
+    ///                     "authorizationHeader",
+    ///                 },
+    ///                 OpenidProviderId = "testopenid",
+    ///             },
+    ///         },
+    ///         Description = "This is a sample server Petstore server.  You can find out more about Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).  For this sample, you can use the api key `special-key` to test the authorization filters.",
+    ///         DisplayName = "Swagger Petstore",
+    ///         Path = "petstore",
+    ///         Protocols = new[]
+    ///         {
+    ///             AzureNative.ApiManagement.V20201201.Protocol.Https,
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         ServiceUrl = "http://petstore.swagger.io/v2",
+    ///         SubscriptionKeyParameterNames = new AzureNative.ApiManagement.V20201201.Inputs.SubscriptionKeyParameterNamesContractArgs
+    ///         {
+    ///             Header = "Ocp-Apim-Subscription-Key",
+    ///             Query = "subscription-key",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateSoapPassThroughApiUsingWsdlImport
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "soapApi",
+    ///         Format = "wsdl-link",
+    ///         Path = "currency",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         SoapApiType = "soap",
+    ///         Value = "http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+    ///         WsdlSelector = new AzureNative.ApiManagement.V20201201.Inputs.ApiCreateOrUpdatePropertiesWsdlSelectorArgs
+    ///         {
+    ///             WsdlEndpointName = "CurrencyConvertorSoap",
+    ///             WsdlServiceName = "CurrencyConvertor",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateSoapToRestApiUsingWsdlImport
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var api = new AzureNative.ApiManagement.V20201201.Api("api", new()
+    ///     {
+    ///         ApiId = "soapApi",
+    ///         Format = "wsdl-link",
+    ///         Path = "currency",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = "http://www.webservicex.net/CurrencyConvertor.asmx?WSDL",
+    ///         WsdlSelector = new AzureNative.ApiManagement.V20201201.Inputs.ApiCreateOrUpdatePropertiesWsdlSelectorArgs
+    ///         {
+    ///             WsdlEndpointName = "CurrencyConvertorSoap",
+    ///             WsdlServiceName = "CurrencyConvertor",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:Api soapApi /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/soapApi 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:Api")]
     public partial class Api : global::Pulumi.CustomResource

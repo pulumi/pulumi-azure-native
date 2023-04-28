@@ -96,6 +96,29 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
         """
         Role management policy
 
+        ## Example Usage
+        ### PutRoleManagementPolicyAssignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_management_policy_assignment = azure_native.authorization.v20201001.RoleManagementPolicyAssignment("roleManagementPolicyAssignment",
+            policy_id="/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicies/b959d571-f0b5-4042-88a7-01be6cb22db9",
+            role_definition_id="/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleDefinitions/a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
+            role_management_policy_assignment_name="b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
+            scope="/subscriptions/129ff972-28f8-46b8-a726-e497be039368")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20201001:RoleManagementPolicyAssignment b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24 /subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicyAssignment/b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_id: The policy id role management policy assignment.
@@ -111,6 +134,29 @@ class RoleManagementPolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Role management policy
+
+        ## Example Usage
+        ### PutRoleManagementPolicyAssignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_management_policy_assignment = azure_native.authorization.v20201001.RoleManagementPolicyAssignment("roleManagementPolicyAssignment",
+            policy_id="/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicies/b959d571-f0b5-4042-88a7-01be6cb22db9",
+            role_definition_id="/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleDefinitions/a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
+            role_management_policy_assignment_name="b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
+            scope="/subscriptions/129ff972-28f8-46b8-a726-e497be039368")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20201001:RoleManagementPolicyAssignment b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24 /subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicyAssignment/b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RoleManagementPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

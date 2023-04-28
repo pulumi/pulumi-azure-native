@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * A hostname binding object.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201201:WebAppHostNameBinding myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hostNameBindings/{hostName} 
+ * ```
  */
 export class WebAppHostNameBinding extends pulumi.CustomResource {
     /**

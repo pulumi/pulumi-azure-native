@@ -11,6 +11,187 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
 {
     /// <summary>
     /// Deployment resource payload
+    /// 
+    /// ## Example Usage
+    /// ### Deployments_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deployment = new AzureNative.AppPlatform.V20230101Preview.Deployment("deployment", new()
+    ///     {
+    ///         AppName = "myapp",
+    ///         DeploymentName = "mydeployment",
+    ///         Properties = new AzureNative.AppPlatform.V20230101Preview.Inputs.DeploymentResourcePropertiesArgs
+    ///         {
+    ///             DeploymentSettings = new AzureNative.AppPlatform.V20230101Preview.Inputs.DeploymentSettingsArgs
+    ///             {
+    ///                 AddonConfigs = 
+    ///                 {
+    ///                     { "ApplicationConfigurationService", 
+    ///                     {
+    ///                         { "patterns", new[]
+    ///                         {
+    ///                             "mypattern",
+    ///                         } },
+    ///                     } },
+    ///                 },
+    ///                 EnvironmentVariables = 
+    ///                 {
+    ///                     { "env", "test" },
+    ///                 },
+    ///                 LivenessProbe = new AzureNative.AppPlatform.V20230101Preview.Inputs.ProbeArgs
+    ///                 {
+    ///                     DisableProbe = false,
+    ///                     FailureThreshold = 3,
+    ///                     InitialDelaySeconds = 30,
+    ///                     PeriodSeconds = 10,
+    ///                     ProbeAction = new AzureNative.AppPlatform.V20230101Preview.Inputs.HTTPGetActionArgs
+    ///                     {
+    ///                         Path = "/health",
+    ///                         Scheme = "HTTP",
+    ///                         Type = "HTTPGetAction",
+    ///                     },
+    ///                 },
+    ///                 ReadinessProbe = new AzureNative.AppPlatform.V20230101Preview.Inputs.ProbeArgs
+    ///                 {
+    ///                     DisableProbe = false,
+    ///                     FailureThreshold = 3,
+    ///                     InitialDelaySeconds = 30,
+    ///                     PeriodSeconds = 10,
+    ///                     ProbeAction = new AzureNative.AppPlatform.V20230101Preview.Inputs.HTTPGetActionArgs
+    ///                     {
+    ///                         Path = "/health",
+    ///                         Scheme = "HTTP",
+    ///                         Type = "HTTPGetAction",
+    ///                     },
+    ///                 },
+    ///                 ResourceRequests = new AzureNative.AppPlatform.V20230101Preview.Inputs.ResourceRequestsArgs
+    ///                 {
+    ///                     Cpu = "1000m",
+    ///                     Memory = "3Gi",
+    ///                 },
+    ///                 TerminationGracePeriodSeconds = 30,
+    ///             },
+    ///             Source = new AzureNative.AppPlatform.V20230101Preview.Inputs.SourceUploadedUserSourceInfoArgs
+    ///             {
+    ///                 ArtifactSelector = "sub-module-1",
+    ///                 RelativePath = "resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc",
+    ///                 Type = "Source",
+    ///                 Version = "1.0",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.V20230101Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Deployments_CreateOrUpdate_CustomContainer
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deployment = new AzureNative.AppPlatform.V20230101Preview.Deployment("deployment", new()
+    ///     {
+    ///         AppName = "myapp",
+    ///         DeploymentName = "mydeployment",
+    ///         Properties = new AzureNative.AppPlatform.V20230101Preview.Inputs.DeploymentResourcePropertiesArgs
+    ///         {
+    ///             DeploymentSettings = new AzureNative.AppPlatform.V20230101Preview.Inputs.DeploymentSettingsArgs
+    ///             {
+    ///                 EnvironmentVariables = 
+    ///                 {
+    ///                     { "env", "test" },
+    ///                 },
+    ///                 LivenessProbe = new AzureNative.AppPlatform.V20230101Preview.Inputs.ProbeArgs
+    ///                 {
+    ///                     DisableProbe = false,
+    ///                     FailureThreshold = 3,
+    ///                     InitialDelaySeconds = 30,
+    ///                     PeriodSeconds = 10,
+    ///                     ProbeAction = new AzureNative.AppPlatform.V20230101Preview.Inputs.HTTPGetActionArgs
+    ///                     {
+    ///                         Path = "/health",
+    ///                         Scheme = "HTTP",
+    ///                         Type = "HTTPGetAction",
+    ///                     },
+    ///                 },
+    ///                 ReadinessProbe = new AzureNative.AppPlatform.V20230101Preview.Inputs.ProbeArgs
+    ///                 {
+    ///                     DisableProbe = false,
+    ///                     FailureThreshold = 3,
+    ///                     InitialDelaySeconds = 30,
+    ///                     PeriodSeconds = 10,
+    ///                     ProbeAction = new AzureNative.AppPlatform.V20230101Preview.Inputs.HTTPGetActionArgs
+    ///                     {
+    ///                         Path = "/health",
+    ///                         Scheme = "HTTP",
+    ///                         Type = "HTTPGetAction",
+    ///                     },
+    ///                 },
+    ///                 ResourceRequests = new AzureNative.AppPlatform.V20230101Preview.Inputs.ResourceRequestsArgs
+    ///                 {
+    ///                     Cpu = "1000m",
+    ///                     Memory = "3Gi",
+    ///                 },
+    ///                 TerminationGracePeriodSeconds = 30,
+    ///             },
+    ///             Source = new AzureNative.AppPlatform.V20230101Preview.Inputs.CustomContainerUserSourceInfoArgs
+    ///             {
+    ///                 CustomContainer = new AzureNative.AppPlatform.V20230101Preview.Inputs.CustomContainerArgs
+    ///                 {
+    ///                     Args = new[]
+    ///                     {
+    ///                         "-c",
+    ///                         "while true; do echo hello; sleep 10;done",
+    ///                     },
+    ///                     Command = new[]
+    ///                     {
+    ///                         "/bin/sh",
+    ///                     },
+    ///                     ContainerImage = "myContainerImage:v1",
+    ///                     ImageRegistryCredential = new AzureNative.AppPlatform.V20230101Preview.Inputs.ImageRegistryCredentialArgs
+    ///                     {
+    ///                         Password = "myPassword",
+    ///                         Username = "myUsername",
+    ///                     },
+    ///                     LanguageFramework = "springboot",
+    ///                     Server = "myacr.azurecr.io",
+    ///                 },
+    ///                 Type = "Container",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230101preview:Deployment mydeployment /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/deployments/mydeployment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230101preview:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

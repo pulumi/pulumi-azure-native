@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Resources.V20210101
 {
     /// <summary>
     /// Deployment information.
+    /// 
+    /// ## Example Usage
+    /// ### Create deployment at a given scope.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deploymentAtScope = new AzureNative.Resources.V20210101.DeploymentAtScope("deploymentAtScope", new()
+    ///     {
+    ///         DeploymentName = "my-deployment",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Resources.V20210101.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Mode = AzureNative.Resources.V20210101.DeploymentMode.Incremental,
+    ///             Parameters = null,
+    ///             TemplateLink = new AzureNative.Resources.V20210101.Inputs.TemplateLinkArgs
+    ///             {
+    ///                 Uri = "https://example.com/exampleTemplate.json",
+    ///             },
+    ///         },
+    ///         Scope = "providers/Microsoft.Management/managementGroups/my-management-group-id",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "tag-value-1" },
+    ///             { "tagKey2", "tag-value-2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20210101:DeploymentAtScope my-deployment /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/my-deployment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20210101:DeploymentAtScope")]
     public partial class DeploymentAtScope : global::Pulumi.CustomResource

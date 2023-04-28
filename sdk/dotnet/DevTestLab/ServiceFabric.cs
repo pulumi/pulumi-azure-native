@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A Service Fabric.
     /// API Version: 2018-09-15.
     /// Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ServiceFabrics_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceFabric = new AzureNative.DevTestLab.ServiceFabric("serviceFabric", new()
+    ///     {
+    ///         EnvironmentId = "{environmentId}",
+    ///         ExternalServiceFabricId = "{serviceFabricId}",
+    ///         LabName = "{labName}",
+    ///         Location = "{location}",
+    ///         Name = "{serviceFabricName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///         UserName = "{userName}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab:ServiceFabric {serviceFabricName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/users/{userName}/servicefabrics/{serviceFabricName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:ServiceFabric")]
     public partial class ServiceFabric : global::Pulumi.CustomResource

@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.HybridData.V20190601
 {
     /// <summary>
     /// Job Definition.
+    /// 
+    /// ## Example Usage
+    /// ### JobDefinitions_CreateOrUpdatePUT83
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobDefinition = new AzureNative.HybridData.V20190601.JobDefinition("jobDefinition", new()
+    ///     {
+    ///         DataManagerName = "TestAzureSDKOperations",
+    ///         DataServiceInput = 
+    ///         {
+    ///             { "AzureStorageType", "Blob" },
+    ///             { "BackupChoice", "UseExistingLatest" },
+    ///             { "ContainerName", "containerfromtest" },
+    ///             { "DeviceName", "8600-SHG0997877L71FC" },
+    ///             { "FileNameFilter", "*" },
+    ///             { "IsDirectoryMode", false },
+    ///             { "RootDirectories", new[]
+    ///             {
+    ///                 "\\",
+    ///             } },
+    ///             { "VolumeNames", new[]
+    ///             {
+    ///                 "TestAutomation",
+    ///             } },
+    ///         },
+    ///         DataServiceName = "DataTransformation",
+    ///         DataSinkId = "/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestAzureStorage1",
+    ///         DataSourceId = "/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestStorSimpleSource1",
+    ///         JobDefinitionName = "jobdeffromtestcode1",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         RunLocation = AzureNative.HybridData.V20190601.RunLocation.Westus,
+    ///         State = AzureNative.HybridData.V20190601.State.Enabled,
+    ///         UserConfirmation = AzureNative.HybridData.V20190601.UserConfirmation.Required,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybriddata/v20190601:JobDefinition jobdeffromtestcode1 /subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataServices/DataTransformation/jobDefinitions/jobdeffromtestcode1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybriddata/v20190601:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource

@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Network slice resource. Must be created in the same location as its parent mobile network.
+ *
+ * ## Example Usage
+ * ### Create network slice
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const slice = new azure_native.mobilenetwork.v20221101.Slice("slice", {
+ *     description: "myFavouriteSlice",
+ *     location: "eastus",
+ *     mobileNetworkName: "testMobileNetwork",
+ *     resourceGroupName: "rg1",
+ *     sliceName: "testSlice",
+ *     snssai: {
+ *         sd: "1abcde",
+ *         sst: 1,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork/v20221101:Slice testSlice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice 
+ * ```
  */
 export class Slice extends pulumi.CustomResource {
     /**

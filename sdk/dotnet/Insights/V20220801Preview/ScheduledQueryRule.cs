@@ -11,6 +11,269 @@ namespace Pulumi.AzureNative.Insights.V20220801Preview
 {
     /// <summary>
     /// The scheduled query rule resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a scheduled query rule for Single Resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledQueryRule = new AzureNative.Insights.V20220801Preview.ScheduledQueryRule("scheduledQueryRule", new()
+    ///     {
+    ///         Actions = new AzureNative.Insights.V20220801Preview.Inputs.ActionsArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+    ///             },
+    ///             CustomProperties = 
+    ///             {
+    ///                 { "key11", "value11" },
+    ///                 { "key12", "value12" },
+    ///             },
+    ///         },
+    ///         CheckWorkspaceAlertsStorageConfigured = true,
+    ///         Criteria = new AzureNative.Insights.V20220801Preview.Inputs.ScheduledQueryRuleCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20220801Preview.Inputs.ConditionArgs
+    ///                 {
+    ///                     Dimensions = new[]
+    ///                     {
+    ///                         new AzureNative.Insights.V20220801Preview.Inputs.DimensionArgs
+    ///                         {
+    ///                             Name = "ComputerIp",
+    ///                             Operator = "Exclude",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "192.168.1.1",
+    ///                             },
+    ///                         },
+    ///                         new AzureNative.Insights.V20220801Preview.Inputs.DimensionArgs
+    ///                         {
+    ///                             Name = "OSType",
+    ///                             Operator = "Include",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "*",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     FailingPeriods = new AzureNative.Insights.V20220801Preview.Inputs.ConditionFailingPeriodsArgs
+    ///                     {
+    ///                         MinFailingPeriodsToAlert = 1,
+    ///                         NumberOfEvaluationPeriods = 1,
+    ///                     },
+    ///                     MetricMeasureColumn = "% Processor Time",
+    ///                     Operator = "GreaterThan",
+    ///                     Query = "Perf | where ObjectName == \"Processor\"",
+    ///                     ResourceIdColumn = "resourceId",
+    ///                     Threshold = 70,
+    ///                     TimeAggregation = "Average",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "Performance rule",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT5M",
+    ///         Location = "eastus",
+    ///         MuteActionsDuration = "PT30M",
+    ///         ResourceGroupName = "QueryResourceGroupName",
+    ///         RuleName = "perf",
+    ///         RuleResolveConfiguration = new AzureNative.Insights.V20220801Preview.Inputs.RuleResolveConfigurationArgs
+    ///         {
+    ///             AutoResolved = true,
+    ///             TimeToResolve = "PT10M",
+    ///         },
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///         },
+    ///         Severity = 4,
+    ///         SkipQueryValidation = true,
+    ///         WindowSize = "PT10M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a scheduled query rule on Resource group(s)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledQueryRule = new AzureNative.Insights.V20220801Preview.ScheduledQueryRule("scheduledQueryRule", new()
+    ///     {
+    ///         Actions = new AzureNative.Insights.V20220801Preview.Inputs.ActionsArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+    ///             },
+    ///             CustomProperties = 
+    ///             {
+    ///                 { "key11", "value11" },
+    ///                 { "key12", "value12" },
+    ///             },
+    ///         },
+    ///         CheckWorkspaceAlertsStorageConfigured = true,
+    ///         Criteria = new AzureNative.Insights.V20220801Preview.Inputs.ScheduledQueryRuleCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20220801Preview.Inputs.ConditionArgs
+    ///                 {
+    ///                     Dimensions = new[] {},
+    ///                     FailingPeriods = new AzureNative.Insights.V20220801Preview.Inputs.ConditionFailingPeriodsArgs
+    ///                     {
+    ///                         MinFailingPeriodsToAlert = 1,
+    ///                         NumberOfEvaluationPeriods = 1,
+    ///                     },
+    ///                     Operator = "GreaterThan",
+    ///                     Query = "Heartbeat",
+    ///                     Threshold = 360,
+    ///                     TimeAggregation = "Count",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "Health check rule",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT5M",
+    ///         Location = "eastus",
+    ///         MuteActionsDuration = "PT30M",
+    ///         ResourceGroupName = "QueryResourceGroupName",
+    ///         RuleName = "heartbeat",
+    ///         RuleResolveConfiguration = new AzureNative.Insights.V20220801Preview.Inputs.RuleResolveConfigurationArgs
+    ///         {
+    ///             AutoResolved = true,
+    ///             TimeToResolve = "PT10M",
+    ///         },
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147/resourceGroups/scopeResourceGroup1",
+    ///         },
+    ///         Severity = 4,
+    ///         SkipQueryValidation = true,
+    ///         TargetResourceTypes = new[]
+    ///         {
+    ///             "Microsoft.Compute/virtualMachines",
+    ///         },
+    ///         WindowSize = "PT10M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a scheduled query rule on Subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledQueryRule = new AzureNative.Insights.V20220801Preview.ScheduledQueryRule("scheduledQueryRule", new()
+    ///     {
+    ///         Actions = new AzureNative.Insights.V20220801Preview.Inputs.ActionsArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 "/subscriptions/1cf177ed-1330-4692-80ea-fd3d7783b147/resourcegroups/sqrapi/providers/microsoft.insights/actiongroups/myactiongroup",
+    ///             },
+    ///             CustomProperties = 
+    ///             {
+    ///                 { "key11", "value11" },
+    ///                 { "key12", "value12" },
+    ///             },
+    ///         },
+    ///         CheckWorkspaceAlertsStorageConfigured = true,
+    ///         Criteria = new AzureNative.Insights.V20220801Preview.Inputs.ScheduledQueryRuleCriteriaArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20220801Preview.Inputs.ConditionArgs
+    ///                 {
+    ///                     Dimensions = new[]
+    ///                     {
+    ///                         new AzureNative.Insights.V20220801Preview.Inputs.DimensionArgs
+    ///                         {
+    ///                             Name = "ComputerIp",
+    ///                             Operator = "Exclude",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "192.168.1.1",
+    ///                             },
+    ///                         },
+    ///                         new AzureNative.Insights.V20220801Preview.Inputs.DimensionArgs
+    ///                         {
+    ///                             Name = "OSType",
+    ///                             Operator = "Include",
+    ///                             Values = new[]
+    ///                             {
+    ///                                 "*",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     FailingPeriods = new AzureNative.Insights.V20220801Preview.Inputs.ConditionFailingPeriodsArgs
+    ///                     {
+    ///                         MinFailingPeriodsToAlert = 1,
+    ///                         NumberOfEvaluationPeriods = 1,
+    ///                     },
+    ///                     MetricMeasureColumn = "% Processor Time",
+    ///                     Operator = "GreaterThan",
+    ///                     Query = "Perf | where ObjectName == \"Processor\"",
+    ///                     ResourceIdColumn = "resourceId",
+    ///                     Threshold = 70,
+    ///                     TimeAggregation = "Average",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "Performance rule",
+    ///         Enabled = true,
+    ///         EvaluationFrequency = "PT5M",
+    ///         Location = "eastus",
+    ///         MuteActionsDuration = "PT30M",
+    ///         ResourceGroupName = "QueryResourceGroupName",
+    ///         RuleName = "perf",
+    ///         RuleResolveConfiguration = new AzureNative.Insights.V20220801Preview.Inputs.RuleResolveConfigurationArgs
+    ///         {
+    ///             AutoResolved = true,
+    ///             TimeToResolve = "PT10M",
+    ///         },
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/aaf177ed-1330-a9f2-80ea-fd3d7783b147",
+    ///         },
+    ///         Severity = 4,
+    ///         SkipQueryValidation = true,
+    ///         TargetResourceTypes = new[]
+    ///         {
+    ///             "Microsoft.Compute/virtualMachines",
+    ///         },
+    ///         WindowSize = "PT10M",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20220801preview:ScheduledQueryRule perf /subscriptions/dd4bfc94-a096-412b-9c43-4bd13e35afbc/resourcegroups/QueryResourceGroupName/providers/microsoft.insights/scheduledqueryrules/perf 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20220801preview:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : global::Pulumi.CustomResource

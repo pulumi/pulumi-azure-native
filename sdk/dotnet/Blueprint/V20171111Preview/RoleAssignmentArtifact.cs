@@ -11,6 +11,77 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Blueprint artifact applies Azure role assignment.
+    /// 
+    /// ## Example Usage
+    /// ### ARMTemplateArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleAssignmentArtifact = new AzureNative.Blueprint.V20171111Preview.RoleAssignmentArtifact("roleAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "storageTemplate",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PolicyAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleAssignmentArtifact = new AzureNative.Blueprint.V20171111Preview.RoleAssignmentArtifact("roleAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "costCenterPolicy",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RoleAssignmentArtifact
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleAssignmentArtifact = new AzureNative.Blueprint.V20171111Preview.RoleAssignmentArtifact("roleAssignmentArtifact", new()
+    ///     {
+    ///         ArtifactName = "ownerAssignment",
+    ///         BlueprintName = "simpleBlueprint",
+    ///         DisplayName = "enforce owners of given subscription",
+    ///         Kind = "roleAssignment",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///         PrincipalIds = "[parameters('owners')]",
+    ///         RoleDefinitionId = "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blueprint/v20171111preview:RoleAssignmentArtifact ownerAssignment /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:RoleAssignmentArtifact")]
     public partial class RoleAssignmentArtifact : global::Pulumi.CustomResource

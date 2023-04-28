@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Event Grid Partner Destination.
+ *
+ * ## Example Usage
+ * ### PartnerDestinations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const partnerDestination = new azure_native.eventgrid.v20211015preview.PartnerDestination("partnerDestination", {
+ *     endpointBaseUrl: "https://www.example/endpoint",
+ *     endpointServiceContext: "This is an example",
+ *     expirationTimeIfNotActivatedUtc: "2022-03-14T19:33:43.430Z",
+ *     location: "westus2",
+ *     messageForActivation: "Sample Activation message",
+ *     partnerDestinationName: "examplePartnerDestinationName1",
+ *     partnerRegistrationImmutableId: "0bd70ee2-7d95-447e-ab1f-c4f320019404",
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid/v20211015preview:PartnerDestination examplePartnerDestinationName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerDestinations/examplePartnerDestinationName1 
+ * ```
  */
 export class PartnerDestination extends pulumi.CustomResource {
     /**

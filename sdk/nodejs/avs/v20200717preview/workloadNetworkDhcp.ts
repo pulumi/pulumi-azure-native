@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * NSX DHCP
+ *
+ * ## Example Usage
+ * ### WorkloadNetworks_CreateDhcp
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadNetworkDhcp = new azure_native.avs.v20200717preview.WorkloadNetworkDhcp("workloadNetworkDhcp", {
+ *     dhcpId: "dhcp1",
+ *     dhcpType: "SERVER",
+ *     displayName: "dhcpConfigurations1",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     revision: 1,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20200717preview:WorkloadNetworkDhcp dhcp1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/dhcpConfigurations/dhcpConfigurations1 
+ * ```
  */
 export class WorkloadNetworkDhcp extends pulumi.CustomResource {
     /**

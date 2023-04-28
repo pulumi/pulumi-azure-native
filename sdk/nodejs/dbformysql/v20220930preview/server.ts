@@ -9,6 +9,143 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server.
+ *
+ * ## Example Usage
+ * ### Create a new server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbformysql.v20220930preview.Server("server", {
+ *     administratorLogin: "cloudsa",
+ *     administratorLoginPassword: "your_password",
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ *     createMode: "Default",
+ *     highAvailability: {
+ *         mode: "ZoneRedundant",
+ *         standbyAvailabilityZone: "3",
+ *     },
+ *     location: "southeastasia",
+ *     resourceGroupName: "testrg",
+ *     serverName: "mysqltestserver",
+ *     sku: {
+ *         name: "Standard_D2ds_v4",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storage: {
+ *         autoGrow: "Disabled",
+ *         iops: 600,
+ *         storageSizeGB: 100,
+ *     },
+ *     tags: {
+ *         num: "1",
+ *     },
+ *     version: "5.7",
+ * });
+ *
+ * ```
+ * ### Create a replica server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbformysql.v20220930preview.Server("server", {
+ *     createMode: "Replica",
+ *     location: "SoutheastAsia",
+ *     resourceGroupName: "testgr",
+ *     serverName: "replica-server",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testgr/providers/Microsoft.DBforMySQL/flexibleServers/source-server",
+ * });
+ *
+ * ```
+ * ### Create a server as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbformysql.v20220930preview.Server("server", {
+ *     createMode: "PointInTimeRestore",
+ *     location: "SoutheastAsia",
+ *     resourceGroupName: "TargetResourceGroup",
+ *     restorePointInTime: "2021-06-24T00:00:37.467Z",
+ *     serverName: "targetserver",
+ *     sku: {
+ *         name: "Standard_D14_v2",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+ *     tags: {
+ *         num: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a server with byok
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbformysql.v20220930preview.Server("server", {
+ *     administratorLogin: "cloudsa",
+ *     administratorLoginPassword: "your_password",
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ *     createMode: "Default",
+ *     dataEncryption: {
+ *         geoBackupKeyURI: "https://test-geo.vault.azure.net/keys/key/c8a92236622244c0a4fdb892666f671a",
+ *         geoBackupUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-geo-identity",
+ *         primaryKeyURI: "https://test.vault.azure.net/keys/key/c8a92236622244c0a4fdb892666f671a",
+ *         primaryUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity",
+ *         type: azure_native.dbformysql.v20220930preview.DataEncryptionType.AzureKeyVault,
+ *     },
+ *     highAvailability: {
+ *         mode: "ZoneRedundant",
+ *         standbyAvailabilityZone: "3",
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity": {},
+ *         },
+ *     },
+ *     location: "southeastasia",
+ *     resourceGroupName: "testrg",
+ *     serverName: "mysqltestserver",
+ *     sku: {
+ *         name: "Standard_D2ds_v4",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storage: {
+ *         autoGrow: "Disabled",
+ *         iops: 600,
+ *         storageSizeGB: 100,
+ *     },
+ *     tags: {
+ *         num: "1",
+ *     },
+ *     version: "5.7",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformysql/v20220930preview:Server mysqltestserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/mysqltestserver 
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

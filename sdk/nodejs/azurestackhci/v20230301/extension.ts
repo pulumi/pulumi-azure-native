@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Details of a particular extension in HCI Cluster.
+ *
+ * ## Example Usage
+ * ### Create Arc Extension
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const extension = new azure_native.azurestackhci.v20230301.Extension("extension", {
+ *     arcSettingName: "default",
+ *     clusterName: "myCluster",
+ *     enableAutomaticUpgrade: false,
+ *     extensionName: "MicrosoftMonitoringAgent",
+ *     protectedSettings: {
+ *         workspaceKey: "xx",
+ *     },
+ *     publisher: "Microsoft.Compute",
+ *     resourceGroupName: "test-rg",
+ *     settings: {
+ *         workspaceId: "xx",
+ *     },
+ *     type: "MicrosoftMonitoringAgent",
+ *     typeHandlerVersion: "1.10",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci/v20230301:Extension MicrosoftMonitoringAgent /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster/arcSettings/default/extensions/MicrosoftMonitoringAgent 
+ * ```
  */
 export class Extension extends pulumi.CustomResource {
     /**

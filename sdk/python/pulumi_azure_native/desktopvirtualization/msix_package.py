@@ -268,6 +268,51 @@ class MSIXPackage(pulumi.CustomResource):
         API Version: 2022-09-09.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### MSIXPackage_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        msix_package = azure_native.desktopvirtualization.MSIXPackage("msixPackage",
+            display_name="displayname",
+            host_pool_name="hostpool1",
+            image_path="imagepath",
+            is_active=False,
+            is_regular_registration=False,
+            last_updated="2008-09-22T14:01:54.9571247Z",
+            msix_package_full_name="msixpackagefullname",
+            package_applications=[azure_native.desktopvirtualization.MsixPackageApplicationsArgs(
+                app_id="ApplicationId",
+                app_user_model_id="AppUserModelId",
+                description="application-desc",
+                friendly_name="friendlyname",
+                icon_image_name="Apptile",
+                raw_icon="VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+                raw_png="VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+            )],
+            package_dependencies=[azure_native.desktopvirtualization.MsixPackageDependenciesArgs(
+                dependency_name="MsixTest_Dependency_Name",
+                min_version="version",
+                publisher="PublishedName",
+            )],
+            package_family_name="MsixPackage_FamilyName",
+            package_name="MsixPackage_name",
+            package_relative_path="packagerelativepath",
+            resource_group_name="resourceGroup1",
+            version="version")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization:MSIXPackage hostpool1/MsixPackageFullName /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourcegroups/resourcegroup1/providers/Microsoft.DesktopVirtualization/hostpools/hostpool1/msixpackages/msixPackageFullName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: User friendly Name to be displayed in the portal. 
@@ -295,6 +340,51 @@ class MSIXPackage(pulumi.CustomResource):
         Schema for MSIX Package properties.
         API Version: 2022-09-09.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### MSIXPackage_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        msix_package = azure_native.desktopvirtualization.MSIXPackage("msixPackage",
+            display_name="displayname",
+            host_pool_name="hostpool1",
+            image_path="imagepath",
+            is_active=False,
+            is_regular_registration=False,
+            last_updated="2008-09-22T14:01:54.9571247Z",
+            msix_package_full_name="msixpackagefullname",
+            package_applications=[azure_native.desktopvirtualization.MsixPackageApplicationsArgs(
+                app_id="ApplicationId",
+                app_user_model_id="AppUserModelId",
+                description="application-desc",
+                friendly_name="friendlyname",
+                icon_image_name="Apptile",
+                raw_icon="VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+                raw_png="VGhpcyBpcyBhIHN0cmluZyB0byBoYXNo",
+            )],
+            package_dependencies=[azure_native.desktopvirtualization.MsixPackageDependenciesArgs(
+                dependency_name="MsixTest_Dependency_Name",
+                min_version="version",
+                publisher="PublishedName",
+            )],
+            package_family_name="MsixPackage_FamilyName",
+            package_name="MsixPackage_name",
+            package_relative_path="packagerelativepath",
+            resource_group_name="resourceGroup1",
+            version="version")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization:MSIXPackage hostpool1/MsixPackageFullName /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourcegroups/resourcegroup1/providers/Microsoft.DesktopVirtualization/hostpools/hostpool1/msixpackages/msixPackageFullName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MSIXPackageArgs args: The arguments to use to populate this resource's properties.

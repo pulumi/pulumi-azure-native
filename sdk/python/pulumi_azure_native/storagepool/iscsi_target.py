@@ -183,6 +183,34 @@ class IscsiTarget(pulumi.CustomResource):
         API Version: 2021-08-01.
         Previous API Version: 2020-03-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or Update iSCSI Target
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iscsi_target = azure_native.storagepool.IscsiTarget("iscsiTarget",
+            acl_mode="Dynamic",
+            disk_pool_name="myDiskPool",
+            iscsi_target_name="myIscsiTarget",
+            luns=[{
+                "managedDiskAzureResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+                "name": "lun0",
+            }],
+            resource_group_name="myResourceGroup",
+            target_iqn="iqn.2005-03.org.iscsi:server1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagepool:IscsiTarget myIscsiTarget /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool/iscsiTargets/myIscsiTarget 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'IscsiTargetAclMode']] acl_mode: Mode for Target connectivity.
@@ -205,6 +233,34 @@ class IscsiTarget(pulumi.CustomResource):
         Response for iSCSI Target requests.
         API Version: 2021-08-01.
         Previous API Version: 2020-03-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or Update iSCSI Target
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iscsi_target = azure_native.storagepool.IscsiTarget("iscsiTarget",
+            acl_mode="Dynamic",
+            disk_pool_name="myDiskPool",
+            iscsi_target_name="myIscsiTarget",
+            luns=[{
+                "managedDiskAzureResourceId": "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+                "name": "lun0",
+            }],
+            resource_group_name="myResourceGroup",
+            target_iqn="iqn.2005-03.org.iscsi:server1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagepool:IscsiTarget myIscsiTarget /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool/iscsiTargets/myIscsiTarget 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IscsiTargetArgs args: The arguments to use to populate this resource's properties.

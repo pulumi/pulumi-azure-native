@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about JIT request definition.
+ *
+ * ## Example Usage
+ * ### Creates or updates the JIT request
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jitRequest = new azure_native.solutions.v20190701.JitRequest("jitRequest", {
+ *     applicationResourceId: "/subscriptions/00c76877-e316-48a7-af60-4a09fec9d43f/resourceGroups/52F30DB2/providers/Microsoft.Solutions/applications/7E193158",
+ *     jitAuthorizationPolicies: [{
+ *         principalId: "1db8e132e2934dbcb8e1178a61319491",
+ *         roleDefinitionId: "ecd05a23-931a-4c38-a52b-ac7c4c583334",
+ *     }],
+ *     jitRequestName: "myJitRequest",
+ *     jitSchedulingPolicy: {
+ *         duration: "PT8H",
+ *         startTime: "2021-04-22T05:48:30.6661804Z",
+ *         type: "Once",
+ *     },
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:solutions/v20190701:JitRequest myJitRequest /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/jitRequests/myJitRequest 
+ * ```
  */
 export class JitRequest extends pulumi.CustomResource {
     /**

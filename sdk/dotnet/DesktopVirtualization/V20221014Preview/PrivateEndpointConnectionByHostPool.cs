@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_UpdateByHostPool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnectionByHostPool = new AzureNative.DesktopVirtualization.V20221014Preview.PrivateEndpointConnectionByHostPool("privateEndpointConnectionByHostPool", new()
+    ///     {
+    ///         HostPoolName = "hostPool1",
+    ///         PrivateEndpointConnectionName = "hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.DesktopVirtualization.V20221014Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Description = "Approved by admin@consoto.com",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostpools/hostPool1/privateEndpointConnections/hostPool1.377103f1-5179-4bdf-8556-4cdd3207cc5b 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByHostPool")]
     public partial class PrivateEndpointConnectionByHostPool : global::Pulumi.CustomResource

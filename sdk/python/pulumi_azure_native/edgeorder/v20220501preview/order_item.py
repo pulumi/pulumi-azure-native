@@ -146,6 +146,65 @@ class OrderItem(pulumi.CustomResource):
         """
         Represents order item resource.
 
+        ## Example Usage
+        ### CreateOrderItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        order_item = azure_native.edgeorder.v20220501preview.OrderItem("orderItem",
+            address_details=azure_native.edgeorder.v20220501preview.AddressDetailsResponseArgs(
+                forward_address={
+                    "contactDetails": azure_native.edgeorder.v20220501preview.ContactDetailsArgs(
+                        contact_name="XXXX XXXX",
+                        email_list=["xxxx@xxxx.xxx"],
+                        phone="0000000000",
+                        phone_extension="",
+                    ),
+                    "shippingAddress": azure_native.edgeorder.v20220501preview.ShippingAddressArgs(
+                        address_type="None",
+                        city="San Francisco",
+                        company_name="Microsoft",
+                        country="US",
+                        postal_code="94107",
+                        state_or_province="CA",
+                        street_address1="16 TOWNSEND ST",
+                        street_address2="UNIT 1",
+                    ),
+                },
+            ),
+            location="eastus",
+            order_id="/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/locations/eastus/orders/TestOrderName2",
+            order_item_details=azure_native.edgeorder.v20220501preview.OrderItemDetailsResponseArgs(
+                order_item_type="Purchase",
+                preferences=azure_native.edgeorder.v20220501preview.PreferencesArgs(
+                    transport_preferences=azure_native.edgeorder.v20220501preview.TransportPreferencesArgs(
+                        preferred_shipment_type="MicrosoftManaged",
+                    ),
+                ),
+                product_details={
+                    "hierarchyInformation": azure_native.edgeorder.v20220501preview.HierarchyInformationArgs(
+                        configuration_name="edgep_base",
+                        product_family_name="azurestackedge",
+                        product_line_name="azurestackedge",
+                        product_name="azurestackedgegpu",
+                    ),
+                },
+            ),
+            order_item_name="TestOrderItemName2",
+            resource_group_name="YourResourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edgeorder/v20220501preview:OrderItem TestOrderItemName2 /subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/orderItems/TestOrderItemName2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AddressDetailsArgs']] address_details: Represents shipping and return address for order item.
@@ -164,6 +223,65 @@ class OrderItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents order item resource.
+
+        ## Example Usage
+        ### CreateOrderItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        order_item = azure_native.edgeorder.v20220501preview.OrderItem("orderItem",
+            address_details=azure_native.edgeorder.v20220501preview.AddressDetailsResponseArgs(
+                forward_address={
+                    "contactDetails": azure_native.edgeorder.v20220501preview.ContactDetailsArgs(
+                        contact_name="XXXX XXXX",
+                        email_list=["xxxx@xxxx.xxx"],
+                        phone="0000000000",
+                        phone_extension="",
+                    ),
+                    "shippingAddress": azure_native.edgeorder.v20220501preview.ShippingAddressArgs(
+                        address_type="None",
+                        city="San Francisco",
+                        company_name="Microsoft",
+                        country="US",
+                        postal_code="94107",
+                        state_or_province="CA",
+                        street_address1="16 TOWNSEND ST",
+                        street_address2="UNIT 1",
+                    ),
+                },
+            ),
+            location="eastus",
+            order_id="/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/locations/eastus/orders/TestOrderName2",
+            order_item_details=azure_native.edgeorder.v20220501preview.OrderItemDetailsResponseArgs(
+                order_item_type="Purchase",
+                preferences=azure_native.edgeorder.v20220501preview.PreferencesArgs(
+                    transport_preferences=azure_native.edgeorder.v20220501preview.TransportPreferencesArgs(
+                        preferred_shipment_type="MicrosoftManaged",
+                    ),
+                ),
+                product_details={
+                    "hierarchyInformation": azure_native.edgeorder.v20220501preview.HierarchyInformationArgs(
+                        configuration_name="edgep_base",
+                        product_family_name="azurestackedge",
+                        product_line_name="azurestackedge",
+                        product_name="azurestackedgegpu",
+                    ),
+                },
+            ),
+            order_item_name="TestOrderItemName2",
+            resource_group_name="YourResourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:edgeorder/v20220501preview:OrderItem TestOrderItemName2 /subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/orderItems/TestOrderItemName2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OrderItemArgs args: The arguments to use to populate this resource's properties.

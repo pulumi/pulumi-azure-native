@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20160801
 {
     /// <summary>
     /// Web Job Information.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20160801:WebAppInstanceFunctionSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/functions/{functionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20160801:WebAppInstanceFunctionSlot")]
     public partial class WebAppInstanceFunctionSlot : global::Pulumi.CustomResource

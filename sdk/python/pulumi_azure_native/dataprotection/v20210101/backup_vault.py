@@ -148,6 +148,64 @@ class BackupVault(pulumi.CustomResource):
         """
         Backup Vault Resource
 
+        ## Example Usage
+        ### Create BackupVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_vault = azure_native.dataprotection.v20210101.BackupVault("backupVault",
+            identity=azure_native.dataprotection.v20210101.DppIdentityDetailsArgs(
+                type="None",
+            ),
+            location="WestUS",
+            properties=azure_native.dataprotection.v20210101.BackupVaultResponseArgs(
+                storage_settings=[azure_native.dataprotection.v20210101.StorageSettingArgs(
+                    datastore_type="VaultStore",
+                    type="LocallyRedundant",
+                )],
+            ),
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="swaggerExample")
+
+        ```
+        ### Create BackupVault With MSI
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_vault = azure_native.dataprotection.v20210101.BackupVault("backupVault",
+            identity=azure_native.dataprotection.v20210101.DppIdentityDetailsArgs(
+                type="systemAssigned",
+            ),
+            location="WestUS",
+            properties=azure_native.dataprotection.v20210101.BackupVaultResponseArgs(
+                storage_settings=[azure_native.dataprotection.v20210101.StorageSettingArgs(
+                    datastore_type="VaultStore",
+                    type="LocallyRedundant",
+                )],
+            ),
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="swaggerExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection/v20210101:BackupVault swaggerExample /subscriptions/0b352192-dcac-4cc7-992e-a96190ccc68c/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/Backupvaults/swaggerExample 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
@@ -166,6 +224,64 @@ class BackupVault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Backup Vault Resource
+
+        ## Example Usage
+        ### Create BackupVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_vault = azure_native.dataprotection.v20210101.BackupVault("backupVault",
+            identity=azure_native.dataprotection.v20210101.DppIdentityDetailsArgs(
+                type="None",
+            ),
+            location="WestUS",
+            properties=azure_native.dataprotection.v20210101.BackupVaultResponseArgs(
+                storage_settings=[azure_native.dataprotection.v20210101.StorageSettingArgs(
+                    datastore_type="VaultStore",
+                    type="LocallyRedundant",
+                )],
+            ),
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="swaggerExample")
+
+        ```
+        ### Create BackupVault With MSI
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_vault = azure_native.dataprotection.v20210101.BackupVault("backupVault",
+            identity=azure_native.dataprotection.v20210101.DppIdentityDetailsArgs(
+                type="systemAssigned",
+            ),
+            location="WestUS",
+            properties=azure_native.dataprotection.v20210101.BackupVaultResponseArgs(
+                storage_settings=[azure_native.dataprotection.v20210101.StorageSettingArgs(
+                    datastore_type="VaultStore",
+                    type="LocallyRedundant",
+                )],
+            ),
+            resource_group_name="SampleResourceGroup",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="swaggerExample")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection/v20210101:BackupVault swaggerExample /subscriptions/0b352192-dcac-4cc7-992e-a96190ccc68c/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/Backupvaults/swaggerExample 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackupVaultInitArgs args: The arguments to use to populate this resource's properties.

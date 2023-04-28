@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Network.V20190601
 {
     /// <summary>
     /// Peerings in a virtual network resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create peering
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkPeering = new AzureNative.Network.V20190601.VirtualNetworkPeering("virtualNetworkPeering", new()
+    ///     {
+    ///         AllowForwardedTraffic = true,
+    ///         AllowGatewayTransit = false,
+    ///         AllowVirtualNetworkAccess = true,
+    ///         RemoteVirtualNetwork = new AzureNative.Network.V20190601.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+    ///         },
+    ///         ResourceGroupName = "peerTest",
+    ///         UseRemoteGateways = false,
+    ///         VirtualNetworkName = "vnet1",
+    ///         VirtualNetworkPeeringName = "peer",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190601:VirtualNetworkPeering peer /subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190601:VirtualNetworkPeering")]
     public partial class VirtualNetworkPeering : global::Pulumi.CustomResource

@@ -182,6 +182,34 @@ class Datastore(pulumi.CustomResource):
         """
         Define the datastore.
 
+        ## Example Usage
+        ### CreateDatastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.connectedvmwarevsphere.v20201001preview.Datastore("datastore",
+            datastore_name="HRDatastore",
+            extended_location=azure_native.connectedvmwarevsphere.v20201001preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                type="customLocation",
+            ),
+            location="East US",
+            mo_ref_id="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            resource_group_name="testrg",
+            v_center_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20201001preview:Datastore HRDatastore /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/Datastores/HRDatastore 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] datastore_name: Name of the datastore.
@@ -202,6 +230,34 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the datastore.
+
+        ## Example Usage
+        ### CreateDatastore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.connectedvmwarevsphere.v20201001preview.Datastore("datastore",
+            datastore_name="HRDatastore",
+            extended_location=azure_native.connectedvmwarevsphere.v20201001preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                type="customLocation",
+            ),
+            location="East US",
+            mo_ref_id="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            resource_group_name="testrg",
+            v_center_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20201001preview:Datastore HRDatastore /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/Datastores/HRDatastore 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.

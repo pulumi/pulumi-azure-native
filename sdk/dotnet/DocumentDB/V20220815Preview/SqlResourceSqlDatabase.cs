@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.DocumentDB.V20220815Preview
 {
     /// <summary>
     /// An Azure Cosmos DB SQL database.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlDatabaseCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlDatabase = new AzureNative.DocumentDB.V20220815Preview.SqlResourceSqlDatabase("sqlResourceSqlDatabase", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20220815Preview.Inputs.SqlDatabaseResourceArgs
+    ///         {
+    ///             Id = "databaseName",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CosmosDBSqlDatabaseRestore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlDatabase = new AzureNative.DocumentDB.V20220815Preview.SqlResourceSqlDatabase("sqlResourceSqlDatabase", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20220815Preview.Inputs.SqlDatabaseResourceArgs
+    ///         {
+    ///             CreateMode = "Restore",
+    ///             Id = "databaseName",
+    ///             RestoreParameters = new AzureNative.DocumentDB.V20220815Preview.Inputs.ResourceRestoreParametersArgs
+    ///             {
+    ///                 RestoreSource = "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+    ///                 RestoreTimestampInUtc = "2022-07-20T18:28:00Z",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase")]
     public partial class SqlResourceSqlDatabase : global::Pulumi.CustomResource

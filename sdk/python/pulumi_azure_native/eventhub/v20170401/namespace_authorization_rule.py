@@ -94,6 +94,32 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
+        ## Example Usage
+        ### NameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_authorization_rule = azure_native.eventhub.v20170401.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="sdk-Authrules-1746",
+            namespace_name="sdk-Namespace-2702",
+            resource_group_name="ArunMonocle",
+            rights=[
+                "Listen",
+                "Send",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20170401:NamespaceAuthorizationRule sdk-Authrules-1746 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-2702/AuthorizationRules/sdk-Authrules-1746 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
@@ -109,6 +135,32 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get AuthorizationRule operation
+
+        ## Example Usage
+        ### NameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_authorization_rule = azure_native.eventhub.v20170401.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="sdk-Authrules-1746",
+            namespace_name="sdk-Namespace-2702",
+            resource_group_name="ArunMonocle",
+            rights=[
+                "Listen",
+                "Send",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20170401:NamespaceAuthorizationRule sdk-Authrules-1746 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-2702/AuthorizationRules/sdk-Authrules-1746 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

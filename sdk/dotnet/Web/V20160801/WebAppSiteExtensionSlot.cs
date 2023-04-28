@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20160801
 {
     /// <summary>
     /// Site Extension Information.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20160801:WebAppSiteExtensionSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/siteextensions/{siteExtensionId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20160801:WebAppSiteExtensionSlot")]
     public partial class WebAppSiteExtensionSlot : global::Pulumi.CustomResource

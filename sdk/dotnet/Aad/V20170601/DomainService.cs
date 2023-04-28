@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.Aad.V20170601
 {
     /// <summary>
     /// Domain service.
+    /// 
+    /// ## Example Usage
+    /// ### Create Domain Service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domainService = new AzureNative.Aad.V20170601.DomainService("domainService", new()
+    ///     {
+    ///         DomainName = "zdomain.zforest.com",
+    ///         DomainSecuritySettings = new AzureNative.Aad.V20170601.Inputs.DomainSecuritySettingsArgs
+    ///         {
+    ///             NtlmV1 = "Enabled",
+    ///             SyncNtlmPasswords = "Enabled",
+    ///             TlsV1 = "Disabled",
+    ///         },
+    ///         DomainServiceName = "zdomain.zforest.com",
+    ///         FilteredSync = "Enabled",
+    ///         LdapsSettings = new AzureNative.Aad.V20170601.Inputs.LdapsSettingsArgs
+    ///         {
+    ///             ExternalAccess = "Enabled",
+    ///             Ldaps = "Enabled",
+    ///             PfxCertificate = "MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+    ///             PfxCertificatePassword = "&lt;pfxCertificatePassword&gt;",
+    ///         },
+    ///         Location = "westus",
+    ///         NotificationSettings = new AzureNative.Aad.V20170601.Inputs.NotificationSettingsArgs
+    ///         {
+    ///             AdditionalRecipients = new[]
+    ///             {
+    ///                 "jicha@microsoft.com",
+    ///                 "caalmont@microsoft.com",
+    ///             },
+    ///             NotifyDcAdmins = "Enabled",
+    ///             NotifyGlobalAdmins = "Enabled",
+    ///         },
+    ///         ResourceGroupName = "sva-tt-WUS",
+    ///         SubnetId = "/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/Default-Networking/providers/Microsoft.Network/virtualNetworks/DCIaasTmpWusNet/subnets/Subnet-1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:aad/v20170601:DomainService zdomain.zforest.com /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/sva-tt-WUS/providers/Microsoft.AAD/domainServices/zdomain.zforest.com 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:aad/v20170601:DomainService")]

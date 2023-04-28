@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.HealthBot
     /// Azure Health Bot resource definition
     /// API Version: 2022-08-08.
     /// Previous API Version: 2020-12-08. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### BotCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bot = new AzureNative.HealthBot.Bot("bot", new()
+    ///     {
+    ///         BotName = "samplebotname",
+    ///         Identity = new AzureNative.HealthBot.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.HealthBot.ResourceIdentityType.SystemAssigned_UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi", null },
+    ///                 { "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi2", null },
+    ///             },
+    ///         },
+    ///         Location = "East US",
+    ///         ResourceGroupName = "healthbotClient",
+    ///         Sku = new AzureNative.HealthBot.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.HealthBot.SkuName.F0,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthbot:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthbot:Bot")]
     public partial class Bot : global::Pulumi.CustomResource

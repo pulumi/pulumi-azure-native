@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// NamedValue details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateNamedValue
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namedValue = new AzureNative.ApiManagement.V20220801.NamedValue("namedValue", new()
+    ///     {
+    ///         DisplayName = "prop3name",
+    ///         NamedValueId = "testprop2",
+    ///         ResourceGroupName = "rg1",
+    ///         Secret = false,
+    ///         ServiceName = "apimService1",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo",
+    ///             "bar",
+    ///         },
+    ///         Value = "propValue",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateNamedValueWithKeyVault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namedValue = new AzureNative.ApiManagement.V20220801.NamedValue("namedValue", new()
+    ///     {
+    ///         DisplayName = "prop6namekv",
+    ///         KeyVault = new AzureNative.ApiManagement.V20220801.Inputs.KeyVaultContractCreatePropertiesArgs
+    ///         {
+    ///             IdentityClientId = "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+    ///             SecretIdentifier = "https://contoso.vault.azure.net/secrets/aadSecret",
+    ///         },
+    ///         NamedValueId = "testprop6",
+    ///         ResourceGroupName = "rg1",
+    ///         Secret = true,
+    ///         ServiceName = "apimService1",
+    ///         Tags = new[]
+    ///         {
+    ///             "foo",
+    ///             "bar",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:NamedValue testprop6 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/namedValues/testprop6 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:NamedValue")]
     public partial class NamedValue : global::Pulumi.CustomResource

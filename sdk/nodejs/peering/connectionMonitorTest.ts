@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
  * The Connection Monitor Test class.
  * API Version: 2022-10-01.
  * Previous API Version: 2021-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or Update Connection Monitor Test
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectionMonitorTest = new azure_native.peering.ConnectionMonitorTest("connectionMonitorTest", {
+ *     connectionMonitorTestName: "connectionMonitorTestName",
+ *     destination: "Example Destination",
+ *     destinationPort: 443,
+ *     peeringServiceName: "peeringServiceName",
+ *     resourceGroupName: "rgName",
+ *     sourceAgent: "Example Source Agent",
+ *     testFrequencyInSec: 30,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:peering:ConnectionMonitorTest connectionMonitorTestName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName/connectionMonitorTests/connectionMonitorTestName 
+ * ```
  */
 export class ConnectionMonitorTest extends pulumi.CustomResource {
     /**

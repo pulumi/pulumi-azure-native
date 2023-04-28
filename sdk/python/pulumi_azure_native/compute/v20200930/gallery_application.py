@@ -213,6 +213,34 @@ class GalleryApplication(pulumi.CustomResource):
         """
         Specifies information about the gallery Application Definition that you want to create or update.
 
+        ## Example Usage
+        ### Create or update a simple gallery Application.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_application = azure_native.compute.v20200930.GalleryApplication("galleryApplication",
+            description="This is the gallery application description.",
+            eula="This is the gallery application EULA.",
+            gallery_application_name="myGalleryApplicationName",
+            gallery_name="myGalleryName",
+            location="West US",
+            privacy_statement_uri="myPrivacyStatementUri}",
+            release_note_uri="myReleaseNoteUri",
+            resource_group_name="myResourceGroup",
+            supported_os_type=azure_native.compute/v20200930.OperatingSystemTypes.WINDOWS)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20200930:GalleryApplication myGalleryApplicationName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/applications/myGalleryApplicationName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of this gallery Application Definition resource. This property is updatable.
@@ -235,6 +263,34 @@ class GalleryApplication(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery Application Definition that you want to create or update.
+
+        ## Example Usage
+        ### Create or update a simple gallery Application.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_application = azure_native.compute.v20200930.GalleryApplication("galleryApplication",
+            description="This is the gallery application description.",
+            eula="This is the gallery application EULA.",
+            gallery_application_name="myGalleryApplicationName",
+            gallery_name="myGalleryName",
+            location="West US",
+            privacy_statement_uri="myPrivacyStatementUri}",
+            release_note_uri="myReleaseNoteUri",
+            resource_group_name="myResourceGroup",
+            supported_os_type=azure_native.compute/v20200930.OperatingSystemTypes.WINDOWS)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20200930:GalleryApplication myGalleryApplicationName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myGalleryName/applications/myGalleryApplicationName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GalleryApplicationArgs args: The arguments to use to populate this resource's properties.

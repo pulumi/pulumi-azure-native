@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.Logic.V20190501
 {
     /// <summary>
     /// The assembly definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an account assembly
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationAccountAssembly = new AzureNative.Logic.V20190501.IntegrationAccountAssembly("integrationAccountAssembly", new()
+    ///     {
+    ///         AssemblyArtifactName = "testAssembly",
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.Logic.V20190501.Inputs.AssemblyPropertiesArgs
+    ///         {
+    ///             AssemblyName = "System.IdentityModel.Tokens.Jwt",
+    ///             Content = "Base64 encoded Assembly Content",
+    ///             Metadata = null,
+    ///         },
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic/v20190501:IntegrationAccountAssembly testAssembly /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/assemblies/testAssembly 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationAccountAssembly")]
     public partial class IntegrationAccountAssembly : global::Pulumi.CustomResource

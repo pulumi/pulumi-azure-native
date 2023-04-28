@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.NetApp.V20190601
 {
     /// <summary>
     /// Snapshot of a Volume
+    /// 
+    /// ## Example Usage
+    /// ### Snapshots_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var snapshot = new AzureNative.NetApp.V20190601.Snapshot("snapshot", new()
+    ///     {
+    ///         AccountName = "accountName",
+    ///         Location = "eastus",
+    ///         PoolName = "poolName",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         SnapshotName = "snapshotName",
+    ///         VolumeName = "volumeName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20190601:Snapshot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20190601:Snapshot")]

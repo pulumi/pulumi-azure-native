@@ -183,6 +183,38 @@ class StorageAccountCredential(pulumi.CustomResource):
         """
         The storage account credential
 
+        ## Example Usage
+        ### StorageAccountCredentialsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account_credential = azure_native.storsimple.v20161001.StorageAccountCredential("storageAccountCredential",
+            access_key=azure_native.storsimple.v20161001.AsymmetricEncryptedSecretResponseArgs(
+                encryption_algorithm=azure_native.storsimple/v20161001.EncryptionAlgorithm.RSAE_S_PKCS1_V_1_5,
+                encryption_certificate_thumbprint="D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+                value="Ev1tm0QBmpGGm4a58GkqLqx8veJEEgQtg5K3Jizpmy7JdSv9dlcRwk59THw6KIdMDlEHcS8mPyneBtOEQsh4wkcFB7qrmQz+KsRAyIhEm6bwPEm3qN8+aDDzNcXn/6vu/sqV0AP7zit9/s7SxXGxjKrz4zKnOy16/DbzRRmUHNO+HO6JUM0cUfHXTX0mEecbsXqBq0A8IEG8z+bJgXX1EhoGkzE6yVsObm4S1AcKrLiwWjqmSLji5Q8gGO+y4KTTmC3p45h5GHHXjJyOccHhySWDAffxnTzUD/sOoh+aD2VkAYrL3DdnkVzhAdfcZfVI4soONx7tYMloZIVsfW1M2Q==",
+            ),
+            cloud_type=azure_native.storsimple/v20161001.CloudType.AZURE,
+            credential_name="DummySacForSDKTest",
+            enable_ssl=azure_native.storsimple/v20161001.SslStatus.ENABLED,
+            end_point="blob.core.windows.net",
+            location="West US",
+            login="SacForSDKTest",
+            manager_name="hAzureSDKOperations",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:StorageAccountCredential sacforsdktest /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageAccountCredentials/sacforsdktest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] access_key: The details of the storage account password
@@ -203,6 +235,38 @@ class StorageAccountCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage account credential
+
+        ## Example Usage
+        ### StorageAccountCredentialsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account_credential = azure_native.storsimple.v20161001.StorageAccountCredential("storageAccountCredential",
+            access_key=azure_native.storsimple.v20161001.AsymmetricEncryptedSecretResponseArgs(
+                encryption_algorithm=azure_native.storsimple/v20161001.EncryptionAlgorithm.RSAE_S_PKCS1_V_1_5,
+                encryption_certificate_thumbprint="D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+                value="Ev1tm0QBmpGGm4a58GkqLqx8veJEEgQtg5K3Jizpmy7JdSv9dlcRwk59THw6KIdMDlEHcS8mPyneBtOEQsh4wkcFB7qrmQz+KsRAyIhEm6bwPEm3qN8+aDDzNcXn/6vu/sqV0AP7zit9/s7SxXGxjKrz4zKnOy16/DbzRRmUHNO+HO6JUM0cUfHXTX0mEecbsXqBq0A8IEG8z+bJgXX1EhoGkzE6yVsObm4S1AcKrLiwWjqmSLji5Q8gGO+y4KTTmC3p45h5GHHXjJyOccHhySWDAffxnTzUD/sOoh+aD2VkAYrL3DdnkVzhAdfcZfVI4soONx7tYMloZIVsfW1M2Q==",
+            ),
+            cloud_type=azure_native.storsimple/v20161001.CloudType.AZURE,
+            credential_name="DummySacForSDKTest",
+            enable_ssl=azure_native.storsimple/v20161001.SslStatus.ENABLED,
+            end_point="blob.core.windows.net",
+            location="West US",
+            login="SacForSDKTest",
+            manager_name="hAzureSDKOperations",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:StorageAccountCredential sacforsdktest /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageAccountCredentials/sacforsdktest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageAccountCredentialArgs args: The arguments to use to populate this resource's properties.

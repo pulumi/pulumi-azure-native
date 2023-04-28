@@ -9,6 +9,215 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Codeless API Polling data connector.
+ *
+ * ## Example Usage
+ * ### Creates or updates a APIPolling data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const codelessApiPollingDataConnector = new azure_native.securityinsights.v20220901preview.CodelessApiPollingDataConnector("codelessApiPollingDataConnector", {
+ *     connectorUiConfig: {
+ *         availability: {
+ *             isPreview: true,
+ *             status: 1,
+ *         },
+ *         connectivityCriteria: [{
+ *             type: "SentinelKindsV2",
+ *             value: [],
+ *         }],
+ *         dataTypes: [{
+ *             lastDataReceivedQuery: `{{graphQueriesTableName}}
+ *             | summarize Time = max(TimeGenerated)
+ *             | where isnotempty(Time)`,
+ *             name: "{{graphQueriesTableName}}",
+ *         }],
+ *         descriptionMarkdown: "The GitHub audit log connector provides the capability to ingest GitHub logs into Azure Sentinel. By connecting GitHub audit logs into Azure Sentinel, you can view this data in workbooks, use it to create custom alerts, and improve your investigation process.",
+ *         graphQueries: [{
+ *             baseQuery: "{{graphQueriesTableName}}",
+ *             legend: "GitHub audit log events",
+ *             metricName: "Total events received",
+ *         }],
+ *         graphQueriesTableName: "GitHubAuditLogPolling_CL",
+ *         instructionSteps: [{
+ *             description: `Enable GitHub audit Logs. 
+ *  Follow [this](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) to create or find your personal key`,
+ *             instructions: [{
+ *                 parameters: {
+ *                     enable: "true",
+ *                     userRequestPlaceHoldersInput: [{
+ *                         displayText: "Organization Name",
+ *                         placeHolderName: "{{placeHolder1}}",
+ *                         placeHolderValue: "",
+ *                         requestObjectKey: "apiEndpoint",
+ *                     }],
+ *                 },
+ *                 type: "APIKey",
+ *             }],
+ *             title: "Connect GitHub Enterprise Audit Log to Azure Sentinel",
+ *         }],
+ *         permissions: {
+ *             customs: [{
+ *                 description: "You need access to GitHub personal token, the key should have 'admin:org' scope",
+ *                 name: "GitHub API personal token Key",
+ *             }],
+ *             resourceProvider: [{
+ *                 permissionsDisplayText: "read and write permissions are required.",
+ *                 provider: "Microsoft.OperationalInsights/workspaces",
+ *                 providerDisplayName: "Workspace",
+ *                 requiredPermissions: {
+ *                     "delete": true,
+ *                     read: true,
+ *                     write: true,
+ *                 },
+ *                 scope: "Workspace",
+ *             }],
+ *         },
+ *         publisher: "GitHub",
+ *         sampleQueries: [{
+ *             description: "All logs",
+ *             query: `{{graphQueriesTableName}}
+ *  | take 10 <change>`,
+ *         }],
+ *         title: "GitHub Enterprise Audit Log",
+ *     },
+ *     dataConnectorId: "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+ *     kind: "APIPolling",
+ *     pollingConfig: {
+ *         auth: {
+ *             apiKeyIdentifier: "token",
+ *             apiKeyName: "Authorization",
+ *             authType: "APIKey",
+ *         },
+ *         paging: {
+ *             pageSizeParaName: "per_page",
+ *             pagingType: "LinkHeader",
+ *         },
+ *         request: {
+ *             apiEndpoint: "https://api.github.com/organizations/{{placeHolder1}}/audit-log",
+ *             headers: {
+ *                 Accept: "application/json",
+ *                 "User-Agent": "Scuba",
+ *             },
+ *             httpMethod: "Get",
+ *             queryParameters: {
+ *                 phrase: "created:{_QueryWindowStartTime}..{_QueryWindowEndTime}",
+ *             },
+ *             queryTimeFormat: "yyyy-MM-ddTHH:mm:ssZ",
+ *             queryWindowInMin: 15,
+ *             rateLimitQps: 50,
+ *             retryCount: 2,
+ *             timeoutInSeconds: 60,
+ *         },
+ *         response: {
+ *             eventsJsonPaths: ["$"],
+ *         },
+ *     },
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Dynamics365 data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const codelessApiPollingDataConnector = new azure_native.securityinsights.v20220901preview.CodelessApiPollingDataConnector("codelessApiPollingDataConnector", {
+ *     dataConnectorId: "c2541efb-c9a6-47fe-9501-87d1017d1512",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a GenericUI data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const codelessApiPollingDataConnector = new azure_native.securityinsights.v20220901preview.CodelessApiPollingDataConnector("codelessApiPollingDataConnector", {
+ *     dataConnectorId: "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Threat Intelligence Taxii data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const codelessApiPollingDataConnector = new azure_native.securityinsights.v20220901preview.CodelessApiPollingDataConnector("codelessApiPollingDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office PowerBI data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const codelessApiPollingDataConnector = new azure_native.securityinsights.v20220901preview.CodelessApiPollingDataConnector("codelessApiPollingDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office365 Project data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const codelessApiPollingDataConnector = new azure_native.securityinsights.v20220901preview.CodelessApiPollingDataConnector("codelessApiPollingDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office365 data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const codelessApiPollingDataConnector = new azure_native.securityinsights.v20220901preview.CodelessApiPollingDataConnector("codelessApiPollingDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Threat Intelligence Platform data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const codelessApiPollingDataConnector = new azure_native.securityinsights.v20220901preview.CodelessApiPollingDataConnector("codelessApiPollingDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20220901preview:CodelessApiPollingDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class CodelessApiPollingDataConnector extends pulumi.CustomResource {
     /**

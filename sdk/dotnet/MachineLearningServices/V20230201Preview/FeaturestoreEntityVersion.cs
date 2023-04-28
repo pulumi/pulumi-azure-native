@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Workspace Featurestore Entity Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var featurestoreEntityVersion = new AzureNative.MachineLearningServices.V20230201Preview.FeaturestoreEntityVersion("featurestoreEntityVersion", new()
+    ///     {
+    ///         FeaturestoreEntityVersionProperties = new AzureNative.MachineLearningServices.V20230201Preview.Inputs.FeaturestoreEntityVersionArgs
+    ///         {
+    ///             Description = "string",
+    ///             IndexColumns = new[]
+    ///             {
+    ///                 new AzureNative.MachineLearningServices.V20230201Preview.Inputs.IndexColumnArgs
+    ///                 {
+    ///                     ColumnName = "string",
+    ///                     DataType = "Datetime",
+    ///                 },
+    ///             },
+    ///             IsAnonymous = false,
+    ///             IsArchived = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230201preview:FeaturestoreEntityVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230201preview:FeaturestoreEntityVersion")]
     public partial class FeaturestoreEntityVersion : global::Pulumi.CustomResource

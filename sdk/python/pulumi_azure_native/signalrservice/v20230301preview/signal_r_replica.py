@@ -131,6 +131,37 @@ class SignalRReplica(pulumi.CustomResource):
         """
         A class represent a replica resource.
 
+        ## Example Usage
+        ### SignalRReplicas_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r_replica = azure_native.signalrservice.v20230301preview.SignalRReplica("signalRReplica",
+            location="eastus",
+            replica_name="mySignalRService-eastus",
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService",
+            sku=azure_native.signalrservice.v20230301preview.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Premium_P1",
+                tier="Premium",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20230301preview:SignalRReplica mySignalRService-eastus /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/replicas/mySignalRService-eastus 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -148,6 +179,37 @@ class SignalRReplica(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a replica resource.
+
+        ## Example Usage
+        ### SignalRReplicas_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r_replica = azure_native.signalrservice.v20230301preview.SignalRReplica("signalRReplica",
+            location="eastus",
+            replica_name="mySignalRService-eastus",
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService",
+            sku=azure_native.signalrservice.v20230301preview.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Premium_P1",
+                tier="Premium",
+            ),
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20230301preview:SignalRReplica mySignalRService-eastus /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/replicas/mySignalRService-eastus 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SignalRReplicaArgs args: The arguments to use to populate this resource's properties.

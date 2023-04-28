@@ -160,6 +160,33 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
         """
         Class representing a cluster principal assignment.
 
+        ## Example Usage
+        ### KustoPoolPrincipalAssignmentsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_pool_principal_assignment = azure_native.synapse.v20210401preview.KustoPoolPrincipalAssignment("kustoPoolPrincipalAssignment",
+            kusto_pool_name="kustoclusterrptest4",
+            principal_assignment_name="kustoprincipal1",
+            principal_id="87654321-1234-1234-1234-123456789123",
+            principal_type="App",
+            resource_group_name="kustorptest",
+            role="AllDatabasesAdmin",
+            tenant_id="12345678-1234-1234-1234-123456789123",
+            workspace_name="synapseWorkspaceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/kustoprincipal1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustoPools/kustoclusterrptest4/PrincipalAssignments/kustoprincipal1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kusto_pool_name: The name of the Kusto pool.
@@ -179,6 +206,33 @@ class KustoPoolPrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a cluster principal assignment.
+
+        ## Example Usage
+        ### KustoPoolPrincipalAssignmentsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kusto_pool_principal_assignment = azure_native.synapse.v20210401preview.KustoPoolPrincipalAssignment("kustoPoolPrincipalAssignment",
+            kusto_pool_name="kustoclusterrptest4",
+            principal_assignment_name="kustoprincipal1",
+            principal_id="87654321-1234-1234-1234-123456789123",
+            principal_type="App",
+            resource_group_name="kustorptest",
+            role="AllDatabasesAdmin",
+            tenant_id="12345678-1234-1234-1234-123456789123",
+            workspace_name="synapseWorkspaceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210401preview:KustoPoolPrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/kustoprincipal1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustoPools/kustoclusterrptest4/PrincipalAssignments/kustoprincipal1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param KustoPoolPrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

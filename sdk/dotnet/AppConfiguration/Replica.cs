@@ -12,6 +12,36 @@ namespace Pulumi.AzureNative.AppConfiguration
     /// <summary>
     /// The replica resource.
     /// API Version: 2023-03-01.
+    /// 
+    /// ## Example Usage
+    /// ### Replicas_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replica = new AzureNative.AppConfiguration.Replica("replica", new()
+    ///     {
+    ///         ConfigStoreName = "contoso",
+    ///         Location = "eastus",
+    ///         ReplicaName = "myReplicaEus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appconfiguration:Replica myReplicaEus /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso/replicas/myReplicaEus 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:Replica")]
     public partial class Replica : global::Pulumi.CustomResource

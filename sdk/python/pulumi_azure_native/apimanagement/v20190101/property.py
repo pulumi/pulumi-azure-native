@@ -143,6 +143,35 @@ class Property(pulumi.CustomResource):
         """
         Property details.
 
+        ## Example Usage
+        ### ApiManagementCreateProperty
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        property = azure_native.apimanagement.v20190101.Property("property",
+            display_name="prop3name",
+            prop_id="testprop2",
+            resource_group_name="rg1",
+            secret=True,
+            service_name="apimService1",
+            tags=[
+                "foo",
+                "bar",
+            ],
+            value="propValue")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20190101:Property testprop2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/properties/testprop2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Unique name of Property. It may contain only letters, digits, period, dash, and underscore characters.
@@ -161,6 +190,35 @@ class Property(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Property details.
+
+        ## Example Usage
+        ### ApiManagementCreateProperty
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        property = azure_native.apimanagement.v20190101.Property("property",
+            display_name="prop3name",
+            prop_id="testprop2",
+            resource_group_name="rg1",
+            secret=True,
+            service_name="apimService1",
+            tags=[
+                "foo",
+                "bar",
+            ],
+            value="propValue")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20190101:Property testprop2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/properties/testprop2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PropertyArgs args: The arguments to use to populate this resource's properties.

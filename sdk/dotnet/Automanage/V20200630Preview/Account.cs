@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Automanage.V20200630Preview
 {
     /// <summary>
     /// Definition of the Automanage account.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Automanage account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.Automanage.V20200630Preview.Account("account", new()
+    ///     {
+    ///         AccountName = "account",
+    ///         Identity = new AzureNative.Automanage.V20200630Preview.Inputs.AccountIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Automanage.V20200630Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "East US",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Organization", "Administration" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automanage/v20200630preview:Account account /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automanage/accounts/account 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage/v20200630preview:Account")]
     public partial class Account : global::Pulumi.CustomResource

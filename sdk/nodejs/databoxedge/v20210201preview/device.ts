@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * The Data Box Edge/Gateway device.
+ *
+ * ## Example Usage
+ * ### DataBoxEdgeDevicePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const device = new azure_native.databoxedge.v20210201preview.Device("device", {
+ *     deviceName: "testedgedevice",
+ *     location: "WUS",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     sku: {
+ *         name: "Edge",
+ *         tier: "Standard",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge/v20210201preview:Device testedgedevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName} 
+ * ```
  */
 export class Device extends pulumi.CustomResource {
     /**

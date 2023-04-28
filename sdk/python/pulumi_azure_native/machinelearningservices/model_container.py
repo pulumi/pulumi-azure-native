@@ -97,6 +97,35 @@ class ModelContainer(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdate Model Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        model_container = azure_native.machinelearningservices.ModelContainer("modelContainer",
+            model_container_properties=azure_native.machinelearningservices.ModelContainerArgs(
+                description="Model container description",
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            name="testContainer",
+            resource_group_name="testrg123",
+            workspace_name="workspace123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:ModelContainer testContainer /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/models/testContainer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ModelContainerArgs']] model_container_properties: [Required] Additional attributes of the entity.
@@ -114,6 +143,35 @@ class ModelContainer(pulumi.CustomResource):
         Azure Resource Manager resource envelope.
         API Version: 2022-10-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdate Model Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        model_container = azure_native.machinelearningservices.ModelContainer("modelContainer",
+            model_container_properties=azure_native.machinelearningservices.ModelContainerArgs(
+                description="Model container description",
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            name="testContainer",
+            resource_group_name="testrg123",
+            workspace_name="workspace123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:ModelContainer testContainer /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/models/testContainer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ModelContainerInitArgs args: The arguments to use to populate this resource's properties.

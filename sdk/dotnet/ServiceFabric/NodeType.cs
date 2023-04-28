@@ -13,6 +13,370 @@ namespace Pulumi.AzureNative.ServiceFabric
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
     /// API Version: 2023-02-01-preview.
     /// Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Put a node type with auto-scale parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    ///     {
+    ///         Capacities = 
+    ///         {
+    ///             { "ClientConnections", "65536" },
+    ///         },
+    ///         ClusterName = "myCluster",
+    ///         DataDiskSizeGB = 200,
+    ///         DataDiskType = "Premium_LRS",
+    ///         IsPrimary = false,
+    ///         IsStateless = true,
+    ///         MultiplePlacementGroups = true,
+    ///         NodeTypeName = "BE",
+    ///         PlacementProperties = 
+    ///         {
+    ///             { "HasSSD", "true" },
+    ///             { "NodeColor", "green" },
+    ///             { "SomeProperty", "5" },
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         VmExtensions = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.Inputs.VMSSExtensionArgs
+    ///             {
+    ///                 AutoUpgradeMinorVersion = true,
+    ///                 Name = "Microsoft.Azure.Geneva.GenevaMonitoring",
+    ///                 Publisher = "Microsoft.Azure.Geneva",
+    ///                 Settings = null,
+    ///                 Type = "GenevaMonitoring",
+    ///                 TypeHandlerVersion = "2.0",
+    ///             },
+    ///         },
+    ///         VmImageOffer = "WindowsServer",
+    ///         VmImagePublisher = "MicrosoftWindowsServer",
+    ///         VmImageSku = "2016-Datacenter-Server-Core",
+    ///         VmImageVersion = "latest",
+    ///         VmInstanceCount = -1,
+    ///         VmManagedIdentity = new AzureNative.ServiceFabric.Inputs.VmManagedIdentityArgs
+    ///         {
+    ///             UserAssignedIdentities = new[]
+    ///             {
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+    ///             },
+    ///         },
+    ///         VmSecrets = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.Inputs.VaultSecretGroupArgs
+    ///             {
+    ///                 SourceVault = new AzureNative.ServiceFabric.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+    ///                 },
+    ///                 VaultCertificates = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabric.Inputs.VaultCertificateArgs
+    ///                     {
+    ///                         CertificateStore = "My",
+    ///                         CertificateUrl = "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         VmSize = "Standard_DS3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put a node type with maximum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    ///     {
+    ///         AdditionalDataDisks = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.Inputs.VmssDataDiskArgs
+    ///             {
+    ///                 DiskLetter = "F",
+    ///                 DiskSizeGB = 256,
+    ///                 DiskType = "StandardSSD_LRS",
+    ///                 Lun = 1,
+    ///             },
+    ///             new AzureNative.ServiceFabric.Inputs.VmssDataDiskArgs
+    ///             {
+    ///                 DiskLetter = "G",
+    ///                 DiskSizeGB = 150,
+    ///                 DiskType = "Premium_LRS",
+    ///                 Lun = 2,
+    ///             },
+    ///         },
+    ///         Capacities = 
+    ///         {
+    ///             { "ClientConnections", "65536" },
+    ///         },
+    ///         ClusterName = "myCluster",
+    ///         DataDiskLetter = "S",
+    ///         DataDiskSizeGB = 200,
+    ///         DataDiskType = "Premium_LRS",
+    ///         EnableAcceleratedNetworking = true,
+    ///         EnableEncryptionAtHost = true,
+    ///         EnableNodePublicIP = true,
+    ///         EnableOverProvisioning = false,
+    ///         EvictionPolicy = "Deallocate",
+    ///         FrontendConfigurations = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.Inputs.FrontendConfigurationArgs
+    ///             {
+    ///                 ApplicationGatewayBackendAddressPoolId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/applicationGateways/appgw-test/backendAddressPools/appgwBepoolTest",
+    ///                 LoadBalancerBackendAddressPoolId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/backendAddressPools/LoadBalancerBEAddressPool",
+    ///                 LoadBalancerInboundNatPoolId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/loadBalancers/test-LB/inboundNatPools/LoadBalancerNATPool",
+    ///             },
+    ///         },
+    ///         IsPrimary = false,
+    ///         IsSpotVM = true,
+    ///         IsStateless = true,
+    ///         MultiplePlacementGroups = true,
+    ///         NodeTypeName = "BE",
+    ///         PlacementProperties = 
+    ///         {
+    ///             { "HasSSD", "true" },
+    ///             { "NodeColor", "green" },
+    ///             { "SomeProperty", "5" },
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         SecureBootEnabled = true,
+    ///         SecurityType = "TrustedLaunch",
+    ///         SpotRestoreTimeout = "PT30M",
+    ///         SubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    ///         UseDefaultPublicLoadBalancer = true,
+    ///         UseEphemeralOSDisk = true,
+    ///         VmExtensions = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.Inputs.VMSSExtensionArgs
+    ///             {
+    ///                 AutoUpgradeMinorVersion = true,
+    ///                 EnableAutomaticUpgrade = true,
+    ///                 ForceUpdateTag = "v.1.0",
+    ///                 Name = "Microsoft.Azure.Geneva.GenevaMonitoring",
+    ///                 Publisher = "Microsoft.Azure.Geneva",
+    ///                 Settings = null,
+    ///                 Type = "GenevaMonitoring",
+    ///                 TypeHandlerVersion = "2.0",
+    ///             },
+    ///         },
+    ///         VmImageOffer = "WindowsServer",
+    ///         VmImagePublisher = "MicrosoftWindowsServer",
+    ///         VmImageSku = "2016-Datacenter-Server-Core",
+    ///         VmImageVersion = "latest",
+    ///         VmInstanceCount = 10,
+    ///         VmManagedIdentity = new AzureNative.ServiceFabric.Inputs.VmManagedIdentityArgs
+    ///         {
+    ///             UserAssignedIdentities = new[]
+    ///             {
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+    ///                 "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity2",
+    ///             },
+    ///         },
+    ///         VmSecrets = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.Inputs.VaultSecretGroupArgs
+    ///             {
+    ///                 SourceVault = new AzureNative.ServiceFabric.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+    ///                 },
+    ///                 VaultCertificates = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabric.Inputs.VaultCertificateArgs
+    ///                     {
+    ///                         CertificateStore = "My",
+    ///                         CertificateUrl = "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         VmSetupActions = new[]
+    ///         {
+    ///             "EnableContainers",
+    ///             "EnableHyperV",
+    ///         },
+    ///         VmSize = "Standard_DS3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put a node type with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    ///     {
+    ///         ClusterName = "myCluster",
+    ///         DataDiskSizeGB = 200,
+    ///         IsPrimary = false,
+    ///         NodeTypeName = "BE",
+    ///         ResourceGroupName = "resRg",
+    ///         VmImageOffer = "WindowsServer",
+    ///         VmImagePublisher = "MicrosoftWindowsServer",
+    ///         VmImageSku = "2016-Datacenter-Server-Core",
+    ///         VmImageVersion = "latest",
+    ///         VmInstanceCount = 10,
+    ///         VmSize = "Standard_D3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put an stateless node type with temporary disk for service fabric
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    ///     {
+    ///         ClusterName = "myCluster",
+    ///         EnableEncryptionAtHost = true,
+    ///         IsPrimary = false,
+    ///         IsStateless = true,
+    ///         MultiplePlacementGroups = true,
+    ///         NodeTypeName = "BE",
+    ///         ResourceGroupName = "resRg",
+    ///         UseTempDataDisk = true,
+    ///         VmExtensions = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.Inputs.VMSSExtensionArgs
+    ///             {
+    ///                 AutoUpgradeMinorVersion = true,
+    ///                 Name = "Microsoft.Azure.Geneva.GenevaMonitoring",
+    ///                 Publisher = "Microsoft.Azure.Geneva",
+    ///                 Settings = null,
+    ///                 Type = "GenevaMonitoring",
+    ///                 TypeHandlerVersion = "2.0",
+    ///             },
+    ///         },
+    ///         VmImageOffer = "WindowsServer",
+    ///         VmImagePublisher = "MicrosoftWindowsServer",
+    ///         VmImageSku = "2016-Datacenter-Server-Core",
+    ///         VmImageVersion = "latest",
+    ///         VmInstanceCount = 10,
+    ///         VmSize = "Standard_DS3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put node type with custom vm image
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    ///     {
+    ///         ClusterName = "myCluster",
+    ///         DataDiskSizeGB = 200,
+    ///         IsPrimary = false,
+    ///         NodeTypeName = "BE",
+    ///         ResourceGroupName = "resRg",
+    ///         VmImageResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-custom-image/providers/Microsoft.Compute/galleries/myCustomImages/images/Win2019DC",
+    ///         VmInstanceCount = 10,
+    ///         VmSize = "Standard_D3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put node type with dedicated hosts
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    ///     {
+    ///         Capacities = null,
+    ///         ClusterName = "myCluster",
+    ///         DataDiskSizeGB = 200,
+    ///         DataDiskType = "StandardSSD_LRS",
+    ///         HostGroupId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testhostgroupRG/providers/Microsoft.Compute/hostGroups/testHostGroup",
+    ///         IsPrimary = false,
+    ///         NodeTypeName = "BE",
+    ///         PlacementProperties = null,
+    ///         ResourceGroupName = "resRg",
+    ///         VmImageOffer = "WindowsServer",
+    ///         VmImagePublisher = "MicrosoftWindowsServer",
+    ///         VmImageSku = "2019-Datacenter",
+    ///         VmImageVersion = "latest",
+    ///         VmInstanceCount = 10,
+    ///         VmSize = "Standard_D8s_v3",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put node type with shared galleries custom vm image
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nodeType = new AzureNative.ServiceFabric.NodeType("nodeType", new()
+    ///     {
+    ///         ClusterName = "myCluster",
+    ///         DataDiskSizeGB = 200,
+    ///         IsPrimary = false,
+    ///         NodeTypeName = "BE",
+    ///         ResourceGroupName = "resRg",
+    ///         VmInstanceCount = 10,
+    ///         VmSharedGalleryImageId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-custom-image/providers/Microsoft.Compute/sharedGalleries/35349201-a0b3-405e-8a23-9f1450984307-SFSHAREDGALLERY/images/TestNoProdContainerDImage/versions/latest",
+    ///         VmSize = "Standard_D3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabric:NodeType BE /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster/nodeTypes/BE 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric:NodeType")]
     public partial class NodeType : global::Pulumi.CustomResource

@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Cassandra view.
+ *
+ * ## Example Usage
+ * ### CosmosDBCassandraViewCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cassandraResourceCassandraView = new azure_native.documentdb.v20230301preview.CassandraResourceCassandraView("cassandraResourceCassandraView", {
+ *     accountName: "ddb1",
+ *     keyspaceName: "keyspacename",
+ *     options: {},
+ *     resource: {
+ *         id: "viewname",
+ *         viewDefinition: "SELECT columna, columnb, columnc FROM keyspacename.srctablename WHERE columna IS NOT NULL AND columnc IS NOT NULL PRIMARY (columnc, columna)",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ *     viewName: "viewname",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20230301preview:CassandraResourceCassandraView viewname /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspacename/views/viewname 
+ * ```
  */
 export class CassandraResourceCassandraView extends pulumi.CustomResource {
     /**

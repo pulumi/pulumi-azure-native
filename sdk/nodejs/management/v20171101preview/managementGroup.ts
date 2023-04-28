@@ -10,6 +10,25 @@ import * as utilities from "../../utilities";
 /**
  * The management group details.
  *
+ * ## Example Usage
+ * ### PutManagementGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementGroup = new azure_native.management.v20171101preview.ManagementGroup("managementGroup", {groupId: "00000000-0000-0000-0000-000000000002"});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:management/v20171101preview:ManagementGroup 00000000-0000-0000-0000-000000000002 /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000002 
+ * ```
+ *
  * @deprecated Version 2017-11-01-preview will be removed in v2 of the provider.
  */
 export class ManagementGroup extends pulumi.CustomResource {

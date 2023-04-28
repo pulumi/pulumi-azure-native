@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.Web
     /// A web app, a mobile app backend, or an API app.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Clone web app slot
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppSlot = new AzureNative.Web.WebAppSlot("webAppSlot", new()
+    ///     {
+    ///         CloningInfo = new AzureNative.Web.Inputs.CloningInfoArgs
+    ///         {
+    ///             AppSettingsOverrides = 
+    ///             {
+    ///                 { "Setting1", "NewValue1" },
+    ///                 { "Setting3", "NewValue5" },
+    ///             },
+    ///             CloneCustomHostNames = true,
+    ///             CloneSourceControl = true,
+    ///             ConfigureLoadBalancing = false,
+    ///             HostingEnvironment = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
+    ///             Overwrite = false,
+    ///             SourceWebAppId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478/slot/qa",
+    ///             SourceWebAppLocation = "West Europe",
+    ///         },
+    ///         Kind = "app",
+    ///         Location = "East US",
+    ///         Name = "sitef6141",
+    ///         ResourceGroupName = "testrg123",
+    ///         Slot = "staging",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Web App Slot
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppSlot = new AzureNative.Web.WebAppSlot("webAppSlot", new()
+    ///     {
+    ///         Kind = "app",
+    ///         Location = "East US",
+    ///         Name = "sitef6141",
+    ///         ResourceGroupName = "testrg123",
+    ///         ServerFarmId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
+    ///         Slot = "staging",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:WebAppSlot sitef6141/staging /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/slots/staging 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:WebAppSlot")]
     public partial class WebAppSlot : global::Pulumi.CustomResource

@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Media.V20151001
 {
     /// <summary>
     /// The properties of a Media Service resource.
+    /// 
+    /// ## Example Usage
+    /// ### MediaServiceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mediaService = new AzureNative.Media.V20151001.MediaService("mediaService", new()
+    ///     {
+    ///         Location = "West US",
+    ///         MediaServiceName = "contosmedia",
+    ///         ResourceGroupName = "contosoresources",
+    ///         StorageAccounts = new[]
+    ///         {
+    ///             new AzureNative.Media.V20151001.Inputs.StorageAccountArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Storage/storageAccounts/contosostore",
+    ///                 IsPrimary = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20151001:MediaService myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaservices/{mediaServiceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20151001:MediaService")]
     public partial class MediaService : global::Pulumi.CustomResource

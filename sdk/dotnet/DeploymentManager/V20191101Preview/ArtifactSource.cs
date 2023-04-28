@@ -11,6 +11,69 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
 {
     /// <summary>
     /// The resource that defines the source location where the artifacts are located.
+    /// 
+    /// ## Example Usage
+    /// ### Create artifact source
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var artifactSource = new AzureNative.DeploymentManager.V20191101Preview.ArtifactSource("artifactSource", new()
+    ///     {
+    ///         ArtifactSourceName = "myArtifactSource",
+    ///         Authentication = new AzureNative.DeploymentManager.V20191101Preview.Inputs.SasAuthenticationArgs
+    ///         {
+    ///             SasUri = "https://mystorageaccount.blob.core.windows.net/myartifactsource?st=2018-07-07T14%3A10%3A00Z&amp;se=2019-12-31T15%3A10%3A00Z&amp;sp=rl&amp;sv=2017-04-17&amp;sr=c&amp;sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
+    ///             Type = "Sas",
+    ///         },
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SourceType = "AzureStorage",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create artifact source with artifact root, an offset into the storage container
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var artifactSource = new AzureNative.DeploymentManager.V20191101Preview.ArtifactSource("artifactSource", new()
+    ///     {
+    ///         ArtifactRoot = "1.0.0.0",
+    ///         ArtifactSourceName = "myArtifactSource",
+    ///         Authentication = new AzureNative.DeploymentManager.V20191101Preview.Inputs.SasAuthenticationArgs
+    ///         {
+    ///             SasUri = "https://mystorageaccount.blob.core.windows.net/myartifactsource?st=2018-07-07T14%3A10%3A00Z&amp;se=2019-12-31T15%3A10%3A00Z&amp;sp=rl&amp;sv=2017-04-17&amp;sr=c&amp;sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
+    ///             Type = "Sas",
+    ///         },
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SourceType = "AzureStorage",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deploymentmanager/v20191101preview:ArtifactSource myArtifactSource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/artifactSources/{artifactSourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager/v20191101preview:ArtifactSource")]
     public partial class ArtifactSource : global::Pulumi.CustomResource

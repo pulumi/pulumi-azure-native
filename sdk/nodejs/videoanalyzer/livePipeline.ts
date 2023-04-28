@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
  * API Version: 2021-11-01-preview.
  * Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a live pipeline
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const livePipeline = new azure_native.videoanalyzer.LivePipeline("livePipeline", {
+ *     accountName: "testaccount2",
+ *     bitrateKbps: 500,
+ *     description: "Live Pipeline 1 Description",
+ *     livePipelineName: "livePipeline1",
+ *     parameters: [{
+ *         name: "rtspUrlParameter",
+ *         value: "rtsp://contoso.com/stream",
+ *     }],
+ *     resourceGroupName: "testrg",
+ *     topologyName: "pipelinetopology1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:videoanalyzer:LivePipeline livePipeline1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/livePipelines/livePipeline1 
+ * ```
  */
 export class LivePipeline extends pulumi.CustomResource {
     /**

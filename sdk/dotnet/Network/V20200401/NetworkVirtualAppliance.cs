@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.Network.V20200401
 {
     /// <summary>
     /// NetworkVirtualAppliance Resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create NetworkVirtualAppliance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkVirtualAppliance = new AzureNative.Network.V20200401.NetworkVirtualAppliance("networkVirtualAppliance", new()
+    ///     {
+    ///         BootStrapConfigurationBlob = new[]
+    ///         {
+    ///             "https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrbootstrapconfig",
+    ///         },
+    ///         CloudInitConfigurationBlob = new[]
+    ///         {
+    ///             "https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrcloudinitconfig",
+    ///         },
+    ///         Identity = new AzureNative.Network.V20200401.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Network.V20200401.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1", null },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         NetworkVirtualApplianceName = "nva",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20200401.Inputs.VirtualApplianceSkuPropertiesArgs
+    ///         {
+    ///             BundledScaleUnit = "1",
+    ///             MarketPlaceVersion = "12.1",
+    ///             Vendor = "Cisco SDWAN",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualApplianceAsn = 10000,
+    ///         VirtualHub = new AzureNative.Network.V20200401.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20200401:NetworkVirtualAppliance nva /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkVirtualAppliances/nva 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200401:NetworkVirtualAppliance")]
     public partial class NetworkVirtualAppliance : global::Pulumi.CustomResource

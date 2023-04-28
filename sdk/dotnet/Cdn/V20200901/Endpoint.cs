@@ -11,6 +11,176 @@ namespace Pulumi.AzureNative.Cdn.V20200901
 {
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
+    /// 
+    /// ## Example Usage
+    /// ### Endpoints_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.Cdn.V20200901.Endpoint("endpoint", new()
+    ///     {
+    ///         ContentTypesToCompress = new[]
+    ///         {
+    ///             "text/html",
+    ///             "application/octet-stream",
+    ///         },
+    ///         DefaultOriginGroup = new AzureNative.Cdn.V20200901.Inputs.ResourceReferenceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1",
+    ///         },
+    ///         DeliveryPolicy = new AzureNative.Cdn.V20200901.Inputs.EndpointPropertiesUpdateParametersDeliveryPolicyArgs
+    ///         {
+    ///             Description = "Test description for a policy.",
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Cdn.V20200901.Inputs.DeliveryRuleArgs
+    ///                 {
+    ///                     Actions = 
+    ///                     {
+    ///                         new AzureNative.Cdn.V20200901.Inputs.DeliveryRuleCacheExpirationActionArgs
+    ///                         {
+    ///                             Name = "CacheExpiration",
+    ///                             Parameters = new AzureNative.Cdn.V20200901.Inputs.CacheExpirationActionParametersArgs
+    ///                             {
+    ///                                 CacheBehavior = "Override",
+    ///                                 CacheDuration = "10:10:09",
+    ///                                 CacheType = "All",
+    ///                                 OdataType = "#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters",
+    ///                             },
+    ///                         },
+    ///                         new AzureNative.Cdn.V20200901.Inputs.DeliveryRuleResponseHeaderActionArgs
+    ///                         {
+    ///                             Name = "ModifyResponseHeader",
+    ///                             Parameters = new AzureNative.Cdn.V20200901.Inputs.HeaderActionParametersArgs
+    ///                             {
+    ///                                 HeaderAction = "Overwrite",
+    ///                                 HeaderName = "Access-Control-Allow-Origin",
+    ///                                 OdataType = "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+    ///                                 Value = "*",
+    ///                             },
+    ///                         },
+    ///                         new AzureNative.Cdn.V20200901.Inputs.DeliveryRuleRequestHeaderActionArgs
+    ///                         {
+    ///                             Name = "ModifyRequestHeader",
+    ///                             Parameters = new AzureNative.Cdn.V20200901.Inputs.HeaderActionParametersArgs
+    ///                             {
+    ///                                 HeaderAction = "Overwrite",
+    ///                                 HeaderName = "Accept-Encoding",
+    ///                                 OdataType = "#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+    ///                                 Value = "gzip",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Conditions = new[]
+    ///                     {
+    ///                         new AzureNative.Cdn.V20200901.Inputs.DeliveryRuleRemoteAddressConditionArgs
+    ///                         {
+    ///                             Name = "RemoteAddress",
+    ///                             Parameters = new AzureNative.Cdn.V20200901.Inputs.RemoteAddressMatchConditionParametersArgs
+    ///                             {
+    ///                                 MatchValues = new[]
+    ///                                 {
+    ///                                     "192.168.1.0/24",
+    ///                                     "10.0.0.0/24",
+    ///                                 },
+    ///                                 NegateCondition = true,
+    ///                                 OdataType = "#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters",
+    ///                                 Operator = "IPMatch",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Name = "rule1",
+    ///                     Order = 1,
+    ///                 },
+    ///             },
+    ///         },
+    ///         EndpointName = "endpoint1",
+    ///         IsCompressionEnabled = true,
+    ///         IsHttpAllowed = true,
+    ///         IsHttpsAllowed = true,
+    ///         Location = "WestUs",
+    ///         OriginGroups = new[]
+    ///         {
+    ///             new AzureNative.Cdn.V20200901.Inputs.DeepCreatedOriginGroupArgs
+    ///             {
+    ///                 HealthProbeSettings = new AzureNative.Cdn.V20200901.Inputs.HealthProbeParametersArgs
+    ///                 {
+    ///                     ProbeIntervalInSeconds = 120,
+    ///                     ProbePath = "/health.aspx",
+    ///                     ProbeProtocol = AzureNative.Cdn.V20200901.ProbeProtocol.Http,
+    ///                     ProbeRequestType = AzureNative.Cdn.V20200901.HealthProbeRequestType.GET,
+    ///                 },
+    ///                 Name = "originGroup1",
+    ///                 Origins = new[]
+    ///                 {
+    ///                     new AzureNative.Cdn.V20200901.Inputs.ResourceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+    ///                     },
+    ///                     new AzureNative.Cdn.V20200901.Inputs.ResourceReferenceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin2",
+    ///                     },
+    ///                 },
+    ///                 ResponseBasedOriginErrorDetectionSettings = new AzureNative.Cdn.V20200901.Inputs.ResponseBasedOriginErrorDetectionParametersArgs
+    ///                 {
+    ///                     ResponseBasedDetectedErrorTypes = AzureNative.Cdn.V20200901.ResponseBasedDetectedErrorTypes.TcpErrorsOnly,
+    ///                     ResponseBasedFailoverThresholdPercentage = 10,
+    ///                 },
+    ///             },
+    ///         },
+    ///         OriginHostHeader = "www.bing.com",
+    ///         OriginPath = "/photos",
+    ///         Origins = new[]
+    ///         {
+    ///             new AzureNative.Cdn.V20200901.Inputs.DeepCreatedOriginArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 HostName = "www.someDomain1.net",
+    ///                 HttpPort = 80,
+    ///                 HttpsPort = 443,
+    ///                 Name = "origin1",
+    ///                 OriginHostHeader = "www.someDomain1.net",
+    ///                 Priority = 1,
+    ///                 Weight = 50,
+    ///             },
+    ///             new AzureNative.Cdn.V20200901.Inputs.DeepCreatedOriginArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 HostName = "www.someDomain2.net",
+    ///                 HttpPort = 80,
+    ///                 HttpsPort = 443,
+    ///                 Name = "origin2",
+    ///                 OriginHostHeader = "www.someDomain2.net",
+    ///                 Priority = 2,
+    ///                 Weight = 50,
+    ///             },
+    ///         },
+    ///         ProfileName = "profile1",
+    ///         QueryStringCachingBehavior = AzureNative.Cdn.V20200901.QueryStringCachingBehavior.BypassCaching,
+    ///         ResourceGroupName = "RG",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20200901:Endpoint endpoint4899 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20200901:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource

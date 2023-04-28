@@ -13,6 +13,64 @@ namespace Pulumi.AzureNative.Network
     /// Route table resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create route table
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var routeTable = new AzureNative.Network.RouteTable("routeTable", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg1",
+    ///         RouteTableName = "testrt",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create route table with route
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var routeTable = new AzureNative.Network.RouteTable("routeTable", new()
+    ///     {
+    ///         DisableBgpRoutePropagation = true,
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg1",
+    ///         RouteTableName = "testrt",
+    ///         Routes = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.RouteArgs
+    ///             {
+    ///                 AddressPrefix = "10.0.3.0/24",
+    ///                 Name = "route1",
+    ///                 NextHopType = "VirtualNetworkGateway",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:RouteTable testrt /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeTables/testrt 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:RouteTable")]
     public partial class RouteTable : global::Pulumi.CustomResource

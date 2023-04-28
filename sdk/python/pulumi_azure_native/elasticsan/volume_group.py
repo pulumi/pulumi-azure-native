@@ -150,6 +150,51 @@ class VolumeGroup(pulumi.CustomResource):
         API Version: 2021-11-20-preview.
         Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VolumeGroups_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume_group = azure_native.elasticsan.VolumeGroup("volumeGroup",
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            encryption="EncryptionAtRestWithPlatformKey",
+            network_acls=azure_native.elasticsan.NetworkRuleSetResponseArgs(
+                virtual_network_rules=[azure_native.elasticsan.VirtualNetworkRuleArgs(
+                    action=azure_native.elasticsan.Action.ALLOW,
+                    virtual_network_resource_id="aaaaaaaaaaaaaaaa",
+                )],
+            ),
+            protocol_type="Iscsi",
+            resource_group_name="rgelasticsan",
+            tags={
+                "key5933": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            },
+            volume_group_name="u_5I_1j4t3")
+
+        ```
+        ### VolumeGroups_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume_group = azure_native.elasticsan.VolumeGroup("volumeGroup",
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            resource_group_name="rgelasticsan",
+            volume_group_name="u_5I_1j4t3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elasticsan:VolumeGroup aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
@@ -170,6 +215,51 @@ class VolumeGroup(pulumi.CustomResource):
         Response for Volume Group request.
         API Version: 2021-11-20-preview.
         Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VolumeGroups_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume_group = azure_native.elasticsan.VolumeGroup("volumeGroup",
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            encryption="EncryptionAtRestWithPlatformKey",
+            network_acls=azure_native.elasticsan.NetworkRuleSetResponseArgs(
+                virtual_network_rules=[azure_native.elasticsan.VirtualNetworkRuleArgs(
+                    action=azure_native.elasticsan.Action.ALLOW,
+                    virtual_network_resource_id="aaaaaaaaaaaaaaaa",
+                )],
+            ),
+            protocol_type="Iscsi",
+            resource_group_name="rgelasticsan",
+            tags={
+                "key5933": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            },
+            volume_group_name="u_5I_1j4t3")
+
+        ```
+        ### VolumeGroups_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume_group = azure_native.elasticsan.VolumeGroup("volumeGroup",
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            resource_group_name="rgelasticsan",
+            volume_group_name="u_5I_1j4t3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elasticsan:VolumeGroup aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VolumeGroupArgs args: The arguments to use to populate this resource's properties.

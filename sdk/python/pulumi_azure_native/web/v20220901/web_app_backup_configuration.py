@@ -163,6 +163,13 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                  __props__=None):
         """
         Description of a backup which will be performed.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppBackupConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/backup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -183,6 +190,13 @@ class WebAppBackupConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a backup which will be performed.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppBackupConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/backup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppBackupConfigurationArgs args: The arguments to use to populate this resource's properties.

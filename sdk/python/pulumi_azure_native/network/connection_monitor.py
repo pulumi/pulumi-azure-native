@@ -290,6 +290,113 @@ class ConnectionMonitor(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create connection monitor V1
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor = azure_native.network.ConnectionMonitor("connectionMonitor",
+            connection_monitor_name="cm1",
+            endpoints=[
+                {
+                    "name": "source",
+                    "resourceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/ct1",
+                },
+                {
+                    "address": "bing.com",
+                    "name": "destination",
+                },
+            ],
+            location="eastus",
+            network_watcher_name="nw1",
+            resource_group_name="rg1",
+            test_configurations=[{
+                "name": "tcp",
+                "protocol": "Tcp",
+                "tcpConfiguration": azure_native.network.ConnectionMonitorTcpConfigurationArgs(
+                    port=80,
+                ),
+                "testFrequencySec": 60,
+            }],
+            test_groups=[{
+                "destinations": ["destination"],
+                "name": "tg",
+                "sources": ["source"],
+                "testConfigurations": ["tcp"],
+            }])
+
+        ```
+        ### Create connection monitor V2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor = azure_native.network.ConnectionMonitor("connectionMonitor",
+            connection_monitor_name="cm1",
+            endpoints=[
+                {
+                    "name": "vm1",
+                    "resourceId": "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/NwRgIrinaCentralUSEUAP/providers/Microsoft.Compute/virtualMachines/vm1",
+                },
+                {
+                    "filter": {
+                        "items": [azure_native.network.ConnectionMonitorEndpointFilterItemArgs(
+                            address="npmuser",
+                            type="AgentAddress",
+                        )],
+                        "type": "Include",
+                    },
+                    "name": "CanaryWorkspaceVamshi",
+                    "resourceId": "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/vasamudrRG/providers/Microsoft.OperationalInsights/workspaces/vasamudrWorkspace",
+                },
+                {
+                    "address": "bing.com",
+                    "name": "bing",
+                },
+                {
+                    "address": "google.com",
+                    "name": "google",
+                },
+            ],
+            network_watcher_name="nw1",
+            outputs=[],
+            resource_group_name="rg1",
+            test_configurations=[{
+                "name": "testConfig1",
+                "protocol": "Tcp",
+                "tcpConfiguration": azure_native.network.ConnectionMonitorTcpConfigurationArgs(
+                    disable_trace_route=False,
+                    port=80,
+                ),
+                "testFrequencySec": 60,
+            }],
+            test_groups=[{
+                "destinations": [
+                    "bing",
+                    "google",
+                ],
+                "disable": False,
+                "name": "test1",
+                "sources": [
+                    "vm1",
+                    "CanaryWorkspaceVamshi",
+                ],
+                "testConfigurations": ["testConfig1"],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ConnectionMonitor cm1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_start: Determines if the connection monitor will start automatically once created.
@@ -318,6 +425,113 @@ class ConnectionMonitor(pulumi.CustomResource):
         Information about the connection monitor.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create connection monitor V1
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor = azure_native.network.ConnectionMonitor("connectionMonitor",
+            connection_monitor_name="cm1",
+            endpoints=[
+                {
+                    "name": "source",
+                    "resourceId": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/ct1",
+                },
+                {
+                    "address": "bing.com",
+                    "name": "destination",
+                },
+            ],
+            location="eastus",
+            network_watcher_name="nw1",
+            resource_group_name="rg1",
+            test_configurations=[{
+                "name": "tcp",
+                "protocol": "Tcp",
+                "tcpConfiguration": azure_native.network.ConnectionMonitorTcpConfigurationArgs(
+                    port=80,
+                ),
+                "testFrequencySec": 60,
+            }],
+            test_groups=[{
+                "destinations": ["destination"],
+                "name": "tg",
+                "sources": ["source"],
+                "testConfigurations": ["tcp"],
+            }])
+
+        ```
+        ### Create connection monitor V2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor = azure_native.network.ConnectionMonitor("connectionMonitor",
+            connection_monitor_name="cm1",
+            endpoints=[
+                {
+                    "name": "vm1",
+                    "resourceId": "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/NwRgIrinaCentralUSEUAP/providers/Microsoft.Compute/virtualMachines/vm1",
+                },
+                {
+                    "filter": {
+                        "items": [azure_native.network.ConnectionMonitorEndpointFilterItemArgs(
+                            address="npmuser",
+                            type="AgentAddress",
+                        )],
+                        "type": "Include",
+                    },
+                    "name": "CanaryWorkspaceVamshi",
+                    "resourceId": "/subscriptions/96e68903-0a56-4819-9987-8d08ad6a1f99/resourceGroups/vasamudrRG/providers/Microsoft.OperationalInsights/workspaces/vasamudrWorkspace",
+                },
+                {
+                    "address": "bing.com",
+                    "name": "bing",
+                },
+                {
+                    "address": "google.com",
+                    "name": "google",
+                },
+            ],
+            network_watcher_name="nw1",
+            outputs=[],
+            resource_group_name="rg1",
+            test_configurations=[{
+                "name": "testConfig1",
+                "protocol": "Tcp",
+                "tcpConfiguration": azure_native.network.ConnectionMonitorTcpConfigurationArgs(
+                    disable_trace_route=False,
+                    port=80,
+                ),
+                "testFrequencySec": 60,
+            }],
+            test_groups=[{
+                "destinations": [
+                    "bing",
+                    "google",
+                ],
+                "disable": False,
+                "name": "test1",
+                "sources": [
+                    "vm1",
+                    "CanaryWorkspaceVamshi",
+                ],
+                "testConfigurations": ["testConfig1"],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ConnectionMonitor cm1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/connectionMonitors/cm1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionMonitorArgs args: The arguments to use to populate this resource's properties.

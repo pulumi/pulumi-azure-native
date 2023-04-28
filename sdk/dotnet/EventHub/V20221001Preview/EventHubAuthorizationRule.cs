@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
+    /// 
+    /// ## Example Usage
+    /// ### EventHubAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHubAuthorizationRule = new AzureNative.EventHub.V20221001Preview.EventHubAuthorizationRule("eventHubAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "sdk-Authrules-2513",
+    ///         EventHubName = "sdk-EventHub-532",
+    ///         NamespaceName = "sdk-Namespace-960",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///         Rights = new[]
+    ///         {
+    ///             "Listen",
+    ///             "Send",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20221001preview:EventHubAuthorizationRule sdk-Authrules-2513 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-960/eventhubs/sdk-EventHub-532/authorizationRules/sdk-Authrules-2513 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20221001preview:EventHubAuthorizationRule")]
     public partial class EventHubAuthorizationRule : global::Pulumi.CustomResource

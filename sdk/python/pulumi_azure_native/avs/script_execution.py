@@ -216,6 +216,48 @@ class ScriptExecution(pulumi.CustomResource):
         API Version: 2022-05-01.
         Previous API Version: 2021-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ScriptExecutions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        script_execution = azure_native.avs.ScriptExecution("scriptExecution",
+            hidden_parameters=[azure_native.avs.ScriptSecureStringExecutionParameterArgs(
+                name="Password",
+                secure_value="PlaceholderPassword",
+                type="SecureValue",
+            )],
+            parameters=[
+                azure_native.avs.ScriptStringExecutionParameterArgs(
+                    name="DomainName",
+                    type="Value",
+                    value="placeholderDomain.local",
+                ),
+                azure_native.avs.ScriptStringExecutionParameterArgs(
+                    name="BaseUserDN",
+                    type="Value",
+                    value="DC=placeholder, DC=placeholder",
+                ),
+            ],
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            retention="P0Y0M60DT0H60M60S",
+            script_cmdlet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/scriptPackages/AVS.PowerCommands@1.0.0/scriptCmdlets/New-SsoExternalIdentitySource",
+            script_execution_name="addSsoServer",
+            timeout="P0Y0M0DT0H60M60S")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:ScriptExecution addSsoServer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/scriptExecutions/addSsoServer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] failure_reason: Error message if the script was able to run, but if the script itself had errors or powershell threw an exception
@@ -240,6 +282,48 @@ class ScriptExecution(pulumi.CustomResource):
         An instance of a script executed by a user - custom or AVS
         API Version: 2022-05-01.
         Previous API Version: 2021-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ScriptExecutions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        script_execution = azure_native.avs.ScriptExecution("scriptExecution",
+            hidden_parameters=[azure_native.avs.ScriptSecureStringExecutionParameterArgs(
+                name="Password",
+                secure_value="PlaceholderPassword",
+                type="SecureValue",
+            )],
+            parameters=[
+                azure_native.avs.ScriptStringExecutionParameterArgs(
+                    name="DomainName",
+                    type="Value",
+                    value="placeholderDomain.local",
+                ),
+                azure_native.avs.ScriptStringExecutionParameterArgs(
+                    name="BaseUserDN",
+                    type="Value",
+                    value="DC=placeholder, DC=placeholder",
+                ),
+            ],
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            retention="P0Y0M60DT0H60M60S",
+            script_cmdlet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/scriptPackages/AVS.PowerCommands@1.0.0/scriptCmdlets/New-SsoExternalIdentitySource",
+            script_execution_name="addSsoServer",
+            timeout="P0Y0M0DT0H60M60S")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:ScriptExecution addSsoServer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/scriptExecutions/addSsoServer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScriptExecutionArgs args: The arguments to use to populate this resource's properties.

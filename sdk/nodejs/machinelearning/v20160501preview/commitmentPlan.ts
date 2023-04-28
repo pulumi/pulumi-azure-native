@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure ML commitment plan resource.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearning/v20160501preview:CommitmentPlan myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/commitmentPlans/{commitmentPlanName} 
+ * ```
  */
 export class CommitmentPlan extends pulumi.CustomResource {
     /**

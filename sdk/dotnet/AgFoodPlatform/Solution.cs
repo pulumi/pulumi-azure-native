@@ -12,6 +12,44 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     /// <summary>
     /// Solution resource.
     /// API Version: 2021-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Solutions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var solution = new AzureNative.AgFoodPlatform.Solution("solution", new()
+    ///     {
+    ///         FarmBeatsResourceName = "examples-farmbeatsResourceName",
+    ///         Properties = new AzureNative.AgFoodPlatform.Inputs.SolutionPropertiesArgs
+    ///         {
+    ///             MarketplacePublisherId = "publisherId",
+    ///             OfferId = "offerId",
+    ///             PlanId = "planId",
+    ///             SaasSubscriptionId = "123",
+    ///             SaasSubscriptionName = "name",
+    ///             TermId = "termId",
+    ///         },
+    ///         ResourceGroupName = "examples-rg",
+    ///         SolutionId = "abc.partner",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:agfoodplatform:Solution string /subscriptions/ff57165d-e71f-4a0e-8e9b-3cd461dc0f38/resourceGroups/bugbash-instances-westus2/providers/Microsoft.AgFoodPlatform/farmBeats/bb-df-wus2-1/solutions/string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:Solution")]
     public partial class Solution : global::Pulumi.CustomResource

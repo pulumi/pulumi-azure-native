@@ -9,6 +9,66 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.VirtualMachineImages.V20180201Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create an Image Template.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineImageTemplate = new AzureNative.VirtualMachineImages.V20180201Preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", new()
+    ///     {
+    ///         Customize = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "name", "Shell Customizer Example" },
+    ///                 { "script", "https://example.com/path/to/script.sh" },
+    ///                 { "type", "shell" },
+    ///             },
+    ///         },
+    ///         Distribute = new[]
+    ///         {
+    ///             new AzureNative.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateManagedImageDistributorArgs
+    ///             {
+    ///                 ImageId = "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+    ///                 Location = "1_location",
+    ///                 RunOutputName = "image_it_pir_1",
+    ///                 Type = "managedImage",
+    ///             },
+    ///         },
+    ///         ImageTemplateName = "myImageTemplate",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Source = new AzureNative.VirtualMachineImages.V20180201Preview.Inputs.ImageTemplateIsoSourceArgs
+    ///         {
+    ///             Sha256Checksum = "120acbca7b3d55465eb9f8ef53ad7365f2997d42d4f83d7cc285bf5c71e1131f",
+    ///             SourceURI = "http://redhat.com/path/to/installation.iso",
+    ///             Type = "ISO",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "imagetemplate_tag1", "IT_T1" },
+    ///             { "imagetemplate_tag2", "IT_T2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate 
+    /// ```
+    /// </summary>
     [Obsolete(@"Version 2018-02-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:virtualmachineimages/v20180201preview:VirtualMachineImageTemplate")]
     public partial class VirtualMachineImageTemplate : global::Pulumi.CustomResource

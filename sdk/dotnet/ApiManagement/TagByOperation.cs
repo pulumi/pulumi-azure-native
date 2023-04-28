@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Tag Contract details.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiOperationTag
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tagByOperation = new AzureNative.ApiManagement.TagByOperation("tagByOperation", new()
+    ///     {
+    ///         ApiId = "5931a75ae4bbd512a88c680b",
+    ///         OperationId = "5931a75ae4bbd512a88c680a",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         TagId = "tagId1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:TagByOperation tagId1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/tagId1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:TagByOperation")]
     public partial class TagByOperation : global::Pulumi.CustomResource

@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.WindowsIoT
     /// The description of the Windows IoT Device Service.
     /// API Version: 2019-06-01.
     /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Service_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.WindowsIoT.Service("service", new()
+    ///     {
+    ///         AdminDomainName = "d.e.f",
+    ///         BillingDomainName = "a.b.c",
+    ///         DeviceName = "service4445",
+    ///         Location = "East US",
+    ///         Notes = "blah",
+    ///         Quantity = 1000000,
+    ///         ResourceGroupName = "res9101",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:windowsiot:Service myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsIoT/deviceServices/{deviceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:windowsiot:Service")]
     public partial class Service : global::Pulumi.CustomResource

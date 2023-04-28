@@ -11,6 +11,141 @@ namespace Pulumi.AzureNative.DataShare.V20200901
 {
     /// <summary>
     /// A SQL DB table data set.
+    /// 
+    /// ## Example Usage
+    /// ### DataSets_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlDBTableDataSet = new AzureNative.DataShare.V20200901.SqlDBTableDataSet("sqlDBTableDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_KustoCluster_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlDBTableDataSet = new AzureNative.DataShare.V20200901.SqlDBTableDataSet("sqlDBTableDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_KustoDatabase_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlDBTableDataSet = new AzureNative.DataShare.V20200901.SqlDBTableDataSet("sqlDBTableDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_SqlDBTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlDBTableDataSet = new AzureNative.DataShare.V20200901.SqlDBTableDataSet("sqlDBTableDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         DatabaseName = "SqlDB1",
+    ///         Kind = "SqlDBTable",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         SchemaName = "dbo",
+    ///         ShareName = "Share1",
+    ///         SqlServerResourceId = "/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Sql/servers/Server1",
+    ///         TableName = "Table1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_SqlDWTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlDBTableDataSet = new AzureNative.DataShare.V20200901.SqlDBTableDataSet("sqlDBTableDataSet", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetName = "Dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlDBTableDataSet = new AzureNative.DataShare.V20200901.SqlDBTableDataSet("sqlDBTableDataSet", new()
+    ///     {
+    ///         AccountName = "sourceAccount",
+    ///         DataSetName = "dataset1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "share1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare/v20200901:SqlDBTableDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20200901:SqlDBTableDataSet")]
     public partial class SqlDBTableDataSet : global::Pulumi.CustomResource

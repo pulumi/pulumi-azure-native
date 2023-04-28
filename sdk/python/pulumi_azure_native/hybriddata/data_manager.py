@@ -122,6 +122,28 @@ class DataManager(pulumi.CustomResource):
         API Version: 2019-06-01.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### DataManagers_CreatePUT41
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_manager = azure_native.hybriddata.DataManager("dataManager",
+            data_manager_name="TestAzureSDKOperations",
+            location="westus",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybriddata:DataManager TestAzureSDKOperations /subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_manager_name: The name of the DataManager Resource within the specified resource group. DataManager names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
@@ -143,6 +165,28 @@ class DataManager(pulumi.CustomResource):
         The DataManager resource.
         API Version: 2019-06-01.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### DataManagers_CreatePUT41
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_manager = azure_native.hybriddata.DataManager("dataManager",
+            data_manager_name="TestAzureSDKOperations",
+            location="westus",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybriddata:DataManager TestAzureSDKOperations /subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataManagerArgs args: The arguments to use to populate this resource's properties.

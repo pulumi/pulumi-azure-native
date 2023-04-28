@@ -13,6 +13,80 @@ namespace Pulumi.AzureNative.Maps
     /// An Azure resource which represents access to a suite of Maps REST APIs.
     /// API Version: 2021-02-01.
     /// Previous API Version: 2018-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Gen1 Account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.Maps.Account("account", new()
+    ///     {
+    ///         AccountName = "myMapsAccount",
+    ///         Kind = "Gen1",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.Maps.Inputs.MapsAccountPropertiesArgs
+    ///         {
+    ///             DisableLocalAuth = false,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Maps.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "test", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Gen2 Account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.Maps.Account("account", new()
+    ///     {
+    ///         AccountName = "myMapsAccount",
+    ///         Kind = "Gen2",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.Maps.Inputs.MapsAccountPropertiesArgs
+    ///         {
+    ///             DisableLocalAuth = true,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Maps.Inputs.SkuArgs
+    ///         {
+    ///             Name = "G2",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "test", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maps:Account myMapsAccount /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maps:Account")]
     public partial class Account : global::Pulumi.CustomResource

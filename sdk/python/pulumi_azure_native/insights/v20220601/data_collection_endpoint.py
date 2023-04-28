@@ -183,6 +183,31 @@ class DataCollectionEndpoint(pulumi.CustomResource):
         """
         Definition of ARM tracked top level resource.
 
+        ## Example Usage
+        ### Create or update data collection endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_collection_endpoint = azure_native.insights.v20220601.DataCollectionEndpoint("dataCollectionEndpoint",
+            data_collection_endpoint_name="myCollectionEndpoint",
+            location="eastus",
+            network_acls=azure_native.insights.v20220601.DataCollectionEndpointNetworkAclsArgs(
+                public_network_access="Enabled",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20220601:DataCollectionEndpoint myCollectionEndpoint /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myCollectionEndpoint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_collection_endpoint_name: The name of the data collection endpoint. The name is case insensitive.
@@ -203,6 +228,31 @@ class DataCollectionEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of ARM tracked top level resource.
+
+        ## Example Usage
+        ### Create or update data collection endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_collection_endpoint = azure_native.insights.v20220601.DataCollectionEndpoint("dataCollectionEndpoint",
+            data_collection_endpoint_name="myCollectionEndpoint",
+            location="eastus",
+            network_acls=azure_native.insights.v20220601.DataCollectionEndpointNetworkAclsArgs(
+                public_network_access="Enabled",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20220601:DataCollectionEndpoint myCollectionEndpoint /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myCollectionEndpoint 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataCollectionEndpointArgs args: The arguments to use to populate this resource's properties.

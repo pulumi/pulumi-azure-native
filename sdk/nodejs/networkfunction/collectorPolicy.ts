@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * Collector policy resource.
  * API Version: 2022-11-01.
  * Previous API Version: 2022-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a collection policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const collectorPolicy = new azure_native.networkfunction.CollectorPolicy("collectorPolicy", {
+ *     azureTrafficCollectorName: "atc",
+ *     collectorPolicyName: "cp1",
+ *     emissionPolicies: [{
+ *         emissionDestinations: [{
+ *             destinationType: "AzureMonitor",
+ *         }],
+ *         emissionType: "IPFIX",
+ *     }],
+ *     ingestionPolicy: {
+ *         ingestionSources: [{
+ *             resourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName",
+ *             sourceType: "Resource",
+ *         }],
+ *         ingestionType: "IPFIX",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkfunction:CollectorPolicy cp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.NetworkFunction/AzureTrafficCollector/atc/collectorPolicies/cp1 
+ * ```
  */
 export class CollectorPolicy extends pulumi.CustomResource {
     /**

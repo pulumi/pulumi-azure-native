@@ -284,6 +284,107 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
+        ## Example Usage
+        ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20170301.ApiManagementService("apiManagementService",
+            additional_locations=[{
+                "location": "West US",
+                "sku": {
+                    "capacity": 1,
+                    "name": "Premium",
+                },
+                "virtualNetworkConfiguration": azure_native.apimanagement.v20170301.VirtualNetworkConfigurationArgs(
+                    subnet_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/westUsVirtualNetwork/subnets/apimSubnet",
+                ),
+            }],
+            hostname_configurations=[
+                {
+                    "certificatePassword": "**************Password of the Certificate************************************************",
+                    "encodedCertificate": "************Base 64 Encoded Pfx Certificate************************",
+                    "hostName": "proxyhostname1.contoso.com",
+                    "type": azure_native.apimanagement/v20170301.HostnameType.PROXY,
+                },
+                {
+                    "certificatePassword": "**************Password of the Certificate************************************************",
+                    "encodedCertificate": "************Base 64 Encoded Pfx Certificate************************",
+                    "hostName": "proxyhostname2.contoso.com",
+                    "negotiateClientCertificate": True,
+                    "type": azure_native.apimanagement/v20170301.HostnameType.PROXY,
+                },
+                {
+                    "certificatePassword": "**************Password of the Certificate************************************************",
+                    "encodedCertificate": "************Base 64 Encoded Pfx Certificate************************",
+                    "hostName": "portalhostname1.contoso.com",
+                    "type": azure_native.apimanagement/v20170301.HostnameType.PORTAL,
+                },
+            ],
+            location="Central US",
+            publisher_email="admin@live.com",
+            publisher_name="contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20170301.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ),
+            virtual_network_configuration=azure_native.apimanagement.v20170301.VirtualNetworkConfigurationArgs(
+                subnet_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/centralUsVirtualNetwork/subnets/apimSubnet",
+            ),
+            virtual_network_type="External")
+
+        ```
+        ### ApiManagementCreateService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20170301.ApiManagementService("apiManagementService",
+            location="West US",
+            publisher_email="admin@live.com",
+            publisher_name="contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20170301.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ))
+
+        ```
+        ### ApiManagementCreateServiceHavingMsi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20170301.ApiManagementService("apiManagementService",
+            identity=azure_native.apimanagement.v20170301.ApiManagementServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="Japan East",
+            publisher_email="admin@contoso.com",
+            publisher_name="Contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20170301.ApiManagementServiceSkuPropertiesArgs(
+                name="Developer",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
@@ -310,6 +411,107 @@ class ApiManagementService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A single API Management service resource in List or Get response.
+
+        ## Example Usage
+        ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20170301.ApiManagementService("apiManagementService",
+            additional_locations=[{
+                "location": "West US",
+                "sku": {
+                    "capacity": 1,
+                    "name": "Premium",
+                },
+                "virtualNetworkConfiguration": azure_native.apimanagement.v20170301.VirtualNetworkConfigurationArgs(
+                    subnet_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/westUsVirtualNetwork/subnets/apimSubnet",
+                ),
+            }],
+            hostname_configurations=[
+                {
+                    "certificatePassword": "**************Password of the Certificate************************************************",
+                    "encodedCertificate": "************Base 64 Encoded Pfx Certificate************************",
+                    "hostName": "proxyhostname1.contoso.com",
+                    "type": azure_native.apimanagement/v20170301.HostnameType.PROXY,
+                },
+                {
+                    "certificatePassword": "**************Password of the Certificate************************************************",
+                    "encodedCertificate": "************Base 64 Encoded Pfx Certificate************************",
+                    "hostName": "proxyhostname2.contoso.com",
+                    "negotiateClientCertificate": True,
+                    "type": azure_native.apimanagement/v20170301.HostnameType.PROXY,
+                },
+                {
+                    "certificatePassword": "**************Password of the Certificate************************************************",
+                    "encodedCertificate": "************Base 64 Encoded Pfx Certificate************************",
+                    "hostName": "portalhostname1.contoso.com",
+                    "type": azure_native.apimanagement/v20170301.HostnameType.PORTAL,
+                },
+            ],
+            location="Central US",
+            publisher_email="admin@live.com",
+            publisher_name="contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20170301.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ),
+            virtual_network_configuration=azure_native.apimanagement.v20170301.VirtualNetworkConfigurationArgs(
+                subnet_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/centralUsVirtualNetwork/subnets/apimSubnet",
+            ),
+            virtual_network_type="External")
+
+        ```
+        ### ApiManagementCreateService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20170301.ApiManagementService("apiManagementService",
+            location="West US",
+            publisher_email="admin@live.com",
+            publisher_name="contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20170301.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ))
+
+        ```
+        ### ApiManagementCreateServiceHavingMsi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20170301.ApiManagementService("apiManagementService",
+            identity=azure_native.apimanagement.v20170301.ApiManagementServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="Japan East",
+            publisher_email="admin@contoso.com",
+            publisher_name="Contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20170301.ApiManagementServiceSkuPropertiesArgs(
+                name="Developer",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiManagementServiceArgs args: The arguments to use to populate this resource's properties.

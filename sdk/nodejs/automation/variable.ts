@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
  * Definition of the variable.
  * API Version: 2022-08-08.
  * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a variable
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const variable = new azure_native.automation.Variable("variable", {
+ *     automationAccountName: "sampleAccount9",
+ *     description: "my description",
+ *     isEncrypted: false,
+ *     name: "sampleVariable",
+ *     resourceGroupName: "rg",
+ *     value: "\"ComputerName.domain.com\"",
+ *     variableName: "sampleVariable",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:Variable sampleVariable /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/variables/sampleVariable 
+ * ```
  */
 export class Variable extends pulumi.CustomResource {
     /**

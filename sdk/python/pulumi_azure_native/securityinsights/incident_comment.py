@@ -112,6 +112,30 @@ class IncidentComment(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates an incident comment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        incident_comment = azure_native.securityinsights.IncidentComment("incidentComment",
+            incident_comment_id="4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+            incident_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            message="Some message",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:IncidentComment 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5/comments/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] incident_comment_id: Incident comment ID
@@ -130,6 +154,30 @@ class IncidentComment(pulumi.CustomResource):
         Represents an incident comment
         API Version: 2023-02-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates an incident comment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        incident_comment = azure_native.securityinsights.IncidentComment("incidentComment",
+            incident_comment_id="4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+            incident_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            message="Some message",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:IncidentComment 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5/comments/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IncidentCommentArgs args: The arguments to use to populate this resource's properties.

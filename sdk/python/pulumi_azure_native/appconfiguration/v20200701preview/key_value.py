@@ -130,6 +130,33 @@ class KeyValue(pulumi.CustomResource):
         """
         The key-value resource along with all resource properties.
 
+        ## Example Usage
+        ### KeyValues_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        key_value = azure_native.appconfiguration.v20200701preview.KeyValue("keyValue",
+            config_store_name="contoso",
+            key_value_name="myKey$myLabel",
+            resource_group_name="myResourceGroup",
+            tags={
+                "tag1": "tagValue1",
+                "tag2": "tagValue2",
+            },
+            value="myValue")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appconfiguration/v20200701preview:KeyValue myKey$myLabel /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso/keyValues/myKey$myLabel 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
@@ -148,6 +175,33 @@ class KeyValue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The key-value resource along with all resource properties.
+
+        ## Example Usage
+        ### KeyValues_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        key_value = azure_native.appconfiguration.v20200701preview.KeyValue("keyValue",
+            config_store_name="contoso",
+            key_value_name="myKey$myLabel",
+            resource_group_name="myResourceGroup",
+            tags={
+                "tag1": "tagValue1",
+                "tag2": "tagValue2",
+            },
+            value="myValue")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appconfiguration/v20200701preview:KeyValue myKey$myLabel /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso/keyValues/myKey$myLabel 
+        ```
 
         :param str resource_name: The name of the resource.
         :param KeyValueArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,84 @@ namespace Pulumi.AzureNative.DigitalTwins
     /// Describes a time series database connection resource.
     /// API Version: 2023-01-31.
     /// Previous API Version: 2021-06-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or replace a time series database connection for a DigitalTwins instance with user assigned identity.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var timeSeriesDatabaseConnection = new AzureNative.DigitalTwins.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection", new()
+    ///     {
+    ///         Properties = new AzureNative.DigitalTwins.Inputs.AzureDataExplorerConnectionPropertiesArgs
+    ///         {
+    ///             AdxDatabaseName = "myDatabase",
+    ///             AdxEndpointUri = "https://mycluster.kusto.windows.net",
+    ///             AdxResourceId = "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",
+    ///             AdxTableName = "myTable",
+    ///             ConnectionType = "AzureDataExplorer",
+    ///             EventHubEndpointUri = "sb://myeh.servicebus.windows.net/",
+    ///             EventHubEntityPath = "myeh",
+    ///             EventHubNamespaceResourceId = "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.EventHub/namespaces/myeh",
+    ///             Identity = new AzureNative.DigitalTwins.Inputs.ManagedIdentityReferenceArgs
+    ///             {
+    ///                 Type = "UserAssigned",
+    ///                 UserAssignedIdentity = "/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///         TimeSeriesDatabaseConnectionName = "myConnection",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or replace a time series database connection for a DigitalTwins instance.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var timeSeriesDatabaseConnection = new AzureNative.DigitalTwins.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection", new()
+    ///     {
+    ///         Properties = new AzureNative.DigitalTwins.Inputs.AzureDataExplorerConnectionPropertiesArgs
+    ///         {
+    ///             AdxDatabaseName = "myDatabase",
+    ///             AdxEndpointUri = "https://mycluster.kusto.windows.net",
+    ///             AdxRelationshipLifecycleEventsTableName = "myRelationshipLifecycleEventsTable",
+    ///             AdxResourceId = "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",
+    ///             AdxTableName = "myPropertyUpdatesTable",
+    ///             AdxTwinLifecycleEventsTableName = "myTwinLifecycleEventsTable",
+    ///             ConnectionType = "AzureDataExplorer",
+    ///             EventHubEndpointUri = "sb://myeh.servicebus.windows.net/",
+    ///             EventHubEntityPath = "myeh",
+    ///             EventHubNamespaceResourceId = "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.EventHub/namespaces/myeh",
+    ///             RecordPropertyAndItemRemovals = "true",
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///         TimeSeriesDatabaseConnectionName = "myConnection",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:digitaltwins:TimeSeriesDatabaseConnection myConnection /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/timeSeriesDatabaseConnections/myConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:TimeSeriesDatabaseConnection")]
     public partial class TimeSeriesDatabaseConnection : global::Pulumi.CustomResource

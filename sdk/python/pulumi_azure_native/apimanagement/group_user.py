@@ -96,6 +96,29 @@ class GroupUser(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateGroupUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group_user = azure_native.apimanagement.GroupUser("groupUser",
+            group_id="tempgroup",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            user_id="59307d350af58404d8a26300")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:GroupUser 59307d350af58404d8a26300 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/59307d350af58404d8a26300 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: Group identifier. Must be unique in the current API Management service instance.
@@ -113,6 +136,29 @@ class GroupUser(pulumi.CustomResource):
         User details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateGroupUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group_user = azure_native.apimanagement.GroupUser("groupUser",
+            group_id="tempgroup",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            user_id="59307d350af58404d8a26300")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:GroupUser 59307d350af58404d8a26300 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/59307d350af58404d8a26300 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GroupUserArgs args: The arguments to use to populate this resource's properties.

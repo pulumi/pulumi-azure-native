@@ -114,6 +114,29 @@ class HybridConnection(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RelayHybridConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_connection = azure_native.relay.HybridConnection("hybridConnection",
+            hybrid_connection_name="example-Relay-Hybrid-01",
+            namespace_name="example-RelayNamespace-01",
+            requires_client_authorization=True,
+            resource_group_name="resourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:HybridConnection example-Relay-Hybrid-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01/HybridConnections/example-Relay-Hybrid-01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hybrid_connection_name: The hybrid connection name.
@@ -132,6 +155,29 @@ class HybridConnection(pulumi.CustomResource):
         Description of hybrid connection resource.
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RelayHybridConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_connection = azure_native.relay.HybridConnection("hybridConnection",
+            hybrid_connection_name="example-Relay-Hybrid-01",
+            namespace_name="example-RelayNamespace-01",
+            requires_client_authorization=True,
+            resource_group_name="resourcegroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay:HybridConnection example-Relay-Hybrid-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01/HybridConnections/example-Relay-Hybrid-01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HybridConnectionArgs args: The arguments to use to populate this resource's properties.

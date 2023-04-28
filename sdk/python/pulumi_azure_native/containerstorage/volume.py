@@ -161,6 +161,47 @@ class Volume(pulumi.CustomResource):
         API Version: 2023-03-01-preview.
         Previous API Version: 2023-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Volumes_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.containerstorage.Volume("volume",
+            capacity_gi_b=4,
+            labels={
+                "key6929": "cylq",
+            },
+            mount_options=["bztwmyruogigzqnwzpnjxjo"],
+            pool_name="L-7Vr5xE3",
+            reclaim_policy="Delete",
+            resource_group_name="rgcontainerstorage",
+            volume_mode="Filesystem",
+            volume_name="y4borPc1GHLej48W3")
+
+        ```
+        ### Volumes_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.containerstorage.Volume("volume",
+            pool_name="-3-0",
+            resource_group_name="rgcontainerstorage",
+            volume_name="q-r6KY54UA6G5TPSTL83")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerstorage:Volume qw uhsbnbojqymtspvbxzzjoepbyhgr 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] capacity_gi_b: Requested capacity in GiB
@@ -182,6 +223,47 @@ class Volume(pulumi.CustomResource):
         Concrete proxy resource types can be created by aliasing this type using a specific property type.
         API Version: 2023-03-01-preview.
         Previous API Version: 2023-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Volumes_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.containerstorage.Volume("volume",
+            capacity_gi_b=4,
+            labels={
+                "key6929": "cylq",
+            },
+            mount_options=["bztwmyruogigzqnwzpnjxjo"],
+            pool_name="L-7Vr5xE3",
+            reclaim_policy="Delete",
+            resource_group_name="rgcontainerstorage",
+            volume_mode="Filesystem",
+            volume_name="y4borPc1GHLej48W3")
+
+        ```
+        ### Volumes_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.containerstorage.Volume("volume",
+            pool_name="-3-0",
+            resource_group_name="rgcontainerstorage",
+            volume_name="q-r6KY54UA6G5TPSTL83")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerstorage:Volume qw uhsbnbojqymtspvbxzzjoepbyhgr 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

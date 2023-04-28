@@ -12,6 +12,39 @@ namespace Pulumi.AzureNative.ApiManagement
     /// <summary>
     /// GraphQL API Resolver details.
     /// API Version: 2022-08-01.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGraphQLApiResolver
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var graphQLApiResolver = new AzureNative.ApiManagement.GraphQLApiResolver("graphQLApiResolver", new()
+    ///     {
+    ///         ApiId = "someAPI",
+    ///         Description = "A GraphQL Resolver example",
+    ///         DisplayName = "Query Users",
+    ///         Path = "Query/users",
+    ///         ResolverId = "newResolver",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:GraphQLApiResolver newResolver /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/someAPI/resolvers/newResolver 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:GraphQLApiResolver")]
     public partial class GraphQLApiResolver : global::Pulumi.CustomResource

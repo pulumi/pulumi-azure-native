@@ -115,6 +115,160 @@ class ContentKeyPolicy(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates a Content Key Policy with ClearKey option and Token Restriction
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_key_policy = azure_native.media.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyWithClearKeyOptionAndSwtTokenRestriction",
+            description="ArmPolicyDescription",
+            options=[azure_native.media.ContentKeyPolicyOptionArgs(
+                configuration=azure_native.media.ContentKeyPolicyClearKeyConfigurationArgs(
+                    odata_type="#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+                ),
+                name="ClearKeyOption",
+                restriction=azure_native.media.ContentKeyPolicyTokenRestrictionArgs(
+                    audience="urn:audience",
+                    issuer="urn:issuer",
+                    odata_type="#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                    primary_verification_key=azure_native.media.ContentKeyPolicySymmetricTokenKeyArgs(
+                        key_value="AAAAAAAAAAAAAAAAAAAAAA==",
+                        odata_type="#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+                    ),
+                    restriction_token_type="Swt",
+                ),
+            )],
+            resource_group_name="contosorg")
+
+        ```
+        ### Creates a Content Key Policy with PlayReady option and Open Restriction
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_key_policy = azure_native.media.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyWithPlayReadyOptionAndOpenRestriction",
+            description="ArmPolicyDescription",
+            options=[azure_native.media.ContentKeyPolicyOptionArgs(
+                configuration=azure_native.media.ContentKeyPolicyPlayReadyConfigurationArgs(
+                    licenses=[azure_native.media.ContentKeyPolicyPlayReadyLicenseArgs(
+                        allow_test_devices=True,
+                        begin_date="2017-10-16T18:22:53.46Z",
+                        content_key_location=azure_native.media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs(
+                            odata_type="#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader",
+                        ),
+                        content_type="UltraVioletDownload",
+                        license_type="Persistent",
+                        play_right=azure_native.media.ContentKeyPolicyPlayReadyPlayRightArgs(
+                            allow_passing_video_content_to_unknown_output="NotAllowed",
+                            digital_video_only_content_restriction=False,
+                            image_constraint_for_analog_component_video_restriction=True,
+                            image_constraint_for_analog_computer_monitor_restriction=False,
+                            scms_restriction=2,
+                        ),
+                        security_level="SL150",
+                    )],
+                    odata_type="#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+                ),
+                name="ArmPolicyOptionName",
+                restriction=azure_native.media.ContentKeyPolicyOpenRestrictionArgs(
+                    odata_type="#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+                ),
+            )],
+            resource_group_name="contosorg")
+
+        ```
+        ### Creates a Content Key Policy with Widevine option and Token Restriction
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_key_policy = azure_native.media.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyWithWidevineOptionAndJwtTokenRestriction",
+            description="ArmPolicyDescription",
+            options=[azure_native.media.ContentKeyPolicyOptionArgs(
+                configuration=azure_native.media.ContentKeyPolicyWidevineConfigurationArgs(
+                    odata_type="#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+                    widevine_template="{\\"allowed_track_types\\":\\"SD_HD\\",\\"content_key_specs\\":[{\\"track_type\\":\\"SD\\",\\"security_level\\":1,\\"required_output_protection\\":{\\"hdcp\\":\\"HDCP_V2\\"}}],\\"policy_overrides\\":{\\"can_play\\":true,\\"can_persist\\":true,\\"can_renew\\":false}}",
+                ),
+                name="widevineoption",
+                restriction=azure_native.media.ContentKeyPolicyTokenRestrictionArgs(
+                    alternate_verification_keys=[azure_native.media.ContentKeyPolicySymmetricTokenKeyArgs(
+                        key_value="AAAAAAAAAAAAAAAAAAAAAA==",
+                        odata_type="#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+                    )],
+                    audience="urn:audience",
+                    issuer="urn:issuer",
+                    odata_type="#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                    primary_verification_key=azure_native.media.ContentKeyPolicyRsaTokenKeyArgs(
+                        exponent="AQAB",
+                        modulus="AQAD",
+                        odata_type="#Microsoft.Media.ContentKeyPolicyRsaTokenKey",
+                    ),
+                    restriction_token_type="Jwt",
+                ),
+            )],
+            resource_group_name="contosorg")
+
+        ```
+        ### Creates a Content Key Policy with multiple options
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_key_policy = azure_native.media.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyCreatedWithMultipleOptions",
+            description="ArmPolicyDescription",
+            options=[
+                azure_native.media.ContentKeyPolicyOptionArgs(
+                    configuration=azure_native.media.ContentKeyPolicyClearKeyConfigurationArgs(
+                        odata_type="#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+                    ),
+                    name="ClearKeyOption",
+                    restriction=azure_native.media.ContentKeyPolicyTokenRestrictionArgs(
+                        audience="urn:audience",
+                        issuer="urn:issuer",
+                        odata_type="#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                        primary_verification_key=azure_native.media.ContentKeyPolicySymmetricTokenKeyArgs(
+                            key_value="AAAAAAAAAAAAAAAAAAAAAA==",
+                            odata_type="#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+                        ),
+                        restriction_token_type="Swt",
+                    ),
+                ),
+                azure_native.media.ContentKeyPolicyOptionArgs(
+                    configuration=azure_native.media.ContentKeyPolicyWidevineConfigurationArgs(
+                        odata_type="#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+                        widevine_template="{\\"allowed_track_types\\":\\"SD_HD\\",\\"content_key_specs\\":[{\\"track_type\\":\\"SD\\",\\"security_level\\":1,\\"required_output_protection\\":{\\"hdcp\\":\\"HDCP_V2\\"}}],\\"policy_overrides\\":{\\"can_play\\":true,\\"can_persist\\":true,\\"can_renew\\":false}}",
+                    ),
+                    name="widevineoption",
+                    restriction=azure_native.media.ContentKeyPolicyOpenRestrictionArgs(
+                        odata_type="#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+                    ),
+                ),
+            ],
+            resource_group_name="contosorg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media:ContentKeyPolicy PolicyCreatedWithMultipleOptions /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/contentKeyPolicies/PolicyCreatedWithMultipleOptions 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -133,6 +287,160 @@ class ContentKeyPolicy(pulumi.CustomResource):
         A Content Key Policy resource.
         API Version: 2022-08-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates a Content Key Policy with ClearKey option and Token Restriction
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_key_policy = azure_native.media.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyWithClearKeyOptionAndSwtTokenRestriction",
+            description="ArmPolicyDescription",
+            options=[azure_native.media.ContentKeyPolicyOptionArgs(
+                configuration=azure_native.media.ContentKeyPolicyClearKeyConfigurationArgs(
+                    odata_type="#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+                ),
+                name="ClearKeyOption",
+                restriction=azure_native.media.ContentKeyPolicyTokenRestrictionArgs(
+                    audience="urn:audience",
+                    issuer="urn:issuer",
+                    odata_type="#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                    primary_verification_key=azure_native.media.ContentKeyPolicySymmetricTokenKeyArgs(
+                        key_value="AAAAAAAAAAAAAAAAAAAAAA==",
+                        odata_type="#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+                    ),
+                    restriction_token_type="Swt",
+                ),
+            )],
+            resource_group_name="contosorg")
+
+        ```
+        ### Creates a Content Key Policy with PlayReady option and Open Restriction
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_key_policy = azure_native.media.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyWithPlayReadyOptionAndOpenRestriction",
+            description="ArmPolicyDescription",
+            options=[azure_native.media.ContentKeyPolicyOptionArgs(
+                configuration=azure_native.media.ContentKeyPolicyPlayReadyConfigurationArgs(
+                    licenses=[azure_native.media.ContentKeyPolicyPlayReadyLicenseArgs(
+                        allow_test_devices=True,
+                        begin_date="2017-10-16T18:22:53.46Z",
+                        content_key_location=azure_native.media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs(
+                            odata_type="#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader",
+                        ),
+                        content_type="UltraVioletDownload",
+                        license_type="Persistent",
+                        play_right=azure_native.media.ContentKeyPolicyPlayReadyPlayRightArgs(
+                            allow_passing_video_content_to_unknown_output="NotAllowed",
+                            digital_video_only_content_restriction=False,
+                            image_constraint_for_analog_component_video_restriction=True,
+                            image_constraint_for_analog_computer_monitor_restriction=False,
+                            scms_restriction=2,
+                        ),
+                        security_level="SL150",
+                    )],
+                    odata_type="#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+                ),
+                name="ArmPolicyOptionName",
+                restriction=azure_native.media.ContentKeyPolicyOpenRestrictionArgs(
+                    odata_type="#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+                ),
+            )],
+            resource_group_name="contosorg")
+
+        ```
+        ### Creates a Content Key Policy with Widevine option and Token Restriction
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_key_policy = azure_native.media.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyWithWidevineOptionAndJwtTokenRestriction",
+            description="ArmPolicyDescription",
+            options=[azure_native.media.ContentKeyPolicyOptionArgs(
+                configuration=azure_native.media.ContentKeyPolicyWidevineConfigurationArgs(
+                    odata_type="#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+                    widevine_template="{\\"allowed_track_types\\":\\"SD_HD\\",\\"content_key_specs\\":[{\\"track_type\\":\\"SD\\",\\"security_level\\":1,\\"required_output_protection\\":{\\"hdcp\\":\\"HDCP_V2\\"}}],\\"policy_overrides\\":{\\"can_play\\":true,\\"can_persist\\":true,\\"can_renew\\":false}}",
+                ),
+                name="widevineoption",
+                restriction=azure_native.media.ContentKeyPolicyTokenRestrictionArgs(
+                    alternate_verification_keys=[azure_native.media.ContentKeyPolicySymmetricTokenKeyArgs(
+                        key_value="AAAAAAAAAAAAAAAAAAAAAA==",
+                        odata_type="#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+                    )],
+                    audience="urn:audience",
+                    issuer="urn:issuer",
+                    odata_type="#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                    primary_verification_key=azure_native.media.ContentKeyPolicyRsaTokenKeyArgs(
+                        exponent="AQAB",
+                        modulus="AQAD",
+                        odata_type="#Microsoft.Media.ContentKeyPolicyRsaTokenKey",
+                    ),
+                    restriction_token_type="Jwt",
+                ),
+            )],
+            resource_group_name="contosorg")
+
+        ```
+        ### Creates a Content Key Policy with multiple options
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_key_policy = azure_native.media.ContentKeyPolicy("contentKeyPolicy",
+            account_name="contosomedia",
+            content_key_policy_name="PolicyCreatedWithMultipleOptions",
+            description="ArmPolicyDescription",
+            options=[
+                azure_native.media.ContentKeyPolicyOptionArgs(
+                    configuration=azure_native.media.ContentKeyPolicyClearKeyConfigurationArgs(
+                        odata_type="#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+                    ),
+                    name="ClearKeyOption",
+                    restriction=azure_native.media.ContentKeyPolicyTokenRestrictionArgs(
+                        audience="urn:audience",
+                        issuer="urn:issuer",
+                        odata_type="#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+                        primary_verification_key=azure_native.media.ContentKeyPolicySymmetricTokenKeyArgs(
+                            key_value="AAAAAAAAAAAAAAAAAAAAAA==",
+                            odata_type="#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+                        ),
+                        restriction_token_type="Swt",
+                    ),
+                ),
+                azure_native.media.ContentKeyPolicyOptionArgs(
+                    configuration=azure_native.media.ContentKeyPolicyWidevineConfigurationArgs(
+                        odata_type="#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+                        widevine_template="{\\"allowed_track_types\\":\\"SD_HD\\",\\"content_key_specs\\":[{\\"track_type\\":\\"SD\\",\\"security_level\\":1,\\"required_output_protection\\":{\\"hdcp\\":\\"HDCP_V2\\"}}],\\"policy_overrides\\":{\\"can_play\\":true,\\"can_persist\\":true,\\"can_renew\\":false}}",
+                    ),
+                    name="widevineoption",
+                    restriction=azure_native.media.ContentKeyPolicyOpenRestrictionArgs(
+                        odata_type="#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+                    ),
+                ),
+            ],
+            resource_group_name="contosorg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media:ContentKeyPolicy PolicyCreatedWithMultipleOptions /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/contentKeyPolicies/PolicyCreatedWithMultipleOptions 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContentKeyPolicyArgs args: The arguments to use to populate this resource's properties.

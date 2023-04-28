@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
 {
     /// <summary>
     /// Information about appliance definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update appliance definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applianceDefinition = new AzureNative.Solutions.V20160901Preview.ApplianceDefinition("applianceDefinition", new()
+    ///     {
+    ///         ApplianceDefinitionName = "myApplianceDef",
+    ///         Authorizations = new[]
+    ///         {
+    ///             new AzureNative.Solutions.V20160901Preview.Inputs.ApplianceProviderAuthorizationArgs
+    ///             {
+    ///                 PrincipalId = "validprincipalguid",
+    ///                 RoleDefinitionId = "validroleguid",
+    ///             },
+    ///         },
+    ///         Description = "myApplianceDef description",
+    ///         DisplayName = "myApplianceDef",
+    ///         Location = "East US 2",
+    ///         LockLevel = AzureNative.Solutions.V20160901Preview.ApplianceLockLevel.None,
+    ///         PackageFileUri = "https://path/to/packagezipfile",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:solutions/v20160901preview:ApplianceDefinition myApplianceDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myApplianceDef 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20160901preview:ApplianceDefinition")]

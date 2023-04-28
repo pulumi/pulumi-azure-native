@@ -183,6 +183,13 @@ class SiteSlotConfigNames(pulumi.CustomResource):
                  __props__=None):
         """
         Slot Config names azure resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:SiteSlotConfigNames myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/slotConfigNames 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -204,6 +211,13 @@ class SiteSlotConfigNames(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Slot Config names azure resource
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:SiteSlotConfigNames myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/slotConfigNames 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SiteSlotConfigNamesArgs args: The arguments to use to populate this resource's properties.

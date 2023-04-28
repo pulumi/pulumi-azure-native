@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
 {
     /// <summary>
     /// Represents a Configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Update a user configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configuration = new AzureNative.DBforPostgreSQL.V20221201.Configuration("configuration", new()
+    ///     {
+    ///         ConfigurationName = "event_scheduler",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "testserver",
+    ///         Source = "user-override",
+    ///         Value = "on",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20221201:Configuration event_scheduler /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/configurations/event_scheduler 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221201:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource

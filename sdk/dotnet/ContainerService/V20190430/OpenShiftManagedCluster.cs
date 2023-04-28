@@ -11,6 +11,99 @@ namespace Pulumi.AzureNative.ContainerService.V20190430
 {
     /// <summary>
     /// OpenShift Managed cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update OpenShift Managed Cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var openShiftManagedCluster = new AzureNative.ContainerService.V20190430.OpenShiftManagedCluster("openShiftManagedCluster", new()
+    ///     {
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20190430.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 2,
+    ///                 Name = "infra",
+    ///                 OsType = "Linux",
+    ///                 Role = "infra",
+    ///                 SubnetCidr = "10.0.0.0/24",
+    ///                 VmSize = "Standard_D4s_v3",
+    ///             },
+    ///             new AzureNative.ContainerService.V20190430.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 4,
+    ///                 Name = "compute",
+    ///                 OsType = "Linux",
+    ///                 Role = "compute",
+    ///                 SubnetCidr = "10.0.0.0/24",
+    ///                 VmSize = "Standard_D4s_v3",
+    ///             },
+    ///         },
+    ///         AuthProfile = new AzureNative.ContainerService.V20190430.Inputs.OpenShiftManagedClusterAuthProfileArgs
+    ///         {
+    ///             IdentityProviders = new[]
+    ///             {
+    ///                 new AzureNative.ContainerService.V20190430.Inputs.OpenShiftManagedClusterIdentityProviderArgs
+    ///                 {
+    ///                     Name = "Azure AD",
+    ///                     Provider = 
+    ///                     {
+    ///                         { "clientId", "clientId" },
+    ///                         { "customerAdminGroupId", "customerAdminGroupId" },
+    ///                         { "kind", "AADIdentityProvider" },
+    ///                         { "secret", "secret" },
+    ///                         { "tenantId", "tenantId" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         MasterPoolProfile = new AzureNative.ContainerService.V20190430.Inputs.OpenShiftManagedClusterMasterPoolProfileArgs
+    ///         {
+    ///             Count = 3,
+    ///             Name = "master",
+    ///             OsType = "Linux",
+    ///             SubnetCidr = "10.0.0.0/24",
+    ///             VmSize = "Standard_D4s_v3",
+    ///         },
+    ///         NetworkProfile = new AzureNative.ContainerService.V20190430.Inputs.NetworkProfileArgs
+    ///         {
+    ///             VnetCidr = "10.0.0.0/8",
+    ///         },
+    ///         OpenShiftVersion = "v3.11",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         RouterProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20190430.Inputs.OpenShiftRouterProfileArgs
+    ///             {
+    ///                 Name = "default",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20190430:OpenShiftManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/openShiftManagedClusters/clustername1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20190430:OpenShiftManagedCluster")]
     public partial class OpenShiftManagedCluster : global::Pulumi.CustomResource

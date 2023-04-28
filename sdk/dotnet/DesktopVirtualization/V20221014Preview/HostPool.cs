@@ -11,6 +11,77 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
 {
     /// <summary>
     /// Represents a HostPool definition.
+    /// 
+    /// ## Example Usage
+    /// ### HostPool_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hostPool = new AzureNative.DesktopVirtualization.V20221014Preview.HostPool("hostPool", new()
+    ///     {
+    ///         AgentUpdate = new AzureNative.DesktopVirtualization.V20221014Preview.Inputs.AgentUpdatePropertiesArgs
+    ///         {
+    ///             MaintenanceWindowTimeZone = "Alaskan Standard Time",
+    ///             MaintenanceWindows = new[]
+    ///             {
+    ///                 new AzureNative.DesktopVirtualization.V20221014Preview.Inputs.MaintenanceWindowPropertiesArgs
+    ///                 {
+    ///                     DayOfWeek = AzureNative.DesktopVirtualization.V20221014Preview.DayOfWeek.Friday,
+    ///                     Hour = 7,
+    ///                 },
+    ///                 new AzureNative.DesktopVirtualization.V20221014Preview.Inputs.MaintenanceWindowPropertiesArgs
+    ///                 {
+    ///                     DayOfWeek = AzureNative.DesktopVirtualization.V20221014Preview.DayOfWeek.Saturday,
+    ///                     Hour = 8,
+    ///                 },
+    ///             },
+    ///             Type = "Scheduled",
+    ///             UseSessionHostLocalTime = false,
+    ///         },
+    ///         Description = "des1",
+    ///         FriendlyName = "friendly",
+    ///         HostPoolName = "hostPool1",
+    ///         HostPoolType = "Pooled",
+    ///         LoadBalancerType = "BreadthFirst",
+    ///         Location = "centralus",
+    ///         MaxSessionLimit = 999999,
+    ///         PersonalDesktopAssignmentType = "Automatic",
+    ///         PreferredAppGroupType = "Desktop",
+    ///         RegistrationInfo = new AzureNative.DesktopVirtualization.V20221014Preview.Inputs.RegistrationInfoArgs
+    ///         {
+    ///             ExpirationTime = "2020-10-01T14:01:54.9571247Z",
+    ///             RegistrationTokenOperation = "Update",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         SsoClientId = "client",
+    ///         SsoClientSecretKeyVaultPath = "https://keyvault/secret",
+    ///         SsoSecretType = "SharedKey",
+    ///         SsoadfsAuthority = "https://adfs",
+    ///         StartVMOnConnect = false,
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///         VmTemplate = "{json:json}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization/v20221014preview:HostPool hostPool1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20221014preview:HostPool")]
     public partial class HostPool : global::Pulumi.CustomResource

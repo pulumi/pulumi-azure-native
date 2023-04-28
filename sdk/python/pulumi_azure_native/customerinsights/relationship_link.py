@@ -197,6 +197,44 @@ class RelationshipLink(pulumi.CustomResource):
         API Version: 2017-04-26.
         Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RelationshipLinks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        relationship_link = azure_native.customerinsights.RelationshipLink("relationshipLink",
+            description={
+                "en-us": "Link Description",
+            },
+            display_name={
+                "en-us": "Link DisplayName",
+            },
+            hub_name="sdkTestHub",
+            interaction_type="testInteraction4332",
+            profile_property_references=[azure_native.customerinsights.ParticipantProfilePropertyReferenceArgs(
+                interaction_property_name="profile1",
+                profile_property_name="ProfileId",
+            )],
+            related_profile_property_references=[azure_native.customerinsights.ParticipantProfilePropertyReferenceArgs(
+                interaction_property_name="profile1",
+                profile_property_name="ProfileId",
+            )],
+            relationship_link_name="Somelink",
+            relationship_name="testProfile2326994",
+            resource_group_name="TestHubRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:RelationshipLink sdkTestHub/Somelink /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/relationshipLinks/Somelink 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Relationship Link.
@@ -220,6 +258,44 @@ class RelationshipLink(pulumi.CustomResource):
         The relationship link resource format.
         API Version: 2017-04-26.
         Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RelationshipLinks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        relationship_link = azure_native.customerinsights.RelationshipLink("relationshipLink",
+            description={
+                "en-us": "Link Description",
+            },
+            display_name={
+                "en-us": "Link DisplayName",
+            },
+            hub_name="sdkTestHub",
+            interaction_type="testInteraction4332",
+            profile_property_references=[azure_native.customerinsights.ParticipantProfilePropertyReferenceArgs(
+                interaction_property_name="profile1",
+                profile_property_name="ProfileId",
+            )],
+            related_profile_property_references=[azure_native.customerinsights.ParticipantProfilePropertyReferenceArgs(
+                interaction_property_name="profile1",
+                profile_property_name="ProfileId",
+            )],
+            relationship_link_name="Somelink",
+            relationship_name="testProfile2326994",
+            resource_group_name="TestHubRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:RelationshipLink sdkTestHub/Somelink /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/relationshipLinks/Somelink 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RelationshipLinkArgs args: The arguments to use to populate this resource's properties.

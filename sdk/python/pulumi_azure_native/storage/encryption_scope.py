@@ -150,6 +150,41 @@ class EncryptionScope(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### StorageAccountPutEncryptionScope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        encryption_scope = azure_native.storage.EncryptionScope("encryptionScope",
+            account_name="{storage-account-name}",
+            encryption_scope_name="{encryption-scope-name}",
+            resource_group_name="resource-group-name")
+
+        ```
+        ### StorageAccountPutEncryptionScopeWithInfrastructureEncryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        encryption_scope = azure_native.storage.EncryptionScope("encryptionScope",
+            account_name="{storage-account-name}",
+            encryption_scope_name="{encryption-scope-name}",
+            require_infrastructure_encryption=True,
+            resource_group_name="resource-group-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:EncryptionScope {encryption-scope-name} /subscriptions/{subscription-id}/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/{storage-account-name}/encryptionScopes/{encryption-scope-name} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -170,6 +205,41 @@ class EncryptionScope(pulumi.CustomResource):
         The Encryption Scope resource.
         API Version: 2022-09-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### StorageAccountPutEncryptionScope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        encryption_scope = azure_native.storage.EncryptionScope("encryptionScope",
+            account_name="{storage-account-name}",
+            encryption_scope_name="{encryption-scope-name}",
+            resource_group_name="resource-group-name")
+
+        ```
+        ### StorageAccountPutEncryptionScopeWithInfrastructureEncryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        encryption_scope = azure_native.storage.EncryptionScope("encryptionScope",
+            account_name="{storage-account-name}",
+            encryption_scope_name="{encryption-scope-name}",
+            require_infrastructure_encryption=True,
+            resource_group_name="resource-group-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:EncryptionScope {encryption-scope-name} /subscriptions/{subscription-id}/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/{storage-account-name}/encryptionScopes/{encryption-scope-name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EncryptionScopeArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.Cdn
     /// CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
     /// API Version: 2021-06-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### AFDOrigins_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var afdOrigin = new AzureNative.Cdn.AFDOrigin("afdOrigin", new()
+    ///     {
+    ///         EnabledState = "Enabled",
+    ///         HostName = "host1.blob.core.windows.net",
+    ///         HttpPort = 80,
+    ///         HttpsPort = 443,
+    ///         OriginGroupName = "origingroup1",
+    ///         OriginHostHeader = "host1.foo.com",
+    ///         OriginName = "origin1",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:AFDOrigin origin1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/origingroups/origingroup1/origins/origin1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDOrigin")]
     public partial class AFDOrigin : global::Pulumi.CustomResource

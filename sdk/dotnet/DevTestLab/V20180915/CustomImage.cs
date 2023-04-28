@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A custom image.
+    /// 
+    /// ## Example Usage
+    /// ### CustomImages_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customImage = new AzureNative.DevTestLab.V20180915.CustomImage("customImage", new()
+    ///     {
+    ///         Description = "My Custom Image",
+    ///         LabName = "{labName}",
+    ///         Name = "{customImageName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///         Vm = new AzureNative.DevTestLab.V20180915.Inputs.CustomImagePropertiesFromVmArgs
+    ///         {
+    ///             LinuxOsInfo = new AzureNative.DevTestLab.V20180915.Inputs.LinuxOsInfoArgs
+    ///             {
+    ///                 LinuxOsState = "NonDeprovisioned",
+    ///             },
+    ///             SourceVmId = "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName}",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20180915:CustomImage {customImageName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/customimages/{customImageName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:CustomImage")]
     public partial class CustomImage : global::Pulumi.CustomResource

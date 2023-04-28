@@ -11,6 +11,115 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     /// <summary>
     /// Trigger resource type.
+    /// 
+    /// ## Example Usage
+    /// ### Triggers_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var trigger = new AzureNative.DataFactory.V20180601.Trigger("trigger", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         Properties = new AzureNative.DataFactory.V20180601.Inputs.ScheduleTriggerArgs
+    ///         {
+    ///             Pipelines = new[]
+    ///             {
+    ///                 new AzureNative.DataFactory.V20180601.Inputs.TriggerPipelineReferenceArgs
+    ///                 {
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "OutputBlobNameList", new[]
+    ///                         {
+    ///                             "exampleoutput.csv",
+    ///                         } },
+    ///                     },
+    ///                     PipelineReference = new AzureNative.DataFactory.V20180601.Inputs.PipelineReferenceArgs
+    ///                     {
+    ///                         ReferenceName = "examplePipeline",
+    ///                         Type = "PipelineReference",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Recurrence = new AzureNative.DataFactory.V20180601.Inputs.ScheduleTriggerRecurrenceArgs
+    ///             {
+    ///                 EndTime = "2018-06-16T00:55:13.8441801Z",
+    ///                 Frequency = "Minute",
+    ///                 Interval = 4,
+    ///                 StartTime = "2018-06-16T00:39:13.8441801Z",
+    ///                 TimeZone = "UTC",
+    ///             },
+    ///             Type = "ScheduleTrigger",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         TriggerName = "exampleTrigger",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Triggers_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var trigger = new AzureNative.DataFactory.V20180601.Trigger("trigger", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         Properties = new AzureNative.DataFactory.V20180601.Inputs.ScheduleTriggerArgs
+    ///         {
+    ///             Description = "Example description",
+    ///             Pipelines = new[]
+    ///             {
+    ///                 new AzureNative.DataFactory.V20180601.Inputs.TriggerPipelineReferenceArgs
+    ///                 {
+    ///                     Parameters = 
+    ///                     {
+    ///                         { "OutputBlobNameList", new[]
+    ///                         {
+    ///                             "exampleoutput.csv",
+    ///                         } },
+    ///                     },
+    ///                     PipelineReference = new AzureNative.DataFactory.V20180601.Inputs.PipelineReferenceArgs
+    ///                     {
+    ///                         ReferenceName = "examplePipeline",
+    ///                         Type = "PipelineReference",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Recurrence = new AzureNative.DataFactory.V20180601.Inputs.ScheduleTriggerRecurrenceArgs
+    ///             {
+    ///                 EndTime = "2018-06-16T00:55:14.905167Z",
+    ///                 Frequency = "Minute",
+    ///                 Interval = 4,
+    ///                 StartTime = "2018-06-16T00:39:14.905167Z",
+    ///                 TimeZone = "UTC",
+    ///             },
+    ///             Type = "ScheduleTrigger",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///         TriggerName = "exampleTrigger",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory/v20180601:Trigger exampleTrigger /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/triggers/exampleTrigger 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:Trigger")]
     public partial class Trigger : global::Pulumi.CustomResource

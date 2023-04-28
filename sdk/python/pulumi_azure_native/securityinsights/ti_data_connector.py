@@ -151,6 +151,48 @@ class TIDataConnector(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates an Office365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_data_connector = azure_native.securityinsights.TIDataConnector("tiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_data_connector = azure_native.securityinsights.TIDataConnector("tiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            data_types=azure_native.securityinsights.TIDataConnectorDataTypesResponseArgs(
+                indicators=azure_native.securityinsights.TIDataConnectorDataTypesIndicatorsArgs(
+                    state="Enabled",
+                ),
+            ),
+            kind="ThreatIntelligence",
+            resource_group_name="myRg",
+            tenant_id="06b3ccb8-1384-4bcc-aec7-852f6d57161b",
+            tip_lookback_period="2020-01-01T13:00:30.123Z",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:TIDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
@@ -172,6 +214,48 @@ class TIDataConnector(pulumi.CustomResource):
         Represents threat intelligence data connector.
         API Version: 2023-02-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates an Office365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_data_connector = azure_native.securityinsights.TIDataConnector("tiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ti_data_connector = azure_native.securityinsights.TIDataConnector("tiDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            data_types=azure_native.securityinsights.TIDataConnectorDataTypesResponseArgs(
+                indicators=azure_native.securityinsights.TIDataConnectorDataTypesIndicatorsArgs(
+                    state="Enabled",
+                ),
+            ),
+            kind="ThreatIntelligence",
+            resource_group_name="myRg",
+            tenant_id="06b3ccb8-1384-4bcc-aec7-852f6d57161b",
+            tip_lookback_period="2020-01-01T13:00:30.123Z",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:TIDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TIDataConnectorArgs args: The arguments to use to populate this resource's properties.

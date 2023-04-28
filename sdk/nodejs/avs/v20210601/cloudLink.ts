@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * A cloud link resource
+ *
+ * ## Example Usage
+ * ### CloudLinks_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudLink = new azure_native.avs.v20210601.CloudLink("cloudLink", {
+ *     cloudLinkName: "cloudLink1",
+ *     linkedCloud: "/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.AVS/privateClouds/cloud2",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20210601:CloudLink cloudLink1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/cloudLinks/cloudLink1 
+ * ```
  */
 export class CloudLink extends pulumi.CustomResource {
     /**

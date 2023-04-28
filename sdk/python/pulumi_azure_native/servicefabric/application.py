@@ -203,6 +203,81 @@ class Application(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Put an application with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.servicefabric.Application("application",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            parameters={
+                "param1": "value1",
+            },
+            resource_group_name="resRg",
+            tags={
+                "a": "b",
+            },
+            upgrade_policy=azure_native.servicefabric.ApplicationUpgradePolicyResponseArgs(
+                application_health_policy=azure_native.servicefabric.ApplicationHealthPolicyArgs(
+                    consider_warning_as_error=True,
+                    default_service_type_health_policy=azure_native.servicefabric.ServiceTypeHealthPolicyArgs(
+                        max_percent_unhealthy_partitions_per_service=0,
+                        max_percent_unhealthy_replicas_per_partition=0,
+                        max_percent_unhealthy_services=0,
+                    ),
+                    max_percent_unhealthy_deployed_applications=0,
+                    service_type_health_policy_map={
+                        "myService": azure_native.servicefabric.ServiceTypeHealthPolicyArgs(
+                            max_percent_unhealthy_partitions_per_service=30,
+                            max_percent_unhealthy_replicas_per_partition=30,
+                            max_percent_unhealthy_services=30,
+                        ),
+                    },
+                ),
+                force_restart=False,
+                instance_close_delay_duration=600,
+                recreate_application=False,
+                rolling_upgrade_monitoring_policy=azure_native.servicefabric.RollingUpgradeMonitoringPolicyArgs(
+                    failure_action="Rollback",
+                    health_check_retry_timeout="00:10:00",
+                    health_check_stable_duration="00:05:00",
+                    health_check_wait_duration="00:02:00",
+                    upgrade_domain_timeout="00:15:00",
+                    upgrade_timeout="01:00:00",
+                ),
+                upgrade_mode="UnmonitoredAuto",
+                upgrade_replica_set_check_timeout=3600,
+            ),
+            version="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0")
+
+        ```
+        ### Put an application with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.servicefabric.Application("application",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg",
+            version="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:Application myApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application resource.
@@ -227,6 +302,81 @@ class Application(pulumi.CustomResource):
         The application resource.
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Put an application with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.servicefabric.Application("application",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            parameters={
+                "param1": "value1",
+            },
+            resource_group_name="resRg",
+            tags={
+                "a": "b",
+            },
+            upgrade_policy=azure_native.servicefabric.ApplicationUpgradePolicyResponseArgs(
+                application_health_policy=azure_native.servicefabric.ApplicationHealthPolicyArgs(
+                    consider_warning_as_error=True,
+                    default_service_type_health_policy=azure_native.servicefabric.ServiceTypeHealthPolicyArgs(
+                        max_percent_unhealthy_partitions_per_service=0,
+                        max_percent_unhealthy_replicas_per_partition=0,
+                        max_percent_unhealthy_services=0,
+                    ),
+                    max_percent_unhealthy_deployed_applications=0,
+                    service_type_health_policy_map={
+                        "myService": azure_native.servicefabric.ServiceTypeHealthPolicyArgs(
+                            max_percent_unhealthy_partitions_per_service=30,
+                            max_percent_unhealthy_replicas_per_partition=30,
+                            max_percent_unhealthy_services=30,
+                        ),
+                    },
+                ),
+                force_restart=False,
+                instance_close_delay_duration=600,
+                recreate_application=False,
+                rolling_upgrade_monitoring_policy=azure_native.servicefabric.RollingUpgradeMonitoringPolicyArgs(
+                    failure_action="Rollback",
+                    health_check_retry_timeout="00:10:00",
+                    health_check_stable_duration="00:05:00",
+                    health_check_wait_duration="00:02:00",
+                    upgrade_domain_timeout="00:15:00",
+                    upgrade_timeout="01:00:00",
+                ),
+                upgrade_mode="UnmonitoredAuto",
+                upgrade_replica_set_check_timeout=3600,
+            ),
+            version="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0")
+
+        ```
+        ### Put an application with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.servicefabric.Application("application",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg",
+            version="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:Application myApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

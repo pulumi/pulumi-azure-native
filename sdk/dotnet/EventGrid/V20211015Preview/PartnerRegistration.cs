@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
 {
     /// <summary>
     /// Information about a partner registration.
+    /// 
+    /// ## Example Usage
+    /// ### PartnerRegistrations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var partnerRegistration = new AzureNative.EventGrid.V20211015Preview.PartnerRegistration("partnerRegistration", new()
+    ///     {
+    ///         AuthorizedAzureSubscriptionIds = new[]
+    ///         {
+    ///             "d48566a8-2428-4a6c-8347-9675d09fb851",
+    ///         },
+    ///         Location = "global",
+    ///         LogoUri = "https://www.example.com/logo.png",
+    ///         PartnerName = "ContosoCorp",
+    ///         PartnerRegistrationName = "examplePartnerRegistrationName1",
+    ///         PartnerResourceTypeDescription = "ContocoCorp Accounts Description Text",
+    ///         PartnerResourceTypeDisplayName = "ContocoCorp Accounts DisplayName Text",
+    ///         PartnerResourceTypeName = "ContosoCorp.Accounts",
+    ///         ResourceGroupName = "examplerg",
+    ///         SetupUri = "https://www.example.com/setup.html",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "Value2" },
+    ///             { "key3", "Value3" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20211015preview:PartnerRegistration examplePartnerRegistrationName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerRegistrations/examplePartnerRegistrationName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20211015preview:PartnerRegistration")]
     public partial class PartnerRegistration : global::Pulumi.CustomResource

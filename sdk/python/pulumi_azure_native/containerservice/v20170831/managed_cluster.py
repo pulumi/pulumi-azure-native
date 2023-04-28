@@ -188,6 +188,35 @@ class ManagedCluster(pulumi.CustomResource):
         """
         Managed cluster.
 
+        ## Example Usage
+        ### Create/Update Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.v20170831.ManagedCluster("managedCluster",
+            agent_pool_profiles=[{
+                "count": 1,
+                "name": "agentpool1",
+                "vmSize": "Standard_D2_v2",
+            }],
+            dns_prefix="dnsprefix1",
+            kubernetes_version="1.7.7",
+            location="location1",
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20170831:ManagedCluster mycluster1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
@@ -208,6 +237,35 @@ class ManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed cluster.
+
+        ## Example Usage
+        ### Create/Update Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.containerservice.v20170831.ManagedCluster("managedCluster",
+            agent_pool_profiles=[{
+                "count": 1,
+                "name": "agentpool1",
+                "vmSize": "Standard_D2_v2",
+            }],
+            dns_prefix="dnsprefix1",
+            kubernetes_version="1.7.7",
+            location="location1",
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20170831:ManagedCluster mycluster1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.

@@ -278,6 +278,65 @@ class Topic(pulumi.CustomResource):
         """
         EventGrid Topic
 
+        ## Example Usage
+        ### Topics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.eventgrid.v20211015preview.Topic("topic",
+            inbound_ip_rules=[
+                azure_native.eventgrid.v20211015preview.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.30.15",
+                ),
+                azure_native.eventgrid.v20211015preview.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.176.1",
+                ),
+            ],
+            location="westus2",
+            public_network_access="Enabled",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_name="exampletopic1")
+
+        ```
+        ### Topics_CreateOrUpdateForAzureArc
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.eventgrid.v20211015preview.Topic("topic",
+            extended_location=azure_native.eventgrid.v20211015preview.ExtendedLocationArgs(
+                name="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.ExtendedLocation/CustomLocations/exampleCustomLocation",
+                type="CustomLocation",
+            ),
+            input_schema="CloudEventSchemaV1_0",
+            kind="AzureArc",
+            location="westus2",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_name="exampletopic1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20211015preview:Topic exampletopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
@@ -304,6 +363,65 @@ class Topic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid Topic
+
+        ## Example Usage
+        ### Topics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.eventgrid.v20211015preview.Topic("topic",
+            inbound_ip_rules=[
+                azure_native.eventgrid.v20211015preview.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.30.15",
+                ),
+                azure_native.eventgrid.v20211015preview.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.176.1",
+                ),
+            ],
+            location="westus2",
+            public_network_access="Enabled",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_name="exampletopic1")
+
+        ```
+        ### Topics_CreateOrUpdateForAzureArc
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.eventgrid.v20211015preview.Topic("topic",
+            extended_location=azure_native.eventgrid.v20211015preview.ExtendedLocationArgs(
+                name="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.ExtendedLocation/CustomLocations/exampleCustomLocation",
+                type="CustomLocation",
+            ),
+            input_schema="CloudEventSchemaV1_0",
+            kind="AzureArc",
+            location="westus2",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_name="exampletopic1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20211015preview:Topic exampletopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

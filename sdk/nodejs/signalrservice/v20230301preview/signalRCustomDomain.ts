@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * A custom domain
+ *
+ * ## Example Usage
+ * ### SignalRCustomDomains_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const signalRCustomDomain = new azure_native.signalrservice.v20230301preview.SignalRCustomDomain("signalRCustomDomain", {
+ *     customCertificate: {
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customCertificates/myCert",
+ *     },
+ *     domainName: "example.com",
+ *     name: "myDomain",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "mySignalRService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:signalrservice/v20230301preview:SignalRCustomDomain myDomain /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customDomains/myDomain 
+ * ```
  */
 export class SignalRCustomDomain extends pulumi.CustomResource {
     /**

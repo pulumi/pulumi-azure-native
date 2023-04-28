@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221108
 {
     /// <summary>
     /// Represents a cluster role.
+    /// 
+    /// ## Example Usage
+    /// ### RoleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var role = new AzureNative.DBforPostgreSQL.V20221108.Role("role", new()
+    ///     {
+    ///         ClusterName = "pgtestsvc4",
+    ///         Password = "password",
+    ///         ResourceGroupName = "TestGroup",
+    ///         RoleName = "role1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20221108:Role role1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/pgtestsvc4/roles/role1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221108:Role")]
     public partial class Role : global::Pulumi.CustomResource

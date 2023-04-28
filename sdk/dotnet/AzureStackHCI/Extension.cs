@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// Details of a particular extension in HCI Cluster.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Arc Extension
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extension = new AzureNative.AzureStackHCI.Extension("extension", new()
+    ///     {
+    ///         ArcSettingName = "default",
+    ///         ClusterName = "myCluster",
+    ///         EnableAutomaticUpgrade = false,
+    ///         ExtensionName = "MicrosoftMonitoringAgent",
+    ///         ProtectedSettings = 
+    ///         {
+    ///             { "workspaceKey", "xx" },
+    ///         },
+    ///         Publisher = "Microsoft.Compute",
+    ///         ResourceGroupName = "test-rg",
+    ///         Settings = 
+    ///         {
+    ///             { "workspaceId", "xx" },
+    ///         },
+    ///         Type = "MicrosoftMonitoringAgent",
+    ///         TypeHandlerVersion = "1.10",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:Extension MicrosoftMonitoringAgent /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster/arcSettings/default/extensions/MicrosoftMonitoringAgent 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:Extension")]
     public partial class Extension : global::Pulumi.CustomResource

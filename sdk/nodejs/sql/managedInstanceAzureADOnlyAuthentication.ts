@@ -8,6 +8,30 @@ import * as utilities from "../utilities";
  * Azure Active Directory only authentication.
  * API Version: 2021-11-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates or updates Azure Active Directory only authentication object.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstanceAzureADOnlyAuthentication = new azure_native.sql.ManagedInstanceAzureADOnlyAuthentication("managedInstanceAzureADOnlyAuthentication", {
+ *     authenticationName: "Default",
+ *     azureADOnlyAuthentication: false,
+ *     managedInstanceName: "managedInstance",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:ManagedInstanceAzureADOnlyAuthentication Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/azureADOnlyAuthentications/providers/Microsoft.Sql/managedInstances/managedInstance/azureadonlyauthentications/default 
+ * ```
  */
 export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResource {
     /**

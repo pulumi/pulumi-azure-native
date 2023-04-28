@@ -13,6 +13,70 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A schedule.
     /// API Version: 2018-09-15.
     /// Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Schedules_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schedule = new AzureNative.DevTestLab.Schedule("schedule", new()
+    ///     {
+    ///         DailyRecurrence = new AzureNative.DevTestLab.Inputs.DayDetailsArgs
+    ///         {
+    ///             Time = "{timeOfTheDayTheScheduleWillOccurEveryDay}",
+    ///         },
+    ///         HourlyRecurrence = new AzureNative.DevTestLab.Inputs.HourDetailsArgs
+    ///         {
+    ///             Minute = 30,
+    ///         },
+    ///         LabName = "{labName}",
+    ///         Location = "{location}",
+    ///         Name = "{scheduleName}",
+    ///         NotificationSettings = new AzureNative.DevTestLab.Inputs.NotificationSettingsArgs
+    ///         {
+    ///             EmailRecipient = "{email}",
+    ///             NotificationLocale = "EN",
+    ///             Status = "{Enabled|Disabled}",
+    ///             TimeInMinutes = 15,
+    ///             WebhookUrl = "{webhookUrl}",
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Status = "{Enabled|Disabled}",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///         TargetResourceId = "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}",
+    ///         TaskType = "{myLabVmTaskType}",
+    ///         TimeZoneId = "Pacific Standard Time",
+    ///         WeeklyRecurrence = new AzureNative.DevTestLab.Inputs.WeekDetailsArgs
+    ///         {
+    ///             Time = "{timeOfTheDayTheScheduleWillOccurOnThoseDays}",
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Monday",
+    ///                 "Wednesday",
+    ///                 "Friday",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab:Schedule {scheduleName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/schedules/{scheduleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

@@ -9,6 +9,114 @@ import * as utilities from "../../utilities";
 
 /**
  * A Kusto database data set mapping
+ *
+ * ## Example Usage
+ * ### DataSetMappings_ADLSGen2StorageAccount_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoDatabaseDataSetMapping = new azure_native.datashare.v20201001preview.KustoDatabaseDataSetMapping("kustoDatabaseDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_BlobStorageAccount_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoDatabaseDataSetMapping = new azure_native.datashare.v20201001preview.KustoDatabaseDataSetMapping("kustoDatabaseDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoDatabaseDataSetMapping = new azure_native.datashare.v20201001preview.KustoDatabaseDataSetMapping("kustoDatabaseDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDB_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoDatabaseDataSetMapping = new azure_native.datashare.v20201001preview.KustoDatabaseDataSetMapping("kustoDatabaseDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoDatabaseDataSetMapping = new azure_native.datashare.v20201001preview.KustoDatabaseDataSetMapping("kustoDatabaseDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDW_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoDatabaseDataSetMapping = new azure_native.datashare.v20201001preview.KustoDatabaseDataSetMapping("kustoDatabaseDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kustoDatabaseDataSetMapping = new azure_native.datashare.v20201001preview.KustoDatabaseDataSetMapping("kustoDatabaseDataSetMapping", {
+ *     accountName: "consumerAccount",
+ *     dataSetMappingName: "datasetMappingName1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20201001preview:KustoDatabaseDataSetMapping datasetMappingName /subscriptions/4e745bb7-c420-479b-b0d6-a0f92d48a227/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/consumerAccount/shareSubscriptions/ShareSubscription1/dataSetMappings/datasetMappingName1 
+ * ```
  */
 export class KustoDatabaseDataSetMapping extends pulumi.CustomResource {
     /**

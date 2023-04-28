@@ -11,6 +11,66 @@ import * as utilities from "../utilities";
  * Represents order item contract
  * API Version: 2021-12-01.
  * Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateOrderItem
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const orderItemByName = new azure_native.edgeorder.OrderItemByName("orderItemByName", {
+ *     addressDetails: {
+ *         forwardAddress: {
+ *             contactDetails: {
+ *                 contactName: "XXXX XXXX",
+ *                 emailList: ["xxxx@xxxx.xxx"],
+ *                 phone: "0000000000",
+ *                 phoneExtension: "",
+ *             },
+ *             shippingAddress: {
+ *                 addressType: "None",
+ *                 city: "San Francisco",
+ *                 companyName: "Microsoft",
+ *                 country: "US",
+ *                 postalCode: "94107",
+ *                 stateOrProvince: "CA",
+ *                 streetAddress1: "16 TOWNSEND ST",
+ *                 streetAddress2: "UNIT 1",
+ *             },
+ *         },
+ *     },
+ *     location: "eastus",
+ *     orderId: "/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/locations/eastus/orders/TestOrderName2",
+ *     orderItemDetails: {
+ *         orderItemType: "Purchase",
+ *         preferences: {
+ *             transportPreferences: {
+ *                 preferredShipmentType: "MicrosoftManaged",
+ *             },
+ *         },
+ *         productDetails: {
+ *             hierarchyInformation: {
+ *                 configurationName: "edgep_base",
+ *                 productFamilyName: "azurestackedge",
+ *                 productLineName: "azurestackedge",
+ *                 productName: "azurestackedgegpu",
+ *             },
+ *         },
+ *     },
+ *     orderItemName: "TestOrderItemName2",
+ *     resourceGroupName: "YourResourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:edgeorder:OrderItemByName TestOrderItemName2 /subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/orderItems/TestOrderItemName2 
+ * ```
  */
 export class OrderItemByName extends pulumi.CustomResource {
     /**

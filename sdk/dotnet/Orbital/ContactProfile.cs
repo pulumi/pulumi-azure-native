@@ -12,6 +12,107 @@ namespace Pulumi.AzureNative.Orbital
     /// <summary>
     /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
     /// API Version: 2022-11-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create a contact profile
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contactProfile = new AzureNative.Orbital.ContactProfile("contactProfile", new()
+    ///     {
+    ///         AutoTrackingConfiguration = AzureNative.Orbital.AutoTrackingConfiguration.Disabled,
+    ///         ContactProfileName = "CONTOSO-CP",
+    ///         EventHubUri = "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub",
+    ///         Links = new[]
+    ///         {
+    ///             new AzureNative.Orbital.Inputs.ContactProfileLinkArgs
+    ///             {
+    ///                 Channels = new[]
+    ///                 {
+    ///                     new AzureNative.Orbital.Inputs.ContactProfileLinkChannelArgs
+    ///                     {
+    ///                         BandwidthMHz = 2,
+    ///                         CenterFrequencyMHz = 2250,
+    ///                         EndPoint = new AzureNative.Orbital.Inputs.EndPointArgs
+    ///                         {
+    ///                             EndPointName = "ContosoTest_Uplink",
+    ///                             IpAddress = "10.1.0.4",
+    ///                             Port = "50000",
+    ///                             Protocol = "TCP",
+    ///                         },
+    ///                         Name = "contoso-uplink-channel",
+    ///                     },
+    ///                 },
+    ///                 Direction = "Uplink",
+    ///                 EirpdBW = 45,
+    ///                 GainOverTemperature = 0,
+    ///                 Name = "contoso-uplink",
+    ///                 Polarization = "LHCP",
+    ///             },
+    ///             new AzureNative.Orbital.Inputs.ContactProfileLinkArgs
+    ///             {
+    ///                 Channels = new[]
+    ///                 {
+    ///                     new AzureNative.Orbital.Inputs.ContactProfileLinkChannelArgs
+    ///                     {
+    ///                         BandwidthMHz = 15,
+    ///                         CenterFrequencyMHz = 8160,
+    ///                         EndPoint = new AzureNative.Orbital.Inputs.EndPointArgs
+    ///                         {
+    ///                             EndPointName = "ContosoTest_Downlink",
+    ///                             IpAddress = "10.1.0.5",
+    ///                             Port = "50001",
+    ///                             Protocol = "UDP",
+    ///                         },
+    ///                         Name = "contoso-downlink-channel",
+    ///                     },
+    ///                 },
+    ///                 Direction = "Downlink",
+    ///                 EirpdBW = 0,
+    ///                 GainOverTemperature = 25,
+    ///                 Name = "contoso-downlink",
+    ///                 Polarization = "RHCP",
+    ///             },
+    ///         },
+    ///         Location = "eastus2",
+    ///         MinimumElevationDegrees = 5,
+    ///         MinimumViableContactDuration = "PT1M",
+    ///         NetworkConfiguration = new AzureNative.Orbital.Inputs.ContactProfilesPropertiesNetworkConfigurationArgs
+    ///         {
+    ///             SubnetId = "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet",
+    ///         },
+    ///         ResourceGroupName = "contoso-Rgp",
+    ///         ThirdPartyConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Orbital.Inputs.ContactProfileThirdPartyConfigurationArgs
+    ///             {
+    ///                 MissionConfiguration = "Ksat_MissionConfiguration",
+    ///                 ProviderName = "KSAT",
+    ///             },
+    ///             new AzureNative.Orbital.Inputs.ContactProfileThirdPartyConfigurationArgs
+    ///             {
+    ///                 MissionConfiguration = "Viasat_Configuration",
+    ///                 ProviderName = "VIASAT",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:orbital:ContactProfile CONTOSO-CP /subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:ContactProfile")]
     public partial class ContactProfile : global::Pulumi.CustomResource

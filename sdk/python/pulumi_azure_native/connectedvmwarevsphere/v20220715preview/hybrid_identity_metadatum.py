@@ -112,6 +112,30 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
         """
         Defines the HybridIdentityMetadata.
 
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_identity_metadatum = azure_native.connectedvmwarevsphere.v20220715preview.HybridIdentityMetadatum("hybridIdentityMetadatum",
+            metadata_name="default",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_group_name="testrg",
+            virtual_machine_name="ContosoVm",
+            vm_id="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum testItem /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VitualMachines/ContosoVm/hybridIdentityMetadatas/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] metadata_name: Name of the hybridIdentityMetadata.
@@ -128,6 +152,30 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the HybridIdentityMetadata.
+
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_identity_metadatum = azure_native.connectedvmwarevsphere.v20220715preview.HybridIdentityMetadatum("hybridIdentityMetadatum",
+            metadata_name="default",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_group_name="testrg",
+            virtual_machine_name="ContosoVm",
+            vm_id="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum testItem /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VitualMachines/ContosoVm/hybridIdentityMetadatas/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HybridIdentityMetadatumArgs args: The arguments to use to populate this resource's properties.

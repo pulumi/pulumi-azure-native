@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Devices.V20220430Preview
 {
     /// <summary>
     /// The X509 Certificate.
+    /// 
+    /// ## Example Usage
+    /// ### Certificates_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.Devices.V20220430Preview.Certificate("certificate", new()
+    ///     {
+    ///         CertificateName = "cert",
+    ///         Properties = new AzureNative.Devices.V20220430Preview.Inputs.CertificatePropertiesArgs
+    ///         {
+    ///             Certificate = "############################################",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "iothub",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devices/v20220430preview:Certificate cert /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServives/myFirstProvisioningService/certificates/cert 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devices/v20220430preview:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

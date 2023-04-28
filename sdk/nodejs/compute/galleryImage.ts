@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Specifies information about the gallery image definition that you want to create or update.
  * API Version: 2022-03-03.
  * Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a simple gallery image.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImage = new azure_native.compute.GalleryImage("galleryImage", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryName: "myGalleryName",
+ *     hyperVGeneration: "V1",
+ *     identifier: {
+ *         offer: "myOfferName",
+ *         publisher: "myPublisherName",
+ *         sku: "mySkuName",
+ *     },
+ *     location: "West US",
+ *     osState: azure_native.compute.OperatingSystemStateTypes.Generalized,
+ *     osType: azure_native.compute.OperatingSystemTypes.Windows,
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:GalleryImage myGalleryImageName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName} 
+ * ```
  */
 export class GalleryImage extends pulumi.CustomResource {
     /**

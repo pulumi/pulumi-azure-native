@@ -180,6 +180,42 @@ class ConnectivityConfiguration(pulumi.CustomResource):
         """
         The network manager connectivity configuration resource
 
+        ## Example Usage
+        ### ConnectivityConfigurationsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connectivity_configuration = azure_native.network.v20220901.ConnectivityConfiguration("connectivityConfiguration",
+            applies_to_groups=[azure_native.network.v20220901.ConnectivityGroupItemArgs(
+                group_connectivity="None",
+                is_global="False",
+                network_group_id="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/group1",
+                use_hub_gateway="True",
+            )],
+            configuration_name="myTestConnectivityConfig",
+            connectivity_topology="HubAndSpoke",
+            delete_existing_peering="True",
+            description="Sample Configuration",
+            hubs=[azure_native.network.v20220901.HubArgs(
+                resource_id="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myTestConnectivityConfig",
+                resource_type="Microsoft.Network/virtualNetworks",
+            )],
+            is_global="True",
+            network_manager_name="testNetworkManager",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:ConnectivityConfiguration myTestConnectivityConfig subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/connectivityConfigurations/myTestConnectivityConfig 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConnectivityGroupItemArgs']]]] applies_to_groups: Groups for configuration
@@ -200,6 +236,42 @@ class ConnectivityConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network manager connectivity configuration resource
+
+        ## Example Usage
+        ### ConnectivityConfigurationsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connectivity_configuration = azure_native.network.v20220901.ConnectivityConfiguration("connectivityConfiguration",
+            applies_to_groups=[azure_native.network.v20220901.ConnectivityGroupItemArgs(
+                group_connectivity="None",
+                is_global="False",
+                network_group_id="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/group1",
+                use_hub_gateway="True",
+            )],
+            configuration_name="myTestConnectivityConfig",
+            connectivity_topology="HubAndSpoke",
+            delete_existing_peering="True",
+            description="Sample Configuration",
+            hubs=[azure_native.network.v20220901.HubArgs(
+                resource_id="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myTestConnectivityConfig",
+                resource_type="Microsoft.Network/virtualNetworks",
+            )],
+            is_global="True",
+            network_manager_name="testNetworkManager",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:ConnectivityConfiguration myTestConnectivityConfig subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/connectivityConfigurations/myTestConnectivityConfig 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectivityConfigurationArgs args: The arguments to use to populate this resource's properties.

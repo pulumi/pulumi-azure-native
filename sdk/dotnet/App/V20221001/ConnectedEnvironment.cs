@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.App.V20221001
 {
     /// <summary>
     /// An environment for Kubernetes cluster specialized for web workloads by Azure App Service
+    /// 
+    /// ## Example Usage
+    /// ### Create kube environments
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectedEnvironment = new AzureNative.App.V20221001.ConnectedEnvironment("connectedEnvironment", new()
+    ///     {
+    ///         ConnectedEnvironmentName = "testenv",
+    ///         CustomDomainConfiguration = new AzureNative.App.V20221001.Inputs.CustomDomainConfigurationArgs
+    ///         {
+    ///             CertificatePassword = "private key password",
+    ///             CertificateValue = "Y2VydA==",
+    ///             DnsSuffix = "www.my-name.com",
+    ///         },
+    ///         DaprAIConnectionString = "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+    ///         ExtendedLocation = new AzureNative.App.V20221001.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "East US",
+    ///         ResourceGroupName = "examplerg",
+    ///         StaticIp = "1.2.3.4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20221001:ConnectedEnvironment testenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/testenv 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20221001:ConnectedEnvironment")]
     public partial class ConnectedEnvironment : global::Pulumi.CustomResource

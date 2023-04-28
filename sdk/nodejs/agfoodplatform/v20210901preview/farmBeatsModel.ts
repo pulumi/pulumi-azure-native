@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * FarmBeats ARM Resource.
+ *
+ * ## Example Usage
+ * ### FarmBeatsModels_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const farmBeatsModel = new azure_native.agfoodplatform.v20210901preview.FarmBeatsModel("farmBeatsModel", {
+ *     farmBeatsResourceName: "examples-farmbeatsResourceName",
+ *     location: "eastus2",
+ *     resourceGroupName: "examples-rg",
+ *     tags: {
+ *         key1: "value1",
+ *         key2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:agfoodplatform/v20210901preview:FarmBeatsModel examples-farmbeatsResourceName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName 
+ * ```
  */
 export class FarmBeatsModel extends pulumi.CustomResource {
     /**

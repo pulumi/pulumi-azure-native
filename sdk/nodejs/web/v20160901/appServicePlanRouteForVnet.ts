@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network route contract used to pass routing information for a Virtual Network.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20160901:AppServicePlanRouteForVnet myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName} 
+ * ```
  */
 export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
     /**

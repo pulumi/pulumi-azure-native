@@ -9,6 +9,67 @@ import * as utilities from "../../utilities";
 
 /**
  * The connector mapping resource format.
+ *
+ * ## Example Usage
+ * ### ConnectorMappings_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectorMapping = new azure_native.customerinsights.v20170426.ConnectorMapping("connectorMapping", {
+ *     connectorName: "testConnector8858",
+ *     description: "Test mapping",
+ *     displayName: "testMapping12491",
+ *     entityType: azure_native.customerinsights.v20170426.EntityTypes.Interaction,
+ *     entityTypeName: "TestInteractionType2967",
+ *     hubName: "sdkTestHub",
+ *     mappingName: "testMapping12491",
+ *     mappingProperties: {
+ *         availability: {
+ *             frequency: azure_native.customerinsights.v20170426.FrequencyTypes.Hour,
+ *             interval: 5,
+ *         },
+ *         completeOperation: {
+ *             completionOperationType: azure_native.customerinsights.v20170426.CompletionOperationTypes.DeleteFile,
+ *             destinationFolder: "fakePath",
+ *         },
+ *         errorManagement: {
+ *             errorLimit: 10,
+ *             errorManagementType: azure_native.customerinsights.v20170426.ErrorManagementTypes.StopImport,
+ *         },
+ *         fileFilter: "unknown",
+ *         folderPath: "http://sample.dne/file",
+ *         format: {
+ *             columnDelimiter: "|",
+ *             formatType: azure_native.customerinsights.v20170426.FormatTypes.TextFormat,
+ *         },
+ *         hasHeader: false,
+ *         structure: [
+ *             {
+ *                 columnName: "unknown1",
+ *                 isEncrypted: false,
+ *                 propertyName: "unknwon1",
+ *             },
+ *             {
+ *                 columnName: "unknown2",
+ *                 isEncrypted: true,
+ *                 propertyName: "unknwon2",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "TestHubRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights/v20170426:ConnectorMapping sdkTestHub/testConnector8858/testMapping12491 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/connectors/testConnector8858/mappings/testMapping12491 
+ * ```
  */
 export class ConnectorMapping extends pulumi.CustomResource {
     /**

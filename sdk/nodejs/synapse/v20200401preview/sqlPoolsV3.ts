@@ -10,6 +10,37 @@ import * as utilities from "../../utilities";
 /**
  * A sql pool resource.
  *
+ * ## Example Usage
+ * ### Creates a sqlpool.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlPoolsV3 = new azure_native.synapse.v20200401preview.SqlPoolsV3("sqlPoolsV3", {
+ *     location: "westus",
+ *     resourceGroupName: "rg_fb5ce457-3576-425e-b22d-7300689fbea0",
+ *     sku: {
+ *         name: "DW1000f",
+ *         tier: "Synapse",
+ *     },
+ *     sqlPoolName: "22c317e3-97a3-4ae3-9e91-a3456a5fff31",
+ *     tags: {
+ *         tag1: "val1",
+ *     },
+ *     workspaceName: "srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse/v20200401preview:SqlPoolsV3 22c317e3-97a3-4ae3-9e91-a3456a5fff31 /subscriptions/2ce559e9-b582-446a-8eb3-0cd81e07b7df/resourceGroups/rg_fb5ce457-3576-425e-b22d-7300689fbea0/providers/Microsoft.Synapse/workspaces/srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c/sqlPools/22c317e3-97a3-4ae3-9e91-a3456a5fff31 
+ * ```
+ *
  * @deprecated Version 2020-04-01-preview will be removed in v2 of the provider.
  */
 export class SqlPoolsV3 extends pulumi.CustomResource {

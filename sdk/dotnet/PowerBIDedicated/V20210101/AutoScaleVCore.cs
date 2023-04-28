@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.PowerBIDedicated.V20210101
 {
     /// <summary>
     /// Represents an instance of an auto scale v-core resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create auto scale v-core
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var autoScaleVCore = new AzureNative.PowerBIDedicated.V20210101.AutoScaleVCore("autoScaleVCore", new()
+    ///     {
+    ///         CapacityLimit = 10,
+    ///         CapacityObjectId = "a28f00bd-5330-4572-88f1-fa883e074785",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestRG",
+    ///         Sku = new AzureNative.PowerBIDedicated.V20210101.Inputs.AutoScaleVCoreSkuArgs
+    ///         {
+    ///             Capacity = 0,
+    ///             Name = "AutoScale",
+    ///             Tier = "AutoScale",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testKey", "testValue" },
+    ///         },
+    ///         VcoreName = "testvcore",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:powerbidedicated/v20210101:AutoScaleVCore testvcore /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.PowerBIDedicated/autoScaleVCores/testvcore 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbidedicated/v20210101:AutoScaleVCore")]
     public partial class AutoScaleVCore : global::Pulumi.CustomResource

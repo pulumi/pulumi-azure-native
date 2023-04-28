@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Kusto.V20200215
 {
     /// <summary>
     /// Class representing a read only following database.
+    /// 
+    /// ## Example Usage
+    /// ### KustoDatabasesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var readOnlyFollowingDatabase = new AzureNative.Kusto.V20200215.ReadOnlyFollowingDatabase("readOnlyFollowingDatabase", new()
+    ///     {
+    ///         ClusterName = "KustoClusterRPTest4",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto/v20200215:ReadOnlyFollowingDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20200215:ReadOnlyFollowingDatabase")]
     public partial class ReadOnlyFollowingDatabase : global::Pulumi.CustomResource

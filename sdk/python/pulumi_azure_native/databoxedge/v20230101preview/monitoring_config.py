@@ -94,6 +94,38 @@ class MonitoringConfig(pulumi.CustomResource):
         """
         The metric setting details for the role
 
+        ## Example Usage
+        ### PutMonitoringConfig
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        monitoring_config = azure_native.databoxedge.v20230101preview.MonitoringConfig("monitoringConfig",
+            device_name="testedgedevice",
+            metric_configurations=[{
+                "counterSets": [{
+                    "counters": [azure_native.databoxedge.v20230101preview.MetricCounterArgs(
+                        name="test",
+                    )],
+                }],
+                "mdmAccount": "test",
+                "metricNameSpace": "test",
+                "resourceId": "test",
+            }],
+            resource_group_name="GroupForEdgeAutomation",
+            role_name="testrole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20230101preview:MonitoringConfig myresource1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/DataBoxEdgeDevices/testedgedevice 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
@@ -109,6 +141,38 @@ class MonitoringConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The metric setting details for the role
+
+        ## Example Usage
+        ### PutMonitoringConfig
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        monitoring_config = azure_native.databoxedge.v20230101preview.MonitoringConfig("monitoringConfig",
+            device_name="testedgedevice",
+            metric_configurations=[{
+                "counterSets": [{
+                    "counters": [azure_native.databoxedge.v20230101preview.MetricCounterArgs(
+                        name="test",
+                    )],
+                }],
+                "mdmAccount": "test",
+                "metricNameSpace": "test",
+                "resourceId": "test",
+            }],
+            resource_group_name="GroupForEdgeAutomation",
+            role_name="testrole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20230101preview:MonitoringConfig myresource1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/DataBoxEdgeDevices/testedgedevice 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MonitoringConfigArgs args: The arguments to use to populate this resource's properties.

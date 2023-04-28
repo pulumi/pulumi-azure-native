@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.Media
     /// An Asset Track resource.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2021-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a Track
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var track = new AzureNative.Media.Track("track", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         AssetName = "ClimbingMountRainer",
+    ///         ResourceGroupName = "contosorg",
+    ///         Track = new AzureNative.Media.Inputs.TextTrackArgs
+    ///         {
+    ///             DisplayName = "A new track",
+    ///             FileName = "text3.ttml",
+    ///             OdataType = "#Microsoft.Media.TextTrack",
+    ///             PlayerVisibility = "Visible",
+    ///         },
+    ///         TrackName = "text3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media:Track text3 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountRainer/tracks/text3 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media:Track")]
     public partial class Track : global::Pulumi.CustomResource

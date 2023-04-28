@@ -11,6 +11,78 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201201
 {
     /// <summary>
     /// The description of the DigitalTwins service.
+    /// 
+    /// ## Example Usage
+    /// ### Put a DigitalTwinsInstance resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var digitalTwin = new AzureNative.DigitalTwins.V20201201.DigitalTwin("digitalTwin", new()
+    ///     {
+    ///         Location = "WestUS2",
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put a DigitalTwinsInstance resource with identity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var digitalTwin = new AzureNative.DigitalTwins.V20201201.DigitalTwin("digitalTwin", new()
+    ///     {
+    ///         Identity = new AzureNative.DigitalTwins.V20201201.Inputs.DigitalTwinsIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "WestUS2",
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put a DigitalTwinsInstance resource with publicNetworkAccess property
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var digitalTwin = new AzureNative.DigitalTwins.V20201201.DigitalTwin("digitalTwin", new()
+    ///     {
+    ///         Location = "WestUS2",
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:digitaltwins/v20201201:DigitalTwin myDigitalTwinsService /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins/v20201201:DigitalTwin")]
     public partial class DigitalTwin : global::Pulumi.CustomResource

@@ -7,6 +7,15 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic/v20150801preview:IntegrationAccount myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationAccounts/{integrationAccountName} 
+ * ```
+ */
 export class IntegrationAccount extends pulumi.CustomResource {
     /**
      * Get an existing IntegrationAccount resource's state with the given name, ID, and optional extra

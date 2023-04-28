@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Logic.V20160601
 {
     /// <summary>
     /// The integration account certificate.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.Logic.V20160601.Certificate("certificate", new()
+    ///     {
+    ///         CertificateName = "testCertificate",
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Key = new AzureNative.Logic.V20160601.Inputs.KeyVaultKeyReferenceArgs
+    ///         {
+    ///             KeyName = "&lt;keyName&gt;",
+    ///             KeyVault = new AzureNative.Logic.V20160601.Inputs.KeyVaultKeyReferenceKeyVaultArgs
+    ///             {
+    ///                 Id = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testResourceGroup/providers/microsoft.keyvault/vaults/&lt;keyVaultName&gt;",
+    ///             },
+    ///             KeyVersion = "87d9764197604449b9b8eb7bd8710868",
+    ///         },
+    ///         Location = "brazilsouth",
+    ///         PublicCertificate = "&lt;publicCertificateValue&gt;",
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic/v20160601:Certificate testCertificate /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/certificates/testCertificate 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20160601:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

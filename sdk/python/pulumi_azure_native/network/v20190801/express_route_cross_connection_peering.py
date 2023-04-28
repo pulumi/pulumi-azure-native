@@ -301,6 +301,36 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
         """
         Peering in an ExpressRoute Cross Connection resource.
 
+        ## Example Usage
+        ### ExpressRouteCrossConnectionBgpPeeringCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_cross_connection_peering = azure_native.network.v20190801.ExpressRouteCrossConnectionPeering("expressRouteCrossConnectionPeering",
+            cross_connection_name="<circuitServiceKey>",
+            ipv6_peering_config=azure_native.network.v20190801.Ipv6ExpressRouteCircuitPeeringConfigArgs(
+                primary_peer_address_prefix="3FFE:FFFF:0:CD30::/126",
+                secondary_peer_address_prefix="3FFE:FFFF:0:CD30::4/126",
+            ),
+            peer_asn=200,
+            peering_name="AzurePrivatePeering",
+            primary_peer_address_prefix="192.168.16.252/30",
+            resource_group_name="CrossConnection-SiliconValley",
+            secondary_peer_address_prefix="192.168.18.252/30",
+            vlan_id=200)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190801:ExpressRouteCrossConnectionPeering AzurePrivatePeering /subscriptions/subid/resourceGroups/CrossConnection-Boydton1DC/providers/Microsoft.Network/expressRouteCrossConnections/<circuitServiceKey>/peerings/AzurePrivatePeering 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cross_connection_name: The name of the ExpressRouteCrossConnection.
@@ -328,6 +358,36 @@ class ExpressRouteCrossConnectionPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Peering in an ExpressRoute Cross Connection resource.
+
+        ## Example Usage
+        ### ExpressRouteCrossConnectionBgpPeeringCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_cross_connection_peering = azure_native.network.v20190801.ExpressRouteCrossConnectionPeering("expressRouteCrossConnectionPeering",
+            cross_connection_name="<circuitServiceKey>",
+            ipv6_peering_config=azure_native.network.v20190801.Ipv6ExpressRouteCircuitPeeringConfigArgs(
+                primary_peer_address_prefix="3FFE:FFFF:0:CD30::/126",
+                secondary_peer_address_prefix="3FFE:FFFF:0:CD30::4/126",
+            ),
+            peer_asn=200,
+            peering_name="AzurePrivatePeering",
+            primary_peer_address_prefix="192.168.16.252/30",
+            resource_group_name="CrossConnection-SiliconValley",
+            secondary_peer_address_prefix="192.168.18.252/30",
+            vlan_id=200)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190801:ExpressRouteCrossConnectionPeering AzurePrivatePeering /subscriptions/subid/resourceGroups/CrossConnection-Boydton1DC/providers/Microsoft.Network/expressRouteCrossConnections/<circuitServiceKey>/peerings/AzurePrivatePeering 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCrossConnectionPeeringArgs args: The arguments to use to populate this resource's properties.

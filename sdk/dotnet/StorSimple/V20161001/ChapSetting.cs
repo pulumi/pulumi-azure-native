@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// Challenge-Handshake Authentication Protocol (CHAP) setting
+    /// 
+    /// ## Example Usage
+    /// ### ChapSettingsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var chapSetting = new AzureNative.StorSimple.V20161001.ChapSetting("chapSetting", new()
+    ///     {
+    ///         ChapUserName = "ChapSettingForSDK",
+    ///         DeviceName = "HSDK-WSJQERQW3F",
+    ///         ManagerName = "hAzureSDKOperations",
+    ///         Password = new AzureNative.StorSimple.V20161001.Inputs.AsymmetricEncryptedSecretArgs
+    ///         {
+    ///             EncryptionAlgorithm = AzureNative.StorSimple.V20161001.EncryptionAlgorithm.RSAES_PKCS1_v_1_5,
+    ///             EncryptionCertificateThumbprint = "D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+    ///             Value = "&lt;value&gt;",
+    ///         },
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20161001:ChapSetting ChapSettingForSDK /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/chapSettings/ChapSettingForSDK 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:ChapSetting")]

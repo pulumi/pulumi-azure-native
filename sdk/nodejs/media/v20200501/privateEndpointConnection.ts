@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * ## Example Usage
+ * ### Update private endpoint connection.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.media.v20200501.PrivateEndpointConnection("privateEndpointConnection", {
+ *     accountName: "contososports",
+ *     name: "connectionName1",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Test description.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "contoso",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media/v20200501:PrivateEndpointConnection connectionName1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fabrikam/providers/Microsoft.Media/mediaservices/contososports/privateEndpointConnections/connectionName1 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

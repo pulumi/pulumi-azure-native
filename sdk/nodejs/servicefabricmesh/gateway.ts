@@ -11,6 +11,73 @@ import * as utilities from "../utilities";
  * This type describes a gateway resource.
  * API Version: 2018-09-01-preview.
  * Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdateGateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gateway = new azure_native.servicefabricmesh.Gateway("gateway", {
+ *     description: "Service Fabric Mesh sample gateway.",
+ *     destinationNetwork: {
+ *         name: "helloWorldNetwork",
+ *     },
+ *     gatewayResourceName: "sampleGateway",
+ *     http: [{
+ *         hosts: [{
+ *             name: "contoso.com",
+ *             routes: [{
+ *                 destination: {
+ *                     applicationName: "httpHelloWorldApp",
+ *                     endpointName: "indexHttpEndpoint",
+ *                     serviceName: "indexService",
+ *                 },
+ *                 match: {
+ *                     headers: [{
+ *                         name: "accept",
+ *                         type: "exact",
+ *                         value: "application/json",
+ *                     }],
+ *                     path: {
+ *                         rewrite: "/",
+ *                         type: "prefix",
+ *                         value: "/index",
+ *                     },
+ *                 },
+ *                 name: "index",
+ *             }],
+ *         }],
+ *         name: "contosoWebsite",
+ *         port: 8081,
+ *     }],
+ *     location: "EastUS",
+ *     resourceGroupName: "sbz_demo",
+ *     sourceNetwork: {
+ *         name: "Open",
+ *     },
+ *     tags: {},
+ *     tcp: [{
+ *         destination: {
+ *             applicationName: "helloWorldApp",
+ *             endpointName: "helloWorldListener",
+ *             serviceName: "helloWorldService",
+ *         },
+ *         name: "web",
+ *         port: 80,
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabricmesh:Gateway sampleGateway /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/gateways/sampleGateway 
+ * ```
  */
 export class Gateway extends pulumi.CustomResource {
     /**

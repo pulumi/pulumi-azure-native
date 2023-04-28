@@ -128,6 +128,37 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
         """
         Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
 
+        ## Example Usage
+        ### Creates network mapping.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_network_mapping = azure_native.recoveryservices.v20180710.ReplicationNetworkMapping("replicationNetworkMapping",
+            fabric_name="b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac",
+            network_mapping_name="corpe2amap",
+            network_name="e2267b5c-2650-49bd-ab3f-d66aae694c06",
+            properties=azure_native.recoveryservices.v20180710.NetworkMappingPropertiesResponseArgs(
+                fabric_specific_details=azure_native.recoveryservices.v20180710.VmmToAzureCreateNetworkMappingInputArgs(
+                    instance_type="VmmToAzure",
+                ),
+                recovery_fabric_name="Microsoft Azure",
+                recovery_network_id="/subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/siterecoveryProd1/providers/Microsoft.Network/virtualNetworks/vnetavrai",
+            ),
+            resource_group_name="srcBvte2a14C27",
+            resource_name_="srce2avaultbvtaC27")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20180710:ReplicationNetworkMapping corpe2amap /Subscriptions/9112a37f-0f3e-46ec-9c00-060c6edca071/resourceGroups/srcBvte2a14C27/providers/Microsoft.RecoveryServices/vaults/srce2avaultbvtaC27/replicationFabrics/b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac/replicationNetworks/e2267b5c-2650-49bd-ab3f-d66aae694c06/replicationNetworkMappings/corpe2amap 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Primary fabric name.
@@ -145,6 +176,37 @@ class ReplicationNetworkMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
+
+        ## Example Usage
+        ### Creates network mapping.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_network_mapping = azure_native.recoveryservices.v20180710.ReplicationNetworkMapping("replicationNetworkMapping",
+            fabric_name="b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac",
+            network_mapping_name="corpe2amap",
+            network_name="e2267b5c-2650-49bd-ab3f-d66aae694c06",
+            properties=azure_native.recoveryservices.v20180710.NetworkMappingPropertiesResponseArgs(
+                fabric_specific_details=azure_native.recoveryservices.v20180710.VmmToAzureCreateNetworkMappingInputArgs(
+                    instance_type="VmmToAzure",
+                ),
+                recovery_fabric_name="Microsoft Azure",
+                recovery_network_id="/subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/siterecoveryProd1/providers/Microsoft.Network/virtualNetworks/vnetavrai",
+            ),
+            resource_group_name="srcBvte2a14C27",
+            resource_name_="srce2avaultbvtaC27")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20180710:ReplicationNetworkMapping corpe2amap /Subscriptions/9112a37f-0f3e-46ec-9c00-060c6edca071/resourceGroups/srcBvte2a14C27/providers/Microsoft.RecoveryServices/vaults/srce2avaultbvtaC27/replicationFabrics/b0cef6e9a4437b81803d0b55ada4f700ab66caae59c35d62723a1589c0cd13ac/replicationNetworks/e2267b5c-2650-49bd-ab3f-d66aae694c06/replicationNetworkMappings/corpe2amap 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationNetworkMappingArgs args: The arguments to use to populate this resource's properties.

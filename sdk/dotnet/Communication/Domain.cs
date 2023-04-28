@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.Communication
     /// A class representing a Domains resource.
     /// API Version: 2023-03-01-preview.
     /// Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Domains resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domain = new AzureNative.Communication.Domain("domain", new()
+    ///     {
+    ///         DomainManagement = "CustomerManaged",
+    ///         DomainName = "mydomain.com",
+    ///         EmailServiceName = "MyEmailServiceResource",
+    ///         Location = "Global",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:communication:Domain mydomain.com /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/EmailServices/MyEmailServiceResource/Domains/mydomain.com 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

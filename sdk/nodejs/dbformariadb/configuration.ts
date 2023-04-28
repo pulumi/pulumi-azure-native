@@ -8,6 +8,31 @@ import * as utilities from "../utilities";
  * Represents a Configuration.
  * API Version: 2018-06-01.
  * Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ConfigurationCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configuration = new azure_native.dbformariadb.Configuration("configuration", {
+ *     configurationName: "event_scheduler",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ *     source: "user-override",
+ *     value: "off",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformariadb:Configuration event_scheduler /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMariaDB/servers/testserver/configurations/event_scheduler 
+ * ```
  */
 export class Configuration extends pulumi.CustomResource {
     /**

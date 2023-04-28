@@ -11,6 +11,51 @@ import * as utilities from "../utilities";
  * The KPI resource format.
  * API Version: 2017-04-26.
  * Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Kpi_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kpi = new azure_native.customerinsights.Kpi("kpi", {
+ *     aliases: [{
+ *         aliasName: "alias",
+ *         expression: "Id+4",
+ *     }],
+ *     calculationWindow: azure_native.customerinsights.CalculationWindowTypes.Day,
+ *     description: {
+ *         "en-us": "Kpi Description",
+ *     },
+ *     displayName: {
+ *         "en-us": "Kpi DisplayName",
+ *     },
+ *     entityType: azure_native.customerinsights.EntityTypes.Profile,
+ *     entityTypeName: "testProfile2327128",
+ *     expression: "SavingAccountBalance",
+ *     "function": azure_native.customerinsights.KpiFunctions.Sum,
+ *     groupBy: ["SavingAccountBalance"],
+ *     hubName: "sdkTestHub",
+ *     kpiName: "kpiTest45453647",
+ *     resourceGroupName: "TestHubRG",
+ *     thresHolds: {
+ *         increasingKpi: true,
+ *         lowerLimit: 5,
+ *         upperLimit: 50,
+ *     },
+ *     unit: "unit",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights:Kpi sdkTestHub/kpiTest45453647 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/kpi/kpiTest45453647 
+ * ```
  */
 export class Kpi extends pulumi.CustomResource {
     /**

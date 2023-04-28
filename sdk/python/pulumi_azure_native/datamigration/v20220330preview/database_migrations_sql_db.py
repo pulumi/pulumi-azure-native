@@ -92,6 +92,88 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
         """
         Database Migration Resource for SQL Database.
 
+        ## Example Usage
+        ### Create or Update Database Migration resource with Maximum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_migrations_sql_db = azure_native.datamigration.v20220330preview.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb",
+            properties=azure_native.datamigration.v20220330preview.DatabaseMigrationPropertiesSqlDbResponseArgs(
+                kind="SqlDb",
+                migration_service="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+                scope="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+                source_database_name="aaa",
+                source_sql_connection=azure_native.datamigration.v20220330preview.SqlConnectionInformationArgs(
+                    authentication="WindowsAuthentication",
+                    data_source="aaa",
+                    encrypt_connection=True,
+                    password="placeholder",
+                    trust_server_certificate=True,
+                    user_name="bbb",
+                ),
+                table_list=[
+                    "[Schema1].[TableName1]",
+                    "[Schema2].[TableName2]",
+                ],
+                target_sql_connection=azure_native.datamigration.v20220330preview.SqlConnectionInformationArgs(
+                    authentication="SqlAuthentication",
+                    data_source="sqldbinstance",
+                    encrypt_connection=True,
+                    password="placeholder",
+                    trust_server_certificate=True,
+                    user_name="bbb",
+                ),
+            ),
+            resource_group_name="testrg",
+            sql_db_instance_name="sqldbinstance",
+            target_db_name="db1")
+
+        ```
+        ### Create or Update Database Migration resource with Minimum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_migrations_sql_db = azure_native.datamigration.v20220330preview.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb",
+            properties=azure_native.datamigration.v20220330preview.DatabaseMigrationPropertiesSqlDbResponseArgs(
+                kind="SqlDb",
+                migration_service="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+                scope="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+                source_database_name="aaa",
+                source_sql_connection=azure_native.datamigration.v20220330preview.SqlConnectionInformationArgs(
+                    authentication="WindowsAuthentication",
+                    data_source="aaa",
+                    encrypt_connection=True,
+                    password="placeholder",
+                    trust_server_certificate=True,
+                    user_name="bbb",
+                ),
+                target_sql_connection=azure_native.datamigration.v20220330preview.SqlConnectionInformationArgs(
+                    authentication="SqlAuthentication",
+                    data_source="sqldbinstance",
+                    encrypt_connection=True,
+                    password="placeholder",
+                    trust_server_certificate=True,
+                    user_name="bbb",
+                ),
+            ),
+            resource_group_name="testrg",
+            sql_db_instance_name="sqldbinstance",
+            target_db_name="db1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20220330preview:DatabaseMigrationsSqlDb db1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance/providers/Microsoft.DataMigration/databaseMigrations/db1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DatabaseMigrationPropertiesSqlDbArgs']] properties: Database Migration Resource properties for SQL database.
@@ -106,6 +188,88 @@ class DatabaseMigrationsSqlDb(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Database Migration Resource for SQL Database.
+
+        ## Example Usage
+        ### Create or Update Database Migration resource with Maximum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_migrations_sql_db = azure_native.datamigration.v20220330preview.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb",
+            properties=azure_native.datamigration.v20220330preview.DatabaseMigrationPropertiesSqlDbResponseArgs(
+                kind="SqlDb",
+                migration_service="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+                scope="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+                source_database_name="aaa",
+                source_sql_connection=azure_native.datamigration.v20220330preview.SqlConnectionInformationArgs(
+                    authentication="WindowsAuthentication",
+                    data_source="aaa",
+                    encrypt_connection=True,
+                    password="placeholder",
+                    trust_server_certificate=True,
+                    user_name="bbb",
+                ),
+                table_list=[
+                    "[Schema1].[TableName1]",
+                    "[Schema2].[TableName2]",
+                ],
+                target_sql_connection=azure_native.datamigration.v20220330preview.SqlConnectionInformationArgs(
+                    authentication="SqlAuthentication",
+                    data_source="sqldbinstance",
+                    encrypt_connection=True,
+                    password="placeholder",
+                    trust_server_certificate=True,
+                    user_name="bbb",
+                ),
+            ),
+            resource_group_name="testrg",
+            sql_db_instance_name="sqldbinstance",
+            target_db_name="db1")
+
+        ```
+        ### Create or Update Database Migration resource with Minimum parameters.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_migrations_sql_db = azure_native.datamigration.v20220330preview.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb",
+            properties=azure_native.datamigration.v20220330preview.DatabaseMigrationPropertiesSqlDbResponseArgs(
+                kind="SqlDb",
+                migration_service="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+                scope="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+                source_database_name="aaa",
+                source_sql_connection=azure_native.datamigration.v20220330preview.SqlConnectionInformationArgs(
+                    authentication="WindowsAuthentication",
+                    data_source="aaa",
+                    encrypt_connection=True,
+                    password="placeholder",
+                    trust_server_certificate=True,
+                    user_name="bbb",
+                ),
+                target_sql_connection=azure_native.datamigration.v20220330preview.SqlConnectionInformationArgs(
+                    authentication="SqlAuthentication",
+                    data_source="sqldbinstance",
+                    encrypt_connection=True,
+                    password="placeholder",
+                    trust_server_certificate=True,
+                    user_name="bbb",
+                ),
+            ),
+            resource_group_name="testrg",
+            sql_db_instance_name="sqldbinstance",
+            target_db_name="db1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20220330preview:DatabaseMigrationsSqlDb db1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance/providers/Microsoft.DataMigration/databaseMigrations/db1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseMigrationsSqlDbArgs args: The arguments to use to populate this resource's properties.

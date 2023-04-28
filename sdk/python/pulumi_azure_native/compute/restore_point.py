@@ -150,6 +150,46 @@ class RestorePoint(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Copy a restore point to a different region
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        restore_point = azure_native.compute.RestorePoint("restorePoint",
+            resource_group_name="myResourceGroup",
+            restore_point_collection_name="rpcName",
+            restore_point_name="rpName",
+            source_restore_point=azure_native.compute.ApiEntityReferenceArgs(
+                id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName/restorePoints/sourceRpName",
+            ))
+
+        ```
+        ### Create a restore point
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        restore_point = azure_native.compute.RestorePoint("restorePoint",
+            exclude_disks=[azure_native.compute.ApiEntityReferenceArgs(
+                id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+            )],
+            resource_group_name="myResourceGroup",
+            restore_point_collection_name="rpcName",
+            restore_point_name="rpName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:RestorePoint rpName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName/restorePoints/rpName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ConsistencyModeTypes']] consistency_mode: ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
@@ -170,6 +210,46 @@ class RestorePoint(pulumi.CustomResource):
         Restore Point details.
         API Version: 2022-11-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Copy a restore point to a different region
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        restore_point = azure_native.compute.RestorePoint("restorePoint",
+            resource_group_name="myResourceGroup",
+            restore_point_collection_name="rpcName",
+            restore_point_name="rpName",
+            source_restore_point=azure_native.compute.ApiEntityReferenceArgs(
+                id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName/restorePoints/sourceRpName",
+            ))
+
+        ```
+        ### Create a restore point
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        restore_point = azure_native.compute.RestorePoint("restorePoint",
+            exclude_disks=[azure_native.compute.ApiEntityReferenceArgs(
+                id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+            )],
+            resource_group_name="myResourceGroup",
+            restore_point_collection_name="rpcName",
+            restore_point_name="rpName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:RestorePoint rpName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName/restorePoints/rpName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RestorePointArgs args: The arguments to use to populate this resource's properties.

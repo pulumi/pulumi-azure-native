@@ -9,6 +9,101 @@ import * as utilities from "../../utilities";
 
 /**
  * Governance rule over a given scope
+ *
+ * ## Example Usage
+ * ### Create or update governance rule over management group scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const governanceRule = new azure_native.security.v20220101preview.GovernanceRule("governanceRule", {
+ *     description: "A rule for a management group",
+ *     displayName: "Management group rule",
+ *     excludedScopes: ["/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23"],
+ *     governanceEmailNotification: {
+ *         disableManagerEmailNotification: true,
+ *         disableOwnerEmailNotification: false,
+ *     },
+ *     isDisabled: false,
+ *     isGracePeriod: true,
+ *     ownerSource: {
+ *         type: "Manually",
+ *         value: "user@contoso.com",
+ *     },
+ *     remediationTimeframe: "7.00:00:00",
+ *     ruleId: "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+ *     rulePriority: 200,
+ *     ruleType: "Integrated",
+ *     scope: "providers/Microsoft.Management/managementGroups/contoso",
+ *     sourceResourceType: "Assessments",
+ * });
+ *
+ * ```
+ * ### Create or update governance rule over security connector scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const governanceRule = new azure_native.security.v20220101preview.GovernanceRule("governanceRule", {
+ *     description: "A rule on critical GCP recommendations",
+ *     displayName: "GCP Admin's rule",
+ *     governanceEmailNotification: {
+ *         disableManagerEmailNotification: true,
+ *         disableOwnerEmailNotification: false,
+ *     },
+ *     isDisabled: false,
+ *     isGracePeriod: true,
+ *     ownerSource: {
+ *         type: "Manually",
+ *         value: "user@contoso.com",
+ *     },
+ *     remediationTimeframe: "7.00:00:00",
+ *     ruleId: "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+ *     rulePriority: 200,
+ *     ruleType: "Integrated",
+ *     scope: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+ *     sourceResourceType: "Assessments",
+ * });
+ *
+ * ```
+ * ### Create or update governance rule over subscription scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const governanceRule = new azure_native.security.v20220101preview.GovernanceRule("governanceRule", {
+ *     description: "A rule for critical recommendations",
+ *     displayName: "Admin's rule",
+ *     governanceEmailNotification: {
+ *         disableManagerEmailNotification: false,
+ *         disableOwnerEmailNotification: false,
+ *     },
+ *     isDisabled: false,
+ *     isGracePeriod: true,
+ *     ownerSource: {
+ *         type: "Manually",
+ *         value: "user@contoso.com",
+ *     },
+ *     remediationTimeframe: "7.00:00:00",
+ *     ruleId: "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+ *     rulePriority: 200,
+ *     ruleType: "Integrated",
+ *     scope: "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+ *     sourceResourceType: "Assessments",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20220101preview:GovernanceRule ad9a8e26-29d9-4829-bb30-e597a58cdbb8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/governanceRules/ad9a8e26-29d9-4829-bb30-e597a58cdbb8 
+ * ```
  */
 export class GovernanceRule extends pulumi.CustomResource {
     /**

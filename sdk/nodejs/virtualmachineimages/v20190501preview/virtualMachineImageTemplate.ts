@@ -10,6 +10,98 @@ import * as utilities from "../../utilities";
 /**
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
  *
+ * ## Example Usage
+ * ### Create an Image Template with a user assigned identity configured
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineImageTemplate = new azure_native.virtualmachineimages.v20190501preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", {
+ *     customize: [{
+ *         name: "Shell Customizer Example",
+ *         scriptUri: "https://example.com/path/to/script.sh",
+ *         type: "Shell",
+ *     }],
+ *     distribute: [{
+ *         artifactTags: {
+ *             tagName: "value",
+ *         },
+ *         imageId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+ *         location: "1_location",
+ *         runOutputName: "image_it_pir_1",
+ *         type: "ManagedImage",
+ *     }],
+ *     identity: {
+ *         type: azure_native.virtualmachineimages.v20190501preview.ResourceIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1": {},
+ *         },
+ *     },
+ *     imageTemplateName: "myImageTemplate",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     source: {
+ *         imageId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+ *         type: "ManagedImage",
+ *     },
+ *     tags: {
+ *         imagetemplate_tag1: "IT_T1",
+ *         imagetemplate_tag2: "IT_T2",
+ *     },
+ *     vmProfile: {
+ *         vmSize: "Standard_D2s_v3",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create an Image Template.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineImageTemplate = new azure_native.virtualmachineimages.v20190501preview.VirtualMachineImageTemplate("virtualMachineImageTemplate", {
+ *     customize: [{
+ *         name: "Shell Customizer Example",
+ *         scriptUri: "https://example.com/path/to/script.sh",
+ *         type: "Shell",
+ *     }],
+ *     distribute: [{
+ *         artifactTags: {
+ *             tagName: "value",
+ *         },
+ *         imageId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+ *         location: "1_location",
+ *         runOutputName: "image_it_pir_1",
+ *         type: "ManagedImage",
+ *     }],
+ *     imageTemplateName: "myImageTemplate",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     source: {
+ *         imageId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+ *         type: "ManagedImage",
+ *     },
+ *     tags: {
+ *         imagetemplate_tag1: "IT_T1",
+ *         imagetemplate_tag2: "IT_T2",
+ *     },
+ *     vmProfile: {
+ *         vmSize: "Standard_D2s_v3",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:virtualmachineimages/v20190501preview:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate 
+ * ```
+ *
  * @deprecated Version 2019-05-01-preview will be removed in v2 of the provider.
  */
 export class VirtualMachineImageTemplate extends pulumi.CustomResource {

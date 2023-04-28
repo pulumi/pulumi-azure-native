@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.AadIam
     /// Private endpoint connection resource.
     /// API Version: 2020-03-01.
     /// Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### AadiamPutPrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.AadIam.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PolicyName = "example-policy-5849",
+    ///         PrivateEndpoint = new AzureNative.AadIam.Inputs.PrivateEndpointArgs
+    ///         {
+    ///             Id = "subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/microsoft.aadiam/privateLinkForAzureAD/ddb1/privateLinkConnections/{privateEndpointConnection name}",
+    ///         },
+    ///         PrivateEndpointConnectionName = "{privateEndpointConnection name}",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.AadIam.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Description = "You may pass",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "resourcegroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:aadiam:PrivateEndpointConnection {privateEndpointConnection name} subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/microsoft.aadiam/privateLinkForAzureAD/ddb1/privateLinkConnections/{privateEndpointConnection name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

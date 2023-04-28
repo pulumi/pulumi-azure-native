@@ -149,6 +149,96 @@ class Service(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Put a service with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.servicefabric.Service("service",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            properties=azure_native.servicefabric.StatelessServicePropertiesArgs(
+                correlation_scheme=[azure_native.servicefabric.ServiceCorrelationArgs(
+                    scheme="AlignedAffinity",
+                    service_name="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService1",
+                )],
+                default_move_cost="Medium",
+                instance_count=5,
+                min_instance_count=3,
+                min_instance_percentage=30,
+                partition_description=azure_native.servicefabric.SingletonPartitionSchemeArgs(
+                    partition_scheme="Singleton",
+                ),
+                placement_constraints="NodeType==frontend",
+                scaling_policies=[azure_native.servicefabric.ScalingPolicyArgs(
+                    scaling_mechanism=azure_native.servicefabric.PartitionInstanceCountScaleMechanismArgs(
+                        kind="ScalePartitionInstanceCount",
+                        max_instance_count=9,
+                        min_instance_count=3,
+                        scale_increment=2,
+                    ),
+                    scaling_trigger=azure_native.servicefabric.AveragePartitionLoadScalingTriggerArgs(
+                        kind="AveragePartitionLoadTrigger",
+                        lower_load_threshold=2,
+                        metric_name="metricName",
+                        scale_interval="00:01:00",
+                        upper_load_threshold=8,
+                    ),
+                )],
+                service_dns_name="myservicednsname.myApp",
+                service_kind="Stateless",
+                service_load_metrics=[azure_native.servicefabric.ServiceLoadMetricArgs(
+                    default_load=3,
+                    name="metric1",
+                    weight="Low",
+                )],
+                service_package_activation_mode="SharedProcess",
+                service_placement_policies=[azure_native.servicefabric.ServicePlacementNonPartiallyPlaceServicePolicyArgs(
+                    type="NonPartiallyPlaceService",
+                )],
+                service_type_name="myServiceType",
+            ),
+            resource_group_name="resRg",
+            service_name="myService",
+            tags={
+                "a": "b",
+            })
+
+        ```
+        ### Put a service with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.servicefabric.Service("service",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            properties=azure_native.servicefabric.StatelessServicePropertiesArgs(
+                instance_count=1,
+                partition_description=azure_native.servicefabric.SingletonPartitionSchemeArgs(
+                    partition_scheme="Singleton",
+                ),
+                service_kind="Stateless",
+                service_type_name="myServiceType",
+            ),
+            resource_group_name="resRg",
+            service_name="myService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:Service myService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The name of the application resource.
@@ -169,6 +259,96 @@ class Service(pulumi.CustomResource):
         The service resource.
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Put a service with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.servicefabric.Service("service",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            properties=azure_native.servicefabric.StatelessServicePropertiesArgs(
+                correlation_scheme=[azure_native.servicefabric.ServiceCorrelationArgs(
+                    scheme="AlignedAffinity",
+                    service_name="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService1",
+                )],
+                default_move_cost="Medium",
+                instance_count=5,
+                min_instance_count=3,
+                min_instance_percentage=30,
+                partition_description=azure_native.servicefabric.SingletonPartitionSchemeArgs(
+                    partition_scheme="Singleton",
+                ),
+                placement_constraints="NodeType==frontend",
+                scaling_policies=[azure_native.servicefabric.ScalingPolicyArgs(
+                    scaling_mechanism=azure_native.servicefabric.PartitionInstanceCountScaleMechanismArgs(
+                        kind="ScalePartitionInstanceCount",
+                        max_instance_count=9,
+                        min_instance_count=3,
+                        scale_increment=2,
+                    ),
+                    scaling_trigger=azure_native.servicefabric.AveragePartitionLoadScalingTriggerArgs(
+                        kind="AveragePartitionLoadTrigger",
+                        lower_load_threshold=2,
+                        metric_name="metricName",
+                        scale_interval="00:01:00",
+                        upper_load_threshold=8,
+                    ),
+                )],
+                service_dns_name="myservicednsname.myApp",
+                service_kind="Stateless",
+                service_load_metrics=[azure_native.servicefabric.ServiceLoadMetricArgs(
+                    default_load=3,
+                    name="metric1",
+                    weight="Low",
+                )],
+                service_package_activation_mode="SharedProcess",
+                service_placement_policies=[azure_native.servicefabric.ServicePlacementNonPartiallyPlaceServicePolicyArgs(
+                    type="NonPartiallyPlaceService",
+                )],
+                service_type_name="myServiceType",
+            ),
+            resource_group_name="resRg",
+            service_name="myService",
+            tags={
+                "a": "b",
+            })
+
+        ```
+        ### Put a service with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.servicefabric.Service("service",
+            application_name="myApp",
+            cluster_name="myCluster",
+            location="eastus",
+            properties=azure_native.servicefabric.StatelessServicePropertiesArgs(
+                instance_count=1,
+                partition_description=azure_native.servicefabric.SingletonPartitionSchemeArgs(
+                    partition_scheme="Singleton",
+                ),
+                service_kind="Stateless",
+                service_type_name="myServiceType",
+            ),
+            resource_group_name="resRg",
+            service_name="myService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:Service myService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

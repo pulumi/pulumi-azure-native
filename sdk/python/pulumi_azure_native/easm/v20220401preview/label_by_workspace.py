@@ -112,6 +112,28 @@ class LabelByWorkspace(pulumi.CustomResource):
         """
         Label details
 
+        ## Example Usage
+        ### Labels
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        label_by_workspace = azure_native.easm.v20220401preview.LabelByWorkspace("labelByWorkspace",
+            label_name="ThisisaLabel",
+            resource_group_name="dummyrg",
+            workspace_name="ThisisaWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:easm/v20220401preview:LabelByWorkspace ThisisaLabel /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/dummyrg/providers/Microsoft.Easm/workspaces/ThisisaWorkspace/labels/ThisisaLabel 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] color: Label color.
@@ -128,6 +150,28 @@ class LabelByWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Label details
+
+        ## Example Usage
+        ### Labels
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        label_by_workspace = azure_native.easm.v20220401preview.LabelByWorkspace("labelByWorkspace",
+            label_name="ThisisaLabel",
+            resource_group_name="dummyrg",
+            workspace_name="ThisisaWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:easm/v20220401preview:LabelByWorkspace ThisisaLabel /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/dummyrg/providers/Microsoft.Easm/workspaces/ThisisaWorkspace/labels/ThisisaLabel 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LabelByWorkspaceArgs args: The arguments to use to populate this resource's properties.

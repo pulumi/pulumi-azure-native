@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Peering in an ExpressRoute Cross Connection resource.
+ *
+ * ## Example Usage
+ * ### ExpressRouteCrossConnectionBgpPeeringCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteCrossConnectionPeering = new azure_native.network.v20201101.ExpressRouteCrossConnectionPeering("expressRouteCrossConnectionPeering", {
+ *     crossConnectionName: "<circuitServiceKey>",
+ *     ipv6PeeringConfig: {
+ *         primaryPeerAddressPrefix: "3FFE:FFFF:0:CD30::/126",
+ *         secondaryPeerAddressPrefix: "3FFE:FFFF:0:CD30::4/126",
+ *     },
+ *     peerASN: 200,
+ *     peeringName: "AzurePrivatePeering",
+ *     primaryPeerAddressPrefix: "192.168.16.252/30",
+ *     resourceGroupName: "CrossConnection-SiliconValley",
+ *     secondaryPeerAddressPrefix: "192.168.18.252/30",
+ *     vlanId: 200,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:ExpressRouteCrossConnectionPeering AzurePrivatePeering /subscriptions/subid/resourceGroups/CrossConnection-Boydton1DC/providers/Microsoft.Network/expressRouteCrossConnections/<circuitServiceKey>/peerings/AzurePrivatePeering 
+ * ```
  */
 export class ExpressRouteCrossConnectionPeering extends pulumi.CustomResource {
     /**

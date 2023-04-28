@@ -130,6 +130,44 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         """
         Pool of backend IP addresses.
 
+        ## Example Usage
+        ### Update load balancer backend pool with backend addresses containing virtual network and  IP address.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        load_balancer_backend_address_pool = azure_native.network.v20201101.LoadBalancerBackendAddressPool("loadBalancerBackendAddressPool",
+            backend_address_pool_name="backend",
+            load_balancer_backend_addresses=[
+                {
+                    "ipAddress": "10.0.0.4",
+                    "name": "address1",
+                    "virtualNetwork": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb",
+                    ),
+                },
+                {
+                    "ipAddress": "10.0.0.5",
+                    "name": "address2",
+                    "virtualNetwork": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb",
+                    ),
+                },
+            ],
+            load_balancer_name="lb",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:LoadBalancerBackendAddressPool backend /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backend_address_pool_name: The name of the backend address pool.
@@ -147,6 +185,44 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Pool of backend IP addresses.
+
+        ## Example Usage
+        ### Update load balancer backend pool with backend addresses containing virtual network and  IP address.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        load_balancer_backend_address_pool = azure_native.network.v20201101.LoadBalancerBackendAddressPool("loadBalancerBackendAddressPool",
+            backend_address_pool_name="backend",
+            load_balancer_backend_addresses=[
+                {
+                    "ipAddress": "10.0.0.4",
+                    "name": "address1",
+                    "virtualNetwork": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb",
+                    ),
+                },
+                {
+                    "ipAddress": "10.0.0.5",
+                    "name": "address2",
+                    "virtualNetwork": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb",
+                    ),
+                },
+            ],
+            load_balancer_name="lb",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:LoadBalancerBackendAddressPool backend /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/backend 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LoadBalancerBackendAddressPoolArgs args: The arguments to use to populate this resource's properties.

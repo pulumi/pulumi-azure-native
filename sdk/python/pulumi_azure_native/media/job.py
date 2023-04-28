@@ -181,6 +181,41 @@ class Job(pulumi.CustomResource):
         API Version: 2022-07-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a Job
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.media.Job("job",
+            account_name="contosomedia",
+            correlation_data={
+                "Key 2": "Value 2",
+                "key1": "value1",
+            },
+            input=azure_native.media.JobInputAssetArgs(
+                asset_name="job1-InputAsset",
+                odata_type="#Microsoft.Media.JobInputAsset",
+            ),
+            job_name="job1",
+            outputs=[azure_native.media.JobOutputAssetResponseArgs(
+                asset_name="job1-OutputAsset",
+                odata_type="#Microsoft.Media.JobOutputAsset",
+            )],
+            resource_group_name="contosoresources",
+            transform_name="exampleTransform")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media:Job job1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Media/mediaservices/contosomedia/transforms/exampleTransform/jobs/job1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -203,6 +238,41 @@ class Job(pulumi.CustomResource):
         A Job resource type. The progress and state can be obtained by polling a Job or subscribing to events using EventGrid.
         API Version: 2022-07-01.
         Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a Job
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.media.Job("job",
+            account_name="contosomedia",
+            correlation_data={
+                "Key 2": "Value 2",
+                "key1": "value1",
+            },
+            input=azure_native.media.JobInputAssetArgs(
+                asset_name="job1-InputAsset",
+                odata_type="#Microsoft.Media.JobInputAsset",
+            ),
+            job_name="job1",
+            outputs=[azure_native.media.JobOutputAssetResponseArgs(
+                asset_name="job1-OutputAsset",
+                odata_type="#Microsoft.Media.JobOutputAsset",
+            )],
+            resource_group_name="contosoresources",
+            transform_name="exampleTransform")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media:Job job1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Media/mediaservices/contosomedia/transforms/exampleTransform/jobs/job1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

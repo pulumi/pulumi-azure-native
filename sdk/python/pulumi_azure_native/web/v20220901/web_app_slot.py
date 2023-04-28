@@ -661,6 +661,58 @@ class WebAppSlot(pulumi.CustomResource):
         """
         A web app, a mobile app backend, or an API app.
 
+        ## Example Usage
+        ### Clone web app slot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_slot = azure_native.web.v20220901.WebAppSlot("webAppSlot",
+            cloning_info=azure_native.web.v20220901.CloningInfoArgs(
+                app_settings_overrides={
+                    "Setting1": "NewValue1",
+                    "Setting3": "NewValue5",
+                },
+                clone_custom_host_names=True,
+                clone_source_control=True,
+                configure_load_balancing=False,
+                hosting_environment="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
+                overwrite=False,
+                source_web_app_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478/slot/qa",
+                source_web_app_location="West Europe",
+            ),
+            kind="app",
+            location="East US",
+            name="sitef6141",
+            resource_group_name="testrg123",
+            slot="staging")
+
+        ```
+        ### Create or Update Web App Slot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_slot = azure_native.web.v20220901.WebAppSlot("webAppSlot",
+            kind="app",
+            location="East US",
+            name="sitef6141",
+            resource_group_name="testrg123",
+            server_farm_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
+            slot="staging")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppSlot sitef6141/staging /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/slots/staging 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] client_affinity_enabled: <code>true</code> to enable client affinity; <code>false</code> to stop sending session affinity cookies, which route client requests in the same session to the same instance. Default is <code>true</code>.
@@ -714,6 +766,58 @@ class WebAppSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A web app, a mobile app backend, or an API app.
+
+        ## Example Usage
+        ### Clone web app slot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_slot = azure_native.web.v20220901.WebAppSlot("webAppSlot",
+            cloning_info=azure_native.web.v20220901.CloningInfoArgs(
+                app_settings_overrides={
+                    "Setting1": "NewValue1",
+                    "Setting3": "NewValue5",
+                },
+                clone_custom_host_names=True,
+                clone_source_control=True,
+                configure_load_balancing=False,
+                hosting_environment="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/hostingenvironments/aseforsites",
+                overwrite=False,
+                source_web_app_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg456/providers/Microsoft.Web/sites/srcsiteg478/slot/qa",
+                source_web_app_location="West Europe",
+            ),
+            kind="app",
+            location="East US",
+            name="sitef6141",
+            resource_group_name="testrg123",
+            slot="staging")
+
+        ```
+        ### Create or Update Web App Slot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_slot = azure_native.web.v20220901.WebAppSlot("webAppSlot",
+            kind="app",
+            location="East US",
+            name="sitef6141",
+            resource_group_name="testrg123",
+            server_farm_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/DefaultAsp",
+            slot="staging")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppSlot sitef6141/staging /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/slots/staging 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppSlotArgs args: The arguments to use to populate this resource's properties.

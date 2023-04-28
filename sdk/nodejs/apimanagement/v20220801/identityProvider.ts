@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Identity Provider details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateIdentityProvider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const identityProvider = new azure_native.apimanagement.v20220801.IdentityProvider("identityProvider", {
+ *     clientId: "facebookid",
+ *     clientSecret: "facebookapplicationsecret",
+ *     identityProviderName: "facebook",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:IdentityProvider Facebook /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/identityProviders/Facebook 
+ * ```
  */
 export class IdentityProvider extends pulumi.CustomResource {
     /**

@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about azure databricks accessConnector.
+ *
+ * ## Example Usage
+ * ### Create an azure databricks accessConnector with SystemAssigned Identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accessConnector = new azure_native.databricks.v20221001preview.AccessConnector("accessConnector", {
+ *     connectorName: "myAccessConnector",
+ *     location: "westus",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ * ### Create an azure databricks accessConnector with UserAssigned Identity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accessConnector = new azure_native.databricks.v20221001preview.AccessConnector("accessConnector", {
+ *     connectorName: "myAccessConnector",
+ *     location: "westus",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databricks/v20221001preview:AccessConnector myAccessConnector /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Databricks/accessConnectors/myAccessConnector2 
+ * ```
  */
 export class AccessConnector extends pulumi.CustomResource {
     /**

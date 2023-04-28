@@ -111,6 +111,50 @@ class CustomerEvent(pulumi.CustomResource):
         """
         The Customer Notification Event resource.
 
+        ## Example Usage
+        ### CustomerEventCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        customer_event = azure_native.testbase.v20220401preview.CustomerEvent("customerEvent",
+            customer_event_name="WeeklySummary",
+            event_name="WeeklySummary",
+            receivers=[
+                {
+                    "receiverType": "UserObjects",
+                    "receiverValue": {
+                        "userObjectReceiverValue": azure_native.testbase.v20220401preview.UserObjectReceiverValueArgs(
+                            user_object_ids=[
+                                "245245245245325",
+                                "365365365363565",
+                            ],
+                        ),
+                    },
+                },
+                {
+                    "receiverType": "DistributionGroup",
+                    "receiverValue": {
+                        "distributionGroupListReceiverValue": azure_native.testbase.v20220401preview.DistributionGroupListReceiverValueArgs(
+                            distribution_groups=["test@microsoft.com"],
+                        ),
+                    },
+                },
+            ],
+            resource_group_name="contoso-rg1",
+            test_base_account_name="contoso-testBaseAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase/v20220401preview:CustomerEvent WeeklySummary /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/customerEvents/WeeklySummary 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_event_name: The resource name of the Test Base Customer event.
@@ -127,6 +171,50 @@ class CustomerEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Customer Notification Event resource.
+
+        ## Example Usage
+        ### CustomerEventCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        customer_event = azure_native.testbase.v20220401preview.CustomerEvent("customerEvent",
+            customer_event_name="WeeklySummary",
+            event_name="WeeklySummary",
+            receivers=[
+                {
+                    "receiverType": "UserObjects",
+                    "receiverValue": {
+                        "userObjectReceiverValue": azure_native.testbase.v20220401preview.UserObjectReceiverValueArgs(
+                            user_object_ids=[
+                                "245245245245325",
+                                "365365365363565",
+                            ],
+                        ),
+                    },
+                },
+                {
+                    "receiverType": "DistributionGroup",
+                    "receiverValue": {
+                        "distributionGroupListReceiverValue": azure_native.testbase.v20220401preview.DistributionGroupListReceiverValueArgs(
+                            distribution_groups=["test@microsoft.com"],
+                        ),
+                    },
+                },
+            ],
+            resource_group_name="contoso-rg1",
+            test_base_account_name="contoso-testBaseAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase/v20220401preview:CustomerEvent WeeklySummary /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/customerEvents/WeeklySummary 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomerEventArgs args: The arguments to use to populate this resource's properties.

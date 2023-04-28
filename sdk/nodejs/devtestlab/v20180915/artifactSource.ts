@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of an artifact source.
+ *
+ * ## Example Usage
+ * ### ArtifactSources_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const artifactSource = new azure_native.devtestlab.v20180915.ArtifactSource("artifactSource", {
+ *     armTemplateFolderPath: "{armTemplateFolderPath}",
+ *     branchRef: "{branchRef}",
+ *     displayName: "{displayName}",
+ *     folderPath: "{folderPath}",
+ *     labName: "{labName}",
+ *     name: "{artifactSourceName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     securityToken: "{securityToken}",
+ *     sourceType: "{VsoGit|GitHub|StorageAccount}",
+ *     status: "{Enabled|Disabled}",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ *     uri: "{artifactSourceUri}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:ArtifactSource {artifactSourceName} /subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactsources/{artifactSourceName} 
+ * ```
  */
 export class ArtifactSource extends pulumi.CustomResource {
     /**

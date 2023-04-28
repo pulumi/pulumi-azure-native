@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Insights
     /// Properties that define a Continuous Export configuration.
     /// API Version: 2015-05-01.
     /// Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ExportConfigurationUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exportConfiguration = new AzureNative.Insights.ExportConfiguration("exportConfiguration", new()
+    ///     {
+    ///         DestinationAccountId = "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.ClassicStorage/storageAccounts/mystorageblob",
+    ///         DestinationAddress = "https://mystorageblob.blob.core.windows.net/fchentest?sv=2015-04-05&amp;sr=c&amp;sig=token",
+    ///         DestinationStorageLocationId = "eastus",
+    ///         DestinationStorageSubscriptionId = "subid",
+    ///         DestinationType = "Blob",
+    ///         ExportId = "uGOoki0jQsyEs3IdQ83Q4QsNr4=",
+    ///         IsEnabled = "true",
+    ///         NotificationQueueEnabled = "false",
+    ///         NotificationQueueUri = "",
+    ///         RecordTypes = "Requests, Event, Exceptions, Metrics, PageViews, PageViewPerformance, Rdd, PerformanceCounters, Availability",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "my-component",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights:ExportConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ExportConfiguration")]
     public partial class ExportConfiguration : global::Pulumi.CustomResource

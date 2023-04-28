@@ -300,6 +300,40 @@ class SqlPool(pulumi.CustomResource):
         """
         A SQL Analytics pool
 
+        ## Example Usage
+        ### Create a SQL Analytics pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool = azure_native.synapse.v20210601preview.SqlPool("sqlPool",
+            collation="",
+            create_mode="",
+            location="Southeast Asia",
+            max_size_bytes=0,
+            recoverable_database_id="",
+            resource_group_name="ExampleResourceGroup",
+            sku=azure_native.synapse.v20210601preview.SkuArgs(
+                name="",
+                tier="",
+            ),
+            source_database_id="",
+            sql_pool_name="ExampleSqlPool",
+            storage_account_type="LRS",
+            tags={},
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210601preview:SqlPool ExampleSqlPool /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspaces/sqlPools/ExampleSqlPool 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: Collation mode
@@ -334,6 +368,40 @@ class SqlPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SQL Analytics pool
+
+        ## Example Usage
+        ### Create a SQL Analytics pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool = azure_native.synapse.v20210601preview.SqlPool("sqlPool",
+            collation="",
+            create_mode="",
+            location="Southeast Asia",
+            max_size_bytes=0,
+            recoverable_database_id="",
+            resource_group_name="ExampleResourceGroup",
+            sku=azure_native.synapse.v20210601preview.SkuArgs(
+                name="",
+                tier="",
+            ),
+            source_database_id="",
+            sql_pool_name="ExampleSqlPool",
+            storage_account_type="LRS",
+            tags={},
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210601preview:SqlPool ExampleSqlPool /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspaces/sqlPools/ExampleSqlPool 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlPoolArgs args: The arguments to use to populate this resource's properties.

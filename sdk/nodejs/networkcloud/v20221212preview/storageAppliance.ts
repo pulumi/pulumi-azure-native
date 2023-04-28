@@ -7,6 +7,46 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Create or update storage appliance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAppliance = new azure_native.networkcloud.v20221212preview.StorageAppliance("storageAppliance", {
+ *     administratorCredentials: {
+ *         password: "{password}",
+ *         username: "adminUser",
+ *     },
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     rackId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+ *     rackSlot: 1,
+ *     resourceGroupName: "resourceGroupName",
+ *     serialNumber: "BM1219XXX",
+ *     storageApplianceName: "storageApplianceName",
+ *     storageApplianceSkuId: "684E-3B16-399E",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud/v20221212preview:StorageAppliance storageApplianceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/storageAppliances/storageApplianceName 
+ * ```
+ */
 export class StorageAppliance extends pulumi.CustomResource {
     /**
      * Get an existing StorageAppliance resource's state with the given name, ID, and optional extra

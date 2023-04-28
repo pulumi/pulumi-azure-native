@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.MixedReality.V20210301Preview
 {
     /// <summary>
     /// ObjectAnchorsAccount Response.
+    /// 
+    /// ## Example Usage
+    /// ### Create object anchors account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var objectAnchorsAccount = new AzureNative.MixedReality.V20210301Preview.ObjectAnchorsAccount("objectAnchorsAccount", new()
+    ///     {
+    ///         AccountName = "MyAccount",
+    ///         Identity = new AzureNative.MixedReality.V20210301Preview.Inputs.ObjectAnchorsAccountIdentityArgs
+    ///         {
+    ///             Type = AzureNative.MixedReality.V20210301Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/objectAnchorsAccounts/MyAccount 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount")]
     public partial class ObjectAnchorsAccount : global::Pulumi.CustomResource

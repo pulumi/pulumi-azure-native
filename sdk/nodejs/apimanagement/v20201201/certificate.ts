@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateCertificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const certificate = new azure_native.apimanagement.v20201201.Certificate("certificate", {
+ *     certificateId: "tempcert",
+ *     data: "****************Base 64 Encoded Certificate *******************************",
+ *     password: "****Certificate Password******",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateCertificateWithKeyVault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const certificate = new azure_native.apimanagement.v20201201.Certificate("certificate", {
+ *     certificateId: "templateCertkv",
+ *     keyVault: {
+ *         identityClientId: "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+ *         secretIdentifier: "https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:Certificate templateCertkv /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/templateCertkv 
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

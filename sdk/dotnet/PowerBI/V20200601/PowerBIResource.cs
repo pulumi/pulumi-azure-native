@@ -9,6 +9,42 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.PowerBI.V20200601
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Creates or updates private link service resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var powerBIResource = new AzureNative.PowerBI.V20200601.PowerBIResource("powerBIResource", new()
+    ///     {
+    ///         AzureResourceName = "azureResourceName",
+    ///         Location = "global",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///         TenantId = "ac2bc297-8a3e-46f3-972d-87c2b4ae6e2f",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:powerbi/v20200601:PowerBIResource myPrivateLinkServiceResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/{azureResourceName} 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:powerbi/v20200601:PowerBIResource")]
     public partial class PowerBIResource : global::Pulumi.CustomResource
     {

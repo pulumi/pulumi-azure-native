@@ -8,6 +8,30 @@ import * as utilities from "../utilities";
  * Data Lake Store virtual network rule information.
  * API Version: 2016-11-01.
  * Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates or updates the specified virtual network rule. During update, the virtual network rule with the specified name will be replaced with this new virtual network rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetworkRule = new azure_native.datalakestore.VirtualNetworkRule("virtualNetworkRule", {
+ *     accountName: "contosoadla",
+ *     resourceGroupName: "contosorg",
+ *     subnetId: "test_subnetId",
+ *     virtualNetworkRuleName: "test_virtual_network_rules_name",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datalakestore:VirtualNetworkRule test_virtual_network_rules_name 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+ * ```
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {
     /**

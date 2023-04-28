@@ -9,6 +9,46 @@ import * as utilities from "../../utilities";
 
 /**
  * Define the SAP Application Server Instance resource.
+ *
+ * ## Example Usage
+ * ### Create SAP Application Server Instances for HA System with Availability Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sapApplicationServerInstance = new azure_native.workloads.v20211201preview.SAPApplicationServerInstance("sapApplicationServerInstance", {
+ *     applicationInstanceName: "app01",
+ *     location: "westcentralus",
+ *     resourceGroupName: "test-rg",
+ *     sapVirtualInstanceName: "X00",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### SAPApplicationServerInstances_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sapApplicationServerInstance = new azure_native.workloads.v20211201preview.SAPApplicationServerInstance("sapApplicationServerInstance", {
+ *     applicationInstanceName: "app01",
+ *     location: "westcentralus",
+ *     resourceGroupName: "test-rg",
+ *     sapVirtualInstanceName: "X00",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads/v20211201preview:SAPApplicationServerInstance app01 /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/applicationInstances/app01 
+ * ```
  */
 export class SAPApplicationServerInstance extends pulumi.CustomResource {
     /**

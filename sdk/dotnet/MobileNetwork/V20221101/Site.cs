@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.MobileNetwork.V20221101
 {
     /// <summary>
     /// Site resource. Must be created in the same location as its parent mobile network.
+    /// 
+    /// ## Example Usage
+    /// ### Create mobile network site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var site = new AzureNative.MobileNetwork.V20221101.Site("site", new()
+    ///     {
+    ///         Location = "testLocation",
+    ///         MobileNetworkName = "testMobileNetwork",
+    ///         ResourceGroupName = "rg1",
+    ///         SiteName = "testSite",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork/v20221101:Site testSite /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20221101:Site")]
     public partial class Site : global::Pulumi.CustomResource

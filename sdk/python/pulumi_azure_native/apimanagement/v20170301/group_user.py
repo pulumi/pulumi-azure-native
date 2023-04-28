@@ -94,6 +94,29 @@ class GroupUser(pulumi.CustomResource):
         """
         User details.
 
+        ## Example Usage
+        ### ApiManagementCreateGroupUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group_user = azure_native.apimanagement.v20170301.GroupUser("groupUser",
+            group_id="tempgroup",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            uid="59307d350af58404d8a26300")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:GroupUser 59307d350af58404d8a26300 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/59307d350af58404d8a26300 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: Group identifier. Must be unique in the current API Management service instance.
@@ -109,6 +132,29 @@ class GroupUser(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         User details.
+
+        ## Example Usage
+        ### ApiManagementCreateGroupUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        group_user = azure_native.apimanagement.v20170301.GroupUser("groupUser",
+            group_id="tempgroup",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            uid="59307d350af58404d8a26300")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20170301:GroupUser 59307d350af58404d8a26300 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/59307d350af58404d8a26300 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GroupUserArgs args: The arguments to use to populate this resource's properties.

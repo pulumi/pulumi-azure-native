@@ -113,6 +113,30 @@ class Network(pulumi.CustomResource):
         """
         This type describes a network resource.
 
+        ## Example Usage
+        ### CreateOrUpdateNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network = azure_native.servicefabricmesh.v20180901preview.Network("network",
+            location="EastUS",
+            network_resource_name="sampleNetwork",
+            properties=azure_native.servicefabricmesh.v20180901preview.NetworkResourcePropertiesArgs(),
+            resource_group_name="sbz_demo",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180901preview:Network sampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -129,6 +153,30 @@ class Network(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This type describes a network resource.
+
+        ## Example Usage
+        ### CreateOrUpdateNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network = azure_native.servicefabricmesh.v20180901preview.Network("network",
+            location="EastUS",
+            network_resource_name="sampleNetwork",
+            properties=azure_native.servicefabricmesh.v20180901preview.NetworkResourcePropertiesArgs(),
+            resource_group_name="sbz_demo",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180901preview:Network sampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkArgs args: The arguments to use to populate this resource's properties.

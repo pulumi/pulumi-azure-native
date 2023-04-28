@@ -11,6 +11,48 @@ import * as utilities from "../utilities";
  * External OAuth authorization server settings.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateAuthorizationServer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const authorizationServer = new azure_native.apimanagement.AuthorizationServer("authorizationServer", {
+ *     authorizationEndpoint: "https://www.contoso.com/oauth2/auth",
+ *     authorizationMethods: [azure_native.apimanagement.AuthorizationMethod.GET],
+ *     authsid: "newauthServer",
+ *     bearerTokenSendingMethods: ["authorizationHeader"],
+ *     clientId: "1",
+ *     clientRegistrationEndpoint: "https://www.contoso.com/apps",
+ *     clientSecret: "2",
+ *     defaultScope: "read write",
+ *     description: "test server",
+ *     displayName: "test2",
+ *     grantTypes: [
+ *         "authorizationCode",
+ *         "implicit",
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     resourceOwnerPassword: "pwd",
+ *     resourceOwnerUsername: "un",
+ *     serviceName: "apimService1",
+ *     supportState: true,
+ *     tokenEndpoint: "https://www.contoso.com/oauth2/token",
+ *     useInApiDocumentation: true,
+ *     useInTestConsole: false,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:AuthorizationServer newauthServer /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationServers/newauthServer 
+ * ```
  */
 export class AuthorizationServer extends pulumi.CustomResource {
     /**

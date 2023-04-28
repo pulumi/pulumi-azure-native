@@ -7,6 +7,31 @@ import * as utilities from "../../utilities";
 /**
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
  *
+ * ## Example Usage
+ * ### RedisCacheFirewallRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redisFirewallRule = new azure_native.cache.v20160401.RedisFirewallRule("redisFirewallRule", {
+ *     cacheName: "cache1",
+ *     endIP: "192.168.1.4",
+ *     resourceGroupName: "rg1",
+ *     ruleName: "rule1",
+ *     startIP: "192.168.1.1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cache/v20160401:RedisFirewallRule cache1/rule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/firewallRules/rule1 
+ * ```
+ *
  * @deprecated Version 2016-04-01 will be removed in v2 of the provider.
  */
 export class RedisFirewallRule extends pulumi.CustomResource {

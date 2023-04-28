@@ -131,6 +131,33 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
         Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
         API Version: 2022-10-01.
 
+        ## Example Usage
+        ### Create or Update Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_environments_certificate = azure_native.app.ConnectedEnvironmentsCertificate("connectedEnvironmentsCertificate",
+            certificate_name="certificate-firendly-name",
+            connected_environment_name="testcontainerenv",
+            location="East US",
+            properties=azure_native.app.CertificatePropertiesArgs(
+                password="private key password",
+                value="Y2VydA==",
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ConnectedEnvironmentsCertificate myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/testcontainerenv/certificate-firendly-name 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: Name of the Certificate.
@@ -149,6 +176,33 @@ class ConnectedEnvironmentsCertificate(pulumi.CustomResource):
         """
         Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
         API Version: 2022-10-01.
+
+        ## Example Usage
+        ### Create or Update Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connected_environments_certificate = azure_native.app.ConnectedEnvironmentsCertificate("connectedEnvironmentsCertificate",
+            certificate_name="certificate-firendly-name",
+            connected_environment_name="testcontainerenv",
+            location="East US",
+            properties=azure_native.app.CertificatePropertiesArgs(
+                password="private key password",
+                value="Y2VydA==",
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ConnectedEnvironmentsCertificate myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/testcontainerenv/certificate-firendly-name 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectedEnvironmentsCertificateArgs args: The arguments to use to populate this resource's properties.

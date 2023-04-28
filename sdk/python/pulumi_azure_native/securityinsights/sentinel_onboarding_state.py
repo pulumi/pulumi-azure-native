@@ -97,6 +97,29 @@ class SentinelOnboardingState(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Sentinel onboarding state
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sentinel_onboarding_state = azure_native.securityinsights.SentinelOnboardingState("sentinelOnboardingState",
+            customer_managed_key=False,
+            resource_group_name="myRg",
+            sentinel_onboarding_state_name="default",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:SentinelOnboardingState default /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/onboardingStates/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] customer_managed_key: Flag that indicates the status of the CMK setting
@@ -114,6 +137,29 @@ class SentinelOnboardingState(pulumi.CustomResource):
         Sentinel onboarding state
         API Version: 2023-02-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Sentinel onboarding state
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sentinel_onboarding_state = azure_native.securityinsights.SentinelOnboardingState("sentinelOnboardingState",
+            customer_managed_key=False,
+            resource_group_name="myRg",
+            sentinel_onboarding_state_name="default",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:SentinelOnboardingState default /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/onboardingStates/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SentinelOnboardingStateArgs args: The arguments to use to populate this resource's properties.

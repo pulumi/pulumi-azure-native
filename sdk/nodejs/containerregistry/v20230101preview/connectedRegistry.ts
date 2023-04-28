@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a connected registry for a container registry.
+ *
+ * ## Example Usage
+ * ### ConnectedRegistryCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectedRegistry = new azure_native.containerregistry.v20230101preview.ConnectedRegistry("connectedRegistry", {
+ *     clientTokenIds: ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/client1Token"],
+ *     connectedRegistryName: "myConnectedRegistry",
+ *     mode: "ReadWrite",
+ *     notificationsList: [
+ *         "hello-world:*:*",
+ *         "sample/repo/*:1.0:*",
+ *     ],
+ *     parent: {
+ *         syncProperties: {
+ *             messageTtl: "P2D",
+ *             schedule: "0 9 * * *",
+ *             syncWindow: "PT3H",
+ *             tokenId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tokens/syncToken",
+ *         },
+ *     },
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20230101preview:ConnectedRegistry myConnectedRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/connectedRegistries/myConnectedRegistry 
+ * ```
  */
 export class ConnectedRegistry extends pulumi.CustomResource {
     /**

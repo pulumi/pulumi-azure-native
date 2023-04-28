@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the Dedicated host.
+ *
+ * ## Example Usage
+ * ### Create or update a dedicated host .
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dedicatedHost = new azure_native.compute.v20221101.DedicatedHost("dedicatedHost", {
+ *     hostGroupName: "myDedicatedHostGroup",
+ *     hostName: "myDedicatedHost",
+ *     location: "westus",
+ *     platformFaultDomain: 1,
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "DSv3-Type1",
+ *     },
+ *     tags: {
+ *         department: "HR",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20221101:DedicatedHost myDedicatedHost /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/HostGroups/myDedicatedHostGroup/hosts/myDedicatedHost 
+ * ```
  */
 export class DedicatedHost extends pulumi.CustomResource {
     /**

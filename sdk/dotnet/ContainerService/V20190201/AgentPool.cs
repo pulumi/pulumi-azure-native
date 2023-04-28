@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
 {
     /// <summary>
     /// Agent Pool.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Agent Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20190201.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         ManagedClusterName = "clustername1",
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         VmSize = "Standard_DS1_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20190201:AgentPool agentpool1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/agentPools/agentpool1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerservice/v20190201:AgentPool")]

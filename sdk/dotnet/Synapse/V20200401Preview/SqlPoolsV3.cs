@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
 {
     /// <summary>
     /// A sql pool resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a sqlpool.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlPoolsV3 = new AzureNative.Synapse.V20200401Preview.SqlPoolsV3("sqlPoolsV3", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg_fb5ce457-3576-425e-b22d-7300689fbea0",
+    ///         Sku = new AzureNative.Synapse.V20200401Preview.Inputs.SkuV3Args
+    ///         {
+    ///             Name = "DW1000f",
+    ///             Tier = "Synapse",
+    ///         },
+    ///         SqlPoolName = "22c317e3-97a3-4ae3-9e91-a3456a5fff31",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "val1" },
+    ///         },
+    ///         WorkspaceName = "srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20200401preview:SqlPoolsV3 22c317e3-97a3-4ae3-9e91-a3456a5fff31 /subscriptions/2ce559e9-b582-446a-8eb3-0cd81e07b7df/resourceGroups/rg_fb5ce457-3576-425e-b22d-7300689fbea0/providers/Microsoft.Synapse/workspaces/srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c/sqlPools/22c317e3-97a3-4ae3-9e91-a3456a5fff31 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2020-04-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:synapse/v20200401preview:SqlPoolsV3")]

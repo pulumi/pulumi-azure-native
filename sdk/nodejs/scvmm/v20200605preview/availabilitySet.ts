@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * The AvailabilitySets resource definition.
+ *
+ * ## Example Usage
+ * ### CreateAvailabilitySet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const availabilitySet = new azure_native.scvmm.v20200605preview.AvailabilitySet("availabilitySet", {
+ *     availabilitySetName: "hr-avset",
+ *     extendedLocation: {
+ *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+ *         type: "customLocation",
+ *     },
+ *     location: "East US",
+ *     resourceGroupName: "testrg",
+ *     vmmServerId: "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ScVmm/VMMServers/ContosoVMMServer",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:scvmm/v20200605preview:AvailabilitySet HRAvailabilitySet /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ScVmm/AvailabilitySets/HRAvailabilitySet 
+ * ```
  */
 export class AvailabilitySet extends pulumi.CustomResource {
     /**

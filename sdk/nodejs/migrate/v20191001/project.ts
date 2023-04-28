@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Migrate Project.
+ *
+ * ## Example Usage
+ * ### Projects_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const project = new azure_native.migrate.v20191001.Project("project", {
+ *     eTag: "",
+ *     location: "West Europe",
+ *     projectName: "abGoyalProject2",
+ *     properties: {
+ *         assessmentSolutionId: "/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourcegroups/abgoyal-westeurope/providers/microsoft.migrate/migrateprojects/abgoyalweselfhost/Solutions/Servers-Assessment-ServerAssessment",
+ *         projectStatus: "Active",
+ *     },
+ *     resourceGroupName: "abgoyal-westEurope",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20191001:Project abGoyalProject2 /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abGoyalProject2 
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

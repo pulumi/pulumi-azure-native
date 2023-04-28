@@ -113,6 +113,32 @@ class Gateway(pulumi.CustomResource):
         """
         Gateway details.
 
+        ## Example Usage
+        ### ApiManagementCreateGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway = azure_native.apimanagement.v20201201.Gateway("gateway",
+            description="my gateway 1",
+            gateway_id="gw1",
+            location_data=azure_native.apimanagement.v20201201.ResourceLocationDataContractResponseArgs(
+                name="my location",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:Gateway a1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Gateway description
@@ -129,6 +155,32 @@ class Gateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Gateway details.
+
+        ## Example Usage
+        ### ApiManagementCreateGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gateway = azure_native.apimanagement.v20201201.Gateway("gateway",
+            description="my gateway 1",
+            gateway_id="gw1",
+            location_data=azure_native.apimanagement.v20201201.ResourceLocationDataContractResponseArgs(
+                name="my location",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:Gateway a1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

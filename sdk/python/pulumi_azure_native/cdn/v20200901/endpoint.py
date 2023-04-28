@@ -391,6 +391,136 @@ class Endpoint(pulumi.CustomResource):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 
+        ## Example Usage
+        ### Endpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.cdn.v20200901.Endpoint("endpoint",
+            content_types_to_compress=[
+                "text/html",
+                "application/octet-stream",
+            ],
+            default_origin_group=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1",
+            ),
+            delivery_policy=azure_native.cdn.v20200901.EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs(
+                description="Test description for a policy.",
+                rules=[{
+                    "actions": [
+                        azure_native.cdn.v20200901.DeliveryRuleCacheExpirationActionArgs(
+                            name="CacheExpiration",
+                            parameters=azure_native.cdn.v20200901.CacheExpirationActionParametersArgs(
+                                cache_behavior="Override",
+                                cache_duration="10:10:09",
+                                cache_type="All",
+                                odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters",
+                            ),
+                        ),
+                        azure_native.cdn.v20200901.DeliveryRuleResponseHeaderActionArgs(
+                            name="ModifyResponseHeader",
+                            parameters=azure_native.cdn.v20200901.HeaderActionParametersArgs(
+                                header_action="Overwrite",
+                                header_name="Access-Control-Allow-Origin",
+                                odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+                                value="*",
+                            ),
+                        ),
+                        azure_native.cdn.v20200901.DeliveryRuleRequestHeaderActionArgs(
+                            name="ModifyRequestHeader",
+                            parameters=azure_native.cdn.v20200901.HeaderActionParametersArgs(
+                                header_action="Overwrite",
+                                header_name="Accept-Encoding",
+                                odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+                                value="gzip",
+                            ),
+                        ),
+                    ],
+                    "conditions": [azure_native.cdn.v20200901.DeliveryRuleRemoteAddressConditionArgs(
+                        name="RemoteAddress",
+                        parameters=azure_native.cdn.v20200901.RemoteAddressMatchConditionParametersArgs(
+                            match_values=[
+                                "192.168.1.0/24",
+                                "10.0.0.0/24",
+                            ],
+                            negate_condition=True,
+                            odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters",
+                            operator="IPMatch",
+                        ),
+                    )],
+                    "name": "rule1",
+                    "order": 1,
+                }],
+            ),
+            endpoint_name="endpoint1",
+            is_compression_enabled=True,
+            is_http_allowed=True,
+            is_https_allowed=True,
+            location="WestUs",
+            origin_groups=[{
+                "healthProbeSettings": azure_native.cdn.v20200901.HealthProbeParametersArgs(
+                    probe_interval_in_seconds=120,
+                    probe_path="/health.aspx",
+                    probe_protocol=azure_native.cdn/v20200901.ProbeProtocol.HTTP,
+                    probe_request_type=azure_native.cdn/v20200901.HealthProbeRequestType.GET,
+                ),
+                "name": "originGroup1",
+                "origins": [
+                    azure_native.cdn.v20200901.ResourceReferenceArgs(
+                        id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+                    ),
+                    azure_native.cdn.v20200901.ResourceReferenceArgs(
+                        id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin2",
+                    ),
+                ],
+                "responseBasedOriginErrorDetectionSettings": azure_native.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersArgs(
+                    response_based_detected_error_types=azure_native.cdn/v20200901.ResponseBasedDetectedErrorTypes.TCP_ERRORS_ONLY,
+                    response_based_failover_threshold_percentage=10,
+                ),
+            }],
+            origin_host_header="www.bing.com",
+            origin_path="/photos",
+            origins=[
+                azure_native.cdn.v20200901.DeepCreatedOriginArgs(
+                    enabled=True,
+                    host_name="www.someDomain1.net",
+                    http_port=80,
+                    https_port=443,
+                    name="origin1",
+                    origin_host_header="www.someDomain1.net",
+                    priority=1,
+                    weight=50,
+                ),
+                azure_native.cdn.v20200901.DeepCreatedOriginArgs(
+                    enabled=True,
+                    host_name="www.someDomain2.net",
+                    http_port=80,
+                    https_port=443,
+                    name="origin2",
+                    origin_host_header="www.someDomain2.net",
+                    priority=2,
+                    weight=50,
+                ),
+            ],
+            profile_name="profile1",
+            query_string_caching_behavior=azure_native.cdn/v20200901.QueryStringCachingBehavior.BYPASS_CACHING,
+            resource_group_name="RG",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Endpoint endpoint4899 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
@@ -423,6 +553,136 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
+
+        ## Example Usage
+        ### Endpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.cdn.v20200901.Endpoint("endpoint",
+            content_types_to_compress=[
+                "text/html",
+                "application/octet-stream",
+            ],
+            default_origin_group=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1",
+            ),
+            delivery_policy=azure_native.cdn.v20200901.EndpointPropertiesUpdateParametersResponseDeliveryPolicyArgs(
+                description="Test description for a policy.",
+                rules=[{
+                    "actions": [
+                        azure_native.cdn.v20200901.DeliveryRuleCacheExpirationActionArgs(
+                            name="CacheExpiration",
+                            parameters=azure_native.cdn.v20200901.CacheExpirationActionParametersArgs(
+                                cache_behavior="Override",
+                                cache_duration="10:10:09",
+                                cache_type="All",
+                                odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleCacheExpirationActionParameters",
+                            ),
+                        ),
+                        azure_native.cdn.v20200901.DeliveryRuleResponseHeaderActionArgs(
+                            name="ModifyResponseHeader",
+                            parameters=azure_native.cdn.v20200901.HeaderActionParametersArgs(
+                                header_action="Overwrite",
+                                header_name="Access-Control-Allow-Origin",
+                                odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+                                value="*",
+                            ),
+                        ),
+                        azure_native.cdn.v20200901.DeliveryRuleRequestHeaderActionArgs(
+                            name="ModifyRequestHeader",
+                            parameters=azure_native.cdn.v20200901.HeaderActionParametersArgs(
+                                header_action="Overwrite",
+                                header_name="Accept-Encoding",
+                                odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+                                value="gzip",
+                            ),
+                        ),
+                    ],
+                    "conditions": [azure_native.cdn.v20200901.DeliveryRuleRemoteAddressConditionArgs(
+                        name="RemoteAddress",
+                        parameters=azure_native.cdn.v20200901.RemoteAddressMatchConditionParametersArgs(
+                            match_values=[
+                                "192.168.1.0/24",
+                                "10.0.0.0/24",
+                            ],
+                            negate_condition=True,
+                            odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleRemoteAddressConditionParameters",
+                            operator="IPMatch",
+                        ),
+                    )],
+                    "name": "rule1",
+                    "order": 1,
+                }],
+            ),
+            endpoint_name="endpoint1",
+            is_compression_enabled=True,
+            is_http_allowed=True,
+            is_https_allowed=True,
+            location="WestUs",
+            origin_groups=[{
+                "healthProbeSettings": azure_native.cdn.v20200901.HealthProbeParametersArgs(
+                    probe_interval_in_seconds=120,
+                    probe_path="/health.aspx",
+                    probe_protocol=azure_native.cdn/v20200901.ProbeProtocol.HTTP,
+                    probe_request_type=azure_native.cdn/v20200901.HealthProbeRequestType.GET,
+                ),
+                "name": "originGroup1",
+                "origins": [
+                    azure_native.cdn.v20200901.ResourceReferenceArgs(
+                        id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+                    ),
+                    azure_native.cdn.v20200901.ResourceReferenceArgs(
+                        id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin2",
+                    ),
+                ],
+                "responseBasedOriginErrorDetectionSettings": azure_native.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersArgs(
+                    response_based_detected_error_types=azure_native.cdn/v20200901.ResponseBasedDetectedErrorTypes.TCP_ERRORS_ONLY,
+                    response_based_failover_threshold_percentage=10,
+                ),
+            }],
+            origin_host_header="www.bing.com",
+            origin_path="/photos",
+            origins=[
+                azure_native.cdn.v20200901.DeepCreatedOriginArgs(
+                    enabled=True,
+                    host_name="www.someDomain1.net",
+                    http_port=80,
+                    https_port=443,
+                    name="origin1",
+                    origin_host_header="www.someDomain1.net",
+                    priority=1,
+                    weight=50,
+                ),
+                azure_native.cdn.v20200901.DeepCreatedOriginArgs(
+                    enabled=True,
+                    host_name="www.someDomain2.net",
+                    http_port=80,
+                    https_port=443,
+                    name="origin2",
+                    origin_host_header="www.someDomain2.net",
+                    priority=2,
+                    weight=50,
+                ),
+            ],
+            profile_name="profile1",
+            query_string_caching_behavior=azure_native.cdn/v20200901.QueryStringCachingBehavior.BYPASS_CACHING,
+            resource_group_name="RG",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Endpoint endpoint4899 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.

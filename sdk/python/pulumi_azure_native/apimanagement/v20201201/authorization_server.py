@@ -347,6 +347,45 @@ class AuthorizationServer(pulumi.CustomResource):
         """
         External OAuth authorization server settings.
 
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationServer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_server = azure_native.apimanagement.v20201201.AuthorizationServer("authorizationServer",
+            authorization_endpoint="https://www.contoso.com/oauth2/auth",
+            authorization_methods=[azure_native.apimanagement/v20201201.AuthorizationMethod.GET],
+            authsid="newauthServer",
+            bearer_token_sending_methods=["authorizationHeader"],
+            client_id="1",
+            client_registration_endpoint="https://www.contoso.com/apps",
+            client_secret="2",
+            default_scope="read write",
+            description="test server",
+            display_name="test2",
+            grant_types=[
+                "authorizationCode",
+                "implicit",
+            ],
+            resource_group_name="rg1",
+            resource_owner_password="pwd",
+            resource_owner_username="un",
+            service_name="apimService1",
+            support_state=True,
+            token_endpoint="https://www.contoso.com/oauth2/token")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:AuthorizationServer newauthServer /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationServers/newauthServer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_endpoint: OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
@@ -377,6 +416,45 @@ class AuthorizationServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         External OAuth authorization server settings.
+
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationServer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_server = azure_native.apimanagement.v20201201.AuthorizationServer("authorizationServer",
+            authorization_endpoint="https://www.contoso.com/oauth2/auth",
+            authorization_methods=[azure_native.apimanagement/v20201201.AuthorizationMethod.GET],
+            authsid="newauthServer",
+            bearer_token_sending_methods=["authorizationHeader"],
+            client_id="1",
+            client_registration_endpoint="https://www.contoso.com/apps",
+            client_secret="2",
+            default_scope="read write",
+            description="test server",
+            display_name="test2",
+            grant_types=[
+                "authorizationCode",
+                "implicit",
+            ],
+            resource_group_name="rg1",
+            resource_owner_password="pwd",
+            resource_owner_username="un",
+            service_name="apimService1",
+            support_state=True,
+            token_endpoint="https://www.contoso.com/oauth2/token")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:AuthorizationServer newauthServer /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationServers/newauthServer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AuthorizationServerArgs args: The arguments to use to populate this resource's properties.

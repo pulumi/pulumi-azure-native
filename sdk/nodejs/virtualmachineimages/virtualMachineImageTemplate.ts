@@ -11,6 +11,183 @@ import * as utilities from "../utilities";
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
  * API Version: 2022-07-01.
  * Previous API Version: 2020-02-14. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create an Image Template for Linux.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineImageTemplate = new azure_native.virtualmachineimages.VirtualMachineImageTemplate("virtualMachineImageTemplate", {
+ *     customize: [{
+ *         name: "Shell Customizer Example",
+ *         scriptUri: "https://example.com/path/to/script.sh",
+ *         type: "Shell",
+ *     }],
+ *     distribute: [{
+ *         artifactTags: {
+ *             tagName: "value",
+ *         },
+ *         imageId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+ *         location: "1_location",
+ *         runOutputName: "image_it_pir_1",
+ *         type: "ManagedImage",
+ *     }],
+ *     identity: {
+ *         type: azure_native.virtualmachineimages.ResourceIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1": {},
+ *         },
+ *     },
+ *     imageTemplateName: "myImageTemplate",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     source: {
+ *         imageId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+ *         type: "ManagedImage",
+ *     },
+ *     tags: {
+ *         imagetemplate_tag1: "IT_T1",
+ *         imagetemplate_tag2: "IT_T2",
+ *     },
+ *     vmProfile: {
+ *         osDiskSizeGB: 64,
+ *         vmSize: "Standard_D2s_v3",
+ *         vnetConfig: {
+ *             subnetId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ * ### Create an Image Template for Windows.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineImageTemplate = new azure_native.virtualmachineimages.VirtualMachineImageTemplate("virtualMachineImageTemplate", {
+ *     customize: [
+ *         {
+ *             inline: [
+ *                 "Powershell command-1",
+ *                 "Powershell command-2",
+ *                 "Powershell command-3",
+ *             ],
+ *             name: "PowerShell (inline) Customizer Example",
+ *             type: "PowerShell",
+ *         },
+ *         {
+ *             inline: [
+ *                 "Powershell command-1",
+ *                 "Powershell command-2",
+ *                 "Powershell command-3",
+ *             ],
+ *             name: "PowerShell (inline) Customizer Elevated user Example",
+ *             runElevated: true,
+ *             type: "PowerShell",
+ *         },
+ *         {
+ *             inline: [
+ *                 "Powershell command-1",
+ *                 "Powershell command-2",
+ *                 "Powershell command-3",
+ *             ],
+ *             name: "PowerShell (inline) Customizer Elevated Local System user Example",
+ *             runAsSystem: true,
+ *             runElevated: true,
+ *             type: "PowerShell",
+ *         },
+ *         {
+ *             name: "PowerShell (script) Customizer Example",
+ *             scriptUri: "https://example.com/path/to/script.ps1",
+ *             type: "PowerShell",
+ *             validExitCodes: [
+ *                 0,
+ *                 1,
+ *             ],
+ *         },
+ *         {
+ *             name: "PowerShell (script) Customizer Elevated Local System user Example",
+ *             runElevated: true,
+ *             scriptUri: "https://example.com/path/to/script.ps1",
+ *             type: "PowerShell",
+ *             validExitCodes: [
+ *                 0,
+ *                 1,
+ *             ],
+ *         },
+ *         {
+ *             name: "PowerShell (script) Customizer Elevated Local System user Example",
+ *             runAsSystem: true,
+ *             runElevated: true,
+ *             scriptUri: "https://example.com/path/to/script.ps1",
+ *             type: "PowerShell",
+ *             validExitCodes: [
+ *                 0,
+ *                 1,
+ *             ],
+ *         },
+ *         {
+ *             name: "Restart Customizer Example",
+ *             restartCheckCommand: "powershell -command \"& {Write-Output 'restarted.'}\"",
+ *             restartCommand: "shutdown /f /r /t 0 /c \"packer restart\"",
+ *             restartTimeout: "10m",
+ *             type: "WindowsRestart",
+ *         },
+ *         {
+ *             filters: [`$_.BrowseOnly`],
+ *             name: "Windows Update Customizer Example",
+ *             searchCriteria: "BrowseOnly=0 and IsInstalled=0",
+ *             type: "WindowsUpdate",
+ *             updateLimit: 100,
+ *         },
+ *     ],
+ *     distribute: [{
+ *         artifactTags: {
+ *             tagName: "value",
+ *         },
+ *         imageId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+ *         location: "1_location",
+ *         runOutputName: "image_it_pir_1",
+ *         type: "ManagedImage",
+ *     }],
+ *     identity: {
+ *         type: azure_native.virtualmachineimages.ResourceIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1": {},
+ *         },
+ *     },
+ *     imageTemplateName: "myImageTemplate",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     source: {
+ *         imageId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+ *         type: "ManagedImage",
+ *     },
+ *     tags: {
+ *         imagetemplate_tag1: "IT_T1",
+ *         imagetemplate_tag2: "IT_T2",
+ *     },
+ *     vmProfile: {
+ *         osDiskSizeGB: 64,
+ *         vmSize: "Standard_D2s_v3",
+ *         vnetConfig: {
+ *             subnetId: "/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:virtualmachineimages:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate 
+ * ```
  */
 export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**

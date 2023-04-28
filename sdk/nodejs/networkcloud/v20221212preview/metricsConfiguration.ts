@@ -7,6 +7,44 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Update metrics configuration of cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const metricsConfiguration = new azure_native.networkcloud.v20221212preview.MetricsConfiguration("metricsConfiguration", {
+ *     clusterName: "clusterName",
+ *     collectionInterval: 15,
+ *     enabledMetrics: [
+ *         "metric1",
+ *         "metric2",
+ *     ],
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     metricsConfigurationName: "default",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud/v20221212preview:MetricsConfiguration default /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/metricsConfigurations/default 
+ * ```
+ */
 export class MetricsConfiguration extends pulumi.CustomResource {
     /**
      * Get an existing MetricsConfiguration resource's state with the given name, ID, and optional extra

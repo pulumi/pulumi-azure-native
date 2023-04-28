@@ -11,6 +11,176 @@ namespace Pulumi.AzureNative.Network.V20210601
 {
     /// <summary>
     /// Front Door represents a collection of backend endpoints to route traffic to along with rules that specify how traffic is sent there.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update specific Front Door
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var frontDoor = new AzureNative.Network.V20210601.FrontDoor("frontDoor", new()
+    ///     {
+    ///         BackendPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210601.Inputs.BackendPoolArgs
+    ///             {
+    ///                 Backends = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20210601.Inputs.BackendArgs
+    ///                     {
+    ///                         Address = "w3.contoso.com",
+    ///                         HttpPort = 80,
+    ///                         HttpsPort = 443,
+    ///                         Priority = 2,
+    ///                         Weight = 1,
+    ///                     },
+    ///                     new AzureNative.Network.V20210601.Inputs.BackendArgs
+    ///                     {
+    ///                         Address = "contoso.com.website-us-west-2.othercloud.net",
+    ///                         HttpPort = 80,
+    ///                         HttpsPort = 443,
+    ///                         Priority = 1,
+    ///                         PrivateLinkApprovalMessage = "Please approve the connection request for this Private Link",
+    ///                         PrivateLinkLocation = "eastus",
+    ///                         PrivateLinkResourceId = "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+    ///                         Weight = 2,
+    ///                     },
+    ///                     new AzureNative.Network.V20210601.Inputs.BackendArgs
+    ///                     {
+    ///                         Address = "10.0.1.5",
+    ///                         HttpPort = 80,
+    ///                         HttpsPort = 443,
+    ///                         Priority = 1,
+    ///                         PrivateLinkAlias = "APPSERVER.d84e61f0-0870-4d24-9746-7438fa0019d1.westus2.azure.privatelinkservice",
+    ///                         PrivateLinkApprovalMessage = "Please approve this request to connect to the Private Link",
+    ///                         Weight = 1,
+    ///                     },
+    ///                 },
+    ///                 HealthProbeSettings = new AzureNative.Network.V20210601.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/healthProbeSettings/healthProbeSettings1",
+    ///                 },
+    ///                 LoadBalancingSettings = new AzureNative.Network.V20210601.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/loadBalancingSettings/loadBalancingSettings1",
+    ///                 },
+    ///                 Name = "backendPool1",
+    ///             },
+    ///         },
+    ///         BackendPoolsSettings = new AzureNative.Network.V20210601.Inputs.BackendPoolsSettingsArgs
+    ///         {
+    ///             EnforceCertificateNameCheck = "Enabled",
+    ///             SendRecvTimeoutSeconds = 60,
+    ///         },
+    ///         EnabledState = "Enabled",
+    ///         FrontDoorName = "frontDoor1",
+    ///         FrontendEndpoints = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210601.Inputs.FrontendEndpointArgs
+    ///             {
+    ///                 HostName = "www.contoso.com",
+    ///                 Name = "frontendEndpoint1",
+    ///                 SessionAffinityEnabledState = "Enabled",
+    ///                 SessionAffinityTtlSeconds = 60,
+    ///                 WebApplicationFirewallPolicyLink = new AzureNative.Network.V20210601.Inputs.FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLinkArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/policy1",
+    ///                 },
+    ///             },
+    ///             new AzureNative.Network.V20210601.Inputs.FrontendEndpointArgs
+    ///             {
+    ///                 HostName = "frontDoor1.azurefd.net",
+    ///                 Name = "default",
+    ///             },
+    ///         },
+    ///         HealthProbeSettings = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210601.Inputs.HealthProbeSettingsModelArgs
+    ///             {
+    ///                 EnabledState = "Enabled",
+    ///                 HealthProbeMethod = "HEAD",
+    ///                 IntervalInSeconds = 120,
+    ///                 Name = "healthProbeSettings1",
+    ///                 Path = "/",
+    ///                 Protocol = "Http",
+    ///             },
+    ///         },
+    ///         LoadBalancingSettings = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210601.Inputs.LoadBalancingSettingsModelArgs
+    ///             {
+    ///                 Name = "loadBalancingSettings1",
+    ///                 SampleSize = 4,
+    ///                 SuccessfulSamplesRequired = 2,
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg1",
+    ///         RoutingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210601.Inputs.RoutingRuleArgs
+    ///             {
+    ///                 AcceptedProtocols = new[]
+    ///                 {
+    ///                     "Http",
+    ///                 },
+    ///                 EnabledState = "Enabled",
+    ///                 FrontendEndpoints = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20210601.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/frontendEndpoints/frontendEndpoint1",
+    ///                     },
+    ///                     new AzureNative.Network.V20210601.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/frontendEndpoints/default",
+    ///                     },
+    ///                 },
+    ///                 Name = "routingRule1",
+    ///                 PatternsToMatch = new[]
+    ///                 {
+    ///                     "/*",
+    ///                 },
+    ///                 RouteConfiguration = new AzureNative.Network.V20210601.Inputs.ForwardingConfigurationArgs
+    ///                 {
+    ///                     BackendPool = new AzureNative.Network.V20210601.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/backendPools/backendPool1",
+    ///                     },
+    ///                     OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+    ///                 },
+    ///                 RulesEngine = new AzureNative.Network.V20210601.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/rulesEngines/rulesEngine1",
+    ///                 },
+    ///                 WebApplicationFirewallPolicyLink = new AzureNative.Network.V20210601.Inputs.RoutingRuleUpdateParametersWebApplicationFirewallPolicyLinkArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoorWebApplicationFirewallPolicies/policy1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210601:FrontDoor frontDoor1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210601:FrontDoor")]
     public partial class FrontDoor : global::Pulumi.CustomResource

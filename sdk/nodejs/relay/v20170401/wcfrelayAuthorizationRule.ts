@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
+ *
+ * ## Example Usage
+ * ### RelayAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const wcfRelayAuthorizationRule = new azure_native.relay.v20170401.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule", {
+ *     authorizationRuleName: "example-RelayAuthRules-01",
+ *     namespaceName: "example-RelayNamespace-01",
+ *     relayName: "example-Relay-wcf-01",
+ *     resourceGroupName: "resourcegroup",
+ *     rights: [
+ *         azure_native.relay.v20170401.AccessRights.Listen,
+ *         azure_native.relay.v20170401.AccessRights.Send,
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:relay/v20170401:WCFRelayAuthorizationRule example-RelayAuthRules-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01/WcfRelays/example-Relay-Wcf-01/AuthorizationRules/example-RelayAuthRules-01 
+ * ```
  */
 export class WCFRelayAuthorizationRule extends pulumi.CustomResource {
     /**

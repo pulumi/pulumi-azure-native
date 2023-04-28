@@ -162,6 +162,76 @@ class ContentType(pulumi.CustomResource):
         """
         Content type contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateContentType
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_type = azure_native.apimanagement.v20220801.ContentType("contentType",
+            content_type_id="page",
+            description="A regular page",
+            name="Page",
+            resource_group_name="rg1",
+            schema={
+                "additionalProperties": False,
+                "properties": {
+                    "en_us": {
+                        "additionalProperties": False,
+                        "properties": {
+                            "description": {
+                                "description": "Page description. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Description",
+                                "type": "string",
+                            },
+                            "documentId": {
+                                "description": "Reference to page content document.",
+                                "title": "Document ID",
+                                "type": "string",
+                            },
+                            "keywords": {
+                                "description": "Page keywords. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Keywords",
+                                "type": "string",
+                            },
+                            "permalink": {
+                                "description": "Page permalink, e.g. '/about'.",
+                                "indexed": True,
+                                "title": "Permalink",
+                                "type": "string",
+                            },
+                            "title": {
+                                "description": "Page title. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Title",
+                                "type": "string",
+                            },
+                        },
+                        "required": [
+                            "title",
+                            "permalink",
+                            "documentId",
+                        ],
+                        "type": "object",
+                    },
+                },
+            },
+            service_name="apimService1",
+            version="1.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:ContentType page /contentTypes/page 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type_id: Content type identifier.
@@ -181,6 +251,76 @@ class ContentType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Content type contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateContentType
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        content_type = azure_native.apimanagement.v20220801.ContentType("contentType",
+            content_type_id="page",
+            description="A regular page",
+            name="Page",
+            resource_group_name="rg1",
+            schema={
+                "additionalProperties": False,
+                "properties": {
+                    "en_us": {
+                        "additionalProperties": False,
+                        "properties": {
+                            "description": {
+                                "description": "Page description. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Description",
+                                "type": "string",
+                            },
+                            "documentId": {
+                                "description": "Reference to page content document.",
+                                "title": "Document ID",
+                                "type": "string",
+                            },
+                            "keywords": {
+                                "description": "Page keywords. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Keywords",
+                                "type": "string",
+                            },
+                            "permalink": {
+                                "description": "Page permalink, e.g. '/about'.",
+                                "indexed": True,
+                                "title": "Permalink",
+                                "type": "string",
+                            },
+                            "title": {
+                                "description": "Page title. This property gets included in SEO attributes.",
+                                "indexed": True,
+                                "title": "Title",
+                                "type": "string",
+                            },
+                        },
+                        "required": [
+                            "title",
+                            "permalink",
+                            "documentId",
+                        ],
+                        "type": "object",
+                    },
+                },
+            },
+            service_name="apimService1",
+            version="1.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:ContentType page /contentTypes/page 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContentTypeArgs args: The arguments to use to populate this resource's properties.

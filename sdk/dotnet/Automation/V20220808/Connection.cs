@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Automation.V20220808
 {
     /// <summary>
     /// Definition of the connection.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connection = new AzureNative.Automation.V20220808.Connection("connection", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount28",
+    ///         ConnectionName = "mysConnection",
+    ///         ConnectionType = new AzureNative.Automation.V20220808.Inputs.ConnectionTypeAssociationPropertyArgs
+    ///         {
+    ///             Name = "Azure",
+    ///         },
+    ///         Description = "my description goes here",
+    ///         FieldDefinitionValues = 
+    ///         {
+    ///             { "AutomationCertificateName", "mysCertificateName" },
+    ///             { "SubscriptionID", "subid" },
+    ///         },
+    ///         Name = "mysConnection",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20220808:Connection mysConnection /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount28/connections/mysConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20220808:Connection")]
     public partial class Connection : global::Pulumi.CustomResource

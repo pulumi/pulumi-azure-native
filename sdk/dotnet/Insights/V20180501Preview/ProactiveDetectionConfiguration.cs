@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.Insights.V20180501Preview
 {
     /// <summary>
     /// A ProactiveDetection configuration definition.
+    /// 
+    /// ## Example Usage
+    /// ### ProactiveDetectionConfigurationUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var proactiveDetectionConfiguration = new AzureNative.Insights.V20180501Preview.ProactiveDetectionConfiguration("proactiveDetectionConfiguration", new()
+    ///     {
+    ///         ConfigurationId = "slowpageloadtime",
+    ///         CustomEmails = new[]
+    ///         {
+    ///             "foo@microsoft.com",
+    ///             "foo2@microsoft.com",
+    ///         },
+    ///         Enabled = true,
+    ///         Location = "South Central US",
+    ///         Name = "slowpageloadtime",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "my-component",
+    ///         RuleDefinitions = new AzureNative.Insights.V20180501Preview.Inputs.ApplicationInsightsComponentProactiveDetectionConfigurationPropertiesRuleDefinitionsArgs
+    ///         {
+    ///             Description = "Smart Detection rules notify you of performance anomaly issues.",
+    ///             DisplayName = "Slow page load time",
+    ///             HelpUrl = "https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+    ///             IsEnabledByDefault = true,
+    ///             IsHidden = false,
+    ///             IsInPreview = false,
+    ///             Name = "slowpageloadtime",
+    ///             SupportsEmailNotifications = true,
+    ///         },
+    ///         SendEmailsToSubscriptionOwners = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20180501preview:ProactiveDetectionConfiguration slowpageloadtime /subscriptions/subid/resourceGroups/my-resource-group/providers/microsoft.insights/components/my-component/ProactiveDetectionConfigs/slowpageloadtime 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20180501preview:ProactiveDetectionConfiguration")]
     public partial class ProactiveDetectionConfiguration : global::Pulumi.CustomResource

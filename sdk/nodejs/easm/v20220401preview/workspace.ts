@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Workspace details.
+ *
+ * ## Example Usage
+ * ### Workspaces
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.easm.v20220401preview.Workspace("workspace", {
+ *     location: "West US",
+ *     resourceGroupName: "dummyrg",
+ *     workspaceName: "ThisisaWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:easm/v20220401preview:Workspace ThisisaWorkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/dummyrg/providers/Microsoft.Easm/workspaces/ThisisaWorkspace 
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

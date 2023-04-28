@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Cache.V20230301Preview
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### RedisEnterprisePutPrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Cache.V20230301Preview.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         ClusterName = "cache1",
+    ///         PrivateEndpointConnectionName = "pectest01",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Cache.V20230301Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Auto-Approved",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cache/v20230301preview:PrivateEndpointConnection pectest01 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/privateEndpointConnections/pectest01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20230301preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

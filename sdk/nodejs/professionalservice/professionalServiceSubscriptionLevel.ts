@@ -11,6 +11,58 @@ import * as utilities from "../utilities";
  * ProfessionalService REST API resource definition.
  * API Version: 2023-07-01-preview.
  * Previous API Version: 2023-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create subscription level ProfessionalService resource (indefinite term)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const professionalServiceSubscriptionLevel = new azure_native.professionalservice.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel", {
+ *     location: "global",
+ *     name: "MyContosoPS",
+ *     properties: {
+ *         offerId: "testprofservice",
+ *         publisherId: "microsoft-contoso",
+ *         quoteId: "quoteabc",
+ *         skuId: "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+ *     },
+ *     resourceGroupName: "my-ps-rg",
+ *     resourceName: "MyContosoPS",
+ * });
+ *
+ * ```
+ * ### Create subscription level ProfessionalService resource (with term)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const professionalServiceSubscriptionLevel = new azure_native.professionalservice.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel", {
+ *     location: "global",
+ *     name: "MyContosoPS",
+ *     properties: {
+ *         billingPeriod: "P1Y",
+ *         offerId: "testprofservice",
+ *         publisherId: "microsoft-contoso",
+ *         quoteId: "quoteabc",
+ *         skuId: "ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+ *         termUnit: "P3Y",
+ *     },
+ *     resourceGroupName: "my-ps-rg",
+ *     resourceName: "MyContosoPS",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:professionalservice:ProfessionalServiceSubscriptionLevel MyContosoPS /subscriptions/c825645b-e31b-9cf4-1cee-2aba9e58bc7c/resourceGroups/my-ps-rg/providers/Microsoft.ProfessionalService/resources/MyContosoPS 
+ * ```
  */
 export class ProfessionalServiceSubscriptionLevel extends pulumi.CustomResource {
     /**

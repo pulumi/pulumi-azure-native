@@ -11,6 +11,64 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
 {
     /// <summary>
     /// SecurityPolicy association for AzureFrontDoor profile
+    /// 
+    /// ## Example Usage
+    /// ### SecurityPolicies_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityPolicy = new AzureNative.Cdn.V20221101Preview.SecurityPolicy("securityPolicy", new()
+    ///     {
+    ///         Parameters = new AzureNative.Cdn.V20221101Preview.Inputs.SecurityPolicyWebApplicationFirewallParametersArgs
+    ///         {
+    ///             Associations = new[]
+    ///             {
+    ///                 new AzureNative.Cdn.V20221101Preview.Inputs.SecurityPolicyWebApplicationFirewallAssociationArgs
+    ///                 {
+    ///                     Domains = new[]
+    ///                     {
+    ///                         new AzureNative.Cdn.V20221101Preview.Inputs.ActivatedResourceReferenceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
+    ///                         },
+    ///                         new AzureNative.Cdn.V20221101Preview.Inputs.ActivatedResourceReferenceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
+    ///                         },
+    ///                     },
+    ///                     PatternsToMatch = new[]
+    ///                     {
+    ///                         "/*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Type = "WebApplicationFirewall",
+    ///             WafPolicy = new AzureNative.Cdn.V20221101Preview.Inputs.ResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/wafTest",
+    ///             },
+    ///         },
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         SecurityPolicyName = "securityPolicy1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20221101preview:SecurityPolicy securityPolicy1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/securitypolicies/securityPolicy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20221101preview:SecurityPolicy")]
     public partial class SecurityPolicy : global::Pulumi.CustomResource

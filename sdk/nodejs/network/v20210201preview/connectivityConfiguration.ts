@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * The network manager connectivity configuration resource
+ *
+ * ## Example Usage
+ * ### ConnectivityConfigurationsPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectivityConfiguration = new azure_native.network.v20210201preview.ConnectivityConfiguration("connectivityConfiguration", {
+ *     appliesToGroups: [{
+ *         groupConnectivity: "None",
+ *         isGlobal: "False",
+ *         networkGroupId: "subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/group1",
+ *         useHubGateway: "True",
+ *     }],
+ *     configurationName: "myTestConnectivityConfig",
+ *     connectivityTopology: "HubAndSpoke",
+ *     deleteExistingPeering: "True",
+ *     description: "Sample Configuration",
+ *     displayName: "myTestConnectivityConfig",
+ *     hubs: [{
+ *         resourceId: "subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myTestConnectivityConfig",
+ *         resourceType: "Microsoft.Network/virtualNetworks",
+ *     }],
+ *     isGlobal: "True",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210201preview:ConnectivityConfiguration myTestConnectivityConfig subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/connectivityConfigurations/myTestConnectivityConfig 
+ * ```
  */
 export class ConnectivityConfiguration extends pulumi.CustomResource {
     /**

@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.Logic.V20190501
 {
     /// <summary>
     /// The batch configuration resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a batch configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationAccountBatchConfiguration = new AzureNative.Logic.V20190501.IntegrationAccountBatchConfiguration("integrationAccountBatchConfiguration", new()
+    ///     {
+    ///         BatchConfigurationName = "testBatchConfiguration",
+    ///         IntegrationAccountName = "testIntegrationAccount",
+    ///         Location = "westus",
+    ///         Properties = new AzureNative.Logic.V20190501.Inputs.BatchConfigurationPropertiesArgs
+    ///         {
+    ///             BatchGroupName = "DEFAULT",
+    ///             ReleaseCriteria = new AzureNative.Logic.V20190501.Inputs.BatchReleaseCriteriaArgs
+    ///             {
+    ///                 BatchSize = 234567,
+    ///                 MessageCount = 10,
+    ///                 Recurrence = new AzureNative.Logic.V20190501.Inputs.WorkflowTriggerRecurrenceArgs
+    ///                 {
+    ///                     Frequency = "Minute",
+    ///                     Interval = 1,
+    ///                     StartTime = "2017-03-24T11:43:00",
+    ///                     TimeZone = "India Standard Time",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic/v20190501:IntegrationAccountBatchConfiguration testBatchConfiguration /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/batchConfigurations/testBatchConfiguration 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationAccountBatchConfiguration")]
     public partial class IntegrationAccountBatchConfiguration : global::Pulumi.CustomResource

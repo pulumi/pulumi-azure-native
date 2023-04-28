@@ -165,6 +165,37 @@ class Workspace(pulumi.CustomResource):
         API Version: 2019-10-01.
         Previous API Version: 2016-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### WorkspaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.machinelearning.Workspace("workspace",
+            location="West Europe",
+            owner_email="abc@microsoft.com",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.machinelearning.SkuArgs(
+                name="Enterprise",
+                tier="Enterprise",
+            ),
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            user_storage_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearning:Workspace testworkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearning/workspaces/testworkspace 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_vault_identifier_id: The key vault identifier used for encrypted workspaces.
@@ -186,6 +217,37 @@ class Workspace(pulumi.CustomResource):
         An object that represents a machine learning workspace.
         API Version: 2019-10-01.
         Previous API Version: 2016-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### WorkspaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.machinelearning.Workspace("workspace",
+            location="West Europe",
+            owner_email="abc@microsoft.com",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.machinelearning.SkuArgs(
+                name="Enterprise",
+                tier="Enterprise",
+            ),
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            user_storage_account_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearning:Workspace testworkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearning/workspaces/testworkspace 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

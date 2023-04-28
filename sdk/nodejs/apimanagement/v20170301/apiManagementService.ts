@@ -9,6 +9,110 @@ import * as utilities from "../../utilities";
 
 /**
  * A single API Management service resource in List or Get response.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.v20170301.ApiManagementService("apiManagementService", {
+ *     additionalLocations: [{
+ *         location: "West US",
+ *         sku: {
+ *             capacity: 1,
+ *             name: "Premium",
+ *         },
+ *         virtualNetworkConfiguration: {
+ *             subnetResourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/westUsVirtualNetwork/subnets/apimSubnet",
+ *         },
+ *     }],
+ *     hostnameConfigurations: [
+ *         {
+ *             certificatePassword: "**************Password of the Certificate************************************************",
+ *             encodedCertificate: "************Base 64 Encoded Pfx Certificate************************",
+ *             hostName: "proxyhostname1.contoso.com",
+ *             type: azure_native.apimanagement.v20170301.HostnameType.Proxy,
+ *         },
+ *         {
+ *             certificatePassword: "**************Password of the Certificate************************************************",
+ *             encodedCertificate: "************Base 64 Encoded Pfx Certificate************************",
+ *             hostName: "proxyhostname2.contoso.com",
+ *             negotiateClientCertificate: true,
+ *             type: azure_native.apimanagement.v20170301.HostnameType.Proxy,
+ *         },
+ *         {
+ *             certificatePassword: "**************Password of the Certificate************************************************",
+ *             encodedCertificate: "************Base 64 Encoded Pfx Certificate************************",
+ *             hostName: "portalhostname1.contoso.com",
+ *             type: azure_native.apimanagement.v20170301.HostnameType.Portal,
+ *         },
+ *     ],
+ *     location: "Central US",
+ *     publisherEmail: "admin@live.com",
+ *     publisherName: "contoso",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Premium",
+ *     },
+ *     virtualNetworkConfiguration: {
+ *         subnetResourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/centralUsVirtualNetwork/subnets/apimSubnet",
+ *     },
+ *     virtualNetworkType: "External",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.v20170301.ApiManagementService("apiManagementService", {
+ *     location: "West US",
+ *     publisherEmail: "admin@live.com",
+ *     publisherName: "contoso",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Premium",
+ *     },
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateServiceHavingMsi
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiManagementService = new azure_native.apimanagement.v20170301.ApiManagementService("apiManagementService", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "Japan East",
+ *     publisherEmail: "admin@contoso.com",
+ *     publisherName: "Contoso",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     sku: {
+ *         name: "Developer",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20170301:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+ * ```
  */
 export class ApiManagementService extends pulumi.CustomResource {
     /**

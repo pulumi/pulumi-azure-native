@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
 {
     /// <summary>
     /// Linker of source and target resource
+    /// 
+    /// ## Example Usage
+    /// ### PutLinker
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linker = new AzureNative.ServiceLinker.V20221101Preview.Linker("linker", new()
+    ///     {
+    ///         AuthInfo = new AzureNative.ServiceLinker.V20221101Preview.Inputs.SecretAuthInfoArgs
+    ///         {
+    ///             AuthType = "secret",
+    ///             Name = "name",
+    ///             SecretInfo = new AzureNative.ServiceLinker.V20221101Preview.Inputs.ValueSecretInfoArgs
+    ///             {
+    ///                 SecretType = "rawValue",
+    ///                 Value = "secret",
+    ///             },
+    ///         },
+    ///         LinkerName = "linkName",
+    ///         ResourceUri = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+    ///         TargetService = new AzureNative.ServiceLinker.V20221101Preview.Inputs.AzureResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DBforPostgreSQL/servers/test-pg/databases/test-db",
+    ///             Type = "AzureResource",
+    ///         },
+    ///         VNetSolution = new AzureNative.ServiceLinker.V20221101Preview.Inputs.VNetSolutionArgs
+    ///         {
+    ///             Type = "serviceEndpoint",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicelinker/v20221101preview:Linker linkName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker/v20221101preview:Linker")]
     public partial class Linker : global::Pulumi.CustomResource

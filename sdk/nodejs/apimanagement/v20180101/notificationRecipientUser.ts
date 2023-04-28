@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Recipient User details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateRecipientUser
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const notificationRecipientUser = new azure_native.apimanagement.v20180101.NotificationRecipientUser("notificationRecipientUser", {
+ *     notificationName: "RequestPublisherNotificationMessage",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     uid: "576823d0a40f7e74ec07d642",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20180101:NotificationRecipientUser 576823d0a40f7e74ec07d642 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/notifications/RequestPublisherNotificationMessage/recipientUsers/576823d0a40f7e74ec07d642 
+ * ```
  */
 export class NotificationRecipientUser extends pulumi.CustomResource {
     /**

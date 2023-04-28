@@ -98,6 +98,93 @@ class Dataset(pulumi.CustomResource):
         API Version: 2018-06-01.
         Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Datasets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataset = azure_native.datafactory.Dataset("dataset",
+            dataset_name="exampleDataset",
+            factory_name="exampleFactoryName",
+            properties=azure_native.datafactory.AzureBlobDatasetArgs(
+                file_name={
+                    "type": "Expression",
+                    "value": "@dataset().MyFileName",
+                },
+                folder_path={
+                    "type": "Expression",
+                    "value": "@dataset().MyFolderPath",
+                },
+                format=azure_native.datafactory.TextFormatArgs(
+                    type="TextFormat",
+                ),
+                linked_service_name=azure_native.datafactory.LinkedServiceReferenceArgs(
+                    reference_name="exampleLinkedService",
+                    type="LinkedServiceReference",
+                ),
+                parameters={
+                    "MyFileName": azure_native.datafactory.ParameterSpecificationArgs(
+                        type="String",
+                    ),
+                    "MyFolderPath": azure_native.datafactory.ParameterSpecificationArgs(
+                        type="String",
+                    ),
+                },
+                type="AzureBlob",
+            ),
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### Datasets_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataset = azure_native.datafactory.Dataset("dataset",
+            dataset_name="exampleDataset",
+            factory_name="exampleFactoryName",
+            properties=azure_native.datafactory.AzureBlobDatasetArgs(
+                description="Example description",
+                file_name={
+                    "type": "Expression",
+                    "value": "@dataset().MyFileName",
+                },
+                folder_path={
+                    "type": "Expression",
+                    "value": "@dataset().MyFolderPath",
+                },
+                format=azure_native.datafactory.TextFormatArgs(
+                    type="TextFormat",
+                ),
+                linked_service_name=azure_native.datafactory.LinkedServiceReferenceArgs(
+                    reference_name="exampleLinkedService",
+                    type="LinkedServiceReference",
+                ),
+                parameters={
+                    "MyFileName": azure_native.datafactory.ParameterSpecificationArgs(
+                        type="String",
+                    ),
+                    "MyFolderPath": azure_native.datafactory.ParameterSpecificationArgs(
+                        type="String",
+                    ),
+                },
+                type="AzureBlob",
+            ),
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:Dataset exampleDataset /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/datasets/exampleDataset 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dataset_name: The dataset name.
@@ -115,6 +202,93 @@ class Dataset(pulumi.CustomResource):
         Dataset resource type.
         API Version: 2018-06-01.
         Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Datasets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataset = azure_native.datafactory.Dataset("dataset",
+            dataset_name="exampleDataset",
+            factory_name="exampleFactoryName",
+            properties=azure_native.datafactory.AzureBlobDatasetArgs(
+                file_name={
+                    "type": "Expression",
+                    "value": "@dataset().MyFileName",
+                },
+                folder_path={
+                    "type": "Expression",
+                    "value": "@dataset().MyFolderPath",
+                },
+                format=azure_native.datafactory.TextFormatArgs(
+                    type="TextFormat",
+                ),
+                linked_service_name=azure_native.datafactory.LinkedServiceReferenceArgs(
+                    reference_name="exampleLinkedService",
+                    type="LinkedServiceReference",
+                ),
+                parameters={
+                    "MyFileName": azure_native.datafactory.ParameterSpecificationArgs(
+                        type="String",
+                    ),
+                    "MyFolderPath": azure_native.datafactory.ParameterSpecificationArgs(
+                        type="String",
+                    ),
+                },
+                type="AzureBlob",
+            ),
+            resource_group_name="exampleResourceGroup")
+
+        ```
+        ### Datasets_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dataset = azure_native.datafactory.Dataset("dataset",
+            dataset_name="exampleDataset",
+            factory_name="exampleFactoryName",
+            properties=azure_native.datafactory.AzureBlobDatasetArgs(
+                description="Example description",
+                file_name={
+                    "type": "Expression",
+                    "value": "@dataset().MyFileName",
+                },
+                folder_path={
+                    "type": "Expression",
+                    "value": "@dataset().MyFolderPath",
+                },
+                format=azure_native.datafactory.TextFormatArgs(
+                    type="TextFormat",
+                ),
+                linked_service_name=azure_native.datafactory.LinkedServiceReferenceArgs(
+                    reference_name="exampleLinkedService",
+                    type="LinkedServiceReference",
+                ),
+                parameters={
+                    "MyFileName": azure_native.datafactory.ParameterSpecificationArgs(
+                        type="String",
+                    ),
+                    "MyFolderPath": azure_native.datafactory.ParameterSpecificationArgs(
+                        type="String",
+                    ),
+                },
+                type="AzureBlob",
+            ),
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory:Dataset exampleDataset /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/datasets/exampleDataset 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatasetArgs args: The arguments to use to populate this resource's properties.

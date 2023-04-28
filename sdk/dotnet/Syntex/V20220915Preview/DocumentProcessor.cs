@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Syntex.V20220915Preview
 {
     /// <summary>
     /// Document processor details
+    /// 
+    /// ## Example Usage
+    /// ### DocumentProcessor_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var documentProcessor = new AzureNative.Syntex.V20220915Preview.DocumentProcessor("documentProcessor", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ProcessorName = "myprocessor",
+    ///         Properties = new AzureNative.Syntex.V20220915Preview.Inputs.DocumentProcessorPropertiesArgs
+    ///         {
+    ///             SpoTenantId = "e9bb744b-9558-4dc6-9e50-a3297e3332fa",
+    ///             SpoTenantUrl = "https://test123.sharepoint.com",
+    ///         },
+    ///         ResourceGroupName = "mygroup",
+    ///         Tags = 
+    ///         {
+    ///             { "additionalProp1", "string1" },
+    ///             { "additionalProp2", "string2" },
+    ///             { "additionalProp3", "string3" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:syntex/v20220915preview:DocumentProcessor myprocessor /subscriptions/cd0d3cc8-cae2-4559-b882-cd707170799b/resourceGroups/mygroup/providers/Microsoft.Syntex/documentProcessors/myprocessor 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:syntex/v20220915preview:DocumentProcessor")]
     public partial class DocumentProcessor : global::Pulumi.CustomResource

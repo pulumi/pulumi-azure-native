@@ -12,6 +12,41 @@ namespace Pulumi.AzureNative.PowerBI
     /// <summary>
     /// API Version: 2020-06-01.
     /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates private link service resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var powerBIResource = new AzureNative.PowerBI.PowerBIResource("powerBIResource", new()
+    ///     {
+    ///         AzureResourceName = "azureResourceName",
+    ///         Location = "global",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///         TenantId = "ac2bc297-8a3e-46f3-972d-87c2b4ae6e2f",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:powerbi:PowerBIResource myPrivateLinkServiceResource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/{azureResourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:powerbi:PowerBIResource")]
     public partial class PowerBIResource : global::Pulumi.CustomResource

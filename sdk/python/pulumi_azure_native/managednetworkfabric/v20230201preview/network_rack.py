@@ -145,6 +145,34 @@ class NetworkRack(pulumi.CustomResource):
         """
         The NetworkRack resource definition.
 
+        ## Example Usage
+        ### NetworkRacks_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_rack = azure_native.managednetworkfabric.v20230201preview.NetworkRack("networkRack",
+            annotation="null",
+            location="eastus",
+            network_fabric_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/networkFabricName",
+            network_rack_name="networkRackName",
+            network_rack_sku="RackSKU",
+            resource_group_name="resourceGroupName",
+            tags={
+                "keyID": "keyValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkRack networkRackName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
@@ -163,6 +191,34 @@ class NetworkRack(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NetworkRack resource definition.
+
+        ## Example Usage
+        ### NetworkRacks_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_rack = azure_native.managednetworkfabric.v20230201preview.NetworkRack("networkRack",
+            annotation="null",
+            location="eastus",
+            network_fabric_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/networkFabricName",
+            network_rack_name="networkRackName",
+            network_rack_sku="RackSKU",
+            resource_group_name="resourceGroupName",
+            tags={
+                "keyID": "keyValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkRack networkRackName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkRackArgs args: The arguments to use to populate this resource's properties.

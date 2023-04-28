@@ -9,6 +9,110 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource representation of a rollout step.
+ *
+ * ## Example Usage
+ * ### Create health check step
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const step = new azure_native.deploymentmanager.v20191101preview.Step("step", {
+ *     location: "centralus",
+ *     properties: {
+ *         attributes: {
+ *             healthChecks: [
+ *                 {
+ *                     name: "appHealth",
+ *                     request: {
+ *                         authentication: {
+ *                             "in": azure_native.deploymentmanager.v20191101preview.RestAuthLocation.Query,
+ *                             name: "Code",
+ *                             type: "ApiKey",
+ *                             value: "NBCapiMOBQyAAbCkeytoPadnvO0eGHmidwFz5rXpappznKp3Jt7LLg==",
+ *                         },
+ *                         method: azure_native.deploymentmanager.v20191101preview.RestRequestMethod.GET,
+ *                         uri: "https://resthealth.healthservice.com/api/applications/contosoApp/healthStatus",
+ *                     },
+ *                     response: {
+ *                         regex: {
+ *                             matchQuantifier: azure_native.deploymentmanager.v20191101preview.RestMatchQuantifier.All,
+ *                             matches: [
+ *                                 "(?i)Contoso-App",
+ *                                 `(?i)"health_status":((.|
+ * )*)"(green|yellow)"`,
+ *                                 `(?mi)^("application_host": 94781052)$`,
+ *                             ],
+ *                         },
+ *                         successStatusCodes: ["OK"],
+ *                     },
+ *                 },
+ *                 {
+ *                     name: "serviceHealth",
+ *                     request: {
+ *                         authentication: {
+ *                             "in": azure_native.deploymentmanager.v20191101preview.RestAuthLocation.Header,
+ *                             name: "code",
+ *                             type: "ApiKey",
+ *                             value: "NBCapiMOBQyAAbCkeytoPadnvO0eGHmidwFz5rXpappznKp3Jt7LLg==",
+ *                         },
+ *                         method: azure_native.deploymentmanager.v20191101preview.RestRequestMethod.GET,
+ *                         uri: "https://resthealth.healthservice.com/api/services/contosoService/healthStatus",
+ *                     },
+ *                     response: {
+ *                         regex: {
+ *                             matchQuantifier: azure_native.deploymentmanager.v20191101preview.RestMatchQuantifier.All,
+ *                             matches: [
+ *                                 "(?i)Contoso-Service-EndToEnd",
+ *                                 `(?i)"health_status":((.|
+ * )*)"(green)"`,
+ *                             ],
+ *                         },
+ *                         successStatusCodes: ["OK"],
+ *                     },
+ *                 },
+ *             ],
+ *             healthyStateDuration: "PT2H",
+ *             maxElasticDuration: "PT30M",
+ *             type: "REST",
+ *             waitDuration: "PT15M",
+ *         },
+ *         stepType: "HealthCheck",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     stepName: "healthCheckStep",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create wait step
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const step = new azure_native.deploymentmanager.v20191101preview.Step("step", {
+ *     location: "centralus",
+ *     properties: {
+ *         attributes: {
+ *             duration: "PT20M",
+ *         },
+ *         stepType: "Wait",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     stepName: "waitStep",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deploymentmanager/v20191101preview:Step waitStep /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/steps/{stepName} 
+ * ```
  */
 export class Step extends pulumi.CustomResource {
     /**

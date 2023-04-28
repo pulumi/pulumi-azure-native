@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Protection container mapping object.
+ *
+ * ## Example Usage
+ * ### Create protection container mapping.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationProtectionContainerMapping = new azure_native.recoveryservices.v20180710.ReplicationProtectionContainerMapping("replicationProtectionContainerMapping", {
+ *     fabricName: "cloud1",
+ *     mappingName: "cloud1protectionprofile1",
+ *     properties: {
+ *         policyId: "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
+ *         providerSpecificInput: {},
+ *         targetProtectionContainerId: "Microsoft Azure",
+ *     },
+ *     protectionContainerName: "cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20180710:ReplicationProtectionContainerMapping cloud1protectionprofile1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectionContainerMappings/cloud1protectionprofile1 
+ * ```
  */
 export class ReplicationProtectionContainerMapping extends pulumi.CustomResource {
     /**

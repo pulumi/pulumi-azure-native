@@ -10,6 +10,70 @@ import * as utilities from "../utilities";
 /**
  * Global Schema Contract details.
  * API Version: 2022-08-01.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateSchema1
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const globalSchema = new azure_native.apimanagement.GlobalSchema("globalSchema", {
+ *     description: "sample schema description",
+ *     resourceGroupName: "rg1",
+ *     schemaId: "schema1",
+ *     schemaType: "xml",
+ *     serviceName: "apimService1",
+ *     value: `<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+ *            xmlns:tns="http://tempuri.org/PurchaseOrderSchema.xsd"
+ *            targetNamespace="http://tempuri.org/PurchaseOrderSchema.xsd"
+ *            elementFormDefault="qualified">
+ *  <xsd:element name="PurchaseOrder" type="tns:PurchaseOrderType"/>
+ *  <xsd:complexType name="PurchaseOrderType">
+ *   <xsd:sequence>
+ *    <xsd:element name="ShipTo" type="tns:USAddress" maxOccurs="2"/>
+ *    <xsd:element name="BillTo" type="tns:USAddress"/>
+ *   </xsd:sequence>
+ *   <xsd:attribute name="OrderDate" type="xsd:date"/>
+ *  </xsd:complexType>
+ * 
+ *  <xsd:complexType name="USAddress">
+ *   <xsd:sequence>
+ *    <xsd:element name="name"   type="xsd:string"/>
+ *    <xsd:element name="street" type="xsd:string"/>
+ *    <xsd:element name="city"   type="xsd:string"/>
+ *    <xsd:element name="state"  type="xsd:string"/>
+ *    <xsd:element name="zip"    type="xsd:integer"/>
+ *   </xsd:sequence>
+ *   <xsd:attribute name="country" type="xsd:NMTOKEN" fixed="US"/>
+ *  </xsd:complexType>
+ * </xsd:schema>`,
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateSchema2
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const globalSchema = new azure_native.apimanagement.GlobalSchema("globalSchema", {
+ *     description: "sample schema description",
+ *     resourceGroupName: "rg1",
+ *     schemaId: "schema1",
+ *     schemaType: "json",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:GlobalSchema schema1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/schemas/schema1 
+ * ```
  */
 export class GlobalSchema extends pulumi.CustomResource {
     /**

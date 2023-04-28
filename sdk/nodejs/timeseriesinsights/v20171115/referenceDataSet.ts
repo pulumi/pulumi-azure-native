@@ -10,6 +10,40 @@ import * as utilities from "../../utilities";
 /**
  * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
  *
+ * ## Example Usage
+ * ### ReferenceDataSetsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const referenceDataSet = new azure_native.timeseriesinsights.v20171115.ReferenceDataSet("referenceDataSet", {
+ *     environmentName: "env1",
+ *     keyProperties: [
+ *         {
+ *             name: "DeviceId1",
+ *             type: azure_native.timeseriesinsights.v20171115.ReferenceDataKeyPropertyType.String,
+ *         },
+ *         {
+ *             name: "DeviceFloor",
+ *             type: azure_native.timeseriesinsights.v20171115.ReferenceDataKeyPropertyType.Double,
+ *         },
+ *     ],
+ *     location: "West US",
+ *     referenceDataSetName: "rds1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:timeseriesinsights/v20171115:ReferenceDataSet rds1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/referenceDataSets/rds1 
+ * ```
+ *
  * @deprecated Version 2017-11-15 will be removed in v2 of the provider.
  */
 export class ReferenceDataSet extends pulumi.CustomResource {

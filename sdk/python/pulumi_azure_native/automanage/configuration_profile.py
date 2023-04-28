@@ -115,6 +115,44 @@ class ConfigurationProfile(pulumi.CustomResource):
         Definition of the configuration profile.
         API Version: 2022-05-04.
 
+        ## Example Usage
+        ### Create or update configuration profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile = azure_native.automanage.ConfigurationProfile("configurationProfile",
+            configuration_profile_name="customConfigurationProfile",
+            location="East US",
+            properties=azure_native.automanage.ConfigurationProfilePropertiesArgs(
+                configuration={
+                    "Antimalware/Enable": False,
+                    "AzureSecurityCenter/Enable": True,
+                    "Backup/Enable": False,
+                    "BootDiagnostics/Enable": True,
+                    "ChangeTrackingAndInventory/Enable": True,
+                    "GuestConfiguration/Enable": True,
+                    "LogAnalytics/Enable": True,
+                    "UpdateManagement/Enable": True,
+                    "VMInsights/Enable": True,
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage:ConfigurationProfile customConfigurationProfile /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfiles/customConfigurationProfile 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_profile_name: Name of the configuration profile.
@@ -132,6 +170,44 @@ class ConfigurationProfile(pulumi.CustomResource):
         """
         Definition of the configuration profile.
         API Version: 2022-05-04.
+
+        ## Example Usage
+        ### Create or update configuration profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile = azure_native.automanage.ConfigurationProfile("configurationProfile",
+            configuration_profile_name="customConfigurationProfile",
+            location="East US",
+            properties=azure_native.automanage.ConfigurationProfilePropertiesArgs(
+                configuration={
+                    "Antimalware/Enable": False,
+                    "AzureSecurityCenter/Enable": True,
+                    "Backup/Enable": False,
+                    "BootDiagnostics/Enable": True,
+                    "ChangeTrackingAndInventory/Enable": True,
+                    "GuestConfiguration/Enable": True,
+                    "LogAnalytics/Enable": True,
+                    "UpdateManagement/Enable": True,
+                    "VMInsights/Enable": True,
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage:ConfigurationProfile customConfigurationProfile /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfiles/customConfigurationProfile 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfileArgs args: The arguments to use to populate this resource's properties.

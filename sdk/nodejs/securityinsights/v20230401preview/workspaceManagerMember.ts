@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * The workspace manager member
+ *
+ * ## Example Usage
+ * ### Create or Update a workspace manager member
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceManagerMember = new azure_native.securityinsights.v20230401preview.WorkspaceManagerMember("workspaceManagerMember", {
+ *     resourceGroupName: "myRg",
+ *     targetWorkspaceId: "/subscriptions/7aef9d48-814f-45ad-b644-b0343316e174/resourceGroups/otherRg/providers/Microsoft.OperationalInsights/workspaces/Example_Workspace",
+ *     targetWorkspaceTenantId: "f676d436-8d16-42db-81b7-ab578e110ccd",
+ *     workspaceManagerMemberName: "afbd324f-6c48-459c-8710-8d1e1cd03812",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerMember afbd324f-6c48-459c-8710-8d1e1cd03812 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerMembers/afbd324f-6c48-459c-8710-8d1e1cd03812 
+ * ```
  */
 export class WorkspaceManagerMember extends pulumi.CustomResource {
     /**

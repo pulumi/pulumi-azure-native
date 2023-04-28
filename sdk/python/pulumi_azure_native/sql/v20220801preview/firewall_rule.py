@@ -128,6 +128,44 @@ class FirewallRule(pulumi.CustomResource):
         """
         A server firewall rule.
 
+        ## Example Usage
+        ### Create a firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.sql.v20220801preview.FirewallRule("firewallRule",
+            end_ip_address="0.0.0.3",
+            firewall_rule_name="firewallrulecrudtest-5370",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_ip_address="0.0.0.3")
+
+        ```
+        ### Update a firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.sql.v20220801preview.FirewallRule("firewallRule",
+            end_ip_address="0.0.0.1",
+            firewall_rule_name="firewallrulecrudtest-3927",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_ip_address="0.0.0.1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:FirewallRule firewallrulecrudtest-3927 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.Sql/servers/firewallrulecrudtest-6285/firewallRules/firewallrulecrudtest-3927 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The end IP address of the firewall rule. Must be IPv4 format. Must be greater than or equal to startIpAddress. Use value '0.0.0.0' for all Azure-internal IP addresses.
@@ -145,6 +183,44 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A server firewall rule.
+
+        ## Example Usage
+        ### Create a firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.sql.v20220801preview.FirewallRule("firewallRule",
+            end_ip_address="0.0.0.3",
+            firewall_rule_name="firewallrulecrudtest-5370",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_ip_address="0.0.0.3")
+
+        ```
+        ### Update a firewall rule max/min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.sql.v20220801preview.FirewallRule("firewallRule",
+            end_ip_address="0.0.0.1",
+            firewall_rule_name="firewallrulecrudtest-3927",
+            resource_group_name="firewallrulecrudtest-12",
+            server_name="firewallrulecrudtest-6285",
+            start_ip_address="0.0.0.1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:FirewallRule firewallrulecrudtest-3927 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.Sql/servers/firewallrulecrudtest-6285/firewallRules/firewallrulecrudtest-3927 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

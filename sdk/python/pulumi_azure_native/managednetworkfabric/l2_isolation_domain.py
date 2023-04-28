@@ -164,6 +164,31 @@ class L2IsolationDomain(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### L2IsolationDomains_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l2_isolation_domain = azure_native.managednetworkfabric.L2IsolationDomain("l2IsolationDomain",
+            l2_isolation_domain_name="example-l2domain",
+            location="eastus",
+            mtu=1500,
+            network_fabric_id="/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+            resource_group_name="resourceGroupName",
+            vlan_id=501)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:L2IsolationDomain wcpalyqmig /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
@@ -185,6 +210,31 @@ class L2IsolationDomain(pulumi.CustomResource):
         The L2IsolationDomain resource definition.
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### L2IsolationDomains_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l2_isolation_domain = azure_native.managednetworkfabric.L2IsolationDomain("l2IsolationDomain",
+            l2_isolation_domain_name="example-l2domain",
+            location="eastus",
+            mtu=1500,
+            network_fabric_id="/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+            resource_group_name="resourceGroupName",
+            vlan_id=501)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:L2IsolationDomain wcpalyqmig /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain 
+        ```
 
         :param str resource_name: The name of the resource.
         :param L2IsolationDomainArgs args: The arguments to use to populate this resource's properties.

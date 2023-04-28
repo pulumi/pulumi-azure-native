@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.Solutions.V20171201
 {
     /// <summary>
     /// Information about managed application definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update managed application definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationDefinition = new AzureNative.Solutions.V20171201.ApplicationDefinition("applicationDefinition", new()
+    ///     {
+    ///         ApplicationDefinitionName = "myManagedApplicationDef",
+    ///         Authorizations = new[]
+    ///         {
+    ///             new AzureNative.Solutions.V20171201.Inputs.ApplicationProviderAuthorizationArgs
+    ///             {
+    ///                 PrincipalId = "validprincipalguid",
+    ///                 RoleDefinitionId = "validroleguid",
+    ///             },
+    ///         },
+    ///         Description = "myManagedApplicationDef description",
+    ///         DisplayName = "myManagedApplicationDef",
+    ///         Location = "East US 2",
+    ///         LockLevel = AzureNative.Solutions.V20171201.ApplicationLockLevel.None,
+    ///         PackageFileUri = "https://path/to/packagezipfile",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:solutions/v20171201:ApplicationDefinition myManagedApplicationDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20171201:ApplicationDefinition")]

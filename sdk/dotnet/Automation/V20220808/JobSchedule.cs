@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.Automation.V20220808
 {
     /// <summary>
     /// Definition of the job schedule.
+    /// 
+    /// ## Example Usage
+    /// ### Create a job schedule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobSchedule = new AzureNative.Automation.V20220808.JobSchedule("jobSchedule", new()
+    ///     {
+    ///         AutomationAccountName = "ContoseAutomationAccount",
+    ///         JobScheduleId = "0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc",
+    ///         Parameters = 
+    ///         {
+    ///             { "jobscheduletag01", "jobschedulevalue01" },
+    ///             { "jobscheduletag02", "jobschedulevalue02" },
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         Runbook = new AzureNative.Automation.V20220808.Inputs.RunbookAssociationPropertyArgs
+    ///         {
+    ///             Name = "TestRunbook",
+    ///         },
+    ///         Schedule = new AzureNative.Automation.V20220808.Inputs.ScheduleAssociationPropertyArgs
+    ///         {
+    ///             Name = "ScheduleNameGoesHere332204b5-debe-4348-a5c7-6357457189f2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20220808:JobSchedule myresource1 /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/jobSchedules/0fa462ba-3aa2-4138-83ca-9ebc3bc55cdc 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20220808:JobSchedule")]
     public partial class JobSchedule : global::Pulumi.CustomResource

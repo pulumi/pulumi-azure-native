@@ -321,6 +321,29 @@ class CustomIPPrefix(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create custom IP prefix allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_ip_prefix = azure_native.network.CustomIPPrefix("customIPPrefix",
+            cidr="0.0.0.0/24",
+            custom_ip_prefix_name="test-customipprefix",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:CustomIPPrefix test-customipprefix /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/customIpPrefixes/test-customipprefix 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asn: The ASN for CIDR advertising. Should be an integer as string.
@@ -351,6 +374,29 @@ class CustomIPPrefix(pulumi.CustomResource):
         Custom IP prefix resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create custom IP prefix allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_ip_prefix = azure_native.network.CustomIPPrefix("customIPPrefix",
+            cidr="0.0.0.0/24",
+            custom_ip_prefix_name="test-customipprefix",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:CustomIPPrefix test-customipprefix /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/customIpPrefixes/test-customipprefix 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomIPPrefixArgs args: The arguments to use to populate this resource's properties.

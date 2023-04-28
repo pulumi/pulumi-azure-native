@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
  * API Version: 2021-06-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### AFDCustomDomains_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const afdCustomDomain = new azure_native.cdn.AFDCustomDomain("afdCustomDomain", {
+ *     azureDnsZone: {
+ *         id: "",
+ *     },
+ *     customDomainName: "domain1",
+ *     hostName: "www.someDomain.net",
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     tlsSettings: {
+ *         certificateType: "ManagedCertificate",
+ *         minimumTlsVersion: azure_native.cdn.AfdMinimumTlsVersion.TLS12,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:AFDCustomDomain domain1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/domain1 
+ * ```
  */
 export class AFDCustomDomain extends pulumi.CustomResource {
     /**

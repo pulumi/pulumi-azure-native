@@ -421,6 +421,107 @@ class StreamingJob(pulumi.CustomResource):
         """
         A streaming job object, containing all information associated with the named streaming job.
 
+        ## Example Usage
+        ### Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_job = azure_native.streamanalytics.v20170401preview.StreamingJob("streamingJob",
+            compatibility_level="1.0",
+            data_locale="en-US",
+            events_late_arrival_max_delay_in_seconds=5,
+            events_out_of_order_max_delay_in_seconds=0,
+            events_out_of_order_policy="Drop",
+            functions=[],
+            inputs=[azure_native.streamanalytics.v20170401preview.InputArgs(
+                name="inputtest",
+                properties=azure_native.streamanalytics.v20170401preview.StreamInputPropertiesArgs(
+                    datasource=azure_native.streamanalytics.v20170401preview.BlobStreamInputDataSourceArgs(
+                        container="containerName",
+                        path_pattern="",
+                        storage_accounts=[azure_native.streamanalytics.v20170401preview.StorageAccountArgs(
+                            account_key="yourAccountKey==",
+                            account_name="yourAccountName",
+                        )],
+                        type="Microsoft.Storage/Blob",
+                    ),
+                    serialization=azure_native.streamanalytics.v20170401preview.JsonSerializationArgs(
+                        encoding="UTF8",
+                        type="Json",
+                    ),
+                    type="Stream",
+                ),
+            )],
+            job_name="sjName",
+            location="West US",
+            output_error_policy="Drop",
+            outputs=[azure_native.streamanalytics.v20170401preview.OutputArgs(
+                datasource=azure_native.streamanalytics.v20170401preview.AzureSqlDatabaseOutputDataSourceArgs(
+                    database="databaseName",
+                    password="userPassword",
+                    server="serverName",
+                    table="tableName",
+                    type="Microsoft.Sql/Server/Database",
+                    user="<user>",
+                ),
+                name="outputtest",
+            )],
+            resource_group_name="sjrg",
+            sku=azure_native.streamanalytics.v20170401preview.StreamingJobSkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key1": "value1",
+                "key3": "value3",
+                "randomKey": "randomValue",
+            },
+            transformation=azure_native.streamanalytics.v20170401preview.TransformationArgs(
+                name="transformationtest",
+                query="Select Id, Name from inputtest",
+                streaming_units=1,
+            ))
+
+        ```
+        ### Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_job = azure_native.streamanalytics.v20170401preview.StreamingJob("streamingJob",
+            compatibility_level="1.0",
+            data_locale="en-US",
+            events_late_arrival_max_delay_in_seconds=16,
+            events_out_of_order_max_delay_in_seconds=5,
+            events_out_of_order_policy="Drop",
+            functions=[],
+            inputs=[],
+            job_name="sjName",
+            location="West US",
+            output_error_policy="Drop",
+            outputs=[],
+            resource_group_name="sjrg",
+            sku=azure_native.streamanalytics.v20170401preview.StreamingJobSkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key1": "value1",
+                "key3": "value3",
+                "randomKey": "randomValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics/v20170401preview:StreamingJob sjName /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg/providers/Microsoft.StreamAnalytics/streamingjobs/sjName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ClusterInfoArgs']] cluster: The cluster which streaming jobs will run on.
@@ -455,6 +556,107 @@ class StreamingJob(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A streaming job object, containing all information associated with the named streaming job.
+
+        ## Example Usage
+        ### Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_job = azure_native.streamanalytics.v20170401preview.StreamingJob("streamingJob",
+            compatibility_level="1.0",
+            data_locale="en-US",
+            events_late_arrival_max_delay_in_seconds=5,
+            events_out_of_order_max_delay_in_seconds=0,
+            events_out_of_order_policy="Drop",
+            functions=[],
+            inputs=[azure_native.streamanalytics.v20170401preview.InputArgs(
+                name="inputtest",
+                properties=azure_native.streamanalytics.v20170401preview.StreamInputPropertiesArgs(
+                    datasource=azure_native.streamanalytics.v20170401preview.BlobStreamInputDataSourceArgs(
+                        container="containerName",
+                        path_pattern="",
+                        storage_accounts=[azure_native.streamanalytics.v20170401preview.StorageAccountArgs(
+                            account_key="yourAccountKey==",
+                            account_name="yourAccountName",
+                        )],
+                        type="Microsoft.Storage/Blob",
+                    ),
+                    serialization=azure_native.streamanalytics.v20170401preview.JsonSerializationArgs(
+                        encoding="UTF8",
+                        type="Json",
+                    ),
+                    type="Stream",
+                ),
+            )],
+            job_name="sjName",
+            location="West US",
+            output_error_policy="Drop",
+            outputs=[azure_native.streamanalytics.v20170401preview.OutputArgs(
+                datasource=azure_native.streamanalytics.v20170401preview.AzureSqlDatabaseOutputDataSourceArgs(
+                    database="databaseName",
+                    password="userPassword",
+                    server="serverName",
+                    table="tableName",
+                    type="Microsoft.Sql/Server/Database",
+                    user="<user>",
+                ),
+                name="outputtest",
+            )],
+            resource_group_name="sjrg",
+            sku=azure_native.streamanalytics.v20170401preview.StreamingJobSkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key1": "value1",
+                "key3": "value3",
+                "randomKey": "randomValue",
+            },
+            transformation=azure_native.streamanalytics.v20170401preview.TransformationArgs(
+                name="transformationtest",
+                query="Select Id, Name from inputtest",
+                streaming_units=1,
+            ))
+
+        ```
+        ### Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_job = azure_native.streamanalytics.v20170401preview.StreamingJob("streamingJob",
+            compatibility_level="1.0",
+            data_locale="en-US",
+            events_late_arrival_max_delay_in_seconds=16,
+            events_out_of_order_max_delay_in_seconds=5,
+            events_out_of_order_policy="Drop",
+            functions=[],
+            inputs=[],
+            job_name="sjName",
+            location="West US",
+            output_error_policy="Drop",
+            outputs=[],
+            resource_group_name="sjrg",
+            sku=azure_native.streamanalytics.v20170401preview.StreamingJobSkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key1": "value1",
+                "key3": "value3",
+                "randomKey": "randomValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics/v20170401preview:StreamingJob sjName /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg/providers/Microsoft.StreamAnalytics/streamingjobs/sjName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StreamingJobArgs args: The arguments to use to populate this resource's properties.

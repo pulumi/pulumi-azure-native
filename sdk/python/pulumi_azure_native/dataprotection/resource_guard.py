@@ -132,6 +132,31 @@ class ResourceGuard(pulumi.CustomResource):
         API Version: 2023-01-01.
         Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create ResourceGuard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_guard = azure_native.dataprotection.ResourceGuard("resourceGuard",
+            location="WestUS",
+            resource_group_name="SampleResourceGroup",
+            resource_guards_name="swaggerExample",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:ResourceGuard VaultGuardTestNew /subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
@@ -150,6 +175,31 @@ class ResourceGuard(pulumi.CustomResource):
         """
         API Version: 2023-01-01.
         Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create ResourceGuard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_guard = azure_native.dataprotection.ResourceGuard("resourceGuard",
+            location="WestUS",
+            resource_group_name="SampleResourceGroup",
+            resource_guards_name="swaggerExample",
+            tags={
+                "key1": "val1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:ResourceGuard VaultGuardTestNew /subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceGuardInitArgs args: The arguments to use to populate this resource's properties.

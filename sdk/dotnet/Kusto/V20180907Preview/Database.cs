@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Kusto.V20180907Preview
 {
     /// <summary>
     /// Class representing a Kusto database.
+    /// 
+    /// ## Example Usage
+    /// ### KustoDatabasesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Kusto.V20180907Preview.Database("database", new()
+    ///     {
+    ///         ClusterName = "KustoClusterRPTest4",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///         SoftDeletePeriodInDays = 1,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto/v20180907preview:Database KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20180907preview:Database")]
     public partial class Database : global::Pulumi.CustomResource

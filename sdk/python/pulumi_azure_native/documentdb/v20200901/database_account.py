@@ -426,6 +426,95 @@ class DatabaseAccount(pulumi.CustomResource):
         """
         An Azure Cosmos DB database account.
 
+        ## Example Usage
+        ### CosmosDBDatabaseAccountCreateMax
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20200901.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            api_properties=azure_native.documentdb.v20200901.ApiPropertiesArgs(
+                server_version="3.2",
+            ),
+            backup_policy=azure_native.documentdb.v20200901.PeriodicModeBackupPolicyArgs(
+                periodic_mode_properties=azure_native.documentdb.v20200901.PeriodicModePropertiesArgs(
+                    backup_interval_in_minutes=240,
+                    backup_retention_interval_in_hours=8,
+                ),
+                type="Periodic",
+            ),
+            consistency_policy=azure_native.documentdb.v20200901.ConsistencyPolicyResponseArgs(
+                default_consistency_level=azure_native.documentdb/v20200901.DefaultConsistencyLevel.BOUNDED_STALENESS,
+                max_interval_in_seconds=10,
+                max_staleness_prefix=200,
+            ),
+            cors=[{
+                "allowedOrigins": "https://test",
+            }],
+            database_account_offer_type=azure_native.documentdb/v20200901.DatabaseAccountOfferType.STANDARD,
+            enable_analytical_storage=True,
+            enable_free_tier=False,
+            ip_rules=[
+                azure_native.documentdb.v20200901.IpAddressOrRangeArgs(
+                    ip_address_or_range="23.43.230.120",
+                ),
+                azure_native.documentdb.v20200901.IpAddressOrRangeArgs(
+                    ip_address_or_range="110.12.240.0/12",
+                ),
+            ],
+            is_virtual_network_filter_enabled=True,
+            key_vault_key_uri="https://myKeyVault.vault.azure.net",
+            kind="MongoDB",
+            location="westus",
+            locations=[
+                azure_native.documentdb.v20200901.LocationArgs(
+                    failover_priority=0,
+                    is_zone_redundant=False,
+                    location_name="southcentralus",
+                ),
+                azure_native.documentdb.v20200901.LocationArgs(
+                    failover_priority=1,
+                    is_zone_redundant=False,
+                    location_name="eastus",
+                ),
+            ],
+            resource_group_name="rg1",
+            tags={},
+            virtual_network_rules=[azure_native.documentdb.v20200901.VirtualNetworkRuleArgs(
+                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+                ignore_missing_v_net_service_endpoint=False,
+            )])
+
+        ```
+        ### CosmosDBDatabaseAccountCreateMin
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20200901.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            database_account_offer_type=azure_native.documentdb/v20200901.DatabaseAccountOfferType.STANDARD,
+            location="westus",
+            locations=[azure_native.documentdb.v20200901.LocationArgs(
+                failover_priority=0,
+                is_zone_redundant=False,
+                location_name="southcentralus",
+            )],
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20200901:DatabaseAccount ddb1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -460,6 +549,95 @@ class DatabaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB database account.
+
+        ## Example Usage
+        ### CosmosDBDatabaseAccountCreateMax
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20200901.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            api_properties=azure_native.documentdb.v20200901.ApiPropertiesArgs(
+                server_version="3.2",
+            ),
+            backup_policy=azure_native.documentdb.v20200901.PeriodicModeBackupPolicyArgs(
+                periodic_mode_properties=azure_native.documentdb.v20200901.PeriodicModePropertiesArgs(
+                    backup_interval_in_minutes=240,
+                    backup_retention_interval_in_hours=8,
+                ),
+                type="Periodic",
+            ),
+            consistency_policy=azure_native.documentdb.v20200901.ConsistencyPolicyResponseArgs(
+                default_consistency_level=azure_native.documentdb/v20200901.DefaultConsistencyLevel.BOUNDED_STALENESS,
+                max_interval_in_seconds=10,
+                max_staleness_prefix=200,
+            ),
+            cors=[{
+                "allowedOrigins": "https://test",
+            }],
+            database_account_offer_type=azure_native.documentdb/v20200901.DatabaseAccountOfferType.STANDARD,
+            enable_analytical_storage=True,
+            enable_free_tier=False,
+            ip_rules=[
+                azure_native.documentdb.v20200901.IpAddressOrRangeArgs(
+                    ip_address_or_range="23.43.230.120",
+                ),
+                azure_native.documentdb.v20200901.IpAddressOrRangeArgs(
+                    ip_address_or_range="110.12.240.0/12",
+                ),
+            ],
+            is_virtual_network_filter_enabled=True,
+            key_vault_key_uri="https://myKeyVault.vault.azure.net",
+            kind="MongoDB",
+            location="westus",
+            locations=[
+                azure_native.documentdb.v20200901.LocationArgs(
+                    failover_priority=0,
+                    is_zone_redundant=False,
+                    location_name="southcentralus",
+                ),
+                azure_native.documentdb.v20200901.LocationArgs(
+                    failover_priority=1,
+                    is_zone_redundant=False,
+                    location_name="eastus",
+                ),
+            ],
+            resource_group_name="rg1",
+            tags={},
+            virtual_network_rules=[azure_native.documentdb.v20200901.VirtualNetworkRuleArgs(
+                id="/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+                ignore_missing_v_net_service_endpoint=False,
+            )])
+
+        ```
+        ### CosmosDBDatabaseAccountCreateMin
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account = azure_native.documentdb.v20200901.DatabaseAccount("databaseAccount",
+            account_name="ddb1",
+            database_account_offer_type=azure_native.documentdb/v20200901.DatabaseAccountOfferType.STANDARD,
+            location="westus",
+            locations=[azure_native.documentdb.v20200901.LocationArgs(
+                failover_priority=0,
+                is_zone_redundant=False,
+                location_name="southcentralus",
+            )],
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20200901:DatabaseAccount ddb1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseAccountArgs args: The arguments to use to populate this resource's properties.

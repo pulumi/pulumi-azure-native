@@ -9,6 +9,54 @@ import * as utilities from "../../utilities";
 
 /**
  * A server security alert policy.
+ *
+ * ## Example Usage
+ * ### Update a server's threat detection policy with all parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverSecurityAlertPolicy = new azure_native.dbforpostgresql.v20171201preview.ServerSecurityAlertPolicy("serverSecurityAlertPolicy", {
+ *     disabledAlerts: [
+ *         "Access_Anomaly",
+ *         "Usage_Anomaly",
+ *     ],
+ *     emailAccountAdmins: true,
+ *     emailAddresses: ["testSecurityAlert@microsoft.com"],
+ *     resourceGroupName: "securityalert-4799",
+ *     retentionDays: 5,
+ *     securityAlertPolicyName: "Default",
+ *     serverName: "securityalert-6440",
+ *     state: azure_native.dbforpostgresql.v20171201preview.ServerSecurityAlertPolicyState.Enabled,
+ *     storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+ *     storageEndpoint: "https://mystorage.blob.core.windows.net",
+ * });
+ *
+ * ```
+ * ### Update a server's threat detection policy with minimal parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverSecurityAlertPolicy = new azure_native.dbforpostgresql.v20171201preview.ServerSecurityAlertPolicy("serverSecurityAlertPolicy", {
+ *     emailAccountAdmins: true,
+ *     resourceGroupName: "securityalert-4799",
+ *     securityAlertPolicyName: "Default",
+ *     serverName: "securityalert-6440",
+ *     state: azure_native.dbforpostgresql.v20171201preview.ServerSecurityAlertPolicyState.Disabled,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20171201preview:ServerSecurityAlertPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.DBforPostgreSQL/servers/securityalert-6440/securityAlertPolicies/default 
+ * ```
  */
 export class ServerSecurityAlertPolicy extends pulumi.CustomResource {
     /**

@@ -9,6 +9,46 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed CCF. Contains the properties of Managed CCF Resource.
+ *
+ * ## Example Usage
+ * ### ManagedCCFCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCCF = new azure_native.confidentialledger.v20230126preview.ManagedCCF("managedCCF", {
+ *     appName: "DummyMccfAppName",
+ *     location: "EastUS",
+ *     properties: {
+ *         deploymentType: {
+ *             appSourceUri: `https://myaccount.blob.core.windows.net/storage/mccfsource?sv=2022-02-11%st=2022-03-11`,
+ *             languageRuntime: "CPP",
+ *         },
+ *         memberIdentityCertificates: [{
+ *             certificate: "-----BEGIN CERTIFICATE-----MIIBsjCCATigAwIBAgIUZWIbyG79TniQLd2UxJuU74tqrKcwCgYIKoZIzj0EAwMwEDEOMAwGA1UEAwwFdXNlcjAwHhcNMjEwMzE2MTgwNjExWhcNMjIwMzE2MTgwNjExWjAQMQ4wDAYDVQQDDAV1c2VyMDB2MBAGByqGSM49AgEGBSuBBAAiA2IABBiWSo/j8EFit7aUMm5lF+lUmCu+IgfnpFD+7QMgLKtxRJ3aGSqgS/GpqcYVGddnODtSarNE/HyGKUFUolLPQ5ybHcouUk0kyfA7XMeSoUA4lBz63Wha8wmXo+NdBRo39qNTMFEwHQYDVR0OBBYEFPtuhrwgGjDFHeUUT4nGsXaZn69KMB8GA1UdIwQYMBaAFPtuhrwgGjDFHeUUT4nGsXaZn69KMA8GA1UdEwEB/wQFMAMBAf8wCgYIKoZIzj0EAwMDaAAwZQIxAOnozm2CyqRwSSQLls5r+mUHRGRyXHXwYtM4Dcst/VEZdmS9fqvHRCHbjUlO/+HNfgIwMWZ4FmsjD3wnPxONOm9YdVn/PRD7SsPRPbOjwBiE4EBGaHDsLjYAGDSGi7NJnSkA-----END CERTIFICATE-----",
+ *             encryptionkey: "ledgerencryptionkey",
+ *             tags: {
+ *                 additionalProps1: "additional properties",
+ *             },
+ *         }],
+ *         nodeCount: 5,
+ *     },
+ *     resourceGroupName: "DummyResourceGroupName",
+ *     tags: {
+ *         additionalProps1: "additional properties",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:confidentialledger/v20230126preview:ManagedCCF DummyLedgerName /subscriptions/00000000-0000-0000-0000-000000000001/providers/Microsoft.ConfidentialLedger/ledgers/DummyLedgerName 
+ * ```
  */
 export class ManagedCCF extends pulumi.CustomResource {
     /**

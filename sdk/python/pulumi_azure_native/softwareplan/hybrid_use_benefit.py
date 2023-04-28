@@ -81,6 +81,30 @@ class HybridUseBenefit(pulumi.CustomResource):
         API Version: 2019-12-01.
         Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### HybridUseBenefit
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_use_benefit = azure_native.softwareplan.HybridUseBenefit("hybridUseBenefit",
+            plan_id="94f46eda-45f8-493a-8425-251921463a89",
+            scope="subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
+            sku=azure_native.softwareplan.SkuArgs(
+                name="SQL_Server_Perpetual",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:softwareplan:HybridUseBenefit SQL_{hostGroupName}_{hostName} /subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}/providers/Microsoft.SoftwarePlan/hybridUseBenefits/SQL_{hostGroupName}_{hostName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] plan_id: This is a unique identifier for a plan. Should be a guid.
@@ -97,6 +121,30 @@ class HybridUseBenefit(pulumi.CustomResource):
         Response on GET of a hybrid use benefit
         API Version: 2019-12-01.
         Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### HybridUseBenefit
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_use_benefit = azure_native.softwareplan.HybridUseBenefit("hybridUseBenefit",
+            plan_id="94f46eda-45f8-493a-8425-251921463a89",
+            scope="subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
+            sku=azure_native.softwareplan.SkuArgs(
+                name="SQL_Server_Perpetual",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:softwareplan:HybridUseBenefit SQL_{hostGroupName}_{hostName} /subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}/providers/Microsoft.SoftwarePlan/hybridUseBenefits/SQL_{hostGroupName}_{hostName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HybridUseBenefitArgs args: The arguments to use to populate this resource's properties.

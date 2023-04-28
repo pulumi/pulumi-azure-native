@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * The VmmServers resource definition.
+ *
+ * ## Example Usage
+ * ### CreateVMMServer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vmmServer = new azure_native.scvmm.v20200605preview.VmmServer("vmmServer", {
+ *     credentials: {
+ *         password: "password",
+ *         username: "testuser",
+ *     },
+ *     extendedLocation: {
+ *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+ *         type: "customLocation",
+ *     },
+ *     fqdn: "VMM.contoso.com",
+ *     location: "East US",
+ *     port: 1234,
+ *     resourceGroupName: "testrg",
+ *     vmmServerName: "ContosoVMMServer",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:scvmm/v20200605preview:VmmServer ContosoVMMServer /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer 
+ * ```
  */
 export class VmmServer extends pulumi.CustomResource {
     /**

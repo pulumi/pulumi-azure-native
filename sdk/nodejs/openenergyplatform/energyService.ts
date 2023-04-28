@@ -10,6 +10,28 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-04-04-preview.
  * Previous API Version: 2022-04-04-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### OepResource_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const energyService = new azure_native.openenergyplatform.EnergyService("energyService", {
+ *     resourceGroupName: "DummyResourceGroupName",
+ *     resourceName: "DummyResourceName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:openenergyplatform:EnergyService DummyResourceName /subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/DummyResourceGroupName/providers/Microsoft.OEP/oepResource/DummyResourceName 
+ * ```
  */
 export class EnergyService extends pulumi.CustomResource {
     /**

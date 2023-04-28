@@ -99,6 +99,67 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         API Version: 2023-01-31.
         Previous API Version: 2021-06-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or replace a time series database connection for a DigitalTwins instance with user assigned identity.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        time_series_database_connection = azure_native.digitaltwins.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection",
+            properties=azure_native.digitaltwins.AzureDataExplorerConnectionPropertiesResponseArgs(
+                adx_database_name="myDatabase",
+                adx_endpoint_uri="https://mycluster.kusto.windows.net",
+                adx_resource_id="/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",
+                adx_table_name="myTable",
+                connection_type="AzureDataExplorer",
+                event_hub_endpoint_uri="sb://myeh.servicebus.windows.net/",
+                event_hub_entity_path="myeh",
+                event_hub_namespace_resource_id="/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.EventHub/namespaces/myeh",
+                identity=azure_native.digitaltwins.ManagedIdentityReferenceArgs(
+                    type="UserAssigned",
+                    user_assigned_identity="/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity",
+                ),
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService",
+            time_series_database_connection_name="myConnection")
+
+        ```
+        ### Create or replace a time series database connection for a DigitalTwins instance.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        time_series_database_connection = azure_native.digitaltwins.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection",
+            properties=azure_native.digitaltwins.AzureDataExplorerConnectionPropertiesResponseArgs(
+                adx_database_name="myDatabase",
+                adx_endpoint_uri="https://mycluster.kusto.windows.net",
+                adx_relationship_lifecycle_events_table_name="myRelationshipLifecycleEventsTable",
+                adx_resource_id="/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",
+                adx_table_name="myPropertyUpdatesTable",
+                adx_twin_lifecycle_events_table_name="myTwinLifecycleEventsTable",
+                connection_type="AzureDataExplorer",
+                event_hub_endpoint_uri="sb://myeh.servicebus.windows.net/",
+                event_hub_entity_path="myeh",
+                event_hub_namespace_resource_id="/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.EventHub/namespaces/myeh",
+                record_property_and_item_removals="true",
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService",
+            time_series_database_connection_name="myConnection")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins:TimeSeriesDatabaseConnection myConnection /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/timeSeriesDatabaseConnections/myConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AzureDataExplorerConnectionPropertiesArgs']] properties: Properties of a specific time series database connection.
@@ -116,6 +177,67 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
         Describes a time series database connection resource.
         API Version: 2023-01-31.
         Previous API Version: 2021-06-30-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or replace a time series database connection for a DigitalTwins instance with user assigned identity.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        time_series_database_connection = azure_native.digitaltwins.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection",
+            properties=azure_native.digitaltwins.AzureDataExplorerConnectionPropertiesResponseArgs(
+                adx_database_name="myDatabase",
+                adx_endpoint_uri="https://mycluster.kusto.windows.net",
+                adx_resource_id="/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",
+                adx_table_name="myTable",
+                connection_type="AzureDataExplorer",
+                event_hub_endpoint_uri="sb://myeh.servicebus.windows.net/",
+                event_hub_entity_path="myeh",
+                event_hub_namespace_resource_id="/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.EventHub/namespaces/myeh",
+                identity=azure_native.digitaltwins.ManagedIdentityReferenceArgs(
+                    type="UserAssigned",
+                    user_assigned_identity="/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity",
+                ),
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService",
+            time_series_database_connection_name="myConnection")
+
+        ```
+        ### Create or replace a time series database connection for a DigitalTwins instance.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        time_series_database_connection = azure_native.digitaltwins.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection",
+            properties=azure_native.digitaltwins.AzureDataExplorerConnectionPropertiesResponseArgs(
+                adx_database_name="myDatabase",
+                adx_endpoint_uri="https://mycluster.kusto.windows.net",
+                adx_relationship_lifecycle_events_table_name="myRelationshipLifecycleEventsTable",
+                adx_resource_id="/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",
+                adx_table_name="myPropertyUpdatesTable",
+                adx_twin_lifecycle_events_table_name="myTwinLifecycleEventsTable",
+                connection_type="AzureDataExplorer",
+                event_hub_endpoint_uri="sb://myeh.servicebus.windows.net/",
+                event_hub_entity_path="myeh",
+                event_hub_namespace_resource_id="/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.EventHub/namespaces/myeh",
+                record_property_and_item_removals="true",
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService",
+            time_series_database_connection_name="myConnection")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins:TimeSeriesDatabaseConnection myConnection /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/timeSeriesDatabaseConnections/myConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TimeSeriesDatabaseConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -75,7 +75,44 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ResourceTypeRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ResourceTypeRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.v20201120.ResourceTypeRegistration("resourceTypeRegistration",
+            properties=azure_native.providerhub.v20201120.ResourceTypeRegistrationResponsePropertiesArgs(
+                endpoints=[azure_native.providerhub.v20201120.ResourceTypeEndpointArgs(
+                    api_versions=["2020-06-01-preview"],
+                    locations=[
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    required_features=["<feature flag>"],
+                )],
+                regionality="Regional",
+                routing_type="Default",
+                swagger_specifications=[azure_native.providerhub.v20201120.SwaggerSpecificationArgs(
+                    api_versions=["2020-06-01-preview"],
+                    swagger_spec_folder_uri="https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                )],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20201120:ResourceTypeRegistration employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -88,7 +125,44 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                  args: ResourceTypeRegistrationInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ResourceTypeRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ResourceTypeRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.v20201120.ResourceTypeRegistration("resourceTypeRegistration",
+            properties=azure_native.providerhub.v20201120.ResourceTypeRegistrationResponsePropertiesArgs(
+                endpoints=[azure_native.providerhub.v20201120.ResourceTypeEndpointArgs(
+                    api_versions=["2020-06-01-preview"],
+                    locations=[
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    required_features=["<feature flag>"],
+                )],
+                regionality="Regional",
+                routing_type="Default",
+                swagger_specifications=[azure_native.providerhub.v20201120.SwaggerSpecificationArgs(
+                    api_versions=["2020-06-01-preview"],
+                    swagger_spec_folder_uri="https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                )],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20201120:ResourceTypeRegistration employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param ResourceTypeRegistrationInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

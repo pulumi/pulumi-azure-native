@@ -9,6 +9,57 @@ import * as utilities from "../../utilities";
 
 /**
  * Linked service resource type.
+ *
+ * ## Example Usage
+ * ### LinkedServices_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedService = new azure_native.datafactory.v20180601.LinkedService("linkedService", {
+ *     factoryName: "exampleFactoryName",
+ *     linkedServiceName: "exampleLinkedService",
+ *     properties: {
+ *         connectionString: {
+ *             type: "SecureString",
+ *             value: "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+ *         },
+ *         type: "AzureStorage",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ * ### LinkedServices_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkedService = new azure_native.datafactory.v20180601.LinkedService("linkedService", {
+ *     factoryName: "exampleFactoryName",
+ *     linkedServiceName: "exampleLinkedService",
+ *     properties: {
+ *         connectionString: {
+ *             type: "SecureString",
+ *             value: "DefaultEndpointsProtocol=https;AccountName=examplestorageaccount;AccountKey=<storage key>",
+ *         },
+ *         description: "Example description",
+ *         type: "AzureStorage",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datafactory/v20180601:LinkedService exampleLinkedService /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/linkedservices/exampleLinkedService 
+ * ```
  */
 export class LinkedService extends pulumi.CustomResource {
     /**

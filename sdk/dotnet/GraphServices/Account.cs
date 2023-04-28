@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.GraphServices
     /// Account details
     /// API Version: 2022-09-22-preview.
     /// Previous API Version: 2022-09-22-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Account resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.GraphServices.Account("account", new()
+    ///     {
+    ///         Properties = new AzureNative.GraphServices.Inputs.AccountResourcePropertiesArgs
+    ///         {
+    ///             AppId = "11111111-aaaa-1111-bbbb-111111111111",
+    ///         },
+    ///         ResourceGroupName = "testResourceGroupGRAM",
+    ///         ResourceName = "11111111-aaaa-1111-bbbb-1111111111111",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:graphservices:Account 11111111-aaaa-1111-bbbb-111111111111 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroupGRAM/providers/Microsoft.GraphServices/accounts/11111111-aaaa-1111-bbbb-111111111111 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:graphservices:Account")]
     public partial class Account : global::Pulumi.CustomResource

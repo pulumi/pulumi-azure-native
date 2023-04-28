@@ -9,6 +9,151 @@ import * as utilities from "../../utilities";
 
 /**
  * A function object, containing all information associated with the named function. All functions are contained under a streaming job.
+ *
+ * ## Example Usage
+ * ### Create a CLRUdf function
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _function = new azure_native.streamanalytics.v20211001preview.Function("function", {
+ *     functionName: "function588",
+ *     jobName: "sjName",
+ *     properties: {
+ *         binding: {
+ *             "class": "ASAEdgeUDFDemo.Class1",
+ *             dllPath: "ASAEdgeApplication2_CodeBehind",
+ *             method: "SquareFunction",
+ *             type: "Microsoft.StreamAnalytics/CLRUdf",
+ *             updateMode: "Static",
+ *         },
+ *         inputs: [{
+ *             dataType: "nvarchar(max)",
+ *         }],
+ *         output: {
+ *             dataType: "nvarchar(max)",
+ *         },
+ *         type: "Scalar",
+ *     },
+ *     resourceGroupName: "sjrg",
+ * });
+ *
+ * ```
+ * ### Create a JavaScript function
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _function = new azure_native.streamanalytics.v20211001preview.Function("function", {
+ *     functionName: "function8197",
+ *     jobName: "sj8653",
+ *     properties: {
+ *         binding: {
+ *             script: "function (x, y) { return x + y; }",
+ *             type: "Microsoft.StreamAnalytics/JavascriptUdf",
+ *         },
+ *         inputs: [{
+ *             dataType: "Any",
+ *         }],
+ *         output: {
+ *             dataType: "Any",
+ *         },
+ *         type: "Scalar",
+ *     },
+ *     resourceGroupName: "sjrg1637",
+ * });
+ *
+ * ```
+ * ### Create an Azure ML Service function
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _function = new azure_native.streamanalytics.v20211001preview.Function("function", {
+ *     functionName: "function588",
+ *     jobName: "sjName",
+ *     properties: {
+ *         binding: {
+ *             apiKey: "someApiKey==",
+ *             batchSize: 1000,
+ *             endpoint: "someAzureMLEndpointURL",
+ *             inputRequestName: "Inputs",
+ *             inputs: [{
+ *                 dataType: "array",
+ *                 mapTo: 0,
+ *                 name: "data",
+ *             }],
+ *             numberOfParallelRequests: 1,
+ *             outputResponseName: "Results",
+ *             outputs: [{
+ *                 dataType: "string",
+ *                 name: "Sentiment",
+ *             }],
+ *             type: "Microsoft.MachineLearningServices",
+ *         },
+ *         inputs: [{
+ *             dataType: "nvarchar(max)",
+ *         }],
+ *         output: {
+ *             dataType: "nvarchar(max)",
+ *         },
+ *         type: "Scalar",
+ *     },
+ *     resourceGroupName: "sjrg",
+ * });
+ *
+ * ```
+ * ### Create an Azure ML function
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _function = new azure_native.streamanalytics.v20211001preview.Function("function", {
+ *     functionName: "function588",
+ *     jobName: "sj9093",
+ *     properties: {
+ *         binding: {
+ *             apiKey: "someApiKey==",
+ *             batchSize: 1000,
+ *             endpoint: "someAzureMLEndpointURL",
+ *             inputs: {
+ *                 columnNames: [{
+ *                     dataType: "string",
+ *                     mapTo: 0,
+ *                     name: "tweet",
+ *                 }],
+ *                 name: "input1",
+ *             },
+ *             outputs: [{
+ *                 dataType: "string",
+ *                 name: "Sentiment",
+ *             }],
+ *             type: "Microsoft.MachineLearning/WebService",
+ *         },
+ *         inputs: [{
+ *             dataType: "nvarchar(max)",
+ *         }],
+ *         output: {
+ *             dataType: "nvarchar(max)",
+ *         },
+ *         type: "Scalar",
+ *     },
+ *     resourceGroupName: "sjrg7",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:streamanalytics/v20211001preview:Function function588 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg7/providers/Microsoft.StreamAnalytics/streamingjobs/sj9093/functions/function588 
+ * ```
  */
 export class Function extends pulumi.CustomResource {
     /**

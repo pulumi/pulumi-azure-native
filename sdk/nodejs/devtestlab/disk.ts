@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * A Disk.
  * API Version: 2018-09-15.
  * Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Disks_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disk = new azure_native.devtestlab.Disk("disk", {
+ *     diskSizeGiB: 1023,
+ *     diskType: "Standard",
+ *     labName: "{labName}",
+ *     leasedByLabVmId: "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/vmName",
+ *     name: "{diskName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     userName: "{userId}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab:Disk {diskName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/l{labName}/users/{userId}/disks/{diskName} 
+ * ```
  */
 export class Disk extends pulumi.CustomResource {
     /**

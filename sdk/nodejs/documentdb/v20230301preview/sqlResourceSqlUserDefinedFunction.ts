@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB userDefinedFunction.
+ *
+ * ## Example Usage
+ * ### CosmosDBSqlUserDefinedFunctionCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlResourceSqlUserDefinedFunction = new azure_native.documentdb.v20230301preview.SqlResourceSqlUserDefinedFunction("sqlResourceSqlUserDefinedFunction", {
+ *     accountName: "ddb1",
+ *     containerName: "containerName",
+ *     databaseName: "databaseName",
+ *     options: {},
+ *     resource: {
+ *         body: "body",
+ *         id: "userDefinedFunctionName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     userDefinedFunctionName: "userDefinedFunctionName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20230301preview:SqlResourceSqlUserDefinedFunction userDefinedFunctionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlUserDefinedFunctions/userDefinedFunctionName 
+ * ```
  */
 export class SqlResourceSqlUserDefinedFunction extends pulumi.CustomResource {
     /**

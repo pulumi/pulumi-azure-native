@@ -9,6 +9,49 @@ import * as utilities from "../../utilities";
 
 /**
  * The notification registration definition.
+ *
+ * ## Example Usage
+ * ### NotificationRegistrations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const notificationRegistration = new azure_native.providerhub.v20201120.NotificationRegistration("notificationRegistration", {
+ *     notificationRegistrationName: "fooNotificationRegistration",
+ *     properties: {
+ *         includedEvents: [
+ *             "*&#47;write",
+ *             "Microsoft.Contoso/employees/delete",
+ *         ],
+ *         messageScope: "RegisteredSubscriptions",
+ *         notificationEndpoints: [
+ *             {
+ *                 locations: [
+ *                     "",
+ *                     "East US",
+ *                 ],
+ *                 notificationDestination: "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
+ *             },
+ *             {
+ *                 locations: ["North Europe"],
+ *                 notificationDestination: "/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
+ *             },
+ *         ],
+ *         notificationMode: "EventHub",
+ *     },
+ *     providerNamespace: "Microsoft.Contoso",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:providerhub/v20201120:NotificationRegistration fooNotificationRegistration /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/notificationregistrations/fooNotificationRegistration 
+ * ```
  */
 export class NotificationRegistration extends pulumi.CustomResource {
     /**

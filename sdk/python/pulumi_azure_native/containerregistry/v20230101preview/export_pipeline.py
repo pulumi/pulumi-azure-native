@@ -147,6 +147,38 @@ class ExportPipeline(pulumi.CustomResource):
         """
         An object that represents an export pipeline for a container registry.
 
+        ## Example Usage
+        ### ExportPipelineCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        export_pipeline = azure_native.containerregistry.v20230101preview.ExportPipeline("exportPipeline",
+            export_pipeline_name="myExportPipeline",
+            identity=azure_native.containerregistry.v20230101preview.IdentityPropertiesArgs(
+                type=azure_native.containerregistry/v20230101preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="westus",
+            options=["OverwriteBlobs"],
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            target=azure_native.containerregistry.v20230101preview.ExportPipelineTargetPropertiesArgs(
+                key_vault_uri="https://myvault.vault.azure.net/secrets/acrexportsas",
+                type="AzureStorageBlobContainer",
+                uri="https://accountname.blob.core.windows.net/containername",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:ExportPipeline myExportPipeline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] export_pipeline_name: The name of the export pipeline.
@@ -165,6 +197,38 @@ class ExportPipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents an export pipeline for a container registry.
+
+        ## Example Usage
+        ### ExportPipelineCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        export_pipeline = azure_native.containerregistry.v20230101preview.ExportPipeline("exportPipeline",
+            export_pipeline_name="myExportPipeline",
+            identity=azure_native.containerregistry.v20230101preview.IdentityPropertiesArgs(
+                type=azure_native.containerregistry/v20230101preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="westus",
+            options=["OverwriteBlobs"],
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            target=azure_native.containerregistry.v20230101preview.ExportPipelineTargetPropertiesArgs(
+                key_vault_uri="https://myvault.vault.azure.net/secrets/acrexportsas",
+                type="AzureStorageBlobContainer",
+                uri="https://accountname.blob.core.windows.net/containername",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:ExportPipeline myExportPipeline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExportPipelineArgs args: The arguments to use to populate this resource's properties.

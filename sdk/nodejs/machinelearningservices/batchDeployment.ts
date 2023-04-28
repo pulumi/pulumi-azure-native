@@ -10,6 +10,84 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-10-01.
  * Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Batch Deployment.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchDeployment = new azure_native.machinelearningservices.BatchDeployment("batchDeployment", {
+ *     batchDeploymentProperties: {
+ *         codeConfiguration: {
+ *             codeId: "string",
+ *             scoringScript: "string",
+ *         },
+ *         compute: "string",
+ *         description: "string",
+ *         environmentId: "string",
+ *         environmentVariables: {
+ *             string: "string",
+ *         },
+ *         errorThreshold: 1,
+ *         loggingLevel: "Info",
+ *         maxConcurrencyPerInstance: 1,
+ *         miniBatchSize: 1,
+ *         model: {
+ *             assetId: "string",
+ *             referenceType: "Id",
+ *         },
+ *         outputAction: "SummaryOnly",
+ *         outputFileName: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         resources: {
+ *             instanceCount: 1,
+ *             instanceType: "string",
+ *             properties: {
+ *                 string: {
+ *                     "cd3c37dc-2876-4ca4-8a54-21bd7619724a": undefined,
+ *                 },
+ *             },
+ *         },
+ *         retrySettings: {
+ *             maxRetries: 1,
+ *             timeout: "PT5M",
+ *         },
+ *     },
+ *     deploymentName: "testDeploymentName",
+ *     endpointName: "testEndpointName",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *         userAssignedIdentities: {
+ *             string: {},
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     resourceGroupName: "test-rg",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "string",
+ *         name: "string",
+ *         size: "string",
+ *         tier: azure_native.machinelearningservices.SkuTier.Free,
+ *     },
+ *     tags: {},
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices:BatchDeployment string string 
+ * ```
  */
 export class BatchDeployment extends pulumi.CustomResource {
     /**

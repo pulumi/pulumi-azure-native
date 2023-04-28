@@ -13,6 +13,280 @@ namespace Pulumi.AzureNative.Network
     /// Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
     /// API Version: 2020-06-01.
     /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PUT Private DNS Zone A Record Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    ///     {
+    ///         ARecords = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ARecordArgs
+    ///             {
+    ///                 Ipv4Address = "1.2.3.4",
+    ///             },
+    ///         },
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         PrivateZoneName = "privatezone1.com",
+    ///         RecordType = "A",
+    ///         RelativeRecordSetName = "recordA",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Ttl = 3600,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone AAAA Record Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    ///     {
+    ///         AaaaRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.AaaaRecordArgs
+    ///             {
+    ///                 Ipv6Address = "::1",
+    ///             },
+    ///         },
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         PrivateZoneName = "privatezone1.com",
+    ///         RecordType = "AAAA",
+    ///         RelativeRecordSetName = "recordAAAA",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Ttl = 3600,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone CNAME Record Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    ///     {
+    ///         CnameRecord = new AzureNative.Network.Inputs.CnameRecordArgs
+    ///         {
+    ///             Cname = "contoso.com",
+    ///         },
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         PrivateZoneName = "privatezone1.com",
+    ///         RecordType = "CNAME",
+    ///         RelativeRecordSetName = "recordCNAME",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Ttl = 3600,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone MX Record Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         MxRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.MxRecordArgs
+    ///             {
+    ///                 Exchange = "mail.privatezone1.com",
+    ///                 Preference = 0,
+    ///             },
+    ///         },
+    ///         PrivateZoneName = "privatezone1.com",
+    ///         RecordType = "MX",
+    ///         RelativeRecordSetName = "recordMX",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Ttl = 3600,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone PTR Record Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         PrivateZoneName = "0.0.127.in-addr.arpa",
+    ///         PtrRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.PtrRecordArgs
+    ///             {
+    ///                 Ptrdname = "localhost",
+    ///             },
+    ///         },
+    ///         RecordType = "PTR",
+    ///         RelativeRecordSetName = "1",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Ttl = 3600,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone SOA Record Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         PrivateZoneName = "privatezone1.com",
+    ///         RecordType = "SOA",
+    ///         RelativeRecordSetName = "@",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         SoaRecord = new AzureNative.Network.Inputs.SoaRecordArgs
+    ///         {
+    ///             Email = "azureprivatedns-hostmaster.microsoft.com",
+    ///             ExpireTime = 2419200,
+    ///             Host = "azureprivatedns.net",
+    ///             MinimumTtl = 300,
+    ///             RefreshTime = 3600,
+    ///             RetryTime = 300,
+    ///             SerialNumber = 1,
+    ///         },
+    ///         Ttl = 3600,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone SRV Record Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         PrivateZoneName = "privatezone1.com",
+    ///         RecordType = "SRV",
+    ///         RelativeRecordSetName = "recordSRV",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         SrvRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SrvRecordArgs
+    ///             {
+    ///                 Port = 80,
+    ///                 Priority = 0,
+    ///                 Target = "contoso.com",
+    ///                 Weight = 10,
+    ///             },
+    ///         },
+    ///         Ttl = 3600,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PUT Private DNS Zone TXT Record Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateRecordSet = new AzureNative.Network.PrivateRecordSet("privateRecordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         PrivateZoneName = "privatezone1.com",
+    ///         RecordType = "TXT",
+    ///         RelativeRecordSetName = "recordTXT",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Ttl = 3600,
+    ///         TxtRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.TxtRecordArgs
+    ///             {
+    ///                 Value = new[]
+    ///                 {
+    ///                     "string1",
+    ///                     "string2",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:PrivateRecordSet recordtxt /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com/TXT/recordtxt 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateRecordSet")]
     public partial class PrivateRecordSet : global::Pulumi.CustomResource

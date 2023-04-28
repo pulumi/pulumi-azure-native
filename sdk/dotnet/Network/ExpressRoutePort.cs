@@ -13,6 +13,70 @@ namespace Pulumi.AzureNative.Network
     /// ExpressRoutePort resource definition.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ExpressRoutePortCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRoutePort = new AzureNative.Network.ExpressRoutePort("expressRoutePort", new()
+    ///     {
+    ///         BandwidthInGbps = 100,
+    ///         BillingType = "UnlimitedData",
+    ///         Encapsulation = "QinQ",
+    ///         ExpressRoutePortName = "portName",
+    ///         Location = "westus",
+    ///         PeeringLocation = "peeringLocationName",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ExpressRoutePortUpdateLink
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRoutePort = new AzureNative.Network.ExpressRoutePort("expressRoutePort", new()
+    ///     {
+    ///         BandwidthInGbps = 100,
+    ///         BillingType = "UnlimitedData",
+    ///         Encapsulation = "QinQ",
+    ///         ExpressRoutePortName = "portName",
+    ///         Links = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ExpressRouteLinkArgs
+    ///             {
+    ///                 AdminState = "Enabled",
+    ///                 Name = "link1",
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         PeeringLocation = "peeringLocationName",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:ExpressRoutePort portName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRoutePort")]
     public partial class ExpressRoutePort : global::Pulumi.CustomResource

@@ -97,6 +97,34 @@ class CassandraDataCenter(pulumi.CustomResource):
         """
         A managed Cassandra data center.
 
+        ## Example Usage
+        ### CosmosDBManagedCassandraDataCenterCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_data_center = azure_native.documentdb.v20230301preview.CassandraDataCenter("cassandraDataCenter",
+            cluster_name="cassandra-prod",
+            data_center_name="dc1",
+            properties=azure_native.documentdb.v20230301preview.DataCenterResourcePropertiesArgs(
+                base64_encoded_cassandra_yaml_fragment="Y29tcGFjdGlvbl90aHJvdWdocHV0X21iX3Blcl9zZWM6IDMyCmNvbXBhY3Rpb25fbGFyZ2VfcGFydGl0aW9uX3dhcm5pbmdfdGhyZXNob2xkX21iOiAxMDA=",
+                data_center_location="West US 2",
+                delegated_subnet_id="/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet",
+                node_count=9,
+            ),
+            resource_group_name="cassandra-prod-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20230301preview:CassandraDataCenter dc1 /subscriptions/subid/resourceGroups/cassandra-prod-rg/providers/Microsoft.DocumentDB/cassandraClusters/cassandra-prod/dataCenters/dc1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Managed Cassandra cluster name.
@@ -112,6 +140,34 @@ class CassandraDataCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A managed Cassandra data center.
+
+        ## Example Usage
+        ### CosmosDBManagedCassandraDataCenterCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_data_center = azure_native.documentdb.v20230301preview.CassandraDataCenter("cassandraDataCenter",
+            cluster_name="cassandra-prod",
+            data_center_name="dc1",
+            properties=azure_native.documentdb.v20230301preview.DataCenterResourcePropertiesArgs(
+                base64_encoded_cassandra_yaml_fragment="Y29tcGFjdGlvbl90aHJvdWdocHV0X21iX3Blcl9zZWM6IDMyCmNvbXBhY3Rpb25fbGFyZ2VfcGFydGl0aW9uX3dhcm5pbmdfdGhyZXNob2xkX21iOiAxMDA=",
+                data_center_location="West US 2",
+                delegated_subnet_id="/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet",
+                node_count=9,
+            ),
+            resource_group_name="cassandra-prod-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20230301preview:CassandraDataCenter dc1 /subscriptions/subid/resourceGroups/cassandra-prod-rg/providers/Microsoft.DocumentDB/cassandraClusters/cassandra-prod/dataCenters/dc1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CassandraDataCenterArgs args: The arguments to use to populate this resource's properties.

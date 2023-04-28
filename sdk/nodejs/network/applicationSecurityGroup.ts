@@ -8,6 +8,29 @@ import * as utilities from "../utilities";
  * An application security group in a resource group.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create application security group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationSecurityGroup = new azure_native.network.ApplicationSecurityGroup("applicationSecurityGroup", {
+ *     applicationSecurityGroupName: "test-asg",
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:ApplicationSecurityGroup test-asg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationSecurityGroups/test-asg 
+ * ```
  */
 export class ApplicationSecurityGroup extends pulumi.CustomResource {
     /**

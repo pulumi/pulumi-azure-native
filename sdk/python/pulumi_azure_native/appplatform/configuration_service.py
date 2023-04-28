@@ -98,6 +98,40 @@ class ConfigurationService(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ConfigurationServices_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_service = azure_native.appplatform.ConfigurationService("configurationService",
+            configuration_service_name="default",
+            properties=azure_native.appplatform.ConfigurationServicePropertiesResponseArgs(
+                settings={
+                    "gitProperty": {
+                        "repositories": [azure_native.appplatform.ConfigurationServiceGitRepositoryArgs(
+                            label="master",
+                            name="fake",
+                            patterns=["app/dev"],
+                            uri="https://github.com/fake-user/fake-repository",
+                        )],
+                    },
+                },
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:ConfigurationService default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_service_name: The name of Application Configuration Service.
@@ -115,6 +149,40 @@ class ConfigurationService(pulumi.CustomResource):
         Application Configuration Service resource
         API Version: 2022-12-01.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ConfigurationServices_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_service = azure_native.appplatform.ConfigurationService("configurationService",
+            configuration_service_name="default",
+            properties=azure_native.appplatform.ConfigurationServicePropertiesResponseArgs(
+                settings={
+                    "gitProperty": {
+                        "repositories": [azure_native.appplatform.ConfigurationServiceGitRepositoryArgs(
+                            label="master",
+                            name="fake",
+                            patterns=["app/dev"],
+                            uri="https://github.com/fake-user/fake-repository",
+                        )],
+                    },
+                },
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:ConfigurationService default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationServiceArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230301Preview
 {
     /// <summary>
     /// Represents a relation between two resources
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an incident relation.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var incidentRelation = new AzureNative.SecurityInsights.V20230301Preview.IncidentRelation("incidentRelation", new()
+    ///     {
+    ///         IncidentId = "afbd324f-6c48-459c-8710-8d1e1cd03812",
+    ///         RelatedResourceId = "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
+    ///         RelationName = "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230301preview:IncidentRelation 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/afbd324f-6c48-459c-8710-8d1e1cd03812/relations/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230301preview:IncidentRelation")]
     public partial class IncidentRelation : global::Pulumi.CustomResource

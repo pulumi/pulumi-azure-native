@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 {
     /// <summary>
     /// The storage container resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutStorageContainer
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storagecontainerRetrieve = new AzureNative.AzureStackHCI.V20210901Preview.StoragecontainerRetrieve("storagecontainerRetrieve", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.StoragecontainersExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "West US2",
+    ///         Path = "C:\\container_storage",
+    ///         ResourceGroupName = "test-rg",
+    ///         StoragecontainersName = "Default_Container",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve Default_Container /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storagecontainers/test-galimg3325 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve")]
     public partial class StoragecontainerRetrieve : global::Pulumi.CustomResource

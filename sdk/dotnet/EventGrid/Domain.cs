@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.EventGrid
     /// EventGrid Domain.
     /// API Version: 2022-06-15.
     /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Domains_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domain = new AzureNative.EventGrid.Domain("domain", new()
+    ///     {
+    ///         DomainName = "exampledomain1",
+    ///         InboundIpRules = new[]
+    ///         {
+    ///             new AzureNative.EventGrid.Inputs.InboundIpRuleArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "12.18.30.15",
+    ///             },
+    ///             new AzureNative.EventGrid.Inputs.InboundIpRuleArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "12.18.176.1",
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "examplerg",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid:Domain exampledomain1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

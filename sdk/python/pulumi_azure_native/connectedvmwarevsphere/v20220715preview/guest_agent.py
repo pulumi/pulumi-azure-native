@@ -131,6 +131,36 @@ class GuestAgent(pulumi.CustomResource):
         """
         Defines the GuestAgent.
 
+        ## Example Usage
+        ### CreateGuestAgent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_agent = azure_native.connectedvmwarevsphere.v20220715preview.GuestAgent("guestAgent",
+            credentials=azure_native.connectedvmwarevsphere.v20220715preview.GuestCredentialArgs(
+                password="<password>",
+                username="tempuser",
+            ),
+            http_proxy_config=azure_native.connectedvmwarevsphere.v20220715preview.HttpProxyConfigurationArgs(
+                https_proxy="http://192.1.2.3:8080",
+            ),
+            name="default",
+            provisioning_action="install",
+            resource_group_name="testrg",
+            virtual_machine_name="ContosoVm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent default /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VitualMachines/ContosoVm/guestAgents/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['GuestCredentialArgs']] credentials: Username / Password Credentials to provision guest agent.
@@ -148,6 +178,36 @@ class GuestAgent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the GuestAgent.
+
+        ## Example Usage
+        ### CreateGuestAgent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_agent = azure_native.connectedvmwarevsphere.v20220715preview.GuestAgent("guestAgent",
+            credentials=azure_native.connectedvmwarevsphere.v20220715preview.GuestCredentialArgs(
+                password="<password>",
+                username="tempuser",
+            ),
+            http_proxy_config=azure_native.connectedvmwarevsphere.v20220715preview.HttpProxyConfigurationArgs(
+                https_proxy="http://192.1.2.3:8080",
+            ),
+            name="default",
+            provisioning_action="install",
+            resource_group_name="testrg",
+            virtual_machine_name="ContosoVm")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:GuestAgent default /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VitualMachines/ContosoVm/guestAgents/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GuestAgentArgs args: The arguments to use to populate this resource's properties.

@@ -111,6 +111,13 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
                  __props__=None):
         """
         Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/networkConfig/virtualNetwork 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -128,6 +135,13 @@ class WebAppSwiftVirtualNetworkConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Swift Virtual Network Contract. This is used to enable the new Swift way of doing virtual network integration.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/networkConfig/virtualNetwork 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppSwiftVirtualNetworkConnectionArgs args: The arguments to use to populate this resource's properties.

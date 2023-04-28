@@ -334,6 +334,30 @@ class Subscription(pulumi.CustomResource):
         """
         Description of subscription resource.
 
+        ## Example Usage
+        ### SubscriptionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription = azure_native.servicebus.v20221001preview.Subscription("subscription",
+            enable_batched_operations=True,
+            namespace_name="sdk-Namespace-1349",
+            resource_group_name="ResourceGroup",
+            subscription_name="sdk-Subscriptions-2178",
+            topic_name="sdk-Topics-8740")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20221001preview:Subscription sdk-Subscriptions-2178 /subscriptions/Subscriptionid/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1349/topics/sdk-Topics-8740/subscriptions/sdk-Subscriptions-2178 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
@@ -363,6 +387,30 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of subscription resource.
+
+        ## Example Usage
+        ### SubscriptionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription = azure_native.servicebus.v20221001preview.Subscription("subscription",
+            enable_batched_operations=True,
+            namespace_name="sdk-Namespace-1349",
+            resource_group_name="ResourceGroup",
+            subscription_name="sdk-Subscriptions-2178",
+            topic_name="sdk-Topics-8740")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20221001preview:Subscription sdk-Subscriptions-2178 /subscriptions/Subscriptionid/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1349/topics/sdk-Topics-8740/subscriptions/sdk-Subscriptions-2178 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Wiki properties
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateProductWiki
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var productWiki = new AzureNative.ApiManagement.V20220801.ProductWiki("productWiki", new()
+    ///     {
+    ///         Documents = new[]
+    ///         {
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.WikiDocumentationContractArgs
+    ///             {
+    ///                 DocumentationId = "docId1",
+    ///             },
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.WikiDocumentationContractArgs
+    ///             {
+    ///                 DocumentationId = "docId2",
+    ///             },
+    ///         },
+    ///         ProductId = "57d1f7558aa04f15146d9d8a",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:ProductWiki default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/57d1f7558aa04f15146d9d8a/wikis/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ProductWiki")]
     public partial class ProductWiki : global::Pulumi.CustomResource

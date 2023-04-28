@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.Security.V20200101Preview
 {
     /// <summary>
     /// Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
+    /// 
+    /// ## Example Usage
+    /// ### Create security contact data
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityContact = new AzureNative.Security.V20200101Preview.SecurityContact("securityContact", new()
+    ///     {
+    ///         AlertNotifications = new AzureNative.Security.V20200101Preview.Inputs.SecurityContactPropertiesAlertNotificationsArgs
+    ///         {
+    ///             MinimalSeverity = "Low",
+    ///             State = "On",
+    ///         },
+    ///         Emails = "john@contoso.com;jane@contoso.com",
+    ///         NotificationsByRole = new AzureNative.Security.V20200101Preview.Inputs.SecurityContactPropertiesNotificationsByRoleArgs
+    ///         {
+    ///             Roles = new[]
+    ///             {
+    ///                 "Owner",
+    ///             },
+    ///             State = "On",
+    ///         },
+    ///         Phone = "(214)275-4038",
+    ///         SecurityContactName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20200101preview:SecurityContact default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/securityContacts/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20200101preview:SecurityContact")]
     public partial class SecurityContact : global::Pulumi.CustomResource

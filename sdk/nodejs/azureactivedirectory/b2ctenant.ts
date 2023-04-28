@@ -10,6 +10,35 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2021-04-01.
  * Previous API Version: 2019-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create tenant
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const b2cTenant = new azure_native.azureactivedirectory.B2CTenant("b2cTenant", {
+ *     countryCode: "US",
+ *     displayName: "Contoso",
+ *     location: "United States",
+ *     resourceGroupName: "contosoResourceGroup",
+ *     resourceName: "contoso.onmicrosoft.com",
+ *     sku: {
+ *         name: "Standard",
+ *         tier: "A0",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azureactivedirectory:B2CTenant contoso.onmicrosoft.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/b2cDirectories/contoso.onmicrosoft.com 
+ * ```
  */
 export class B2CTenant extends pulumi.CustomResource {
     /**

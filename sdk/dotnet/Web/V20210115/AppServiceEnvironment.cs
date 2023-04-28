@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20210115
 {
     /// <summary>
     /// App Service Environment ARM resource.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20210115:AppServiceEnvironment myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20210115:AppServiceEnvironment")]
     public partial class AppServiceEnvironment : global::Pulumi.CustomResource

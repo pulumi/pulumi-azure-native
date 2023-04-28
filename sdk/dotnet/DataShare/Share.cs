@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.DataShare
     /// A share data transfer object.
     /// API Version: 2021-08-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Shares_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var share = new AzureNative.DataShare.Share("share", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         Description = "share description",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareKind = "CopyBased",
+    ///         ShareName = "Share1",
+    ///         Terms = "Confidential",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare:Share Share1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:Share")]
     public partial class Share : global::Pulumi.CustomResource

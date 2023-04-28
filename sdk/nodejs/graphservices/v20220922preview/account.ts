@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Account details
+ *
+ * ## Example Usage
+ * ### Create Account resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.graphservices.v20220922preview.Account("account", {
+ *     properties: {
+ *         appId: "11111111-aaaa-1111-bbbb-111111111111",
+ *     },
+ *     resourceGroupName: "testResourceGroupGRAM",
+ *     resourceName: "11111111-aaaa-1111-bbbb-1111111111111",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:graphservices/v20220922preview:Account 11111111-aaaa-1111-bbbb-111111111111 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroupGRAM/providers/Microsoft.GraphServices/accounts/11111111-aaaa-1111-bbbb-111111111111 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20150801
 {
     /// <summary>
     /// Class that represents a BizTalk Hybrid Connection
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20150801:SiteRelayServiceConnection myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/hybridconnection/{entityName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteRelayServiceConnection")]

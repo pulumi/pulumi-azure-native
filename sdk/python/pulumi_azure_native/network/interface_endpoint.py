@@ -167,6 +167,34 @@ class InterfaceEndpoint(pulumi.CustomResource):
         Interface endpoint resource.
         API Version: 2019-02-01.
 
+        ## Example Usage
+        ### Create interface endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        interface_endpoint = azure_native.network.InterfaceEndpoint("interfaceEndpoint",
+            endpoint_service=azure_native.network.EndpointServiceArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Provider/resourceType/resourceName",
+            ),
+            fqdn="uniqueIdentifier.fqdn.windows.net",
+            interface_endpoint_name="testIe",
+            resource_group_name="rg1",
+            subnet=azure_native.network.SubnetArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:InterfaceEndpoint testIe /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/interfaceEndpoints/testIe 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EndpointServiceArgs']] endpoint_service: A reference to the service being brought into the virtual network.
@@ -187,6 +215,34 @@ class InterfaceEndpoint(pulumi.CustomResource):
         """
         Interface endpoint resource.
         API Version: 2019-02-01.
+
+        ## Example Usage
+        ### Create interface endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        interface_endpoint = azure_native.network.InterfaceEndpoint("interfaceEndpoint",
+            endpoint_service=azure_native.network.EndpointServiceArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Provider/resourceType/resourceName",
+            ),
+            fqdn="uniqueIdentifier.fqdn.windows.net",
+            interface_endpoint_name="testIe",
+            resource_group_name="rg1",
+            subnet=azure_native.network.SubnetArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:InterfaceEndpoint testIe /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/interfaceEndpoints/testIe 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InterfaceEndpointArgs args: The arguments to use to populate this resource's properties.

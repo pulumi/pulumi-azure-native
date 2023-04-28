@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * A type of trigger based on schedule
+ *
+ * ## Example Usage
+ * ### Triggers_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scheduledTrigger = new azure_native.datashare.v20200901.ScheduledTrigger("scheduledTrigger", {
+ *     accountName: "Account1",
+ *     kind: "ScheduleBased",
+ *     recurrenceInterval: "Day",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ *     synchronizationMode: "Incremental",
+ *     synchronizationTime: "2018-11-14T04:47:52.9614956Z",
+ *     triggerName: "Trigger1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20200901:ScheduledTrigger Trigger1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shareSubscriptions/ShareSubscription1/triggers/Trigger1 
+ * ```
  */
 export class ScheduledTrigger extends pulumi.CustomResource {
     /**

@@ -9,6 +9,56 @@ import * as utilities from "../../utilities";
 
 /**
  * IoT Connector FHIR destination definition.
+ *
+ * ## Example Usage
+ * ### Create or update an Iot Connector FHIR destination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotConnectorFhirDestination = new azure_native.healthcareapis.v20220515.IotConnectorFhirDestination("iotConnectorFhirDestination", {
+ *     fhirDestinationName: "dest1",
+ *     fhirMapping: {
+ *         content: {
+ *             template: [{
+ *                 template: {
+ *                     codes: [{
+ *                         code: "8867-4",
+ *                         display: "Heart rate",
+ *                         system: "http://loinc.org",
+ *                     }],
+ *                     periodInterval: 60,
+ *                     typeName: "heartrate",
+ *                     value: {
+ *                         defaultPeriod: 5000,
+ *                         unit: "count/min",
+ *                         valueName: "hr",
+ *                         valueType: "SampledData",
+ *                     },
+ *                 },
+ *                 templateType: "CodeValueFhir",
+ *             }],
+ *             templateType: "CollectionFhirTemplate",
+ *         },
+ *     },
+ *     fhirServiceResourceId: "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
+ *     iotConnectorName: "blue",
+ *     location: "westus",
+ *     resourceGroupName: "testRG",
+ *     resourceIdentityResolutionType: "Create",
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:healthcareapis/v20220515:IotConnectorFhirDestination dest1 /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue/fhirdestinations/dest1 
+ * ```
  */
 export class IotConnectorFhirDestination extends pulumi.CustomResource {
     /**

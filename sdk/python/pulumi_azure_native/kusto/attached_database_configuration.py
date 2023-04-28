@@ -198,6 +198,41 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         API Version: 2022-12-29.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### AttachedDatabaseConfigurationsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attached_database_configuration = azure_native.kusto.AttachedDatabaseConfiguration("attachedDatabaseConfiguration",
+            attached_database_configuration_name="attachedDatabaseConfigurationsTest",
+            cluster_name="kustoCluster2",
+            cluster_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster2",
+            database_name="kustodatabase",
+            database_name_override="overridekustodatabase",
+            default_principals_modification_kind="Union",
+            location="westus",
+            resource_group_name="kustorptest",
+            table_level_sharing_properties=azure_native.kusto.TableLevelSharingPropertiesArgs(
+                external_tables_to_exclude=["ExternalTable2"],
+                external_tables_to_include=["ExternalTable1"],
+                materialized_views_to_exclude=["MaterializedViewTable2"],
+                materialized_views_to_include=["MaterializedViewTable1"],
+                tables_to_exclude=["Table2"],
+                tables_to_include=["Table1"],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:AttachedDatabaseConfiguration kustoCluster2/attachedDatabaseConfigurationsTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster2/attachedDatabaseConfigurations/attachedDatabaseConfigurationsTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] attached_database_configuration_name: The name of the attached database configuration.
@@ -221,6 +256,41 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         Class representing an attached database configuration.
         API Version: 2022-12-29.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### AttachedDatabaseConfigurationsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attached_database_configuration = azure_native.kusto.AttachedDatabaseConfiguration("attachedDatabaseConfiguration",
+            attached_database_configuration_name="attachedDatabaseConfigurationsTest",
+            cluster_name="kustoCluster2",
+            cluster_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster2",
+            database_name="kustodatabase",
+            database_name_override="overridekustodatabase",
+            default_principals_modification_kind="Union",
+            location="westus",
+            resource_group_name="kustorptest",
+            table_level_sharing_properties=azure_native.kusto.TableLevelSharingPropertiesArgs(
+                external_tables_to_exclude=["ExternalTable2"],
+                external_tables_to_include=["ExternalTable1"],
+                materialized_views_to_exclude=["MaterializedViewTable2"],
+                materialized_views_to_include=["MaterializedViewTable1"],
+                tables_to_exclude=["Table2"],
+                tables_to_include=["Table1"],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:AttachedDatabaseConfiguration kustoCluster2/attachedDatabaseConfigurationsTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster2/attachedDatabaseConfigurations/attachedDatabaseConfigurationsTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AttachedDatabaseConfigurationArgs args: The arguments to use to populate this resource's properties.

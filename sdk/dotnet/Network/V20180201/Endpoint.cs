@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.Network.V20180201
 {
     /// <summary>
     /// Class representing a Traffic Manager endpoint.
+    /// 
+    /// ## Example Usage
+    /// ### Endpoint-PUT-External-WithGeoMapping
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.Network.V20180201.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "My%20external%20endpoint",
+    ///         EndpointStatus = "Enabled",
+    ///         EndpointType = "ExternalEndpoints",
+    ///         GeoMapping = new[]
+    ///         {
+    ///             "GEO-AS",
+    ///             "GEO-AF",
+    ///         },
+    ///         ProfileName = "azuresdkfornetautoresttrafficmanager8224",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager2191",
+    ///         Target = "foobar.contoso.com",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Endpoint-PUT-External-WithLocation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.Network.V20180201.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointLocation = "North Europe",
+    ///         EndpointName = "azsmnet7187",
+    ///         EndpointStatus = "Enabled",
+    ///         EndpointType = "ExternalEndpoints",
+    ///         ProfileName = "azsmnet6386",
+    ///         ResourceGroupName = "azuresdkfornetautoresttrafficmanager1421",
+    ///         Target = "foobar.contoso.com",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180201:Endpoint azsmnet7187 /subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180201:Endpoint")]

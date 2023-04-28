@@ -11,6 +11,48 @@ import * as utilities from "../utilities";
  * Restore Point details.
  * API Version: 2022-11-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Copy a restore point to a different region
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const restorePoint = new azure_native.compute.RestorePoint("restorePoint", {
+ *     resourceGroupName: "myResourceGroup",
+ *     restorePointCollectionName: "rpcName",
+ *     restorePointName: "rpName",
+ *     sourceRestorePoint: {
+ *         id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName/restorePoints/sourceRpName",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a restore point
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const restorePoint = new azure_native.compute.RestorePoint("restorePoint", {
+ *     excludeDisks: [{
+ *         id: "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+ *     }],
+ *     resourceGroupName: "myResourceGroup",
+ *     restorePointCollectionName: "rpcName",
+ *     restorePointName: "rpName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:RestorePoint rpName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName/restorePoints/rpName 
+ * ```
  */
 export class RestorePoint extends pulumi.CustomResource {
     /**

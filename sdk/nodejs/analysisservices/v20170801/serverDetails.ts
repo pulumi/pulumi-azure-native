@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an instance of an Analysis Services resource.
+ *
+ * ## Example Usage
+ * ### Create a server.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverDetails = new azure_native.analysisservices.v20170801.ServerDetails("serverDetails", {
+ *     asAdministrators: {
+ *         members: [
+ *             "azsdktest@microsoft.com",
+ *             "azsdktest2@microsoft.com",
+ *         ],
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "TestRG",
+ *     serverName: "azsdktest",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         testKey: "testValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:analysisservices/v20170801:ServerDetails azsdktest /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest 
+ * ```
  */
 export class ServerDetails extends pulumi.CustomResource {
     /**

@@ -9,6 +9,114 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines web application firewall policy.
+ *
+ * ## Example Usage
+ * ### Creates specific policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policy = new azure_native.network.v20210601.Policy("policy", {
+ *     customRules: {
+ *         rules: [
+ *             {
+ *                 action: "Block",
+ *                 matchConditions: [{
+ *                     matchValue: [
+ *                         "192.168.1.0/24",
+ *                         "10.0.0.0/24",
+ *                     ],
+ *                     matchVariable: "RemoteAddr",
+ *                     operator: "IPMatch",
+ *                 }],
+ *                 name: "Rule1",
+ *                 priority: 1,
+ *                 rateLimitThreshold: 1000,
+ *                 ruleType: "RateLimitRule",
+ *             },
+ *             {
+ *                 action: "Block",
+ *                 matchConditions: [
+ *                     {
+ *                         matchValue: ["CH"],
+ *                         matchVariable: "RemoteAddr",
+ *                         operator: "GeoMatch",
+ *                     },
+ *                     {
+ *                         matchValue: ["windows"],
+ *                         matchVariable: "RequestHeader",
+ *                         operator: "Contains",
+ *                         selector: "UserAgent",
+ *                         transforms: ["Lowercase"],
+ *                     },
+ *                 ],
+ *                 name: "Rule2",
+ *                 priority: 2,
+ *                 ruleType: "MatchRule",
+ *             },
+ *         ],
+ *     },
+ *     managedRules: {
+ *         managedRuleSets: [{
+ *             exclusions: [{
+ *                 matchVariable: "RequestHeaderNames",
+ *                 selector: "User-Agent",
+ *                 selectorMatchOperator: "Equals",
+ *             }],
+ *             ruleGroupOverrides: [{
+ *                 exclusions: [{
+ *                     matchVariable: "RequestCookieNames",
+ *                     selector: "token",
+ *                     selectorMatchOperator: "StartsWith",
+ *                 }],
+ *                 ruleGroupName: "SQLI",
+ *                 rules: [
+ *                     {
+ *                         action: "Redirect",
+ *                         enabledState: "Enabled",
+ *                         exclusions: [{
+ *                             matchVariable: "QueryStringArgNames",
+ *                             selector: "query",
+ *                             selectorMatchOperator: "Equals",
+ *                         }],
+ *                         ruleId: "942100",
+ *                     },
+ *                     {
+ *                         enabledState: "Disabled",
+ *                         ruleId: "942110",
+ *                     },
+ *                 ],
+ *             }],
+ *             ruleSetAction: "Block",
+ *             ruleSetType: "DefaultRuleSet",
+ *             ruleSetVersion: "1.0",
+ *         }],
+ *     },
+ *     policyName: "Policy1",
+ *     policySettings: {
+ *         customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+ *         customBlockResponseStatusCode: 499,
+ *         enabledState: "Enabled",
+ *         mode: "Prevention",
+ *         redirectUrl: "http://www.bing.com",
+ *         requestBodyCheck: "Disabled",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Classic_AzureFrontDoor",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210601:Policy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/FrontDoorWebApplicationFirewallPolicies/Policy1 
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

@@ -111,6 +111,30 @@ class StaticMember(pulumi.CustomResource):
         """
         StaticMember Item.
 
+        ## Example Usage
+        ### StaticMemberPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_member = azure_native.network.v20220901.StaticMember("staticMember",
+            network_group_name="testNetworkGroup",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/virtualnetworks/vnet1",
+            static_member_name="testStaticMember")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:StaticMember testStaticMember /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testNetworkGroup/staticMembers/testStaticMember 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] network_group_name: The name of the network group.
@@ -127,6 +151,30 @@ class StaticMember(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         StaticMember Item.
+
+        ## Example Usage
+        ### StaticMemberPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_member = azure_native.network.v20220901.StaticMember("staticMember",
+            network_group_name="testNetworkGroup",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/virtualnetworks/vnet1",
+            static_member_name="testStaticMember")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:StaticMember testStaticMember /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testNetworkGroup/staticMembers/testStaticMember 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StaticMemberArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Definition of ARM tracked top level resource.
  * API Version: 2022-06-01.
  * Previous API Version: 2021-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update data collection endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataCollectionEndpoint = new azure_native.insights.DataCollectionEndpoint("dataCollectionEndpoint", {
+ *     dataCollectionEndpointName: "myCollectionEndpoint",
+ *     location: "eastus",
+ *     networkAcls: {
+ *         publicNetworkAccess: "Enabled",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights:DataCollectionEndpoint myCollectionEndpoint /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myCollectionEndpoint 
+ * ```
  */
 export class DataCollectionEndpoint extends pulumi.CustomResource {
     /**

@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230201
 {
     /// <summary>
     /// Recovery plan details.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a recovery plan with the given details.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replicationRecoveryPlan = new AzureNative.RecoveryServices.V20230201.ReplicationRecoveryPlan("replicationRecoveryPlan", new()
+    ///     {
+    ///         Properties = new AzureNative.RecoveryServices.V20230201.Inputs.CreateRecoveryPlanInputPropertiesArgs
+    ///         {
+    ///             FailoverDeploymentModel = "ResourceManager",
+    ///             Groups = new[]
+    ///             {
+    ///                 new AzureNative.RecoveryServices.V20230201.Inputs.RecoveryPlanGroupArgs
+    ///                 {
+    ///                     EndGroupActions = new[] {},
+    ///                     GroupType = "Boot",
+    ///                     ReplicationProtectedItems = new[]
+    ///                     {
+    ///                         new AzureNative.RecoveryServices.V20230201.Inputs.RecoveryPlanProtectedItemArgs
+    ///                         {
+    ///                             Id = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b",
+    ///                             VirtualMachineId = "f8491e4f-817a-40dd-a90c-af773978c75b",
+    ///                         },
+    ///                     },
+    ///                     StartGroupActions = new[] {},
+    ///                 },
+    ///             },
+    ///             PrimaryFabricId = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1",
+    ///             RecoveryFabricId = "Microsoft Azure",
+    ///         },
+    ///         RecoveryPlanName = "RPtest1",
+    ///         ResourceGroupName = "resourceGroupPS1",
+    ///         ResourceName = "vault1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan RPtest1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationRecoveryPlans/RPtest1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20230201:ReplicationRecoveryPlan")]
     public partial class ReplicationRecoveryPlan : global::Pulumi.CustomResource

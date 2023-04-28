@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Maps.V20211201Preview
 {
     /// <summary>
     /// An Azure resource which represents Maps Creator product and provides ability to manage private location data.
+    /// 
+    /// ## Example Usage
+    /// ### Create Creator Resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var creator = new AzureNative.Maps.V20211201Preview.Creator("creator", new()
+    ///     {
+    ///         AccountName = "myMapsAccount",
+    ///         CreatorName = "myCreator",
+    ///         Location = "eastus2",
+    ///         Properties = new AzureNative.Maps.V20211201Preview.Inputs.CreatorPropertiesArgs
+    ///         {
+    ///             StorageUnits = 5,
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "test", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maps/v20211201preview:Creator myCreator /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount/creators/myCreator 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maps/v20211201preview:Creator")]
     public partial class Creator : global::Pulumi.CustomResource

@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.WebPubSub.V20230301Preview
 {
     /// <summary>
     /// A class represent a replica resource.
+    /// 
+    /// ## Example Usage
+    /// ### WebPubSubReplicas_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webPubSubReplica = new AzureNative.WebPubSub.V20230301Preview.WebPubSubReplica("webPubSubReplica", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         ReplicaName = "myWebPubSubService-eastus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "myWebPubSubService",
+    ///         Sku = new AzureNative.WebPubSub.V20230301Preview.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Premium_P1",
+    ///             Tier = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:webpubsub/v20230301preview:WebPubSubReplica myWebPubSubService-eastus /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/replicas/myWebPubSubService-eastus 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub/v20230301preview:WebPubSubReplica")]
     public partial class WebPubSubReplica : global::Pulumi.CustomResource

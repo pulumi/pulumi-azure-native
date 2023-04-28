@@ -113,6 +113,29 @@ class Device(pulumi.CustomResource):
         """
         Device resource.
 
+        ## Example Usage
+        ### Create or update device
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device = azure_native.hybridnetwork.v20200101preview.Device("device",
+            device_name="TestDevice",
+            device_type="AzureStackEdge",
+            location="eastus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork/v20200101preview:Device TestDevice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/devices/TestDevice 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: Resource name for the device resource.
@@ -129,6 +152,29 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Device resource.
+
+        ## Example Usage
+        ### Create or update device
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device = azure_native.hybridnetwork.v20200101preview.Device("device",
+            device_name="TestDevice",
+            device_type="AzureStackEdge",
+            location="eastus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork/v20200101preview:Device TestDevice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/devices/TestDevice 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

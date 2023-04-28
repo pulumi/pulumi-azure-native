@@ -11,6 +11,674 @@ namespace Pulumi.AzureNative.Storage.V20220901
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountSetManagementPolicies
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementPolicy = new AzureNative.Storage.V20220901.ManagementPolicy("managementPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         ManagementPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySchemaArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.ManagementPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyDefinitionArgs
+    ///                     {
+    ///                         Actions = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyActionArgs
+    ///                         {
+    ///                             BaseBlob = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyBaseBlobArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 1000,
+    ///                                 },
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 90,
+    ///                                 },
+    ///                                 TierToCool = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                             Snapshot = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySnapShotArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                             },
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "olcmtestcontainer1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "olcmtest1",
+    ///                     Type = "Lifecycle",
+    ///                 },
+    ///                 new AzureNative.Storage.V20220901.Inputs.ManagementPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyDefinitionArgs
+    ///                     {
+    ///                         Actions = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyActionArgs
+    ///                         {
+    ///                             BaseBlob = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyBaseBlobArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 1000,
+    ///                                 },
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 90,
+    ///                                 },
+    ///                                 TierToCool = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyFilterArgs
+    ///                         {
+    ///                             BlobIndexMatch = new[]
+    ///                             {
+    ///                                 new AzureNative.Storage.V20220901.Inputs.TagFilterArgs
+    ///                                 {
+    ///                                     Name = "tag1",
+    ///                                     Op = "==",
+    ///                                     Value = "val1",
+    ///                                 },
+    ///                                 new AzureNative.Storage.V20220901.Inputs.TagFilterArgs
+    ///                                 {
+    ///                                     Name = "tag2",
+    ///                                     Op = "==",
+    ///                                     Value = "val2",
+    ///                                 },
+    ///                             },
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                             },
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "olcmtestcontainer2",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "olcmtest2",
+    ///                     Type = "Lifecycle",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountSetManagementPolicyColdTierActions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementPolicy = new AzureNative.Storage.V20220901.ManagementPolicy("managementPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         ManagementPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySchemaArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.ManagementPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyDefinitionArgs
+    ///                     {
+    ///                         Actions = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyActionArgs
+    ///                         {
+    ///                             BaseBlob = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyBaseBlobArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 1000,
+    ///                                 },
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 90,
+    ///                                 },
+    ///                                 TierToCold = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 30,
+    ///                                 },
+    ///                                 TierToCool = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                             Snapshot = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySnapShotArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                                 TierToCold = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                             Version = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyVersionArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                                 TierToCold = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                             },
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "olcmtestcontainer1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "olcmtest1",
+    ///                     Type = "Lifecycle",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountSetManagementPolicyForBlockAndAppendBlobs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementPolicy = new AzureNative.Storage.V20220901.ManagementPolicy("managementPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         ManagementPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySchemaArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.ManagementPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyDefinitionArgs
+    ///                     {
+    ///                         Actions = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyActionArgs
+    ///                         {
+    ///                             BaseBlob = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyBaseBlobArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 90,
+    ///                                 },
+    ///                             },
+    ///                             Snapshot = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySnapShotArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 90,
+    ///                                 },
+    ///                             },
+    ///                             Version = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyVersionArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 90,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                                 "appendBlob",
+    ///                             },
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "olcmtestcontainer1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "olcmtest1",
+    ///                     Type = "Lifecycle",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountSetManagementPolicyHotTierActions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementPolicy = new AzureNative.Storage.V20220901.ManagementPolicy("managementPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         ManagementPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySchemaArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.ManagementPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyDefinitionArgs
+    ///                     {
+    ///                         Actions = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyActionArgs
+    ///                         {
+    ///                             BaseBlob = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyBaseBlobArgs
+    ///                             {
+    ///                                 TierToHot = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                             Snapshot = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySnapShotArgs
+    ///                             {
+    ///                                 TierToHot = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                             Version = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyVersionArgs
+    ///                             {
+    ///                                 TierToHot = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                             },
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "olcmtestcontainer1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "olcmtest1",
+    ///                     Type = "Lifecycle",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountSetManagementPolicyWithSnapshotAndVersion
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementPolicy = new AzureNative.Storage.V20220901.ManagementPolicy("managementPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         ManagementPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySchemaArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.ManagementPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyDefinitionArgs
+    ///                     {
+    ///                         Actions = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyActionArgs
+    ///                         {
+    ///                             BaseBlob = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyBaseBlobArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 1000,
+    ///                                 },
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 90,
+    ///                                 },
+    ///                                 TierToCool = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                             Snapshot = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySnapShotArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 1000,
+    ///                                 },
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 90,
+    ///                                 },
+    ///                                 TierToCool = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                             Version = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyVersionArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 1000,
+    ///                                 },
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 90,
+    ///                                 },
+    ///                                 TierToCool = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                             },
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "olcmtestcontainer1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "olcmtest1",
+    ///                     Type = "Lifecycle",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountSetManagementPolicy_BaseBlobDaysAfterCreationActions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementPolicy = new AzureNative.Storage.V20220901.ManagementPolicy("managementPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         ManagementPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySchemaArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.ManagementPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyDefinitionArgs
+    ///                     {
+    ///                         Actions = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyActionArgs
+    ///                         {
+    ///                             BaseBlob = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyBaseBlobArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 1000,
+    ///                                 },
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 90,
+    ///                                 },
+    ///                                 TierToCool = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                             },
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "olcmtestcontainer1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "olcmtest1",
+    ///                     Type = "Lifecycle",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountSetManagementPolicy_LastAccessTimeBasedBlobActions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementPolicy = new AzureNative.Storage.V20220901.ManagementPolicy("managementPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         ManagementPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySchemaArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.ManagementPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyDefinitionArgs
+    ///                     {
+    ///                         Actions = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyActionArgs
+    ///                         {
+    ///                             BaseBlob = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyBaseBlobArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterLastAccessTimeGreaterThan = 1000,
+    ///                                 },
+    ///                                 EnableAutoTierToHotFromCool = true,
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterLastAccessTimeGreaterThan = 90,
+    ///                                 },
+    ///                                 TierToCool = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterLastAccessTimeGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                             Snapshot = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySnapShotArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                             },
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "olcmtestcontainer",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "olcmtest",
+    ///                     Type = "Lifecycle",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountSetManagementPolicy_LastTierChangeTimeActions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementPolicy = new AzureNative.Storage.V20220901.ManagementPolicy("managementPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         ManagementPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySchemaArgs
+    ///         {
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.ManagementPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyDefinitionArgs
+    ///                     {
+    ///                         Actions = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyActionArgs
+    ///                         {
+    ///                             BaseBlob = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyBaseBlobArgs
+    ///                             {
+    ///                                 Delete = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 1000,
+    ///                                 },
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterLastTierChangeGreaterThan = 120,
+    ///                                     DaysAfterModificationGreaterThan = 90,
+    ///                                 },
+    ///                                 TierToCool = new AzureNative.Storage.V20220901.Inputs.DateAfterModificationArgs
+    ///                                 {
+    ///                                     DaysAfterModificationGreaterThan = 30,
+    ///                                 },
+    ///                             },
+    ///                             Snapshot = new AzureNative.Storage.V20220901.Inputs.ManagementPolicySnapShotArgs
+    ///                             {
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                     DaysAfterLastTierChangeGreaterThan = 90,
+    ///                                 },
+    ///                             },
+    ///                             Version = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyVersionArgs
+    ///                             {
+    ///                                 TierToArchive = new AzureNative.Storage.V20220901.Inputs.DateAfterCreationArgs
+    ///                                 {
+    ///                                     DaysAfterCreationGreaterThan = 30,
+    ///                                     DaysAfterLastTierChangeGreaterThan = 90,
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.ManagementPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                             },
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "olcmtestcontainer",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "olcmtest",
+    ///                     Type = "Lifecycle",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20220901:ManagementPolicy DefaultManagementPolicy /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.Storage/storageAccounts/sto288/managementPolicies/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20220901:ManagementPolicy")]
     public partial class ManagementPolicy : global::Pulumi.CustomResource

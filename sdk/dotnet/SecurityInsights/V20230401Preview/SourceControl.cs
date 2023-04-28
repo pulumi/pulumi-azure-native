@@ -11,6 +11,62 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
     /// <summary>
     /// Represents a SourceControl in Azure Security Insights.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a source control.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sourceControl = new AzureNative.SecurityInsights.V20230401Preview.SourceControl("sourceControl", new()
+    ///     {
+    ///         ContentTypes = new[]
+    ///         {
+    ///             "AnalyticRules",
+    ///             "Workbook",
+    ///         },
+    ///         Description = "This is a source control",
+    ///         DisplayName = "My Source Control",
+    ///         RepoType = "Github",
+    ///         Repository = new AzureNative.SecurityInsights.V20230401Preview.Inputs.RepositoryArgs
+    ///         {
+    ///             Branch = "master",
+    ///             DisplayUrl = "https://github.com/user/repo",
+    ///             PathMapping = new[]
+    ///             {
+    ///                 new AzureNative.SecurityInsights.V20230401Preview.Inputs.ContentPathMapArgs
+    ///                 {
+    ///                     ContentType = "AnalyticRules",
+    ///                     Path = "path/to/rules",
+    ///                 },
+    ///                 new AzureNative.SecurityInsights.V20230401Preview.Inputs.ContentPathMapArgs
+    ///                 {
+    ///                     ContentType = "Workbook",
+    ///                     Path = "path/to/workbooks",
+    ///                 },
+    ///             },
+    ///             Url = "https://github.com/user/repo",
+    ///         },
+    ///         ResourceGroupName = "myRg",
+    ///         SourceControlId = "789e0c1f-4a3d-43ad-809c-e713b677b04a",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:SourceControl 789e0c1f-4a3d-43ad-809c-e713b677b04a /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/sourcecontrols/789e0c1f-4a3d-43ad-809c-e713b677b04a 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:SourceControl")]
     public partial class SourceControl : global::Pulumi.CustomResource

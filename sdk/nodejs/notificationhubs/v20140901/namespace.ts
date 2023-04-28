@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a Namespace resource.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:notificationhubs/v20140901:Namespace myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName} 
+ * ```
  *
  * @deprecated Version 2014-09-01 will be removed in v2 of the provider.
  */

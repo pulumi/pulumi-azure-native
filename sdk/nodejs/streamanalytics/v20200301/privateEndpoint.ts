@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Complete information about the private endpoint.
+ *
+ * ## Example Usage
+ * ### Create a private endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpoint = new azure_native.streamanalytics.v20200301.PrivateEndpoint("privateEndpoint", {
+ *     clusterName: "testcluster",
+ *     manualPrivateLinkServiceConnections: [{
+ *         groupIds: ["groupIdFromResource"],
+ *         privateLinkServiceId: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+ *     }],
+ *     privateEndpointName: "testpe",
+ *     resourceGroupName: "sjrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:streamanalytics/v20200301:PrivateEndpoint An Example Private Endpoint /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/sjrg/providers/Microsoft.StreamAnalytics/clusters/testcluster/privateEndpoints/AnExamplePrivateEndpoint 
+ * ```
  */
 export class PrivateEndpoint extends pulumi.CustomResource {
     /**

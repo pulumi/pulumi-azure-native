@@ -13,6 +13,102 @@ namespace Pulumi.AzureNative.AppConfiguration
     /// The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
     /// API Version: 2022-05-01.
     /// Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationStores_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationStore = new AzureNative.AppConfiguration.ConfigurationStore("configurationStore", new()
+    ///     {
+    ///         ConfigStoreName = "contoso",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.AppConfiguration.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "myTag", "myTagValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ConfigurationStores_Create_With_Identity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationStore = new AzureNative.AppConfiguration.ConfigurationStore("configurationStore", new()
+    ///     {
+    ///         ConfigStoreName = "contoso",
+    ///         Identity = new AzureNative.AppConfiguration.Inputs.ResourceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned, UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2", null },
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.AppConfiguration.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "myTag", "myTagValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ConfigurationStores_Create_With_Local_Auth_Disabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationStore = new AzureNative.AppConfiguration.ConfigurationStore("configurationStore", new()
+    ///     {
+    ///         ConfigStoreName = "contoso",
+    ///         DisableLocalAuth = true,
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.AppConfiguration.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appconfiguration:ConfigurationStore contoso /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appconfiguration:ConfigurationStore")]
     public partial class ConfigurationStore : global::Pulumi.CustomResource

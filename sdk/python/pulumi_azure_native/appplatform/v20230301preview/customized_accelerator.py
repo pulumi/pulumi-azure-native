@@ -129,6 +129,56 @@ class CustomizedAccelerator(pulumi.CustomResource):
         """
         Customized accelerator resource
 
+        ## Example Usage
+        ### CustomizedAccelerators_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        customized_accelerator = azure_native.appplatform.v20230301preview.CustomizedAccelerator("customizedAccelerator",
+            application_accelerator_name="default",
+            customized_accelerator_name="acc-name",
+            properties=azure_native.appplatform.v20230301preview.CustomizedAcceleratorPropertiesResponseArgs(
+                accelerator_tags=[
+                    "tag-a",
+                    "tag-b",
+                ],
+                description="acc-desc",
+                display_name="acc-name",
+                git_repository={
+                    "authSetting": azure_native.appplatform.v20230301preview.AcceleratorSshSettingArgs(
+                        auth_type="SSH",
+                        host_key="git-auth-hostkey",
+                        host_key_algorithm="git-auth-algorithm",
+                        private_key="git-auth-privatekey",
+                    ),
+                    "branch": "git-branch",
+                    "commit": "12345",
+                    "gitTag": "git-tag",
+                    "intervalInSeconds": 70,
+                    "url": "git-url",
+                },
+                icon_url="acc-icon",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.v20230301preview.SkuArgs(
+                capacity=2,
+                name="E0",
+                tier="Enterprise",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:CustomizedAccelerator default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationAccelerators/default/customizedAccelerators/acc-name 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_accelerator_name: The name of the application accelerator.
@@ -146,6 +196,56 @@ class CustomizedAccelerator(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customized accelerator resource
+
+        ## Example Usage
+        ### CustomizedAccelerators_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        customized_accelerator = azure_native.appplatform.v20230301preview.CustomizedAccelerator("customizedAccelerator",
+            application_accelerator_name="default",
+            customized_accelerator_name="acc-name",
+            properties=azure_native.appplatform.v20230301preview.CustomizedAcceleratorPropertiesResponseArgs(
+                accelerator_tags=[
+                    "tag-a",
+                    "tag-b",
+                ],
+                description="acc-desc",
+                display_name="acc-name",
+                git_repository={
+                    "authSetting": azure_native.appplatform.v20230301preview.AcceleratorSshSettingArgs(
+                        auth_type="SSH",
+                        host_key="git-auth-hostkey",
+                        host_key_algorithm="git-auth-algorithm",
+                        private_key="git-auth-privatekey",
+                    ),
+                    "branch": "git-branch",
+                    "commit": "12345",
+                    "gitTag": "git-tag",
+                    "intervalInSeconds": 70,
+                    "url": "git-url",
+                },
+                icon_url="acc-icon",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            sku=azure_native.appplatform.v20230301preview.SkuArgs(
+                capacity=2,
+                name="E0",
+                tier="Enterprise",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:CustomizedAccelerator default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationAccelerators/default/customizedAccelerators/acc-name 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomizedAcceleratorArgs args: The arguments to use to populate this resource's properties.

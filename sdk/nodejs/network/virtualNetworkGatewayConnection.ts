@@ -11,6 +11,93 @@ import * as utilities from "../utilities";
  * A common class for general resource information.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateVirtualNetworkGatewayConnection_S2S
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetworkGatewayConnection = new azure_native.network.VirtualNetworkGatewayConnection("virtualNetworkGatewayConnection", {
+ *     connectionMode: "Default",
+ *     connectionProtocol: "IKEv2",
+ *     connectionType: "IPsec",
+ *     dpdTimeoutSeconds: 30,
+ *     egressNatRules: [{
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule2",
+ *     }],
+ *     enableBgp: false,
+ *     gatewayCustomBgpIpAddresses: [
+ *         {
+ *             customBgpIpAddress: "169.254.21.1",
+ *             ipConfigurationId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/default",
+ *         },
+ *         {
+ *             customBgpIpAddress: "169.254.21.3",
+ *             ipConfigurationId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/ActiveActive",
+ *         },
+ *     ],
+ *     ingressNatRules: [{
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/natRules/natRule1",
+ *     }],
+ *     ipsecPolicies: [],
+ *     localNetworkGateway2: {
+ *         gatewayIpAddress: "x.x.x.x",
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw",
+ *         localNetworkAddressSpace: {
+ *             addressPrefixes: ["10.1.0.0/16"],
+ *         },
+ *         location: "centralus",
+ *         tags: {},
+ *     },
+ *     location: "centralus",
+ *     resourceGroupName: "rg1",
+ *     routingWeight: 0,
+ *     sharedKey: "Abc123",
+ *     trafficSelectorPolicies: [],
+ *     usePolicyBasedTrafficSelectors: false,
+ *     virtualNetworkGateway1: {
+ *         activeActive: false,
+ *         bgpSettings: {
+ *             asn: 65514,
+ *             bgpPeeringAddress: "10.0.1.30",
+ *             peerWeight: 0,
+ *         },
+ *         enableBgp: false,
+ *         gatewayType: "Vpn",
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw",
+ *         ipConfigurations: [{
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/gwipconfig1",
+ *             name: "gwipconfig1",
+ *             privateIPAllocationMethod: "Dynamic",
+ *             publicIPAddress: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+ *             },
+ *             subnet: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+ *             },
+ *         }],
+ *         location: "centralus",
+ *         sku: {
+ *             name: "VpnGw1",
+ *             tier: "VpnGw1",
+ *         },
+ *         tags: {},
+ *         vpnType: "RouteBased",
+ *     },
+ *     virtualNetworkGatewayConnectionName: "connS2S",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:VirtualNetworkGatewayConnection connS2S /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/connections/connS2S 
+ * ```
  */
 export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**

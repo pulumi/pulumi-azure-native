@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * SSL certificate for an app.
+ *
+ * ## Example Usage
+ * ### Create Or Update Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const certificate = new azure_native.web.v20201001.Certificate("certificate", {
+ *     hostNames: ["ServerCert"],
+ *     location: "East US",
+ *     name: "testc6282",
+ *     password: "<password>",
+ *     resourceGroupName: "testrg123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201001:Certificate testc6282 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/certificates/testc6282 
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

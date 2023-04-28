@@ -13,6 +13,99 @@ namespace Pulumi.AzureNative.AzureArcData
     /// A SqlManagedInstance.
     /// API Version: 2023-03-15-preview.
     /// Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a SQL Managed Instance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlManagedInstance = new AzureNative.AzureArcData.SqlManagedInstance("sqlManagedInstance", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureArcData.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "northeurope",
+    ///         Properties = new AzureNative.AzureArcData.Inputs.SqlManagedInstancePropertiesArgs
+    ///         {
+    ///             ActiveDirectoryInformation = new AzureNative.AzureArcData.Inputs.ActiveDirectoryInformationArgs
+    ///             {
+    ///                 KeytabInformation = new AzureNative.AzureArcData.Inputs.KeytabInformationArgs
+    ///                 {
+    ///                     Keytab = "********",
+    ///                 },
+    ///             },
+    ///             Admin = "Admin user",
+    ///             BasicLoginInformation = new AzureNative.AzureArcData.Inputs.BasicLoginInformationArgs
+    ///             {
+    ///                 Password = "********",
+    ///                 Username = "username",
+    ///             },
+    ///             ClusterId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s",
+    ///             EndTime = "Instance end time",
+    ///             ExtensionId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s/providers/Microsoft.KubernetesConfiguration/extensions/extension",
+    ///             K8sRaw = new AzureNative.AzureArcData.Inputs.SqlManagedInstanceK8sRawArgs
+    ///             {
+    ///                 Spec = new AzureNative.AzureArcData.Inputs.SqlManagedInstanceK8sSpecArgs
+    ///                 {
+    ///                     Replicas = 1,
+    ///                     Scheduling = new AzureNative.AzureArcData.Inputs.K8sSchedulingArgs
+    ///                     {
+    ///                         Default = new AzureNative.AzureArcData.Inputs.K8sSchedulingOptionsArgs
+    ///                         {
+    ///                             Resources = new AzureNative.AzureArcData.Inputs.K8sResourceRequirementsArgs
+    ///                             {
+    ///                                 Limits = 
+    ///                                 {
+    ///                                     { "additionalProperty", "additionalValue" },
+    ///                                     { "cpu", "1" },
+    ///                                     { "memory", "8Gi" },
+    ///                                 },
+    ///                                 Requests = 
+    ///                                 {
+    ///                                     { "additionalProperty", "additionalValue" },
+    ///                                     { "cpu", "1" },
+    ///                                     { "memory", "8Gi" },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             LicenseType = "LicenseIncluded",
+    ///             StartTime = "Instance start time",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Sku = new AzureNative.AzureArcData.Inputs.SqlManagedInstanceSkuArgs
+    ///         {
+    ///             Dev = true,
+    ///             Name = AzureNative.AzureArcData.SqlManagedInstanceSkuName.VCore,
+    ///             Tier = AzureNative.AzureArcData.SqlManagedInstanceSkuTier.GeneralPurpose,
+    ///         },
+    ///         SqlManagedInstanceName = "testsqlManagedInstance",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata:SqlManagedInstance testsqlManagedInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testsqlManagedInstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:SqlManagedInstance")]
     public partial class SqlManagedInstance : global::Pulumi.CustomResource

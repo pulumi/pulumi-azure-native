@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * A virtual machine.
+ *
+ * ## Example Usage
+ * ### VirtualMachines_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachine = new azure_native.devtestlab.v20180915.VirtualMachine("virtualMachine", {
+ *     allowClaim: true,
+ *     disallowPublicIpAddress: true,
+ *     galleryImageReference: {
+ *         offer: "UbuntuServer",
+ *         osType: "Linux",
+ *         publisher: "Canonical",
+ *         sku: "16.04-LTS",
+ *         version: "Latest",
+ *     },
+ *     labName: "{labName}",
+ *     labSubnetName: "{virtualNetworkName}Subnet",
+ *     labVirtualNetworkId: "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName}",
+ *     location: "{location}",
+ *     name: "{vmName}",
+ *     password: "{userPassword}",
+ *     resourceGroupName: "resourceGroupName",
+ *     size: "Standard_A2_v2",
+ *     storageType: "Standard",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ *     userName: "{userName}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:VirtualMachine {vmName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName} 
+ * ```
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

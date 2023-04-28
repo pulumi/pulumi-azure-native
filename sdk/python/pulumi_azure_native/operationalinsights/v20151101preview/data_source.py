@@ -144,6 +144,32 @@ class DataSource(pulumi.CustomResource):
         """
         Datasources under OMS Workspace.
 
+        ## Example Usage
+        ### DataSourcesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_source = azure_native.operationalinsights.v20151101preview.DataSource("dataSource",
+            data_source_name="AzTestDS774",
+            kind="AzureActivityLog",
+            properties={
+                "LinkedResourceId": "/subscriptions/00000000-0000-0000-0000-00000000000/providers/microsoft.insights/eventtypes/management",
+            },
+            resource_group_name="OIAutoRest5123",
+            workspace_name="AzTest9724")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20151101preview:DataSource AzTestDS774 /subscriptions/00000000-0000-0000-0000-000000000005/resourceGroups/OIAutoRest5123/providers/Microsoft.OperationalInsights/workspaces/AzTest9724/datasources/AzTestDS774 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_source_name: The name of the datasource resource.
@@ -162,6 +188,32 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Datasources under OMS Workspace.
+
+        ## Example Usage
+        ### DataSourcesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_source = azure_native.operationalinsights.v20151101preview.DataSource("dataSource",
+            data_source_name="AzTestDS774",
+            kind="AzureActivityLog",
+            properties={
+                "LinkedResourceId": "/subscriptions/00000000-0000-0000-0000-00000000000/providers/microsoft.insights/eventtypes/management",
+            },
+            resource_group_name="OIAutoRest5123",
+            workspace_name="AzTest9724")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights/v20151101preview:DataSource AzTestDS774 /subscriptions/00000000-0000-0000-0000-000000000005/resourceGroups/OIAutoRest5123/providers/Microsoft.OperationalInsights/workspaces/AzTest9724/datasources/AzTestDS774 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataSourceArgs args: The arguments to use to populate this resource's properties.

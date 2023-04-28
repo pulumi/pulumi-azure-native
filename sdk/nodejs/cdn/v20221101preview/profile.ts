@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * A profile is a logical grouping of endpoints that share the same settings.
+ *
+ * ## Example Usage
+ * ### Profiles_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const profile = new azure_native.cdn.v20221101preview.Profile("profile", {
+ *     location: "global",
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     sku: {
+ *         name: "Premium_AzureFrontDoor",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn/v20221101preview:Profile profile1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1 
+ * ```
  */
 export class Profile extends pulumi.CustomResource {
     /**

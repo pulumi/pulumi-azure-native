@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// A stored credential that can be used by a job to connect to target databases.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a credential
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobCredential = new AzureNative.Sql.V20220801Preview.JobCredential("jobCredential", new()
+    ///     {
+    ///         CredentialName = "cred1",
+    ///         JobAgentName = "agent1",
+    ///         Password = "&lt;password&gt;",
+    ///         ResourceGroupName = "group1",
+    ///         ServerName = "server1",
+    ///         Username = "myuser",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:JobCredential cred1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:JobCredential")]
     public partial class JobCredential : global::Pulumi.CustomResource

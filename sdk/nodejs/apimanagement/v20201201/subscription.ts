@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Subscription details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateSubscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subscription = new azure_native.apimanagement.v20201201.Subscription("subscription", {
+ *     displayName: "testsub",
+ *     ownerId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7",
+ *     resourceGroupName: "rg1",
+ *     scope: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b59475ff190048060002",
+ *     serviceName: "apimService1",
+ *     sid: "testsub",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:Subscription testsub /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/subscriptions/testsub 
+ * ```
  */
 export class Subscription extends pulumi.CustomResource {
     /**

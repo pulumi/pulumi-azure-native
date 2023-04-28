@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Communication.V20200820
 {
     /// <summary>
     /// A class representing a CommunicationService resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var communicationService = new AzureNative.Communication.V20200820.CommunicationService("communicationService", new()
+    ///     {
+    ///         CommunicationServiceName = "MyCommunicationResource",
+    ///         DataLocation = "United States",
+    ///         Location = "Global",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:communication/v20200820:CommunicationService MyCommunicationResource /subscriptions/12345/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/CommunicationServices/MyCommunicationResource 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:communication/v20200820:CommunicationService")]
     public partial class CommunicationService : global::Pulumi.CustomResource

@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * The integration account partner.
  * API Version: 2019-05-01.
  * Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a partner
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const integrationAccountPartner = new azure_native.logic.IntegrationAccountPartner("integrationAccountPartner", {
+ *     content: {
+ *         b2b: {
+ *             businessIdentities: [{
+ *                 qualifier: "AA",
+ *                 value: "ZZ",
+ *             }],
+ *         },
+ *     },
+ *     integrationAccountName: "testIntegrationAccount",
+ *     location: "westus",
+ *     metadata: {},
+ *     partnerName: "testPartner",
+ *     partnerType: "B2B",
+ *     resourceGroupName: "testResourceGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic:IntegrationAccountPartner testPartner /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/flowrg/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/partners/testPartner 
+ * ```
  */
 export class IntegrationAccountPartner extends pulumi.CustomResource {
     /**

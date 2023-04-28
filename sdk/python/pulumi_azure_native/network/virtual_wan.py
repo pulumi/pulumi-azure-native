@@ -183,6 +183,33 @@ class VirtualWan(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VirtualWANCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_wan = azure_native.network.VirtualWan("virtualWan",
+            disable_vpn_encryption=False,
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            type="Basic",
+            virtual_wan_name="wan1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualWan wan1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_branch_to_branch_traffic: True if branch to branch traffic is allowed.
@@ -205,6 +232,33 @@ class VirtualWan(pulumi.CustomResource):
         VirtualWAN Resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VirtualWANCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_wan = azure_native.network.VirtualWan("virtualWan",
+            disable_vpn_encryption=False,
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            type="Basic",
+            virtual_wan_name="wan1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualWan wan1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualWanArgs args: The arguments to use to populate this resource's properties.

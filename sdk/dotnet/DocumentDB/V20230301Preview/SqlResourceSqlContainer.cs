@@ -11,6 +11,145 @@ namespace Pulumi.AzureNative.DocumentDB.V20230301Preview
 {
     /// <summary>
     /// An Azure Cosmos DB container.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlContainerCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlContainer = new AzureNative.DocumentDB.V20230301Preview.SqlResourceSqlContainer("sqlResourceSqlContainer", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ContainerName = "containerName",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20230301Preview.Inputs.SqlContainerResourceArgs
+    ///         {
+    ///             ClientEncryptionPolicy = new AzureNative.DocumentDB.V20230301Preview.Inputs.ClientEncryptionPolicyArgs
+    ///             {
+    ///                 IncludedPaths = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20230301Preview.Inputs.ClientEncryptionIncludedPathArgs
+    ///                     {
+    ///                         ClientEncryptionKeyId = "keyId",
+    ///                         EncryptionAlgorithm = "AEAD_AES_256_CBC_HMAC_SHA256",
+    ///                         EncryptionType = "Deterministic",
+    ///                         Path = "/path",
+    ///                     },
+    ///                 },
+    ///                 PolicyFormatVersion = 2,
+    ///             },
+    ///             ConflictResolutionPolicy = new AzureNative.DocumentDB.V20230301Preview.Inputs.ConflictResolutionPolicyArgs
+    ///             {
+    ///                 ConflictResolutionPath = "/path",
+    ///                 Mode = "LastWriterWins",
+    ///             },
+    ///             DefaultTtl = 100,
+    ///             Id = "containerName",
+    ///             IndexingPolicy = new AzureNative.DocumentDB.V20230301Preview.Inputs.IndexingPolicyArgs
+    ///             {
+    ///                 Automatic = true,
+    ///                 ExcludedPaths = new[] {},
+    ///                 IncludedPaths = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20230301Preview.Inputs.IncludedPathArgs
+    ///                     {
+    ///                         Indexes = new[]
+    ///                         {
+    ///                             new AzureNative.DocumentDB.V20230301Preview.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = "String",
+    ///                                 Kind = "Range",
+    ///                                 Precision = -1,
+    ///                             },
+    ///                             new AzureNative.DocumentDB.V20230301Preview.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = "Number",
+    ///                                 Kind = "Range",
+    ///                                 Precision = -1,
+    ///                             },
+    ///                         },
+    ///                         Path = "/*",
+    ///                     },
+    ///                 },
+    ///                 IndexingMode = "consistent",
+    ///             },
+    ///             PartitionKey = new AzureNative.DocumentDB.V20230301Preview.Inputs.ContainerPartitionKeyArgs
+    ///             {
+    ///                 Kind = "Hash",
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/AccountNumber",
+    ///                 },
+    ///             },
+    ///             UniqueKeyPolicy = new AzureNative.DocumentDB.V20230301Preview.Inputs.UniqueKeyPolicyArgs
+    ///             {
+    ///                 UniqueKeys = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20230301Preview.Inputs.UniqueKeyArgs
+    ///                     {
+    ///                         Paths = new[]
+    ///                         {
+    ///                             "/testPath",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CosmosDBSqlContainerRestore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlContainer = new AzureNative.DocumentDB.V20230301Preview.SqlResourceSqlContainer("sqlResourceSqlContainer", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ContainerName = "containerName",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20230301Preview.Inputs.SqlContainerResourceArgs
+    ///         {
+    ///             CreateMode = "Restore",
+    ///             Id = "containerName",
+    ///             RestoreParameters = new AzureNative.DocumentDB.V20230301Preview.Inputs.ResourceRestoreParametersArgs
+    ///             {
+    ///                 RestoreSource = "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+    ///                 RestoreTimestampInUtc = "2022-07-20T18:28:00Z",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20230301preview:SqlResourceSqlContainer containerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/containers/containerName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20230301preview:SqlResourceSqlContainer")]
     public partial class SqlResourceSqlContainer : global::Pulumi.CustomResource

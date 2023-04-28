@@ -12,6 +12,42 @@ namespace Pulumi.AzureNative.AzureActiveDirectory
     /// <summary>
     /// API Version: 2021-04-01.
     /// Previous API Version: 2019-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create tenant
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var b2cTenant = new AzureNative.AzureActiveDirectory.B2CTenant("b2cTenant", new()
+    ///     {
+    ///         CountryCode = "US",
+    ///         DisplayName = "Contoso",
+    ///         Location = "United States",
+    ///         ResourceGroupName = "contosoResourceGroup",
+    ///         ResourceName = "contoso.onmicrosoft.com",
+    ///         Sku = new AzureNative.AzureActiveDirectory.Inputs.B2CResourceSKUArgs
+    ///         {
+    ///             Name = "Standard",
+    ///             Tier = "A0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azureactivedirectory:B2CTenant contoso.onmicrosoft.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/b2cDirectories/contoso.onmicrosoft.com 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory:B2CTenant")]
     public partial class B2CTenant : global::Pulumi.CustomResource

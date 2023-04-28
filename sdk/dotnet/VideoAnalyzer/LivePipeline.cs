@@ -13,6 +13,46 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
     /// API Version: 2021-11-01-preview.
     /// Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a live pipeline
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var livePipeline = new AzureNative.VideoAnalyzer.LivePipeline("livePipeline", new()
+    ///     {
+    ///         AccountName = "testaccount2",
+    ///         BitrateKbps = 500,
+    ///         Description = "Live Pipeline 1 Description",
+    ///         LivePipelineName = "livePipeline1",
+    ///         Parameters = new[]
+    ///         {
+    ///             new AzureNative.VideoAnalyzer.Inputs.ParameterDefinitionArgs
+    ///             {
+    ///                 Name = "rtspUrlParameter",
+    ///                 Value = "rtsp://contoso.com/stream",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         TopologyName = "pipelinetopology1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer:LivePipeline livePipeline1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/livePipelines/livePipeline1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:LivePipeline")]
     public partial class LivePipeline : global::Pulumi.CustomResource

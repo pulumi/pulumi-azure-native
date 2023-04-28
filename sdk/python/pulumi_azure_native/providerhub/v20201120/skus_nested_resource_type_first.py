@@ -107,7 +107,46 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a SkusNestedResourceTypeFirst resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Skus_CreateOrUpdateNestedResourceTypeFirst
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        skus_nested_resource_type_first = azure_native.providerhub.v20201120.SkusNestedResourceTypeFirst("skusNestedResourceTypeFirst",
+            nested_resource_type_first="nestedResourceTypeFirst",
+            properties=azure_native.providerhub.v20201120.SkuResourceResponsePropertiesArgs(
+                sku_settings=[
+                    {
+                        "kind": "Standard",
+                        "name": "freeSku",
+                        "tier": "Tier1",
+                    },
+                    {
+                        "costs": [azure_native.providerhub.v20201120.SkuCostArgs(
+                            meter_id="xxx",
+                        )],
+                        "kind": "Premium",
+                        "name": "premiumSku",
+                        "tier": "Tier2",
+                    },
+                ],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="testResourceType",
+            sku="testSku")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst Microsoft.Contoso/ /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/ 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] nested_resource_type_first: The first child resource type.
@@ -122,7 +161,46 @@ class SkusNestedResourceTypeFirst(pulumi.CustomResource):
                  args: SkusNestedResourceTypeFirstArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a SkusNestedResourceTypeFirst resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Skus_CreateOrUpdateNestedResourceTypeFirst
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        skus_nested_resource_type_first = azure_native.providerhub.v20201120.SkusNestedResourceTypeFirst("skusNestedResourceTypeFirst",
+            nested_resource_type_first="nestedResourceTypeFirst",
+            properties=azure_native.providerhub.v20201120.SkuResourceResponsePropertiesArgs(
+                sku_settings=[
+                    {
+                        "kind": "Standard",
+                        "name": "freeSku",
+                        "tier": "Tier1",
+                    },
+                    {
+                        "costs": [azure_native.providerhub.v20201120.SkuCostArgs(
+                            meter_id="xxx",
+                        )],
+                        "kind": "Premium",
+                        "name": "premiumSku",
+                        "tier": "Tier2",
+                    },
+                ],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="testResourceType",
+            sku="testSku")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20201120:SkusNestedResourceTypeFirst Microsoft.Contoso/ /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/ 
+        ```
+
         :param str resource_name: The name of the resource.
         :param SkusNestedResourceTypeFirstArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

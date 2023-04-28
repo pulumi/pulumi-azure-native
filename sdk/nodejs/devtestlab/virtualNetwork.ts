@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * A virtual network.
  * API Version: 2018-09-15.
  * Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### VirtualNetworks_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.devtestlab.VirtualNetwork("virtualNetwork", {
+ *     labName: "{labName}",
+ *     location: "{location}",
+ *     name: "{virtualNetworkName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab:VirtualNetwork {virtualNetworkName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName} 
+ * ```
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**

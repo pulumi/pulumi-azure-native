@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.NetApp
     /// Backup of a Volume
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Backups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backup = new AzureNative.NetApp.Backup("backup", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         BackupName = "backup1",
+    ///         Label = "myLabel",
+    ///         Location = "eastus",
+    ///         PoolName = "pool1",
+    ///         ResourceGroupName = "myRG",
+    ///         VolumeName = "volume1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp:Backup account1/pool1/volume1/backup1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/backups/backup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp:Backup")]
     public partial class Backup : global::Pulumi.CustomResource

@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The customer's ASN that is registered by the peering service provider.
+ *
+ * ## Example Usage
+ * ### Create or update a registered ASN for the peering
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registeredAsn = new azure_native.peering.v20210101.RegisteredAsn("registeredAsn", {
+ *     asn: 65000,
+ *     peeringName: "peeringName",
+ *     registeredAsnName: "registeredAsnName",
+ *     resourceGroupName: "rgName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:peering/v20210101:RegisteredAsn registeredAsnName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName/registeredAsns/registeredAsnName 
+ * ```
  */
 export class RegisteredAsn extends pulumi.CustomResource {
     /**

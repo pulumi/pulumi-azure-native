@@ -217,6 +217,48 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
         """
         NetworkVirtualAppliance Resource.
 
+        ## Example Usage
+        ### Create NetworkVirtualAppliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_virtual_appliance = azure_native.network.v20200401.NetworkVirtualAppliance("networkVirtualAppliance",
+            boot_strap_configuration_blob=["https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrbootstrapconfig"],
+            cloud_init_configuration_blob=["https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrcloudinitconfig"],
+            identity=azure_native.network.v20200401.ManagedServiceIdentityArgs(
+                type=azure_native.network/v20200401.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            location="West US",
+            network_virtual_appliance_name="nva",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20200401.VirtualApplianceSkuPropertiesArgs(
+                bundled_scale_unit="1",
+                market_place_version="12.1",
+                vendor="Cisco SDWAN",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            virtual_appliance_asn=10000,
+            virtual_hub=azure_native.network.v20200401.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200401:NetworkVirtualAppliance nva /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkVirtualAppliances/nva 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] boot_strap_configuration_blob: BootStrapConfigurationBlob storage URLs.
@@ -239,6 +281,48 @@ class NetworkVirtualAppliance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetworkVirtualAppliance Resource.
+
+        ## Example Usage
+        ### Create NetworkVirtualAppliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_virtual_appliance = azure_native.network.v20200401.NetworkVirtualAppliance("networkVirtualAppliance",
+            boot_strap_configuration_blob=["https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrbootstrapconfig"],
+            cloud_init_configuration_blob=["https://csrncvhdstorage1.blob.core.windows.net/csrncvhdstoragecont/csrcloudinitconfig"],
+            identity=azure_native.network.v20200401.ManagedServiceIdentityArgs(
+                type=azure_native.network/v20200401.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            location="West US",
+            network_virtual_appliance_name="nva",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20200401.VirtualApplianceSkuPropertiesArgs(
+                bundled_scale_unit="1",
+                market_place_version="12.1",
+                vendor="Cisco SDWAN",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            virtual_appliance_asn=10000,
+            virtual_hub=azure_native.network.v20200401.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200401:NetworkVirtualAppliance nva /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkVirtualAppliances/nva 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkVirtualApplianceArgs args: The arguments to use to populate this resource's properties.

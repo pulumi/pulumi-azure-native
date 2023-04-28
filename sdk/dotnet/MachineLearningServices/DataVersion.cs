@@ -13,6 +13,51 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// Azure Resource Manager resource envelope.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Data Version Base.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataVersion = new AzureNative.MachineLearningServices.DataVersion("dataVersion", new()
+    ///     {
+    ///         DataVersionBaseProperties = new AzureNative.MachineLearningServices.Inputs.UriFileDataVersionArgs
+    ///         {
+    ///             DataType = "uri_file",
+    ///             DataUri = "string",
+    ///             Description = "string",
+    ///             IsAnonymous = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:DataVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:DataVersion")]
     public partial class DataVersion : global::Pulumi.CustomResource

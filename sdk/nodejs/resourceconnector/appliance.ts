@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Appliances definition.
  * API Version: 2022-10-27.
  * Previous API Version: 2021-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create/Update Appliance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const appliance = new azure_native.resourceconnector.Appliance("appliance", {
+ *     distro: "AKSEdge",
+ *     infrastructureConfig: {
+ *         provider: "VMWare",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "testresourcegroup",
+ *     resourceName: "appliance01",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resourceconnector:Appliance appliance01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ResourceConnector/appliances/appliance01 
+ * ```
  */
 export class Appliance extends pulumi.CustomResource {
     /**

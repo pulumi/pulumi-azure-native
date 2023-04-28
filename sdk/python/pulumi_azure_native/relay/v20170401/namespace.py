@@ -115,6 +115,36 @@ class Namespace(pulumi.CustomResource):
         """
         Description of a namespace resource.
 
+        ## Example Usage
+        ### RelayNamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.relay.v20170401.Namespace("namespace",
+            location="West US",
+            namespace_name="example-RelayNamespace-01",
+            resource_group_name="resourcegroup",
+            sku=azure_native.relay.v20170401.SkuResponseArgs(
+                name=azure_native.relay/v20170401.SkuName.STANDARD,
+                tier=azure_native.relay/v20170401.SkuTier.STANDARD,
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay/v20170401:Namespace example-RelayNamespace-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location.
@@ -131,6 +161,36 @@ class Namespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a namespace resource.
+
+        ## Example Usage
+        ### RelayNamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.relay.v20170401.Namespace("namespace",
+            location="West US",
+            namespace_name="example-RelayNamespace-01",
+            resource_group_name="resourcegroup",
+            sku=azure_native.relay.v20170401.SkuResponseArgs(
+                name=azure_native.relay/v20170401.SkuName.STANDARD,
+                tier=azure_native.relay/v20170401.SkuTier.STANDARD,
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:relay/v20170401:Namespace example-RelayNamespace-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

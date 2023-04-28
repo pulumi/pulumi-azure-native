@@ -124,6 +124,31 @@ class SchemaRegistry(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SchemaRegistryCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schema_registry = azure_native.eventhub.SchemaRegistry("schemaRegistry",
+            group_properties={},
+            namespace_name="ali-ua-test-eh-system-1",
+            resource_group_name="alitest",
+            schema_compatibility="Forward",
+            schema_group_name="testSchemaGroup1",
+            schema_type="Avro")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:SchemaRegistry testSchemaGroup1 /subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/alitest/providers/Microsoft.EventHub/namespaces/ali-ua-test-eh-system-1/schemagroups/testSchemaGroup1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] group_properties: dictionary object for SchemaGroup group properties
@@ -141,6 +166,31 @@ class SchemaRegistry(pulumi.CustomResource):
         Single item in List or Get Schema Group operation
         API Version: 2021-11-01.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SchemaRegistryCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schema_registry = azure_native.eventhub.SchemaRegistry("schemaRegistry",
+            group_properties={},
+            namespace_name="ali-ua-test-eh-system-1",
+            resource_group_name="alitest",
+            schema_compatibility="Forward",
+            schema_group_name="testSchemaGroup1",
+            schema_type="Avro")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:SchemaRegistry testSchemaGroup1 /subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/alitest/providers/Microsoft.EventHub/namespaces/ali-ua-test-eh-system-1/schemagroups/testSchemaGroup1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SchemaRegistryArgs args: The arguments to use to populate this resource's properties.

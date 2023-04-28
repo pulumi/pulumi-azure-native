@@ -252,6 +252,34 @@ class AFDOrigin(pulumi.CustomResource):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 
+        ## Example Usage
+        ### AFDOrigins_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_origin = azure_native.cdn.v20200901.AFDOrigin("afdOrigin",
+            enabled_state="Enabled",
+            host_name="host1.blob.core.windows.net",
+            http_port=80,
+            https_port=443,
+            origin_group_name="origingroup1",
+            origin_host_header="host1.foo.com",
+            origin_name="origin1",
+            profile_name="profile1",
+            resource_group_name="RG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:AFDOrigin origin1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/origingroups/origingroup1/origins/origin1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] azure_origin: Resource reference to the Azure origin resource.
@@ -276,6 +304,34 @@ class AFDOrigin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+
+        ## Example Usage
+        ### AFDOrigins_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_origin = azure_native.cdn.v20200901.AFDOrigin("afdOrigin",
+            enabled_state="Enabled",
+            host_name="host1.blob.core.windows.net",
+            http_port=80,
+            https_port=443,
+            origin_group_name="origingroup1",
+            origin_host_header="host1.foo.com",
+            origin_name="origin1",
+            profile_name="profile1",
+            resource_group_name="RG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:AFDOrigin origin1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/origingroups/origingroup1/origins/origin1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AFDOriginArgs args: The arguments to use to populate this resource's properties.

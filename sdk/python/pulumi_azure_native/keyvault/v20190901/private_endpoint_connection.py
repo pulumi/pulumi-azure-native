@@ -97,6 +97,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         Private endpoint connection resource.
 
+        ## Example Usage
+        ### KeyVaultPutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.keyvault.v20190901.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="sample-pec",
+            private_link_service_connection_state=azure_native.keyvault.v20190901.PrivateLinkServiceConnectionStateArgs(
+                description="My name is Joe and I'm approving this.",
+                status="Approved",
+            ),
+            resource_group_name="sample-group",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault/v20190901:PrivateEndpointConnection sample-pec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/privateEndpointConnections/sample-pec 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: Name of the private endpoint connection associated with the key vault.
@@ -112,6 +138,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Private endpoint connection resource.
+
+        ## Example Usage
+        ### KeyVaultPutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.keyvault.v20190901.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="sample-pec",
+            private_link_service_connection_state=azure_native.keyvault.v20190901.PrivateLinkServiceConnectionStateArgs(
+                description="My name is Joe and I'm approving this.",
+                status="Approved",
+            ),
+            resource_group_name="sample-group",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault/v20190901:PrivateEndpointConnection sample-pec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/privateEndpointConnections/sample-pec 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

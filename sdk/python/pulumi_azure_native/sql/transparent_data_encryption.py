@@ -112,6 +112,30 @@ class TransparentDataEncryption(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update a database's Transparent Data Encryption state with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        transparent_data_encryption = azure_native.sql.TransparentDataEncryption("transparentDataEncryption",
+            database_name="testdb",
+            resource_group_name="securitytde-42-rg",
+            server_name="securitytde-42",
+            state=azure_native.sql.TransparentDataEncryptionState.ENABLED,
+            tde_name="current")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:TransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securitytde-42-rg/providers/Microsoft.Sql/servers/securitytde-42/databases/testdb/transparentDataEncryption 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the logical database for which the security alert policy is defined.
@@ -130,6 +154,30 @@ class TransparentDataEncryption(pulumi.CustomResource):
         A logical database transparent data encryption state.
         API Version: 2021-11-01.
         Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update a database's Transparent Data Encryption state with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        transparent_data_encryption = azure_native.sql.TransparentDataEncryption("transparentDataEncryption",
+            database_name="testdb",
+            resource_group_name="securitytde-42-rg",
+            server_name="securitytde-42",
+            state=azure_native.sql.TransparentDataEncryptionState.ENABLED,
+            tde_name="current")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:TransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securitytde-42-rg/providers/Microsoft.Sql/servers/securitytde-42/databases/testdb/transparentDataEncryption 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.

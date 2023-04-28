@@ -11,6 +11,16 @@ namespace Pulumi.AzureNative.CostManagement.V20180531
 {
     /// <summary>
     /// A report config resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement/v20180531:ReportConfig TestReportConfig subscriptions/{subscription-id}/providers/Microsoft.Consumption/reportconfigs/TestReportConfig 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-05-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:costmanagement/v20180531:ReportConfig")]

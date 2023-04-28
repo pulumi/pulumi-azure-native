@@ -210,6 +210,95 @@ class Package(pulumi.CustomResource):
         """
         The Test Base Package resource.
 
+        ## Example Usage
+        ### PackageCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        package = azure_native.testbase.v20220401preview.Package("package",
+            application_name="contoso-package2",
+            blob_path="storageAccountPath/package.zip",
+            flighting_ring="Insider Beta Channel",
+            location="westus",
+            package_name="contoso-package2",
+            resource_group_name="contoso-rg1",
+            tags={},
+            target_os_list=[azure_native.testbase.v20220401preview.TargetOSInfoArgs(
+                os_update_type="Security updates",
+                target_oss=[
+                    "Windows 10 2004",
+                    "Windows 10 1903",
+                ],
+            )],
+            test_base_account_name="contoso-testBaseAccount1",
+            tests=[{
+                "commands": [
+                    azure_native.testbase.v20220401preview.CommandArgs(
+                        action="Install",
+                        always_run=True,
+                        apply_update_before=False,
+                        content="app/scripts/install/job.ps1",
+                        content_type="Path",
+                        max_run_time=1800,
+                        name="Install",
+                        restart_after=True,
+                        run_as_interactive=True,
+                        run_elevated=True,
+                    ),
+                    azure_native.testbase.v20220401preview.CommandArgs(
+                        action="Launch",
+                        always_run=False,
+                        apply_update_before=True,
+                        content="app/scripts/launch/job.ps1",
+                        content_type="Path",
+                        max_run_time=1800,
+                        name="Launch",
+                        restart_after=False,
+                        run_as_interactive=True,
+                        run_elevated=True,
+                    ),
+                    azure_native.testbase.v20220401preview.CommandArgs(
+                        action="Close",
+                        always_run=False,
+                        apply_update_before=False,
+                        content="app/scripts/close/job.ps1",
+                        content_type="Path",
+                        max_run_time=1800,
+                        name="Close",
+                        restart_after=False,
+                        run_as_interactive=True,
+                        run_elevated=True,
+                    ),
+                    azure_native.testbase.v20220401preview.CommandArgs(
+                        action="Uninstall",
+                        always_run=True,
+                        apply_update_before=False,
+                        content="app/scripts/uninstall/job.ps1",
+                        content_type="Path",
+                        max_run_time=1800,
+                        name="Uninstall",
+                        restart_after=False,
+                        run_as_interactive=True,
+                        run_elevated=True,
+                    ),
+                ],
+                "isActive": True,
+                "testType": "OutOfBoxTest",
+            }],
+            version="1.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase/v20220401preview:Package contoso-package2 /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/packages/contoso-package2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: Application name
@@ -232,6 +321,95 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Test Base Package resource.
+
+        ## Example Usage
+        ### PackageCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        package = azure_native.testbase.v20220401preview.Package("package",
+            application_name="contoso-package2",
+            blob_path="storageAccountPath/package.zip",
+            flighting_ring="Insider Beta Channel",
+            location="westus",
+            package_name="contoso-package2",
+            resource_group_name="contoso-rg1",
+            tags={},
+            target_os_list=[azure_native.testbase.v20220401preview.TargetOSInfoArgs(
+                os_update_type="Security updates",
+                target_oss=[
+                    "Windows 10 2004",
+                    "Windows 10 1903",
+                ],
+            )],
+            test_base_account_name="contoso-testBaseAccount1",
+            tests=[{
+                "commands": [
+                    azure_native.testbase.v20220401preview.CommandArgs(
+                        action="Install",
+                        always_run=True,
+                        apply_update_before=False,
+                        content="app/scripts/install/job.ps1",
+                        content_type="Path",
+                        max_run_time=1800,
+                        name="Install",
+                        restart_after=True,
+                        run_as_interactive=True,
+                        run_elevated=True,
+                    ),
+                    azure_native.testbase.v20220401preview.CommandArgs(
+                        action="Launch",
+                        always_run=False,
+                        apply_update_before=True,
+                        content="app/scripts/launch/job.ps1",
+                        content_type="Path",
+                        max_run_time=1800,
+                        name="Launch",
+                        restart_after=False,
+                        run_as_interactive=True,
+                        run_elevated=True,
+                    ),
+                    azure_native.testbase.v20220401preview.CommandArgs(
+                        action="Close",
+                        always_run=False,
+                        apply_update_before=False,
+                        content="app/scripts/close/job.ps1",
+                        content_type="Path",
+                        max_run_time=1800,
+                        name="Close",
+                        restart_after=False,
+                        run_as_interactive=True,
+                        run_elevated=True,
+                    ),
+                    azure_native.testbase.v20220401preview.CommandArgs(
+                        action="Uninstall",
+                        always_run=True,
+                        apply_update_before=False,
+                        content="app/scripts/uninstall/job.ps1",
+                        content_type="Path",
+                        max_run_time=1800,
+                        name="Uninstall",
+                        restart_after=False,
+                        run_as_interactive=True,
+                        run_elevated=True,
+                    ),
+                ],
+                "isActive": True,
+                "testType": "OutOfBoxTest",
+            }],
+            version="1.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase/v20220401preview:Package contoso-package2 /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/packages/contoso-package2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.

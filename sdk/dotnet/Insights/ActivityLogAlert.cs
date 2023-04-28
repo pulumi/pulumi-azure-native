@@ -13,6 +13,199 @@ namespace Pulumi.AzureNative.Insights
     /// An Activity Log Alert rule resource.
     /// API Version: 2020-10-01.
     /// Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an Activity Log Alert rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var activityLogAlert = new AzureNative.Insights.ActivityLogAlert("activityLogAlert", new()
+    ///     {
+    ///         Actions = new AzureNative.Insights.Inputs.ActionListArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 new AzureNative.Insights.Inputs.ActionGroupArgs
+    ///                 {
+    ///                     ActionGroupId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+    ///                     WebhookProperties = 
+    ///                     {
+    ///                         { "sampleWebhookProperty", "SamplePropertyValue" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ActivityLogAlertName = "SampleActivityLogAlertRule",
+    ///         Condition = new AzureNative.Insights.Inputs.AlertRuleAllOfConditionArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Insights.Inputs.AlertRuleAnyOfOrLeafConditionArgs
+    ///                 {
+    ///                     Equals = "Administrative",
+    ///                     Field = "category",
+    ///                 },
+    ///                 new AzureNative.Insights.Inputs.AlertRuleAnyOfOrLeafConditionArgs
+    ///                 {
+    ///                     Equals = "Error",
+    ///                     Field = "level",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "Description of sample Activity Log Alert rule.",
+    ///         Enabled = true,
+    ///         Location = "Global",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///         Scopes = new[]
+    ///         {
+    ///             "/subscriptions/187f412d-1758-44d9-b052-169e2564721d",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an Activity Log Alert rule with 'anyOf' condition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var activityLogAlert = new AzureNative.Insights.ActivityLogAlert("activityLogAlert", new()
+    ///     {
+    ///         Actions = new AzureNative.Insights.Inputs.ActionListArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 new AzureNative.Insights.Inputs.ActionGroupArgs
+    ///                 {
+    ///                     ActionGroupId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+    ///                     WebhookProperties = 
+    ///                     {
+    ///                         { "sampleWebhookProperty", "SamplePropertyValue" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ActivityLogAlertName = "SampleActivityLogAlertRuleWithAnyOfCondition",
+    ///         Condition = new AzureNative.Insights.Inputs.AlertRuleAllOfConditionArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Insights.Inputs.AlertRuleAnyOfOrLeafConditionArgs
+    ///                 {
+    ///                     Equals = "ServiceHealth",
+    ///                     Field = "category",
+    ///                 },
+    ///                 new AzureNative.Insights.Inputs.AlertRuleAnyOfOrLeafConditionArgs
+    ///                 {
+    ///                     AnyOf = new[]
+    ///                     {
+    ///                         new AzureNative.Insights.Inputs.AlertRuleLeafConditionArgs
+    ///                         {
+    ///                             Equals = "Incident",
+    ///                             Field = "properties.incidentType",
+    ///                         },
+    ///                         new AzureNative.Insights.Inputs.AlertRuleLeafConditionArgs
+    ///                         {
+    ///                             Equals = "Maintenance",
+    ///                             Field = "properties.incidentType",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "Description of sample Activity Log Alert rule with 'anyOf' condition.",
+    ///         Enabled = true,
+    ///         Location = "Global",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///         Scopes = new[]
+    ///         {
+    ///             "subscriptions/187f412d-1758-44d9-b052-169e2564721d",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an Activity Log Alert rule with 'containsAny'
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var activityLogAlert = new AzureNative.Insights.ActivityLogAlert("activityLogAlert", new()
+    ///     {
+    ///         Actions = new AzureNative.Insights.Inputs.ActionListArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 new AzureNative.Insights.Inputs.ActionGroupArgs
+    ///                 {
+    ///                     ActionGroupId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+    ///                     WebhookProperties = 
+    ///                     {
+    ///                         { "sampleWebhookProperty", "SamplePropertyValue" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ActivityLogAlertName = "SampleActivityLogAlertRuleWithContainsAny",
+    ///         Condition = new AzureNative.Insights.Inputs.AlertRuleAllOfConditionArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Insights.Inputs.AlertRuleAnyOfOrLeafConditionArgs
+    ///                 {
+    ///                     Equals = "ServiceHealth",
+    ///                     Field = "category",
+    ///                 },
+    ///                 new AzureNative.Insights.Inputs.AlertRuleAnyOfOrLeafConditionArgs
+    ///                 {
+    ///                     ContainsAny = new[]
+    ///                     {
+    ///                         "North Europe",
+    ///                         "West Europe",
+    ///                     },
+    ///                     Field = "properties.impactedServices[*].ImpactedRegions[*].RegionName",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "Description of sample Activity Log Alert rule with 'containsAny'.",
+    ///         Enabled = true,
+    ///         Location = "Global",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///         Scopes = new[]
+    ///         {
+    ///             "subscriptions/187f412d-1758-44d9-b052-169e2564721d",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights:ActivityLogAlert SampleActivityLogAlertRuleWithContainsAny /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/MyResourceGroup/providers/microsoft.insights/activityLogAlerts/SampleActivityLogAlertRuleWithContainsAny 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:ActivityLogAlert")]
     public partial class ActivityLogAlert : global::Pulumi.CustomResource

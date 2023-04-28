@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Storage resource for managedEnvironment.
+ *
+ * ## Example Usage
+ * ### Create or update environments storage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedEnvironmentsStorage = new azure_native.app.v20220101preview.ManagedEnvironmentsStorage("managedEnvironmentsStorage", {
+ *     envName: "managedEnv",
+ *     name: "jlaw-demo1",
+ *     properties: {
+ *         azureFile: {
+ *             accessMode: "ReadOnly",
+ *             accountKey: "key",
+ *             accountName: "account1",
+ *             shareName: "share1",
+ *         },
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20220101preview:ManagedEnvironmentsStorage jlaw-demo1 /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/managedEnv/storages/jlaw-demo1 
+ * ```
  */
 export class ManagedEnvironmentsStorage extends pulumi.CustomResource {
     /**

@@ -9,6 +9,120 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Amazon Web Services S3 data connector.
+ *
+ * ## Example Usage
+ * ### Creates or updates a APIPolling data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const awsS3DataConnector = new azure_native.securityinsights.v20220801preview.AwsS3DataConnector("awsS3DataConnector", {
+ *     dataConnectorId: "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Dynamics365 data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const awsS3DataConnector = new azure_native.securityinsights.v20220801preview.AwsS3DataConnector("awsS3DataConnector", {
+ *     dataConnectorId: "c2541efb-c9a6-47fe-9501-87d1017d1512",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a GenericUI data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const awsS3DataConnector = new azure_native.securityinsights.v20220801preview.AwsS3DataConnector("awsS3DataConnector", {
+ *     dataConnectorId: "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Threat Intelligence Taxii data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const awsS3DataConnector = new azure_native.securityinsights.v20220801preview.AwsS3DataConnector("awsS3DataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office PowerBI data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const awsS3DataConnector = new azure_native.securityinsights.v20220801preview.AwsS3DataConnector("awsS3DataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office365 Project data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const awsS3DataConnector = new azure_native.securityinsights.v20220801preview.AwsS3DataConnector("awsS3DataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office365 data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const awsS3DataConnector = new azure_native.securityinsights.v20220801preview.AwsS3DataConnector("awsS3DataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Threat Intelligence Platform data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const awsS3DataConnector = new azure_native.securityinsights.v20220801preview.AwsS3DataConnector("awsS3DataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20220801preview:AwsS3DataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class AwsS3DataConnector extends pulumi.CustomResource {
     /**

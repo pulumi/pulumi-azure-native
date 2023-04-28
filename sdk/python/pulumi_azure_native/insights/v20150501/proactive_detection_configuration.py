@@ -181,6 +181,45 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
         """
         Properties that define a ProactiveDetection configuration.
 
+        ## Example Usage
+        ### ProactiveDetectionConfigurationUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        proactive_detection_configuration = azure_native.insights.v20150501.ProactiveDetectionConfiguration("proactiveDetectionConfiguration",
+            configuration_id="slowpageloadtime",
+            custom_emails=[
+                "foo@microsoft.com",
+                "foo2@microsoft.com",
+            ],
+            enabled=True,
+            name="slowpageloadtime",
+            resource_group_name="my-resource-group",
+            resource_name_="my-component",
+            rule_definitions=azure_native.insights.v20150501.ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs(
+                description="Smart Detection rules notify you of performance anomaly issues.",
+                display_name="Slow page load time",
+                help_url="https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+                is_enabled_by_default=True,
+                is_hidden=False,
+                is_in_preview=False,
+                name="slowpageloadtime",
+                supports_email_notifications=True,
+            ),
+            send_emails_to_subscription_owners=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20150501:ProactiveDetectionConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_id: The ProactiveDetection configuration ID. This is unique within a Application Insights component.
@@ -201,6 +240,45 @@ class ProactiveDetectionConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties that define a ProactiveDetection configuration.
+
+        ## Example Usage
+        ### ProactiveDetectionConfigurationUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        proactive_detection_configuration = azure_native.insights.v20150501.ProactiveDetectionConfiguration("proactiveDetectionConfiguration",
+            configuration_id="slowpageloadtime",
+            custom_emails=[
+                "foo@microsoft.com",
+                "foo2@microsoft.com",
+            ],
+            enabled=True,
+            name="slowpageloadtime",
+            resource_group_name="my-resource-group",
+            resource_name_="my-component",
+            rule_definitions=azure_native.insights.v20150501.ApplicationInsightsComponentProactiveDetectionConfigurationRuleDefinitionsArgs(
+                description="Smart Detection rules notify you of performance anomaly issues.",
+                display_name="Slow page load time",
+                help_url="https://docs.microsoft.com/en-us/azure/application-insights/app-insights-proactive-performance-diagnostics",
+                is_enabled_by_default=True,
+                is_hidden=False,
+                is_in_preview=False,
+                name="slowpageloadtime",
+                supports_email_notifications=True,
+            ),
+            send_emails_to_subscription_owners=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20150501:ProactiveDetectionConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/ProactiveDetectionConfigs/{ConfigurationId} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProactiveDetectionConfigurationArgs args: The arguments to use to populate this resource's properties.

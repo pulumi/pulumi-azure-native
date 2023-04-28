@@ -132,6 +132,31 @@ class DdosCustomPolicy(pulumi.CustomResource):
         """
         A DDoS custom policy in a resource group.
 
+        ## Example Usage
+        ### Create DDoS custom policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ddos_custom_policy = azure_native.network.v20220101.DdosCustomPolicy("ddosCustomPolicy",
+            ddos_custom_policy_name="test-ddos-custom-policy",
+            location="centraluseuap",
+            protocol_custom_settings=[azure_native.network.v20220101.ProtocolCustomSettingsFormatArgs(
+                protocol="Tcp",
+            )],
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220101:DdosCustomPolicy test-ddos-custom-policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ddosCustomPolicies/test-ddos-custom-policy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ddos_custom_policy_name: The name of the DDoS custom policy.
@@ -149,6 +174,31 @@ class DdosCustomPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A DDoS custom policy in a resource group.
+
+        ## Example Usage
+        ### Create DDoS custom policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ddos_custom_policy = azure_native.network.v20220101.DdosCustomPolicy("ddosCustomPolicy",
+            ddos_custom_policy_name="test-ddos-custom-policy",
+            location="centraluseuap",
+            protocol_custom_settings=[azure_native.network.v20220101.ProtocolCustomSettingsFormatArgs(
+                protocol="Tcp",
+            )],
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220101:DdosCustomPolicy test-ddos-custom-policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ddosCustomPolicies/test-ddos-custom-policy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DdosCustomPolicyArgs args: The arguments to use to populate this resource's properties.

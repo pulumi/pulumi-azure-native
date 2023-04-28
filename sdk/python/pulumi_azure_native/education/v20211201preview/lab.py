@@ -176,6 +176,35 @@ class Lab(pulumi.CustomResource):
         """
         Lab details.
 
+        ## Example Usage
+        ### CreateLab
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        lab = azure_native.education.v20211201preview.Lab("lab",
+            billing_account_name="{billingAccountName}",
+            billing_profile_name="{billingProfileName}",
+            budget_per_student=azure_native.education.v20211201preview.AmountArgs(
+                currency="USD",
+                value=100,
+            ),
+            description="example lab description",
+            display_name="example lab",
+            expiration_date="2021-12-09T22:11:29.422Z",
+            invoice_section_name="{invoiceSectionName}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:education/v20211201preview:Lab default /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_name: The ID that uniquely identifies a billing account.
@@ -196,6 +225,35 @@ class Lab(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Lab details.
+
+        ## Example Usage
+        ### CreateLab
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        lab = azure_native.education.v20211201preview.Lab("lab",
+            billing_account_name="{billingAccountName}",
+            billing_profile_name="{billingProfileName}",
+            budget_per_student=azure_native.education.v20211201preview.AmountArgs(
+                currency="USD",
+                value=100,
+            ),
+            description="example lab description",
+            display_name="example lab",
+            expiration_date="2021-12-09T22:11:29.422Z",
+            invoice_section_name="{invoiceSectionName}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:education/v20211201preview:Lab default /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LabArgs args: The arguments to use to populate this resource's properties.

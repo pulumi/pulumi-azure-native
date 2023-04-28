@@ -9,6 +9,47 @@ import * as utilities from "../../utilities";
 
 /**
  * The server encryption protector.
+ *
+ * ## Example Usage
+ * ### Update the encryption protector to key vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const encryptionProtector = new azure_native.sql.v20201101preview.EncryptionProtector("encryptionProtector", {
+ *     autoRotationEnabled: false,
+ *     encryptionProtectorName: "current",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverKeyName: "someVault_someKey_01234567890123456789012345678901",
+ *     serverKeyType: "AzureKeyVault",
+ *     serverName: "sqlcrudtest-4645",
+ * });
+ *
+ * ```
+ * ### Update the encryption protector to service managed
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const encryptionProtector = new azure_native.sql.v20201101preview.EncryptionProtector("encryptionProtector", {
+ *     encryptionProtectorName: "current",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverKeyName: "ServiceManaged",
+ *     serverKeyType: "ServiceManaged",
+ *     serverName: "sqlcrudtest-4645",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20201101preview:EncryptionProtector current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/encryptionProtector/current 
+ * ```
  */
 export class EncryptionProtector extends pulumi.CustomResource {
     /**

@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * A Tenant Activity Log Alert rule resource.
+ *
+ * ## Example Usage
+ * ### Create or update a Tenant Activity Log Alert rule for tenant level events
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tenantActivityLogAlert = new azure_native.alertsmanagement.v20230401preview.TenantActivityLogAlert("tenantActivityLogAlert", {
+ *     actions: {
+ *         actionGroups: [{
+ *             actionGroupId: "/providers/Microsoft.Management/ManagementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.Insights/actionGroups/SampleActionGroup",
+ *             actionProperties: {
+ *                 "Email.Title": "my email title",
+ *             },
+ *             webhookProperties: {
+ *                 sampleWebhookProperty: "SamplePropertyValue",
+ *             },
+ *         }],
+ *     },
+ *     alertRuleName: "SampleActivityLogAlertSHRuleOnTenantLevel",
+ *     condition: {
+ *         allOf: [{
+ *             equals: "ServiceHealth",
+ *             field: "category",
+ *         }],
+ *     },
+ *     description: "Description of sample Activity Log Alert service health rule on tenant level events.",
+ *     enabled: true,
+ *     location: "Global",
+ *     managementGroupName: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *     tags: {},
+ *     tenantScope: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:alertsmanagement/v20230401preview:TenantActivityLogAlert SampleActivityLogAlertSHRuleOnTenantLevel /providers/Microsoft.Management/ManagementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.AlertsManagement/TenantActivityLogAlerts/SampleActivityLogAlertSHRuleOnTenantLevel 
+ * ```
  */
 export class TenantActivityLogAlert extends pulumi.CustomResource {
     /**

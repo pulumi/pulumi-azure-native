@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.OperationsManagement.V20151101Preview
 {
     /// <summary>
     /// The container for solution.
+    /// 
+    /// ## Example Usage
+    /// ### SolutionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var solution = new AzureNative.OperationsManagement.V20151101Preview.Solution("solution", new()
+    ///     {
+    ///         Location = "East US",
+    ///         Plan = new AzureNative.OperationsManagement.V20151101Preview.Inputs.SolutionPlanArgs
+    ///         {
+    ///             Name = "name1",
+    ///             Product = "product1",
+    ///             PromotionCode = "promocode1",
+    ///             Publisher = "publisher1",
+    ///         },
+    ///         Properties = new AzureNative.OperationsManagement.V20151101Preview.Inputs.SolutionPropertiesArgs
+    ///         {
+    ///             ContainedResources = new[]
+    ///             {
+    ///                 "/subscriptions/sub2/resourceGroups/rg2/providers/provider1/resources/resource1",
+    ///                 "/subscriptions/sub2/resourceGroups/rg2/providers/provider2/resources/resource2",
+    ///             },
+    ///             ReferencedResources = new[]
+    ///             {
+    ///                 "/subscriptions/sub2/resourceGroups/rg2/providers/provider1/resources/resource2",
+    ///                 "/subscriptions/sub2/resourceGroups/rg2/providers/provider2/resources/resource3",
+    ///             },
+    ///             WorkspaceResourceId = "/subscriptions/sub2/resourceGroups/rg2/providers/Microsoft.OperationalInsights/workspaces/ws1",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SolutionName = "solution1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationsmanagement/v20151101preview:Solution solution1 subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationsManagement/solutions/solution1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationsmanagement/v20151101preview:Solution")]
     public partial class Solution : global::Pulumi.CustomResource

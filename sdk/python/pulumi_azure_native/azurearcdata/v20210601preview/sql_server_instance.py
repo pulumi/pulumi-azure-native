@@ -114,6 +114,46 @@ class SqlServerInstance(pulumi.CustomResource):
         """
         A SqlServerInstance.
 
+        ## Example Usage
+        ### Updates a SQL Server Instance tags.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_instance = azure_native.azurearcdata.v20210601preview.SqlServerInstance("sqlServerInstance",
+            location="northeurope",
+            properties=azure_native.azurearcdata.v20210601preview.SqlServerInstancePropertiesResponseArgs(
+                collation="collation",
+                container_resource_id="Arc Machine Name",
+                current_version="2008 R2",
+                edition="Developer",
+                instance_name="name of instance",
+                license_type="Free",
+                patch_level="patchlevel",
+                product_id="sql id",
+                status="Connected",
+                tcp_dynamic_ports="1433",
+                tcp_static_ports="1433",
+                v_core="4",
+                version="SQL Server 2017",
+            ),
+            resource_group_name="testrg",
+            sql_server_instance_name="testsqlServerInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20210601preview:SqlServerInstance testsqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/SqlServerInstances/testsqlServerInstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -130,6 +170,46 @@ class SqlServerInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SqlServerInstance.
+
+        ## Example Usage
+        ### Updates a SQL Server Instance tags.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_server_instance = azure_native.azurearcdata.v20210601preview.SqlServerInstance("sqlServerInstance",
+            location="northeurope",
+            properties=azure_native.azurearcdata.v20210601preview.SqlServerInstancePropertiesResponseArgs(
+                collation="collation",
+                container_resource_id="Arc Machine Name",
+                current_version="2008 R2",
+                edition="Developer",
+                instance_name="name of instance",
+                license_type="Free",
+                patch_level="patchlevel",
+                product_id="sql id",
+                status="Connected",
+                tcp_dynamic_ports="1433",
+                tcp_static_ports="1433",
+                v_core="4",
+                version="SQL Server 2017",
+            ),
+            resource_group_name="testrg",
+            sql_server_instance_name="testsqlServerInstance",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20210601preview:SqlServerInstance testsqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/SqlServerInstances/testsqlServerInstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlServerInstanceArgs args: The arguments to use to populate this resource's properties.

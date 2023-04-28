@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180701Preview
 {
     /// <summary>
     /// This type describes a network resource.
+    /// 
+    /// ## Example Usage
+    /// ### Network_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var network = new AzureNative.ServiceFabricMesh.V20180701Preview.Network("network", new()
+    ///     {
+    ///         AddressPrefix = "10.0.0.4/22",
+    ///         IngressConfig = new AzureNative.ServiceFabricMesh.V20180701Preview.Inputs.IngressConfigArgs
+    ///         {
+    ///             Layer4 = new[]
+    ///             {
+    ///                 new AzureNative.ServiceFabricMesh.V20180701Preview.Inputs.Layer4IngressConfigArgs
+    ///                 {
+    ///                     ApplicationName = "helloWorldAppWindows",
+    ///                     EndpointName = "helloWorldListener",
+    ///                     PublicPort = 80,
+    ///                     ServiceName = "helloWorldService",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         NetworkName = "helloWorldNetworkWindows",
+    ///         ResourceGroupName = "sbz_demo",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabricmesh/v20180701preview:Network helloWorldNetworkWindows /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/helloWorldNetworkWindows 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-07-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180701preview:Network")]

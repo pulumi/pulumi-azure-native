@@ -225,6 +225,13 @@ class IoTHubEventSource(pulumi.CustomResource):
                  __props__=None):
         """
         An event source that receives its data from an Azure IoTHub.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,6 +257,13 @@ class IoTHubEventSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An event source that receives its data from an Azure IoTHub.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IoTHubEventSourceArgs args: The arguments to use to populate this resource's properties.

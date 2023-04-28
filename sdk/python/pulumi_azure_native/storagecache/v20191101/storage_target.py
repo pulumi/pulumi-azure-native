@@ -187,6 +187,45 @@ class StorageTarget(pulumi.CustomResource):
         """
         A storage system being cached by a Cache.
 
+        ## Example Usage
+        ### StorageTargets_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_target = azure_native.storagecache.v20191101.StorageTarget("storageTarget",
+            cache_name="sc1",
+            junctions=[
+                azure_native.storagecache.v20191101.NamespaceJunctionArgs(
+                    namespace_path="/path/on/cache",
+                    nfs_export="exp1",
+                    target_path="/path/on/exp1",
+                ),
+                azure_native.storagecache.v20191101.NamespaceJunctionArgs(
+                    namespace_path="/path2/on/cache",
+                    nfs_export="exp2",
+                    target_path="/path2/on/exp2",
+                ),
+            ],
+            nfs3=azure_native.storagecache.v20191101.Nfs3TargetArgs(
+                target="10.0.44.44",
+                usage_model="READ_HEAVY_INFREQ",
+            ),
+            resource_group_name="scgroup",
+            storage_target_name="st1",
+            target_type="nfs3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagecache/v20191101:StorageTarget st1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1/storagetargets/st1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: Name of Cache.
@@ -207,6 +246,45 @@ class StorageTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A storage system being cached by a Cache.
+
+        ## Example Usage
+        ### StorageTargets_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_target = azure_native.storagecache.v20191101.StorageTarget("storageTarget",
+            cache_name="sc1",
+            junctions=[
+                azure_native.storagecache.v20191101.NamespaceJunctionArgs(
+                    namespace_path="/path/on/cache",
+                    nfs_export="exp1",
+                    target_path="/path/on/exp1",
+                ),
+                azure_native.storagecache.v20191101.NamespaceJunctionArgs(
+                    namespace_path="/path2/on/cache",
+                    nfs_export="exp2",
+                    target_path="/path2/on/exp2",
+                ),
+            ],
+            nfs3=azure_native.storagecache.v20191101.Nfs3TargetArgs(
+                target="10.0.44.44",
+                usage_model="READ_HEAVY_INFREQ",
+            ),
+            resource_group_name="scgroup",
+            storage_target_name="st1",
+            target_type="nfs3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagecache/v20191101:StorageTarget st1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1/storagetargets/st1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageTargetArgs args: The arguments to use to populate this resource's properties.

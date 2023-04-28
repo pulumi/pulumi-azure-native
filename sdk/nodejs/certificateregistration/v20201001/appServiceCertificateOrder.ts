@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * SSL certificate purchase order.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:certificateregistration/v20201001:AppServiceCertificateOrder myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName} 
+ * ```
  */
 export class AppServiceCertificateOrder extends pulumi.CustomResource {
     /**

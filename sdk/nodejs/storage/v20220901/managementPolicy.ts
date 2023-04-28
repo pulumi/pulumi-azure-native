@@ -9,6 +9,442 @@ import * as utilities from "../../utilities";
 
 /**
  * The Get Storage Account ManagementPolicies operation response.
+ *
+ * ## Example Usage
+ * ### StorageAccountSetManagementPolicies
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementPolicy = new azure_native.storage.v20220901.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [
+ *             {
+ *                 definition: {
+ *                     actions: {
+ *                         baseBlob: {
+ *                             "delete": {
+ *                                 daysAfterModificationGreaterThan: 1000,
+ *                             },
+ *                             tierToArchive: {
+ *                                 daysAfterModificationGreaterThan: 90,
+ *                             },
+ *                             tierToCool: {
+ *                                 daysAfterModificationGreaterThan: 30,
+ *                             },
+ *                         },
+ *                         snapshot: {
+ *                             "delete": {
+ *                                 daysAfterCreationGreaterThan: 30,
+ *                             },
+ *                         },
+ *                     },
+ *                     filters: {
+ *                         blobTypes: ["blockBlob"],
+ *                         prefixMatch: ["olcmtestcontainer1"],
+ *                     },
+ *                 },
+ *                 enabled: true,
+ *                 name: "olcmtest1",
+ *                 type: "Lifecycle",
+ *             },
+ *             {
+ *                 definition: {
+ *                     actions: {
+ *                         baseBlob: {
+ *                             "delete": {
+ *                                 daysAfterModificationGreaterThan: 1000,
+ *                             },
+ *                             tierToArchive: {
+ *                                 daysAfterModificationGreaterThan: 90,
+ *                             },
+ *                             tierToCool: {
+ *                                 daysAfterModificationGreaterThan: 30,
+ *                             },
+ *                         },
+ *                     },
+ *                     filters: {
+ *                         blobIndexMatch: [
+ *                             {
+ *                                 name: "tag1",
+ *                                 op: "==",
+ *                                 value: "val1",
+ *                             },
+ *                             {
+ *                                 name: "tag2",
+ *                                 op: "==",
+ *                                 value: "val2",
+ *                             },
+ *                         ],
+ *                         blobTypes: ["blockBlob"],
+ *                         prefixMatch: ["olcmtestcontainer2"],
+ *                     },
+ *                 },
+ *                 enabled: true,
+ *                 name: "olcmtest2",
+ *                 type: "Lifecycle",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ * ### StorageAccountSetManagementPolicyColdTierActions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementPolicy = new azure_native.storage.v20220901.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [{
+ *             definition: {
+ *                 actions: {
+ *                     baseBlob: {
+ *                         "delete": {
+ *                             daysAfterModificationGreaterThan: 1000,
+ *                         },
+ *                         tierToArchive: {
+ *                             daysAfterModificationGreaterThan: 90,
+ *                         },
+ *                         tierToCold: {
+ *                             daysAfterModificationGreaterThan: 30,
+ *                         },
+ *                         tierToCool: {
+ *                             daysAfterModificationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     snapshot: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                         tierToCold: {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     version: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                         tierToCold: {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                 },
+ *                 filters: {
+ *                     blobTypes: ["blockBlob"],
+ *                     prefixMatch: ["olcmtestcontainer1"],
+ *                 },
+ *             },
+ *             enabled: true,
+ *             name: "olcmtest1",
+ *             type: "Lifecycle",
+ *         }],
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ * ### StorageAccountSetManagementPolicyForBlockAndAppendBlobs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementPolicy = new azure_native.storage.v20220901.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [{
+ *             definition: {
+ *                 actions: {
+ *                     baseBlob: {
+ *                         "delete": {
+ *                             daysAfterModificationGreaterThan: 90,
+ *                         },
+ *                     },
+ *                     snapshot: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 90,
+ *                         },
+ *                     },
+ *                     version: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 90,
+ *                         },
+ *                     },
+ *                 },
+ *                 filters: {
+ *                     blobTypes: [
+ *                         "blockBlob",
+ *                         "appendBlob",
+ *                     ],
+ *                     prefixMatch: ["olcmtestcontainer1"],
+ *                 },
+ *             },
+ *             enabled: true,
+ *             name: "olcmtest1",
+ *             type: "Lifecycle",
+ *         }],
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ * ### StorageAccountSetManagementPolicyHotTierActions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementPolicy = new azure_native.storage.v20220901.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [{
+ *             definition: {
+ *                 actions: {
+ *                     baseBlob: {
+ *                         tierToHot: {
+ *                             daysAfterModificationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     snapshot: {
+ *                         tierToHot: {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     version: {
+ *                         tierToHot: {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                 },
+ *                 filters: {
+ *                     blobTypes: ["blockBlob"],
+ *                     prefixMatch: ["olcmtestcontainer1"],
+ *                 },
+ *             },
+ *             enabled: true,
+ *             name: "olcmtest1",
+ *             type: "Lifecycle",
+ *         }],
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ * ### StorageAccountSetManagementPolicyWithSnapshotAndVersion
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementPolicy = new azure_native.storage.v20220901.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [{
+ *             definition: {
+ *                 actions: {
+ *                     baseBlob: {
+ *                         "delete": {
+ *                             daysAfterModificationGreaterThan: 1000,
+ *                         },
+ *                         tierToArchive: {
+ *                             daysAfterModificationGreaterThan: 90,
+ *                         },
+ *                         tierToCool: {
+ *                             daysAfterModificationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     snapshot: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 1000,
+ *                         },
+ *                         tierToArchive: {
+ *                             daysAfterCreationGreaterThan: 90,
+ *                         },
+ *                         tierToCool: {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     version: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 1000,
+ *                         },
+ *                         tierToArchive: {
+ *                             daysAfterCreationGreaterThan: 90,
+ *                         },
+ *                         tierToCool: {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                 },
+ *                 filters: {
+ *                     blobTypes: ["blockBlob"],
+ *                     prefixMatch: ["olcmtestcontainer1"],
+ *                 },
+ *             },
+ *             enabled: true,
+ *             name: "olcmtest1",
+ *             type: "Lifecycle",
+ *         }],
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ * ### StorageAccountSetManagementPolicy_BaseBlobDaysAfterCreationActions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementPolicy = new azure_native.storage.v20220901.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [{
+ *             definition: {
+ *                 actions: {
+ *                     baseBlob: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 1000,
+ *                         },
+ *                         tierToArchive: {
+ *                             daysAfterCreationGreaterThan: 90,
+ *                         },
+ *                         tierToCool: {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                 },
+ *                 filters: {
+ *                     blobTypes: ["blockBlob"],
+ *                     prefixMatch: ["olcmtestcontainer1"],
+ *                 },
+ *             },
+ *             enabled: true,
+ *             name: "olcmtest1",
+ *             type: "Lifecycle",
+ *         }],
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ * ### StorageAccountSetManagementPolicy_LastAccessTimeBasedBlobActions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementPolicy = new azure_native.storage.v20220901.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [{
+ *             definition: {
+ *                 actions: {
+ *                     baseBlob: {
+ *                         "delete": {
+ *                             daysAfterLastAccessTimeGreaterThan: 1000,
+ *                         },
+ *                         enableAutoTierToHotFromCool: true,
+ *                         tierToArchive: {
+ *                             daysAfterLastAccessTimeGreaterThan: 90,
+ *                         },
+ *                         tierToCool: {
+ *                             daysAfterLastAccessTimeGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     snapshot: {
+ *                         "delete": {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                 },
+ *                 filters: {
+ *                     blobTypes: ["blockBlob"],
+ *                     prefixMatch: ["olcmtestcontainer"],
+ *                 },
+ *             },
+ *             enabled: true,
+ *             name: "olcmtest",
+ *             type: "Lifecycle",
+ *         }],
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ * ### StorageAccountSetManagementPolicy_LastTierChangeTimeActions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementPolicy = new azure_native.storage.v20220901.ManagementPolicy("managementPolicy", {
+ *     accountName: "sto9699",
+ *     managementPolicyName: "default",
+ *     policy: {
+ *         rules: [{
+ *             definition: {
+ *                 actions: {
+ *                     baseBlob: {
+ *                         "delete": {
+ *                             daysAfterModificationGreaterThan: 1000,
+ *                         },
+ *                         tierToArchive: {
+ *                             daysAfterLastTierChangeGreaterThan: 120,
+ *                             daysAfterModificationGreaterThan: 90,
+ *                         },
+ *                         tierToCool: {
+ *                             daysAfterModificationGreaterThan: 30,
+ *                         },
+ *                     },
+ *                     snapshot: {
+ *                         tierToArchive: {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                             daysAfterLastTierChangeGreaterThan: 90,
+ *                         },
+ *                     },
+ *                     version: {
+ *                         tierToArchive: {
+ *                             daysAfterCreationGreaterThan: 30,
+ *                             daysAfterLastTierChangeGreaterThan: 90,
+ *                         },
+ *                     },
+ *                 },
+ *                 filters: {
+ *                     blobTypes: ["blockBlob"],
+ *                     prefixMatch: ["olcmtestcontainer"],
+ *                 },
+ *             },
+ *             enabled: true,
+ *             name: "olcmtest",
+ *             type: "Lifecycle",
+ *         }],
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20220901:ManagementPolicy DefaultManagementPolicy /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.Storage/storageAccounts/sto288/managementPolicies/default 
+ * ```
  */
 export class ManagementPolicy extends pulumi.CustomResource {
     /**

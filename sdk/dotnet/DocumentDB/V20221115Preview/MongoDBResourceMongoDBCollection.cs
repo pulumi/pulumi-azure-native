@@ -11,6 +11,109 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115Preview
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBCollectionCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoDBResourceMongoDBCollection = new AzureNative.DocumentDB.V20221115Preview.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         CollectionName = "collectionName",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20221115Preview.Inputs.MongoDBCollectionResourceArgs
+    ///         {
+    ///             AnalyticalStorageTtl = 500,
+    ///             Id = "collectionName",
+    ///             Indexes = new[]
+    ///             {
+    ///                 new AzureNative.DocumentDB.V20221115Preview.Inputs.MongoIndexArgs
+    ///                 {
+    ///                     Key = new AzureNative.DocumentDB.V20221115Preview.Inputs.MongoIndexKeysArgs
+    ///                     {
+    ///                         Keys = new[]
+    ///                         {
+    ///                             "_ts",
+    ///                         },
+    ///                     },
+    ///                     Options = new AzureNative.DocumentDB.V20221115Preview.Inputs.MongoIndexOptionsArgs
+    ///                     {
+    ///                         ExpireAfterSeconds = 100,
+    ///                         Unique = true,
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.DocumentDB.V20221115Preview.Inputs.MongoIndexArgs
+    ///                 {
+    ///                     Key = new AzureNative.DocumentDB.V20221115Preview.Inputs.MongoIndexKeysArgs
+    ///                     {
+    ///                         Keys = new[]
+    ///                         {
+    ///                             "_id",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ShardKey = 
+    ///             {
+    ///                 { "testKey", "Hash" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CosmosDBMongoDBCollectionRestore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoDBResourceMongoDBCollection = new AzureNative.DocumentDB.V20221115Preview.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         CollectionName = "collectionName",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20221115Preview.Inputs.MongoDBCollectionResourceArgs
+    ///         {
+    ///             CreateMode = "Restore",
+    ///             Id = "collectionName",
+    ///             RestoreParameters = new AzureNative.DocumentDB.V20221115Preview.Inputs.ResourceRestoreParametersArgs
+    ///             {
+    ///                 RestoreSource = "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+    ///                 RestoreTimestampInUtc = "2022-07-20T18:28:00Z",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20221115preview:MongoDBResourceMongoDBCollection collectionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/mongodbDatabases/databaseName/mongodbCollections/collectionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20221115preview:MongoDBResourceMongoDBCollection")]
     public partial class MongoDBResourceMongoDBCollection : global::Pulumi.CustomResource

@@ -11,6 +11,83 @@ namespace Pulumi.AzureNative.Insights.V20210501Preview
 {
     /// <summary>
     /// The management group diagnostic setting resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or Updates the management group diagnostic setting
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementGroupDiagnosticSetting = new AzureNative.Insights.V20210501Preview.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting", new()
+    ///     {
+    ///         EventHubAuthorizationRuleId = "/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+    ///         EventHubName = "myeventhub",
+    ///         Logs = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20210501Preview.Inputs.ManagementGroupLogSettingsArgs
+    ///             {
+    ///                 CategoryGroup = "allLogs",
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///         ManagementGroupId = "testChildMG7",
+    ///         MarketplacePartnerId = "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+    ///         Name = "setting1",
+    ///         StorageAccountId = "/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+    ///         WorkspaceId = "/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or Updates the management group diagnostic setting for category
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementGroupDiagnosticSetting = new AzureNative.Insights.V20210501Preview.ManagementGroupDiagnosticSetting("managementGroupDiagnosticSetting", new()
+    ///     {
+    ///         EventHubAuthorizationRuleId = "/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+    ///         EventHubName = "myeventhub",
+    ///         Logs = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20210501Preview.Inputs.ManagementGroupLogSettingsArgs
+    ///             {
+    ///                 Category = "Administrative",
+    ///                 Enabled = true,
+    ///             },
+    ///             new AzureNative.Insights.V20210501Preview.Inputs.ManagementGroupLogSettingsArgs
+    ///             {
+    ///                 Category = "Policy",
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///         ManagementGroupId = "testChildMG7",
+    ///         MarketplacePartnerId = "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+    ///         Name = "setting1",
+    ///         StorageAccountId = "/subscriptions/bfaef57f-297e-4210-bfe5-27c18cc671f7/resourceGroups/FuncAppRunners/providers/Microsoft.Storage/storageAccounts/testpersonalb6a5",
+    ///         WorkspaceId = "/subscriptions/9cf7cc0a-0ba1-4624-bc82-97e1ee25dc45/resourceGroups/mgTest/providers/Microsoft.OperationalInsights/workspaces/mgTestWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting setting1 providers/Microsoft.Management/managementGroups/testChildMG7/providers/microsoft.insights/diagnosticSettings/setting1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20210501preview:ManagementGroupDiagnosticSetting")]
     public partial class ManagementGroupDiagnosticSetting : global::Pulumi.CustomResource

@@ -151,6 +151,46 @@ class RouteTable(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create route table
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_table = azure_native.network.RouteTable("routeTable",
+            location="westus",
+            resource_group_name="rg1",
+            route_table_name="testrt")
+
+        ```
+        ### Create route table with route
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_table = azure_native.network.RouteTable("routeTable",
+            disable_bgp_route_propagation=True,
+            location="westus",
+            resource_group_name="rg1",
+            route_table_name="testrt",
+            routes=[{
+                "addressPrefix": "10.0.3.0/24",
+                "name": "route1",
+                "nextHopType": "VirtualNetworkGateway",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:RouteTable testrt /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeTables/testrt 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_bgp_route_propagation: Whether to disable the routes learned by BGP on that route table. True means disable.
@@ -171,6 +211,46 @@ class RouteTable(pulumi.CustomResource):
         Route table resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create route table
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_table = azure_native.network.RouteTable("routeTable",
+            location="westus",
+            resource_group_name="rg1",
+            route_table_name="testrt")
+
+        ```
+        ### Create route table with route
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_table = azure_native.network.RouteTable("routeTable",
+            disable_bgp_route_propagation=True,
+            location="westus",
+            resource_group_name="rg1",
+            route_table_name="testrt",
+            routes=[{
+                "addressPrefix": "10.0.3.0/24",
+                "name": "route1",
+                "nextHopType": "VirtualNetworkGateway",
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:RouteTable testrt /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeTables/testrt 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteTableInitArgs args: The arguments to use to populate this resource's properties.

@@ -214,6 +214,35 @@ class VNetPeering(pulumi.CustomResource):
         """
         Peerings in a VirtualNetwork resource
 
+        ## Example Usage
+        ### Create vNet Peering for Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        v_net_peering = azure_native.databricks.v20230201.VNetPeering("vNetPeering",
+            allow_forwarded_traffic=False,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            peering_name="vNetPeeringTest",
+            remote_virtual_network=azure_native.databricks.v20230201.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs(
+                id="/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
+            ),
+            resource_group_name="rg",
+            use_remote_gateways=False,
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databricks/v20230201:vNetPeering vNetPeeringTest /subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Databricks/workspaces/adbworkspace/virtualNetworkPeerings/vNetPeeringTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -236,6 +265,35 @@ class VNetPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Peerings in a VirtualNetwork resource
+
+        ## Example Usage
+        ### Create vNet Peering for Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        v_net_peering = azure_native.databricks.v20230201.VNetPeering("vNetPeering",
+            allow_forwarded_traffic=False,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            peering_name="vNetPeeringTest",
+            remote_virtual_network=azure_native.databricks.v20230201.VirtualNetworkPeeringPropertiesFormatRemoteVirtualNetworkArgs(
+                id="/subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Network/virtualNetworks/subramanvnet",
+            ),
+            resource_group_name="rg",
+            use_remote_gateways=False,
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databricks/v20230201:vNetPeering vNetPeeringTest /subscriptions/0140911e-1040-48da-8bc9-b99fb3dd88a6/resourceGroups/subramantest/providers/Microsoft.Databricks/workspaces/adbworkspace/virtualNetworkPeerings/vNetPeeringTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VNetPeeringArgs args: The arguments to use to populate this resource's properties.

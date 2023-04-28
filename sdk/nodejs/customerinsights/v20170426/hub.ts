@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Hub resource.
+ *
+ * ## Example Usage
+ * ### Hubs_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hub = new azure_native.customerinsights.v20170426.Hub("hub", {
+ *     hubBillingInfo: {
+ *         maxUnits: 5,
+ *         minUnits: 1,
+ *         skuName: "B0",
+ *     },
+ *     hubName: "sdkTestHub",
+ *     location: "West US",
+ *     resourceGroupName: "TestHubRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights/v20170426:Hub testHub2839 /subscriptions/subid/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/testHub2839 
+ * ```
  */
 export class Hub extends pulumi.CustomResource {
     /**

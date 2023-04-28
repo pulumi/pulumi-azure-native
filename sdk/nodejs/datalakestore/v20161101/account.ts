@@ -9,6 +9,58 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Store account information.
+ *
+ * ## Example Usage
+ * ### Creates the specified Data Lake Store account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.datalakestore.v20161101.Account("account", {
+ *     accountName: "contosoadla",
+ *     defaultGroup: "test_default_group",
+ *     encryptionConfig: {
+ *         keyVaultMetaInfo: {
+ *             encryptionKeyName: "test_encryption_key_name",
+ *             encryptionKeyVersion: "encryption_key_version",
+ *             keyVaultResourceId: "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+ *         },
+ *         type: azure_native.datalakestore.v20161101.EncryptionConfigType.UserManaged,
+ *     },
+ *     encryptionState: azure_native.datalakestore.v20161101.EncryptionState.Enabled,
+ *     firewallAllowAzureIps: azure_native.datalakestore.v20161101.FirewallAllowAzureIpsState.Enabled,
+ *     firewallRules: [{
+ *         endIpAddress: "2.2.2.2",
+ *         name: "test_rule",
+ *         startIpAddress: "1.1.1.1",
+ *     }],
+ *     firewallState: azure_native.datalakestore.v20161101.FirewallState.Enabled,
+ *     identity: {
+ *         type: azure_native.datalakestore.v20161101.EncryptionIdentityType.SystemAssigned,
+ *     },
+ *     location: "eastus2",
+ *     newTier: azure_native.datalakestore.v20161101.TierType.Consumption,
+ *     resourceGroupName: "contosorg",
+ *     tags: {
+ *         test_key: "test_value",
+ *     },
+ *     trustedIdProviderState: azure_native.datalakestore.v20161101.TrustedIdProviderState.Enabled,
+ *     trustedIdProviders: [{
+ *         idProvider: "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+ *         name: "test_trusted_id_provider_name",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datalakestore/v20161101:Account contosoadla 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

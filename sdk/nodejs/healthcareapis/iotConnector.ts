@@ -11,6 +11,62 @@ import * as utilities from "../utilities";
  * IoT Connector definition.
  * API Version: 2022-12-01.
  * Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create an IoT Connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotConnector = new azure_native.healthcareapis.IotConnector("iotConnector", {
+ *     deviceMapping: {
+ *         content: {
+ *             template: [{
+ *                 template: {
+ *                     deviceIdExpression: `$.deviceid`,
+ *                     timestampExpression: `$.measurementdatetime`,
+ *                     typeMatchExpression: `$..[?(@heartrate)]`,
+ *                     typeName: "heartrate",
+ *                     values: [{
+ *                         required: "true",
+ *                         valueExpression: `$.heartrate`,
+ *                         valueName: "hr",
+ *                     }],
+ *                 },
+ *                 templateType: "JsonPathContent",
+ *             }],
+ *             templateType: "CollectionContent",
+ *         },
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     ingestionEndpointConfiguration: {
+ *         consumerGroup: "ConsumerGroupA",
+ *         eventHubName: "MyEventHubName",
+ *         fullyQualifiedEventHubNamespace: "myeventhub.servicesbus.windows.net",
+ *     },
+ *     iotConnectorName: "blue",
+ *     location: "westus",
+ *     resourceGroupName: "testRG",
+ *     tags: {
+ *         additionalProp1: "string",
+ *         additionalProp2: "string",
+ *         additionalProp3: "string",
+ *     },
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:healthcareapis:IotConnector blue /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue 
+ * ```
  */
 export class IotConnector extends pulumi.CustomResource {
     /**

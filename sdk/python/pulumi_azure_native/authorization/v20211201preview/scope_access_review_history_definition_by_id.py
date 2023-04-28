@@ -217,6 +217,27 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
         """
         Access Review History Definition.
 
+        ## Example Usage
+        ### PutAccessReviewHistoryDefinition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_access_review_history_definition_by_id = azure_native.authorization.v20211201preview.ScopeAccessReviewHistoryDefinitionById("scopeAccessReviewHistoryDefinitionById",
+            history_definition_id="44724910-d7a5-4c29-b28f-db73e717165a",
+            scope="subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20211201preview:ScopeAccessReviewHistoryDefinitionById 44724910-d7a5-4c29-b28f-db73e717165a /subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/44724910-d7a5-4c29-b28f-db73e717165a 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessReviewResult']]]] decisions: Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
@@ -239,6 +260,27 @@ class ScopeAccessReviewHistoryDefinitionById(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Access Review History Definition.
+
+        ## Example Usage
+        ### PutAccessReviewHistoryDefinition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_access_review_history_definition_by_id = azure_native.authorization.v20211201preview.ScopeAccessReviewHistoryDefinitionById("scopeAccessReviewHistoryDefinitionById",
+            history_definition_id="44724910-d7a5-4c29-b28f-db73e717165a",
+            scope="subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20211201preview:ScopeAccessReviewHistoryDefinitionById 44724910-d7a5-4c29-b28f-db73e717165a /subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/44724910-d7a5-4c29-b28f-db73e717165a 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScopeAccessReviewHistoryDefinitionByIdArgs args: The arguments to use to populate this resource's properties.

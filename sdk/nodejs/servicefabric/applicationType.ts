@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * The application type name resource
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Put an application type
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationType = new azure_native.servicefabric.ApplicationType("applicationType", {
+ *     applicationTypeName: "myAppType",
+ *     clusterName: "myCluster",
+ *     location: "eastus",
+ *     resourceGroupName: "resRg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabric:ApplicationType myAppType /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType 
+ * ```
  */
 export class ApplicationType extends pulumi.CustomResource {
     /**

@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * The resource proxy definition object for quantum workspace.
+ *
+ * ## Example Usage
+ * ### QuantumWorkspacesPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.quantum.v20191104preview.Workspace("workspace", {
+ *     location: "West US",
+ *     providers: [
+ *         {
+ *             providerId: "Honeywell",
+ *             providerSku: "Basic",
+ *         },
+ *         {
+ *             providerId: "IonQ",
+ *             providerSku: "Basic",
+ *         },
+ *         {
+ *             providerId: "OneQBit",
+ *             providerSku: "Basic",
+ *         },
+ *     ],
+ *     resourceGroupName: "quantumResourcegroup",
+ *     storageAccount: "/subscriptions/1C4B2828-7D49-494F-933D-061373BE28C2/resourceGroups/quantumResourcegroup/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+ *     workspaceName: "quantumworkspace1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:quantum/v20191104preview:Workspace quantumworkspace1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/quantumResourcegroup/providers/Microsoft.Quantum/Workspaces/quantumworkspace1 
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

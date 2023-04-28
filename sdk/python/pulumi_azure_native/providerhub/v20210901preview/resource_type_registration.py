@@ -75,7 +75,76 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                  resource_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ResourceTypeRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ResourceTypeRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.v20210901preview.ResourceTypeRegistration("resourceTypeRegistration",
+            properties=azure_native.providerhub.v20210901preview.ResourceTypeRegistrationResponsePropertiesArgs(
+                endpoints=[azure_native.providerhub.v20210901preview.ResourceTypeEndpointArgs(
+                    api_versions=["2020-06-01-preview"],
+                    locations=[
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    required_features=["<feature flag>"],
+                )],
+                management={
+                    "incidentContactEmail": "helpme@contoso.com",
+                    "incidentRoutingService": "",
+                    "incidentRoutingTeam": "",
+                    "manifestOwners": ["SPARTA-PlatformServiceAdministrator"],
+                    "resourceAccessPolicy": "NotSpecified",
+                    "serviceTreeInfos": [azure_native.providerhub.v20210901preview.ServiceTreeInfoArgs(
+                        component_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        readiness="InDevelopment",
+                        service_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    )],
+                },
+                open_api_configuration={
+                    "validation": azure_native.providerhub.v20210901preview.OpenApiValidationArgs(
+                        allow_noncompliant_collection_response=True,
+                    ),
+                },
+                regionality="Regional",
+                resource_concurrency_control_options={
+                    "patch": azure_native.providerhub.v20210901preview.ResourceConcurrencyControlOptionArgs(
+                        policy="SynchronizeBeginExtension",
+                    ),
+                    "post": azure_native.providerhub.v20210901preview.ResourceConcurrencyControlOptionArgs(
+                        policy="SynchronizeBeginExtension",
+                    ),
+                    "put": azure_native.providerhub.v20210901preview.ResourceConcurrencyControlOptionArgs(
+                        policy="SynchronizeBeginExtension",
+                    ),
+                },
+                resource_graph_configuration=azure_native.providerhub.v20210901preview.ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs(
+                    api_version="2019-01-01",
+                    enabled=True,
+                ),
+                routing_type="Default",
+                swagger_specifications=[azure_native.providerhub.v20210901preview.SwaggerSpecificationArgs(
+                    api_versions=["2020-06-01-preview"],
+                    swagger_spec_folder_uri="https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                )],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20210901preview:ResourceTypeRegistration employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -88,7 +157,76 @@ class ResourceTypeRegistration(pulumi.CustomResource):
                  args: ResourceTypeRegistrationInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ResourceTypeRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ResourceTypeRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_type_registration = azure_native.providerhub.v20210901preview.ResourceTypeRegistration("resourceTypeRegistration",
+            properties=azure_native.providerhub.v20210901preview.ResourceTypeRegistrationResponsePropertiesArgs(
+                endpoints=[azure_native.providerhub.v20210901preview.ResourceTypeEndpointArgs(
+                    api_versions=["2020-06-01-preview"],
+                    locations=[
+                        "West US",
+                        "East US",
+                        "North Europe",
+                    ],
+                    required_features=["<feature flag>"],
+                )],
+                management={
+                    "incidentContactEmail": "helpme@contoso.com",
+                    "incidentRoutingService": "",
+                    "incidentRoutingTeam": "",
+                    "manifestOwners": ["SPARTA-PlatformServiceAdministrator"],
+                    "resourceAccessPolicy": "NotSpecified",
+                    "serviceTreeInfos": [azure_native.providerhub.v20210901preview.ServiceTreeInfoArgs(
+                        component_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                        readiness="InDevelopment",
+                        service_id="d1b7d8ba-05e2-48e6-90d6-d781b99c6e69",
+                    )],
+                },
+                open_api_configuration={
+                    "validation": azure_native.providerhub.v20210901preview.OpenApiValidationArgs(
+                        allow_noncompliant_collection_response=True,
+                    ),
+                },
+                regionality="Regional",
+                resource_concurrency_control_options={
+                    "patch": azure_native.providerhub.v20210901preview.ResourceConcurrencyControlOptionArgs(
+                        policy="SynchronizeBeginExtension",
+                    ),
+                    "post": azure_native.providerhub.v20210901preview.ResourceConcurrencyControlOptionArgs(
+                        policy="SynchronizeBeginExtension",
+                    ),
+                    "put": azure_native.providerhub.v20210901preview.ResourceConcurrencyControlOptionArgs(
+                        policy="SynchronizeBeginExtension",
+                    ),
+                },
+                resource_graph_configuration=azure_native.providerhub.v20210901preview.ResourceTypeRegistrationPropertiesResourceGraphConfigurationArgs(
+                    api_version="2019-01-01",
+                    enabled=True,
+                ),
+                routing_type="Default",
+                swagger_specifications=[azure_native.providerhub.v20210901preview.SwaggerSpecificationArgs(
+                    api_versions=["2020-06-01-preview"],
+                    swagger_spec_folder_uri="https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+                )],
+            ),
+            provider_namespace="Microsoft.Contoso",
+            resource_type="employees")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20210901preview:ResourceTypeRegistration employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param ResourceTypeRegistrationInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

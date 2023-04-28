@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * User details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateGroupUser
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const groupUser = new azure_native.apimanagement.v20180101.GroupUser("groupUser", {
+ *     groupId: "tempgroup",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     uid: "59307d350af58404d8a26300",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20180101:GroupUser 59307d350af58404d8a26300 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/59307d350af58404d8a26300 
+ * ```
  */
 export class GroupUser extends pulumi.CustomResource {
     /**

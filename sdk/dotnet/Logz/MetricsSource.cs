@@ -12,6 +12,35 @@ namespace Pulumi.AzureNative.Logz
     /// <summary>
     /// API Version: 2022-01-01-preview.
     /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### metricsSource_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricsSource = new AzureNative.Logz.MetricsSource("metricsSource", new()
+    ///     {
+    ///         MetricsSourceName = "MetricsSource1",
+    ///         MonitorName = "myMonitor",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logz:MetricsSource myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/metricsSource/MetricsSource1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logz:MetricsSource")]
     public partial class MetricsSource : global::Pulumi.CustomResource

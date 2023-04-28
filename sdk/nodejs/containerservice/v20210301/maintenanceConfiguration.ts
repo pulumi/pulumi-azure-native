@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * maintenance configuration.
+ *
+ * ## Example Usage
+ * ### Create/Update Maintenance Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const maintenanceConfiguration = new azure_native.containerservice.v20210301.MaintenanceConfiguration("maintenanceConfiguration", {
+ *     configName: "default",
+ *     notAllowedTime: [{
+ *         end: "2020-11-30T12:00:00Z",
+ *         start: "2020-11-26T03:00:00Z",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     timeInWeek: [{
+ *         day: "Monday",
+ *         hourSlots: [
+ *             1,
+ *             2,
+ *         ],
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20210301:MaintenanceConfiguration default /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/maintenanceConfigurations/default 
+ * ```
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**

@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Describes a federated identity credential.
  * API Version: 2023-01-31.
  * Previous API Version: 2022-01-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### FederatedIdentityCredentialCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const federatedIdentityCredential = new azure_native.managedidentity.FederatedIdentityCredential("federatedIdentityCredential", {
+ *     audiences: ["api://AzureADTokenExchange"],
+ *     federatedIdentityCredentialResourceName: "ficResourceName",
+ *     issuer: "https://oidc.prod-aks.azure.com/TenantGUID/IssuerGUID",
+ *     resourceGroupName: "rgName",
+ *     resourceName: "resourceName",
+ *     subject: "system:serviceaccount:ns:svcaccount",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managedidentity:FederatedIdentityCredential ficResourceName /subscriptions/c267c0e7-0a73-4789-9e17-d26aeb0904e5/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName/federatedIdentityCredentials/ficResourceName 
+ * ```
  */
 export class FederatedIdentityCredential extends pulumi.CustomResource {
     /**

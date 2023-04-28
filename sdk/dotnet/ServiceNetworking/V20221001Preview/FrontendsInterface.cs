@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20221001Preview
 {
     /// <summary>
     /// Frontend Subresource of Traffic Controller.
+    /// 
+    /// ## Example Usage
+    /// ### Put Frontend
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var frontendsInterface = new AzureNative.ServiceNetworking.V20221001Preview.FrontendsInterface("frontendsInterface", new()
+    ///     {
+    ///         FrontendName = "fe1",
+    ///         IpAddressVersion = AzureNative.ServiceNetworking.V20221001Preview.FrontendIPAddressVersion.IPv4,
+    ///         Location = "NorthCentralUS",
+    ///         Mode = AzureNative.ServiceNetworking.V20221001Preview.FrontendMode.@Public,
+    ///         PublicIPAddress = new AzureNative.ServiceNetworking.V20221001Preview.Inputs.FrontendPropertiesIPAddressArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIP-fe1",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         TrafficControllerName = "tc1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicenetworking/v20221001preview:FrontendsInterface fe1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1/frontends/fe1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking/v20221001preview:FrontendsInterface")]
     public partial class FrontendsInterface : global::Pulumi.CustomResource

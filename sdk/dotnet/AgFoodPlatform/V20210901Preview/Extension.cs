@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.AgFoodPlatform.V20210901Preview
 {
     /// <summary>
     /// Extension resource.
+    /// 
+    /// ## Example Usage
+    /// ### Extensions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extension = new AzureNative.AgFoodPlatform.V20210901Preview.Extension("extension", new()
+    ///     {
+    ///         ExtensionId = "provider.extension",
+    ///         FarmBeatsResourceName = "examples-farmbeatsResourceName",
+    ///         ResourceGroupName = "examples-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:agfoodplatform/v20210901preview:Extension provider.extension /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName/extensions/provider.extension 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform/v20210901preview:Extension")]
     public partial class Extension : global::Pulumi.CustomResource

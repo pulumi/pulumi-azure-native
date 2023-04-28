@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Maintenance
     /// Configuration Assignment
     /// API Version: 2022-11-01-preview.
     /// Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationAssignments_CreateOrUpdateParent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationAssignmentParent = new AzureNative.Maintenance.ConfigurationAssignmentParent("configurationAssignmentParent", new()
+    ///     {
+    ///         ConfigurationAssignmentName = "workervmPolicy",
+    ///         MaintenanceConfigurationId = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/policy1",
+    ///         ProviderName = "Microsoft.Compute",
+    ///         ResourceGroupName = "examplerg",
+    ///         ResourceName = "smdvm1",
+    ///         ResourceParentName = "smdtest1",
+    ///         ResourceParentType = "virtualMachineScaleSets",
+    ///         ResourceType = "virtualMachines",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maintenance:ConfigurationAssignmentParent workervmPolicy /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Compute/virtualMachineScaleSets/smdtest1/virtualMachines/smdvm1/providers/Microsoft.Maintenance/configurationAssignments/workervmPolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance:ConfigurationAssignmentParent")]
     public partial class ConfigurationAssignmentParent : global::Pulumi.CustomResource

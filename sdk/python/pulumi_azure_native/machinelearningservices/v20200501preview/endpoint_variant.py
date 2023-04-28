@@ -251,6 +251,28 @@ class EndpointVariant(pulumi.CustomResource):
         """
         Machine Learning service object wrapped into ARM resource envelope.
 
+        ## Example Usage
+        ### Create Or Update service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint_variant = azure_native.machinelearningservices.v20200501preview.EndpointVariant("endpointVariant",
+            resource_group_name="testrg123",
+            service_name="service456",
+            workspace_name="workspaces123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200501preview:EndpointVariant service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] compute_type: The compute environment type for the service.
@@ -276,6 +298,28 @@ class EndpointVariant(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning service object wrapped into ARM resource envelope.
+
+        ## Example Usage
+        ### Create Or Update service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint_variant = azure_native.machinelearningservices.v20200501preview.EndpointVariant("endpointVariant",
+            resource_group_name="testrg123",
+            service_name="service456",
+            workspace_name="workspaces123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200501preview:EndpointVariant service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EndpointVariantArgs args: The arguments to use to populate this resource's properties.

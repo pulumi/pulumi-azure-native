@@ -56,7 +56,35 @@ class OperationByProviderRegistration(pulumi.CustomResource):
                  provider_namespace: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OperationByProviderRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Operations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        operation_by_provider_registration = azure_native.providerhub.v20210501preview.OperationByProviderRegistration("operationByProviderRegistration",
+            contents=[azure_native.providerhub.v20210501preview.OperationsDefinitionArgs(
+                display=azure_native.providerhub.v20210501preview.OperationsDefinitionDisplayArgs(
+                    description="Read employees",
+                    operation="Gets/List employee resources",
+                    provider="Microsoft.Contoso",
+                    resource="Employees",
+                ),
+                name="Microsoft.Contoso/Employees/Read",
+            )],
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20210501preview:OperationByProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/operations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] provider_namespace: The name of the resource provider hosted within ProviderHub.
@@ -68,7 +96,35 @@ class OperationByProviderRegistration(pulumi.CustomResource):
                  args: OperationByProviderRegistrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OperationByProviderRegistration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Operations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        operation_by_provider_registration = azure_native.providerhub.v20210501preview.OperationByProviderRegistration("operationByProviderRegistration",
+            contents=[azure_native.providerhub.v20210501preview.OperationsDefinitionArgs(
+                display=azure_native.providerhub.v20210501preview.OperationsDefinitionDisplayArgs(
+                    description="Read employees",
+                    operation="Gets/List employee resources",
+                    provider="Microsoft.Contoso",
+                    resource="Employees",
+                ),
+                name="Microsoft.Contoso/Employees/Read",
+            )],
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20210501preview:OperationByProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/operations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param OperationByProviderRegistrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

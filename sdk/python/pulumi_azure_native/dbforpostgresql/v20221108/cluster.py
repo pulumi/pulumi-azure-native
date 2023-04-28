@@ -420,6 +420,73 @@ class Cluster(pulumi.CustomResource):
         """
         Represents a cluster.
 
+        ## Example Usage
+        ### Create a new cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.dbforpostgresql.v20221108.Cluster("cluster",
+            administrator_login_password="password",
+            citus_version="11.1",
+            cluster_name="testcluster",
+            coordinator_enable_public_ip_access=True,
+            coordinator_server_edition="GeneralPurpose",
+            coordinator_storage_quota_in_mb=524288,
+            coordinator_v_cores=4,
+            enable_ha=True,
+            enable_shards_on_coordinator=False,
+            location="westus",
+            node_count=3,
+            node_enable_public_ip_access=False,
+            node_server_edition="MemoryOptimized",
+            node_storage_quota_in_mb=524288,
+            node_v_cores=8,
+            postgresql_version="15",
+            preferred_primary_zone="1",
+            resource_group_name="TestGroup",
+            tags={})
+
+        ```
+        ### Create a new cluster as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.dbforpostgresql.v20221108.Cluster("cluster",
+            cluster_name="testcluster",
+            location="westus",
+            point_in_time_utc="2017-12-14T00:00:37.467Z",
+            resource_group_name="TestGroup",
+            source_location="westus",
+            source_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/source-cluster")
+
+        ```
+        ### Create a new cluster as a read replica
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.dbforpostgresql.v20221108.Cluster("cluster",
+            cluster_name="testcluster",
+            location="westus",
+            resource_group_name="TestGroup",
+            source_location="westus",
+            source_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/sourcecluster")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221108:Cluster testcluster /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/testcluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login_password: The password of the administrator login. Required for creation.
@@ -454,6 +521,73 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a cluster.
+
+        ## Example Usage
+        ### Create a new cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.dbforpostgresql.v20221108.Cluster("cluster",
+            administrator_login_password="password",
+            citus_version="11.1",
+            cluster_name="testcluster",
+            coordinator_enable_public_ip_access=True,
+            coordinator_server_edition="GeneralPurpose",
+            coordinator_storage_quota_in_mb=524288,
+            coordinator_v_cores=4,
+            enable_ha=True,
+            enable_shards_on_coordinator=False,
+            location="westus",
+            node_count=3,
+            node_enable_public_ip_access=False,
+            node_server_edition="MemoryOptimized",
+            node_storage_quota_in_mb=524288,
+            node_v_cores=8,
+            postgresql_version="15",
+            preferred_primary_zone="1",
+            resource_group_name="TestGroup",
+            tags={})
+
+        ```
+        ### Create a new cluster as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.dbforpostgresql.v20221108.Cluster("cluster",
+            cluster_name="testcluster",
+            location="westus",
+            point_in_time_utc="2017-12-14T00:00:37.467Z",
+            resource_group_name="TestGroup",
+            source_location="westus",
+            source_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/source-cluster")
+
+        ```
+        ### Create a new cluster as a read replica
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.dbforpostgresql.v20221108.Cluster("cluster",
+            cluster_name="testcluster",
+            location="westus",
+            resource_group_name="TestGroup",
+            source_location="westus",
+            source_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/sourcecluster")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221108:Cluster testcluster /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/testcluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

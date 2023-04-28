@@ -196,6 +196,37 @@ class SqlResourceSqlTrigger(pulumi.CustomResource):
         """
         An Azure Cosmos DB trigger.
 
+        ## Example Usage
+        ### CosmosDBSqlTriggerCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_trigger = azure_native.documentdb.v20220815preview.SqlResourceSqlTrigger("sqlResourceSqlTrigger",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlTriggerResourceArgs(
+                body="body",
+                id="triggerName",
+                trigger_operation="triggerOperation",
+                trigger_type="triggerType",
+            ),
+            resource_group_name="rg1",
+            trigger_name="triggerName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger triggerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlTriggers/triggerName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -217,6 +248,37 @@ class SqlResourceSqlTrigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB trigger.
+
+        ## Example Usage
+        ### CosmosDBSqlTriggerCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_trigger = azure_native.documentdb.v20220815preview.SqlResourceSqlTrigger("sqlResourceSqlTrigger",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlTriggerResourceArgs(
+                body="body",
+                id="triggerName",
+                trigger_operation="triggerOperation",
+                trigger_type="triggerType",
+            ),
+            resource_group_name="rg1",
+            trigger_name="triggerName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:SqlResourceSqlTrigger triggerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlTriggers/triggerName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlTriggerArgs args: The arguments to use to populate this resource's properties.

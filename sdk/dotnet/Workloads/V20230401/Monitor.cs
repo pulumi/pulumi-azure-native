@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.Workloads.V20230401
 {
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
+    /// 
+    /// ## Example Usage
+    /// ### Create a SAP monitor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new AzureNative.Workloads.V20230401.Monitor("monitor", new()
+    ///     {
+    ///         AppLocation = "westus",
+    ///         Location = "westus",
+    ///         LogAnalyticsWorkspaceArmId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.operationalinsights/workspaces/myWorkspace",
+    ///         ManagedResourceGroupConfiguration = new AzureNative.Workloads.V20230401.Inputs.ManagedRGConfigurationArgs
+    ///         {
+    ///             Name = "myManagedRg",
+    ///         },
+    ///         MonitorName = "mySapMonitor",
+    ///         MonitorSubnet = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RoutingPreference = "RouteAll",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads/v20230401:monitor mySapMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/mySapMonitor 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20230401:monitor")]
     public partial class Monitor : global::Pulumi.CustomResource

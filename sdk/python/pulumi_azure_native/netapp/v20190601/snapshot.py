@@ -148,6 +148,31 @@ class Snapshot(pulumi.CustomResource):
         """
         Snapshot of a Volume
 
+        ## Example Usage
+        ### Snapshots_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.netapp.v20190601.Snapshot("snapshot",
+            account_name="accountName",
+            location="eastus",
+            pool_name="poolName",
+            resource_group_name="resourceGroup",
+            snapshot_name="snapshotName",
+            volume_name="volumeName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20190601:Snapshot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -166,6 +191,31 @@ class Snapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Snapshot of a Volume
+
+        ## Example Usage
+        ### Snapshots_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        snapshot = azure_native.netapp.v20190601.Snapshot("snapshot",
+            account_name="accountName",
+            location="eastus",
+            pool_name="poolName",
+            resource_group_name="resourceGroup",
+            snapshot_name="snapshotName",
+            volume_name="volumeName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20190601:Snapshot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName}/snapshots/{snapshotName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SnapshotArgs args: The arguments to use to populate this resource's properties.

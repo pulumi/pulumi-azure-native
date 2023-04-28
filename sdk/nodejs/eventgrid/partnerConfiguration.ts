@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * Partner configuration information
  * API Version: 2022-06-15.
  * Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PartnerConfigurations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const partnerConfiguration = new azure_native.eventgrid.PartnerConfiguration("partnerConfiguration", {
+ *     partnerAuthorization: {
+ *         authorizedPartnersList: [
+ *             {
+ *                 authorizationExpirationTimeInUtc: "2022-01-28T01:20:55.142Z",
+ *                 partnerName: "Contoso.Finance",
+ *                 partnerRegistrationImmutableId: "941892bc-f5d0-4d1c-8fb5-477570fc2b71",
+ *             },
+ *             {
+ *                 authorizationExpirationTimeInUtc: "2022-02-20T01:00:00.142Z",
+ *                 partnerName: "fabrikam.HR",
+ *                 partnerRegistrationImmutableId: "5362bdb6-ce3e-4d0d-9a5b-3eb92c8aab38",
+ *             },
+ *         ],
+ *         defaultMaximumExpirationTimeInDays: 10,
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid:PartnerConfiguration default /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerConfigurations/default 
+ * ```
  */
 export class PartnerConfiguration extends pulumi.CustomResource {
     /**

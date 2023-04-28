@@ -296,6 +296,61 @@ class EventHubEventSource(pulumi.CustomResource):
         """
         An event source that receives its data from an Azure EventHub.
 
+        ## Example Usage
+        ### CreateEventHubEventSource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_event_source = azure_native.timeseriesinsights.v20200515.EventHubEventSource("eventHubEventSource",
+            consumer_group_name="cgn",
+            environment_name="env1",
+            event_hub_name="ehn",
+            event_source_name="es1",
+            event_source_resource_id="somePathInArm",
+            key_name="managementKey",
+            kind="Microsoft.EventHub",
+            location="West US",
+            resource_group_name="rg1",
+            service_bus_namespace="sbn",
+            shared_access_key="someSecretvalue",
+            timestamp_property_name="someTimestampProperty",
+            type="EarliestAvailable")
+
+        ```
+        ### EventSourcesCreateEventHubWithCustomEnquedTime
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_event_source = azure_native.timeseriesinsights.v20200515.EventHubEventSource("eventHubEventSource",
+            consumer_group_name="cgn",
+            environment_name="env1",
+            event_hub_name="ehn",
+            event_source_name="es1",
+            event_source_resource_id="somePathInArm",
+            key_name="managementKey",
+            kind="Microsoft.EventHub",
+            location="West US",
+            resource_group_name="rg1",
+            service_bus_namespace="sbn",
+            shared_access_key="someSecretvalue",
+            time="2017-04-01T19:20:33.2288820Z",
+            timestamp_property_name="someTimestampProperty",
+            type="CustomEnqueuedTime")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20200515:EventHubEventSource es1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/eventSources/es1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] consumer_group_name: The name of the event hub's consumer group that holds the partitions from which events will be read.
@@ -324,6 +379,61 @@ class EventHubEventSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An event source that receives its data from an Azure EventHub.
+
+        ## Example Usage
+        ### CreateEventHubEventSource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_event_source = azure_native.timeseriesinsights.v20200515.EventHubEventSource("eventHubEventSource",
+            consumer_group_name="cgn",
+            environment_name="env1",
+            event_hub_name="ehn",
+            event_source_name="es1",
+            event_source_resource_id="somePathInArm",
+            key_name="managementKey",
+            kind="Microsoft.EventHub",
+            location="West US",
+            resource_group_name="rg1",
+            service_bus_namespace="sbn",
+            shared_access_key="someSecretvalue",
+            timestamp_property_name="someTimestampProperty",
+            type="EarliestAvailable")
+
+        ```
+        ### EventSourcesCreateEventHubWithCustomEnquedTime
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_event_source = azure_native.timeseriesinsights.v20200515.EventHubEventSource("eventHubEventSource",
+            consumer_group_name="cgn",
+            environment_name="env1",
+            event_hub_name="ehn",
+            event_source_name="es1",
+            event_source_resource_id="somePathInArm",
+            key_name="managementKey",
+            kind="Microsoft.EventHub",
+            location="West US",
+            resource_group_name="rg1",
+            service_bus_namespace="sbn",
+            shared_access_key="someSecretvalue",
+            time="2017-04-01T19:20:33.2288820Z",
+            timestamp_property_name="someTimestampProperty",
+            type="CustomEnqueuedTime")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20200515:EventHubEventSource es1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/eventSources/es1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventHubEventSourceArgs args: The arguments to use to populate this resource's properties.

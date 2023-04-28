@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
 {
     /// <summary>
     /// Definition of the account.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.PowerPlatform.V20201030Preview.Account("account", new()
+    ///     {
+    ///         AccountName = "account",
+    ///         Description = "Description of the account.",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Organization", "Administration" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:powerplatform/v20201030preview:Account account /subscriptions/subid/resourceGroups/resourceGroup/providers/Microsoft.PowerPlatform/accounts/account 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:powerplatform/v20201030preview:Account")]
     public partial class Account : global::Pulumi.CustomResource

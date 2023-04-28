@@ -149,6 +149,35 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         """
         Security Partner Provider resource.
 
+        ## Example Usage
+        ### Create Security Partner Provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_partner_provider = azure_native.network.v20220901.SecurityPartnerProvider("securityPartnerProvider",
+            location="West US",
+            resource_group_name="rg1",
+            security_partner_provider_name="securityPartnerProvider",
+            security_provider_name="ZScaler",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.v20220901.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:SecurityPartnerProvider securityPartnerProvider /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/securityPartnerProviders/securityPartnerProvider 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -167,6 +196,35 @@ class SecurityPartnerProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security Partner Provider resource.
+
+        ## Example Usage
+        ### Create Security Partner Provider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_partner_provider = azure_native.network.v20220901.SecurityPartnerProvider("securityPartnerProvider",
+            location="West US",
+            resource_group_name="rg1",
+            security_partner_provider_name="securityPartnerProvider",
+            security_provider_name="ZScaler",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.v20220901.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:SecurityPartnerProvider securityPartnerProvider /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/securityPartnerProviders/securityPartnerProvider 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityPartnerProviderArgs args: The arguments to use to populate this resource's properties.

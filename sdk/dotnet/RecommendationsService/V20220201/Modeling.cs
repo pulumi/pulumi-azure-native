@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
 {
     /// <summary>
     /// Modeling resource details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Modeling resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var modeling = new AzureNative.RecommendationsService.V20220201.Modeling("modeling", new()
+    ///     {
+    ///         AccountName = "sampleAccount",
+    ///         Location = "West US",
+    ///         ModelingName = "c1",
+    ///         Properties = new AzureNative.RecommendationsService.V20220201.Inputs.ModelingResourcePropertiesArgs
+    ///         {
+    ///             Features = "Standard",
+    ///             Frequency = "High",
+    ///             InputData = new AzureNative.RecommendationsService.V20220201.Inputs.ModelingInputDataArgs
+    ///             {
+    ///                 ConnectionString = "https://storageAccount.blob.core.windows.net/container/root",
+    ///             },
+    ///             Size = "Medium",
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Prod" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recommendationsservice/v20220201:Modeling c1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount/modeling/c1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice/v20220201:Modeling")]
     public partial class Modeling : global::Pulumi.CustomResource

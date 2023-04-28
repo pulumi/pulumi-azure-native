@@ -11,6 +11,96 @@ import * as utilities from "../utilities";
  * The Test Base Package resource.
  * API Version: 2022-04-01-preview.
  * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PackageCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const _package = new azure_native.testbase.Package("package", {
+ *     applicationName: "contoso-package2",
+ *     blobPath: "storageAccountPath/package.zip",
+ *     flightingRing: "Insider Beta Channel",
+ *     location: "westus",
+ *     packageName: "contoso-package2",
+ *     resourceGroupName: "contoso-rg1",
+ *     tags: {},
+ *     targetOSList: [{
+ *         osUpdateType: "Security updates",
+ *         targetOSs: [
+ *             "Windows 10 2004",
+ *             "Windows 10 1903",
+ *         ],
+ *     }],
+ *     testBaseAccountName: "contoso-testBaseAccount1",
+ *     tests: [{
+ *         commands: [
+ *             {
+ *                 action: "Install",
+ *                 alwaysRun: true,
+ *                 applyUpdateBefore: false,
+ *                 content: "app/scripts/install/job.ps1",
+ *                 contentType: "Path",
+ *                 maxRunTime: 1800,
+ *                 name: "Install",
+ *                 restartAfter: true,
+ *                 runAsInteractive: true,
+ *                 runElevated: true,
+ *             },
+ *             {
+ *                 action: "Launch",
+ *                 alwaysRun: false,
+ *                 applyUpdateBefore: true,
+ *                 content: "app/scripts/launch/job.ps1",
+ *                 contentType: "Path",
+ *                 maxRunTime: 1800,
+ *                 name: "Launch",
+ *                 restartAfter: false,
+ *                 runAsInteractive: true,
+ *                 runElevated: true,
+ *             },
+ *             {
+ *                 action: "Close",
+ *                 alwaysRun: false,
+ *                 applyUpdateBefore: false,
+ *                 content: "app/scripts/close/job.ps1",
+ *                 contentType: "Path",
+ *                 maxRunTime: 1800,
+ *                 name: "Close",
+ *                 restartAfter: false,
+ *                 runAsInteractive: true,
+ *                 runElevated: true,
+ *             },
+ *             {
+ *                 action: "Uninstall",
+ *                 alwaysRun: true,
+ *                 applyUpdateBefore: false,
+ *                 content: "app/scripts/uninstall/job.ps1",
+ *                 contentType: "Path",
+ *                 maxRunTime: 1800,
+ *                 name: "Uninstall",
+ *                 restartAfter: false,
+ *                 runAsInteractive: true,
+ *                 runElevated: true,
+ *             },
+ *         ],
+ *         isActive: true,
+ *         testType: "OutOfBoxTest",
+ *     }],
+ *     version: "1.0.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase:Package contoso-package2 /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/packages/contoso-package2 
+ * ```
  */
 export class Package extends pulumi.CustomResource {
     /**

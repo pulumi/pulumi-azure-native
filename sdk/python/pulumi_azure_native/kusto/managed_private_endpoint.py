@@ -146,6 +146,31 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         API Version: 2022-12-29.
         Previous API Version: 2021-08-27. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### KustoManagedPrivateEndpointsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_private_endpoint = azure_native.kusto.ManagedPrivateEndpoint("managedPrivateEndpoint",
+            cluster_name="kustoCluster",
+            group_id="blob",
+            managed_private_endpoint_name="managedPrivateEndpointTest",
+            private_link_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Storage/storageAccounts/storageAccountTest",
+            request_message="Please Approve.",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:ManagedPrivateEndpoint kustoCluster/KustoDatabase8/managedPrivateEndpointTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/ManagedPrivateEndpoints/managedPrivateEndpointTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -166,6 +191,31 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         Class representing a managed private endpoint.
         API Version: 2022-12-29.
         Previous API Version: 2021-08-27. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### KustoManagedPrivateEndpointsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_private_endpoint = azure_native.kusto.ManagedPrivateEndpoint("managedPrivateEndpoint",
+            cluster_name="kustoCluster",
+            group_id="blob",
+            managed_private_endpoint_name="managedPrivateEndpointTest",
+            private_link_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Storage/storageAccounts/storageAccountTest",
+            request_message="Please Approve.",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto:ManagedPrivateEndpoint kustoCluster/KustoDatabase8/managedPrivateEndpointTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/ManagedPrivateEndpoints/managedPrivateEndpointTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedPrivateEndpointArgs args: The arguments to use to populate this resource's properties.

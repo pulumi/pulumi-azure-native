@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Security assessment metadata response
+ *
+ * ## Example Usage
+ * ### Create security assessment metadata for subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assessmentMetadataInSubscription = new azure_native.security.v20210601.AssessmentMetadataInSubscription("assessmentMetadataInSubscription", {
+ *     assessmentMetadataName: "ca039e75-a276-4175-aebc-bcd41e4b14b7",
+ *     assessmentType: "CustomerManaged",
+ *     categories: ["Compute"],
+ *     description: "Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
+ *     displayName: "Install endpoint protection solution on virtual machine scale sets",
+ *     implementationEffort: "Low",
+ *     remediationDescription: "To install an endpoint protection solution: 1.  <a href=\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\">Follow the instructions in How do I turn on antimalware in my virtual machine scale set</a>",
+ *     severity: "Medium",
+ *     threats: [
+ *         "dataExfiltration",
+ *         "dataSpillage",
+ *         "maliciousInsider",
+ *     ],
+ *     userImpact: "Low",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20210601:AssessmentMetadataInSubscription ca039e75-a276-4175-aebc-bcd41e4b14b7 /providers/Microsoft.Security/assessmentMetadata/ca039e75-a276-4175-aebc-bcd41e4b14b7 
+ * ```
  */
 export class AssessmentMetadataInSubscription extends pulumi.CustomResource {
     /**

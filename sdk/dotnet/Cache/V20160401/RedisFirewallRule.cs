@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Cache.V20160401
 {
     /// <summary>
     /// A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
+    /// 
+    /// ## Example Usage
+    /// ### RedisCacheFirewallRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var redisFirewallRule = new AzureNative.Cache.V20160401.RedisFirewallRule("redisFirewallRule", new()
+    ///     {
+    ///         CacheName = "cache1",
+    ///         EndIP = "192.168.1.4",
+    ///         ResourceGroupName = "rg1",
+    ///         RuleName = "rule1",
+    ///         StartIP = "192.168.1.1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cache/v20160401:RedisFirewallRule cache1/rule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/firewallRules/rule1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cache/v20160401:RedisFirewallRule")]

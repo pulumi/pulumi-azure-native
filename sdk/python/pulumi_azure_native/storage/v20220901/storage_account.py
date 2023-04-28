@@ -555,6 +555,576 @@ class StorageAccount(pulumi.CustomResource):
         """
         The storage account.
 
+        ## Example Usage
+        ### NfsV3AccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            enable_https_traffic_only=False,
+            enable_nfs_v3=True,
+            is_hns_enabled=True,
+            kind="BlockBlobStorage",
+            location="eastus",
+            network_rule_set=azure_native.storage.v20220901.NetworkRuleSetResponseArgs(
+                bypass="AzureServices",
+                default_action=azure_native.storage/v20220901.DefaultAction.ALLOW,
+                ip_rules=[],
+                virtual_network_rules=[azure_native.storage.v20220901.VirtualNetworkRuleArgs(
+                    virtual_network_resource_id="/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Network/virtualNetworks/net123/subnets/subnet12",
+                )],
+            ),
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Premium_LRS",
+            ))
+
+        ```
+        ### StorageAccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            default_to_o_auth_authentication=False,
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            is_sftp_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateAllowedCopyScopeToAAD
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            allowed_copy_scope="AAD",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            is_hns_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateAllowedCopyScopeToPrivateLink
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            allowed_copy_scope="PrivateLink",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            is_hns_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateDisallowPublicNetworkAccess
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            public_network_access="Disabled",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateDnsEndpointTypeToAzureDnsZone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            default_to_o_auth_authentication=False,
+            dns_endpoint_type="AzureDnsZone",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            is_sftp_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateDnsEndpointTypeToStandard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            default_to_o_auth_authentication=False,
+            dns_endpoint_type="Standard",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            is_sftp_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateEnablePublicNetworkAccess
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            public_network_access="Enabled",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreatePremiumBlockBlobStorage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_shared_key_access=True,
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            kind="BlockBlobStorage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Premium_LRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateUserAssignedEncryptionIdentityWithCMK
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                encryption_identity=azure_native.storage.v20220901.EncryptionIdentityArgs(
+                    encryption_user_assigned_identity="/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}",
+                ),
+                key_source="Microsoft.Keyvault",
+                key_vault_properties=azure_native.storage.v20220901.KeyVaultPropertiesArgs(
+                    key_name="wrappingKey",
+                    key_vault_uri="https://myvault8569.vault.azure.net",
+                    key_version="",
+                ),
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            identity=azure_native.storage.v20220901.IdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}": {},
+                },
+            ),
+            kind="Storage",
+            location="eastus",
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_LRS",
+            ))
+
+        ```
+        ### StorageAccountCreateUserAssignedIdentityWithFederatedIdentityClientId.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto131918",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                encryption_identity=azure_native.storage.v20220901.EncryptionIdentityArgs(
+                    encryption_federated_identity_client_id="f83c6b1b-4d34-47e4-bb34-9d83df58b540",
+                    encryption_user_assigned_identity="/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}",
+                ),
+                key_source="Microsoft.Keyvault",
+                key_vault_properties=azure_native.storage.v20220901.KeyVaultPropertiesArgs(
+                    key_name="wrappingKey",
+                    key_vault_uri="https://myvault8569.vault.azure.net",
+                    key_version="",
+                ),
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            identity=azure_native.storage.v20220901.IdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}": {},
+                },
+            ),
+            kind="Storage",
+            location="eastus",
+            resource_group_name="res131918",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_LRS",
+            ))
+
+        ```
+        ### StorageAccountCreateWithImmutabilityPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            immutable_storage_with_versioning=azure_native.storage.v20220901.ImmutableStorageAccountResponseArgs(
+                enabled=True,
+                immutability_policy=azure_native.storage.v20220901.AccountImmutabilityPolicyPropertiesArgs(
+                    allow_protected_append_writes=True,
+                    immutability_period_since_creation_in_days=15,
+                    state="Unlocked",
+                ),
+            ),
+            kind="Storage",
+            location="eastus",
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:StorageAccount sto4445 /subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier is used for billing. The 'Premium' access tier is the default value for premium block blobs storage account type and it cannot be changed for the premium block blobs storage account type.
@@ -597,6 +1167,576 @@ class StorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage account.
+
+        ## Example Usage
+        ### NfsV3AccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            enable_https_traffic_only=False,
+            enable_nfs_v3=True,
+            is_hns_enabled=True,
+            kind="BlockBlobStorage",
+            location="eastus",
+            network_rule_set=azure_native.storage.v20220901.NetworkRuleSetResponseArgs(
+                bypass="AzureServices",
+                default_action=azure_native.storage/v20220901.DefaultAction.ALLOW,
+                ip_rules=[],
+                virtual_network_rules=[azure_native.storage.v20220901.VirtualNetworkRuleArgs(
+                    virtual_network_resource_id="/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Network/virtualNetworks/net123/subnets/subnet12",
+                )],
+            ),
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Premium_LRS",
+            ))
+
+        ```
+        ### StorageAccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            default_to_o_auth_authentication=False,
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            is_sftp_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateAllowedCopyScopeToAAD
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            allowed_copy_scope="AAD",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            is_hns_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateAllowedCopyScopeToPrivateLink
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            allowed_copy_scope="PrivateLink",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            is_hns_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateDisallowPublicNetworkAccess
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            public_network_access="Disabled",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateDnsEndpointTypeToAzureDnsZone
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            default_to_o_auth_authentication=False,
+            dns_endpoint_type="AzureDnsZone",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            is_sftp_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateDnsEndpointTypeToStandard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            default_to_o_auth_authentication=False,
+            dns_endpoint_type="Standard",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            is_sftp_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateEnablePublicNetworkAccess
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_blob_public_access=False,
+            allow_shared_key_access=True,
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            is_hns_enabled=True,
+            key_policy=azure_native.storage.v20220901.KeyPolicyResponseArgs(
+                key_expiration_period_in_days=20,
+            ),
+            kind="Storage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            public_network_access="Enabled",
+            resource_group_name="res9101",
+            routing_preference=azure_native.storage.v20220901.RoutingPreferenceArgs(
+                publish_internet_endpoints=True,
+                publish_microsoft_endpoints=True,
+                routing_choice="MicrosoftRouting",
+            ),
+            sas_policy=azure_native.storage.v20220901.SasPolicyResponseArgs(
+                expiration_action="Log",
+                sas_expiration_period="1.15:59:59",
+            ),
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreatePremiumBlockBlobStorage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            allow_shared_key_access=True,
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                key_source="Microsoft.Storage",
+                require_infrastructure_encryption=False,
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            kind="BlockBlobStorage",
+            location="eastus",
+            minimum_tls_version="TLS1_2",
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Premium_LRS",
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+        ### StorageAccountCreateUserAssignedEncryptionIdentityWithCMK
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                encryption_identity=azure_native.storage.v20220901.EncryptionIdentityArgs(
+                    encryption_user_assigned_identity="/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}",
+                ),
+                key_source="Microsoft.Keyvault",
+                key_vault_properties=azure_native.storage.v20220901.KeyVaultPropertiesArgs(
+                    key_name="wrappingKey",
+                    key_vault_uri="https://myvault8569.vault.azure.net",
+                    key_version="",
+                ),
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            identity=azure_native.storage.v20220901.IdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}": {},
+                },
+            ),
+            kind="Storage",
+            location="eastus",
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_LRS",
+            ))
+
+        ```
+        ### StorageAccountCreateUserAssignedIdentityWithFederatedIdentityClientId.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto131918",
+            encryption=azure_native.storage.v20220901.EncryptionResponseArgs(
+                encryption_identity=azure_native.storage.v20220901.EncryptionIdentityArgs(
+                    encryption_federated_identity_client_id="f83c6b1b-4d34-47e4-bb34-9d83df58b540",
+                    encryption_user_assigned_identity="/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}",
+                ),
+                key_source="Microsoft.Keyvault",
+                key_vault_properties=azure_native.storage.v20220901.KeyVaultPropertiesArgs(
+                    key_name="wrappingKey",
+                    key_vault_uri="https://myvault8569.vault.azure.net",
+                    key_version="",
+                ),
+                services={
+                    "blob": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                    "file": azure_native.storage.v20220901.EncryptionServiceArgs(
+                        enabled=True,
+                        key_type="Account",
+                    ),
+                },
+            ),
+            identity=azure_native.storage.v20220901.IdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{managed-identity-name}": {},
+                },
+            ),
+            kind="Storage",
+            location="eastus",
+            resource_group_name="res131918",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_LRS",
+            ))
+
+        ```
+        ### StorageAccountCreateWithImmutabilityPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20220901.StorageAccount("storageAccount",
+            account_name="sto4445",
+            extended_location=azure_native.storage.v20220901.ExtendedLocationArgs(
+                name="losangeles001",
+                type="EdgeZone",
+            ),
+            immutable_storage_with_versioning=azure_native.storage.v20220901.ImmutableStorageAccountResponseArgs(
+                enabled=True,
+                immutability_policy=azure_native.storage.v20220901.AccountImmutabilityPolicyPropertiesArgs(
+                    allow_protected_append_writes=True,
+                    immutability_period_since_creation_in_days=15,
+                    state="Unlocked",
+                ),
+            ),
+            kind="Storage",
+            location="eastus",
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20220901.SkuArgs(
+                name="Standard_GRS",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:StorageAccount sto4445 /subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageAccountArgs args: The arguments to use to populate this resource's properties.

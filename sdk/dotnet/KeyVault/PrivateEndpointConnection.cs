@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.KeyVault
     /// Private endpoint connection resource.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### KeyVaultPutPrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.KeyVault.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "sample-pec",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.KeyVault.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "My name is Joe and I'm approving this.",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "sample-group",
+    ///         VaultName = "sample-vault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:keyvault:PrivateEndpointConnection sample-pec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/privateEndpointConnections/sample-pec 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

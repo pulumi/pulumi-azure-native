@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes an outbound endpoint for a DNS resolver.
+ *
+ * ## Example Usage
+ * ### Upsert outbound endpoint for DNS resolver
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const outboundEndpoint = new azure_native.network.v20200401preview.OutboundEndpoint("outboundEndpoint", {
+ *     dnsResolverName: "sampleDnsResolver",
+ *     location: "westus2",
+ *     outboundEndpointName: "sampleOutboundEndpoint",
+ *     resourceGroupName: "sampleResourceGroup",
+ *     subnet: {
+ *         id: "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20200401preview:OutboundEndpoint sampleOutboundEndpoint /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/outboundEndpoints/sampleOutboundEndpoint 
+ * ```
  */
 export class OutboundEndpoint extends pulumi.CustomResource {
     /**

@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * A server trust group.
+ *
+ * ## Example Usage
+ * ### Create server trust group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverTrustGroup = new azure_native.sql.v20201101preview.ServerTrustGroup("serverTrustGroup", {
+ *     groupMembers: [
+ *         {
+ *             serverId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-1",
+ *         },
+ *         {
+ *             serverId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-2",
+ *         },
+ *     ],
+ *     locationName: "Japan East",
+ *     resourceGroupName: "Default",
+ *     serverTrustGroupName: "server-trust-group-test",
+ *     trustScopes: [
+ *         "GlobalTransactions",
+ *         "ServiceBroker",
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20201101preview:ServerTrustGroup server-trust-group-test /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/locations/Japan East/serverTrustGroups/server-trust-group-test 
+ * ```
  */
 export class ServerTrustGroup extends pulumi.CustomResource {
     /**

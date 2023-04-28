@@ -109,6 +109,30 @@ class FirewallRule(pulumi.CustomResource):
         """
         Data Lake Store firewall rule information.
 
+        ## Example Usage
+        ### Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.datalakestore.v20161101.FirewallRule("firewallRule",
+            account_name="contosoadla",
+            end_ip_address="2.2.2.2",
+            firewall_rule_name="test_rule",
+            resource_group_name="contosorg",
+            start_ip_address="1.1.1.1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakestore/v20161101:FirewallRule test_rule 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Store account.
@@ -125,6 +149,30 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data Lake Store firewall rule information.
+
+        ## Example Usage
+        ### Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.datalakestore.v20161101.FirewallRule("firewallRule",
+            account_name="contosoadla",
+            end_ip_address="2.2.2.2",
+            firewall_rule_name="test_rule",
+            resource_group_name="contosorg",
+            start_ip_address="1.1.1.1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakestore/v20161101:FirewallRule test_rule 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

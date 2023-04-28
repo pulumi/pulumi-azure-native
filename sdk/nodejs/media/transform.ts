@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
  * API Version: 2022-07-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a Transform
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const transform = new azure_native.media.Transform("transform", {
+ *     accountName: "contosomedia",
+ *     description: "Example Transform to illustrate create and update.",
+ *     outputs: [{
+ *         preset: {
+ *             odataType: "#Microsoft.Media.BuiltInStandardEncoderPreset",
+ *             presetName: "AdaptiveStreaming",
+ *         },
+ *     }],
+ *     resourceGroupName: "contosoresources",
+ *     transformName: "createdTransform",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media:Transform createdTransform /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Media/mediaservices/contosomedia/transforms/createdTransform 
+ * ```
  */
 export class Transform extends pulumi.CustomResource {
     /**

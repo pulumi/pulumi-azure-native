@@ -182,6 +182,38 @@ class ClusterManager(pulumi.CustomResource):
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update cluster manager
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster_manager = azure_native.networkcloud.ClusterManager("clusterManager",
+            analytics_workspace_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+            cluster_manager_name="clusterManagerName",
+            fabric_controller_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+            location="location",
+            managed_resource_group_configuration=azure_native.networkcloud.ManagedResourceGroupConfigurationArgs(
+                location="East US",
+                name="my-managed-rg",
+            ),
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:ClusterManager clusterManagerName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusterManagers/clusterManagerName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analytics_workspace_id: The resource ID of the Log Analytics workspace that is used for the logs collection.
@@ -203,6 +235,38 @@ class ClusterManager(pulumi.CustomResource):
         """
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update cluster manager
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster_manager = azure_native.networkcloud.ClusterManager("clusterManager",
+            analytics_workspace_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+            cluster_manager_name="clusterManagerName",
+            fabric_controller_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+            location="location",
+            managed_resource_group_configuration=azure_native.networkcloud.ManagedResourceGroupConfigurationArgs(
+                location="East US",
+                name="my-managed-rg",
+            ),
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:ClusterManager clusterManagerName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusterManagers/clusterManagerName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterManagerArgs args: The arguments to use to populate this resource's properties.

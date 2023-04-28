@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL job agent.
+ *
+ * ## Example Usage
+ * ### Create or update a job agent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jobAgent = new azure_native.sql.v20201101preview.JobAgent("jobAgent", {
+ *     databaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1",
+ *     jobAgentName: "agent1",
+ *     location: "southeastasia",
+ *     resourceGroupName: "group1",
+ *     serverName: "server1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20201101preview:JobAgent agent1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1 
+ * ```
  */
 export class JobAgent extends pulumi.CustomResource {
     /**

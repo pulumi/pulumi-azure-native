@@ -13,6 +13,85 @@ namespace Pulumi.AzureNative.Portal
     /// The shared dashboard resource definition.
     /// API Version: 2020-09-01-preview.
     /// Previous API Version: 2020-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Dashboard
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dashboard = new AzureNative.Portal.Dashboard("dashboard", new()
+    ///     {
+    ///         DashboardName = "testDashboard",
+    ///         Lenses = new[]
+    ///         {
+    ///             new AzureNative.Portal.Inputs.DashboardLensArgs
+    ///             {
+    ///                 Order = 1,
+    ///                 Parts = new[]
+    ///                 {
+    ///                     new AzureNative.Portal.Inputs.DashboardPartsArgs
+    ///                     {
+    ///                         Position = new AzureNative.Portal.Inputs.DashboardPartsPositionArgs
+    ///                         {
+    ///                             ColSpan = 3,
+    ///                             RowSpan = 4,
+    ///                             X = 1,
+    ///                             Y = 2,
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.Portal.Inputs.DashboardPartsArgs
+    ///                     {
+    ///                         Position = new AzureNative.Portal.Inputs.DashboardPartsPositionArgs
+    ///                         {
+    ///                             ColSpan = 6,
+    ///                             RowSpan = 6,
+    ///                             X = 5,
+    ///                             Y = 5,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.Portal.Inputs.DashboardLensArgs
+    ///             {
+    ///                 Order = 2,
+    ///                 Parts = new[] {},
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         Metadata = 
+    ///         {
+    ///             { "metadata", 
+    ///             {
+    ///                 { "ColSpan", 2 },
+    ///                 { "RowSpan", 1 },
+    ///                 { "X", 4 },
+    ///                 { "Y", 3 },
+    ///             } },
+    ///         },
+    ///         ResourceGroupName = "testRG",
+    ///         Tags = 
+    ///         {
+    ///             { "aKey", "aValue" },
+    ///             { "anotherKey", "anotherValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:portal:Dashboard testDashboard /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Portal/dashboards/testDashboard 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource

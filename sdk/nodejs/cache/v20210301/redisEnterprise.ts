@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes the RedisEnterprise cluster
+ *
+ * ## Example Usage
+ * ### RedisEnterpriseCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const redisEnterprise = new azure_native.cache.v20210301.RedisEnterprise("redisEnterprise", {
+ *     clusterName: "cache1",
+ *     location: "West US",
+ *     minimumTlsVersion: "1.2",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         capacity: 3,
+ *         name: "EnterpriseFlash_F300",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *     },
+ *     zones: [
+ *         "1",
+ *         "2",
+ *         "3",
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cache/v20210301:RedisEnterprise cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1 
+ * ```
  */
 export class RedisEnterprise extends pulumi.CustomResource {
     /**

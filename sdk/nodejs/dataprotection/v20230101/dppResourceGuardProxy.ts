@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * ResourceGuardProxyBaseResource object, used for response and request bodies for ResourceGuardProxy APIs
+ *
+ * ## Example Usage
+ * ### Create ResourceGuardProxy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dppResourceGuardProxy = new azure_native.dataprotection.v20230101.DppResourceGuardProxy("dppResourceGuardProxy", {
+ *     properties: {
+ *         resourceGuardResourceId: "/subscriptions/f9e67185-f313-4e79-aa71-6458d429369d/resourceGroups/ResourceGuardSecurityAdminRG/providers/Microsoft.DataProtection/resourceGuards/ResourceGuardTestResource",
+ *     },
+ *     resourceGroupName: "SampleResourceGroup",
+ *     resourceGuardProxyName: "swaggerExample",
+ *     vaultName: "sampleVault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dataprotection/v20230101:DppResourceGuardProxy swaggerExample /subscriptions/5e13b949-1218-4d18-8b99-7e12155ec4f7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/backupVaults/sampleVault/backupResourceGuardProxies/swaggerExample 
+ * ```
  */
 export class DppResourceGuardProxy extends pulumi.CustomResource {
     /**

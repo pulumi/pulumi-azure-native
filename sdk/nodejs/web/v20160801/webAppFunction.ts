@@ -6,6 +6,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Web Job Information.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20160801:WebAppFunction myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/functions/{functionName} 
+ * ```
  */
 export class WebAppFunction extends pulumi.CustomResource {
     /**

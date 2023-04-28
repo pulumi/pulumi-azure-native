@@ -13,6 +13,83 @@ namespace Pulumi.AzureNative.ManagedNetwork
     /// The Managed Network resource
     /// API Version: 2019-06-01-preview.
     /// Previous API Version: 2019-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ManagedNetworksPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedNetwork = new AzureNative.ManagedNetwork.ManagedNetwork("managedNetwork", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         ManagedNetworkName = "myManagedNetwork",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Scope = new AzureNative.ManagedNetwork.Inputs.ScopeArgs
+    ///         {
+    ///             ManagementGroups = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/providers/Microsoft.Management/managementGroups/20000000-0001-0000-0000-000000000000",
+    ///                 },
+    ///                 new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/providers/Microsoft.Management/managementGroups/20000000-0002-0000-0000-000000000000",
+    ///                 },
+    ///             },
+    ///             Subnets = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetA",
+    ///                 },
+    ///                 new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetC/subnets/subnetB",
+    ///                 },
+    ///             },
+    ///             Subscriptions = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "subscriptionA",
+    ///                 },
+    ///                 new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "subscriptionB",
+    ///                 },
+    ///             },
+    ///             VirtualNetworks = new[]
+    ///             {
+    ///                 new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+    ///                 },
+    ///                 new AzureNative.ManagedNetwork.Inputs.ResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subscriptionC/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetwork:ManagedNetwork myManagedNetwork /subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetwork:ManagedNetwork")]
     public partial class ManagedNetwork : global::Pulumi.CustomResource

@@ -9,6 +9,16 @@ import * as utilities from "../../utilities";
 
 /**
  * States and configurations of Cost Analysis.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement/v20200601:View swaggerExample /providers/Microsoft.CostManagement/views/swaggerExample 
+ * ```
  */
 export class View extends pulumi.CustomResource {
     /**

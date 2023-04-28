@@ -6,6 +6,86 @@ import * as utilities from "../../utilities";
 
 /**
  * An ADLS Gen 2 folder data set.
+ *
+ * ## Example Usage
+ * ### DataSets_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FolderDataSet = new azure_native.datashare.v20181101preview.ADLSGen2FolderDataSet("adlsGen2FolderDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoCluster_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FolderDataSet = new azure_native.datashare.v20181101preview.ADLSGen2FolderDataSet("adlsGen2FolderDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoDatabase_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FolderDataSet = new azure_native.datashare.v20181101preview.ADLSGen2FolderDataSet("adlsGen2FolderDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDBTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FolderDataSet = new azure_native.datashare.v20181101preview.ADLSGen2FolderDataSet("adlsGen2FolderDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDWTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2FolderDataSet = new azure_native.datashare.v20181101preview.ADLSGen2FolderDataSet("adlsGen2FolderDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20181101preview:ADLSGen2FolderDataSet Dataset1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1/datasets/Dataset1 
+ * ```
  */
 export class ADLSGen2FolderDataSet extends pulumi.CustomResource {
     /**

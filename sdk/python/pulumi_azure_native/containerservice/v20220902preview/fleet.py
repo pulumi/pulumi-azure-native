@@ -114,6 +114,35 @@ class Fleet(pulumi.CustomResource):
         """
         The Fleet resource which contains multiple Kubernetes clusters as its members.
 
+        ## Example Usage
+        ### Creates or update a fleet resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fleet = azure_native.containerservice.v20220902preview.Fleet("fleet",
+            fleet_name="fleet-1",
+            hub_profile=azure_native.containerservice.v20220902preview.FleetHubProfileArgs(
+                dns_prefix="dnsprefix1",
+            ),
+            location="East US",
+            resource_group_name="rg1",
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20220902preview:Fleet fleet-1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/fleets/fleet-1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fleet_name: The name of the Fleet resource.
@@ -130,6 +159,35 @@ class Fleet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Fleet resource which contains multiple Kubernetes clusters as its members.
+
+        ## Example Usage
+        ### Creates or update a fleet resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fleet = azure_native.containerservice.v20220902preview.Fleet("fleet",
+            fleet_name="fleet-1",
+            hub_profile=azure_native.containerservice.v20220902preview.FleetHubProfileArgs(
+                dns_prefix="dnsprefix1",
+            ),
+            location="East US",
+            resource_group_name="rg1",
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20220902preview:Fleet fleet-1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/fleets/fleet-1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FleetArgs args: The arguments to use to populate this resource's properties.

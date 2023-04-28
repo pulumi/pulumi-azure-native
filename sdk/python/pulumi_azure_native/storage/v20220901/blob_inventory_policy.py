@@ -96,6 +96,291 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         """
         The storage account blob inventory policy.
 
+        ## Example Usage
+        ### StorageAccountSetBlobInventoryPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_inventory_policy = azure_native.storage.v20220901.BlobInventoryPolicy("blobInventoryPolicy",
+            account_name="sto9699",
+            blob_inventory_policy_name="default",
+            policy=azure_native.storage.v20220901.BlobInventoryPolicySchemaResponseArgs(
+                enabled=True,
+                rules=[
+                    {
+                        "definition": {
+                            "filters": azure_native.storage.v20220901.BlobInventoryPolicyFilterArgs(
+                                blob_types=[
+                                    "blockBlob",
+                                    "appendBlob",
+                                    "pageBlob",
+                                ],
+                                exclude_prefix=[
+                                    "excludeprefix1",
+                                    "excludeprefix2",
+                                ],
+                                include_blob_versions=True,
+                                include_snapshots=True,
+                                prefix_match=[
+                                    "inventoryprefix1",
+                                    "inventoryprefix2",
+                                ],
+                            ),
+                            "format": "Csv",
+                            "objectType": "Blob",
+                            "schedule": "Daily",
+                            "schemaFields": [
+                                "Name",
+                                "Creation-Time",
+                                "Last-Modified",
+                                "Content-Length",
+                                "Content-MD5",
+                                "BlobType",
+                                "AccessTier",
+                                "AccessTierChangeTime",
+                                "Snapshot",
+                                "VersionId",
+                                "IsCurrentVersion",
+                                "Metadata",
+                            ],
+                        },
+                        "destination": "container1",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule1",
+                    },
+                    {
+                        "definition": azure_native.storage.v20220901.BlobInventoryPolicyDefinitionArgs(
+                            format="Parquet",
+                            object_type="Container",
+                            schedule="Weekly",
+                            schema_fields=[
+                                "Name",
+                                "Last-Modified",
+                                "Metadata",
+                                "LeaseStatus",
+                                "LeaseState",
+                                "LeaseDuration",
+                                "PublicAccess",
+                                "HasImmutabilityPolicy",
+                                "HasLegalHold",
+                            ],
+                        ),
+                        "destination": "container2",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule2",
+                    },
+                ],
+                type="Inventory",
+            ),
+            resource_group_name="res7687")
+
+        ```
+        ### StorageAccountSetBlobInventoryPolicyIncludeDeleteAndNewSchemaForHnsAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_inventory_policy = azure_native.storage.v20220901.BlobInventoryPolicy("blobInventoryPolicy",
+            account_name="sto9699",
+            blob_inventory_policy_name="default",
+            policy=azure_native.storage.v20220901.BlobInventoryPolicySchemaResponseArgs(
+                enabled=True,
+                rules=[
+                    {
+                        "definition": {
+                            "filters": azure_native.storage.v20220901.BlobInventoryPolicyFilterArgs(
+                                blob_types=[
+                                    "blockBlob",
+                                    "appendBlob",
+                                    "pageBlob",
+                                ],
+                                exclude_prefix=[
+                                    "excludeprefix1",
+                                    "excludeprefix2",
+                                ],
+                                include_blob_versions=True,
+                                include_deleted=True,
+                                include_snapshots=True,
+                                prefix_match=[
+                                    "inventoryprefix1",
+                                    "inventoryprefix2",
+                                ],
+                            ),
+                            "format": "Csv",
+                            "objectType": "Blob",
+                            "schedule": "Daily",
+                            "schemaFields": [
+                                "Name",
+                                "Creation-Time",
+                                "Last-Modified",
+                                "Content-Length",
+                                "Content-MD5",
+                                "BlobType",
+                                "AccessTier",
+                                "AccessTierChangeTime",
+                                "Snapshot",
+                                "VersionId",
+                                "IsCurrentVersion",
+                                "ContentType",
+                                "ContentEncoding",
+                                "ContentLanguage",
+                                "ContentCRC64",
+                                "CacheControl",
+                                "Metadata",
+                                "DeletionId",
+                                "Deleted",
+                                "DeletedTime",
+                                "RemainingRetentionDays",
+                            ],
+                        },
+                        "destination": "container1",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule1",
+                    },
+                    {
+                        "definition": azure_native.storage.v20220901.BlobInventoryPolicyDefinitionArgs(
+                            format="Parquet",
+                            object_type="Container",
+                            schedule="Weekly",
+                            schema_fields=[
+                                "Name",
+                                "Last-Modified",
+                                "Metadata",
+                                "LeaseStatus",
+                                "LeaseState",
+                                "LeaseDuration",
+                                "PublicAccess",
+                                "HasImmutabilityPolicy",
+                                "HasLegalHold",
+                                "Etag",
+                                "DefaultEncryptionScope",
+                                "DenyEncryptionScopeOverride",
+                                "ImmutableStorageWithVersioningEnabled",
+                                "Deleted",
+                                "Version",
+                                "DeletedTime",
+                                "RemainingRetentionDays",
+                            ],
+                        ),
+                        "destination": "container2",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule2",
+                    },
+                ],
+                type="Inventory",
+            ),
+            resource_group_name="res7687")
+
+        ```
+        ### StorageAccountSetBlobInventoryPolicyIncludeDeleteAndNewSchemaForNonHnsAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_inventory_policy = azure_native.storage.v20220901.BlobInventoryPolicy("blobInventoryPolicy",
+            account_name="sto9699",
+            blob_inventory_policy_name="default",
+            policy=azure_native.storage.v20220901.BlobInventoryPolicySchemaResponseArgs(
+                enabled=True,
+                rules=[
+                    {
+                        "definition": {
+                            "filters": azure_native.storage.v20220901.BlobInventoryPolicyFilterArgs(
+                                blob_types=[
+                                    "blockBlob",
+                                    "appendBlob",
+                                    "pageBlob",
+                                ],
+                                exclude_prefix=[
+                                    "excludeprefix1",
+                                    "excludeprefix2",
+                                ],
+                                include_blob_versions=True,
+                                include_deleted=True,
+                                include_snapshots=True,
+                                prefix_match=[
+                                    "inventoryprefix1",
+                                    "inventoryprefix2",
+                                ],
+                            ),
+                            "format": "Csv",
+                            "objectType": "Blob",
+                            "schedule": "Daily",
+                            "schemaFields": [
+                                "Name",
+                                "Creation-Time",
+                                "Last-Modified",
+                                "Content-Length",
+                                "Content-MD5",
+                                "BlobType",
+                                "AccessTier",
+                                "AccessTierChangeTime",
+                                "Snapshot",
+                                "VersionId",
+                                "IsCurrentVersion",
+                                "Tags",
+                                "ContentType",
+                                "ContentEncoding",
+                                "ContentLanguage",
+                                "ContentCRC64",
+                                "CacheControl",
+                                "Metadata",
+                                "Deleted",
+                                "RemainingRetentionDays",
+                            ],
+                        },
+                        "destination": "container1",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule1",
+                    },
+                    {
+                        "definition": azure_native.storage.v20220901.BlobInventoryPolicyDefinitionArgs(
+                            format="Parquet",
+                            object_type="Container",
+                            schedule="Weekly",
+                            schema_fields=[
+                                "Name",
+                                "Last-Modified",
+                                "Metadata",
+                                "LeaseStatus",
+                                "LeaseState",
+                                "LeaseDuration",
+                                "PublicAccess",
+                                "HasImmutabilityPolicy",
+                                "HasLegalHold",
+                                "Etag",
+                                "DefaultEncryptionScope",
+                                "DenyEncryptionScopeOverride",
+                                "ImmutableStorageWithVersioningEnabled",
+                                "Deleted",
+                                "Version",
+                                "DeletedTime",
+                                "RemainingRetentionDays",
+                            ],
+                        ),
+                        "destination": "container2",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule2",
+                    },
+                ],
+                type="Inventory",
+            ),
+            resource_group_name="res7687")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:BlobInventoryPolicy DefaultInventoryPolicy /subscriptions/{subscription-id}/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -111,6 +396,291 @@ class BlobInventoryPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage account blob inventory policy.
+
+        ## Example Usage
+        ### StorageAccountSetBlobInventoryPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_inventory_policy = azure_native.storage.v20220901.BlobInventoryPolicy("blobInventoryPolicy",
+            account_name="sto9699",
+            blob_inventory_policy_name="default",
+            policy=azure_native.storage.v20220901.BlobInventoryPolicySchemaResponseArgs(
+                enabled=True,
+                rules=[
+                    {
+                        "definition": {
+                            "filters": azure_native.storage.v20220901.BlobInventoryPolicyFilterArgs(
+                                blob_types=[
+                                    "blockBlob",
+                                    "appendBlob",
+                                    "pageBlob",
+                                ],
+                                exclude_prefix=[
+                                    "excludeprefix1",
+                                    "excludeprefix2",
+                                ],
+                                include_blob_versions=True,
+                                include_snapshots=True,
+                                prefix_match=[
+                                    "inventoryprefix1",
+                                    "inventoryprefix2",
+                                ],
+                            ),
+                            "format": "Csv",
+                            "objectType": "Blob",
+                            "schedule": "Daily",
+                            "schemaFields": [
+                                "Name",
+                                "Creation-Time",
+                                "Last-Modified",
+                                "Content-Length",
+                                "Content-MD5",
+                                "BlobType",
+                                "AccessTier",
+                                "AccessTierChangeTime",
+                                "Snapshot",
+                                "VersionId",
+                                "IsCurrentVersion",
+                                "Metadata",
+                            ],
+                        },
+                        "destination": "container1",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule1",
+                    },
+                    {
+                        "definition": azure_native.storage.v20220901.BlobInventoryPolicyDefinitionArgs(
+                            format="Parquet",
+                            object_type="Container",
+                            schedule="Weekly",
+                            schema_fields=[
+                                "Name",
+                                "Last-Modified",
+                                "Metadata",
+                                "LeaseStatus",
+                                "LeaseState",
+                                "LeaseDuration",
+                                "PublicAccess",
+                                "HasImmutabilityPolicy",
+                                "HasLegalHold",
+                            ],
+                        ),
+                        "destination": "container2",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule2",
+                    },
+                ],
+                type="Inventory",
+            ),
+            resource_group_name="res7687")
+
+        ```
+        ### StorageAccountSetBlobInventoryPolicyIncludeDeleteAndNewSchemaForHnsAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_inventory_policy = azure_native.storage.v20220901.BlobInventoryPolicy("blobInventoryPolicy",
+            account_name="sto9699",
+            blob_inventory_policy_name="default",
+            policy=azure_native.storage.v20220901.BlobInventoryPolicySchemaResponseArgs(
+                enabled=True,
+                rules=[
+                    {
+                        "definition": {
+                            "filters": azure_native.storage.v20220901.BlobInventoryPolicyFilterArgs(
+                                blob_types=[
+                                    "blockBlob",
+                                    "appendBlob",
+                                    "pageBlob",
+                                ],
+                                exclude_prefix=[
+                                    "excludeprefix1",
+                                    "excludeprefix2",
+                                ],
+                                include_blob_versions=True,
+                                include_deleted=True,
+                                include_snapshots=True,
+                                prefix_match=[
+                                    "inventoryprefix1",
+                                    "inventoryprefix2",
+                                ],
+                            ),
+                            "format": "Csv",
+                            "objectType": "Blob",
+                            "schedule": "Daily",
+                            "schemaFields": [
+                                "Name",
+                                "Creation-Time",
+                                "Last-Modified",
+                                "Content-Length",
+                                "Content-MD5",
+                                "BlobType",
+                                "AccessTier",
+                                "AccessTierChangeTime",
+                                "Snapshot",
+                                "VersionId",
+                                "IsCurrentVersion",
+                                "ContentType",
+                                "ContentEncoding",
+                                "ContentLanguage",
+                                "ContentCRC64",
+                                "CacheControl",
+                                "Metadata",
+                                "DeletionId",
+                                "Deleted",
+                                "DeletedTime",
+                                "RemainingRetentionDays",
+                            ],
+                        },
+                        "destination": "container1",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule1",
+                    },
+                    {
+                        "definition": azure_native.storage.v20220901.BlobInventoryPolicyDefinitionArgs(
+                            format="Parquet",
+                            object_type="Container",
+                            schedule="Weekly",
+                            schema_fields=[
+                                "Name",
+                                "Last-Modified",
+                                "Metadata",
+                                "LeaseStatus",
+                                "LeaseState",
+                                "LeaseDuration",
+                                "PublicAccess",
+                                "HasImmutabilityPolicy",
+                                "HasLegalHold",
+                                "Etag",
+                                "DefaultEncryptionScope",
+                                "DenyEncryptionScopeOverride",
+                                "ImmutableStorageWithVersioningEnabled",
+                                "Deleted",
+                                "Version",
+                                "DeletedTime",
+                                "RemainingRetentionDays",
+                            ],
+                        ),
+                        "destination": "container2",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule2",
+                    },
+                ],
+                type="Inventory",
+            ),
+            resource_group_name="res7687")
+
+        ```
+        ### StorageAccountSetBlobInventoryPolicyIncludeDeleteAndNewSchemaForNonHnsAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_inventory_policy = azure_native.storage.v20220901.BlobInventoryPolicy("blobInventoryPolicy",
+            account_name="sto9699",
+            blob_inventory_policy_name="default",
+            policy=azure_native.storage.v20220901.BlobInventoryPolicySchemaResponseArgs(
+                enabled=True,
+                rules=[
+                    {
+                        "definition": {
+                            "filters": azure_native.storage.v20220901.BlobInventoryPolicyFilterArgs(
+                                blob_types=[
+                                    "blockBlob",
+                                    "appendBlob",
+                                    "pageBlob",
+                                ],
+                                exclude_prefix=[
+                                    "excludeprefix1",
+                                    "excludeprefix2",
+                                ],
+                                include_blob_versions=True,
+                                include_deleted=True,
+                                include_snapshots=True,
+                                prefix_match=[
+                                    "inventoryprefix1",
+                                    "inventoryprefix2",
+                                ],
+                            ),
+                            "format": "Csv",
+                            "objectType": "Blob",
+                            "schedule": "Daily",
+                            "schemaFields": [
+                                "Name",
+                                "Creation-Time",
+                                "Last-Modified",
+                                "Content-Length",
+                                "Content-MD5",
+                                "BlobType",
+                                "AccessTier",
+                                "AccessTierChangeTime",
+                                "Snapshot",
+                                "VersionId",
+                                "IsCurrentVersion",
+                                "Tags",
+                                "ContentType",
+                                "ContentEncoding",
+                                "ContentLanguage",
+                                "ContentCRC64",
+                                "CacheControl",
+                                "Metadata",
+                                "Deleted",
+                                "RemainingRetentionDays",
+                            ],
+                        },
+                        "destination": "container1",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule1",
+                    },
+                    {
+                        "definition": azure_native.storage.v20220901.BlobInventoryPolicyDefinitionArgs(
+                            format="Parquet",
+                            object_type="Container",
+                            schedule="Weekly",
+                            schema_fields=[
+                                "Name",
+                                "Last-Modified",
+                                "Metadata",
+                                "LeaseStatus",
+                                "LeaseState",
+                                "LeaseDuration",
+                                "PublicAccess",
+                                "HasImmutabilityPolicy",
+                                "HasLegalHold",
+                                "Etag",
+                                "DefaultEncryptionScope",
+                                "DenyEncryptionScopeOverride",
+                                "ImmutableStorageWithVersioningEnabled",
+                                "Deleted",
+                                "Version",
+                                "DeletedTime",
+                                "RemainingRetentionDays",
+                            ],
+                        ),
+                        "destination": "container2",
+                        "enabled": True,
+                        "name": "inventoryPolicyRule2",
+                    },
+                ],
+                type="Inventory",
+            ),
+            resource_group_name="res7687")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:BlobInventoryPolicy DefaultInventoryPolicy /subscriptions/{subscription-id}/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlobInventoryPolicyArgs args: The arguments to use to populate this resource's properties.

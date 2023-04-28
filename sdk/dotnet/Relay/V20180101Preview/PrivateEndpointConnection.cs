@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Relay.V20180101Preview
 {
     /// <summary>
     /// Private endpoint connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### RelayPutPrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Relay.V20180101Preview.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         NamespaceName = "example-RelayNamespace-5849",
+    ///         PrivateEndpoint = new AzureNative.Relay.V20180101Preview.Inputs.PrivateEndpointArgs
+    ///         {
+    ///             Id = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Network/privateEndpoints/ali-relay-pve-1",
+    ///         },
+    ///         PrivateEndpointConnectionName = "{privateEndpointConnection name}",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Relay.V20180101Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "You may pass",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "resourcegroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relay/v20180101preview:PrivateEndpointConnection {privateEndpointConnection name} /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/alitest/providers/Microsoft.Relay/namespaces/relay-private-endpoint-test/privateEndpointConnections/{privateEndpointConnection name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relay/v20180101preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

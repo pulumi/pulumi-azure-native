@@ -11,6 +11,112 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315
 {
     /// <summary>
     /// An Azure Cosmos DB container.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlContainerCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlContainer = new AzureNative.DocumentDB.V20230315.SqlResourceSqlContainer("sqlResourceSqlContainer", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         ContainerName = "containerName",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20230315.Inputs.SqlContainerResourceArgs
+    ///         {
+    ///             ClientEncryptionPolicy = new AzureNative.DocumentDB.V20230315.Inputs.ClientEncryptionPolicyArgs
+    ///             {
+    ///                 IncludedPaths = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20230315.Inputs.ClientEncryptionIncludedPathArgs
+    ///                     {
+    ///                         ClientEncryptionKeyId = "keyId",
+    ///                         EncryptionAlgorithm = "AEAD_AES_256_CBC_HMAC_SHA256",
+    ///                         EncryptionType = "Deterministic",
+    ///                         Path = "/path",
+    ///                     },
+    ///                 },
+    ///                 PolicyFormatVersion = 2,
+    ///             },
+    ///             ConflictResolutionPolicy = new AzureNative.DocumentDB.V20230315.Inputs.ConflictResolutionPolicyArgs
+    ///             {
+    ///                 ConflictResolutionPath = "/path",
+    ///                 Mode = "LastWriterWins",
+    ///             },
+    ///             DefaultTtl = 100,
+    ///             Id = "containerName",
+    ///             IndexingPolicy = new AzureNative.DocumentDB.V20230315.Inputs.IndexingPolicyArgs
+    ///             {
+    ///                 Automatic = true,
+    ///                 ExcludedPaths = new[] {},
+    ///                 IncludedPaths = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20230315.Inputs.IncludedPathArgs
+    ///                     {
+    ///                         Indexes = new[]
+    ///                         {
+    ///                             new AzureNative.DocumentDB.V20230315.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = "String",
+    ///                                 Kind = "Range",
+    ///                                 Precision = -1,
+    ///                             },
+    ///                             new AzureNative.DocumentDB.V20230315.Inputs.IndexesArgs
+    ///                             {
+    ///                                 DataType = "Number",
+    ///                                 Kind = "Range",
+    ///                                 Precision = -1,
+    ///                             },
+    ///                         },
+    ///                         Path = "/*",
+    ///                     },
+    ///                 },
+    ///                 IndexingMode = "consistent",
+    ///             },
+    ///             PartitionKey = new AzureNative.DocumentDB.V20230315.Inputs.ContainerPartitionKeyArgs
+    ///             {
+    ///                 Kind = "Hash",
+    ///                 Paths = new[]
+    ///                 {
+    ///                     "/AccountNumber",
+    ///                 },
+    ///             },
+    ///             UniqueKeyPolicy = new AzureNative.DocumentDB.V20230315.Inputs.UniqueKeyPolicyArgs
+    ///             {
+    ///                 UniqueKeys = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20230315.Inputs.UniqueKeyArgs
+    ///                     {
+    ///                         Paths = new[]
+    ///                         {
+    ///                             "/testPath",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20230315:SqlResourceSqlContainer containerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/containers/containerName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20230315:SqlResourceSqlContainer")]
     public partial class SqlResourceSqlContainer : global::Pulumi.CustomResource

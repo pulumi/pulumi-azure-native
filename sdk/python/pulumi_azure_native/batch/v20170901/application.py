@@ -117,6 +117,30 @@ class Application(pulumi.CustomResource):
         """
         Contains information about an application in a Batch account.
 
+        ## Example Usage
+        ### ApplicationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.batch.v20170901.Application("application",
+            account_name="sampleacct",
+            allow_updates=False,
+            application_id="app1",
+            display_name="myAppName",
+            resource_group_name="default-azurebatch-japaneast")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:batch/v20170901:Application myresource1 app1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
@@ -133,6 +157,30 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about an application in a Batch account.
+
+        ## Example Usage
+        ### ApplicationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application = azure_native.batch.v20170901.Application("application",
+            account_name="sampleacct",
+            allow_updates=False,
+            application_id="app1",
+            display_name="myAppName",
+            resource_group_name="default-azurebatch-japaneast")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:batch/v20170901:Application myresource1 app1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationArgs args: The arguments to use to populate this resource's properties.

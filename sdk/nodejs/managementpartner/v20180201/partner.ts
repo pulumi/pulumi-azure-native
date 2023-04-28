@@ -6,6 +6,25 @@ import * as utilities from "../../utilities";
 
 /**
  * this is the management partner operations response
+ *
+ * ## Example Usage
+ * ### PutPartnerDetails
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const partner = new azure_native.managementpartner.v20180201.Partner("partner", {partnerId: "123456"});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managementpartner/v20180201:Partner 123456 /providers/microsoft.managementpartner/partners/123456 
+ * ```
  */
 export class Partner extends pulumi.CustomResource {
     /**

@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115Preview
 {
     /// <summary>
     /// An Azure Cosmos DB SQL Role Definition.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlRoleDefinitionCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlRoleDefinition = new AzureNative.DocumentDB.V20221115Preview.SqlResourceSqlRoleDefinition("sqlResourceSqlRoleDefinition", new()
+    ///     {
+    ///         AccountName = "myAccountName",
+    ///         AssignableScopes = new[]
+    ///         {
+    ///             "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/sales",
+    ///             "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases",
+    ///         },
+    ///         Permissions = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20221115Preview.Inputs.PermissionArgs
+    ///             {
+    ///                 DataActions = new[]
+    ///                 {
+    ///                     "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create",
+    ///                     "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+    ///                 },
+    ///                 NotDataActions = new[] {},
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         RoleDefinitionId = "myRoleDefinitionId",
+    ///         RoleName = "myRoleName",
+    ///         Type = AzureNative.DocumentDB.V20221115Preview.RoleDefinitionType.CustomRole,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20221115preview:SqlResourceSqlRoleDefinition myRoleDefinitionId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20221115preview:SqlResourceSqlRoleDefinition")]
     public partial class SqlResourceSqlRoleDefinition : global::Pulumi.CustomResource

@@ -11,6 +11,63 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
 {
     /// <summary>
     /// The link resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Links_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var link = new AzureNative.CustomerInsights.V20170101.Link("link", new()
+    ///     {
+    ///         Description = 
+    ///         {
+    ///             { "en-us", "Link Description" },
+    ///         },
+    ///         DisplayName = 
+    ///         {
+    ///             { "en-us", "Link DisplayName" },
+    ///         },
+    ///         HubName = "sdkTestHub",
+    ///         LinkName = "linkTest4806",
+    ///         Mappings = new[]
+    ///         {
+    ///             new AzureNative.CustomerInsights.V20170101.Inputs.TypePropertiesMappingArgs
+    ///             {
+    ///                 InteractionTypePropertyName = "testInteraction1949",
+    ///                 IsProfileTypeId = true,
+    ///                 LinkType = AzureNative.CustomerInsights.V20170101.LinkTypes.UpdateAlways,
+    ///                 ProfileTypePropertyName = "testProfile1446",
+    ///             },
+    ///         },
+    ///         ParticipantPropertyReferences = new[]
+    ///         {
+    ///             new AzureNative.CustomerInsights.V20170101.Inputs.ParticipantPropertyReferenceArgs
+    ///             {
+    ///                 InteractionPropertyName = "testInteraction1949",
+    ///                 ProfilePropertyName = "ProfileId",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestHubRG",
+    ///         SourceInteractionType = "testInteraction1949",
+    ///         TargetProfileType = "testProfile1446",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170101:Link azSdkTestHub/linkTest4806 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/links/linkTest4806 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:Link")]

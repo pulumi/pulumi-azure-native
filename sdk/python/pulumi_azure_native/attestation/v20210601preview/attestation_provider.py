@@ -114,6 +114,36 @@ class AttestationProvider(pulumi.CustomResource):
         """
         Attestation service response message.
 
+        ## Example Usage
+        ### AttestationProviders_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attestation_provider = azure_native.attestation.v20210601preview.AttestationProvider("attestationProvider",
+            location="East US",
+            properties=azure_native.attestation.v20210601preview.AttestationServiceCreationSpecificParamsArgs(
+                public_network_access="Enabled",
+            ),
+            provider_name="myattestationprovider",
+            resource_group_name="MyResourceGroup",
+            tags={
+                "Property1": "Value1",
+                "Property2": "Value2",
+                "Property3": "Value3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:attestation/v20210601preview:AttestationProvider myattestationprovider subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/myattestationprovider 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the attestation provider should be created.
@@ -130,6 +160,36 @@ class AttestationProvider(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Attestation service response message.
+
+        ## Example Usage
+        ### AttestationProviders_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        attestation_provider = azure_native.attestation.v20210601preview.AttestationProvider("attestationProvider",
+            location="East US",
+            properties=azure_native.attestation.v20210601preview.AttestationServiceCreationSpecificParamsArgs(
+                public_network_access="Enabled",
+            ),
+            provider_name="myattestationprovider",
+            resource_group_name="MyResourceGroup",
+            tags={
+                "Property1": "Value1",
+                "Property2": "Value2",
+                "Property3": "Value3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:attestation/v20210601preview:AttestationProvider myattestationprovider subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/myattestationprovider 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AttestationProviderArgs args: The arguments to use to populate this resource's properties.

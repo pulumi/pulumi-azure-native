@@ -13,6 +13,60 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// The IpCommunityList resource definition.
     /// API Version: 2023-02-01-preview.
     /// Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### IpCommunityLists_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipCommunityList = new AzureNative.ManagedNetworkFabric.IpCommunityList("ipCommunityList", new()
+    ///     {
+    ///         Action = "allow",
+    ///         Advertise = "true",
+    ///         Annotation = "aaaa",
+    ///         CommunityMembers = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.Inputs.IpCommunityListPropertiesCommunityMembersArgs
+    ///             {
+    ///                 Annotation = "app2",
+    ///                 CommunityMember = "1234:5678",
+    ///             },
+    ///         },
+    ///         EvpnEsImportRouteTargets = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.Inputs.IpCommunityListPropertiesEvpnEsImportRouteTargetsArgs
+    ///             {
+    ///                 Annotation = "app1",
+    ///                 EvpnEsImportRouteTarget = "1.1.1",
+    ///             },
+    ///         },
+    ///         Export = "true",
+    ///         IpCommunityListName = "aaaaa",
+    ///         LocalAS = "true",
+    ///         Location = "EastUS",
+    ///         ResourceGroupName = "rgIpCommunityLists",
+    ///         Tags = 
+    ///         {
+    ///             { "key2814", "" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric:IpCommunityList aaaaa /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/IpCommunityList/ipCommunityListName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:IpCommunityList")]
     public partial class IpCommunityList : global::Pulumi.CustomResource

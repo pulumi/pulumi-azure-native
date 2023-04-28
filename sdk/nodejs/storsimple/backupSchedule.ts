@@ -11,6 +11,45 @@ import * as utilities from "../utilities";
  * The backup schedule.
  * API Version: 2017-06-01.
  * Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### BackupSchedulesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const backupSchedule = new azure_native.storsimple.BackupSchedule("backupSchedule", {
+ *     backupPolicyName: "BkUpPolicy01ForSDKTest",
+ *     backupScheduleName: "schedule2",
+ *     backupType: azure_native.storsimple.BackupType.CloudSnapshot,
+ *     deviceName: "Device05ForSDKTest",
+ *     kind: azure_native.storsimple.Kind.Series8000,
+ *     managerName: "ManagerForSDKTest1",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     retentionCount: 1,
+ *     scheduleRecurrence: {
+ *         recurrenceType: azure_native.storsimple.RecurrenceType.Weekly,
+ *         recurrenceValue: 1,
+ *         weeklyDaysList: [
+ *             azure_native.storsimple.DayOfWeek.Friday,
+ *             azure_native.storsimple.DayOfWeek.Thursday,
+ *             azure_native.storsimple.DayOfWeek.Monday,
+ *         ],
+ *     },
+ *     scheduleStatus: azure_native.storsimple.ScheduleStatus.Enabled,
+ *     startTime: "2017-06-24T01:00:00Z",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple:BackupSchedule schedule2 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/backupPolicies/BkUpPolicy01ForSDKTest/schedules/schedule2 
+ * ```
  */
 export class BackupSchedule extends pulumi.CustomResource {
     /**

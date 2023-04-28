@@ -150,6 +150,70 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
         """
         Description of topic resource.
 
+        ## Example Usage
+        ### NameSpaceNetworkRuleSetCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_network_rule_set = azure_native.eventhub.v20221001preview.NamespaceNetworkRuleSet("namespaceNetworkRuleSet",
+            default_action="Deny",
+            ip_rules=[
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.1",
+                ),
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.2",
+                ),
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.3",
+                ),
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.4",
+                ),
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.5",
+                ),
+            ],
+            namespace_name="sdk-Namespace-6019",
+            resource_group_name="ResourceGroup",
+            virtual_network_rules=[
+                {
+                    "ignoreMissingVnetServiceEndpoint": True,
+                    "subnet": azure_native.eventhub.v20221001preview.SubnetArgs(
+                        id="/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2",
+                    ),
+                },
+                {
+                    "ignoreMissingVnetServiceEndpoint": False,
+                    "subnet": azure_native.eventhub.v20221001preview.SubnetArgs(
+                        id="/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3",
+                    ),
+                },
+                {
+                    "ignoreMissingVnetServiceEndpoint": False,
+                    "subnet": azure_native.eventhub.v20221001preview.SubnetArgs(
+                        id="/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6",
+                    ),
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet default /subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourceGroups/resourcegroupid/providers/Microsoft.EventHub/namespaces/sdk-Namespace-9659/networkruleset/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DefaultAction']] default_action: Default Action for Network Rule Set
@@ -168,6 +232,70 @@ class NamespaceNetworkRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of topic resource.
+
+        ## Example Usage
+        ### NameSpaceNetworkRuleSetCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_network_rule_set = azure_native.eventhub.v20221001preview.NamespaceNetworkRuleSet("namespaceNetworkRuleSet",
+            default_action="Deny",
+            ip_rules=[
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.1",
+                ),
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.2",
+                ),
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.3",
+                ),
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.4",
+                ),
+                azure_native.eventhub.v20221001preview.NWRuleSetIpRulesArgs(
+                    action="Allow",
+                    ip_mask="1.1.1.5",
+                ),
+            ],
+            namespace_name="sdk-Namespace-6019",
+            resource_group_name="ResourceGroup",
+            virtual_network_rules=[
+                {
+                    "ignoreMissingVnetServiceEndpoint": True,
+                    "subnet": azure_native.eventhub.v20221001preview.SubnetArgs(
+                        id="/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2",
+                    ),
+                },
+                {
+                    "ignoreMissingVnetServiceEndpoint": False,
+                    "subnet": azure_native.eventhub.v20221001preview.SubnetArgs(
+                        id="/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3",
+                    ),
+                },
+                {
+                    "ignoreMissingVnetServiceEndpoint": False,
+                    "subnet": azure_native.eventhub.v20221001preview.SubnetArgs(
+                        id="/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6",
+                    ),
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20221001preview:NamespaceNetworkRuleSet default /subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourceGroups/resourcegroupid/providers/Microsoft.EventHub/namespaces/sdk-Namespace-9659/networkruleset/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceNetworkRuleSetArgs args: The arguments to use to populate this resource's properties.

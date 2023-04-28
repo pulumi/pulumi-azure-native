@@ -112,6 +112,29 @@ class ApplicationType(pulumi.CustomResource):
         """
         The application type name resource
 
+        ## Example Usage
+        ### Put an application type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_type = azure_native.servicefabric.v20230201preview.ApplicationType("applicationType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20230201preview:ApplicationType myAppType /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_type_name: The name of the application type name resource.
@@ -128,6 +151,29 @@ class ApplicationType(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The application type name resource
+
+        ## Example Usage
+        ### Put an application type
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_type = azure_native.servicefabric.v20230201preview.ApplicationType("applicationType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20230201preview:ApplicationType myAppType /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationTypeArgs args: The arguments to use to populate this resource's properties.

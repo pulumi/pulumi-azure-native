@@ -7,6 +7,30 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Create Resource Management Private Link.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceManagementPrivateLink = new azure_native.authorization.v20200501.ResourceManagementPrivateLink("resourceManagementPrivateLink", {
+ *     location: "eastus",
+ *     resourceGroupName: "my-resource-group",
+ *     rmplName: "my-rmplName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20200501:ResourceManagementPrivateLink my-pla 00000000-0000-0000-0000-000000000000 
+ * ```
+ */
 export class ResourceManagementPrivateLink extends pulumi.CustomResource {
     /**
      * Get an existing ResourceManagementPrivateLink resource's state with the given name, ID, and optional extra

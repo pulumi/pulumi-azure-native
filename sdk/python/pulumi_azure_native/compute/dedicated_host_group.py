@@ -166,6 +166,55 @@ class DedicatedHostGroup(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a dedicated host group with Ultra SSD support.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host_group = azure_native.compute.DedicatedHostGroup("dedicatedHostGroup",
+            additional_capabilities=azure_native.compute.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs(
+                ultra_ssd_enabled=True,
+            ),
+            host_group_name="myDedicatedHostGroup",
+            location="westus",
+            platform_fault_domain_count=3,
+            resource_group_name="myResourceGroup",
+            support_automatic_placement=True,
+            tags={
+                "department": "finance",
+            },
+            zones=["1"])
+
+        ```
+        ### Create or update a dedicated host group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host_group = azure_native.compute.DedicatedHostGroup("dedicatedHostGroup",
+            host_group_name="myDedicatedHostGroup",
+            location="westus",
+            platform_fault_domain_count=3,
+            resource_group_name="myResourceGroup",
+            support_automatic_placement=True,
+            tags={
+                "department": "finance",
+            },
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DedicatedHostGroup myDedicatedHostGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/HostGroups/myDedicatedHostGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs']] additional_capabilities: Enables or disables a capability on the dedicated host group.<br><br>Minimum api-version: 2022-03-01.
@@ -187,6 +236,55 @@ class DedicatedHostGroup(pulumi.CustomResource):
         Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
         API Version: 2022-11-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a dedicated host group with Ultra SSD support.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host_group = azure_native.compute.DedicatedHostGroup("dedicatedHostGroup",
+            additional_capabilities=azure_native.compute.DedicatedHostGroupPropertiesAdditionalCapabilitiesArgs(
+                ultra_ssd_enabled=True,
+            ),
+            host_group_name="myDedicatedHostGroup",
+            location="westus",
+            platform_fault_domain_count=3,
+            resource_group_name="myResourceGroup",
+            support_automatic_placement=True,
+            tags={
+                "department": "finance",
+            },
+            zones=["1"])
+
+        ```
+        ### Create or update a dedicated host group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host_group = azure_native.compute.DedicatedHostGroup("dedicatedHostGroup",
+            host_group_name="myDedicatedHostGroup",
+            location="westus",
+            platform_fault_domain_count=3,
+            resource_group_name="myResourceGroup",
+            support_automatic_placement=True,
+            tags={
+                "department": "finance",
+            },
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DedicatedHostGroup myDedicatedHostGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/HostGroups/myDedicatedHostGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostGroupArgs args: The arguments to use to populate this resource's properties.

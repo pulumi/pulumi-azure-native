@@ -407,6 +407,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  __props__=None):
         """
         Peering in an ExpressRouteCircuit resource.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20170901:ExpressRouteCircuitPeering myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -441,6 +448,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Peering in an ExpressRouteCircuit resource.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20170901:ExpressRouteCircuitPeering myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitPeeringInitArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A Policy.
+    /// 
+    /// ## Example Usage
+    /// ### Policies_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policy = new AzureNative.DevTestLab.V20180915.Policy("policy", new()
+    ///     {
+    ///         Description = "{policyDescription}",
+    ///         EvaluatorType = "{policyEvaluatorType}",
+    ///         FactData = "{policyFactData}",
+    ///         FactName = "{policyFactName}",
+    ///         LabName = "{labName}",
+    ///         Location = "{location}",
+    ///         Name = "{policyName}",
+    ///         PolicySetName = "{policySetName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Status = "{policyStatus}",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///         Threshold = "{policyThreshold}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20180915:Policy {labName} /subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/policysets/{policySetName}/policies/{policyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

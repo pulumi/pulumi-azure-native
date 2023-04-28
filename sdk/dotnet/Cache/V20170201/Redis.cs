@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Cache.V20170201
 {
     /// <summary>
     /// A single Redis item in List or Get Operation.
+    /// 
+    /// ## Example Usage
+    /// ### RedisCacheCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var redis = new AzureNative.Cache.V20170201.Redis("redis", new()
+    ///     {
+    ///         EnableNonSslPort = true,
+    ///         Location = "West US",
+    ///         Name = "cache1",
+    ///         RedisConfiguration = 
+    ///         {
+    ///             { "maxmemory-policy", "allkeys-lru" },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ShardCount = 2,
+    ///         Sku = new AzureNative.Cache.V20170201.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "P",
+    ///             Name = "Premium",
+    ///         },
+    ///         StaticIP = "192.168.0.5",
+    ///         SubnetId = "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Network/virtualNetworks/network1/subnets/subnet1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cache/v20170201:Redis cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cache/v20170201:Redis")]

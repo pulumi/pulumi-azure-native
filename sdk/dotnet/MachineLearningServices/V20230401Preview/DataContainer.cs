@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Workspace Data Container.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataContainer = new AzureNative.MachineLearningServices.V20230401Preview.DataContainer("dataContainer", new()
+    ///     {
+    ///         DataContainerProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.DataContainerArgs
+    ///         {
+    ///             DataType = "UriFile",
+    ///             Description = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "properties1", "value1" },
+    ///                 { "properties2", "value2" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "tag1", "value1" },
+    ///                 { "tag2", "value2" },
+    ///             },
+    ///         },
+    ///         Name = "datacontainer123",
+    ///         ResourceGroupName = "testrg123",
+    ///         WorkspaceName = "workspace123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:DataContainer datacontainer123 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/data/datacontainer123 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:DataContainer")]
     public partial class DataContainer : global::Pulumi.CustomResource

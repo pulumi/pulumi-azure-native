@@ -12,6 +12,40 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     /// <summary>
     /// The private endpoint connection resource.
     /// API Version: 2021-09-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnections_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.AgFoodPlatform.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         FarmBeatsResourceName = "examples-farmbeatsResourceName",
+    ///         PrivateEndpointConnectionName = "privateEndpointConnectionName",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.AgFoodPlatform.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Approved by johndoe@contoso.com",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "examples-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:agfoodplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName/privateEndpointConnections/privateEndpointConnectionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

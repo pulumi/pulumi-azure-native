@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.AVS.V20200717Preview
 {
     /// <summary>
     /// A global reach connection resource
+    /// 
+    /// ## Example Usage
+    /// ### GlobalReachConnections_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var globalReachConnection = new AzureNative.AVS.V20200717Preview.GlobalReachConnection("globalReachConnection", new()
+    ///     {
+    ///         AuthorizationKey = "01010101-0101-0101-0101-010101010101",
+    ///         GlobalReachConnectionName = "connection1",
+    ///         PeerExpressRouteCircuit = "/subscriptions/12341234-1234-1234-1234-123412341234/resourceGroups/mygroup/providers/Microsoft.Network/expressRouteCircuits/mypeer",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20200717preview:GlobalReachConnection connection1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/globalReachConnections/connection1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200717preview:GlobalReachConnection")]
     public partial class GlobalReachConnection : global::Pulumi.CustomResource

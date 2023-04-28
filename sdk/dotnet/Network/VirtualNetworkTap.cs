@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.Network
     /// Virtual Network Tap resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Virtual Network Tap
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkTap = new AzureNative.Network.VirtualNetworkTap("virtualNetworkTap", new()
+    ///     {
+    ///         DestinationNetworkInterfaceIPConfiguration = new AzureNative.Network.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/testNetworkInterface/ipConfigurations/ipconfig1",
+    ///         },
+    ///         Location = "centraluseuap",
+    ///         ResourceGroupName = "rg1",
+    ///         TapName = "test-vtap",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VirtualNetworkTap testvtap /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkTaps/testvtap 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualNetworkTap")]
     public partial class VirtualNetworkTap : global::Pulumi.CustomResource

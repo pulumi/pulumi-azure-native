@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
+ *
+ * ## Example Usage
+ * ### Create or Update Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCertificate = new azure_native.app.v20221101preview.ManagedCertificate("managedCertificate", {
+ *     environmentName: "testcontainerenv",
+ *     location: "East US",
+ *     managedCertificateName: "certificate-firendly-name",
+ *     properties: {
+ *         domainControlValidation: "CNAME",
+ *         subjectName: "my-subject-name.company.country.net",
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20221101preview:ManagedCertificate myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv/managedCertificates/certificate-firendly-name 
+ * ```
  */
 export class ManagedCertificate extends pulumi.CustomResource {
     /**

@@ -149,6 +149,42 @@ class EnterpriseChannel(pulumi.CustomResource):
         """
         Enterprise Channel resource definition
 
+        ## Example Usage
+        ### Create Enterprise Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_channel = azure_native.botservice.v20180712.EnterpriseChannel("enterpriseChannel",
+            location="West US",
+            properties=azure_native.botservice.v20180712.EnterpriseChannelPropertiesResponseArgs(
+                nodes=[{
+                    "azureLocation": "WestUs",
+                    "azureSku": "Int1",
+                    "name": "Node 1",
+                }],
+            ),
+            resource_group_name="OneResourceGroupName",
+            resource_name_="contoso-dl",
+            sku=azure_native.botservice.v20180712.SkuResponseArgs(
+                name="S1",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice/v20180712:EnterpriseChannel myresource1 someid 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Kind']] kind: Required. Gets or sets the Kind of the resource.
@@ -167,6 +203,42 @@ class EnterpriseChannel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Enterprise Channel resource definition
+
+        ## Example Usage
+        ### Create Enterprise Channel
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        enterprise_channel = azure_native.botservice.v20180712.EnterpriseChannel("enterpriseChannel",
+            location="West US",
+            properties=azure_native.botservice.v20180712.EnterpriseChannelPropertiesResponseArgs(
+                nodes=[{
+                    "azureLocation": "WestUs",
+                    "azureSku": "Int1",
+                    "name": "Node 1",
+                }],
+            ),
+            resource_group_name="OneResourceGroupName",
+            resource_name_="contoso-dl",
+            sku=azure_native.botservice.v20180712.SkuResponseArgs(
+                name="S1",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:botservice/v20180712:EnterpriseChannel myresource1 someid 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnterpriseChannelArgs args: The arguments to use to populate this resource's properties.

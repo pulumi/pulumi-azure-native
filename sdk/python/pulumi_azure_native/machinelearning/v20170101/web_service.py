@@ -114,6 +114,190 @@ class WebService(pulumi.CustomResource):
         """
         Instance of an Azure ML web service resource.
 
+        ## Example Usage
+        ### PUT WebService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_service = azure_native.machinelearning.v20170101.WebService("webService",
+            location="West US",
+            properties=azure_native.machinelearning.v20170101.WebServicePropertiesForGraphResponseArgs(
+                assets={
+                    "asset1": azure_native.machinelearning.v20170101.AssetItemArgs(
+                        location_info=azure_native.machinelearning.v20170101.BlobLocationArgs(
+                            credentials="",
+                            uri="aml://module/moduleId-1",
+                        ),
+                        name="Execute R Script",
+                        type="Module",
+                    ),
+                    "asset2": azure_native.machinelearning.v20170101.AssetItemArgs(
+                        location_info=azure_native.machinelearning.v20170101.BlobLocationArgs(
+                            credentials="",
+                            uri="aml://module/moduleId-2",
+                        ),
+                        name="Import Data",
+                        type="Module",
+                    ),
+                },
+                commitment_plan=azure_native.machinelearning.v20170101.CommitmentPlanArgs(
+                    id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.MachineLearning/commitmentPlans/commitmentPlanName",
+                ),
+                description="Web Service Description",
+                diagnostics=azure_native.machinelearning.v20170101.DiagnosticsConfigurationArgs(
+                    level="None",
+                ),
+                example_request=azure_native.machinelearning.v20170101.ExampleRequestArgs(
+                    inputs={
+                        "input1": [
+                            ["age"],
+                            ["workclass"],
+                            ["fnlwgt"],
+                            ["education"],
+                            ["education-num"],
+                        ],
+                    },
+                ),
+                expose_sample_data=True,
+                input={
+                    "description": "",
+                    "properties": {
+                        "input1": azure_native.machinelearning.v20170101.TableSpecificationArgs(
+                            description="",
+                            properties={
+                                "column_name": azure_native.machinelearning.v20170101.ColumnSpecificationArgs(
+                                    type="String",
+                                    x_ms_isnullable=False,
+                                ),
+                            },
+                            title="",
+                            type="object",
+                        ),
+                    },
+                    "title": "",
+                    "type": "object",
+                },
+                machine_learning_workspace=azure_native.machinelearning.v20170101.MachineLearningWorkspaceArgs(
+                    id="workspaceId",
+                ),
+                output={
+                    "description": "",
+                    "properties": {
+                        "output1": azure_native.machinelearning.v20170101.TableSpecificationArgs(
+                            description="",
+                            properties={
+                                "age": azure_native.machinelearning.v20170101.ColumnSpecificationArgs(
+                                    format="Int32",
+                                    type="Integer",
+                                    x_ms_isnullable=True,
+                                ),
+                                "workclass": azure_native.machinelearning.v20170101.ColumnSpecificationArgs(
+                                    type="String",
+                                    x_ms_isnullable=False,
+                                ),
+                            },
+                            title="",
+                            type="object",
+                        ),
+                    },
+                    "title": "",
+                    "type": "object",
+                },
+                package={
+                    "edges": [
+                        azure_native.machinelearning.v20170101.GraphEdgeArgs(
+                            source_node_id="node2",
+                            source_port_id="Results dataset",
+                            target_node_id="node1",
+                            target_port_id="Dataset2",
+                        ),
+                        azure_native.machinelearning.v20170101.GraphEdgeArgs(
+                            source_node_id="node3",
+                            target_node_id="node1",
+                            target_port_id="Dataset1",
+                        ),
+                        azure_native.machinelearning.v20170101.GraphEdgeArgs(
+                            source_node_id="node1",
+                            source_port_id="Result Dataset",
+                            target_node_id="node4",
+                        ),
+                    ],
+                    "graphParameters": {},
+                    "nodes": {
+                        "node1": azure_native.machinelearning.v20170101.GraphNodeArgs(
+                            asset_id="asset1",
+                            parameters={
+                                "R Script": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="The R Script",
+                                ),
+                                "R Version": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="CRAN R 3.1.0",
+                                ),
+                            },
+                        ),
+                        "node2": azure_native.machinelearning.v20170101.GraphNodeArgs(
+                            asset_id="asset2",
+                            parameters={
+                                "Account Key": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="TheThumbprint",
+                                    value="Encrypted Key",
+                                ),
+                                "Account Name": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="accountName",
+                                ),
+                                "Please Specify Authentication Type": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="Account",
+                                ),
+                                "Please Specify Data Source": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="AzureBlobStorage",
+                                ),
+                            },
+                        ),
+                        "node3": azure_native.machinelearning.v20170101.GraphNodeArgs(
+                            input_id="input1",
+                        ),
+                        "node4": azure_native.machinelearning.v20170101.GraphNodeArgs(
+                            output_id="output1",
+                        ),
+                    },
+                },
+                package_type="Graph",
+                parameters={},
+                payloads_in_blob_storage=False,
+                read_only=False,
+                realtime_configuration=azure_native.machinelearning.v20170101.RealtimeConfigurationArgs(
+                    max_concurrent_calls=4,
+                ),
+                storage_account=azure_native.machinelearning.v20170101.StorageAccountArgs(
+                    key="Storage_Key",
+                    name="Storage_Name",
+                ),
+                title="Web Service Title",
+            ),
+            resource_group_name="OneResourceGroupName",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            web_service_name="TargetWebServiceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearning/v20170101:WebService myresource1 TheWebServiceId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Specifies the location of the resource.
@@ -130,6 +314,190 @@ class WebService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Instance of an Azure ML web service resource.
+
+        ## Example Usage
+        ### PUT WebService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_service = azure_native.machinelearning.v20170101.WebService("webService",
+            location="West US",
+            properties=azure_native.machinelearning.v20170101.WebServicePropertiesForGraphResponseArgs(
+                assets={
+                    "asset1": azure_native.machinelearning.v20170101.AssetItemArgs(
+                        location_info=azure_native.machinelearning.v20170101.BlobLocationArgs(
+                            credentials="",
+                            uri="aml://module/moduleId-1",
+                        ),
+                        name="Execute R Script",
+                        type="Module",
+                    ),
+                    "asset2": azure_native.machinelearning.v20170101.AssetItemArgs(
+                        location_info=azure_native.machinelearning.v20170101.BlobLocationArgs(
+                            credentials="",
+                            uri="aml://module/moduleId-2",
+                        ),
+                        name="Import Data",
+                        type="Module",
+                    ),
+                },
+                commitment_plan=azure_native.machinelearning.v20170101.CommitmentPlanArgs(
+                    id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.MachineLearning/commitmentPlans/commitmentPlanName",
+                ),
+                description="Web Service Description",
+                diagnostics=azure_native.machinelearning.v20170101.DiagnosticsConfigurationArgs(
+                    level="None",
+                ),
+                example_request=azure_native.machinelearning.v20170101.ExampleRequestArgs(
+                    inputs={
+                        "input1": [
+                            ["age"],
+                            ["workclass"],
+                            ["fnlwgt"],
+                            ["education"],
+                            ["education-num"],
+                        ],
+                    },
+                ),
+                expose_sample_data=True,
+                input={
+                    "description": "",
+                    "properties": {
+                        "input1": azure_native.machinelearning.v20170101.TableSpecificationArgs(
+                            description="",
+                            properties={
+                                "column_name": azure_native.machinelearning.v20170101.ColumnSpecificationArgs(
+                                    type="String",
+                                    x_ms_isnullable=False,
+                                ),
+                            },
+                            title="",
+                            type="object",
+                        ),
+                    },
+                    "title": "",
+                    "type": "object",
+                },
+                machine_learning_workspace=azure_native.machinelearning.v20170101.MachineLearningWorkspaceArgs(
+                    id="workspaceId",
+                ),
+                output={
+                    "description": "",
+                    "properties": {
+                        "output1": azure_native.machinelearning.v20170101.TableSpecificationArgs(
+                            description="",
+                            properties={
+                                "age": azure_native.machinelearning.v20170101.ColumnSpecificationArgs(
+                                    format="Int32",
+                                    type="Integer",
+                                    x_ms_isnullable=True,
+                                ),
+                                "workclass": azure_native.machinelearning.v20170101.ColumnSpecificationArgs(
+                                    type="String",
+                                    x_ms_isnullable=False,
+                                ),
+                            },
+                            title="",
+                            type="object",
+                        ),
+                    },
+                    "title": "",
+                    "type": "object",
+                },
+                package={
+                    "edges": [
+                        azure_native.machinelearning.v20170101.GraphEdgeArgs(
+                            source_node_id="node2",
+                            source_port_id="Results dataset",
+                            target_node_id="node1",
+                            target_port_id="Dataset2",
+                        ),
+                        azure_native.machinelearning.v20170101.GraphEdgeArgs(
+                            source_node_id="node3",
+                            target_node_id="node1",
+                            target_port_id="Dataset1",
+                        ),
+                        azure_native.machinelearning.v20170101.GraphEdgeArgs(
+                            source_node_id="node1",
+                            source_port_id="Result Dataset",
+                            target_node_id="node4",
+                        ),
+                    ],
+                    "graphParameters": {},
+                    "nodes": {
+                        "node1": azure_native.machinelearning.v20170101.GraphNodeArgs(
+                            asset_id="asset1",
+                            parameters={
+                                "R Script": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="The R Script",
+                                ),
+                                "R Version": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="CRAN R 3.1.0",
+                                ),
+                            },
+                        ),
+                        "node2": azure_native.machinelearning.v20170101.GraphNodeArgs(
+                            asset_id="asset2",
+                            parameters={
+                                "Account Key": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="TheThumbprint",
+                                    value="Encrypted Key",
+                                ),
+                                "Account Name": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="accountName",
+                                ),
+                                "Please Specify Authentication Type": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="Account",
+                                ),
+                                "Please Specify Data Source": azure_native.machinelearning.v20170101.WebServiceParameterArgs(
+                                    certificate_thumbprint="",
+                                    value="AzureBlobStorage",
+                                ),
+                            },
+                        ),
+                        "node3": azure_native.machinelearning.v20170101.GraphNodeArgs(
+                            input_id="input1",
+                        ),
+                        "node4": azure_native.machinelearning.v20170101.GraphNodeArgs(
+                            output_id="output1",
+                        ),
+                    },
+                },
+                package_type="Graph",
+                parameters={},
+                payloads_in_blob_storage=False,
+                read_only=False,
+                realtime_configuration=azure_native.machinelearning.v20170101.RealtimeConfigurationArgs(
+                    max_concurrent_calls=4,
+                ),
+                storage_account=azure_native.machinelearning.v20170101.StorageAccountArgs(
+                    key="Storage_Key",
+                    name="Storage_Name",
+                ),
+                title="Web Service Title",
+            ),
+            resource_group_name="OneResourceGroupName",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            web_service_name="TargetWebServiceName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearning/v20170101:WebService myresource1 TheWebServiceId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebServiceArgs args: The arguments to use to populate this resource's properties.

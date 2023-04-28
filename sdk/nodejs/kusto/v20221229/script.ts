@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a database script.
+ *
+ * ## Example Usage
+ * ### KustoScriptsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const script = new azure_native.kusto.v20221229.Script("script", {
+ *     clusterName: "kustoCluster",
+ *     continueOnErrors: true,
+ *     databaseName: "KustoDatabase8",
+ *     forceUpdateTag: "2bcf3c21-ffd1-4444-b9dd-e52e00ee53fe",
+ *     resourceGroupName: "kustorptest",
+ *     scriptName: "kustoScript",
+ *     scriptUrl: "https://mysa.blob.core.windows.net/container/script.txt",
+ *     scriptUrlSasToken: `?sv=2019-02-02&st=2019-04-29T22%3A18%3A26Z&se=2019-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=********************************`,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto/v20221229:Script kustoCluster/KustoDatabase8/kustoScript /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/KustoDatabase8/Scripts/kustoScript 
+ * ```
  */
 export class Script extends pulumi.CustomResource {
     /**

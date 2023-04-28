@@ -179,6 +179,87 @@ class Budget(pulumi.CustomResource):
         """
         A budget resource.
 
+        ## Example Usage
+        ### CreateOrUpdateBudget
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        budget = azure_native.consumption.v20191001.Budget("budget",
+            amount=100.65,
+            budget_name="TestBudget",
+            category="Cost",
+            e_tag="\\"1d34d016a593709\\"",
+            filter=azure_native.consumption.v20191001.BudgetFilterResponseArgs(
+                and_=[
+                    azure_native.consumption.v20191001.BudgetFilterPropertiesArgs(
+                        dimensions=azure_native.consumption.v20191001.BudgetComparisonExpressionArgs(
+                            name="ResourceId",
+                            operator="In",
+                            values=[
+                                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/MSVM2",
+                                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
+                            ],
+                        ),
+                    ),
+                    azure_native.consumption.v20191001.BudgetFilterPropertiesArgs(
+                        tags=azure_native.consumption.v20191001.BudgetComparisonExpressionArgs(
+                            name="category",
+                            operator="In",
+                            values=[
+                                "Dev",
+                                "Prod",
+                            ],
+                        ),
+                    ),
+                    azure_native.consumption.v20191001.BudgetFilterPropertiesArgs(
+                        tags=azure_native.consumption.v20191001.BudgetComparisonExpressionArgs(
+                            name="department",
+                            operator="In",
+                            values=[
+                                "engineering",
+                                "sales",
+                            ],
+                        ),
+                    ),
+                ],
+            ),
+            notifications={
+                "Actual_GreaterThan_80_Percent": azure_native.consumption.v20191001.NotificationArgs(
+                    contact_emails=[
+                        "johndoe@contoso.com",
+                        "janesmith@contoso.com",
+                    ],
+                    contact_groups=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/microsoft.insights/actionGroups/SampleActionGroup"],
+                    contact_roles=[
+                        "Contributor",
+                        "Reader",
+                    ],
+                    enabled=True,
+                    locale="en-us",
+                    operator="GreaterThan",
+                    threshold=80,
+                    threshold_type="Actual",
+                ),
+            },
+            scope="subscriptions/00000000-0000-0000-0000-000000000000",
+            time_grain="Monthly",
+            time_period=azure_native.consumption.v20191001.BudgetTimePeriodArgs(
+                end_date="2018-10-31T00:00:00Z",
+                start_date="2017-10-01T00:00:00Z",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:consumption/v20191001:Budget TestBudget subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/budgets/TestBudget 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget
@@ -199,6 +280,87 @@ class Budget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A budget resource.
+
+        ## Example Usage
+        ### CreateOrUpdateBudget
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        budget = azure_native.consumption.v20191001.Budget("budget",
+            amount=100.65,
+            budget_name="TestBudget",
+            category="Cost",
+            e_tag="\\"1d34d016a593709\\"",
+            filter=azure_native.consumption.v20191001.BudgetFilterResponseArgs(
+                and_=[
+                    azure_native.consumption.v20191001.BudgetFilterPropertiesArgs(
+                        dimensions=azure_native.consumption.v20191001.BudgetComparisonExpressionArgs(
+                            name="ResourceId",
+                            operator="In",
+                            values=[
+                                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/MSVM2",
+                                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
+                            ],
+                        ),
+                    ),
+                    azure_native.consumption.v20191001.BudgetFilterPropertiesArgs(
+                        tags=azure_native.consumption.v20191001.BudgetComparisonExpressionArgs(
+                            name="category",
+                            operator="In",
+                            values=[
+                                "Dev",
+                                "Prod",
+                            ],
+                        ),
+                    ),
+                    azure_native.consumption.v20191001.BudgetFilterPropertiesArgs(
+                        tags=azure_native.consumption.v20191001.BudgetComparisonExpressionArgs(
+                            name="department",
+                            operator="In",
+                            values=[
+                                "engineering",
+                                "sales",
+                            ],
+                        ),
+                    ),
+                ],
+            ),
+            notifications={
+                "Actual_GreaterThan_80_Percent": azure_native.consumption.v20191001.NotificationArgs(
+                    contact_emails=[
+                        "johndoe@contoso.com",
+                        "janesmith@contoso.com",
+                    ],
+                    contact_groups=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/microsoft.insights/actionGroups/SampleActionGroup"],
+                    contact_roles=[
+                        "Contributor",
+                        "Reader",
+                    ],
+                    enabled=True,
+                    locale="en-us",
+                    operator="GreaterThan",
+                    threshold=80,
+                    threshold_type="Actual",
+                ),
+            },
+            scope="subscriptions/00000000-0000-0000-0000-000000000000",
+            time_grain="Monthly",
+            time_period=azure_native.consumption.v20191001.BudgetTimePeriodArgs(
+                end_date="2018-10-31T00:00:00Z",
+                start_date="2017-10-01T00:00:00Z",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:consumption/v20191001:Budget TestBudget subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/budgets/TestBudget 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.

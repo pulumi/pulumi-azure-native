@@ -9,6 +9,58 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### ProviderRegistrations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var providerRegistration = new AzureNative.ProviderHub.V20201120.ProviderRegistration("providerRegistration", new()
+    ///     {
+    ///         Properties = new AzureNative.ProviderHub.V20201120.Inputs.ProviderRegistrationPropertiesArgs
+    ///         {
+    ///             Capabilities = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.V20201120.Inputs.ResourceProviderCapabilitiesArgs
+    ///                 {
+    ///                     Effect = "Allow",
+    ///                     QuotaId = "CSP_2015-05-01",
+    ///                 },
+    ///                 new AzureNative.ProviderHub.V20201120.Inputs.ResourceProviderCapabilitiesArgs
+    ///                 {
+    ///                     Effect = "Allow",
+    ///                     QuotaId = "CSP_MG_2017-12-01",
+    ///                 },
+    ///             },
+    ///             Management = new AzureNative.ProviderHub.V20201120.Inputs.ResourceProviderManifestPropertiesManagementArgs
+    ///             {
+    ///                 IncidentContactEmail = "helpme@contoso.com",
+    ///                 IncidentRoutingService = "Contoso Resource Provider",
+    ///                 IncidentRoutingTeam = "Contoso Triage",
+    ///             },
+    ///             ProviderType = "Internal",
+    ///             ProviderVersion = "2.0",
+    ///         },
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub/v20201120:ProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace} 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:providerhub/v20201120:ProviderRegistration")]
     public partial class ProviderRegistration : global::Pulumi.CustomResource
     {

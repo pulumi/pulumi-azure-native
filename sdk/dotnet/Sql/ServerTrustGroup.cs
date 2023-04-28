@@ -13,6 +13,51 @@ namespace Pulumi.AzureNative.Sql
     /// A server trust group.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create server trust group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverTrustGroup = new AzureNative.Sql.ServerTrustGroup("serverTrustGroup", new()
+    ///     {
+    ///         GroupMembers = new[]
+    ///         {
+    ///             new AzureNative.Sql.Inputs.ServerInfoArgs
+    ///             {
+    ///                 ServerId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-1",
+    ///             },
+    ///             new AzureNative.Sql.Inputs.ServerInfoArgs
+    ///             {
+    ///                 ServerId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-2",
+    ///             },
+    ///         },
+    ///         LocationName = "Japan East",
+    ///         ResourceGroupName = "Default",
+    ///         ServerTrustGroupName = "server-trust-group-test",
+    ///         TrustScopes = new[]
+    ///         {
+    ///             "GlobalTransactions",
+    ///             "ServiceBroker",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:ServerTrustGroup server-trust-group-test /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/locations/Japan East/serverTrustGroups/server-trust-group-test 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:ServerTrustGroup")]
     public partial class ServerTrustGroup : global::Pulumi.CustomResource

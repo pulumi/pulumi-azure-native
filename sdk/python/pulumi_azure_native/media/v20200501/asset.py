@@ -146,6 +146,30 @@ class Asset(pulumi.CustomResource):
         """
         An Asset.
 
+        ## Example Usage
+        ### Create an Asset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        asset = azure_native.media.v20200501.Asset("asset",
+            account_name="contosomedia",
+            asset_name="ClimbingMountLogan",
+            description="A documentary showing the ascent of Mount Logan",
+            resource_group_name="contoso",
+            storage_account_name="storage0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20200501:Asset ClimbingMountLogan /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -164,6 +188,30 @@ class Asset(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Asset.
+
+        ## Example Usage
+        ### Create an Asset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        asset = azure_native.media.v20200501.Asset("asset",
+            account_name="contosomedia",
+            asset_name="ClimbingMountLogan",
+            description="A documentary showing the ascent of Mount Logan",
+            resource_group_name="contoso",
+            storage_account_name="storage0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20200501:Asset ClimbingMountLogan /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssetArgs args: The arguments to use to populate this resource's properties.

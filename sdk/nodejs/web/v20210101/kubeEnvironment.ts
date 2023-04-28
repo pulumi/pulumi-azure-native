@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * A Kubernetes cluster specialized for web workloads by Azure App Service
+ *
+ * ## Example Usage
+ * ### Create kube environments
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const kubeEnvironment = new azure_native.web.v20210101.KubeEnvironment("kubeEnvironment", {
+ *     location: "East US",
+ *     name: "testkubeenv",
+ *     resourceGroupName: "examplerg",
+ *     staticIp: "1.2.3.4",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20210101:KubeEnvironment testkubeenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.Web/kubeEnvironments/testkubeenv 
+ * ```
  */
 export class KubeEnvironment extends pulumi.CustomResource {
     /**

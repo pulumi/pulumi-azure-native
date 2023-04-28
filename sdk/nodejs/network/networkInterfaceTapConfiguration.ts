@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Tap configuration in a Network Interface.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Network Interface Tap Configurations
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkInterfaceTapConfiguration = new azure_native.network.NetworkInterfaceTapConfiguration("networkInterfaceTapConfiguration", {
+ *     networkInterfaceName: "mynic",
+ *     resourceGroupName: "testrg",
+ *     tapConfigurationName: "tapconfiguration1",
+ *     virtualNetworkTap: {
+ *         id: "/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworkTaps/testvtap",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:NetworkInterfaceTapConfiguration tapConfiguration1 /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/networkInterfaces/mynic/tapConfigurations/tapConfiguration1 
+ * ```
  */
 export class NetworkInterfaceTapConfiguration extends pulumi.CustomResource {
     /**

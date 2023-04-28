@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Network.V20170901
 {
     /// <summary>
     /// Peering in an ExpressRouteCircuit resource.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20170901:ExpressRouteCircuitPeering myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCircuits/{circuitName}/peerings/{peeringName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20170901:ExpressRouteCircuitPeering")]

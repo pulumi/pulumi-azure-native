@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.Workloads
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// API Version: 2023-04-01.
     /// Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a SAP monitor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var monitor = new AzureNative.Workloads.Monitor("monitor", new()
+    ///     {
+    ///         AppLocation = "westus",
+    ///         Location = "westus",
+    ///         LogAnalyticsWorkspaceArmId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.operationalinsights/workspaces/myWorkspace",
+    ///         ManagedResourceGroupConfiguration = new AzureNative.Workloads.Inputs.ManagedRGConfigurationArgs
+    ///         {
+    ///             Name = "myManagedRg",
+    ///         },
+    ///         MonitorName = "mySapMonitor",
+    ///         MonitorSubnet = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RoutingPreference = "RouteAll",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads:monitor mySapMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/mySapMonitor 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:monitor")]
     public partial class Monitor : global::Pulumi.CustomResource

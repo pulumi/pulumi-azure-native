@@ -9,6 +9,78 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### CreateOrUpdate Online Endpoint.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var onlineEndpoint = new AzureNative.MachineLearningServices.V20210301Preview.OnlineEndpoint("onlineEndpoint", new()
+    ///     {
+    ///         EndpointName = "testEndpoint",
+    ///         Identity = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.ResourceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuseridentity", new AzureNative.MachineLearningServices.V20210301Preview.Inputs.UserAssignedIdentityMetaArgs
+    ///                 {
+    ///                     ClientId = "string",
+    ///                     PrincipalId = "string",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         Properties = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.OnlineEndpointArgs
+    ///         {
+    ///             AuthMode = "AMLToken",
+    ///             Description = "string",
+    ///             Keys = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.EndpointAuthKeysArgs
+    ///             {
+    ///                 PrimaryKey = "string",
+    ///                 SecondaryKey = "string",
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///             Target = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/compute123",
+    ///             Traffic = 
+    ///             {
+    ///                 { "myDeployment1", 0 },
+    ///                 { "myDeployment2", 1 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         Tags = 
+    ///         {
+    ///             { "additionalProp1", "string" },
+    ///             { "additionalProp2", "string" },
+    ///             { "additionalProp3", "string" },
+    ///         },
+    ///         WorkspaceName = "workspace123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20210301preview:OnlineEndpoint testEndpoint /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/onlineEndpoints/testEndpoint 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:OnlineEndpoint")]
     public partial class OnlineEndpoint : global::Pulumi.CustomResource
     {

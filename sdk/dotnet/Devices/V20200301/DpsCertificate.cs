@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Devices.V20200301
 {
     /// <summary>
     /// The X509 Certificate.
+    /// 
+    /// ## Example Usage
+    /// ### DPSCreateOrUpdateCertificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dpsCertificate = new AzureNative.Devices.V20200301.DpsCertificate("dpsCertificate", new()
+    ///     {
+    ///         Certificate = "############################################",
+    ///         CertificateName = "cert",
+    ///         ProvisioningServiceName = "myFirstProvisioningService",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devices/v20200301:DpsCertificate cert /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServives/myFirstProvisioningService/certificates/cert 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devices/v20200301:DpsCertificate")]
     public partial class DpsCertificate : global::Pulumi.CustomResource

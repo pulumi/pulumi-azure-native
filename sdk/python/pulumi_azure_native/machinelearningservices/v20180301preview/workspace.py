@@ -256,6 +256,38 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning workspace.
 
+        ## Example Usage
+        ### Create Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.machinelearningservices.v20180301preview.Workspace("workspace",
+            application_insights="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+            batchai_workspace="/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/workspace-1234/providers/Microsoft.BatchAI/workspaces/testBatchAIWorkspace",
+            container_registry="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+            description="test description",
+            friendly_name="HelloName",
+            identity=azure_native.machinelearningservices.v20180301preview.IdentityArgs(
+                type=azure_native.machinelearningservices/v20180301preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            key_vault="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+            location="eastus2euap",
+            resource_group_name="workspace-1234",
+            storage_account="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20180301preview:Workspace testworkspace /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_insights: ARM id of the application insights associated with this workspace. This cannot be changed once the workspace has been created
@@ -280,6 +312,38 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a machine learning workspace.
+
+        ## Example Usage
+        ### Create Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.machinelearningservices.v20180301preview.Workspace("workspace",
+            application_insights="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+            batchai_workspace="/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/workspace-1234/providers/Microsoft.BatchAI/workspaces/testBatchAIWorkspace",
+            container_registry="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+            description="test description",
+            friendly_name="HelloName",
+            identity=azure_native.machinelearningservices.v20180301preview.IdentityArgs(
+                type=azure_native.machinelearningservices/v20180301preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            key_vault="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+            location="eastus2euap",
+            resource_group_name="workspace-1234",
+            storage_account="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20180301preview:Workspace testworkspace /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,106 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200701PrivatePreview
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.V20200701PrivatePreview.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "cloudsa",
+    ///         AdministratorLoginPassword = "&lt;administratorLoginPassword&gt;",
+    ///         CreateMode = "Default",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "mysqltestsvc4",
+    ///         Sku = new AzureNative.DBforMySQL.V20200701PrivatePreview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D14_v2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         SslEnforcement = "Enabled",
+    ///         StorageProfile = new AzureNative.DBforMySQL.V20200701PrivatePreview.Inputs.StorageProfileArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             StorageIops = 200,
+    ///             StorageMB = 128000,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a replica server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.V20200701PrivatePreview.Server("server", new()
+    ///     {
+    ///         CreateMode = "Replica",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "TargetResourceGroup",
+    ///         ServerName = "targetserver",
+    ///         SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/PrimaryResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/primaryserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a server as a point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.V20200701PrivatePreview.Server("server", new()
+    ///     {
+    ///         CreateMode = "PointInTimeRestore",
+    ///         Location = "brazilsouth",
+    ///         ResourceGroupName = "TargetResourceGroup",
+    ///         RestorePointInTime = "2017-12-14T00:00:37.467Z",
+    ///         ServerName = "targetserver",
+    ///         Sku = new AzureNative.DBforMySQL.V20200701PrivatePreview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D14_v2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         SourceServerId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformysql/v20200701privatepreview:Server targetserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/targetserver 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql/v20200701privatepreview:Server")]
     public partial class Server : global::Pulumi.CustomResource

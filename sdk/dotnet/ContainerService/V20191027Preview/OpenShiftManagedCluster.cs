@@ -11,6 +11,198 @@ namespace Pulumi.AzureNative.ContainerService.V20191027Preview
 {
     /// <summary>
     /// OpenShift Managed cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update OpenShift Managed Cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var openShiftManagedCluster = new AzureNative.ContainerService.V20191027Preview.OpenShiftManagedCluster("openShiftManagedCluster", new()
+    ///     {
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 Name = "infra",
+    ///                 OsType = "Linux",
+    ///                 Role = "infra",
+    ///                 SubnetCidr = "10.0.0.0/24",
+    ///                 VmSize = "Standard_D4s_v3",
+    ///             },
+    ///             new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 4,
+    ///                 Name = "compute",
+    ///                 OsType = "Linux",
+    ///                 Role = "compute",
+    ///                 SubnetCidr = "10.0.0.0/24",
+    ///                 VmSize = "Standard_D4s_v3",
+    ///             },
+    ///         },
+    ///         AuthProfile = new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterAuthProfileArgs
+    ///         {
+    ///             IdentityProviders = new[]
+    ///             {
+    ///                 new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterIdentityProviderArgs
+    ///                 {
+    ///                     Name = "Azure AD",
+    ///                     Provider = 
+    ///                     {
+    ///                         { "clientId", "clientId" },
+    ///                         { "customerAdminGroupId", "customerAdminGroupId" },
+    ///                         { "kind", "AADIdentityProvider" },
+    ///                         { "secret", "secret" },
+    ///                         { "tenantId", "tenantId" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         MasterPoolProfile = new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterMasterPoolProfileArgs
+    ///         {
+    ///             ApiProperties = new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftAPIPropertiesArgs
+    ///             {
+    ///                 PrivateApiServer = false,
+    ///             },
+    ///             Count = 3,
+    ///             SubnetCidr = "10.0.0.0/24",
+    ///             VmSize = "Standard_D4s_v3",
+    ///         },
+    ///         MonitorProfile = new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterMonitorProfileArgs
+    ///         {
+    ///             Enabled = true,
+    ///             WorkspaceResourceID = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+    ///         },
+    ///         NetworkProfile = new AzureNative.ContainerService.V20191027Preview.Inputs.NetworkProfileArgs
+    ///         {
+    ///             VnetCidr = "10.0.0.0/8",
+    ///         },
+    ///         OpenShiftVersion = "v3.11",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         RouterProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftRouterProfileArgs
+    ///             {
+    ///                 Name = "default",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/Update Private OpenShift Managed Cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var openShiftManagedCluster = new AzureNative.ContainerService.V20191027Preview.OpenShiftManagedCluster("openShiftManagedCluster", new()
+    ///     {
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 Name = "infra",
+    ///                 OsType = "Linux",
+    ///                 Role = "infra",
+    ///                 SubnetCidr = "10.0.0.0/24",
+    ///                 VmSize = "Standard_D4s_v3",
+    ///             },
+    ///             new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 4,
+    ///                 Name = "compute",
+    ///                 OsType = "Linux",
+    ///                 Role = "compute",
+    ///                 SubnetCidr = "10.0.0.0/24",
+    ///                 VmSize = "Standard_D4s_v3",
+    ///             },
+    ///         },
+    ///         AuthProfile = new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterAuthProfileArgs
+    ///         {
+    ///             IdentityProviders = new[]
+    ///             {
+    ///                 new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterIdentityProviderArgs
+    ///                 {
+    ///                     Name = "Azure AD",
+    ///                     Provider = 
+    ///                     {
+    ///                         { "clientId", "clientId" },
+    ///                         { "customerAdminGroupId", "customerAdminGroupId" },
+    ///                         { "kind", "AADIdentityProvider" },
+    ///                         { "secret", "secret" },
+    ///                         { "tenantId", "tenantId" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         MasterPoolProfile = new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterMasterPoolProfileArgs
+    ///         {
+    ///             ApiProperties = new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftAPIPropertiesArgs
+    ///             {
+    ///                 PrivateApiServer = true,
+    ///             },
+    ///             Count = 3,
+    ///             SubnetCidr = "10.0.0.0/24",
+    ///             VmSize = "Standard_D4s_v3",
+    ///         },
+    ///         MonitorProfile = new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftManagedClusterMonitorProfileArgs
+    ///         {
+    ///             Enabled = true,
+    ///             WorkspaceResourceID = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.OperationalInsights/workspaces/workspacename1",
+    ///         },
+    ///         NetworkProfile = new AzureNative.ContainerService.V20191027Preview.Inputs.NetworkProfileArgs
+    ///         {
+    ///             ManagementSubnetCidr = "10.0.1.0/24",
+    ///             VnetCidr = "10.0.0.0/8",
+    ///         },
+    ///         OpenShiftVersion = "v3.11",
+    ///         RefreshCluster = true,
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "privateclustername1",
+    ///         RouterProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20191027Preview.Inputs.OpenShiftRouterProfileArgs
+    ///             {
+    ///                 Name = "default",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20191027preview:OpenShiftManagedCluster privateclustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/openShiftManagedClusters/privateclustername1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20191027preview:OpenShiftManagedCluster")]
     public partial class OpenShiftManagedCluster : global::Pulumi.CustomResource

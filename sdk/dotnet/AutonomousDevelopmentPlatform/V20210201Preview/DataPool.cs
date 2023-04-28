@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.AutonomousDevelopmentPlatform.V20210201Preview
 {
     /// <summary>
     /// ADP Data Pool
+    /// 
+    /// ## Example Usage
+    /// ### Put Data Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataPool = new AzureNative.AutonomousDevelopmentPlatform.V20210201Preview.DataPool("dataPool", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         DataPoolName = "sampledp",
+    ///         Locations = new[]
+    ///         {
+    ///             new AzureNative.AutonomousDevelopmentPlatform.V20210201Preview.Inputs.DataPoolLocationArgs
+    ///             {
+    ///                 Encryption = new AzureNative.AutonomousDevelopmentPlatform.V20210201Preview.Inputs.DataPoolEncryptionArgs
+    ///                 {
+    ///                     KeyName = "key1",
+    ///                     KeyVaultUri = "https://vaulturi",
+    ///                     KeyVersion = "123",
+    ///                     UserAssignedIdentity = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+    ///                 },
+    ///                 Name = "westus",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "adpClient",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool dp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.AutonomousDevelopmentPlatform/accounts/adp1/dataPools/dp1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:autonomousdevelopmentplatform/v20210201preview:DataPool")]
     public partial class DataPool : global::Pulumi.CustomResource

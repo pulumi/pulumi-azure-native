@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * A private endpoint connection to an azure resource
  * API Version: 2023-02-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### SignalRPrivateEndpointConnections_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const signalRPrivateEndpointConnection = new azure_native.signalrservice.SignalRPrivateEndpointConnection("signalRPrivateEndpointConnection", {
+ *     privateEndpoint: {
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+ *     },
+ *     privateEndpointConnectionName: "mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "None",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "mySignalRService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:signalrservice:SignalRPrivateEndpointConnection mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/privateEndpointConnections/mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e 
+ * ```
  */
 export class SignalRPrivateEndpointConnection extends pulumi.CustomResource {
     /**

@@ -12,6 +12,86 @@ namespace Pulumi.AzureNative.Security
     /// <summary>
     /// API Version: 2020-01-01.
     /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create JIT network access policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jitNetworkAccessPolicy = new AzureNative.Security.JitNetworkAccessPolicy("jitNetworkAccessPolicy", new()
+    ///     {
+    ///         AscLocation = "westeurope",
+    ///         JitNetworkAccessPolicyName = "default",
+    ///         Kind = "Basic",
+    ///         Requests = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.JitNetworkAccessRequestArgs
+    ///             {
+    ///                 Requestor = "barbara@contoso.com",
+    ///                 StartTimeUtc = "2018-05-17T08:06:45.5691611Z",
+    ///                 VirtualMachines = new[]
+    ///                 {
+    ///                     new AzureNative.Security.Inputs.JitNetworkAccessRequestVirtualMachineArgs
+    ///                     {
+    ///                         Id = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///                         Ports = new[]
+    ///                         {
+    ///                             new AzureNative.Security.Inputs.JitNetworkAccessRequestPortArgs
+    ///                             {
+    ///                                 AllowedSourceAddressPrefix = "192.127.0.2",
+    ///                                 EndTimeUtc = "2018-05-17T09:06:45.5691611Z",
+    ///                                 Number = 3389,
+    ///                                 Status = "Initiated",
+    ///                                 StatusReason = "UserRequested",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myRg1",
+    ///         VirtualMachines = new[]
+    ///         {
+    ///             new AzureNative.Security.Inputs.JitNetworkAccessPolicyVirtualMachineArgs
+    ///             {
+    ///                 Id = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Compute/virtualMachines/vm1",
+    ///                 Ports = new[]
+    ///                 {
+    ///                     new AzureNative.Security.Inputs.JitNetworkAccessPortRuleArgs
+    ///                     {
+    ///                         AllowedSourceAddressPrefix = "*",
+    ///                         MaxRequestAccessDuration = "PT3H",
+    ///                         Number = 22,
+    ///                         Protocol = "*",
+    ///                     },
+    ///                     new AzureNative.Security.Inputs.JitNetworkAccessPortRuleArgs
+    ///                     {
+    ///                         AllowedSourceAddressPrefix = "*",
+    ///                         MaxRequestAccessDuration = "PT3H",
+    ///                         Number = 3389,
+    ///                         Protocol = "*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security:JitNetworkAccessPolicy default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg1/providers/Microsoft.Security/locations/westeurope/jitNetworkAccessPolicies/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security:JitNetworkAccessPolicy")]
     public partial class JitNetworkAccessPolicy : global::Pulumi.CustomResource

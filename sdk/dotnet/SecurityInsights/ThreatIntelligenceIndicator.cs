@@ -13,6 +13,59 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Threat intelligence information object.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2019-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update a threat Intelligence indicator
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var threatIntelligenceIndicator = new AzureNative.SecurityInsights.ThreatIntelligenceIndicator("threatIntelligenceIndicator", new()
+    ///     {
+    ///         Confidence = 78,
+    ///         CreatedByRef = "contoso@contoso.com",
+    ///         Description = "debugging indicators",
+    ///         DisplayName = "new schema",
+    ///         ExternalReferences = new[] {},
+    ///         GranularMarkings = new[] {},
+    ///         KillChainPhases = new[] {},
+    ///         Kind = "indicator",
+    ///         Labels = new[] {},
+    ///         Modified = "",
+    ///         Name = "d9cd6f0b-96b9-3984-17cd-a779d1e15a93",
+    ///         Pattern = "[url:value = 'https://www.contoso.com']",
+    ///         PatternType = "url",
+    ///         ResourceGroupName = "myRg",
+    ///         Revoked = false,
+    ///         Source = "Azure Sentinel",
+    ///         ThreatIntelligenceTags = new[]
+    ///         {
+    ///             "new schema",
+    ///         },
+    ///         ThreatTypes = new[]
+    ///         {
+    ///             "compromised",
+    ///         },
+    ///         ValidFrom = "2020-04-15T17:44:00.114052Z",
+    ///         ValidUntil = "",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:ThreatIntelligenceIndicator 180105c7-a28d-b1a2-4a78-234f6ec80fd6 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/ThreatIntelligence/180105c7-a28d-b1a2-4a78-234f6ec80fd6 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:ThreatIntelligenceIndicator")]
     public partial class ThreatIntelligenceIndicator : global::Pulumi.CustomResource

@@ -11,6 +11,99 @@ namespace Pulumi.AzureNative.Cache.V20230301Preview
 {
     /// <summary>
     /// Describes a database on the RedisEnterprise cluster
+    /// 
+    /// ## Example Usage
+    /// ### RedisEnterpriseDatabasesCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Cache.V20230301Preview.Database("database", new()
+    ///     {
+    ///         ClientProtocol = "Encrypted",
+    ///         ClusterName = "cache1",
+    ///         ClusteringPolicy = "EnterpriseCluster",
+    ///         DatabaseName = "default",
+    ///         EvictionPolicy = "AllKeysLRU",
+    ///         Modules = new[]
+    ///         {
+    ///             new AzureNative.Cache.V20230301Preview.Inputs.ModuleArgs
+    ///             {
+    ///                 Args = "ERROR_RATE 0.00 INITIAL_SIZE 400",
+    ///                 Name = "RedisBloom",
+    ///             },
+    ///             new AzureNative.Cache.V20230301Preview.Inputs.ModuleArgs
+    ///             {
+    ///                 Args = "RETENTION_POLICY 20",
+    ///                 Name = "RedisTimeSeries",
+    ///             },
+    ///             new AzureNative.Cache.V20230301Preview.Inputs.ModuleArgs
+    ///             {
+    ///                 Name = "RediSearch",
+    ///             },
+    ///         },
+    ///         Persistence = new AzureNative.Cache.V20230301Preview.Inputs.PersistenceArgs
+    ///         {
+    ///             AofEnabled = true,
+    ///             AofFrequency = "1s",
+    ///         },
+    ///         Port = 10000,
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### RedisEnterpriseDatabasesCreate With Active Geo Replication
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.Cache.V20230301Preview.Database("database", new()
+    ///     {
+    ///         ClientProtocol = "Encrypted",
+    ///         ClusterName = "cache1",
+    ///         ClusteringPolicy = "EnterpriseCluster",
+    ///         DatabaseName = "default",
+    ///         EvictionPolicy = "NoEviction",
+    ///         GeoReplication = new AzureNative.Cache.V20230301Preview.Inputs.DatabasePropertiesGeoReplicationArgs
+    ///         {
+    ///             GroupNickname = "groupName",
+    ///             LinkedDatabases = new[]
+    ///             {
+    ///                 new AzureNative.Cache.V20230301Preview.Inputs.LinkedDatabaseArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default",
+    ///                 },
+    ///                 new AzureNative.Cache.V20230301Preview.Inputs.LinkedDatabaseArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid2/resourceGroups/rg2/providers/Microsoft.Cache/redisEnterprise/cache2/databases/default",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Port = 10000,
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cache/v20230301preview:Database cache1/default /subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20230301preview:Database")]
     public partial class Database : global::Pulumi.CustomResource

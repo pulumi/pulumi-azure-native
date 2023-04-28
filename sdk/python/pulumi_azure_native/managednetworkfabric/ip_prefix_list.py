@@ -164,6 +164,31 @@ class IpPrefixList(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### IpPrefixLists_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_prefix_list = azure_native.managednetworkfabric.IpPrefixList("ipPrefixList",
+            action="allow",
+            ip_prefix_list_name="IpPrefixList1",
+            location="EastUS",
+            network_address="1.1.1.0/24",
+            resource_group_name="resourceGroupName",
+            sequence_number=19)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:IpPrefixList myresource1 resourceId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'PrefixActionType']] action: action. Example: allow | deny.
@@ -185,6 +210,31 @@ class IpPrefixList(pulumi.CustomResource):
         The IpPrefixList resource definition.
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### IpPrefixLists_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_prefix_list = azure_native.managednetworkfabric.IpPrefixList("ipPrefixList",
+            action="allow",
+            ip_prefix_list_name="IpPrefixList1",
+            location="EastUS",
+            network_address="1.1.1.0/24",
+            resource_group_name="resourceGroupName",
+            sequence_number=19)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:IpPrefixList myresource1 resourceId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IpPrefixListArgs args: The arguments to use to populate this resource's properties.

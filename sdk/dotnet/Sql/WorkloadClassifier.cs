@@ -13,6 +13,65 @@ namespace Pulumi.AzureNative.Sql
     /// Workload classifier operations for a data warehouse
     /// API Version: 2021-11-01.
     /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a workload group with all properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadClassifier = new AzureNative.Sql.WorkloadClassifier("workloadClassifier", new()
+    ///     {
+    ///         Context = "test_context",
+    ///         DatabaseName = "testdb",
+    ///         EndTime = "14:00",
+    ///         Importance = "high",
+    ///         Label = "test_label",
+    ///         MemberName = "dbo",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         StartTime = "12:00",
+    ///         WorkloadClassifierName = "wlm_workloadclassifier",
+    ///         WorkloadGroupName = "wlm_workloadgroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a workload group with the required properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadClassifier = new AzureNative.Sql.WorkloadClassifier("workloadClassifier", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         MemberName = "dbo",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         WorkloadClassifierName = "wlm_workloadclassifier",
+    ///         WorkloadGroupName = "wlm_workloadgroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:WorkloadClassifier wlm_workloadclassifier /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb/workloadGroups/wlm_workloadgroup/workloadClassifiers/wlm_workloadclassifier 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:WorkloadClassifier")]
     public partial class WorkloadClassifier : global::Pulumi.CustomResource

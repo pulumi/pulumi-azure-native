@@ -115,6 +115,32 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
         """
         An Azure Cosmos DB MongoDB database.
 
+        ## Example Usage
+        ### CosmosDBMongoDBDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account_mongo_db_database = azure_native.documentdb.v20160331.DatabaseAccountMongoDBDatabase("databaseAccountMongoDBDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            options={},
+            resource=azure_native.documentdb.v20160331.MongoDBDatabaseResourceArgs(
+                id="updatedDatabaseName",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase updatedDatabaseName updatedDatabaseName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -131,6 +157,32 @@ class DatabaseAccountMongoDBDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB MongoDB database.
+
+        ## Example Usage
+        ### CosmosDBMongoDBDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_account_mongo_db_database = azure_native.documentdb.v20160331.DatabaseAccountMongoDBDatabase("databaseAccountMongoDBDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            options={},
+            resource=azure_native.documentdb.v20160331.MongoDBDatabaseResourceArgs(
+                id="updatedDatabaseName",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase updatedDatabaseName updatedDatabaseName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseAccountMongoDBDatabaseArgs args: The arguments to use to populate this resource's properties.

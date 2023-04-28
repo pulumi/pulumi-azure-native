@@ -149,6 +149,33 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
+        ## Example Usage
+        ### EventHubAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_authorization_rule = azure_native.eventhub.v20150801.EventHubAuthorizationRule("eventHubAuthorizationRule",
+            authorization_rule_name="sdk-Authrules9261",
+            event_hub_name="sdk-EventHub8887",
+            namespace_name="sdk-Namespace2290",
+            resource_group_name="Default-ServiceBus-WestUS",
+            rights=[
+                azure_native.eventhub/v20150801.AccessRights.LISTEN,
+                azure_native.eventhub/v20150801.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20150801:EventHubAuthorizationRule sdk-Authrules9261 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace2290/eventhubs/sdk-EventHub8887/authorizationRules/sdk-Authrules9261 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
@@ -167,6 +194,33 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get AuthorizationRule operation
+
+        ## Example Usage
+        ### EventHubAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_authorization_rule = azure_native.eventhub.v20150801.EventHubAuthorizationRule("eventHubAuthorizationRule",
+            authorization_rule_name="sdk-Authrules9261",
+            event_hub_name="sdk-EventHub8887",
+            namespace_name="sdk-Namespace2290",
+            resource_group_name="Default-ServiceBus-WestUS",
+            rights=[
+                azure_native.eventhub/v20150801.AccessRights.LISTEN,
+                azure_native.eventhub/v20150801.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20150801:EventHubAuthorizationRule sdk-Authrules9261 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace2290/eventhubs/sdk-EventHub8887/authorizationRules/sdk-Authrules9261 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventHubAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

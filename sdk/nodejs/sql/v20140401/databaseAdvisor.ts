@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Database Advisor.
+ *
+ * ## Example Usage
+ * ### Update database advisor
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAdvisor = new azure_native.sql.v20140401.DatabaseAdvisor("databaseAdvisor", {
+ *     advisorName: "CreateIndex",
+ *     autoExecuteValue: azure_native.sql.v20140401.AutoExecuteStatus.Disabled,
+ *     databaseName: "IndexAdvisor_test_3",
+ *     resourceGroupName: "workloadinsight-demos",
+ *     serverName: "misosisvr",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20140401:DatabaseAdvisor CreateIndex /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workloadinsight-demos/providers/Microsoft.Sql/servers/misosisvr/databases/IndexAdvisor_test_3/advisors/CreateIndex 
+ * ```
  */
 export class DatabaseAdvisor extends pulumi.CustomResource {
     /**

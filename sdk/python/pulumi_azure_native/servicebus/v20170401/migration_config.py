@@ -109,6 +109,30 @@ class MigrationConfig(pulumi.CustomResource):
         """
         Single item in List or Get Migration Config operation
 
+        ## Example Usage
+        ### MigrationConfigurationsStartMigration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration_config = azure_native.servicebus.v20170401.MigrationConfig("migrationConfig",
+            config_name="$default",
+            namespace_name="sdk-Namespace-41",
+            post_migration_name="sdk-PostMigration-5919",
+            resource_group_name="ResourceGroup",
+            target_namespace="/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20170401:MigrationConfig sdk-Namespace-41 /subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-41/migrationConfigs/$default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_name: The configuration name. Should always be "$default".
@@ -125,6 +149,30 @@ class MigrationConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Migration Config operation
+
+        ## Example Usage
+        ### MigrationConfigurationsStartMigration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration_config = azure_native.servicebus.v20170401.MigrationConfig("migrationConfig",
+            config_name="$default",
+            namespace_name="sdk-Namespace-41",
+            post_migration_name="sdk-PostMigration-5919",
+            resource_group_name="ResourceGroup",
+            target_namespace="/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20170401:MigrationConfig sdk-Namespace-41 /subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-41/migrationConfigs/$default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MigrationConfigArgs args: The arguments to use to populate this resource's properties.

@@ -245,6 +245,47 @@ class Link(pulumi.CustomResource):
         """
         The link resource format.
 
+        ## Example Usage
+        ### Links_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        link = azure_native.customerinsights.v20170426.Link("link",
+            description={
+                "en-us": "Link Description",
+            },
+            display_name={
+                "en-us": "Link DisplayName",
+            },
+            hub_name="sdkTestHub",
+            link_name="linkTest4806",
+            mappings=[{
+                "linkType": azure_native.customerinsights/v20170426.LinkTypes.UPDATE_ALWAYS,
+                "sourcePropertyName": "testInteraction1949",
+                "targetPropertyName": "testProfile1446",
+            }],
+            participant_property_references=[azure_native.customerinsights.v20170426.ParticipantPropertyReferenceArgs(
+                source_property_name="testInteraction1949",
+                target_property_name="ProfileId",
+            )],
+            resource_group_name="TestHubRG",
+            source_entity_type=azure_native.customerinsights/v20170426.EntityType.INTERACTION,
+            source_entity_type_name="testInteraction1949",
+            target_entity_type=azure_native.customerinsights/v20170426.EntityType.PROFILE,
+            target_entity_type_name="testProfile1446")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights/v20170426:Link azSdkTestHub/linkTest4806 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/links/linkTest4806 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] description: Localized descriptions for the Link.
@@ -269,6 +310,47 @@ class Link(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The link resource format.
+
+        ## Example Usage
+        ### Links_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        link = azure_native.customerinsights.v20170426.Link("link",
+            description={
+                "en-us": "Link Description",
+            },
+            display_name={
+                "en-us": "Link DisplayName",
+            },
+            hub_name="sdkTestHub",
+            link_name="linkTest4806",
+            mappings=[{
+                "linkType": azure_native.customerinsights/v20170426.LinkTypes.UPDATE_ALWAYS,
+                "sourcePropertyName": "testInteraction1949",
+                "targetPropertyName": "testProfile1446",
+            }],
+            participant_property_references=[azure_native.customerinsights.v20170426.ParticipantPropertyReferenceArgs(
+                source_property_name="testInteraction1949",
+                target_property_name="ProfileId",
+            )],
+            resource_group_name="TestHubRG",
+            source_entity_type=azure_native.customerinsights/v20170426.EntityType.INTERACTION,
+            source_entity_type_name="testInteraction1949",
+            target_entity_type=azure_native.customerinsights/v20170426.EntityType.PROFILE,
+            target_entity_type_name="testProfile1446")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights/v20170426:Link azSdkTestHub/linkTest4806 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/links/linkTest4806 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LinkArgs args: The arguments to use to populate this resource's properties.

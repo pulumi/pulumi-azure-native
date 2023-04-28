@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// ExpressRouteConnection resource.
+    /// 
+    /// ## Example Usage
+    /// ### ExpressRouteConnectionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteConnection = new AzureNative.Network.V20201101.ExpressRouteConnection("expressRouteConnection", new()
+    ///     {
+    ///         AuthorizationKey = "authorizationKey",
+    ///         ConnectionName = "connectionName",
+    ///         ExpressRouteCircuitPeering = new AzureNative.Network.V20201101.Inputs.ExpressRouteCircuitPeeringIdArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+    ///         },
+    ///         ExpressRouteGatewayName = "gateway-2",
+    ///         Id = "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName",
+    ///         Name = "connectionName",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         RoutingWeight = 2,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:ExpressRouteConnection connectionName /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:ExpressRouteConnection")]
     public partial class ExpressRouteConnection : global::Pulumi.CustomResource

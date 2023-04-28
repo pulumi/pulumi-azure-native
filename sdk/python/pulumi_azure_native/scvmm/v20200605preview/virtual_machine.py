@@ -352,6 +352,39 @@ class VirtualMachine(pulumi.CustomResource):
         """
         The VirtualMachines resource definition.
 
+        ## Example Usage
+        ### CreateVirtualMachine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.scvmm.v20200605preview.VirtualMachine("virtualMachine",
+            cloud_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/Clouds/HRCloud",
+            extended_location=azure_native.scvmm.v20200605preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                type="customLocation",
+            ),
+            hardware_profile=azure_native.scvmm.v20200605preview.HardwareProfileArgs(
+                cpu_count=4,
+                memory_mb=4096,
+            ),
+            location="East US",
+            resource_group_name="testrg",
+            template_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachineTemplates/HRVirtualMachineTemplate",
+            virtual_machine_name="DemoVM",
+            vmm_server_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm/v20200605preview:VirtualMachine DemoVM /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachines/DemoVM 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualMachinePropertiesAvailabilitySetsArgs']]]] availability_sets: Availability Sets in vm.
@@ -382,6 +415,39 @@ class VirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The VirtualMachines resource definition.
+
+        ## Example Usage
+        ### CreateVirtualMachine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine = azure_native.scvmm.v20200605preview.VirtualMachine("virtualMachine",
+            cloud_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/Clouds/HRCloud",
+            extended_location=azure_native.scvmm.v20200605preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                type="customLocation",
+            ),
+            hardware_profile=azure_native.scvmm.v20200605preview.HardwareProfileArgs(
+                cpu_count=4,
+                memory_mb=4096,
+            ),
+            location="East US",
+            resource_group_name="testrg",
+            template_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachineTemplates/HRVirtualMachineTemplate",
+            virtual_machine_name="DemoVM",
+            vmm_server_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm/v20200605preview:VirtualMachine DemoVM /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachines/DemoVM 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineArgs args: The arguments to use to populate this resource's properties.

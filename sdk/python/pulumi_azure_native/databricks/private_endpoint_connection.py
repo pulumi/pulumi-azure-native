@@ -98,6 +98,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update a private endpoint connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.databricks.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="myWorkspace.23456789-1111-1111-1111-111111111111",
+            properties=azure_native.databricks.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.databricks.PrivateLinkServiceConnectionStateArgs(
+                    description="Approved by databricksadmin@contoso.com",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databricks:PrivateEndpointConnection myWorkspace.23456789-1111-1111-1111-111111111111 /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Databricks/workspaces/myWorkspace/PrivateEndpointConnections/myWorkspace.23456789-1111-1111-1111-111111111111 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
@@ -115,6 +143,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The private endpoint connection of a workspace
         API Version: 2023-02-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update a private endpoint connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.databricks.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="myWorkspace.23456789-1111-1111-1111-111111111111",
+            properties=azure_native.databricks.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.databricks.PrivateLinkServiceConnectionStateArgs(
+                    description="Approved by databricksadmin@contoso.com",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databricks:PrivateEndpointConnection myWorkspace.23456789-1111-1111-1111-111111111111 /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Databricks/workspaces/myWorkspace/PrivateEndpointConnections/myWorkspace.23456789-1111-1111-1111-111111111111 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -218,6 +218,41 @@ class Hunt(pulumi.CustomResource):
         """
         Represents a Hunt in Azure Security Insights.
 
+        ## Example Usage
+        ### Creates or updates a hunt.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hunt = azure_native.securityinsights.v20230401preview.Hunt("hunt",
+            attack_tactics=["Reconnaissance"],
+            attack_techniques=["T1595"],
+            description="Log4J Hunt Description",
+            display_name="Log4J new hunt",
+            hunt_id="163e7b2a-a2ec-4041-aaba-d878a38f265f",
+            hypothesis_status="Unknown",
+            labels=[
+                "Label1",
+                "Label2",
+            ],
+            owner=azure_native.securityinsights.v20230401preview.HuntOwnerArgs(
+                object_id="873b5263-5d34-4149-b356-ad341b01e123",
+            ),
+            resource_group_name="myRg",
+            status="New",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:Hunt 163e7b2a-a2ec-4041-aaba-d878a38f265f /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AttackTactic']]]] attack_tactics: A list of mitre attack tactics the hunt is associated with
@@ -240,6 +275,41 @@ class Hunt(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Hunt in Azure Security Insights.
+
+        ## Example Usage
+        ### Creates or updates a hunt.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hunt = azure_native.securityinsights.v20230401preview.Hunt("hunt",
+            attack_tactics=["Reconnaissance"],
+            attack_techniques=["T1595"],
+            description="Log4J Hunt Description",
+            display_name="Log4J new hunt",
+            hunt_id="163e7b2a-a2ec-4041-aaba-d878a38f265f",
+            hypothesis_status="Unknown",
+            labels=[
+                "Label1",
+                "Label2",
+            ],
+            owner=azure_native.securityinsights.v20230401preview.HuntOwnerArgs(
+                object_id="873b5263-5d34-4149-b356-ad341b01e123",
+            ),
+            resource_group_name="myRg",
+            status="New",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:Hunt 163e7b2a-a2ec-4041-aaba-d878a38f265f /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HuntArgs args: The arguments to use to populate this resource's properties.

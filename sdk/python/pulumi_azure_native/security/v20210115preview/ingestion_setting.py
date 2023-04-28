@@ -45,6 +45,25 @@ class IngestionSetting(pulumi.CustomResource):
         """
         Configures how to correlate scan data and logs with resources associated with the subscription.
 
+        ## Example Usage
+        ### Create an ingestion setting for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ingestion_setting = azure_native.security.v20210115preview.IngestionSetting("ingestionSetting", ingestion_setting_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20210115preview:IngestionSetting default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/ingestionSettings/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ingestion_setting_name: Name of the ingestion setting
@@ -57,6 +76,25 @@ class IngestionSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configures how to correlate scan data and logs with resources associated with the subscription.
+
+        ## Example Usage
+        ### Create an ingestion setting for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ingestion_setting = azure_native.security.v20210115preview.IngestionSetting("ingestionSetting", ingestion_setting_name="default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20210115preview:IngestionSetting default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/ingestionSettings/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IngestionSettingArgs args: The arguments to use to populate this resource's properties.

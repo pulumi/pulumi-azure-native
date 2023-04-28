@@ -11,6 +11,96 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220301Preview
 {
     /// <summary>
     /// Account resource details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update RecommendationsService Account resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.RecommendationsService.V20220301Preview.Account("account", new()
+    ///     {
+    ///         AccountName = "sampleAccount",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.RecommendationsService.V20220301Preview.Inputs.AccountResourcePropertiesArgs
+    ///         {
+    ///             Configuration = "Capacity",
+    ///             EndpointAuthentications = new[]
+    ///             {
+    ///                 new AzureNative.RecommendationsService.V20220301Preview.Inputs.EndpointAuthenticationArgs
+    ///                 {
+    ///                     AadTenantID = "tenant",
+    ///                     PrincipalID = "oid",
+    ///                     PrincipalType = "User",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Prod" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update RecommendationsService Account resource with managed identity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.RecommendationsService.V20220301Preview.Account("account", new()
+    ///     {
+    ///         AccountName = "sampleAccount",
+    ///         Identity = new AzureNative.RecommendationsService.V20220301Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned,UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/userAssignedIdentity", null },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.RecommendationsService.V20220301Preview.Inputs.AccountResourcePropertiesArgs
+    ///         {
+    ///             Configuration = "Capacity",
+    ///             EndpointAuthentications = new[]
+    ///             {
+    ///                 new AzureNative.RecommendationsService.V20220301Preview.Inputs.EndpointAuthenticationArgs
+    ///                 {
+    ///                     AadTenantID = "tenant",
+    ///                     PrincipalID = "oid",
+    ///                     PrincipalType = "User",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Prod" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recommendationsservice/v20220301preview:Account sampleAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice/v20220301preview:Account")]
     public partial class Account : global::Pulumi.CustomResource

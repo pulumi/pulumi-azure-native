@@ -251,6 +251,32 @@ class User(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.apimanagement.User("user",
+            confirmation="signup",
+            email="foobar@outlook.com",
+            first_name="foo",
+            last_name="bar",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            user_id="5931a75ae4bbd512288c680b")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:User 5931a75ae4bbd512288c680b /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/5931a75ae4bbd512288c680b 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AppType']] app_type: Determines the type of application which send the create user request. Default is legacy portal.
@@ -277,6 +303,32 @@ class User(pulumi.CustomResource):
         User details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.apimanagement.User("user",
+            confirmation="signup",
+            email="foobar@outlook.com",
+            first_name="foo",
+            last_name="bar",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            user_id="5931a75ae4bbd512288c680b")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:User 5931a75ae4bbd512288c680b /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/5931a75ae4bbd512288c680b 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

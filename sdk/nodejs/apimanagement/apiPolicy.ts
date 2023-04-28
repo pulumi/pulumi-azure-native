@@ -11,6 +11,55 @@ import * as utilities from "../utilities";
  * Policy Contract details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiPolicy = new azure_native.apimanagement.ApiPolicy("apiPolicy", {
+ *     apiId: "5600b57e7e8880006a040001",
+ *     format: "xml",
+ *     policyId: "policy",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     value: "<policies> <inbound /> <backend>    <forward-request />  </backend>  <outbound /></policies>",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateApiPolicyNonXmlEncoded
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiPolicy = new azure_native.apimanagement.ApiPolicy("apiPolicy", {
+ *     apiId: "5600b57e7e8880006a040001",
+ *     format: "rawxml",
+ *     policyId: "policy",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     value: `<policies>
+ *      <inbound>
+ *      <base />
+ *   <set-header name="newvalue" exists-action="override">
+ *    <value>"@(context.Request.Headers.FirstOrDefault(h => h.Ke=="Via"))" </value>
+ *     </set-header>
+ *   </inbound>
+ *       </policies>`,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:ApiPolicy policy /subscriptions/4c1a3bc6-89f9-46fe-a175-5d8984b25095/resourcegroups/Api-DF-West-US/providers/Microsoft.ApiManagement/service/samirmsiservice2/apis/echo-api/operations/create-resource/policies/policy 
+ * ```
  */
 export class ApiPolicy extends pulumi.CustomResource {
     /**

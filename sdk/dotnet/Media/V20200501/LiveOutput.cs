@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// The Live Output.
+    /// 
+    /// ## Example Usage
+    /// ### Create a LiveOutput
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var liveOutput = new AzureNative.Media.V20200501.LiveOutput("liveOutput", new()
+    ///     {
+    ///         AccountName = "slitestmedia10",
+    ///         ArchiveWindowLength = "PT5M",
+    ///         AssetName = "6f3264f5-a189-48b4-a29a-a40f22575212",
+    ///         Description = "test live output 1",
+    ///         Hls = new AzureNative.Media.V20200501.Inputs.HlsArgs
+    ///         {
+    ///             FragmentsPerTsSegment = 5,
+    ///         },
+    ///         LiveEventName = "myLiveEvent1",
+    ///         LiveOutputName = "myLiveOutput1",
+    ///         ManifestName = "testmanifest",
+    ///         ResourceGroupName = "mediaresources",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20200501:LiveOutput myLiveOutput1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/liveevents/myLiveEvent1/liveoutputs/myLiveOutput1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20200501:LiveOutput")]
     public partial class LiveOutput : global::Pulumi.CustomResource

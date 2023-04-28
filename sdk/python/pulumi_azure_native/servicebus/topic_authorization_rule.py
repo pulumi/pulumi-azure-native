@@ -113,6 +113,33 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### TopicAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic_authorization_rule = azure_native.servicebus.TopicAuthorizationRule("topicAuthorizationRule",
+            authorization_rule_name="sdk-AuthRules-4310",
+            namespace_name="sdk-Namespace-6261",
+            resource_group_name="ArunMonocle",
+            rights=[
+                azure_native.servicebus.AccessRights.LISTEN,
+                azure_native.servicebus.AccessRights.SEND,
+            ],
+            topic_name="sdk-Topics-1984")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:TopicAuthorizationRule sdk-AuthRules-4310 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-6261/topics/sdk-Topics-1984/authorizationRules/sdk-AuthRules-4310 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
@@ -131,6 +158,33 @@ class TopicAuthorizationRule(pulumi.CustomResource):
         Description of a namespace authorization rule.
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### TopicAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic_authorization_rule = azure_native.servicebus.TopicAuthorizationRule("topicAuthorizationRule",
+            authorization_rule_name="sdk-AuthRules-4310",
+            namespace_name="sdk-Namespace-6261",
+            resource_group_name="ArunMonocle",
+            rights=[
+                azure_native.servicebus.AccessRights.LISTEN,
+                azure_native.servicebus.AccessRights.SEND,
+            ],
+            topic_name="sdk-Topics-1984")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:TopicAuthorizationRule sdk-AuthRules-4310 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-6261/topics/sdk-Topics-1984/authorizationRules/sdk-AuthRules-4310 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

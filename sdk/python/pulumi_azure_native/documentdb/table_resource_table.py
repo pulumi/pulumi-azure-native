@@ -148,6 +148,34 @@ class TableResourceTable(pulumi.CustomResource):
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CosmosDBTableReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table_resource_table = azure_native.documentdb.TableResourceTable("tableResourceTable",
+            account_name="ddb1",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.TableResourceArgs(
+                id="tableName",
+            ),
+            resource_group_name="rg1",
+            table_name="tableName",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:TableResourceTable tableName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/tables/tableName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -168,6 +196,34 @@ class TableResourceTable(pulumi.CustomResource):
         An Azure Cosmos DB Table.
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CosmosDBTableReplace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table_resource_table = azure_native.documentdb.TableResourceTable("tableResourceTable",
+            account_name="ddb1",
+            location="West US",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.TableResourceArgs(
+                id="tableName",
+            ),
+            resource_group_name="rg1",
+            table_name="tableName",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:TableResourceTable tableName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/tables/tableName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TableResourceTableArgs args: The arguments to use to populate this resource's properties.

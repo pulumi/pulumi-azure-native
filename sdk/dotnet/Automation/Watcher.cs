@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Automation
     /// Definition of the watcher type.
     /// API Version: 2019-06-01.
     /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update watcher
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var watcher = new AzureNative.Automation.Watcher("watcher", new()
+    ///     {
+    ///         AutomationAccountName = "MyTestAutomationAccount",
+    ///         Description = "This is a test watcher.",
+    ///         ExecutionFrequencyInSeconds = 60,
+    ///         ResourceGroupName = "rg",
+    ///         ScriptName = "MyTestWatcherRunbook",
+    ///         ScriptRunOn = "MyTestHybridWorkerGroup",
+    ///         Tags = null,
+    ///         WatcherName = "MyTestWatcher",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation:Watcher MyTestWatcher /subscriptions/subId/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/MyTestAutomationAccount/watchers/MyTestWatcher 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource

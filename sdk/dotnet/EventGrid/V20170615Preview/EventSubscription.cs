@@ -11,6 +11,130 @@ namespace Pulumi.AzureNative.EventGrid.V20170615Preview
 {
     /// <summary>
     /// Event Subscription
+    /// 
+    /// ## Example Usage
+    /// ### EventSubscriptions_CreateForCustomTopic
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventSubscription = new AzureNative.EventGrid.V20170615Preview.EventSubscription("eventSubscription", new()
+    ///     {
+    ///         Destination = new AzureNative.EventGrid.V20170615Preview.Inputs.EventSubscriptionDestinationArgs
+    ///         {
+    ///             EndpointType = "WebHook",
+    ///             EndpointUrl = "https://requestb.in/15ksip71",
+    ///         },
+    ///         EventSubscriptionName = "examplesubscription1",
+    ///         Filter = new AzureNative.EventGrid.V20170615Preview.Inputs.EventSubscriptionFilterArgs
+    ///         {
+    ///             IsSubjectCaseSensitive = false,
+    ///             SubjectBeginsWith = "ExamplePrefix",
+    ///             SubjectEndsWith = "ExampleSuffix",
+    ///         },
+    ///         Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### EventSubscriptions_CreateForResource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventSubscription = new AzureNative.EventGrid.V20170615Preview.EventSubscription("eventSubscription", new()
+    ///     {
+    ///         Destination = new AzureNative.EventGrid.V20170615Preview.Inputs.EventSubscriptionDestinationArgs
+    ///         {
+    ///             EndpointType = "WebHook",
+    ///             EndpointUrl = "https://requestb.in/15ksip71",
+    ///         },
+    ///         EventSubscriptionName = "examplesubscription10",
+    ///         Filter = new AzureNative.EventGrid.V20170615Preview.Inputs.EventSubscriptionFilterArgs
+    ///         {
+    ///             IsSubjectCaseSensitive = false,
+    ///             SubjectBeginsWith = "ExamplePrefix",
+    ///             SubjectEndsWith = "ExampleSuffix",
+    ///         },
+    ///         Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### EventSubscriptions_CreateForResourceGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventSubscription = new AzureNative.EventGrid.V20170615Preview.EventSubscription("eventSubscription", new()
+    ///     {
+    ///         Destination = new AzureNative.EventGrid.V20170615Preview.Inputs.EventSubscriptionDestinationArgs
+    ///         {
+    ///             EndpointType = "WebHook",
+    ///             EndpointUrl = "https://requestb.in/15ksip71",
+    ///         },
+    ///         EventSubscriptionName = "examplesubscription2",
+    ///         Filter = new AzureNative.EventGrid.V20170615Preview.Inputs.EventSubscriptionFilterArgs
+    ///         {
+    ///             IsSubjectCaseSensitive = false,
+    ///             SubjectBeginsWith = "ExamplePrefix",
+    ///             SubjectEndsWith = "ExampleSuffix",
+    ///         },
+    ///         Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### EventSubscriptions_CreateForSubscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventSubscription = new AzureNative.EventGrid.V20170615Preview.EventSubscription("eventSubscription", new()
+    ///     {
+    ///         Destination = new AzureNative.EventGrid.V20170615Preview.Inputs.EventSubscriptionDestinationArgs
+    ///         {
+    ///             EndpointType = "WebHook",
+    ///             EndpointUrl = "https://requestb.in/15ksip71",
+    ///         },
+    ///         EventSubscriptionName = "examplesubscription3",
+    ///         Filter = new AzureNative.EventGrid.V20170615Preview.Inputs.EventSubscriptionFilterArgs
+    ///         {
+    ///             IsSubjectCaseSensitive = false,
+    ///         },
+    ///         Scope = "subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20170615preview:EventSubscription examplesubscription3 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/providers/Microsoft.EventGrid/eventSubscriptions/examplesubscription3 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-06-15-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:eventgrid/v20170615preview:EventSubscription")]

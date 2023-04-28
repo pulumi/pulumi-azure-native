@@ -11,6 +11,86 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
 {
     /// <summary>
     /// Network security user rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create a default user rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var userRule = new AzureNative.Network.V20210501Preview.UserRule("userRule", new()
+    ///     {
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///         RuleCollectionName = "testRuleCollection",
+    ///         RuleName = "SampleDefaultUserRule",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a user rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var userRule = new AzureNative.Network.V20210501Preview.UserRule("userRule", new()
+    ///     {
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         Description = "Sample User Rule",
+    ///         DestinationPortRanges = new[]
+    ///         {
+    ///             "22",
+    ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210501Preview.Inputs.AddressPrefixItemArgs
+    ///             {
+    ///                 AddressPrefix = "*",
+    ///                 AddressPrefixType = "IPPrefix",
+    ///             },
+    ///         },
+    ///         Direction = "Inbound",
+    ///         Kind = "Custom",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         Protocol = "Tcp",
+    ///         ResourceGroupName = "rg1",
+    ///         RuleCollectionName = "testRuleCollection",
+    ///         RuleName = "SampleUserRule",
+    ///         SourcePortRanges = new[]
+    ///         {
+    ///             "0-65535",
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210501Preview.Inputs.AddressPrefixItemArgs
+    ///             {
+    ///                 AddressPrefix = "*",
+    ///                 AddressPrefixType = "IPPrefix",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210501preview:UserRule SampleUserRule /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/SecurityUserConfigurations/Policy1/ruleCollections/testRuleCollection/rules/SampleUserRule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210501preview:UserRule")]
     public partial class UserRule : global::Pulumi.CustomResource

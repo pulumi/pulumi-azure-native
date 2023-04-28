@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Solutions.V20190701
 {
     /// <summary>
     /// Information about JIT request definition.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the JIT request
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jitRequest = new AzureNative.Solutions.V20190701.JitRequest("jitRequest", new()
+    ///     {
+    ///         ApplicationResourceId = "/subscriptions/00c76877-e316-48a7-af60-4a09fec9d43f/resourceGroups/52F30DB2/providers/Microsoft.Solutions/applications/7E193158",
+    ///         JitAuthorizationPolicies = new[]
+    ///         {
+    ///             new AzureNative.Solutions.V20190701.Inputs.JitAuthorizationPoliciesArgs
+    ///             {
+    ///                 PrincipalId = "1db8e132e2934dbcb8e1178a61319491",
+    ///                 RoleDefinitionId = "ecd05a23-931a-4c38-a52b-ac7c4c583334",
+    ///             },
+    ///         },
+    ///         JitRequestName = "myJitRequest",
+    ///         JitSchedulingPolicy = new AzureNative.Solutions.V20190701.Inputs.JitSchedulingPolicyArgs
+    ///         {
+    ///             Duration = "PT8H",
+    ///             StartTime = "2021-04-22T05:48:30.6661804Z",
+    ///             Type = "Once",
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:solutions/v20190701:JitRequest myJitRequest /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/jitRequests/myJitRequest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions/v20190701:JitRequest")]
     public partial class JitRequest : global::Pulumi.CustomResource

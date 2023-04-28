@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.Automation.V20190601
 {
     /// <summary>
     /// Definition of the schedule.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a schedule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schedule = new AzureNative.Automation.V20190601.Schedule("schedule", new()
+    ///     {
+    ///         AdvancedSchedule = null,
+    ///         AutomationAccountName = "myAutomationAccount33",
+    ///         Description = "my description of schedule goes here",
+    ///         ExpiryTime = "2017-04-01T17:28:57.2494819Z",
+    ///         Frequency = "Hour",
+    ///         Interval = 1,
+    ///         Name = "mySchedule",
+    ///         ResourceGroupName = "rg",
+    ///         ScheduleName = "mySchedule",
+    ///         StartTime = "2017-03-27T17:28:57.2494819Z",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20190601:Schedule mySchedule /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/schedules/mySchedule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

@@ -9,6 +9,51 @@ import * as utilities from "../../utilities";
 
 /**
  * The Customer Notification Event resource.
+ *
+ * ## Example Usage
+ * ### CustomerEventCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customerEvent = new azure_native.testbase.v20220401preview.CustomerEvent("customerEvent", {
+ *     customerEventName: "WeeklySummary",
+ *     eventName: "WeeklySummary",
+ *     receivers: [
+ *         {
+ *             receiverType: "UserObjects",
+ *             receiverValue: {
+ *                 userObjectReceiverValue: {
+ *                     userObjectIds: [
+ *                         "245245245245325",
+ *                         "365365365363565",
+ *                     ],
+ *                 },
+ *             },
+ *         },
+ *         {
+ *             receiverType: "DistributionGroup",
+ *             receiverValue: {
+ *                 distributionGroupListReceiverValue: {
+ *                     distributionGroups: ["test@microsoft.com"],
+ *                 },
+ *             },
+ *         },
+ *     ],
+ *     resourceGroupName: "contoso-rg1",
+ *     testBaseAccountName: "contoso-testBaseAccount1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:testbase/v20220401preview:CustomerEvent WeeklySummary /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/customerEvents/WeeklySummary 
+ * ```
  */
 export class CustomerEvent extends pulumi.CustomResource {
     /**

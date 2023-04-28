@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
 {
     /// <summary>
     /// Event Grid Partner Topic.
+    /// 
+    /// ## Example Usage
+    /// ### PartnerTopics_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var partnerTopic = new AzureNative.EventGrid.V20220615.PartnerTopic("partnerTopic", new()
+    ///     {
+    ///         ExpirationTimeIfNotActivatedUtc = "2022-03-23T23:06:13.109Z",
+    ///         Location = "westus2",
+    ///         MessageForActivation = "Example message for activation",
+    ///         PartnerRegistrationImmutableId = "6f541064-031d-4cc8-9ec3-a3b4fc0f7185",
+    ///         PartnerTopicFriendlyDescription = "Example description",
+    ///         PartnerTopicName = "examplePartnerTopicName1",
+    ///         ResourceGroupName = "examplerg",
+    ///         Source = "ContosoCorp.Accounts.User1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20220615:PartnerTopic examplePartnerTopicName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerTopics/examplePartnerTopicName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20220615:PartnerTopic")]
     public partial class PartnerTopic : global::Pulumi.CustomResource

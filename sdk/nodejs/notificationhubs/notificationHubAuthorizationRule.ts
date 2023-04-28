@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Description of a Namespace AuthorizationRules.
  * API Version: 2017-04-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### NotificationHubAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const notificationHubAuthorizationRule = new azure_native.notificationhubs.NotificationHubAuthorizationRule("notificationHubAuthorizationRule", {
+ *     authorizationRuleName: "DefaultListenSharedAccessSignature",
+ *     namespaceName: "nh-sdk-ns",
+ *     notificationHubName: "nh-sdk-hub",
+ *     properties: {
+ *         rights: [
+ *             azure_native.notificationhubs.AccessRights.Listen,
+ *             azure_native.notificationhubs.AccessRights.Send,
+ *         ],
+ *     },
+ *     resourceGroupName: "5ktrial",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:notificationhubs:NotificationHubAuthorizationRule DefaultListenSharedAccessSignature /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/5ktrial/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/NotificationHubs/nh-sdk-hub/AuthorizationRules/DefaultListenSharedAccessSignature 
+ * ```
  */
 export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
     /**

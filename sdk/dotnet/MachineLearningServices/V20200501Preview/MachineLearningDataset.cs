@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
 {
     /// <summary>
     /// Machine Learning dataset object wrapped into ARM resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### Create Dataset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDataset = new AzureNative.MachineLearningServices.V20200501Preview.MachineLearningDataset("machineLearningDataset", new()
+    ///     {
+    ///         DatasetName = "datasetName123",
+    ///         DatasetType = "file",
+    ///         Parameters = new AzureNative.MachineLearningServices.V20200501Preview.Inputs.DatasetCreateRequestParametersArgs
+    ///         {
+    ///             Path = new AzureNative.MachineLearningServices.V20200501Preview.Inputs.DatasetCreateRequestPathArgs
+    ///             {
+    ///                 DataPath = new AzureNative.MachineLearningServices.V20200501Preview.Inputs.DatasetCreateRequestDataPathArgs
+    ///                 {
+    ///                     DatastoreName = "testblobfromarm",
+    ///                     RelativePath = "UI/03-26-2020_083359_UTC/latin1encoding.csv",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Registration = new AzureNative.MachineLearningServices.V20200501Preview.Inputs.DatasetCreateRequestRegistrationArgs
+    ///         {
+    ///             Description = "test description",
+    ///             Name = "datasetName123",
+    ///         },
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         SkipValidation = false,
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20200501preview:MachineLearningDataset datasetName123 /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/acjain-mleastUS2/providers/Microsoft.MachineLearningServices/workspaces/acjain-mleastUS2/datasets/datasetName123 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:MachineLearningDataset")]
     public partial class MachineLearningDataset : global::Pulumi.CustomResource

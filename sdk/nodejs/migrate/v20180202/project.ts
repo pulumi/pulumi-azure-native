@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Migrate Project.
+ *
+ * ## Example Usage
+ * ### Projects_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const project = new azure_native.migrate.v20180202.Project("project", {
+ *     customerWorkspaceId: "url-to-customers-service-map",
+ *     customerWorkspaceLocation: "West Us",
+ *     eTag: "\"b701c73a-0000-0000-0000-59c12ff00000\"",
+ *     location: "West Us",
+ *     projectName: "project01",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20180202:Project project01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01 
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

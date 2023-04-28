@@ -10,6 +10,36 @@ import * as utilities from "../../utilities";
 /**
  * Managed cluster.
  *
+ * ## Example Usage
+ * ### Create/Update Managed Cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedCluster = new azure_native.containerservice.v20170831.ManagedCluster("managedCluster", {
+ *     agentPoolProfiles: [{
+ *         count: 1,
+ *         name: "agentpool1",
+ *         vmSize: "Standard_D2_v2",
+ *     }],
+ *     dnsPrefix: "dnsprefix1",
+ *     kubernetesVersion: "1.7.7",
+ *     location: "location1",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice/v20170831:ManagedCluster mycluster1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+ * ```
+ *
  * @deprecated Version 2017-08-31 will be removed in v2 of the provider.
  */
 export class ManagedCluster extends pulumi.CustomResource {

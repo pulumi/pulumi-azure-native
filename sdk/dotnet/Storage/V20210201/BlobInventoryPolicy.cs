@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.Storage.V20210201
 {
     /// <summary>
     /// The storage account blob inventory policy.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountSetBlobInventoryPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobInventoryPolicy = new AzureNative.Storage.V20210201.BlobInventoryPolicy("blobInventoryPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         BlobInventoryPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20210201.Inputs.BlobInventoryPolicySchemaArgs
+    ///         {
+    ///             Destination = "containerName",
+    ///             Enabled = true,
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20210201.Inputs.BlobInventoryPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20210201.Inputs.BlobInventoryPolicyDefinitionArgs
+    ///                     {
+    ///                         Filters = new AzureNative.Storage.V20210201.Inputs.BlobInventoryPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                                 "appendBlob",
+    ///                                 "pageBlob",
+    ///                             },
+    ///                             IncludeBlobVersions = true,
+    ///                             IncludeSnapshots = true,
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "inventoryprefix1",
+    ///                                 "inventoryprefix2",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Enabled = true,
+    ///                     Name = "inventoryPolicyRule1",
+    ///                 },
+    ///             },
+    ///             Type = "Inventory",
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20210201:BlobInventoryPolicy DefaultInventoryPolicy /subscriptions/{subscription-id}/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210201:BlobInventoryPolicy")]
     public partial class BlobInventoryPolicy : global::Pulumi.CustomResource

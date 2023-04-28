@@ -96,6 +96,39 @@ class RegistryDataContainer(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Registry Data Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_data_container = azure_native.machinelearningservices.v20230401preview.RegistryDataContainer("registryDataContainer",
+            data_container_properties=azure_native.machinelearningservices.v20230401preview.DataContainerArgs(
+                data_type="uri_folder",
+                description="string",
+                is_archived=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            registry_name="registryName",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryDataContainer string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DataContainerArgs']] data_container_properties: [Required] Additional attributes of the entity.
@@ -111,6 +144,39 @@ class RegistryDataContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Registry Data Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_data_container = azure_native.machinelearningservices.v20230401preview.RegistryDataContainer("registryDataContainer",
+            data_container_properties=azure_native.machinelearningservices.v20230401preview.DataContainerArgs(
+                data_type="uri_folder",
+                description="string",
+                is_archived=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            registry_name="registryName",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryDataContainer string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryDataContainerArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,62 @@ namespace Pulumi.AzureNative.AVS.V20220501
 {
     /// <summary>
     /// An instance of a script executed by a user - custom or AVS
+    /// 
+    /// ## Example Usage
+    /// ### ScriptExecutions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scriptExecution = new AzureNative.AVS.V20220501.ScriptExecution("scriptExecution", new()
+    ///     {
+    ///         HiddenParameters = new[]
+    ///         {
+    ///             new AzureNative.AVS.V20220501.Inputs.ScriptSecureStringExecutionParameterArgs
+    ///             {
+    ///                 Name = "Password",
+    ///                 SecureValue = "PlaceholderPassword",
+    ///                 Type = "SecureValue",
+    ///             },
+    ///         },
+    ///         Parameters = new[]
+    ///         {
+    ///             new AzureNative.AVS.V20220501.Inputs.ScriptStringExecutionParameterArgs
+    ///             {
+    ///                 Name = "DomainName",
+    ///                 Type = "Value",
+    ///                 Value = "placeholderDomain.local",
+    ///             },
+    ///             new AzureNative.AVS.V20220501.Inputs.ScriptStringExecutionParameterArgs
+    ///             {
+    ///                 Name = "BaseUserDN",
+    ///                 Type = "Value",
+    ///                 Value = "DC=placeholder, DC=placeholder",
+    ///             },
+    ///         },
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Retention = "P0Y0M60DT0H60M60S",
+    ///         ScriptCmdletId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/scriptPackages/AVS.PowerCommands@1.0.0/scriptCmdlets/New-SsoExternalIdentitySource",
+    ///         ScriptExecutionName = "addSsoServer",
+    ///         Timeout = "P0Y0M0DT0H60M60S",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20220501:ScriptExecution addSsoServer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/scriptExecutions/addSsoServer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20220501:ScriptExecution")]
     public partial class ScriptExecution : global::Pulumi.CustomResource

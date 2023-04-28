@@ -11,6 +11,76 @@ import * as utilities from "../utilities";
  * Backup Vault Resource
  * API Version: 2023-01-01.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create BackupVault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const backupVault = new azure_native.dataprotection.BackupVault("backupVault", {
+ *     identity: {
+ *         type: "None",
+ *     },
+ *     location: "WestUS",
+ *     properties: {
+ *         monitoringSettings: {
+ *             azureMonitorAlertSettings: {
+ *                 alertsForAllJobFailures: "Enabled",
+ *             },
+ *         },
+ *         storageSettings: [{
+ *             datastoreType: "VaultStore",
+ *             type: "LocallyRedundant",
+ *         }],
+ *     },
+ *     resourceGroupName: "SampleResourceGroup",
+ *     tags: {
+ *         key1: "val1",
+ *     },
+ *     vaultName: "swaggerExample",
+ * });
+ *
+ * ```
+ * ### Create BackupVault With MSI
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const backupVault = new azure_native.dataprotection.BackupVault("backupVault", {
+ *     identity: {
+ *         type: "systemAssigned",
+ *     },
+ *     location: "WestUS",
+ *     properties: {
+ *         monitoringSettings: {
+ *             azureMonitorAlertSettings: {
+ *                 alertsForAllJobFailures: "Enabled",
+ *             },
+ *         },
+ *         storageSettings: [{
+ *             datastoreType: "VaultStore",
+ *             type: "LocallyRedundant",
+ *         }],
+ *     },
+ *     resourceGroupName: "SampleResourceGroup",
+ *     tags: {
+ *         key1: "val1",
+ *     },
+ *     vaultName: "swaggerExample",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dataprotection:BackupVault swaggerExample /subscriptions/0b352192-dcac-4cc7-992e-a96190ccc68c/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/Backupvaults/swaggerExample 
+ * ```
  */
 export class BackupVault extends pulumi.CustomResource {
     /**

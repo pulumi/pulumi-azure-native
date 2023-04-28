@@ -10,6 +10,70 @@ import * as utilities from "../../utilities";
 /**
  * A budget resource.
  *
+ * ## Example Usage
+ * ### CreateOrUpdateBudget
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const budgetByResourceGroupName = new azure_native.consumption.v20181001.BudgetByResourceGroupName("budgetByResourceGroupName", {
+ *     amount: 100.65,
+ *     budgetName: "TestBudget",
+ *     category: "Cost",
+ *     eTag: "\"1d34d016a593709\"",
+ *     filters: {
+ *         meters: ["00000000-0000-0000-0000-000000000000"],
+ *         resourceGroups: ["MYDEVTESTRG"],
+ *         resources: [
+ *             "/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/MYVM2",
+ *             "/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
+ *         ],
+ *         tags: {
+ *             category: [
+ *                 "Dev",
+ *                 "Prod",
+ *             ],
+ *             department: [
+ *                 "engineering",
+ *                 "sales",
+ *             ],
+ *         },
+ *     },
+ *     notifications: {
+ *         Actual_GreaterThan_80_Percent: {
+ *             contactEmails: [
+ *                 "johndoe@contoso.com",
+ *                 "janesmith@contoso.com",
+ *             ],
+ *             contactGroups: ["/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/microsoft.insights/actionGroups/SampleActionGroup"],
+ *             contactRoles: [
+ *                 "Contributor",
+ *                 "Reader",
+ *             ],
+ *             enabled: true,
+ *             operator: "GreaterThan",
+ *             threshold: 80,
+ *         },
+ *     },
+ *     resourceGroupName: "MYDEVTESTRG",
+ *     timeGrain: "Monthly",
+ *     timePeriod: {
+ *         endDate: "2018-10-31T00:00:00Z",
+ *         startDate: "2017-10-01T00:00:00Z",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:consumption/v20181001:BudgetByResourceGroupName TestBudget subscriptions/{subscription-id}/providers/Microsoft.Consumption/budgets/TestBudget 
+ * ```
+ *
  * @deprecated Version 2018-10-01 will be removed in v2 of the provider.
  */
 export class BudgetByResourceGroupName extends pulumi.CustomResource {

@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Authorization.V20201001
 {
     /// <summary>
     /// Role management policy
+    /// 
+    /// ## Example Usage
+    /// ### PutRoleManagementPolicyAssignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var roleManagementPolicyAssignment = new AzureNative.Authorization.V20201001.RoleManagementPolicyAssignment("roleManagementPolicyAssignment", new()
+    ///     {
+    ///         PolicyId = "/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicies/b959d571-f0b5-4042-88a7-01be6cb22db9",
+    ///         RoleDefinitionId = "/subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleDefinitions/a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
+    ///         RoleManagementPolicyAssignmentName = "b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
+    ///         Scope = "/subscriptions/129ff972-28f8-46b8-a726-e497be039368",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20201001:RoleManagementPolicyAssignment b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24 /subscriptions/129ff972-28f8-46b8-a726-e497be039368/providers/Microsoft.Authorization/roleManagementPolicyAssignment/b959d571-f0b5-4042-88a7-01be6cb22db9_a1705bd2-3a8f-45a5-8683-466fcfd5cc24 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20201001:RoleManagementPolicyAssignment")]
     public partial class RoleManagementPolicyAssignment : global::Pulumi.CustomResource

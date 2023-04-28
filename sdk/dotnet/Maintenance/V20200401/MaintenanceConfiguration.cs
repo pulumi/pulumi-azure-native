@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Maintenance.V20200401
 {
     /// <summary>
     /// Maintenance configuration record type
+    /// 
+    /// ## Example Usage
+    /// ### MaintenanceConfigurations_CreateOrUpdateForResource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var maintenanceConfiguration = new AzureNative.Maintenance.V20200401.MaintenanceConfiguration("maintenanceConfiguration", new()
+    ///     {
+    ///         Location = "westus2",
+    ///         Namespace = "Microsoft.Maintenance",
+    ///         ResourceGroupName = "examplerg",
+    ///         ResourceName = "configuration1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maintenance/v20200401:MaintenanceConfiguration configuration1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maintenance/v20200401:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource

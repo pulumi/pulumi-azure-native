@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a migration resource.
+ *
+ * ## Example Usage
+ * ### Migrations_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const migration = new azure_native.dbforpostgresql.v20220501preview.Migration("migration", {
+ *     dBsToMigrate: [
+ *         "db1",
+ *         "db2",
+ *         "db3",
+ *         "db4",
+ *     ],
+ *     location: "westus",
+ *     migrationName: "testmigration",
+ *     resourceGroupName: "testrg",
+ *     sourceDBServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+ *     targetDBServerName: "testtarget",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20220501preview:Migration d3ceacbb-a5fd-43dc-a9db-6022b5154856 d3ceacbb-a5fd-43dc-a9db-6022b5154856 
+ * ```
  */
 export class Migration extends pulumi.CustomResource {
     /**

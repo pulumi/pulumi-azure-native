@@ -96,6 +96,28 @@ class Anomalies(pulumi.CustomResource):
         """
         Settings with single toggle.
 
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        anomalies = azure_native.securityinsights.v20220401preview.Anomalies("anomalies",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220401preview:Anomalies EyesOn /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirInt/providers/Microsoft.SecurityInsights/settings/EyesOn 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: The kind of the setting
@@ -112,6 +134,28 @@ class Anomalies(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Settings with single toggle.
+
+        ## Example Usage
+        ### Update EyesOn settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        anomalies = azure_native.securityinsights.v20220401preview.Anomalies("anomalies",
+            resource_group_name="myRg",
+            settings_name="EyesOn",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220401preview:Anomalies EyesOn /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirInt/providers/Microsoft.SecurityInsights/settings/EyesOn 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AnomaliesArgs args: The arguments to use to populate this resource's properties.

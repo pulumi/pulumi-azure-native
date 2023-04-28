@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents a Watchlist in Azure Security Insights.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a watchlist.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var watchlist = new AzureNative.SecurityInsights.V20190101Preview.Watchlist("watchlist", new()
+    ///     {
+    ///         ContentType = "text/csv",
+    ///         Description = "Watchlist from CSV content",
+    ///         DisplayName = "High Value Assets Watchlist",
+    ///         NumberOfLinesToSkip = 1,
+    ///         OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///         Provider = "Microsoft",
+    ///         RawContent = @"This line will be skipped
+    /// header1,header2
+    /// value1,value2",
+    ///         ResourceGroupName = "myRg",
+    ///         Source = "Local file",
+    ///         WatchlistAlias = "highValueAsset",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20190101preview:Watchlist highValueAsset /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/watchlists/highValueAsset 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:Watchlist")]
     public partial class Watchlist : global::Pulumi.CustomResource

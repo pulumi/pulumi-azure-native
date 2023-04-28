@@ -11,6 +11,89 @@ namespace Pulumi.AzureNative.Compute.V20160430Preview
 {
     /// <summary>
     /// Snapshot resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create a snapshot by importing an unmanaged blob from a different subscription.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var snapshot = new AzureNative.Compute.V20160430Preview.Snapshot("snapshot", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20160430Preview.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = AzureNative.Compute.V20160430Preview.DiskCreateOption.Import,
+    ///             SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///             StorageAccountId = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SnapshotName = "mySnapshot1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a snapshot by importing an unmanaged blob from the same subscription.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var snapshot = new AzureNative.Compute.V20160430Preview.Snapshot("snapshot", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20160430Preview.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = AzureNative.Compute.V20160430Preview.DiskCreateOption.Import,
+    ///             SourceUri = "https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SnapshotName = "mySnapshot1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a snapshot from an existing snapshot in the same or a different subscription.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var snapshot = new AzureNative.Compute.V20160430Preview.Snapshot("snapshot", new()
+    ///     {
+    ///         CreationData = new AzureNative.Compute.V20160430Preview.Inputs.CreationDataArgs
+    ///         {
+    ///             CreateOption = AzureNative.Compute.V20160430Preview.DiskCreateOption.Copy,
+    ///             SourceResourceId = "subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot1",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SnapshotName = "mySnapshot2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20160430preview:Snapshot mySnapshot2 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/snapshots/{snapshotName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-04-30-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20160430preview:Snapshot")]

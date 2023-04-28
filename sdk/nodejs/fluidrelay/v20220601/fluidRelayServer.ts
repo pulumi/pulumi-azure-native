@@ -9,6 +9,92 @@ import * as utilities from "../../utilities";
 
 /**
  * A FluidRelay Server.
+ *
+ * ## Example Usage
+ * ### Create a Fluid Relay server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fluidRelayServer = new azure_native.fluidrelay.v20220601.FluidRelayServer("fluidRelayServer", {
+ *     fluidRelayServerName: "myFluidRelayServer",
+ *     identity: {
+ *         type: azure_native.fluidrelay.v20220601.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "west-us",
+ *     resourceGroup: "myResourceGroup",
+ *     storagesku: "basic",
+ *     tags: {
+ *         Category: "sales",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a Fluid Relay server with AMI
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fluidRelayServer = new azure_native.fluidrelay.v20220601.FluidRelayServer("fluidRelayServer", {
+ *     fluidRelayServerName: "myFluidRelayServer",
+ *     identity: {
+ *         type: azure_native.fluidrelay.v20220601.ResourceIdentityType.SystemAssigned_UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+ *             "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {},
+ *         },
+ *     },
+ *     location: "west-us",
+ *     resourceGroup: "myResourceGroup",
+ *     storagesku: "basic",
+ *     tags: {
+ *         Category: "sales",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a Fluid Relay server with CMK
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fluidRelayServer = new azure_native.fluidrelay.v20220601.FluidRelayServer("fluidRelayServer", {
+ *     encryption: {
+ *         customerManagedKeyEncryption: {
+ *             keyEncryptionKeyIdentity: {
+ *                 identityType: azure_native.fluidrelay.v20220601.CmkIdentityType.UserAssigned,
+ *                 userAssignedIdentityResourceId: "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityForCMK",
+ *             },
+ *             keyEncryptionKeyUrl: "https://contosovault.vault.azure.net/keys/contosokek",
+ *         },
+ *     },
+ *     fluidRelayServerName: "myFluidRelayServer",
+ *     identity: {
+ *         type: azure_native.fluidrelay.v20220601.ResourceIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityForCMK": {},
+ *         },
+ *     },
+ *     location: "west-us",
+ *     resourceGroup: "myResourceGroup",
+ *     storagesku: "basic",
+ *     tags: {
+ *         Category: "sales",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:fluidrelay/v20220601:FluidRelayServer myFluidRelayServer /subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/Microsoft.FluidRelay/fluidRelayServers/myFluidRelayServer 
+ * ```
  */
 export class FluidRelayServer extends pulumi.CustomResource {
     /**

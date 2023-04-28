@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
 {
     /// <summary>
     /// Description of a Namespace resource.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @namespace = new AzureNative.NotificationHubs.V20170401.Namespace("namespace", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         NamespaceName = "nh-sdk-ns",
+    ///         ResourceGroupName = "5ktrial",
+    ///         Sku = new AzureNative.NotificationHubs.V20170401.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:notificationhubs/v20170401:Namespace sdk-Namespace-2924 /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/ArunMonocle/providers/Microsoft.NotificationHubs/namespaces/sdk-Namespace-2924 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs/v20170401:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

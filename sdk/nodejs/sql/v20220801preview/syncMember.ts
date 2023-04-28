@@ -9,6 +9,56 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL Database sync member.
+ *
+ * ## Example Usage
+ * ### Create a new sync member
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const syncMember = new azure_native.sql.v20220801preview.SyncMember("syncMember", {
+ *     databaseName: "syncgroupcrud-4328",
+ *     databaseType: "AzureSqlDatabase",
+ *     resourceGroupName: "syncgroupcrud-65440",
+ *     serverName: "syncgroupcrud-8475",
+ *     syncDirection: "Bidirectional",
+ *     syncGroupName: "syncgroupcrud-3187",
+ *     syncMemberAzureDatabaseResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+ *     syncMemberName: "syncmembercrud-4879",
+ *     usePrivateLinkConnection: true,
+ *     userName: "myUser",
+ * });
+ *
+ * ```
+ * ### Update a sync member
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const syncMember = new azure_native.sql.v20220801preview.SyncMember("syncMember", {
+ *     databaseName: "syncgroupcrud-7421",
+ *     databaseType: "AzureSqlDatabase",
+ *     resourceGroupName: "syncgroupcrud-65440",
+ *     serverName: "syncgroupcrud-8475",
+ *     syncDirection: "Bidirectional",
+ *     syncGroupName: "syncgroupcrud-3187",
+ *     syncMemberAzureDatabaseResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+ *     syncMemberName: "syncmembercrud-4879",
+ *     usePrivateLinkConnection: true,
+ *     userName: "myUser",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:SyncMember syncmembercrud-4879 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncmembercrud-4879 
+ * ```
  */
 export class SyncMember extends pulumi.CustomResource {
     /**

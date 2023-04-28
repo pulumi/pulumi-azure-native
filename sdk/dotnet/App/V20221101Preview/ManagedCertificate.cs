@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.App.V20221101Preview
 {
     /// <summary>
     /// Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCertificate = new AzureNative.App.V20221101Preview.ManagedCertificate("managedCertificate", new()
+    ///     {
+    ///         EnvironmentName = "testcontainerenv",
+    ///         Location = "East US",
+    ///         ManagedCertificateName = "certificate-firendly-name",
+    ///         Properties = new AzureNative.App.V20221101Preview.Inputs.ManagedCertificatePropertiesArgs
+    ///         {
+    ///             DomainControlValidation = "CNAME",
+    ///             SubjectName = "my-subject-name.company.country.net",
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20221101preview:ManagedCertificate myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv/managedCertificates/certificate-firendly-name 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20221101preview:ManagedCertificate")]
     public partial class ManagedCertificate : global::Pulumi.CustomResource

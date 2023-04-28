@@ -126,6 +126,139 @@ class ApiSchema(pulumi.CustomResource):
         """
         Schema Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiSchema
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_schema = azure_native.apimanagement.v20190101.ApiSchema("apiSchema",
+            api_id="59d6bb8f1f7fab13dc67ec9b",
+            content_type="application/vnd.ms-azure-apim.xsd+xml",
+            resource_group_name="rg1",
+            schema_id="ec12520d-9d48-4e7b-8f39-698ca2ac63f1",
+            service_name="apimService1",
+            value=\"\"\"<s:schema elementFormDefault="qualified" targetNamespace="http://ws.cdyne.com/WeatherWS/" xmlns:tns="http://ws.cdyne.com/WeatherWS/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apim-wsdltns="http://ws.cdyne.com/WeatherWS/">
+          <s:element name="GetWeatherInformation">
+            <s:complexType />
+          </s:element>
+          <s:element name="GetWeatherInformationResponse">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="GetWeatherInformationResult" type="tns:ArrayOfWeatherDescription" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:complexType name="ArrayOfWeatherDescription">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="WeatherDescription" type="tns:WeatherDescription" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="WeatherDescription">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="WeatherID" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PictureURL" type="s:string" />
+            </s:sequence>
+          </s:complexType>
+          <s:element name="GetCityForecastByZIP">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ZIP" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element name="GetCityForecastByZIPResponse">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="GetCityForecastByZIPResult" type="tns:ForecastReturn" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:complexType name="ForecastReturn">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="ResponseText" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="WeatherStationCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ForecastResult" type="tns:ArrayOfForecast" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="ArrayOfForecast">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="Forecast" nillable="true" type="tns:Forecast" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="Forecast">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="WeatherID" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Desciption" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Temperatures" type="tns:temp" />
+              <s:element minOccurs="1" maxOccurs="1" name="ProbabilityOfPrecipiation" type="tns:POP" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="temp">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MorningLow" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DaytimeHigh" type="s:string" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="POP">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Nighttime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Daytime" type="s:string" />
+            </s:sequence>
+          </s:complexType>
+          <s:element name="GetCityWeatherByZIP">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ZIP" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element name="GetCityWeatherByZIPResponse">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="GetCityWeatherByZIPResult" type="tns:WeatherReturn" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:complexType name="WeatherReturn">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="ResponseText" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="WeatherStationCity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="WeatherID" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Temperature" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RelativeHumidity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Wind" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Pressure" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Visibility" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="WindChill" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+            </s:sequence>
+          </s:complexType>
+          <s:element name="ArrayOfWeatherDescription" nillable="true" type="tns:ArrayOfWeatherDescription" />
+          <s:element name="ForecastReturn" nillable="true" type="tns:ForecastReturn" />
+          <s:element name="WeatherReturn" type="tns:WeatherReturn" />
+        </s:schema>\"\"\")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20190101:ApiSchema ec12520d-9d48-4e7b-8f39-698ca2ac63f1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/59d6bb8f1f7fab13dc67ec9b/schemas/ec12520d-9d48-4e7b-8f39-698ca2ac63f1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -143,6 +276,139 @@ class ApiSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Schema Contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiSchema
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_schema = azure_native.apimanagement.v20190101.ApiSchema("apiSchema",
+            api_id="59d6bb8f1f7fab13dc67ec9b",
+            content_type="application/vnd.ms-azure-apim.xsd+xml",
+            resource_group_name="rg1",
+            schema_id="ec12520d-9d48-4e7b-8f39-698ca2ac63f1",
+            service_name="apimService1",
+            value=\"\"\"<s:schema elementFormDefault="qualified" targetNamespace="http://ws.cdyne.com/WeatherWS/" xmlns:tns="http://ws.cdyne.com/WeatherWS/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:apim-wsdltns="http://ws.cdyne.com/WeatherWS/">
+          <s:element name="GetWeatherInformation">
+            <s:complexType />
+          </s:element>
+          <s:element name="GetWeatherInformationResponse">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="GetWeatherInformationResult" type="tns:ArrayOfWeatherDescription" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:complexType name="ArrayOfWeatherDescription">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="WeatherDescription" type="tns:WeatherDescription" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="WeatherDescription">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="WeatherID" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PictureURL" type="s:string" />
+            </s:sequence>
+          </s:complexType>
+          <s:element name="GetCityForecastByZIP">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ZIP" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element name="GetCityForecastByZIPResponse">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="GetCityForecastByZIPResult" type="tns:ForecastReturn" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:complexType name="ForecastReturn">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="ResponseText" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="WeatherStationCity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ForecastResult" type="tns:ArrayOfForecast" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="ArrayOfForecast">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="unbounded" name="Forecast" nillable="true" type="tns:Forecast" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="Forecast">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="WeatherID" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Desciption" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Temperatures" type="tns:temp" />
+              <s:element minOccurs="1" maxOccurs="1" name="ProbabilityOfPrecipiation" type="tns:POP" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="temp">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="MorningLow" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DaytimeHigh" type="s:string" />
+            </s:sequence>
+          </s:complexType>
+          <s:complexType name="POP">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Nighttime" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Daytime" type="s:string" />
+            </s:sequence>
+          </s:complexType>
+          <s:element name="GetCityWeatherByZIP">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="0" maxOccurs="1" name="ZIP" type="s:string" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:element name="GetCityWeatherByZIPResponse">
+            <s:complexType>
+              <s:sequence>
+                <s:element minOccurs="1" maxOccurs="1" name="GetCityWeatherByZIPResult" type="tns:WeatherReturn" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+          <s:complexType name="WeatherReturn">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="ResponseText" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="WeatherStationCity" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="WeatherID" type="s:short" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Temperature" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="RelativeHumidity" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Wind" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Pressure" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Visibility" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="WindChill" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Remarks" type="s:string" />
+            </s:sequence>
+          </s:complexType>
+          <s:element name="ArrayOfWeatherDescription" nillable="true" type="tns:ArrayOfWeatherDescription" />
+          <s:element name="ForecastReturn" nillable="true" type="tns:ForecastReturn" />
+          <s:element name="WeatherReturn" type="tns:WeatherReturn" />
+        </s:schema>\"\"\")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20190101:ApiSchema ec12520d-9d48-4e7b-8f39-698ca2ac63f1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/59d6bb8f1f7fab13dc67ec9b/schemas/ec12520d-9d48-4e7b-8f39-698ca2ac63f1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiSchemaArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,78 @@ import * as utilities from "../utilities";
  * Describes a database on the RedisEnterprise cluster
  * API Version: 2022-01-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RedisEnterpriseDatabasesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.cache.Database("database", {
+ *     clientProtocol: "Encrypted",
+ *     clusterName: "cache1",
+ *     clusteringPolicy: "EnterpriseCluster",
+ *     databaseName: "default",
+ *     evictionPolicy: "AllKeysLRU",
+ *     modules: [
+ *         {
+ *             args: "ERROR_RATE 0.00 INITIAL_SIZE 400",
+ *             name: "RedisBloom",
+ *         },
+ *         {
+ *             args: "RETENTION_POLICY 20",
+ *             name: "RedisTimeSeries",
+ *         },
+ *         {
+ *             name: "RediSearch",
+ *         },
+ *     ],
+ *     persistence: {
+ *         aofEnabled: true,
+ *         aofFrequency: "1s",
+ *     },
+ *     port: 10000,
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### RedisEnterpriseDatabasesCreate With Active Geo Replication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.cache.Database("database", {
+ *     clientProtocol: "Encrypted",
+ *     clusterName: "cache1",
+ *     clusteringPolicy: "EnterpriseCluster",
+ *     databaseName: "default",
+ *     evictionPolicy: "NoEviction",
+ *     geoReplication: {
+ *         groupNickname: "groupName",
+ *         linkedDatabases: [
+ *             {
+ *                 id: "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default",
+ *             },
+ *             {
+ *                 id: "/subscriptions/subid2/resourceGroups/rg2/providers/Microsoft.Cache/redisEnterprise/cache2/databases/default",
+ *             },
+ *         ],
+ *     },
+ *     port: 10000,
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cache:Database cache1/default /subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default 
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

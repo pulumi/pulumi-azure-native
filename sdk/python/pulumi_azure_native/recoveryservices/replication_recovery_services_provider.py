@@ -113,6 +113,46 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Adds a recovery services provider.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_recovery_services_provider = azure_native.recoveryservices.ReplicationRecoveryServicesProvider("replicationRecoveryServicesProvider",
+            fabric_name="vmwarefabric1",
+            properties=azure_native.recoveryservices.AddRecoveryServicesProviderInputPropertiesArgs(
+                authentication_identity_input=azure_native.recoveryservices.IdentityProviderInputArgs(
+                    aad_authority="https://login.microsoftonline.com",
+                    application_id="f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
+                    audience="https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
+                    object_id="141360b8-5686-4240-a027-5e24e6affeba",
+                    tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+                ),
+                machine_name="vmwareprovider1",
+                resource_access_identity_input=azure_native.recoveryservices.IdentityProviderInputArgs(
+                    aad_authority="https://login.microsoftonline.com",
+                    application_id="f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
+                    audience="https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
+                    object_id="141360b8-5686-4240-a027-5e24e6affeba",
+                    tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+                ),
+            ),
+            provider_name="vmwareprovider1",
+            resource_group_name="resourcegroup1",
+            resource_name_="migrationvault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationRecoveryServicesProvider vmwareprovider1 /Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationFabrics/vmwarefabric1/replicationRecoveryServicesProviders/vmwareprovider1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
@@ -131,6 +171,46 @@ class ReplicationRecoveryServicesProvider(pulumi.CustomResource):
         Provider details.
         API Version: 2023-02-01.
         Previous API Version: 2018-07-10. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Adds a recovery services provider.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_recovery_services_provider = azure_native.recoveryservices.ReplicationRecoveryServicesProvider("replicationRecoveryServicesProvider",
+            fabric_name="vmwarefabric1",
+            properties=azure_native.recoveryservices.AddRecoveryServicesProviderInputPropertiesArgs(
+                authentication_identity_input=azure_native.recoveryservices.IdentityProviderInputArgs(
+                    aad_authority="https://login.microsoftonline.com",
+                    application_id="f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
+                    audience="https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
+                    object_id="141360b8-5686-4240-a027-5e24e6affeba",
+                    tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+                ),
+                machine_name="vmwareprovider1",
+                resource_access_identity_input=azure_native.recoveryservices.IdentityProviderInputArgs(
+                    aad_authority="https://login.microsoftonline.com",
+                    application_id="f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
+                    audience="https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
+                    object_id="141360b8-5686-4240-a027-5e24e6affeba",
+                    tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+                ),
+            ),
+            provider_name="vmwareprovider1",
+            resource_group_name="resourcegroup1",
+            resource_name_="migrationvault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ReplicationRecoveryServicesProvider vmwareprovider1 /Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationFabrics/vmwarefabric1/replicationRecoveryServicesProviders/vmwareprovider1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationRecoveryServicesProviderArgs args: The arguments to use to populate this resource's properties.

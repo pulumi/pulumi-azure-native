@@ -112,6 +112,72 @@ class FeaturesetVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Workspace Featureset Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        featureset_version = azure_native.machinelearningservices.v20230201preview.FeaturesetVersion("featuresetVersion",
+            featureset_version_properties=azure_native.machinelearningservices.v20230201preview.FeaturesetVersionResponseArgs(
+                description="string",
+                entities=["string"],
+                is_anonymous=False,
+                is_archived=False,
+                materialization_settings={
+                    "notification": azure_native.machinelearningservices.v20230201preview.NotificationSettingArgs(
+                        email_on=["JobFailed"],
+                        emails=["string"],
+                    ),
+                    "resource": azure_native.machinelearningservices.v20230201preview.MaterializationComputeResourceArgs(
+                        instance_type="string",
+                    ),
+                    "schedule": azure_native.machinelearningservices.v20230201preview.RecurrenceTriggerResponseArgs(
+                        end_time="string",
+                        frequency="Day",
+                        interval=1,
+                        schedule=azure_native.machinelearningservices.v20230201preview.RecurrenceScheduleArgs(
+                            hours=[1],
+                            minutes=[1],
+                            month_days=[1],
+                            week_days=["Monday"],
+                        ),
+                        start_time="string",
+                        time_zone="string",
+                        trigger_type="Recurrence",
+                    ),
+                    "sparkConfiguration": {
+                        "string": "string",
+                    },
+                    "storeType": "Online",
+                },
+                properties={
+                    "string": "string",
+                },
+                specification=azure_native.machinelearningservices.v20230201preview.FeaturesetSpecificationArgs(
+                    path="string",
+                ),
+                stage="string",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:FeaturesetVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FeaturesetVersionArgs']] featureset_version_properties: [Required] Additional attributes of the entity.
@@ -128,6 +194,72 @@ class FeaturesetVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Workspace Featureset Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        featureset_version = azure_native.machinelearningservices.v20230201preview.FeaturesetVersion("featuresetVersion",
+            featureset_version_properties=azure_native.machinelearningservices.v20230201preview.FeaturesetVersionResponseArgs(
+                description="string",
+                entities=["string"],
+                is_anonymous=False,
+                is_archived=False,
+                materialization_settings={
+                    "notification": azure_native.machinelearningservices.v20230201preview.NotificationSettingArgs(
+                        email_on=["JobFailed"],
+                        emails=["string"],
+                    ),
+                    "resource": azure_native.machinelearningservices.v20230201preview.MaterializationComputeResourceArgs(
+                        instance_type="string",
+                    ),
+                    "schedule": azure_native.machinelearningservices.v20230201preview.RecurrenceTriggerResponseArgs(
+                        end_time="string",
+                        frequency="Day",
+                        interval=1,
+                        schedule=azure_native.machinelearningservices.v20230201preview.RecurrenceScheduleArgs(
+                            hours=[1],
+                            minutes=[1],
+                            month_days=[1],
+                            week_days=["Monday"],
+                        ),
+                        start_time="string",
+                        time_zone="string",
+                        trigger_type="Recurrence",
+                    ),
+                    "sparkConfiguration": {
+                        "string": "string",
+                    },
+                    "storeType": "Online",
+                },
+                properties={
+                    "string": "string",
+                },
+                specification=azure_native.machinelearningservices.v20230201preview.FeaturesetSpecificationArgs(
+                    path="string",
+                ),
+                stage="string",
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:FeaturesetVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FeaturesetVersionInitArgs args: The arguments to use to populate this resource's properties.

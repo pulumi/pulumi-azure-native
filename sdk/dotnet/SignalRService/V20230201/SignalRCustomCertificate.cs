@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.SignalRService.V20230201
 {
     /// <summary>
     /// A custom certificate.
+    /// 
+    /// ## Example Usage
+    /// ### SignalRCustomCertificates_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var signalRCustomCertificate = new AzureNative.SignalRService.V20230201.SignalRCustomCertificate("signalRCustomCertificate", new()
+    ///     {
+    ///         CertificateName = "myCert",
+    ///         KeyVaultBaseUri = "https://myvault.keyvault.azure.net/",
+    ///         KeyVaultSecretName = "mycert",
+    ///         KeyVaultSecretVersion = "bb6a44b2743f47f68dad0d6cc9756432",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "mySignalRService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:signalrservice/v20230201:SignalRCustomCertificate myCert /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customCertificates/myCert 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice/v20230201:SignalRCustomCertificate")]
     public partial class SignalRCustomCertificate : global::Pulumi.CustomResource

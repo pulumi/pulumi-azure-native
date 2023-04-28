@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Sql.V20210201Preview
 {
     /// <summary>
     /// An Azure SQL DB Server Outbound Firewall Rule.
+    /// 
+    /// ## Example Usage
+    /// ### Approve or reject a outbound firewall rule with a given name.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var outboundFirewallRule = new AzureNative.Sql.V20210201Preview.OutboundFirewallRule("outboundFirewallRule", new()
+    ///     {
+    ///         OutboundRuleFqdn = "server.database.windows.net",
+    ///         ResourceGroupName = "sqlcrudtest-7398",
+    ///         ServerName = "sqlcrudtest-4645",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20210201preview:OutboundFirewallRule server.database.windows.net /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/outboundFirewallRules/server.datbase.windows.net 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210201preview:OutboundFirewallRule")]
     public partial class OutboundFirewallRule : global::Pulumi.CustomResource

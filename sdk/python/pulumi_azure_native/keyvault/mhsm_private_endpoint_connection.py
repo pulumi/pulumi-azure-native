@@ -150,6 +150,32 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ManagedHsmPutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mhsm_private_endpoint_connection = azure_native.keyvault.MHSMPrivateEndpointConnection("mhsmPrivateEndpointConnection",
+            name="sample-mhsm",
+            private_endpoint_connection_name="sample-pec",
+            private_link_service_connection_state=azure_native.keyvault.MHSMPrivateLinkServiceConnectionStateArgs(
+                description="My name is Joe and I'm approving this.",
+                status="Approved",
+            ),
+            resource_group_name="sample-group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:MHSMPrivateEndpointConnection sample-pec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/managedhsms/sample-mhsm/privateEndpointConnections/sample-pec 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the managed HSM Pool should be created.
@@ -170,6 +196,32 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
         Private endpoint connection resource.
         API Version: 2023-02-01.
         Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ManagedHsmPutPrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        mhsm_private_endpoint_connection = azure_native.keyvault.MHSMPrivateEndpointConnection("mhsmPrivateEndpointConnection",
+            name="sample-mhsm",
+            private_endpoint_connection_name="sample-pec",
+            private_link_service_connection_state=azure_native.keyvault.MHSMPrivateLinkServiceConnectionStateArgs(
+                description="My name is Joe and I'm approving this.",
+                status="Approved",
+            ),
+            resource_group_name="sample-group")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:MHSMPrivateEndpointConnection sample-pec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/managedhsms/sample-mhsm/privateEndpointConnections/sample-pec 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MHSMPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

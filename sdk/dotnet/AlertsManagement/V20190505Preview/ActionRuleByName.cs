@@ -11,6 +11,98 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190505Preview
 {
     /// <summary>
     /// Action rule object containing target scope, conditions and suppression logic
+    /// 
+    /// ## Example Usage
+    /// ### PutActionRule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var actionRuleByName = new AzureNative.AlertsManagement.V20190505Preview.ActionRuleByName("actionRuleByName", new()
+    ///     {
+    ///         ActionRuleName = "DailySuppression",
+    ///         Location = "Global",
+    ///         Properties = new AzureNative.AlertsManagement.V20190505Preview.Inputs.SuppressionArgs
+    ///         {
+    ///             Conditions = new AzureNative.AlertsManagement.V20190505Preview.Inputs.ConditionsArgs
+    ///             {
+    ///                 MonitorCondition = new AzureNative.AlertsManagement.V20190505Preview.Inputs.ConditionArgs
+    ///                 {
+    ///                     Operator = "Equals",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "Fired",
+    ///                     },
+    ///                 },
+    ///                 MonitorService = new AzureNative.AlertsManagement.V20190505Preview.Inputs.ConditionArgs
+    ///                 {
+    ///                     Operator = "Equals",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "Platform",
+    ///                         "Application Insights",
+    ///                     },
+    ///                 },
+    ///                 Severity = new AzureNative.AlertsManagement.V20190505Preview.Inputs.ConditionArgs
+    ///                 {
+    ///                     Operator = "Equals",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "Sev0",
+    ///                         "Sev2",
+    ///                     },
+    ///                 },
+    ///                 TargetResourceType = new AzureNative.AlertsManagement.V20190505Preview.Inputs.ConditionArgs
+    ///                 {
+    ///                     Operator = "NotEquals",
+    ///                     Values = new[]
+    ///                     {
+    ///                         "Microsoft.Compute/VirtualMachines",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Description = "Action rule on resource group for daily suppression",
+    ///             Scope = new AzureNative.AlertsManagement.V20190505Preview.Inputs.ScopeArgs
+    ///             {
+    ///                 ScopeType = "ResourceGroup",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/alertscorrelationrg",
+    ///                 },
+    ///             },
+    ///             Status = "Enabled",
+    ///             SuppressionConfig = new AzureNative.AlertsManagement.V20190505Preview.Inputs.SuppressionConfigArgs
+    ///             {
+    ///                 RecurrenceType = "Daily",
+    ///                 Schedule = new AzureNative.AlertsManagement.V20190505Preview.Inputs.SuppressionScheduleArgs
+    ///                 {
+    ///                     EndDate = "12/18/2018",
+    ///                     EndTime = "14:00:00",
+    ///                     StartDate = "12/09/2018",
+    ///                     StartTime = "06:00:00",
+    ///                 },
+    ///             },
+    ///             Type = "Suppression",
+    ///         },
+    ///         ResourceGroupName = "alertscorrelationrg",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:alertsmanagement/v20190505preview:ActionRuleByName DailySuppression /subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/alertscorrelationrg/providers/Microsoft.AlertsManagement/actionRules/DailySuppression 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:alertsmanagement/v20190505preview:ActionRuleByName")]
     public partial class ActionRuleByName : global::Pulumi.CustomResource

@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Environment Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var environmentVersion = new AzureNative.MachineLearningServices.V20220201Preview.EnvironmentVersion("environmentVersion", new()
+    ///     {
+    ///         EnvironmentVersionDetails = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.EnvironmentVersionArgs
+    ///         {
+    ///             Build = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.BuildContextArgs
+    ///             {
+    ///                 ContextUri = "https://storage-account.blob.core.windows.net/azureml/DockerBuildContext/95ddede6b9b8c4e90472db3acd0a8d28/",
+    ///                 DockerfilePath = "prod/Dockerfile",
+    ///             },
+    ///             CondaFile = "string",
+    ///             Description = "string",
+    ///             Image = "docker.io/tensorflow/serving:latest",
+    ///             InferenceConfig = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.InferenceContainerPropertiesArgs
+    ///             {
+    ///                 LivenessRoute = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.RouteArgs
+    ///                 {
+    ///                     Path = "string",
+    ///                     Port = 1,
+    ///                 },
+    ///                 ReadinessRoute = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.RouteArgs
+    ///                 {
+    ///                     Path = "string",
+    ///                     Port = 1,
+    ///                 },
+    ///                 ScoringRoute = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.RouteArgs
+    ///                 {
+    ///                     Path = "string",
+    ///                     Port = 1,
+    ///                 },
+    ///             },
+    ///             IsAnonymous = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20220201preview:EnvironmentVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:EnvironmentVersion")]
     public partial class EnvironmentVersion : global::Pulumi.CustomResource

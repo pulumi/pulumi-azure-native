@@ -98,6 +98,34 @@ class Certificate(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Certificates_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.appplatform.Certificate("certificate",
+            certificate_name="mycertificate",
+            properties=azure_native.appplatform.KeyVaultCertificatePropertiesArgs(
+                cert_version="08a219d06d874795a96db47e06fbb01e",
+                key_vault_cert_name="mycert",
+                type="KeyVaultCertificate",
+                vault_uri="https://myvault.vault.azure.net",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Certificate mycertificate /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycertificate 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: The name of the certificate resource.
@@ -115,6 +143,34 @@ class Certificate(pulumi.CustomResource):
         Certificate resource payload.
         API Version: 2022-12-01.
         Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Certificates_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.appplatform.Certificate("certificate",
+            certificate_name="mycertificate",
+            properties=azure_native.appplatform.KeyVaultCertificatePropertiesArgs(
+                cert_version="08a219d06d874795a96db47e06fbb01e",
+                key_vault_cert_name="mycert",
+                type="KeyVaultCertificate",
+                vault_uri="https://myvault.vault.azure.net",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Certificate mycertificate /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycertificate 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

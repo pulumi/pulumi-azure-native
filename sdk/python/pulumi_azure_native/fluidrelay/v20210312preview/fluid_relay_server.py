@@ -114,6 +114,31 @@ class FluidRelayServer(pulumi.CustomResource):
         """
         A FluidRelay Server.
 
+        ## Example Usage
+        ### Create a Fluid Relay server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fluid_relay_server = azure_native.fluidrelay.v20210312preview.FluidRelayServer("fluidRelayServer",
+            location="west-us",
+            name="myFluidRelayServer",
+            resource_group="myResourceGroup",
+            tags={
+                "Category": "sales",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:fluidrelay/v20210312preview:FluidRelayServer myFluidRelayServer /subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/Microsoft.FluidRelay/fluidRelayServers/myFluidRelayServer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -130,6 +155,31 @@ class FluidRelayServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A FluidRelay Server.
+
+        ## Example Usage
+        ### Create a Fluid Relay server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fluid_relay_server = azure_native.fluidrelay.v20210312preview.FluidRelayServer("fluidRelayServer",
+            location="west-us",
+            name="myFluidRelayServer",
+            resource_group="myResourceGroup",
+            tags={
+                "Category": "sales",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:fluidrelay/v20210312preview:FluidRelayServer myFluidRelayServer /subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/Microsoft.FluidRelay/fluidRelayServers/myFluidRelayServer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FluidRelayServerArgs args: The arguments to use to populate this resource's properties.

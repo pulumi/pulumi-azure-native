@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Site resource. Must be created in the same location as its parent mobile network.
+ *
+ * ## Example Usage
+ * ### Create mobile network site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const site = new azure_native.mobilenetwork.v20221101.Site("site", {
+ *     location: "testLocation",
+ *     mobileNetworkName: "testMobileNetwork",
+ *     resourceGroupName: "rg1",
+ *     siteName: "testSite",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork/v20221101:Site testSite /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite 
+ * ```
  */
 export class Site extends pulumi.CustomResource {
     /**

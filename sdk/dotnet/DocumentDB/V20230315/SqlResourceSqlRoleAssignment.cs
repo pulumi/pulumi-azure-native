@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315
 {
     /// <summary>
     /// An Azure Cosmos DB Role Assignment
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBSqlRoleAssignmentCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlResourceSqlRoleAssignment = new AzureNative.DocumentDB.V20230315.SqlResourceSqlRoleAssignment("sqlResourceSqlRoleAssignment", new()
+    ///     {
+    ///         AccountName = "myAccountName",
+    ///         PrincipalId = "myPrincipalId",
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         RoleAssignmentId = "myRoleAssignmentId",
+    ///         RoleDefinitionId = "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId",
+    ///         Scope = "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases/colls/redmond-purchases",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment myRoleAssignmentId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleAssignments/myRoleAssignmentId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20230315:SqlResourceSqlRoleAssignment")]
     public partial class SqlResourceSqlRoleAssignment : global::Pulumi.CustomResource

@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.OperationalInsights.V20221001
 {
     /// <summary>
     /// Workspace data table definition.
+    /// 
+    /// ## Example Usage
+    /// ### TablesUpsert
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var table = new AzureNative.OperationalInsights.V20221001.Table("table", new()
+    ///     {
+    ///         ResourceGroupName = "oiautorest6685",
+    ///         RetentionInDays = 45,
+    ///         Schema = new AzureNative.OperationalInsights.V20221001.Inputs.SchemaArgs
+    ///         {
+    ///             Columns = new[]
+    ///             {
+    ///                 new AzureNative.OperationalInsights.V20221001.Inputs.ColumnArgs
+    ///                 {
+    ///                     Name = "MyNewColumn",
+    ///                     Type = "guid",
+    ///                 },
+    ///             },
+    ///             Name = "AzureNetworkFlow",
+    ///         },
+    ///         TableName = "AzureNetworkFlow",
+    ///         TotalRetentionInDays = 70,
+    ///         WorkspaceName = "oiautorest6685",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights/v20221001:Table AzureNetworkFlow /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/oiautorest6685/providers/Microsoft.OperationalInsights/workspaces/oiautorest6685/tables/AzureNetworkFlow 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20221001:Table")]
     public partial class Table : global::Pulumi.CustomResource

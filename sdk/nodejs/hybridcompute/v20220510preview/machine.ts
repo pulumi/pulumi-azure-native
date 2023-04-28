@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a hybrid machine.
+ *
+ * ## Example Usage
+ * ### Create or Update a Machine
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machine = new azure_native.hybridcompute.v20220510preview.Machine("machine", {
+ *     identity: {
+ *         type: azure_native.hybridcompute.v20220510preview.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "eastus2euap",
+ *     machineName: "myMachine",
+ *     properties: {
+ *         clientPublicKey: "string",
+ *         locationData: {
+ *             name: "Redmond",
+ *         },
+ *         parentClusterResourceId: "{AzureStackHCIResourceId}",
+ *         privateLinkScopeResourceId: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+ *         vmId: "b7a098cc-b0b8-46e8-a205-62f301a62a8f",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcompute/v20220510preview:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/myMachine 
+ * ```
  */
 export class Machine extends pulumi.CustomResource {
     /**

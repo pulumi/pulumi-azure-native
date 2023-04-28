@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnectionCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.DeviceUpdate.V20221201Preview.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         AccountName = "contoso",
+    ///         PrivateEndpointConnectionName = "peexample01",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.DeviceUpdate.V20221201Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Auto-Approved",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deviceupdate/v20221201preview:PrivateEndpointConnection peexample01 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso/privateEndpointConnections/peexample01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate/v20221201preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

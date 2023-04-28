@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a Namespace AuthorizationRules.
+ *
+ * ## Example Usage
+ * ### NameSpaceAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceAuthorizationRule = new azure_native.notificationhubs.v20170401.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
+ *     authorizationRuleName: "sdk-AuthRules-1788",
+ *     namespaceName: "nh-sdk-ns",
+ *     properties: {
+ *         rights: [
+ *             azure_native.notificationhubs.v20170401.AccessRights.Listen,
+ *             azure_native.notificationhubs.v20170401.AccessRights.Send,
+ *         ],
+ *     },
+ *     resourceGroupName: "5ktrial",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:notificationhubs/v20170401:NamespaceAuthorizationRule sdk-AuthRules-1788 /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/ArunMonocle/providers/Microsoft.NotificationHubs/namespaces/sdk-Namespace-6914/AuthorizationRules/sdk-AuthRules-1788 
+ * ```
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {
     /**

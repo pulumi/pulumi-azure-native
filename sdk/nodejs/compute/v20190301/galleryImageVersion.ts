@@ -10,6 +10,49 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the gallery Image Version that you want to create or update.
  *
+ * ## Example Usage
+ * ### Create or update a simple Gallery Image Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryImageVersion = new azure_native.compute.v20190301.GalleryImageVersion("galleryImageVersion", {
+ *     galleryImageName: "myGalleryImageName",
+ *     galleryImageVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         source: {
+ *             managedImage: {
+ *                 id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+ *             },
+ *         },
+ *         targetRegions: [
+ *             {
+ *                 name: "West US",
+ *                 regionalReplicaCount: 1,
+ *             },
+ *             {
+ *                 name: "East US",
+ *                 regionalReplicaCount: 2,
+ *                 storageAccountType: "Standard_ZRS",
+ *             },
+ *         ],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20190301:GalleryImageVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{galleryImageVersionName} 
+ * ```
+ *
  * @deprecated Version 2019-03-01 will be removed in v2 of the provider.
  */
 export class GalleryImageVersion extends pulumi.CustomResource {

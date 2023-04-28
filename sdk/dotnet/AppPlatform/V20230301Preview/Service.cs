@@ -11,6 +11,162 @@ namespace Pulumi.AzureNative.AppPlatform.V20230301Preview
 {
     /// <summary>
     /// Service resource
+    /// 
+    /// ## Example Usage
+    /// ### Services_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.AppPlatform.V20230301Preview.Service("service", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = null,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.V20230301Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Services_CreateOrUpdate_Consumption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.AppPlatform.V20230301Preview.Service("service", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.AppPlatform.V20230301Preview.Inputs.ClusterResourcePropertiesArgs
+    ///         {
+    ///             ManagedEnvironmentId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.App/managedEnvironments/myenvironment",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.V20230301Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "StandardGen2",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Services_CreateOrUpdate_Enterprise
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.AppPlatform.V20230301Preview.Service("service", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.AppPlatform.V20230301Preview.Inputs.ClusterResourcePropertiesArgs
+    ///         {
+    ///             MarketplaceResource = new AzureNative.AppPlatform.V20230301Preview.Inputs.MarketplaceResourceArgs
+    ///             {
+    ///                 Plan = "tanzu-asc-ent-mtr",
+    ///                 Product = "azure-spring-cloud-vmware-tanzu-2",
+    ///                 Publisher = "vmware-inc",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.V20230301Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "E0",
+    ///             Tier = "Enterprise",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Services_CreateOrUpdate_VNetInjection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.AppPlatform.V20230301Preview.Service("service", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.AppPlatform.V20230301Preview.Inputs.ClusterResourcePropertiesArgs
+    ///         {
+    ///             NetworkProfile = new AzureNative.AppPlatform.V20230301Preview.Inputs.NetworkProfileArgs
+    ///             {
+    ///                 AppNetworkResourceGroup = "my-app-network-rg",
+    ///                 AppSubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/apps",
+    ///                 IngressConfig = new AzureNative.AppPlatform.V20230301Preview.Inputs.IngressConfigArgs
+    ///                 {
+    ///                     ReadTimeoutInSeconds = 300,
+    ///                 },
+    ///                 ServiceCidr = "10.8.0.0/16,10.244.0.0/16,10.245.0.1/16",
+    ///                 ServiceRuntimeNetworkResourceGroup = "my-service-runtime-network-rg",
+    ///                 ServiceRuntimeSubnetId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/serviceRuntime",
+    ///             },
+    ///             VnetAddons = new AzureNative.AppPlatform.V20230301Preview.Inputs.ServiceVNetAddonsArgs
+    ///             {
+    ///                 DataPlanePublicEndpoint = true,
+    ///                 LogStreamPublicEndpoint = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///         Sku = new AzureNative.AppPlatform.V20230301Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230301preview:Service myservice /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230301preview:Service")]
     public partial class Service : global::Pulumi.CustomResource

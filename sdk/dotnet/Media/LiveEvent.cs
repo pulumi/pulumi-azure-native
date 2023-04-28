@@ -13,6 +13,80 @@ namespace Pulumi.AzureNative.Media
     /// The live event.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a LiveEvent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var liveEvent = new AzureNative.Media.LiveEvent("liveEvent", new()
+    ///     {
+    ///         AccountName = "slitestmedia10",
+    ///         Description = "test event 1",
+    ///         Input = new AzureNative.Media.Inputs.LiveEventInputArgs
+    ///         {
+    ///             AccessControl = new AzureNative.Media.Inputs.LiveEventInputAccessControlArgs
+    ///             {
+    ///                 Ip = new AzureNative.Media.Inputs.IPAccessControlArgs
+    ///                 {
+    ///                     Allow = new[]
+    ///                     {
+    ///                         new AzureNative.Media.Inputs.IPRangeArgs
+    ///                         {
+    ///                             Address = "0.0.0.0",
+    ///                             Name = "AllowAll",
+    ///                             SubnetPrefixLength = 0,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             KeyFrameIntervalDuration = "PT6S",
+    ///             StreamingProtocol = "RTMP",
+    ///         },
+    ///         LiveEventName = "myLiveEvent1",
+    ///         Location = "West US",
+    ///         Preview = new AzureNative.Media.Inputs.LiveEventPreviewArgs
+    ///         {
+    ///             AccessControl = new AzureNative.Media.Inputs.LiveEventPreviewAccessControlArgs
+    ///             {
+    ///                 Ip = new AzureNative.Media.Inputs.IPAccessControlArgs
+    ///                 {
+    ///                     Allow = new[]
+    ///                     {
+    ///                         new AzureNative.Media.Inputs.IPRangeArgs
+    ///                         {
+    ///                             Address = "0.0.0.0",
+    ///                             Name = "AllowAll",
+    ///                             SubnetPrefixLength = 0,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "mediaresources",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media:LiveEvent myLiveEvent1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/liveevents/myLiveEvent1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media:LiveEvent")]
     public partial class LiveEvent : global::Pulumi.CustomResource

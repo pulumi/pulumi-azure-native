@@ -11,6 +11,225 @@ namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// A Content Key Policy resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a Content Key Policy with ClearKey option and Token Restriction
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contentKeyPolicy = new AzureNative.Media.V20200501.ContentKeyPolicy("contentKeyPolicy", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         ContentKeyPolicyName = "PolicyWithClearKeyOptionAndSwtTokenRestriction",
+    ///         Description = "ArmPolicyDescription",
+    ///         Options = new[]
+    ///         {
+    ///             new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyOptionArgs
+    ///             {
+    ///                 Configuration = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyClearKeyConfigurationArgs
+    ///                 {
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+    ///                 },
+    ///                 Name = "ClearKeyOption",
+    ///                 Restriction = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyTokenRestrictionArgs
+    ///                 {
+    ///                     Audience = "urn:audience",
+    ///                     Issuer = "urn:issuer",
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+    ///                     PrimaryVerificationKey = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicySymmetricTokenKeyArgs
+    ///                     {
+    ///                         KeyValue = "AAAAAAAAAAAAAAAAAAAAAA==",
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+    ///                     },
+    ///                     RestrictionTokenType = "Swt",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a Content Key Policy with PlayReady option and Open Restriction
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contentKeyPolicy = new AzureNative.Media.V20200501.ContentKeyPolicy("contentKeyPolicy", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         ContentKeyPolicyName = "PolicyWithPlayReadyOptionAndOpenRestriction",
+    ///         Description = "ArmPolicyDescription",
+    ///         Options = new[]
+    ///         {
+    ///             new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyOptionArgs
+    ///             {
+    ///                 Configuration = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyPlayReadyConfigurationArgs
+    ///                 {
+    ///                     Licenses = new[]
+    ///                     {
+    ///                         new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyPlayReadyLicenseArgs
+    ///                         {
+    ///                             AllowTestDevices = true,
+    ///                             BeginDate = "2017-10-16T18:22:53.46Z",
+    ///                             ContentKeyLocation = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeaderArgs
+    ///                             {
+    ///                                 OdataType = "#Microsoft.Media.ContentKeyPolicyPlayReadyContentEncryptionKeyFromHeader",
+    ///                             },
+    ///                             ContentType = "UltraVioletDownload",
+    ///                             LicenseType = "Persistent",
+    ///                             PlayRight = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyPlayReadyPlayRightArgs
+    ///                             {
+    ///                                 AllowPassingVideoContentToUnknownOutput = "NotAllowed",
+    ///                                 DigitalVideoOnlyContentRestriction = false,
+    ///                                 ImageConstraintForAnalogComponentVideoRestriction = true,
+    ///                                 ImageConstraintForAnalogComputerMonitorRestriction = false,
+    ///                                 ScmsRestriction = 2,
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+    ///                 },
+    ///                 Name = "ArmPolicyOptionName",
+    ///                 Restriction = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyOpenRestrictionArgs
+    ///                 {
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a Content Key Policy with Widevine option and Token Restriction
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contentKeyPolicy = new AzureNative.Media.V20200501.ContentKeyPolicy("contentKeyPolicy", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         ContentKeyPolicyName = "PolicyWithWidevineOptionAndJwtTokenRestriction",
+    ///         Description = "ArmPolicyDescription",
+    ///         Options = new[]
+    ///         {
+    ///             new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyOptionArgs
+    ///             {
+    ///                 Configuration = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyWidevineConfigurationArgs
+    ///                 {
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+    ///                     WidevineTemplate = "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
+    ///                 },
+    ///                 Name = "widevineoption",
+    ///                 Restriction = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyTokenRestrictionArgs
+    ///                 {
+    ///                     AlternateVerificationKeys = new[]
+    ///                     {
+    ///                         new AzureNative.Media.V20200501.Inputs.ContentKeyPolicySymmetricTokenKeyArgs
+    ///                         {
+    ///                             KeyValue = "AAAAAAAAAAAAAAAAAAAAAA==",
+    ///                             OdataType = "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+    ///                         },
+    ///                     },
+    ///                     Audience = "urn:audience",
+    ///                     Issuer = "urn:issuer",
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+    ///                     PrimaryVerificationKey = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyRsaTokenKeyArgs
+    ///                     {
+    ///                         Exponent = "AQAB",
+    ///                         Modulus = "AQAD",
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicyRsaTokenKey",
+    ///                     },
+    ///                     RestrictionTokenType = "Jwt",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a Content Key Policy with multiple options
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contentKeyPolicy = new AzureNative.Media.V20200501.ContentKeyPolicy("contentKeyPolicy", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         ContentKeyPolicyName = "PolicyCreatedWithMultipleOptions",
+    ///         Description = "ArmPolicyDescription",
+    ///         Options = new[]
+    ///         {
+    ///             new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyOptionArgs
+    ///             {
+    ///                 Configuration = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyClearKeyConfigurationArgs
+    ///                 {
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyClearKeyConfiguration",
+    ///                 },
+    ///                 Name = "ClearKeyOption",
+    ///                 Restriction = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyTokenRestrictionArgs
+    ///                 {
+    ///                     Audience = "urn:audience",
+    ///                     Issuer = "urn:issuer",
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+    ///                     PrimaryVerificationKey = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicySymmetricTokenKeyArgs
+    ///                     {
+    ///                         KeyValue = "AAAAAAAAAAAAAAAAAAAAAA==",
+    ///                         OdataType = "#Microsoft.Media.ContentKeyPolicySymmetricTokenKey",
+    ///                     },
+    ///                     RestrictionTokenType = "Swt",
+    ///                 },
+    ///             },
+    ///             new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyOptionArgs
+    ///             {
+    ///                 Configuration = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyWidevineConfigurationArgs
+    ///                 {
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyWidevineConfiguration",
+    ///                     WidevineTemplate = "{\"allowed_track_types\":\"SD_HD\",\"content_key_specs\":[{\"track_type\":\"SD\",\"security_level\":1,\"required_output_protection\":{\"hdcp\":\"HDCP_V2\"}}],\"policy_overrides\":{\"can_play\":true,\"can_persist\":true,\"can_renew\":false}}",
+    ///                 },
+    ///                 Name = "widevineoption",
+    ///                 Restriction = new AzureNative.Media.V20200501.Inputs.ContentKeyPolicyOpenRestrictionArgs
+    ///                 {
+    ///                     OdataType = "#Microsoft.Media.ContentKeyPolicyOpenRestriction",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20200501:ContentKeyPolicy PolicyCreatedWithMultipleOptions /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/contentKeyPolicies/PolicyCreatedWithMultipleOptions 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20200501:ContentKeyPolicy")]
     public partial class ContentKeyPolicy : global::Pulumi.CustomResource

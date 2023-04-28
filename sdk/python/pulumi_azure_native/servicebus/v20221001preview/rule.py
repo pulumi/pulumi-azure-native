@@ -180,6 +180,68 @@ class Rule(pulumi.CustomResource):
         """
         Description of Rule Resource.
 
+        ## Example Usage
+        ### RulesCreateCorrelationFilter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule = azure_native.servicebus.v20221001preview.Rule("rule",
+            correlation_filter=azure_native.servicebus.v20221001preview.CorrelationFilterArgs(
+                properties={
+                    "topicHint": "Crop",
+                },
+            ),
+            filter_type=azure_native.servicebus/v20221001preview.FilterType.CORRELATION_FILTER,
+            namespace_name="sdk-Namespace-1319",
+            resource_group_name="resourceGroupName",
+            rule_name="sdk-Rules-6571",
+            subscription_name="sdk-Subscriptions-8691",
+            topic_name="sdk-Topics-2081")
+
+        ```
+        ### RulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule = azure_native.servicebus.v20221001preview.Rule("rule",
+            namespace_name="sdk-Namespace-1319",
+            resource_group_name="resourceGroupName",
+            rule_name="sdk-Rules-6571",
+            subscription_name="sdk-Subscriptions-8691",
+            topic_name="sdk-Topics-2081")
+
+        ```
+        ### RulesCreateSqlFilter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule = azure_native.servicebus.v20221001preview.Rule("rule",
+            filter_type=azure_native.servicebus/v20221001preview.FilterType.SQL_FILTER,
+            namespace_name="sdk-Namespace-1319",
+            resource_group_name="resourceGroupName",
+            rule_name="sdk-Rules-6571",
+            sql_filter=azure_native.servicebus.v20221001preview.SqlFilterArgs(
+                sql_expression="myproperty=test",
+            ),
+            subscription_name="sdk-Subscriptions-8691",
+            topic_name="sdk-Topics-2081")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20221001preview:Rule sdk-Rules-6571 /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1319/topics/sdk-Topics-2081/subscriptions/sdk-Subscriptions-8691/rules/sdk-Rules-6571 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ActionArgs']] action: Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
@@ -200,6 +262,68 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of Rule Resource.
+
+        ## Example Usage
+        ### RulesCreateCorrelationFilter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule = azure_native.servicebus.v20221001preview.Rule("rule",
+            correlation_filter=azure_native.servicebus.v20221001preview.CorrelationFilterArgs(
+                properties={
+                    "topicHint": "Crop",
+                },
+            ),
+            filter_type=azure_native.servicebus/v20221001preview.FilterType.CORRELATION_FILTER,
+            namespace_name="sdk-Namespace-1319",
+            resource_group_name="resourceGroupName",
+            rule_name="sdk-Rules-6571",
+            subscription_name="sdk-Subscriptions-8691",
+            topic_name="sdk-Topics-2081")
+
+        ```
+        ### RulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule = azure_native.servicebus.v20221001preview.Rule("rule",
+            namespace_name="sdk-Namespace-1319",
+            resource_group_name="resourceGroupName",
+            rule_name="sdk-Rules-6571",
+            subscription_name="sdk-Subscriptions-8691",
+            topic_name="sdk-Topics-2081")
+
+        ```
+        ### RulesCreateSqlFilter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule = azure_native.servicebus.v20221001preview.Rule("rule",
+            filter_type=azure_native.servicebus/v20221001preview.FilterType.SQL_FILTER,
+            namespace_name="sdk-Namespace-1319",
+            resource_group_name="resourceGroupName",
+            rule_name="sdk-Rules-6571",
+            sql_filter=azure_native.servicebus.v20221001preview.SqlFilterArgs(
+                sql_expression="myproperty=test",
+            ),
+            subscription_name="sdk-Subscriptions-8691",
+            topic_name="sdk-Topics-2081")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20221001preview:Rule sdk-Rules-6571 /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1319/topics/sdk-Topics-2081/subscriptions/sdk-Subscriptions-8691/rules/sdk-Rules-6571 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.

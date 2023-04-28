@@ -11,6 +11,70 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230201
 {
     /// <summary>
     /// Base class for backup items.
+    /// 
+    /// ## Example Usage
+    /// ### Enable Protection on Azure IaasVm
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectedItem = new AzureNative.RecoveryServices.V20230201.ProtectedItem("protectedItem", new()
+    ///     {
+    ///         ContainerName = "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+    ///         FabricName = "Azure",
+    ///         Properties = new AzureNative.RecoveryServices.V20230201.Inputs.AzureIaaSComputeVMProtectedItemArgs
+    ///         {
+    ///             PolicyId = "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/NetSDKTestRsVault/backupPolicies/DefaultPolicy",
+    ///             ProtectedItemType = "Microsoft.Compute/virtualMachines",
+    ///             SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
+    ///         },
+    ///         ProtectedItemName = "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "NetSDKTestRsVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Stop Protection with retain data on Azure IaasVm
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectedItem = new AzureNative.RecoveryServices.V20230201.ProtectedItem("protectedItem", new()
+    ///     {
+    ///         ContainerName = "IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+    ///         FabricName = "Azure",
+    ///         Properties = new AzureNative.RecoveryServices.V20230201.Inputs.AzureIaaSComputeVMProtectedItemArgs
+    ///         {
+    ///             ProtectedItemType = "Microsoft.Compute/virtualMachines",
+    ///             ProtectionState = "ProtectionStopped",
+    ///             SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/netsdktestrg/providers/Microsoft.Compute/virtualMachines/netvmtestv2vm1",
+    ///         },
+    ///         ProtectedItemName = "VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1",
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "NetSDKTestRsVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20230201:ProtectedItem VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/PythonSDKBackupTestRg/providers/Microsoft.RecoveryServices/vaults/PySDKBackupTestRsVault/backupFabrics/Azure/protectionContainers/IaasVMContainer;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1/protectedItems/VM;iaasvmcontainerv2;netsdktestrg;netvmtestv2vm1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20230201:ProtectedItem")]
     public partial class ProtectedItem : global::Pulumi.CustomResource

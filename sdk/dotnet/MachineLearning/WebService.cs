@@ -13,6 +13,256 @@ namespace Pulumi.AzureNative.MachineLearning
     /// Instance of an Azure ML web service resource.
     /// API Version: 2017-01-01.
     /// Previous API Version: 2017-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PUT WebService
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webService = new AzureNative.MachineLearning.WebService("webService", new()
+    ///     {
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.MachineLearning.Inputs.WebServicePropertiesForGraphArgs
+    ///         {
+    ///             Assets = 
+    ///             {
+    ///                 { "asset1", new AzureNative.MachineLearning.Inputs.AssetItemArgs
+    ///                 {
+    ///                     LocationInfo = new AzureNative.MachineLearning.Inputs.BlobLocationArgs
+    ///                     {
+    ///                         Credentials = "",
+    ///                         Uri = "aml://module/moduleId-1",
+    ///                     },
+    ///                     Name = "Execute R Script",
+    ///                     Type = "Module",
+    ///                 } },
+    ///                 { "asset2", new AzureNative.MachineLearning.Inputs.AssetItemArgs
+    ///                 {
+    ///                     LocationInfo = new AzureNative.MachineLearning.Inputs.BlobLocationArgs
+    ///                     {
+    ///                         Credentials = "",
+    ///                         Uri = "aml://module/moduleId-2",
+    ///                     },
+    ///                     Name = "Import Data",
+    ///                     Type = "Module",
+    ///                 } },
+    ///             },
+    ///             CommitmentPlan = new AzureNative.MachineLearning.Inputs.CommitmentPlanArgs
+    ///             {
+    ///                 Id = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.MachineLearning/commitmentPlans/commitmentPlanName",
+    ///             },
+    ///             Description = "Web Service Description",
+    ///             Diagnostics = new AzureNative.MachineLearning.Inputs.DiagnosticsConfigurationArgs
+    ///             {
+    ///                 Level = "None",
+    ///             },
+    ///             ExampleRequest = new AzureNative.MachineLearning.Inputs.ExampleRequestArgs
+    ///             {
+    ///                 Inputs = 
+    ///                 {
+    ///                     { "input1", new[]
+    ///                     {
+    ///                         new[]
+    ///                         {
+    ///                             "age",
+    ///                         },
+    ///                         new[]
+    ///                         {
+    ///                             "workclass",
+    ///                         },
+    ///                         new[]
+    ///                         {
+    ///                             "fnlwgt",
+    ///                         },
+    ///                         new[]
+    ///                         {
+    ///                             "education",
+    ///                         },
+    ///                         new[]
+    ///                         {
+    ///                             "education-num",
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///             },
+    ///             ExposeSampleData = true,
+    ///             Input = new AzureNative.MachineLearning.Inputs.ServiceInputOutputSpecificationArgs
+    ///             {
+    ///                 Description = "",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "input1", new AzureNative.MachineLearning.Inputs.TableSpecificationArgs
+    ///                     {
+    ///                         Description = "",
+    ///                         Properties = 
+    ///                         {
+    ///                             { "column_name", new AzureNative.MachineLearning.Inputs.ColumnSpecificationArgs
+    ///                             {
+    ///                                 Type = "String",
+    ///                                 XMsIsnullable = false,
+    ///                             } },
+    ///                         },
+    ///                         Title = "",
+    ///                         Type = "object",
+    ///                     } },
+    ///                 },
+    ///                 Title = "",
+    ///                 Type = "object",
+    ///             },
+    ///             MachineLearningWorkspace = new AzureNative.MachineLearning.Inputs.MachineLearningWorkspaceArgs
+    ///             {
+    ///                 Id = "workspaceId",
+    ///             },
+    ///             Output = new AzureNative.MachineLearning.Inputs.ServiceInputOutputSpecificationArgs
+    ///             {
+    ///                 Description = "",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "output1", new AzureNative.MachineLearning.Inputs.TableSpecificationArgs
+    ///                     {
+    ///                         Description = "",
+    ///                         Properties = 
+    ///                         {
+    ///                             { "age", new AzureNative.MachineLearning.Inputs.ColumnSpecificationArgs
+    ///                             {
+    ///                                 Format = "Int32",
+    ///                                 Type = "Integer",
+    ///                                 XMsIsnullable = true,
+    ///                             } },
+    ///                             { "workclass", new AzureNative.MachineLearning.Inputs.ColumnSpecificationArgs
+    ///                             {
+    ///                                 Type = "String",
+    ///                                 XMsIsnullable = false,
+    ///                             } },
+    ///                         },
+    ///                         Title = "",
+    ///                         Type = "object",
+    ///                     } },
+    ///                 },
+    ///                 Title = "",
+    ///                 Type = "object",
+    ///             },
+    ///             Package = new AzureNative.MachineLearning.Inputs.GraphPackageArgs
+    ///             {
+    ///                 Edges = new[]
+    ///                 {
+    ///                     new AzureNative.MachineLearning.Inputs.GraphEdgeArgs
+    ///                     {
+    ///                         SourceNodeId = "node2",
+    ///                         SourcePortId = "Results dataset",
+    ///                         TargetNodeId = "node1",
+    ///                         TargetPortId = "Dataset2",
+    ///                     },
+    ///                     new AzureNative.MachineLearning.Inputs.GraphEdgeArgs
+    ///                     {
+    ///                         SourceNodeId = "node3",
+    ///                         TargetNodeId = "node1",
+    ///                         TargetPortId = "Dataset1",
+    ///                     },
+    ///                     new AzureNative.MachineLearning.Inputs.GraphEdgeArgs
+    ///                     {
+    ///                         SourceNodeId = "node1",
+    ///                         SourcePortId = "Result Dataset",
+    ///                         TargetNodeId = "node4",
+    ///                     },
+    ///                 },
+    ///                 GraphParameters = null,
+    ///                 Nodes = 
+    ///                 {
+    ///                     { "node1", new AzureNative.MachineLearning.Inputs.GraphNodeArgs
+    ///                     {
+    ///                         AssetId = "asset1",
+    ///                         Parameters = 
+    ///                         {
+    ///                             { "R Script", new AzureNative.MachineLearning.Inputs.WebServiceParameterArgs
+    ///                             {
+    ///                                 CertificateThumbprint = "",
+    ///                                 Value = "The R Script",
+    ///                             } },
+    ///                             { "R Version", new AzureNative.MachineLearning.Inputs.WebServiceParameterArgs
+    ///                             {
+    ///                                 CertificateThumbprint = "",
+    ///                                 Value = "CRAN R 3.1.0",
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                     { "node2", new AzureNative.MachineLearning.Inputs.GraphNodeArgs
+    ///                     {
+    ///                         AssetId = "asset2",
+    ///                         Parameters = 
+    ///                         {
+    ///                             { "Account Key", new AzureNative.MachineLearning.Inputs.WebServiceParameterArgs
+    ///                             {
+    ///                                 CertificateThumbprint = "TheThumbprint",
+    ///                                 Value = "Encrypted Key",
+    ///                             } },
+    ///                             { "Account Name", new AzureNative.MachineLearning.Inputs.WebServiceParameterArgs
+    ///                             {
+    ///                                 CertificateThumbprint = "",
+    ///                                 Value = "accountName",
+    ///                             } },
+    ///                             { "Please Specify Authentication Type", new AzureNative.MachineLearning.Inputs.WebServiceParameterArgs
+    ///                             {
+    ///                                 CertificateThumbprint = "",
+    ///                                 Value = "Account",
+    ///                             } },
+    ///                             { "Please Specify Data Source", new AzureNative.MachineLearning.Inputs.WebServiceParameterArgs
+    ///                             {
+    ///                                 CertificateThumbprint = "",
+    ///                                 Value = "AzureBlobStorage",
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                     { "node3", new AzureNative.MachineLearning.Inputs.GraphNodeArgs
+    ///                     {
+    ///                         InputId = "input1",
+    ///                     } },
+    ///                     { "node4", new AzureNative.MachineLearning.Inputs.GraphNodeArgs
+    ///                     {
+    ///                         OutputId = "output1",
+    ///                     } },
+    ///                 },
+    ///             },
+    ///             PackageType = "Graph",
+    ///             Parameters = null,
+    ///             PayloadsInBlobStorage = false,
+    ///             ReadOnly = false,
+    ///             RealtimeConfiguration = new AzureNative.MachineLearning.Inputs.RealtimeConfigurationArgs
+    ///             {
+    ///                 MaxConcurrentCalls = 4,
+    ///             },
+    ///             StorageAccount = new AzureNative.MachineLearning.Inputs.StorageAccountArgs
+    ///             {
+    ///                 Key = "Storage_Key",
+    ///                 Name = "Storage_Name",
+    ///             },
+    ///             Title = "Web Service Title",
+    ///         },
+    ///         ResourceGroupName = "OneResourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///         WebServiceName = "TargetWebServiceName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearning:WebService myresource1 TheWebServiceId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning:WebService")]
     public partial class WebService : global::Pulumi.CustomResource

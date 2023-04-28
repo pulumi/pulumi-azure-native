@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.Automation
     /// Definition of the source control.
     /// API Version: 2022-08-08.
     /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a source control
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sourceControl = new AzureNative.Automation.SourceControl("sourceControl", new()
+    ///     {
+    ///         AutoSync = true,
+    ///         AutomationAccountName = "sampleAccount9",
+    ///         Branch = "master",
+    ///         Description = "my description",
+    ///         FolderPath = "/folderOne/folderTwo",
+    ///         PublishRunbook = true,
+    ///         RepoUrl = "https://sampleUser.visualstudio.com/myProject/_git/myRepository",
+    ///         ResourceGroupName = "rg",
+    ///         SecurityToken = new AzureNative.Automation.Inputs.SourceControlSecurityTokenPropertiesArgs
+    ///         {
+    ///             AccessToken = "******",
+    ///             TokenType = "PersonalAccessToken",
+    ///         },
+    ///         SourceControlName = "sampleSourceControl",
+    ///         SourceType = "VsoGit",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation:SourceControl sampleSourceControl /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/sourcecontrols/sampleSourceControl 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:SourceControl")]
     public partial class SourceControl : global::Pulumi.CustomResource

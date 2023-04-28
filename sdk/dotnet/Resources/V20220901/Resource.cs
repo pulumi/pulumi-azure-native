@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Resources.V20220901
 {
     /// <summary>
     /// Resource information.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20220901:Resource myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20220901:Resource")]
     public partial class Resource : global::Pulumi.CustomResource

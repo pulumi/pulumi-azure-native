@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.HanaOnAzure
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
     /// API Version: 2020-02-07-preview.
     /// Previous API Version: 2020-02-07-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a SAP Monitor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapMonitor = new AzureNative.HanaOnAzure.SapMonitor("sapMonitor", new()
+    ///     {
+    ///         EnableCustomerAnalytics = true,
+    ///         Location = "westus",
+    ///         LogAnalyticsWorkspaceArmId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.operationalinsights/workspaces/myWorkspace",
+    ///         LogAnalyticsWorkspaceId = "00000000-0000-0000-0000-000000000000",
+    ///         LogAnalyticsWorkspaceSharedKey = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000==",
+    ///         MonitorSubnet = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SapMonitorName = "mySapMonitor",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hanaonazure:SapMonitor myHanaInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hanaonazure:SapMonitor")]
     public partial class SapMonitor : global::Pulumi.CustomResource

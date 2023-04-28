@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// An Azure SQL Database server.
+    /// 
+    /// ## Example Usage
+    /// ### Create server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.Sql.V20220801Preview.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "dummylogin",
+    ///         AdministratorLoginPassword = "PLACEHOLDER",
+    ///         Administrators = new AzureNative.Sql.V20220801Preview.Inputs.ServerExternalAdministratorArgs
+    ///         {
+    ///             AzureADOnlyAuthentication = true,
+    ///             Login = "bob@contoso.com",
+    ///             PrincipalType = "User",
+    ///             Sid = "00000011-1111-2222-2222-123456789111",
+    ///             TenantId = "00000011-1111-2222-2222-123456789111",
+    ///         },
+    ///         Location = "Japan East",
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "sqlcrudtest-7398",
+    ///         RestrictOutboundNetworkAccess = "Enabled",
+    ///         ServerName = "sqlcrudtest-4645",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:Server sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:Server")]
     public partial class Server : global::Pulumi.CustomResource

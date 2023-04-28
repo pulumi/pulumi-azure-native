@@ -13,6 +13,97 @@ namespace Pulumi.AzureNative.SqlVirtualMachine
     /// A SQL Server availability group listener.
     /// API Version: 2022-02-01.
     /// Previous API Version: 2017-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an availability group listener using load balancer. This is used for VMs present in single subnet.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var availabilityGroupListener = new AzureNative.SqlVirtualMachine.AvailabilityGroupListener("availabilityGroupListener", new()
+    ///     {
+    ///         AvailabilityGroupListenerName = "agl-test",
+    ///         AvailabilityGroupName = "ag-test",
+    ///         LoadBalancerConfigurations = new[]
+    ///         {
+    ///             new AzureNative.SqlVirtualMachine.Inputs.LoadBalancerConfigurationArgs
+    ///             {
+    ///                 LoadBalancerResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb-test",
+    ///                 PrivateIpAddress = new AzureNative.SqlVirtualMachine.Inputs.PrivateIPAddressArgs
+    ///                 {
+    ///                     IpAddress = "10.1.0.112",
+    ///                     SubnetResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+    ///                 },
+    ///                 ProbePort = 59983,
+    ///                 SqlVirtualMachineInstances = new[]
+    ///                 {
+    ///                     "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm2",
+    ///                     "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm3",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Port = 1433,
+    ///         ResourceGroupName = "testrg",
+    ///         SqlVirtualMachineGroupName = "testvmgroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an availability group listener. This is used for VMs present in multi subnet
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var availabilityGroupListener = new AzureNative.SqlVirtualMachine.AvailabilityGroupListener("availabilityGroupListener", new()
+    ///     {
+    ///         AvailabilityGroupListenerName = "agl-test",
+    ///         AvailabilityGroupName = "ag-test",
+    ///         MultiSubnetIpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.SqlVirtualMachine.Inputs.MultiSubnetIpConfigurationArgs
+    ///             {
+    ///                 PrivateIpAddress = new AzureNative.SqlVirtualMachine.Inputs.PrivateIPAddressArgs
+    ///                 {
+    ///                     IpAddress = "10.0.0.112",
+    ///                     SubnetResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+    ///                 },
+    ///                 SqlVirtualMachineInstance = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm2",
+    ///             },
+    ///             new AzureNative.SqlVirtualMachine.Inputs.MultiSubnetIpConfigurationArgs
+    ///             {
+    ///                 PrivateIpAddress = new AzureNative.SqlVirtualMachine.Inputs.PrivateIPAddressArgs
+    ///                 {
+    ///                     IpAddress = "10.0.1.112",
+    ///                     SubnetResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/alternate",
+    ///                 },
+    ///                 SqlVirtualMachineInstance = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm1",
+    ///             },
+    ///         },
+    ///         Port = 1433,
+    ///         ResourceGroupName = "testrg",
+    ///         SqlVirtualMachineGroupName = "testvmgroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sqlvirtualmachine:AvailabilityGroupListener agl-test /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup/availabilityGroupListeners/agl-test 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine:AvailabilityGroupListener")]
     public partial class AvailabilityGroupListener : global::Pulumi.CustomResource

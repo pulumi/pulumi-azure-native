@@ -265,6 +265,30 @@ class IdentityProvider(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateIdentityProvider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        identity_provider = azure_native.apimanagement.IdentityProvider("identityProvider",
+            client_id="facebookid",
+            client_secret="facebookapplicationsecret",
+            identity_provider_name="facebook",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:IdentityProvider Facebook /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/identityProviders/Facebook 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_tenants: List of Allowed Tenants when configuring Azure Active Directory login.
@@ -292,6 +316,30 @@ class IdentityProvider(pulumi.CustomResource):
         Identity Provider details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateIdentityProvider
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        identity_provider = azure_native.apimanagement.IdentityProvider("identityProvider",
+            client_id="facebookid",
+            client_secret="facebookapplicationsecret",
+            identity_provider_name="facebook",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:IdentityProvider Facebook /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/identityProviders/Facebook 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IdentityProviderArgs args: The arguments to use to populate this resource's properties.

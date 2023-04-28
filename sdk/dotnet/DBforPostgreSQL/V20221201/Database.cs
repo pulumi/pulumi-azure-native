@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
 {
     /// <summary>
     /// Represents a Database.
+    /// 
+    /// ## Example Usage
+    /// ### Create a database
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.DBforPostgreSQL.V20221201.Database("database", new()
+    ///     {
+    ///         Charset = "utf8",
+    ///         Collation = "en_US.utf8",
+    ///         DatabaseName = "db1",
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "testserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20221201:Database db1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/databases/db1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221201:Database")]
     public partial class Database : global::Pulumi.CustomResource

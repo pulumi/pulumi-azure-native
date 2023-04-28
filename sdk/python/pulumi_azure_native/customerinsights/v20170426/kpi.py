@@ -313,6 +313,50 @@ class Kpi(pulumi.CustomResource):
         """
         The KPI resource format.
 
+        ## Example Usage
+        ### Kpi_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kpi = azure_native.customerinsights.v20170426.Kpi("kpi",
+            aliases=[{
+                "aliasName": "alias",
+                "expression": "Id+4",
+            }],
+            calculation_window=azure_native.customerinsights/v20170426.CalculationWindowTypes.DAY,
+            description={
+                "en-us": "Kpi Description",
+            },
+            display_name={
+                "en-us": "Kpi DisplayName",
+            },
+            entity_type=azure_native.customerinsights/v20170426.EntityTypes.PROFILE,
+            entity_type_name="testProfile2327128",
+            expression="SavingAccountBalance",
+            function=azure_native.customerinsights/v20170426.KpiFunctions.SUM,
+            group_by=["SavingAccountBalance"],
+            hub_name="sdkTestHub",
+            kpi_name="kpiTest45453647",
+            resource_group_name="TestHubRG",
+            thres_holds=azure_native.customerinsights.v20170426.KpiThresholdsResponseArgs(
+                increasing_kpi=True,
+                lower_limit=5,
+                upper_limit=50,
+            ),
+            unit="unit")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights/v20170426:Kpi sdkTestHub/kpiTest45453647 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/kpi/kpiTest45453647 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KpiAliasArgs']]]] aliases: The aliases.
@@ -341,6 +385,50 @@ class Kpi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The KPI resource format.
+
+        ## Example Usage
+        ### Kpi_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kpi = azure_native.customerinsights.v20170426.Kpi("kpi",
+            aliases=[{
+                "aliasName": "alias",
+                "expression": "Id+4",
+            }],
+            calculation_window=azure_native.customerinsights/v20170426.CalculationWindowTypes.DAY,
+            description={
+                "en-us": "Kpi Description",
+            },
+            display_name={
+                "en-us": "Kpi DisplayName",
+            },
+            entity_type=azure_native.customerinsights/v20170426.EntityTypes.PROFILE,
+            entity_type_name="testProfile2327128",
+            expression="SavingAccountBalance",
+            function=azure_native.customerinsights/v20170426.KpiFunctions.SUM,
+            group_by=["SavingAccountBalance"],
+            hub_name="sdkTestHub",
+            kpi_name="kpiTest45453647",
+            resource_group_name="TestHubRG",
+            thres_holds=azure_native.customerinsights.v20170426.KpiThresholdsResponseArgs(
+                increasing_kpi=True,
+                lower_limit=5,
+                upper_limit=50,
+            ),
+            unit="unit")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights/v20170426:Kpi sdkTestHub/kpiTest45453647 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/kpi/kpiTest45453647 
+        ```
 
         :param str resource_name: The name of the resource.
         :param KpiArgs args: The arguments to use to populate this resource's properties.

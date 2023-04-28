@@ -113,6 +113,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### PrivateEndpointConnectionUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.timeseriesinsights.v20210331preview.PrivateEndpointConnection("privateEndpointConnection",
+            environment_name="myEnvironment",
+            private_endpoint_connection_name="myPrivateEndpointConnectionName",
+            private_link_service_connection_state=azure_native.timeseriesinsights.v20210331preview.PrivateLinkServiceConnectionStateArgs(
+                description="Rejected for some reason",
+                status="Rejected",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection myPrivateEndpointConnectionName /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.TimeSeriesInsights/Environments/myEnvironment/privateEndpointConnections/myPrivateEndpointConnectionName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] environment_name: The name of the Time Series Insights environment associated with the specified resource group.
@@ -129,6 +155,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
+
+        ## Example Usage
+        ### PrivateEndpointConnectionUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.timeseriesinsights.v20210331preview.PrivateEndpointConnection("privateEndpointConnection",
+            environment_name="myEnvironment",
+            private_endpoint_connection_name="myPrivateEndpointConnectionName",
+            private_link_service_connection_state=azure_native.timeseriesinsights.v20210331preview.PrivateLinkServiceConnectionStateArgs(
+                description="Rejected for some reason",
+                status="Rejected",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20210331preview:PrivateEndpointConnection myPrivateEndpointConnectionName /subscriptions/mySubscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.TimeSeriesInsights/Environments/myEnvironment/privateEndpointConnections/myPrivateEndpointConnectionName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

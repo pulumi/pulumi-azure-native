@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * An application type version resource for the specified application type name resource.
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Put an application type version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationTypeVersion = new azure_native.servicefabric.ApplicationTypeVersion("applicationTypeVersion", {
+ *     appPackageUrl: "http://fakelink.test.com/MyAppType",
+ *     applicationTypeName: "myAppType",
+ *     clusterName: "myCluster",
+ *     location: "eastus",
+ *     resourceGroupName: "resRg",
+ *     version: "1.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabric:ApplicationTypeVersion 1.0 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0 
+ * ```
  */
 export class ApplicationTypeVersion extends pulumi.CustomResource {
     /**

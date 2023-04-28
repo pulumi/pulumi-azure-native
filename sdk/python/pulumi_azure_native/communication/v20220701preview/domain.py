@@ -163,6 +163,30 @@ class Domain(pulumi.CustomResource):
         """
         A class representing a Domains resource.
 
+        ## Example Usage
+        ### Create or update Domains resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain = azure_native.communication.v20220701preview.Domain("domain",
+            domain_management="CustomerManaged",
+            domain_name="mydomain.com",
+            email_service_name="MyEmailServiceResource",
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication/v20220701preview:Domain mydomain.com /subscriptions/12345/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/EmailServices/MyEmailServiceResource/Domains/mydomain.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DomainManagement']] domain_management: Describes how a Domains resource is being managed.
@@ -182,6 +206,30 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class representing a Domains resource.
+
+        ## Example Usage
+        ### Create or update Domains resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain = azure_native.communication.v20220701preview.Domain("domain",
+            domain_management="CustomerManaged",
+            domain_name="mydomain.com",
+            email_service_name="MyEmailServiceResource",
+            location="Global",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:communication/v20220701preview:Domain mydomain.com /subscriptions/12345/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/EmailServices/MyEmailServiceResource/Domains/mydomain.com 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.WindowsESU.V20190916Preview
 {
     /// <summary>
     /// MAK key details.
+    /// 
+    /// ## Example Usage
+    /// ### CreateMultipleActivationKey
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var multipleActivationKey = new AzureNative.WindowsESU.V20190916Preview.MultipleActivationKey("multipleActivationKey", new()
+    ///     {
+    ///         AgreementNumber = "1a2b45ag",
+    ///         InstalledServerNumber = 100,
+    ///         IsEligible = true,
+    ///         Location = "East US",
+    ///         MultipleActivationKeyName = "server08-key-2019",
+    ///         OsType = "WindowsServer2008",
+    ///         ResourceGroupName = "testgr1",
+    ///         SupportType = "SupplementalServicing",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:windowsesu/v20190916preview:MultipleActivationKey server08-key-2019 /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testgr1/providers/Microsoft.WindowsESU/multipleActivationKeys/server08-key-2019 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:windowsesu/v20190916preview:MultipleActivationKey")]
     public partial class MultipleActivationKey : global::Pulumi.CustomResource

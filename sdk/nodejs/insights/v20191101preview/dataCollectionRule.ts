@@ -9,6 +9,101 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of ARM tracked top level resource.
+ *
+ * ## Example Usage
+ * ### Create or update data collection rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataCollectionRule = new azure_native.insights.v20191101preview.DataCollectionRule("dataCollectionRule", {
+ *     dataCollectionRuleName: "myCollectionRule",
+ *     dataFlows: [{
+ *         destinations: ["centralWorkspace"],
+ *         streams: [
+ *             "Microsoft-Perf",
+ *             "Microsoft-Syslog",
+ *             "Microsoft-WindowsEvent",
+ *         ],
+ *     }],
+ *     dataSources: {
+ *         performanceCounters: [
+ *             {
+ *                 counterSpecifiers: [
+ *                     `\Processor(_Total)\% Processor Time`,
+ *                     "\\Memory\\Committed Bytes",
+ *                     "\\LogicalDisk(_Total)\\Free Megabytes",
+ *                     "\\PhysicalDisk(_Total)\\Avg. Disk Queue Length",
+ *                 ],
+ *                 name: "cloudTeamCoreCounters",
+ *                 samplingFrequencyInSeconds: 15,
+ *                 streams: ["Microsoft-Perf"],
+ *             },
+ *             {
+ *                 counterSpecifiers: ["\\Process(_Total)\\Thread Count"],
+ *                 name: "appTeamExtraCounters",
+ *                 samplingFrequencyInSeconds: 30,
+ *                 streams: ["Microsoft-Perf"],
+ *             },
+ *         ],
+ *         syslog: [
+ *             {
+ *                 facilityNames: ["cron"],
+ *                 logLevels: [
+ *                     "Debug",
+ *                     "Critical",
+ *                     "Emergency",
+ *                 ],
+ *                 name: "cronSyslog",
+ *                 streams: ["Microsoft-Syslog"],
+ *             },
+ *             {
+ *                 facilityNames: ["syslog"],
+ *                 logLevels: [
+ *                     "Alert",
+ *                     "Critical",
+ *                     "Emergency",
+ *                 ],
+ *                 name: "syslogBase",
+ *                 streams: ["Microsoft-Syslog"],
+ *             },
+ *         ],
+ *         windowsEventLogs: [
+ *             {
+ *                 name: "cloudSecurityTeamEvents",
+ *                 streams: ["Microsoft-WindowsEvent"],
+ *                 xPathQueries: ["Security!"],
+ *             },
+ *             {
+ *                 name: "appTeam1AppEvents",
+ *                 streams: ["Microsoft-WindowsEvent"],
+ *                 xPathQueries: [
+ *                     "System![System[(Level = 1 or Level = 2 or Level = 3)]]",
+ *                     "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]",
+ *                 ],
+ *             },
+ *         ],
+ *     },
+ *     destinations: {
+ *         logAnalytics: [{
+ *             name: "centralWorkspace",
+ *             workspaceResourceId: "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+ *         }],
+ *     },
+ *     location: "eastus",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20191101preview:DataCollectionRule myCollectionRule /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule 
+ * ```
  */
 export class DataCollectionRule extends pulumi.CustomResource {
     /**

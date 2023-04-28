@@ -11,6 +11,72 @@ namespace Pulumi.AzureNative.Insights.V20170401
 {
     /// <summary>
     /// An activity log alert resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an activity log alert
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var activityLogAlert = new AzureNative.Insights.V20170401.ActivityLogAlert("activityLogAlert", new()
+    ///     {
+    ///         Actions = new AzureNative.Insights.V20170401.Inputs.ActivityLogAlertActionListArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20170401.Inputs.ActivityLogAlertActionGroupArgs
+    ///                 {
+    ///                     ActionGroupId = "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActionGroups/providers/microsoft.insights/actionGroups/SampleActionGroup",
+    ///                     WebhookProperties = 
+    ///                     {
+    ///                         { "sampleWebhookProperty", "samplePropertyValue" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ActivityLogAlertName = "SampleActivityLogAlert",
+    ///         Condition = new AzureNative.Insights.V20170401.Inputs.ActivityLogAlertAllOfConditionArgs
+    ///         {
+    ///             AllOf = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20170401.Inputs.ActivityLogAlertLeafConditionArgs
+    ///                 {
+    ///                     Equals = "Administrative",
+    ///                     Field = "Category",
+    ///                 },
+    ///                 new AzureNative.Insights.V20170401.Inputs.ActivityLogAlertLeafConditionArgs
+    ///                 {
+    ///                     Equals = "Error",
+    ///                     Field = "Level",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Description = "Sample activity log alert description",
+    ///         Enabled = true,
+    ///         Location = "Global",
+    ///         ResourceGroupName = "Default-ActivityLogAlerts",
+    ///         Scopes = new[]
+    ///         {
+    ///             "subscriptions/187f412d-1758-44d9-b052-169e2564721d",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20170401:ActivityLogAlert SampleActivityLogAlert /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActivityLogAlerts/providers/microsoft.insights/activityLogAlerts/SampleActivityLogAlert 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20170401:ActivityLogAlert")]
     public partial class ActivityLogAlert : global::Pulumi.CustomResource

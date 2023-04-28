@@ -97,6 +97,60 @@ class BackupInstance(pulumi.CustomResource):
         """
         BackupInstance Resource
 
+        ## Example Usage
+        ### Create BackupInstance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.v20210101.BackupInstance("backupInstance",
+            backup_instance_name="testInstance1",
+            properties=azure_native.dataprotection.v20210101.BackupInstanceResponseArgs(
+                data_source_info={
+                    "datasourceType": "OssDB",
+                    "objectType": "Datasource",
+                    "resourceID": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+                    "resourceLocation": "",
+                    "resourceName": "testdb",
+                    "resourceType": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "resourceUri": "",
+                },
+                data_source_set_info=azure_native.dataprotection.v20210101.DatasourceSetArgs(
+                    datasource_type="OssDB",
+                    object_type="DatasourceSet",
+                    resource_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+                    resource_location="",
+                    resource_name="viveksipgtest",
+                    resource_type="Microsoft.DBforPostgreSQL/servers",
+                    resource_uri="",
+                ),
+                friendly_name="harshitbi2",
+                object_type="BackupInstance",
+                policy_info={
+                    "policyId": "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+                    "policyParameters": {
+                        "dataStoreParametersList": [azure_native.dataprotection.v20210101.AzureOperationalStoreParametersResponseArgs(
+                            data_store_type="OperationalStore",
+                            object_type="AzureOperationalStoreParameters",
+                            resource_group_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
+                        )],
+                    },
+                },
+            ),
+            resource_group_name="000pikumar",
+            vault_name="PratikPrivatePreviewVault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection/v20210101:BackupInstance harshitbi2 /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/backupVaults/PratikPrivatePreviewVault1/backupInstances/harshitbi2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_instance_name: The name of the backup instance
@@ -112,6 +166,60 @@ class BackupInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         BackupInstance Resource
+
+        ## Example Usage
+        ### Create BackupInstance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.v20210101.BackupInstance("backupInstance",
+            backup_instance_name="testInstance1",
+            properties=azure_native.dataprotection.v20210101.BackupInstanceResponseArgs(
+                data_source_info={
+                    "datasourceType": "OssDB",
+                    "objectType": "Datasource",
+                    "resourceID": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+                    "resourceLocation": "",
+                    "resourceName": "testdb",
+                    "resourceType": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "resourceUri": "",
+                },
+                data_source_set_info=azure_native.dataprotection.v20210101.DatasourceSetArgs(
+                    datasource_type="OssDB",
+                    object_type="DatasourceSet",
+                    resource_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+                    resource_location="",
+                    resource_name="viveksipgtest",
+                    resource_type="Microsoft.DBforPostgreSQL/servers",
+                    resource_uri="",
+                ),
+                friendly_name="harshitbi2",
+                object_type="BackupInstance",
+                policy_info={
+                    "policyId": "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+                    "policyParameters": {
+                        "dataStoreParametersList": [azure_native.dataprotection.v20210101.AzureOperationalStoreParametersResponseArgs(
+                            data_store_type="OperationalStore",
+                            object_type="AzureOperationalStoreParameters",
+                            resource_group_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
+                        )],
+                    },
+                },
+            ),
+            resource_group_name="000pikumar",
+            vault_name="PratikPrivatePreviewVault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection/v20210101:BackupInstance harshitbi2 /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/backupVaults/PratikPrivatePreviewVault1/backupInstances/harshitbi2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackupInstanceInitArgs args: The arguments to use to populate this resource's properties.

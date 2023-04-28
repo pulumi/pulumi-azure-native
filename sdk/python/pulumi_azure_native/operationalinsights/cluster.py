@@ -202,6 +202,35 @@ class Cluster(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ClustersCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.operationalinsights.Cluster("cluster",
+            cluster_name="oiautorest6685",
+            location="australiasoutheast",
+            resource_group_name="oiautorest6685",
+            sku=azure_native.operationalinsights.ClusterSkuArgs(
+                capacity=1000,
+                name="CapacityReservation",
+            ),
+            tags={
+                "tag1": "val1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Cluster oiautorest6685 /subscriptions/594038b5-1093-476e-a366-482775671c11/resourcegroups/oiautorest6685/providers/microsoft.operationalinsights/clusters/oiautorest6685 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'BillingType']] billing_type: The cluster's billing type.
@@ -225,6 +254,35 @@ class Cluster(pulumi.CustomResource):
         The top level Log Analytics cluster resource container.
         API Version: 2021-06-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ClustersCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.operationalinsights.Cluster("cluster",
+            cluster_name="oiautorest6685",
+            location="australiasoutheast",
+            resource_group_name="oiautorest6685",
+            sku=azure_native.operationalinsights.ClusterSkuArgs(
+                capacity=1000,
+                name="CapacityReservation",
+            ),
+            tags={
+                "tag1": "val1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationalinsights:Cluster oiautorest6685 /subscriptions/594038b5-1093-476e-a366-482775671c11/resourcegroups/oiautorest6685/providers/microsoft.operationalinsights/clusters/oiautorest6685 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

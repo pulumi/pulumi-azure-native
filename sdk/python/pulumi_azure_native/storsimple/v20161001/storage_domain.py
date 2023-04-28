@@ -134,6 +134,30 @@ class StorageDomain(pulumi.CustomResource):
         """
         The storage domain.
 
+        ## Example Usage
+        ### StorageDomainsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_domain = azure_native.storsimple.v20161001.StorageDomain("storageDomain",
+            encryption_status=azure_native.storsimple/v20161001.EncryptionStatus.DISABLED,
+            manager_name="hAzureSDKOperations",
+            resource_group_name="ResourceGroupForSDKTest",
+            storage_account_credential_ids=["/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageAccountCredentials/sacforsdktest"],
+            storage_domain_name="sd-fs-HSDK-4XY4FI2IVG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:StorageDomain sd-fs-HSDK-4XY4FI2IVG /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/sd-fs-HSDK-4XY4FI2IVG 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] encryption_key: The encryption key used to encrypt the data. This is a user secret.
@@ -151,6 +175,30 @@ class StorageDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage domain.
+
+        ## Example Usage
+        ### StorageDomainsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_domain = azure_native.storsimple.v20161001.StorageDomain("storageDomain",
+            encryption_status=azure_native.storsimple/v20161001.EncryptionStatus.DISABLED,
+            manager_name="hAzureSDKOperations",
+            resource_group_name="ResourceGroupForSDKTest",
+            storage_account_credential_ids=["/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageAccountCredentials/sacforsdktest"],
+            storage_domain_name="sd-fs-HSDK-4XY4FI2IVG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:StorageDomain sd-fs-HSDK-4XY4FI2IVG /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/sd-fs-HSDK-4XY4FI2IVG 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageDomainArgs args: The arguments to use to populate this resource's properties.

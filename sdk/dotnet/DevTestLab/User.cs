@@ -13,6 +13,53 @@ namespace Pulumi.AzureNative.DevTestLab
     /// Profile of a lab user.
     /// API Version: 2018-09-15.
     /// Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Users_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var user = new AzureNative.DevTestLab.User("user", new()
+    ///     {
+    ///         Identity = new AzureNative.DevTestLab.Inputs.UserIdentityArgs
+    ///         {
+    ///             AppId = "{appId}",
+    ///             ObjectId = "{objectId}",
+    ///             PrincipalId = "{principalId}",
+    ///             PrincipalName = "{principalName}",
+    ///             TenantId = "{tenantId}",
+    ///         },
+    ///         LabName = "{devtestlabName}",
+    ///         Location = "{location}",
+    ///         Name = "{userName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SecretStore = new AzureNative.DevTestLab.Inputs.UserSecretStoreArgs
+    ///         {
+    ///             KeyVaultId = "{keyVaultId}",
+    ///             KeyVaultUri = "{keyVaultUri}",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab:User myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:User")]
     public partial class User : global::Pulumi.CustomResource

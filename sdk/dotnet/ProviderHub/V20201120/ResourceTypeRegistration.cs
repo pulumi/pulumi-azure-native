@@ -9,6 +9,71 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ProviderHub.V20201120
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### ResourceTypeRegistrations_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var resourceTypeRegistration = new AzureNative.ProviderHub.V20201120.ResourceTypeRegistration("resourceTypeRegistration", new()
+    ///     {
+    ///         Properties = new AzureNative.ProviderHub.V20201120.Inputs.ResourceTypeRegistrationPropertiesArgs
+    ///         {
+    ///             Endpoints = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.V20201120.Inputs.ResourceTypeEndpointArgs
+    ///                 {
+    ///                     ApiVersions = new[]
+    ///                     {
+    ///                         "2020-06-01-preview",
+    ///                     },
+    ///                     Locations = new[]
+    ///                     {
+    ///                         "West US",
+    ///                         "East US",
+    ///                         "North Europe",
+    ///                     },
+    ///                     RequiredFeatures = new[]
+    ///                     {
+    ///                         "&lt;feature flag&gt;",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Regionality = "Regional",
+    ///             RoutingType = "Default",
+    ///             SwaggerSpecifications = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.V20201120.Inputs.SwaggerSpecificationArgs
+    ///                 {
+    ///                     ApiVersions = new[]
+    ///                     {
+    ///                         "2020-06-01-preview",
+    ///                     },
+    ///                     SwaggerSpecFolderUri = "https://github.com/Azure/azure-rest-api-specs/blob/feature/azure/contoso/specification/contoso/resource-manager/Microsoft.SampleRP/",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///         ResourceType = "employees",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub/v20201120:ResourceTypeRegistration employees /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/resourcetypeRegistrations/{resourceType} 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:providerhub/v20201120:ResourceTypeRegistration")]
     public partial class ResourceTypeRegistration : global::Pulumi.CustomResource
     {

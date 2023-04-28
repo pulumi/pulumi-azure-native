@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * Information about managed application definition.
  * API Version: 2021-07-01.
  * Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update managed application definition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationDefinition = new azure_native.solutions.ApplicationDefinition("applicationDefinition", {
+ *     applicationDefinitionName: "myManagedApplicationDef",
+ *     authorizations: [{
+ *         principalId: "validprincipalguid",
+ *         roleDefinitionId: "validroleguid",
+ *     }],
+ *     description: "myManagedApplicationDef description",
+ *     displayName: "myManagedApplicationDef",
+ *     lockLevel: azure_native.solutions.ApplicationLockLevel.None,
+ *     packageFileUri: "https://path/to/packagezipfile",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:solutions:ApplicationDefinition myManagedApplicationDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef 
+ * ```
  */
 export class ApplicationDefinition extends pulumi.CustomResource {
     /**

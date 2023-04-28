@@ -129,6 +129,35 @@ class Connection(pulumi.CustomResource):
         API Version: 2016-06-01.
         Previous API Version: 2016-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Replace a connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection = azure_native.web.Connection("connection",
+            connection_name="testManagedApi",
+            properties=azure_native.web.ApiConnectionDefinitionResponsePropertiesArgs(
+                api=azure_native.web.ApiReferenceArgs(
+                    id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+                ),
+                custom_parameter_values={},
+                display_name="testManagedApi",
+                parameter_values={},
+            ),
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:Connection testManagedApi-1 /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: Connection name
@@ -147,6 +176,35 @@ class Connection(pulumi.CustomResource):
         API connection
         API Version: 2016-06-01.
         Previous API Version: 2016-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Replace a connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection = azure_native.web.Connection("connection",
+            connection_name="testManagedApi",
+            properties=azure_native.web.ApiConnectionDefinitionResponsePropertiesArgs(
+                api=azure_native.web.ApiReferenceArgs(
+                    id="/subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/providers/Microsoft.Web/locations/centralus/managedApis/testManagedApi",
+                ),
+                custom_parameter_values={},
+                display_name="testManagedApi",
+                parameter_values={},
+            ),
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:Connection testManagedApi-1 /subscriptions/f34b22a3-2202-4fb1-b040-1332bd928c84/resourceGroups/testResourceGroup/providers/Microsoft.Web/connections/testManagedApi-1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

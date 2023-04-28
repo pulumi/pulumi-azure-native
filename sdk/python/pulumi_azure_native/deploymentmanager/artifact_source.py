@@ -148,6 +148,53 @@ class ArtifactSource(pulumi.CustomResource):
         API Version: 2019-11-01-preview.
         Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create artifact source
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_source = azure_native.deploymentmanager.ArtifactSource("artifactSource",
+            artifact_source_name="myArtifactSource",
+            authentication=azure_native.deploymentmanager.SasAuthenticationResponseArgs(
+                sas_uri="https://mystorageaccount.blob.core.windows.net/myartifactsource?st=2018-07-07T14%3A10%3A00Z&se=2019-12-31T15%3A10%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
+                type="Sas",
+            ),
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            source_type="AzureStorage",
+            tags={})
+
+        ```
+        ### Create artifact source with artifact root, an offset into the storage container
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_source = azure_native.deploymentmanager.ArtifactSource("artifactSource",
+            artifact_root="1.0.0.0",
+            artifact_source_name="myArtifactSource",
+            authentication=azure_native.deploymentmanager.SasAuthenticationResponseArgs(
+                sas_uri="https://mystorageaccount.blob.core.windows.net/myartifactsource?st=2018-07-07T14%3A10%3A00Z&se=2019-12-31T15%3A10%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
+                type="Sas",
+            ),
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            source_type="AzureStorage",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager:ArtifactSource myArtifactSource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/artifactSources/{artifactSourceName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_root: The path from the location that the 'authentication' property [say, a SAS URI to the blob container] refers to, to the location of the artifacts. This can be used to differentiate different versions of the artifacts. Or, different types of artifacts like binaries or templates. The location referenced by the authentication property concatenated with this optional artifactRoot path forms the artifact source location where the artifacts are expected to be found.
@@ -168,6 +215,53 @@ class ArtifactSource(pulumi.CustomResource):
         The resource that defines the source location where the artifacts are located.
         API Version: 2019-11-01-preview.
         Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create artifact source
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_source = azure_native.deploymentmanager.ArtifactSource("artifactSource",
+            artifact_source_name="myArtifactSource",
+            authentication=azure_native.deploymentmanager.SasAuthenticationResponseArgs(
+                sas_uri="https://mystorageaccount.blob.core.windows.net/myartifactsource?st=2018-07-07T14%3A10%3A00Z&se=2019-12-31T15%3A10%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
+                type="Sas",
+            ),
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            source_type="AzureStorage",
+            tags={})
+
+        ```
+        ### Create artifact source with artifact root, an offset into the storage container
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        artifact_source = azure_native.deploymentmanager.ArtifactSource("artifactSource",
+            artifact_root="1.0.0.0",
+            artifact_source_name="myArtifactSource",
+            authentication=azure_native.deploymentmanager.SasAuthenticationResponseArgs(
+                sas_uri="https://mystorageaccount.blob.core.windows.net/myartifactsource?st=2018-07-07T14%3A10%3A00Z&se=2019-12-31T15%3A10%3A00Z&sp=rl&sv=2017-04-17&sr=c&sig=Yh2SoJ1NhhLRwCLln7de%2Fkabcdefghijklmno5sWEIk%3D",
+                type="Sas",
+            ),
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            source_type="AzureStorage",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager:ArtifactSource myArtifactSource /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/artifactSources/{artifactSourceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ArtifactSourceArgs args: The arguments to use to populate this resource's properties.

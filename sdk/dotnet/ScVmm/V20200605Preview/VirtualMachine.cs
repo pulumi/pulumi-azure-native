@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
 {
     /// <summary>
     /// The VirtualMachines resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualMachine
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.ScVmm.V20200605Preview.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         CloudId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/Clouds/HRCloud",
+    ///         ExtendedLocation = new AzureNative.ScVmm.V20200605Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+    ///             Type = "customLocation",
+    ///         },
+    ///         HardwareProfile = new AzureNative.ScVmm.V20200605Preview.Inputs.HardwareProfileArgs
+    ///         {
+    ///             CpuCount = 4,
+    ///             MemoryMB = 4096,
+    ///         },
+    ///         Location = "East US",
+    ///         ResourceGroupName = "testrg",
+    ///         TemplateId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachineTemplates/HRVirtualMachineTemplate",
+    ///         VirtualMachineName = "DemoVM",
+    ///         VmmServerId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scvmm/v20200605preview:VirtualMachine DemoVM /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachines/DemoVM 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource

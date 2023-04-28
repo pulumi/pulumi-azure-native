@@ -9,6 +9,53 @@ import * as utilities from "../../utilities";
 
 /**
  * NetworkSecurityGroup resource.
+ *
+ * ## Example Usage
+ * ### Create network security group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkSecurityGroup = new azure_native.network.v20220901.NetworkSecurityGroup("networkSecurityGroup", {
+ *     location: "eastus",
+ *     networkSecurityGroupName: "testnsg",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### Create network security group with rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkSecurityGroup = new azure_native.network.v20220901.NetworkSecurityGroup("networkSecurityGroup", {
+ *     location: "eastus",
+ *     networkSecurityGroupName: "testnsg",
+ *     resourceGroupName: "rg1",
+ *     securityRules: [{
+ *         access: "Allow",
+ *         destinationAddressPrefix: "*",
+ *         destinationPortRange: "80",
+ *         direction: "Inbound",
+ *         name: "rule1",
+ *         priority: 130,
+ *         protocol: "*",
+ *         sourceAddressPrefix: "*",
+ *         sourcePortRange: "*",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:NetworkSecurityGroup testnsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg 
+ * ```
  */
 export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**

@@ -286,6 +286,29 @@ class NotificationHub(pulumi.CustomResource):
         API Version: 2017-04-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### NotificationHubCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_hub = azure_native.notificationhubs.NotificationHub("notificationHub",
+            location="eastus",
+            namespace_name="nh-sdk-ns",
+            notification_hub_name="nh-sdk-hub",
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:NotificationHub nh-sdk-hub /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/sdkresourceGroup/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/notificationHubs/nh-sdk-hub 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdmCredentialArgs']] adm_credential: The AdmCredential of the created NotificationHub
@@ -314,6 +337,29 @@ class NotificationHub(pulumi.CustomResource):
         Description of a NotificationHub Resource.
         API Version: 2017-04-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### NotificationHubCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_hub = azure_native.notificationhubs.NotificationHub("notificationHub",
+            location="eastus",
+            namespace_name="nh-sdk-ns",
+            notification_hub_name="nh-sdk-hub",
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:NotificationHub nh-sdk-hub /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/sdkresourceGroup/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/notificationHubs/nh-sdk-hub 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NotificationHubArgs args: The arguments to use to populate this resource's properties.

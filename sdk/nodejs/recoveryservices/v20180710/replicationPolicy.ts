@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Protection profile details.
+ *
+ * ## Example Usage
+ * ### Creates the policy.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationPolicy = new azure_native.recoveryservices.v20180710.ReplicationPolicy("replicationPolicy", {
+ *     policyName: "protectionprofile1",
+ *     properties: {
+ *         providerSpecificInput: {
+ *             instanceType: "HyperVReplicaAzure",
+ *         },
+ *     },
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20180710:ReplicationPolicy protectionprofile1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1 
+ * ```
  */
 export class ReplicationPolicy extends pulumi.CustomResource {
     /**

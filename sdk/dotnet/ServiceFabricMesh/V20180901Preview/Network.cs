@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
 {
     /// <summary>
     /// This type describes a network resource.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateNetwork
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var network = new AzureNative.ServiceFabricMesh.V20180901Preview.Network("network", new()
+    ///     {
+    ///         Location = "EastUS",
+    ///         NetworkResourceName = "sampleNetwork",
+    ///         Properties = null,
+    ///         ResourceGroupName = "sbz_demo",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabricmesh/v20180901preview:Network sampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180901preview:Network")]
     public partial class Network : global::Pulumi.CustomResource

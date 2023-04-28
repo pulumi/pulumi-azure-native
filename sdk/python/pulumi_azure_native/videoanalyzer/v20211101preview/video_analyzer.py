@@ -199,6 +199,63 @@ class VideoAnalyzer(pulumi.CustomResource):
         """
         The Video Analyzer account.
 
+        ## Example Usage
+        ### Create a Video Analyzer account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        video_analyzer = azure_native.videoanalyzer.v20211101preview.VideoAnalyzer("videoAnalyzer",
+            account_name="contosotv",
+            encryption=azure_native.videoanalyzer.v20211101preview.AccountEncryptionResponseArgs(
+                type="SystemKey",
+            ),
+            identity=azure_native.videoanalyzer.v20211101preview.VideoAnalyzerIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {},
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3": {},
+                },
+            ),
+            iot_hubs=[
+                {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Devices/IotHubs/hub1",
+                    "identity": {
+                        "userAssignedIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3",
+                    },
+                },
+                {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Devices/IotHubs/hub2",
+                    "identity": {
+                        "userAssignedIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3",
+                    },
+                },
+            ],
+            location="South Central US",
+            resource_group_name="contoso",
+            storage_accounts=[azure_native.videoanalyzer.v20211101preview.StorageAccountArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/storage1",
+                identity=azure_native.videoanalyzer.v20211101preview.ResourceIdentityArgs(
+                    user_assigned_identity="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2",
+                ),
+            )],
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer/v20211101preview:VideoAnalyzer contosomovies /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/videoAnalyzers/contosomovies 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Video Analyzer account name.
@@ -220,6 +277,63 @@ class VideoAnalyzer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Video Analyzer account.
+
+        ## Example Usage
+        ### Create a Video Analyzer account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        video_analyzer = azure_native.videoanalyzer.v20211101preview.VideoAnalyzer("videoAnalyzer",
+            account_name="contosotv",
+            encryption=azure_native.videoanalyzer.v20211101preview.AccountEncryptionResponseArgs(
+                type="SystemKey",
+            ),
+            identity=azure_native.videoanalyzer.v20211101preview.VideoAnalyzerIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {},
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3": {},
+                },
+            ),
+            iot_hubs=[
+                {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Devices/IotHubs/hub1",
+                    "identity": {
+                        "userAssignedIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3",
+                    },
+                },
+                {
+                    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Devices/IotHubs/hub2",
+                    "identity": {
+                        "userAssignedIdentity": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id3",
+                    },
+                },
+            ],
+            location="South Central US",
+            resource_group_name="contoso",
+            storage_accounts=[azure_native.videoanalyzer.v20211101preview.StorageAccountArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.Storage/storageAccounts/storage1",
+                identity=azure_native.videoanalyzer.v20211101preview.ResourceIdentityArgs(
+                    user_assigned_identity="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2",
+                ),
+            )],
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer/v20211101preview:VideoAnalyzer contosomovies /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/videoAnalyzers/contosomovies 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VideoAnalyzerArgs args: The arguments to use to populate this resource's properties.

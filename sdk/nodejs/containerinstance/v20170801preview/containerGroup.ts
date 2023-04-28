@@ -10,6 +10,46 @@ import * as utilities from "../../utilities";
 /**
  * A container group.
  *
+ * ## Example Usage
+ * ### ContainerGroupsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerGroup = new azure_native.containerinstance.v20170801preview.ContainerGroup("containerGroup", {
+ *     containerGroupName: "demo1",
+ *     containers: [{
+ *         environmentVariables: [],
+ *         image: "nginx",
+ *         name: "demo1",
+ *         ports: [{
+ *             port: 80,
+ *         }],
+ *         resources: {
+ *             requests: {
+ *                 cpu: 1,
+ *             },
+ *         },
+ *     }],
+ *     ipAddress: {
+ *         type: "Public",
+ *     },
+ *     location: "west us",
+ *     osType: "Linux",
+ *     resourceGroupName: "demo",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerinstance/v20170801preview:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+ * ```
+ *
  * @deprecated Version 2017-08-01-preview will be removed in v2 of the provider.
  */
 export class ContainerGroup extends pulumi.CustomResource {

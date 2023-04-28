@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Template Spec object.
  * API Version: 2022-02-01.
  * Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### TemplateSpecsCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const templateSpec = new azure_native.resources.TemplateSpec("templateSpec", {
+ *     description: "A very simple Template Spec",
+ *     location: "eastus",
+ *     resourceGroupName: "templateSpecRG",
+ *     templateSpecName: "simpleTemplateSpec",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:TemplateSpec simpleTemplateSpec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/simpleTemplateSpec 
+ * ```
  */
 export class TemplateSpec extends pulumi.CustomResource {
     /**

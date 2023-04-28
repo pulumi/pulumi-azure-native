@@ -11,6 +11,57 @@ namespace Pulumi.AzureNative.LoadTestService.V20221201
 {
     /// <summary>
     /// LoadTest details
+    /// 
+    /// ## Example Usage
+    /// ### LoadTests_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadTest = new AzureNative.LoadTestService.V20221201.LoadTest("loadTest", new()
+    ///     {
+    ///         Description = "This is new load test resource",
+    ///         Encryption = new AzureNative.LoadTestService.V20221201.Inputs.EncryptionPropertiesArgs
+    ///         {
+    ///             Identity = new AzureNative.LoadTestService.V20221201.Inputs.EncryptionPropertiesIdentityArgs
+    ///             {
+    ///                 ResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+    ///                 Type = "UserAssigned",
+    ///             },
+    ///             KeyUrl = "https://dummy.vault.azure.net/keys/dummykey1",
+    ///         },
+    ///         Identity = new AzureNative.LoadTestService.V20221201.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned,UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", null },
+    ///             },
+    ///         },
+    ///         LoadTestName = "myLoadTest",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "dummyrg",
+    ///         Tags = 
+    ///         {
+    ///             { "Team", "Dev Exp" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:loadtestservice/v20221201:LoadTest myLoadTest /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.LoadTestService/loadTests/myLoadTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice/v20221201:LoadTest")]
     public partial class LoadTest : global::Pulumi.CustomResource

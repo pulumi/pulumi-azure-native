@@ -149,6 +149,34 @@ class Manager(pulumi.CustomResource):
         """
         The StorSimple Manager.
 
+        ## Example Usage
+        ### ManagersCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        manager = azure_native.storsimple.v20170601.Manager("manager",
+            cis_intrinsic_settings=azure_native.storsimple.v20170601.ManagerIntrinsicSettingsResponseArgs(
+                type=azure_native.storsimple/v20170601.ManagerType.GARDA_V1,
+            ),
+            location="westus",
+            manager_name="ManagerForSDKTest2",
+            resource_group_name="ResourceGroupForSDKTest",
+            sku=azure_native.storsimple.v20170601.ManagerSkuResponseArgs(
+                name=azure_native.storsimple/v20170601.ManagerSkuType.STANDARD,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20170601:Manager ManagerForSDKTest2 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/Managers/ManagerForSDKTest2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagerIntrinsicSettingsArgs']] cis_intrinsic_settings: Represents the type of StorSimple Manager.
@@ -167,6 +195,34 @@ class Manager(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The StorSimple Manager.
+
+        ## Example Usage
+        ### ManagersCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        manager = azure_native.storsimple.v20170601.Manager("manager",
+            cis_intrinsic_settings=azure_native.storsimple.v20170601.ManagerIntrinsicSettingsResponseArgs(
+                type=azure_native.storsimple/v20170601.ManagerType.GARDA_V1,
+            ),
+            location="westus",
+            manager_name="ManagerForSDKTest2",
+            resource_group_name="ResourceGroupForSDKTest",
+            sku=azure_native.storsimple.v20170601.ManagerSkuResponseArgs(
+                name=azure_native.storsimple/v20170601.ManagerSkuType.STANDARD,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20170601:Manager ManagerForSDKTest2 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/Managers/ManagerForSDKTest2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagerArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
     /// <summary>
     /// A workspace key
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a workspace key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var key = new AzureNative.Synapse.V20210601Preview.Key("key", new()
+    ///     {
+    ///         IsActiveCMK = true,
+    ///         KeyName = "somekey",
+    ///         KeyVaultUrl = "https://vault.azure.net/keys/somesecret",
+    ///         ResourceGroupName = "ExampleResourceGroup",
+    ///         WorkspaceName = "ExampleWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210601preview:Key somekey /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/keys/somekey 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:Key")]
     public partial class Key : global::Pulumi.CustomResource

@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Registry Component Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registryComponentVersion = new AzureNative.MachineLearningServices.V20230401Preview.RegistryComponentVersion("registryComponentVersion", new()
+    ///     {
+    ///         ComponentName = "string",
+    ///         ComponentVersionProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ComponentVersionArgs
+    ///         {
+    ///             ComponentSpec = 
+    ///             {
+    ///                 { "8ced901b-d826-477d-bfef-329da9672513", null },
+    ///             },
+    ///             Description = "string",
+    ///             IsAnonymous = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         RegistryName = "my-aml-registry",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion")]
     public partial class RegistryComponentVersion : global::Pulumi.CustomResource

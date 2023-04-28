@@ -9,6 +9,47 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateProductPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const productPolicy = new azure_native.apimanagement.v20180601preview.ProductPolicy("productPolicy", {
+ *     contentFormat: "xml",
+ *     policyContent: `<policies>
+ *   <inbound>
+ *     <rate-limit calls="{{call-count}}" renewal-period="15"></rate-limit>
+ *     <log-to-eventhub logger-id="16">
+ *                       @( string.Join(",", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) 
+ *                   </log-to-eventhub>
+ *     <quota-by-key calls="40" counter-key="cc" renewal-period="3600" increment-count="@(context.Request.Method == &quot;POST&quot; ? 1:2)" />
+ *     <base />
+ *   </inbound>
+ *   <backend>
+ *     <base />
+ *   </backend>
+ *   <outbound>
+ *     <base />
+ *   </outbound>
+ * </policies>`,
+ *     policyId: "policy",
+ *     productId: "5702e97e5157a50f48dce801",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20180601preview:ProductPolicy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5702e97e5157a50f48dce801/policies/policy 
+ * ```
  */
 export class ProductPolicy extends pulumi.CustomResource {
     /**

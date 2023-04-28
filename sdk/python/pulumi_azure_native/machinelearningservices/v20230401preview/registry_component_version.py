@@ -112,6 +112,42 @@ class RegistryComponentVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Registry Component Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_component_version = azure_native.machinelearningservices.v20230401preview.RegistryComponentVersion("registryComponentVersion",
+            component_name="string",
+            component_version_properties=azure_native.machinelearningservices.v20230401preview.ComponentVersionArgs(
+                component_spec={
+                    "8ced901b-d826-477d-bfef-329da9672513": None,
+                },
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            registry_name="my-aml-registry",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] component_name: Container name.
@@ -128,6 +164,42 @@ class RegistryComponentVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Registry Component Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_component_version = azure_native.machinelearningservices.v20230401preview.RegistryComponentVersion("registryComponentVersion",
+            component_name="string",
+            component_version_properties=azure_native.machinelearningservices.v20230401preview.ComponentVersionArgs(
+                component_spec={
+                    "8ced901b-d826-477d-bfef-329da9672513": None,
+                },
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            registry_name="my-aml-registry",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryComponentVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryComponentVersionArgs args: The arguments to use to populate this resource's properties.

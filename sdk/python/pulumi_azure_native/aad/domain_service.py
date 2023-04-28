@@ -289,6 +289,52 @@ class DomainService(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Domain Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_service = azure_native.aad.DomainService("domainService",
+            domain_name="TestDomainService.com",
+            domain_security_settings=azure_native.aad.DomainSecuritySettingsArgs(
+                ntlm_v1="Enabled",
+                sync_ntlm_passwords="Enabled",
+                tls_v1="Disabled",
+            ),
+            domain_service_name="TestDomainService.com",
+            filtered_sync="Enabled",
+            ldaps_settings=azure_native.aad.LdapsSettingsArgs(
+                external_access="Enabled",
+                ldaps="Enabled",
+                pfx_certificate="MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+                pfx_certificate_password="<pfxCertificatePassword>",
+            ),
+            notification_settings=azure_native.aad.NotificationSettingsArgs(
+                additional_recipients=[
+                    "jicha@microsoft.com",
+                    "caalmont@microsoft.com",
+                ],
+                notify_dc_admins="Enabled",
+                notify_global_admins="Enabled",
+            ),
+            replica_sets=[azure_native.aad.ReplicaSetArgs(
+                location="West US",
+                subnet_id="/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
+            )],
+            resource_group_name="TestResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aad:DomainService TestDomainService.com /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestResourceGroup/providers/Microsoft.AAD/DomainServices/TestDomainService.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigDiagnosticsArgs']] config_diagnostics: Configuration diagnostics data containing latest execution from client.
@@ -317,6 +363,52 @@ class DomainService(pulumi.CustomResource):
         Domain service.
         API Version: 2022-12-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Domain Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_service = azure_native.aad.DomainService("domainService",
+            domain_name="TestDomainService.com",
+            domain_security_settings=azure_native.aad.DomainSecuritySettingsArgs(
+                ntlm_v1="Enabled",
+                sync_ntlm_passwords="Enabled",
+                tls_v1="Disabled",
+            ),
+            domain_service_name="TestDomainService.com",
+            filtered_sync="Enabled",
+            ldaps_settings=azure_native.aad.LdapsSettingsArgs(
+                external_access="Enabled",
+                ldaps="Enabled",
+                pfx_certificate="MIIDPDCCAiSgAwIBAgIQQUI9P6tq2p9OFIJa7DLNvTANBgkqhkiG9w0BAQsFADAgMR4w...",
+                pfx_certificate_password="<pfxCertificatePassword>",
+            ),
+            notification_settings=azure_native.aad.NotificationSettingsArgs(
+                additional_recipients=[
+                    "jicha@microsoft.com",
+                    "caalmont@microsoft.com",
+                ],
+                notify_dc_admins="Enabled",
+                notify_global_admins="Enabled",
+            ),
+            replica_sets=[azure_native.aad.ReplicaSetArgs(
+                location="West US",
+                subnet_id="/subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/TestVnetWUS/subnets/TestSubnetWUS",
+            )],
+            resource_group_name="TestResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aad:DomainService TestDomainService.com /subscriptions/1639790a-76a2-4ac4-98d9-8562f5dfcb4d/resourceGroups/TestResourceGroup/providers/Microsoft.AAD/DomainServices/TestDomainService.com 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainServiceArgs args: The arguments to use to populate this resource's properties.

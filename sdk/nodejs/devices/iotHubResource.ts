@@ -11,6 +11,102 @@ import * as utilities from "../utilities";
  * The description of the IoT hub.
  * API Version: 2021-07-02.
  * Previous API Version: 2020-08-31. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### IotHubResource_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotHubResource = new azure_native.devices.IotHubResource("iotHubResource", {
+ *     location: "centraluseuap",
+ *     properties: {
+ *         cloudToDevice: {
+ *             defaultTtlAsIso8601: "PT1H",
+ *             feedback: {
+ *                 lockDurationAsIso8601: "PT1M",
+ *                 maxDeliveryCount: 10,
+ *                 ttlAsIso8601: "PT1H",
+ *             },
+ *             maxDeliveryCount: 10,
+ *         },
+ *         enableDataResidency: false,
+ *         enableFileUploadNotifications: false,
+ *         eventHubEndpoints: {
+ *             events: {
+ *                 partitionCount: 2,
+ *                 retentionTimeInDays: 1,
+ *             },
+ *         },
+ *         features: "None",
+ *         ipFilterRules: [],
+ *         messagingEndpoints: {
+ *             fileNotifications: {
+ *                 lockDurationAsIso8601: "PT1M",
+ *                 maxDeliveryCount: 10,
+ *                 ttlAsIso8601: "PT1H",
+ *             },
+ *         },
+ *         minTlsVersion: "1.2",
+ *         networkRuleSets: {
+ *             applyToBuiltInEventHubEndpoint: true,
+ *             defaultAction: "Deny",
+ *             ipRules: [
+ *                 {
+ *                     action: "Allow",
+ *                     filterName: "rule1",
+ *                     ipMask: "131.117.159.53",
+ *                 },
+ *                 {
+ *                     action: "Allow",
+ *                     filterName: "rule2",
+ *                     ipMask: "157.55.59.128/25",
+ *                 },
+ *             ],
+ *         },
+ *         routing: {
+ *             endpoints: {
+ *                 eventHubs: [],
+ *                 serviceBusQueues: [],
+ *                 serviceBusTopics: [],
+ *                 storageContainers: [],
+ *             },
+ *             fallbackRoute: {
+ *                 condition: "true",
+ *                 endpointNames: ["events"],
+ *                 isEnabled: true,
+ *                 name: `$fallback`,
+ *                 source: "DeviceMessages",
+ *             },
+ *             routes: [],
+ *         },
+ *         storageEndpoints: {
+ *             `$default`: {
+ *                 connectionString: "",
+ *                 containerName: "",
+ *                 sasTtlAsIso8601: "PT1H",
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "testHub",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "S1",
+ *     },
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devices:IotHubResource testHub /subscriptions/ae24ff83-d2ca-4fc8-9717-05dae4bba489/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/testHub 
+ * ```
  */
 export class IotHubResource extends pulumi.CustomResource {
     /**

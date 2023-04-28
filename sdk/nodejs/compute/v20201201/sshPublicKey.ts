@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the SSH public key.
+ *
+ * ## Example Usage
+ * ### Create a new SSH public key resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sshPublicKey = new azure_native.compute.v20201201.SshPublicKey("sshPublicKey", {
+ *     location: "westus",
+ *     publicKey: "{ssh-rsa public key}",
+ *     resourceGroupName: "myResourceGroup",
+ *     sshPublicKeyName: "mySshPublicKeyName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20201201:SshPublicKey mySshPublicKeyName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/sshPublicKeys/mySshPublicKeyName 
+ * ```
  */
 export class SshPublicKey extends pulumi.CustomResource {
     /**

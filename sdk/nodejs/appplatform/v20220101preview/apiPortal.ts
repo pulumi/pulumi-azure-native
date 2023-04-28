@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * API portal resource
+ *
+ * ## Example Usage
+ * ### ApiPortals_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiPortal = new azure_native.appplatform.v20220101preview.ApiPortal("apiPortal", {
+ *     apiPortalName: "default",
+ *     properties: {
+ *         gatewayIds: ["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default"],
+ *         "public": true,
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "E0",
+ *         tier: "Enterprise",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20220101preview:ApiPortal default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apiPortals/default 
+ * ```
  */
 export class ApiPortal extends pulumi.CustomResource {
     /**

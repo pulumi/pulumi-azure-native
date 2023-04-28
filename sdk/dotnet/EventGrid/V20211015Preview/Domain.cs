@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
 {
     /// <summary>
     /// EventGrid Domain.
+    /// 
+    /// ## Example Usage
+    /// ### Domains_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domain = new AzureNative.EventGrid.V20211015Preview.Domain("domain", new()
+    ///     {
+    ///         DomainName = "exampledomain1",
+    ///         InboundIpRules = new[]
+    ///         {
+    ///             new AzureNative.EventGrid.V20211015Preview.Inputs.InboundIpRuleArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "12.18.30.15",
+    ///             },
+    ///             new AzureNative.EventGrid.V20211015Preview.Inputs.InboundIpRuleArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "12.18.176.1",
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "examplerg",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20211015preview:Domain exampledomain1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampledomain1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20211015preview:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

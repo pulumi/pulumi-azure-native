@@ -211,6 +211,64 @@ class Pool(pulumi.CustomResource):
         """
         Pool resource
 
+        ## Example Usage
+        ### Pools_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pool = azure_native.containerstorage.v20230301preview.Pool("pool",
+            assignments=["qvheujgnqksryltqtkjty"],
+            disk_pool_properties=azure_native.containerstorage.v20230301preview.DiskPoolPropertiesArgs(
+                csi_params={
+                    "key3964": "og",
+                },
+                disks=["wtsj"],
+                max_volume_capacity_gi_b=11,
+            ),
+            elastic_san_pool_properties=azure_native.containerstorage.v20230301preview.ElasticSanPoolPropertiesArgs(
+                resource_group="bjdqfuspbvlgkhsyt",
+                san_name="gu",
+                volume_group="csbzebtsmcnhxzqp",
+            ),
+            ephemeral_pool_properties=azure_native.containerstorage.v20230301preview.EphemeralPoolPropertiesResponseArgs(
+                disk_format=True,
+                disk_selector=["nvpe"],
+                disks=["zokpazvsbrjvkwhsss"],
+            ),
+            location="jdfanwoyiigytvanvct",
+            pool_capacity_gi_b=23,
+            pool_name="-EXNI2WK48",
+            pool_type=26,
+            resource_group_name="rgcontainerstorage",
+            tags={
+                "key5598": "fxughwwqpqkvojkkuur",
+            },
+            zones=["mzjpggkkungkugtucivmxfjnxmzdj"])
+
+        ```
+        ### Pools_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pool = azure_native.containerstorage.v20230301preview.Pool("pool",
+            location="jdfanwoyiigytvanvct",
+            pool_name="J873cXX1w3sIX",
+            resource_group_name="rgcontainerstorage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerstorage/v20230301preview:Pool rgzqqcqrypwtqhgnvcdilsbquamov a 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignments: List of resources that should have access to the pool. Typically ARM references to AKS clusters or ACI Container Groups. For local and standard this must be a single reference. For portable there can be many.
@@ -233,6 +291,64 @@ class Pool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Pool resource
+
+        ## Example Usage
+        ### Pools_CreateOrUpdate_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pool = azure_native.containerstorage.v20230301preview.Pool("pool",
+            assignments=["qvheujgnqksryltqtkjty"],
+            disk_pool_properties=azure_native.containerstorage.v20230301preview.DiskPoolPropertiesArgs(
+                csi_params={
+                    "key3964": "og",
+                },
+                disks=["wtsj"],
+                max_volume_capacity_gi_b=11,
+            ),
+            elastic_san_pool_properties=azure_native.containerstorage.v20230301preview.ElasticSanPoolPropertiesArgs(
+                resource_group="bjdqfuspbvlgkhsyt",
+                san_name="gu",
+                volume_group="csbzebtsmcnhxzqp",
+            ),
+            ephemeral_pool_properties=azure_native.containerstorage.v20230301preview.EphemeralPoolPropertiesResponseArgs(
+                disk_format=True,
+                disk_selector=["nvpe"],
+                disks=["zokpazvsbrjvkwhsss"],
+            ),
+            location="jdfanwoyiigytvanvct",
+            pool_capacity_gi_b=23,
+            pool_name="-EXNI2WK48",
+            pool_type=26,
+            resource_group_name="rgcontainerstorage",
+            tags={
+                "key5598": "fxughwwqpqkvojkkuur",
+            },
+            zones=["mzjpggkkungkugtucivmxfjnxmzdj"])
+
+        ```
+        ### Pools_CreateOrUpdate_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        pool = azure_native.containerstorage.v20230301preview.Pool("pool",
+            location="jdfanwoyiigytvanvct",
+            pool_name="J873cXX1w3sIX",
+            resource_group_name="rgcontainerstorage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerstorage/v20230301preview:Pool rgzqqcqrypwtqhgnvcdilsbquamov a 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PoolArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20230101Preview
 {
     /// <summary>
     /// An object that represents a credential set resource for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### CredentialSetCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var credentialSet = new AzureNative.ContainerRegistry.V20230101Preview.CredentialSet("credentialSet", new()
+    ///     {
+    ///         AuthCredentials = new[]
+    ///         {
+    ///             new AzureNative.ContainerRegistry.V20230101Preview.Inputs.AuthCredentialArgs
+    ///             {
+    ///                 Name = "Credential1",
+    ///                 PasswordSecretIdentifier = "https://myvault.vault.azure.net/secrets/password",
+    ///                 UsernameSecretIdentifier = "https://myvault.vault.azure.net/secrets/username",
+    ///             },
+    ///         },
+    ///         CredentialSetName = "myCredentialSet",
+    ///         Identity = new AzureNative.ContainerRegistry.V20230101Preview.Inputs.IdentityPropertiesArgs
+    ///         {
+    ///             Type = AzureNative.ContainerRegistry.V20230101Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         LoginServer = "docker.io",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20230101preview:CredentialSet myCredentialSet /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20230101preview:CredentialSet")]
     public partial class CredentialSet : global::Pulumi.CustomResource

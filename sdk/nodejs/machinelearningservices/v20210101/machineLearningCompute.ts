@@ -9,6 +9,182 @@ import * as utilities from "../../utilities";
 
 /**
  * Machine Learning compute object wrapped into ARM resource envelope.
+ *
+ * ## Example Usage
+ * ### Create AKS Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningCompute = new azure_native.machinelearningservices.v20210101.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {
+ *         computeType: "AKS",
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create a AML Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningCompute = new azure_native.machinelearningservices.v20210101.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {
+ *         computeType: "AmlCompute",
+ *         properties: {
+ *             enableNodePublicIp: true,
+ *             isolatedNetwork: false,
+ *             osType: "Windows",
+ *             remoteLoginPortPublicAccess: "NotSpecified",
+ *             scaleSettings: {
+ *                 maxNodeCount: 1,
+ *                 minNodeCount: 0,
+ *                 nodeIdleTimeBeforeScaleDown: "PT5M",
+ *             },
+ *             virtualMachineImage: {
+ *                 id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/galleries/myImageGallery/images/myImageDefinition/versions/0.0.1",
+ *             },
+ *             vmPriority: "Dedicated",
+ *             vmSize: "STANDARD_NC6",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create a DataFactory Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningCompute = new azure_native.machinelearningservices.v20210101.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {
+ *         computeType: "DataFactory",
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create an ComputeInstance Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningCompute = new azure_native.machinelearningservices.v20210101.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {
+ *         computeType: "ComputeInstance",
+ *         properties: {
+ *             applicationSharingPolicy: "Personal",
+ *             computeInstanceAuthorizationType: "personal",
+ *             personalComputeInstanceSettings: {
+ *                 assignedUser: {
+ *                     objectId: "00000000-0000-0000-0000-000000000000",
+ *                     tenantId: "00000000-0000-0000-0000-000000000000",
+ *                 },
+ *             },
+ *             sshSettings: {
+ *                 sshPublicAccess: "Disabled",
+ *             },
+ *             subnet: "test-subnet-resource-id",
+ *             vmSize: "STANDARD_NC6",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Create an ComputeInstance Compute with minimal inputs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningCompute = new azure_native.machinelearningservices.v20210101.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {
+ *         computeType: "ComputeInstance",
+ *         properties: {
+ *             vmSize: "STANDARD_NC6",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Update a AKS Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningCompute = new azure_native.machinelearningservices.v20210101.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {
+ *         computeType: "AKS",
+ *         description: "some compute",
+ *         properties: {
+ *             agentCount: 4,
+ *         },
+ *         resourceId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/Microsoft.ContainerService/managedClusters/compute123-56826-c9b00420020b2",
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ * ### Update a AML Compute
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningCompute = new azure_native.machinelearningservices.v20210101.MachineLearningCompute("machineLearningCompute", {
+ *     computeName: "compute123",
+ *     location: "eastus",
+ *     properties: {
+ *         computeType: "AmlCompute",
+ *         description: "some compute",
+ *         properties: {
+ *             scaleSettings: {
+ *                 maxNodeCount: 4,
+ *                 minNodeCount: 4,
+ *                 nodeIdleTimeBeforeScaleDown: "PT5M",
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20210101:MachineLearningCompute compute123 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/computes/compute123 
+ * ```
  */
 export class MachineLearningCompute extends pulumi.CustomResource {
     /**

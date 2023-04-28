@@ -9,6 +9,51 @@ import * as utilities from "../../utilities";
 
 /**
  * The Application Group object
+ *
+ * ## Example Usage
+ * ### ApplicationGroupCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationGroup = new azure_native.eventhub.v20220101preview.ApplicationGroup("applicationGroup", {
+ *     applicationGroupName: "appGroup1",
+ *     clientAppGroupIdentifier: "SASKeyName=KeyName",
+ *     isEnabled: true,
+ *     namespaceName: "contoso-ua-test-eh-system-1",
+ *     policies: [
+ *         {
+ *             metricId: "IncomingMessages",
+ *             name: "ThrottlingPolicy1",
+ *             rateLimitThreshold: 7912,
+ *             type: "ThrottlingPolicy",
+ *         },
+ *         {
+ *             metricId: "IncomingBytes",
+ *             name: "ThrottlingPolicy2",
+ *             rateLimitThreshold: 3951729,
+ *             type: "ThrottlingPolicy",
+ *         },
+ *         {
+ *             metricId: "OutgoingBytes",
+ *             name: "ThrottlingPolicy3",
+ *             rateLimitThreshold: 245175,
+ *             type: "ThrottlingPolicy",
+ *         },
+ *     ],
+ *     resourceGroupName: "contosotest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub/v20220101preview:ApplicationGroup appGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosotest/providers/Microsoft.EventHub/namespaces/contoso-ua-test-eh-system-1/applicationgroups/appGroup1 
+ * ```
  */
 export class ApplicationGroup extends pulumi.CustomResource {
     /**

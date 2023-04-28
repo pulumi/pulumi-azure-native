@@ -98,6 +98,28 @@ class DdosProtectionPlan(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create DDoS protection plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ddos_protection_plan = azure_native.network.DdosProtectionPlan("ddosProtectionPlan",
+            ddos_protection_plan_name="test-plan",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DdosProtectionPlan test-plan /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ddosProtectionPlans/test-plan 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] ddos_protection_plan_name: The name of the DDoS protection plan.
@@ -115,6 +137,28 @@ class DdosProtectionPlan(pulumi.CustomResource):
         A DDoS protection plan in a resource group.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create DDoS protection plan
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ddos_protection_plan = azure_native.network.DdosProtectionPlan("ddosProtectionPlan",
+            ddos_protection_plan_name="test-plan",
+            location="westus",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DdosProtectionPlan test-plan /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ddosProtectionPlans/test-plan 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DdosProtectionPlanArgs args: The arguments to use to populate this resource's properties.

@@ -197,6 +197,110 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
         """
         Blueprint artifact that applies a Policy assignment.
 
+        ## Example Usage
+        ### MG-ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### MG-PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            display_name="force costCenter tag on all resources",
+            kind="policyAssignment",
+            parameters={
+                "tagName": azure_native.blueprint.v20181101preview.ParameterValueArgs(
+                    value="costCenter",
+                ),
+                "tagValue": azure_native.blueprint.v20181101preview.ParameterValueArgs(
+                    value="[parameter('costCenter')]",
+                ),
+            },
+            policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### MG-RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### Sub-ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Sub-PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            display_name="force costCenter tag on all resources",
+            kind="policyAssignment",
+            parameters={
+                "tagName": azure_native.blueprint.v20181101preview.ParameterValueArgs(
+                    value="costCenter",
+                ),
+                "tagValue": azure_native.blueprint.v20181101preview.ParameterValueArgs(
+                    value="[parameter('costCenter')]",
+                ),
+            },
+            policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Sub-RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact ownerAssignment /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_name: Name of the blueprint artifact.
@@ -219,6 +323,110 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Blueprint artifact that applies a Policy assignment.
+
+        ## Example Usage
+        ### MG-ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### MG-PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            display_name="force costCenter tag on all resources",
+            kind="policyAssignment",
+            parameters={
+                "tagName": azure_native.blueprint.v20181101preview.ParameterValueArgs(
+                    value="costCenter",
+                ),
+                "tagValue": azure_native.blueprint.v20181101preview.ParameterValueArgs(
+                    value="[parameter('costCenter')]",
+                ),
+            },
+            policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### MG-RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### Sub-ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Sub-PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            display_name="force costCenter tag on all resources",
+            kind="policyAssignment",
+            parameters={
+                "tagName": azure_native.blueprint.v20181101preview.ParameterValueArgs(
+                    value="costCenter",
+                ),
+                "tagValue": azure_native.blueprint.v20181101preview.ParameterValueArgs(
+                    value="[parameter('costCenter')]",
+                ),
+            },
+            policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Sub-RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20181101preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20181101preview:PolicyAssignmentArtifact ownerAssignment /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyAssignmentArtifactArgs args: The arguments to use to populate this resource's properties.

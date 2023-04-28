@@ -163,7 +163,35 @@ class B2CTenant(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a B2CTenant resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create tenant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        b2c_tenant = azure_native.azureactivedirectory.v20230118preview.B2CTenant("b2cTenant",
+            country_code="US",
+            display_name="Contoso",
+            is_go_local_tenant=True,
+            location="United States",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso.onmicrosoft.com",
+            sku=azure_native.azureactivedirectory.v20230118preview.B2CResourceSKUArgs(
+                name="Standard",
+                tier="A0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory/v20230118preview:B2CTenant contoso.onmicrosoft.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/b2cDirectories/contoso.onmicrosoft.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] country_code: Country code of Azure tenant (e.g. 'US'). Refer to [aka.ms/B2CDataResidency](https://aka.ms/B2CDataResidency) to see valid country codes and corresponding data residency locations. If you do not see a country code in an valid data residency location, choose one from the list.
@@ -182,7 +210,35 @@ class B2CTenant(pulumi.CustomResource):
                  args: B2CTenantArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a B2CTenant resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create tenant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        b2c_tenant = azure_native.azureactivedirectory.v20230118preview.B2CTenant("b2cTenant",
+            country_code="US",
+            display_name="Contoso",
+            is_go_local_tenant=True,
+            location="United States",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso.onmicrosoft.com",
+            sku=azure_native.azureactivedirectory.v20230118preview.B2CResourceSKUArgs(
+                name="Standard",
+                tier="A0",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory/v20230118preview:B2CTenant contoso.onmicrosoft.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/b2cDirectories/contoso.onmicrosoft.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param B2CTenantArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -13,6 +13,87 @@ namespace Pulumi.AzureNative.Network
     /// P2SVpnServerConfiguration Resource.
     /// API Version: 2019-07-01.
     /// Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### P2SVpnServerConfigurationPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var p2sVpnServerConfiguration = new AzureNative.Network.P2sVpnServerConfiguration("p2sVpnServerConfiguration", new()
+    ///     {
+    ///         P2SVpnServerConfigRadiusClientRootCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.P2SVpnServerConfigRadiusClientRootCertificateArgs
+    ///             {
+    ///                 Name = "p2sVpnServerConfigRadiusClientRootCert1",
+    ///                 Thumbprint = "83FFBFC8848B5A5836C94D0112367E16148A286F",
+    ///             },
+    ///         },
+    ///         P2SVpnServerConfigRadiusServerRootCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.P2SVpnServerConfigRadiusServerRootCertificateArgs
+    ///             {
+    ///                 Name = "p2sVpnServerConfigRadiusServerRootCert1",
+    ///                 PublicCertData = "MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuM",
+    ///             },
+    ///         },
+    ///         P2SVpnServerConfigVpnClientRevokedCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.P2SVpnServerConfigVpnClientRevokedCertificateArgs
+    ///             {
+    ///                 Name = "p2sVpnServerConfigVpnClientRevokedCert1",
+    ///                 Thumbprint = "83FFBFC8848B5A5836C94D0112367E16148A286F",
+    ///             },
+    ///         },
+    ///         P2SVpnServerConfigVpnClientRootCertificates = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.P2SVpnServerConfigVpnClientRootCertificateArgs
+    ///             {
+    ///                 Name = "p2sVpnServerConfigVpnClientRootCert1",
+    ///                 PublicCertData = "MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuN",
+    ///             },
+    ///         },
+    ///         P2SVpnServerConfigurationName = "p2sVpnServerConfiguration1",
+    ///         RadiusServerAddress = "8.9.9.9",
+    ///         RadiusServerSecret = "&lt;radiusServerSecret&gt;",
+    ///         ResourceGroupName = "rg1",
+    ///         VirtualWanName = "virtualWan1",
+    ///         VpnClientIpsecPolicies = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.IpsecPolicyArgs
+    ///             {
+    ///                 DhGroup = "DHGroup14",
+    ///                 IkeEncryption = "AES256",
+    ///                 IkeIntegrity = "SHA384",
+    ///                 IpsecEncryption = "AES256",
+    ///                 IpsecIntegrity = "SHA256",
+    ///                 PfsGroup = "PFS14",
+    ///                 SaDataSizeKilobytes = 429497,
+    ///                 SaLifeTimeSeconds = 86472,
+    ///             },
+    ///         },
+    ///         VpnProtocols = new[]
+    ///         {
+    ///             "IkeV2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:P2sVpnServerConfiguration p2sVpnServerConfiguration1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1/p2sVpnServerConfigurations//p2sVpnServerConfiguration1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:P2sVpnServerConfiguration")]
     public partial class P2sVpnServerConfiguration : global::Pulumi.CustomResource

@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.Sql
     /// A logical database transparent data encryption state.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2014-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update a database's Transparent Data Encryption state with minimal parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var transparentDataEncryption = new AzureNative.Sql.TransparentDataEncryption("transparentDataEncryption", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         ResourceGroupName = "securitytde-42-rg",
+    ///         ServerName = "securitytde-42",
+    ///         State = AzureNative.Sql.TransparentDataEncryptionState.Enabled,
+    ///         TdeName = "current",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:TransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securitytde-42-rg/providers/Microsoft.Sql/servers/securitytde-42/databases/testdb/transparentDataEncryption 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:TransparentDataEncryption")]
     public partial class TransparentDataEncryption : global::Pulumi.CustomResource

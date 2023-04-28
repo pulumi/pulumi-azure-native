@@ -96,6 +96,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.insights.v20210701preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="private-endpoint-connection-name",
+            private_link_service_connection_state=azure_native.insights.v20210701preview.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="MyResourceGroup",
+            scope_name="MyPrivateLinkScope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20210701preview:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/privateLinkScopes/MyPrivateLinkScope/privateEndpointConnections/private-endpoint-connection-name 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
@@ -111,6 +137,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
+
+        ## Example Usage
+        ### Approve or reject a private endpoint connection with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.insights.v20210701preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="private-endpoint-connection-name",
+            private_link_service_connection_state=azure_native.insights.v20210701preview.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="MyResourceGroup",
+            scope_name="MyPrivateLinkScope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20210701preview:PrivateEndpointConnection private-endpoint-connection-name /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/MyResourceGroup/providers/Microsoft.Insights/privateLinkScopes/MyPrivateLinkScope/privateEndpointConnections/private-endpoint-connection-name 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

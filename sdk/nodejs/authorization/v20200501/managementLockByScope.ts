@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The lock information.
+ *
+ * ## Example Usage
+ * ### Create management lock at scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementLockByScope = new azure_native.authorization.v20200501.ManagementLockByScope("managementLockByScope", {
+ *     level: "ReadOnly",
+ *     lockName: "testlock",
+ *     scope: "subscriptions/subscriptionId",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20200501:ManagementLockByScope testlock /subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.Authorization/locks/testlock 
+ * ```
  */
 export class ManagementLockByScope extends pulumi.CustomResource {
     /**

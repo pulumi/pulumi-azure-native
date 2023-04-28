@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Storage Sync Service object.
+ *
+ * ## Example Usage
+ * ### StorageSyncServices_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageSyncService = new azure_native.storagesync.v20200301.StorageSyncService("storageSyncService", {
+ *     incomingTrafficPolicy: "AllowAllTraffic",
+ *     location: "WestUS",
+ *     resourceGroupName: "SampleResourceGroup_1",
+ *     storageSyncServiceName: "SampleStorageSyncService_1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagesync/v20200301:StorageSyncService SampleStorageSyncService_1 /subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1 
+ * ```
  */
 export class StorageSyncService extends pulumi.CustomResource {
     /**

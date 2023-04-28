@@ -11,6 +11,449 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         AdditionalLocations = new[]
+    ///         {
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.AdditionalLocationArgs
+    ///             {
+    ///                 DisableGateway = true,
+    ///                 Location = "East US",
+    ///                 Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///                 {
+    ///                     Capacity = 1,
+    ///                     Name = "Premium",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ApiVersionConstraint = new AzureNative.ApiManagement.V20220801.Inputs.ApiVersionConstraintArgs
+    ///         {
+    ///             MinApiVersion = "2019-01-01",
+    ///         },
+    ///         HostnameConfigurations = new[]
+    ///         {
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.HostnameConfigurationArgs
+    ///             {
+    ///                 CertificatePassword = "Password",
+    ///                 DefaultSslBinding = true,
+    ///                 EncodedCertificate = "****** Base 64 Encoded Certificate ************",
+    ///                 HostName = "gateway1.msitesting.net",
+    ///                 Type = "Proxy",
+    ///             },
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.HostnameConfigurationArgs
+    ///             {
+    ///                 CertificatePassword = "Password",
+    ///                 EncodedCertificate = "****** Base 64 Encoded Certificate ************",
+    ///                 HostName = "mgmt.msitesting.net",
+    ///                 Type = "Management",
+    ///             },
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.HostnameConfigurationArgs
+    ///             {
+    ///                 CertificatePassword = "Password",
+    ///                 EncodedCertificate = "****** Base 64 Encoded Certificate ************",
+    ///                 HostName = "portal1.msitesting.net",
+    ///                 Type = "Portal",
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         PublisherEmail = "apim@autorestsdk.com",
+    ///         PublisherName = "autorestsdk",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///             { "tag3", "value3" },
+    ///         },
+    ///         VirtualNetworkType = "None",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateService
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         PublisherEmail = "foo@contoso.com",
+    ///         PublisherName = "foo",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Developer",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "Contoso" },
+    ///             { "Test", "User" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateServiceHavingMsi
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Identity = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "West US",
+    ///         PublisherEmail = "apim@autorestsdk.com",
+    ///         PublisherName = "autorestsdk",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 0,
+    ///             Name = "Consumption",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///             { "tag3", "value3" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateServiceInVnetWithPublicIP
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Location = "East US 2 EUAP",
+    ///         PublicIpAddressId = "/subscriptions/subid/resourceGroups/rgName/providers/Microsoft.Network/publicIPAddresses/apimazvnet",
+    ///         PublisherEmail = "apim@autorestsdk.com",
+    ///         PublisherName = "autorestsdk",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///             { "tag3", "value3" },
+    ///         },
+    ///         VirtualNetworkConfiguration = new AzureNative.ApiManagement.V20220801.Inputs.VirtualNetworkConfigurationArgs
+    ///         {
+    ///             SubnetResourceId = "/subscriptions/subid/resourceGroups/rgName/providers/Microsoft.Network/virtualNetworks/apimcus/subnets/tenant",
+    ///         },
+    ///         VirtualNetworkType = "External",
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateServiceInZones
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Location = "North europe",
+    ///         PublisherEmail = "apim@autorestsdk.com",
+    ///         PublisherName = "autorestsdk",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///             { "tag3", "value3" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateServiceWithCustomHostnameKeyVault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         ApiVersionConstraint = new AzureNative.ApiManagement.V20220801.Inputs.ApiVersionConstraintArgs
+    ///         {
+    ///             MinApiVersion = "2019-01-01",
+    ///         },
+    ///         HostnameConfigurations = new[]
+    ///         {
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.HostnameConfigurationArgs
+    ///             {
+    ///                 DefaultSslBinding = true,
+    ///                 HostName = "gateway1.msitesting.net",
+    ///                 IdentityClientId = "329419bc-adec-4dce-9568-25a6d486e468",
+    ///                 KeyVaultId = "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+    ///                 Type = "Proxy",
+    ///             },
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.HostnameConfigurationArgs
+    ///             {
+    ///                 HostName = "mgmt.msitesting.net",
+    ///                 IdentityClientId = "329419bc-adec-4dce-9568-25a6d486e468",
+    ///                 KeyVaultId = "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+    ///                 Type = "Management",
+    ///             },
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.HostnameConfigurationArgs
+    ///             {
+    ///                 HostName = "portal1.msitesting.net",
+    ///                 IdentityClientId = "329419bc-adec-4dce-9568-25a6d486e468",
+    ///                 KeyVaultId = "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+    ///                 Type = "Portal",
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", null },
+    ///             },
+    ///         },
+    ///         Location = "North Europe",
+    ///         PublisherEmail = "apim@autorestsdk.com",
+    ///         PublisherName = "autorestsdk",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///             { "tag3", "value3" },
+    ///         },
+    ///         VirtualNetworkType = "None",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateServiceWithNatGatewayEnabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Location = "East US",
+    ///         NatGatewayState = "Enabled",
+    ///         PublisherEmail = "apim@autorestsdk.com",
+    ///         PublisherName = "autorestsdk",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///             { "tag3", "value3" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateServiceWithSystemCertificates
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Certificates = new[]
+    ///         {
+    ///             new AzureNative.ApiManagement.V20220801.Inputs.CertificateConfigurationArgs
+    ///             {
+    ///                 CertificatePassword = "Password",
+    ///                 EncodedCertificate = "*******Base64 encoded Certificate******************",
+    ///                 StoreName = "CertificateAuthority",
+    ///             },
+    ///         },
+    ///         Location = "Central US",
+    ///         PublisherEmail = "apim@autorestsdk.com",
+    ///         PublisherName = "autorestsdk",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Basic",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///             { "tag3", "value3" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateServiceWithUserAssignedIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Identity = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/apimService1", null },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         PublisherEmail = "apim@autorestsdk.com",
+    ///         PublisherName = "autorestsdk",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 0,
+    ///             Name = "Consumption",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///             { "tag3", "value3" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementUndelete
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20220801.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         PublisherEmail = "foo@contoso.com",
+    ///         PublisherName = "foo",
+    ///         ResourceGroupName = "rg1",
+    ///         Restore = true,
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20220801.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Developer",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiManagementService")]
     public partial class ApiManagementService : global::Pulumi.CustomResource

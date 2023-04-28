@@ -151,6 +151,48 @@ class Grafana(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Grafana_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        grafana = azure_native.dashboard.Grafana("grafana",
+            identity=azure_native.dashboard.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            properties=azure_native.dashboard.ManagedGrafanaPropertiesResponseArgs(
+                api_key="Enabled",
+                deterministic_outbound_ip="Enabled",
+                grafana_integrations={
+                    "azureMonitorWorkspaceIntegrations": [azure_native.dashboard.AzureMonitorWorkspaceIntegrationArgs(
+                        azure_monitor_workspace_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.monitor/accounts/myAzureMonitorWorkspace",
+                    )],
+                },
+                public_network_access="Enabled",
+                zone_redundancy="Enabled",
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.dashboard.ResourceSkuResponseArgs(
+                name="Standard",
+            ),
+            tags={
+                "Environment": "Dev",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dashboard:Grafana myWorkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/grafana/myWorkspace 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: The managed identity of the grafana resource.
@@ -171,6 +213,48 @@ class Grafana(pulumi.CustomResource):
         The grafana resource type.
         API Version: 2022-08-01.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Grafana_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        grafana = azure_native.dashboard.Grafana("grafana",
+            identity=azure_native.dashboard.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            properties=azure_native.dashboard.ManagedGrafanaPropertiesResponseArgs(
+                api_key="Enabled",
+                deterministic_outbound_ip="Enabled",
+                grafana_integrations={
+                    "azureMonitorWorkspaceIntegrations": [azure_native.dashboard.AzureMonitorWorkspaceIntegrationArgs(
+                        azure_monitor_workspace_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.monitor/accounts/myAzureMonitorWorkspace",
+                    )],
+                },
+                public_network_access="Enabled",
+                zone_redundancy="Enabled",
+            ),
+            resource_group_name="myResourceGroup",
+            sku=azure_native.dashboard.ResourceSkuResponseArgs(
+                name="Standard",
+            ),
+            tags={
+                "Environment": "Dev",
+            },
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dashboard:Grafana myWorkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/grafana/myWorkspace 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GrafanaArgs args: The arguments to use to populate this resource's properties.

@@ -151,6 +151,49 @@ class Budget(pulumi.CustomResource):
         """
         A budget resource.
 
+        ## Example Usage
+        ### CreateOrUpdateBudget
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        budget = azure_native.consumption.v20171230preview.Budget("budget",
+            amount=100.65,
+            category="Cost",
+            e_tag="\\"1d34d016a593709\\"",
+            name="TestBudget",
+            notifications={
+                "Actual_GreaterThan_80_Percent": azure_native.consumption.v20171230preview.NotificationArgs(
+                    contact_emails=[
+                        "johndoe@contoso.com",
+                        "janesmith@contoso.com",
+                    ],
+                    contact_roles=[
+                        "Contributor",
+                        "Reader",
+                    ],
+                    enabled=True,
+                    operator="GreaterThan",
+                    threshold=80,
+                ),
+            },
+            time_grain="Monthly",
+            time_period=azure_native.consumption.v20171230preview.BudgetTimePeriodArgs(
+                end_date="2018-10-31T00:00:00Z",
+                start_date="2017-10-01T00:00:00Z",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:consumption/v20171230preview:Budget TestBudget subscriptions/{subscription-id}/providers/Microsoft.Consumption/budgets/TestBudget 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget
@@ -169,6 +212,49 @@ class Budget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A budget resource.
+
+        ## Example Usage
+        ### CreateOrUpdateBudget
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        budget = azure_native.consumption.v20171230preview.Budget("budget",
+            amount=100.65,
+            category="Cost",
+            e_tag="\\"1d34d016a593709\\"",
+            name="TestBudget",
+            notifications={
+                "Actual_GreaterThan_80_Percent": azure_native.consumption.v20171230preview.NotificationArgs(
+                    contact_emails=[
+                        "johndoe@contoso.com",
+                        "janesmith@contoso.com",
+                    ],
+                    contact_roles=[
+                        "Contributor",
+                        "Reader",
+                    ],
+                    enabled=True,
+                    operator="GreaterThan",
+                    threshold=80,
+                ),
+            },
+            time_grain="Monthly",
+            time_period=azure_native.consumption.v20171230preview.BudgetTimePeriodArgs(
+                end_date="2018-10-31T00:00:00Z",
+                start_date="2017-10-01T00:00:00Z",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:consumption/v20171230preview:Budget TestBudget subscriptions/{subscription-id}/providers/Microsoft.Consumption/budgets/TestBudget 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BudgetArgs args: The arguments to use to populate this resource's properties.

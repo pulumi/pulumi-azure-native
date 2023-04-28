@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.Authorization.V20220801Preview
 {
     /// <summary>
     /// The variable value.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a variable value at management group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var variableValueAtManagementGroup = new AzureNative.Authorization.V20220801Preview.VariableValueAtManagementGroup("variableValueAtManagementGroup", new()
+    ///     {
+    ///         ManagementGroupId = "DevOrg",
+    ///         Values = new[]
+    ///         {
+    ///             new AzureNative.Authorization.V20220801Preview.Inputs.PolicyVariableValueColumnValueArgs
+    ///             {
+    ///                 ColumnName = "StringColumn",
+    ///                 ColumnValue = "SampleValue",
+    ///             },
+    ///             new AzureNative.Authorization.V20220801Preview.Inputs.PolicyVariableValueColumnValueArgs
+    ///             {
+    ///                 ColumnName = "IntegerColumn",
+    ///                 ColumnValue = 10,
+    ///             },
+    ///         },
+    ///         VariableName = "DemoTestVariable",
+    ///         VariableValueName = "TestValue",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20220801preview:VariableValueAtManagementGroup TestValue /providers/Microsoft.Management/managementGroups/DevOrg/providers/Microsoft.Authorization/variables/DemoTestVariable/values/TestValue 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20220801preview:VariableValueAtManagementGroup")]
     public partial class VariableValueAtManagementGroup : global::Pulumi.CustomResource

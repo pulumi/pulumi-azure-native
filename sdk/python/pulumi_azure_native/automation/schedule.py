@@ -215,6 +215,35 @@ class Schedule(pulumi.CustomResource):
         API Version: 2022-08-08.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a schedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.automation.Schedule("schedule",
+            advanced_schedule=azure_native.automation.AdvancedScheduleArgs(),
+            automation_account_name="myAutomationAccount33",
+            description="my description of schedule goes here",
+            expiry_time="2017-04-01T17:28:57.2494819Z",
+            frequency="Hour",
+            interval=1,
+            name="mySchedule",
+            resource_group_name="rg",
+            schedule_name="mySchedule",
+            start_time="2017-03-27T17:28:57.2494819Z")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Schedule mySchedule /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/schedules/mySchedule 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdvancedScheduleArgs']] advanced_schedule: Gets or sets the AdvancedSchedule.
@@ -239,6 +268,35 @@ class Schedule(pulumi.CustomResource):
         Definition of the schedule.
         API Version: 2022-08-08.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a schedule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.automation.Schedule("schedule",
+            advanced_schedule=azure_native.automation.AdvancedScheduleArgs(),
+            automation_account_name="myAutomationAccount33",
+            description="my description of schedule goes here",
+            expiry_time="2017-04-01T17:28:57.2494819Z",
+            frequency="Hour",
+            interval=1,
+            name="mySchedule",
+            resource_group_name="rg",
+            schedule_name="mySchedule",
+            start_time="2017-03-27T17:28:57.2494819Z")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Schedule mySchedule /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/schedules/mySchedule 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

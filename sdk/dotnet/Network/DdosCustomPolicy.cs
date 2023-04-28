@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Network
     /// A DDoS custom policy in a resource group.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create DDoS custom policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ddosCustomPolicy = new AzureNative.Network.DdosCustomPolicy("ddosCustomPolicy", new()
+    ///     {
+    ///         DdosCustomPolicyName = "test-ddos-custom-policy",
+    ///         Location = "centraluseuap",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:DdosCustomPolicy test-ddos-custom-policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ddosCustomPolicies/test-ddos-custom-policy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:DdosCustomPolicy")]
     public partial class DdosCustomPolicy : global::Pulumi.CustomResource

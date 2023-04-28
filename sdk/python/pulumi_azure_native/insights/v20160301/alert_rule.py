@@ -214,6 +214,45 @@ class AlertRule(pulumi.CustomResource):
         """
         The alert rule resource.
 
+        ## Example Usage
+        ### Create or update an alert rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        alert_rule = azure_native.insights.v20160301.AlertRule("alertRule",
+            actions=[],
+            condition=azure_native.insights.v20160301.ThresholdRuleConditionArgs(
+                data_source=azure_native.insights.v20160301.RuleMetricDataSourceArgs(
+                    metric_name="Requests",
+                    odata_type="Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                    resource_uri="/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
+                ),
+                odata_type="Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                operator=azure_native.insights/v20160301.ConditionOperator.GREATER_THAN,
+                threshold=3,
+                time_aggregation=azure_native.insights/v20160301.TimeAggregationOperator.TOTAL,
+                window_size="PT5M",
+            ),
+            description="Pura Vida",
+            is_enabled=True,
+            location="West US",
+            name="chiricutin",
+            resource_group_name="Rac46PostSwapRG",
+            rule_name="chiricutin",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20160301:AlertRule chiricutin /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/alertrules/chiricutin 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['RuleEmailActionArgs'], pulumi.InputType['RuleWebhookActionArgs']]] action: action that is performed when the alert rule becomes active, and when an alert condition is resolved.
@@ -236,6 +275,45 @@ class AlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The alert rule resource.
+
+        ## Example Usage
+        ### Create or update an alert rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        alert_rule = azure_native.insights.v20160301.AlertRule("alertRule",
+            actions=[],
+            condition=azure_native.insights.v20160301.ThresholdRuleConditionArgs(
+                data_source=azure_native.insights.v20160301.RuleMetricDataSourceArgs(
+                    metric_name="Requests",
+                    odata_type="Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
+                    resource_uri="/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.Web/sites/leoalerttest",
+                ),
+                odata_type="Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
+                operator=azure_native.insights/v20160301.ConditionOperator.GREATER_THAN,
+                threshold=3,
+                time_aggregation=azure_native.insights/v20160301.TimeAggregationOperator.TOTAL,
+                window_size="PT5M",
+            ),
+            description="Pura Vida",
+            is_enabled=True,
+            location="West US",
+            name="chiricutin",
+            resource_group_name="Rac46PostSwapRG",
+            rule_name="chiricutin",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20160301:AlertRule chiricutin /subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/alertrules/chiricutin 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AlertRuleArgs args: The arguments to use to populate this resource's properties.

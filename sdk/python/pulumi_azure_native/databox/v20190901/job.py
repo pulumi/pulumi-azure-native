@@ -172,6 +172,54 @@ class Job(pulumi.CustomResource):
         """
         Job Resource.
 
+        ## Example Usage
+        ### JobsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20190901.Job("job",
+            details=azure_native.databox.v20190901.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20190901.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                destination_account_details=[azure_native.databox.v20190901.DestinationStorageAccountDetailsArgs(
+                    data_destination_type="StorageAccount",
+                    storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+                )],
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20190901.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob3971",
+            location="westus",
+            resource_group_name="SdkRg4981",
+            sku=azure_native.databox.v20190901.SkuArgs(
+                name="DataBox",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databox/v20190901:Job SdkJob3971 /subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/SdkRg4981/providers/Microsoft.DataBox/jobs/SdkJob3971 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']] delivery_info: Delivery Info of Job.
@@ -191,6 +239,54 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Job Resource.
+
+        ## Example Usage
+        ### JobsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20190901.Job("job",
+            details=azure_native.databox.v20190901.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20190901.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                destination_account_details=[azure_native.databox.v20190901.DestinationStorageAccountDetailsArgs(
+                    data_destination_type="StorageAccount",
+                    storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+                )],
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20190901.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob3971",
+            location="westus",
+            resource_group_name="SdkRg4981",
+            sku=azure_native.databox.v20190901.SkuArgs(
+                name="DataBox",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databox/v20190901:Job SdkJob3971 /subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/SdkRg4981/providers/Microsoft.DataBox/jobs/SdkJob3971 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

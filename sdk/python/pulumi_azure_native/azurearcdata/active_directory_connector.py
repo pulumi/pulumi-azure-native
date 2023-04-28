@@ -98,6 +98,57 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
         API Version: 2023-03-15-preview.
         Previous API Version: 2022-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update an Active Directory connector instance.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        active_directory_connector = azure_native.azurearcdata.ActiveDirectoryConnector("activeDirectoryConnector",
+            active_directory_connector_name="testADConnector",
+            data_controller_name="testdataController",
+            properties=azure_native.azurearcdata.ActiveDirectoryConnectorPropertiesResponseArgs(
+                spec={
+                    "activeDirectory": {
+                        "domainControllers": azure_native.azurearcdata.ActiveDirectoryDomainControllersArgs(
+                            primary_domain_controller=azure_native.azurearcdata.ActiveDirectoryDomainControllerArgs(
+                                hostname="dc1.contoso.local",
+                            ),
+                            secondary_domain_controllers=[
+                                azure_native.azurearcdata.ActiveDirectoryDomainControllerArgs(
+                                    hostname="dc2.contoso.local",
+                                ),
+                                azure_native.azurearcdata.ActiveDirectoryDomainControllerArgs(
+                                    hostname="dc3.contoso.local",
+                                ),
+                            ],
+                        ),
+                        "realm": "CONTOSO.LOCAL",
+                        "serviceAccountProvisioning": "manual",
+                    },
+                    "dns": azure_native.azurearcdata.ActiveDirectoryConnectorDNSDetailsArgs(
+                        nameserver_ip_addresses=[
+                            "11.11.111.111",
+                            "22.22.222.222",
+                        ],
+                        prefer_k8s_dns_for_ptr_lookups=False,
+                        replicas=1,
+                    ),
+                },
+            ),
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:ActiveDirectoryConnector testADConnector /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/dataControllers/testdataController/activeDirectoryConnectors/testADConnector 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] active_directory_connector_name: The name of the Active Directory connector instance
@@ -115,6 +166,57 @@ class ActiveDirectoryConnector(pulumi.CustomResource):
         Active directory connector resource
         API Version: 2023-03-15-preview.
         Previous API Version: 2022-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update an Active Directory connector instance.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        active_directory_connector = azure_native.azurearcdata.ActiveDirectoryConnector("activeDirectoryConnector",
+            active_directory_connector_name="testADConnector",
+            data_controller_name="testdataController",
+            properties=azure_native.azurearcdata.ActiveDirectoryConnectorPropertiesResponseArgs(
+                spec={
+                    "activeDirectory": {
+                        "domainControllers": azure_native.azurearcdata.ActiveDirectoryDomainControllersArgs(
+                            primary_domain_controller=azure_native.azurearcdata.ActiveDirectoryDomainControllerArgs(
+                                hostname="dc1.contoso.local",
+                            ),
+                            secondary_domain_controllers=[
+                                azure_native.azurearcdata.ActiveDirectoryDomainControllerArgs(
+                                    hostname="dc2.contoso.local",
+                                ),
+                                azure_native.azurearcdata.ActiveDirectoryDomainControllerArgs(
+                                    hostname="dc3.contoso.local",
+                                ),
+                            ],
+                        ),
+                        "realm": "CONTOSO.LOCAL",
+                        "serviceAccountProvisioning": "manual",
+                    },
+                    "dns": azure_native.azurearcdata.ActiveDirectoryConnectorDNSDetailsArgs(
+                        nameserver_ip_addresses=[
+                            "11.11.111.111",
+                            "22.22.222.222",
+                        ],
+                        prefer_k8s_dns_for_ptr_lookups=False,
+                        replicas=1,
+                    ),
+                },
+            ),
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata:ActiveDirectoryConnector testADConnector /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/dataControllers/testdataController/activeDirectoryConnectors/testADConnector 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ActiveDirectoryConnectorArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an incident comment
+ *
+ * ## Example Usage
+ * ### IncidentComments_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const incidentComment = new azure_native.securityinsights.v20230401preview.IncidentComment("incidentComment", {
+ *     incidentCommentId: "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+ *     incidentId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     message: "Some message",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:IncidentComment 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5/comments/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+ * ```
  */
 export class IncidentComment extends pulumi.CustomResource {
     /**

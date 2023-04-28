@@ -135,6 +135,16 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
         """
         A report config resource.
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20180531:ReportConfigByResourceGroupName TestReportConfig subscriptions/{subscription-id}/providers/Microsoft.Consumption/reportconfigs/TestReportConfig 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReportConfigDefinitionArgs']] definition: Has definition for the report config.
@@ -152,6 +162,16 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A report config resource.
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20180531:ReportConfigByResourceGroupName TestReportConfig subscriptions/{subscription-id}/providers/Microsoft.Consumption/reportconfigs/TestReportConfig 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReportConfigByResourceGroupNameArgs args: The arguments to use to populate this resource's properties.

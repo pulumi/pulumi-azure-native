@@ -692,6 +692,336 @@ class AgentPool(pulumi.CustomResource):
         """
         Agent Pool.
 
+        ## Example Usage
+        ### Create Agent Pool using an agent pool snapshot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            creation_data=azure_native.containerservice.v20210801.CreationDataArgs(
+                source_resource_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1",
+            ),
+            enable_fips=True,
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with EncryptionAtHost enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_encryption_at_host=True,
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with Ephemeral OS Disk
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            orchestrator_version="",
+            os_disk_size_gb=64,
+            os_disk_type="Ephemeral",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with FIPS enabled OS
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_fips=True,
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with GPUMIG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            gpu_instance_profile="MIG2g",
+            kubelet_config=azure_native.containerservice.v20210801.KubeletConfigArgs(
+                allowed_unsafe_sysctls=[
+                    "kernel.msg*",
+                    "net.core.somaxconn",
+                ],
+                cpu_cfs_quota=True,
+                cpu_cfs_quota_period="200ms",
+                cpu_manager_policy="static",
+                fail_swap_on=False,
+                image_gc_high_threshold=90,
+                image_gc_low_threshold=70,
+                topology_manager_policy="best-effort",
+            ),
+            linux_os_config=azure_native.containerservice.v20210801.LinuxOSConfigResponseArgs(
+                swap_file_size_mb=1500,
+                sysctls=azure_native.containerservice.v20210801.SysctlConfigArgs(
+                    kernel_threads_max=99999,
+                    net_core_wmem_default=12345,
+                    net_ipv4_ip_local_port_range="20000 60000",
+                    net_ipv4_tcp_tw_reuse=True,
+                ),
+                transparent_huge_page_defrag="madvise",
+                transparent_huge_page_enabled="always",
+            ),
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_ND96asr_v4")
+
+        ```
+        ### Create Agent Pool with Krustlet and the WASI runtime
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            mode="User",
+            orchestrator_version="",
+            os_disk_size_gb=64,
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2",
+            workload_runtime="WasmWasi")
+
+        ```
+        ### Create Agent Pool with KubeletConfig and LinuxOSConfig
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            kubelet_config=azure_native.containerservice.v20210801.KubeletConfigArgs(
+                allowed_unsafe_sysctls=[
+                    "kernel.msg*",
+                    "net.core.somaxconn",
+                ],
+                cpu_cfs_quota=True,
+                cpu_cfs_quota_period="200ms",
+                cpu_manager_policy="static",
+                fail_swap_on=False,
+                image_gc_high_threshold=90,
+                image_gc_low_threshold=70,
+                topology_manager_policy="best-effort",
+            ),
+            linux_os_config=azure_native.containerservice.v20210801.LinuxOSConfigResponseArgs(
+                swap_file_size_mb=1500,
+                sysctls=azure_native.containerservice.v20210801.SysctlConfigArgs(
+                    kernel_threads_max=99999,
+                    net_core_wmem_default=12345,
+                    net_ipv4_ip_local_port_range="20000 60000",
+                    net_ipv4_tcp_tw_reuse=True,
+                ),
+                transparent_huge_page_defrag="madvise",
+                transparent_huge_page_enabled="always",
+            ),
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with OSSKU
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            kubelet_config=azure_native.containerservice.v20210801.KubeletConfigArgs(
+                allowed_unsafe_sysctls=[
+                    "kernel.msg*",
+                    "net.core.somaxconn",
+                ],
+                cpu_cfs_quota=True,
+                cpu_cfs_quota_period="200ms",
+                cpu_manager_policy="static",
+                fail_swap_on=False,
+                image_gc_high_threshold=90,
+                image_gc_low_threshold=70,
+                topology_manager_policy="best-effort",
+            ),
+            linux_os_config=azure_native.containerservice.v20210801.LinuxOSConfigResponseArgs(
+                swap_file_size_mb=1500,
+                sysctls=azure_native.containerservice.v20210801.SysctlConfigArgs(
+                    kernel_threads_max=99999,
+                    net_core_wmem_default=12345,
+                    net_ipv4_ip_local_port_range="20000 60000",
+                    net_ipv4_tcp_tw_reuse=True,
+                ),
+                transparent_huge_page_defrag="madvise",
+                transparent_huge_page_enabled="always",
+            ),
+            orchestrator_version="",
+            os_sku="CBLMariner",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with PPG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            orchestrator_version="",
+            os_type="Linux",
+            proximity_placement_group_id="/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with UltraSSD enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_ultra_ssd=True,
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Spot Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            node_labels={
+                "key1": "val1",
+            },
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            tags={
+                "name1": "val1",
+            },
+            vm_size="Standard_DS1_v2")
+
+        ```
+        ### Create/Update Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            mode="User",
+            node_labels={
+                "key1": "val1",
+            },
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            tags={
+                "name1": "val1",
+            },
+            vm_size="Standard_DS1_v2")
+
+        ```
+        ### Update Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_auto_scaling=True,
+            max_count=2,
+            min_count=2,
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            vm_size="Standard_DS1_v2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20210801:AgentPool agentpool1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/agentPools/agentpool1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The name of the agent pool.
@@ -742,6 +1072,336 @@ class AgentPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Agent Pool.
+
+        ## Example Usage
+        ### Create Agent Pool using an agent pool snapshot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            creation_data=azure_native.containerservice.v20210801.CreationDataArgs(
+                source_resource_id="/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1",
+            ),
+            enable_fips=True,
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with EncryptionAtHost enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_encryption_at_host=True,
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with Ephemeral OS Disk
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            orchestrator_version="",
+            os_disk_size_gb=64,
+            os_disk_type="Ephemeral",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with FIPS enabled OS
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_fips=True,
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with GPUMIG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            gpu_instance_profile="MIG2g",
+            kubelet_config=azure_native.containerservice.v20210801.KubeletConfigArgs(
+                allowed_unsafe_sysctls=[
+                    "kernel.msg*",
+                    "net.core.somaxconn",
+                ],
+                cpu_cfs_quota=True,
+                cpu_cfs_quota_period="200ms",
+                cpu_manager_policy="static",
+                fail_swap_on=False,
+                image_gc_high_threshold=90,
+                image_gc_low_threshold=70,
+                topology_manager_policy="best-effort",
+            ),
+            linux_os_config=azure_native.containerservice.v20210801.LinuxOSConfigResponseArgs(
+                swap_file_size_mb=1500,
+                sysctls=azure_native.containerservice.v20210801.SysctlConfigArgs(
+                    kernel_threads_max=99999,
+                    net_core_wmem_default=12345,
+                    net_ipv4_ip_local_port_range="20000 60000",
+                    net_ipv4_tcp_tw_reuse=True,
+                ),
+                transparent_huge_page_defrag="madvise",
+                transparent_huge_page_enabled="always",
+            ),
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_ND96asr_v4")
+
+        ```
+        ### Create Agent Pool with Krustlet and the WASI runtime
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            mode="User",
+            orchestrator_version="",
+            os_disk_size_gb=64,
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2",
+            workload_runtime="WasmWasi")
+
+        ```
+        ### Create Agent Pool with KubeletConfig and LinuxOSConfig
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            kubelet_config=azure_native.containerservice.v20210801.KubeletConfigArgs(
+                allowed_unsafe_sysctls=[
+                    "kernel.msg*",
+                    "net.core.somaxconn",
+                ],
+                cpu_cfs_quota=True,
+                cpu_cfs_quota_period="200ms",
+                cpu_manager_policy="static",
+                fail_swap_on=False,
+                image_gc_high_threshold=90,
+                image_gc_low_threshold=70,
+                topology_manager_policy="best-effort",
+            ),
+            linux_os_config=azure_native.containerservice.v20210801.LinuxOSConfigResponseArgs(
+                swap_file_size_mb=1500,
+                sysctls=azure_native.containerservice.v20210801.SysctlConfigArgs(
+                    kernel_threads_max=99999,
+                    net_core_wmem_default=12345,
+                    net_ipv4_ip_local_port_range="20000 60000",
+                    net_ipv4_tcp_tw_reuse=True,
+                ),
+                transparent_huge_page_defrag="madvise",
+                transparent_huge_page_enabled="always",
+            ),
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with OSSKU
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            kubelet_config=azure_native.containerservice.v20210801.KubeletConfigArgs(
+                allowed_unsafe_sysctls=[
+                    "kernel.msg*",
+                    "net.core.somaxconn",
+                ],
+                cpu_cfs_quota=True,
+                cpu_cfs_quota_period="200ms",
+                cpu_manager_policy="static",
+                fail_swap_on=False,
+                image_gc_high_threshold=90,
+                image_gc_low_threshold=70,
+                topology_manager_policy="best-effort",
+            ),
+            linux_os_config=azure_native.containerservice.v20210801.LinuxOSConfigResponseArgs(
+                swap_file_size_mb=1500,
+                sysctls=azure_native.containerservice.v20210801.SysctlConfigArgs(
+                    kernel_threads_max=99999,
+                    net_core_wmem_default=12345,
+                    net_ipv4_ip_local_port_range="20000 60000",
+                    net_ipv4_tcp_tw_reuse=True,
+                ),
+                transparent_huge_page_defrag="madvise",
+                transparent_huge_page_enabled="always",
+            ),
+            orchestrator_version="",
+            os_sku="CBLMariner",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with PPG
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            orchestrator_version="",
+            os_type="Linux",
+            proximity_placement_group_id="/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Agent Pool with UltraSSD enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_ultra_ssd=True,
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            vm_size="Standard_DS2_v2")
+
+        ```
+        ### Create Spot Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            node_labels={
+                "key1": "val1",
+            },
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            tags={
+                "name1": "val1",
+            },
+            vm_size="Standard_DS1_v2")
+
+        ```
+        ### Create/Update Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            mode="User",
+            node_labels={
+                "key1": "val1",
+            },
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            tags={
+                "name1": "val1",
+            },
+            vm_size="Standard_DS1_v2")
+
+        ```
+        ### Update Agent Pool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.containerservice.v20210801.AgentPool("agentPool",
+            agent_pool_name="agentpool1",
+            count=3,
+            enable_auto_scaling=True,
+            max_count=2,
+            min_count=2,
+            node_taints=["Key1=Value1:NoSchedule"],
+            orchestrator_version="",
+            os_type="Linux",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            scale_set_eviction_policy="Delete",
+            scale_set_priority="Spot",
+            vm_size="Standard_DS1_v2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20210801:AgentPool agentpool1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/agentPools/agentpool1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.

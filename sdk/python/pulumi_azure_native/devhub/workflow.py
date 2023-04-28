@@ -266,6 +266,54 @@ class Workflow(pulumi.CustomResource):
         API Version: 2022-04-01-preview.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Workflow
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workflow = azure_native.devhub.Workflow("workflow",
+            acr=azure_native.devhub.ACRArgs(
+                acr_registry_name="registry1",
+                acr_repository_name="repo1",
+                acr_resource_group="resourceGroup1",
+                acr_subscription_id="subscriptionId1",
+            ),
+            aks_resource_id="/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+            branch_name="branch1",
+            deployment_properties=azure_native.devhub.DeploymentPropertiesArgs(
+                kube_manifest_locations=["/src/manifests/"],
+                manifest_type="kube",
+                overrides={
+                    "key1": "value1",
+                },
+            ),
+            docker_build_context="repo1/src/",
+            dockerfile="repo1/images/Dockerfile",
+            location="location1",
+            oidc_credentials=azure_native.devhub.GitHubWorkflowProfileOidcCredentialsArgs(
+                azure_client_id="12345678-3456-7890-5678-012345678901",
+                azure_tenant_id="66666666-3456-7890-5678-012345678901",
+            ),
+            repository_name="repo1",
+            repository_owner="owner1",
+            resource_group_name="resourceGroup1",
+            tags={
+                "appname": "testApp",
+            },
+            workflow_name="workflow1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devhub:Workflow workflow1 /subscription/subscriptionId1/resourceGroups/resourceGroup1/providers/Microsoft.DevHub/workflow/workflow1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ACRArgs']] acr: Information on the azure container registry
@@ -292,6 +340,54 @@ class Workflow(pulumi.CustomResource):
         Resource representation of a workflow
         API Version: 2022-04-01-preview.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Workflow
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workflow = azure_native.devhub.Workflow("workflow",
+            acr=azure_native.devhub.ACRArgs(
+                acr_registry_name="registry1",
+                acr_repository_name="repo1",
+                acr_resource_group="resourceGroup1",
+                acr_subscription_id="subscriptionId1",
+            ),
+            aks_resource_id="/subscriptions/subscriptionId1/resourcegroups/resourceGroup1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+            branch_name="branch1",
+            deployment_properties=azure_native.devhub.DeploymentPropertiesArgs(
+                kube_manifest_locations=["/src/manifests/"],
+                manifest_type="kube",
+                overrides={
+                    "key1": "value1",
+                },
+            ),
+            docker_build_context="repo1/src/",
+            dockerfile="repo1/images/Dockerfile",
+            location="location1",
+            oidc_credentials=azure_native.devhub.GitHubWorkflowProfileOidcCredentialsArgs(
+                azure_client_id="12345678-3456-7890-5678-012345678901",
+                azure_tenant_id="66666666-3456-7890-5678-012345678901",
+            ),
+            repository_name="repo1",
+            repository_owner="owner1",
+            resource_group_name="resourceGroup1",
+            tags={
+                "appname": "testApp",
+            },
+            workflow_name="workflow1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devhub:Workflow workflow1 /subscription/subscriptionId1/resourceGroups/resourceGroup1/providers/Microsoft.DevHub/workflow/workflow1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

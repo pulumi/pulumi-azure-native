@@ -181,6 +181,38 @@ class VCenter(pulumi.CustomResource):
         """
         Defines the vCenter.
 
+        ## Example Usage
+        ### CreateVCenter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        v_center = azure_native.connectedvmwarevsphere.v20220715preview.VCenter("vCenter",
+            credentials=azure_native.connectedvmwarevsphere.v20220715preview.VICredentialArgs(
+                password="<password>",
+                username="tempuser",
+            ),
+            extended_location=azure_native.connectedvmwarevsphere.v20220715preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                type="customLocation",
+            ),
+            fqdn="ContosoVMware.contoso.com",
+            location="East US",
+            port=1234,
+            resource_group_name="testrg",
+            vcenter_name="ContosoVCenter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:VCenter ContosoVCenter /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VICredentialArgs']] credentials: Username / Password Credentials to connect to vcenter.
@@ -201,6 +233,38 @@ class VCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the vCenter.
+
+        ## Example Usage
+        ### CreateVCenter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        v_center = azure_native.connectedvmwarevsphere.v20220715preview.VCenter("vCenter",
+            credentials=azure_native.connectedvmwarevsphere.v20220715preview.VICredentialArgs(
+                password="<password>",
+                username="tempuser",
+            ),
+            extended_location=azure_native.connectedvmwarevsphere.v20220715preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+                type="customLocation",
+            ),
+            fqdn="ContosoVMware.contoso.com",
+            location="East US",
+            port=1234,
+            resource_group_name="testrg",
+            vcenter_name="ContosoVCenter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:VCenter ContosoVCenter /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VCenterArgs args: The arguments to use to populate this resource's properties.

@@ -134,6 +134,29 @@ class PeeringServicePrefix(pulumi.CustomResource):
         """
         The peering service prefix class.
 
+        ## Example Usage
+        ### Create or update a prefix for the peering service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering_service_prefix = azure_native.peering.v20190801preview.PeeringServicePrefix("peeringServicePrefix",
+            peering_service_name="MyPeeringService",
+            prefix="192.168.1.0/24",
+            prefix_name="MyPeeringServicePrefix",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20190801preview:PeeringServicePrefix MyPeeringServicePrefix /subscriptions/subId/resourceGroups/MyResourceGroup/providers/Microsoft.Peering/peeringServices/MyPeeringService/prefixes/MyPeeringServicePrefix 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'LearnedType']] learned_type: The prefix learned type
@@ -151,6 +174,29 @@ class PeeringServicePrefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The peering service prefix class.
+
+        ## Example Usage
+        ### Create or update a prefix for the peering service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering_service_prefix = azure_native.peering.v20190801preview.PeeringServicePrefix("peeringServicePrefix",
+            peering_service_name="MyPeeringService",
+            prefix="192.168.1.0/24",
+            prefix_name="MyPeeringServicePrefix",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20190801preview:PeeringServicePrefix MyPeeringServicePrefix /subscriptions/subId/resourceGroups/MyResourceGroup/providers/Microsoft.Peering/peeringServices/MyPeeringService/prefixes/MyPeeringServicePrefix 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PeeringServicePrefixArgs args: The arguments to use to populate this resource's properties.

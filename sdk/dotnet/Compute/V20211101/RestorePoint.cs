@@ -11,6 +11,65 @@ namespace Pulumi.AzureNative.Compute.V20211101
 {
     /// <summary>
     /// Restore Point details.
+    /// 
+    /// ## Example Usage
+    /// ### Copy a restore point to a different region
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var restorePoint = new AzureNative.Compute.V20211101.RestorePoint("restorePoint", new()
+    ///     {
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RestorePointCollectionName = "rpcName",
+    ///         RestorePointName = "rpName",
+    ///         SourceRestorePoint = new AzureNative.Compute.V20211101.Inputs.ApiEntityReferenceArgs
+    ///         {
+    ///             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName/restorePoints/sourceRpName",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a restore point
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var restorePoint = new AzureNative.Compute.V20211101.RestorePoint("restorePoint", new()
+    ///     {
+    ///         ExcludeDisks = new[]
+    ///         {
+    ///             new AzureNative.Compute.V20211101.Inputs.ApiEntityReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RestorePointCollectionName = "rpcName",
+    ///         RestorePointName = "rpName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20211101:RestorePoint rpName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName/restorePoints/rpName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20211101:RestorePoint")]
     public partial class RestorePoint : global::Pulumi.CustomResource

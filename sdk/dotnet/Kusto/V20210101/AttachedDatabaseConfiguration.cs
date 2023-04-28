@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.Kusto.V20210101
 {
     /// <summary>
     /// Class representing an attached database configuration.
+    /// 
+    /// ## Example Usage
+    /// ### AttachedDatabaseConfigurationsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var attachedDatabaseConfiguration = new AzureNative.Kusto.V20210101.AttachedDatabaseConfiguration("attachedDatabaseConfiguration", new()
+    ///     {
+    ///         AttachedDatabaseConfigurationName = "attachedDatabaseConfigurations1",
+    ///         ClusterName = "kustoclusterrptest4",
+    ///         ClusterResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterLeader",
+    ///         DatabaseName = "kustodatabase",
+    ///         DefaultPrincipalsModificationKind = "Union",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///         TableLevelSharingProperties = new AzureNative.Kusto.V20210101.Inputs.TableLevelSharingPropertiesArgs
+    ///         {
+    ///             ExternalTablesToExclude = new[]
+    ///             {
+    ///                 "ExternalTable2",
+    ///             },
+    ///             ExternalTablesToInclude = new[]
+    ///             {
+    ///                 "ExternalTable1",
+    ///             },
+    ///             MaterializedViewsToExclude = new[]
+    ///             {
+    ///                 "MaterializedViewTable2",
+    ///             },
+    ///             MaterializedViewsToInclude = new[]
+    ///             {
+    ///                 "MaterializedViewTable1",
+    ///             },
+    ///             TablesToExclude = new[]
+    ///             {
+    ///                 "Table2",
+    ///             },
+    ///             TablesToInclude = new[]
+    ///             {
+    ///                 "Table1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto/v20210101:AttachedDatabaseConfiguration KustoClusterRPTest4/attachedDatabaseConfigurations1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/attachedDatabaseConfigurations/attachedDatabaseConfigurations1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20210101:AttachedDatabaseConfiguration")]
     public partial class AttachedDatabaseConfiguration : global::Pulumi.CustomResource

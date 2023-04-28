@@ -115,6 +115,34 @@ class Account(pulumi.CustomResource):
         API Version: 2022-09-22-preview.
         Previous API Version: 2022-09-22-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Account resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.graphservices.Account("account",
+            properties=azure_native.graphservices.AccountResourcePropertiesArgs(
+                app_id="11111111-aaaa-1111-bbbb-111111111111",
+            ),
+            resource_group_name="testResourceGroupGRAM",
+            resource_name_="11111111-aaaa-1111-bbbb-1111111111111",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:graphservices:Account 11111111-aaaa-1111-bbbb-111111111111 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroupGRAM/providers/Microsoft.GraphServices/accounts/11111111-aaaa-1111-bbbb-111111111111 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the resource.
@@ -133,6 +161,34 @@ class Account(pulumi.CustomResource):
         Account details
         API Version: 2022-09-22-preview.
         Previous API Version: 2022-09-22-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Account resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.graphservices.Account("account",
+            properties=azure_native.graphservices.AccountResourcePropertiesArgs(
+                app_id="11111111-aaaa-1111-bbbb-111111111111",
+            ),
+            resource_group_name="testResourceGroupGRAM",
+            resource_name_="11111111-aaaa-1111-bbbb-1111111111111",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:graphservices:Account 11111111-aaaa-1111-bbbb-111111111111 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResourceGroupGRAM/providers/Microsoft.GraphServices/accounts/11111111-aaaa-1111-bbbb-111111111111 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

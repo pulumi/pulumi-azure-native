@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties that define an Analytics item that is associated to an Application Insights component.
+ *
+ * ## Example Usage
+ * ### AnalyticsItemPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const analyticsItem = new azure_native.insights.v20150501.AnalyticsItem("analyticsItem", {
+ *     content: `let newExceptionsTimeRange = 1d;
+ * let timeRangeToCheckBefore = 7d;
+ * exceptions
+ * | where timestamp < ago(timeRangeToCheckBefore)
+ * | summarize count() by problemId
+ * | join kind= rightanti (
+ * exceptions
+ * | where timestamp >= ago(newExceptionsTimeRange)
+ * | extend stack = tostring(details[0].rawStack)
+ * | summarize count(), dcount(user_AuthenticatedId), min(timestamp), max(timestamp), any(stack) by problemId  
+ * ) on problemId 
+ * | order by  count_ desc
+ * `,
+ *     name: "Exceptions - New in the last 24 hours",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "my-component",
+ *     scope: "shared",
+ *     scopePath: "analyticsItems",
+ *     type: "query",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20150501:AnalyticsItem myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.insights/components/{resourceName}/{scopePath}/item 
+ * ```
  */
 export class AnalyticsItem extends pulumi.CustomResource {
     /**

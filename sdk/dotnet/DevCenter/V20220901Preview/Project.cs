@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
 {
     /// <summary>
     /// Represents a project resource.
+    /// 
+    /// ## Example Usage
+    /// ### Projects_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var project = new AzureNative.DevCenter.V20220901Preview.Project("project", new()
+    ///     {
+    ///         Description = "This is my first project.",
+    ///         DevCenterId = "/subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/{devCenterName}",
+    ///         Location = "centralus",
+    ///         ProjectName = "{projectName}",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "CostCenter", "R&amp;D" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter/v20220901preview:Project {projectName} /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/{projectName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220901preview:Project")]
     public partial class Project : global::Pulumi.CustomResource

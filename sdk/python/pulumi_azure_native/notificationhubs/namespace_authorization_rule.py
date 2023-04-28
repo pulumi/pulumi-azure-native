@@ -98,6 +98,34 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         API Version: 2017-04-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### NameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_authorization_rule = azure_native.notificationhubs.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="sdk-AuthRules-1788",
+            namespace_name="nh-sdk-ns",
+            properties=azure_native.notificationhubs.SharedAccessAuthorizationRulePropertiesArgs(
+                rights=[
+                    azure_native.notificationhubs.AccessRights.LISTEN,
+                    azure_native.notificationhubs.AccessRights.SEND,
+                ],
+            ),
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:NamespaceAuthorizationRule sdk-AuthRules-1788 /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/ArunMonocle/providers/Microsoft.NotificationHubs/namespaces/sdk-Namespace-6914/AuthorizationRules/sdk-AuthRules-1788 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: Authorization Rule Name.
@@ -115,6 +143,34 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         Description of a Namespace AuthorizationRules.
         API Version: 2017-04-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### NameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_authorization_rule = azure_native.notificationhubs.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="sdk-AuthRules-1788",
+            namespace_name="nh-sdk-ns",
+            properties=azure_native.notificationhubs.SharedAccessAuthorizationRulePropertiesArgs(
+                rights=[
+                    azure_native.notificationhubs.AccessRights.LISTEN,
+                    azure_native.notificationhubs.AccessRights.SEND,
+                ],
+            ),
+            resource_group_name="5ktrial")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:notificationhubs:NamespaceAuthorizationRule sdk-AuthRules-1788 /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/ArunMonocle/providers/Microsoft.NotificationHubs/namespaces/sdk-Namespace-6914/AuthorizationRules/sdk-AuthRules-1788 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

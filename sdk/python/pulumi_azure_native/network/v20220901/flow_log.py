@@ -231,6 +231,36 @@ class FlowLog(pulumi.CustomResource):
         """
         A flow log resource.
 
+        ## Example Usage
+        ### Create or update flow log
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flow_log = azure_native.network.v20220901.FlowLog("flowLog",
+            enabled=True,
+            flow_log_name="fl",
+            format=azure_native.network.v20220901.FlowLogFormatParametersArgs(
+                type="JSON",
+                version=1,
+            ),
+            location="centraluseuap",
+            network_watcher_name="nw1",
+            resource_group_name="rg1",
+            storage_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
+            target_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:FlowLog Microsoft.Networkdesmond-rgdesmondcentral-nsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw/FlowLogs/fl 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Flag to enable/disable flow logging.
@@ -254,6 +284,36 @@ class FlowLog(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A flow log resource.
+
+        ## Example Usage
+        ### Create or update flow log
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flow_log = azure_native.network.v20220901.FlowLog("flowLog",
+            enabled=True,
+            flow_log_name="fl",
+            format=azure_native.network.v20220901.FlowLogFormatParametersArgs(
+                type="JSON",
+                version=1,
+            ),
+            location="centraluseuap",
+            network_watcher_name="nw1",
+            resource_group_name="rg1",
+            storage_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
+            target_resource_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:FlowLog Microsoft.Networkdesmond-rgdesmondcentral-nsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw/FlowLogs/fl 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FlowLogArgs args: The arguments to use to populate this resource's properties.

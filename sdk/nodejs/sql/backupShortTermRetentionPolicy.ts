@@ -8,6 +8,32 @@ import * as utilities from "../utilities";
  * A short term retention policy.
  * API Version: 2021-11-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Update the short term retention policy for the database.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const backupShortTermRetentionPolicy = new azure_native.sql.BackupShortTermRetentionPolicy("backupShortTermRetentionPolicy", {
+ *     databaseName: "testdb",
+ *     diffBackupIntervalInHours: 24,
+ *     policyName: "default",
+ *     resourceGroupName: "resourceGroup",
+ *     retentionDays: 7,
+ *     serverName: "testsvr",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:BackupShortTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testsvr/databases/testdb/backupShortTermRetentionPolicies/default 
+ * ```
  */
 export class BackupShortTermRetentionPolicy extends pulumi.CustomResource {
     /**

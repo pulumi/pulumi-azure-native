@@ -127,6 +127,31 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
         """
         Describes a Shared Private Link Resource
 
+        ## Example Usage
+        ### WebPubSubSharedPrivateLinkResources_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_shared_private_link_resource = azure_native.webpubsub.v20230201.WebPubSubSharedPrivateLinkResource("webPubSubSharedPrivateLinkResource",
+            group_id="sites",
+            private_link_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp",
+            request_message="Please approve",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService",
+            shared_private_link_resource_name="upstream")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource upstream /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/privateEndpointConnections/upstream 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_id: The group id from the provider of resource the shared private link resource is for
@@ -144,6 +169,31 @@ class WebPubSubSharedPrivateLinkResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Shared Private Link Resource
+
+        ## Example Usage
+        ### WebPubSubSharedPrivateLinkResources_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_shared_private_link_resource = azure_native.webpubsub.v20230201.WebPubSubSharedPrivateLinkResource("webPubSubSharedPrivateLinkResource",
+            group_id="sites",
+            private_link_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp",
+            request_message="Please approve",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService",
+            shared_private_link_resource_name="upstream")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub/v20230201:WebPubSubSharedPrivateLinkResource upstream /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/privateEndpointConnections/upstream 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebPubSubSharedPrivateLinkResourceArgs args: The arguments to use to populate this resource's properties.

@@ -149,6 +149,34 @@ class SystemTopic(pulumi.CustomResource):
         """
         EventGrid System Topic.
 
+        ## Example Usage
+        ### SystemTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        system_topic = azure_native.eventgrid.v20220615.SystemTopic("systemTopic",
+            location="westus2",
+            resource_group_name="examplerg",
+            source="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/azureeventgridrunnerrgcentraluseuap/providers/microsoft.storage/storageaccounts/pubstgrunnerb71cd29e",
+            system_topic_name="exampleSystemTopic1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_type="microsoft.storage.storageaccounts")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20220615:SystemTopic exampleSystemTopic2 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/systemTopics/exampleSystemTopic2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityInfoArgs']] identity: Identity information for the resource.
@@ -167,6 +195,34 @@ class SystemTopic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         EventGrid System Topic.
+
+        ## Example Usage
+        ### SystemTopics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        system_topic = azure_native.eventgrid.v20220615.SystemTopic("systemTopic",
+            location="westus2",
+            resource_group_name="examplerg",
+            source="/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/azureeventgridrunnerrgcentraluseuap/providers/microsoft.storage/storageaccounts/pubstgrunnerb71cd29e",
+            system_topic_name="exampleSystemTopic1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_type="microsoft.storage.storageaccounts")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20220615:SystemTopic exampleSystemTopic2 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/systemTopics/exampleSystemTopic2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SystemTopicArgs args: The arguments to use to populate this resource's properties.

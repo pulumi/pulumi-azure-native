@@ -282,6 +282,39 @@ class Origin(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Origins_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        origin = azure_native.cdn.Origin("origin",
+            enabled=True,
+            endpoint_name="endpoint1",
+            host_name="www.someDomain.net",
+            http_port=80,
+            https_port=443,
+            origin_host_header="www.someDomain.net",
+            origin_name="www-someDomain-net",
+            priority=1,
+            private_link_approval_message="Please approve the connection request for this Private Link",
+            private_link_location="eastus",
+            private_link_resource_id="/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+            profile_name="profile1",
+            resource_group_name="RG",
+            weight=50)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:Origin www-someDomain-net /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/www-someDomain-net 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enabled: Origin is enabled for load balancing or not
@@ -310,6 +343,39 @@ class Origin(pulumi.CustomResource):
         CDN origin is the source of the content being delivered via CDN. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
         API Version: 2021-06-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Origins_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        origin = azure_native.cdn.Origin("origin",
+            enabled=True,
+            endpoint_name="endpoint1",
+            host_name="www.someDomain.net",
+            http_port=80,
+            https_port=443,
+            origin_host_header="www.someDomain.net",
+            origin_name="www-someDomain-net",
+            priority=1,
+            private_link_approval_message="Please approve the connection request for this Private Link",
+            private_link_location="eastus",
+            private_link_resource_id="/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.Network/privateLinkServices/pls1",
+            profile_name="profile1",
+            resource_group_name="RG",
+            weight=50)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:Origin www-someDomain-net /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/www-someDomain-net 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OriginArgs args: The arguments to use to populate this resource's properties.

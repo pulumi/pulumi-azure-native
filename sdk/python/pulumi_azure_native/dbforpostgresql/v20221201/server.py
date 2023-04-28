@@ -406,6 +406,194 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
+        ## Example Usage
+        ### Create a database as a geo-restore in geo-paired location
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            create_mode="GeoRestore",
+            location="eastus",
+            point_in_time_utc="2021-06-27T00:04:59.4078005+00:00",
+            resource_group_name="testrg",
+            server_name="pgtestsvc5geo",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername")
+
+        ```
+        ### Create a database as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            create_mode="PointInTimeRestore",
+            location="westus",
+            point_in_time_utc="2021-06-27T00:04:59.4078005+00:00",
+            resource_group_name="testrg",
+            server_name="pgtestsvc5",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername")
+
+        ```
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="password",
+            availability_zone="1",
+            backup=azure_native.dbforpostgresql.v20221201.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Create",
+            high_availability=azure_native.dbforpostgresql.v20221201.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+            ),
+            location="westus",
+            network=azure_native.dbforpostgresql.v20221201.NetworkArgs(
+                delegated_subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+            ),
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sku=azure_native.dbforpostgresql.v20221201.SkuResponseArgs(
+                name="Standard_D4s_v3",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbforpostgresql.v20221201.StorageArgs(
+                storage_size_gb=512,
+            ),
+            tags={
+                "ElasticServer": "1",
+            },
+            version="12")
+
+        ```
+        ### Create a new server with active directory authentication enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="password",
+            auth_config=azure_native.dbforpostgresql.v20221201.AuthConfigArgs(
+                active_directory_auth="Enabled",
+                password_auth="Enabled",
+                tenant_id="tttttt-tttt-tttt-tttt-tttttttttttt",
+            ),
+            availability_zone="1",
+            backup=azure_native.dbforpostgresql.v20221201.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Create",
+            data_encryption=azure_native.dbforpostgresql.v20221201.DataEncryptionArgs(
+                type="SystemManaged",
+            ),
+            high_availability=azure_native.dbforpostgresql.v20221201.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+            ),
+            location="westus",
+            network=azure_native.dbforpostgresql.v20221201.NetworkArgs(
+                delegated_subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+            ),
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sku=azure_native.dbforpostgresql.v20221201.SkuResponseArgs(
+                name="Standard_D4s_v3",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbforpostgresql.v20221201.StorageArgs(
+                storage_size_gb=512,
+            ),
+            tags={
+                "ElasticServer": "1",
+            },
+            version="12")
+
+        ```
+        ### ServerCreateReplica
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            create_mode="Replica",
+            location="westus",
+            point_in_time_utc="2021-06-27T00:04:59.4078005+00:00",
+            resource_group_name="testrg",
+            server_name="pgtestsvc5rep",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername")
+
+        ```
+        ### ServerCreateWithDataEncryptionEnabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="password",
+            availability_zone="1",
+            backup=azure_native.dbforpostgresql.v20221201.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Create",
+            data_encryption=azure_native.dbforpostgresql.v20221201.DataEncryptionArgs(
+                primary_key_uri="https://test-kv.vault.azure.net/keys/test-key1/77f57315bab34b0189daa113fbc78787",
+                primary_user_assigned_identity_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity",
+                type="AzureKeyVault",
+            ),
+            high_availability=azure_native.dbforpostgresql.v20221201.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+            ),
+            identity=azure_native.dbforpostgresql.v20221201.UserAssignedIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity": azure_native.dbforpostgresql.v20221201.UserIdentityArgs(),
+                },
+            ),
+            location="westus",
+            network=azure_native.dbforpostgresql.v20221201.NetworkArgs(
+                delegated_subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+            ),
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sku=azure_native.dbforpostgresql.v20221201.SkuResponseArgs(
+                name="Standard_D4s_v3",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbforpostgresql.v20221201.StorageArgs(
+                storage_size_gb=512,
+            ),
+            tags={
+                "ElasticServer": "1",
+            },
+            version="12")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221201:Server pgtestsvc4 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -439,6 +627,194 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
+
+        ## Example Usage
+        ### Create a database as a geo-restore in geo-paired location
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            create_mode="GeoRestore",
+            location="eastus",
+            point_in_time_utc="2021-06-27T00:04:59.4078005+00:00",
+            resource_group_name="testrg",
+            server_name="pgtestsvc5geo",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername")
+
+        ```
+        ### Create a database as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            create_mode="PointInTimeRestore",
+            location="westus",
+            point_in_time_utc="2021-06-27T00:04:59.4078005+00:00",
+            resource_group_name="testrg",
+            server_name="pgtestsvc5",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername")
+
+        ```
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="password",
+            availability_zone="1",
+            backup=azure_native.dbforpostgresql.v20221201.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Create",
+            high_availability=azure_native.dbforpostgresql.v20221201.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+            ),
+            location="westus",
+            network=azure_native.dbforpostgresql.v20221201.NetworkArgs(
+                delegated_subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+            ),
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sku=azure_native.dbforpostgresql.v20221201.SkuResponseArgs(
+                name="Standard_D4s_v3",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbforpostgresql.v20221201.StorageArgs(
+                storage_size_gb=512,
+            ),
+            tags={
+                "ElasticServer": "1",
+            },
+            version="12")
+
+        ```
+        ### Create a new server with active directory authentication enabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="password",
+            auth_config=azure_native.dbforpostgresql.v20221201.AuthConfigArgs(
+                active_directory_auth="Enabled",
+                password_auth="Enabled",
+                tenant_id="tttttt-tttt-tttt-tttt-tttttttttttt",
+            ),
+            availability_zone="1",
+            backup=azure_native.dbforpostgresql.v20221201.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Create",
+            data_encryption=azure_native.dbforpostgresql.v20221201.DataEncryptionArgs(
+                type="SystemManaged",
+            ),
+            high_availability=azure_native.dbforpostgresql.v20221201.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+            ),
+            location="westus",
+            network=azure_native.dbforpostgresql.v20221201.NetworkArgs(
+                delegated_subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+            ),
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sku=azure_native.dbforpostgresql.v20221201.SkuResponseArgs(
+                name="Standard_D4s_v3",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbforpostgresql.v20221201.StorageArgs(
+                storage_size_gb=512,
+            ),
+            tags={
+                "ElasticServer": "1",
+            },
+            version="12")
+
+        ```
+        ### ServerCreateReplica
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            create_mode="Replica",
+            location="westus",
+            point_in_time_utc="2021-06-27T00:04:59.4078005+00:00",
+            resource_group_name="testrg",
+            server_name="pgtestsvc5rep",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername")
+
+        ```
+        ### ServerCreateWithDataEncryptionEnabled
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20221201.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="password",
+            availability_zone="1",
+            backup=azure_native.dbforpostgresql.v20221201.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Create",
+            data_encryption=azure_native.dbforpostgresql.v20221201.DataEncryptionArgs(
+                primary_key_uri="https://test-kv.vault.azure.net/keys/test-key1/77f57315bab34b0189daa113fbc78787",
+                primary_user_assigned_identity_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity",
+                type="AzureKeyVault",
+            ),
+            high_availability=azure_native.dbforpostgresql.v20221201.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+            ),
+            identity=azure_native.dbforpostgresql.v20221201.UserAssignedIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity": azure_native.dbforpostgresql.v20221201.UserIdentityArgs(),
+                },
+            ),
+            location="westus",
+            network=azure_native.dbforpostgresql.v20221201.NetworkArgs(
+                delegated_subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+            ),
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sku=azure_native.dbforpostgresql.v20221201.SkuResponseArgs(
+                name="Standard_D4s_v3",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbforpostgresql.v20221201.StorageArgs(
+                storage_size_gb=512,
+            ),
+            tags={
+                "ElasticServer": "1",
+            },
+            version="12")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221201:Server pgtestsvc4 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

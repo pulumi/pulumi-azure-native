@@ -318,6 +318,46 @@ class UpdateRun(pulumi.CustomResource):
         Details of an Update run
         API Version: 2023-02-01.
 
+        ## Example Usage
+        ### Get Update runs under cluster resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        update_run = azure_native.azurestackhci.UpdateRun("updateRun",
+            cluster_name="testcluster",
+            description="Update Azure Stack.",
+            end_time_utc="2022-04-06T13:58:42.969006+00:00",
+            error_message="",
+            last_updated_time_utc="2022-04-06T13:58:42.969006+00:00",
+            name="Unnamed step",
+            resource_group_name="testrg",
+            start_time_utc="2022-04-06T01:36:33.3876751+00:00",
+            status="Success",
+            steps=[azure_native.azurestackhci.StepResponseArgs(
+                description="Prepare for SSU update",
+                end_time_utc="2022-04-06T01:37:16.8728314+00:00",
+                error_message="",
+                last_updated_time_utc="2022-04-06T01:37:16.8728314+00:00",
+                name="PreUpdate Cloud",
+                start_time_utc="2022-04-06T01:36:33.3876751+00:00",
+                status="Success",
+                steps=[],
+            )],
+            update_name="Microsoft4.2203.2.32",
+            update_run_name="23b779ba-0d52-4a80-8571-45ca74664ec3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:UpdateRun Microsoft4.2203.2.32/23b779ba-0d52-4a80-8571-45ca74664ec3 /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updates/Microsoft4.2203.2.32/updateRuns/23b779ba-0d52-4a80-8571-45ca74664ec3 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -347,6 +387,46 @@ class UpdateRun(pulumi.CustomResource):
         """
         Details of an Update run
         API Version: 2023-02-01.
+
+        ## Example Usage
+        ### Get Update runs under cluster resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        update_run = azure_native.azurestackhci.UpdateRun("updateRun",
+            cluster_name="testcluster",
+            description="Update Azure Stack.",
+            end_time_utc="2022-04-06T13:58:42.969006+00:00",
+            error_message="",
+            last_updated_time_utc="2022-04-06T13:58:42.969006+00:00",
+            name="Unnamed step",
+            resource_group_name="testrg",
+            start_time_utc="2022-04-06T01:36:33.3876751+00:00",
+            status="Success",
+            steps=[azure_native.azurestackhci.StepResponseArgs(
+                description="Prepare for SSU update",
+                end_time_utc="2022-04-06T01:37:16.8728314+00:00",
+                error_message="",
+                last_updated_time_utc="2022-04-06T01:37:16.8728314+00:00",
+                name="PreUpdate Cloud",
+                start_time_utc="2022-04-06T01:36:33.3876751+00:00",
+                status="Success",
+                steps=[],
+            )],
+            update_name="Microsoft4.2203.2.32",
+            update_run_name="23b779ba-0d52-4a80-8571-45ca74664ec3")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:UpdateRun Microsoft4.2203.2.32/23b779ba-0d52-4a80-8571-45ca74664ec3 /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updates/Microsoft4.2203.2.32/updateRuns/23b779ba-0d52-4a80-8571-45ca74664ec3 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UpdateRunArgs args: The arguments to use to populate this resource's properties.

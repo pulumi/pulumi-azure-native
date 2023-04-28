@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     /// <summary>
     /// Credential resource type.
+    /// 
+    /// ## Example Usage
+    /// ### Credentials_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var credentialOperation = new AzureNative.DataFactory.V20180601.CredentialOperation("credentialOperation", new()
+    ///     {
+    ///         CredentialName = "exampleCredential",
+    ///         FactoryName = "exampleFactoryName",
+    ///         Properties = new AzureNative.DataFactory.V20180601.Inputs.ManagedIdentityCredentialArgs
+    ///         {
+    ///             ResourceId = "/subscriptions/12345678-1234-1234-1234-12345678abc/resourcegroups/exampleResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/exampleUami",
+    ///             Type = "ManagedIdentity",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory/v20180601:CredentialOperation exampleCredential /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/credentials/exampleCredential 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:CredentialOperation")]
     public partial class CredentialOperation : global::Pulumi.CustomResource

@@ -167,6 +167,59 @@ class ContainerApp(pulumi.CustomResource):
         Container App.
         API Version: 2022-09-01.
 
+        ## Example Usage
+        ### Create or Update Container App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.web.ContainerApp("containerApp",
+            configuration=azure_native.web.ConfigurationResponseArgs(
+                ingress=azure_native.web.IngressArgs(
+                    external=True,
+                    target_port=3000,
+                ),
+            ),
+            kind="containerApp",
+            kube_environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/kubeEnvironments/demokube",
+            location="East US",
+            name="testcontainerApp0",
+            resource_group_name="rg",
+            template=azure_native.web.TemplateResponseArgs(
+                containers=[azure_native.web.ContainerArgs(
+                    image="repo/testcontainerApp0:v1",
+                    name="testcontainerApp0",
+                )],
+                dapr=azure_native.web.DaprArgs(
+                    app_port=3000,
+                    enabled=True,
+                ),
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "custom": azure_native.web.CustomScaleRuleArgs(
+                            metadata={
+                                "concurrentRequests": "50",
+                            },
+                            type="http",
+                        ),
+                        "name": "httpscalingrule",
+                    }],
+                },
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:ContainerApp testcontainerApp0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/containerApps/testcontainerApp0 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigurationArgs']] configuration: Non versioned Container App configuration properties.
@@ -187,6 +240,59 @@ class ContainerApp(pulumi.CustomResource):
         """
         Container App.
         API Version: 2022-09-01.
+
+        ## Example Usage
+        ### Create or Update Container App
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_app = azure_native.web.ContainerApp("containerApp",
+            configuration=azure_native.web.ConfigurationResponseArgs(
+                ingress=azure_native.web.IngressArgs(
+                    external=True,
+                    target_port=3000,
+                ),
+            ),
+            kind="containerApp",
+            kube_environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/kubeEnvironments/demokube",
+            location="East US",
+            name="testcontainerApp0",
+            resource_group_name="rg",
+            template=azure_native.web.TemplateResponseArgs(
+                containers=[azure_native.web.ContainerArgs(
+                    image="repo/testcontainerApp0:v1",
+                    name="testcontainerApp0",
+                )],
+                dapr=azure_native.web.DaprArgs(
+                    app_port=3000,
+                    enabled=True,
+                ),
+                scale={
+                    "maxReplicas": 5,
+                    "minReplicas": 1,
+                    "rules": [{
+                        "custom": azure_native.web.CustomScaleRuleArgs(
+                            metadata={
+                                "concurrentRequests": "50",
+                            },
+                            type="http",
+                        ),
+                        "name": "httpscalingrule",
+                    }],
+                },
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:ContainerApp testcontainerApp0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/containerApps/testcontainerApp0 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerAppArgs args: The arguments to use to populate this resource's properties.

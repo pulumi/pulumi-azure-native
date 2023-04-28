@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.ServiceFabric.V20230201Preview
 {
     /// <summary>
     /// An application type version resource for the specified application type name resource.
+    /// 
+    /// ## Example Usage
+    /// ### Put an application type version
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationTypeVersion = new AzureNative.ServiceFabric.V20230201Preview.ApplicationTypeVersion("applicationTypeVersion", new()
+    ///     {
+    ///         AppPackageUrl = "http://fakelink.test.com/MyAppType",
+    ///         ApplicationTypeName = "myAppType",
+    ///         ClusterName = "myCluster",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "resRg",
+    ///         Version = "1.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabric/v20230201preview:ApplicationTypeVersion 1.0 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20230201preview:ApplicationTypeVersion")]
     public partial class ApplicationTypeVersion : global::Pulumi.CustomResource

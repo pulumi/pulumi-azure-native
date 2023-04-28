@@ -9,6 +9,46 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.PowerBI.V20200601
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Updates status of private endpoint connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.PowerBI.V20200601.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         AzureResourceName = "azureResourceName",
+    ///         PrivateEndpoint = new AzureNative.PowerBI.V20200601.Inputs.PrivateEndpointArgs
+    ///         {
+    ///             Id = "/subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpointName",
+    ///         },
+    ///         PrivateEndpointName = "myPrivateEndpointName",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.PowerBI.V20200601.Inputs.ConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Description = "",
+    ///             Status = "Approved ",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:powerbi/v20200601:PrivateEndpointConnection myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 /subscriptions/a0020869-4d28-422a-89f4-c2413130d73c/resourceGroups/resourceGroup/providers/Microsoft.PowerBI/privateLinkServicesForPowerBI/azureResourceName/privateEndpointConnections/myPrivateEndpointName.58ffb8de-89ad-41eb-9f8f-de0a7db9d721 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:powerbi/v20200601:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

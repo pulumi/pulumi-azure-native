@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the gallery Application Version that you want to create or update.
+ *
+ * ## Example Usage
+ * ### Create or update a simple gallery Application Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryApplicationVersion = new azure_native.compute.v20200930.GalleryApplicationVersion("galleryApplicationVersion", {
+ *     galleryApplicationName: "myGalleryApplicationName",
+ *     galleryApplicationVersionName: "1.0.0",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     publishingProfile: {
+ *         endOfLifeDate: "2019-07-01T07:00:00Z",
+ *         manageActions: {
+ *             install: "powershell -command \"Expand-Archive -Path package.zip -DestinationPath C:\\package\"",
+ *             remove: "del C:\\package ",
+ *         },
+ *         replicaCount: 1,
+ *         source: {
+ *             mediaLink: "https://mystorageaccount.blob.core.windows.net/mycontainer/package.zip?{sasKey}",
+ *         },
+ *         storageAccountType: "Standard_LRS",
+ *         targetRegions: [{
+ *             name: "West US",
+ *             regionalReplicaCount: 1,
+ *             storageAccountType: "Standard_LRS",
+ *         }],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20200930:GalleryApplicationVersion 1.0.0 /subscriptions/01523d7c-60da-455e-adef-521b547922c4/resourceGroups/galleryPsTestRg98/providers/Microsoft.Compute/galleries/galleryPsTestGallery6165/applications/galleryPsTestGalleryApplication7825/versions/1.0.0 
+ * ```
  */
 export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**

@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.ServiceNetworking.V20221001Preview
 {
     /// <summary>
     /// Concrete tracked resource types can be created by aliasing this type using a specific property type.
+    /// 
+    /// ## Example Usage
+    /// ### Put Traffic Controller
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var trafficControllerInterface = new AzureNative.ServiceNetworking.V20221001Preview.TrafficControllerInterface("trafficControllerInterface", new()
+    ///     {
+    ///         Location = "NorthCentralUS",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         TrafficControllerName = "tc1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicenetworking/v20221001preview:TrafficControllerInterface tc1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking/v20221001preview:TrafficControllerInterface")]
     public partial class TrafficControllerInterface : global::Pulumi.CustomResource

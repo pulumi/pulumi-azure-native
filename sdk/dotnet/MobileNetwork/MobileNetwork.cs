@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// Mobile network resource.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create mobile network
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mobileNetwork = new AzureNative.MobileNetwork.MobileNetwork("mobileNetwork", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         MobileNetworkName = "testMobileNetwork",
+    ///         PublicLandMobileNetworkIdentifier = new AzureNative.MobileNetwork.Inputs.PlmnIdArgs
+    ///         {
+    ///             Mcc = "001",
+    ///             Mnc = "01",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork:MobileNetwork testMobileNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:MobileNetwork")]
     public partial class MobileNetwork : global::Pulumi.CustomResource

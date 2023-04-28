@@ -13,6 +13,243 @@ namespace Pulumi.AzureNative.Databricks
     /// Information about workspace.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a workspace which is ready for Customer-Managed Key (CMK) encryption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///         Parameters = new AzureNative.Databricks.Inputs.WorkspaceCustomParametersArgs
+    ///         {
+    ///             PrepareEncryption = new AzureNative.Databricks.Inputs.WorkspaceCustomBooleanParameterArgs
+    ///             {
+    ///                 Value = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a workspace with Customer-Managed Key (CMK) encryption for Managed Disks
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    ///     {
+    ///         Encryption = new AzureNative.Databricks.Inputs.WorkspacePropertiesEncryptionArgs
+    ///         {
+    ///             Entities = new AzureNative.Databricks.Inputs.EncryptionEntitiesDefinitionArgs
+    ///             {
+    ///                 ManagedDisk = new AzureNative.Databricks.Inputs.ManagedDiskEncryptionArgs
+    ///                 {
+    ///                     KeySource = "Microsoft.Keyvault",
+    ///                     KeyVaultProperties = new AzureNative.Databricks.Inputs.ManagedDiskEncryptionKeyVaultPropertiesArgs
+    ///                     {
+    ///                         KeyName = "test-cmk-key",
+    ///                         KeyVaultUri = "https://test-vault-name.vault.azure.net/",
+    ///                         KeyVersion = "00000000000000000000000000000000",
+    ///                     },
+    ///                     RotationToLatestKeyVersionEnabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///         ResourceGroupName = "rg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update workspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///         ResourceGroupName = "rg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update workspace with custom parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///         Parameters = new AzureNative.Databricks.Inputs.WorkspaceCustomParametersArgs
+    ///         {
+    ///             CustomPrivateSubnetName = new AzureNative.Databricks.Inputs.WorkspaceCustomStringParameterArgs
+    ///             {
+    ///                 Value = "myPrivateSubnet",
+    ///             },
+    ///             CustomPublicSubnetName = new AzureNative.Databricks.Inputs.WorkspaceCustomStringParameterArgs
+    ///             {
+    ///                 Value = "myPublicSubnet",
+    ///             },
+    ///             CustomVirtualNetworkId = new AzureNative.Databricks.Inputs.WorkspaceCustomStringParameterArgs
+    ///             {
+    ///                 Value = "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/myNetwork",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///         Parameters = new AzureNative.Databricks.Inputs.WorkspaceCustomParametersArgs
+    ///         {
+    ///             Encryption = new AzureNative.Databricks.Inputs.WorkspaceEncryptionParameterArgs
+    ///             {
+    ///                 Value = new AzureNative.Databricks.Inputs.EncryptionArgs
+    ///                 {
+    ///                     KeyName = "myKeyName",
+    ///                     KeySource = "Microsoft.Keyvault",
+    ///                     KeyVaultUri = "https://myKeyVault.vault.azure.net/",
+    ///                     KeyVersion = "00000000000000000000000000000000",
+    ///                 },
+    ///             },
+    ///             PrepareEncryption = new AzureNative.Databricks.Inputs.WorkspaceCustomBooleanParameterArgs
+    ///             {
+    ///                 Value = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///         Parameters = new AzureNative.Databricks.Inputs.WorkspaceCustomParametersArgs
+    ///         {
+    ///             Encryption = new AzureNative.Databricks.Inputs.WorkspaceEncryptionParameterArgs
+    ///             {
+    ///                 Value = new AzureNative.Databricks.Inputs.EncryptionArgs
+    ///                 {
+    ///                     KeySource = "Default",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update a workspace with Customer-Managed Key (CMK) encryption for Managed Disks
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Databricks.Workspace("workspace", new()
+    ///     {
+    ///         Encryption = new AzureNative.Databricks.Inputs.WorkspacePropertiesEncryptionArgs
+    ///         {
+    ///             Entities = new AzureNative.Databricks.Inputs.EncryptionEntitiesDefinitionArgs
+    ///             {
+    ///                 ManagedDisk = new AzureNative.Databricks.Inputs.ManagedDiskEncryptionArgs
+    ///                 {
+    ///                     KeySource = "Microsoft.Keyvault",
+    ///                     KeyVaultProperties = new AzureNative.Databricks.Inputs.ManagedDiskEncryptionKeyVaultPropertiesArgs
+    ///                     {
+    ///                         KeyName = "test-cmk-key",
+    ///                         KeyVaultUri = "https://test-vault-name.vault.azure.net/",
+    ///                         KeyVersion = "00000000000000000000000000000000",
+    ///                     },
+    ///                     RotationToLatestKeyVersionEnabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///         ResourceGroupName = "rg",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag1", "myvalue1" },
+    ///         },
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databricks:Workspace myWorkspace /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Databricks/workspaces/myWorkspace 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

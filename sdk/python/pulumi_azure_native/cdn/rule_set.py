@@ -80,6 +80,28 @@ class RuleSet(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RuleSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule_set = azure_native.cdn.RuleSet("ruleSet",
+            profile_name="profile1",
+            resource_group_name="RG",
+            rule_set_name="ruleSet1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:RuleSet ruleSet1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/rulesets/ruleSet1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
@@ -96,6 +118,28 @@ class RuleSet(pulumi.CustomResource):
         Friendly RuleSet name mapping to the any RuleSet or secret related information.
         API Version: 2021-06-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RuleSets_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule_set = azure_native.cdn.RuleSet("ruleSet",
+            profile_name="profile1",
+            resource_group_name="RG",
+            rule_set_name="ruleSet1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn:RuleSet ruleSet1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/rulesets/ruleSet1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RuleSetArgs args: The arguments to use to populate this resource's properties.

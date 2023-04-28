@@ -10,6 +10,32 @@ import * as utilities from "../../utilities";
 /**
  * Description of WcfRelays Resource.
  *
+ * ## Example Usage
+ * ### RelayCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const wcfRelay = new azure_native.relay.v20160701.WCFRelay("wcfRelay", {
+ *     namespaceName: "example-RelayNamespace-9953",
+ *     relayName: "example-Relay-Wcf-1194",
+ *     relayType: "NetTcp",
+ *     requiresClientAuthorization: true,
+ *     requiresTransportSecurity: true,
+ *     resourceGroupName: "resourcegroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:relay/v20160701:WCFRelay example-Relay-Wcf-1194 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-9953/WcfRelays/example-Relay-Wcf-1194 
+ * ```
+ *
  * @deprecated Version 2016-07-01 will be removed in v2 of the provider.
  */
 export class WCFRelay extends pulumi.CustomResource {

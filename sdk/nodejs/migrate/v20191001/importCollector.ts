@@ -7,6 +7,30 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### ImportCollectors_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const importCollector = new azure_native.migrate.v20191001.ImportCollector("importCollector", {
+ *     importCollectorName: "importCollector2952",
+ *     projectName: "rajoshCCY9671project",
+ *     resourceGroupName: "markusavstestrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20191001:ImportCollector importCollector2952 /subscriptions/31be0ff4-c932-4cb3-8efc-efa411d79280/resourceGroups/markusavstestrg/providers/Microsoft.Migrate/assessmentprojects/rajoshCCY9671project/importcollectors/importCollector2952 
+ * ```
+ */
 export class ImportCollector extends pulumi.CustomResource {
     /**
      * Get an existing ImportCollector resource's state with the given name, ID, and optional extra

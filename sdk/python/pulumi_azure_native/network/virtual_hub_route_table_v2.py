@@ -149,6 +149,46 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_route_table_v2 = azure_native.network.VirtualHubRouteTableV2("virtualHubRouteTableV2",
+            attached_connections=["All_Vnets"],
+            resource_group_name="rg1",
+            route_table_name="virtualHubRouteTable1a",
+            routes=[
+                azure_native.network.VirtualHubRouteV2Args(
+                    destination_type="CIDR",
+                    destinations=[
+                        "20.10.0.0/16",
+                        "20.20.0.0/16",
+                    ],
+                    next_hop_type="IPAddress",
+                    next_hops=["10.0.0.68"],
+                ),
+                azure_native.network.VirtualHubRouteV2Args(
+                    destination_type="CIDR",
+                    destinations=["0.0.0.0/0"],
+                    next_hop_type="IPAddress",
+                    next_hops=["10.0.0.68"],
+                ),
+            ],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualHubRouteTableV2 virtualHubRouteTable1a /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeTables/virtualHubRouteTable1a 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] attached_connections: List of all connections attached to this route table v2.
@@ -169,6 +209,46 @@ class VirtualHubRouteTableV2(pulumi.CustomResource):
         VirtualHubRouteTableV2 Resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VirtualHubRouteTableV2Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_hub_route_table_v2 = azure_native.network.VirtualHubRouteTableV2("virtualHubRouteTableV2",
+            attached_connections=["All_Vnets"],
+            resource_group_name="rg1",
+            route_table_name="virtualHubRouteTable1a",
+            routes=[
+                azure_native.network.VirtualHubRouteV2Args(
+                    destination_type="CIDR",
+                    destinations=[
+                        "20.10.0.0/16",
+                        "20.20.0.0/16",
+                    ],
+                    next_hop_type="IPAddress",
+                    next_hops=["10.0.0.68"],
+                ),
+                azure_native.network.VirtualHubRouteV2Args(
+                    destination_type="CIDR",
+                    destinations=["0.0.0.0/0"],
+                    next_hop_type="IPAddress",
+                    next_hops=["10.0.0.68"],
+                ),
+            ],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualHubRouteTableV2 virtualHubRouteTable1a /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeTables/virtualHubRouteTable1a 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualHubRouteTableV2InitArgs args: The arguments to use to populate this resource's properties.

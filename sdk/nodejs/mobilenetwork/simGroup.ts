@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * SIM group resource.
  * API Version: 2022-11-01.
  * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create SIM group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const simGroup = new azure_native.mobilenetwork.SimGroup("simGroup", {
+ *     encryptionKey: {
+ *         keyUrl: "https://contosovault.vault.azure.net/keys/azureKey",
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testUserAssignedManagedIdentity": {},
+ *         },
+ *     },
+ *     location: "eastus",
+ *     mobileNetwork: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     simGroupName: "testSimGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork:SimGroup testSimGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simGroups/testSimGroup 
+ * ```
  */
 export class SimGroup extends pulumi.CustomResource {
     /**

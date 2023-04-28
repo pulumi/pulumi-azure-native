@@ -9,6 +9,53 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account blob inventory policy.
+ *
+ * ## Example Usage
+ * ### StorageAccountSetBlobInventoryPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobInventoryPolicy = new azure_native.storage.v20210201.BlobInventoryPolicy("blobInventoryPolicy", {
+ *     accountName: "sto9699",
+ *     blobInventoryPolicyName: "default",
+ *     policy: {
+ *         destination: "containerName",
+ *         enabled: true,
+ *         rules: [{
+ *             definition: {
+ *                 filters: {
+ *                     blobTypes: [
+ *                         "blockBlob",
+ *                         "appendBlob",
+ *                         "pageBlob",
+ *                     ],
+ *                     includeBlobVersions: true,
+ *                     includeSnapshots: true,
+ *                     prefixMatch: [
+ *                         "inventoryprefix1",
+ *                         "inventoryprefix2",
+ *                     ],
+ *                 },
+ *             },
+ *             enabled: true,
+ *             name: "inventoryPolicyRule1",
+ *         }],
+ *         type: "Inventory",
+ *     },
+ *     resourceGroupName: "res7687",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20210201:BlobInventoryPolicy DefaultInventoryPolicy /subscriptions/{subscription-id}/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default 
+ * ```
  */
 export class BlobInventoryPolicy extends pulumi.CustomResource {
     /**

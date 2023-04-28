@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Email Template details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateTemplate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const emailTemplate = new azure_native.apimanagement.v20201201.EmailTemplate("emailTemplate", {
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     subject: `Your request for $IssueName was successfully received.`,
+ *     templateName: "newIssueNotificationMessage",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:EmailTemplate NewIssueNotificationMessage /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/templates/NewIssueNotificationMessage 
+ * ```
  */
 export class EmailTemplate extends pulumi.CustomResource {
     /**

@@ -162,6 +162,33 @@ class VirtualnetworkRetrieve(pulumi.CustomResource):
         """
         The virtual network resource definition.
 
+        ## Example Usage
+        ### PutVirtualNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualnetwork_retrieve = azure_native.azurestackhci.v20210901preview.VirtualnetworkRetrieve("virtualnetworkRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            location="West US2",
+            network_type="Transparent",
+            resource_group_name="test-rg",
+            virtualnetworks_name="test-vnet")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve test-vnet /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualnetworks/test-vnet 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
@@ -180,6 +207,33 @@ class VirtualnetworkRetrieve(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The virtual network resource definition.
+
+        ## Example Usage
+        ### PutVirtualNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtualnetwork_retrieve = azure_native.azurestackhci.v20210901preview.VirtualnetworkRetrieve("virtualnetworkRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            location="West US2",
+            network_type="Transparent",
+            resource_group_name="test-rg",
+            virtualnetworks_name="test-vnet")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:virtualnetworkRetrieve test-vnet /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualnetworks/test-vnet 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualnetworkRetrieveArgs args: The arguments to use to populate this resource's properties.

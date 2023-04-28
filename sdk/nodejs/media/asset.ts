@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * An Asset.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create an Asset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const asset = new azure_native.media.Asset("asset", {
+ *     accountName: "contosomedia",
+ *     assetName: "ClimbingMountLogan",
+ *     description: "A documentary showing the ascent of Mount Logan",
+ *     resourceGroupName: "contosorg",
+ *     storageAccountName: "storage0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media:Asset ClimbingMountLogan /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan 
+ * ```
  */
 export class Asset extends pulumi.CustomResource {
     /**

@@ -540,6 +540,207 @@ class ApplicationGateway(pulumi.CustomResource):
         """
         Application gateway resource.
 
+        ## Example Usage
+        ### Create Application Gateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_gateway = azure_native.network.v20190801.ApplicationGateway("applicationGateway",
+            application_gateway_name="appgw",
+            backend_address_pools=[{
+                "backendAddresses": [
+                    azure_native.network.v20190801.ApplicationGatewayBackendAddressArgs(
+                        ip_address="10.0.1.1",
+                    ),
+                    azure_native.network.v20190801.ApplicationGatewayBackendAddressArgs(
+                        ip_address="10.0.1.2",
+                    ),
+                ],
+                "name": "appgwpool",
+            }],
+            backend_http_settings_collection=[azure_native.network.v20190801.ApplicationGatewayBackendHttpSettingsArgs(
+                cookie_based_affinity="Disabled",
+                name="appgwbhs",
+                port=80,
+                protocol="Http",
+                request_timeout=30,
+            )],
+            frontend_ip_configurations=[{
+                "name": "appgwfip",
+                "publicIPAddress": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/appgwpip",
+                ),
+            }],
+            frontend_ports=[
+                azure_native.network.v20190801.ApplicationGatewayFrontendPortArgs(
+                    name="appgwfp",
+                    port=443,
+                ),
+                azure_native.network.v20190801.ApplicationGatewayFrontendPortArgs(
+                    name="appgwfp80",
+                    port=80,
+                ),
+            ],
+            gateway_ip_configurations=[{
+                "name": "appgwipc",
+                "subnet": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet/subnets/appgwsubnet",
+                ),
+            }],
+            http_listeners=[
+                {
+                    "frontendIPConfiguration": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendIPConfigurations/appgwfip",
+                    ),
+                    "frontendPort": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendPorts/appgwfp",
+                    ),
+                    "name": "appgwhl",
+                    "protocol": "Https",
+                    "requireServerNameIndication": False,
+                    "sslCertificate": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/sslCertificates/sslcert",
+                    ),
+                },
+                {
+                    "frontendIPConfiguration": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendIPConfigurations/appgwfip",
+                    ),
+                    "frontendPort": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendPorts/appgwfp80",
+                    ),
+                    "name": "appgwhttplistener",
+                    "protocol": "Http",
+                },
+            ],
+            identity=azure_native.network.v20190801.ManagedServiceIdentityArgs(
+                type=azure_native.network/v20190801.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            location="eastus",
+            request_routing_rules=[
+                {
+                    "backendAddressPool": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+                    ),
+                    "backendHttpSettings": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+                    ),
+                    "httpListener": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/httpListeners/appgwhl",
+                    ),
+                    "name": "appgwrule",
+                    "priority": 10,
+                    "rewriteRuleSet": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+                    ),
+                    "ruleType": "Basic",
+                },
+                {
+                    "httpListener": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/httpListeners/appgwhttplistener",
+                    ),
+                    "name": "appgwPathBasedRule",
+                    "priority": 20,
+                    "ruleType": "PathBasedRouting",
+                    "urlPathMap": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/urlPathMaps/pathMap1",
+                    ),
+                },
+            ],
+            resource_group_name="rg1",
+            rewrite_rule_sets=[{
+                "name": "rewriteRuleSet1",
+                "rewriteRules": [{
+                    "actionSet": {
+                        "requestHeaderConfigurations": [azure_native.network.v20190801.ApplicationGatewayHeaderConfigurationArgs(
+                            header_name="X-Forwarded-For",
+                            header_value="{var_add_x_forwarded_for_proxy}",
+                        )],
+                        "responseHeaderConfigurations": [azure_native.network.v20190801.ApplicationGatewayHeaderConfigurationArgs(
+                            header_name="Strict-Transport-Security",
+                            header_value="max-age=31536000",
+                        )],
+                    },
+                    "conditions": [azure_native.network.v20190801.ApplicationGatewayRewriteRuleConditionArgs(
+                        ignore_case=True,
+                        negate=False,
+                        pattern="^Bearer",
+                        variable="http_req_Authorization",
+                    )],
+                    "name": "Set X-Forwarded-For",
+                    "ruleSequence": 102,
+                }],
+            }],
+            sku=azure_native.network.v20190801.ApplicationGatewaySkuArgs(
+                capacity=3,
+                name="Standard_v2",
+                tier="Standard_v2",
+            ),
+            ssl_certificates=[
+                azure_native.network.v20190801.ApplicationGatewaySslCertificateArgs(
+                    data="****",
+                    name="sslcert",
+                    password="****",
+                ),
+                azure_native.network.v20190801.ApplicationGatewaySslCertificateArgs(
+                    key_vault_secret_id="https://kv/secret",
+                    name="sslcert2",
+                ),
+            ],
+            trusted_root_certificates=[
+                azure_native.network.v20190801.ApplicationGatewayTrustedRootCertificateArgs(
+                    data="****",
+                    name="rootcert",
+                ),
+                azure_native.network.v20190801.ApplicationGatewayTrustedRootCertificateArgs(
+                    key_vault_secret_id="https://kv/secret",
+                    name="rootcert1",
+                ),
+            ],
+            url_path_maps=[{
+                "defaultBackendAddressPool": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+                ),
+                "defaultBackendHttpSettings": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+                ),
+                "defaultRewriteRuleSet": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+                ),
+                "name": "pathMap1",
+                "pathRules": [{
+                    "backendAddressPool": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+                    ),
+                    "backendHttpSettings": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+                    ),
+                    "name": "apiPaths",
+                    "paths": [
+                        "/api",
+                        "/v1/api",
+                    ],
+                    "rewriteRuleSet": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+                    ),
+                }],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190801:ApplicationGateway appgw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_gateway_name: The name of the application gateway.
@@ -581,6 +782,207 @@ class ApplicationGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Application gateway resource.
+
+        ## Example Usage
+        ### Create Application Gateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_gateway = azure_native.network.v20190801.ApplicationGateway("applicationGateway",
+            application_gateway_name="appgw",
+            backend_address_pools=[{
+                "backendAddresses": [
+                    azure_native.network.v20190801.ApplicationGatewayBackendAddressArgs(
+                        ip_address="10.0.1.1",
+                    ),
+                    azure_native.network.v20190801.ApplicationGatewayBackendAddressArgs(
+                        ip_address="10.0.1.2",
+                    ),
+                ],
+                "name": "appgwpool",
+            }],
+            backend_http_settings_collection=[azure_native.network.v20190801.ApplicationGatewayBackendHttpSettingsArgs(
+                cookie_based_affinity="Disabled",
+                name="appgwbhs",
+                port=80,
+                protocol="Http",
+                request_timeout=30,
+            )],
+            frontend_ip_configurations=[{
+                "name": "appgwfip",
+                "publicIPAddress": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/appgwpip",
+                ),
+            }],
+            frontend_ports=[
+                azure_native.network.v20190801.ApplicationGatewayFrontendPortArgs(
+                    name="appgwfp",
+                    port=443,
+                ),
+                azure_native.network.v20190801.ApplicationGatewayFrontendPortArgs(
+                    name="appgwfp80",
+                    port=80,
+                ),
+            ],
+            gateway_ip_configurations=[{
+                "name": "appgwipc",
+                "subnet": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet/subnets/appgwsubnet",
+                ),
+            }],
+            http_listeners=[
+                {
+                    "frontendIPConfiguration": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendIPConfigurations/appgwfip",
+                    ),
+                    "frontendPort": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendPorts/appgwfp",
+                    ),
+                    "name": "appgwhl",
+                    "protocol": "Https",
+                    "requireServerNameIndication": False,
+                    "sslCertificate": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/sslCertificates/sslcert",
+                    ),
+                },
+                {
+                    "frontendIPConfiguration": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendIPConfigurations/appgwfip",
+                    ),
+                    "frontendPort": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendPorts/appgwfp80",
+                    ),
+                    "name": "appgwhttplistener",
+                    "protocol": "Http",
+                },
+            ],
+            identity=azure_native.network.v20190801.ManagedServiceIdentityArgs(
+                type=azure_native.network/v20190801.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            location="eastus",
+            request_routing_rules=[
+                {
+                    "backendAddressPool": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+                    ),
+                    "backendHttpSettings": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+                    ),
+                    "httpListener": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/httpListeners/appgwhl",
+                    ),
+                    "name": "appgwrule",
+                    "priority": 10,
+                    "rewriteRuleSet": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+                    ),
+                    "ruleType": "Basic",
+                },
+                {
+                    "httpListener": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/httpListeners/appgwhttplistener",
+                    ),
+                    "name": "appgwPathBasedRule",
+                    "priority": 20,
+                    "ruleType": "PathBasedRouting",
+                    "urlPathMap": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/urlPathMaps/pathMap1",
+                    ),
+                },
+            ],
+            resource_group_name="rg1",
+            rewrite_rule_sets=[{
+                "name": "rewriteRuleSet1",
+                "rewriteRules": [{
+                    "actionSet": {
+                        "requestHeaderConfigurations": [azure_native.network.v20190801.ApplicationGatewayHeaderConfigurationArgs(
+                            header_name="X-Forwarded-For",
+                            header_value="{var_add_x_forwarded_for_proxy}",
+                        )],
+                        "responseHeaderConfigurations": [azure_native.network.v20190801.ApplicationGatewayHeaderConfigurationArgs(
+                            header_name="Strict-Transport-Security",
+                            header_value="max-age=31536000",
+                        )],
+                    },
+                    "conditions": [azure_native.network.v20190801.ApplicationGatewayRewriteRuleConditionArgs(
+                        ignore_case=True,
+                        negate=False,
+                        pattern="^Bearer",
+                        variable="http_req_Authorization",
+                    )],
+                    "name": "Set X-Forwarded-For",
+                    "ruleSequence": 102,
+                }],
+            }],
+            sku=azure_native.network.v20190801.ApplicationGatewaySkuArgs(
+                capacity=3,
+                name="Standard_v2",
+                tier="Standard_v2",
+            ),
+            ssl_certificates=[
+                azure_native.network.v20190801.ApplicationGatewaySslCertificateArgs(
+                    data="****",
+                    name="sslcert",
+                    password="****",
+                ),
+                azure_native.network.v20190801.ApplicationGatewaySslCertificateArgs(
+                    key_vault_secret_id="https://kv/secret",
+                    name="sslcert2",
+                ),
+            ],
+            trusted_root_certificates=[
+                azure_native.network.v20190801.ApplicationGatewayTrustedRootCertificateArgs(
+                    data="****",
+                    name="rootcert",
+                ),
+                azure_native.network.v20190801.ApplicationGatewayTrustedRootCertificateArgs(
+                    key_vault_secret_id="https://kv/secret",
+                    name="rootcert1",
+                ),
+            ],
+            url_path_maps=[{
+                "defaultBackendAddressPool": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+                ),
+                "defaultBackendHttpSettings": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+                ),
+                "defaultRewriteRuleSet": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+                ),
+                "name": "pathMap1",
+                "pathRules": [{
+                    "backendAddressPool": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+                    ),
+                    "backendHttpSettings": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+                    ),
+                    "name": "apiPaths",
+                    "paths": [
+                        "/api",
+                        "/v1/api",
+                    ],
+                    "rewriteRuleSet": azure_native.network.v20190801.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+                    ),
+                }],
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190801:ApplicationGateway appgw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationGatewayArgs args: The arguments to use to populate this resource's properties.

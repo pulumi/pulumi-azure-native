@@ -10,6 +10,79 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-12-12-preview.
  * Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update virtual machine
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachine = new azure_native.networkcloud.VirtualMachine("virtualMachine", {
+ *     adminUsername: "username",
+ *     bootMethod: "UEFI",
+ *     cloudServicesNetworkAttachment: {
+ *         attachedNetworkId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName",
+ *         ipAllocationMethod: "Dynamic",
+ *     },
+ *     cpuCores: 2,
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     memorySizeGB: 8,
+ *     networkAttachments: [{
+ *         attachedNetworkId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l3Networks/l3NetworkName",
+ *         defaultGateway: "True",
+ *         ipAllocationMethod: "Dynamic",
+ *         ipv4Address: "198.51.100.1",
+ *         ipv6Address: "2001:0db8:0000:0000:0000:0000:0000:0000",
+ *         networkAttachmentName: "netAttachName01",
+ *     }],
+ *     networkData: "bmV0d29ya0RhdGVTYW1wbGU=",
+ *     placementHints: [{
+ *         hintType: "Affinity",
+ *         resourceId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+ *         schedulingExecution: "Hard",
+ *         scope: "",
+ *     }],
+ *     resourceGroupName: "resourceGroupName",
+ *     sshPublicKeys: [{
+ *         keyData: "ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+ *     }],
+ *     storageProfile: {
+ *         osDisk: {
+ *             createOption: "Ephemeral",
+ *             deleteOption: "Delete",
+ *             diskSizeGB: 120,
+ *         },
+ *         volumeAttachments: ["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/volumes/volumeName"],
+ *     },
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ *     userData: "dXNlckRhdGVTYW1wbGU=",
+ *     virtualMachineName: "virtualMachineName",
+ *     vmDeviceModel: "T2",
+ *     vmImage: "myacr.azurecr.io/foobar:latest",
+ *     vmImageRepositoryCredentials: {
+ *         password: "{password}",
+ *         registryUrl: "myacr.azurecr.io",
+ *         username: "myuser",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:VirtualMachine virtualMachineName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/virtualMachines/virtualMachineName 
+ * ```
  */
 export class VirtualMachine extends pulumi.CustomResource {
     /**

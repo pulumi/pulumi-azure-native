@@ -111,6 +111,30 @@ class Documentation(pulumi.CustomResource):
         """
         Markdown documentation details.
 
+        ## Example Usage
+        ### ApiManagementCreateDocumentation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        documentation = azure_native.apimanagement.v20220801.Documentation("documentation",
+            content="content",
+            documentation_id="57d1f7558aa04f15146d9d8a",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            title="Title")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:Documentation 57d1f7558aa04f15146d9d8a /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/documentations/57d1f7558aa04f15146d9d8a 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content: Markdown documentation content.
@@ -127,6 +151,30 @@ class Documentation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Markdown documentation details.
+
+        ## Example Usage
+        ### ApiManagementCreateDocumentation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        documentation = azure_native.apimanagement.v20220801.Documentation("documentation",
+            content="content",
+            documentation_id="57d1f7558aa04f15146d9d8a",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            title="Title")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:Documentation 57d1f7558aa04f15146d9d8a /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/documentations/57d1f7558aa04f15146d9d8a 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DocumentationArgs args: The arguments to use to populate this resource's properties.

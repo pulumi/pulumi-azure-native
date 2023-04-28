@@ -163,6 +163,42 @@ class OriginGroup(pulumi.CustomResource):
         """
         Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 
+        ## Example Usage
+        ### OriginGroups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        origin_group = azure_native.cdn.v20200901.OriginGroup("originGroup",
+            endpoint_name="endpoint1",
+            health_probe_settings=azure_native.cdn.v20200901.HealthProbeParametersArgs(
+                probe_interval_in_seconds=120,
+                probe_path="/health.aspx",
+                probe_protocol=azure_native.cdn/v20200901.ProbeProtocol.HTTP,
+                probe_request_type=azure_native.cdn/v20200901.HealthProbeRequestType.GET,
+            ),
+            origin_group_name="origingroup1",
+            origins=[azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+            )],
+            profile_name="profile1",
+            resource_group_name="RG",
+            response_based_origin_error_detection_settings=azure_native.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersArgs(
+                response_based_detected_error_types=azure_native.cdn/v20200901.ResponseBasedDetectedErrorTypes.TCP_ERRORS_ONLY,
+                response_based_failover_threshold_percentage=10,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:OriginGroup origingroup1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of the endpoint under the profile which is unique globally.
@@ -182,6 +218,42 @@ class OriginGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+
+        ## Example Usage
+        ### OriginGroups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        origin_group = azure_native.cdn.v20200901.OriginGroup("originGroup",
+            endpoint_name="endpoint1",
+            health_probe_settings=azure_native.cdn.v20200901.HealthProbeParametersArgs(
+                probe_interval_in_seconds=120,
+                probe_path="/health.aspx",
+                probe_protocol=azure_native.cdn/v20200901.ProbeProtocol.HTTP,
+                probe_request_type=azure_native.cdn/v20200901.HealthProbeRequestType.GET,
+            ),
+            origin_group_name="origingroup1",
+            origins=[azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+            )],
+            profile_name="profile1",
+            resource_group_name="RG",
+            response_based_origin_error_detection_settings=azure_native.cdn.v20200901.ResponseBasedOriginErrorDetectionParametersArgs(
+                response_based_detected_error_types=azure_native.cdn/v20200901.ResponseBasedDetectedErrorTypes.TCP_ERRORS_ONLY,
+                response_based_failover_threshold_percentage=10,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:OriginGroup origingroup1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OriginGroupArgs args: The arguments to use to populate this resource's properties.

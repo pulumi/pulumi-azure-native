@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.EventGrid.V20210601Preview
 {
     /// <summary>
     /// EventGrid System Topic.
+    /// 
+    /// ## Example Usage
+    /// ### SystemTopics_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var systemTopic = new AzureNative.EventGrid.V20210601Preview.SystemTopic("systemTopic", new()
+    ///     {
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "examplerg",
+    ///         Source = "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/azureeventgridrunnerrgcentraluseuap/providers/microsoft.storage/storageaccounts/pubstgrunnerb71cd29e",
+    ///         SystemTopicName = "exampleSystemTopic1",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///         TopicType = "microsoft.storage.storageaccounts",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20210601preview:SystemTopic exampleSystemTopic2 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/systemTopics/exampleSystemTopic2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20210601preview:SystemTopic")]
     public partial class SystemTopic : global::Pulumi.CustomResource

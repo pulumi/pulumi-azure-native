@@ -563,6 +563,154 @@ class ManagedCluster(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.ManagedCluster("managedCluster",
+            addon_features=[
+                "DnsService",
+                "BackupRestoreService",
+                "ResourceMonitorService",
+            ],
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            allow_rdp_access=True,
+            application_type_versions_cleanup_policy=azure_native.servicefabric.ApplicationTypeVersionsCleanupPolicyResponseArgs(
+                max_unused_versions_to_keep=3,
+            ),
+            auxiliary_subnets=[{
+                "enableIpv6": True,
+                "name": "testSubnet1",
+                "networkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/networkSecurityGroups/sn1",
+                "privateEndpointNetworkPolicies": "enabled",
+                "privateLinkServiceNetworkPolicies": "enabled",
+            }],
+            client_connection_port=19000,
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            cluster_upgrade_mode="Manual",
+            dns_name="myCluster",
+            enable_auto_os_upgrade=True,
+            enable_ipv6=True,
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            http_gateway_connection_port=19080,
+            ip_tags=[{
+                "ipTagType": "FirstPartyUsage",
+                "tag": "SQL",
+            }],
+            load_balancing_rules=[
+                {
+                    "backendPort": 80,
+                    "frontendPort": 80,
+                    "probePort": 80,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 443,
+                    "frontendPort": 443,
+                    "probePort": 443,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 10000,
+                    "frontendPort": 10000,
+                    "loadDistribution": "Default",
+                    "probePort": 10000,
+                    "probeProtocol": "http",
+                    "protocol": "tcp",
+                },
+            ],
+            location="eastus",
+            network_security_rules=[
+                {
+                    "access": "allow",
+                    "description": "Test description",
+                    "destinationAddressPrefixes": ["*"],
+                    "destinationPortRanges": ["*"],
+                    "direction": "inbound",
+                    "name": "TestName",
+                    "priority": 1010,
+                    "protocol": "tcp",
+                    "sourceAddressPrefixes": ["*"],
+                    "sourcePortRanges": ["*"],
+                },
+                {
+                    "access": "allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "33500-33699",
+                    "direction": "inbound",
+                    "name": "AllowARM",
+                    "priority": 2002,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "AzureResourceManager",
+                    "sourcePortRange": "*",
+                },
+            ],
+            resource_group_name="resRg",
+            service_endpoints=[{
+                "locations": [
+                    "eastus2",
+                    "usnorth",
+                ],
+                "service": "Microsoft.Storage",
+            }],
+            sku=azure_native.servicefabric.SkuArgs(
+                name="Basic",
+            ),
+            tags={},
+            use_custom_vnet=True,
+            zonal_resiliency=True,
+            zonal_update_mode="Fast")
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            cluster_name="myCluster",
+            cluster_upgrade_cadence="Wave1",
+            cluster_upgrade_mode="Automatic",
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            location="eastus",
+            resource_group_name="resRg",
+            sku=azure_native.servicefabric.SkuArgs(
+                name="Basic",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedCluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'ManagedClusterAddOnFeature']]]] addon_features: List of add-on features to enable on the cluster.
@@ -608,6 +756,154 @@ class ManagedCluster(pulumi.CustomResource):
 
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Put a cluster with maximum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.ManagedCluster("managedCluster",
+            addon_features=[
+                "DnsService",
+                "BackupRestoreService",
+                "ResourceMonitorService",
+            ],
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            allow_rdp_access=True,
+            application_type_versions_cleanup_policy=azure_native.servicefabric.ApplicationTypeVersionsCleanupPolicyResponseArgs(
+                max_unused_versions_to_keep=3,
+            ),
+            auxiliary_subnets=[{
+                "enableIpv6": True,
+                "name": "testSubnet1",
+                "networkSecurityGroupId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.Network/networkSecurityGroups/sn1",
+                "privateEndpointNetworkPolicies": "enabled",
+                "privateLinkServiceNetworkPolicies": "enabled",
+            }],
+            client_connection_port=19000,
+            cluster_code_version="7.1.168.9494",
+            cluster_name="myCluster",
+            cluster_upgrade_mode="Manual",
+            dns_name="myCluster",
+            enable_auto_os_upgrade=True,
+            enable_ipv6=True,
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            http_gateway_connection_port=19080,
+            ip_tags=[{
+                "ipTagType": "FirstPartyUsage",
+                "tag": "SQL",
+            }],
+            load_balancing_rules=[
+                {
+                    "backendPort": 80,
+                    "frontendPort": 80,
+                    "probePort": 80,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 443,
+                    "frontendPort": 443,
+                    "probePort": 443,
+                    "probeProtocol": "http",
+                    "protocol": "http",
+                },
+                {
+                    "backendPort": 10000,
+                    "frontendPort": 10000,
+                    "loadDistribution": "Default",
+                    "probePort": 10000,
+                    "probeProtocol": "http",
+                    "protocol": "tcp",
+                },
+            ],
+            location="eastus",
+            network_security_rules=[
+                {
+                    "access": "allow",
+                    "description": "Test description",
+                    "destinationAddressPrefixes": ["*"],
+                    "destinationPortRanges": ["*"],
+                    "direction": "inbound",
+                    "name": "TestName",
+                    "priority": 1010,
+                    "protocol": "tcp",
+                    "sourceAddressPrefixes": ["*"],
+                    "sourcePortRanges": ["*"],
+                },
+                {
+                    "access": "allow",
+                    "destinationAddressPrefix": "*",
+                    "destinationPortRange": "33500-33699",
+                    "direction": "inbound",
+                    "name": "AllowARM",
+                    "priority": 2002,
+                    "protocol": "*",
+                    "sourceAddressPrefix": "AzureResourceManager",
+                    "sourcePortRange": "*",
+                },
+            ],
+            resource_group_name="resRg",
+            service_endpoints=[{
+                "locations": [
+                    "eastus2",
+                    "usnorth",
+                ],
+                "service": "Microsoft.Storage",
+            }],
+            sku=azure_native.servicefabric.SkuArgs(
+                name="Basic",
+            ),
+            tags={},
+            use_custom_vnet=True,
+            zonal_resiliency=True,
+            zonal_update_mode="Fast")
+
+        ```
+        ### Put a cluster with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster = azure_native.servicefabric.ManagedCluster("managedCluster",
+            admin_password="{vm-password}",
+            admin_user_name="vmadmin",
+            cluster_name="myCluster",
+            cluster_upgrade_cadence="Wave1",
+            cluster_upgrade_mode="Automatic",
+            dns_name="myCluster",
+            fabric_settings=[{
+                "name": "ManagedIdentityTokenService",
+                "parameters": [{
+                    "name": "IsEnabled",
+                    "value": "true",
+                }],
+            }],
+            location="eastus",
+            resource_group_name="resRg",
+            sku=azure_native.servicefabric.SkuArgs(
+                name="Basic",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ManagedCluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterArgs args: The arguments to use to populate this resource's properties.

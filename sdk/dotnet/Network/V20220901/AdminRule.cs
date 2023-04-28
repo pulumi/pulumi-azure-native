@@ -11,6 +11,88 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// Network admin rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create a default admin rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adminRule = new AzureNative.Network.V20220901.AdminRule("adminRule", new()
+    ///     {
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///         RuleCollectionName = "testRuleCollection",
+    ///         RuleName = "SampleDefaultAdminRule",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an admin rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adminRule = new AzureNative.Network.V20220901.AdminRule("adminRule", new()
+    ///     {
+    ///         Access = "Deny",
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         Description = "This is Sample Admin Rule",
+    ///         DestinationPortRanges = new[]
+    ///         {
+    ///             "22",
+    ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.AddressPrefixItemArgs
+    ///             {
+    ///                 AddressPrefix = "*",
+    ///                 AddressPrefixType = "IPPrefix",
+    ///             },
+    ///         },
+    ///         Direction = "Inbound",
+    ///         Kind = "Custom",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         Priority = 1,
+    ///         Protocol = "Tcp",
+    ///         ResourceGroupName = "rg1",
+    ///         RuleCollectionName = "testRuleCollection",
+    ///         RuleName = "SampleAdminRule",
+    ///         SourcePortRanges = new[]
+    ///         {
+    ///             "0-65535",
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.AddressPrefixItemArgs
+    ///             {
+    ///                 AddressPrefix = "Internet",
+    ///                 AddressPrefixType = "ServiceTag",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:AdminRule SampleAdminRule /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection/rules/SampleAdminRule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:AdminRule")]
     public partial class AdminRule : global::Pulumi.CustomResource

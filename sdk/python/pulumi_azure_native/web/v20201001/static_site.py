@@ -199,6 +199,40 @@ class StaticSite(pulumi.CustomResource):
         """
         Static Site ARM resource.
 
+        ## Example Usage
+        ### Create or update a static site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site = azure_native.web.v20201001.StaticSite("staticSite",
+            branch="master",
+            build_properties=azure_native.web.v20201001.StaticSiteBuildPropertiesArgs(
+                api_location="api",
+                app_artifact_location="build",
+                app_location="app",
+            ),
+            location="West US 2",
+            name="testStaticSite0",
+            repository_token="repoToken123",
+            repository_url="https://github.com/username/RepoName",
+            resource_group_name="rg",
+            sku=azure_native.web.v20201001.SkuDescriptionArgs(
+                name="Basic",
+                tier="Basic",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:StaticSite testStaticSite0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The target branch in the repository.
@@ -220,6 +254,40 @@ class StaticSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Static Site ARM resource.
+
+        ## Example Usage
+        ### Create or update a static site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        static_site = azure_native.web.v20201001.StaticSite("staticSite",
+            branch="master",
+            build_properties=azure_native.web.v20201001.StaticSiteBuildPropertiesArgs(
+                api_location="api",
+                app_artifact_location="build",
+                app_location="app",
+            ),
+            location="West US 2",
+            name="testStaticSite0",
+            repository_token="repoToken123",
+            repository_url="https://github.com/username/RepoName",
+            resource_group_name="rg",
+            sku=azure_native.web.v20201001.SkuDescriptionArgs(
+                name="Basic",
+                tier="Basic",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:StaticSite testStaticSite0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StaticSiteArgs args: The arguments to use to populate this resource's properties.

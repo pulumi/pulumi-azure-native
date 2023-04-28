@@ -149,6 +149,33 @@ class Device(pulumi.CustomResource):
         """
         The Data Box Edge/Gateway device.
 
+        ## Example Usage
+        ### DataBoxEdgeDevicePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device = azure_native.databoxedge.v20210201preview.Device("device",
+            device_name="testedgedevice",
+            location="WUS",
+            resource_group_name="GroupForEdgeAutomation",
+            sku=azure_native.databoxedge.v20210201preview.SkuArgs(
+                name="Edge",
+                tier="Standard",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20210201preview:Device testedgedevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DataBoxEdgeDeviceStatus']] data_box_edge_device_status: The status of the Data Box Edge/Gateway device.
@@ -167,6 +194,33 @@ class Device(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Data Box Edge/Gateway device.
+
+        ## Example Usage
+        ### DataBoxEdgeDevicePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device = azure_native.databoxedge.v20210201preview.Device("device",
+            device_name="testedgedevice",
+            location="WUS",
+            resource_group_name="GroupForEdgeAutomation",
+            sku=azure_native.databoxedge.v20210201preview.SkuArgs(
+                name="Edge",
+                tier="Standard",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20210201preview:Device testedgedevice /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{deviceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeviceArgs args: The arguments to use to populate this resource's properties.

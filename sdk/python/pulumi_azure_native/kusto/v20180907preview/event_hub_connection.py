@@ -194,6 +194,32 @@ class EventHubConnection(pulumi.CustomResource):
         """
         Class representing an event hub connection.
 
+        ## Example Usage
+        ### KustoEventHubConnectionsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_connection = azure_native.kusto.v20180907preview.EventHubConnection("eventHubConnection",
+            cluster_name="KustoClusterRPTest4",
+            consumer_group="testConsumerGroup1",
+            database_name="KustoDatabase8",
+            event_hub_connection_name="kustoeventhubconnection1",
+            event_hub_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
+            location="westus",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20180907preview:EventHubConnection KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -215,6 +241,32 @@ class EventHubConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing an event hub connection.
+
+        ## Example Usage
+        ### KustoEventHubConnectionsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub_connection = azure_native.kusto.v20180907preview.EventHubConnection("eventHubConnection",
+            cluster_name="KustoClusterRPTest4",
+            consumer_group="testConsumerGroup1",
+            database_name="KustoDatabase8",
+            event_hub_connection_name="kustoeventhubconnection1",
+            event_hub_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
+            location="westus",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20180907preview:EventHubConnection KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventHubConnectionArgs args: The arguments to use to populate this resource's properties.

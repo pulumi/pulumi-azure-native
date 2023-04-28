@@ -11,6 +11,59 @@ import * as utilities from "../utilities";
  * NamedValue details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateNamedValue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namedValue = new azure_native.apimanagement.NamedValue("namedValue", {
+ *     displayName: "prop3name",
+ *     namedValueId: "testprop2",
+ *     resourceGroupName: "rg1",
+ *     secret: false,
+ *     serviceName: "apimService1",
+ *     tags: [
+ *         "foo",
+ *         "bar",
+ *     ],
+ *     value: "propValue",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateNamedValueWithKeyVault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namedValue = new azure_native.apimanagement.NamedValue("namedValue", {
+ *     displayName: "prop6namekv",
+ *     keyVault: {
+ *         identityClientId: "ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+ *         secretIdentifier: "https://contoso.vault.azure.net/secrets/aadSecret",
+ *     },
+ *     namedValueId: "testprop6",
+ *     resourceGroupName: "rg1",
+ *     secret: true,
+ *     serviceName: "apimService1",
+ *     tags: [
+ *         "foo",
+ *         "bar",
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:NamedValue testprop6 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/namedValues/testprop6 
+ * ```
  */
 export class NamedValue extends pulumi.CustomResource {
     /**

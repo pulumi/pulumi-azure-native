@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Peering Service
  * API Version: 2022-10-01.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a  peering service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const peeringService = new azure_native.peering.PeeringService("peeringService", {
+ *     location: "eastus",
+ *     peeringServiceLocation: "state1",
+ *     peeringServiceName: "peeringServiceName",
+ *     peeringServiceProvider: "serviceProvider1",
+ *     providerBackupPeeringLocation: "peeringLocation2",
+ *     providerPrimaryPeeringLocation: "peeringLocation1",
+ *     resourceGroupName: "rgName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:peering:PeeringService peeringServiceName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName 
+ * ```
  */
 export class PeeringService extends pulumi.CustomResource {
     /**

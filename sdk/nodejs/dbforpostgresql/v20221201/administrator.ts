@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an Active Directory administrator.
+ *
+ * ## Example Usage
+ * ### Adds an Active DIrectory Administrator for the server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const administrator = new azure_native.dbforpostgresql.v20221201.Administrator("administrator", {
+ *     objectId: "oooooooo-oooo-oooo-oooo-oooooooooooo",
+ *     principalName: "testuser1@microsoft.com",
+ *     principalType: "User",
+ *     resourceGroupName: "testrg",
+ *     serverName: "testserver",
+ *     tenantId: "tttttttt-tttt-tttt-tttt-tttttttttttt",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20221201:Administrator testuser1@microsoft.com /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/administrators/oooooooo-oooo-oooo-oooo-oooooooooooo 
+ * ```
  */
 export class Administrator extends pulumi.CustomResource {
     /**

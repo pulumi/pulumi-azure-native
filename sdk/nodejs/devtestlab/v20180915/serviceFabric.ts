@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * A Service Fabric.
+ *
+ * ## Example Usage
+ * ### ServiceFabrics_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceFabric = new azure_native.devtestlab.v20180915.ServiceFabric("serviceFabric", {
+ *     environmentId: "{environmentId}",
+ *     externalServiceFabricId: "{serviceFabricId}",
+ *     labName: "{labName}",
+ *     location: "{location}",
+ *     name: "{serviceFabricName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ *     userName: "{userName}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:ServiceFabric {serviceFabricName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/users/{userName}/servicefabrics/{serviceFabricName} 
+ * ```
  */
 export class ServiceFabric extends pulumi.CustomResource {
     /**

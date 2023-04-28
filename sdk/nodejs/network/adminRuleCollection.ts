@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Defines the admin rule collection.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or Update an admin rule collection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adminRuleCollection = new azure_native.network.AdminRuleCollection("adminRuleCollection", {
+ *     appliesToGroups: [{
+ *         networkGroupId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+ *     }],
+ *     configurationName: "myTestSecurityConfig",
+ *     description: "A sample policy",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:AdminRuleCollection myTestSecurityConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection 
+ * ```
  */
 export class AdminRuleCollection extends pulumi.CustomResource {
     /**

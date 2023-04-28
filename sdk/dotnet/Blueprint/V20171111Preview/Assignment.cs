@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Represents a Blueprint assignment.
+    /// 
+    /// ## Example Usage
+    /// ### Assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assignment = new AzureNative.Blueprint.V20171111Preview.Assignment("assignment", new()
+    ///     {
+    ///         AssignmentName = "assignSimpleBlueprint",
+    ///         BlueprintId = "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    ///         Description = "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    ///         Identity = new AzureNative.Blueprint.V20171111Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "eastus",
+    ///         Parameters = 
+    ///         {
+    ///             { "costCenter", null },
+    ///             { "owners", null },
+    ///             { "storageAccountType", null },
+    ///         },
+    ///         ResourceGroups = 
+    ///         {
+    ///             { "storageRG", new AzureNative.Blueprint.V20171111Preview.Inputs.ResourceGroupValueArgs
+    ///             {
+    ///                 Location = "eastus",
+    ///                 Name = "defaultRG",
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blueprint/v20171111preview:Assignment assignSimpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:Assignment")]

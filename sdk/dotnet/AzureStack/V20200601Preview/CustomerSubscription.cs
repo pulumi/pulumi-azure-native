@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
 {
     /// <summary>
     /// Customer subscription.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a new customer subscription under a registration.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customerSubscription = new AzureNative.AzureStack.V20200601Preview.CustomerSubscription("customerSubscription", new()
+    ///     {
+    ///         CustomerSubscriptionName = "E09A4E93-29A7-4EBA-A6D4-76202383F07F",
+    ///         RegistrationName = "testregistration",
+    ///         ResourceGroup = "azurestack",
+    ///         TenantId = "dbab3982-796f-4d03-9908-044c08aef8a2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestack/v20200601preview:CustomerSubscription myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureStack/registrations/{registrationName}/customerSubscriptions/{customerSubscriptionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack/v20200601preview:CustomerSubscription")]
     public partial class CustomerSubscription : global::Pulumi.CustomResource

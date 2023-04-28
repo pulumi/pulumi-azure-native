@@ -9,6 +9,115 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### CreateOrUpdate Batch Deployment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var batchDeployment = new AzureNative.MachineLearningServices.V20210301Preview.BatchDeployment("batchDeployment", new()
+    ///     {
+    ///         DeploymentName = "testBatchDeployment",
+    ///         EndpointName = "testBatchEndpoint",
+    ///         Identity = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.ResourceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuseridentity", new AzureNative.MachineLearningServices.V20210301Preview.Inputs.UserAssignedIdentityMetaArgs
+    ///                 {
+    ///                     ClientId = "string",
+    ///                     PrincipalId = "string",
+    ///                 } },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         Properties = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.BatchDeploymentArgs
+    ///         {
+    ///             CodeConfiguration = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.CodeConfigurationArgs
+    ///             {
+    ///                 CodeId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/testcode/versions/1",
+    ///                 ScoringScript = "score.py",
+    ///             },
+    ///             Compute = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.ComputeConfigurationArgs
+    ///             {
+    ///                 InstanceCount = 0,
+    ///                 InstanceType = "string",
+    ///                 IsLocal = false,
+    ///                 Location = "string",
+    ///                 Properties = 
+    ///                 {
+    ///                     { "additionalProp1", "string" },
+    ///                     { "additionalProp2", "string" },
+    ///                     { "additionalProp3", "string" },
+    ///                 },
+    ///                 Target = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/testcompute",
+    ///             },
+    ///             Description = "string",
+    ///             EnvironmentId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/myenv",
+    ///             EnvironmentVariables = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///             ErrorThreshold = 0,
+    ///             LoggingLevel = "Info",
+    ///             MiniBatchSize = 0,
+    ///             Model = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.IdAssetReferenceArgs
+    ///             {
+    ///                 AssetId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/models/testmodel/versions/1",
+    ///                 ReferenceType = "Id",
+    ///             },
+    ///             OutputConfiguration = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.BatchOutputConfigurationArgs
+    ///             {
+    ///                 AppendRowFileName = "string",
+    ///                 OutputAction = "SummaryOnly",
+    ///             },
+    ///             PartitionKeys = new[]
+    ///             {
+    ///                 "string",
+    ///             },
+    ///             Properties = 
+    ///             {
+    ///                 { "additionalProp1", "string" },
+    ///                 { "additionalProp2", "string" },
+    ///                 { "additionalProp3", "string" },
+    ///             },
+    ///             RetrySettings = new AzureNative.MachineLearningServices.V20210301Preview.Inputs.BatchRetrySettingsArgs
+    ///             {
+    ///                 MaxRetries = 0,
+    ///                 Timeout = "PT1M",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "resourceGroup-1234",
+    ///         Tags = 
+    ///         {
+    ///             { "additionalProp1", "string" },
+    ///             { "additionalProp2", "string" },
+    ///             { "additionalProp3", "string" },
+    ///         },
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20210301preview:BatchDeployment testBatchDeployment /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/batchEndpoints/testBatchEndpoint/deployments/testBatchDeployment 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210301preview:BatchDeployment")]
     public partial class BatchDeployment : global::Pulumi.CustomResource
     {

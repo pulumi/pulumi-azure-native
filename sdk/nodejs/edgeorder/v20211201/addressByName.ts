@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * Address Resource.
+ *
+ * ## Example Usage
+ * ### CreateAddress
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const addressByName = new azure_native.edgeorder.v20211201.AddressByName("addressByName", {
+ *     addressName: "TestAddressName2",
+ *     contactDetails: {
+ *         contactName: "XXXX XXXX",
+ *         emailList: ["xxxx@xxxx.xxx"],
+ *         phone: "0000000000",
+ *         phoneExtension: "",
+ *     },
+ *     location: "eastus",
+ *     resourceGroupName: "YourResourceGroupName",
+ *     shippingAddress: {
+ *         addressType: "None",
+ *         city: "San Francisco",
+ *         companyName: "Microsoft",
+ *         country: "US",
+ *         postalCode: "94107",
+ *         stateOrProvince: "CA",
+ *         streetAddress1: "16 TOWNSEND ST",
+ *         streetAddress2: "UNIT 1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:edgeorder/v20211201:AddressByName TestAddressName2 /subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/addresses/TestAddressName2 
+ * ```
  */
 export class AddressByName extends pulumi.CustomResource {
     /**

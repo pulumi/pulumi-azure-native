@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// 
+    /// ## Example Usage
+    /// ### QueueAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queueAuthorizationRule = new AzureNative.ServiceBus.V20150801.QueueAuthorizationRule("queueAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "sdk-Authrules7319",
+    ///         NamespaceName = "sdk-Namespace6556",
+    ///         QueueName = "sdk-Queues3136",
+    ///         ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///         Rights = new[]
+    ///         {
+    ///             AzureNative.ServiceBus.V20150801.AccessRights.Listen,
+    ///             AzureNative.ServiceBus.V20150801.AccessRights.Send,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20150801:QueueAuthorizationRule sdk-Authrules7319 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace6556/queues/sdk-Queues3136/authorizationRules/sdk-Authrules7319 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicebus/v20150801:QueueAuthorizationRule")]

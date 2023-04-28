@@ -199,6 +199,29 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
         """
         The remediation definition.
 
+        ## Example Usage
+        ### Create remediation at management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_management_group = azure_native.policyinsights.v20211001.RemediationAtManagementGroup("remediationAtManagementGroup",
+            management_group_id="financeMg",
+            management_groups_namespace="Microsoft.Management",
+            policy_assignment_id="/providers/microsoft.management/managementGroups/financeMg/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            remediation_name="storageRemediation")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights/v20211001:RemediationAtManagementGroup storageRemediation /providers/microsoft.management/managementGroups/financeMg/providers/microsoft.policyinsights/remediations/storageRemediation 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RemediationPropertiesFailureThresholdArgs']] failure_threshold: The remediation failure threshold settings
@@ -220,6 +243,29 @@ class RemediationAtManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The remediation definition.
+
+        ## Example Usage
+        ### Create remediation at management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_management_group = azure_native.policyinsights.v20211001.RemediationAtManagementGroup("remediationAtManagementGroup",
+            management_group_id="financeMg",
+            management_groups_namespace="Microsoft.Management",
+            policy_assignment_id="/providers/microsoft.management/managementGroups/financeMg/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            remediation_name="storageRemediation")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights/v20211001:RemediationAtManagementGroup storageRemediation /providers/microsoft.management/managementGroups/financeMg/providers/microsoft.policyinsights/remediations/storageRemediation 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RemediationAtManagementGroupArgs args: The arguments to use to populate this resource's properties.

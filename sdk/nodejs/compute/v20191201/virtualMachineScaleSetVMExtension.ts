@@ -10,6 +10,38 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Virtual Machine Extension.
  *
+ * ## Example Usage
+ * ### Create VirtualMachineScaleSet VM extension.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineScaleSetVMExtension = new azure_native.compute.v20191201.VirtualMachineScaleSetVMExtension("virtualMachineScaleSetVMExtension", {
+ *     autoUpgradeMinorVersion: true,
+ *     instanceId: "0",
+ *     location: "westus",
+ *     publisher: "extPublisher",
+ *     resourceGroupName: "myResourceGroup",
+ *     settings: {
+ *         UserName: "xyz@microsoft.com",
+ *     },
+ *     type: "extType",
+ *     typeHandlerVersion: "1.2",
+ *     vmExtensionName: "myVMExtension",
+ *     vmScaleSetName: "myvmScaleSet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20191201:VirtualMachineScaleSetVMExtension myVMExtension /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myvmScaleSet/virtualMachines/0/extensions/myVMExtension 
+ * ```
+ *
  * @deprecated Version 2019-12-01 will be removed in v2 of the provider.
  */
 export class VirtualMachineScaleSetVMExtension extends pulumi.CustomResource {

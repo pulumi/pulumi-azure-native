@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Subvolume Information properties
+ *
+ * ## Example Usage
+ * ### Subvolumes_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subvolume = new azure_native.netapp.v20211001.Subvolume("subvolume", {
+ *     accountName: "account1",
+ *     path: "/subvolumePath",
+ *     poolName: "pool1",
+ *     resourceGroupName: "myRG",
+ *     subvolumeName: "subvolume1",
+ *     volumeName: "volume1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp/v20211001:Subvolume account1/pool1/volume1/subvolume1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/subvolumes/subvolume1 
+ * ```
  */
 export class Subvolume extends pulumi.CustomResource {
     /**

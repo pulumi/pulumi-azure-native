@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Maintenance configuration record type
  * API Version: 2022-11-01-preview.
  * Previous API Version: 2020-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### MaintenanceConfigurations_CreateOrUpdateForResource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const maintenanceConfiguration = new azure_native.maintenance.MaintenanceConfiguration("maintenanceConfiguration", {
+ *     duration: "05:00",
+ *     expirationDateTime: "9999-12-31 00:00",
+ *     location: "westus2",
+ *     maintenanceScope: "OSImage",
+ *     namespace: "Microsoft.Maintenance",
+ *     recurEvery: "Day",
+ *     resourceGroupName: "examplerg",
+ *     resourceName: "configuration1",
+ *     startDateTime: "2020-04-30 08:00",
+ *     timeZone: "Pacific Standard Time",
+ *     visibility: "Custom",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:maintenance:MaintenanceConfiguration configuration1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1 
+ * ```
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**

@@ -11,6 +11,65 @@ import * as utilities from "../utilities";
  * Network function resource response.
  * API Version: 2021-05-01.
  * Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create network function resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkFunction = new azure_native.hybridnetwork.NetworkFunction("networkFunction", {
+ *     device: {
+ *         id: "/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/devices/testDevice",
+ *     },
+ *     location: "eastus",
+ *     managedApplicationParameters: {},
+ *     networkFunctionName: "testNf",
+ *     networkFunctionUserConfigurations: [{
+ *         networkInterfaces: [
+ *             {
+ *                 ipConfigurations: [{
+ *                     gateway: "",
+ *                     ipAddress: "",
+ *                     ipAllocationMethod: "Dynamic",
+ *                     ipVersion: "IPv4",
+ *                     subnet: "",
+ *                 }],
+ *                 macAddress: "",
+ *                 networkInterfaceName: "nic1",
+ *                 vmSwitchType: "Management",
+ *             },
+ *             {
+ *                 ipConfigurations: [{
+ *                     gateway: "",
+ *                     ipAddress: "",
+ *                     ipAllocationMethod: "Dynamic",
+ *                     ipVersion: "IPv4",
+ *                     subnet: "",
+ *                 }],
+ *                 macAddress: "DC-97-F8-79-16-7D",
+ *                 networkInterfaceName: "nic2",
+ *                 vmSwitchType: "Wan",
+ *             },
+ *         ],
+ *         roleName: "testRole",
+ *         userDataParameters: {},
+ *     }],
+ *     resourceGroupName: "rg",
+ *     skuName: "testSku",
+ *     vendorName: "testVendor",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridnetwork:NetworkFunction testNf /subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/networkFunctions/testNf 
+ * ```
  */
 export class NetworkFunction extends pulumi.CustomResource {
     /**

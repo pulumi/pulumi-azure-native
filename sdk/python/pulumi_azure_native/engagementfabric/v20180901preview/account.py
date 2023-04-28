@@ -113,6 +113,31 @@ class Account(pulumi.CustomResource):
         """
         The EngagementFabric account
 
+        ## Example Usage
+        ### AccountsCreateOrUpdateExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.engagementfabric.v20180901preview.Account("account",
+            account_name="ExampleAccount",
+            location="WestUS",
+            resource_group_name="ExampleRg",
+            sku=azure_native.engagementfabric.v20180901preview.SKUArgs(
+                name="B1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:engagementfabric/v20180901preview:Account ExampleAccount subscriptions/EDBF0095-A524-4A84-95FB-F72DA41AA6A1/resourceGroups/ExampleRg/providers/Microsoft.EngagementFabric/Accounts/ExampleAccount 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account Name
@@ -129,6 +154,31 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The EngagementFabric account
+
+        ## Example Usage
+        ### AccountsCreateOrUpdateExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.engagementfabric.v20180901preview.Account("account",
+            account_name="ExampleAccount",
+            location="WestUS",
+            resource_group_name="ExampleRg",
+            sku=azure_native.engagementfabric.v20180901preview.SKUArgs(
+                name="B1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:engagementfabric/v20180901preview:Account ExampleAccount subscriptions/EDBF0095-A524-4A84-95FB-F72DA41AA6A1/resourceGroups/ExampleRg/providers/Microsoft.EngagementFabric/Accounts/ExampleAccount 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

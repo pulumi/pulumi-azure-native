@@ -128,6 +128,33 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
         """
         Storage mapping object.
 
+        ## Example Usage
+        ### Create storage classification mapping.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_storage_classification_mapping = azure_native.recoveryservices.v20180710.ReplicationStorageClassificationMapping("replicationStorageClassificationMapping",
+            fabric_name="2a48e3770ac08aa2be8bfbd94fcfb1cbf2dcc487b78fb9d3bd778304441b06a0",
+            properties=azure_native.recoveryservices.v20180710.StorageMappingInputPropertiesArgs(
+                target_storage_classification_id="/Subscriptions/9112a37f-0f3e-46ec-9c00-060c6edca071/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/2a48e3770ac08aa2be8bfbd94fcfb1cbf2dcc487b78fb9d3bd778304441b06a0/replicationStorageClassifications/8891569e-aaef-4a46-a4a0-78c14f2d7b09",
+            ),
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1",
+            storage_classification_mapping_name="testStorageMapping",
+            storage_classification_name="8891569e-aaef-4a46-a4a0-78c14f2d7b09")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping testStorageMapping /Subscriptions/9112a37f-0f3e-46ec-9c00-060c6edca071/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/2a48e3770ac08aa2be8bfbd94fcfb1cbf2dcc487b78fb9d3bd778304441b06a0/replicationStorageClassifications/8891569e-aaef-4a46-a4a0-78c14f2d7b09/replicationStorageClassificationMappings/testStorageMapping 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
@@ -145,6 +172,33 @@ class ReplicationStorageClassificationMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Storage mapping object.
+
+        ## Example Usage
+        ### Create storage classification mapping.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_storage_classification_mapping = azure_native.recoveryservices.v20180710.ReplicationStorageClassificationMapping("replicationStorageClassificationMapping",
+            fabric_name="2a48e3770ac08aa2be8bfbd94fcfb1cbf2dcc487b78fb9d3bd778304441b06a0",
+            properties=azure_native.recoveryservices.v20180710.StorageMappingInputPropertiesArgs(
+                target_storage_classification_id="/Subscriptions/9112a37f-0f3e-46ec-9c00-060c6edca071/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/2a48e3770ac08aa2be8bfbd94fcfb1cbf2dcc487b78fb9d3bd778304441b06a0/replicationStorageClassifications/8891569e-aaef-4a46-a4a0-78c14f2d7b09",
+            ),
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1",
+            storage_classification_mapping_name="testStorageMapping",
+            storage_classification_name="8891569e-aaef-4a46-a4a0-78c14f2d7b09")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20180710:ReplicationStorageClassificationMapping testStorageMapping /Subscriptions/9112a37f-0f3e-46ec-9c00-060c6edca071/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/2a48e3770ac08aa2be8bfbd94fcfb1cbf2dcc487b78fb9d3bd778304441b06a0/replicationStorageClassifications/8891569e-aaef-4a46-a4a0-78c14f2d7b09/replicationStorageClassificationMappings/testStorageMapping 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationStorageClassificationMappingArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,16 @@ namespace Pulumi.AzureNative.CostManagement.V20180801Preview
 {
     /// <summary>
     /// A report resource.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement/v20180801preview:ReportByResourceGroupName TestReport subscriptions/{subscription-id}/providers/Microsoft.CostManagement/reports/TestReport 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20180801preview:ReportByResourceGroupName")]
     public partial class ReportByResourceGroupName : global::Pulumi.CustomResource

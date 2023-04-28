@@ -292,6 +292,41 @@ class Assessment(pulumi.CustomResource):
         """
         An assessment created for a group in the Migration project.
 
+        ## Example Usage
+        ### Assessments_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.migrate.v20171111preview.Assessment("assessment",
+            assessment_name="assessment01",
+            azure_hybrid_use_benefit="Yes",
+            azure_location="WestUs",
+            azure_offer_code="MSAZR0003P",
+            azure_pricing_tier="Standard",
+            azure_storage_redundancy="LocallyRedundant",
+            currency="USD",
+            discount_percentage=100,
+            e_tag="\\"1100637e-0000-0000-0000-59f6ed1f0000\\"",
+            group_name="group01",
+            percentile="Percentile50",
+            project_name="project01",
+            resource_group_name="myResourceGroup",
+            scaling_factor=1.2,
+            stage="InProgress",
+            time_range="Day")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20171111preview:Assessment assessment01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/groups/group01/assessments/assessment01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_name: Unique name of an assessment within a project.
@@ -319,6 +354,41 @@ class Assessment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An assessment created for a group in the Migration project.
+
+        ## Example Usage
+        ### Assessments_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment = azure_native.migrate.v20171111preview.Assessment("assessment",
+            assessment_name="assessment01",
+            azure_hybrid_use_benefit="Yes",
+            azure_location="WestUs",
+            azure_offer_code="MSAZR0003P",
+            azure_pricing_tier="Standard",
+            azure_storage_redundancy="LocallyRedundant",
+            currency="USD",
+            discount_percentage=100,
+            e_tag="\\"1100637e-0000-0000-0000-59f6ed1f0000\\"",
+            group_name="group01",
+            percentile="Percentile50",
+            project_name="project01",
+            resource_group_name="myResourceGroup",
+            scaling_factor=1.2,
+            stage="InProgress",
+            time_range="Day")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20171111preview:Assessment assessment01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/groups/group01/assessments/assessment01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssessmentArgs args: The arguments to use to populate this resource's properties.

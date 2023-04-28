@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The Backup Schedule Group
+    /// 
+    /// ## Example Usage
+    /// ### BackupScheduleGroupsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupScheduleGroup = new AzureNative.StorSimple.V20161001.BackupScheduleGroup("backupScheduleGroup", new()
+    ///     {
+    ///         DeviceName = "HSDK-4XY4FI2IVG",
+    ///         ManagerName = "hAzureSDKOperations",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         ScheduleGroupName = "BackupSchGroupForSDKTest",
+    ///         StartTime = new AzureNative.StorSimple.V20161001.Inputs.TimeArgs
+    ///         {
+    ///             Hour = 17,
+    ///             Minute = 38,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20161001:BackupScheduleGroup BackupSchGroupForSDKTest /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/backupScheduleGroups/BackupSchGroupForSDKTest 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:BackupScheduleGroup")]

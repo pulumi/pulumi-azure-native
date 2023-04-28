@@ -9,6 +9,173 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB database account.
+ *
+ * ## Example Usage
+ * ### CosmosDBDatabaseAccountCreateMax
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccount = new azure_native.documentdb.v20210401preview.DatabaseAccount("databaseAccount", {
+ *     accountName: "ddb1",
+ *     identity: {
+ *         type: azure_native.documentdb.v20210401preview.ResourceIdentityType.SystemAssigned_UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/fa5fc227-a624-475e-b696-cdd604c735bc/resourceGroups/eu2cgroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+ *         },
+ *     },
+ *     kind: "MongoDB",
+ *     location: "westus",
+ *     properties: {
+ *         apiProperties: {
+ *             serverVersion: "3.2",
+ *         },
+ *         backupPolicy: {
+ *             periodicModeProperties: {
+ *                 backupIntervalInMinutes: 240,
+ *                 backupRetentionIntervalInHours: 720,
+ *                 backupStorageRedundancy: "Geo",
+ *             },
+ *             type: "Periodic",
+ *         },
+ *         consistencyPolicy: {
+ *             defaultConsistencyLevel: azure_native.documentdb.v20210401preview.DefaultConsistencyLevel.BoundedStaleness,
+ *             maxIntervalInSeconds: 10,
+ *             maxStalenessPrefix: 200,
+ *         },
+ *         cors: [{
+ *             allowedOrigins: "https://test",
+ *         }],
+ *         createMode: "Default",
+ *         databaseAccountOfferType: azure_native.documentdb.v20210401preview.DatabaseAccountOfferType.Standard,
+ *         defaultIdentity: "FirstPartyIdentity",
+ *         enableAnalyticalStorage: true,
+ *         enableFreeTier: false,
+ *         ipRules: [
+ *             {
+ *                 ipAddressOrRange: "23.43.230.120",
+ *             },
+ *             {
+ *                 ipAddressOrRange: "110.12.240.0/12",
+ *             },
+ *         ],
+ *         isVirtualNetworkFilterEnabled: true,
+ *         keyVaultKeyUri: "https://myKeyVault.vault.azure.net",
+ *         locations: [
+ *             {
+ *                 failoverPriority: 0,
+ *                 isZoneRedundant: false,
+ *                 locationName: "southcentralus",
+ *             },
+ *             {
+ *                 failoverPriority: 1,
+ *                 isZoneRedundant: false,
+ *                 locationName: "eastus",
+ *             },
+ *         ],
+ *         networkAclBypass: azure_native.documentdb.v20210401preview.NetworkAclBypass.None,
+ *         networkAclBypassResourceIds: [],
+ *         publicNetworkAccess: "Enabled",
+ *         virtualNetworkRules: [{
+ *             id: "/subscriptions/subId/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+ *             ignoreMissingVNetServiceEndpoint: false,
+ *         }],
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### CosmosDBDatabaseAccountCreateMin
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccount = new azure_native.documentdb.v20210401preview.DatabaseAccount("databaseAccount", {
+ *     accountName: "ddb1",
+ *     location: "westus",
+ *     properties: {
+ *         createMode: "Default",
+ *         databaseAccountOfferType: azure_native.documentdb.v20210401preview.DatabaseAccountOfferType.Standard,
+ *         locations: [{
+ *             failoverPriority: 0,
+ *             isZoneRedundant: false,
+ *             locationName: "southcentralus",
+ *         }],
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ * ### CosmosDBRestoreDatabaseAccountCreateUpdate.json
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccount = new azure_native.documentdb.v20210401preview.DatabaseAccount("databaseAccount", {
+ *     accountName: "ddb1",
+ *     kind: "GlobalDocumentDB",
+ *     location: "westus",
+ *     properties: {
+ *         apiProperties: {
+ *             serverVersion: "3.2",
+ *         },
+ *         backupPolicy: {
+ *             type: "Continuous",
+ *         },
+ *         consistencyPolicy: {
+ *             defaultConsistencyLevel: azure_native.documentdb.v20210401preview.DefaultConsistencyLevel.BoundedStaleness,
+ *             maxIntervalInSeconds: 10,
+ *             maxStalenessPrefix: 200,
+ *         },
+ *         createMode: "Restore",
+ *         databaseAccountOfferType: azure_native.documentdb.v20210401preview.DatabaseAccountOfferType.Standard,
+ *         enableAnalyticalStorage: true,
+ *         enableFreeTier: false,
+ *         keyVaultKeyUri: "https://myKeyVault.vault.azure.net",
+ *         locations: [{
+ *             failoverPriority: 0,
+ *             isZoneRedundant: false,
+ *             locationName: "southcentralus",
+ *         }],
+ *         restoreParameters: {
+ *             databasesToRestore: [
+ *                 {
+ *                     collectionNames: [
+ *                         "collection1",
+ *                         "collection2",
+ *                     ],
+ *                     databaseName: "db1",
+ *                 },
+ *                 {
+ *                     collectionNames: [
+ *                         "collection3",
+ *                         "collection4",
+ *                     ],
+ *                     databaseName: "db2",
+ *                 },
+ *             ],
+ *             restoreMode: "PointInTime",
+ *             restoreSource: "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/westus/restorableDatabaseAccounts/1a97b4bb-f6a0-430e-ade1-638d781830cc",
+ *             restoreTimestampInUtc: "2021-03-11T22:05:09Z",
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20210401preview:DatabaseAccount ddb1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1 
+ * ```
  */
 export class DatabaseAccount extends pulumi.CustomResource {
     /**

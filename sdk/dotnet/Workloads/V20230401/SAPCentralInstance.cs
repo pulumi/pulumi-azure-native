@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.Workloads.V20230401
 {
     /// <summary>
     /// Define the SAP Central Services Instance resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create SAP Central Instances for HA System with Availability Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapCentralInstance = new AzureNative.Workloads.V20230401.SAPCentralInstance("sapCentralInstance", new()
+    ///     {
+    ///         CentralInstanceName = "centralServer",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SAPCentralInstances_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapCentralInstance = new AzureNative.Workloads.V20230401.SAPCentralInstance("sapCentralInstance", new()
+    ///     {
+    ///         CentralInstanceName = "centralServer",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads/v20230401:SAPCentralInstance centralServer /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/centralInstances/centralServer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20230401:SAPCentralInstance")]
     public partial class SAPCentralInstance : global::Pulumi.CustomResource

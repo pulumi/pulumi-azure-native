@@ -113,6 +113,36 @@ class Policy(pulumi.CustomResource):
         """
         Policy Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreatePolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.apimanagement.v20220801.Policy("policy",
+            format="xml",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value=\"\"\"<policies>
+          <inbound />
+          <backend>
+            <forward-request />
+          </backend>
+          <outbound />
+        </policies>\"\"\")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:Policy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/policies/policy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'PolicyContentFormat']] format: Format of the policyContent.
@@ -129,6 +159,36 @@ class Policy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Policy Contract details.
+
+        ## Example Usage
+        ### ApiManagementCreatePolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy = azure_native.apimanagement.v20220801.Policy("policy",
+            format="xml",
+            policy_id="policy",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            value=\"\"\"<policies>
+          <inbound />
+          <backend>
+            <forward-request />
+          </backend>
+          <outbound />
+        </policies>\"\"\")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:Policy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/policies/policy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

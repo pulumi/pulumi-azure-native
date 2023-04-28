@@ -9,6 +9,28 @@ import * as utilities from "../../utilities";
 
 /**
  * The Network Manager Connection resource
+ *
+ * ## Example Usage
+ * ### Create or Update Subscription Network Manager Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subscriptionNetworkManagerConnection = new azure_native.network.v20220901.SubscriptionNetworkManagerConnection("subscriptionNetworkManagerConnection", {
+ *     networkManagerConnectionName: "TestNMConnection",
+ *     networkManagerId: "/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:SubscriptionNetworkManagerConnection TestNMConnection /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/TestNMConnection 
+ * ```
  */
 export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource {
     /**

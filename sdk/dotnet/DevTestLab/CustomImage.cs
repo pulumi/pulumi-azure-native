@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.DevTestLab
     /// A custom image.
     /// API Version: 2018-09-15.
     /// Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CustomImages_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customImage = new AzureNative.DevTestLab.CustomImage("customImage", new()
+    ///     {
+    ///         Description = "My Custom Image",
+    ///         LabName = "{labName}",
+    ///         Name = "{customImageName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///         Vm = new AzureNative.DevTestLab.Inputs.CustomImagePropertiesFromVmArgs
+    ///         {
+    ///             LinuxOsInfo = new AzureNative.DevTestLab.Inputs.LinuxOsInfoArgs
+    ///             {
+    ///                 LinuxOsState = "NonDeprovisioned",
+    ///             },
+    ///             SourceVmId = "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualmachines/{vmName}",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab:CustomImage {customImageName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/customimages/{customImageName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab:CustomImage")]
     public partial class CustomImage : global::Pulumi.CustomResource

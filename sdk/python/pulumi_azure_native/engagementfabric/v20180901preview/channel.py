@@ -127,6 +127,37 @@ class Channel(pulumi.CustomResource):
         """
         The EngagementFabric channel
 
+        ## Example Usage
+        ### ChannelsCreateOrUpdateExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.engagementfabric.v20180901preview.Channel("channel",
+            account_name="ExampleAccount",
+            channel_functions=[
+                "MockFunction1",
+                "MockFunction2",
+            ],
+            channel_name="ExampleChannel",
+            channel_type="MockChannel",
+            credentials={
+                "AppId": "exampleApp",
+                "AppKey": "exampleAppKey",
+            },
+            resource_group_name="ExampleRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:engagementfabric/v20180901preview:Channel ExampleChannel subscriptions/EDBF0095-A524-4A84-95FB-F72DA41AA6A1/resourceGroups/ExampleRg/providers/Microsoft.EngagementFabric/Accounts/ExampleAccount/Channels/ExampleChannel 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account Name
@@ -144,6 +175,37 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The EngagementFabric channel
+
+        ## Example Usage
+        ### ChannelsCreateOrUpdateExample
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        channel = azure_native.engagementfabric.v20180901preview.Channel("channel",
+            account_name="ExampleAccount",
+            channel_functions=[
+                "MockFunction1",
+                "MockFunction2",
+            ],
+            channel_name="ExampleChannel",
+            channel_type="MockChannel",
+            credentials={
+                "AppId": "exampleApp",
+                "AppKey": "exampleAppKey",
+            },
+            resource_group_name="ExampleRg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:engagementfabric/v20180901preview:Channel ExampleChannel subscriptions/EDBF0095-A524-4A84-95FB-F72DA41AA6A1/resourceGroups/ExampleRg/providers/Microsoft.EngagementFabric/Accounts/ExampleAccount/Channels/ExampleChannel 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ChannelArgs args: The arguments to use to populate this resource's properties.

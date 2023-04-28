@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.DocumentDB.V20230301Preview
 {
     /// <summary>
     /// Represents a mongo cluster resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new mongo cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoCluster = new AzureNative.DocumentDB.V20230301Preview.MongoCluster("mongoCluster", new()
+    ///     {
+    ///         AdministratorLogin = "mongoAdmin",
+    ///         AdministratorLoginPassword = "password",
+    ///         Location = "westus2",
+    ///         MongoClusterName = "myMongoCluster",
+    ///         NodeGroupSpecs = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20230301Preview.Inputs.NodeGroupSpecArgs
+    ///             {
+    ///                 DiskSizeGB = 128,
+    ///                 EnableHa = true,
+    ///                 Kind = "Shard",
+    ///                 NodeCount = 3,
+    ///                 Sku = "M30",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///         ServerVersion = "5.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new mongo cluster with point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoCluster = new AzureNative.DocumentDB.V20230301Preview.MongoCluster("mongoCluster", new()
+    ///     {
+    ///         CreateMode = "PointInTimeRestore",
+    ///         Location = "westus2",
+    ///         MongoClusterName = "myMongoCluster",
+    ///         ResourceGroupName = "TestResourceGroup",
+    ///         RestoreParameters = new AzureNative.DocumentDB.V20230301Preview.Inputs.MongoClusterRestoreParametersArgs
+    ///         {
+    ///             PointInTimeUTC = "2023-01-13T20:07:35Z",
+    ///             SourceResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20230301preview:MongoCluster myMongoCluster /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20230301preview:MongoCluster")]
     public partial class MongoCluster : global::Pulumi.CustomResource

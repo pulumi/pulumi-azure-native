@@ -13,6 +13,71 @@ namespace Pulumi.AzureNative.Kusto
     /// Class representing a Kusto cluster.
     /// API Version: 2022-12-29.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### KustoClustersCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.Kusto.Cluster("cluster", new()
+    ///     {
+    ///         AllowedIpRangeList = new[]
+    ///         {
+    ///             "0.0.0.0/0",
+    ///         },
+    ///         ClusterName = "kustoCluster",
+    ///         EnableAutoStop = true,
+    ///         EnableDoubleEncryption = false,
+    ///         EnablePurge = true,
+    ///         EnableStreamingIngest = true,
+    ///         Identity = new AzureNative.Kusto.Inputs.IdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         LanguageExtensions = new AzureNative.Kusto.Inputs.LanguageExtensionsListArgs
+    ///         {
+    ///             Value = new[]
+    ///             {
+    ///                 new AzureNative.Kusto.Inputs.LanguageExtensionArgs
+    ///                 {
+    ///                     LanguageExtensionImageName = "Python3_10_8",
+    ///                     LanguageExtensionName = "PYTHON",
+    ///                 },
+    ///                 new AzureNative.Kusto.Inputs.LanguageExtensionArgs
+    ///                 {
+    ///                     LanguageExtensionImageName = "R",
+    ///                     LanguageExtensionName = "R",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         PublicIPType = "DualStack",
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "kustorptest",
+    ///         Sku = new AzureNative.Kusto.Inputs.AzureSkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "Standard_L16as_v3",
+    ///             Tier = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto:Cluster kustoCluster /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

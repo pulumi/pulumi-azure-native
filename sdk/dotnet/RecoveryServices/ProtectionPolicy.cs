@@ -13,6 +13,816 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Base class for backup policy. Workload-specific backup policies are derived from this class.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Daily Azure Storage Protection Policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    ///     {
+    ///         PolicyName = "dailyPolicy2",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.AzureFileShareProtectionPolicyArgs
+    ///         {
+    ///             BackupManagementType = "AzureStorage",
+    ///             RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+    ///             {
+    ///                 DailySchedule = new AzureNative.RecoveryServices.Inputs.DailyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 5,
+    ///                         DurationType = "Days",
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-09-29T08:00:00.000Z",
+    ///                     },
+    ///                 },
+    ///                 MonthlySchedule = new AzureNative.RecoveryServices.Inputs.MonthlyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 60,
+    ///                         DurationType = "Months",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.First,
+    ///                         },
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-09-29T08:00:00.000Z",
+    ///                     },
+    ///                 },
+    ///                 RetentionPolicyType = "LongTermRetentionPolicy",
+    ///                 WeeklySchedule = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionScheduleArgs
+    ///                 {
+    ///                     DaysOfTheWeek = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 12,
+    ///                         DurationType = "Weeks",
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-09-29T08:00:00.000Z",
+    ///                     },
+    ///                 },
+    ///                 YearlySchedule = new AzureNative.RecoveryServices.Inputs.YearlyRetentionScheduleArgs
+    ///                 {
+    ///                     MonthsOfYear = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.MonthOfYear.January,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 10,
+    ///                         DurationType = "Years",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.First,
+    ///                         },
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-09-29T08:00:00.000Z",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyArgs
+    ///             {
+    ///                 SchedulePolicyType = "SimpleSchedulePolicy",
+    ///                 ScheduleRunFrequency = "Daily",
+    ///                 ScheduleRunTimes = new[]
+    ///                 {
+    ///                     "2021-09-29T08:00:00.000Z",
+    ///                 },
+    ///             },
+    ///             TimeZone = "UTC",
+    ///             WorkLoadType = "AzureFileShare",
+    ///         },
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "swaggertestvault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Enhanced Azure Vm Protection Policy with Hourly backup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    ///     {
+    ///         PolicyName = "v2-daily-sample",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.AzureIaaSVMProtectionPolicyArgs
+    ///         {
+    ///             BackupManagementType = "AzureIaasVM",
+    ///             InstantRpRetentionRangeInDays = 30,
+    ///             PolicyType = "V2",
+    ///             RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+    ///             {
+    ///                 DailySchedule = new AzureNative.RecoveryServices.Inputs.DailyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 180,
+    ///                         DurationType = "Days",
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-12-17T08:00:00+00:00",
+    ///                     },
+    ///                 },
+    ///                 MonthlySchedule = new AzureNative.RecoveryServices.Inputs.MonthlyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 60,
+    ///                         DurationType = "Months",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.First,
+    ///                         },
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-12-17T08:00:00+00:00",
+    ///                     },
+    ///                 },
+    ///                 RetentionPolicyType = "LongTermRetentionPolicy",
+    ///                 WeeklySchedule = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionScheduleArgs
+    ///                 {
+    ///                     DaysOfTheWeek = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 12,
+    ///                         DurationType = "Weeks",
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-12-17T08:00:00+00:00",
+    ///                     },
+    ///                 },
+    ///                 YearlySchedule = new AzureNative.RecoveryServices.Inputs.YearlyRetentionScheduleArgs
+    ///                 {
+    ///                     MonthsOfYear = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.MonthOfYear.January,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 10,
+    ///                         DurationType = "Years",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.First,
+    ///                         },
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-12-17T08:00:00+00:00",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyV2Args
+    ///             {
+    ///                 HourlySchedule = new AzureNative.RecoveryServices.Inputs.HourlyScheduleArgs
+    ///                 {
+    ///                     Interval = 4,
+    ///                     ScheduleWindowDuration = 16,
+    ///                     ScheduleWindowStartTime = "2021-12-17T08:00:00Z",
+    ///                 },
+    ///                 SchedulePolicyType = "SimpleSchedulePolicyV2",
+    ///                 ScheduleRunFrequency = "Hourly",
+    ///             },
+    ///             TimeZone = "India Standard Time",
+    ///         },
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "NetSDKTestRsVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Enhanced Azure Vm Protection Policy with daily backup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    ///     {
+    ///         PolicyName = "v2-daily-sample",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.AzureIaaSVMProtectionPolicyArgs
+    ///         {
+    ///             BackupManagementType = "AzureIaasVM",
+    ///             InstantRpRetentionRangeInDays = 30,
+    ///             PolicyType = "V2",
+    ///             RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+    ///             {
+    ///                 DailySchedule = new AzureNative.RecoveryServices.Inputs.DailyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 180,
+    ///                         DurationType = "Days",
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-12-17T08:00:00+00:00",
+    ///                     },
+    ///                 },
+    ///                 MonthlySchedule = new AzureNative.RecoveryServices.Inputs.MonthlyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 60,
+    ///                         DurationType = "Months",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.First,
+    ///                         },
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-12-17T08:00:00+00:00",
+    ///                     },
+    ///                 },
+    ///                 RetentionPolicyType = "LongTermRetentionPolicy",
+    ///                 WeeklySchedule = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionScheduleArgs
+    ///                 {
+    ///                     DaysOfTheWeek = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 12,
+    ///                         DurationType = "Weeks",
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-12-17T08:00:00+00:00",
+    ///                     },
+    ///                 },
+    ///                 YearlySchedule = new AzureNative.RecoveryServices.Inputs.YearlyRetentionScheduleArgs
+    ///                 {
+    ///                     MonthsOfYear = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.MonthOfYear.January,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 10,
+    ///                         DurationType = "Years",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.First,
+    ///                         },
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2021-12-17T08:00:00+00:00",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyV2Args
+    ///             {
+    ///                 DailySchedule = new AzureNative.RecoveryServices.Inputs.DailyScheduleArgs
+    ///                 {
+    ///                     ScheduleRunTimes = new[]
+    ///                     {
+    ///                         "2018-01-24T10:00:00Z",
+    ///                     },
+    ///                 },
+    ///                 SchedulePolicyType = "SimpleSchedulePolicyV2",
+    ///                 ScheduleRunFrequency = "Daily",
+    ///             },
+    ///             TimeZone = "India Standard Time",
+    ///         },
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "NetSDKTestRsVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Full Azure Vm Protection Policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    ///     {
+    ///         PolicyName = "testPolicy1",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.AzureIaaSVMProtectionPolicyArgs
+    ///         {
+    ///             BackupManagementType = "AzureIaasVM",
+    ///             RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+    ///             {
+    ///                 MonthlySchedule = new AzureNative.RecoveryServices.Inputs.MonthlyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 2,
+    ///                         DurationType = "Months",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Wednesday,
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Thursday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.First,
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.Third,
+    ///                         },
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2018-01-24T10:00:00Z",
+    ///                     },
+    ///                 },
+    ///                 RetentionPolicyType = "LongTermRetentionPolicy",
+    ///                 WeeklySchedule = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionScheduleArgs
+    ///                 {
+    ///                     DaysOfTheWeek = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.DayOfWeek.Monday,
+    ///                         AzureNative.RecoveryServices.DayOfWeek.Wednesday,
+    ///                         AzureNative.RecoveryServices.DayOfWeek.Thursday,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 1,
+    ///                         DurationType = "Weeks",
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2018-01-24T10:00:00Z",
+    ///                     },
+    ///                 },
+    ///                 YearlySchedule = new AzureNative.RecoveryServices.Inputs.YearlyRetentionScheduleArgs
+    ///                 {
+    ///                     MonthsOfYear = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.MonthOfYear.February,
+    ///                         AzureNative.RecoveryServices.MonthOfYear.November,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 4,
+    ///                         DurationType = "Years",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Monday,
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Thursday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.Fourth,
+    ///                         },
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2018-01-24T10:00:00Z",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyArgs
+    ///             {
+    ///                 SchedulePolicyType = "SimpleSchedulePolicy",
+    ///                 ScheduleRunDays = new[]
+    ///                 {
+    ///                     AzureNative.RecoveryServices.DayOfWeek.Monday,
+    ///                     AzureNative.RecoveryServices.DayOfWeek.Wednesday,
+    ///                     AzureNative.RecoveryServices.DayOfWeek.Thursday,
+    ///                 },
+    ///                 ScheduleRunFrequency = "Weekly",
+    ///                 ScheduleRunTimes = new[]
+    ///                 {
+    ///                     "2018-01-24T10:00:00Z",
+    ///                 },
+    ///             },
+    ///             TimeZone = "Pacific Standard Time",
+    ///         },
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "NetSDKTestRsVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Full Azure Workload Protection Policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    ///     {
+    ///         PolicyName = "testPolicy1",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.AzureVmWorkloadProtectionPolicyArgs
+    ///         {
+    ///             BackupManagementType = "AzureWorkload",
+    ///             Settings = new AzureNative.RecoveryServices.Inputs.SettingsArgs
+    ///             {
+    ///                 Issqlcompression = false,
+    ///                 TimeZone = "Pacific Standard Time",
+    ///             },
+    ///             SubProtectionPolicy = new[]
+    ///             {
+    ///                 new AzureNative.RecoveryServices.Inputs.SubProtectionPolicyArgs
+    ///                 {
+    ///                     PolicyType = "Full",
+    ///                     RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+    ///                     {
+    ///                         MonthlySchedule = new AzureNative.RecoveryServices.Inputs.MonthlyRetentionScheduleArgs
+    ///                         {
+    ///                             RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 DurationType = "Months",
+    ///                             },
+    ///                             RetentionScheduleFormatType = "Weekly",
+    ///                             RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                             {
+    ///                                 DaysOfTheWeek = new[]
+    ///                                 {
+    ///                                     AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                                 },
+    ///                                 WeeksOfTheMonth = new[]
+    ///                                 {
+    ///                                     AzureNative.RecoveryServices.WeekOfMonth.Second,
+    ///                                 },
+    ///                             },
+    ///                             RetentionTimes = new[]
+    ///                             {
+    ///                                 "2018-01-24T10:00:00Z",
+    ///                             },
+    ///                         },
+    ///                         RetentionPolicyType = "LongTermRetentionPolicy",
+    ///                         WeeklySchedule = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionScheduleArgs
+    ///                         {
+    ///                             DaysOfTheWeek = new[]
+    ///                             {
+    ///                                 AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                                 AzureNative.RecoveryServices.DayOfWeek.Tuesday,
+    ///                             },
+    ///                             RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                             {
+    ///                                 Count = 2,
+    ///                                 DurationType = "Weeks",
+    ///                             },
+    ///                             RetentionTimes = new[]
+    ///                             {
+    ///                                 "2018-01-24T10:00:00Z",
+    ///                             },
+    ///                         },
+    ///                         YearlySchedule = new AzureNative.RecoveryServices.Inputs.YearlyRetentionScheduleArgs
+    ///                         {
+    ///                             MonthsOfYear = new[]
+    ///                             {
+    ///                                 AzureNative.RecoveryServices.MonthOfYear.January,
+    ///                                 AzureNative.RecoveryServices.MonthOfYear.June,
+    ///                                 AzureNative.RecoveryServices.MonthOfYear.December,
+    ///                             },
+    ///                             RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 DurationType = "Years",
+    ///                             },
+    ///                             RetentionScheduleFormatType = "Weekly",
+    ///                             RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                             {
+    ///                                 DaysOfTheWeek = new[]
+    ///                                 {
+    ///                                     AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                                 },
+    ///                                 WeeksOfTheMonth = new[]
+    ///                                 {
+    ///                                     AzureNative.RecoveryServices.WeekOfMonth.Last,
+    ///                                 },
+    ///                             },
+    ///                             RetentionTimes = new[]
+    ///                             {
+    ///                                 "2018-01-24T10:00:00Z",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyArgs
+    ///                     {
+    ///                         SchedulePolicyType = "SimpleSchedulePolicy",
+    ///                         ScheduleRunDays = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Tuesday,
+    ///                         },
+    ///                         ScheduleRunFrequency = "Weekly",
+    ///                         ScheduleRunTimes = new[]
+    ///                         {
+    ///                             "2018-01-24T10:00:00Z",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.RecoveryServices.Inputs.SubProtectionPolicyArgs
+    ///                 {
+    ///                     PolicyType = "Differential",
+    ///                     RetentionPolicy = new AzureNative.RecoveryServices.Inputs.SimpleRetentionPolicyArgs
+    ///                     {
+    ///                         RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                         {
+    ///                             Count = 8,
+    ///                             DurationType = "Days",
+    ///                         },
+    ///                         RetentionPolicyType = "SimpleRetentionPolicy",
+    ///                     },
+    ///                     SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyArgs
+    ///                     {
+    ///                         SchedulePolicyType = "SimpleSchedulePolicy",
+    ///                         ScheduleRunDays = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Friday,
+    ///                         },
+    ///                         ScheduleRunFrequency = "Weekly",
+    ///                         ScheduleRunTimes = new[]
+    ///                         {
+    ///                             "2018-01-24T10:00:00Z",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.RecoveryServices.Inputs.SubProtectionPolicyArgs
+    ///                 {
+    ///                     PolicyType = "Log",
+    ///                     RetentionPolicy = new AzureNative.RecoveryServices.Inputs.SimpleRetentionPolicyArgs
+    ///                     {
+    ///                         RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                         {
+    ///                             Count = 7,
+    ///                             DurationType = "Days",
+    ///                         },
+    ///                         RetentionPolicyType = "SimpleRetentionPolicy",
+    ///                     },
+    ///                     SchedulePolicy = new AzureNative.RecoveryServices.Inputs.LogSchedulePolicyArgs
+    ///                     {
+    ///                         ScheduleFrequencyInMins = 60,
+    ///                         SchedulePolicyType = "LogSchedulePolicy",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             WorkLoadType = "SQLDataBase",
+    ///         },
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "NetSDKTestRsVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Hourly Azure Storage Protection Policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    ///     {
+    ///         PolicyName = "newPolicy2",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.AzureFileShareProtectionPolicyArgs
+    ///         {
+    ///             BackupManagementType = "AzureStorage",
+    ///             RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+    ///             {
+    ///                 DailySchedule = new AzureNative.RecoveryServices.Inputs.DailyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 5,
+    ///                         DurationType = "Days",
+    ///                     },
+    ///                 },
+    ///                 MonthlySchedule = new AzureNative.RecoveryServices.Inputs.MonthlyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 60,
+    ///                         DurationType = "Months",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.First,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 RetentionPolicyType = "LongTermRetentionPolicy",
+    ///                 WeeklySchedule = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionScheduleArgs
+    ///                 {
+    ///                     DaysOfTheWeek = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 12,
+    ///                         DurationType = "Weeks",
+    ///                     },
+    ///                 },
+    ///                 YearlySchedule = new AzureNative.RecoveryServices.Inputs.YearlyRetentionScheduleArgs
+    ///                 {
+    ///                     MonthsOfYear = new[]
+    ///                     {
+    ///                         AzureNative.RecoveryServices.MonthOfYear.January,
+    ///                     },
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 10,
+    ///                         DurationType = "Years",
+    ///                     },
+    ///                     RetentionScheduleFormatType = "Weekly",
+    ///                     RetentionScheduleWeekly = new AzureNative.RecoveryServices.Inputs.WeeklyRetentionFormatArgs
+    ///                     {
+    ///                         DaysOfTheWeek = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.DayOfWeek.Sunday,
+    ///                         },
+    ///                         WeeksOfTheMonth = new[]
+    ///                         {
+    ///                             AzureNative.RecoveryServices.WeekOfMonth.First,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyArgs
+    ///             {
+    ///                 HourlySchedule = new AzureNative.RecoveryServices.Inputs.HourlyScheduleArgs
+    ///                 {
+    ///                     Interval = 4,
+    ///                     ScheduleWindowDuration = 12,
+    ///                     ScheduleWindowStartTime = "2021-09-29T08:00:00.000Z",
+    ///                 },
+    ///                 SchedulePolicyType = "SimpleSchedulePolicy",
+    ///                 ScheduleRunFrequency = "Hourly",
+    ///             },
+    ///             TimeZone = "UTC",
+    ///             WorkLoadType = "AzureFileShare",
+    ///         },
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "swaggertestvault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Simple Azure Vm Protection Policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionPolicy = new AzureNative.RecoveryServices.ProtectionPolicy("protectionPolicy", new()
+    ///     {
+    ///         PolicyName = "testPolicy1",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.AzureIaaSVMProtectionPolicyArgs
+    ///         {
+    ///             BackupManagementType = "AzureIaasVM",
+    ///             RetentionPolicy = new AzureNative.RecoveryServices.Inputs.LongTermRetentionPolicyArgs
+    ///             {
+    ///                 DailySchedule = new AzureNative.RecoveryServices.Inputs.DailyRetentionScheduleArgs
+    ///                 {
+    ///                     RetentionDuration = new AzureNative.RecoveryServices.Inputs.RetentionDurationArgs
+    ///                     {
+    ///                         Count = 1,
+    ///                         DurationType = "Days",
+    ///                     },
+    ///                     RetentionTimes = new[]
+    ///                     {
+    ///                         "2018-01-24T02:00:00Z",
+    ///                     },
+    ///                 },
+    ///                 RetentionPolicyType = "LongTermRetentionPolicy",
+    ///             },
+    ///             SchedulePolicy = new AzureNative.RecoveryServices.Inputs.SimpleSchedulePolicyArgs
+    ///             {
+    ///                 SchedulePolicyType = "SimpleSchedulePolicy",
+    ///                 ScheduleRunFrequency = "Daily",
+    ///                 ScheduleRunTimes = new[]
+    ///                 {
+    ///                     "2018-01-24T02:00:00Z",
+    ///                 },
+    ///             },
+    ///             TimeZone = "Pacific Standard Time",
+    ///         },
+    ///         ResourceGroupName = "SwaggerTestRg",
+    ///         VaultName = "NetSDKTestRsVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices:ProtectionPolicy testPolicy1 /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/NetSDKTestRsVault/backupPolicies/testPolicy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ProtectionPolicy")]
     public partial class ProtectionPolicy : global::Pulumi.CustomResource

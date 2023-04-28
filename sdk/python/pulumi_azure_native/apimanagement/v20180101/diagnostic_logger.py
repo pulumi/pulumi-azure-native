@@ -93,6 +93,29 @@ class DiagnosticLogger(pulumi.CustomResource):
         """
         Logger details.
 
+        ## Example Usage
+        ### ApiManagementCreateDiagnosticLogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic_logger = azure_native.apimanagement.v20180101.DiagnosticLogger("diagnosticLogger",
+            diagnostic_id="default",
+            loggerid="applicationinsights",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180101:DiagnosticLogger applicationinsights /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default/loggers/applicationinsights 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] diagnostic_id: Diagnostic identifier. Must be unique in the current API Management service instance.
@@ -108,6 +131,29 @@ class DiagnosticLogger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Logger details.
+
+        ## Example Usage
+        ### ApiManagementCreateDiagnosticLogger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic_logger = azure_native.apimanagement.v20180101.DiagnosticLogger("diagnosticLogger",
+            diagnostic_id="default",
+            loggerid="applicationinsights",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180101:DiagnosticLogger applicationinsights /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default/loggers/applicationinsights 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiagnosticLoggerArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Monitoring Setting resource
+ *
+ * ## Example Usage
+ * ### MonitoringSettings_UpdatePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const monitoringSetting = new azure_native.appplatform.v20200701.MonitoringSetting("monitoringSetting", {
+ *     properties: {
+ *         appInsightsInstrumentationKey: "00000000-0000-0000-0000-000000000000",
+ *         traceEnabled: true,
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20200701:MonitoringSetting default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/monitoringSettings/default 
+ * ```
  */
 export class MonitoringSetting extends pulumi.CustomResource {
     /**

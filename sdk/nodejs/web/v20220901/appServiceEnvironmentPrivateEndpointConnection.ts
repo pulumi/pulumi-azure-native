@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Remote Private Endpoint Connection ARM resource.
+ *
+ * ## Example Usage
+ * ### Approves or rejects a private endpoint connection.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const appServiceEnvironmentPrivateEndpointConnection = new azure_native.web.v20220901.AppServiceEnvironmentPrivateEndpointConnection("appServiceEnvironmentPrivateEndpointConnection", {
+ *     name: "test-ase",
+ *     privateEndpointConnectionName: "fa38656c-034e-43d8-adce-fe06ce039c98",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Approved by johndoe@company.com",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection fa38656c-034e-43d8-adce-fe06ce039c98 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase/privateEndpointConnections/fa38656c-034e-43d8-adce-fe06ce039c98 
+ * ```
  */
 export class AppServiceEnvironmentPrivateEndpointConnection extends pulumi.CustomResource {
     /**

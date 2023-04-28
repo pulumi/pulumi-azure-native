@@ -113,6 +113,30 @@ class DatabaseAdvisor(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update database advisor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_advisor = azure_native.sql.DatabaseAdvisor("databaseAdvisor",
+            advisor_name="CreateIndex",
+            auto_execute_status=azure_native.sql.AutoExecuteStatus.DISABLED,
+            database_name="IndexAdvisor_test_3",
+            resource_group_name="workloadinsight-demos",
+            server_name="misosisvr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:DatabaseAdvisor CreateIndex /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workloadinsight-demos/providers/Microsoft.Sql/servers/misosisvr/databases/IndexAdvisor_test_3/advisors/CreateIndex 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] advisor_name: The name of the Database Advisor.
@@ -131,6 +155,30 @@ class DatabaseAdvisor(pulumi.CustomResource):
         Database, Server or Elastic Pool Advisor.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update database advisor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database_advisor = azure_native.sql.DatabaseAdvisor("databaseAdvisor",
+            advisor_name="CreateIndex",
+            auto_execute_status=azure_native.sql.AutoExecuteStatus.DISABLED,
+            database_name="IndexAdvisor_test_3",
+            resource_group_name="workloadinsight-demos",
+            server_name="misosisvr")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:DatabaseAdvisor CreateIndex /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workloadinsight-demos/providers/Microsoft.Sql/servers/misosisvr/databases/IndexAdvisor_test_3/advisors/CreateIndex 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseAdvisorArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,49 @@ import * as utilities from "../../utilities";
 
 /**
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
+ *
+ * ## Example Usage
+ * ### Volumes_CreateOrUpdate_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volume = new azure_native.containerstorage.v20230301preview.Volume("volume", {
+ *     capacityGiB: 4,
+ *     labels: {
+ *         key6929: "cylq",
+ *     },
+ *     mountOptions: ["bztwmyruogigzqnwzpnjxjo"],
+ *     poolName: "L-7Vr5xE3",
+ *     reclaimPolicy: "Delete",
+ *     resourceGroupName: "rgcontainerstorage",
+ *     volumeMode: "Filesystem",
+ *     volumeName: "y4borPc1GHLej48W3",
+ * });
+ *
+ * ```
+ * ### Volumes_CreateOrUpdate_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volume = new azure_native.containerstorage.v20230301preview.Volume("volume", {
+ *     poolName: "-3-0",
+ *     resourceGroupName: "rgcontainerstorage",
+ *     volumeName: "q-r6KY54UA6G5TPSTL83",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerstorage/v20230301preview:Volume qw uhsbnbojqymtspvbxzzjoepbyhgr 
+ * ```
  */
 export class Volume extends pulumi.CustomResource {
     /**

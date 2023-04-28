@@ -277,6 +277,54 @@ class Registry(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RegistryCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.containerregistry.Registry("registry",
+            admin_user_enabled=True,
+            location="westus",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.containerregistry.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key": "value",
+            })
+
+        ```
+        ### RegistryCreateZoneRedundant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.containerregistry.Registry("registry",
+            location="westus",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.containerregistry.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key": "value",
+            },
+            zone_redundancy="Enabled")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:Registry myRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] admin_user_enabled: The value that indicates whether the admin user is enabled.
@@ -304,6 +352,54 @@ class Registry(pulumi.CustomResource):
         An object that represents a container registry.
         API Version: 2022-12-01.
         Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RegistryCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.containerregistry.Registry("registry",
+            admin_user_enabled=True,
+            location="westus",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.containerregistry.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key": "value",
+            })
+
+        ```
+        ### RegistryCreateZoneRedundant
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.containerregistry.Registry("registry",
+            location="westus",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.containerregistry.SkuArgs(
+                name="Standard",
+            ),
+            tags={
+                "key": "value",
+            },
+            zone_redundancy="Enabled")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry:Registry myRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryArgs args: The arguments to use to populate this resource's properties.

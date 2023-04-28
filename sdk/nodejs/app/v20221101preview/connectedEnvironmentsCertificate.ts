@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
+ *
+ * ## Example Usage
+ * ### Create or Update Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectedEnvironmentsCertificate = new azure_native.app.v20221101preview.ConnectedEnvironmentsCertificate("connectedEnvironmentsCertificate", {
+ *     certificateName: "certificate-firendly-name",
+ *     connectedEnvironmentName: "testcontainerenv",
+ *     location: "East US",
+ *     properties: {
+ *         password: "private key password",
+ *         value: "Y2VydA==",
+ *     },
+ *     resourceGroupName: "examplerg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20221101preview:ConnectedEnvironmentsCertificate myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/testcontainerenv/certificate-firendly-name 
+ * ```
  */
 export class ConnectedEnvironmentsCertificate extends pulumi.CustomResource {
     /**

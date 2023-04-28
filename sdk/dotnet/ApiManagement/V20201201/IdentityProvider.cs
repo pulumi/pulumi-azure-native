@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Identity Provider details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateIdentityProvider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var identityProvider = new AzureNative.ApiManagement.V20201201.IdentityProvider("identityProvider", new()
+    ///     {
+    ///         ClientId = "facebookid",
+    ///         ClientSecret = "facebookapplicationsecret",
+    ///         IdentityProviderName = "facebook",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:IdentityProvider Facebook /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/identityProviders/Facebook 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:IdentityProvider")]
     public partial class IdentityProvider : global::Pulumi.CustomResource

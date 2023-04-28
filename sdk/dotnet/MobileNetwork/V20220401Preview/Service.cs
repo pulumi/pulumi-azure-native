@@ -11,6 +11,87 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
 {
     /// <summary>
     /// Service resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.MobileNetwork.V20220401Preview.Service("service", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         MobileNetworkName = "testMobileNetwork",
+    ///         PccRules = new[]
+    ///         {
+    ///             new AzureNative.MobileNetwork.V20220401Preview.Inputs.PccRuleConfigurationArgs
+    ///             {
+    ///                 RuleName = "default-rule",
+    ///                 RulePrecedence = 255,
+    ///                 RuleQosPolicy = new AzureNative.MobileNetwork.V20220401Preview.Inputs.PccRuleQosPolicyArgs
+    ///                 {
+    ///                     AllocationAndRetentionPriorityLevel = 9,
+    ///                     FiveQi = 9,
+    ///                     MaximumBitRate = new AzureNative.MobileNetwork.V20220401Preview.Inputs.AmbrArgs
+    ///                     {
+    ///                         Downlink = "1 Gbps",
+    ///                         Uplink = "500 Mbps",
+    ///                     },
+    ///                     PreemptionCapability = "NotPreempt",
+    ///                     PreemptionVulnerability = "Preemptable",
+    ///                 },
+    ///                 ServiceDataFlowTemplates = new[]
+    ///                 {
+    ///                     new AzureNative.MobileNetwork.V20220401Preview.Inputs.ServiceDataFlowTemplateArgs
+    ///                     {
+    ///                         Direction = "Uplink",
+    ///                         Ports = new[] {},
+    ///                         Protocol = new[]
+    ///                         {
+    ///                             "ip",
+    ///                         },
+    ///                         RemoteIpList = new[]
+    ///                         {
+    ///                             "10.3.4.0/24",
+    ///                         },
+    ///                         TemplateName = "IP-to-server",
+    ///                     },
+    ///                 },
+    ///                 TrafficControl = "Enabled",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "TestService",
+    ///         ServicePrecedence = 255,
+    ///         ServiceQosPolicy = new AzureNative.MobileNetwork.V20220401Preview.Inputs.QosPolicyArgs
+    ///         {
+    ///             AllocationAndRetentionPriorityLevel = 9,
+    ///             FiveQi = 9,
+    ///             MaximumBitRate = new AzureNative.MobileNetwork.V20220401Preview.Inputs.AmbrArgs
+    ///             {
+    ///                 Downlink = "1 Gbps",
+    ///                 Uplink = "500 Mbps",
+    ///             },
+    ///             PreemptionCapability = "NotPreempt",
+    ///             PreemptionVulnerability = "Preemptable",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork/v20220401preview:Service testPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/TestService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220401preview:Service")]
     public partial class Service : global::Pulumi.CustomResource

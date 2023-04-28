@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * The Private Endpoint Connection resource.
  * API Version: 2022-07-02.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Approve a Private Endpoint Connection under a disk access resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const diskAccessAPrivateEndpointConnection = new azure_native.compute.DiskAccessAPrivateEndpointConnection("diskAccessAPrivateEndpointConnection", {
+ *     diskAccessName: "myDiskAccess",
+ *     privateEndpointConnectionName: "myPrivateEndpointConnection",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Approving myPrivateEndpointConnection",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:DiskAccessAPrivateEndpointConnection myPrivateEndpointConnectionName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/myDiskAccess/privateEndpoinConnections/myPrivateEndpointConnectionName 
+ * ```
  */
 export class DiskAccessAPrivateEndpointConnection extends pulumi.CustomResource {
     /**

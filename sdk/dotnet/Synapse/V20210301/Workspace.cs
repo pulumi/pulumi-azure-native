@@ -11,6 +11,87 @@ namespace Pulumi.AzureNative.Synapse.V20210301
 {
     /// <summary>
     /// A workspace
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a workspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Synapse.V20210301.Workspace("workspace", new()
+    ///     {
+    ///         DefaultDataLakeStorage = new AzureNative.Synapse.V20210301.Inputs.DataLakeStorageAccountDetailsArgs
+    ///         {
+    ///             AccountUrl = "https://accountname.dfs.core.windows.net",
+    ///             Filesystem = "default",
+    ///         },
+    ///         Encryption = new AzureNative.Synapse.V20210301.Inputs.EncryptionDetailsArgs
+    ///         {
+    ///             Cmk = new AzureNative.Synapse.V20210301.Inputs.CustomerManagedKeyDetailsArgs
+    ///             {
+    ///                 Key = new AzureNative.Synapse.V20210301.Inputs.WorkspaceKeyDetailsArgs
+    ///                 {
+    ///                     KeyVaultUrl = "https://vault.azure.net/keys/key1",
+    ///                     Name = "default",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.Synapse.V20210301.Inputs.ManagedIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Synapse.V20210301.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "East US",
+    ///         ManagedResourceGroupName = "workspaceManagedResourceGroupUnique",
+    ///         ManagedVirtualNetwork = "default",
+    ///         ManagedVirtualNetworkSettings = new AzureNative.Synapse.V20210301.Inputs.ManagedVirtualNetworkSettingsArgs
+    ///         {
+    ///             AllowedAadTenantIdsForLinking = new[]
+    ///             {
+    ///                 "740239CE-A25B-485B-86A0-262F29F6EBDB",
+    ///             },
+    ///             LinkedAccessCheckOnTargetResource = false,
+    ///             PreventDataExfiltration = false,
+    ///         },
+    ///         PublicNetworkAccess = "Enabled",
+    ///         PurviewConfiguration = new AzureNative.Synapse.V20210301.Inputs.PurviewConfigurationArgs
+    ///         {
+    ///             PurviewResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.ProjectPurview/accounts/accountname1",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         SqlAdministratorLogin = "login",
+    ///         SqlAdministratorLoginPassword = "password",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///         WorkspaceName = "workspace1",
+    ///         WorkspaceRepositoryConfiguration = new AzureNative.Synapse.V20210301.Inputs.WorkspaceRepositoryConfigurationArgs
+    ///         {
+    ///             AccountName = "mygithubaccount",
+    ///             CollaborationBranch = "master",
+    ///             HostName = "",
+    ///             ProjectName = "myproject",
+    ///             RepositoryName = "myrepository",
+    ///             RootFolder = "/",
+    ///             Type = "FactoryGitHubConfiguration",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210301:Workspace workspace1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210301:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

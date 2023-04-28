@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * A SqlManagedInstance.
+ *
+ * ## Example Usage
+ * ### Create or update a SQL Managed Instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlManagedInstance = new azure_native.azurearcdata.v20210601preview.SqlManagedInstance("sqlManagedInstance", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "northeurope",
+ *     properties: {
+ *         admin: "Admin user",
+ *         basicLoginInformation: {
+ *             password: "********",
+ *             username: "username",
+ *         },
+ *         endTime: "Instance end time",
+ *         startTime: "Instance start time",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sku: {
+ *         dev: true,
+ *         name: "default",
+ *         tier: azure_native.azurearcdata.v20210601preview.SqlManagedInstanceSkuTier.GeneralPurpose,
+ *     },
+ *     sqlManagedInstanceName: "testsqlManagedInstance",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata/v20210601preview:SqlManagedInstance testsqlManagedInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testsqlManagedInstance 
+ * ```
  */
 export class SqlManagedInstance extends pulumi.CustomResource {
     /**

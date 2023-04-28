@@ -13,6 +13,58 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// The NetworkFabricController resource definition.
     /// API Version: 2023-02-01-preview.
     /// Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkFabricControllers_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkFabricController = new AzureNative.ManagedNetworkFabric.NetworkFabricController("networkFabricController", new()
+    ///     {
+    ///         Annotation = "lab 1",
+    ///         InfrastructureExpressRouteConnections = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.Inputs.ExpressRouteConnectionInformationArgs
+    ///             {
+    ///                 ExpressRouteAuthorizationKey = "xxxxxxx",
+    ///                 ExpressRouteCircuitId = "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+    ///             },
+    ///         },
+    ///         Ipv4AddressSpace = "172.253.0.0/19",
+    ///         Location = "eastus",
+    ///         ManagedResourceGroupConfiguration = new AzureNative.ManagedNetworkFabric.Inputs.NetworkFabricControllerPropertiesManagedResourceGroupConfigurationArgs
+    ///         {
+    ///             Location = "eastus",
+    ///             Name = "managedResourceGroupName",
+    ///         },
+    ///         NetworkFabricControllerName = "NetworkControllerName",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         WorkloadExpressRouteConnections = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.Inputs.ExpressRouteConnectionInformationArgs
+    ///             {
+    ///                 ExpressRouteAuthorizationKey = "xxxxx",
+    ///                 ExpressRouteCircuitId = "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric:NetworkFabricController NetworkFabricName /subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/networkFabricControllerName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkFabricController")]
     public partial class NetworkFabricController : global::Pulumi.CustomResource

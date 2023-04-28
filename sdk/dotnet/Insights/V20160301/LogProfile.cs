@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.Insights.V20160301
 {
     /// <summary>
     /// The log profile resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a log profile
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var logProfile = new AzureNative.Insights.V20160301.LogProfile("logProfile", new()
+    ///     {
+    ///         Categories = new[]
+    ///         {
+    ///             "Write",
+    ///             "Delete",
+    ///             "Action",
+    ///         },
+    ///         Location = "",
+    ///         Locations = new[]
+    ///         {
+    ///             "global",
+    ///         },
+    ///         LogProfileName = "Rac46PostSwapRG",
+    ///         RetentionPolicy = new AzureNative.Insights.V20160301.Inputs.RetentionPolicyArgs
+    ///         {
+    ///             Days = 3,
+    ///             Enabled = true,
+    ///         },
+    ///         ServiceBusRuleId = "",
+    ///         StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20160301:LogProfile default /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/providers/microsoft.insights/logprofiles/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20160301:LogProfile")]
     public partial class LogProfile : global::Pulumi.CustomResource

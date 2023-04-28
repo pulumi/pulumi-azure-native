@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.Dynamics365Fraudprotection.V20210201Preview
 {
     /// <summary>
     /// Represents an instance of a DFP instance resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create instance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var instanceDetails = new AzureNative.Dynamics365Fraudprotection.V20210201Preview.InstanceDetails("instanceDetails", new()
+    ///     {
+    ///         Administration = new AzureNative.Dynamics365Fraudprotection.V20210201Preview.Inputs.DFPInstanceAdministratorsArgs
+    ///         {
+    ///             Members = new[]
+    ///             {
+    ///                 "azsdktest@microsoft.com",
+    ///                 "azsdktest2@microsoft.com",
+    ///             },
+    ///         },
+    ///         InstanceName = "azsdktest",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "TestRG",
+    ///         Tags = 
+    ///         {
+    ///             { "testKey", "testValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dynamics365fraudprotection/v20210201preview:InstanceDetails azsdktest /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Dynamics365Fraudprotection/instances/azsdktest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dynamics365fraudprotection/v20210201preview:InstanceDetails")]
     public partial class InstanceDetails : global::Pulumi.CustomResource

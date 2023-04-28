@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Authorization.V20160401
 {
     /// <summary>
     /// The policy assignment.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20160401:PolicyAssignment myresource1 /{scope}/providers/Microsoft.Authorization/policyassignments/{policyAssignmentName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:authorization/v20160401:PolicyAssignment")]

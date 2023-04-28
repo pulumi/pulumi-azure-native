@@ -11,6 +11,67 @@ namespace Pulumi.AzureNative.Sql.V20140401
 {
     /// <summary>
     /// Contains information about a database Threat Detection policy.
+    /// 
+    /// ## Example Usage
+    /// ### Create database security alert policy max
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseThreatDetectionPolicy = new AzureNative.Sql.V20140401.DatabaseThreatDetectionPolicy("databaseThreatDetectionPolicy", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         DisabledAlerts = "Sql_Injection;Usage_Anomaly;",
+    ///         EmailAccountAdmins = "Enabled",
+    ///         EmailAddresses = "test@microsoft.com;user@microsoft.com",
+    ///         ResourceGroupName = "securityalert-4799",
+    ///         RetentionDays = 6,
+    ///         SecurityAlertPolicyName = "default",
+    ///         ServerName = "securityalert-6440",
+    ///         State = "Enabled",
+    ///         StorageAccountAccessKey = "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    ///         StorageEndpoint = "https://mystorage.blob.core.windows.net",
+    ///         UseServerDefault = "Enabled",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create database security alert policy min
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseThreatDetectionPolicy = new AzureNative.Sql.V20140401.DatabaseThreatDetectionPolicy("databaseThreatDetectionPolicy", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         ResourceGroupName = "securityalert-4799",
+    ///         SecurityAlertPolicyName = "default",
+    ///         ServerName = "securityalert-6440",
+    ///         State = "Enabled",
+    ///         StorageAccountAccessKey = "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    ///         StorageEndpoint = "https://mystorage.blob.core.windows.net",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20140401:DatabaseThreatDetectionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.Sql/servers/securityalert-6440/databases/testdb 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20140401:DatabaseThreatDetectionPolicy")]
     public partial class DatabaseThreatDetectionPolicy : global::Pulumi.CustomResource

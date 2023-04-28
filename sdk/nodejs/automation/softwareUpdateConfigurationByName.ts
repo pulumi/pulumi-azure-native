@@ -11,6 +11,111 @@ import * as utilities from "../utilities";
  * Software update configuration properties.
  * API Version: 2019-06-01.
  * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create software update configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const softwareUpdateConfigurationByName = new azure_native.automation.SoftwareUpdateConfigurationByName("softwareUpdateConfigurationByName", {
+ *     automationAccountName: "myaccount",
+ *     resourceGroupName: "mygroup",
+ *     scheduleInfo: {
+ *         advancedSchedule: {
+ *             weekDays: [
+ *                 "Monday",
+ *                 "Thursday",
+ *             ],
+ *         },
+ *         expiryTime: "2018-11-09T11:22:57+00:00",
+ *         frequency: "Hour",
+ *         interval: 1,
+ *         startTime: "2017-10-19T12:22:57+00:00",
+ *         timeZone: "America/Los_Angeles",
+ *     },
+ *     softwareUpdateConfigurationName: "testpatch",
+ *     tasks: {
+ *         postTask: {
+ *             source: "GetCache",
+ *         },
+ *         preTask: {
+ *             parameters: {
+ *                 COMPUTERNAME: "Computer1",
+ *             },
+ *             source: "HelloWorld",
+ *         },
+ *     },
+ *     updateConfiguration: {
+ *         azureVirtualMachines: [
+ *             "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+ *             "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+ *             "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03",
+ *         ],
+ *         duration: "PT2H0M",
+ *         nonAzureComputerNames: [
+ *             "box1.contoso.com",
+ *             "box2.contoso.com",
+ *         ],
+ *         operatingSystem: azure_native.automation.OperatingSystemType.Windows,
+ *         targets: {
+ *             azureQueries: [{
+ *                 locations: [
+ *                     "Japan East",
+ *                     "UK South",
+ *                 ],
+ *                 scope: [
+ *                     "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067/resourceGroups/myresources",
+ *                     "/subscriptions/5ae68d89-69a4-454f-b5ce-e443cc4e0067",
+ *                 ],
+ *                 tagSettings: {
+ *                     filterOperator: azure_native.automation.TagOperators.All,
+ *                     tags: {
+ *                         tag1: [
+ *                             "tag1Value1",
+ *                             "tag1Value2",
+ *                             "tag1Value3",
+ *                         ],
+ *                         tag2: [
+ *                             "tag2Value1",
+ *                             "tag2Value2",
+ *                             "tag2Value3",
+ *                         ],
+ *                     },
+ *                 },
+ *             }],
+ *             nonAzureQueries: [
+ *                 {
+ *                     functionAlias: "SavedSearch1",
+ *                     workspaceId: "WorkspaceId1",
+ *                 },
+ *                 {
+ *                     functionAlias: "SavedSearch2",
+ *                     workspaceId: "WorkspaceId2",
+ *                 },
+ *             ],
+ *         },
+ *         windows: {
+ *             excludedKbNumbers: [
+ *                 "168934",
+ *                 "168973",
+ *             ],
+ *             includedUpdateClassifications: "Critical",
+ *             rebootSetting: "IfRequired",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:SoftwareUpdateConfigurationByName testpatch /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Automation/automationAccounts/myaccount/softwareUpdateConfigurations/testpatch 
+ * ```
  */
 export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     /**

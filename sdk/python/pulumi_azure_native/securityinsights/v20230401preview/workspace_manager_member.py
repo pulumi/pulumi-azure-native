@@ -110,6 +110,30 @@ class WorkspaceManagerMember(pulumi.CustomResource):
         """
         The workspace manager member
 
+        ## Example Usage
+        ### Create or Update a workspace manager member
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_manager_member = azure_native.securityinsights.v20230401preview.WorkspaceManagerMember("workspaceManagerMember",
+            resource_group_name="myRg",
+            target_workspace_id="/subscriptions/7aef9d48-814f-45ad-b644-b0343316e174/resourceGroups/otherRg/providers/Microsoft.OperationalInsights/workspaces/Example_Workspace",
+            target_workspace_tenant_id="f676d436-8d16-42db-81b7-ab578e110ccd",
+            workspace_manager_member_name="afbd324f-6c48-459c-8710-8d1e1cd03812",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerMember afbd324f-6c48-459c-8710-8d1e1cd03812 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerMembers/afbd324f-6c48-459c-8710-8d1e1cd03812 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -126,6 +150,30 @@ class WorkspaceManagerMember(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The workspace manager member
+
+        ## Example Usage
+        ### Create or Update a workspace manager member
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_manager_member = azure_native.securityinsights.v20230401preview.WorkspaceManagerMember("workspaceManagerMember",
+            resource_group_name="myRg",
+            target_workspace_id="/subscriptions/7aef9d48-814f-45ad-b644-b0343316e174/resourceGroups/otherRg/providers/Microsoft.OperationalInsights/workspaces/Example_Workspace",
+            target_workspace_tenant_id="f676d436-8d16-42db-81b7-ab578e110ccd",
+            workspace_manager_member_name="afbd324f-6c48-459c-8710-8d1e1cd03812",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerMember afbd324f-6c48-459c-8710-8d1e1cd03812 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerMembers/afbd324f-6c48-459c-8710-8d1e1cd03812 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceManagerMemberArgs args: The arguments to use to populate this resource's properties.

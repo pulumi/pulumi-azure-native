@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230201Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Registry Code Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registryCodeVersion = new AzureNative.MachineLearningServices.V20230201Preview.RegistryCodeVersion("registryCodeVersion", new()
+    ///     {
+    ///         CodeName = "string",
+    ///         CodeVersionProperties = new AzureNative.MachineLearningServices.V20230201Preview.Inputs.CodeVersionArgs
+    ///         {
+    ///             CodeUri = "https://blobStorage/folderName",
+    ///             Description = "string",
+    ///             IsAnonymous = false,
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         RegistryName = "my-aml-registry",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryCodeVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230201preview:RegistryCodeVersion")]
     public partial class RegistryCodeVersion : global::Pulumi.CustomResource

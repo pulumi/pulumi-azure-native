@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Authorization.V20170401
 {
     /// <summary>
     /// The lock information.
+    /// 
+    /// ## Example Usage
+    /// ### Create management lock at scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managementLockByScope = new AzureNative.Authorization.V20170401.ManagementLockByScope("managementLockByScope", new()
+    ///     {
+    ///         Level = "ReadOnly",
+    ///         LockName = "testlock",
+    ///         Scope = "subscriptions/subscriptionId",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20170401:ManagementLockByScope testlock /subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.Authorization/locks/testlock 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20170401:ManagementLockByScope")]
     public partial class ManagementLockByScope : global::Pulumi.CustomResource

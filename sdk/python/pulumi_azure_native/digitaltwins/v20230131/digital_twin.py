@@ -149,6 +149,59 @@ class DigitalTwin(pulumi.CustomResource):
         """
         The description of the DigitalTwins service.
 
+        ## Example Usage
+        ### Put a DigitalTwinsInstance resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twin = azure_native.digitaltwins.v20230131.DigitalTwin("digitalTwin",
+            location="WestUS2",
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+        ### Put a DigitalTwinsInstance resource with identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twin = azure_native.digitaltwins.v20230131.DigitalTwin("digitalTwin",
+            identity=azure_native.digitaltwins.v20230131.DigitalTwinsIdentityArgs(
+                type="SystemAssigned,UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity": {},
+                },
+            ),
+            location="WestUS2",
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+        ### Put a DigitalTwinsInstance resource with publicNetworkAccess property
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twin = azure_native.digitaltwins.v20230131.DigitalTwin("digitalTwin",
+            location="WestUS2",
+            public_network_access="Enabled",
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins/v20230131:DigitalTwin myDigitalTwinsService /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DigitalTwinsIdentityArgs']] identity: The managed identity for the DigitalTwinsInstance.
@@ -167,6 +220,59 @@ class DigitalTwin(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the DigitalTwins service.
+
+        ## Example Usage
+        ### Put a DigitalTwinsInstance resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twin = azure_native.digitaltwins.v20230131.DigitalTwin("digitalTwin",
+            location="WestUS2",
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+        ### Put a DigitalTwinsInstance resource with identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twin = azure_native.digitaltwins.v20230131.DigitalTwin("digitalTwin",
+            identity=azure_native.digitaltwins.v20230131.DigitalTwinsIdentityArgs(
+                type="SystemAssigned,UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity": {},
+                },
+            ),
+            location="WestUS2",
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+        ### Put a DigitalTwinsInstance resource with publicNetworkAccess property
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twin = azure_native.digitaltwins.v20230131.DigitalTwin("digitalTwin",
+            location="WestUS2",
+            public_network_access="Enabled",
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins/v20230131:DigitalTwin myDigitalTwinsService /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DigitalTwinArgs args: The arguments to use to populate this resource's properties.

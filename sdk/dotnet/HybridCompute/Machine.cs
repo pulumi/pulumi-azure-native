@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.HybridCompute
     /// Describes a hybrid machine.
     /// API Version: 2022-11-10.
     /// Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machine = new AzureNative.HybridCompute.Machine("machine", new()
+    ///     {
+    ///         ClientPublicKey = "string",
+    ///         Identity = new AzureNative.HybridCompute.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.HybridCompute.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         LocationData = new AzureNative.HybridCompute.Inputs.LocationDataArgs
+    ///         {
+    ///             Name = "Redmond",
+    ///         },
+    ///         MachineName = "myMachine",
+    ///         ParentClusterResourceId = "{AzureStackHCIResourceId}",
+    ///         PrivateLinkScopeResourceId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         VmId = "b7a098cc-b0b8-46e8-a205-62f301a62a8f",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/myMachine 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:Machine")]
     public partial class Machine : global::Pulumi.CustomResource

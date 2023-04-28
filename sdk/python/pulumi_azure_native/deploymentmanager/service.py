@@ -145,6 +145,32 @@ class Service(pulumi.CustomResource):
         API Version: 2019-11-01-preview.
         Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.deploymentmanager.Service("service",
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            service_name="myService",
+            service_topology_name="myTopology",
+            tags={},
+            target_location="centralus",
+            target_subscription_id="600c95c5-3ee5-44fe-b190-ca38a19adcd7")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager:Service myService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/serviceTopologies/{serviceTopologyName}/services/{serviceName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -165,6 +191,32 @@ class Service(pulumi.CustomResource):
         The resource representation of a service in a service topology.
         API Version: 2019-11-01-preview.
         Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.deploymentmanager.Service("service",
+            location="centralus",
+            resource_group_name="myResourceGroup",
+            service_name="myService",
+            service_topology_name="myTopology",
+            tags={},
+            target_location="centralus",
+            target_subscription_id="600c95c5-3ee5-44fe-b190-ca38a19adcd7")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager:Service myService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/serviceTopologies/{serviceTopologyName}/services/{serviceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

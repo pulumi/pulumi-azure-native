@@ -11,6 +11,75 @@ namespace Pulumi.AzureNative.App.V20221001
 {
     /// <summary>
     /// Dapr Component.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update dapr component
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectedEnvironmentsDaprComponent = new AzureNative.App.V20221001.ConnectedEnvironmentsDaprComponent("connectedEnvironmentsDaprComponent", new()
+    ///     {
+    ///         ComponentName = "reddog",
+    ///         ComponentType = "state.azure.cosmosdb",
+    ///         ConnectedEnvironmentName = "myenvironment",
+    ///         IgnoreErrors = false,
+    ///         InitTimeout = "50s",
+    ///         Metadata = new[]
+    ///         {
+    ///             new AzureNative.App.V20221001.Inputs.DaprMetadataArgs
+    ///             {
+    ///                 Name = "url",
+    ///                 Value = "&lt;COSMOS-URL&gt;",
+    ///             },
+    ///             new AzureNative.App.V20221001.Inputs.DaprMetadataArgs
+    ///             {
+    ///                 Name = "database",
+    ///                 Value = "itemsDB",
+    ///             },
+    ///             new AzureNative.App.V20221001.Inputs.DaprMetadataArgs
+    ///             {
+    ///                 Name = "collection",
+    ///                 Value = "items",
+    ///             },
+    ///             new AzureNative.App.V20221001.Inputs.DaprMetadataArgs
+    ///             {
+    ///                 Name = "masterkey",
+    ///                 SecretRef = "masterkey",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///         Scopes = new[]
+    ///         {
+    ///             "container-app-1",
+    ///             "container-app-2",
+    ///         },
+    ///         Secrets = new[]
+    ///         {
+    ///             new AzureNative.App.V20221001.Inputs.SecretArgs
+    ///             {
+    ///                 Name = "masterkey",
+    ///                 Value = "keyvalue",
+    ///             },
+    ///         },
+    ///         Version = "v1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent reddog /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/jlaw-demo1/daprcomponents/reddog 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20221001:ConnectedEnvironmentsDaprComponent")]
     public partial class ConnectedEnvironmentsDaprComponent : global::Pulumi.CustomResource

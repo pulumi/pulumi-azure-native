@@ -166,6 +166,30 @@ class ConsumerGroup(pulumi.CustomResource):
         """
         Single item in List or Get Consumer group operation
 
+        ## Example Usage
+        ### ConsumerGroupCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        consumer_group = azure_native.eventhub.v20150801.ConsumerGroup("consumerGroup",
+            consumer_group_name="sdk-ConsumerGroup115",
+            event_hub_name="sdk-EventHub5290",
+            location="West US",
+            namespace_name="sdk-Namespace736",
+            resource_group_name="Default-ServiceBus-WestUS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20150801:ConsumerGroup sdk-ConsumerGroup115 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace736/eventhubs/sdk-EventHub5290/consumergroups/sdk-ConsumerGroup115 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] consumer_group_name: The consumer group name
@@ -185,6 +209,30 @@ class ConsumerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Consumer group operation
+
+        ## Example Usage
+        ### ConsumerGroupCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        consumer_group = azure_native.eventhub.v20150801.ConsumerGroup("consumerGroup",
+            consumer_group_name="sdk-ConsumerGroup115",
+            event_hub_name="sdk-EventHub5290",
+            location="West US",
+            namespace_name="sdk-Namespace736",
+            resource_group_name="Default-ServiceBus-WestUS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20150801:ConsumerGroup sdk-ConsumerGroup115 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace736/eventhubs/sdk-EventHub5290/consumergroups/sdk-ConsumerGroup115 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConsumerGroupArgs args: The arguments to use to populate this resource's properties.

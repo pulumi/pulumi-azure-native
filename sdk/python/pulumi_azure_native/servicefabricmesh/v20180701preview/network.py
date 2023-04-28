@@ -153,6 +153,37 @@ class Network(pulumi.CustomResource):
         """
         This type describes a network resource.
 
+        ## Example Usage
+        ### Network_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network = azure_native.servicefabricmesh.v20180701preview.Network("network",
+            address_prefix="10.0.0.4/22",
+            ingress_config=azure_native.servicefabricmesh.v20180701preview.IngressConfigResponseArgs(
+                layer4=[azure_native.servicefabricmesh.v20180701preview.Layer4IngressConfigArgs(
+                    application_name="helloWorldAppWindows",
+                    endpoint_name="helloWorldListener",
+                    public_port=80,
+                    service_name="helloWorldService",
+                )],
+            ),
+            location="eastus",
+            network_name="helloWorldNetworkWindows",
+            resource_group_name="sbz_demo")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180701preview:Network helloWorldNetworkWindows /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/helloWorldNetworkWindows 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: the address prefix for this network.
@@ -171,6 +202,37 @@ class Network(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This type describes a network resource.
+
+        ## Example Usage
+        ### Network_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network = azure_native.servicefabricmesh.v20180701preview.Network("network",
+            address_prefix="10.0.0.4/22",
+            ingress_config=azure_native.servicefabricmesh.v20180701preview.IngressConfigResponseArgs(
+                layer4=[azure_native.servicefabricmesh.v20180701preview.Layer4IngressConfigArgs(
+                    application_name="helloWorldAppWindows",
+                    endpoint_name="helloWorldListener",
+                    public_port=80,
+                    service_name="helloWorldService",
+                )],
+            ),
+            location="eastus",
+            network_name="helloWorldNetworkWindows",
+            resource_group_name="sbz_demo")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180701preview:Network helloWorldNetworkWindows /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/helloWorldNetworkWindows 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkArgs args: The arguments to use to populate this resource's properties.

@@ -79,6 +79,28 @@ class HcxEnterpriseSite(pulumi.CustomResource):
         API Version: 2022-05-01.
         Previous API Version: 2020-03-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### HcxEnterpriseSites_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hcx_enterprise_site = azure_native.avs.HcxEnterpriseSite("hcxEnterpriseSite",
+            hcx_enterprise_site_name="site1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:HcxEnterpriseSite site1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/hcxEnterpriseSites/site1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hcx_enterprise_site_name: Name of the HCX Enterprise Site in the private cloud
@@ -95,6 +117,28 @@ class HcxEnterpriseSite(pulumi.CustomResource):
         An HCX Enterprise Site resource
         API Version: 2022-05-01.
         Previous API Version: 2020-03-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### HcxEnterpriseSites_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hcx_enterprise_site = azure_native.avs.HcxEnterpriseSite("hcxEnterpriseSite",
+            hcx_enterprise_site_name="site1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:HcxEnterpriseSite site1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/hcxEnterpriseSites/site1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HcxEnterpriseSiteArgs args: The arguments to use to populate this resource's properties.

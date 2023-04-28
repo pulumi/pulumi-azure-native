@@ -77,6 +77,28 @@ class ServerDnsAlias(pulumi.CustomResource):
         """
         A server DNS alias.
 
+        ## Example Usage
+        ### Create server DNS alias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_dns_alias = azure_native.sql.v20220801preview.ServerDnsAlias("serverDnsAlias",
+            dns_alias_name="dns-alias-name-1",
+            resource_group_name="Default",
+            server_name="dns-alias-server")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerDnsAlias dns-alias-name-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/dns-alias-server/dnsAliases/dns-alias-name-1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_alias_name: The name of the server dns alias.
@@ -91,6 +113,28 @@ class ServerDnsAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A server DNS alias.
+
+        ## Example Usage
+        ### Create server DNS alias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_dns_alias = azure_native.sql.v20220801preview.ServerDnsAlias("serverDnsAlias",
+            dns_alias_name="dns-alias-name-1",
+            resource_group_name="Default",
+            server_name="dns-alias-server")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerDnsAlias dns-alias-name-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/dns-alias-server/dnsAliases/dns-alias-name-1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerDnsAliasArgs args: The arguments to use to populate this resource's properties.

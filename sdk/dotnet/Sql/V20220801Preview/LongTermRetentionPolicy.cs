@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// A long term retention policy.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update the long term retention policy for the database.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var longTermRetentionPolicy = new AzureNative.Sql.V20220801Preview.LongTermRetentionPolicy("longTermRetentionPolicy", new()
+    ///     {
+    ///         DatabaseName = "testDatabase",
+    ///         MonthlyRetention = "P1Y",
+    ///         PolicyName = "default",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         ServerName = "testserver",
+    ///         WeekOfYear = 5,
+    ///         WeeklyRetention = "P1M",
+    ///         YearlyRetention = "P5Y",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:LongTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupLongTermRetentionPolicies/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:LongTermRetentionPolicy")]
     public partial class LongTermRetentionPolicy : global::Pulumi.CustomResource

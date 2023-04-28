@@ -171,6 +171,28 @@ class KubernetesRole(pulumi.CustomResource):
            API Version: 2022-03-01.
            Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### RolePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kubernetes_role = azure_native.databoxedge.KubernetesRole("kubernetesRole",
+            device_name="testedgedevice",
+            name="IoTRole1",
+            resource_group_name="GroupForEdgeAutomation")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:KubernetesRole IoTRole1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
@@ -200,6 +222,28 @@ class KubernetesRole(pulumi.CustomResource):
             By using this feature, you agree to the preview legal terms. See the https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/
            API Version: 2022-03-01.
            Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### RolePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        kubernetes_role = azure_native.databoxedge.KubernetesRole("kubernetesRole",
+            device_name="testedgedevice",
+            name="IoTRole1",
+            resource_group_name="GroupForEdgeAutomation")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:KubernetesRole IoTRole1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param KubernetesRoleArgs args: The arguments to use to populate this resource's properties.

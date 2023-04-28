@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.DBforMariaDB
     /// A virtual network rule.
     /// API Version: 2018-06-01.
     /// Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a virtual network rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkRule = new AzureNative.DBforMariaDB.VirtualNetworkRule("virtualNetworkRule", new()
+    ///     {
+    ///         IgnoreMissingVnetServiceEndpoint = false,
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "vnet-test-svr",
+    ///         VirtualNetworkRuleName = "vnet-firewall-rule",
+    ///         VirtualNetworkSubnetId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformariadb:VirtualNetworkRule vnet-firewall-rule /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMariaDB/servers/vnet-test-svr/virtualNetworkRules/vnet-firewall-rule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformariadb:VirtualNetworkRule")]
     public partial class VirtualNetworkRule : global::Pulumi.CustomResource

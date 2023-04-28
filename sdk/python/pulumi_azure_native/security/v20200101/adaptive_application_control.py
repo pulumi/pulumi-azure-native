@@ -121,7 +121,112 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
                  __props__=None):
         """
-        Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Update an application control machine group by adding a new application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adaptive_application_control = azure_native.security.v20200101.AdaptiveApplicationControl("adaptiveApplicationControl",
+            asc_location="centralus",
+            enforcement_mode="Audit",
+            group_name="ERELGROUP1",
+            path_recommendations=[
+                {
+                    "action": "Recommended",
+                    "common": True,
+                    "configurationStatus": "Configured",
+                    "fileType": "Exe",
+                    "path": "[Exe] O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US\\\\*\\\\*\\\\0.0.0.0",
+                    "publisherInfo": azure_native.security.v20200101.PublisherInfoArgs(
+                        binary_name="*",
+                        product_name="*",
+                        publisher_name="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US",
+                        version="0.0.0.0",
+                    ),
+                    "type": "PublisherSignature",
+                    "userSids": ["S-1-1-0"],
+                    "usernames": [azure_native.security.v20200101.UserRecommendationArgs(
+                        recommendation_action="Recommended",
+                        username="Everyone",
+                    )],
+                },
+                {
+                    "action": "Recommended",
+                    "common": True,
+                    "configurationStatus": "Configured",
+                    "fileType": "Exe",
+                    "path": "%OSDRIVE%\\\\WINDOWSAZURE\\\\SECAGENT\\\\WASECAGENTPROV.EXE",
+                    "publisherInfo": azure_native.security.v20200101.PublisherInfoArgs(
+                        binary_name="*",
+                        product_name="MICROSOFT® COREXT",
+                        publisher_name="CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+                        version="0.0.0.0",
+                    ),
+                    "type": "ProductSignature",
+                    "userSids": ["S-1-1-0"],
+                    "usernames": [azure_native.security.v20200101.UserRecommendationArgs(
+                        recommendation_action="Recommended",
+                        username="NT AUTHORITY\\\\SYSTEM",
+                    )],
+                },
+                {
+                    "action": "Recommended",
+                    "common": True,
+                    "configurationStatus": "Configured",
+                    "fileType": "Exe",
+                    "path": "%OSDRIVE%\\\\WINDOWSAZURE\\\\PACKAGES_201973_7415\\\\COLLECTGUESTLOGS.EXE",
+                    "publisherInfo": azure_native.security.v20200101.PublisherInfoArgs(
+                        binary_name="*",
+                        product_name="*",
+                        publisher_name="CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+                        version="0.0.0.0",
+                    ),
+                    "type": "PublisherSignature",
+                    "userSids": ["S-1-1-0"],
+                    "usernames": [azure_native.security.v20200101.UserRecommendationArgs(
+                        recommendation_action="Recommended",
+                        username="NT AUTHORITY\\\\SYSTEM",
+                    )],
+                },
+                azure_native.security.v20200101.PathRecommendationArgs(
+                    action="Add",
+                    common=True,
+                    path="C:\\\\directory\\\\file.exe",
+                    type="File",
+                ),
+            ],
+            protection_mode=azure_native.security.v20200101.ProtectionModeArgs(
+                exe="Audit",
+                msi="None",
+                script="None",
+            ),
+            vm_recommendations=[
+                azure_native.security.v20200101.VmRecommendationArgs(
+                    configuration_status="Configured",
+                    enforcement_support="Supported",
+                    recommendation_action="Recommended",
+                    resource_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/erelh-stable/providers/microsoft.compute/virtualmachines/erelh-16090",
+                ),
+                azure_native.security.v20200101.VmRecommendationArgs(
+                    configuration_status="Configured",
+                    enforcement_support="Supported",
+                    recommendation_action="Recommended",
+                    resource_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/matanvs/providers/microsoft.compute/virtualmachines/matanvs19",
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20200101:AdaptiveApplicationControl ERELGROUP1 /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/locations/centralus/applicationWhitelistings/ERELGROUP1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -136,7 +241,112 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  args: AdaptiveApplicationControlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Update an application control machine group by adding a new application
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adaptive_application_control = azure_native.security.v20200101.AdaptiveApplicationControl("adaptiveApplicationControl",
+            asc_location="centralus",
+            enforcement_mode="Audit",
+            group_name="ERELGROUP1",
+            path_recommendations=[
+                {
+                    "action": "Recommended",
+                    "common": True,
+                    "configurationStatus": "Configured",
+                    "fileType": "Exe",
+                    "path": "[Exe] O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US\\\\*\\\\*\\\\0.0.0.0",
+                    "publisherInfo": azure_native.security.v20200101.PublisherInfoArgs(
+                        binary_name="*",
+                        product_name="*",
+                        publisher_name="O=MICROSOFT CORPORATION, L=REDMOND, S=WASHINGTON, C=US",
+                        version="0.0.0.0",
+                    ),
+                    "type": "PublisherSignature",
+                    "userSids": ["S-1-1-0"],
+                    "usernames": [azure_native.security.v20200101.UserRecommendationArgs(
+                        recommendation_action="Recommended",
+                        username="Everyone",
+                    )],
+                },
+                {
+                    "action": "Recommended",
+                    "common": True,
+                    "configurationStatus": "Configured",
+                    "fileType": "Exe",
+                    "path": "%OSDRIVE%\\\\WINDOWSAZURE\\\\SECAGENT\\\\WASECAGENTPROV.EXE",
+                    "publisherInfo": azure_native.security.v20200101.PublisherInfoArgs(
+                        binary_name="*",
+                        product_name="MICROSOFT® COREXT",
+                        publisher_name="CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+                        version="0.0.0.0",
+                    ),
+                    "type": "ProductSignature",
+                    "userSids": ["S-1-1-0"],
+                    "usernames": [azure_native.security.v20200101.UserRecommendationArgs(
+                        recommendation_action="Recommended",
+                        username="NT AUTHORITY\\\\SYSTEM",
+                    )],
+                },
+                {
+                    "action": "Recommended",
+                    "common": True,
+                    "configurationStatus": "Configured",
+                    "fileType": "Exe",
+                    "path": "%OSDRIVE%\\\\WINDOWSAZURE\\\\PACKAGES_201973_7415\\\\COLLECTGUESTLOGS.EXE",
+                    "publisherInfo": azure_native.security.v20200101.PublisherInfoArgs(
+                        binary_name="*",
+                        product_name="*",
+                        publisher_name="CN=MICROSOFT AZURE DEPENDENCY CODE SIGN",
+                        version="0.0.0.0",
+                    ),
+                    "type": "PublisherSignature",
+                    "userSids": ["S-1-1-0"],
+                    "usernames": [azure_native.security.v20200101.UserRecommendationArgs(
+                        recommendation_action="Recommended",
+                        username="NT AUTHORITY\\\\SYSTEM",
+                    )],
+                },
+                azure_native.security.v20200101.PathRecommendationArgs(
+                    action="Add",
+                    common=True,
+                    path="C:\\\\directory\\\\file.exe",
+                    type="File",
+                ),
+            ],
+            protection_mode=azure_native.security.v20200101.ProtectionModeArgs(
+                exe="Audit",
+                msi="None",
+                script="None",
+            ),
+            vm_recommendations=[
+                azure_native.security.v20200101.VmRecommendationArgs(
+                    configuration_status="Configured",
+                    enforcement_support="Supported",
+                    recommendation_action="Recommended",
+                    resource_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/erelh-stable/providers/microsoft.compute/virtualmachines/erelh-16090",
+                ),
+                azure_native.security.v20200101.VmRecommendationArgs(
+                    configuration_status="Configured",
+                    enforcement_support="Supported",
+                    recommendation_action="Recommended",
+                    resource_id="/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/matanvs/providers/microsoft.compute/virtualmachines/matanvs19",
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20200101:AdaptiveApplicationControl ERELGROUP1 /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/locations/centralus/applicationWhitelistings/ERELGROUP1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param AdaptiveApplicationControlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

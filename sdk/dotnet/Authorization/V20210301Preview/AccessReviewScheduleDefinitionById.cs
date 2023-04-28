@@ -11,6 +11,33 @@ namespace Pulumi.AzureNative.Authorization.V20210301Preview
 {
     /// <summary>
     /// Access Review Schedule Definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutAccessReview
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessReviewScheduleDefinitionById = new AzureNative.Authorization.V20210301Preview.AccessReviewScheduleDefinitionById("accessReviewScheduleDefinitionById", new()
+    ///     {
+    ///         ScheduleDefinitionId = "fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById fa73e90b-5bf1-45fd-a182-35ce5fc0674d /subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById")]
     public partial class AccessReviewScheduleDefinitionById : global::Pulumi.CustomResource

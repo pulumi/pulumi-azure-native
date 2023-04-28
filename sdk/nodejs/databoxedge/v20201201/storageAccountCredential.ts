@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage account credential.
+ *
+ * ## Example Usage
+ * ### SACPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageAccountCredential = new azure_native.databoxedge.v20201201.StorageAccountCredential("storageAccountCredential", {
+ *     accountKey: {
+ *         encryptionAlgorithm: "AES256",
+ *         encryptionCertThumbprint: "2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
+ *         value: "lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
+ *     },
+ *     accountType: "BlobStorage",
+ *     alias: "sac1",
+ *     deviceName: "testedgedevice",
+ *     name: "sac1",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     sslStatus: "Disabled",
+ *     userName: "cisbvt",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge/v20201201:StorageAccountCredential sac1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1 
+ * ```
  */
 export class StorageAccountCredential extends pulumi.CustomResource {
     /**

@@ -11,6 +11,70 @@ namespace Pulumi.AzureNative.DocumentDB.V20210315
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra table.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBCassandraTableCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cassandraResourceCassandraTable = new AzureNative.DocumentDB.V20210315.CassandraResourceCassandraTable("cassandraResourceCassandraTable", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         KeyspaceName = "keyspaceName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20210315.Inputs.CassandraTableResourceArgs
+    ///         {
+    ///             DefaultTtl = 100,
+    ///             Id = "tableName",
+    ///             Schema = new AzureNative.DocumentDB.V20210315.Inputs.CassandraSchemaArgs
+    ///             {
+    ///                 ClusterKeys = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20210315.Inputs.ClusterKeyArgs
+    ///                     {
+    ///                         Name = "columnA",
+    ///                         OrderBy = "Asc",
+    ///                     },
+    ///                 },
+    ///                 Columns = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20210315.Inputs.ColumnArgs
+    ///                     {
+    ///                         Name = "columnA",
+    ///                         Type = "Ascii",
+    ///                     },
+    ///                 },
+    ///                 PartitionKeys = new[]
+    ///                 {
+    ///                     new AzureNative.DocumentDB.V20210315.Inputs.CassandraPartitionKeyArgs
+    ///                     {
+    ///                         Name = "columnA",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         TableName = "tableName",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20210315:CassandraResourceCassandraTable tableName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspaceName/cassandraTables/tableName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20210315:CassandraResourceCassandraTable")]
     public partial class CassandraResourceCassandraTable : global::Pulumi.CustomResource

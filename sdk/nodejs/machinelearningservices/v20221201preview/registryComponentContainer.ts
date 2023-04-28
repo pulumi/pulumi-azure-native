@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Registry Component Container.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registryComponentContainer = new azure_native.machinelearningservices.v20221201preview.RegistryComponentContainer("registryComponentContainer", {
+ *     componentContainerProperties: {
+ *         description: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     componentName: "string",
+ *     registryName: "my-aml-registry",
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20221201preview:RegistryComponentContainer string string 
+ * ```
  */
 export class RegistryComponentContainer extends pulumi.CustomResource {
     /**

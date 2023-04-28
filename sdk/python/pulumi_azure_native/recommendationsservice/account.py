@@ -117,6 +117,39 @@ class Account(pulumi.CustomResource):
         API Version: 2022-02-01.
         Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update RecommendationsService Account resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.recommendationsservice.Account("account",
+            account_name="sampleAccount",
+            location="West US",
+            properties=azure_native.recommendationsservice.AccountResourceResponsePropertiesArgs(
+                configuration="Capacity",
+                endpoint_authentications=[azure_native.recommendationsservice.EndpointAuthenticationArgs(
+                    aad_tenant_id="tenant",
+                    principal_id="oid",
+                    principal_type="User",
+                )],
+            ),
+            resource_group_name="rg",
+            tags={
+                "Environment": "Prod",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recommendationsservice:Account sampleAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the RecommendationsService Account resource.
@@ -135,6 +168,39 @@ class Account(pulumi.CustomResource):
         Account resource details.
         API Version: 2022-02-01.
         Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update RecommendationsService Account resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.recommendationsservice.Account("account",
+            account_name="sampleAccount",
+            location="West US",
+            properties=azure_native.recommendationsservice.AccountResourceResponsePropertiesArgs(
+                configuration="Capacity",
+                endpoint_authentications=[azure_native.recommendationsservice.EndpointAuthenticationArgs(
+                    aad_tenant_id="tenant",
+                    principal_id="oid",
+                    principal_type="User",
+                )],
+            ),
+            resource_group_name="rg",
+            tags={
+                "Environment": "Prod",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recommendationsservice:Account sampleAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

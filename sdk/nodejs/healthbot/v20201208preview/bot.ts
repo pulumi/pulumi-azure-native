@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * HealthBot resource definition
+ *
+ * ## Example Usage
+ * ### BotCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bot = new azure_native.healthbot.v20201208preview.Bot("bot", {
+ *     botName: "samplebotname",
+ *     location: "East US",
+ *     resourceGroupName: "healthbotClient",
+ *     sku: {
+ *         name: azure_native.healthbot.v20201208preview.SkuName.F0,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:healthbot/v20201208preview:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+ * ```
  */
 export class Bot extends pulumi.CustomResource {
     /**

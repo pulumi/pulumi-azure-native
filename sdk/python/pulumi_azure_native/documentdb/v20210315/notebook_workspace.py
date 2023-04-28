@@ -77,6 +77,28 @@ class NotebookWorkspace(pulumi.CustomResource):
         """
         A notebook workspace resource
 
+        ## Example Usage
+        ### CosmosDBNotebookWorkspaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notebook_workspace = azure_native.documentdb.v20210315.NotebookWorkspace("notebookWorkspace",
+            account_name="ddb1",
+            notebook_workspace_name="default",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20210315:NotebookWorkspace default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/notebookWorkspaces/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -91,6 +113,28 @@ class NotebookWorkspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A notebook workspace resource
+
+        ## Example Usage
+        ### CosmosDBNotebookWorkspaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notebook_workspace = azure_native.documentdb.v20210315.NotebookWorkspace("notebookWorkspace",
+            account_name="ddb1",
+            notebook_workspace_name="default",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20210315:NotebookWorkspace default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/notebookWorkspaces/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NotebookWorkspaceArgs args: The arguments to use to populate this resource's properties.

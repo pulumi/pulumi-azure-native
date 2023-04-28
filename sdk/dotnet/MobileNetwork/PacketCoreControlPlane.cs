@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// Packet core control plane resource.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create packet core control plane
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var packetCoreControlPlane = new AzureNative.MobileNetwork.PacketCoreControlPlane("packetCoreControlPlane", new()
+    ///     {
+    ///         ControlPlaneAccessInterface = new AzureNative.MobileNetwork.Inputs.InterfacePropertiesArgs
+    ///         {
+    ///             Name = "N2",
+    ///         },
+    ///         CoreNetworkTechnology = "5GC",
+    ///         LocalDiagnosticsAccess = new AzureNative.MobileNetwork.Inputs.LocalDiagnosticsAccessConfigurationArgs
+    ///         {
+    ///             AuthenticationType = "AAD",
+    ///             HttpsServerCertificate = new AzureNative.MobileNetwork.Inputs.HttpsServerCertificateArgs
+    ///             {
+    ///                 CertificateUrl = "https://contosovault.vault.azure.net/certificates/ingress",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         PacketCoreControlPlaneName = "TestPacketCoreCP",
+    ///         Platform = new AzureNative.MobileNetwork.Inputs.PlatformConfigurationArgs
+    ///         {
+    ///             AzureStackEdgeDevice = new AzureNative.MobileNetwork.Inputs.AzureStackEdgeDeviceResourceIdArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/TestAzureStackEdgeDevice",
+    ///             },
+    ///             ConnectedCluster = new AzureNative.MobileNetwork.Inputs.ConnectedClusterResourceIdArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/TestConnectedCluster",
+    ///             },
+    ///             CustomLocation = new AzureNative.MobileNetwork.Inputs.CustomLocationResourceIdArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ExtendedLocation/customLocations/TestCustomLocation",
+    ///             },
+    ///             Type = "AKS-HCI",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sites = new[]
+    ///         {
+    ///             new AzureNative.MobileNetwork.Inputs.SiteResourceIdArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite",
+    ///             },
+    ///         },
+    ///         Sku = "G0",
+    ///         UeMtu = 1600,
+    ///         Version = "0.2.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork:PacketCoreControlPlane TestPacketCoreCP /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:PacketCoreControlPlane")]
     public partial class PacketCoreControlPlane : global::Pulumi.CustomResource

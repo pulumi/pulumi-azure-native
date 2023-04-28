@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// VpnGatewayNatRule Resource.
+    /// 
+    /// ## Example Usage
+    /// ### NatRulePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var natRule = new AzureNative.Network.V20201101.NatRule("natRule", new()
+    ///     {
+    ///         ExternalMappings = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.VpnNatRuleMappingArgs
+    ///             {
+    ///                 AddressSpace = "192.168.21.0/24",
+    ///             },
+    ///         },
+    ///         GatewayName = "gateway1",
+    ///         InternalMappings = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.VpnNatRuleMappingArgs
+    ///             {
+    ///                 AddressSpace = "10.4.0.0/24",
+    ///             },
+    ///         },
+    ///         IpConfigurationId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/cloudnet1-VNG/ipConfigurations/default",
+    ///         Mode = "EgressSnat",
+    ///         NatRuleName = "natRule1",
+    ///         ResourceGroupName = "rg1",
+    ///         Type = "Static",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:NatRule natRule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/natRules/natRule1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:NatRule")]
     public partial class NatRule : global::Pulumi.CustomResource

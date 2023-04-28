@@ -115,6 +115,27 @@ class GuestUsage(pulumi.CustomResource):
         API Version: 2021-04-01.
         Previous API Version: 2020-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### GuestUsages_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_usage = azure_native.azureactivedirectory.GuestUsage("guestUsage",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso.onmicrosoft.com")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory:GuestUsage contoso.onmicrosoft.com /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/guestUsages/contoso.onmicrosoft.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the Guest Usages resource.
@@ -133,6 +154,27 @@ class GuestUsage(pulumi.CustomResource):
         Guest Usages Resource
         API Version: 2021-04-01.
         Previous API Version: 2020-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### GuestUsages_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_usage = azure_native.azureactivedirectory.GuestUsage("guestUsage",
+            resource_group_name="contosoResourceGroup",
+            resource_name_="contoso.onmicrosoft.com")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azureactivedirectory:GuestUsage contoso.onmicrosoft.com /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/guestUsages/contoso.onmicrosoft.com 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GuestUsageArgs args: The arguments to use to populate this resource's properties.

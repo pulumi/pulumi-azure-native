@@ -118,6 +118,35 @@ class Step(pulumi.CustomResource):
         """
         The resource representation of a rollout step.
 
+        ## Example Usage
+        ### Create deployment step
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        step = azure_native.deploymentmanager.v20180901preview.Step("step",
+            location="centralus",
+            properties=azure_native.deploymentmanager.v20180901preview.WaitStepPropertiesResponseArgs(
+                attributes=azure_native.deploymentmanager.v20180901preview.WaitStepAttributesArgs(
+                    duration="PT20M",
+                ),
+                step_type="Wait",
+            ),
+            resource_group_name="myResourceGroup",
+            step_name="deploymentStep1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager/v20180901preview:Step deploymentStep1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/steps/{stepName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -134,6 +163,35 @@ class Step(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The resource representation of a rollout step.
+
+        ## Example Usage
+        ### Create deployment step
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        step = azure_native.deploymentmanager.v20180901preview.Step("step",
+            location="centralus",
+            properties=azure_native.deploymentmanager.v20180901preview.WaitStepPropertiesResponseArgs(
+                attributes=azure_native.deploymentmanager.v20180901preview.WaitStepAttributesArgs(
+                    duration="PT20M",
+                ),
+                step_type="Wait",
+            ),
+            resource_group_name="myResourceGroup",
+            step_name="deploymentStep1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deploymentmanager/v20180901preview:Step deploymentStep1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/steps/{stepName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StepInitArgs args: The arguments to use to populate this resource's properties.

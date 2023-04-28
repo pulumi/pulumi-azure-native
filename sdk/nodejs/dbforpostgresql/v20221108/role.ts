@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a cluster role.
+ *
+ * ## Example Usage
+ * ### RoleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const role = new azure_native.dbforpostgresql.v20221108.Role("role", {
+ *     clusterName: "pgtestsvc4",
+ *     password: "password",
+ *     resourceGroupName: "TestGroup",
+ *     roleName: "role1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20221108:Role role1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/pgtestsvc4/roles/role1 
+ * ```
  */
 export class Role extends pulumi.CustomResource {
     /**

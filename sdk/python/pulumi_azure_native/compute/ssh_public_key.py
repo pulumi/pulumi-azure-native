@@ -114,6 +114,29 @@ class SshPublicKey(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a new SSH public key resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ssh_public_key = azure_native.compute.SshPublicKey("sshPublicKey",
+            location="westus",
+            public_key="{ssh-rsa public key}",
+            resource_group_name="myResourceGroup",
+            ssh_public_key_name="mySshPublicKeyName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:SshPublicKey mySshPublicKeyName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/sshPublicKeys/mySshPublicKeyName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
@@ -132,6 +155,29 @@ class SshPublicKey(pulumi.CustomResource):
         Specifies information about the SSH public key.
         API Version: 2022-11-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a new SSH public key resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ssh_public_key = azure_native.compute.SshPublicKey("sshPublicKey",
+            location="westus",
+            public_key="{ssh-rsa public key}",
+            resource_group_name="myResourceGroup",
+            ssh_public_key_name="mySshPublicKeyName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:SshPublicKey mySshPublicKeyName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/sshPublicKeys/mySshPublicKeyName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SshPublicKeyInitArgs args: The arguments to use to populate this resource's properties.

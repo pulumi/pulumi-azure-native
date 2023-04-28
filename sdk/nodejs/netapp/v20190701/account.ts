@@ -10,6 +10,29 @@ import * as utilities from "../../utilities";
 /**
  * NetApp account resource
  *
+ * ## Example Usage
+ * ### Accounts_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.netapp.v20190701.Account("account", {
+ *     accountName: "accountName",
+ *     location: "eastus",
+ *     resourceGroupName: "resourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp/v20190701:Account myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName} 
+ * ```
+ *
  * @deprecated Version 2019-07-01 will be removed in v2 of the provider.
  */
 export class Account extends pulumi.CustomResource {

@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a replication for a container registry.
+ *
+ * ## Example Usage
+ * ### ReplicationCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replication = new azure_native.containerregistry.v20190501.Replication("replication", {
+ *     location: "eastus",
+ *     registryName: "myRegistry",
+ *     replicationName: "myReplication",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20190501:Replication myReplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/replications/myReplication 
+ * ```
  */
 export class Replication extends pulumi.CustomResource {
     /**

@@ -9,6 +9,52 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Migrate.V20191001
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### ServerCollectors_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverCollector = new AzureNative.Migrate.V20191001.ServerCollector("serverCollector", new()
+    ///     {
+    ///         ETag = "\"00000606-0000-0d00-0000-605999bf0000\"",
+    ///         ProjectName = "app11141project",
+    ///         Properties = new AzureNative.Migrate.V20191001.Inputs.CollectorPropertiesArgs
+    ///         {
+    ///             AgentProperties = new AzureNative.Migrate.V20191001.Inputs.CollectorAgentPropertiesArgs
+    ///             {
+    ///                 SpnDetails = new AzureNative.Migrate.V20191001.Inputs.CollectorBodyAgentSpnPropertiesArgs
+    ///                 {
+    ///                     ApplicationId = "ad9f701a-cc08-4421-b51f-b5762d58e9ba",
+    ///                     Audience = "https://72f988bf-86f1-41af-91ab-2d7cd011db47/app23df4authandaccessaadapp",
+    ///                     Authority = "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///                     ObjectId = "b4975e42-9248-4a36-b99f-37eca377ea00",
+    ///                     TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///                 },
+    ///             },
+    ///             DiscoverySiteId = "/subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest/providers/Microsoft.OffAzure/ServerSites/app21141site",
+    ///         },
+    ///         ResourceGroupName = "pajindtest",
+    ///         ServerCollectorName = "app23df4collector",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20191001:ServerCollector app23df4collector /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindtest/providers/Microsoft.Migrate/assessmentprojects/app11141project/servercollectors/app23df4collector 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20191001:ServerCollector")]
     public partial class ServerCollector : global::Pulumi.CustomResource
     {

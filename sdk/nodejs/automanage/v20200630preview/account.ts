@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the Automanage account.
+ *
+ * ## Example Usage
+ * ### Create or update Automanage account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.automanage.v20200630preview.Account("account", {
+ *     accountName: "account",
+ *     identity: {
+ *         type: azure_native.automanage.v20200630preview.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "East US",
+ *     resourceGroupName: "resourceGroup",
+ *     tags: {
+ *         Organization: "Administration",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automanage/v20200630preview:Account account /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automanage/accounts/account 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

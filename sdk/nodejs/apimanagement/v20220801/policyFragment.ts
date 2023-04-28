@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Policy fragment contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreatePolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyFragment = new azure_native.apimanagement.v20220801.PolicyFragment("policyFragment", {
+ *     description: "A policy fragment example",
+ *     format: "xml",
+ *     id: "policyFragment1",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     value: "<fragment><json-to-xml apply=\"always\" consider-accept-header=\"false\" /></fragment>",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:PolicyFragment policyFragment1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/policyFragments/policyFragment1 
+ * ```
  */
 export class PolicyFragment extends pulumi.CustomResource {
     /**

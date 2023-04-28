@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.Relay
     /// Description of hybrid connection resource.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### RelayHybridConnectionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hybridConnection = new AzureNative.Relay.HybridConnection("hybridConnection", new()
+    ///     {
+    ///         HybridConnectionName = "example-Relay-Hybrid-01",
+    ///         NamespaceName = "example-RelayNamespace-01",
+    ///         RequiresClientAuthorization = true,
+    ///         ResourceGroupName = "resourcegroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relay:HybridConnection example-Relay-Hybrid-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01/HybridConnections/example-Relay-Hybrid-01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relay:HybridConnection")]
     public partial class HybridConnection : global::Pulumi.CustomResource

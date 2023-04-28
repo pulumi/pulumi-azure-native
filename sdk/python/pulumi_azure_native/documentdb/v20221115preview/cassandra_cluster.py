@@ -132,6 +132,58 @@ class CassandraCluster(pulumi.CustomResource):
         """
         Representation of a managed Cassandra cluster.
 
+        ## Example Usage
+        ### CosmosDBManagedCassandraClusterCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_cluster = azure_native.documentdb.v20221115preview.CassandraCluster("cassandraCluster",
+            cluster_name="cassandra-prod",
+            location="West US",
+            properties=azure_native.documentdb.v20221115preview.ClusterResourceResponsePropertiesArgs(
+                authentication_method="Cassandra",
+                cassandra_version="3.11",
+                client_certificates=[azure_native.documentdb.v20221115preview.CertificateArgs(
+                    pem=\"\"\"-----BEGIN CERTIFICATE-----
+        ...Base64 encoded certificate...
+        -----END CERTIFICATE-----\"\"\",
+                )],
+                cluster_name_override="ClusterNameIllegalForAzureResource",
+                delegated_management_subnet_id="/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management",
+                external_gossip_certificates=[azure_native.documentdb.v20221115preview.CertificateArgs(
+                    pem=\"\"\"-----BEGIN CERTIFICATE-----
+        ...Base64 encoded certificate...
+        -----END CERTIFICATE-----\"\"\",
+                )],
+                external_seed_nodes=[
+                    azure_native.documentdb.v20221115preview.SeedNodeArgs(
+                        ip_address="10.52.221.2",
+                    ),
+                    azure_native.documentdb.v20221115preview.SeedNodeArgs(
+                        ip_address="10.52.221.3",
+                    ),
+                    azure_native.documentdb.v20221115preview.SeedNodeArgs(
+                        ip_address="10.52.221.4",
+                    ),
+                ],
+                hours_between_backups=24,
+                initial_cassandra_admin_password="mypassword",
+            ),
+            resource_group_name="cassandra-prod-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20221115preview:CassandraCluster cassandra-prod /subscriptions/subid/resourceGroups/cassandra-prod-rg/providers/Microsoft.DocumentDB/cassandraClusters/cassandra-prod 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Managed Cassandra cluster name.
@@ -149,6 +201,58 @@ class CassandraCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Representation of a managed Cassandra cluster.
+
+        ## Example Usage
+        ### CosmosDBManagedCassandraClusterCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_cluster = azure_native.documentdb.v20221115preview.CassandraCluster("cassandraCluster",
+            cluster_name="cassandra-prod",
+            location="West US",
+            properties=azure_native.documentdb.v20221115preview.ClusterResourceResponsePropertiesArgs(
+                authentication_method="Cassandra",
+                cassandra_version="3.11",
+                client_certificates=[azure_native.documentdb.v20221115preview.CertificateArgs(
+                    pem=\"\"\"-----BEGIN CERTIFICATE-----
+        ...Base64 encoded certificate...
+        -----END CERTIFICATE-----\"\"\",
+                )],
+                cluster_name_override="ClusterNameIllegalForAzureResource",
+                delegated_management_subnet_id="/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management",
+                external_gossip_certificates=[azure_native.documentdb.v20221115preview.CertificateArgs(
+                    pem=\"\"\"-----BEGIN CERTIFICATE-----
+        ...Base64 encoded certificate...
+        -----END CERTIFICATE-----\"\"\",
+                )],
+                external_seed_nodes=[
+                    azure_native.documentdb.v20221115preview.SeedNodeArgs(
+                        ip_address="10.52.221.2",
+                    ),
+                    azure_native.documentdb.v20221115preview.SeedNodeArgs(
+                        ip_address="10.52.221.3",
+                    ),
+                    azure_native.documentdb.v20221115preview.SeedNodeArgs(
+                        ip_address="10.52.221.4",
+                    ),
+                ],
+                hours_between_backups=24,
+                initial_cassandra_admin_password="mypassword",
+            ),
+            resource_group_name="cassandra-prod-rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20221115preview:CassandraCluster cassandra-prod /subscriptions/subid/resourceGroups/cassandra-prod-rg/providers/Microsoft.DocumentDB/cassandraClusters/cassandra-prod 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CassandraClusterArgs args: The arguments to use to populate this resource's properties.

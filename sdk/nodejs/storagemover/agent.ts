@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * The Agent resource.
  * API Version: 2023-03-01.
  * Previous API Version: 2022-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Agents_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agent = new azure_native.storagemover.Agent("agent", {
+ *     agentName: "examples-agentName",
+ *     arcResourceId: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
+ *     arcVmUuid: "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+ *     description: "Example Agent Description",
+ *     resourceGroupName: "examples-rg",
+ *     storageMoverName: "examples-storageMoverName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagemover:Agent examples-agentName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/agents/examples-agentName 
+ * ```
  */
 export class Agent extends pulumi.CustomResource {
     /**

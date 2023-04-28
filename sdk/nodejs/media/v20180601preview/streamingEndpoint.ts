@@ -9,6 +9,60 @@ import * as utilities from "../../utilities";
 
 /**
  * The StreamingEndpoint.
+ *
+ * ## Example Usage
+ * ### Create a StreamingEndpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const streamingEndpoint = new azure_native.media.v20180601preview.StreamingEndpoint("streamingEndpoint", {
+ *     accessControl: {
+ *         akamai: {
+ *             akamaiSignatureHeaderAuthenticationKeyList: [
+ *                 {
+ *                     base64Key: "dGVzdGlkMQ==",
+ *                     expiration: "2029-12-31T16:00:00-08:00",
+ *                     identifier: "id1",
+ *                 },
+ *                 {
+ *                     base64Key: "dGVzdGlkMQ==",
+ *                     expiration: "2030-12-31T16:00:00-08:00",
+ *                     identifier: "id2",
+ *                 },
+ *             ],
+ *         },
+ *         ip: {
+ *             allow: [{
+ *                 address: "192.168.1.1",
+ *                 name: "AllowedIp",
+ *             }],
+ *         },
+ *     },
+ *     accountName: "slitestmedia10",
+ *     availabilitySetName: "availableset",
+ *     cdnEnabled: false,
+ *     description: "test event 1",
+ *     location: "West US",
+ *     resourceGroupName: "mediaresources",
+ *     scaleUnits: 1,
+ *     streamingEndpointName: "myStreamingEndpoint1",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media/v20180601preview:StreamingEndpoint myStreamingEndpoint1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/streamingendpoints/myStreamingEndpoint1 
+ * ```
  */
 export class StreamingEndpoint extends pulumi.CustomResource {
     /**

@@ -9,6 +9,81 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnGateway Resource.
+ *
+ * ## Example Usage
+ * ### VpnGatewayPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vpnGateway = new azure_native.network.v20220901.VpnGateway("vpnGateway", {
+ *     bgpSettings: {
+ *         asn: 65515,
+ *         bgpPeeringAddresses: [
+ *             {
+ *                 customBgpIpAddresses: ["169.254.21.5"],
+ *                 ipconfigurationId: "Instance0",
+ *             },
+ *             {
+ *                 customBgpIpAddresses: ["169.254.21.10"],
+ *                 ipconfigurationId: "Instance1",
+ *             },
+ *         ],
+ *         peerWeight: 0,
+ *     },
+ *     connections: [{
+ *         name: "vpnConnection1",
+ *         remoteVpnSite: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+ *         },
+ *         vpnLinkConnections: [{
+ *             connectionBandwidth: 200,
+ *             egressNatRules: [{
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/natRules/nat03",
+ *             }],
+ *             name: "Connection-Link1",
+ *             sharedKey: "key",
+ *             vpnConnectionProtocolType: "IKEv2",
+ *             vpnSiteLink: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
+ *             },
+ *         }],
+ *     }],
+ *     enableBgpRouteTranslationForNat: false,
+ *     gatewayName: "gateway1",
+ *     isRoutingPreferenceInternet: false,
+ *     location: "westcentralus",
+ *     natRules: [{
+ *         externalMappings: [{
+ *             addressSpace: "192.168.0.0/26",
+ *         }],
+ *         internalMappings: [{
+ *             addressSpace: "0.0.0.0/26",
+ *         }],
+ *         ipConfigurationId: "",
+ *         mode: "EgressSnat",
+ *         name: "nat03",
+ *         type: "Static",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualHub: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:VpnGateway gateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1 
+ * ```
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**

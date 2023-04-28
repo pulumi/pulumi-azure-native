@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the source control.
+ *
+ * ## Example Usage
+ * ### Create or update a source control
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sourceControl = new azure_native.automation.v20220808.SourceControl("sourceControl", {
+ *     autoSync: true,
+ *     automationAccountName: "sampleAccount9",
+ *     branch: "master",
+ *     description: "my description",
+ *     folderPath: "/folderOne/folderTwo",
+ *     publishRunbook: true,
+ *     repoUrl: "https://sampleUser.visualstudio.com/myProject/_git/myRepository",
+ *     resourceGroupName: "rg",
+ *     securityToken: {
+ *         accessToken: "******",
+ *         tokenType: "PersonalAccessToken",
+ *     },
+ *     sourceControlName: "sampleSourceControl",
+ *     sourceType: "VsoGit",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation/v20220808:SourceControl sampleSourceControl /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/sourcecontrols/sampleSourceControl 
+ * ```
  */
 export class SourceControl extends pulumi.CustomResource {
     /**

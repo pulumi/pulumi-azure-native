@@ -9,6 +9,49 @@ import * as utilities from "../../utilities";
 
 /**
  * The Live Event.
+ *
+ * ## Example Usage
+ * ### Create a LiveEvent
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const liveEvent = new azure_native.media.v20180601preview.LiveEvent("liveEvent", {
+ *     accountName: "slitestmedia10",
+ *     description: "test event 1",
+ *     input: {
+ *         keyFrameIntervalDuration: "PT2S",
+ *         streamingProtocol: azure_native.media.v20180601preview.LiveEventInputProtocol.RTMP,
+ *     },
+ *     liveEventName: "myLiveEvent1",
+ *     location: "West US",
+ *     preview: {
+ *         accessControl: {
+ *             ip: {
+ *                 allow: [{
+ *                     address: "0.0.0.0",
+ *                     name: "AllowAll",
+ *                 }],
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "mediaresources",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media/v20180601preview:LiveEvent myLiveEvent1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/liveevents/myLiveEvent1 
+ * ```
  */
 export class LiveEvent extends pulumi.CustomResource {
     /**

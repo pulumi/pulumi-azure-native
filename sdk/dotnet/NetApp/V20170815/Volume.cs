@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.NetApp.V20170815
 {
     /// <summary>
     /// Volume resource
+    /// 
+    /// ## Example Usage
+    /// ### Volumes_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.NetApp.V20170815.Volume("volume", new()
+    ///     {
+    ///         AccountName = "accountName",
+    ///         PoolName = "poolName",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         VolumeName = "volumeName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20170815:Volume myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-08-15 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20170815:Volume")]

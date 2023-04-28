@@ -11,6 +11,88 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
 {
     /// <summary>
     /// SIM policy resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create SIM policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var simPolicy = new AzureNative.MobileNetwork.V20220401Preview.SimPolicy("simPolicy", new()
+    ///     {
+    ///         DefaultSlice = new AzureNative.MobileNetwork.V20220401Preview.Inputs.SliceResourceIdArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+    ///         },
+    ///         Location = "eastus",
+    ///         MobileNetworkName = "testMobileNetwork",
+    ///         RegistrationTimer = 3240,
+    ///         ResourceGroupName = "rg1",
+    ///         SimPolicyName = "testPolicy",
+    ///         SliceConfigurations = new[]
+    ///         {
+    ///             new AzureNative.MobileNetwork.V20220401Preview.Inputs.SliceConfigurationArgs
+    ///             {
+    ///                 DataNetworkConfigurations = new[]
+    ///                 {
+    ///                     new AzureNative.MobileNetwork.V20220401Preview.Inputs.DataNetworkConfigurationArgs
+    ///                     {
+    ///                         AdditionalAllowedSessionTypes = new[] {},
+    ///                         AllocationAndRetentionPriorityLevel = 9,
+    ///                         AllowedServices = new[]
+    ///                         {
+    ///                             new AzureNative.MobileNetwork.V20220401Preview.Inputs.ServiceResourceIdArgs
+    ///                             {
+    ///                                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/testService",
+    ///                             },
+    ///                         },
+    ///                         DataNetwork = new AzureNative.MobileNetwork.V20220401Preview.Inputs.DataNetworkResourceIdArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+    ///                         },
+    ///                         DefaultSessionType = "IPv4",
+    ///                         FiveQi = 9,
+    ///                         PreemptionCapability = "NotPreempt",
+    ///                         PreemptionVulnerability = "Preemptable",
+    ///                         SessionAmbr = new AzureNative.MobileNetwork.V20220401Preview.Inputs.AmbrArgs
+    ///                         {
+    ///                             Downlink = "1 Gbps",
+    ///                             Uplink = "500 Mbps",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 DefaultDataNetwork = new AzureNative.MobileNetwork.V20220401Preview.Inputs.DataNetworkResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+    ///                 },
+    ///                 Slice = new AzureNative.MobileNetwork.V20220401Preview.Inputs.SliceResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+    ///                 },
+    ///             },
+    ///         },
+    ///         UeAmbr = new AzureNative.MobileNetwork.V20220401Preview.Inputs.AmbrArgs
+    ///         {
+    ///             Downlink = "1 Gbps",
+    ///             Uplink = "500 Mbps",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork/v20220401preview:SimPolicy testPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/testPolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220401preview:SimPolicy")]
     public partial class SimPolicy : global::Pulumi.CustomResource

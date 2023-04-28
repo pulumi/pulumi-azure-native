@@ -117,6 +117,34 @@ class ChapSetting(pulumi.CustomResource):
         """
         Challenge-Handshake Authentication Protocol (CHAP) setting
 
+        ## Example Usage
+        ### ChapSettingsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        chap_setting = azure_native.storsimple.v20161001.ChapSetting("chapSetting",
+            chap_user_name="ChapSettingForSDK",
+            device_name="HSDK-WSJQERQW3F",
+            manager_name="hAzureSDKOperations",
+            password=azure_native.storsimple.v20161001.AsymmetricEncryptedSecretArgs(
+                encryption_algorithm=azure_native.storsimple/v20161001.EncryptionAlgorithm.RSAE_S_PKCS1_V_1_5,
+                encryption_certificate_thumbprint="D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+                value="<value>",
+            ),
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:ChapSetting ChapSettingForSDK /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/chapSettings/ChapSettingForSDK 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] chap_user_name: The chap user name.
@@ -133,6 +161,34 @@ class ChapSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Challenge-Handshake Authentication Protocol (CHAP) setting
+
+        ## Example Usage
+        ### ChapSettingsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        chap_setting = azure_native.storsimple.v20161001.ChapSetting("chapSetting",
+            chap_user_name="ChapSettingForSDK",
+            device_name="HSDK-WSJQERQW3F",
+            manager_name="hAzureSDKOperations",
+            password=azure_native.storsimple.v20161001.AsymmetricEncryptedSecretArgs(
+                encryption_algorithm=azure_native.storsimple/v20161001.EncryptionAlgorithm.RSAE_S_PKCS1_V_1_5,
+                encryption_certificate_thumbprint="D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+                value="<value>",
+            ),
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:ChapSetting ChapSettingForSDK /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/chapSettings/ChapSettingForSDK 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ChapSettingArgs args: The arguments to use to populate this resource's properties.

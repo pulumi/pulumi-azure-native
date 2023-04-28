@@ -143,6 +143,36 @@ class Target(pulumi.CustomResource):
         """
         Model that represents a Target resource.
 
+        ## Example Usage
+        ### Create/update a Target that extends a virtual machine resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        target = azure_native.chaos.v20210915preview.Target("target",
+            parent_provider_namespace="Microsoft.Compute",
+            parent_resource_name="exampleVM",
+            parent_resource_type="virtualMachines",
+            properties={
+                "identities": [{
+                    "subject": "CN=example.subject",
+                    "type": "CertificateSubjectIssuer",
+                }],
+            },
+            resource_group_name="exampleRG",
+            target_name="Microsoft-Agent")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:chaos/v20210915preview:Target Microsoft-Agent /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-Agent 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Location of the target resource.
@@ -161,6 +191,36 @@ class Target(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Model that represents a Target resource.
+
+        ## Example Usage
+        ### Create/update a Target that extends a virtual machine resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        target = azure_native.chaos.v20210915preview.Target("target",
+            parent_provider_namespace="Microsoft.Compute",
+            parent_resource_name="exampleVM",
+            parent_resource_type="virtualMachines",
+            properties={
+                "identities": [{
+                    "subject": "CN=example.subject",
+                    "type": "CertificateSubjectIssuer",
+                }],
+            },
+            resource_group_name="exampleRG",
+            target_name="Microsoft-Agent")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:chaos/v20210915preview:Target Microsoft-Agent /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-Agent 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TargetArgs args: The arguments to use to populate this resource's properties.

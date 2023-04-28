@@ -11,6 +11,144 @@ namespace Pulumi.AzureNative.Network.V20210601
 {
     /// <summary>
     /// A rules engine configuration containing a list of rules that will run to modify the runtime behavior of the request and response.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a specific Rules Engine Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var rulesEngine = new AzureNative.Network.V20210601.RulesEngine("rulesEngine", new()
+    ///     {
+    ///         FrontDoorName = "frontDoor1",
+    ///         ResourceGroupName = "rg1",
+    ///         Rules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210601.Inputs.RulesEngineRuleArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.V20210601.Inputs.RulesEngineActionArgs
+    ///                 {
+    ///                     RouteConfigurationOverride = new AzureNative.Network.V20210601.Inputs.RedirectConfigurationArgs
+    ///                     {
+    ///                         CustomFragment = "fragment",
+    ///                         CustomHost = "www.bing.com",
+    ///                         CustomPath = "/api",
+    ///                         CustomQueryString = "a=b",
+    ///                         OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration",
+    ///                         RedirectProtocol = "HttpsOnly",
+    ///                         RedirectType = "Moved",
+    ///                     },
+    ///                 },
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20210601.Inputs.RulesEngineMatchConditionArgs
+    ///                     {
+    ///                         RulesEngineMatchValue = new[]
+    ///                         {
+    ///                             "CH",
+    ///                         },
+    ///                         RulesEngineMatchVariable = "RemoteAddr",
+    ///                         RulesEngineOperator = "GeoMatch",
+    ///                     },
+    ///                 },
+    ///                 MatchProcessingBehavior = "Stop",
+    ///                 Name = "Rule1",
+    ///                 Priority = 1,
+    ///             },
+    ///             new AzureNative.Network.V20210601.Inputs.RulesEngineRuleArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.V20210601.Inputs.RulesEngineActionArgs
+    ///                 {
+    ///                     ResponseHeaderActions = new[]
+    ///                     {
+    ///                         new AzureNative.Network.V20210601.Inputs.HeaderActionArgs
+    ///                         {
+    ///                             HeaderActionType = "Overwrite",
+    ///                             HeaderName = "Cache-Control",
+    ///                             Value = "public, max-age=31536000",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20210601.Inputs.RulesEngineMatchConditionArgs
+    ///                     {
+    ///                         RulesEngineMatchValue = new[]
+    ///                         {
+    ///                             "jpg",
+    ///                         },
+    ///                         RulesEngineMatchVariable = "RequestFilenameExtension",
+    ///                         RulesEngineOperator = "Equal",
+    ///                         Transforms = new[]
+    ///                         {
+    ///                             "Lowercase",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Name = "Rule2",
+    ///                 Priority = 2,
+    ///             },
+    ///             new AzureNative.Network.V20210601.Inputs.RulesEngineRuleArgs
+    ///             {
+    ///                 Action = new AzureNative.Network.V20210601.Inputs.RulesEngineActionArgs
+    ///                 {
+    ///                     RouteConfigurationOverride = new AzureNative.Network.V20210601.Inputs.ForwardingConfigurationArgs
+    ///                     {
+    ///                         BackendPool = new AzureNative.Network.V20210601.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/backendPools/backendPool1",
+    ///                         },
+    ///                         CacheConfiguration = new AzureNative.Network.V20210601.Inputs.CacheConfigurationArgs
+    ///                         {
+    ///                             CacheDuration = "P1DT12H20M30S",
+    ///                             DynamicCompression = "Disabled",
+    ///                             QueryParameterStripDirective = "StripOnly",
+    ///                             QueryParameters = "a=b,p=q",
+    ///                         },
+    ///                         ForwardingProtocol = "HttpsOnly",
+    ///                         OdataType = "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+    ///                     },
+    ///                 },
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20210601.Inputs.RulesEngineMatchConditionArgs
+    ///                     {
+    ///                         NegateCondition = false,
+    ///                         RulesEngineMatchValue = new[]
+    ///                         {
+    ///                             "allowoverride",
+    ///                         },
+    ///                         RulesEngineMatchVariable = "RequestHeader",
+    ///                         RulesEngineOperator = "Equal",
+    ///                         Selector = "Rules-Engine-Route-Forward",
+    ///                         Transforms = new[]
+    ///                         {
+    ///                             "Lowercase",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Name = "Rule3",
+    ///                 Priority = 3,
+    ///             },
+    ///         },
+    ///         RulesEngineName = "rulesEngine1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210601:RulesEngine rulesEngine1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/frontDoors/frontDoor1/rulesEngines/rulesEngine1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210601:RulesEngine")]
     public partial class RulesEngine : global::Pulumi.CustomResource

@@ -216,6 +216,76 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
         """
         OpenShift Managed cluster.
 
+        ## Example Usage
+        ### Create/Update OpenShift Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_shift_managed_cluster = azure_native.containerservice.v20190430.OpenShiftManagedCluster("openShiftManagedCluster",
+            agent_pool_profiles=[
+                {
+                    "count": 2,
+                    "name": "infra",
+                    "osType": "Linux",
+                    "role": "infra",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+                {
+                    "count": 4,
+                    "name": "compute",
+                    "osType": "Linux",
+                    "role": "compute",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+            ],
+            auth_profile=azure_native.containerservice.v20190430.OpenShiftManagedClusterAuthProfileResponseArgs(
+                identity_providers=[{
+                    "name": "Azure AD",
+                    "provider": azure_native.containerservice.v20190430.OpenShiftManagedClusterAADIdentityProviderResponseArgs(
+                        client_id="clientId",
+                        customer_admin_group_id="customerAdminGroupId",
+                        kind="AADIdentityProvider",
+                        secret="secret",
+                        tenant_id="tenantId",
+                    ),
+                }],
+            ),
+            location="location1",
+            master_pool_profile=azure_native.containerservice.v20190430.OpenShiftManagedClusterMasterPoolProfileResponseArgs(
+                count=3,
+                name="master",
+                os_type="Linux",
+                subnet_cidr="10.0.0.0/24",
+                vm_size="Standard_D4s_v3",
+            ),
+            network_profile=azure_native.containerservice.v20190430.NetworkProfileArgs(
+                vnet_cidr="10.0.0.0/8",
+            ),
+            open_shift_version="v3.11",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            router_profiles=[azure_native.containerservice.v20190430.OpenShiftRouterProfileArgs(
+                name="default",
+            )],
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20190430:OpenShiftManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/openShiftManagedClusters/clustername1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['OpenShiftManagedClusterAgentPoolProfileArgs']]]] agent_pool_profiles: Configuration of OpenShift cluster VMs.
@@ -238,6 +308,76 @@ class OpenShiftManagedCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         OpenShift Managed cluster.
+
+        ## Example Usage
+        ### Create/Update OpenShift Managed Cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_shift_managed_cluster = azure_native.containerservice.v20190430.OpenShiftManagedCluster("openShiftManagedCluster",
+            agent_pool_profiles=[
+                {
+                    "count": 2,
+                    "name": "infra",
+                    "osType": "Linux",
+                    "role": "infra",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+                {
+                    "count": 4,
+                    "name": "compute",
+                    "osType": "Linux",
+                    "role": "compute",
+                    "subnetCidr": "10.0.0.0/24",
+                    "vmSize": "Standard_D4s_v3",
+                },
+            ],
+            auth_profile=azure_native.containerservice.v20190430.OpenShiftManagedClusterAuthProfileResponseArgs(
+                identity_providers=[{
+                    "name": "Azure AD",
+                    "provider": azure_native.containerservice.v20190430.OpenShiftManagedClusterAADIdentityProviderResponseArgs(
+                        client_id="clientId",
+                        customer_admin_group_id="customerAdminGroupId",
+                        kind="AADIdentityProvider",
+                        secret="secret",
+                        tenant_id="tenantId",
+                    ),
+                }],
+            ),
+            location="location1",
+            master_pool_profile=azure_native.containerservice.v20190430.OpenShiftManagedClusterMasterPoolProfileResponseArgs(
+                count=3,
+                name="master",
+                os_type="Linux",
+                subnet_cidr="10.0.0.0/24",
+                vm_size="Standard_D4s_v3",
+            ),
+            network_profile=azure_native.containerservice.v20190430.NetworkProfileArgs(
+                vnet_cidr="10.0.0.0/8",
+            ),
+            open_shift_version="v3.11",
+            resource_group_name="rg1",
+            resource_name_="clustername1",
+            router_profiles=[azure_native.containerservice.v20190430.OpenShiftRouterProfileArgs(
+                name="default",
+            )],
+            tags={
+                "archv2": "",
+                "tier": "production",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20190430:OpenShiftManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/openShiftManagedClusters/clustername1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OpenShiftManagedClusterArgs args: The arguments to use to populate this resource's properties.

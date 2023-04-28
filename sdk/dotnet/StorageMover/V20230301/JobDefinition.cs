@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
 {
     /// <summary>
     /// The Job Definition resource.
+    /// 
+    /// ## Example Usage
+    /// ### JobDefinitions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobDefinition = new AzureNative.StorageMover.V20230301.JobDefinition("jobDefinition", new()
+    ///     {
+    ///         AgentName = "migration-agent",
+    ///         CopyMode = "Additive",
+    ///         Description = "Example Job Definition Description",
+    ///         JobDefinitionName = "examples-jobDefinitionName",
+    ///         ProjectName = "examples-projectName",
+    ///         ResourceGroupName = "examples-rg",
+    ///         SourceName = "examples-sourceEndpointName",
+    ///         SourceSubpath = "/",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///         TargetName = "examples-targetEndpointName",
+    ///         TargetSubpath = "/",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagemover/v20230301:JobDefinition examples-jobDefinitionName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/projects/examples-projectName/jobDefinitions/examples-jobDefinitionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover/v20230301:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource

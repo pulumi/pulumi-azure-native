@@ -11,6 +11,448 @@ namespace Pulumi.AzureNative.ContainerInstance.V20230501
 {
     /// <summary>
     /// A container group.
+    /// 
+    /// ## Example Usage
+    /// ### ConfidentialContainerGroup
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerGroup = new AzureNative.ContainerInstance.V20230501.ContainerGroup("containerGroup", new()
+    ///     {
+    ///         ConfidentialComputeProperties = new AzureNative.ContainerInstance.V20230501.Inputs.ConfidentialComputePropertiesArgs
+    ///         {
+    ///             CcePolicy = "eyJhbGxvd19hbGwiOiB0cnVlLCAiY29udGFpbmVycyI6IHsibGVuZ3RoIjogMCwgImVsZW1lbnRzIjogbnVsbH19",
+    ///         },
+    ///         ContainerGroupName = "demo1",
+    ///         Containers = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.ContainerArgs
+    ///             {
+    ///                 Command = new[] {},
+    ///                 EnvironmentVariables = new[] {},
+    ///                 Image = "confiimage",
+    ///                 Name = "accdemo",
+    ///                 Ports = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerInstance.V20230501.Inputs.ContainerPortArgs
+    ///                     {
+    ///                         Port = 8000,
+    ///                     },
+    ///                 },
+    ///                 Resources = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequirementsArgs
+    ///                 {
+    ///                     Requests = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequestsArgs
+    ///                     {
+    ///                         Cpu = 1,
+    ///                         MemoryInGB = 1.5,
+    ///                     },
+    ///                 },
+    ///                 SecurityContext = new AzureNative.ContainerInstance.V20230501.Inputs.SecurityContextDefinitionArgs
+    ///                 {
+    ///                     Capabilities = new AzureNative.ContainerInstance.V20230501.Inputs.SecurityContextCapabilitiesDefinitionArgs
+    ///                     {
+    ///                         Add = new[]
+    ///                         {
+    ///                             "CAP_NET_ADMIN",
+    ///                         },
+    ///                     },
+    ///                     Privileged = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ImageRegistryCredentials = new[] {},
+    ///         IpAddress = new AzureNative.ContainerInstance.V20230501.Inputs.IpAddressArgs
+    ///         {
+    ///             Ports = new[]
+    ///             {
+    ///                 new AzureNative.ContainerInstance.V20230501.Inputs.PortArgs
+    ///                 {
+    ///                     Port = 8000,
+    ///                     Protocol = "TCP",
+    ///                 },
+    ///             },
+    ///             Type = "Public",
+    ///         },
+    ///         Location = "westeurope",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "demo",
+    ///         Sku = "Confidential",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ContainerGroupCreateWithExtensions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerGroup = new AzureNative.ContainerInstance.V20230501.ContainerGroup("containerGroup", new()
+    ///     {
+    ///         ContainerGroupName = "demo1",
+    ///         Containers = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.ContainerArgs
+    ///             {
+    ///                 Command = new[] {},
+    ///                 EnvironmentVariables = new[] {},
+    ///                 Image = "nginx",
+    ///                 Name = "demo1",
+    ///                 Ports = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerInstance.V20230501.Inputs.ContainerPortArgs
+    ///                     {
+    ///                         Port = 80,
+    ///                     },
+    ///                 },
+    ///                 Resources = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequirementsArgs
+    ///                 {
+    ///                     Requests = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequestsArgs
+    ///                     {
+    ///                         Cpu = 1,
+    ///                         MemoryInGB = 1.5,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Extensions = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.DeploymentExtensionSpecArgs
+    ///             {
+    ///                 ExtensionType = "kube-proxy",
+    ///                 Name = "kube-proxy",
+    ///                 ProtectedSettings = 
+    ///                 {
+    ///                     { "kubeConfig", "&lt;kubeconfig encoded string&gt;" },
+    ///                 },
+    ///                 Settings = 
+    ///                 {
+    ///                     { "clusterCidr", "10.240.0.0/16" },
+    ///                     { "kubeVersion", "v1.9.10" },
+    ///                 },
+    ///                 Version = "1.0",
+    ///             },
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.DeploymentExtensionSpecArgs
+    ///             {
+    ///                 ExtensionType = "realtime-metrics",
+    ///                 Name = "vk-realtime-metrics",
+    ///                 Version = "1.0",
+    ///             },
+    ///         },
+    ///         ImageRegistryCredentials = new[] {},
+    ///         IpAddress = new AzureNative.ContainerInstance.V20230501.Inputs.IpAddressArgs
+    ///         {
+    ///             Ports = new[]
+    ///             {
+    ///                 new AzureNative.ContainerInstance.V20230501.Inputs.PortArgs
+    ///                 {
+    ///                     Port = 80,
+    ///                     Protocol = "TCP",
+    ///                 },
+    ///             },
+    ///             Type = "Private",
+    ///         },
+    ///         Location = "eastus2",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "demo",
+    ///         SubnetIds = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.ContainerGroupSubnetIdArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-rg-vnet/subnets/test-subnet",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ContainerGroupWithEncryptionProperties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerGroup = new AzureNative.ContainerInstance.V20230501.ContainerGroup("containerGroup", new()
+    ///     {
+    ///         ContainerGroupName = "demo1",
+    ///         Containers = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.ContainerArgs
+    ///             {
+    ///                 Command = new[] {},
+    ///                 EnvironmentVariables = new[] {},
+    ///                 Image = "nginx",
+    ///                 Name = "demo1",
+    ///                 Ports = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerInstance.V20230501.Inputs.ContainerPortArgs
+    ///                     {
+    ///                         Port = 80,
+    ///                     },
+    ///                 },
+    ///                 Resources = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequirementsArgs
+    ///                 {
+    ///                     Requests = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequestsArgs
+    ///                     {
+    ///                         Cpu = 1,
+    ///                         MemoryInGB = 1.5,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         EncryptionProperties = new AzureNative.ContainerInstance.V20230501.Inputs.EncryptionPropertiesArgs
+    ///         {
+    ///             Identity = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity",
+    ///             KeyName = "test-key",
+    ///             KeyVersion = "&lt;key version&gt;",
+    ///             VaultBaseUrl = "https://testkeyvault.vault.azure.net",
+    ///         },
+    ///         Identity = new AzureNative.ContainerInstance.V20230501.Inputs.ContainerGroupIdentityArgs
+    ///         {
+    ///             Type = AzureNative.ContainerInstance.V20230501.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/container-group-identity", null },
+    ///             },
+    ///         },
+    ///         ImageRegistryCredentials = new[] {},
+    ///         IpAddress = new AzureNative.ContainerInstance.V20230501.Inputs.IpAddressArgs
+    ///         {
+    ///             Ports = new[]
+    ///             {
+    ///                 new AzureNative.ContainerInstance.V20230501.Inputs.PortArgs
+    ///                 {
+    ///                     Port = 80,
+    ///                     Protocol = "TCP",
+    ///                 },
+    ///             },
+    ///             Type = "Public",
+    ///         },
+    ///         Location = "eastus2",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "demo",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ContainerGroupsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerGroup = new AzureNative.ContainerInstance.V20230501.ContainerGroup("containerGroup", new()
+    ///     {
+    ///         ContainerGroupName = "demo1",
+    ///         Containers = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.ContainerArgs
+    ///             {
+    ///                 Command = new[] {},
+    ///                 EnvironmentVariables = new[] {},
+    ///                 Image = "nginx",
+    ///                 Name = "demo1",
+    ///                 Ports = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerInstance.V20230501.Inputs.ContainerPortArgs
+    ///                     {
+    ///                         Port = 80,
+    ///                     },
+    ///                 },
+    ///                 Resources = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequirementsArgs
+    ///                 {
+    ///                     Requests = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequestsArgs
+    ///                     {
+    ///                         Cpu = 1,
+    ///                         Gpu = new AzureNative.ContainerInstance.V20230501.Inputs.GpuResourceArgs
+    ///                         {
+    ///                             Count = 1,
+    ///                             Sku = "K80",
+    ///                         },
+    ///                         MemoryInGB = 1.5,
+    ///                     },
+    ///                 },
+    ///                 VolumeMounts = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerInstance.V20230501.Inputs.VolumeMountArgs
+    ///                     {
+    ///                         MountPath = "/mnt/volume1",
+    ///                         Name = "volume1",
+    ///                         ReadOnly = false,
+    ///                     },
+    ///                     new AzureNative.ContainerInstance.V20230501.Inputs.VolumeMountArgs
+    ///                     {
+    ///                         MountPath = "/mnt/volume2",
+    ///                         Name = "volume2",
+    ///                         ReadOnly = false,
+    ///                     },
+    ///                     new AzureNative.ContainerInstance.V20230501.Inputs.VolumeMountArgs
+    ///                     {
+    ///                         MountPath = "/mnt/volume3",
+    ///                         Name = "volume3",
+    ///                         ReadOnly = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Diagnostics = new AzureNative.ContainerInstance.V20230501.Inputs.ContainerGroupDiagnosticsArgs
+    ///         {
+    ///             LogAnalytics = new AzureNative.ContainerInstance.V20230501.Inputs.LogAnalyticsArgs
+    ///             {
+    ///                 LogType = "ContainerInsights",
+    ///                 Metadata = 
+    ///                 {
+    ///                     { "test-key", "test-metadata-value" },
+    ///                 },
+    ///                 WorkspaceId = "workspaceid",
+    ///                 WorkspaceKey = "workspaceKey",
+    ///                 WorkspaceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg/providers/microsoft.operationalinsights/workspaces/workspace",
+    ///             },
+    ///         },
+    ///         DnsConfig = new AzureNative.ContainerInstance.V20230501.Inputs.DnsConfigurationArgs
+    ///         {
+    ///             NameServers = new[]
+    ///             {
+    ///                 "1.1.1.1",
+    ///             },
+    ///             Options = "ndots:2",
+    ///             SearchDomains = "cluster.local svc.cluster.local",
+    ///         },
+    ///         Identity = new AzureNative.ContainerInstance.V20230501.Inputs.ContainerGroupIdentityArgs
+    ///         {
+    ///             Type = AzureNative.ContainerInstance.V20230501.ResourceIdentityType.SystemAssigned_UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name", null },
+    ///             },
+    ///         },
+    ///         ImageRegistryCredentials = new[] {},
+    ///         IpAddress = new AzureNative.ContainerInstance.V20230501.Inputs.IpAddressArgs
+    ///         {
+    ///             AutoGeneratedDomainNameLabelScope = "Unsecure",
+    ///             DnsNameLabel = "dnsnamelabel1",
+    ///             Ports = new[]
+    ///             {
+    ///                 new AzureNative.ContainerInstance.V20230501.Inputs.PortArgs
+    ///                 {
+    ///                     Port = 80,
+    ///                     Protocol = "TCP",
+    ///                 },
+    ///             },
+    ///             Type = "Public",
+    ///         },
+    ///         Location = "west us",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "demo",
+    ///         SubnetIds = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.ContainerGroupSubnetIdArgs
+    ///             {
+    ///                 Id = "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('vnetName'), parameters('subnetName'))]",
+    ///             },
+    ///         },
+    ///         Volumes = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.VolumeArgs
+    ///             {
+    ///                 AzureFile = new AzureNative.ContainerInstance.V20230501.Inputs.AzureFileVolumeArgs
+    ///                 {
+    ///                     ShareName = "shareName",
+    ///                     StorageAccountKey = "accountKey",
+    ///                     StorageAccountName = "accountName",
+    ///                 },
+    ///                 Name = "volume1",
+    ///             },
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.VolumeArgs
+    ///             {
+    ///                 EmptyDir = null,
+    ///                 Name = "volume2",
+    ///             },
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.VolumeArgs
+    ///             {
+    ///                 Name = "volume3",
+    ///                 Secret = 
+    ///                 {
+    ///                     { "secretKey1", "SecretValue1InBase64" },
+    ///                     { "secretKey2", "SecretValue2InBase64" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ContainerGroupsCreateWithPriority
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerGroup = new AzureNative.ContainerInstance.V20230501.ContainerGroup("containerGroup", new()
+    ///     {
+    ///         ContainerGroupName = "demo1",
+    ///         Containers = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20230501.Inputs.ContainerArgs
+    ///             {
+    ///                 Command = new[]
+    ///                 {
+    ///                     "/bin/sh",
+    ///                     "-c",
+    ///                     "sleep 10",
+    ///                 },
+    ///                 Image = "alpine:latest",
+    ///                 Name = "test-container-001",
+    ///                 Resources = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequirementsArgs
+    ///                 {
+    ///                     Requests = new AzureNative.ContainerInstance.V20230501.Inputs.ResourceRequestsArgs
+    ///                     {
+    ///                         Cpu = 1,
+    ///                         MemoryInGB = 1,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         OsType = "Linux",
+    ///         Priority = "Spot",
+    ///         ResourceGroupName = "demo",
+    ///         RestartPolicy = "Never",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerinstance/v20230501:ContainerGroup demo1 /subscriptions/subId/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance/v20230501:ContainerGroup")]
     public partial class ContainerGroup : global::Pulumi.CustomResource

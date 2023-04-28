@@ -11,6 +11,82 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 {
     /// <summary>
     /// The RoutePolicy resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### RoutePolicies_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var routePolicy = new AzureNative.ManagedNetworkFabric.V20230201Preview.RoutePolicy("routePolicy", new()
+    ///     {
+    ///         Annotation = "example routepolicy",
+    ///         Conditions = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.RoutePolicyPropertiesConditionsArgs
+    ///             {
+    ///                 Action = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.RoutePolicyPropertiesActionArgs
+    ///                 {
+    ///                     Action = "allow",
+    ///                     Set = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.RoutePolicyPropertiesSetArgs
+    ///                     {
+    ///                         Set = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.RoutePolicyPropertiesSetSetArgs
+    ///                         {
+    ///                             IpCommunityListIds = new[]
+    ///                             {
+    ///                                 "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName",
+    ///                             },
+    ///                             IpExtendedCommunityListIds = new[]
+    ///                             {
+    ///                                 "",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Annotation = "",
+    ///                 Match = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.RoutePolicyPropertiesMatchArgs
+    ///                 {
+    ///                     AccessControlListIds = new[]
+    ///                     {
+    ///                         "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/accessControlLists/accessControlListName",
+    ///                     },
+    ///                     IpCommunityListIds = new[]
+    ///                     {
+    ///                         "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName",
+    ///                     },
+    ///                     IpExtendedCommunityListIds = new[]
+    ///                     {
+    ///                         "",
+    ///                     },
+    ///                 },
+    ///                 SequenceNumber = 7,
+    ///             },
+    ///         },
+    ///         Description = "RPexample",
+    ///         Location = "EastUS",
+    ///         ResourceGroupName = "rgRoutePolicies",
+    ///         RoutePolicyName = "example RoutePolicy",
+    ///         Tags = 
+    ///         {
+    ///             { "key8254", "" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric/v20230201preview:RoutePolicy routePolicyName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric/v20230201preview:RoutePolicy")]
     public partial class RoutePolicy : global::Pulumi.CustomResource

@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// Route Filter Rule Resource.
+    /// 
+    /// ## Example Usage
+    /// ### RouteFilterRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var routeFilterRule = new AzureNative.Network.V20201101.RouteFilterRule("routeFilterRule", new()
+    ///     {
+    ///         Access = "Allow",
+    ///         Communities = new[]
+    ///         {
+    ///             "12076:5030",
+    ///             "12076:5040",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         RouteFilterName = "filterName",
+    ///         RouteFilterRuleType = "Community",
+    ///         RuleName = "ruleName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:RouteFilterRule ruleName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:RouteFilterRule")]
     public partial class RouteFilterRule : global::Pulumi.CustomResource

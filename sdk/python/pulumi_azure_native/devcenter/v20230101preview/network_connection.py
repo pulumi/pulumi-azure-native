@@ -214,6 +214,34 @@ class NetworkConnection(pulumi.CustomResource):
         """
         Network related settings
 
+        ## Example Usage
+        ### NetworkConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_connection = azure_native.devcenter.v20230101preview.NetworkConnection("networkConnection",
+            domain_join_type="HybridAzureADJoin",
+            domain_name="mydomaincontroller.local",
+            domain_password="Password value for user",
+            domain_username="testuser@mydomaincontroller.local",
+            location="centralus",
+            network_connection_name="uswest3network",
+            networking_resource_group_name="NetworkInterfaces",
+            resource_group_name="rg1",
+            subnet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:NetworkConnection uswest3network /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/networkconnections/uswest3network 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DomainJoinType']] domain_join_type: AAD Join type.
@@ -236,6 +264,34 @@ class NetworkConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network related settings
+
+        ## Example Usage
+        ### NetworkConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_connection = azure_native.devcenter.v20230101preview.NetworkConnection("networkConnection",
+            domain_join_type="HybridAzureADJoin",
+            domain_name="mydomaincontroller.local",
+            domain_password="Password value for user",
+            domain_username="testuser@mydomaincontroller.local",
+            location="centralus",
+            network_connection_name="uswest3network",
+            networking_resource_group_name="NetworkInterfaces",
+            resource_group_name="rg1",
+            subnet_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:NetworkConnection uswest3network /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/networkconnections/uswest3network 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkConnectionArgs args: The arguments to use to populate this resource's properties.

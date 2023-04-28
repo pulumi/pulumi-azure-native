@@ -13,6 +13,59 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// The prediction resource format.
     /// API Version: 2017-04-26.
     /// Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Predictions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var prediction = new AzureNative.CustomerInsights.Prediction("prediction", new()
+    ///     {
+    ///         AutoAnalyze = true,
+    ///         Description = 
+    ///         {
+    ///             { "en-us", "sdktest" },
+    ///         },
+    ///         DisplayName = 
+    ///         {
+    ///             { "en-us", "sdktest" },
+    ///         },
+    ///         Grades = new[] {},
+    ///         HubName = "sdkTestHub",
+    ///         InvolvedInteractionTypes = new[] {},
+    ///         InvolvedKpiTypes = new[] {},
+    ///         InvolvedRelationships = new[] {},
+    ///         Mappings = new AzureNative.CustomerInsights.Inputs.PredictionMappingsArgs
+    ///         {
+    ///             Grade = "sdktest_Grade",
+    ///             Reason = "sdktest_Reason",
+    ///             Score = "sdktest_Score",
+    ///         },
+    ///         NegativeOutcomeExpression = "Customers.FirstName = 'Mike'",
+    ///         PositiveOutcomeExpression = "Customers.FirstName = 'David'",
+    ///         PredictionName = "sdktest",
+    ///         PrimaryProfileType = "Customers",
+    ///         ResourceGroupName = "TestHubRG",
+    ///         ScopeExpression = "*",
+    ///         ScoreLabel = "score label",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights:Prediction sdkTestHub/sdktest /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/predictions/sdktest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:Prediction")]
     public partial class Prediction : global::Pulumi.CustomResource

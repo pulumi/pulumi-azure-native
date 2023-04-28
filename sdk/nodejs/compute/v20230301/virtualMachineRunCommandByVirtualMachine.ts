@@ -9,6 +9,53 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine run command.
+ *
+ * ## Example Usage
+ * ### Create or update a run command.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineRunCommandByVirtualMachine = new azure_native.compute.v20230301.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine", {
+ *     asyncExecution: false,
+ *     errorBlobUri: `https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt?sp=racw&st=2022-10-07T19:40:21Z&se=2022-10-08T03:40:21Z&spr=https&sv=2021-06-08&sr=b&sig=Yh7B%2Fy83olbYBdfsfbUREvd7ol8Dq5EVP3lAO4Kj4xDcN8%3D`,
+ *     location: "West US",
+ *     outputBlobManagedIdentity: {
+ *         clientId: "22d35efb-0c99-4041-8c5b-6d24db33a69a",
+ *     },
+ *     outputBlobUri: "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+ *     parameters: [
+ *         {
+ *             name: "param1",
+ *             value: "value1",
+ *         },
+ *         {
+ *             name: "param2",
+ *             value: "value2",
+ *         },
+ *     ],
+ *     resourceGroupName: "myResourceGroup",
+ *     runAsPassword: "<runAsPassword>",
+ *     runAsUser: "user1",
+ *     runCommandName: "myRunCommand",
+ *     source: {
+ *         scriptUri: `https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1?sp=r&st=2022-10-07T19:52:54Z&se=2022-10-08T03:52:54Z&spr=https&sv=2021-06-08&sr=b&sig=zfYFYCgea1PqVERZuwJiewrte5gjTnKGtVJngcw5oc828%3D`,
+ *     },
+ *     timeoutInSeconds: 3600,
+ *     treatFailureAsDeploymentFailure: false,
+ *     vmName: "myVM",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/runCommands/myRunCommand 
+ * ```
  */
 export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResource {
     /**

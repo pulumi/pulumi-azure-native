@@ -13,6 +13,46 @@ namespace Pulumi.AzureNative.OffAzure
     /// Site REST Resource.
     /// API Version: 2020-07-07.
     /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create VMware site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var site = new AzureNative.OffAzure.Site("site", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.OffAzure.Inputs.SitePropertiesArgs
+    ///         {
+    ///             ServicePrincipalIdentityDetails = new AzureNative.OffAzure.Inputs.SiteSpnPropertiesArgs
+    ///             {
+    ///                 AadAuthority = "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///                 ApplicationId = "e9f013df-2a2a-4871-b766-e79867f30348",
+    ///                 Audience = "https://72f988bf-86f1-41af-91ab-2d7cd011db47/MaheshSite17ac9agentauthaadapp",
+    ///                 ObjectId = "2cd492bc-7ef3-4ee0-b301-59a88108b47b",
+    ///                 TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "pajindTest",
+    ///         SiteName = "appliance1e39site",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:offazure:Site appliance1e39site /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest/providers/Microsoft.OffAzure/VMwareSites/appliance1e39site 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:Site")]
     public partial class Site : global::Pulumi.CustomResource

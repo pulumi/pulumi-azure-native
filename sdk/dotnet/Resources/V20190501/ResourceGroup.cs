@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.Resources.V20190501
 {
     /// <summary>
     /// Resource group information.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a resource group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var resourceGroup = new AzureNative.Resources.V20190501.ResourceGroup("resourceGroup", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20190501:ResourceGroup myResourceGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20190501:ResourceGroup")]
     public partial class ResourceGroup : global::Pulumi.CustomResource

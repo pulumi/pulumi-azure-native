@@ -185,6 +185,80 @@ class DiskEncryptionSet(pulumi.CustomResource):
         API Version: 2022-07-02.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a disk encryption set with key vault from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_encryption_set = azure_native.compute.DiskEncryptionSet("diskEncryptionSet",
+            active_key=azure_native.compute.KeyForDiskEncryptionSetResponseArgs(
+                key_url="https://myvaultdifferentsub.vault-int.azure-int.net/keys/{key}",
+            ),
+            disk_encryption_set_name="myDiskEncryptionSet",
+            encryption_type="EncryptionAtRestWithCustomerKey",
+            identity=azure_native.compute.EncryptionSetIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a disk encryption set with key vault from a different tenant.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_encryption_set = azure_native.compute.DiskEncryptionSet("diskEncryptionSet",
+            active_key=azure_native.compute.KeyForDiskEncryptionSetResponseArgs(
+                key_url="https://myvaultdifferenttenant.vault-int.azure-int.net/keys/{key}",
+            ),
+            disk_encryption_set_name="myDiskEncryptionSet",
+            encryption_type="EncryptionAtRestWithCustomerKey",
+            federated_client_id="00000000-0000-0000-0000-000000000000",
+            identity=azure_native.compute.EncryptionSetIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}": {},
+                },
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a disk encryption set.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_encryption_set = azure_native.compute.DiskEncryptionSet("diskEncryptionSet",
+            active_key=azure_native.compute.KeyForDiskEncryptionSetResponseArgs(
+                key_url="https://myvmvault.vault-int.azure-int.net/keys/{key}",
+                source_vault=azure_native.compute.SourceVaultArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",
+                ),
+            ),
+            disk_encryption_set_name="myDiskEncryptionSet",
+            encryption_type="EncryptionAtRestWithCustomerKey",
+            identity=azure_native.compute.EncryptionSetIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DiskEncryptionSet myDiskEncryptionSet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['KeyForDiskEncryptionSetArgs']] active_key: The key vault key which is currently used by this disk encryption set.
@@ -207,6 +281,80 @@ class DiskEncryptionSet(pulumi.CustomResource):
         disk encryption set resource.
         API Version: 2022-07-02.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a disk encryption set with key vault from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_encryption_set = azure_native.compute.DiskEncryptionSet("diskEncryptionSet",
+            active_key=azure_native.compute.KeyForDiskEncryptionSetResponseArgs(
+                key_url="https://myvaultdifferentsub.vault-int.azure-int.net/keys/{key}",
+            ),
+            disk_encryption_set_name="myDiskEncryptionSet",
+            encryption_type="EncryptionAtRestWithCustomerKey",
+            identity=azure_native.compute.EncryptionSetIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a disk encryption set with key vault from a different tenant.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_encryption_set = azure_native.compute.DiskEncryptionSet("diskEncryptionSet",
+            active_key=azure_native.compute.KeyForDiskEncryptionSetResponseArgs(
+                key_url="https://myvaultdifferenttenant.vault-int.azure-int.net/keys/{key}",
+            ),
+            disk_encryption_set_name="myDiskEncryptionSet",
+            encryption_type="EncryptionAtRestWithCustomerKey",
+            federated_client_id="00000000-0000-0000-0000-000000000000",
+            identity=azure_native.compute.EncryptionSetIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}": {},
+                },
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a disk encryption set.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk_encryption_set = azure_native.compute.DiskEncryptionSet("diskEncryptionSet",
+            active_key=azure_native.compute.KeyForDiskEncryptionSetResponseArgs(
+                key_url="https://myvmvault.vault-int.azure-int.net/keys/{key}",
+                source_vault=azure_native.compute.SourceVaultArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",
+                ),
+            ),
+            disk_encryption_set_name="myDiskEncryptionSet",
+            encryption_type="EncryptionAtRestWithCustomerKey",
+            identity=azure_native.compute.EncryptionSetIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DiskEncryptionSet myDiskEncryptionSet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiskEncryptionSetArgs args: The arguments to use to populate this resource's properties.

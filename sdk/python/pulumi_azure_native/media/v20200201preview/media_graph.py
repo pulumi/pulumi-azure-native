@@ -129,6 +129,110 @@ class MediaGraph(pulumi.CustomResource):
         """
         The Media Graph.
 
+        ## Example Usage
+        ### Create or update a Media Graph with a clear RTSP Source
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_graph = azure_native.media.v20200201preview.MediaGraph("mediaGraph",
+            account_name="contosomedia",
+            description="updated description",
+            media_graph_name="SampleMediaGraph",
+            resource_group_name="contoso",
+            sinks=[azure_native.media.v20200201preview.MediaGraphAssetSinkResponseArgs(
+                asset_name="SampleAsset",
+                inputs=["rtspSource"],
+                name="AssetSink",
+                odata_type="#Microsoft.Media.MediaGraphAssetSink",
+            )],
+            sources=[azure_native.media.v20200201preview.MediaGraphRtspSourceResponseArgs(
+                endpoint=azure_native.media.v20200201preview.MediaGraphClearEndpointArgs(
+                    credentials=azure_native.media.v20200201preview.MediaGraphUsernamePasswordCredentialsArgs(
+                        odata_type="#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+                        password="examplepassword",
+                        username="exampleusername",
+                    ),
+                    odata_type="#Microsoft.Media.MediaGraphClearEndpoint",
+                    url="rtsp://contoso.com:554/stream1",
+                ),
+                name="rtspSource",
+                odata_type="#Microsoft.Media.MediaGraphRtspSource",
+                transport="Http",
+            )])
+
+        ```
+        ### Create or update a Media Graph with an encrypted RTSP Source
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_graph = azure_native.media.v20200201preview.MediaGraph("mediaGraph",
+            account_name="contosomedia",
+            description="updated description",
+            media_graph_name="SampleMediaGraph",
+            resource_group_name="contoso",
+            sinks=[azure_native.media.v20200201preview.MediaGraphAssetSinkResponseArgs(
+                asset_name="SampleAsset",
+                inputs=["rtspSource"],
+                name="AssetSink",
+                odata_type="#Microsoft.Media.MediaGraphAssetSink",
+            )],
+            sources=[azure_native.media.v20200201preview.MediaGraphRtspSourceResponseArgs(
+                endpoint=azure_native.media.v20200201preview.MediaGraphTlsEndpointArgs(
+                    credentials=azure_native.media.v20200201preview.MediaGraphUsernamePasswordCredentialsArgs(
+                        odata_type="#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+                        password="examplepassword",
+                        username="exampleusername",
+                    ),
+                    odata_type="#Microsoft.Media.MediaGraphTlsEndpoint",
+                    trusted_certificates=azure_native.media.v20200201preview.MediaGraphPemCertificateListArgs(
+                        certificates=[\"\"\"-----BEGIN CERTIFICATE-----
+        MIIDhTCCAm2gAwIBAgIUajvPKmoO+8qaO89/ZGATl7ZYnTswDQYJKoZIhvcNAQEL
+        BQAwUTESMBAGA1UECgwJTWljcm9zb2Z0MRQwEgYDVQQLDAtBenVyZSBNZWRpYTEl
+        MCMGA1UEAwwcKFVudHJ1c3RlZCkgVGVzdCBDZXJ0aWZpY2F0ZTAgFw0yMDAyMDYy
+        MTI5MTlaGA8zMDE5MDYwOTIxMjkxOVowUTESMBAGA1UECgwJTWljcm9zb2Z0MRQw
+        EgYDVQQLDAtBenVyZSBNZWRpYTElMCMGA1UEAwwcKFVudHJ1c3RlZCkgVGVzdCBD
+        ZXJ0aWZpY2F0ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK2lg5ff
+        7xXPaBZXHl/zrTukdiBtu7BNIOchHba51eloruPRzpvQx7Pedk3CVTut7LYinijf
+        uol0EwkQ2FLt2i2jOqiva9nXR95ujIZHcKsEeMC4RSNSP4++k6SpP8FgyYVdv5ru
+        f8GC+HyYQ4j0TqpR/cJs53l/LGRSldaFZ6fcDde1jeyca4VivAbAH1/WDIOvmjzo
+        9XIGxZ10VSS5l5+DIgdkJZ+mDMLJIuVZ0YVF16ZGEB3beq1trk5lItvmSjQLTllH
+        qMFm9UGY8jKZSo/BY8ewHEtnGSAFQK0TVuRx1HhUWwu6C9jk+2zmRS2090BNpQWa
+        JMKFJrSPzFDPRX8CAwEAAaNTMFEwHQYDVR0OBBYEFIumbhu0lYk0EFDThEg0yyIn
+        /wZZMB8GA1UdIwQYMBaAFIumbhu0lYk0EFDThEg0yyIn/wZZMA8GA1UdEwEB/wQF
+        MAMBAf8wDQYJKoZIhvcNAQELBQADggEBADUNw+/NGNVtigq9tMJKqlk39MTpDn1s
+        Z1BVIAuAWSQjlevYZJeDIPUiWNWFhRe+xN7oOLnn2+NIXEKKeMSyuPoZYbN0mBkB
+        99oS3XVipSANpmDvIepNdCrOnjfqDFIifRF1Dqjtb6i1hb6v/qYKVPLQvcrgGur7
+        PKKkAu9p4YRZ3RBdwwaUuMgojrj/l6DGbeJY6IRVnVMY39rryMnZjA5xUlhCu55n
+        oB3t/jsJLwnQN+JbAjLAeuqgOWtgARsEFzvpt+VvDsaj0YLOJPhyJwTvHgaa/slB
+        nECzd3TuyFKYeGssSni/QQ1e7yZcLapQqz66g5otdriw0IRdOfDxm5M=
+        -----END CERTIFICATE-----\"\"\"],
+                        odata_type="#Microsoft.Media.MediaGraphPemCertificateList",
+                    ),
+                    url="rtsps://contoso.com:443/stream1",
+                    validation_options=azure_native.media.v20200201preview.MediaGraphTlsValidationOptionsArgs(
+                        ignore_hostname=True,
+                        ignore_signature=False,
+                    ),
+                ),
+                name="rtspSource",
+                odata_type="#Microsoft.Media.MediaGraphRtspSource",
+                transport="Http",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20200201preview:MediaGraph SampleMediaGraph /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/mediaGraphs/{mediaGraphName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -146,6 +250,110 @@ class MediaGraph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Media Graph.
+
+        ## Example Usage
+        ### Create or update a Media Graph with a clear RTSP Source
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_graph = azure_native.media.v20200201preview.MediaGraph("mediaGraph",
+            account_name="contosomedia",
+            description="updated description",
+            media_graph_name="SampleMediaGraph",
+            resource_group_name="contoso",
+            sinks=[azure_native.media.v20200201preview.MediaGraphAssetSinkResponseArgs(
+                asset_name="SampleAsset",
+                inputs=["rtspSource"],
+                name="AssetSink",
+                odata_type="#Microsoft.Media.MediaGraphAssetSink",
+            )],
+            sources=[azure_native.media.v20200201preview.MediaGraphRtspSourceResponseArgs(
+                endpoint=azure_native.media.v20200201preview.MediaGraphClearEndpointArgs(
+                    credentials=azure_native.media.v20200201preview.MediaGraphUsernamePasswordCredentialsArgs(
+                        odata_type="#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+                        password="examplepassword",
+                        username="exampleusername",
+                    ),
+                    odata_type="#Microsoft.Media.MediaGraphClearEndpoint",
+                    url="rtsp://contoso.com:554/stream1",
+                ),
+                name="rtspSource",
+                odata_type="#Microsoft.Media.MediaGraphRtspSource",
+                transport="Http",
+            )])
+
+        ```
+        ### Create or update a Media Graph with an encrypted RTSP Source
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        media_graph = azure_native.media.v20200201preview.MediaGraph("mediaGraph",
+            account_name="contosomedia",
+            description="updated description",
+            media_graph_name="SampleMediaGraph",
+            resource_group_name="contoso",
+            sinks=[azure_native.media.v20200201preview.MediaGraphAssetSinkResponseArgs(
+                asset_name="SampleAsset",
+                inputs=["rtspSource"],
+                name="AssetSink",
+                odata_type="#Microsoft.Media.MediaGraphAssetSink",
+            )],
+            sources=[azure_native.media.v20200201preview.MediaGraphRtspSourceResponseArgs(
+                endpoint=azure_native.media.v20200201preview.MediaGraphTlsEndpointArgs(
+                    credentials=azure_native.media.v20200201preview.MediaGraphUsernamePasswordCredentialsArgs(
+                        odata_type="#Microsoft.Media.MediaGraphUsernamePasswordCredentials",
+                        password="examplepassword",
+                        username="exampleusername",
+                    ),
+                    odata_type="#Microsoft.Media.MediaGraphTlsEndpoint",
+                    trusted_certificates=azure_native.media.v20200201preview.MediaGraphPemCertificateListArgs(
+                        certificates=[\"\"\"-----BEGIN CERTIFICATE-----
+        MIIDhTCCAm2gAwIBAgIUajvPKmoO+8qaO89/ZGATl7ZYnTswDQYJKoZIhvcNAQEL
+        BQAwUTESMBAGA1UECgwJTWljcm9zb2Z0MRQwEgYDVQQLDAtBenVyZSBNZWRpYTEl
+        MCMGA1UEAwwcKFVudHJ1c3RlZCkgVGVzdCBDZXJ0aWZpY2F0ZTAgFw0yMDAyMDYy
+        MTI5MTlaGA8zMDE5MDYwOTIxMjkxOVowUTESMBAGA1UECgwJTWljcm9zb2Z0MRQw
+        EgYDVQQLDAtBenVyZSBNZWRpYTElMCMGA1UEAwwcKFVudHJ1c3RlZCkgVGVzdCBD
+        ZXJ0aWZpY2F0ZTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAK2lg5ff
+        7xXPaBZXHl/zrTukdiBtu7BNIOchHba51eloruPRzpvQx7Pedk3CVTut7LYinijf
+        uol0EwkQ2FLt2i2jOqiva9nXR95ujIZHcKsEeMC4RSNSP4++k6SpP8FgyYVdv5ru
+        f8GC+HyYQ4j0TqpR/cJs53l/LGRSldaFZ6fcDde1jeyca4VivAbAH1/WDIOvmjzo
+        9XIGxZ10VSS5l5+DIgdkJZ+mDMLJIuVZ0YVF16ZGEB3beq1trk5lItvmSjQLTllH
+        qMFm9UGY8jKZSo/BY8ewHEtnGSAFQK0TVuRx1HhUWwu6C9jk+2zmRS2090BNpQWa
+        JMKFJrSPzFDPRX8CAwEAAaNTMFEwHQYDVR0OBBYEFIumbhu0lYk0EFDThEg0yyIn
+        /wZZMB8GA1UdIwQYMBaAFIumbhu0lYk0EFDThEg0yyIn/wZZMA8GA1UdEwEB/wQF
+        MAMBAf8wDQYJKoZIhvcNAQELBQADggEBADUNw+/NGNVtigq9tMJKqlk39MTpDn1s
+        Z1BVIAuAWSQjlevYZJeDIPUiWNWFhRe+xN7oOLnn2+NIXEKKeMSyuPoZYbN0mBkB
+        99oS3XVipSANpmDvIepNdCrOnjfqDFIifRF1Dqjtb6i1hb6v/qYKVPLQvcrgGur7
+        PKKkAu9p4YRZ3RBdwwaUuMgojrj/l6DGbeJY6IRVnVMY39rryMnZjA5xUlhCu55n
+        oB3t/jsJLwnQN+JbAjLAeuqgOWtgARsEFzvpt+VvDsaj0YLOJPhyJwTvHgaa/slB
+        nECzd3TuyFKYeGssSni/QQ1e7yZcLapQqz66g5otdriw0IRdOfDxm5M=
+        -----END CERTIFICATE-----\"\"\"],
+                        odata_type="#Microsoft.Media.MediaGraphPemCertificateList",
+                    ),
+                    url="rtsps://contoso.com:443/stream1",
+                    validation_options=azure_native.media.v20200201preview.MediaGraphTlsValidationOptionsArgs(
+                        ignore_hostname=True,
+                        ignore_signature=False,
+                    ),
+                ),
+                name="rtspSource",
+                odata_type="#Microsoft.Media.MediaGraphRtspSource",
+                transport="Http",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20200201preview:MediaGraph SampleMediaGraph /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{accountName}/mediaGraphs/{mediaGraphName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MediaGraphArgs args: The arguments to use to populate this resource's properties.

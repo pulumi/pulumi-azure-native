@@ -191,7 +191,44 @@ class StorageAppliance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a StorageAppliance resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update storage appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_appliance = azure_native.networkcloud.v20221212preview.StorageAppliance("storageAppliance",
+            administrator_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                password="{password}",
+                username="adminUser",
+            ),
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            rack_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+            rack_slot=1,
+            resource_group_name="resourceGroupName",
+            serial_number="BM1219XXX",
+            storage_appliance_name="storageApplianceName",
+            storage_appliance_sku_id="684E-3B16-399E",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:StorageAppliance storageApplianceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/storageAppliances/storageApplianceName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AdministrativeCredentialsArgs']] administrator_credentials: The credentials of the administrative interface on this storage appliance.
@@ -212,7 +249,44 @@ class StorageAppliance(pulumi.CustomResource):
                  args: StorageApplianceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a StorageAppliance resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update storage appliance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_appliance = azure_native.networkcloud.v20221212preview.StorageAppliance("storageAppliance",
+            administrator_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                password="{password}",
+                username="adminUser",
+            ),
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            rack_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+            rack_slot=1,
+            resource_group_name="resourceGroupName",
+            serial_number="BM1219XXX",
+            storage_appliance_name="storageApplianceName",
+            storage_appliance_sku_id="684E-3B16-399E",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:StorageAppliance storageApplianceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/storageAppliances/storageApplianceName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param StorageApplianceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

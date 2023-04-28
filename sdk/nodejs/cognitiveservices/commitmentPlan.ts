@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * Cognitive Services account commitment plan.
  * API Version: 2022-12-01.
  * Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Commitment Plan
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const commitmentPlan = new azure_native.cognitiveservices.CommitmentPlan("commitmentPlan", {
+ *     commitmentPlanName: "commitmentPlanName",
+ *     kind: "SpeechServices",
+ *     location: "West US",
+ *     properties: {
+ *         autoRenew: true,
+ *         current: {
+ *             tier: "T1",
+ *         },
+ *         hostingModel: "Web",
+ *         planType: "STT",
+ *     },
+ *     resourceGroupName: "resourceGroupName",
+ *     sku: {
+ *         name: "S0",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices:CommitmentPlan commitmentPlanName /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/commitmentPlans/commitmentPlanName 
+ * ```
  */
 export class CommitmentPlan extends pulumi.CustomResource {
     /**

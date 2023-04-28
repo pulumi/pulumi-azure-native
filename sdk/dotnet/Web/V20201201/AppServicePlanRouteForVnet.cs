@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20201201
 {
     /// <summary>
     /// Virtual Network route contract used to pass routing information for a Virtual Network.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201201:AppServicePlanRouteForVnet myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverfarms/{name}/virtualNetworkConnections/{vnetName}/routes/{routeName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201201:AppServicePlanRouteForVnet")]
     public partial class AppServicePlanRouteForVnet : global::Pulumi.CustomResource

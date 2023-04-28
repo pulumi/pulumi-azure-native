@@ -112,6 +112,33 @@ class CustomDomain(pulumi.CustomResource):
         """
         Custom domain resource payload.
 
+        ## Example Usage
+        ### CustomDomains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_domain = azure_native.appplatform.v20200701.CustomDomain("customDomain",
+            app_name="myapp",
+            domain_name="mydomain.com",
+            properties=azure_native.appplatform.v20200701.CustomDomainPropertiesArgs(
+                cert_name="mycert",
+                thumbprint="934367bf1c97033f877db0f15cb1b586957d3133",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:CustomDomain mydomain.com /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/domains/mydomain.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.
@@ -128,6 +155,33 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Custom domain resource payload.
+
+        ## Example Usage
+        ### CustomDomains_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_domain = azure_native.appplatform.v20200701.CustomDomain("customDomain",
+            app_name="myapp",
+            domain_name="mydomain.com",
+            properties=azure_native.appplatform.v20200701.CustomDomainPropertiesArgs(
+                cert_name="mycert",
+                thumbprint="934367bf1c97033f877db0f15cb1b586957d3133",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:CustomDomain mydomain.com /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/domains/mydomain.com 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomDomainArgs args: The arguments to use to populate this resource's properties.

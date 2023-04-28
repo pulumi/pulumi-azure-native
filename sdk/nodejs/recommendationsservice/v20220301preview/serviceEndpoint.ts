@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * ServiceEndpoint resource details.
+ *
+ * ## Example Usage
+ * ### Create or update ServiceEndpoint resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceEndpoint = new azure_native.recommendationsservice.v20220301preview.ServiceEndpoint("serviceEndpoint", {
+ *     accountName: "sampleAccount",
+ *     location: "West US",
+ *     properties: {
+ *         preAllocatedCapacity: 100,
+ *     },
+ *     resourceGroupName: "rg",
+ *     serviceEndpointName: "s1",
+ *     tags: {
+ *         Environment: "Prod",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recommendationsservice/v20220301preview:ServiceEndpoint s1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount/serviceEndpoints/s1 
+ * ```
  */
 export class ServiceEndpoint extends pulumi.CustomResource {
     /**

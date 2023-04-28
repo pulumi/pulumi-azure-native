@@ -215,6 +215,37 @@ class StorageAccountCredential(pulumi.CustomResource):
         API Version: 2022-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SACPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account_credential = azure_native.databoxedge.StorageAccountCredential("storageAccountCredential",
+            account_key=azure_native.databoxedge.AsymmetricEncryptedSecretResponseArgs(
+                encryption_algorithm="AES256",
+                encryption_cert_thumbprint="2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
+                value="lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
+            ),
+            account_type="BlobStorage",
+            alias="sac1",
+            device_name="testedgedevice",
+            name="sac1",
+            resource_group_name="GroupForEdgeAutomation",
+            ssl_status="Disabled",
+            user_name="cisbvt")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:StorageAccountCredential sac1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AsymmetricEncryptedSecretArgs']] account_key: Encrypted storage key.
@@ -239,6 +270,37 @@ class StorageAccountCredential(pulumi.CustomResource):
         The storage account credential.
         API Version: 2022-03-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SACPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account_credential = azure_native.databoxedge.StorageAccountCredential("storageAccountCredential",
+            account_key=azure_native.databoxedge.AsymmetricEncryptedSecretResponseArgs(
+                encryption_algorithm="AES256",
+                encryption_cert_thumbprint="2A9D8D6BE51574B5461230AEF02F162C5F01AD31",
+                value="lAeZEYi6rNP1/EyNaVUYmTSZEYyaIaWmwUsGwek0+xiZj54GM9Ue9/UA2ed/ClC03wuSit2XzM/cLRU5eYiFBwks23rGwiQOr3sruEL2a74EjPD050xYjA6M1I2hu/w2yjVHhn5j+DbXS4Xzi+rHHNZK3DgfDO3PkbECjPck+PbpSBjy9+6Mrjcld5DIZhUAeMlMHrFlg+WKRKB14o/og56u5/xX6WKlrMLEQ+y6E18dUwvWs2elTNoVO8PBE8SM/CfooX4AMNvaNdSObNBPdP+F6Lzc556nFNWXrBLRt0vC7s9qTiVRO4x/qCNaK/B4y7IqXMllwQFf4Np9UQ2ECA==",
+            ),
+            account_type="BlobStorage",
+            alias="sac1",
+            device_name="testedgedevice",
+            name="sac1",
+            resource_group_name="GroupForEdgeAutomation",
+            ssl_status="Disabled",
+            user_name="cisbvt")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge:StorageAccountCredential sac1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/sac1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageAccountCredentialArgs args: The arguments to use to populate this resource's properties.

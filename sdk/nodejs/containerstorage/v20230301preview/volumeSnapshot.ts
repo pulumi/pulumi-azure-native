@@ -9,6 +9,46 @@ import * as utilities from "../../utilities";
 
 /**
  * Concrete proxy resource types can be created by aliasing this type using a specific property type.
+ *
+ * ## Example Usage
+ * ### VolumeSnapshots_CreateOrUpdate_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volumeSnapshot = new azure_native.containerstorage.v20230301preview.VolumeSnapshot("volumeSnapshot", {
+ *     mountOptions: ["ozllffotmjyosqwx"],
+ *     poolName: "-1Jk-",
+ *     reclaimPolicy: "Delete",
+ *     resourceGroupName: "rgcontainerstorage",
+ *     source: "oytmtfvq",
+ *     volumeMode: "Filesystem",
+ *     volumeSnapshotName: "XBOVLQ-UDJ2n5kod886SN",
+ * });
+ *
+ * ```
+ * ### VolumeSnapshots_CreateOrUpdate_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volumeSnapshot = new azure_native.containerstorage.v20230301preview.VolumeSnapshot("volumeSnapshot", {
+ *     poolName: "E-sfxFA3nN-FcID851Rq-Q3u",
+ *     resourceGroupName: "rgcontainerstorage",
+ *     volumeSnapshotName: "CjG-k-K4nWgGVV3VL-jT-5",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerstorage/v20230301preview:VolumeSnapshot nvn vdihfxdstmkozaxfocgt 
+ * ```
  */
 export class VolumeSnapshot extends pulumi.CustomResource {
     /**

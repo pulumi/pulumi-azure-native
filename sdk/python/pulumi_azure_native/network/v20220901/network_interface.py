@@ -319,6 +319,64 @@ class NetworkInterface(pulumi.CustomResource):
         """
         A network interface in a resource group.
 
+        ## Example Usage
+        ### Create network interface
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_interface = azure_native.network.v20220901.NetworkInterface("networkInterface",
+            disable_tcp_state_tracking=True,
+            enable_accelerated_networking=True,
+            ip_configurations=[azure_native.network.v20220901.NetworkInterfaceIPConfigurationArgs(
+                name="ipconfig1",
+                public_ip_address=azure_native.network.v20220901.PublicIPAddressArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+                ),
+                subnet=azure_native.network.v20220901.SubnetArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+                ),
+            )],
+            location="eastus",
+            network_interface_name="test-nic",
+            resource_group_name="rg1")
+
+        ```
+        ### Create network interface with Gateway Load Balancer Consumer configured
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_interface = azure_native.network.v20220901.NetworkInterface("networkInterface",
+            enable_accelerated_networking=True,
+            ip_configurations=[azure_native.network.v20220901.NetworkInterfaceIPConfigurationArgs(
+                gateway_load_balancer=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb-provider",
+                ),
+                name="ipconfig1",
+                public_ip_address=azure_native.network.v20220901.PublicIPAddressArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+                ),
+                subnet=azure_native.network.v20220901.SubnetArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+                ),
+            )],
+            location="eastus",
+            network_interface_name="test-nic",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:NetworkInterface test-nic /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']] auxiliary_mode: Auxiliary mode of Network Interface resource.
@@ -347,6 +405,64 @@ class NetworkInterface(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A network interface in a resource group.
+
+        ## Example Usage
+        ### Create network interface
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_interface = azure_native.network.v20220901.NetworkInterface("networkInterface",
+            disable_tcp_state_tracking=True,
+            enable_accelerated_networking=True,
+            ip_configurations=[azure_native.network.v20220901.NetworkInterfaceIPConfigurationArgs(
+                name="ipconfig1",
+                public_ip_address=azure_native.network.v20220901.PublicIPAddressArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+                ),
+                subnet=azure_native.network.v20220901.SubnetArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+                ),
+            )],
+            location="eastus",
+            network_interface_name="test-nic",
+            resource_group_name="rg1")
+
+        ```
+        ### Create network interface with Gateway Load Balancer Consumer configured
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_interface = azure_native.network.v20220901.NetworkInterface("networkInterface",
+            enable_accelerated_networking=True,
+            ip_configurations=[azure_native.network.v20220901.NetworkInterfaceIPConfigurationArgs(
+                gateway_load_balancer=azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb-provider",
+                ),
+                name="ipconfig1",
+                public_ip_address=azure_native.network.v20220901.PublicIPAddressArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+                ),
+                subnet=azure_native.network.v20220901.SubnetArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+                ),
+            )],
+            location="eastus",
+            network_interface_name="test-nic",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:NetworkInterface test-nic /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkInterfaceArgs args: The arguments to use to populate this resource's properties.

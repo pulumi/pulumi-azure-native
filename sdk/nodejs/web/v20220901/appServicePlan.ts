@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * App Service plan.
+ *
+ * ## Example Usage
+ * ### Create Or Update App Service plan
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const appServicePlan = new azure_native.web.v20220901.AppServicePlan("appServicePlan", {
+ *     kind: "app",
+ *     location: "East US",
+ *     name: "testsf6141",
+ *     resourceGroupName: "testrg123",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "P",
+ *         name: "P1",
+ *         size: "P1",
+ *         tier: "Premium",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:AppServicePlan testsf6141 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/serverfarms/testsf6141 
+ * ```
  */
 export class AppServicePlan extends pulumi.CustomResource {
     /**

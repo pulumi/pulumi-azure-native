@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Represents an instance of a DFP instance resource.
  * API Version: 2021-02-01-preview.
  * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const instanceDetails = new azure_native.dynamics365fraudprotection.InstanceDetails("instanceDetails", {
+ *     administration: {
+ *         members: [
+ *             "azsdktest@microsoft.com",
+ *             "azsdktest2@microsoft.com",
+ *         ],
+ *     },
+ *     instanceName: "azsdktest",
+ *     location: "West US",
+ *     resourceGroupName: "TestRG",
+ *     tags: {
+ *         testKey: "testValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dynamics365fraudprotection:InstanceDetails azsdktest /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Dynamics365Fraudprotection/instances/azsdktest 
+ * ```
  */
 export class InstanceDetails extends pulumi.CustomResource {
     /**

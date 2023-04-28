@@ -9,6 +9,59 @@ import * as utilities from "../../utilities";
 
 /**
  * Representation of a managed Cassandra cluster.
+ *
+ * ## Example Usage
+ * ### CosmosDBManagedCassandraClusterCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cassandraCluster = new azure_native.documentdb.v20210301preview.CassandraCluster("cassandraCluster", {
+ *     clusterName: "cassandra-prod",
+ *     location: "West US",
+ *     properties: {
+ *         authenticationMethod: "Cassandra",
+ *         cassandraVersion: "3.11",
+ *         clientCertificates: [{
+ *             pem: `-----BEGIN CERTIFICATE-----
+ * ...Base64 encoded certificate...
+ * -----END CERTIFICATE-----`,
+ *         }],
+ *         clusterNameOverride: "ClusterNameIllegalForAzureResource",
+ *         delegatedManagementSubnetId: "/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/management",
+ *         externalGossipCertificates: [{
+ *             pem: `-----BEGIN CERTIFICATE-----
+ * ...Base64 encoded certificate...
+ * -----END CERTIFICATE-----`,
+ *         }],
+ *         externalSeedNodes: [
+ *             {
+ *                 ipAddress: "10.52.221.2",
+ *             },
+ *             {
+ *                 ipAddress: "10.52.221.3",
+ *             },
+ *             {
+ *                 ipAddress: "10.52.221.4",
+ *             },
+ *         ],
+ *         hoursBetweenBackups: 24,
+ *         initialCassandraAdminPassword: "mypassword",
+ *     },
+ *     resourceGroupName: "cassandra-prod-rg",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20210301preview:CassandraCluster cassandra-prod /subscriptions/subid/resourceGroups/cassandra-prod-rg/providers/Microsoft.DocumentDB/cassandraClusters/cassandra-prod 
+ * ```
  */
 export class CassandraCluster extends pulumi.CustomResource {
     /**

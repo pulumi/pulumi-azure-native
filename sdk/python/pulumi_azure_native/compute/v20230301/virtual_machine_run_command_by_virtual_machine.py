@@ -321,6 +321,52 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
         """
         Describes a Virtual Machine run command.
 
+        ## Example Usage
+        ### Create or update a run command.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_run_command_by_virtual_machine = azure_native.compute.v20230301.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine",
+            async_execution=False,
+            error_blob_uri="https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt?sp=racw&st=2022-10-07T19:40:21Z&se=2022-10-08T03:40:21Z&spr=https&sv=2021-06-08&sr=b&sig=Yh7B%2Fy83olbYBdfsfbUREvd7ol8Dq5EVP3lAO4Kj4xDcN8%3D",
+            location="West US",
+            output_blob_managed_identity=azure_native.compute.v20230301.RunCommandManagedIdentityArgs(
+                client_id="22d35efb-0c99-4041-8c5b-6d24db33a69a",
+            ),
+            output_blob_uri="https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+            parameters=[
+                {
+                    "name": "param1",
+                    "value": "value1",
+                },
+                {
+                    "name": "param2",
+                    "value": "value2",
+                },
+            ],
+            resource_group_name="myResourceGroup",
+            run_as_password="<runAsPassword>",
+            run_as_user="user1",
+            run_command_name="myRunCommand",
+            source=azure_native.compute.v20230301.VirtualMachineRunCommandScriptSourceArgs(
+                script_uri="https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1?sp=r&st=2022-10-07T19:52:54Z&se=2022-10-08T03:52:54Z&spr=https&sv=2021-06-08&sr=b&sig=zfYFYCgea1PqVERZuwJiewrte5gjTnKGtVJngcw5oc828%3D",
+            ),
+            timeout_in_seconds=3600,
+            treat_failure_as_deployment_failure=False,
+            vm_name="myVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/runCommands/myRunCommand 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] async_execution: Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
@@ -349,6 +395,52 @@ class VirtualMachineRunCommandByVirtualMachine(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine run command.
+
+        ## Example Usage
+        ### Create or update a run command.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_run_command_by_virtual_machine = azure_native.compute.v20230301.VirtualMachineRunCommandByVirtualMachine("virtualMachineRunCommandByVirtualMachine",
+            async_execution=False,
+            error_blob_uri="https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt?sp=racw&st=2022-10-07T19:40:21Z&se=2022-10-08T03:40:21Z&spr=https&sv=2021-06-08&sr=b&sig=Yh7B%2Fy83olbYBdfsfbUREvd7ol8Dq5EVP3lAO4Kj4xDcN8%3D",
+            location="West US",
+            output_blob_managed_identity=azure_native.compute.v20230301.RunCommandManagedIdentityArgs(
+                client_id="22d35efb-0c99-4041-8c5b-6d24db33a69a",
+            ),
+            output_blob_uri="https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+            parameters=[
+                {
+                    "name": "param1",
+                    "value": "value1",
+                },
+                {
+                    "name": "param2",
+                    "value": "value2",
+                },
+            ],
+            resource_group_name="myResourceGroup",
+            run_as_password="<runAsPassword>",
+            run_as_user="user1",
+            run_command_name="myRunCommand",
+            source=azure_native.compute.v20230301.VirtualMachineRunCommandScriptSourceArgs(
+                script_uri="https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1?sp=r&st=2022-10-07T19:52:54Z&se=2022-10-08T03:52:54Z&spr=https&sv=2021-06-08&sr=b&sig=zfYFYCgea1PqVERZuwJiewrte5gjTnKGtVJngcw5oc828%3D",
+            ),
+            timeout_in_seconds=3600,
+            treat_failure_as_deployment_failure=False,
+            vm_name="myVM")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20230301:VirtualMachineRunCommandByVirtualMachine myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/runCommands/myRunCommand 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineRunCommandByVirtualMachineArgs args: The arguments to use to populate this resource's properties.

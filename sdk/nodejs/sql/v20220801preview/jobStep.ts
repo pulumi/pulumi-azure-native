@@ -9,6 +9,76 @@ import * as utilities from "../../utilities";
 
 /**
  * A job step.
+ *
+ * ## Example Usage
+ * ### Create or update a job step with all properties specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jobStep = new azure_native.sql.v20220801preview.JobStep("jobStep", {
+ *     action: {
+ *         source: "Inline",
+ *         type: "TSql",
+ *         value: "select 2",
+ *     },
+ *     credential: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred1",
+ *     executionOptions: {
+ *         initialRetryIntervalSeconds: 11,
+ *         maximumRetryIntervalSeconds: 222,
+ *         retryAttempts: 42,
+ *         retryIntervalBackoffMultiplier: 3,
+ *         timeoutSeconds: 1234,
+ *     },
+ *     jobAgentName: "agent1",
+ *     jobName: "job1",
+ *     output: {
+ *         credential: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred0",
+ *         databaseName: "database3",
+ *         resourceGroupName: "group3",
+ *         schemaName: "myschema1234",
+ *         serverName: "server3",
+ *         subscriptionId: "3501b905-a848-4b5d-96e8-b253f62d735a",
+ *         tableName: "mytable5678",
+ *         type: "SqlDatabase",
+ *     },
+ *     resourceGroupName: "group1",
+ *     serverName: "server1",
+ *     stepId: 1,
+ *     stepName: "step1",
+ *     targetGroup: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup1",
+ * });
+ *
+ * ```
+ * ### Create or update a job step with minimal properties specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jobStep = new azure_native.sql.v20220801preview.JobStep("jobStep", {
+ *     action: {
+ *         value: "select 1",
+ *     },
+ *     credential: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred0",
+ *     jobAgentName: "agent1",
+ *     jobName: "job1",
+ *     resourceGroupName: "group1",
+ *     serverName: "server1",
+ *     stepName: "step1",
+ *     targetGroup: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:JobStep step1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/jobs/job1/steps/step1 
+ * ```
  */
 export class JobStep extends pulumi.CustomResource {
     /**

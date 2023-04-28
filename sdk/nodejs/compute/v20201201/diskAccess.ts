@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * disk access resource.
+ *
+ * ## Example Usage
+ * ### Create a disk access resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const diskAccess = new azure_native.compute.v20201201.DiskAccess("diskAccess", {
+ *     diskAccessName: "myDiskAccess",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20201201:DiskAccess myDiskAccess /subscriptions/{subscription-id}/resourceGroups/myResourcegroup/providers/Microsoft.Compute/diskAccesses/myDiskAccess 
+ * ```
  */
 export class DiskAccess extends pulumi.CustomResource {
     /**

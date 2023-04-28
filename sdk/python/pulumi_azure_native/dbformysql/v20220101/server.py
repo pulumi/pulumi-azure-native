@@ -370,6 +370,139 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
+        ## Example Usage
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20220101.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="your_password",
+            availability_zone="1",
+            backup=azure_native.dbformysql.v20220101.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Default",
+            high_availability=azure_native.dbformysql.v20220101.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+                standby_availability_zone="3",
+            ),
+            location="southeastasia",
+            resource_group_name="testrg",
+            server_name="mysqltestserver",
+            sku=azure_native.dbformysql.v20220101.SkuResponseArgs(
+                name="Standard_D2ds_v4",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbformysql.v20220101.StorageArgs(
+                auto_grow="Disabled",
+                iops=600,
+                storage_size_gb=100,
+            ),
+            tags={
+                "num": "1",
+            },
+            version="5.7")
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20220101.Server("server",
+            create_mode="Replica",
+            location="SoutheastAsia",
+            resource_group_name="testgr",
+            server_name="replica-server",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testgr/providers/Microsoft.DBforMySQL/flexibleServers/source-server")
+
+        ```
+        ### Create a server as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20220101.Server("server",
+            create_mode="PointInTimeRestore",
+            location="SoutheastAsia",
+            resource_group_name="TargetResourceGroup",
+            restore_point_in_time="2021-06-24T00:00:37.467Z",
+            server_name="targetserver",
+            sku=azure_native.dbformysql.v20220101.SkuResponseArgs(
+                name="Standard_D14_v2",
+                tier="GeneralPurpose",
+            ),
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+            tags={
+                "num": "1",
+            })
+
+        ```
+        ### Create a server with byok
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20220101.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="your_password",
+            availability_zone="1",
+            backup=azure_native.dbformysql.v20220101.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Default",
+            data_encryption=azure_native.dbformysql.v20220101.DataEncryptionArgs(
+                geo_backup_key_uri="https://test-geo.vault.azure.net/keys/key/c8a92236622244c0a4fdb892666f671a",
+                geo_backup_user_assigned_identity_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-geo-identity",
+                primary_key_uri="https://test.vault.azure.net/keys/key/c8a92236622244c0a4fdb892666f671a",
+                primary_user_assigned_identity_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity",
+                type=azure_native.dbformysql/v20220101.DataEncryptionType.AZURE_KEY_VAULT,
+            ),
+            high_availability=azure_native.dbformysql.v20220101.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+                standby_availability_zone="3",
+            ),
+            identity=azure_native.dbformysql.v20220101.IdentityArgs(
+                type=azure_native.dbformysql/v20220101.ManagedServiceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity": {},
+                },
+            ),
+            location="southeastasia",
+            resource_group_name="testrg",
+            server_name="mysqltestserver",
+            sku=azure_native.dbformysql.v20220101.SkuResponseArgs(
+                name="Standard_D2ds_v4",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbformysql.v20220101.StorageArgs(
+                auto_grow="Disabled",
+                iops=600,
+                storage_size_gb=100,
+            ),
+            tags={
+                "num": "1",
+            },
+            version="5.7")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql/v20220101:Server mysqltestserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/mysqltestserver 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -401,6 +534,139 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
+
+        ## Example Usage
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20220101.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="your_password",
+            availability_zone="1",
+            backup=azure_native.dbformysql.v20220101.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Default",
+            high_availability=azure_native.dbformysql.v20220101.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+                standby_availability_zone="3",
+            ),
+            location="southeastasia",
+            resource_group_name="testrg",
+            server_name="mysqltestserver",
+            sku=azure_native.dbformysql.v20220101.SkuResponseArgs(
+                name="Standard_D2ds_v4",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbformysql.v20220101.StorageArgs(
+                auto_grow="Disabled",
+                iops=600,
+                storage_size_gb=100,
+            ),
+            tags={
+                "num": "1",
+            },
+            version="5.7")
+
+        ```
+        ### Create a replica server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20220101.Server("server",
+            create_mode="Replica",
+            location="SoutheastAsia",
+            resource_group_name="testgr",
+            server_name="replica-server",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testgr/providers/Microsoft.DBforMySQL/flexibleServers/source-server")
+
+        ```
+        ### Create a server as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20220101.Server("server",
+            create_mode="PointInTimeRestore",
+            location="SoutheastAsia",
+            resource_group_name="TargetResourceGroup",
+            restore_point_in_time="2021-06-24T00:00:37.467Z",
+            server_name="targetserver",
+            sku=azure_native.dbformysql.v20220101.SkuResponseArgs(
+                name="Standard_D14_v2",
+                tier="GeneralPurpose",
+            ),
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+            tags={
+                "num": "1",
+            })
+
+        ```
+        ### Create a server with byok
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbformysql.v20220101.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="your_password",
+            availability_zone="1",
+            backup=azure_native.dbformysql.v20220101.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Default",
+            data_encryption=azure_native.dbformysql.v20220101.DataEncryptionArgs(
+                geo_backup_key_uri="https://test-geo.vault.azure.net/keys/key/c8a92236622244c0a4fdb892666f671a",
+                geo_backup_user_assigned_identity_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-geo-identity",
+                primary_key_uri="https://test.vault.azure.net/keys/key/c8a92236622244c0a4fdb892666f671a",
+                primary_user_assigned_identity_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity",
+                type=azure_native.dbformysql/v20220101.DataEncryptionType.AZURE_KEY_VAULT,
+            ),
+            high_availability=azure_native.dbformysql.v20220101.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+                standby_availability_zone="3",
+            ),
+            identity=azure_native.dbformysql.v20220101.IdentityArgs(
+                type=azure_native.dbformysql/v20220101.ManagedServiceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity": {},
+                },
+            ),
+            location="southeastasia",
+            resource_group_name="testrg",
+            server_name="mysqltestserver",
+            sku=azure_native.dbformysql.v20220101.SkuResponseArgs(
+                name="Standard_D2ds_v4",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbformysql.v20220101.StorageArgs(
+                auto_grow="Disabled",
+                iops=600,
+                storage_size_gb=100,
+            ),
+            tags={
+                "num": "1",
+            },
+            version="5.7")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql/v20220101:Server mysqltestserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/mysqltestserver 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

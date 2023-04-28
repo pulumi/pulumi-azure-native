@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.Cache.V20201001Preview
 {
     /// <summary>
     /// Describes the RedisEnterprise cluster
+    /// 
+    /// ## Example Usage
+    /// ### RedisEnterpriseCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var redisEnterprise = new AzureNative.Cache.V20201001Preview.RedisEnterprise("redisEnterprise", new()
+    ///     {
+    ///         ClusterName = "cache1",
+    ///         Location = "West US",
+    ///         MinimumTlsVersion = "1.2",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Cache.V20201001Preview.Inputs.EnterpriseSkuArgs
+    ///         {
+    ///             Capacity = 3,
+    ///             Name = "EnterpriseFlash_F300",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///             "3",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cache/v20201001preview:RedisEnterprise cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20201001preview:RedisEnterprise")]
     public partial class RedisEnterprise : global::Pulumi.CustomResource

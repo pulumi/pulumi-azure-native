@@ -242,6 +242,64 @@ class CosmosDbDataConnection(pulumi.CustomResource):
         """
         Class representing a CosmosDb data connection.
 
+        ## Example Usage
+        ### KustoDataConnectionsCosmosDbCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cosmos_db_data_connection = azure_native.kusto.v20221111.CosmosDbDataConnection("cosmosDbDataConnection",
+            cluster_name="kustoCluster",
+            cosmos_db_account_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.DocumentDb/databaseAccounts/cosmosDbAccountTest1",
+            cosmos_db_container="cosmosDbContainerTest",
+            cosmos_db_database="cosmosDbDatabaseTest",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase1",
+            kind="CosmosDb",
+            location="westus",
+            managed_identity_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.ManagedIdentity/userAssignedIdentities/managedidentityTest1",
+            mapping_rule_name="TestMapping",
+            resource_group_name="kustorptest",
+            retrieval_start_date="2022-07-29T12:00:00.6554616Z",
+            table_name="TestTable")
+
+        ```
+        ### KustoDataConnectionsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cosmos_db_data_connection = azure_native.kusto.v20221111.CosmosDbDataConnection("cosmosDbDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+        ### KustoDataConnectionsEventGridCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cosmos_db_data_connection = azure_native.kusto.v20221111.CosmosDbDataConnection("cosmosDbDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20221111:CosmosDbDataConnection kustoCluster/KustoDatabase8/dataConnectionTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/KustoDatabase8/DataConnections/KustoDataConnection9 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -267,6 +325,64 @@ class CosmosDbDataConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a CosmosDb data connection.
+
+        ## Example Usage
+        ### KustoDataConnectionsCosmosDbCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cosmos_db_data_connection = azure_native.kusto.v20221111.CosmosDbDataConnection("cosmosDbDataConnection",
+            cluster_name="kustoCluster",
+            cosmos_db_account_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.DocumentDb/databaseAccounts/cosmosDbAccountTest1",
+            cosmos_db_container="cosmosDbContainerTest",
+            cosmos_db_database="cosmosDbDatabaseTest",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase1",
+            kind="CosmosDb",
+            location="westus",
+            managed_identity_resource_id="/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.ManagedIdentity/userAssignedIdentities/managedidentityTest1",
+            mapping_rule_name="TestMapping",
+            resource_group_name="kustorptest",
+            retrieval_start_date="2022-07-29T12:00:00.6554616Z",
+            table_name="TestTable")
+
+        ```
+        ### KustoDataConnectionsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cosmos_db_data_connection = azure_native.kusto.v20221111.CosmosDbDataConnection("cosmosDbDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+        ### KustoDataConnectionsEventGridCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cosmos_db_data_connection = azure_native.kusto.v20221111.CosmosDbDataConnection("cosmosDbDataConnection",
+            cluster_name="kustoCluster",
+            data_connection_name="dataConnectionTest",
+            database_name="KustoDatabase8",
+            resource_group_name="kustorptest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20221111:CosmosDbDataConnection kustoCluster/KustoDatabase8/dataConnectionTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/KustoDatabase8/DataConnections/KustoDataConnection9 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CosmosDbDataConnectionArgs args: The arguments to use to populate this resource's properties.

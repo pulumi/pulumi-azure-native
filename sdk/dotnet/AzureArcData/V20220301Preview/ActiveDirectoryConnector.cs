@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.AzureArcData.V20220301Preview
 {
     /// <summary>
     /// Active directory connector resource
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an Active Directory connector instance.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var activeDirectoryConnector = new AzureNative.AzureArcData.V20220301Preview.ActiveDirectoryConnector("activeDirectoryConnector", new()
+    ///     {
+    ///         ActiveDirectoryConnectorName = "testADConnector",
+    ///         DataControllerName = "testdataController",
+    ///         Properties = new AzureNative.AzureArcData.V20220301Preview.Inputs.ActiveDirectoryConnectorPropertiesArgs
+    ///         {
+    ///             Spec = new AzureNative.AzureArcData.V20220301Preview.Inputs.ActiveDirectoryConnectorSpecArgs
+    ///             {
+    ///                 ActiveDirectory = new AzureNative.AzureArcData.V20220301Preview.Inputs.ActiveDirectoryConnectorDomainDetailsArgs
+    ///                 {
+    ///                     DomainControllers = new AzureNative.AzureArcData.V20220301Preview.Inputs.ActiveDirectoryDomainControllersArgs
+    ///                     {
+    ///                         PrimaryDomainController = new AzureNative.AzureArcData.V20220301Preview.Inputs.ActiveDirectoryDomainControllerArgs
+    ///                         {
+    ///                             Hostname = "dc1.contoso.local",
+    ///                         },
+    ///                         SecondaryDomainControllers = new[]
+    ///                         {
+    ///                             new AzureNative.AzureArcData.V20220301Preview.Inputs.ActiveDirectoryDomainControllerArgs
+    ///                             {
+    ///                                 Hostname = "dc2.contoso.local",
+    ///                             },
+    ///                             new AzureNative.AzureArcData.V20220301Preview.Inputs.ActiveDirectoryDomainControllerArgs
+    ///                             {
+    ///                                 Hostname = "dc3.contoso.local",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     Realm = "CONTOSO.LOCAL",
+    ///                     ServiceAccountProvisioning = "manual",
+    ///                 },
+    ///                 Dns = new AzureNative.AzureArcData.V20220301Preview.Inputs.ActiveDirectoryConnectorDNSDetailsArgs
+    ///                 {
+    ///                     NameserverIPAddresses = new[]
+    ///                     {
+    ///                         "11.11.111.111",
+    ///                         "22.22.222.222",
+    ///                     },
+    ///                     PreferK8sDnsForPtrLookups = false,
+    ///                     Replicas = 1,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector testADConnector /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/dataControllers/testdataController/activeDirectoryConnectors/testADConnector 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20220301preview:ActiveDirectoryConnector")]
     public partial class ActiveDirectoryConnector : global::Pulumi.CustomResource

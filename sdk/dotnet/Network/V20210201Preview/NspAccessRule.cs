@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 {
     /// <summary>
     /// The NSP access rule resource
+    /// 
+    /// ## Example Usage
+    /// ### NspAccessRulePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nspAccessRule = new AzureNative.Network.V20210201Preview.NspAccessRule("nspAccessRule", new()
+    ///     {
+    ///         AccessRuleName = "accessRule1",
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.11.0.0/16",
+    ///             "10.10.1.0/24",
+    ///         },
+    ///         Direction = "Inbound",
+    ///         NetworkSecurityPerimeterName = "nsp1",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210201preview:NspAccessRule accessRule1 /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/profile1/accessRules/accessRule1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210201preview:NspAccessRule")]
     public partial class NspAccessRule : global::Pulumi.CustomResource

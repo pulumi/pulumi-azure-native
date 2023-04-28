@@ -7,6 +7,33 @@ import * as utilities from "../../utilities";
 /**
  * Cloud Endpoint object.
  *
+ * ## Example Usage
+ * ### CloudEndpoints_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudEndpoint = new azure_native.storagesync.v20180402.CloudEndpoint("cloudEndpoint", {
+ *     cloudEndpointName: "SampleCloudEndpoint_1",
+ *     resourceGroupName: "SampleResourceGroup_1",
+ *     storageAccountResourceId: "",
+ *     storageAccountShareName: "",
+ *     storageAccountTenantId: "\"a4d1b191-c1af-4cef-a14b-f670e0beea52\"",
+ *     storageSyncServiceName: "SampleStorageSyncService_1",
+ *     syncGroupName: "SampleSyncGroup_1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagesync/v20180402:CloudEndpoint SampleCloudEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/10.91.86.47/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/cloudEndpoints/SampleCloudEndpoint_1 
+ * ```
+ *
  * @deprecated Version 2018-04-02 will be removed in v2 of the provider.
  */
 export class CloudEndpoint extends pulumi.CustomResource {

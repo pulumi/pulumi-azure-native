@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * Device Update instance details.
+ *
+ * ## Example Usage
+ * ### Creates or updates Instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const instance = new azure_native.deviceupdate.v20200301preview.Instance("instance", {
+ *     accountName: "contoso",
+ *     diagnosticStorageProperties: {
+ *         authenticationType: "KeyBased",
+ *         connectionString: "string",
+ *         resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/adu-resource-group/providers/Microsoft.Storage/storageAccounts/testAccount",
+ *     },
+ *     enableDiagnostics: false,
+ *     instanceName: "blue",
+ *     iotHubs: [{
+ *         eventHubConnectionString: "string",
+ *         ioTHubConnectionString: "string",
+ *         resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub",
+ *     }],
+ *     location: "westus2",
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deviceupdate/v20200301preview:Instance blue /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso/instances/blue 
+ * ```
  */
 export class Instance extends pulumi.CustomResource {
     /**

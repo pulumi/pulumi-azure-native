@@ -96,6 +96,58 @@ class Table(pulumi.CustomResource):
         """
         Properties of the table, including Id, resource name, resource type.
 
+        ## Example Usage
+        ### TableOperationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.storage.v20220901.Table("table",
+            account_name="sto328",
+            resource_group_name="res3376",
+            table_name="table6185")
+
+        ```
+        ### TableOperationPutOrPatchAcls
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.storage.v20220901.Table("table",
+            account_name="sto328",
+            resource_group_name="res3376",
+            signed_identifiers=[
+                {
+                    "accessPolicy": azure_native.storage.v20220901.TableAccessPolicyArgs(
+                        expiry_time="2022-03-20T08:49:37.0000000Z",
+                        permission="raud",
+                        start_time="2022-03-17T08:49:37.0000000Z",
+                    ),
+                    "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+                },
+                {
+                    "accessPolicy": azure_native.storage.v20220901.TableAccessPolicyArgs(
+                        expiry_time="2022-03-20T08:49:37.0000000Z",
+                        permission="rad",
+                        start_time="2022-03-17T08:49:37.0000000Z",
+                    ),
+                    "id": "PTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODklMTI",
+                },
+            ],
+            table_name="table6185")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:Table table6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/tableServices/default/tables/table6185 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -111,6 +163,58 @@ class Table(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties of the table, including Id, resource name, resource type.
+
+        ## Example Usage
+        ### TableOperationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.storage.v20220901.Table("table",
+            account_name="sto328",
+            resource_group_name="res3376",
+            table_name="table6185")
+
+        ```
+        ### TableOperationPutOrPatchAcls
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        table = azure_native.storage.v20220901.Table("table",
+            account_name="sto328",
+            resource_group_name="res3376",
+            signed_identifiers=[
+                {
+                    "accessPolicy": azure_native.storage.v20220901.TableAccessPolicyArgs(
+                        expiry_time="2022-03-20T08:49:37.0000000Z",
+                        permission="raud",
+                        start_time="2022-03-17T08:49:37.0000000Z",
+                    ),
+                    "id": "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+                },
+                {
+                    "accessPolicy": azure_native.storage.v20220901.TableAccessPolicyArgs(
+                        expiry_time="2022-03-20T08:49:37.0000000Z",
+                        permission="rad",
+                        start_time="2022-03-17T08:49:37.0000000Z",
+                    ),
+                    "id": "PTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODklMTI",
+                },
+            ],
+            table_name="table6185")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:Table table6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/tableServices/default/tables/table6185 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.

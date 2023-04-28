@@ -96,6 +96,34 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
         """
         The private endpoint connection of a provisioning service
 
+        ## Example Usage
+        ### PrivateEndpointConnection_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_dps_resource_private_endpoint_connection = azure_native.devices.v20230301preview.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection",
+            private_endpoint_connection_name="myPrivateEndpointConnection",
+            properties=azure_native.devices.v20230301preview.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.devices.v20230301preview.PrivateLinkServiceConnectionStateArgs(
+                    description="Approved by johndoe@contoso.com",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="myFirstProvisioningService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection myPrivateEndpointConnection /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService/PrivateEndpointConnections/myPrivateEndpointConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection
@@ -111,6 +139,34 @@ class IotDpsResourcePrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection of a provisioning service
+
+        ## Example Usage
+        ### PrivateEndpointConnection_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_dps_resource_private_endpoint_connection = azure_native.devices.v20230301preview.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection",
+            private_endpoint_connection_name="myPrivateEndpointConnection",
+            properties=azure_native.devices.v20230301preview.PrivateEndpointConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.devices.v20230301preview.PrivateLinkServiceConnectionStateArgs(
+                    description="Approved by johndoe@contoso.com",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="myFirstProvisioningService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection myPrivateEndpointConnection /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService/PrivateEndpointConnections/myPrivateEndpointConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IotDpsResourcePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

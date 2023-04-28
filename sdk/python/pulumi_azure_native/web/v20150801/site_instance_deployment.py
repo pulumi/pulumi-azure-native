@@ -318,6 +318,13 @@ class SiteInstanceDeployment(pulumi.CustomResource):
                  __props__=None):
         """
         Represents user credentials used for publishing activity
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:SiteInstanceDeployment myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/instances/{instanceId}/deployments/{id} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -347,6 +354,13 @@ class SiteInstanceDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents user credentials used for publishing activity
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20150801:SiteInstanceDeployment myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/instances/{instanceId}/deployments/{id} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SiteInstanceDeploymentArgs args: The arguments to use to populate this resource's properties.

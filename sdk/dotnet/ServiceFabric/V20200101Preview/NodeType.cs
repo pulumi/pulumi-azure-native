@@ -11,6 +11,110 @@ namespace Pulumi.AzureNative.ServiceFabric.V20200101Preview
 {
     /// <summary>
     /// Describes a node type in the cluster, each node type represents sub set of nodes in the cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Put a node type with maximum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nodeType = new AzureNative.ServiceFabric.V20200101Preview.NodeType("nodeType", new()
+    ///     {
+    ///         Capacities = 
+    ///         {
+    ///             { "ClientConnections", "65536" },
+    ///         },
+    ///         ClusterName = "myCluster",
+    ///         DataDiskSizeGB = 200,
+    ///         IsPrimary = false,
+    ///         NodeTypeName = "BE",
+    ///         PlacementProperties = 
+    ///         {
+    ///             { "HasSSD", "true" },
+    ///             { "NodeColor", "green" },
+    ///             { "SomeProperty", "5" },
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         VmExtensions = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20200101Preview.Inputs.VMSSExtensionArgs
+    ///             {
+    ///                 AutoUpgradeMinorVersion = true,
+    ///                 Name = "Microsoft.Azure.Geneva.GenevaMonitoring",
+    ///                 Publisher = "Microsoft.Azure.Geneva",
+    ///                 Settings = null,
+    ///                 Type = "GenevaMonitoring",
+    ///                 TypeHandlerVersion = "2.0",
+    ///             },
+    ///         },
+    ///         VmImageOffer = "WindowsServer",
+    ///         VmImagePublisher = "MicrosoftWindowsServer",
+    ///         VmImageSku = "2016-Datacenter-Server-Core",
+    ///         VmImageVersion = "latest",
+    ///         VmInstanceCount = 10,
+    ///         VmSecrets = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20200101Preview.Inputs.VaultSecretGroupArgs
+    ///             {
+    ///                 SourceVault = new AzureNative.ServiceFabric.V20200101Preview.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resRg/providers/Microsoft.KeyVault/vaults/myVault",
+    ///                 },
+    ///                 VaultCertificates = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabric.V20200101Preview.Inputs.VaultCertificateArgs
+    ///                     {
+    ///                         CertificateStore = "My",
+    ///                         CertificateUrl = "https://myVault.vault.azure.net:443/secrets/myCert/ef1a31d39e1f46bca33def54b6cda54c",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         VmSize = "Standard_D3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put a node type with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nodeType = new AzureNative.ServiceFabric.V20200101Preview.NodeType("nodeType", new()
+    ///     {
+    ///         ClusterName = "myCluster",
+    ///         DataDiskSizeGB = 200,
+    ///         IsPrimary = false,
+    ///         NodeTypeName = "BE",
+    ///         ResourceGroupName = "resRg",
+    ///         VmImageOffer = "WindowsServer",
+    ///         VmImagePublisher = "MicrosoftWindowsServer",
+    ///         VmImageSku = "2016-Datacenter-Server-Core",
+    ///         VmImageVersion = "latest",
+    ///         VmInstanceCount = 10,
+    ///         VmSize = "Standard_D3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabric/v20200101preview:NodeType BE /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedClusters/myCluster/nodeTypes/BE 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20200101preview:NodeType")]
     public partial class NodeType : global::Pulumi.CustomResource

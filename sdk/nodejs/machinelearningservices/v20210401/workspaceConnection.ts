@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Workspace connection.
+ *
+ * ## Example Usage
+ * ### CreateWorkspaceConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceConnection = new azure_native.machinelearningservices.v20210401.WorkspaceConnection("workspaceConnection", {
+ *     authType: "PAT",
+ *     category: "ACR",
+ *     connectionName: "connection-1",
+ *     name: "connection-1",
+ *     resourceGroupName: "resourceGroup-1",
+ *     target: "www.facebook.com",
+ *     value: "secrets",
+ *     workspaceName: "workspace-1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20210401:WorkspaceConnection connection-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/connections/connection-1 
+ * ```
  */
 export class WorkspaceConnection extends pulumi.CustomResource {
     /**

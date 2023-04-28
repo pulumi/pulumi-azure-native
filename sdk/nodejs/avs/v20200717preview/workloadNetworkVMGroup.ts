@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * NSX VM Group
+ *
+ * ## Example Usage
+ * ### WorkloadNetworks_CreateVMGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadNetworkVMGroup = new azure_native.avs.v20200717preview.WorkloadNetworkVMGroup("workloadNetworkVMGroup", {
+ *     displayName: "vmGroup1",
+ *     members: ["564d43da-fefc-2a3b-1d92-42855622fa50"],
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     revision: 1,
+ *     vmGroupId: "vmGroup1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20200717preview:WorkloadNetworkVMGroup vmGroup1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/vmGroups/vmGroup1 
+ * ```
  */
 export class WorkloadNetworkVMGroup extends pulumi.CustomResource {
     /**

@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230201
 {
     /// <summary>
     /// Cluster details.
+    /// 
+    /// ## Example Usage
+    /// ### Create cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.AzureStackHCI.V20230201.Cluster("cluster", new()
+    ///     {
+    ///         AadClientId = "24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
+    ///         AadTenantId = "7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
+    ///         CloudManagementEndpoint = "https://98294836-31be-4668-aeae-698667faf99b.waconazure.com",
+    ///         ClusterName = "myCluster",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "test-rg",
+    ///         Type = "SystemAssigned",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci/v20230201:Cluster myCluster /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20230201:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a time series database connection resource.
+ *
+ * ## Example Usage
+ * ### Create or replace a time series database connection for a DigitalTwins instance.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const timeSeriesDatabaseConnection = new azure_native.digitaltwins.v20210630preview.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection", {
+ *     properties: {
+ *         adxDatabaseName: "myDatabase",
+ *         adxEndpointUri: "https://mycluster.kusto.windows.net",
+ *         adxResourceId: "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",
+ *         adxTableName: "myTable",
+ *         connectionType: "AzureDataExplorer",
+ *         eventHubEndpointUri: "sb://myeh.servicebus.windows.net/",
+ *         eventHubEntityPath: "myeh",
+ *         eventHubNamespaceResourceId: "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.EventHub/namespaces/myeh",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ *     timeSeriesDatabaseConnectionName: "myConnection",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection myConnection /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/timeSeriesDatabaseConnections/myConnection 
+ * ```
  */
 export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
     /**

@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.StorageSync.V20191001
 {
     /// <summary>
     /// Server Endpoint object.
+    /// 
+    /// ## Example Usage
+    /// ### ServerEndpoints_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverEndpoint = new AzureNative.StorageSync.V20191001.ServerEndpoint("serverEndpoint", new()
+    ///     {
+    ///         CloudTiering = "off",
+    ///         OfflineDataTransfer = "on",
+    ///         OfflineDataTransferShareName = "myfileshare",
+    ///         ResourceGroupName = "SampleResourceGroup_1",
+    ///         ServerEndpointName = "SampleServerEndpoint_1",
+    ///         ServerLocalPath = "D:\\SampleServerEndpoint_1",
+    ///         ServerResourceId = "/subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
+    ///         StorageSyncServiceName = "SampleStorageSyncService_1",
+    ///         SyncGroupName = "SampleSyncGroup_1",
+    ///         TierFilesOlderThanDays = 0,
+    ///         VolumeFreeSpacePercent = 100,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagesync/v20191001:ServerEndpoint SampleServerEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/serverEndpoints/SampleServerEndpoint_1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20191001:ServerEndpoint")]

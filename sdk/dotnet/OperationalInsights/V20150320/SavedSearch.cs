@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.OperationalInsights.V20150320
 {
     /// <summary>
     /// Value object for saved search results.
+    /// 
+    /// ## Example Usage
+    /// ### SavedSearchCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var savedSearch = new AzureNative.OperationalInsights.V20150320.SavedSearch("savedSearch", new()
+    ///     {
+    ///         Category = "Saved Search Test Category",
+    ///         DisplayName = "Create or Update Saved Search Test",
+    ///         Query = "Heartbeat | summarize Count() by Computer",
+    ///         ResourceGroupName = "TestRG",
+    ///         SavedSearchId = "00000000-0000-0000-0000-00000000000",
+    ///         Tags = new[]
+    ///         {
+    ///             new AzureNative.OperationalInsights.V20150320.Inputs.TagArgs
+    ///             {
+    ///                 Name = "Group",
+    ///                 Value = "Computer",
+    ///             },
+    ///         },
+    ///         Version = 2,
+    ///         WorkspaceName = "TestWS",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights/v20150320:SavedSearch myresource1 subscriptions/00000000-0000-0000-0000-000000000005/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/AtlantisDemo/savedSearches/test-new-saved-search-id-2015 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-03-20 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:operationalinsights/v20150320:SavedSearch")]

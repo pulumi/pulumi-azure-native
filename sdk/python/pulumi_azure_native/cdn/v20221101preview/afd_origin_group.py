@@ -148,6 +148,40 @@ class AFDOriginGroup(pulumi.CustomResource):
         """
         AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
 
+        ## Example Usage
+        ### AFDOriginGroups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_origin_group = azure_native.cdn.v20221101preview.AFDOriginGroup("afdOriginGroup",
+            health_probe_settings=azure_native.cdn.v20221101preview.HealthProbeParametersArgs(
+                probe_interval_in_seconds=10,
+                probe_path="/path2",
+                probe_protocol=azure_native.cdn/v20221101preview.ProbeProtocol.NOT_SET,
+                probe_request_type=azure_native.cdn/v20221101preview.HealthProbeRequestType.NOT_SET,
+            ),
+            load_balancing_settings=azure_native.cdn.v20221101preview.LoadBalancingSettingsParametersArgs(
+                additional_latency_in_milliseconds=1000,
+                sample_size=3,
+                successful_samples_required=3,
+            ),
+            origin_group_name="origingroup1",
+            profile_name="profile1",
+            resource_group_name="RG",
+            traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=5)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20221101preview:AFDOriginGroup origingroup1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/origingroups/origingroup1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['HealthProbeParametersArgs']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
@@ -166,6 +200,40 @@ class AFDOriginGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
+
+        ## Example Usage
+        ### AFDOriginGroups_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_origin_group = azure_native.cdn.v20221101preview.AFDOriginGroup("afdOriginGroup",
+            health_probe_settings=azure_native.cdn.v20221101preview.HealthProbeParametersArgs(
+                probe_interval_in_seconds=10,
+                probe_path="/path2",
+                probe_protocol=azure_native.cdn/v20221101preview.ProbeProtocol.NOT_SET,
+                probe_request_type=azure_native.cdn/v20221101preview.HealthProbeRequestType.NOT_SET,
+            ),
+            load_balancing_settings=azure_native.cdn.v20221101preview.LoadBalancingSettingsParametersArgs(
+                additional_latency_in_milliseconds=1000,
+                sample_size=3,
+                successful_samples_required=3,
+            ),
+            origin_group_name="origingroup1",
+            profile_name="profile1",
+            resource_group_name="RG",
+            traffic_restoration_time_to_healed_or_new_endpoints_in_minutes=5)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20221101preview:AFDOriginGroup origingroup1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/origingroups/origingroup1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AFDOriginGroupArgs args: The arguments to use to populate this resource's properties.

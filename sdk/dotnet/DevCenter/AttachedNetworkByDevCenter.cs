@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.DevCenter
     /// Represents an attached NetworkConnection.
     /// API Version: 2022-11-11-preview.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### AttachedNetworks_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var attachedNetworkByDevCenter = new AzureNative.DevCenter.AttachedNetworkByDevCenter("attachedNetworkByDevCenter", new()
+    ///     {
+    ///         AttachedNetworkConnectionName = "network-uswest3",
+    ///         DevCenterName = "Contoso",
+    ///         NetworkConnectionId = "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/NetworkConnections/network-uswest3",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter:AttachedNetworkByDevCenter network-uswest3 /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/attachednetworks/network-uswest3 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:AttachedNetworkByDevCenter")]
     public partial class AttachedNetworkByDevCenter : global::Pulumi.CustomResource

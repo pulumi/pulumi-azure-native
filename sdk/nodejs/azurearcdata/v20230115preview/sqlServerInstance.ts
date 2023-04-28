@@ -9,6 +9,51 @@ import * as utilities from "../../utilities";
 
 /**
  * A SqlServerInstance.
+ *
+ * ## Example Usage
+ * ### Updates a SQL Server Instance tags.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlServerInstance = new azure_native.azurearcdata.v20230115preview.SqlServerInstance("sqlServerInstance", {
+ *     location: "northeurope",
+ *     properties: {
+ *         azureDefenderStatus: "Protected",
+ *         azureDefenderStatusLastUpdated: "2020-01-02T17:18:19.1234567Z",
+ *         collation: "collation",
+ *         containerResourceId: "Resource id of hosting Arc Machine",
+ *         cores: "4",
+ *         currentVersion: "2012",
+ *         edition: "Developer",
+ *         hostType: "Physical Server",
+ *         instanceName: "name of instance",
+ *         licenseType: "Free",
+ *         patchLevel: "patchlevel",
+ *         productId: "sql id",
+ *         status: "Registered",
+ *         tcpDynamicPorts: "1433",
+ *         tcpStaticPorts: "1433",
+ *         vCore: "4",
+ *         version: "SQL Server 2012",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlServerInstanceName: "testsqlServerInstance",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata/v20230115preview:SqlServerInstance testsqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/SqlServerInstances/testsqlServerInstance 
+ * ```
  */
 export class SqlServerInstance extends pulumi.CustomResource {
     /**

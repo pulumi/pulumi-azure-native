@@ -8,6 +8,31 @@ import * as utilities from "../utilities";
  * This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
  * API Version: 2018-09-01-preview.
  * Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateSecretValue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const secretValue = new azure_native.servicefabricmesh.SecretValue("secretValue", {
+ *     location: "West US",
+ *     resourceGroupName: "sbz_demo",
+ *     secretResourceName: "dbConnectionString",
+ *     secretValueResourceName: "v1",
+ *     value: "mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabricmesh:SecretValue v1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/secrets/dbConnectionString/values/v1 
+ * ```
  */
 export class SecretValue extends pulumi.CustomResource {
     /**

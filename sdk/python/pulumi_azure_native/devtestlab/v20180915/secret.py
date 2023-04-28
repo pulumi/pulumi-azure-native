@@ -144,6 +144,30 @@ class Secret(pulumi.CustomResource):
         """
         A secret.
 
+        ## Example Usage
+        ### Secrets_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.devtestlab.v20180915.Secret("secret",
+            lab_name="{labName}",
+            name="{secretName}",
+            resource_group_name="resourceGroupName",
+            user_name="{userName}",
+            value="{secret}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:Secret {secretName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/users/{userName}/secrets/{secretName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] lab_name: The name of the lab.
@@ -162,6 +186,30 @@ class Secret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A secret.
+
+        ## Example Usage
+        ### Secrets_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.devtestlab.v20180915.Secret("secret",
+            lab_name="{labName}",
+            name="{secretName}",
+            resource_group_name="resourceGroupName",
+            user_name="{userName}",
+            value="{secret}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:Secret {secretName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/users/{userName}/secrets/{secretName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

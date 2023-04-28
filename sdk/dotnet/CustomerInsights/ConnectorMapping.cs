@@ -13,6 +13,81 @@ namespace Pulumi.AzureNative.CustomerInsights
     /// The connector mapping resource format.
     /// API Version: 2017-04-26.
     /// Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ConnectorMappings_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectorMapping = new AzureNative.CustomerInsights.ConnectorMapping("connectorMapping", new()
+    ///     {
+    ///         ConnectorName = "testConnector8858",
+    ///         Description = "Test mapping",
+    ///         DisplayName = "testMapping12491",
+    ///         EntityType = AzureNative.CustomerInsights.EntityTypes.Interaction,
+    ///         EntityTypeName = "TestInteractionType2967",
+    ///         HubName = "sdkTestHub",
+    ///         MappingName = "testMapping12491",
+    ///         MappingProperties = new AzureNative.CustomerInsights.Inputs.ConnectorMappingPropertiesArgs
+    ///         {
+    ///             Availability = new AzureNative.CustomerInsights.Inputs.ConnectorMappingAvailabilityArgs
+    ///             {
+    ///                 Frequency = AzureNative.CustomerInsights.FrequencyTypes.Hour,
+    ///                 Interval = 5,
+    ///             },
+    ///             CompleteOperation = new AzureNative.CustomerInsights.Inputs.ConnectorMappingCompleteOperationArgs
+    ///             {
+    ///                 CompletionOperationType = AzureNative.CustomerInsights.CompletionOperationTypes.DeleteFile,
+    ///                 DestinationFolder = "fakePath",
+    ///             },
+    ///             ErrorManagement = new AzureNative.CustomerInsights.Inputs.ConnectorMappingErrorManagementArgs
+    ///             {
+    ///                 ErrorLimit = 10,
+    ///                 ErrorManagementType = AzureNative.CustomerInsights.ErrorManagementTypes.StopImport,
+    ///             },
+    ///             FileFilter = "unknown",
+    ///             FolderPath = "http://sample.dne/file",
+    ///             Format = new AzureNative.CustomerInsights.Inputs.ConnectorMappingFormatArgs
+    ///             {
+    ///                 ColumnDelimiter = "|",
+    ///                 FormatType = AzureNative.CustomerInsights.FormatTypes.TextFormat,
+    ///             },
+    ///             HasHeader = false,
+    ///             Structure = new[]
+    ///             {
+    ///                 new AzureNative.CustomerInsights.Inputs.ConnectorMappingStructureArgs
+    ///                 {
+    ///                     ColumnName = "unknown1",
+    ///                     IsEncrypted = false,
+    ///                     PropertyName = "unknwon1",
+    ///                 },
+    ///                 new AzureNative.CustomerInsights.Inputs.ConnectorMappingStructureArgs
+    ///                 {
+    ///                     ColumnName = "unknown2",
+    ///                     IsEncrypted = true,
+    ///                     PropertyName = "unknwon2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "TestHubRG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights:ConnectorMapping sdkTestHub/testConnector8858/testMapping12491 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/connectors/testConnector8858/mappings/testMapping12491 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights:ConnectorMapping")]
     public partial class ConnectorMapping : global::Pulumi.CustomResource

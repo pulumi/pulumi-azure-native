@@ -11,6 +11,84 @@ namespace Pulumi.AzureNative.AVS.V20220501
 {
     /// <summary>
     /// A private cloud resource
+    /// 
+    /// ## Example Usage
+    /// ### PrivateClouds_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateCloud = new AzureNative.AVS.V20220501.PrivateCloud("privateCloud", new()
+    ///     {
+    ///         Identity = new AzureNative.AVS.V20220501.Inputs.PrivateCloudIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "eastus2",
+    ///         ManagementCluster = new AzureNative.AVS.V20220501.Inputs.ManagementClusterArgs
+    ///         {
+    ///             ClusterSize = 4,
+    ///         },
+    ///         NetworkBlock = "192.168.48.0/22",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Sku = new AzureNative.AVS.V20220501.Inputs.SkuArgs
+    ///         {
+    ///             Name = "AV36",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PrivateClouds_CreateOrUpdate_Stretched
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateCloud = new AzureNative.AVS.V20220501.PrivateCloud("privateCloud", new()
+    ///     {
+    ///         Availability = new AzureNative.AVS.V20220501.Inputs.AvailabilityPropertiesArgs
+    ///         {
+    ///             SecondaryZone = 2,
+    ///             Strategy = "DualZone",
+    ///             Zone = 1,
+    ///         },
+    ///         Location = "eastus2",
+    ///         ManagementCluster = new AzureNative.AVS.V20220501.Inputs.ManagementClusterArgs
+    ///         {
+    ///             ClusterSize = 4,
+    ///         },
+    ///         NetworkBlock = "192.168.48.0/22",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Sku = new AzureNative.AVS.V20220501.Inputs.SkuArgs
+    ///         {
+    ///             Name = "AV36",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20220501:PrivateCloud cloud1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20220501:PrivateCloud")]
     public partial class PrivateCloud : global::Pulumi.CustomResource

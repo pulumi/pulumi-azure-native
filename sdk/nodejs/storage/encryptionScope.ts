@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * The Encryption Scope resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### StorageAccountPutEncryptionScope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const encryptionScope = new azure_native.storage.EncryptionScope("encryptionScope", {
+ *     accountName: "{storage-account-name}",
+ *     encryptionScopeName: "{encryption-scope-name}",
+ *     resourceGroupName: "resource-group-name",
+ * });
+ *
+ * ```
+ * ### StorageAccountPutEncryptionScopeWithInfrastructureEncryption
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const encryptionScope = new azure_native.storage.EncryptionScope("encryptionScope", {
+ *     accountName: "{storage-account-name}",
+ *     encryptionScopeName: "{encryption-scope-name}",
+ *     requireInfrastructureEncryption: true,
+ *     resourceGroupName: "resource-group-name",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:EncryptionScope {encryption-scope-name} /subscriptions/{subscription-id}/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/{storage-account-name}/encryptionScopes/{encryption-scope-name} 
+ * ```
  */
 export class EncryptionScope extends pulumi.CustomResource {
     /**

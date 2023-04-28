@@ -10,6 +10,29 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2020-05-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Resource Management Private Link.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceManagementPrivateLink = new azure_native.authorization.ResourceManagementPrivateLink("resourceManagementPrivateLink", {
+ *     location: "eastus",
+ *     resourceGroupName: "my-resource-group",
+ *     rmplName: "my-rmplName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization:ResourceManagementPrivateLink my-pla 00000000-0000-0000-0000-000000000000 
+ * ```
  */
 export class ResourceManagementPrivateLink extends pulumi.CustomResource {
     /**

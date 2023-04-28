@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Document processor details
+ *
+ * ## Example Usage
+ * ### DocumentProcessor_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const documentProcessor = new azure_native.syntex.v20220915preview.DocumentProcessor("documentProcessor", {
+ *     location: "westus",
+ *     processorName: "myprocessor",
+ *     properties: {
+ *         spoTenantId: "e9bb744b-9558-4dc6-9e50-a3297e3332fa",
+ *         spoTenantUrl: "https://test123.sharepoint.com",
+ *     },
+ *     resourceGroupName: "mygroup",
+ *     tags: {
+ *         additionalProp1: "string1",
+ *         additionalProp2: "string2",
+ *         additionalProp3: "string3",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:syntex/v20220915preview:DocumentProcessor myprocessor /subscriptions/cd0d3cc8-cae2-4559-b882-cd707170799b/resourceGroups/mygroup/providers/Microsoft.Syntex/documentProcessors/myprocessor 
+ * ```
  */
 export class DocumentProcessor extends pulumi.CustomResource {
     /**

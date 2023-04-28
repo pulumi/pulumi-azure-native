@@ -7,6 +7,15 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201001:WebAppAuthSettingsV2 myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/authsettingsV2 
+ * ```
+ */
 export class WebAppAuthSettingsV2 extends pulumi.CustomResource {
     /**
      * Get an existing WebAppAuthSettingsV2 resource's state with the given name, ID, and optional extra

@@ -148,6 +148,37 @@ class CapacityReservation(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2021-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a capacity reservation .
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_reservation = azure_native.compute.CapacityReservation("capacityReservation",
+            capacity_reservation_group_name="myCapacityReservationGroup",
+            capacity_reservation_name="myCapacityReservation",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.compute.SkuArgs(
+                capacity=4,
+                name="Standard_DS1_v2",
+            ),
+            tags={
+                "department": "HR",
+            },
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:CapacityReservation myCapacityReservation /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup/capacityReservations/myCapacityReservation 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capacity_reservation_group_name: The name of the capacity reservation group.
@@ -168,6 +199,37 @@ class CapacityReservation(pulumi.CustomResource):
         Specifies information about the capacity reservation.
         API Version: 2022-11-01.
         Previous API Version: 2021-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a capacity reservation .
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_reservation = azure_native.compute.CapacityReservation("capacityReservation",
+            capacity_reservation_group_name="myCapacityReservationGroup",
+            capacity_reservation_name="myCapacityReservation",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.compute.SkuArgs(
+                capacity=4,
+                name="Standard_DS1_v2",
+            ),
+            tags={
+                "department": "HR",
+            },
+            zones=["1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:CapacityReservation myCapacityReservation /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup/capacityReservations/myCapacityReservation 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationArgs args: The arguments to use to populate this resource's properties.

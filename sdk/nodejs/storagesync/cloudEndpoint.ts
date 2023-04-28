@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Cloud Endpoint object.
  * API Version: 2022-06-01.
  * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CloudEndpoints_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cloudEndpoint = new azure_native.storagesync.CloudEndpoint("cloudEndpoint", {
+ *     azureFileShareName: "cvcloud-afscv-0719-058-a94a1354-a1fd-4e9a-9a50-919fad8c4ba4",
+ *     cloudEndpointName: "SampleCloudEndpoint_1",
+ *     friendlyName: "ankushbsubscriptionmgmtmab",
+ *     resourceGroupName: "SampleResourceGroup_1",
+ *     storageAccountResourceId: "/subscriptions/744f4d70-6d17-4921-8970-a765d14f763f/resourceGroups/tminienv59svc/providers/Microsoft.Storage/storageAccounts/tminienv59storage",
+ *     storageAccountTenantId: "\"72f988bf-86f1-41af-91ab-2d7cd011db47\"",
+ *     storageSyncServiceName: "SampleStorageSyncService_1",
+ *     syncGroupName: "SampleSyncGroup_1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagesync:CloudEndpoint SampleCloudEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/cloudEndpoints/SampleCloudEndpoint_1 
+ * ```
  */
 export class CloudEndpoint extends pulumi.CustomResource {
     /**

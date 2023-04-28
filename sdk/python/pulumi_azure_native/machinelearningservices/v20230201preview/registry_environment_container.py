@@ -95,6 +95,41 @@ class RegistryEnvironmentContainer(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Registry Environment Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_environment_container = azure_native.machinelearningservices.v20230201preview.RegistryEnvironmentContainer("registryEnvironmentContainer",
+            environment_container_properties=azure_native.machinelearningservices.v20230201preview.EnvironmentContainerArgs(
+                description="string",
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            environment_name="testEnvironment",
+            registry_name="testregistry",
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryEnvironmentContainer testEnvironment /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/registries/testregistry/environments/testEnvironment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EnvironmentContainerArgs']] environment_container_properties: [Required] Additional attributes of the entity.
@@ -110,6 +145,41 @@ class RegistryEnvironmentContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Registry Environment Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_environment_container = azure_native.machinelearningservices.v20230201preview.RegistryEnvironmentContainer("registryEnvironmentContainer",
+            environment_container_properties=azure_native.machinelearningservices.v20230201preview.EnvironmentContainerArgs(
+                description="string",
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            environment_name="testEnvironment",
+            registry_name="testregistry",
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:RegistryEnvironmentContainer testEnvironment /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/registries/testregistry/environments/testEnvironment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryEnvironmentContainerArgs args: The arguments to use to populate this resource's properties.

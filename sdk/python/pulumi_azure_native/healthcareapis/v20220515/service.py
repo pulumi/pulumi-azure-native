@@ -148,6 +148,90 @@ class Service(pulumi.CustomResource):
         """
         The description of the service.
 
+        ## Example Usage
+        ### Create or Update a service with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.healthcareapis.v20220515.Service("service",
+            identity=azure_native.healthcareapis.v20220515.ServicesResourceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            kind=azure_native.healthcareapis/v20220515.Kind.FHIR_R4,
+            location="westus2",
+            properties=azure_native.healthcareapis.v20220515.ServicesPropertiesResponseArgs(
+                access_policies=[
+                    azure_native.healthcareapis.v20220515.ServiceAccessPolicyEntryArgs(
+                        object_id="c487e7d1-3210-41a3-8ccc-e9372b78da47",
+                    ),
+                    azure_native.healthcareapis.v20220515.ServiceAccessPolicyEntryArgs(
+                        object_id="5b307da8-43d4-492b-8b66-b0294ade872f",
+                    ),
+                ],
+                authentication_configuration=azure_native.healthcareapis.v20220515.ServiceAuthenticationConfigurationInfoArgs(
+                    audience="https://azurehealthcareapis.com",
+                    authority="https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
+                    smart_proxy_enabled=True,
+                ),
+                cors_configuration=azure_native.healthcareapis.v20220515.ServiceCorsConfigurationInfoArgs(
+                    allow_credentials=False,
+                    headers=["*"],
+                    max_age=1440,
+                    methods=[
+                        "DELETE",
+                        "GET",
+                        "OPTIONS",
+                        "PATCH",
+                        "POST",
+                        "PUT",
+                    ],
+                    origins=["*"],
+                ),
+                cosmos_db_configuration=azure_native.healthcareapis.v20220515.ServiceCosmosDbConfigurationInfoArgs(
+                    key_vault_key_uri="https://my-vault.vault.azure.net/keys/my-key",
+                    offer_throughput=1000,
+                ),
+                export_configuration=azure_native.healthcareapis.v20220515.ServiceExportConfigurationInfoArgs(
+                    storage_account_name="existingStorageAccount",
+                ),
+                private_endpoint_connections=[],
+                public_network_access="Disabled",
+            ),
+            resource_group_name="rg1",
+            resource_name_="service1",
+            tags={})
+
+        ```
+        ### Create or Update a service with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.healthcareapis.v20220515.Service("service",
+            kind=azure_native.healthcareapis/v20220515.Kind.FHIR_R4,
+            location="westus2",
+            properties=azure_native.healthcareapis.v20220515.ServicesPropertiesArgs(
+                access_policies=[azure_native.healthcareapis.v20220515.ServiceAccessPolicyEntryArgs(
+                    object_id="c487e7d1-3210-41a3-8ccc-e9372b78da47",
+                )],
+            ),
+            resource_group_name="rg1",
+            resource_name_="service2",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20220515:Service service2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServicesResourceIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
@@ -166,6 +250,90 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the service.
+
+        ## Example Usage
+        ### Create or Update a service with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.healthcareapis.v20220515.Service("service",
+            identity=azure_native.healthcareapis.v20220515.ServicesResourceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            kind=azure_native.healthcareapis/v20220515.Kind.FHIR_R4,
+            location="westus2",
+            properties=azure_native.healthcareapis.v20220515.ServicesPropertiesResponseArgs(
+                access_policies=[
+                    azure_native.healthcareapis.v20220515.ServiceAccessPolicyEntryArgs(
+                        object_id="c487e7d1-3210-41a3-8ccc-e9372b78da47",
+                    ),
+                    azure_native.healthcareapis.v20220515.ServiceAccessPolicyEntryArgs(
+                        object_id="5b307da8-43d4-492b-8b66-b0294ade872f",
+                    ),
+                ],
+                authentication_configuration=azure_native.healthcareapis.v20220515.ServiceAuthenticationConfigurationInfoArgs(
+                    audience="https://azurehealthcareapis.com",
+                    authority="https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
+                    smart_proxy_enabled=True,
+                ),
+                cors_configuration=azure_native.healthcareapis.v20220515.ServiceCorsConfigurationInfoArgs(
+                    allow_credentials=False,
+                    headers=["*"],
+                    max_age=1440,
+                    methods=[
+                        "DELETE",
+                        "GET",
+                        "OPTIONS",
+                        "PATCH",
+                        "POST",
+                        "PUT",
+                    ],
+                    origins=["*"],
+                ),
+                cosmos_db_configuration=azure_native.healthcareapis.v20220515.ServiceCosmosDbConfigurationInfoArgs(
+                    key_vault_key_uri="https://my-vault.vault.azure.net/keys/my-key",
+                    offer_throughput=1000,
+                ),
+                export_configuration=azure_native.healthcareapis.v20220515.ServiceExportConfigurationInfoArgs(
+                    storage_account_name="existingStorageAccount",
+                ),
+                private_endpoint_connections=[],
+                public_network_access="Disabled",
+            ),
+            resource_group_name="rg1",
+            resource_name_="service1",
+            tags={})
+
+        ```
+        ### Create or Update a service with minimum parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.healthcareapis.v20220515.Service("service",
+            kind=azure_native.healthcareapis/v20220515.Kind.FHIR_R4,
+            location="westus2",
+            properties=azure_native.healthcareapis.v20220515.ServicesPropertiesArgs(
+                access_policies=[azure_native.healthcareapis.v20220515.ServiceAccessPolicyEntryArgs(
+                    object_id="c487e7d1-3210-41a3-8ccc-e9372b78da47",
+                )],
+            ),
+            resource_group_name="rg1",
+            resource_name_="service2",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20220515:Service service2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

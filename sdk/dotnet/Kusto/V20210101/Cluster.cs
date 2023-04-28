@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.Kusto.V20210101
 {
     /// <summary>
     /// Class representing a Kusto cluster.
+    /// 
+    /// ## Example Usage
+    /// ### KustoClustersCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.Kusto.V20210101.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "kustoclusterrptest4",
+    ///         EnableDoubleEncryption = false,
+    ///         EnablePurge = true,
+    ///         EnableStreamingIngest = true,
+    ///         Identity = new AzureNative.Kusto.V20210101.Inputs.IdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///         Sku = new AzureNative.Kusto.V20210101.Inputs.AzureSkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "Standard_L8s",
+    ///             Tier = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto/v20210101:Cluster KustoClusterRPTest4 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20210101:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

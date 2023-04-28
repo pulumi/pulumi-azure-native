@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Specifies information about the capacity reservation.
+ *
+ * ## Example Usage
+ * ### Create or update a capacity reservation .
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const capacityReservation = new azure_native.compute.v20230301.CapacityReservation("capacityReservation", {
+ *     capacityReservationGroupName: "myCapacityReservationGroup",
+ *     capacityReservationName: "myCapacityReservation",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         capacity: 4,
+ *         name: "Standard_DS1_v2",
+ *     },
+ *     tags: {
+ *         department: "HR",
+ *     },
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20230301:CapacityReservation myCapacityReservation /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup/capacityReservations/myCapacityReservation 
+ * ```
  */
 export class CapacityReservation extends pulumi.CustomResource {
     /**

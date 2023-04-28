@@ -134,6 +134,13 @@ class CognitiveServicesAccount(pulumi.CustomResource):
                  __props__=None):
         """
         Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,6 +159,13 @@ class CognitiveServicesAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CognitiveServicesAccountArgs args: The arguments to use to populate this resource's properties.

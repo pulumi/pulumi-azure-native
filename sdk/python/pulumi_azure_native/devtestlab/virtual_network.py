@@ -184,6 +184,32 @@ class VirtualNetwork(pulumi.CustomResource):
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VirtualNetworks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.devtestlab.VirtualNetwork("virtualNetwork",
+            lab_name="{labName}",
+            location="{location}",
+            name="{virtualNetworkName}",
+            resource_group_name="resourceGroupName",
+            tags={
+                "tagName1": "tagValue1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:VirtualNetwork {virtualNetworkName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SubnetArgs']]]] allowed_subnets: The allowed subnets of the virtual network.
@@ -206,6 +232,32 @@ class VirtualNetwork(pulumi.CustomResource):
         A virtual network.
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VirtualNetworks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network = azure_native.devtestlab.VirtualNetwork("virtualNetwork",
+            lab_name="{labName}",
+            location="{location}",
+            name="{virtualNetworkName}",
+            resource_group_name="resourceGroupName",
+            tags={
+                "tagName1": "tagValue1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:VirtualNetwork {virtualNetworkName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/virtualnetworks/{virtualNetworkName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkArgs args: The arguments to use to populate this resource's properties.

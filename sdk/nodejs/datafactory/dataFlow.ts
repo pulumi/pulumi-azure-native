@@ -11,6 +11,162 @@ import * as utilities from "../utilities";
  * Data flow resource type.
  * API Version: 2018-06-01.
  * Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### DataFlows_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataFlow = new azure_native.datafactory.DataFlow("dataFlow", {
+ *     dataFlowName: "exampleDataFlow",
+ *     factoryName: "exampleFactoryName",
+ *     properties: {
+ *         description: "Sample demo data flow to convert currencies showing usage of union, derive and conditional split transformation.",
+ *         scriptLines: [
+ *             "source(output(",
+ *             "PreviousConversionRate as double,",
+ *             "Country as string,",
+ *             "DateTime1 as string,",
+ *             "CurrentConversionRate as double",
+ *             "),",
+ *             "allowSchemaDrift: false,",
+ *             "validateSchema: false) ~> USDCurrency",
+ *             "source(output(",
+ *             "PreviousConversionRate as double,",
+ *             "Country as string,",
+ *             "DateTime1 as string,",
+ *             "CurrentConversionRate as double",
+ *             "),",
+ *             "allowSchemaDrift: true,",
+ *             "validateSchema: false) ~> CADSource",
+ *             "USDCurrency, CADSource union(byName: true)~> Union",
+ *             "Union derive(NewCurrencyRate = round(CurrentConversionRate*1.25)) ~> NewCurrencyColumn",
+ *             "NewCurrencyColumn split(Country == 'USD',",
+ *             "Country == 'CAD',disjoint: false) ~> ConditionalSplit1@(USD, CAD)",
+ *             "ConditionalSplit1@USD sink(saveMode:'overwrite' ) ~> USDSink",
+ *             "ConditionalSplit1@CAD sink(saveMode:'overwrite' ) ~> CADSink",
+ *         ],
+ *         sinks: [
+ *             {
+ *                 dataset: {
+ *                     referenceName: "USDOutput",
+ *                     type: "DatasetReference",
+ *                 },
+ *                 name: "USDSink",
+ *             },
+ *             {
+ *                 dataset: {
+ *                     referenceName: "CADOutput",
+ *                     type: "DatasetReference",
+ *                 },
+ *                 name: "CADSink",
+ *             },
+ *         ],
+ *         sources: [
+ *             {
+ *                 dataset: {
+ *                     referenceName: "CurrencyDatasetUSD",
+ *                     type: "DatasetReference",
+ *                 },
+ *                 name: "USDCurrency",
+ *             },
+ *             {
+ *                 dataset: {
+ *                     referenceName: "CurrencyDatasetCAD",
+ *                     type: "DatasetReference",
+ *                 },
+ *                 name: "CADSource",
+ *             },
+ *         ],
+ *         type: "MappingDataFlow",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ * ### DataFlows_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataFlow = new azure_native.datafactory.DataFlow("dataFlow", {
+ *     dataFlowName: "exampleDataFlow",
+ *     factoryName: "exampleFactoryName",
+ *     properties: {
+ *         description: "Sample demo data flow to convert currencies showing usage of union, derive and conditional split transformation.",
+ *         scriptLines: [
+ *             "source(output(",
+ *             "PreviousConversionRate as double,",
+ *             "Country as string,",
+ *             "DateTime1 as string,",
+ *             "CurrentConversionRate as double",
+ *             "),",
+ *             "allowSchemaDrift: false,",
+ *             "validateSchema: false) ~> USDCurrency",
+ *             "source(output(",
+ *             "PreviousConversionRate as double,",
+ *             "Country as string,",
+ *             "DateTime1 as string,",
+ *             "CurrentConversionRate as double",
+ *             "),",
+ *             "allowSchemaDrift: true,",
+ *             "validateSchema: false) ~> CADSource",
+ *             "USDCurrency, CADSource union(byName: true)~> Union",
+ *             "Union derive(NewCurrencyRate = round(CurrentConversionRate*1.25)) ~> NewCurrencyColumn",
+ *             "NewCurrencyColumn split(Country == 'USD',",
+ *             "Country == 'CAD',disjoint: false) ~> ConditionalSplit1@(USD, CAD)",
+ *             "ConditionalSplit1@USD sink(saveMode:'overwrite' ) ~> USDSink",
+ *             "ConditionalSplit1@CAD sink(saveMode:'overwrite' ) ~> CADSink",
+ *         ],
+ *         sinks: [
+ *             {
+ *                 dataset: {
+ *                     referenceName: "USDOutput",
+ *                     type: "DatasetReference",
+ *                 },
+ *                 name: "USDSink",
+ *             },
+ *             {
+ *                 dataset: {
+ *                     referenceName: "CADOutput",
+ *                     type: "DatasetReference",
+ *                 },
+ *                 name: "CADSink",
+ *             },
+ *         ],
+ *         sources: [
+ *             {
+ *                 dataset: {
+ *                     referenceName: "CurrencyDatasetUSD",
+ *                     type: "DatasetReference",
+ *                 },
+ *                 name: "USDCurrency",
+ *             },
+ *             {
+ *                 dataset: {
+ *                     referenceName: "CurrencyDatasetCAD",
+ *                     type: "DatasetReference",
+ *                 },
+ *                 name: "CADSource",
+ *             },
+ *         ],
+ *         type: "MappingDataFlow",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datafactory:DataFlow exampleDataFlow /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/datasets/exampleDataset 
+ * ```
  */
 export class DataFlow extends pulumi.CustomResource {
     /**

@@ -354,6 +354,32 @@ class AgentPool(pulumi.CustomResource):
         API Version: 2022-09-01-preview.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### PutAgentPool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.hybridcontainerservice.AgentPool("agentPool",
+            agent_pool_name="test-hybridaksnodepool",
+            count=1,
+            location="westus",
+            os_type="Linux",
+            resource_group_name="test-arcappliance-resgrp",
+            resource_name_="test-hybridakscluster",
+            vm_size="Standard_A4_v2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:agentPool test-hybridaksnodepool /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/provisionedClusters/test-hybridakscluster/agentPools/test-hybridaksnodepool 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: Parameter for the name of the agent pool in the provisioned cluster
@@ -385,6 +411,32 @@ class AgentPool(pulumi.CustomResource):
         The agentPool resource definition
         API Version: 2022-09-01-preview.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### PutAgentPool
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        agent_pool = azure_native.hybridcontainerservice.AgentPool("agentPool",
+            agent_pool_name="test-hybridaksnodepool",
+            count=1,
+            location="westus",
+            os_type="Linux",
+            resource_group_name="test-arcappliance-resgrp",
+            resource_name_="test-hybridakscluster",
+            vm_size="Standard_A4_v2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:agentPool test-hybridaksnodepool /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/provisionedClusters/test-hybridakscluster/agentPools/test-hybridaksnodepool 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AgentPoolArgs args: The arguments to use to populate this resource's properties.

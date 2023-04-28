@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// Virtual Appliance Site resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create Network Virtual Appliance Site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualApplianceSite = new AzureNative.Network.V20201101.VirtualApplianceSite("virtualApplianceSite", new()
+    ///     {
+    ///         AddressPrefix = "192.168.1.0/24",
+    ///         NetworkVirtualApplianceName = "nva",
+    ///         O365Policy = new AzureNative.Network.V20201101.Inputs.Office365PolicyPropertiesArgs
+    ///         {
+    ///             BreakOutCategories = new AzureNative.Network.V20201101.Inputs.BreakOutCategoryPoliciesArgs
+    ///             {
+    ///                 Allow = true,
+    ///                 Default = true,
+    ///                 Optimize = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SiteName = "site1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:VirtualApplianceSite site1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkVirtualAppliances/nva/virtualApplianceSites/site1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:VirtualApplianceSite")]
     public partial class VirtualApplianceSite : global::Pulumi.CustomResource

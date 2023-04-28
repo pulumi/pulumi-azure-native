@@ -113,6 +113,31 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection
 
+        ## Example Usage
+        ### Update Private Endpoint Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.containerservice.v20230201.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="privateendpointconnection1",
+            private_link_service_connection_state=azure_native.containerservice.v20230201.PrivateLinkServiceConnectionStateArgs(
+                status="Approved",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20230201:PrivateEndpointConnection privateendpointconnection1 /subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/managedCluster/clustername1/privateEndpointConnections/privateendpointconnection1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: The resource of private endpoint.
@@ -129,6 +154,31 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection
+
+        ## Example Usage
+        ### Update Private Endpoint Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.containerservice.v20230201.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="privateendpointconnection1",
+            private_link_service_connection_state=azure_native.containerservice.v20230201.PrivateLinkServiceConnectionStateArgs(
+                status="Approved",
+            ),
+            resource_group_name="rg1",
+            resource_name_="clustername1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20230201:PrivateEndpointConnection privateendpointconnection1 /subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/managedCluster/clustername1/privateEndpointConnections/privateendpointconnection1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

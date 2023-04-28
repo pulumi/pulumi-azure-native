@@ -183,6 +183,70 @@ class Job(pulumi.CustomResource):
         """
         Container App Job
 
+        ## Example Usage
+        ### Create or Update Container Apps Job
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.app.v20221101preview.Job("job",
+            configuration=azure_native.app.v20221101preview.JobConfigurationResponseArgs(
+                manual_trigger_config=azure_native.app.v20221101preview.JobConfigurationManualTriggerConfigArgs(
+                    parallelism=4,
+                    replica_completion_count=1,
+                ),
+                replica_retry_limit=10,
+                replica_timeout=10,
+                trigger_type="Manual",
+            ),
+            environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            job_name="testcontainerAppsJob0",
+            location="East US",
+            resource_group_name="rg",
+            template=azure_native.app.v20221101preview.JobTemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerAppsJob0:v1",
+                    "name": "testcontainerAppsJob0",
+                    "probes": [{
+                        "httpGet": azure_native.app.v20221101preview.ContainerAppProbeHttpGetArgs(
+                            http_headers=[azure_native.app.v20221101preview.ContainerAppProbeHttpHeadersArgs(
+                                name="Custom-Header",
+                                value="Awesome",
+                            )],
+                            path="/health",
+                            port=8080,
+                        ),
+                        "initialDelaySeconds": 5,
+                        "periodSeconds": 3,
+                        "type": "Liveness",
+                    }],
+                }],
+                init_containers=[{
+                    "args": [
+                        "-c",
+                        "while true; do echo hello; sleep 10;done",
+                    ],
+                    "command": ["/bin/sh"],
+                    "image": "repo/testcontainerAppsJob0:v4",
+                    "name": "testinitcontainerAppsJob0",
+                    "resources": azure_native.app.v20221101preview.ContainerResourcesArgs(
+                        cpu=0.2,
+                        memory="100Mi",
+                    ),
+                }],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221101preview:Job testcontainerAppsJob0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/jobs/testcontainerAppsJob0 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['JobConfigurationArgs']] configuration: Container Apps Job configuration properties.
@@ -203,6 +267,70 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container App Job
+
+        ## Example Usage
+        ### Create or Update Container Apps Job
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.app.v20221101preview.Job("job",
+            configuration=azure_native.app.v20221101preview.JobConfigurationResponseArgs(
+                manual_trigger_config=azure_native.app.v20221101preview.JobConfigurationManualTriggerConfigArgs(
+                    parallelism=4,
+                    replica_completion_count=1,
+                ),
+                replica_retry_limit=10,
+                replica_timeout=10,
+                trigger_type="Manual",
+            ),
+            environment_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+            job_name="testcontainerAppsJob0",
+            location="East US",
+            resource_group_name="rg",
+            template=azure_native.app.v20221101preview.JobTemplateResponseArgs(
+                containers=[{
+                    "image": "repo/testcontainerAppsJob0:v1",
+                    "name": "testcontainerAppsJob0",
+                    "probes": [{
+                        "httpGet": azure_native.app.v20221101preview.ContainerAppProbeHttpGetArgs(
+                            http_headers=[azure_native.app.v20221101preview.ContainerAppProbeHttpHeadersArgs(
+                                name="Custom-Header",
+                                value="Awesome",
+                            )],
+                            path="/health",
+                            port=8080,
+                        ),
+                        "initialDelaySeconds": 5,
+                        "periodSeconds": 3,
+                        "type": "Liveness",
+                    }],
+                }],
+                init_containers=[{
+                    "args": [
+                        "-c",
+                        "while true; do echo hello; sleep 10;done",
+                    ],
+                    "command": ["/bin/sh"],
+                    "image": "repo/testcontainerAppsJob0:v4",
+                    "name": "testinitcontainerAppsJob0",
+                    "resources": azure_native.app.v20221101preview.ContainerResourcesArgs(
+                        cpu=0.2,
+                        memory="100Mi",
+                    ),
+                }],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221101preview:Job testcontainerAppsJob0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/jobs/testcontainerAppsJob0 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

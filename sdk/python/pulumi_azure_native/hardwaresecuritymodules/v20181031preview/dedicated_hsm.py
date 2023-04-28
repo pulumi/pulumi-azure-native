@@ -165,6 +165,72 @@ class DedicatedHsm(pulumi.CustomResource):
         """
         Resource information with extended details.
 
+        ## Example Usage
+        ### Create a new or update an existing dedicated HSM
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_hsm = azure_native.hardwaresecuritymodules.v20181031preview.DedicatedHsm("dedicatedHsm",
+            location="westus",
+            name="hsm1",
+            network_profile=azure_native.hardwaresecuritymodules.v20181031preview.NetworkProfileResponseArgs(
+                network_interfaces=[azure_native.hardwaresecuritymodules.v20181031preview.NetworkInterfaceArgs(
+                    private_ip_address="1.0.0.1",
+                )],
+                subnet=azure_native.hardwaresecuritymodules.v20181031preview.ApiEntityReferenceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+                ),
+            ),
+            resource_group_name="hsm-group",
+            sku=azure_native.hardwaresecuritymodules.v20181031preview.SkuArgs(
+                name="SafeNet Luna Network HSM A790",
+            ),
+            stamp_id="stamp01",
+            tags={
+                "Dept": "hsm",
+                "Environment": "dogfood",
+            })
+
+        ```
+        ### Create a new or update an existing payment HSM
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_hsm = azure_native.hardwaresecuritymodules.v20181031preview.DedicatedHsm("dedicatedHsm",
+            location="westus",
+            name="hsm1",
+            network_profile=azure_native.hardwaresecuritymodules.v20181031preview.NetworkProfileResponseArgs(
+                network_interfaces=[azure_native.hardwaresecuritymodules.v20181031preview.NetworkInterfaceArgs(
+                    private_ip_address="1.0.0.1",
+                )],
+                subnet=azure_native.hardwaresecuritymodules.v20181031preview.ApiEntityReferenceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+                ),
+            ),
+            resource_group_name="hsm-group",
+            sku=azure_native.hardwaresecuritymodules.v20181031preview.SkuArgs(
+                name="payShield10K_LMK1_CPS60",
+            ),
+            stamp_id="stamp01",
+            tags={
+                "Dept": "hsm",
+                "Environment": "dogfood",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm hsm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the dedicated HSM should be created.
@@ -184,6 +250,72 @@ class DedicatedHsm(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information with extended details.
+
+        ## Example Usage
+        ### Create a new or update an existing dedicated HSM
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_hsm = azure_native.hardwaresecuritymodules.v20181031preview.DedicatedHsm("dedicatedHsm",
+            location="westus",
+            name="hsm1",
+            network_profile=azure_native.hardwaresecuritymodules.v20181031preview.NetworkProfileResponseArgs(
+                network_interfaces=[azure_native.hardwaresecuritymodules.v20181031preview.NetworkInterfaceArgs(
+                    private_ip_address="1.0.0.1",
+                )],
+                subnet=azure_native.hardwaresecuritymodules.v20181031preview.ApiEntityReferenceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+                ),
+            ),
+            resource_group_name="hsm-group",
+            sku=azure_native.hardwaresecuritymodules.v20181031preview.SkuArgs(
+                name="SafeNet Luna Network HSM A790",
+            ),
+            stamp_id="stamp01",
+            tags={
+                "Dept": "hsm",
+                "Environment": "dogfood",
+            })
+
+        ```
+        ### Create a new or update an existing payment HSM
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_hsm = azure_native.hardwaresecuritymodules.v20181031preview.DedicatedHsm("dedicatedHsm",
+            location="westus",
+            name="hsm1",
+            network_profile=azure_native.hardwaresecuritymodules.v20181031preview.NetworkProfileResponseArgs(
+                network_interfaces=[azure_native.hardwaresecuritymodules.v20181031preview.NetworkInterfaceArgs(
+                    private_ip_address="1.0.0.1",
+                )],
+                subnet=azure_native.hardwaresecuritymodules.v20181031preview.ApiEntityReferenceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+                ),
+            ),
+            resource_group_name="hsm-group",
+            sku=azure_native.hardwaresecuritymodules.v20181031preview.SkuArgs(
+                name="payShield10K_LMK1_CPS60",
+            ),
+            stamp_id="stamp01",
+            tags={
+                "Dept": "hsm",
+                "Environment": "dogfood",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hardwaresecuritymodules/v20181031preview:DedicatedHsm hsm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DedicatedHsmArgs args: The arguments to use to populate this resource's properties.

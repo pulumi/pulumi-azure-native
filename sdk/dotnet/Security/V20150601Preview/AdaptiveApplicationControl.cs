@@ -9,6 +9,35 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20150601Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Update an application control VM/server group by adding a new file
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adaptiveApplicationControl = new AzureNative.Security.V20150601Preview.AdaptiveApplicationControl("adaptiveApplicationControl", new()
+    ///     {
+    ///         AscLocation = "centralus",
+    ///         GroupName = "ERELGROUP1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20150601preview:AdaptiveApplicationControl ERELGROUP1 /subscriptions/3eeab341-f466-499c-a8be-85427e154baf/providers/Microsoft.Security/locations/centralus/applicationWhitelistings/ERELGROUP1 
+    /// ```
+    /// </summary>
     [Obsolete(@"Version 2015-06-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:security/v20150601preview:AdaptiveApplicationControl")]
     public partial class AdaptiveApplicationControl : global::Pulumi.CustomResource

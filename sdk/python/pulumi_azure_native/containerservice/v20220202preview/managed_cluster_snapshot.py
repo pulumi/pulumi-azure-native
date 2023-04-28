@@ -132,6 +132,35 @@ class ManagedClusterSnapshot(pulumi.CustomResource):
         """
         A managed cluster snapshot resource.
 
+        ## Example Usage
+        ### Create/Update Managed Cluster Snapshot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_snapshot = azure_native.containerservice.v20220202preview.ManagedClusterSnapshot("managedClusterSnapshot",
+            creation_data=azure_native.containerservice.v20220202preview.CreationDataArgs(
+                source_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+            ),
+            location="westus",
+            resource_group_name="rg1",
+            resource_name_="snapshot1",
+            tags={
+                "key1": "val1",
+                "key2": "val2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20220202preview:ManagedClusterSnapshot snapshot1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedclustersnapshots/snapshot1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreationDataArgs']] creation_data: CreationData to be used to specify the source resource ID to create this snapshot.
@@ -149,6 +178,35 @@ class ManagedClusterSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A managed cluster snapshot resource.
+
+        ## Example Usage
+        ### Create/Update Managed Cluster Snapshot
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_cluster_snapshot = azure_native.containerservice.v20220202preview.ManagedClusterSnapshot("managedClusterSnapshot",
+            creation_data=azure_native.containerservice.v20220202preview.CreationDataArgs(
+                source_resource_id="/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1",
+            ),
+            location="westus",
+            resource_group_name="rg1",
+            resource_name_="snapshot1",
+            tags={
+                "key1": "val1",
+                "key2": "val2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20220202preview:ManagedClusterSnapshot snapshot1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedclustersnapshots/snapshot1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedClusterSnapshotArgs args: The arguments to use to populate this resource's properties.

@@ -203,6 +203,43 @@ class Assignment(pulumi.CustomResource):
         """
         Represents a Blueprint assignment.
 
+        ## Example Usage
+        ### Assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.v20171111preview.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.v20171111preview.ManagedServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+                "owners": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+                "storageAccountType": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.v20171111preview.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:Assignment assignSimpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assignment_name: name of the assignment.
@@ -224,6 +261,43 @@ class Assignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Blueprint assignment.
+
+        ## Example Usage
+        ### Assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.v20171111preview.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.v20171111preview.ManagedServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+                "owners": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+                "storageAccountType": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.v20171111preview.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:Assignment assignSimpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssignmentArgs args: The arguments to use to populate this resource's properties.

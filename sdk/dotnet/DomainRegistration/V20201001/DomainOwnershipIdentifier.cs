@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.DomainRegistration.V20201001
 {
     /// <summary>
     /// Domain ownership Identifier.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:domainregistration/v20201001:DomainOwnershipIdentifier myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/domainOwnershipIdentifiers/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:domainregistration/v20201001:DomainOwnershipIdentifier")]
     public partial class DomainOwnershipIdentifier : global::Pulumi.CustomResource

@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * ADP account
  * API Version: 2021-11-01-preview.
  * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Put account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.autonomousdevelopmentplatform.Account("account", {
+ *     accountName: "sampleacct",
+ *     location: "Global",
+ *     resourceGroupName: "adpClient",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:autonomousdevelopmentplatform:Account adp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.AutonomousDevelopmentPlatform/accounts/adp1 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

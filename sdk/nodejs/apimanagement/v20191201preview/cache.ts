@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Cache details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateCache
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cache = new azure_native.apimanagement.v20191201preview.Cache("cache", {
+ *     cacheId: "westindia",
+ *     connectionString: "contoso5.redis.cache.windows.net,ssl=true,password=...",
+ *     description: "Redis cache instances in West India",
+ *     resourceGroupName: "rg1",
+ *     resourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/contoso5",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20191201preview:Cache westindia /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/caches/westindia 
+ * ```
  */
 export class Cache extends pulumi.CustomResource {
     /**

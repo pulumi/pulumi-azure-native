@@ -267,6 +267,34 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
+        ## Example Usage
+        ### ApiManagementCreateService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20161010.ApiManagementService("apiManagementService",
+            location="West US",
+            publisher_email="admin@live.com",
+            publisher_name="contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20161010.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name=azure_native.apimanagement/v20161010.SkuType.PREMIUM,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20161010:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalRegionArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
@@ -292,6 +320,34 @@ class ApiManagementService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A single API Management service resource in List or Get response.
+
+        ## Example Usage
+        ### ApiManagementCreateService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20161010.ApiManagementService("apiManagementService",
+            location="West US",
+            publisher_email="admin@live.com",
+            publisher_name="contoso",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20161010.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name=azure_native.apimanagement/v20161010.SkuType.PREMIUM,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20161010:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiManagementServiceArgs args: The arguments to use to populate this resource's properties.

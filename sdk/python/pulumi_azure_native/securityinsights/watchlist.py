@@ -405,6 +405,55 @@ class Watchlist(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a watchlist and bulk creates watchlist items.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.Watchlist("watchlist",
+            content_type="text/csv",
+            description="Watchlist from CSV content",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            number_of_lines_to_skip=1,
+            provider="Microsoft",
+            raw_content=\"\"\"This line will be skipped
+        header1,header2
+        value1,value2\"\"\",
+            resource_group_name="myRg",
+            source="Local file",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create or update a watchlist.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.Watchlist("watchlist",
+            description="Watchlist from CSV content",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            provider="Microsoft",
+            resource_group_name="myRg",
+            source="Local file",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Watchlist highValueAsset /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/watchlists/highValueAsset 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] content_type: The content type of the raw content. For now, only text/csv is valid
@@ -442,6 +491,55 @@ class Watchlist(pulumi.CustomResource):
         Represents a Watchlist in Azure Security Insights.
         API Version: 2023-02-01.
         Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a watchlist and bulk creates watchlist items.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.Watchlist("watchlist",
+            content_type="text/csv",
+            description="Watchlist from CSV content",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            number_of_lines_to_skip=1,
+            provider="Microsoft",
+            raw_content=\"\"\"This line will be skipped
+        header1,header2
+        value1,value2\"\"\",
+            resource_group_name="myRg",
+            source="Local file",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Create or update a watchlist.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        watchlist = azure_native.securityinsights.Watchlist("watchlist",
+            description="Watchlist from CSV content",
+            display_name="High Value Assets Watchlist",
+            items_search_key="header1",
+            provider="Microsoft",
+            resource_group_name="myRg",
+            source="Local file",
+            watchlist_alias="highValueAsset",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights:Watchlist highValueAsset /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/watchlists/highValueAsset 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WatchlistArgs args: The arguments to use to populate this resource's properties.

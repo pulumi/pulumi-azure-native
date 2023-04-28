@@ -147,6 +147,37 @@ class Connection(pulumi.CustomResource):
         API Version: 2022-08-08.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection = azure_native.automation.Connection("connection",
+            automation_account_name="myAutomationAccount28",
+            connection_name="mysConnection",
+            connection_type=azure_native.automation.ConnectionTypeAssociationPropertyArgs(
+                name="Azure",
+            ),
+            description="my description goes here",
+            field_definition_values={
+                "AutomationCertificateName": "mysCertificateName",
+                "SubscriptionID": "subid",
+            },
+            name="mysConnection",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Connection mysConnection /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount28/connections/mysConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -167,6 +198,37 @@ class Connection(pulumi.CustomResource):
         Definition of the connection.
         API Version: 2022-08-08.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection = azure_native.automation.Connection("connection",
+            automation_account_name="myAutomationAccount28",
+            connection_name="mysConnection",
+            connection_type=azure_native.automation.ConnectionTypeAssociationPropertyArgs(
+                name="Azure",
+            ),
+            description="my description goes here",
+            field_definition_values={
+                "AutomationCertificateName": "mysCertificateName",
+                "SubscriptionID": "subid",
+            },
+            name="mysConnection",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Connection mysConnection /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount28/connections/mysConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionArgs args: The arguments to use to populate this resource's properties.

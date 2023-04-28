@@ -112,6 +112,37 @@ class Python2Package(pulumi.CustomResource):
         """
         Definition of the module type.
 
+        ## Example Usage
+        ### Create or update a python 2 package
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        python2_package = azure_native.automation.v20190601.Python2Package("python2Package",
+            automation_account_name="myAutomationAccount33",
+            content_link=azure_native.automation.v20190601.ContentLinkArgs(
+                content_hash=azure_native.automation.v20190601.ContentHashArgs(
+                    algorithm="sha265",
+                    value="07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+                ),
+                uri="https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+                version="1.0.0.0",
+            ),
+            package_name="OmsCompositeResources",
+            resource_group_name="rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20190601:Python2Package OmsCompositeResources /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/python2Packages/OmsCompositeResources 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -128,6 +159,37 @@ class Python2Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the module type.
+
+        ## Example Usage
+        ### Create or update a python 2 package
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        python2_package = azure_native.automation.v20190601.Python2Package("python2Package",
+            automation_account_name="myAutomationAccount33",
+            content_link=azure_native.automation.v20190601.ContentLinkArgs(
+                content_hash=azure_native.automation.v20190601.ContentHashArgs(
+                    algorithm="sha265",
+                    value="07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+                ),
+                uri="https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+                version="1.0.0.0",
+            ),
+            package_name="OmsCompositeResources",
+            resource_group_name="rg",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20190601:Python2Package OmsCompositeResources /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/python2Packages/OmsCompositeResources 
+        ```
 
         :param str resource_name: The name of the resource.
         :param Python2PackageArgs args: The arguments to use to populate this resource's properties.

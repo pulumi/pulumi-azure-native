@@ -147,6 +147,43 @@ class User(pulumi.CustomResource):
         """
         Profile of a lab user.
 
+        ## Example Usage
+        ### Users_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.devtestlab.v20180915.User("user",
+            identity=azure_native.devtestlab.v20180915.UserIdentityArgs(
+                app_id="{appId}",
+                object_id="{objectId}",
+                principal_id="{principalId}",
+                principal_name="{principalName}",
+                tenant_id="{tenantId}",
+            ),
+            lab_name="{devtestlabName}",
+            location="{location}",
+            name="{userName}",
+            resource_group_name="resourceGroupName",
+            secret_store=azure_native.devtestlab.v20180915.UserSecretStoreArgs(
+                key_vault_id="{keyVaultId}",
+                key_vault_uri="{keyVaultUri}",
+            ),
+            tags={
+                "tagName1": "tagValue1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:User myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{name} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['UserIdentityArgs']] identity: The identity of the user.
@@ -165,6 +202,43 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Profile of a lab user.
+
+        ## Example Usage
+        ### Users_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.devtestlab.v20180915.User("user",
+            identity=azure_native.devtestlab.v20180915.UserIdentityArgs(
+                app_id="{appId}",
+                object_id="{objectId}",
+                principal_id="{principalId}",
+                principal_name="{principalName}",
+                tenant_id="{tenantId}",
+            ),
+            lab_name="{devtestlabName}",
+            location="{location}",
+            name="{userName}",
+            resource_group_name="resourceGroupName",
+            secret_store=azure_native.devtestlab.v20180915.UserSecretStoreArgs(
+                key_vault_id="{keyVaultId}",
+                key_vault_uri="{keyVaultUri}",
+            ),
+            tags={
+                "tagName1": "tagValue1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:User myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

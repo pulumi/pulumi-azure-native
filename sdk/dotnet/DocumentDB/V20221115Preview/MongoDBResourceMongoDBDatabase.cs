@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115Preview
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB database.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBDatabaseCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoDBResourceMongoDBDatabase = new AzureNative.DocumentDB.V20221115Preview.MongoDBResourceMongoDBDatabase("mongoDBResourceMongoDBDatabase", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20221115Preview.Inputs.MongoDBDatabaseResourceArgs
+    ///         {
+    ///             Id = "databaseName",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CosmosDBMongoDBDatabaseRestore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoDBResourceMongoDBDatabase = new AzureNative.DocumentDB.V20221115Preview.MongoDBResourceMongoDBDatabase("mongoDBResourceMongoDBDatabase", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         DatabaseName = "databaseName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20221115Preview.Inputs.MongoDBDatabaseResourceArgs
+    ///         {
+    ///             CreateMode = "Restore",
+    ///             Id = "databaseName",
+    ///             RestoreParameters = new AzureNative.DocumentDB.V20221115Preview.Inputs.ResourceRestoreParametersArgs
+    ///             {
+    ///                 RestoreSource = "/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+    ///                 RestoreTimestampInUtc = "2022-07-20T18:28:00Z",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20221115preview:MongoDBResourceMongoDBDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/mongodbDatabases/databaseName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20221115preview:MongoDBResourceMongoDBDatabase")]
     public partial class MongoDBResourceMongoDBDatabase : global::Pulumi.CustomResource

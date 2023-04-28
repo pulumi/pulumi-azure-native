@@ -264,6 +264,40 @@ class Incident(pulumi.CustomResource):
         """
         Represents an incident in Azure Security Insights.
 
+        ## Example Usage
+        ### Creates or updates an incident.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        incident = azure_native.securityinsights.v20200101.Incident("incident",
+            classification="FalsePositive",
+            classification_comment="Not a malicious activity",
+            classification_reason="IncorrectAlertLogic",
+            description="This is a demo incident",
+            first_activity_time_utc="2019-01-01T13:00:30Z",
+            incident_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            last_activity_time_utc="2019-01-01T13:05:30Z",
+            owner=azure_native.securityinsights.v20200101.IncidentOwnerInfoArgs(
+                object_id="2046feea-040d-4a46-9e2b-91c2941bfa70",
+            ),
+            resource_group_name="myRg",
+            severity="High",
+            status="Closed",
+            title="My incident",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20200101:Incident 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'IncidentClassification']] classification: The reason the incident was closed
@@ -289,6 +323,40 @@ class Incident(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an incident in Azure Security Insights.
+
+        ## Example Usage
+        ### Creates or updates an incident.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        incident = azure_native.securityinsights.v20200101.Incident("incident",
+            classification="FalsePositive",
+            classification_comment="Not a malicious activity",
+            classification_reason="IncorrectAlertLogic",
+            description="This is a demo incident",
+            first_activity_time_utc="2019-01-01T13:00:30Z",
+            incident_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            last_activity_time_utc="2019-01-01T13:05:30Z",
+            owner=azure_native.securityinsights.v20200101.IncidentOwnerInfoArgs(
+                object_id="2046feea-040d-4a46-9e2b-91c2941bfa70",
+            ),
+            resource_group_name="myRg",
+            severity="High",
+            status="Closed",
+            title="My incident",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20200101:Incident 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IncidentArgs args: The arguments to use to populate this resource's properties.

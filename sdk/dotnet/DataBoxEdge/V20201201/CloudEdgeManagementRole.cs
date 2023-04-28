@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
 {
     /// <summary>
     /// CloudEdgeManagementRole role.
+    /// 
+    /// ## Example Usage
+    /// ### RolePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cloudEdgeManagementRole = new AzureNative.DataBoxEdge.V20201201.CloudEdgeManagementRole("cloudEdgeManagementRole", new()
+    ///     {
+    ///         DeviceName = "testedgedevice",
+    ///         Name = "IoTRole1",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20201201:CloudEdgeManagementRole IoTRole1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20201201:CloudEdgeManagementRole")]
     public partial class CloudEdgeManagementRole : global::Pulumi.CustomResource

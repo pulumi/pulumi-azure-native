@@ -11,6 +11,67 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The KPI resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Kpi_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kpi = new AzureNative.CustomerInsights.V20170426.Kpi("kpi", new()
+    ///     {
+    ///         Aliases = new[]
+    ///         {
+    ///             new AzureNative.CustomerInsights.V20170426.Inputs.KpiAliasArgs
+    ///             {
+    ///                 AliasName = "alias",
+    ///                 Expression = "Id+4",
+    ///             },
+    ///         },
+    ///         CalculationWindow = AzureNative.CustomerInsights.V20170426.CalculationWindowTypes.Day,
+    ///         Description = 
+    ///         {
+    ///             { "en-us", "Kpi Description" },
+    ///         },
+    ///         DisplayName = 
+    ///         {
+    ///             { "en-us", "Kpi DisplayName" },
+    ///         },
+    ///         EntityType = AzureNative.CustomerInsights.V20170426.EntityTypes.Profile,
+    ///         EntityTypeName = "testProfile2327128",
+    ///         Expression = "SavingAccountBalance",
+    ///         Function = AzureNative.CustomerInsights.V20170426.KpiFunctions.Sum,
+    ///         GroupBy = new[]
+    ///         {
+    ///             "SavingAccountBalance",
+    ///         },
+    ///         HubName = "sdkTestHub",
+    ///         KpiName = "kpiTest45453647",
+    ///         ResourceGroupName = "TestHubRG",
+    ///         ThresHolds = new AzureNative.CustomerInsights.V20170426.Inputs.KpiThresholdsArgs
+    ///         {
+    ///             IncreasingKpi = true,
+    ///             LowerLimit = 5,
+    ///             UpperLimit = 50,
+    ///         },
+    ///         Unit = "unit",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170426:Kpi sdkTestHub/kpiTest45453647 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/kpi/kpiTest45453647 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Kpi")]
     public partial class Kpi : global::Pulumi.CustomResource

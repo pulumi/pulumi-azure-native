@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.TestBase.V20220401Preview
 {
     /// <summary>
     /// A favorite process identifier.
+    /// 
+    /// ## Example Usage
+    /// ### FavoriteProcessCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var favoriteProcess = new AzureNative.TestBase.V20220401Preview.FavoriteProcess("favoriteProcess", new()
+    ///     {
+    ///         ActualProcessName = "testApp&amp;.exe",
+    ///         FavoriteProcessResourceName = "testAppProcess",
+    ///         PackageName = "contoso-package2",
+    ///         ResourceGroupName = "contoso-rg1",
+    ///         TestBaseAccountName = "contoso-testBaseAccount1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:testbase/v20220401preview:FavoriteProcess testAppProcess /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1/packages/contoso-package2/favoriteProcesses/testAppProcess 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase/v20220401preview:FavoriteProcess")]
     public partial class FavoriteProcess : global::Pulumi.CustomResource

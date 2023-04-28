@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * The EngagementFabric account
  * API Version: 2018-09-01-preview.
  * Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### AccountsCreateOrUpdateExample
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.engagementfabric.Account("account", {
+ *     accountName: "ExampleAccount",
+ *     location: "WestUS",
+ *     resourceGroupName: "ExampleRg",
+ *     sku: {
+ *         name: "B1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:engagementfabric:Account ExampleAccount subscriptions/EDBF0095-A524-4A84-95FB-F72DA41AA6A1/resourceGroups/ExampleRg/providers/Microsoft.EngagementFabric/Accounts/ExampleAccount 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

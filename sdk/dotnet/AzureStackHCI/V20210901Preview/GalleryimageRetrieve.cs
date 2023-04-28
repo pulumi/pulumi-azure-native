@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 {
     /// <summary>
     /// The gallery image resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutGalleryImage
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var galleryimageRetrieve = new AzureNative.AzureStackHCI.V20210901Preview.GalleryimageRetrieve("galleryimageRetrieve", new()
+    ///     {
+    ///         ContainerName = "Default_Container",
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         GalleryimagesName = "test-gallery-image",
+    ///         ImagePath = "C:\\test.vhdx",
+    ///         Location = "West US2",
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci/v20210901preview:galleryimageRetrieve test-gallery-image /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryimages/test-gallery-image 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:galleryimageRetrieve")]
     public partial class GalleryimageRetrieve : global::Pulumi.CustomResource

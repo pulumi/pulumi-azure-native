@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * The storage container resource definition.
+ *
+ * ## Example Usage
+ * ### PutStorageContainer
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storagecontainerRetrieve = new azure_native.azurestackhci.v20210901preview.StoragecontainerRetrieve("storagecontainerRetrieve", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "West US2",
+ *     path: "C:\\container_storage",
+ *     resourceGroupName: "test-rg",
+ *     storagecontainersName: "Default_Container",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve Default_Container /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storagecontainers/test-galimg3325 
+ * ```
  */
 export class StoragecontainerRetrieve extends pulumi.CustomResource {
     /**

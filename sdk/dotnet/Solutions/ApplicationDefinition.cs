@@ -13,6 +13,46 @@ namespace Pulumi.AzureNative.Solutions
     /// Information about managed application definition.
     /// API Version: 2021-07-01.
     /// Previous API Version: 2019-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update managed application definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationDefinition = new AzureNative.Solutions.ApplicationDefinition("applicationDefinition", new()
+    ///     {
+    ///         ApplicationDefinitionName = "myManagedApplicationDef",
+    ///         Authorizations = new[]
+    ///         {
+    ///             new AzureNative.Solutions.Inputs.ApplicationAuthorizationArgs
+    ///             {
+    ///                 PrincipalId = "validprincipalguid",
+    ///                 RoleDefinitionId = "validroleguid",
+    ///             },
+    ///         },
+    ///         Description = "myManagedApplicationDef description",
+    ///         DisplayName = "myManagedApplicationDef",
+    ///         LockLevel = AzureNative.Solutions.ApplicationLockLevel.None,
+    ///         PackageFileUri = "https://path/to/packagezipfile",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:solutions:ApplicationDefinition myManagedApplicationDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions:ApplicationDefinition")]
     public partial class ApplicationDefinition : global::Pulumi.CustomResource

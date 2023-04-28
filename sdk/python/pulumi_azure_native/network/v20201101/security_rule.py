@@ -383,6 +383,36 @@ class SecurityRule(pulumi.CustomResource):
         """
         Network security rule.
 
+        ## Example Usage
+        ### Create security rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_rule = azure_native.network.v20201101.SecurityRule("securityRule",
+            access="Deny",
+            destination_address_prefix="11.0.0.0/8",
+            destination_port_range="8080",
+            direction="Outbound",
+            network_security_group_name="testnsg",
+            priority=100,
+            protocol="*",
+            resource_group_name="rg1",
+            security_rule_name="rule1",
+            source_address_prefix="10.0.0.0/8",
+            source_port_range="*")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:SecurityRule rule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/rule1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'SecurityRuleAccess']] access: The network traffic is allowed or denied.
@@ -415,6 +445,36 @@ class SecurityRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network security rule.
+
+        ## Example Usage
+        ### Create security rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_rule = azure_native.network.v20201101.SecurityRule("securityRule",
+            access="Deny",
+            destination_address_prefix="11.0.0.0/8",
+            destination_port_range="8080",
+            direction="Outbound",
+            network_security_group_name="testnsg",
+            priority=100,
+            protocol="*",
+            resource_group_name="rg1",
+            security_rule_name="rule1",
+            source_address_prefix="10.0.0.0/8",
+            source_port_range="*")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:SecurityRule rule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/rule1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityRuleInitArgs args: The arguments to use to populate this resource's properties.

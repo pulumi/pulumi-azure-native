@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace resource.
+ *
+ * ## Example Usage
+ * ### RelayNamespaceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespace = new azure_native.relay.v20170401.Namespace("namespace", {
+ *     location: "West US",
+ *     namespaceName: "example-RelayNamespace-01",
+ *     resourceGroupName: "resourcegroup",
+ *     sku: {
+ *         name: azure_native.relay.v20170401.SkuName.Standard,
+ *         tier: azure_native.relay.v20170401.SkuTier.Standard,
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:relay/v20170401:Namespace example-RelayNamespace-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01 
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

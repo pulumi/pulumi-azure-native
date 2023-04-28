@@ -9,6 +9,171 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network resource.
+ *
+ * ## Example Usage
+ * ### Create virtual network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.network.v20190801.VirtualNetwork("virtualNetwork", {
+ *     addressSpace: {
+ *         addressPrefixes: ["10.0.0.0/16"],
+ *     },
+ *     location: "eastus",
+ *     resourceGroupName: "rg1",
+ *     virtualNetworkName: "test-vnet",
+ * });
+ *
+ * ```
+ * ### Create virtual network with Bgp Communities
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.network.v20190801.VirtualNetwork("virtualNetwork", {
+ *     addressSpace: {
+ *         addressPrefixes: ["10.0.0.0/16"],
+ *     },
+ *     bgpCommunities: {
+ *         virtualNetworkCommunity: "12076:60000",
+ *     },
+ *     location: "eastus",
+ *     resourceGroupName: "rg1",
+ *     subnets: [{
+ *         addressPrefix: "10.0.0.0/24",
+ *         name: "test-1",
+ *     }],
+ *     virtualNetworkName: "test-vnet",
+ * });
+ *
+ * ```
+ * ### Create virtual network with delegated subnets
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.network.v20190801.VirtualNetwork("virtualNetwork", {
+ *     addressSpace: {
+ *         addressPrefixes: ["10.0.0.0/16"],
+ *     },
+ *     location: "westcentralus",
+ *     resourceGroupName: "rg1",
+ *     subnets: [{
+ *         addressPrefix: "10.0.0.0/24",
+ *         delegations: [{
+ *             name: "myDelegation",
+ *             serviceName: "Microsoft.Sql/managedInstances",
+ *         }],
+ *         name: "test-1",
+ *     }],
+ *     virtualNetworkName: "test-vnet",
+ * });
+ *
+ * ```
+ * ### Create virtual network with service endpoints
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.network.v20190801.VirtualNetwork("virtualNetwork", {
+ *     addressSpace: {
+ *         addressPrefixes: ["10.0.0.0/16"],
+ *     },
+ *     location: "eastus",
+ *     resourceGroupName: "vnetTest",
+ *     subnets: [{
+ *         addressPrefix: "10.0.0.0/16",
+ *         name: "test-1",
+ *         serviceEndpoints: [{
+ *             service: "Microsoft.Storage",
+ *         }],
+ *     }],
+ *     virtualNetworkName: "vnet1",
+ * });
+ *
+ * ```
+ * ### Create virtual network with service endpoints and service endpoint policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.network.v20190801.VirtualNetwork("virtualNetwork", {
+ *     addressSpace: {
+ *         addressPrefixes: ["10.0.0.0/16"],
+ *     },
+ *     location: "eastus2euap",
+ *     resourceGroupName: "vnetTest",
+ *     subnets: [{
+ *         addressPrefix: "10.0.0.0/16",
+ *         name: "test-1",
+ *         serviceEndpointPolicies: [{
+ *             id: "/subscriptions/subid/resourceGroups/vnetTest/providers/Microsoft.Network/serviceEndpointPolicies/ServiceEndpointPolicy1",
+ *         }],
+ *         serviceEndpoints: [{
+ *             service: "Microsoft.Storage",
+ *         }],
+ *     }],
+ *     virtualNetworkName: "vnet1",
+ * });
+ *
+ * ```
+ * ### Create virtual network with subnet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.network.v20190801.VirtualNetwork("virtualNetwork", {
+ *     addressSpace: {
+ *         addressPrefixes: ["10.0.0.0/16"],
+ *     },
+ *     location: "eastus",
+ *     resourceGroupName: "rg1",
+ *     subnets: [{
+ *         addressPrefix: "10.0.0.0/24",
+ *         name: "test-1",
+ *     }],
+ *     virtualNetworkName: "test-vnet",
+ * });
+ *
+ * ```
+ * ### Create virtual network with subnet containing address prefixes
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetwork = new azure_native.network.v20190801.VirtualNetwork("virtualNetwork", {
+ *     addressSpace: {
+ *         addressPrefixes: ["10.0.0.0/16"],
+ *     },
+ *     location: "eastus",
+ *     resourceGroupName: "rg1",
+ *     subnets: [{
+ *         addressPrefixes: [
+ *             "10.0.0.0/28",
+ *             "10.0.1.0/28",
+ *         ],
+ *         name: "test-2",
+ *     }],
+ *     virtualNetworkName: "test-vnet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20190801:VirtualNetwork test-vnet /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet 
+ * ```
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**

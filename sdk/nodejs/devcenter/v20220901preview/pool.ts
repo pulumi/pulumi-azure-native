@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * A pool of Virtual Machines.
+ *
+ * ## Example Usage
+ * ### Pools_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.devcenter.v20220901preview.Pool("pool", {
+ *     devBoxDefinitionName: "WebDevBox",
+ *     licenseType: "Windows_Client",
+ *     localAdministrator: "Enabled",
+ *     location: "centralus",
+ *     networkConnectionName: "Network1-westus2",
+ *     poolName: "{poolName}",
+ *     projectName: "{projectName}",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter/v20220901preview:Pool {poolName} /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/{projectName}/pools/{poolName} 
+ * ```
  */
 export class Pool extends pulumi.CustomResource {
     /**

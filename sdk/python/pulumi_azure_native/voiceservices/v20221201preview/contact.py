@@ -160,6 +160,32 @@ class Contact(pulumi.CustomResource):
         """
         A Contact resource
 
+        ## Example Usage
+        ### CreateContactResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        contact = azure_native.voiceservices.v20221201preview.Contact("contact",
+            communications_gateway_name="myname",
+            contact_name="John Smith",
+            email="johnsmith@example.com",
+            location="useast",
+            phone_number="+1-555-1234",
+            resource_group_name="testrg",
+            role="Network Manager")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:voiceservices/v20221201preview:Contact name2 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceService/communicationsGateway/myname/contacts/name2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] communications_gateway_name: Unique identifier for this deployment
@@ -179,6 +205,32 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Contact resource
+
+        ## Example Usage
+        ### CreateContactResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        contact = azure_native.voiceservices.v20221201preview.Contact("contact",
+            communications_gateway_name="myname",
+            contact_name="John Smith",
+            email="johnsmith@example.com",
+            location="useast",
+            phone_number="+1-555-1234",
+            resource_group_name="testrg",
+            role="Network Manager")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:voiceservices/v20221201preview:Contact name2 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceService/communicationsGateway/myname/contacts/name2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.

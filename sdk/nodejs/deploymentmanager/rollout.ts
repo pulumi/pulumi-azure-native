@@ -11,6 +11,70 @@ import * as utilities from "../utilities";
  * Defines the PUT rollout request body.
  * API Version: 2019-11-01-preview.
  * Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update rollout
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const rollout = new azure_native.deploymentmanager.Rollout("rollout", {
+ *     artifactSourceId: "/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/artifactSources/myArtifactSource",
+ *     buildVersion: "1.0.0.1",
+ *     identity: {
+ *         identityIds: ["/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userassignedidentities/myuseridentity"],
+ *         type: "userAssigned",
+ *     },
+ *     location: "centralus",
+ *     resourceGroupName: "myResourceGroup",
+ *     rolloutName: "myRollout",
+ *     stepGroups: [
+ *         {
+ *             deploymentTargetId: "Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit1'",
+ *             name: "FirstRegion",
+ *             postDeploymentSteps: [{
+ *                 stepId: "Microsoft.DeploymentManager/steps/postDeployStep1",
+ *             }],
+ *             preDeploymentSteps: [
+ *                 {
+ *                     stepId: "Microsoft.DeploymentManager/steps/preDeployStep1",
+ *                 },
+ *                 {
+ *                     stepId: "Microsoft.DeploymentManager/steps/preDeployStep2",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             dependsOnStepGroups: ["FirstRegion"],
+ *             deploymentTargetId: "Microsoft.DeploymentManager/serviceTopologies/myTopology/services/myService/serviceUnits/myServiceUnit2'",
+ *             name: "SecondRegion",
+ *             postDeploymentSteps: [{
+ *                 stepId: "Microsoft.DeploymentManager/steps/postDeployStep5",
+ *             }],
+ *             preDeploymentSteps: [
+ *                 {
+ *                     stepId: "Microsoft.DeploymentManager/steps/preDeployStep3",
+ *                 },
+ *                 {
+ *                     stepId: "Microsoft.DeploymentManager/steps/preDeployStep4",
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ *     tags: {},
+ *     targetServiceTopologyId: "/subscriptions/caac1590-e859-444f-a9e0-62091c0f5929/resourceGroups/myResourceGroup/Microsoft.DeploymentManager/serviceTopologies/myTopology",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:deploymentmanager:Rollout myRollout /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/rollouts/{rolloutName} 
+ * ```
  */
 export class Rollout extends pulumi.CustomResource {
     /**

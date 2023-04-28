@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Appliances definition.
+ *
+ * ## Example Usage
+ * ### Create/Update Appliance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const appliance = new azure_native.resourceconnector.v20221027.Appliance("appliance", {
+ *     distro: "AKSEdge",
+ *     infrastructureConfig: {
+ *         provider: "VMWare",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "testresourcegroup",
+ *     resourceName: "appliance01",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resourceconnector/v20221027:Appliance appliance01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ResourceConnector/appliances/appliance01 
+ * ```
  */
 export class Appliance extends pulumi.CustomResource {
     /**

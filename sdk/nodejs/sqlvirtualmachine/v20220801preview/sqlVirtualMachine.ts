@@ -9,6 +9,254 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL virtual machine.
+ *
+ * ## Example Usage
+ * ### Creates or updates a SQL virtual machine and joins it to a SQL virtual machine group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlVirtualMachine = new azure_native.sqlvirtualmachine.v20220801preview.SqlVirtualMachine("sqlVirtualMachine", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlVirtualMachineGroupResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup",
+ *     sqlVirtualMachineName: "testvm",
+ *     virtualMachineResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm2",
+ *     wsfcDomainCredentials: {
+ *         clusterBootstrapAccountPassword: "<Password>",
+ *         clusterOperatorAccountPassword: "<Password>",
+ *         sqlServiceAccountPassword: "<Password>",
+ *     },
+ *     wsfcStaticIp: "10.0.0.7",
+ * });
+ *
+ * ```
+ * ### Creates or updates a SQL virtual machine for Automated Back up Settings with Weekly and Days of the week to run the back up.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlVirtualMachine = new azure_native.sqlvirtualmachine.v20220801preview.SqlVirtualMachine("sqlVirtualMachine", {
+ *     autoBackupSettings: {
+ *         backupScheduleType: "Manual",
+ *         backupSystemDbs: true,
+ *         daysOfWeek: [
+ *             "Monday",
+ *             "Friday",
+ *         ],
+ *         enable: true,
+ *         enableEncryption: true,
+ *         fullBackupFrequency: "Weekly",
+ *         fullBackupStartTime: 6,
+ *         fullBackupWindowHours: 11,
+ *         logBackupFrequency: 10,
+ *         password: "<Password>",
+ *         retentionPeriod: 17,
+ *         storageAccessKey: "<primary storage access key>",
+ *         storageAccountUrl: "https://teststorage.blob.core.windows.net/",
+ *         storageContainerName: "testcontainer",
+ *     },
+ *     autoPatchingSettings: {
+ *         dayOfWeek: azure_native.sqlvirtualmachine.v20220801preview.DayOfWeek.Sunday,
+ *         enable: true,
+ *         maintenanceWindowDuration: 60,
+ *         maintenanceWindowStartingHour: 2,
+ *     },
+ *     keyVaultCredentialSettings: {
+ *         enable: false,
+ *     },
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     serverConfigurationsManagementSettings: {
+ *         additionalFeaturesServerConfigurations: {
+ *             isRServicesEnabled: false,
+ *         },
+ *         sqlConnectivityUpdateSettings: {
+ *             connectivityType: "PRIVATE",
+ *             port: 1433,
+ *             sqlAuthUpdatePassword: "<password>",
+ *             sqlAuthUpdateUserName: "sqllogin",
+ *         },
+ *         sqlStorageUpdateSettings: {
+ *             diskConfigurationType: "NEW",
+ *             diskCount: 1,
+ *             startingDeviceId: 2,
+ *         },
+ *         sqlWorkloadTypeUpdateSettings: {
+ *             sqlWorkloadType: "OLTP",
+ *         },
+ *     },
+ *     sqlImageSku: "Enterprise",
+ *     sqlManagement: "Full",
+ *     sqlServerLicenseType: "PAYG",
+ *     sqlVirtualMachineName: "testvm",
+ *     virtualMachineResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+ * });
+ *
+ * ```
+ * ### Creates or updates a SQL virtual machine for Storage Configuration Settings to EXTEND Data, Log or TempDB storage pool.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlVirtualMachine = new azure_native.sqlvirtualmachine.v20220801preview.SqlVirtualMachine("sqlVirtualMachine", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlVirtualMachineName: "testvm",
+ *     storageConfigurationSettings: {
+ *         diskConfigurationType: "EXTEND",
+ *         sqlDataSettings: {
+ *             luns: [2],
+ *         },
+ *     },
+ *     virtualMachineResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+ * });
+ *
+ * ```
+ * ### Creates or updates a SQL virtual machine for Storage Configuration Settings to NEW Data, Log and TempDB storage pool.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlVirtualMachine = new azure_native.sqlvirtualmachine.v20220801preview.SqlVirtualMachine("sqlVirtualMachine", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlVirtualMachineName: "testvm",
+ *     storageConfigurationSettings: {
+ *         diskConfigurationType: "NEW",
+ *         sqlDataSettings: {
+ *             defaultFilePath: "F:\\folderpath\\",
+ *             luns: [0],
+ *         },
+ *         sqlLogSettings: {
+ *             defaultFilePath: "G:\\folderpath\\",
+ *             luns: [1],
+ *         },
+ *         sqlSystemDbOnDataDisk: true,
+ *         sqlTempDbSettings: {
+ *             dataFileCount: 8,
+ *             dataFileSize: 256,
+ *             dataGrowth: 512,
+ *             defaultFilePath: "D:\\TEMP",
+ *             logFileSize: 256,
+ *             logGrowth: 512,
+ *         },
+ *         storageWorkloadType: "OLTP",
+ *     },
+ *     virtualMachineResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+ * });
+ *
+ * ```
+ * ### Creates or updates a SQL virtual machine with max parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlVirtualMachine = new azure_native.sqlvirtualmachine.v20220801preview.SqlVirtualMachine("sqlVirtualMachine", {
+ *     assessmentSettings: {
+ *         enable: true,
+ *         runImmediately: true,
+ *         schedule: {
+ *             dayOfWeek: azure_native.sqlvirtualmachine.v20220801preview.AssessmentDayOfWeek.Sunday,
+ *             enable: true,
+ *             startTime: "23:17",
+ *             weeklyInterval: 1,
+ *         },
+ *     },
+ *     autoBackupSettings: {
+ *         backupScheduleType: "Manual",
+ *         backupSystemDbs: true,
+ *         enable: true,
+ *         enableEncryption: true,
+ *         fullBackupFrequency: "Daily",
+ *         fullBackupStartTime: 6,
+ *         fullBackupWindowHours: 11,
+ *         logBackupFrequency: 10,
+ *         password: "<Password>",
+ *         retentionPeriod: 17,
+ *         storageAccessKey: "<primary storage access key>",
+ *         storageAccountUrl: "https://teststorage.blob.core.windows.net/",
+ *         storageContainerName: "testcontainer",
+ *     },
+ *     autoPatchingSettings: {
+ *         dayOfWeek: azure_native.sqlvirtualmachine.v20220801preview.DayOfWeek.Sunday,
+ *         enable: true,
+ *         maintenanceWindowDuration: 60,
+ *         maintenanceWindowStartingHour: 2,
+ *     },
+ *     enableAutomaticUpgrade: true,
+ *     keyVaultCredentialSettings: {
+ *         enable: false,
+ *     },
+ *     leastPrivilegeMode: "Enabled",
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     serverConfigurationsManagementSettings: {
+ *         additionalFeaturesServerConfigurations: {
+ *             isRServicesEnabled: false,
+ *         },
+ *         azureAdAuthenticationSettings: {
+ *             clientId: "11111111-2222-3333-4444-555555555555",
+ *         },
+ *         sqlConnectivityUpdateSettings: {
+ *             connectivityType: "PRIVATE",
+ *             port: 1433,
+ *             sqlAuthUpdatePassword: "<password>",
+ *             sqlAuthUpdateUserName: "sqllogin",
+ *         },
+ *         sqlInstanceSettings: {
+ *             collation: "SQL_Latin1_General_CP1_CI_AS",
+ *             isIfiEnabled: true,
+ *             isLpimEnabled: true,
+ *             isOptimizeForAdHocWorkloadsEnabled: true,
+ *             maxDop: 8,
+ *             maxServerMemoryMB: 128,
+ *             minServerMemoryMB: 0,
+ *         },
+ *         sqlStorageUpdateSettings: {
+ *             diskConfigurationType: "NEW",
+ *             diskCount: 1,
+ *             startingDeviceId: 2,
+ *         },
+ *         sqlWorkloadTypeUpdateSettings: {
+ *             sqlWorkloadType: "OLTP",
+ *         },
+ *     },
+ *     sqlImageSku: "Enterprise",
+ *     sqlManagement: "Full",
+ *     sqlServerLicenseType: "PAYG",
+ *     sqlVirtualMachineName: "testvm",
+ *     virtualMachineResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+ * });
+ *
+ * ```
+ * ### Creates or updates a SQL virtual machine with min parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlVirtualMachine = new azure_native.sqlvirtualmachine.v20220801preview.SqlVirtualMachine("sqlVirtualMachine", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlVirtualMachineName: "testvm",
+ *     virtualMachineResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Compute/virtualMachines/testvm",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sqlvirtualmachine/v20220801preview:SqlVirtualMachine testvm /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm 
+ * ```
  */
 export class SqlVirtualMachine extends pulumi.CustomResource {
     /**

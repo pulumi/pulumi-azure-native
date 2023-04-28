@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Custom domain resource payload.
  * API Version: 2022-12-01.
  * Previous API Version: 2020-07-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CustomDomains_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customDomain = new azure_native.appplatform.CustomDomain("customDomain", {
+ *     appName: "myapp",
+ *     domainName: "mydomain.com",
+ *     properties: {
+ *         certName: "mycert",
+ *         thumbprint: "934367bf1c97033f877db0f15cb1b586957d3133",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform:CustomDomain mydomain.com /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/domains/mydomain.com 
+ * ```
  */
 export class CustomDomain extends pulumi.CustomResource {
     /**

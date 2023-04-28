@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * The role assignment
+ *
+ * ## Example Usage
+ * ### PutEnrollmentAccountSubscriptionCreatorRoleAssignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const billingRoleAssignmentByEnrollmentAccount = new azure_native.billing.v20191001preview.BillingRoleAssignmentByEnrollmentAccount("billingRoleAssignmentByEnrollmentAccount", {
+ *     billingAccountName: "{billingAccountName}",
+ *     billingRoleAssignmentName: "{billingRoleAssignmentName}",
+ *     enrollmentAccountName: "{enrollmentAccountName}",
+ *     principalId: "99a1a759-30dd-42c2-828c-db398826bb67",
+ *     principalTenantId: "7ca289b9-c32d-4f01-8566-7ff93261d76f",
+ *     roleDefinitionId: "/providers/Microsoft.Billing/billingAccounts/7898901/enrollmentAccounts/225314/billingRoleDefinitions/a0bcee42-bf30-4d1b-926a-48d21664ef71",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:billing/v20191001preview:BillingRoleAssignmentByEnrollmentAccount 9dfd08c2-62a3-4d47-85bd-1cdba1408402 /providers/Microsoft.Billing/billingAccounts/7898901/enrollmentAccounts/225314/billingRoleAssignments/9dfd08c2-62a3-4d47-85bd-1cdba1408402 
+ * ```
  */
 export class BillingRoleAssignmentByEnrollmentAccount extends pulumi.CustomResource {
     /**

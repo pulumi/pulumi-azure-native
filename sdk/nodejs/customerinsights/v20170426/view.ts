@@ -6,6 +6,34 @@ import * as utilities from "../../utilities";
 
 /**
  * The view resource format.
+ *
+ * ## Example Usage
+ * ### Views_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const view = new azure_native.customerinsights.v20170426.View("view", {
+ *     definition: "{\\\"isProfileType\\\":false,\\\"profileTypes\\\":[],\\\"widgets\\\":[],\\\"style\\\":[]}",
+ *     displayName: {
+ *         en: "some name",
+ *     },
+ *     hubName: "sdkTestHub",
+ *     resourceGroupName: "TestHubRG",
+ *     userId: "testUser",
+ *     viewName: "testView",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights/v20170426:View sdkTestHub/testView /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/views/testView 
+ * ```
  */
 export class View extends pulumi.CustomResource {
     /**

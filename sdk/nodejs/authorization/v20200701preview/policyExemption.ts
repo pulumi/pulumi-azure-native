@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * The policy exemption.
+ *
+ * ## Example Usage
+ * ### Create or update a policy exemption
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyExemption = new azure_native.authorization.v20200701preview.PolicyExemption("policyExemption", {
+ *     description: "Exempt demo cluster from limit sku",
+ *     displayName: "Exempt demo cluster",
+ *     exemptionCategory: "Waiver",
+ *     metadata: {
+ *         reason: "Temporary exemption for a expensive VM demo",
+ *     },
+ *     policyAssignmentId: "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/CostManagement",
+ *     policyDefinitionReferenceIds: ["Limit_Skus"],
+ *     policyExemptionName: "DemoExpensiveVM",
+ *     scope: "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20200701preview:PolicyExemption DemoExpensiveVM /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/resourceGroups/demoCluster/providers/Microsoft.Authorization/policyExemptions/DemoExpensiveVM 
+ * ```
  */
 export class PolicyExemption extends pulumi.CustomResource {
     /**

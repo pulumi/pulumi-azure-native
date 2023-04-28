@@ -97,6 +97,36 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
         """
         AzureStorageInfo dictionary resource.
 
+        ## Example Usage
+        ### Update Azure Storage Accounts
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_azure_storage_accounts = azure_native.web.v20220901.WebAppAzureStorageAccounts("webAppAzureStorageAccounts",
+            name="sitef6141",
+            properties={
+                "account1": azure_native.web.v20220901.AzureStorageInfoValueArgs(
+                    access_key="26515^%@#*",
+                    account_name="testsa",
+                    mount_path="/mounts/a/files",
+                    share_name="web",
+                    type=azure_native.web/v20220901.AzureStorageType.AZURE_FILES,
+                ),
+            },
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppAzureStorageAccounts web /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/web 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -112,6 +142,36 @@ class WebAppAzureStorageAccounts(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         AzureStorageInfo dictionary resource.
+
+        ## Example Usage
+        ### Update Azure Storage Accounts
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_app_azure_storage_accounts = azure_native.web.v20220901.WebAppAzureStorageAccounts("webAppAzureStorageAccounts",
+            name="sitef6141",
+            properties={
+                "account1": azure_native.web.v20220901.AzureStorageInfoValueArgs(
+                    access_key="26515^%@#*",
+                    account_name="testsa",
+                    mount_path="/mounts/a/files",
+                    share_name="web",
+                    type=azure_native.web/v20220901.AzureStorageType.AZURE_FILES,
+                ),
+            },
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:WebAppAzureStorageAccounts web /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/web 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppAzureStorageAccountsArgs args: The arguments to use to populate this resource's properties.

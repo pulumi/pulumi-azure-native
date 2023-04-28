@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
 {
     /// <summary>
     /// Server Endpoint object.
+    /// 
+    /// ## Example Usage
+    /// ### ServerEndpoints_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverEndpoint = new AzureNative.StorageSync.V20170605Preview.ServerEndpoint("serverEndpoint", new()
+    ///     {
+    ///         CloudTiering = "off",
+    ///         ProvisioningState = "Created",
+    ///         ResourceGroupName = "SampleResourceGroup_1",
+    ///         ServerEndpointName = "SampleServerEndpoint_1",
+    ///         ServerLocalPath = "D:\\SampleServerEndpoint_1",
+    ///         ServerResourceId = "/subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncServer_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
+    ///         StorageSyncServiceName = "SampleStorageSyncService_1",
+    ///         SyncGroupName = "SampleSyncGroup_1",
+    ///         VolumeFreeSpacePercent = 100,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagesync/v20170605preview:ServerEndpoint SampleServerEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/10.91.86.47/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/serverEndpoints/SampleServerEndpoint_1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-06-05-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20170605preview:ServerEndpoint")]

@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  * An Application Insights component definition.
  * API Version: 2020-02-02.
  * Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ComponentCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const component = new azure_native.insights.Component("component", {
+ *     applicationType: "web",
+ *     flowType: "Bluefield",
+ *     kind: "web",
+ *     location: "South Central US",
+ *     requestSource: "rest",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "my-component",
+ *     workspaceResourceId: "/subscriptions/subid/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace",
+ * });
+ *
+ * ```
+ * ### ComponentUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const component = new azure_native.insights.Component("component", {
+ *     kind: "web",
+ *     location: "South Central US",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "my-component",
+ *     tags: {
+ *         ApplicationGatewayType: "Internal-Only",
+ *         BillingEntity: "Self",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights:Component my-component /subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component 
+ * ```
  */
 export class Component extends pulumi.CustomResource {
     /**

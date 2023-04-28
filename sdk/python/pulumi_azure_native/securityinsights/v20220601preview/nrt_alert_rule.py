@@ -347,6 +347,105 @@ class NrtAlertRule(pulumi.CustomResource):
         """
         Represents NRT alert rule.
 
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule with scenario exclusion pattern.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Nrt alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            description="",
+            display_name="Rule2",
+            enabled=True,
+            incident_configuration=azure_native.securityinsights.v20220601preview.IncidentConfigurationResponseArgs(
+                create_incident=True,
+                grouping_configuration=azure_native.securityinsights.v20220601preview.GroupingConfigurationArgs(
+                    enabled=True,
+                    group_by_entities=[
+                        "Host",
+                        "Account",
+                    ],
+                    lookback_duration="PT5H",
+                    matching_method="Selected",
+                    reopen_closed_incident=False,
+                ),
+            ),
+            kind="NRT",
+            query="ProtectionStatus | extend HostCustomEntity = Computer | extend IPCustomEntity = ComputerIP_Hidden",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            severity="High",
+            suppression_duration="PT1H",
+            suppression_enabled=False,
+            tactics=[
+                "Persistence",
+                "LateralMovement",
+            ],
+            techniques=[
+                "T1037",
+                "T1021",
+            ],
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220601preview:NrtAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AlertDetailsOverrideArgs']] alert_details_override: The alert details override settings
@@ -378,6 +477,105 @@ class NrtAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents NRT alert rule.
+
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule with scenario exclusion pattern.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Nrt alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            description="",
+            display_name="Rule2",
+            enabled=True,
+            incident_configuration=azure_native.securityinsights.v20220601preview.IncidentConfigurationResponseArgs(
+                create_incident=True,
+                grouping_configuration=azure_native.securityinsights.v20220601preview.GroupingConfigurationArgs(
+                    enabled=True,
+                    group_by_entities=[
+                        "Host",
+                        "Account",
+                    ],
+                    lookback_duration="PT5H",
+                    matching_method="Selected",
+                    reopen_closed_incident=False,
+                ),
+            ),
+            kind="NRT",
+            query="ProtectionStatus | extend HostCustomEntity = Computer | extend IPCustomEntity = ComputerIP_Hidden",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            severity="High",
+            suppression_duration="PT1H",
+            suppression_enabled=False,
+            tactics=[
+                "Persistence",
+                "LateralMovement",
+            ],
+            techniques=[
+                "T1037",
+                "T1021",
+            ],
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nrt_alert_rule = azure_native.securityinsights.v20220601preview.NrtAlertRule("nrtAlertRule",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220601preview:NrtAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NrtAlertRuleArgs args: The arguments to use to populate this resource's properties.

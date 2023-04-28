@@ -98,6 +98,34 @@ class ServiceTask(pulumi.CustomResource):
         A task resource
         API Version: 2021-06-30.
 
+        ## Example Usage
+        ### Tasks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_task = azure_native.datamigration.ServiceTask("serviceTask",
+            group_name="DmsSdkRg",
+            properties={
+                "input": azure_native.datamigration.MongoDbConnectionInfoArgs(
+                    server_version="NA",
+                ),
+                "taskType": "Service.Check.OCI",
+            },
+            service_name="DmsSdkService",
+            task_name="DmsSdkTask")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration:ServiceTask DmsSdkTask /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/serviceTasks/DmsSdkTask 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_name: Name of the resource group
@@ -114,6 +142,34 @@ class ServiceTask(pulumi.CustomResource):
         """
         A task resource
         API Version: 2021-06-30.
+
+        ## Example Usage
+        ### Tasks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_task = azure_native.datamigration.ServiceTask("serviceTask",
+            group_name="DmsSdkRg",
+            properties={
+                "input": azure_native.datamigration.MongoDbConnectionInfoArgs(
+                    server_version="NA",
+                ),
+                "taskType": "Service.Check.OCI",
+            },
+            service_name="DmsSdkService",
+            task_name="DmsSdkTask")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration:ServiceTask DmsSdkTask /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/serviceTasks/DmsSdkTask 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceTaskArgs args: The arguments to use to populate this resource's properties.

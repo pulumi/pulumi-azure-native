@@ -113,6 +113,34 @@ class User(pulumi.CustomResource):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 
+        ## Example Usage
+        ### UserPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.databoxedge.v20230101preview.User("user",
+            device_name="testedgedevice",
+            encrypted_password=azure_native.databoxedge.v20230101preview.AsymmetricEncryptedSecretResponseArgs(
+                encryption_algorithm="None",
+                encryption_cert_thumbprint="blah",
+                value="<value>",
+            ),
+            name="user1",
+            resource_group_name="GroupForEdgeAutomation",
+            user_type="Share")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20230101preview:User user1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_name: The device name.
@@ -129,6 +157,34 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+
+        ## Example Usage
+        ### UserPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.databoxedge.v20230101preview.User("user",
+            device_name="testedgedevice",
+            encrypted_password=azure_native.databoxedge.v20230101preview.AsymmetricEncryptedSecretResponseArgs(
+                encryption_algorithm="None",
+                encryption_cert_thumbprint="blah",
+                value="<value>",
+            ),
+            name="user1",
+            resource_group_name="GroupForEdgeAutomation",
+            user_type="Share")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20230101preview:User user1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

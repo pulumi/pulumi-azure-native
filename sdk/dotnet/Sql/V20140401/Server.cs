@@ -11,6 +11,63 @@ namespace Pulumi.AzureNative.Sql.V20140401
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Example Usage
+    /// ### Create server max
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.Sql.V20140401.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "dummylogin",
+    ///         AdministratorLoginPassword = "&lt;administratorLoginPassword&gt;",
+    ///         Location = "Japan East",
+    ///         ResourceGroupName = "sqlcrudtest-7398",
+    ///         ServerName = "sqlcrudtest-4645",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "TagValue1" },
+    ///         },
+    ///         Version = "12.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create server min
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.Sql.V20140401.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "dummylogin",
+    ///         AdministratorLoginPassword = "&lt;administratorLoginPassword&gt;",
+    ///         Location = "Japan East",
+    ///         ResourceGroupName = "sqlcrudtest-7398",
+    ///         ServerName = "sqlcrudtest-4645",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20140401:Server sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20140401:Server")]
     public partial class Server : global::Pulumi.CustomResource

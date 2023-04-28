@@ -148,6 +148,44 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### NetworkToNetworkInterconnects_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_to_network_interconnect = azure_native.managednetworkfabric.NetworkToNetworkInterconnect("networkToNetworkInterconnect",
+            is_management_type="True",
+            layer2_configuration=azure_native.managednetworkfabric.NetworkToNetworkInterconnectPropertiesResponseLayer2ConfigurationArgs(
+                mtu=1500,
+                port_count=10,
+            ),
+            layer3_configuration=azure_native.managednetworkfabric.Layer3ConfigurationArgs(
+                export_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+                import_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+                peer_asn=50272,
+                primary_ipv4_prefix="172.31.0.0/31",
+                primary_ipv6_prefix="3FFE:FFFF:0:CD30::a0/126",
+                secondary_ipv4_prefix="172.31.0.20/31",
+                secondary_ipv6_prefix="3FFE:FFFF:0:CD30::a4/126",
+                vlan_id=2064,
+            ),
+            network_fabric_name="FabricName",
+            network_to_network_interconnect_name="DefaultNNI",
+            resource_group_name="resourceGroupName",
+            use_option_b="False")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NetworkToNetworkInterconnect DefaultNNI /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName/networkToNetworkInterconnect/DefaultNNI 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'BooleanEnumProperty']] is_management_type: Configuration to use NNI for Infrastructure Management. Example: True/False.
@@ -168,6 +206,44 @@ class NetworkToNetworkInterconnect(pulumi.CustomResource):
         The NetworkToNetworkInterconnect resource definition.
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### NetworkToNetworkInterconnects_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_to_network_interconnect = azure_native.managednetworkfabric.NetworkToNetworkInterconnect("networkToNetworkInterconnect",
+            is_management_type="True",
+            layer2_configuration=azure_native.managednetworkfabric.NetworkToNetworkInterconnectPropertiesResponseLayer2ConfigurationArgs(
+                mtu=1500,
+                port_count=10,
+            ),
+            layer3_configuration=azure_native.managednetworkfabric.Layer3ConfigurationArgs(
+                export_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+                import_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+                peer_asn=50272,
+                primary_ipv4_prefix="172.31.0.0/31",
+                primary_ipv6_prefix="3FFE:FFFF:0:CD30::a0/126",
+                secondary_ipv4_prefix="172.31.0.20/31",
+                secondary_ipv6_prefix="3FFE:FFFF:0:CD30::a4/126",
+                vlan_id=2064,
+            ),
+            network_fabric_name="FabricName",
+            network_to_network_interconnect_name="DefaultNNI",
+            resource_group_name="resourceGroupName",
+            use_option_b="False")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:NetworkToNetworkInterconnect DefaultNNI /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName/networkToNetworkInterconnect/DefaultNNI 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkToNetworkInterconnectArgs args: The arguments to use to populate this resource's properties.

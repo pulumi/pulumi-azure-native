@@ -9,6 +9,85 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual machine guest diagnostics settings resource.
+ *
+ * ## Example Usage
+ * ### Create or update a guest diagnostic settings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const guestDiagnosticsSetting = new azure_native.insights.v20180601preview.GuestDiagnosticsSetting("guestDiagnosticsSetting", {
+ *     dataSources: [
+ *         {
+ *             configuration: {
+ *                 perfCounters: [
+ *                     {
+ *                         name: `\Process(_Total)\%Processor Time`,
+ *                         samplingPeriod: "PT1M",
+ *                     },
+ *                     {
+ *                         name: "\\Process(_Total)\\Working Set",
+ *                         samplingPeriod: "PT1M",
+ *                     },
+ *                 ],
+ *             },
+ *             kind: "PerformanceCounter",
+ *             sinks: [{
+ *                 kind: "LogAnalytics",
+ *             }],
+ *         },
+ *         {
+ *             configuration: {
+ *                 providers: [
+ *                     {
+ *                         id: "1",
+ *                     },
+ *                     {
+ *                         id: "2",
+ *                     },
+ *                 ],
+ *             },
+ *             kind: "ETWProviders",
+ *             sinks: [{
+ *                 kind: "LogAnalytics",
+ *             }],
+ *         },
+ *         {
+ *             configuration: {
+ *                 eventLogs: [
+ *                     {
+ *                         filter: `SourceName == Xyz AND EventId = "100" AND  $Xpath/Column="DCName" = "CatWoman"`,
+ *                         logName: "Application",
+ *                     },
+ *                     {
+ *                         filter: `SourceName == Xyz AND EventId = "100" AND  $Xpath/Column="DCName" = "BatMan"`,
+ *                         logName: "Application",
+ *                     },
+ *                 ],
+ *             },
+ *             kind: "WindowsEventLogs",
+ *             sinks: [{
+ *                 kind: "LogAnalytics",
+ *             }],
+ *         },
+ *     ],
+ *     diagnosticSettingsName: "SampleDiagSetting",
+ *     location: "Global",
+ *     osType: "Windows",
+ *     resourceGroupName: "Default-ResourceGroup",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20180601preview:guestDiagnosticsSetting productionMachineSetting /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ResourceGroup/providers/microsoft.insights/guestDiagnosticSettings/SampleDiagSetting 
+ * ```
  */
 export class GuestDiagnosticsSetting extends pulumi.CustomResource {
     /**

@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 {
     /// <summary>
     /// The network interface resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutNetworkInterface
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkinterfaceRetrieve = new AzureNative.AzureStackHCI.V20210901Preview.NetworkinterfaceRetrieve("networkinterfaceRetrieve", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.AzureStackHCI.V20210901Preview.Inputs.IpConfigurationArgs
+    ///             {
+    ///                 Name = "ipconfig-sample",
+    ///                 Properties = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.IpConfigurationPropertiesArgs
+    ///                 {
+    ///                     Subnet = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.IpConfigurationSubnetArgs
+    ///                     {
+    ///                         Id = "test-vnet",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "West US2",
+    ///         NetworkinterfacesName = "test-nic",
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve test-nic /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkinterfaces/test-nic 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve")]
     public partial class NetworkinterfaceRetrieve : global::Pulumi.CustomResource

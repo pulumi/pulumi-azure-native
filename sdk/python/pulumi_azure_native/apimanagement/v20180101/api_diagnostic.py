@@ -109,6 +109,30 @@ class ApiDiagnostic(pulumi.CustomResource):
         """
         Diagnostic details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiDiagnostic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_diagnostic = azure_native.apimanagement.v20180101.ApiDiagnostic("apiDiagnostic",
+            api_id="57d1f7558aa04f15146d9d8a",
+            diagnostic_id="default",
+            enabled=True,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180101:ApiDiagnostic default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/diagnostics/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API identifier. Must be unique in the current API Management service instance.
@@ -125,6 +149,30 @@ class ApiDiagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Diagnostic details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiDiagnostic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_diagnostic = azure_native.apimanagement.v20180101.ApiDiagnostic("apiDiagnostic",
+            api_id="57d1f7558aa04f15146d9d8a",
+            diagnostic_id="default",
+            enabled=True,
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180101:ApiDiagnostic default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/diagnostics/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiDiagnosticArgs args: The arguments to use to populate this resource's properties.

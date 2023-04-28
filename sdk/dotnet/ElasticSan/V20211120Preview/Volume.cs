@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
 {
     /// <summary>
     /// Response for Volume request.
+    /// 
+    /// ## Example Usage
+    /// ### Volumes_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.ElasticSan.V20211120Preview.Volume("volume", new()
+    ///     {
+    ///         CreationData = new AzureNative.ElasticSan.V20211120Preview.Inputs.SourceCreationDataArgs
+    ///         {
+    ///             CreateSource = AzureNative.ElasticSan.V20211120Preview.VolumeCreateOption.None,
+    ///             SourceUri = "aaaaaa",
+    ///         },
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         SizeGiB = 22,
+    ///         Tags = 
+    ///         {
+    ///             { "key7423", "aaaa" },
+    ///         },
+    ///         VolumeGroupName = "u_5I_1j4t3",
+    ///         VolumeName = "9132y",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Volumes_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.ElasticSan.V20211120Preview.Volume("volume", new()
+    ///     {
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         VolumeGroupName = "u_5I_1j4t3",
+    ///         VolumeName = "9132y",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:elasticsan/v20211120preview:Volume aaaaaaaaaaaa aaaaaaaa 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan/v20211120preview:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

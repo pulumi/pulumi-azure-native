@@ -9,6 +9,57 @@ import * as utilities from "../../utilities";
 
 /**
  * Customized accelerator resource
+ *
+ * ## Example Usage
+ * ### CustomizedAccelerators_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customizedAccelerator = new azure_native.appplatform.v20230101preview.CustomizedAccelerator("customizedAccelerator", {
+ *     applicationAcceleratorName: "default",
+ *     customizedAcceleratorName: "acc-name",
+ *     properties: {
+ *         acceleratorTags: [
+ *             "tag-a",
+ *             "tag-b",
+ *         ],
+ *         description: "acc-desc",
+ *         displayName: "acc-name",
+ *         gitRepository: {
+ *             authSetting: {
+ *                 authType: "SSH",
+ *                 hostKey: "git-auth-hostkey",
+ *                 hostKeyAlgorithm: "git-auth-algorithm",
+ *                 privateKey: "git-auth-privatekey",
+ *             },
+ *             branch: "git-branch",
+ *             commit: "12345",
+ *             gitTag: "git-tag",
+ *             intervalInSeconds: 70,
+ *             url: "git-url",
+ *         },
+ *         iconUrl: "acc-icon",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "E0",
+ *         tier: "Enterprise",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230101preview:CustomizedAccelerator default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationAccelerators/default/customizedAccelerators/acc-name 
+ * ```
  */
 export class CustomizedAccelerator extends pulumi.CustomResource {
     /**

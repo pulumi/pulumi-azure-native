@@ -130,6 +130,30 @@ class AppServiceEnvironmentAseCustomDnsSuffixConfiguration(pulumi.CustomResource
         API Version: 2022-09-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update ASE custom DNS suffix configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_environment_ase_custom_dns_suffix_configuration = azure_native.web.AppServiceEnvironmentAseCustomDnsSuffixConfiguration("appServiceEnvironmentAseCustomDnsSuffixConfiguration",
+            certificate_url="https://test-kv.vault.azure.net/secrets/contosocert",
+            dns_suffix="contoso.com",
+            key_vault_reference_identity="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/test-rg/providers/microsoft.managedidentity/userassignedidentities/test-user-mi",
+            name="test-ase",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration customDnsSuffix /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase/configurations/customdnssuffix 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_url: The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
@@ -149,6 +173,30 @@ class AppServiceEnvironmentAseCustomDnsSuffixConfiguration(pulumi.CustomResource
         Full view of the custom domain suffix configuration for ASEv3.
         API Version: 2022-09-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update ASE custom DNS suffix configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_environment_ase_custom_dns_suffix_configuration = azure_native.web.AppServiceEnvironmentAseCustomDnsSuffixConfiguration("appServiceEnvironmentAseCustomDnsSuffixConfiguration",
+            certificate_url="https://test-kv.vault.azure.net/secrets/contosocert",
+            dns_suffix="contoso.com",
+            key_vault_reference_identity="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/test-rg/providers/microsoft.managedidentity/userassignedidentities/test-user-mi",
+            name="test-ase",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration customDnsSuffix /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase/configurations/customdnssuffix 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppServiceEnvironmentAseCustomDnsSuffixConfigurationArgs args: The arguments to use to populate this resource's properties.

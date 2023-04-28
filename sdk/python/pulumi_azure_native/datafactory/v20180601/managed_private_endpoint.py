@@ -111,6 +111,34 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         """
         Managed private endpoint resource type.
 
+        ## Example Usage
+        ### ManagedVirtualNetworks_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_private_endpoint = azure_native.datafactory.v20180601.ManagedPrivateEndpoint("managedPrivateEndpoint",
+            factory_name="exampleFactoryName",
+            managed_private_endpoint_name="exampleManagedPrivateEndpointName",
+            managed_virtual_network_name="exampleManagedVirtualNetworkName",
+            properties=azure_native.datafactory.v20180601.ManagedPrivateEndpointArgs(
+                fqdns=[],
+                group_id="blob",
+                private_link_resource_id="/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleBlobStorage",
+            ),
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory/v20180601:ManagedPrivateEndpoint exampleManagedPrivateEndpointName /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/managedVirtualNetworks/exampleManagedVirtualNetworkName/managedPrivateEndpoints/exampleManagedPrivateEndpointName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] factory_name: The factory name.
@@ -127,6 +155,34 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed private endpoint resource type.
+
+        ## Example Usage
+        ### ManagedVirtualNetworks_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_private_endpoint = azure_native.datafactory.v20180601.ManagedPrivateEndpoint("managedPrivateEndpoint",
+            factory_name="exampleFactoryName",
+            managed_private_endpoint_name="exampleManagedPrivateEndpointName",
+            managed_virtual_network_name="exampleManagedVirtualNetworkName",
+            properties=azure_native.datafactory.v20180601.ManagedPrivateEndpointArgs(
+                fqdns=[],
+                group_id="blob",
+                private_link_resource_id="/subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Storage/storageAccounts/exampleBlobStorage",
+            ),
+            resource_group_name="exampleResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datafactory/v20180601:ManagedPrivateEndpoint exampleManagedPrivateEndpointName /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/managedVirtualNetworks/exampleManagedVirtualNetworkName/managedPrivateEndpoints/exampleManagedPrivateEndpointName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedPrivateEndpointInitArgs args: The arguments to use to populate this resource's properties.

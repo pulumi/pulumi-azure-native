@@ -114,6 +114,28 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
         """
         The lock information.
 
+        ## Example Usage
+        ### Create management lock at resource group level
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_lock_at_resource_group_level = azure_native.authorization.v20170401.ManagementLockAtResourceGroupLevel("managementLockAtResourceGroupLevel",
+            level="ReadOnly",
+            lock_name="testlock",
+            resource_group_name="resourcegroupname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel testlock /subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.Authorization/locks/testlock 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'LockLevel']] level: The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
@@ -130,6 +152,28 @@ class ManagementLockAtResourceGroupLevel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The lock information.
+
+        ## Example Usage
+        ### Create management lock at resource group level
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_lock_at_resource_group_level = azure_native.authorization.v20170401.ManagementLockAtResourceGroupLevel("managementLockAtResourceGroupLevel",
+            level="ReadOnly",
+            lock_name="testlock",
+            resource_group_name="resourcegroupname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel testlock /subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.Authorization/locks/testlock 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementLockAtResourceGroupLevelArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,90 @@ import * as utilities from "../../utilities";
 
 /**
  * Machine Learning service object wrapped into ARM resource envelope.
+ *
+ * ## Example Usage
+ * ### Create Or Update service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const aciService = new azure_native.machinelearningservices.v20200515preview.ACIService("aciService", {
+ *     appInsightsEnabled: true,
+ *     authEnabled: true,
+ *     computeType: "ACI",
+ *     containerResourceRequirements: {
+ *         cpu: 1,
+ *         memoryInGB: 1,
+ *     },
+ *     environmentImageRequest: {
+ *         assets: [{
+ *             mimeType: "application/x-python",
+ *             unpack: false,
+ *             url: "aml://storage/azureml/score.py",
+ *         }],
+ *         driverProgram: "score.py",
+ *         environment: {
+ *             docker: {
+ *                 baseImage: "mcr.microsoft.com/azureml/base:openmpi3.1.2-ubuntu16.04",
+ *                 baseImageRegistry: {},
+ *             },
+ *             environmentVariables: {
+ *                 EXAMPLE_ENV_VAR: "EXAMPLE_VALUE",
+ *             },
+ *             name: "AzureML-Scikit-learn-0.20.3",
+ *             python: {
+ *                 condaDependencies: {
+ *                     channels: ["conda-forge"],
+ *                     dependencies: [
+ *                         "python=3.6.2",
+ *                         {
+ *                             pip: [
+ *                                 "azureml-core==1.0.69",
+ *                                 "azureml-defaults==1.0.69",
+ *                                 "azureml-telemetry==1.0.69",
+ *                                 "azureml-train-restclients-hyperdrive==1.0.69",
+ *                                 "azureml-train-core==1.0.69",
+ *                                 "scikit-learn==0.20.3",
+ *                                 "scipy==1.2.1",
+ *                                 "numpy==1.16.2",
+ *                                 "joblib==0.13.2",
+ *                             ],
+ *                         },
+ *                     ],
+ *                     name: "azureml_ae1acbe6e1e6aabbad900b53c491a17c",
+ *                 },
+ *                 interpreterPath: "python",
+ *                 userManagedDependencies: false,
+ *             },
+ *             spark: {
+ *                 packages: [],
+ *                 precachePackages: true,
+ *                 repositories: [],
+ *             },
+ *             version: "3",
+ *         },
+ *         models: [{
+ *             mimeType: "application/x-python",
+ *             name: "sklearn_regression_model.pkl",
+ *             url: "aml://storage/azureml/sklearn_regression_model.pkl",
+ *         }],
+ *     },
+ *     location: "eastus2",
+ *     resourceGroupName: "testrg123",
+ *     serviceName: "service456",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20200515preview:ACIService service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+ * ```
  */
 export class ACIService extends pulumi.CustomResource {
     /**

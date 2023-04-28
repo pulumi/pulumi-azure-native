@@ -183,6 +183,28 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
         """
         SpatialAnchorsAccount Response.
 
+        ## Example Usage
+        ### Create spatial anchor account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        spatial_anchors_account = azure_native.mixedreality.v20210301preview.SpatialAnchorsAccount("spatialAnchorsAccount",
+            account_name="MyAccount",
+            location="eastus2euap",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/spatialAnchorsAccounts/MyAccount 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of an Mixed Reality Account.
@@ -203,6 +225,28 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         SpatialAnchorsAccount Response.
+
+        ## Example Usage
+        ### Create spatial anchor account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        spatial_anchors_account = azure_native.mixedreality.v20210301preview.SpatialAnchorsAccount("spatialAnchorsAccount",
+            account_name="MyAccount",
+            location="eastus2euap",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mixedreality/v20210301preview:SpatialAnchorsAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/spatialAnchorsAccounts/MyAccount 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SpatialAnchorsAccountArgs args: The arguments to use to populate this resource's properties.

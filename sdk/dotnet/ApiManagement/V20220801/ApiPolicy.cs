@@ -11,6 +11,67 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Policy Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiPolicy = new AzureNative.ApiManagement.V20220801.ApiPolicy("apiPolicy", new()
+    ///     {
+    ///         ApiId = "5600b57e7e8880006a040001",
+    ///         Format = "xml",
+    ///         PolicyId = "policy",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = "&lt;policies&gt; &lt;inbound /&gt; &lt;backend&gt;    &lt;forward-request /&gt;  &lt;/backend&gt;  &lt;outbound /&gt;&lt;/policies&gt;",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateApiPolicyNonXmlEncoded
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiPolicy = new AzureNative.ApiManagement.V20220801.ApiPolicy("apiPolicy", new()
+    ///     {
+    ///         ApiId = "5600b57e7e8880006a040001",
+    ///         Format = "rawxml",
+    ///         PolicyId = "policy",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = @"&lt;policies&gt;
+    ///      &lt;inbound&gt;
+    ///      &lt;base /&gt;
+    ///   &lt;set-header name=""newvalue"" exists-action=""override""&gt;
+    ///    &lt;value&gt;""@(context.Request.Headers.FirstOrDefault(h =&gt; h.Ke==""Via""))"" &lt;/value&gt;
+    ///     &lt;/set-header&gt;
+    ///   &lt;/inbound&gt;
+    ///       &lt;/policies&gt;",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:ApiPolicy policy /subscriptions/4c1a3bc6-89f9-46fe-a175-5d8984b25095/resourcegroups/Api-DF-West-US/providers/Microsoft.ApiManagement/service/samirmsiservice2/apis/echo-api/operations/create-resource/policies/policy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ApiPolicy")]
     public partial class ApiPolicy : global::Pulumi.CustomResource

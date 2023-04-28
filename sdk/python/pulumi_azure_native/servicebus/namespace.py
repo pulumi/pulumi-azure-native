@@ -219,6 +219,36 @@ class Namespace(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### NameSpaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.servicebus.Namespace("namespace",
+            location="South Central US",
+            namespace_name="sdk-Namespace2924",
+            resource_group_name="ArunMonocle",
+            sku=azure_native.servicebus.SBSkuResponseArgs(
+                name=azure_native.servicebus.SkuName.STANDARD,
+                tier=azure_native.servicebus.SkuTier.STANDARD,
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:Namespace sdk-Namespace-2924 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-2924 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alternate_name: Alternate name for namespace
@@ -243,6 +273,36 @@ class Namespace(pulumi.CustomResource):
         Description of a namespace resource.
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### NameSpaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.servicebus.Namespace("namespace",
+            location="South Central US",
+            namespace_name="sdk-Namespace2924",
+            resource_group_name="ArunMonocle",
+            sku=azure_native.servicebus.SBSkuResponseArgs(
+                name=azure_native.servicebus.SkuName.STANDARD,
+                tier=azure_native.servicebus.SkuTier.STANDARD,
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:Namespace sdk-Namespace-2924 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-2924 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

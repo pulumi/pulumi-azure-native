@@ -98,6 +98,32 @@ class IntegrationRuntime(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create integration runtime
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_runtime = azure_native.synapse.IntegrationRuntime("integrationRuntime",
+            integration_runtime_name="exampleIntegrationRuntime",
+            properties=azure_native.synapse.SelfHostedIntegrationRuntimeArgs(
+                description="A selfhosted integration runtime",
+                type="SelfHosted",
+            ),
+            resource_group_name="exampleResourceGroup",
+            workspace_name="exampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:IntegrationRuntime exampleIntegrationRuntime /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Synapse/workspaces/exampleWorkspaceName/integrationruntimes/exampleIntegrationRuntime 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] integration_runtime_name: Integration runtime name
@@ -115,6 +141,32 @@ class IntegrationRuntime(pulumi.CustomResource):
         Integration runtime resource type.
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create integration runtime
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_runtime = azure_native.synapse.IntegrationRuntime("integrationRuntime",
+            integration_runtime_name="exampleIntegrationRuntime",
+            properties=azure_native.synapse.SelfHostedIntegrationRuntimeArgs(
+                description="A selfhosted integration runtime",
+                type="SelfHosted",
+            ),
+            resource_group_name="exampleResourceGroup",
+            workspace_name="exampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:IntegrationRuntime exampleIntegrationRuntime /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.Synapse/workspaces/exampleWorkspaceName/integrationruntimes/exampleIntegrationRuntime 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IntegrationRuntimeArgs args: The arguments to use to populate this resource's properties.

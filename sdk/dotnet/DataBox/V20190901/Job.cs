@@ -11,6 +11,72 @@ namespace Pulumi.AzureNative.DataBox.V20190901
 {
     /// <summary>
     /// Job Resource.
+    /// 
+    /// ## Example Usage
+    /// ### JobsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.V20190901.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.V20190901.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.V20190901.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "Public SDK Test",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "testing@microsoft.com",
+    ///                 },
+    ///                 Phone = "1234567890",
+    ///                 PhoneExtension = "1234",
+    ///             },
+    ///             DestinationAccountDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.V20190901.Inputs.DestinationStorageAccountDetailsArgs
+    ///                 {
+    ///                     DataDestinationType = "StorageAccount",
+    ///                     StorageAccountId = "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+    ///                 },
+    ///             },
+    ///             JobDetailsType = "DataBox",
+    ///             ShippingAddress = new AzureNative.DataBox.V20190901.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = "Commercial",
+    ///                 City = "San Francisco",
+    ///                 CompanyName = "Microsoft",
+    ///                 Country = "US",
+    ///                 PostalCode = "94107",
+    ///                 StateOrProvince = "CA",
+    ///                 StreetAddress1 = "16 TOWNSEND ST",
+    ///                 StreetAddress2 = "Unit 1",
+    ///             },
+    ///         },
+    ///         JobName = "SdkJob3971",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "SdkRg4981",
+    ///         Sku = new AzureNative.DataBox.V20190901.Inputs.SkuArgs
+    ///         {
+    ///             Name = "DataBox",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databox/v20190901:Job SdkJob3971 /subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/SdkRg4981/providers/Microsoft.DataBox/jobs/SdkJob3971 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databox/v20190901:Job")]

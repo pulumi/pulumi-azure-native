@@ -78,6 +78,31 @@ class Site(pulumi.CustomResource):
         """
         IoT site model
 
+        ## Example Usage
+        ### Create or update IoT site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site = azure_native.iotsecurity.v20210201preview.Site("site",
+            display_name="IoT site name",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity/v20210201preview:Site default subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub/providers/Microsoft.IoTSecurity/sites/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Display name of the IoT site
@@ -92,6 +117,31 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IoT site model
+
+        ## Example Usage
+        ### Create or update IoT site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site = azure_native.iotsecurity.v20210201preview.Site("site",
+            display_name="IoT site name",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity/v20210201preview:Site default subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub/providers/Microsoft.IoTSecurity/sites/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.

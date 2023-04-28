@@ -9,6 +9,296 @@ import * as utilities from "../../utilities";
 
 /**
  * A provider instance associated with SAP monitor.
+ *
+ * ## Example Usage
+ * ### Create a Db2 provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         dbName: "dbName",
+ *         dbPassword: "password",
+ *         dbPasswordUri: "",
+ *         dbPort: "dbPort",
+ *         dbUsername: "username",
+ *         hostname: "hostname",
+ *         providerType: "Db2",
+ *         sapSid: "SID",
+ *         sslCertificateUri: "https://storageaccount.blob.core.windows.net/containername/filename",
+ *         sslPreference: "ServerCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a Db2 provider with Root Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         dbName: "dbName",
+ *         dbPassword: "password",
+ *         dbPasswordUri: "",
+ *         dbPort: "dbPort",
+ *         dbUsername: "username",
+ *         hostname: "hostname",
+ *         providerType: "Db2",
+ *         sapSid: "SID",
+ *         sslPreference: "RootCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a MsSqlServer provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         dbPassword: "****",
+ *         dbPasswordUri: "",
+ *         dbPort: "5912",
+ *         dbUsername: "user",
+ *         hostname: "hostname",
+ *         providerType: "MsSqlServer",
+ *         sapSid: "sid",
+ *         sslCertificateUri: "https://storageaccount.blob.core.windows.net/containername/filename",
+ *         sslPreference: "ServerCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a MsSqlServer provider with Root Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         dbPassword: "****",
+ *         dbPasswordUri: "",
+ *         dbPort: "5912",
+ *         dbUsername: "user",
+ *         hostname: "hostname",
+ *         providerType: "MsSqlServer",
+ *         sapSid: "sid",
+ *         sslPreference: "RootCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a OS provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         prometheusUrl: "http://192.168.0.0:9090/metrics",
+ *         providerType: "PrometheusOS",
+ *         sslCertificateUri: "https://storageaccount.blob.core.windows.net/containername/filename",
+ *         sslPreference: "ServerCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a OS provider with Root Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         prometheusUrl: "http://192.168.0.0:9090/metrics",
+ *         providerType: "PrometheusOS",
+ *         sslPreference: "RootCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a PrometheusHaCluster provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         clusterName: "clusterName",
+ *         hostname: "hostname",
+ *         prometheusUrl: "http://192.168.0.0:9090/metrics",
+ *         providerType: "PrometheusHaCluster",
+ *         sid: "sid",
+ *         sslCertificateUri: "https://storageaccount.blob.core.windows.net/containername/filename",
+ *         sslPreference: "ServerCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a PrometheusHaCluster provider with Root Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         clusterName: "clusterName",
+ *         hostname: "hostname",
+ *         prometheusUrl: "http://192.168.0.0:9090/metrics",
+ *         providerType: "PrometheusHaCluster",
+ *         sid: "sid",
+ *         sslPreference: "RootCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a SAP monitor Hana provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         dbName: "db",
+ *         dbPassword: "****",
+ *         dbPasswordUri: "",
+ *         dbUsername: "user",
+ *         hostname: "name",
+ *         instanceNumber: "00",
+ *         providerType: "SapHana",
+ *         sqlPort: "0000",
+ *         sslCertificateUri: "https://storageaccount.blob.core.windows.net/containername/filename",
+ *         sslHostNameInCertificate: "xyz.domain.com",
+ *         sslPreference: "ServerCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a SAP monitor Hana provider with Root Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         dbName: "db",
+ *         dbPassword: "****",
+ *         dbPasswordUri: "",
+ *         dbUsername: "user",
+ *         hostname: "name",
+ *         instanceNumber: "00",
+ *         providerType: "SapHana",
+ *         sqlPort: "0000",
+ *         sslHostNameInCertificate: "xyz.domain.com",
+ *         sslPreference: "RootCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a SAP monitor NetWeaver provider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         providerType: "SapNetWeaver",
+ *         sapClientId: "111",
+ *         sapHostFileEntries: ["127.0.0.1 name fqdn"],
+ *         sapHostname: "name",
+ *         sapInstanceNr: "00",
+ *         sapPassword: "****",
+ *         sapPasswordUri: "",
+ *         sapPortNumber: "1234",
+ *         sapSid: "SID",
+ *         sapUsername: "username",
+ *         sslCertificateUri: "https://storageaccount.blob.core.windows.net/containername/filename",
+ *         sslPreference: "ServerCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### Create a SAP monitor NetWeaver provider with Root Certificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const providerInstance = new azure_native.workloads.v20211201preview.ProviderInstance("providerInstance", {
+ *     monitorName: "mySapMonitor",
+ *     providerInstanceName: "myProviderInstance",
+ *     providerSettings: {
+ *         providerType: "SapNetWeaver",
+ *         sapClientId: "111",
+ *         sapHostFileEntries: ["127.0.0.1 name fqdn"],
+ *         sapHostname: "name",
+ *         sapInstanceNr: "00",
+ *         sapPassword: "****",
+ *         sapPasswordUri: "",
+ *         sapPortNumber: "1234",
+ *         sapSid: "SID",
+ *         sapUsername: "username",
+ *         sslPreference: "RootCertificate",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:workloads/v20211201preview:ProviderInstance myProviderInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/mySapMonitor/providerInstances/myProviderInstance 
+ * ```
  */
 export class ProviderInstance extends pulumi.CustomResource {
     /**

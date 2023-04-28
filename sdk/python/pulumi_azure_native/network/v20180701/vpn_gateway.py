@@ -183,6 +183,50 @@ class VpnGateway(pulumi.CustomResource):
         """
         VpnGateway Resource.
 
+        ## Example Usage
+        ### VpnGatewayPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_gateway = azure_native.network.v20180701.VpnGateway("vpnGateway",
+            bgp_settings=azure_native.network.v20180701.BgpSettingsArgs(
+                asn=65515,
+                bgp_peering_address="10.0.1.30",
+                peer_weight=0,
+            ),
+            connections=[{
+                "name": "vpnConnection1",
+                "remoteVpnSite": azure_native.network.v20180701.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+                ),
+                "sharedKey": "key",
+            }],
+            gateway_name="gateway1",
+            location="West US",
+            policies=azure_native.network.v20180701.PoliciesArgs(
+                allow_branch_to_branch_traffic=True,
+                allow_vnet_to_vnet_traffic=False,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.v20180701.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180701:VpnGateway gateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.
@@ -203,6 +247,50 @@ class VpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnGateway Resource.
+
+        ## Example Usage
+        ### VpnGatewayPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_gateway = azure_native.network.v20180701.VpnGateway("vpnGateway",
+            bgp_settings=azure_native.network.v20180701.BgpSettingsArgs(
+                asn=65515,
+                bgp_peering_address="10.0.1.30",
+                peer_weight=0,
+            ),
+            connections=[{
+                "name": "vpnConnection1",
+                "remoteVpnSite": azure_native.network.v20180701.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+                ),
+                "sharedKey": "key",
+            }],
+            gateway_name="gateway1",
+            location="West US",
+            policies=azure_native.network.v20180701.PoliciesArgs(
+                allow_branch_to_branch_traffic=True,
+                allow_vnet_to_vnet_traffic=False,
+            ),
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.v20180701.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180701:VpnGateway gateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpnGatewayArgs args: The arguments to use to populate this resource's properties.

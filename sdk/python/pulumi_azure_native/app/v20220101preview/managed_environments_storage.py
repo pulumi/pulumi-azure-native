@@ -97,6 +97,36 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
         """
         Storage resource for managedEnvironment.
 
+        ## Example Usage
+        ### Create or update environments storage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environments_storage = azure_native.app.v20220101preview.ManagedEnvironmentsStorage("managedEnvironmentsStorage",
+            env_name="managedEnv",
+            name="jlaw-demo1",
+            properties=azure_native.app.v20220101preview.ManagedEnvironmentStorageResponsePropertiesArgs(
+                azure_file=azure_native.app.v20220101preview.AzureFilePropertiesArgs(
+                    access_mode="ReadOnly",
+                    account_key="key",
+                    account_name="account1",
+                    share_name="share1",
+                ),
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20220101preview:ManagedEnvironmentsStorage jlaw-demo1 /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/managedEnv/storages/jlaw-demo1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] env_name: Name of the Environment.
@@ -112,6 +142,36 @@ class ManagedEnvironmentsStorage(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Storage resource for managedEnvironment.
+
+        ## Example Usage
+        ### Create or update environments storage
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_environments_storage = azure_native.app.v20220101preview.ManagedEnvironmentsStorage("managedEnvironmentsStorage",
+            env_name="managedEnv",
+            name="jlaw-demo1",
+            properties=azure_native.app.v20220101preview.ManagedEnvironmentStorageResponsePropertiesArgs(
+                azure_file=azure_native.app.v20220101preview.AzureFilePropertiesArgs(
+                    access_mode="ReadOnly",
+                    account_key="key",
+                    account_name="account1",
+                    share_name="share1",
+                ),
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20220101preview:ManagedEnvironmentsStorage jlaw-demo1 /subscriptions/8efdecc5-919e-44eb-b179-915dca89ebf9/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/managedEnv/storages/jlaw-demo1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedEnvironmentsStorageArgs args: The arguments to use to populate this resource's properties.

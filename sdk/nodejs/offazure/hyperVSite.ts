@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Site REST Resource.
  * API Version: 2020-07-07.
  * Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Hyper-V site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hyperVSite = new azure_native.offazure.HyperVSite("hyperVSite", {
+ *     location: "eastus",
+ *     properties: {
+ *         servicePrincipalIdentityDetails: {
+ *             aadAuthority: "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *             applicationId: "e9f013df-2a2a-4871-b766-e79867f30348",
+ *             audience: "https://72f988bf-86f1-41af-91ab-2d7cd011db47/MaheshSite17ac9agentauthaadapp",
+ *             objectId: "2cd492bc-7ef3-4ee0-b301-59a88108b47b",
+ *             tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *         },
+ *     },
+ *     resourceGroupName: "pajindTest",
+ *     siteName: "appliance1e39site",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:offazure:HyperVSite appliance1e39site /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest/providers/Microsoft.OffAzure/HyperVSites/appliance1e39site 
+ * ```
  */
 export class HyperVSite extends pulumi.CustomResource {
     /**

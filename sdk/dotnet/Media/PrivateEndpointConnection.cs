@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.Media
     /// The Private Endpoint Connection resource.
     /// API Version: 2023-01-01.
     /// Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update private endpoint connection.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Media.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         AccountName = "contososports",
+    ///         Name = "connectionName1",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Media.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "Test description.",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "contosorg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media:PrivateEndpointConnection connectionName1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fabrikam/providers/Microsoft.Media/mediaservices/contososports/privateEndpointConnections/connectionName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

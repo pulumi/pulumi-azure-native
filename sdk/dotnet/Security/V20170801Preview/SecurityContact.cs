@@ -11,6 +11,57 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
 {
     /// <summary>
     /// Contact details for security issues
+    /// 
+    /// ## Example Usage
+    /// ### Create security contact data full
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityContact = new AzureNative.Security.V20170801Preview.SecurityContact("securityContact", new()
+    ///     {
+    ///         AlertNotifications = "On",
+    ///         AlertsToAdmins = "On",
+    ///         Email = "john@contoso.com",
+    ///         Phone = "(214)275-4038",
+    ///         SecurityContactName = "default1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create security contact data minimal
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityContact = new AzureNative.Security.V20170801Preview.SecurityContact("securityContact", new()
+    ///     {
+    ///         AlertNotifications = "On",
+    ///         AlertsToAdmins = "On",
+    ///         Email = "chen@contoso.com",
+    ///         SecurityContactName = "default2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20170801preview:SecurityContact default2 /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/securityContacts/default2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20170801preview:SecurityContact")]
     public partial class SecurityContact : global::Pulumi.CustomResource

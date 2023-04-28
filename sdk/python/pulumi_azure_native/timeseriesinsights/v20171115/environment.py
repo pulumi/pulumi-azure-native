@@ -169,6 +169,37 @@ class Environment(pulumi.CustomResource):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
 
+        ## Example Usage
+        ### EnvironmentsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment = azure_native.timeseriesinsights.v20171115.Environment("environment",
+            data_retention_time="P31D",
+            environment_name="env1",
+            location="West US",
+            partition_key_properties=[azure_native.timeseriesinsights.v20171115.PartitionKeyPropertyArgs(
+                name="DeviceId1",
+                type="String",
+            )],
+            resource_group_name="rg1",
+            sku=azure_native.timeseriesinsights.v20171115.SkuArgs(
+                capacity=1,
+                name=azure_native.timeseriesinsights/v20171115.SkuName.S1,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20171115:Environment env1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_retention_time: ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
@@ -188,6 +219,37 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
+
+        ## Example Usage
+        ### EnvironmentsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment = azure_native.timeseriesinsights.v20171115.Environment("environment",
+            data_retention_time="P31D",
+            environment_name="env1",
+            location="West US",
+            partition_key_properties=[azure_native.timeseriesinsights.v20171115.PartitionKeyPropertyArgs(
+                name="DeviceId1",
+                type="String",
+            )],
+            resource_group_name="rg1",
+            sku=azure_native.timeseriesinsights.v20171115.SkuArgs(
+                capacity=1,
+                name=azure_native.timeseriesinsights/v20171115.SkuName.S1,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20171115:Environment env1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

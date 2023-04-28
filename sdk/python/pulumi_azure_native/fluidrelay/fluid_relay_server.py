@@ -168,6 +168,89 @@ class FluidRelayServer(pulumi.CustomResource):
         API Version: 2022-06-01.
         Previous API Version: 2021-03-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a Fluid Relay server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fluid_relay_server = azure_native.fluidrelay.FluidRelayServer("fluidRelayServer",
+            fluid_relay_server_name="myFluidRelayServer",
+            identity=azure_native.fluidrelay.IdentityArgs(
+                type=azure_native.fluidrelay.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="west-us",
+            resource_group="myResourceGroup",
+            storagesku="basic",
+            tags={
+                "Category": "sales",
+            })
+
+        ```
+        ### Create a Fluid Relay server with AMI
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fluid_relay_server = azure_native.fluidrelay.FluidRelayServer("fluidRelayServer",
+            fluid_relay_server_name="myFluidRelayServer",
+            identity=azure_native.fluidrelay.IdentityArgs(
+                type=azure_native.fluidrelay.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+                    "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {},
+                },
+            ),
+            location="west-us",
+            resource_group="myResourceGroup",
+            storagesku="basic",
+            tags={
+                "Category": "sales",
+            })
+
+        ```
+        ### Create a Fluid Relay server with CMK
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fluid_relay_server = azure_native.fluidrelay.FluidRelayServer("fluidRelayServer",
+            encryption=azure_native.fluidrelay.EncryptionPropertiesResponseArgs(
+                customer_managed_key_encryption={
+                    "keyEncryptionKeyIdentity": azure_native.fluidrelay.CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs(
+                        identity_type=azure_native.fluidrelay.CmkIdentityType.USER_ASSIGNED,
+                        user_assigned_identity_resource_id="/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityForCMK",
+                    ),
+                    "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek",
+                },
+            ),
+            fluid_relay_server_name="myFluidRelayServer",
+            identity=azure_native.fluidrelay.IdentityArgs(
+                type=azure_native.fluidrelay.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityForCMK": {},
+                },
+            ),
+            location="west-us",
+            resource_group="myResourceGroup",
+            storagesku="basic",
+            tags={
+                "Category": "sales",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:fluidrelay:FluidRelayServer myFluidRelayServer /subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/Microsoft.FluidRelay/fluidRelayServers/myFluidRelayServer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EncryptionPropertiesArgs']] encryption: All encryption configuration for a resource.
@@ -189,6 +272,89 @@ class FluidRelayServer(pulumi.CustomResource):
         A FluidRelay Server.
         API Version: 2022-06-01.
         Previous API Version: 2021-03-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a Fluid Relay server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fluid_relay_server = azure_native.fluidrelay.FluidRelayServer("fluidRelayServer",
+            fluid_relay_server_name="myFluidRelayServer",
+            identity=azure_native.fluidrelay.IdentityArgs(
+                type=azure_native.fluidrelay.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="west-us",
+            resource_group="myResourceGroup",
+            storagesku="basic",
+            tags={
+                "Category": "sales",
+            })
+
+        ```
+        ### Create a Fluid Relay server with AMI
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fluid_relay_server = azure_native.fluidrelay.FluidRelayServer("fluidRelayServer",
+            fluid_relay_server_name="myFluidRelayServer",
+            identity=azure_native.fluidrelay.IdentityArgs(
+                type=azure_native.fluidrelay.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {},
+                    "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {},
+                },
+            ),
+            location="west-us",
+            resource_group="myResourceGroup",
+            storagesku="basic",
+            tags={
+                "Category": "sales",
+            })
+
+        ```
+        ### Create a Fluid Relay server with CMK
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        fluid_relay_server = azure_native.fluidrelay.FluidRelayServer("fluidRelayServer",
+            encryption=azure_native.fluidrelay.EncryptionPropertiesResponseArgs(
+                customer_managed_key_encryption={
+                    "keyEncryptionKeyIdentity": azure_native.fluidrelay.CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs(
+                        identity_type=azure_native.fluidrelay.CmkIdentityType.USER_ASSIGNED,
+                        user_assigned_identity_resource_id="/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityForCMK",
+                    ),
+                    "keyEncryptionKeyUrl": "https://contosovault.vault.azure.net/keys/contosokek",
+                },
+            ),
+            fluid_relay_server_name="myFluidRelayServer",
+            identity=azure_native.fluidrelay.IdentityArgs(
+                type=azure_native.fluidrelay.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityForCMK": {},
+                },
+            ),
+            location="west-us",
+            resource_group="myResourceGroup",
+            storagesku="basic",
+            tags={
+                "Category": "sales",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:fluidrelay:FluidRelayServer myFluidRelayServer /subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/Microsoft.FluidRelay/fluidRelayServers/myFluidRelayServer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FluidRelayServerArgs args: The arguments to use to populate this resource's properties.

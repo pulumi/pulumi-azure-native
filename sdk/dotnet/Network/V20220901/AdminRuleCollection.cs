@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// Defines the admin rule collection.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update an admin rule collection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adminRuleCollection = new AzureNative.Network.V20220901.AdminRuleCollection("adminRuleCollection", new()
+    ///     {
+    ///         AppliesToGroups = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.NetworkManagerSecurityGroupItemArgs
+    ///             {
+    ///                 NetworkGroupId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+    ///             },
+    ///         },
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         Description = "A sample policy",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///         RuleCollectionName = "testRuleCollection",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:AdminRuleCollection myTestSecurityConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:AdminRuleCollection")]
     public partial class AdminRuleCollection : global::Pulumi.CustomResource

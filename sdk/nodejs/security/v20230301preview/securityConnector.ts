@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * The security connector resource.
+ *
+ * ## Example Usage
+ * ### Create or update a security connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityConnector = new azure_native.security.v20230301preview.SecurityConnector("securityConnector", {
+ *     environmentData: {
+ *         environmentType: "AwsAccount",
+ *     },
+ *     environmentName: "AWS",
+ *     hierarchyIdentifier: "exampleHierarchyId",
+ *     location: "Central US",
+ *     offerings: [{
+ *         nativeCloudConnection: {
+ *             cloudRoleArn: "arn:aws:iam::00000000:role/ASCMonitor",
+ *         },
+ *         offeringType: "CspmMonitorAws",
+ *     }],
+ *     resourceGroupName: "exampleResourceGroup",
+ *     securityConnectorName: "exampleSecurityConnectorName",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20230301preview:SecurityConnector exampleSecurityConnectorName /subscriptions/a5caac9c-5c04-49af-b3d0-e204f40345d5/resourceGroups/exampleResourceGroup/providers/Microsoft.Security/securityConnectors/exampleSecurityConnectorName 
+ * ```
  */
 export class SecurityConnector extends pulumi.CustomResource {
     /**

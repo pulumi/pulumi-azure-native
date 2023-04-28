@@ -13,6 +13,82 @@ namespace Pulumi.AzureNative.WebPubSub
     /// A hub setting
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### WebPubSubHubs_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webPubSubHub = new AzureNative.WebPubSub.WebPubSubHub("webPubSubHub", new()
+    ///     {
+    ///         HubName = "exampleHub",
+    ///         Properties = new AzureNative.WebPubSub.Inputs.WebPubSubHubPropertiesArgs
+    ///         {
+    ///             AnonymousConnectPolicy = "allow",
+    ///             EventHandlers = new[]
+    ///             {
+    ///                 new AzureNative.WebPubSub.Inputs.EventHandlerArgs
+    ///                 {
+    ///                     Auth = new AzureNative.WebPubSub.Inputs.UpstreamAuthSettingsArgs
+    ///                     {
+    ///                         ManagedIdentity = new AzureNative.WebPubSub.Inputs.ManagedIdentitySettingsArgs
+    ///                         {
+    ///                             Resource = "abc",
+    ///                         },
+    ///                         Type = "ManagedIdentity",
+    ///                     },
+    ///                     SystemEvents = new[]
+    ///                     {
+    ///                         "connect",
+    ///                         "connected",
+    ///                     },
+    ///                     UrlTemplate = "http://host.com",
+    ///                     UserEventPattern = "*",
+    ///                 },
+    ///             },
+    ///             EventListeners = new[]
+    ///             {
+    ///                 new AzureNative.WebPubSub.Inputs.EventListenerArgs
+    ///                 {
+    ///                     Endpoint = 
+    ///                     {
+    ///                         { "eventHubName", "eventHubName1" },
+    ///                         { "fullyQualifiedNamespace", "example.servicebus.windows.net" },
+    ///                         { "type", "EventHub" },
+    ///                     },
+    ///                     Filter = 
+    ///                     {
+    ///                         { "systemEvents", new[]
+    ///                         {
+    ///                             "connected",
+    ///                             "disconnected",
+    ///                         } },
+    ///                         { "type", "EventName" },
+    ///                         { "userEventPattern", "*" },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "myWebPubSubService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:webpubsub:WebPubSubHub exampleHub /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/hubs/exampleHub 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:webpubsub:WebPubSubHub")]
     public partial class WebPubSubHub : global::Pulumi.CustomResource

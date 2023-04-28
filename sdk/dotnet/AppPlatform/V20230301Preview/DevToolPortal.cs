@@ -11,6 +11,60 @@ namespace Pulumi.AzureNative.AppPlatform.V20230301Preview
 {
     /// <summary>
     /// Dev Tool Portal resource
+    /// 
+    /// ## Example Usage
+    /// ### DevToolPortals_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var devToolPortal = new AzureNative.AppPlatform.V20230301Preview.DevToolPortal("devToolPortal", new()
+    ///     {
+    ///         DevToolPortalName = "default",
+    ///         Properties = new AzureNative.AppPlatform.V20230301Preview.Inputs.DevToolPortalPropertiesArgs
+    ///         {
+    ///             Features = new AzureNative.AppPlatform.V20230301Preview.Inputs.DevToolPortalFeatureSettingsArgs
+    ///             {
+    ///                 ApplicationAccelerator = new AzureNative.AppPlatform.V20230301Preview.Inputs.DevToolPortalFeatureDetailArgs
+    ///                 {
+    ///                     State = "Enabled",
+    ///                 },
+    ///                 ApplicationLiveView = new AzureNative.AppPlatform.V20230301Preview.Inputs.DevToolPortalFeatureDetailArgs
+    ///                 {
+    ///                     State = "Enabled",
+    ///                 },
+    ///             },
+    ///             Public = true,
+    ///             SsoProperties = new AzureNative.AppPlatform.V20230301Preview.Inputs.DevToolPortalSsoPropertiesArgs
+    ///             {
+    ///                 ClientId = "00000000-0000-0000-0000-000000000000",
+    ///                 ClientSecret = "xxxxx",
+    ///                 MetadataUrl = "https://login.microsoft.com/00000000-0000-0000-0000-000000000000/v2.0/.well-known/openid-configuration",
+    ///                 Scopes = new[]
+    ///                 {
+    ///                     "openid",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230301preview:DevToolPortal default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationLiveViews/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230301preview:DevToolPortal")]
     public partial class DevToolPortal : global::Pulumi.CustomResource

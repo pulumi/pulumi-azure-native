@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Analytics compute policy information.
+ *
+ * ## Example Usage
+ * ### Creates or updates the specified compute policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const computePolicy = new azure_native.datalakeanalytics.v20161101.ComputePolicy("computePolicy", {
+ *     accountName: "contosoadla",
+ *     computePolicyName: "test_policy",
+ *     maxDegreeOfParallelismPerJob: 10,
+ *     minPriorityPerJob: 30,
+ *     objectId: "776b9091-8916-4638-87f7-9c989a38da98",
+ *     objectType: "User",
+ *     resourceGroupName: "contosorg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datalakeanalytics/v20161101:ComputePolicy test_policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName}/computePolicies/{computePolicyName} 
+ * ```
  */
 export class ComputePolicy extends pulumi.CustomResource {
     /**

@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.DigitalTwins.V20200301Preview
 {
     /// <summary>
     /// DigitalTwinsInstance endpoint resource.
+    /// 
+    /// ## Example Usage
+    /// ### Put a DigitalTwinsInstance resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var digitalTwinsEndpoint = new AzureNative.DigitalTwins.V20200301Preview.DigitalTwinsEndpoint("digitalTwinsEndpoint", new()
+    ///     {
+    ///         EndpointName = "myServiceBus",
+    ///         Properties = new AzureNative.DigitalTwins.V20200301Preview.Inputs.ServiceBusArgs
+    ///         {
+    ///             EndpointType = "ServiceBus",
+    ///             PrimaryConnectionString = "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=",
+    ///             SecondaryConnectionString = "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=",
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint myServiceBus /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/DigitalTwinsInstance/myDigitalTwinsService/endpoints/myServiceBus 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2020-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint")]

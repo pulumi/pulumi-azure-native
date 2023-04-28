@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210401
 {
     /// <summary>
     /// Represents a Watchlist Item in Azure Security Insights.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a watchlist item.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var watchlistItem = new AzureNative.SecurityInsights.V20210401.WatchlistItem("watchlistItem", new()
+    ///     {
+    ///         ItemsKeyValue = 
+    ///         {
+    ///             { "Business tier", "10.0.2.0/24" },
+    ///             { "Data tier", "10.0.2.0/24" },
+    ///             { "Gateway subnet", "10.0.255.224/27" },
+    ///             { "Private DMZ in", "10.0.0.0/27" },
+    ///             { "Public DMZ out", "10.0.0.96/27" },
+    ///             { "Web Tier", "10.0.1.0/24" },
+    ///         },
+    ///         OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///         ResourceGroupName = "myRg",
+    ///         WatchlistAlias = "highValueAsset",
+    ///         WatchlistItemId = "82ba292c-dc97-4dfc-969d-d4dd9e666842",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20210401:WatchlistItem myresource1 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/Watchlists/highValueAsset/WatchlistItems/82ba292c-dc97-4dfc-969d-d4dd9e666842 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20210401:WatchlistItem")]
     public partial class WatchlistItem : global::Pulumi.CustomResource

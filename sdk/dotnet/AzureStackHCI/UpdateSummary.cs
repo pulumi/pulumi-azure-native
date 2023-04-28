@@ -12,6 +12,40 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Get the update summaries for the cluster
     /// API Version: 2023-02-01.
+    /// 
+    /// ## Example Usage
+    /// ### Put Update summaries under cluster resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var updateSummary = new AzureNative.AzureStackHCI.UpdateSummary("updateSummary", new()
+    ///     {
+    ///         ClusterName = "testcluster",
+    ///         CurrentVersion = "4.2203.2.32",
+    ///         HardwareModel = "PowerEdge R730xd",
+    ///         LastChecked = "2022-04-07T18:04:07Z",
+    ///         LastUpdated = "2022-04-06T14:08:18.254Z",
+    ///         OemFamily = "DellEMC",
+    ///         ResourceGroupName = "testrg",
+    ///         State = "AppliedSuccessfully",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:UpdateSummary default /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updateSummaries/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:UpdateSummary")]
     public partial class UpdateSummary : global::Pulumi.CustomResource

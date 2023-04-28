@@ -163,6 +163,29 @@ class InventoryItem(pulumi.CustomResource):
         """
         Defines the inventory item.
 
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.connectedvmwarevsphere.v20220715preview.InventoryItem("inventoryItem",
+            inventory_item_name="testItem",
+            inventory_type="ResourcePool",
+            resource_group_name="testrg",
+            vcenter_name="ContosoVCenter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem testItem /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter/InventoryItems/testItem 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] inventory_item_name: Name of the inventoryItem.
@@ -182,6 +205,29 @@ class InventoryItem(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the inventory item.
+
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.connectedvmwarevsphere.v20220715preview.InventoryItem("inventoryItem",
+            inventory_item_name="testItem",
+            inventory_type="ResourcePool",
+            resource_group_name="testrg",
+            vcenter_name="ContosoVCenter")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:InventoryItem testItem /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter/InventoryItems/testItem 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.

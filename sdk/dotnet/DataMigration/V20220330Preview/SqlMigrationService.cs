@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
 {
     /// <summary>
     /// A SQL Migration Service.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update SQL Migration Service with maximum parameters.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlMigrationService = new AzureNative.DataMigration.V20220330Preview.SqlMigrationService("sqlMigrationService", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "testrg",
+    ///         SqlMigrationServiceName = "testagent",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update SQL Migration Service with minimum parameters.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlMigrationService = new AzureNative.DataMigration.V20220330Preview.SqlMigrationService("sqlMigrationService", new()
+    ///     {
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "testrg",
+    ///         SqlMigrationServiceName = "testagent",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datamigration/v20220330preview:SqlMigrationService testagent /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration/v20220330preview:SqlMigrationService")]
     public partial class SqlMigrationService : global::Pulumi.CustomResource

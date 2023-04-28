@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.StorSimple
     /// The StorSimple Manager.
     /// API Version: 2017-06-01.
     /// Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ManagersCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var manager = new AzureNative.StorSimple.Manager("manager", new()
+    ///     {
+    ///         CisIntrinsicSettings = new AzureNative.StorSimple.Inputs.ManagerIntrinsicSettingsArgs
+    ///         {
+    ///             Type = AzureNative.StorSimple.ManagerType.GardaV1,
+    ///         },
+    ///         Location = "westus",
+    ///         ManagerName = "ManagerForSDKTest2",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         Sku = new AzureNative.StorSimple.Inputs.ManagerSkuArgs
+    ///         {
+    ///             Name = AzureNative.StorSimple.ManagerSkuType.Standard,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple:Manager ManagerForSDKTest2 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/Managers/ManagerForSDKTest2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:Manager")]
     public partial class Manager : global::Pulumi.CustomResource

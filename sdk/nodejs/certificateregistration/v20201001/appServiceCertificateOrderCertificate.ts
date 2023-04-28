@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Key Vault container ARM resource for a certificate that is purchased through Azure.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name} 
+ * ```
  */
 export class AppServiceCertificateOrderCertificate extends pulumi.CustomResource {
     /**

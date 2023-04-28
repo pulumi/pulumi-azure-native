@@ -197,6 +197,59 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
         """
         Blueprint artifact applies Policy assignments.
 
+        ## Example Usage
+        ### ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20171111preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+        ### PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20171111preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            display_name="force costCenter tag on all resources",
+            kind="policyAssignment",
+            management_group_name="ContosoOnlineGroup",
+            parameters={
+                "tagName": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+                "tagValue": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+            },
+            policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62")
+
+        ```
+        ### RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20171111preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:PolicyAssignmentArtifact ownerAssignment /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_name: name of the artifact.
@@ -219,6 +272,59 @@ class PolicyAssignmentArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Blueprint artifact applies Policy assignments.
+
+        ## Example Usage
+        ### ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20171111preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+        ### PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20171111preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            display_name="force costCenter tag on all resources",
+            kind="policyAssignment",
+            management_group_name="ContosoOnlineGroup",
+            parameters={
+                "tagName": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+                "tagValue": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+            },
+            policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62")
+
+        ```
+        ### RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        policy_assignment_artifact = azure_native.blueprint.v20171111preview.PolicyAssignmentArtifact("policyAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:PolicyAssignmentArtifact ownerAssignment /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyAssignmentArtifactArgs args: The arguments to use to populate this resource's properties.

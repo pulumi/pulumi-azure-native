@@ -128,6 +128,31 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
         """
         An Azure Cosmos DB Role Assignment
 
+        ## Example Usage
+        ### CosmosDBSqlRoleAssignmentCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_role_assignment = azure_native.documentdb.v20210301preview.SqlResourceSqlRoleAssignment("sqlResourceSqlRoleAssignment",
+            account_name="myAccountName",
+            principal_id="myPrincipalId",
+            resource_group_name="myResourceGroupName",
+            role_assignment_id="myRoleAssignmentId",
+            role_definition_id="/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId",
+            scope="/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases/colls/redmond-purchases")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20210301preview:SqlResourceSqlRoleAssignment myRoleAssignmentId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleAssignments/myRoleAssignmentId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -145,6 +170,31 @@ class SqlResourceSqlRoleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Role Assignment
+
+        ## Example Usage
+        ### CosmosDBSqlRoleAssignmentCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_role_assignment = azure_native.documentdb.v20210301preview.SqlResourceSqlRoleAssignment("sqlResourceSqlRoleAssignment",
+            account_name="myAccountName",
+            principal_id="myPrincipalId",
+            resource_group_name="myResourceGroupName",
+            role_assignment_id="myRoleAssignmentId",
+            role_definition_id="/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId",
+            scope="/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases/colls/redmond-purchases")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20210301preview:SqlResourceSqlRoleAssignment myRoleAssignmentId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleAssignments/myRoleAssignmentId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlRoleAssignmentArgs args: The arguments to use to populate this resource's properties.

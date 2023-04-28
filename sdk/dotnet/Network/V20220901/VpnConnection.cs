@@ -11,6 +11,94 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// VpnConnection Resource.
+    /// 
+    /// ## Example Usage
+    /// ### VpnConnectionPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpnConnection = new AzureNative.Network.V20220901.VpnConnection("vpnConnection", new()
+    ///     {
+    ///         ConnectionName = "vpnConnection1",
+    ///         GatewayName = "gateway1",
+    ///         RemoteVpnSite = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         RoutingConfiguration = new AzureNative.Network.V20220901.Inputs.RoutingConfigurationArgs
+    ///         {
+    ///             AssociatedRouteTable = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+    ///             },
+    ///             InboundRouteMap = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+    ///             },
+    ///             OutboundRouteMap = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+    ///             },
+    ///             PropagatedRouteTables = new AzureNative.Network.V20220901.Inputs.PropagatedRouteTableArgs
+    ///             {
+    ///                 Ids = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+    ///                     },
+    ///                     new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable2",
+    ///                     },
+    ///                     new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
+    ///                     },
+    ///                 },
+    ///                 Labels = new[]
+    ///                 {
+    ///                     "label1",
+    ///                     "label2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         TrafficSelectorPolicies = new[] {},
+    ///         VpnLinkConnections = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.VpnSiteLinkConnectionArgs
+    ///             {
+    ///                 ConnectionBandwidth = 200,
+    ///                 Name = "Connection-Link1",
+    ///                 SharedKey = "key",
+    ///                 UsePolicyBasedTrafficSelectors = false,
+    ///                 VpnConnectionProtocolType = "IKEv2",
+    ///                 VpnLinkConnectionMode = "Default",
+    ///                 VpnSiteLink = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:VpnConnection vpnConnection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:VpnConnection")]
     public partial class VpnConnection : global::Pulumi.CustomResource

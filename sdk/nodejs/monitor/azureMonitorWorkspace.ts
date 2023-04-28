@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * An Azure Monitor Workspace definition
  * API Version: 2021-06-03-preview.
  * Previous API Version: 2021-06-03-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureMonitorWorkspace = new azure_native.monitor.AzureMonitorWorkspace("azureMonitorWorkspace", {
+ *     azureMonitorWorkspaceName: "myAzureMonitorWorkspace",
+ *     location: "eastus",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:monitor:AzureMonitorWorkspace myAzureMonitorWorkspace /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/myAzureMonitorWorkspace 
+ * ```
  */
 export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**

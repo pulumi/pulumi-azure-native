@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.DocumentDB.V20211015Preview
 {
     /// <summary>
     /// An Azure Cosmos DB User Definition
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBUserDefinitionCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoDBResourceMongoUserDefinition = new AzureNative.DocumentDB.V20211015Preview.MongoDBResourceMongoUserDefinition("mongoDBResourceMongoUserDefinition", new()
+    ///     {
+    ///         AccountName = "myAccountName",
+    ///         CustomData = "My custom data",
+    ///         DatabaseName = "sales",
+    ///         Mechanisms = "SCRAM-SHA-256",
+    ///         MongoUserDefinitionId = "myMongoUserDefinitionId",
+    ///         Password = "myPassword",
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         Roles = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.V20211015Preview.Inputs.RoleArgs
+    ///             {
+    ///                 Db = "sales",
+    ///                 Role = "myReadRole",
+    ///             },
+    ///         },
+    ///         UserName = "myUserName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition myUserName /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbUserDefinitions/myUserId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20211015preview:MongoDBResourceMongoUserDefinition")]
     public partial class MongoDBResourceMongoUserDefinition : global::Pulumi.CustomResource

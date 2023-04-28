@@ -163,6 +163,40 @@ class Partner(pulumi.CustomResource):
         """
         The integration account partner.
 
+        ## Example Usage
+        ### Create or update a partner
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner = azure_native.logic.v20160601.Partner("partner",
+            content=azure_native.logic.v20160601.PartnerContentResponseArgs(
+                b2b=azure_native.logic.v20160601.B2BPartnerContentArgs(
+                    business_identities=[azure_native.logic.v20160601.BusinessIdentityArgs(
+                        qualifier="AA",
+                        value="ZZ",
+                    )],
+                ),
+            ),
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            metadata={},
+            partner_name="testPartner",
+            partner_type=azure_native.logic/v20160601.PartnerType.B2_B,
+            resource_group_name="testResourceGroup",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20160601:Partner testPartner /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/flowrg/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/partners/testPartner 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PartnerContentArgs']] content: The partner content.
@@ -182,6 +216,40 @@ class Partner(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account partner.
+
+        ## Example Usage
+        ### Create or update a partner
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner = azure_native.logic.v20160601.Partner("partner",
+            content=azure_native.logic.v20160601.PartnerContentResponseArgs(
+                b2b=azure_native.logic.v20160601.B2BPartnerContentArgs(
+                    business_identities=[azure_native.logic.v20160601.BusinessIdentityArgs(
+                        qualifier="AA",
+                        value="ZZ",
+                    )],
+                ),
+            ),
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            metadata={},
+            partner_name="testPartner",
+            partner_type=azure_native.logic/v20160601.PartnerType.B2_B,
+            resource_group_name="testResourceGroup",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20160601:Partner testPartner /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/flowrg/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/partners/testPartner 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PartnerArgs args: The arguments to use to populate this resource's properties.

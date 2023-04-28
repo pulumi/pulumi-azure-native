@@ -113,6 +113,294 @@ class Datastore(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate datastore (Azure Data Lake Gen1 w/ ServicePrincipal).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureDataLakeGen1ContentsArgs(
+                    contents_type="AzureDataLakeGen1",
+                    credentials=azure_native.machinelearningservices.v20210301preview.ServicePrincipalDatastoreCredentialsArgs(
+                        authority_url="string",
+                        client_id="00000000-1111-2222-3333-444444444444",
+                        credentials_type="ServicePrincipal",
+                        resource_uri="string",
+                        secrets=azure_native.machinelearningservices.v20210301preview.ServicePrincipalDatastoreSecretsArgs(
+                            client_secret="string",
+                            secrets_type="ServicePrincipal",
+                        ),
+                        tenant_id="00000000-1111-2222-3333-444444444444",
+                    ),
+                    store_name="testStore",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure Data Lake Gen2 w/ Service Principal).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureBlobContentsArgs(
+                    account_name="string",
+                    container_name="string",
+                    contents_type="AzureBlob",
+                    credentials=azure_native.machinelearningservices.v20210301preview.ServicePrincipalDatastoreCredentialsArgs(
+                        authority_url="string",
+                        client_id="00000000-1111-2222-3333-444444444444",
+                        credentials_type="ServicePrincipal",
+                        resource_uri="string",
+                        secrets=azure_native.machinelearningservices.v20210301preview.ServicePrincipalDatastoreSecretsArgs(
+                            client_secret="string",
+                            secrets_type="ServicePrincipal",
+                        ),
+                        tenant_id="00000000-1111-2222-3333-444444444444",
+                    ),
+                    endpoint="core.windows.net",
+                    protocol="https",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure File store w/ AccountKey).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureFileContentsArgs(
+                    account_name="string",
+                    container_name="string",
+                    contents_type="AzureFile",
+                    credentials=azure_native.machinelearningservices.v20210301preview.AccountKeyDatastoreCredentialsArgs(
+                        credentials_type="AccountKey",
+                        secrets=azure_native.machinelearningservices.v20210301preview.AccountKeyDatastoreSecretsArgs(
+                            key="string",
+                            secrets_type="AccountKey",
+                        ),
+                    ),
+                    endpoint="core.windows.net",
+                    protocol="https",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure Postgre SQL w/ SQL Admin).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzurePostgreSqlContentsArgs(
+                    contents_type="AzurePostgreSql",
+                    credentials=azure_native.machinelearningservices.v20210301preview.SqlAdminDatastoreCredentialsArgs(
+                        credentials_type="SqlAdmin",
+                        secrets=azure_native.machinelearningservices.v20210301preview.SqlAdminDatastoreSecretsArgs(
+                            password="string",
+                            secrets_type="SqlAdmin",
+                        ),
+                        user_id="string",
+                    ),
+                    database_name="string",
+                    enable_ssl=True,
+                    endpoint="string",
+                    port_number=123,
+                    server_name="string",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure SQL Database w/ SQL Admin).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureSqlDatabaseContentsArgs(
+                    contents_type="AzureSqlDatabase",
+                    credentials=azure_native.machinelearningservices.v20210301preview.SqlAdminDatastoreCredentialsArgs(
+                        credentials_type="SqlAdmin",
+                        secrets=azure_native.machinelearningservices.v20210301preview.SqlAdminDatastoreSecretsArgs(
+                            password="string",
+                            secrets_type="SqlAdmin",
+                        ),
+                        user_id="string",
+                    ),
+                    database_name="string",
+                    endpoint="string",
+                    port_number=123,
+                    server_name="string",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (AzureBlob w/ AccountKey).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureBlobContentsArgs(
+                    account_name="string",
+                    container_name="string",
+                    contents_type="AzureBlob",
+                    credentials=azure_native.machinelearningservices.v20210301preview.AccountKeyDatastoreCredentialsArgs(
+                        credentials_type="AccountKey",
+                        secrets=azure_native.machinelearningservices.v20210301preview.AccountKeyDatastoreSecretsArgs(
+                            key="string",
+                            secrets_type="AccountKey",
+                        ),
+                    ),
+                    endpoint="core.windows.net",
+                    protocol="https",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:Datastore testDatastore /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/datastores/testDatastore 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Datastore name.
@@ -129,6 +417,294 @@ class Datastore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate datastore (Azure Data Lake Gen1 w/ ServicePrincipal).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureDataLakeGen1ContentsArgs(
+                    contents_type="AzureDataLakeGen1",
+                    credentials=azure_native.machinelearningservices.v20210301preview.ServicePrincipalDatastoreCredentialsArgs(
+                        authority_url="string",
+                        client_id="00000000-1111-2222-3333-444444444444",
+                        credentials_type="ServicePrincipal",
+                        resource_uri="string",
+                        secrets=azure_native.machinelearningservices.v20210301preview.ServicePrincipalDatastoreSecretsArgs(
+                            client_secret="string",
+                            secrets_type="ServicePrincipal",
+                        ),
+                        tenant_id="00000000-1111-2222-3333-444444444444",
+                    ),
+                    store_name="testStore",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure Data Lake Gen2 w/ Service Principal).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureBlobContentsArgs(
+                    account_name="string",
+                    container_name="string",
+                    contents_type="AzureBlob",
+                    credentials=azure_native.machinelearningservices.v20210301preview.ServicePrincipalDatastoreCredentialsArgs(
+                        authority_url="string",
+                        client_id="00000000-1111-2222-3333-444444444444",
+                        credentials_type="ServicePrincipal",
+                        resource_uri="string",
+                        secrets=azure_native.machinelearningservices.v20210301preview.ServicePrincipalDatastoreSecretsArgs(
+                            client_secret="string",
+                            secrets_type="ServicePrincipal",
+                        ),
+                        tenant_id="00000000-1111-2222-3333-444444444444",
+                    ),
+                    endpoint="core.windows.net",
+                    protocol="https",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure File store w/ AccountKey).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureFileContentsArgs(
+                    account_name="string",
+                    container_name="string",
+                    contents_type="AzureFile",
+                    credentials=azure_native.machinelearningservices.v20210301preview.AccountKeyDatastoreCredentialsArgs(
+                        credentials_type="AccountKey",
+                        secrets=azure_native.machinelearningservices.v20210301preview.AccountKeyDatastoreSecretsArgs(
+                            key="string",
+                            secrets_type="AccountKey",
+                        ),
+                    ),
+                    endpoint="core.windows.net",
+                    protocol="https",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure Postgre SQL w/ SQL Admin).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzurePostgreSqlContentsArgs(
+                    contents_type="AzurePostgreSql",
+                    credentials=azure_native.machinelearningservices.v20210301preview.SqlAdminDatastoreCredentialsArgs(
+                        credentials_type="SqlAdmin",
+                        secrets=azure_native.machinelearningservices.v20210301preview.SqlAdminDatastoreSecretsArgs(
+                            password="string",
+                            secrets_type="SqlAdmin",
+                        ),
+                        user_id="string",
+                    ),
+                    database_name="string",
+                    enable_ssl=True,
+                    endpoint="string",
+                    port_number=123,
+                    server_name="string",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (Azure SQL Database w/ SQL Admin).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureSqlDatabaseContentsArgs(
+                    contents_type="AzureSqlDatabase",
+                    credentials=azure_native.machinelearningservices.v20210301preview.SqlAdminDatastoreCredentialsArgs(
+                        credentials_type="SqlAdmin",
+                        secrets=azure_native.machinelearningservices.v20210301preview.SqlAdminDatastoreSecretsArgs(
+                            password="string",
+                            secrets_type="SqlAdmin",
+                        ),
+                        user_id="string",
+                    ),
+                    database_name="string",
+                    endpoint="string",
+                    port_number=123,
+                    server_name="string",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+        ### CreateOrUpdate datastore (AzureBlob w/ AccountKey).
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        datastore = azure_native.machinelearningservices.v20210301preview.Datastore("datastore",
+            name="testDatastore",
+            properties=azure_native.machinelearningservices.v20210301preview.DatastorePropertiesResponseArgs(
+                contents=azure_native.machinelearningservices.v20210301preview.AzureBlobContentsArgs(
+                    account_name="string",
+                    container_name="string",
+                    contents_type="AzureBlob",
+                    credentials=azure_native.machinelearningservices.v20210301preview.AccountKeyDatastoreCredentialsArgs(
+                        credentials_type="AccountKey",
+                        secrets=azure_native.machinelearningservices.v20210301preview.AccountKeyDatastoreSecretsArgs(
+                            key="string",
+                            secrets_type="AccountKey",
+                        ),
+                    ),
+                    endpoint="core.windows.net",
+                    protocol="https",
+                ),
+                description="string",
+                is_default=True,
+                linked_info=azure_native.machinelearningservices.v20210301preview.LinkedInfoArgs(
+                    linked_id="string",
+                    linked_resource_name="string",
+                    origin="Synapse",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                tags={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+            ),
+            resource_group_name="testrg123",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:Datastore testDatastore /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/datastores/testDatastore 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatastoreArgs args: The arguments to use to populate this resource's properties.

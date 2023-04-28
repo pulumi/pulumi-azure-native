@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Push settings for the App.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201001:WebAppSitePushSettingsSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/pushsettings 
+ * ```
  */
 export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
     /**

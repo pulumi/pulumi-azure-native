@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Blueprint.V20171111Preview
 {
     /// <summary>
     /// Represents a published Blueprint.
+    /// 
+    /// ## Example Usage
+    /// ### PublishedBlueprint_Publish
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var publishedBlueprint = new AzureNative.Blueprint.V20171111Preview.PublishedBlueprint("publishedBlueprint", new()
+    ///     {
+    ///         BlueprintName = "simpleBlueprint",
+    ///         ManagementGroupName = "ContosoOnlineGroup",
+    ///         VersionId = "v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blueprint/v20171111preview:PublishedBlueprint v2 /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-11-11-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:blueprint/v20171111preview:PublishedBlueprint")]

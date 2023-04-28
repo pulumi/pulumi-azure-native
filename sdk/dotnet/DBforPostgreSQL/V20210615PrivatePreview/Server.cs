@@ -11,6 +11,89 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Example Usage
+    /// ### Create a database as a point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Server("server", new()
+    ///     {
+    ///         CreateMode = "PointInTimeRestore",
+    ///         Location = "westus",
+    ///         PointInTimeUTC = "2021-06-27T00:04:59.4078005+00:00",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "pgtestsvc5",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "cloudsa",
+    ///         AdministratorLoginPassword = "password",
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = "Disabled",
+    ///         },
+    ///         CreateMode = "Create",
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = "ZoneRedundant",
+    ///         },
+    ///         Location = "westus",
+    ///         Network = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs.NetworkArgs
+    ///         {
+    ///             DelegatedSubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+    ///             PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "pgtestsvc4",
+    ///         Sku = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4s_v3",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs.StorageArgs
+    ///         {
+    ///             StorageSizeGB = 512,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///         Version = "12",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20210615privatepreview:Server pgtestsvc4 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20210615privatepreview:Server")]
     public partial class Server : global::Pulumi.CustomResource

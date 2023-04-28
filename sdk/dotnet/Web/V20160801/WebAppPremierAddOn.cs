@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20160801
 {
     /// <summary>
     /// Premier add-on.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20160801:WebAppPremierAddOn myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/premieraddons/{premierAddOnName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20160801:WebAppPremierAddOn")]
     public partial class WebAppPremierAddOn : global::Pulumi.CustomResource

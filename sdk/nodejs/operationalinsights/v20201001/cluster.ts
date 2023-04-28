@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * The top level Log Analytics cluster resource container.
+ *
+ * ## Example Usage
+ * ### ClustersCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.operationalinsights.v20201001.Cluster("cluster", {
+ *     clusterName: "oiautorest6685",
+ *     location: "australiasoutheast",
+ *     resourceGroupName: "oiautorest6685",
+ *     sku: {
+ *         capacity: 1000,
+ *         name: "CapacityReservation",
+ *     },
+ *     tags: {
+ *         tag1: "val1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights/v20201001:Cluster oiautorest6685 /subscriptions/594038b5-1093-476e-a366-482775671c11/resourcegroups/oiautorest6685/providers/microsoft.operationalinsights/clusters/oiautorest6685 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

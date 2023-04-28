@@ -211,6 +211,44 @@ class BackupSchedule(pulumi.CustomResource):
         API Version: 2017-06-01.
         Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### BackupSchedulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_schedule = azure_native.storsimple.BackupSchedule("backupSchedule",
+            backup_policy_name="BkUpPolicy01ForSDKTest",
+            backup_schedule_name="schedule2",
+            backup_type=azure_native.storsimple.BackupType.CLOUD_SNAPSHOT,
+            device_name="Device05ForSDKTest",
+            kind=azure_native.storsimple.Kind.SERIES8000,
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest",
+            retention_count=1,
+            schedule_recurrence=azure_native.storsimple.ScheduleRecurrenceArgs(
+                recurrence_type=azure_native.storsimple.RecurrenceType.WEEKLY,
+                recurrence_value=1,
+                weekly_days_list=[
+                    azure_native.storsimple.DayOfWeek.FRIDAY,
+                    azure_native.storsimple.DayOfWeek.THURSDAY,
+                    azure_native.storsimple.DayOfWeek.MONDAY,
+                ],
+            ),
+            schedule_status=azure_native.storsimple.ScheduleStatus.ENABLED,
+            start_time="2017-06-24T01:00:00Z")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple:BackupSchedule schedule2 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/backupPolicies/BkUpPolicy01ForSDKTest/schedules/schedule2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_policy_name: The backup policy name.
@@ -235,6 +273,44 @@ class BackupSchedule(pulumi.CustomResource):
         The backup schedule.
         API Version: 2017-06-01.
         Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### BackupSchedulesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_schedule = azure_native.storsimple.BackupSchedule("backupSchedule",
+            backup_policy_name="BkUpPolicy01ForSDKTest",
+            backup_schedule_name="schedule2",
+            backup_type=azure_native.storsimple.BackupType.CLOUD_SNAPSHOT,
+            device_name="Device05ForSDKTest",
+            kind=azure_native.storsimple.Kind.SERIES8000,
+            manager_name="ManagerForSDKTest1",
+            resource_group_name="ResourceGroupForSDKTest",
+            retention_count=1,
+            schedule_recurrence=azure_native.storsimple.ScheduleRecurrenceArgs(
+                recurrence_type=azure_native.storsimple.RecurrenceType.WEEKLY,
+                recurrence_value=1,
+                weekly_days_list=[
+                    azure_native.storsimple.DayOfWeek.FRIDAY,
+                    azure_native.storsimple.DayOfWeek.THURSDAY,
+                    azure_native.storsimple.DayOfWeek.MONDAY,
+                ],
+            ),
+            schedule_status=azure_native.storsimple.ScheduleStatus.ENABLED,
+            start_time="2017-06-24T01:00:00Z")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple:BackupSchedule schedule2 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/backupPolicies/BkUpPolicy01ForSDKTest/schedules/schedule2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackupScheduleArgs args: The arguments to use to populate this resource's properties.

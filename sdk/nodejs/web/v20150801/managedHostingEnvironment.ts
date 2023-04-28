@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of an hostingEnvironment (App Service Environment)
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20150801:ManagedHostingEnvironment myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/managedHostingEnvironments/{name} 
+ * ```
  *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */

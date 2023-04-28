@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// Trigger details.
     /// API Version: 2022-03-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### TriggerPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var periodicTimerEventTrigger = new AzureNative.DataBoxEdge.PeriodicTimerEventTrigger("periodicTimerEventTrigger", new()
+    ///     {
+    ///         DeviceName = "testedgedevice",
+    ///         Name = "trigger1",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:PeriodicTimerEventTrigger trigger1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/triggers/trigger1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:PeriodicTimerEventTrigger")]
     public partial class PeriodicTimerEventTrigger : global::Pulumi.CustomResource

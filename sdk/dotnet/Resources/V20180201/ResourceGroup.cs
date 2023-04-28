@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Resources.V20180201
 {
     /// <summary>
     /// Resource group information.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20180201:ResourceGroup myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:resources/v20180201:ResourceGroup")]

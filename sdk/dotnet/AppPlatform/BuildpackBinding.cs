@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Buildpack Binding Resource object
     /// API Version: 2022-12-01.
     /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### BuildpackBinding_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var buildpackBinding = new AzureNative.AppPlatform.BuildpackBinding("buildpackBinding", new()
+    ///     {
+    ///         BuildServiceName = "default",
+    ///         BuilderName = "default",
+    ///         BuildpackBindingName = "myBuildpackBinding",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.BuildpackBindingPropertiesArgs
+    ///         {
+    ///             BindingType = "ApplicationInsights",
+    ///             LaunchProperties = new AzureNative.AppPlatform.Inputs.BuildpackBindingLaunchPropertiesArgs
+    ///             {
+    ///                 Properties = 
+    ///                 {
+    ///                     { "abc", "def" },
+    ///                     { "any-string", "any-string" },
+    ///                     { "sampling-rate", "12.0" },
+    ///                 },
+    ///                 Secrets = 
+    ///                 {
+    ///                     { "connection-string", "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:BuildpackBinding myBuildpackBinding /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default/buildpackBindings/myBuildpackBinding 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:BuildpackBinding")]
     public partial class BuildpackBinding : global::Pulumi.CustomResource

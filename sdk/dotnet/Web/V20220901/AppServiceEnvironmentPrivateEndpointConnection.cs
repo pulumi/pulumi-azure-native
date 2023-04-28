@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// Remote Private Endpoint Connection ARM resource.
+    /// 
+    /// ## Example Usage
+    /// ### Approves or rejects a private endpoint connection.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appServiceEnvironmentPrivateEndpointConnection = new AzureNative.Web.V20220901.AppServiceEnvironmentPrivateEndpointConnection("appServiceEnvironmentPrivateEndpointConnection", new()
+    ///     {
+    ///         Name = "test-ase",
+    ///         PrivateEndpointConnectionName = "fa38656c-034e-43d8-adce-fe06ce039c98",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Web.V20220901.Inputs.PrivateLinkConnectionStateArgs
+    ///         {
+    ///             Description = "Approved by johndoe@company.com",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection fa38656c-034e-43d8-adce-fe06ce039c98 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase/privateEndpointConnections/fa38656c-034e-43d8-adce-fe06ce039c98 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection")]
     public partial class AppServiceEnvironmentPrivateEndpointConnection : global::Pulumi.CustomResource

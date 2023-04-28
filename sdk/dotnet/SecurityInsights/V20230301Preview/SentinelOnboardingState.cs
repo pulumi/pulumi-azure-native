@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230301Preview
 {
     /// <summary>
     /// Sentinel onboarding state
+    /// 
+    /// ## Example Usage
+    /// ### Create Sentinel onboarding state
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sentinelOnboardingState = new AzureNative.SecurityInsights.V20230301Preview.SentinelOnboardingState("sentinelOnboardingState", new()
+    ///     {
+    ///         CustomerManagedKey = false,
+    ///         ResourceGroupName = "myRg",
+    ///         SentinelOnboardingStateName = "default",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230301preview:SentinelOnboardingState default /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/onboardingStates/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230301preview:SentinelOnboardingState")]
     public partial class SentinelOnboardingState : global::Pulumi.CustomResource

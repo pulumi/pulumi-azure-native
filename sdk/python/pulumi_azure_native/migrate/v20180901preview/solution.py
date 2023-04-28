@@ -96,6 +96,33 @@ class Solution(pulumi.CustomResource):
         """
         Solution REST Resource.
 
+        ## Example Usage
+        ### Solutions_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        solution = azure_native.migrate.v20180901preview.Solution("solution",
+            migrate_project_name="project01",
+            properties=azure_native.migrate.v20180901preview.SolutionPropertiesArgs(
+                goal="Databases",
+                purpose="Assessment",
+                tool="DataMigrationAssistant",
+            ),
+            resource_group_name="myResourceGroup",
+            solution_name="dbsolution")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20180901preview:Solution dbsolution /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/MigrateProjects/project01/Solutions/dbsolution 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] migrate_project_name: Name of the Azure Migrate project.
@@ -111,6 +138,33 @@ class Solution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Solution REST Resource.
+
+        ## Example Usage
+        ### Solutions_Put
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        solution = azure_native.migrate.v20180901preview.Solution("solution",
+            migrate_project_name="project01",
+            properties=azure_native.migrate.v20180901preview.SolutionPropertiesArgs(
+                goal="Databases",
+                purpose="Assessment",
+                tool="DataMigrationAssistant",
+            ),
+            resource_group_name="myResourceGroup",
+            solution_name="dbsolution")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20180901preview:Solution dbsolution /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/MigrateProjects/project01/Solutions/dbsolution 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SolutionArgs args: The arguments to use to populate this resource's properties.

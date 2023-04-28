@@ -180,6 +180,504 @@ class GalleryImageVersion(pulumi.CustomResource):
         """
         Specifies information about the gallery image version that you want to create or update.
 
+        ## Example Usage
+        ### Create or update a simple Gallery Image Version using VM as source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 2,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using community gallery image as source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    community_gallery_image_id="/communityGalleries/{communityGalleryName}/images/{communityGalleryImageName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using managed image as source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using mix of disks and snapshots as a source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                lun=1,
+                            )],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                lun=1,
+                            )],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                data_disk_images=[{
+                    "hostCaching": azure_native.compute/v20220303.HostCaching.NONE,
+                    "lun": 1,
+                    "source": azure_native.compute.v20220303.GalleryDiskImageSourceArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/disks/{dataDiskName}",
+                    ),
+                }],
+                os_disk_image={
+                    "hostCaching": azure_native.compute/v20220303.HostCaching.READ_ONLY,
+                    "source": azure_native.compute.v20220303.GalleryDiskImageSourceArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/snapshots/{osSnapshotName}",
+                    ),
+                },
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using shallow replication mode.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                replication_mode="Shallow",
+                target_regions=[azure_native.compute.v20220303.TargetRegionArgs(
+                    exclude_from_latest=False,
+                    name="West US",
+                    regional_replica_count=1,
+                )],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using shared image as source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageDefinitionName}/versions/{versionName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using vhd as a source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet",
+                                lun=1,
+                            )],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    azure_native.compute.v20220303.TargetRegionArgs(
+                        exclude_from_latest=False,
+                        name="East US",
+                        regional_replica_count=2,
+                        storage_account_type="Standard_ZRS",
+                    ),
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                data_disk_images=[{
+                    "hostCaching": azure_native.compute/v20220303.HostCaching.NONE,
+                    "lun": 1,
+                    "source": azure_native.compute.v20220303.GalleryDiskImageSourceArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+                        uri="https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+                    ),
+                }],
+                os_disk_image={
+                    "hostCaching": azure_native.compute/v20220303.HostCaching.READ_ONLY,
+                    "source": azure_native.compute.v20220303.GalleryDiskImageSourceArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+                        uri="https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+                    ),
+                },
+            ))
+
+        ```
+        ### Create or update a simple gallery image version with target extended locations specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20220303:GalleryImageVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{galleryImageVersionName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] gallery_image_name: The name of the gallery image definition in which the Image Version is to be created.
@@ -200,6 +698,504 @@ class GalleryImageVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the gallery image version that you want to create or update.
+
+        ## Example Usage
+        ### Create or update a simple Gallery Image Version using VM as source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 2,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/virtualMachines/{vmName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using community gallery image as source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    community_gallery_image_id="/communityGalleries/{communityGalleryName}/images/{communityGalleryImageName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using managed image as source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using mix of disks and snapshots as a source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                lun=1,
+                            )],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                lun=1,
+                            )],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                data_disk_images=[{
+                    "hostCaching": azure_native.compute/v20220303.HostCaching.NONE,
+                    "lun": 1,
+                    "source": azure_native.compute.v20220303.GalleryDiskImageSourceArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/disks/{dataDiskName}",
+                    ),
+                }],
+                os_disk_image={
+                    "hostCaching": azure_native.compute/v20220303.HostCaching.READ_ONLY,
+                    "source": azure_native.compute.v20220303.GalleryDiskImageSourceArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/snapshots/{osSnapshotName}",
+                    ),
+                },
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using shallow replication mode.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                replication_mode="Shallow",
+                target_regions=[azure_native.compute.v20220303.TargetRegionArgs(
+                    exclude_from_latest=False,
+                    name="West US",
+                    regional_replica_count=1,
+                )],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using shared image as source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/galleries/{galleryName}/images/{imageDefinitionName}/versions/{versionName}",
+                ),
+            ))
+
+        ```
+        ### Create or update a simple Gallery Image Version using vhd as a source.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherDiskEncryptionSet",
+                                lun=1,
+                            )],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    azure_native.compute.v20220303.TargetRegionArgs(
+                        exclude_from_latest=False,
+                        name="East US",
+                        regional_replica_count=2,
+                        storage_account_type="Standard_ZRS",
+                    ),
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                data_disk_images=[{
+                    "hostCaching": azure_native.compute/v20220303.HostCaching.NONE,
+                    "lun": 1,
+                    "source": azure_native.compute.v20220303.GalleryDiskImageSourceArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+                        uri="https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+                    ),
+                }],
+                os_disk_image={
+                    "hostCaching": azure_native.compute/v20220303.HostCaching.READ_ONLY,
+                    "source": azure_native.compute.v20220303.GalleryDiskImageSourceArgs(
+                        id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/{storageAccount}",
+                        uri="https://gallerysourcencus.blob.core.windows.net/myvhds/Windows-Server-2012-R2-20171216-en.us-128GB.vhd",
+                    ),
+                },
+            ))
+
+        ```
+        ### Create or update a simple gallery image version with target extended locations specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image_version = azure_native.compute.v20220303.GalleryImageVersion("galleryImageVersion",
+            gallery_image_name="myGalleryImageName",
+            gallery_image_version_name="1.0.0",
+            gallery_name="myGalleryName",
+            location="West US",
+            publishing_profile=azure_native.compute.v20220303.GalleryImageVersionPublishingProfileResponseArgs(
+                target_regions=[
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherWestUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myWestUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "West US",
+                        "regionalReplicaCount": 1,
+                    },
+                    {
+                        "encryption": {
+                            "dataDiskImages": [
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myOtherEastUSDiskEncryptionSet",
+                                    lun=0,
+                                ),
+                                azure_native.compute.v20220303.DataDiskImageEncryptionArgs(
+                                    disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                                    lun=1,
+                                ),
+                            ],
+                            "osDiskImage": azure_native.compute.v20220303.OSDiskImageEncryptionArgs(
+                                disk_encryption_set_id="/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSet/myEastUSDiskEncryptionSet",
+                            ),
+                        },
+                        "excludeFromLatest": False,
+                        "name": "East US",
+                        "regionalReplicaCount": 2,
+                        "storageAccountType": "Standard_ZRS",
+                    },
+                ],
+            ),
+            resource_group_name="myResourceGroup",
+            safety_profile=azure_native.compute.v20220303.GalleryImageVersionSafetyProfileArgs(
+                allow_deletion_of_replicated_locations=False,
+            ),
+            storage_profile=azure_native.compute.v20220303.GalleryImageVersionStorageProfileResponseArgs(
+                source=azure_native.compute.v20220303.GalleryArtifactVersionFullSourceArgs(
+                    id="/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20220303:GalleryImageVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{galleryImageVersionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GalleryImageVersionArgs args: The arguments to use to populate this resource's properties.

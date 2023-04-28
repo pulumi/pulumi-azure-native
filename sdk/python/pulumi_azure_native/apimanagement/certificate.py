@@ -132,6 +132,46 @@ class Certificate(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateCertificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.apimanagement.Certificate("certificate",
+            certificate_id="tempcert",
+            data="****************Base 64 Encoded Certificate *******************************",
+            password="****Certificate Password******",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateCertificateWithKeyVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.apimanagement.Certificate("certificate",
+            certificate_id="templateCertkv",
+            key_vault=azure_native.apimanagement.KeyVaultContractCreatePropertiesArgs(
+                identity_client_id="ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+                secret_identifier="https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Certificate templateCertkv /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/templateCertkv 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_id: Identifier of the certificate entity. Must be unique in the current API Management service instance.
@@ -151,6 +191,46 @@ class Certificate(pulumi.CustomResource):
         Certificate details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateCertificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.apimanagement.Certificate("certificate",
+            certificate_id="tempcert",
+            data="****************Base 64 Encoded Certificate *******************************",
+            password="****Certificate Password******",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+        ### ApiManagementCreateCertificateWithKeyVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.apimanagement.Certificate("certificate",
+            certificate_id="templateCertkv",
+            key_vault=azure_native.apimanagement.KeyVaultContractCreatePropertiesArgs(
+                identity_client_id="ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+                secret_identifier="https://rpbvtkeyvaultintegration.vault-int.azure-int.net/secrets/msitestingCert",
+            ),
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:Certificate templateCertkv /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/templateCertkv 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

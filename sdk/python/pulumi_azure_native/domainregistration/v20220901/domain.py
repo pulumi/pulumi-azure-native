@@ -295,6 +295,106 @@ class Domain(pulumi.CustomResource):
         """
         Information about a domain.
 
+        ## Example Usage
+        ### Create App Service Domain
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain = azure_native.domainregistration.v20220901.Domain("domain",
+            auth_code="exampleAuthCode",
+            auto_renew=True,
+            consent=azure_native.domainregistration.v20220901.DomainPurchaseConsentArgs(
+                agreed_at="2021-09-10T19:30:53Z",
+                agreed_by="192.0.2.1",
+                agreement_keys=["agreementKey1"],
+            ),
+            contact_admin=azure_native.domainregistration.v20220901.ContactArgs(
+                address_mailing=azure_native.domainregistration.v20220901.AddressArgs(
+                    address1="3400 State St",
+                    city="Chicago",
+                    country="United States",
+                    postal_code="67098",
+                    state="IL",
+                ),
+                email="admin@email.com",
+                fax="1-245-534-2242",
+                job_title="Admin",
+                name_first="John",
+                name_last="Doe",
+                name_middle="",
+                organization="Microsoft Inc.",
+                phone="1-245-534-2242",
+            ),
+            contact_billing=azure_native.domainregistration.v20220901.ContactArgs(
+                address_mailing=azure_native.domainregistration.v20220901.AddressArgs(
+                    address1="3400 State St",
+                    city="Chicago",
+                    country="United States",
+                    postal_code="67098",
+                    state="IL",
+                ),
+                email="billing@email.com",
+                fax="1-245-534-2242",
+                job_title="Billing",
+                name_first="John",
+                name_last="Doe",
+                name_middle="",
+                organization="Microsoft Inc.",
+                phone="1-245-534-2242",
+            ),
+            contact_registrant=azure_native.domainregistration.v20220901.ContactArgs(
+                address_mailing=azure_native.domainregistration.v20220901.AddressArgs(
+                    address1="3400 State St",
+                    city="Chicago",
+                    country="United States",
+                    postal_code="67098",
+                    state="IL",
+                ),
+                email="registrant@email.com",
+                fax="1-245-534-2242",
+                job_title="Registrant",
+                name_first="John",
+                name_last="Doe",
+                name_middle="",
+                organization="Microsoft Inc.",
+                phone="1-245-534-2242",
+            ),
+            contact_tech=azure_native.domainregistration.v20220901.ContactArgs(
+                address_mailing=azure_native.domainregistration.v20220901.AddressArgs(
+                    address1="3400 State St",
+                    city="Chicago",
+                    country="United States",
+                    postal_code="67098",
+                    state="IL",
+                ),
+                email="tech@email.com",
+                fax="1-245-534-2242",
+                job_title="Tech",
+                name_first="John",
+                name_last="Doe",
+                name_middle="",
+                organization="Microsoft Inc.",
+                phone="1-245-534-2242",
+            ),
+            dns_type=azure_native.domainregistration/v20220901.DnsType.DEFAULT_DOMAIN_REGISTRAR_DNS,
+            domain_name="example.com",
+            location="global",
+            privacy=False,
+            resource_group_name="testrg123",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:domainregistration/v20220901:Domain example.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.DomainRegistration/domains/example.com 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_renew: <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
@@ -321,6 +421,106 @@ class Domain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about a domain.
+
+        ## Example Usage
+        ### Create App Service Domain
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain = azure_native.domainregistration.v20220901.Domain("domain",
+            auth_code="exampleAuthCode",
+            auto_renew=True,
+            consent=azure_native.domainregistration.v20220901.DomainPurchaseConsentArgs(
+                agreed_at="2021-09-10T19:30:53Z",
+                agreed_by="192.0.2.1",
+                agreement_keys=["agreementKey1"],
+            ),
+            contact_admin=azure_native.domainregistration.v20220901.ContactArgs(
+                address_mailing=azure_native.domainregistration.v20220901.AddressArgs(
+                    address1="3400 State St",
+                    city="Chicago",
+                    country="United States",
+                    postal_code="67098",
+                    state="IL",
+                ),
+                email="admin@email.com",
+                fax="1-245-534-2242",
+                job_title="Admin",
+                name_first="John",
+                name_last="Doe",
+                name_middle="",
+                organization="Microsoft Inc.",
+                phone="1-245-534-2242",
+            ),
+            contact_billing=azure_native.domainregistration.v20220901.ContactArgs(
+                address_mailing=azure_native.domainregistration.v20220901.AddressArgs(
+                    address1="3400 State St",
+                    city="Chicago",
+                    country="United States",
+                    postal_code="67098",
+                    state="IL",
+                ),
+                email="billing@email.com",
+                fax="1-245-534-2242",
+                job_title="Billing",
+                name_first="John",
+                name_last="Doe",
+                name_middle="",
+                organization="Microsoft Inc.",
+                phone="1-245-534-2242",
+            ),
+            contact_registrant=azure_native.domainregistration.v20220901.ContactArgs(
+                address_mailing=azure_native.domainregistration.v20220901.AddressArgs(
+                    address1="3400 State St",
+                    city="Chicago",
+                    country="United States",
+                    postal_code="67098",
+                    state="IL",
+                ),
+                email="registrant@email.com",
+                fax="1-245-534-2242",
+                job_title="Registrant",
+                name_first="John",
+                name_last="Doe",
+                name_middle="",
+                organization="Microsoft Inc.",
+                phone="1-245-534-2242",
+            ),
+            contact_tech=azure_native.domainregistration.v20220901.ContactArgs(
+                address_mailing=azure_native.domainregistration.v20220901.AddressArgs(
+                    address1="3400 State St",
+                    city="Chicago",
+                    country="United States",
+                    postal_code="67098",
+                    state="IL",
+                ),
+                email="tech@email.com",
+                fax="1-245-534-2242",
+                job_title="Tech",
+                name_first="John",
+                name_last="Doe",
+                name_middle="",
+                organization="Microsoft Inc.",
+                phone="1-245-534-2242",
+            ),
+            dns_type=azure_native.domainregistration/v20220901.DnsType.DEFAULT_DOMAIN_REGISTRAR_DNS,
+            domain_name="example.com",
+            location="global",
+            privacy=False,
+            resource_group_name="testrg123",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:domainregistration/v20220901:Domain example.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.DomainRegistration/domains/example.com 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainArgs args: The arguments to use to populate this resource's properties.

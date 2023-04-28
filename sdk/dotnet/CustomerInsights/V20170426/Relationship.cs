@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The relationship resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Relationships_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var relationship = new AzureNative.CustomerInsights.V20170426.Relationship("relationship", new()
+    ///     {
+    ///         Cardinality = AzureNative.CustomerInsights.V20170426.CardinalityTypes.OneToOne,
+    ///         Description = 
+    ///         {
+    ///             { "en-us", "Relationship Description" },
+    ///         },
+    ///         DisplayName = 
+    ///         {
+    ///             { "en-us", "Relationship DisplayName" },
+    ///         },
+    ///         Fields = new[] {},
+    ///         HubName = "sdkTestHub",
+    ///         ProfileType = "testProfile2326994",
+    ///         RelatedProfileType = "testProfile2326994",
+    ///         RelationshipName = "SomeRelationship",
+    ///         ResourceGroupName = "TestHubRG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170426:Relationship sdkTestHub/testProfile2326994 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/relationships/SomeRelationship 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:Relationship")]
     public partial class Relationship : global::Pulumi.CustomResource

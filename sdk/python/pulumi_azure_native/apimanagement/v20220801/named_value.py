@@ -163,6 +163,57 @@ class NamedValue(pulumi.CustomResource):
         """
         NamedValue details.
 
+        ## Example Usage
+        ### ApiManagementCreateNamedValue
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        named_value = azure_native.apimanagement.v20220801.NamedValue("namedValue",
+            display_name="prop3name",
+            named_value_id="testprop2",
+            resource_group_name="rg1",
+            secret=False,
+            service_name="apimService1",
+            tags=[
+                "foo",
+                "bar",
+            ],
+            value="propValue")
+
+        ```
+        ### ApiManagementCreateNamedValueWithKeyVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        named_value = azure_native.apimanagement.v20220801.NamedValue("namedValue",
+            display_name="prop6namekv",
+            key_vault=azure_native.apimanagement.v20220801.KeyVaultContractCreatePropertiesArgs(
+                identity_client_id="ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+                secret_identifier="https://contoso.vault.azure.net/secrets/aadSecret",
+            ),
+            named_value_id="testprop6",
+            resource_group_name="rg1",
+            secret=True,
+            service_name="apimService1",
+            tags=[
+                "foo",
+                "bar",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:NamedValue testprop6 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/namedValues/testprop6 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: Unique name of NamedValue. It may contain only letters, digits, period, dash, and underscore characters.
@@ -182,6 +233,57 @@ class NamedValue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NamedValue details.
+
+        ## Example Usage
+        ### ApiManagementCreateNamedValue
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        named_value = azure_native.apimanagement.v20220801.NamedValue("namedValue",
+            display_name="prop3name",
+            named_value_id="testprop2",
+            resource_group_name="rg1",
+            secret=False,
+            service_name="apimService1",
+            tags=[
+                "foo",
+                "bar",
+            ],
+            value="propValue")
+
+        ```
+        ### ApiManagementCreateNamedValueWithKeyVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        named_value = azure_native.apimanagement.v20220801.NamedValue("namedValue",
+            display_name="prop6namekv",
+            key_vault=azure_native.apimanagement.v20220801.KeyVaultContractCreatePropertiesArgs(
+                identity_client_id="ceaa6b06-c00f-43ef-99ac-f53d1fe876a0",
+                secret_identifier="https://contoso.vault.azure.net/secrets/aadSecret",
+            ),
+            named_value_id="testprop6",
+            resource_group_name="rg1",
+            secret=True,
+            service_name="apimService1",
+            tags=[
+                "foo",
+                "bar",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:NamedValue testprop6 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/namedValues/testprop6 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamedValueArgs args: The arguments to use to populate this resource's properties.

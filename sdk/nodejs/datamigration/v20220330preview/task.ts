@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * A task resource
+ *
+ * ## Example Usage
+ * ### Tasks_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const task = new azure_native.datamigration.v20220330preview.Task("task", {
+ *     groupName: "DmsSdkRg",
+ *     projectName: "DmsSdkProject",
+ *     properties: {
+ *         input: {
+ *             targetConnectionInfo: {
+ *                 authentication: "SqlAuthentication",
+ *                 dataSource: "ssma-test-server.database.windows.net",
+ *                 encryptConnection: true,
+ *                 password: "testpassword",
+ *                 trustServerCertificate: true,
+ *                 type: "SqlConnectionInfo",
+ *                 userName: "testuser",
+ *             },
+ *         },
+ *         taskType: "ConnectToTarget.SqlDb",
+ *     },
+ *     serviceName: "DmsSdkService",
+ *     taskName: "DmsSdkTask",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration/v20220330preview:Task DmsSdkTask /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject/tasks/DmsSdkTask 
+ * ```
  */
 export class Task extends pulumi.CustomResource {
     /**

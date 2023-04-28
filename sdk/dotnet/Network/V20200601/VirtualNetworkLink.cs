@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Network.V20200601
 {
     /// <summary>
     /// Describes a link to virtual network for a Private DNS zone.
+    /// 
+    /// ## Example Usage
+    /// ### PUT Private DNS Zone Virtual Network Link
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkLink = new AzureNative.Network.V20200601.VirtualNetworkLink("virtualNetworkLink", new()
+    ///     {
+    ///         Location = "Global",
+    ///         PrivateZoneName = "privatezone1.com",
+    ///         RegistrationEnabled = false,
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualNetwork = new AzureNative.Network.V20200601.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/virtualNetworkSubscriptionId/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/virtualNetworkName",
+    ///         },
+    ///         VirtualNetworkLinkName = "virtualNetworkLink1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20200601:VirtualNetworkLink virtualNetworkLink1 /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com/virtualNetworkLinks/virtualNetworkLink1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200601:VirtualNetworkLink")]
     public partial class VirtualNetworkLink : global::Pulumi.CustomResource

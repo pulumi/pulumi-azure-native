@@ -11,6 +11,76 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// An Azure SQL instance pool.
+    /// 
+    /// ## Example Usage
+    /// ### Create an instance pool with all properties.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var instancePool = new AzureNative.Sql.V20220801Preview.InstancePool("instancePool", new()
+    ///     {
+    ///         InstancePoolName = "testIP",
+    ///         LicenseType = "LicenseIncluded",
+    ///         Location = "japaneast",
+    ///         ResourceGroupName = "group1",
+    ///         Sku = new AzureNative.Sql.V20220801Preview.Inputs.SkuArgs
+    ///         {
+    ///             Family = "Gen5",
+    ///             Name = "GP_Gen5",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         SubnetId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+    ///         Tags = 
+    ///         {
+    ///             { "a", "b" },
+    ///         },
+    ///         VCores = 8,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an instance pool with min properties.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var instancePool = new AzureNative.Sql.V20220801Preview.InstancePool("instancePool", new()
+    ///     {
+    ///         InstancePoolName = "testIP",
+    ///         LicenseType = "LicenseIncluded",
+    ///         Location = "japaneast",
+    ///         ResourceGroupName = "group1",
+    ///         Sku = new AzureNative.Sql.V20220801Preview.Inputs.SkuArgs
+    ///         {
+    ///             Family = "Gen5",
+    ///             Name = "GP_Gen5",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         SubnetId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+    ///         VCores = 8,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:InstancePool testIP /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:InstancePool")]
     public partial class InstancePool : global::Pulumi.CustomResource

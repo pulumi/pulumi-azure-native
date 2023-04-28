@@ -7,6 +7,30 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### metricsSource_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const metricsSource = new azure_native.logz.v20220101preview.MetricsSource("metricsSource", {
+ *     metricsSourceName: "MetricsSource1",
+ *     monitorName: "myMonitor",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logz/v20220101preview:MetricsSource myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/metricsSource/MetricsSource1 
+ * ```
+ */
 export class MetricsSource extends pulumi.CustomResource {
     /**
      * Get an existing MetricsSource resource's state with the given name, ID, and optional extra

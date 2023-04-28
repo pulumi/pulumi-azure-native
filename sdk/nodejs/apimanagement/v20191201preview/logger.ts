@@ -9,6 +9,53 @@ import * as utilities from "../../utilities";
 
 /**
  * Logger details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateAILogger
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const logger = new azure_native.apimanagement.v20191201preview.Logger("logger", {
+ *     credentials: {
+ *         instrumentationKey: "11................a1",
+ *     },
+ *     description: "adding a new logger",
+ *     loggerId: "loggerId",
+ *     loggerType: "applicationInsights",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateEHLogger
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const logger = new azure_native.apimanagement.v20191201preview.Logger("logger", {
+ *     credentials: {
+ *         connectionString: "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=",
+ *         name: "hydraeventhub",
+ *     },
+ *     description: "adding a new logger",
+ *     loggerId: "loggerId",
+ *     loggerType: "azureEventHub",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20191201preview:Logger loggerId /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/loggers/loggerId 
+ * ```
  */
 export class Logger extends pulumi.CustomResource {
     /**

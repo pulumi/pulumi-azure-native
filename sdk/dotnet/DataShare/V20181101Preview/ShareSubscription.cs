@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.DataShare.V20181101Preview
 {
     /// <summary>
     /// A share subscription data transfer object.
+    /// 
+    /// ## Example Usage
+    /// ### ShareSubscriptions_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var shareSubscription = new AzureNative.DataShare.V20181101Preview.ShareSubscription("shareSubscription", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         InvitationId = "12345678-1234-1234-12345678abd",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare/v20181101preview:ShareSubscription ShareSubscription1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/sharesubscriptions/ShareSubscription1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-11-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datashare/v20181101preview:ShareSubscription")]

@@ -388,6 +388,32 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create ExpressRouteCircuit Peerings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit_peering = azure_native.network.ExpressRouteCircuitPeering("expressRouteCircuitPeering",
+            circuit_name="circuitName",
+            peer_asn=200,
+            peering_name="AzurePrivatePeering",
+            primary_peer_address_prefix="192.168.16.252/30",
+            resource_group_name="rg1",
+            secondary_peer_address_prefix="192.168.18.252/30",
+            vlan_id=200)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRouteCircuitPeering AzurePrivatePeering /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] azure_asn: The Azure ASN.
@@ -422,6 +448,32 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         Peering in an ExpressRouteCircuit resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create ExpressRouteCircuit Peerings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit_peering = azure_native.network.ExpressRouteCircuitPeering("expressRouteCircuitPeering",
+            circuit_name="circuitName",
+            peer_asn=200,
+            peering_name="AzurePrivatePeering",
+            primary_peer_address_prefix="192.168.16.252/30",
+            resource_group_name="rg1",
+            secondary_peer_address_prefix="192.168.18.252/30",
+            vlan_id=200)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRouteCircuitPeering AzurePrivatePeering /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitPeeringInitArgs args: The arguments to use to populate this resource's properties.

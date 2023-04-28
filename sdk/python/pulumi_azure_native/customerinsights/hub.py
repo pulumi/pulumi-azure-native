@@ -133,6 +133,33 @@ class Hub(pulumi.CustomResource):
         API Version: 2017-04-26.
         Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Hubs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hub = azure_native.customerinsights.Hub("hub",
+            hub_billing_info=azure_native.customerinsights.HubBillingInfoFormatArgs(
+                max_units=5,
+                min_units=1,
+                sku_name="B0",
+            ),
+            hub_name="sdkTestHub",
+            location="West US",
+            resource_group_name="TestHubRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:Hub testHub2839 /subscriptions/subid/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/testHub2839 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['HubBillingInfoFormatArgs']] hub_billing_info: Billing settings of the hub.
@@ -152,6 +179,33 @@ class Hub(pulumi.CustomResource):
         Hub resource.
         API Version: 2017-04-26.
         Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Hubs_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hub = azure_native.customerinsights.Hub("hub",
+            hub_billing_info=azure_native.customerinsights.HubBillingInfoFormatArgs(
+                max_units=5,
+                min_units=1,
+                sku_name="B0",
+            ),
+            hub_name="sdkTestHub",
+            location="West US",
+            resource_group_name="TestHubRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:customerinsights:Hub testHub2839 /subscriptions/subid/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/testHub2839 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HubArgs args: The arguments to use to populate this resource's properties.

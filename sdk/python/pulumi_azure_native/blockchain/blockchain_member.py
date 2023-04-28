@@ -253,6 +253,35 @@ class BlockchainMember(pulumi.CustomResource):
         API Version: 2018-06-01-preview.
         Previous API Version: 2018-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### BlockchainMembers_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blockchain_member = azure_native.blockchain.BlockchainMember("blockchainMember",
+            blockchain_member_name="contosemember1",
+            consortium="ContoseConsortium",
+            consortium_management_account_password="<consortiumManagementAccountPassword>",
+            location="southeastasia",
+            password="<password>",
+            protocol="Quorum",
+            resource_group_name="mygroup",
+            validator_nodes_sku=azure_native.blockchain.BlockchainMemberNodesSkuArgs(
+                capacity=2,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blockchain:BlockchainMember contosemember1 /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Blockchain/blockchainMembers/contosemember1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blockchain_member_name: Blockchain member name.
@@ -279,6 +308,35 @@ class BlockchainMember(pulumi.CustomResource):
         Payload of the blockchain member which is exposed in the request/response of the resource provider.
         API Version: 2018-06-01-preview.
         Previous API Version: 2018-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### BlockchainMembers_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blockchain_member = azure_native.blockchain.BlockchainMember("blockchainMember",
+            blockchain_member_name="contosemember1",
+            consortium="ContoseConsortium",
+            consortium_management_account_password="<consortiumManagementAccountPassword>",
+            location="southeastasia",
+            password="<password>",
+            protocol="Quorum",
+            resource_group_name="mygroup",
+            validator_nodes_sku=azure_native.blockchain.BlockchainMemberNodesSkuArgs(
+                capacity=2,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blockchain:BlockchainMember contosemember1 /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Blockchain/blockchainMembers/contosemember1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlockchainMemberArgs args: The arguments to use to populate this resource's properties.

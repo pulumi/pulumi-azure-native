@@ -146,6 +146,37 @@ class JitRequest(pulumi.CustomResource):
         """
         Information about JIT request definition.
 
+        ## Example Usage
+        ### Create or update jit request
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        jit_request = azure_native.solutions.v20210701.JitRequest("jitRequest",
+            application_resource_id="/subscriptions/00c76877-e316-48a7-af60-4a09fec9d43f/resourceGroups/52F30DB2/providers/Microsoft.Solutions/applications/7E193158",
+            jit_authorization_policies=[azure_native.solutions.v20210701.JitAuthorizationPoliciesArgs(
+                principal_id="1db8e132e2934dbcb8e1178a61319491",
+                role_definition_id="ecd05a23-931a-4c38-a52b-ac7c4c583334",
+            )],
+            jit_request_name="myJitRequest",
+            jit_scheduling_policy=azure_native.solutions.v20210701.JitSchedulingPolicyArgs(
+                duration="PT8H",
+                start_time="2021-04-22T05:48:30.6661804Z",
+                type="Once",
+            ),
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions/v20210701:JitRequest myJitRequest /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/jitRequests/myJitRequest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_resource_id: The parent application id.
@@ -164,6 +195,37 @@ class JitRequest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about JIT request definition.
+
+        ## Example Usage
+        ### Create or update jit request
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        jit_request = azure_native.solutions.v20210701.JitRequest("jitRequest",
+            application_resource_id="/subscriptions/00c76877-e316-48a7-af60-4a09fec9d43f/resourceGroups/52F30DB2/providers/Microsoft.Solutions/applications/7E193158",
+            jit_authorization_policies=[azure_native.solutions.v20210701.JitAuthorizationPoliciesArgs(
+                principal_id="1db8e132e2934dbcb8e1178a61319491",
+                role_definition_id="ecd05a23-931a-4c38-a52b-ac7c4c583334",
+            )],
+            jit_request_name="myJitRequest",
+            jit_scheduling_policy=azure_native.solutions.v20210701.JitSchedulingPolicyArgs(
+                duration="PT8H",
+                start_time="2021-04-22T05:48:30.6661804Z",
+                type="Once",
+            ),
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:solutions/v20210701:JitRequest myJitRequest /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/jitRequests/myJitRequest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JitRequestArgs args: The arguments to use to populate this resource's properties.

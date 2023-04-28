@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.ExtendedLocation.V20210831Preview
 {
     /// <summary>
     /// Resource Sync Rules definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Resource Sync Rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var resourceSyncRule = new AzureNative.ExtendedLocation.V20210831Preview.ResourceSyncRule("resourceSyncRule", new()
+    ///     {
+    ///         ChildResourceName = "resourceSyncRule01",
+    ///         Location = "West US",
+    ///         Priority = 999,
+    ///         ResourceGroupName = "testresourcegroup",
+    ///         ResourceName = "customLocation01",
+    ///         Selector = new AzureNative.ExtendedLocation.V20210831Preview.Inputs.ResourceSyncRulePropertiesSelectorArgs
+    ///         {
+    ///             MatchLabels = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///             },
+    ///         },
+    ///         TargetResourceGroup = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:extendedlocation/v20210831preview:ResourceSyncRule resourceSyncRule01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ExtendedLocation/customLocations/customLocation01/resourcesyncrules/resourceSyncRule01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:extendedlocation/v20210831preview:ResourceSyncRule")]
     public partial class ResourceSyncRule : global::Pulumi.CustomResource

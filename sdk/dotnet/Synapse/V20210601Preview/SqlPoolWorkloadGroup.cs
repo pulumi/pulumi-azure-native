@@ -11,6 +11,65 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
     /// <summary>
     /// Workload group operations for a sql pool
+    /// 
+    /// ## Example Usage
+    /// ### Create a workload group with all properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlPoolWorkloadGroup = new AzureNative.Synapse.V20210601Preview.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup", new()
+    ///     {
+    ///         Importance = "normal",
+    ///         MaxResourcePercent = 100,
+    ///         MaxResourcePercentPerRequest = 3,
+    ///         MinResourcePercent = 0,
+    ///         MinResourcePercentPerRequest = 3,
+    ///         QueryExecutionTimeout = 0,
+    ///         ResourceGroupName = "sqlcrudtest-6852",
+    ///         SqlPoolName = "sqlcrudtest-9187",
+    ///         WorkloadGroupName = "smallrc",
+    ///         WorkspaceName = "sqlcrudtest-2080",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a workload group with the required properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlPoolWorkloadGroup = new AzureNative.Synapse.V20210601Preview.SqlPoolWorkloadGroup("sqlPoolWorkloadGroup", new()
+    ///     {
+    ///         MaxResourcePercent = 100,
+    ///         MinResourcePercent = 0,
+    ///         MinResourcePercentPerRequest = 3,
+    ///         ResourceGroupName = "sqlcrudtest-6852",
+    ///         SqlPoolName = "sqlcrudtest-9187",
+    ///         WorkloadGroupName = "smallrc",
+    ///         WorkspaceName = "sqlcrudtest-2080",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup smallrc /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Synapse/workspaces/sqlcrudtest-2080/sqlPools/workloadGroups/smallrc 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:SqlPoolWorkloadGroup")]
     public partial class SqlPoolWorkloadGroup : global::Pulumi.CustomResource

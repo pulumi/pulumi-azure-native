@@ -249,7 +249,14 @@ class Workflow(pulumi.CustomResource):
                  workflow_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Workflow resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20150201preview:Workflow myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any definition: Gets or sets the definition.
@@ -273,7 +280,14 @@ class Workflow(pulumi.CustomResource):
                  args: WorkflowArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Workflow resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20150201preview:Workflow myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL Migration Service.
+ *
+ * ## Example Usage
+ * ### Create or Update SQL Migration Service with maximum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlMigrationService = new azure_native.datamigration.v20211030preview.SqlMigrationService("sqlMigrationService", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlMigrationServiceName: "testagent",
+ * });
+ *
+ * ```
+ * ### Create or Update SQL Migration Service with minimum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlMigrationService = new azure_native.datamigration.v20211030preview.SqlMigrationService("sqlMigrationService", {
+ *     location: "northeurope",
+ *     resourceGroupName: "testrg",
+ *     sqlMigrationServiceName: "testagent",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration/v20211030preview:SqlMigrationService testagent /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent 
+ * ```
  */
 export class SqlMigrationService extends pulumi.CustomResource {
     /**

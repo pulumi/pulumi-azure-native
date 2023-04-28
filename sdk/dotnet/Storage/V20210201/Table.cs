@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Storage.V20210201
 {
     /// <summary>
     /// Properties of the table, including Id, resource name, resource type.
+    /// 
+    /// ## Example Usage
+    /// ### TableOperationPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var table = new AzureNative.Storage.V20210201.Table("table", new()
+    ///     {
+    ///         AccountName = "sto328",
+    ///         ResourceGroupName = "res3376",
+    ///         TableName = "table6185",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20210201:Table table6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/tableServices/default/tables/table6185 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210201:Table")]
     public partial class Table : global::Pulumi.CustomResource

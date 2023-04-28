@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.DocumentDB
     /// An Azure Cosmos DB User Definition
     /// API Version: 2022-11-15.
     /// Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBUserDefinitionCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoDBResourceMongoUserDefinition = new AzureNative.DocumentDB.MongoDBResourceMongoUserDefinition("mongoDBResourceMongoUserDefinition", new()
+    ///     {
+    ///         AccountName = "myAccountName",
+    ///         CustomData = "My custom data",
+    ///         DatabaseName = "sales",
+    ///         Mechanisms = "SCRAM-SHA-256",
+    ///         MongoUserDefinitionId = "myMongoUserDefinitionId",
+    ///         Password = "myPassword",
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///         Roles = new[]
+    ///         {
+    ///             new AzureNative.DocumentDB.Inputs.RoleArgs
+    ///             {
+    ///                 Db = "sales",
+    ///                 Role = "myReadRole",
+    ///             },
+    ///         },
+    ///         UserName = "myUserName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb:MongoDBResourceMongoUserDefinition myUserName /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbUserDefinitions/myUserId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:MongoDBResourceMongoUserDefinition")]
     public partial class MongoDBResourceMongoUserDefinition : global::Pulumi.CustomResource

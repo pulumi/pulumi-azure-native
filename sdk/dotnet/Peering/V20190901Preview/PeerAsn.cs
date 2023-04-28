@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.Peering.V20190901Preview
 {
     /// <summary>
     /// The essential information related to the peer's ASN.
+    /// 
+    /// ## Example Usage
+    /// ### Create a peer ASN
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var peerAsn = new AzureNative.Peering.V20190901Preview.PeerAsn("peerAsn", new()
+    ///     {
+    ///         PeerAsn = 65000,
+    ///         PeerAsnName = "MyPeerAsn",
+    ///         PeerContactInfo = new AzureNative.Peering.V20190901Preview.Inputs.ContactInfoArgs
+    ///         {
+    ///             Emails = new[]
+    ///             {
+    ///                 "abc@contoso.com",
+    ///                 "xyz@contoso.com",
+    ///             },
+    ///             Phone = new[]
+    ///             {
+    ///                 "+1 (234) 567-8900",
+    ///             },
+    ///         },
+    ///         PeerName = "Contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering/v20190901preview:PeerAsn MyPeerAsn /subscriptions/subId/providers/Microsoft.Peering/peerAsns/MyPeerAsn 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:peering/v20190901preview:PeerAsn")]

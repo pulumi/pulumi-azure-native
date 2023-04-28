@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.StorageSync.V20170605Preview
 {
     /// <summary>
     /// Storage Sync Service object.
+    /// 
+    /// ## Example Usage
+    /// ### StorageSyncServices_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageSyncService = new AzureNative.StorageSync.V20170605Preview.StorageSyncService("storageSyncService", new()
+    ///     {
+    ///         Location = "WestUS",
+    ///         ResourceGroupName = "SampleResourceGroup_1",
+    ///         StorageSyncServiceName = "SampleStorageSyncService_1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagesync/v20170605preview:StorageSyncService SampleStorageSyncService_1 /subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-06-05-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20170605preview:StorageSyncService")]

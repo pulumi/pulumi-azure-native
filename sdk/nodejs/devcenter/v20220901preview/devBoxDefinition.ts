@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a definition for a Developer Machine.
+ *
+ * ## Example Usage
+ * ### DevBoxDefinitions_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const devBoxDefinition = new azure_native.devcenter.v20220901preview.DevBoxDefinition("devBoxDefinition", {
+ *     devBoxDefinitionName: "WebDevBox",
+ *     devCenterName: "Contoso",
+ *     imageReference: {
+ *         id: "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/Example/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/contosogallery/images/exampleImage/version/1.0.0",
+ *     },
+ *     location: "centralus",
+ *     osStorageType: "SSD_1024",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Preview",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter/v20220901preview:DevBoxDefinition WebDevBox /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/devboxdefinitions/devBoxDefinitionName 
+ * ```
  */
 export class DevBoxDefinition extends pulumi.CustomResource {
     /**

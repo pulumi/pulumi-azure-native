@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230201
 {
     /// <summary>
     /// Provider details.
+    /// 
+    /// ## Example Usage
+    /// ### Adds a recovery services provider.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replicationRecoveryServicesProvider = new AzureNative.RecoveryServices.V20230201.ReplicationRecoveryServicesProvider("replicationRecoveryServicesProvider", new()
+    ///     {
+    ///         FabricName = "vmwarefabric1",
+    ///         Properties = new AzureNative.RecoveryServices.V20230201.Inputs.AddRecoveryServicesProviderInputPropertiesArgs
+    ///         {
+    ///             AuthenticationIdentityInput = new AzureNative.RecoveryServices.V20230201.Inputs.IdentityProviderInputArgs
+    ///             {
+    ///                 AadAuthority = "https://login.microsoftonline.com",
+    ///                 ApplicationId = "f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
+    ///                 Audience = "https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
+    ///                 ObjectId = "141360b8-5686-4240-a027-5e24e6affeba",
+    ///                 TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///             },
+    ///             MachineName = "vmwareprovider1",
+    ///             ResourceAccessIdentityInput = new AzureNative.RecoveryServices.V20230201.Inputs.IdentityProviderInputArgs
+    ///             {
+    ///                 AadAuthority = "https://login.microsoftonline.com",
+    ///                 ApplicationId = "f66fce08-c0c6-47a1-beeb-0ede5ea94f90",
+    ///                 Audience = "https://microsoft.onmicrosoft.com/cf19e349-644c-4c6a-bcae-9c8f35357874",
+    ///                 ObjectId = "141360b8-5686-4240-a027-5e24e6affeba",
+    ///                 TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///             },
+    ///         },
+    ///         ProviderName = "vmwareprovider1",
+    ///         ResourceGroupName = "resourcegroup1",
+    ///         ResourceName = "migrationvault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20230201:ReplicationRecoveryServicesProvider vmwareprovider1 /Subscriptions/cb53d0c3-bd59-4721-89bc-06916a9147ef/resourceGroups/resourcegroup1/providers/Microsoft.RecoveryServices/vaults/migrationvault/replicationFabrics/vmwarefabric1/replicationRecoveryServicesProviders/vmwareprovider1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20230201:ReplicationRecoveryServicesProvider")]
     public partial class ReplicationRecoveryServicesProvider : global::Pulumi.CustomResource

@@ -7,6 +7,49 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Skus_CreateOrUpdateNestedResourceTypeSecond
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const skusNestedResourceTypeSecond = new azure_native.providerhub.v20210901preview.SkusNestedResourceTypeSecond("skusNestedResourceTypeSecond", {
+ *     nestedResourceTypeFirst: "nestedResourceTypeFirst",
+ *     nestedResourceTypeSecond: "nestedResourceTypeSecond",
+ *     properties: {
+ *         skuSettings: [
+ *             {
+ *                 kind: "Standard",
+ *                 name: "freeSku",
+ *                 tier: "Tier1",
+ *             },
+ *             {
+ *                 costs: [{
+ *                     meterId: "xxx",
+ *                 }],
+ *                 kind: "Premium",
+ *                 name: "premiumSku",
+ *                 tier: "Tier2",
+ *             },
+ *         ],
+ *     },
+ *     providerNamespace: "Microsoft.Contoso",
+ *     resourceType: "testResourceType",
+ *     sku: "testSku",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:providerhub/v20210901preview:SkusNestedResourceTypeSecond Microsoft.Contoso/ /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/ 
+ * ```
+ */
 export class SkusNestedResourceTypeSecond extends pulumi.CustomResource {
     /**
      * Get an existing SkusNestedResourceTypeSecond resource's state with the given name, ID, and optional extra

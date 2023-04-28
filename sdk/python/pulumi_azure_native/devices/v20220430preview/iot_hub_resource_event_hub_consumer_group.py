@@ -110,6 +110,32 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
         """
         The properties of the EventHubConsumerGroupInfo object.
 
+        ## Example Usage
+        ### IotHubResource_CreateEventHubConsumerGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_resource_event_hub_consumer_group = azure_native.devices.v20220430preview.IotHubResourceEventHubConsumerGroup("iotHubResourceEventHubConsumerGroup",
+            event_hub_endpoint_name="events",
+            name="test",
+            properties=azure_native.devices.v20220430preview.EventHubConsumerGroupNameArgs(
+                name="test",
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="testHub")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup test /subscriptions/cmd-sub-1/resourceGroups/cmd-rg-1/providers/Microsoft.Devices/IotHubs/test-hub-2/eventHubEndpoints/events/ConsumerGroups/%24Default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_hub_endpoint_name: The name of the Event Hub-compatible endpoint in the IoT hub.
@@ -126,6 +152,32 @@ class IotHubResourceEventHubConsumerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The properties of the EventHubConsumerGroupInfo object.
+
+        ## Example Usage
+        ### IotHubResource_CreateEventHubConsumerGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_resource_event_hub_consumer_group = azure_native.devices.v20220430preview.IotHubResourceEventHubConsumerGroup("iotHubResourceEventHubConsumerGroup",
+            event_hub_endpoint_name="events",
+            name="test",
+            properties=azure_native.devices.v20220430preview.EventHubConsumerGroupNameArgs(
+                name="test",
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="testHub")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20220430preview:IotHubResourceEventHubConsumerGroup test /subscriptions/cmd-sub-1/resourceGroups/cmd-rg-1/providers/Microsoft.Devices/IotHubs/test-hub-2/eventHubEndpoints/events/ConsumerGroups/%24Default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IotHubResourceEventHubConsumerGroupArgs args: The arguments to use to populate this resource's properties.

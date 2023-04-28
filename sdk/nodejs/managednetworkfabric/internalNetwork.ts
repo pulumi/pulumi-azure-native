@@ -11,6 +11,63 @@ import * as utilities from "../utilities";
  * Defines the InternalNetwork item.
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### InternalNetworks_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const internalNetwork = new azure_native.managednetworkfabric.InternalNetwork("internalNetwork", {
+ *     bgpConfiguration: {
+ *         allowAS: 1,
+ *         allowASOverride: "Enable",
+ *         defaultRouteOriginate: "True",
+ *         ipv4ListenRangePrefixes: ["10.1.0.0/25"],
+ *         ipv4NeighborAddress: [{
+ *             address: "10.1.0.0",
+ *         }],
+ *         ipv6ListenRangePrefixes: ["2fff::/66"],
+ *         ipv6NeighborAddress: [{
+ *             address: "2fff::",
+ *         }],
+ *         peerASN: 6,
+ *     },
+ *     connectedIPv4Subnets: [{
+ *         prefix: "10.0.0.0/24",
+ *     }],
+ *     connectedIPv6Subnets: [{
+ *         prefix: "3FFE:FFFF:0:CD30::a0/29",
+ *     }],
+ *     exportRoutePolicyId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+ *     importRoutePolicyId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName1",
+ *     internalNetworkName: "example-internalnetwork",
+ *     l3IsolationDomainName: "example-l3domain",
+ *     mtu: 1500,
+ *     resourceGroupName: "resourceGroupName",
+ *     staticRouteConfiguration: {
+ *         ipv4Routes: [{
+ *             nextHop: ["10.0.0.1"],
+ *             prefix: "10.1.0.0/24",
+ *         }],
+ *         ipv6Routes: [{
+ *             nextHop: ["2ffe::1"],
+ *             prefix: "2fff::/64",
+ *         }],
+ *     },
+ *     vlanId: 501,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:InternalNetwork example-externalnetwork /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/example-l3domain/externalNetworks/example-externalnetwork 
+ * ```
  */
 export class InternalNetwork extends pulumi.CustomResource {
     /**

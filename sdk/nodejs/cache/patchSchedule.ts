@@ -11,6 +11,40 @@ import * as utilities from "../utilities";
  * Response to put/get patch schedules for Redis cache.
  * API Version: 2022-06-01.
  * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RedisCachePatchSchedulesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const patchSchedule = new azure_native.cache.PatchSchedule("patchSchedule", {
+ *     "default": "default",
+ *     name: "cache1",
+ *     resourceGroupName: "rg1",
+ *     scheduleEntries: [
+ *         {
+ *             dayOfWeek: azure_native.cache.DayOfWeek.Monday,
+ *             maintenanceWindow: "PT5H",
+ *             startHourUtc: 12,
+ *         },
+ *         {
+ *             dayOfWeek: azure_native.cache.DayOfWeek.Tuesday,
+ *             startHourUtc: 12,
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cache:PatchSchedule cachename1/default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/patchSchedules/default 
+ * ```
  */
 export class PatchSchedule extends pulumi.CustomResource {
     /**

@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.ContainerService.V20190201
 {
     /// <summary>
     /// Managed cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Managed Cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.V20190201.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20190201.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///         },
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.V20190201.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.V20190201.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.V20190201.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.V20190201.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20190201:ManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerservice/v20190201:ManagedCluster")]

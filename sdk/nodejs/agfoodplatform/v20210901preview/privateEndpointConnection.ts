@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection resource.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnections_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.agfoodplatform.v20210901preview.PrivateEndpointConnection("privateEndpointConnection", {
+ *     farmBeatsResourceName: "examples-farmbeatsResourceName",
+ *     privateEndpointConnectionName: "privateEndpointConnectionName",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Approved by johndoe@contoso.com",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "examples-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:agfoodplatform/v20210901preview:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName/privateEndpointConnections/privateEndpointConnectionName 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

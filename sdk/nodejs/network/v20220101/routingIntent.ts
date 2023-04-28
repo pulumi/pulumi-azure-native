@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * The routing intent child resource of a Virtual hub.
+ *
+ * ## Example Usage
+ * ### RouteTablePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const routingIntent = new azure_native.network.v20220101.RoutingIntent("routingIntent", {
+ *     resourceGroupName: "rg1",
+ *     routingIntentName: "Intent1",
+ *     routingPolicies: [
+ *         {
+ *             destinations: ["Internet"],
+ *             name: "InternetTraffic",
+ *             nextHop: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+ *         },
+ *         {
+ *             destinations: ["PrivateTraffic"],
+ *             name: "PrivateTrafficPolicy",
+ *             nextHop: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/azureFirewalls/azfw1",
+ *         },
+ *     ],
+ *     virtualHubName: "virtualHub1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220101:RoutingIntent Intent1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routingIntent/Intent1 
+ * ```
  */
 export class RoutingIntent extends pulumi.CustomResource {
     /**

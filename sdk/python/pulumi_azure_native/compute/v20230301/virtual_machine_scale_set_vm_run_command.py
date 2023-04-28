@@ -337,6 +337,57 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
         """
         Describes a Virtual Machine run command.
 
+        ## Example Usage
+        ### Create VirtualMachineScaleSet VM run command.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_vm_run_command = azure_native.compute.v20230301.VirtualMachineScaleSetVMRunCommand("virtualMachineScaleSetVMRunCommand",
+            async_execution=False,
+            error_blob_managed_identity=azure_native.compute.v20230301.RunCommandManagedIdentityArgs(),
+            error_blob_uri="https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
+            instance_id="0",
+            location="West US",
+            output_blob_managed_identity=azure_native.compute.v20230301.RunCommandManagedIdentityArgs(
+                client_id="22d35efb-0c99-4041-8c5b-6d24db33a69a",
+            ),
+            output_blob_uri="https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+            parameters=[
+                {
+                    "name": "param1",
+                    "value": "value1",
+                },
+                {
+                    "name": "param2",
+                    "value": "value2",
+                },
+            ],
+            resource_group_name="myResourceGroup",
+            run_as_password="<runAsPassword>",
+            run_as_user="user1",
+            run_command_name="myRunCommand",
+            source=azure_native.compute.v20230301.VirtualMachineRunCommandScriptSourceResponseArgs(
+                script_uri="https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1",
+                script_uri_managed_identity=azure_native.compute.v20230301.RunCommandManagedIdentityArgs(
+                    object_id="4231e4d2-33e4-4e23-96b2-17888afa6072",
+                ),
+            ),
+            timeout_in_seconds=3600,
+            treat_failure_as_deployment_failure=True,
+            vm_scale_set_name="myvmScaleSet")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20230301:VirtualMachineScaleSetVMRunCommand myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myvmScaleSet/virtualMachines/0/runCommands/myRunCommand 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] async_execution: Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
@@ -366,6 +417,57 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Virtual Machine run command.
+
+        ## Example Usage
+        ### Create VirtualMachineScaleSet VM run command.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_scale_set_vm_run_command = azure_native.compute.v20230301.VirtualMachineScaleSetVMRunCommand("virtualMachineScaleSetVMRunCommand",
+            async_execution=False,
+            error_blob_managed_identity=azure_native.compute.v20230301.RunCommandManagedIdentityArgs(),
+            error_blob_uri="https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
+            instance_id="0",
+            location="West US",
+            output_blob_managed_identity=azure_native.compute.v20230301.RunCommandManagedIdentityArgs(
+                client_id="22d35efb-0c99-4041-8c5b-6d24db33a69a",
+            ),
+            output_blob_uri="https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+            parameters=[
+                {
+                    "name": "param1",
+                    "value": "value1",
+                },
+                {
+                    "name": "param2",
+                    "value": "value2",
+                },
+            ],
+            resource_group_name="myResourceGroup",
+            run_as_password="<runAsPassword>",
+            run_as_user="user1",
+            run_command_name="myRunCommand",
+            source=azure_native.compute.v20230301.VirtualMachineRunCommandScriptSourceResponseArgs(
+                script_uri="https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1",
+                script_uri_managed_identity=azure_native.compute.v20230301.RunCommandManagedIdentityArgs(
+                    object_id="4231e4d2-33e4-4e23-96b2-17888afa6072",
+                ),
+            ),
+            timeout_in_seconds=3600,
+            treat_failure_as_deployment_failure=True,
+            vm_scale_set_name="myvmScaleSet")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20230301:VirtualMachineScaleSetVMRunCommand myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myvmScaleSet/virtualMachines/0/runCommands/myRunCommand 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineScaleSetVMRunCommandArgs args: The arguments to use to populate this resource's properties.

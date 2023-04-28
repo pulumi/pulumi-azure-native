@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.DocumentDB.V20210701Preview
 {
     /// <summary>
     /// An Azure Cosmos DB Cassandra view.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBCassandraViewCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cassandraResourceCassandraView = new AzureNative.DocumentDB.V20210701Preview.CassandraResourceCassandraView("cassandraResourceCassandraView", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         KeyspaceName = "keyspacename",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20210701Preview.Inputs.CassandraViewResourceArgs
+    ///         {
+    ///             Id = "viewname",
+    ///             ViewDefinition = "SELECT columna, columnb, columnc FROM keyspacename.srctablename WHERE columna IS NOT NULL AND columnc IS NOT NULL PRIMARY KEY (columnc, columna)",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///         ViewName = "viewname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20210701preview:CassandraResourceCassandraView viewname /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspacename/views/viewname 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20210701preview:CassandraResourceCassandraView")]
     public partial class CassandraResourceCassandraView : global::Pulumi.CustomResource

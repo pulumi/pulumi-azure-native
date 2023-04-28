@@ -116,6 +116,39 @@ class DeploymentAtScope(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create deployment at a given scope.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_scope = azure_native.resources.DeploymentAtScope("deploymentAtScope",
+            deployment_name="my-deployment",
+            location="eastus",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            scope="providers/Microsoft.Management/managementGroups/my-management-group-id",
+            tags={
+                "tagKey1": "tag-value-1",
+                "tagKey2": "tag-value-2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:DeploymentAtScope my-deployment /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: The name of the deployment.
@@ -134,6 +167,39 @@ class DeploymentAtScope(pulumi.CustomResource):
         Deployment information.
         API Version: 2022-09-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create deployment at a given scope.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_scope = azure_native.resources.DeploymentAtScope("deploymentAtScope",
+            deployment_name="my-deployment",
+            location="eastus",
+            properties=azure_native.resources.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ),
+            scope="providers/Microsoft.Management/managementGroups/my-management-group-id",
+            tags={
+                "tagKey1": "tag-value-1",
+                "tagKey2": "tag-value-2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:DeploymentAtScope my-deployment /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtScopeArgs args: The arguments to use to populate this resource's properties.

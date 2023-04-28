@@ -472,6 +472,28 @@ class AKSService(pulumi.CustomResource):
         """
         Machine Learning service object wrapped into ARM resource envelope.
 
+        ## Example Usage
+        ### Create Or Update service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aks_service = azure_native.machinelearningservices.v20200515preview.AKSService("aksService",
+            resource_group_name="testrg123",
+            service_name="service456",
+            workspace_name="workspaces123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200515preview:AKSService service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] aad_auth_enabled: Whether or not AAD authentication is enabled.
@@ -510,6 +532,28 @@ class AKSService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning service object wrapped into ARM resource envelope.
+
+        ## Example Usage
+        ### Create Or Update service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aks_service = azure_native.machinelearningservices.v20200515preview.AKSService("aksService",
+            resource_group_name="testrg123",
+            service_name="service456",
+            workspace_name="workspaces123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200515preview:AKSService service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AKSServiceArgs args: The arguments to use to populate this resource's properties.

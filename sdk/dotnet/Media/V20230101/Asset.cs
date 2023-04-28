@@ -11,6 +11,59 @@ namespace Pulumi.AzureNative.Media.V20230101
 {
     /// <summary>
     /// An Asset.
+    /// 
+    /// ## Example Usage
+    /// ### Create an Asset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var asset = new AzureNative.Media.V20230101.Asset("asset", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         AssetName = "ClimbingMountLogan",
+    ///         Description = "A documentary showing the ascent of Mount Logan",
+    ///         ResourceGroupName = "contosorg",
+    ///         StorageAccountName = "storage0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Asset with encryption scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var asset = new AzureNative.Media.V20230101.Asset("asset", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         AssetName = "ClimbingMountLogan",
+    ///         Description = "A documentary showing the ascent of Mount Logan",
+    ///         EncryptionScope = "encryptionScope1",
+    ///         ResourceGroupName = "contosorg",
+    ///         StorageAccountName = "storage0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20230101:Asset ClimbingMountLogan /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20230101:Asset")]
     public partial class Asset : global::Pulumi.CustomResource

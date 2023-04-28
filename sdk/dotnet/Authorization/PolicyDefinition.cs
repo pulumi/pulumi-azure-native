@@ -13,6 +13,153 @@ namespace Pulumi.AzureNative.Authorization
     /// The policy definition.
     /// API Version: 2021-06-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyDefinition = new AzureNative.Authorization.PolicyDefinition("policyDefinition", new()
+    ///     {
+    ///         Description = "Force resource names to begin with given 'prefix' and/or end with given 'suffix'",
+    ///         DisplayName = "Enforce resource naming convention",
+    ///         Metadata = 
+    ///         {
+    ///             { "category", "Naming" },
+    ///         },
+    ///         Mode = "All",
+    ///         Parameters = 
+    ///         {
+    ///             { "prefix", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+    ///             {
+    ///                 Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                 {
+    ///                     Description = "Resource name prefix",
+    ///                     DisplayName = "Prefix",
+    ///                 },
+    ///                 Type = "String",
+    ///             } },
+    ///             { "suffix", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+    ///             {
+    ///                 Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                 {
+    ///                     Description = "Resource name suffix",
+    ///                     DisplayName = "Suffix",
+    ///                 },
+    ///                 Type = "String",
+    ///             } },
+    ///         },
+    ///         PolicyDefinitionName = "ResourceNaming",
+    ///         PolicyRule = 
+    ///         {
+    ///             { "if", 
+    ///             {
+    ///                 { "not", 
+    ///                 {
+    ///                     { "field", "name" },
+    ///                     { "like", "[concat(parameters('prefix'), '*', parameters('suffix'))]" },
+    ///                 } },
+    ///             } },
+    ///             { "then", 
+    ///             {
+    ///                 { "effect", "deny" },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a policy definition with advanced parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyDefinition = new AzureNative.Authorization.PolicyDefinition("policyDefinition", new()
+    ///     {
+    ///         Description = "Audit enabling of logs and retain them up to a year. This enables recreation of activity trails for investigation purposes when a security incident occurs or your network is compromised",
+    ///         DisplayName = "Event Hubs should have diagnostic logging enabled",
+    ///         Metadata = 
+    ///         {
+    ///             { "category", "Event Hub" },
+    ///         },
+    ///         Mode = "Indexed",
+    ///         Parameters = 
+    ///         {
+    ///             { "requiredRetentionDays", new AzureNative.Authorization.Inputs.ParameterDefinitionsValueArgs
+    ///             {
+    ///                 AllowedValues = new[]
+    ///                 {
+    ///                     0,
+    ///                     30,
+    ///                     90,
+    ///                     180,
+    ///                     365,
+    ///                 },
+    ///                 DefaultValue = 365,
+    ///                 Metadata = new AzureNative.Authorization.Inputs.ParameterDefinitionsValueMetadataArgs
+    ///                 {
+    ///                     Description = "The required diagnostic logs retention in days",
+    ///                     DisplayName = "Required retention (days)",
+    ///                 },
+    ///                 Type = "Integer",
+    ///             } },
+    ///         },
+    ///         PolicyDefinitionName = "EventHubDiagnosticLogs",
+    ///         PolicyRule = 
+    ///         {
+    ///             { "if", 
+    ///             {
+    ///                 { "equals", "Microsoft.EventHub/namespaces" },
+    ///                 { "field", "type" },
+    ///             } },
+    ///             { "then", 
+    ///             {
+    ///                 { "details", 
+    ///                 {
+    ///                     { "existenceCondition", 
+    ///                     {
+    ///                         { "allOf", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "equals", "true" },
+    ///                                 { "field", "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.enabled" },
+    ///                             },
+    ///                             
+    ///                             {
+    ///                                 { "equals", "[parameters('requiredRetentionDays')]" },
+    ///                                 { "field", "Microsoft.Insights/diagnosticSettings/logs[*].retentionPolicy.days" },
+    ///                             },
+    ///                         } },
+    ///                     } },
+    ///                     { "type", "Microsoft.Insights/diagnosticSettings" },
+    ///                 } },
+    ///                 { "effect", "AuditIfNotExists" },
+    ///             } },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization:PolicyDefinition ResourceNaming /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization:PolicyDefinition")]
     public partial class PolicyDefinition : global::Pulumi.CustomResource

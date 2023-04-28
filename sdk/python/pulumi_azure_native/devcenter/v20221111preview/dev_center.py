@@ -115,6 +115,52 @@ class DevCenter(pulumi.CustomResource):
         """
         Represents a devcenter resource.
 
+        ## Example Usage
+        ### DevCenters_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_center = azure_native.devcenter.v20221111preview.DevCenter("devCenter",
+            dev_center_name="Contoso",
+            location="centralus",
+            resource_group_name="rg1",
+            tags={
+                "CostCode": "12345",
+            })
+
+        ```
+        ### DevCenters_CreateWithUserIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_center = azure_native.devcenter.v20221111preview.DevCenter("devCenter",
+            dev_center_name="Contoso",
+            identity=azure_native.devcenter.v20221111preview.ManagedServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1": {},
+                },
+            ),
+            location="centralus",
+            resource_group_name="rg1",
+            tags={
+                "CostCode": "12345",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20221111preview:DevCenter Contoso /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
@@ -131,6 +177,52 @@ class DevCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a devcenter resource.
+
+        ## Example Usage
+        ### DevCenters_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_center = azure_native.devcenter.v20221111preview.DevCenter("devCenter",
+            dev_center_name="Contoso",
+            location="centralus",
+            resource_group_name="rg1",
+            tags={
+                "CostCode": "12345",
+            })
+
+        ```
+        ### DevCenters_CreateWithUserIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dev_center = azure_native.devcenter.v20221111preview.DevCenter("devCenter",
+            dev_center_name="Contoso",
+            identity=azure_native.devcenter.v20221111preview.ManagedServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1": {},
+                },
+            ),
+            location="centralus",
+            resource_group_name="rg1",
+            tags={
+                "CostCode": "12345",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20221111preview:DevCenter Contoso /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DevCenterArgs args: The arguments to use to populate this resource's properties.

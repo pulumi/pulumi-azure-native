@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Logic.V20190501
 {
     /// <summary>
     /// The integration service environment managed api.
+    /// 
+    /// ## Example Usage
+    /// ### Gets the integration service environment managed Apis
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationServiceEnvironmentManagedApi = new AzureNative.Logic.V20190501.IntegrationServiceEnvironmentManagedApi("integrationServiceEnvironmentManagedApi", new()
+    ///     {
+    ///         ApiName = "servicebus",
+    ///         IntegrationServiceEnvironmentName = "testIntegrationServiceEnvironment",
+    ///         Location = "brazilsouth",
+    ///         ResourceGroup = "testResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi servicebus /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga/managedApis/servicebus 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi")]
     public partial class IntegrationServiceEnvironmentManagedApi : global::Pulumi.CustomResource

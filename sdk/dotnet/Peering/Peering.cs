@@ -13,6 +13,189 @@ namespace Pulumi.AzureNative.Peering
     /// Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a direct peering
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var peering = new AzureNative.Peering.Peering("peering", new()
+    ///     {
+    ///         Direct = new AzureNative.Peering.Inputs.PeeringPropertiesDirectArgs
+    ///         {
+    ///             Connections = new[]
+    ///             {
+    ///                 new AzureNative.Peering.Inputs.DirectConnectionArgs
+    ///                 {
+    ///                     BandwidthInMbps = 10000,
+    ///                     BgpSession = new AzureNative.Peering.Inputs.BgpSessionArgs
+    ///                     {
+    ///                         MaxPrefixesAdvertisedV4 = 1000,
+    ///                         MaxPrefixesAdvertisedV6 = 100,
+    ///                         Md5AuthenticationKey = "test-md5-auth-key",
+    ///                         SessionPrefixV4 = "192.168.0.0/31",
+    ///                         SessionPrefixV6 = "fd00::0/127",
+    ///                     },
+    ///                     ConnectionIdentifier = "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+    ///                     PeeringDBFacilityId = 99999,
+    ///                     SessionAddressProvider = "Peer",
+    ///                     UseForPeeringService = false,
+    ///                 },
+    ///                 new AzureNative.Peering.Inputs.DirectConnectionArgs
+    ///                 {
+    ///                     BandwidthInMbps = 10000,
+    ///                     ConnectionIdentifier = "8AB00818-D533-4504-A25A-03A17F61201C",
+    ///                     PeeringDBFacilityId = 99999,
+    ///                     SessionAddressProvider = "Microsoft",
+    ///                     UseForPeeringService = true,
+    ///                 },
+    ///             },
+    ///             DirectPeeringType = "Edge",
+    ///             PeerAsn = new AzureNative.Peering.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+    ///             },
+    ///         },
+    ///         Kind = "Direct",
+    ///         Location = "eastus",
+    ///         PeeringLocation = "peeringLocation0",
+    ///         PeeringName = "peeringName",
+    ///         ResourceGroupName = "rgName",
+    ///         Sku = new AzureNative.Peering.Inputs.PeeringSkuArgs
+    ///         {
+    ///             Name = "Basic_Direct_Free",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a peering with exchange route server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var peering = new AzureNative.Peering.Peering("peering", new()
+    ///     {
+    ///         Direct = new AzureNative.Peering.Inputs.PeeringPropertiesDirectArgs
+    ///         {
+    ///             Connections = new[]
+    ///             {
+    ///                 new AzureNative.Peering.Inputs.DirectConnectionArgs
+    ///                 {
+    ///                     BandwidthInMbps = 10000,
+    ///                     BgpSession = new AzureNative.Peering.Inputs.BgpSessionArgs
+    ///                     {
+    ///                         MaxPrefixesAdvertisedV4 = 1000,
+    ///                         MaxPrefixesAdvertisedV6 = 100,
+    ///                         MicrosoftSessionIPv4Address = "192.168.0.123",
+    ///                         PeerSessionIPv4Address = "192.168.0.234",
+    ///                         SessionPrefixV4 = "192.168.0.0/24",
+    ///                     },
+    ///                     ConnectionIdentifier = "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+    ///                     PeeringDBFacilityId = 99999,
+    ///                     SessionAddressProvider = "Peer",
+    ///                     UseForPeeringService = true,
+    ///                 },
+    ///             },
+    ///             DirectPeeringType = "IxRs",
+    ///             PeerAsn = new AzureNative.Peering.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+    ///             },
+    ///         },
+    ///         Kind = "Direct",
+    ///         Location = "eastus",
+    ///         PeeringLocation = "peeringLocation0",
+    ///         PeeringName = "peeringName",
+    ///         ResourceGroupName = "rgName",
+    ///         Sku = new AzureNative.Peering.Inputs.PeeringSkuArgs
+    ///         {
+    ///             Name = "Premium_Direct_Free",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an exchange peering
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var peering = new AzureNative.Peering.Peering("peering", new()
+    ///     {
+    ///         Exchange = new AzureNative.Peering.Inputs.PeeringPropertiesExchangeArgs
+    ///         {
+    ///             Connections = new[]
+    ///             {
+    ///                 new AzureNative.Peering.Inputs.ExchangeConnectionArgs
+    ///                 {
+    ///                     BgpSession = new AzureNative.Peering.Inputs.BgpSessionArgs
+    ///                     {
+    ///                         MaxPrefixesAdvertisedV4 = 1000,
+    ///                         MaxPrefixesAdvertisedV6 = 100,
+    ///                         Md5AuthenticationKey = "test-md5-auth-key",
+    ///                         PeerSessionIPv4Address = "192.168.2.1",
+    ///                         PeerSessionIPv6Address = "fd00::1",
+    ///                     },
+    ///                     ConnectionIdentifier = "CE495334-0E94-4E51-8164-8116D6CD284D",
+    ///                     PeeringDBFacilityId = 99999,
+    ///                 },
+    ///                 new AzureNative.Peering.Inputs.ExchangeConnectionArgs
+    ///                 {
+    ///                     BgpSession = new AzureNative.Peering.Inputs.BgpSessionArgs
+    ///                     {
+    ///                         MaxPrefixesAdvertisedV4 = 1000,
+    ///                         MaxPrefixesAdvertisedV6 = 100,
+    ///                         Md5AuthenticationKey = "test-md5-auth-key",
+    ///                         PeerSessionIPv4Address = "192.168.2.2",
+    ///                         PeerSessionIPv6Address = "fd00::2",
+    ///                     },
+    ///                     ConnectionIdentifier = "CDD8E673-CB07-47E6-84DE-3739F778762B",
+    ///                     PeeringDBFacilityId = 99999,
+    ///                 },
+    ///             },
+    ///             PeerAsn = new AzureNative.Peering.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+    ///             },
+    ///         },
+    ///         Kind = "Exchange",
+    ///         Location = "eastus",
+    ///         PeeringLocation = "peeringLocation0",
+    ///         PeeringName = "peeringName",
+    ///         ResourceGroupName = "rgName",
+    ///         Sku = new AzureNative.Peering.Inputs.PeeringSkuArgs
+    ///         {
+    ///             Name = "Basic_Exchange_Free",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering:Peering peeringName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:Peering")]
     public partial class Peering : global::Pulumi.CustomResource

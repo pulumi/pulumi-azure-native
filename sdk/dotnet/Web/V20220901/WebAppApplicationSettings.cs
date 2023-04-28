@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// String dictionary resource.
+    /// 
+    /// ## Example Usage
+    /// ### Update App Settings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webAppApplicationSettings = new AzureNative.Web.V20220901.WebAppApplicationSettings("webAppApplicationSettings", new()
+    ///     {
+    ///         Name = "sitef6141",
+    ///         Properties = 
+    ///         {
+    ///             { "Setting1", "Value1" },
+    ///             { "Setting2", "Value2" },
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:WebAppApplicationSettings appsettings /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/appsettings 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:WebAppApplicationSettings")]
     public partial class WebAppApplicationSettings : global::Pulumi.CustomResource

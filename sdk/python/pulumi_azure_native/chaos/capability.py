@@ -128,6 +128,31 @@ class Capability(pulumi.CustomResource):
         API Version: 2022-10-01-preview.
         Previous API Version: 2021-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create/update a Capability that extends a virtual machine Target resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capability = azure_native.chaos.Capability("capability",
+            capability_name="Shutdown-1.0",
+            parent_provider_namespace="Microsoft.Compute",
+            parent_resource_name="exampleVM",
+            parent_resource_type="virtualMachines",
+            resource_group_name="exampleRG",
+            target_name="Microsoft-VirtualMachine")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:chaos:Capability Shutdown-1.0 /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/Shutdown-1.0 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capability_name: String that represents a Capability resource name.
@@ -147,6 +172,31 @@ class Capability(pulumi.CustomResource):
         Model that represents a Capability resource.
         API Version: 2022-10-01-preview.
         Previous API Version: 2021-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create/update a Capability that extends a virtual machine Target resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capability = azure_native.chaos.Capability("capability",
+            capability_name="Shutdown-1.0",
+            parent_provider_namespace="Microsoft.Compute",
+            parent_resource_name="exampleVM",
+            parent_resource_type="virtualMachines",
+            resource_group_name="exampleRG",
+            target_name="Microsoft-VirtualMachine")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:chaos:Capability Shutdown-1.0 /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/Shutdown-1.0 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CapabilityArgs args: The arguments to use to populate this resource's properties.

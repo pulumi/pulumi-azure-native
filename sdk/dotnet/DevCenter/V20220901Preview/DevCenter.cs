@@ -11,6 +11,70 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
 {
     /// <summary>
     /// Represents a devcenter resource.
+    /// 
+    /// ## Example Usage
+    /// ### DevCenters_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var devCenter = new AzureNative.DevCenter.V20220901Preview.DevCenter("devCenter", new()
+    ///     {
+    ///         DevCenterName = "Contoso",
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "CostCode", "12345" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DevCenters_CreateWithUserIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var devCenter = new AzureNative.DevCenter.V20220901Preview.DevCenter("devCenter", new()
+    ///     {
+    ///         DevCenterName = "Contoso",
+    ///         Identity = new AzureNative.DevCenter.V20220901Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/identityGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testidentity1", null },
+    ///             },
+    ///         },
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "CostCode", "12345" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter/v20220901preview:DevCenter Contoso /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220901preview:DevCenter")]
     public partial class DevCenter : global::Pulumi.CustomResource

@@ -13,6 +13,51 @@ namespace Pulumi.AzureNative.Portal
     /// Response to get user settings
     /// API Version: 2018-10-01.
     /// Previous API Version: 2018-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PutUserSettings
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var userSettingsWithLocation = new AzureNative.Portal.UserSettingsWithLocation("userSettingsWithLocation", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Portal.Inputs.UserPropertiesArgs
+    ///         {
+    ///             PreferredLocation = "eastus",
+    ///             PreferredOsType = "Linux",
+    ///             PreferredShellType = "bash",
+    ///             StorageProfile = new AzureNative.Portal.Inputs.StorageProfileArgs
+    ///             {
+    ///                 DiskSizeInGB = 5,
+    ///                 FileShareName = "string",
+    ///                 StorageAccountResourceId = "string",
+    ///             },
+    ///             TerminalSettings = new AzureNative.Portal.Inputs.TerminalSettingsArgs
+    ///             {
+    ///                 FontSize = "Medium",
+    ///                 FontStyle = "Monospace",
+    ///             },
+    ///         },
+    ///         UserSettingsName = "cloudconsole",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:portal:UserSettingsWithLocation myresource1 /providers/Microsoft.Portal/locations/{location}/userSettings/{userSettingsName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:portal:UserSettingsWithLocation")]
     public partial class UserSettingsWithLocation : global::Pulumi.CustomResource

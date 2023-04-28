@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * ObjectAnchorsAccount Response.
+ *
+ * ## Example Usage
+ * ### Create object anchors account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const objectAnchorsAccount = new azure_native.mixedreality.v20210301preview.ObjectAnchorsAccount("objectAnchorsAccount", {
+ *     accountName: "MyAccount",
+ *     identity: {
+ *         type: azure_native.mixedreality.v20210301preview.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "eastus2euap",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mixedreality/v20210301preview:ObjectAnchorsAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/objectAnchorsAccounts/MyAccount 
+ * ```
  */
 export class ObjectAnchorsAccount extends pulumi.CustomResource {
     /**

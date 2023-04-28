@@ -151,6 +151,34 @@ class Workspace(pulumi.CustomResource):
         """
         Represents a Workspace definition.
 
+        ## Example Usage
+        ### Workspace_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.desktopvirtualization.v20201110preview.Workspace("workspace",
+            description="des1",
+            friendly_name="friendly",
+            location="centralus",
+            resource_group_name="resourceGroup1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization/v20201110preview:Workspace workspace1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/workspaces/workspace1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] application_group_references: List of applicationGroup resource Ids.
@@ -169,6 +197,34 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Workspace definition.
+
+        ## Example Usage
+        ### Workspace_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.desktopvirtualization.v20201110preview.Workspace("workspace",
+            description="des1",
+            friendly_name="friendly",
+            location="centralus",
+            resource_group_name="resourceGroup1",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:desktopvirtualization/v20201110preview:Workspace workspace1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/workspaces/workspace1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

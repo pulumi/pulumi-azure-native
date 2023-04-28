@@ -9,6 +9,561 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Fusion alert rule.
+ *
+ * ## Example Usage
+ * ### Creates or updates a Fusion alert rule with scenario exclusion pattern.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fusionAlertRule = new azure_native.securityinsights.v20220601preview.FusionAlertRule("fusionAlertRule", {
+ *     alertRuleTemplateName: "f71aba3d-28fb-450b-b192-4e76a83015c8",
+ *     enabled: true,
+ *     kind: "Fusion",
+ *     resourceGroupName: "myRg",
+ *     ruleId: "myFirstFusionRule",
+ *     sourceSettings: [
+ *         {
+ *             enabled: true,
+ *             sourceName: "Anomalies",
+ *         },
+ *         {
+ *             enabled: true,
+ *             sourceName: "Alert providers",
+ *             sourceSubTypes: [
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Azure Active Directory Identity Protection",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Azure Defender",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Azure Defender for IoT",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft 365 Defender",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft Cloud App Security",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft Defender for Endpoint",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft Defender for Identity",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft Defender for Office 365",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Azure Sentinel scheduled analytics rules",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             enabled: true,
+ *             sourceName: "Raw logs from other sources",
+ *             sourceSubTypes: [{
+ *                 enabled: true,
+ *                 severityFilters: {},
+ *                 sourceSubTypeName: "Palo Alto Networks",
+ *             }],
+ *         },
+ *     ],
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Fusion alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fusionAlertRule = new azure_native.securityinsights.v20220601preview.FusionAlertRule("fusionAlertRule", {
+ *     alertRuleTemplateName: "f71aba3d-28fb-450b-b192-4e76a83015c8",
+ *     enabled: true,
+ *     kind: "Fusion",
+ *     resourceGroupName: "myRg",
+ *     ruleId: "myFirstFusionRule",
+ *     sourceSettings: [
+ *         {
+ *             enabled: true,
+ *             sourceName: "Anomalies",
+ *         },
+ *         {
+ *             enabled: true,
+ *             sourceName: "Alert providers",
+ *             sourceSubTypes: [
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Azure Active Directory Identity Protection",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Azure Defender",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Azure Defender for IoT",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft 365 Defender",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft Cloud App Security",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft Defender for Endpoint",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft Defender for Identity",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Microsoft Defender for Office 365",
+ *                 },
+ *                 {
+ *                     enabled: true,
+ *                     severityFilters: {
+ *                         filters: [
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "High",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Medium",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Low",
+ *                             },
+ *                             {
+ *                                 enabled: true,
+ *                                 severity: "Informational",
+ *                             },
+ *                         ],
+ *                     },
+ *                     sourceSubTypeName: "Azure Sentinel scheduled analytics rules",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             enabled: true,
+ *             sourceName: "Raw logs from other sources",
+ *             sourceSubTypes: [{
+ *                 enabled: true,
+ *                 severityFilters: {},
+ *                 sourceSubTypeName: "Palo Alto Networks",
+ *             }],
+ *         },
+ *     ],
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fusionAlertRule = new azure_native.securityinsights.v20220601preview.FusionAlertRule("fusionAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "microsoftSecurityIncidentCreationRuleExample",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Nrt alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fusionAlertRule = new azure_native.securityinsights.v20220601preview.FusionAlertRule("fusionAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Scheduled alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fusionAlertRule = new azure_native.securityinsights.v20220601preview.FusionAlertRule("fusionAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20220601preview:FusionAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class FusionAlertRule extends pulumi.CustomResource {
     /**

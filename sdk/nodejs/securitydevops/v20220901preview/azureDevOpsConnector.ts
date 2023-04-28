@@ -7,6 +7,42 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### AzureDevOpsConnector_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureDevOpsConnector = new azure_native.securitydevops.v20220901preview.AzureDevOpsConnector("azureDevOpsConnector", {
+ *     azureDevOpsConnectorName: "testconnector",
+ *     location: "West US",
+ *     properties: {
+ *         authorization: {
+ *             code: "00000000000000000000",
+ *         },
+ *         orgs: [{
+ *             name: "testOrg",
+ *             projects: [{
+ *                 name: "testProject",
+ *                 repos: ["testRepo"],
+ *             }],
+ *         }],
+ *     },
+ *     resourceGroupName: "westusrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securitydevops/v20220901preview:AzureDevOpsConnector testconnector /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/westusrg/providers/Microsoft.SecurityDevOps/azureDevOpsConnectors/testconnector 
+ * ```
+ */
 export class AzureDevOpsConnector extends pulumi.CustomResource {
     /**
      * Get an existing AzureDevOpsConnector resource's state with the given name, ID, and optional extra

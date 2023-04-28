@@ -9,6 +9,78 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of a storage account’s Queue service.
+ *
+ * ## Example Usage
+ * ### QueueServicesPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const queueServiceProperties = new azure_native.storage.v20210201.QueueServiceProperties("queueServiceProperties", {
+ *     accountName: "sto8607",
+ *     cors: {
+ *         corsRules: [
+ *             {
+ *                 allowedHeaders: [
+ *                     "x-ms-meta-abc",
+ *                     "x-ms-meta-data*",
+ *                     "x-ms-meta-target*",
+ *                 ],
+ *                 allowedMethods: [
+ *                     "GET",
+ *                     "HEAD",
+ *                     "POST",
+ *                     "OPTIONS",
+ *                     "MERGE",
+ *                     "PUT",
+ *                 ],
+ *                 allowedOrigins: [
+ *                     "http://www.contoso.com",
+ *                     "http://www.fabrikam.com",
+ *                 ],
+ *                 exposedHeaders: ["x-ms-meta-*"],
+ *                 maxAgeInSeconds: 100,
+ *             },
+ *             {
+ *                 allowedHeaders: ["*"],
+ *                 allowedMethods: ["GET"],
+ *                 allowedOrigins: ["*"],
+ *                 exposedHeaders: ["*"],
+ *                 maxAgeInSeconds: 2,
+ *             },
+ *             {
+ *                 allowedHeaders: ["x-ms-meta-12345675754564*"],
+ *                 allowedMethods: [
+ *                     "GET",
+ *                     "PUT",
+ *                 ],
+ *                 allowedOrigins: [
+ *                     "http://www.abc23.com",
+ *                     "https://www.fabrikam.com/*",
+ *                 ],
+ *                 exposedHeaders: [
+ *                     "x-ms-meta-abc",
+ *                     "x-ms-meta-data*",
+ *                     "x-ms-meta-target*",
+ *                 ],
+ *                 maxAgeInSeconds: 2000,
+ *             },
+ *         ],
+ *     },
+ *     queueServiceName: "default",
+ *     resourceGroupName: "res4410",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20210201:QueueServiceProperties default /subscriptions/{subscription-id}/resourceGroups/res4410/providers/Microsoft.Storage/storageAccounts/sto8607/queueServices/default 
+ * ```
  */
 export class QueueServiceProperties extends pulumi.CustomResource {
     /**

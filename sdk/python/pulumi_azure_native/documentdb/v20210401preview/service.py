@@ -130,6 +130,46 @@ class Service(pulumi.CustomResource):
         """
         Properties for the database account.
 
+        ## Example Usage
+        ### DataTransferServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.documentdb.v20210401preview.Service("service",
+            account_name="ddb1",
+            instance_count=1,
+            instance_size="Cosmos.D4s",
+            resource_group_name="rg1",
+            service_name="DataTransfer",
+            service_type="DataTransfer")
+
+        ```
+        ### SqlDedicatedGatewayServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.documentdb.v20210401preview.Service("service",
+            account_name="ddb1",
+            instance_count=1,
+            instance_size="Cosmos.D4s",
+            resource_group_name="rg1",
+            service_name="SqlDedicatedGateway",
+            service_type="SqlDedicatedGateway")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20210401preview:Service SqlDedicatedGateway /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/services/SqlDedicatedGateway 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -147,6 +187,46 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Properties for the database account.
+
+        ## Example Usage
+        ### DataTransferServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.documentdb.v20210401preview.Service("service",
+            account_name="ddb1",
+            instance_count=1,
+            instance_size="Cosmos.D4s",
+            resource_group_name="rg1",
+            service_name="DataTransfer",
+            service_type="DataTransfer")
+
+        ```
+        ### SqlDedicatedGatewayServiceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.documentdb.v20210401preview.Service("service",
+            account_name="ddb1",
+            instance_count=1,
+            instance_size="Cosmos.D4s",
+            resource_group_name="rg1",
+            service_name="SqlDedicatedGateway",
+            service_type="SqlDedicatedGateway")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20210401preview:Service SqlDedicatedGateway /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/services/SqlDedicatedGateway 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Quota Rule of a Volume
+ *
+ * ## Example Usage
+ * ### VolumeQuotaRules_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volumeQuotaRule = new azure_native.netapp.v20220101.VolumeQuotaRule("volumeQuotaRule", {
+ *     accountName: "account-9957",
+ *     location: "westus",
+ *     poolName: "pool-5210",
+ *     quotaSizeInKiBs: 100005,
+ *     quotaTarget: "1821",
+ *     quotaType: "IndividualUserQuota",
+ *     resourceGroupName: "myRG",
+ *     volumeName: "volume-6387",
+ *     volumeQuotaRuleName: "rule-0004",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp/v20220101:VolumeQuotaRule account-9957/pool-5210/volume-6387/rule-0004 /subscriptions/5275316f-a498-48d6-b324-2cbfdc4311b9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account-9957/capacityPools/pool-5210/volumes/volume-6387/volumeQuotaRules/rule-0004 
+ * ```
  */
 export class VolumeQuotaRule extends pulumi.CustomResource {
     /**

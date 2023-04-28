@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Web.V20210101
 {
     /// <summary>
     /// A Kubernetes cluster specialized for web workloads by Azure App Service
+    /// 
+    /// ## Example Usage
+    /// ### Create kube environments
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kubeEnvironment = new AzureNative.Web.V20210101.KubeEnvironment("kubeEnvironment", new()
+    ///     {
+    ///         Location = "East US",
+    ///         Name = "testkubeenv",
+    ///         ResourceGroupName = "examplerg",
+    ///         StaticIp = "1.2.3.4",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20210101:KubeEnvironment testkubeenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.Web/kubeEnvironments/testkubeenv 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20210101:KubeEnvironment")]
     public partial class KubeEnvironment : global::Pulumi.CustomResource

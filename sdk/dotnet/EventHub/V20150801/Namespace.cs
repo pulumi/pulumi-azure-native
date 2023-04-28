@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.EventHub.V20150801
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
+    /// 
+    /// ## Example Usage
+    /// ### NamespaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @namespace = new AzureNative.EventHub.V20150801.Namespace("namespace", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         NamespaceName = "sdk-Namespace8107",
+    ///         ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///         Sku = new AzureNative.EventHub.V20150801.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20150801:Namespace sdk-Namespace8107 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace8107 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:eventhub/v20150801:Namespace")]

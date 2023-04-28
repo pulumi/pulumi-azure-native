@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Appliance Site resource.
+ *
+ * ## Example Usage
+ * ### VirtualHubRouteTableV2Put
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualHubBgpConnection = new azure_native.network.v20201101.VirtualHubBgpConnection("virtualHubBgpConnection", {
+ *     connectionName: "conn1",
+ *     peerAsn: 20000,
+ *     peerIp: "192.168.1.5",
+ *     resourceGroupName: "rg1",
+ *     virtualHubName: "hub1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:VirtualHubBgpConnection conn1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/bgpConnections/conn1 
+ * ```
  */
 export class VirtualHubBgpConnection extends pulumi.CustomResource {
     /**

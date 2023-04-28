@@ -278,6 +278,39 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create security assessment metadata for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment_metadata_in_subscription = azure_native.security.AssessmentMetadataInSubscription("assessmentMetadataInSubscription",
+            assessment_metadata_name="ca039e75-a276-4175-aebc-bcd41e4b14b7",
+            assessment_type="CustomerManaged",
+            categories=["Compute"],
+            description="Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
+            display_name="Install endpoint protection solution on virtual machine scale sets",
+            implementation_effort="Low",
+            remediation_description="To install an endpoint protection solution: 1.  <a href=\\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\\">Follow the instructions in How do I turn on antimalware in my virtual machine scale set</a>",
+            severity="Medium",
+            threats=[
+                "dataExfiltration",
+                "dataSpillage",
+                "maliciousInsider",
+            ],
+            user_impact="Low")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:AssessmentMetadataInSubscription ca039e75-a276-4175-aebc-bcd41e4b14b7 /providers/Microsoft.Security/assessmentMetadata/ca039e75-a276-4175-aebc-bcd41e4b14b7 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assessment_metadata_name: The Assessment Key - Unique key for the assessment type
@@ -301,6 +334,39 @@ class AssessmentMetadataInSubscription(pulumi.CustomResource):
         Security assessment metadata response
         API Version: 2021-06-01.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create security assessment metadata for subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assessment_metadata_in_subscription = azure_native.security.AssessmentMetadataInSubscription("assessmentMetadataInSubscription",
+            assessment_metadata_name="ca039e75-a276-4175-aebc-bcd41e4b14b7",
+            assessment_type="CustomerManaged",
+            categories=["Compute"],
+            description="Install an endpoint protection solution on your virtual machines scale sets, to protect them from threats and vulnerabilities.",
+            display_name="Install endpoint protection solution on virtual machine scale sets",
+            implementation_effort="Low",
+            remediation_description="To install an endpoint protection solution: 1.  <a href=\\"https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set\\">Follow the instructions in How do I turn on antimalware in my virtual machine scale set</a>",
+            severity="Medium",
+            threats=[
+                "dataExfiltration",
+                "dataSpillage",
+                "maliciousInsider",
+            ],
+            user_impact="Low")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:AssessmentMetadataInSubscription ca039e75-a276-4175-aebc-bcd41e4b14b7 /providers/Microsoft.Security/assessmentMetadata/ca039e75-a276-4175-aebc-bcd41e4b14b7 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssessmentMetadataInSubscriptionArgs args: The arguments to use to populate this resource's properties.

@@ -94,6 +94,29 @@ class Trigger(pulumi.CustomResource):
         """
         Represents a trigger that can invoke an image template build.
 
+        ## Example Usage
+        ### Create or update a source image type trigger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trigger = azure_native.virtualmachineimages.v20220701.Trigger("trigger",
+            image_template_name="myImageTemplate",
+            kind="SourceImage",
+            resource_group_name="myResourceGroup",
+            trigger_name="source")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:virtualmachineimages/v20220701:Trigger source /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate/triggers/source 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] image_template_name: The name of the image Template
@@ -109,6 +132,29 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a trigger that can invoke an image template build.
+
+        ## Example Usage
+        ### Create or update a source image type trigger
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        trigger = azure_native.virtualmachineimages.v20220701.Trigger("trigger",
+            image_template_name="myImageTemplate",
+            kind="SourceImage",
+            resource_group_name="myResourceGroup",
+            trigger_name="source")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:virtualmachineimages/v20220701:Trigger source /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate/triggers/source 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TriggerArgs args: The arguments to use to populate this resource's properties.

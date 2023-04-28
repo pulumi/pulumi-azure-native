@@ -110,6 +110,30 @@ class FirewallRule(pulumi.CustomResource):
         """
         Represents a cluster firewall rule.
 
+        ## Example Usage
+        ### Create a firewall rule of the cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.dbforpostgresql.v20221108.FirewallRule("firewallRule",
+            cluster_name="pgtestsvc4",
+            end_ip_address="255.255.255.255",
+            firewall_rule_name="rule1",
+            resource_group_name="TestGroup",
+            start_ip_address="0.0.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221108:FirewallRule rule1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/pgtestsvc4/firewallRules/rule1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -126,6 +150,30 @@ class FirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a cluster firewall rule.
+
+        ## Example Usage
+        ### Create a firewall rule of the cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.dbforpostgresql.v20221108.FirewallRule("firewallRule",
+            cluster_name="pgtestsvc4",
+            end_ip_address="255.255.255.255",
+            firewall_rule_name="rule1",
+            resource_group_name="TestGroup",
+            start_ip_address="0.0.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221108:FirewallRule rule1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/pgtestsvc4/firewallRules/rule1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

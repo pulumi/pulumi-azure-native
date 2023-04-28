@@ -11,6 +11,113 @@ namespace Pulumi.AzureNative.Storage.V20210201
 {
     /// <summary>
     /// The properties of a storage account’s Queue service.
+    /// 
+    /// ## Example Usage
+    /// ### QueueServicesPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var queueServiceProperties = new AzureNative.Storage.V20210201.QueueServiceProperties("queueServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         Cors = new AzureNative.Storage.V20210201.Inputs.CorsRulesArgs
+    ///         {
+    ///             CorsRules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20210201.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-abc",
+    ///                         "x-ms-meta-data*",
+    ///                         "x-ms-meta-target*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         "GET",
+    ///                         "HEAD",
+    ///                         "POST",
+    ///                         "OPTIONS",
+    ///                         "MERGE",
+    ///                         "PUT",
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "http://www.contoso.com",
+    ///                         "http://www.fabrikam.com",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 100,
+    ///                 },
+    ///                 new AzureNative.Storage.V20210201.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         "GET",
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 2,
+    ///                 },
+    ///                 new AzureNative.Storage.V20210201.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-12345675754564*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         "GET",
+    ///                         "PUT",
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "http://www.abc23.com",
+    ///                         "https://www.fabrikam.com/*",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-abc",
+    ///                         "x-ms-meta-data*",
+    ///                         "x-ms-meta-target*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 2000,
+    ///                 },
+    ///             },
+    ///         },
+    ///         QueueServiceName = "default",
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20210201:QueueServiceProperties default /subscriptions/{subscription-id}/resourceGroups/res4410/providers/Microsoft.Storage/storageAccounts/sto8607/queueServices/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210201:QueueServiceProperties")]
     public partial class QueueServiceProperties : global::Pulumi.CustomResource

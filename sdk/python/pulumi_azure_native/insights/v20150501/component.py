@@ -275,6 +275,49 @@ class Component(pulumi.CustomResource):
         """
         An Application Insights component definition.
 
+        ## Example Usage
+        ### ComponentCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component = azure_native.insights.v20150501.Component("component",
+            application_type="web",
+            flow_type="Bluefield",
+            kind="web",
+            location="South Central US",
+            request_source="rest",
+            resource_group_name="my-resource-group",
+            resource_name_="my-component")
+
+        ```
+        ### ComponentUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component = azure_native.insights.v20150501.Component("component",
+            kind="web",
+            location="South Central US",
+            resource_group_name="my-resource-group",
+            resource_name_="my-component",
+            tags={
+                "ApplicationGatewayType": "Internal-Only",
+                "BillingEntity": "Self",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20150501:Component my-component /subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'ApplicationType']] application_type: Type of application being monitored.
@@ -300,6 +343,49 @@ class Component(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Application Insights component definition.
+
+        ## Example Usage
+        ### ComponentCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component = azure_native.insights.v20150501.Component("component",
+            application_type="web",
+            flow_type="Bluefield",
+            kind="web",
+            location="South Central US",
+            request_source="rest",
+            resource_group_name="my-resource-group",
+            resource_name_="my-component")
+
+        ```
+        ### ComponentUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        component = azure_native.insights.v20150501.Component("component",
+            kind="web",
+            location="South Central US",
+            resource_group_name="my-resource-group",
+            resource_name_="my-component",
+            tags={
+                "ApplicationGatewayType": "Internal-Only",
+                "BillingEntity": "Self",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20150501:Component my-component /subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.Insights/components/my-component 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.

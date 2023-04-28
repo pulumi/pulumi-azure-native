@@ -150,6 +150,36 @@ class Volume(pulumi.CustomResource):
         API Version: 2018-09-01-preview.
         Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdateVolume
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.servicefabricmesh.Volume("volume",
+            azure_file_parameters=azure_native.servicefabricmesh.VolumeProviderParametersAzureFileResponseArgs(
+                account_key="provide-account-key-here",
+                account_name="sbzdemoaccount",
+                share_name="sharel",
+            ),
+            description="Service Fabric Mesh sample volume.",
+            location="EastUS",
+            provider="SFAzureFile",
+            resource_group_name="sbz_demo",
+            tags={},
+            volume_resource_name="sampleVolume")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh:Volume sampleVolume /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/volumes/sampleVolume 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VolumeProviderParametersAzureFileArgs']] azure_file_parameters: This type describes a volume provided by an Azure Files file share.
@@ -170,6 +200,36 @@ class Volume(pulumi.CustomResource):
         This type describes a volume resource.
         API Version: 2018-09-01-preview.
         Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdateVolume
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.servicefabricmesh.Volume("volume",
+            azure_file_parameters=azure_native.servicefabricmesh.VolumeProviderParametersAzureFileResponseArgs(
+                account_key="provide-account-key-here",
+                account_name="sbzdemoaccount",
+                share_name="sharel",
+            ),
+            description="Service Fabric Mesh sample volume.",
+            location="EastUS",
+            provider="SFAzureFile",
+            resource_group_name="sbz_demo",
+            tags={},
+            volume_resource_name="sampleVolume")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh:Volume sampleVolume /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/volumes/sampleVolume 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

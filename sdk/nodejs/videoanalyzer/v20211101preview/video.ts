@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
+ *
+ * ## Example Usage
+ * ### Register video entity.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const video = new azure_native.videoanalyzer.v20211101preview.Video("video", {
+ *     accountName: "testaccount2",
+ *     description: "Sample Description 1",
+ *     resourceGroupName: "testrg",
+ *     title: "Sample Title 1",
+ *     videoName: "video1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:videoanalyzer/v20211101preview:Video video1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/videos/video1 
+ * ```
  */
 export class Video extends pulumi.CustomResource {
     /**

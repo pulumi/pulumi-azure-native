@@ -13,6 +13,88 @@ namespace Pulumi.AzureNative.Insights
     /// An Application Insights workbook template definition.
     /// API Version: 2020-11-20.
     /// Previous API Version: 2019-10-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### WorkbookTemplateAdd
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workbookTemplate = new AzureNative.Insights.WorkbookTemplate("workbookTemplate", new()
+    ///     {
+    ///         Author = "Contoso",
+    ///         Galleries = new[]
+    ///         {
+    ///             new AzureNative.Insights.Inputs.WorkbookTemplateGalleryArgs
+    ///             {
+    ///                 Category = "Failures",
+    ///                 Name = "Simple Template",
+    ///                 Order = 100,
+    ///                 ResourceType = "microsoft.insights/components",
+    ///                 Type = "tsg",
+    ///             },
+    ///         },
+    ///         Location = "west us",
+    ///         Priority = 1,
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "testtemplate2",
+    ///         TemplateData = 
+    ///         {
+    ///             { "$schema", "https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/schema/workbook.json" },
+    ///             { "items", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "content", 
+    ///                     {
+    ///                         { "json", @"## New workbook
+    /// ---
+    /// 
+    /// Welcome to your new workbook.  This area will display text formatted as markdown.
+    /// 
+    /// 
+    /// We've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections." },
+    ///                     } },
+    ///                     { "name", "text - 2" },
+    ///                     { "type", 1 },
+    ///                 },
+    ///                 
+    ///                 {
+    ///                     { "content", 
+    ///                     {
+    ///                         { "exportToExcelOptions", "visible" },
+    ///                         { "query", @"union withsource=TableName *
+    /// | summarize Count=count() by TableName
+    /// | render barchart" },
+    ///                         { "queryType", 0 },
+    ///                         { "resourceType", "microsoft.operationalinsights/workspaces" },
+    ///                         { "size", 1 },
+    ///                         { "version", "KqlItem/1.0" },
+    ///                     } },
+    ///                     { "name", "query - 2" },
+    ///                     { "type", 3 },
+    ///                 },
+    ///             } },
+    ///             { "styleSettings", null },
+    ///             { "version", "Notebook/1.0" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights:WorkbookTemplate testtemplate2 /subscriptions/50359d91-7b9d-4823-85af-eb298a61ba95/resourceGroups/testrg/providers/microsoft.insights/workbooktemplates/testtemplate2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights:WorkbookTemplate")]
     public partial class WorkbookTemplate : global::Pulumi.CustomResource

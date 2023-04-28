@@ -12,6 +12,38 @@ namespace Pulumi.AzureNative.Communication
     /// <summary>
     /// A class representing a SenderUsername resource.
     /// API Version: 2023-03-01-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update SenderUsernames resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var senderUsername = new AzureNative.Communication.SenderUsername("senderUsername", new()
+    ///     {
+    ///         DisplayName = "Contoso News Alerts",
+    ///         DomainName = "contoso.com",
+    ///         EmailServiceName = "contosoEmailService",
+    ///         ResourceGroupName = "contosoResourceGroup",
+    ///         SenderUsername = "contosoNewsAlerts",
+    ///         Username = "contosoNewsAlerts",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:communication:SenderUsername contoso.com /subscriptions/11112222-3333-4444-5555-666677778888/resourceGroups/contosoResourceGroup/providers/Microsoft.Communication/EmailServices/contosoEmailService/Domains/contoso.com/senderUsernames/contosoNewsAlerts 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:communication:SenderUsername")]
     public partial class SenderUsername : global::Pulumi.CustomResource

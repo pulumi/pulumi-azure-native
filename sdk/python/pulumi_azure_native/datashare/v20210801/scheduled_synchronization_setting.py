@@ -145,6 +145,32 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
         """
         A type of synchronization setting based on schedule
 
+        ## Example Usage
+        ### SynchronizationSettings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_synchronization_setting = azure_native.datashare.v20210801.ScheduledSynchronizationSetting("scheduledSynchronizationSetting",
+            account_name="Account1",
+            kind="ScheduleBased",
+            recurrence_interval="Day",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            synchronization_setting_name="Dataset1",
+            synchronization_time="2018-11-14T04:47:52.9614956Z")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20210801:ScheduledSynchronizationSetting SynchronizationSetting1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1/synchronizationSettings/SynchronizationSetting1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -164,6 +190,32 @@ class ScheduledSynchronizationSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A type of synchronization setting based on schedule
+
+        ## Example Usage
+        ### SynchronizationSettings_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scheduled_synchronization_setting = azure_native.datashare.v20210801.ScheduledSynchronizationSetting("scheduledSynchronizationSetting",
+            account_name="Account1",
+            kind="ScheduleBased",
+            recurrence_interval="Day",
+            resource_group_name="SampleResourceGroup",
+            share_name="Share1",
+            synchronization_setting_name="Dataset1",
+            synchronization_time="2018-11-14T04:47:52.9614956Z")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare/v20210801:ScheduledSynchronizationSetting SynchronizationSetting1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1/synchronizationSettings/SynchronizationSetting1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduledSynchronizationSettingArgs args: The arguments to use to populate this resource's properties.

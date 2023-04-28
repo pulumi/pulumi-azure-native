@@ -94,6 +94,29 @@ class Gallery(pulumi.CustomResource):
         """
         Represents a gallery.
 
+        ## Example Usage
+        ### Galleries_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery = azure_native.devcenter.v20220901preview.Gallery("gallery",
+            dev_center_name="Contoso",
+            gallery_name="{galleryName}",
+            gallery_resource_id="/subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.Compute/galleries/{galleryName}",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20220901preview:Gallery {galleryName} /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/{galleryName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dev_center_name: The name of the devcenter.
@@ -109,6 +132,29 @@ class Gallery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a gallery.
+
+        ## Example Usage
+        ### Galleries_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery = azure_native.devcenter.v20220901preview.Gallery("gallery",
+            dev_center_name="Contoso",
+            gallery_name="{galleryName}",
+            gallery_resource_id="/subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.Compute/galleries/{galleryName}",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20220901preview:Gallery {galleryName} /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/{galleryName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GalleryArgs args: The arguments to use to populate this resource's properties.

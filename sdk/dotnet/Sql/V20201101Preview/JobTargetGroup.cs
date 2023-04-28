@@ -11,6 +11,90 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
     /// <summary>
     /// A group of job targets.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a target group with all properties.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobTargetGroup = new AzureNative.Sql.V20201101Preview.JobTargetGroup("jobTargetGroup", new()
+    ///     {
+    ///         JobAgentName = "agent1",
+    ///         Members = new[]
+    ///         {
+    ///             new AzureNative.Sql.V20201101Preview.Inputs.JobTargetArgs
+    ///             {
+    ///                 DatabaseName = "database1",
+    ///                 MembershipType = AzureNative.Sql.V20201101Preview.JobTargetGroupMembershipType.Exclude,
+    ///                 ServerName = "server1",
+    ///                 Type = "SqlDatabase",
+    ///             },
+    ///             new AzureNative.Sql.V20201101Preview.Inputs.JobTargetArgs
+    ///             {
+    ///                 MembershipType = AzureNative.Sql.V20201101Preview.JobTargetGroupMembershipType.Include,
+    ///                 RefreshCredential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+    ///                 ServerName = "server1",
+    ///                 Type = "SqlServer",
+    ///             },
+    ///             new AzureNative.Sql.V20201101Preview.Inputs.JobTargetArgs
+    ///             {
+    ///                 ElasticPoolName = "pool1",
+    ///                 MembershipType = AzureNative.Sql.V20201101Preview.JobTargetGroupMembershipType.Include,
+    ///                 RefreshCredential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+    ///                 ServerName = "server2",
+    ///                 Type = "SqlElasticPool",
+    ///             },
+    ///             new AzureNative.Sql.V20201101Preview.Inputs.JobTargetArgs
+    ///             {
+    ///                 MembershipType = AzureNative.Sql.V20201101Preview.JobTargetGroupMembershipType.Include,
+    ///                 RefreshCredential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/testCredential",
+    ///                 ServerName = "server3",
+    ///                 ShardMapName = "shardMap1",
+    ///                 Type = "SqlShardMap",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///         ServerName = "server1",
+    ///         TargetGroupName = "targetGroup1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a target group with minimal properties.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobTargetGroup = new AzureNative.Sql.V20201101Preview.JobTargetGroup("jobTargetGroup", new()
+    ///     {
+    ///         JobAgentName = "agent1",
+    ///         Members = new[] {},
+    ///         ResourceGroupName = "group1",
+    ///         ServerName = "server1",
+    ///         TargetGroupName = "targetGroup1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20201101preview:JobTargetGroup targetGroup1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20201101preview:JobTargetGroup")]
     public partial class JobTargetGroup : global::Pulumi.CustomResource

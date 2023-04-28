@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200515Preview
 {
     /// <summary>
     /// Linked workspace.
+    /// 
+    /// ## Example Usage
+    /// ### CreateLinkedWorkspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linkedWorkspace = new AzureNative.MachineLearningServices.V20200515Preview.LinkedWorkspace("linkedWorkspace", new()
+    ///     {
+    ///         LinkName = "link-1",
+    ///         Name = "link-1",
+    ///         Properties = new AzureNative.MachineLearningServices.V20200515Preview.Inputs.LinkedWorkspacePropsArgs
+    ///         {
+    ///             LinkedWorkspaceResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/linkedWorkspace-1",
+    ///             UserAssignedIdentityResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai1",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup-1",
+    ///         WorkspaceName = "workspace-1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20200515preview:LinkedWorkspace link-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/linkedWorkspaces/link-1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200515preview:LinkedWorkspace")]
     public partial class LinkedWorkspace : global::Pulumi.CustomResource

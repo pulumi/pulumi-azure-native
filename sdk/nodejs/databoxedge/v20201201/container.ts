@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a container on the  Data Box Edge/Gateway device.
+ *
+ * ## Example Usage
+ * ### ContainerPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const container = new azure_native.databoxedge.v20201201.Container("container", {
+ *     containerName: "blobcontainer1",
+ *     dataFormat: "BlockBlob",
+ *     deviceName: "testedgedevice",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     storageAccountName: "storageaccount1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge/v20201201:Container blobcontainer-5e155efe /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccounts/storageaccount1/containers/blobcontainer1 
+ * ```
  */
 export class Container extends pulumi.CustomResource {
     /**

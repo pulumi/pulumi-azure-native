@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.Automation.V20190601
 {
     /// <summary>
     /// Definition of the connection type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update connection type
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectionType = new AzureNative.Automation.V20190601.ConnectionType("connectionType", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount22",
+    ///         ConnectionTypeName = "myCT",
+    ///         FieldDefinitions = 
+    ///         {
+    ///             { "myBoolField", new AzureNative.Automation.V20190601.Inputs.FieldDefinitionArgs
+    ///             {
+    ///                 IsEncrypted = false,
+    ///                 IsOptional = false,
+    ///                 Type = "bool",
+    ///             } },
+    ///             { "myStringField", new AzureNative.Automation.V20190601.Inputs.FieldDefinitionArgs
+    ///             {
+    ///                 IsEncrypted = false,
+    ///                 IsOptional = false,
+    ///                 Type = "string",
+    ///             } },
+    ///             { "myStringFieldEncrypted", new AzureNative.Automation.V20190601.Inputs.FieldDefinitionArgs
+    ///             {
+    ///                 IsEncrypted = true,
+    ///                 IsOptional = false,
+    ///                 Type = "string",
+    ///             } },
+    ///         },
+    ///         IsGlobal = false,
+    ///         Name = "myCT",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20190601:ConnectionType myCT /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount22/connectionTypes/myCT 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:ConnectionType")]
     public partial class ConnectionType : global::Pulumi.CustomResource

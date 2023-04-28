@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.RecoveryServices.V20230201
 {
     /// <summary>
     /// Replication protected item.
+    /// 
+    /// ## Example Usage
+    /// ### Enables protection.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replicationProtectedItem = new AzureNative.RecoveryServices.V20230201.ReplicationProtectedItem("replicationProtectedItem", new()
+    ///     {
+    ///         FabricName = "cloud1",
+    ///         Properties = new AzureNative.RecoveryServices.V20230201.Inputs.EnableProtectionInputPropertiesArgs
+    ///         {
+    ///             PolicyId = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
+    ///             ProtectableItemId = "/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectableItems/f8491e4f-817a-40dd-a90c-af773978c75b",
+    ///             ProviderSpecificDetails = new AzureNative.RecoveryServices.V20230201.Inputs.HyperVReplicaAzureEnableProtectionInputArgs
+    ///             {
+    ///                 InstanceType = "HyperVReplicaAzure",
+    ///             },
+    ///         },
+    ///         ProtectionContainerName = "cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+    ///         ReplicatedProtectedItemName = "f8491e4f-817a-40dd-a90c-af773978c75b",
+    ///         ResourceGroupName = "resourceGroupPS1",
+    ///         ResourceName = "vault1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20230201:ReplicationProtectedItem f8491e4f-817a-40dd-a90c-af773978c75b /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectedItems/f8491e4f-817a-40dd-a90c-af773978c75b 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20230201:ReplicationProtectedItem")]
     public partial class ReplicationProtectedItem : global::Pulumi.CustomResource

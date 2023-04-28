@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Monitor.V20210603Preview
 {
     /// <summary>
     /// An Azure Monitor Workspace definition
+    /// 
+    /// ## Example Usage
+    /// ### Create or update workspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureMonitorWorkspace = new AzureNative.Monitor.V20210603Preview.AzureMonitorWorkspace("azureMonitorWorkspace", new()
+    ///     {
+    ///         AzureMonitorWorkspaceName = "myAzureMonitorWorkspace",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:monitor/v20210603preview:AzureMonitorWorkspace myAzureMonitorWorkspace /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Monitor/accounts/myAzureMonitorWorkspace 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor/v20210603preview:AzureMonitorWorkspace")]
     public partial class AzureMonitorWorkspace : global::Pulumi.CustomResource

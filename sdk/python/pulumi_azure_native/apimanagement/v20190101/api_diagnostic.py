@@ -231,6 +231,63 @@ class ApiDiagnostic(pulumi.CustomResource):
         """
         Diagnostic details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiDiagnostic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_diagnostic = azure_native.apimanagement.v20190101.ApiDiagnostic("apiDiagnostic",
+            always_log="allErrors",
+            api_id="57d1f7558aa04f15146d9d8a",
+            backend=azure_native.apimanagement.v20190101.PipelineDiagnosticSettingsResponseArgs(
+                request={
+                    "body": azure_native.apimanagement.v20190101.BodyDiagnosticSettingsArgs(
+                        bytes=512,
+                    ),
+                    "headers": ["Content-type"],
+                },
+                response={
+                    "body": azure_native.apimanagement.v20190101.BodyDiagnosticSettingsArgs(
+                        bytes=512,
+                    ),
+                    "headers": ["Content-type"],
+                },
+            ),
+            diagnostic_id="applicationinsights",
+            frontend=azure_native.apimanagement.v20190101.PipelineDiagnosticSettingsResponseArgs(
+                request={
+                    "body": azure_native.apimanagement.v20190101.BodyDiagnosticSettingsArgs(
+                        bytes=512,
+                    ),
+                    "headers": ["Content-type"],
+                },
+                response={
+                    "body": azure_native.apimanagement.v20190101.BodyDiagnosticSettingsArgs(
+                        bytes=512,
+                    ),
+                    "headers": ["Content-type"],
+                },
+            ),
+            logger_id="/loggers/applicationinsights",
+            resource_group_name="rg1",
+            sampling=azure_native.apimanagement.v20190101.SamplingSettingsArgs(
+                percentage=50,
+                sampling_type="fixed",
+            ),
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20190101:ApiDiagnostic applicationinsights /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/diagnostics/applicationinsights 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AlwaysLog']] always_log: Specifies for what type of messages sampling settings should not apply.
@@ -254,6 +311,63 @@ class ApiDiagnostic(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Diagnostic details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiDiagnostic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_diagnostic = azure_native.apimanagement.v20190101.ApiDiagnostic("apiDiagnostic",
+            always_log="allErrors",
+            api_id="57d1f7558aa04f15146d9d8a",
+            backend=azure_native.apimanagement.v20190101.PipelineDiagnosticSettingsResponseArgs(
+                request={
+                    "body": azure_native.apimanagement.v20190101.BodyDiagnosticSettingsArgs(
+                        bytes=512,
+                    ),
+                    "headers": ["Content-type"],
+                },
+                response={
+                    "body": azure_native.apimanagement.v20190101.BodyDiagnosticSettingsArgs(
+                        bytes=512,
+                    ),
+                    "headers": ["Content-type"],
+                },
+            ),
+            diagnostic_id="applicationinsights",
+            frontend=azure_native.apimanagement.v20190101.PipelineDiagnosticSettingsResponseArgs(
+                request={
+                    "body": azure_native.apimanagement.v20190101.BodyDiagnosticSettingsArgs(
+                        bytes=512,
+                    ),
+                    "headers": ["Content-type"],
+                },
+                response={
+                    "body": azure_native.apimanagement.v20190101.BodyDiagnosticSettingsArgs(
+                        bytes=512,
+                    ),
+                    "headers": ["Content-type"],
+                },
+            ),
+            logger_id="/loggers/applicationinsights",
+            resource_group_name="rg1",
+            sampling=azure_native.apimanagement.v20190101.SamplingSettingsArgs(
+                percentage=50,
+                sampling_type="fixed",
+            ),
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20190101:ApiDiagnostic applicationinsights /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/diagnostics/applicationinsights 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiDiagnosticArgs args: The arguments to use to populate this resource's properties.

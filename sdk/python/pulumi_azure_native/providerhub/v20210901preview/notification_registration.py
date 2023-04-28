@@ -77,6 +77,48 @@ class NotificationRegistration(pulumi.CustomResource):
         """
         The notification registration definition.
 
+        ## Example Usage
+        ### NotificationRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_registration = azure_native.providerhub.v20210901preview.NotificationRegistration("notificationRegistration",
+            notification_registration_name="fooNotificationRegistration",
+            properties=azure_native.providerhub.v20210901preview.NotificationRegistrationResponsePropertiesArgs(
+                included_events=[
+                    "*/write",
+                    "Microsoft.Contoso/employees/delete",
+                ],
+                message_scope="RegisteredSubscriptions",
+                notification_endpoints=[
+                    azure_native.providerhub.v20210901preview.NotificationEndpointArgs(
+                        locations=[
+                            "",
+                            "East US",
+                        ],
+                        notification_destination="/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
+                    ),
+                    azure_native.providerhub.v20210901preview.NotificationEndpointArgs(
+                        locations=["North Europe"],
+                        notification_destination="/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
+                    ),
+                ],
+                notification_mode="EventHub",
+            ),
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20210901preview:NotificationRegistration fooNotificationRegistration /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/notificationregistrations/fooNotificationRegistration 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] notification_registration_name: The notification registration.
@@ -90,6 +132,48 @@ class NotificationRegistration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The notification registration definition.
+
+        ## Example Usage
+        ### NotificationRegistrations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_registration = azure_native.providerhub.v20210901preview.NotificationRegistration("notificationRegistration",
+            notification_registration_name="fooNotificationRegistration",
+            properties=azure_native.providerhub.v20210901preview.NotificationRegistrationResponsePropertiesArgs(
+                included_events=[
+                    "*/write",
+                    "Microsoft.Contoso/employees/delete",
+                ],
+                message_scope="RegisteredSubscriptions",
+                notification_endpoints=[
+                    azure_native.providerhub.v20210901preview.NotificationEndpointArgs(
+                        locations=[
+                            "",
+                            "East US",
+                        ],
+                        notification_destination="/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-eastus/providers/Microsoft.EventHub/namespaces/unitedstates-mgmtexpint/eventhubs/armlinkednotifications",
+                    ),
+                    azure_native.providerhub.v20210901preview.NotificationEndpointArgs(
+                        locations=["North Europe"],
+                        notification_destination="/subscriptions/ac6bcfb5-3dc1-491f-95a6-646b89bf3e88/resourceGroups/mgmtexp-northeurope/providers/Microsoft.EventHub/namespaces/europe-mgmtexpint/eventhubs/armlinkednotifications",
+                    ),
+                ],
+                notification_mode="EventHub",
+            ),
+            provider_namespace="Microsoft.Contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub/v20210901preview:NotificationRegistration fooNotificationRegistration /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/notificationregistrations/fooNotificationRegistration 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NotificationRegistrationArgs args: The arguments to use to populate this resource's properties.

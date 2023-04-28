@@ -9,6 +9,53 @@ import * as utilities from "../../utilities";
 
 /**
  * An activity log alert resource.
+ *
+ * ## Example Usage
+ * ### Create or update an activity log alert
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const activityLogAlert = new azure_native.insights.v20170401.ActivityLogAlert("activityLogAlert", {
+ *     actions: {
+ *         actionGroups: [{
+ *             actionGroupId: "/subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActionGroups/providers/microsoft.insights/actionGroups/SampleActionGroup",
+ *             webhookProperties: {
+ *                 sampleWebhookProperty: "samplePropertyValue",
+ *             },
+ *         }],
+ *     },
+ *     activityLogAlertName: "SampleActivityLogAlert",
+ *     condition: {
+ *         allOf: [
+ *             {
+ *                 equals: "Administrative",
+ *                 field: "Category",
+ *             },
+ *             {
+ *                 equals: "Error",
+ *                 field: "Level",
+ *             },
+ *         ],
+ *     },
+ *     description: "Sample activity log alert description",
+ *     enabled: true,
+ *     location: "Global",
+ *     resourceGroupName: "Default-ActivityLogAlerts",
+ *     scopes: ["subscriptions/187f412d-1758-44d9-b052-169e2564721d"],
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20170401:ActivityLogAlert SampleActivityLogAlert /subscriptions/187f412d-1758-44d9-b052-169e2564721d/resourceGroups/Default-ActivityLogAlerts/providers/microsoft.insights/activityLogAlerts/SampleActivityLogAlert 
+ * ```
  */
 export class ActivityLogAlert extends pulumi.CustomResource {
     /**

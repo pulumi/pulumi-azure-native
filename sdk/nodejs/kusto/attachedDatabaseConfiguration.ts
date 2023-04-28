@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * Class representing an attached database configuration.
  * API Version: 2022-12-29.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### AttachedDatabaseConfigurationsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const attachedDatabaseConfiguration = new azure_native.kusto.AttachedDatabaseConfiguration("attachedDatabaseConfiguration", {
+ *     attachedDatabaseConfigurationName: "attachedDatabaseConfigurationsTest",
+ *     clusterName: "kustoCluster2",
+ *     clusterResourceId: "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster2",
+ *     databaseName: "kustodatabase",
+ *     databaseNameOverride: "overridekustodatabase",
+ *     defaultPrincipalsModificationKind: "Union",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     tableLevelSharingProperties: {
+ *         externalTablesToExclude: ["ExternalTable2"],
+ *         externalTablesToInclude: ["ExternalTable1"],
+ *         materializedViewsToExclude: ["MaterializedViewTable2"],
+ *         materializedViewsToInclude: ["MaterializedViewTable1"],
+ *         tablesToExclude: ["Table2"],
+ *         tablesToInclude: ["Table1"],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto:AttachedDatabaseConfiguration kustoCluster2/attachedDatabaseConfigurationsTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster2/attachedDatabaseConfigurations/attachedDatabaseConfigurationsTest 
+ * ```
  */
 export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**

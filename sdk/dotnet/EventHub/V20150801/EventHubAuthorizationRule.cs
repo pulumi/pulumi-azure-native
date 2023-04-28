@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.EventHub.V20150801
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
+    /// 
+    /// ## Example Usage
+    /// ### EventHubAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHubAuthorizationRule = new AzureNative.EventHub.V20150801.EventHubAuthorizationRule("eventHubAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "sdk-Authrules9261",
+    ///         EventHubName = "sdk-EventHub8887",
+    ///         NamespaceName = "sdk-Namespace2290",
+    ///         ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///         Rights = new[]
+    ///         {
+    ///             AzureNative.EventHub.V20150801.AccessRights.Listen,
+    ///             AzureNative.EventHub.V20150801.AccessRights.Send,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20150801:EventHubAuthorizationRule sdk-Authrules9261 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace2290/eventhubs/sdk-EventHub8887/authorizationRules/sdk-Authrules9261 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:eventhub/v20150801:EventHubAuthorizationRule")]

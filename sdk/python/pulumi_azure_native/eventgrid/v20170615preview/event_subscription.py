@@ -120,6 +120,94 @@ class EventSubscription(pulumi.CustomResource):
         """
         Event Subscription
 
+        ## Example Usage
+        ### EventSubscriptions_CreateForCustomTopic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination=azure_native.eventgrid.v20170615preview.EventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            event_subscription_name="examplesubscription1",
+            filter=azure_native.eventgrid.v20170615preview.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+                subject_begins_with="ExamplePrefix",
+                subject_ends_with="ExampleSuffix",
+            ),
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateForResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination=azure_native.eventgrid.v20170615preview.EventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            event_subscription_name="examplesubscription10",
+            filter=azure_native.eventgrid.v20170615preview.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+                subject_begins_with="ExamplePrefix",
+                subject_ends_with="ExampleSuffix",
+            ),
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1")
+
+        ```
+        ### EventSubscriptions_CreateForResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination=azure_native.eventgrid.v20170615preview.EventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            event_subscription_name="examplesubscription2",
+            filter=azure_native.eventgrid.v20170615preview.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+                subject_begins_with="ExamplePrefix",
+                subject_ends_with="ExampleSuffix",
+            ),
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg")
+
+        ```
+        ### EventSubscriptions_CreateForSubscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination=azure_native.eventgrid.v20170615preview.EventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            event_subscription_name="examplesubscription3",
+            filter=azure_native.eventgrid.v20170615preview.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+            ),
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20170615preview:EventSubscription examplesubscription3 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/providers/Microsoft.EventGrid/eventSubscriptions/examplesubscription3 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['EventSubscriptionDestinationArgs']] destination: Information about the destination where events have to be delivered for the event subscription.
@@ -136,6 +224,94 @@ class EventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Subscription
+
+        ## Example Usage
+        ### EventSubscriptions_CreateForCustomTopic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination=azure_native.eventgrid.v20170615preview.EventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            event_subscription_name="examplesubscription1",
+            filter=azure_native.eventgrid.v20170615preview.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+                subject_begins_with="ExamplePrefix",
+                subject_ends_with="ExampleSuffix",
+            ),
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1")
+
+        ```
+        ### EventSubscriptions_CreateForResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination=azure_native.eventgrid.v20170615preview.EventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            event_subscription_name="examplesubscription10",
+            filter=azure_native.eventgrid.v20170615preview.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+                subject_begins_with="ExamplePrefix",
+                subject_ends_with="ExampleSuffix",
+            ),
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventHub/namespaces/examplenamespace1")
+
+        ```
+        ### EventSubscriptions_CreateForResourceGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination=azure_native.eventgrid.v20170615preview.EventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            event_subscription_name="examplesubscription2",
+            filter=azure_native.eventgrid.v20170615preview.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+                subject_begins_with="ExamplePrefix",
+                subject_ends_with="ExampleSuffix",
+            ),
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg")
+
+        ```
+        ### EventSubscriptions_CreateForSubscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_subscription = azure_native.eventgrid.v20170615preview.EventSubscription("eventSubscription",
+            destination=azure_native.eventgrid.v20170615preview.EventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            event_subscription_name="examplesubscription3",
+            filter=azure_native.eventgrid.v20170615preview.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+            ),
+            scope="subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20170615preview:EventSubscription examplesubscription3 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/providers/Microsoft.EventGrid/eventSubscriptions/examplesubscription3 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventSubscriptionArgs args: The arguments to use to populate this resource's properties.

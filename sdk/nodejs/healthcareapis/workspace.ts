@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * Workspace resource.
  * API Version: 2022-12-01.
  * Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.healthcareapis.Workspace("workspace", {
+ *     location: "westus",
+ *     resourceGroupName: "testRG",
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:healthcareapis:Workspace workspace1 /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1 
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

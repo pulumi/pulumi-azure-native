@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a NotificationHub Resource.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:notificationhubs/v20160301:NotificationHub myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NotificationHubs/namespaces/{namespaceName}/notificationHubs/{notificationHubName} 
+ * ```
  *
  * @deprecated Version 2016-03-01 will be removed in v2 of the provider.
  */

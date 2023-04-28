@@ -147,6 +147,35 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
         """
         NSX Segment
 
+        ## Example Usage
+        ### WorkloadNetworks_CreateSegments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_segment = azure_native.avs.v20200717preview.WorkloadNetworkSegment("workloadNetworkSegment",
+            connected_gateway="/infra/tier-1s/gateway",
+            display_name="segment1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            segment_id="segment1",
+            subnet=azure_native.avs.v20200717preview.WorkloadNetworkSegmentSubnetArgs(
+                dhcp_ranges=["40.20.0.0-40.20.0.1"],
+                gateway_address="40.20.20.20/16",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20200717preview:WorkloadNetworkSegment segment1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/segments/segment1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connected_gateway: Gateway which to connect segment to.
@@ -165,6 +194,35 @@ class WorkloadNetworkSegment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NSX Segment
+
+        ## Example Usage
+        ### WorkloadNetworks_CreateSegments
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_segment = azure_native.avs.v20200717preview.WorkloadNetworkSegment("workloadNetworkSegment",
+            connected_gateway="/infra/tier-1s/gateway",
+            display_name="segment1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            segment_id="segment1",
+            subnet=azure_native.avs.v20200717preview.WorkloadNetworkSegmentSubnetArgs(
+                dhcp_ranges=["40.20.0.0-40.20.0.1"],
+                gateway_address="40.20.20.20/16",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20200717preview:WorkloadNetworkSegment segment1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/segments/segment1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkSegmentArgs args: The arguments to use to populate this resource's properties.

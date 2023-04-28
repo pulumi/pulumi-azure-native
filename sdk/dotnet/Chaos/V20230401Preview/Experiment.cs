@@ -11,6 +11,90 @@ namespace Pulumi.AzureNative.Chaos.V20230401Preview
 {
     /// <summary>
     /// Model that represents a Experiment resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create/update a Experiment in a resource group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var experiment = new AzureNative.Chaos.V20230401Preview.Experiment("experiment", new()
+    ///     {
+    ///         ExperimentName = "exampleExperiment",
+    ///         Identity = new AzureNative.Chaos.V20230401Preview.Inputs.ResourceIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Chaos.V20230401Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         Properties = new AzureNative.Chaos.V20230401Preview.Inputs.ExperimentPropertiesArgs
+    ///         {
+    ///             Selectors = new[]
+    ///             {
+    ///                 new AzureNative.Chaos.V20230401Preview.Inputs.SelectorArgs
+    ///                 {
+    ///                     Id = "selector1",
+    ///                     Targets = new[]
+    ///                     {
+    ///                         new AzureNative.Chaos.V20230401Preview.Inputs.TargetReferenceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine",
+    ///                             Type = AzureNative.Chaos.V20230401Preview.TargetReferenceType.ChaosTarget,
+    ///                         },
+    ///                     },
+    ///                     Type = AzureNative.Chaos.V20230401Preview.SelectorType.List,
+    ///                 },
+    ///             },
+    ///             Steps = new[]
+    ///             {
+    ///                 new AzureNative.Chaos.V20230401Preview.Inputs.StepArgs
+    ///                 {
+    ///                     Branches = new[]
+    ///                     {
+    ///                         new AzureNative.Chaos.V20230401Preview.Inputs.BranchArgs
+    ///                         {
+    ///                             Actions = new[]
+    ///                             {
+    ///                                 new AzureNative.Chaos.V20230401Preview.Inputs.ContinuousActionArgs
+    ///                                 {
+    ///                                     Duration = "PT10M",
+    ///                                     Name = "urn:csci:microsoft:virtualMachine:shutdown/1.0",
+    ///                                     Parameters = new[]
+    ///                                     {
+    ///                                         new AzureNative.Chaos.V20230401Preview.Inputs.KeyValuePairArgs
+    ///                                         {
+    ///                                             Key = "abruptShutdown",
+    ///                                             Value = "false",
+    ///                                         },
+    ///                                     },
+    ///                                     SelectorId = "selector1",
+    ///                                     Type = "continuous",
+    ///                                 },
+    ///                             },
+    ///                             Name = "branch1",
+    ///                         },
+    ///                     },
+    ///                     Name = "step1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "exampleRG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:chaos/v20230401preview:Experiment exampleExperiment /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos/v20230401preview:Experiment")]
     public partial class Experiment : global::Pulumi.CustomResource

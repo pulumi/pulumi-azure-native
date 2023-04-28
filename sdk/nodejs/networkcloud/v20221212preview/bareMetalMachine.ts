@@ -7,6 +7,51 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Create or update bare metal machine
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bareMetalMachine = new azure_native.networkcloud.v20221212preview.BareMetalMachine("bareMetalMachine", {
+ *     bareMetalMachineName: "bareMetalMachineName",
+ *     bmcConnectionString: "bmcconnectionstring",
+ *     bmcCredentials: {
+ *         password: "{password}",
+ *         username: "bmcuser",
+ *     },
+ *     bmcMacAddress: "00:00:4f:00:57:00",
+ *     bootMacAddress: "00:00:4e:00:58:af",
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     machineDetails: "User-provided machine details.",
+ *     machineName: "r01c001",
+ *     machineSkuId: "684E-3B16-399E",
+ *     rackId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+ *     rackSlot: 1,
+ *     resourceGroupName: "resourceGroupName",
+ *     serialNumber: "BM1219XXX",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud/v20221212preview:BareMetalMachine bareMetalMachineName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/bareMetalMachines/bareMetalMachineName 
+ * ```
+ */
 export class BareMetalMachine extends pulumi.CustomResource {
     /**
      * Get an existing BareMetalMachine resource's state with the given name, ID, and optional extra

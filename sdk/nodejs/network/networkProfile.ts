@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Network profile resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create network profile defaults
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkProfile = new azure_native.network.NetworkProfile("networkProfile", {
+ *     containerNetworkInterfaceConfigurations: [{
+ *         ipConfigurations: [{
+ *             name: "ipconfig1",
+ *             subnet: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/networkProfileVnet/subnets/networkProfileSubnet1",
+ *             },
+ *         }],
+ *         name: "eth1",
+ *     }],
+ *     location: "westus",
+ *     networkProfileName: "networkProfile1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:NetworkProfile networkProfile1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkProfiles/networkProfile1 
+ * ```
  */
 export class NetworkProfile extends pulumi.CustomResource {
     /**

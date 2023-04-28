@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * Enterprise Channel resource definition
+ *
+ * ## Example Usage
+ * ### Create Enterprise Channel
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const enterpriseChannel = new azure_native.botservice.v20180712.EnterpriseChannel("enterpriseChannel", {
+ *     location: "West US",
+ *     properties: {
+ *         nodes: [{
+ *             azureLocation: "WestUs",
+ *             azureSku: "Int1",
+ *             name: "Node 1",
+ *         }],
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     resourceName: "contoso-dl",
+ *     sku: {
+ *         name: "S1",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:botservice/v20180712:EnterpriseChannel myresource1 someid 
+ * ```
  */
 export class EnterpriseChannel extends pulumi.CustomResource {
     /**

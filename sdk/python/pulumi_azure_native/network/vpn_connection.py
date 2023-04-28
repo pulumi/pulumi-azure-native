@@ -371,6 +371,71 @@ class VpnConnection(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VpnConnectionPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_connection = azure_native.network.VpnConnection("vpnConnection",
+            connection_name="vpnConnection1",
+            gateway_name="gateway1",
+            remote_vpn_site=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+            ),
+            resource_group_name="rg1",
+            routing_configuration=azure_native.network.RoutingConfigurationResponseArgs(
+                associated_route_table=azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+                ),
+                inbound_route_map=azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+                ),
+                outbound_route_map=azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+                ),
+                propagated_route_tables={
+                    "ids": [
+                        azure_native.network.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+                        ),
+                        azure_native.network.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable2",
+                        ),
+                        azure_native.network.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
+                        ),
+                    ],
+                    "labels": [
+                        "label1",
+                        "label2",
+                    ],
+                },
+            ),
+            traffic_selector_policies=[],
+            vpn_link_connections=[{
+                "connectionBandwidth": 200,
+                "name": "Connection-Link1",
+                "sharedKey": "key",
+                "usePolicyBasedTrafficSelectors": False,
+                "vpnConnectionProtocolType": "IKEv2",
+                "vpnLinkConnectionMode": "Default",
+                "vpnSiteLink": azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
+                ),
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VpnConnection vpnConnection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] connection_bandwidth: Expected bandwidth in MBPS.
@@ -404,6 +469,71 @@ class VpnConnection(pulumi.CustomResource):
         VpnConnection Resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VpnConnectionPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_connection = azure_native.network.VpnConnection("vpnConnection",
+            connection_name="vpnConnection1",
+            gateway_name="gateway1",
+            remote_vpn_site=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+            ),
+            resource_group_name="rg1",
+            routing_configuration=azure_native.network.RoutingConfigurationResponseArgs(
+                associated_route_table=azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+                ),
+                inbound_route_map=azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+                ),
+                outbound_route_map=azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+                ),
+                propagated_route_tables={
+                    "ids": [
+                        azure_native.network.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+                        ),
+                        azure_native.network.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable2",
+                        ),
+                        azure_native.network.SubResourceArgs(
+                            id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
+                        ),
+                    ],
+                    "labels": [
+                        "label1",
+                        "label2",
+                    ],
+                },
+            ),
+            traffic_selector_policies=[],
+            vpn_link_connections=[{
+                "connectionBandwidth": 200,
+                "name": "Connection-Link1",
+                "sharedKey": "key",
+                "usePolicyBasedTrafficSelectors": False,
+                "vpnConnectionProtocolType": "IKEv2",
+                "vpnLinkConnectionMode": "Default",
+                "vpnSiteLink": azure_native.network.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
+                ),
+            }])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VpnConnection vpnConnection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionInitArgs args: The arguments to use to populate this resource's properties.

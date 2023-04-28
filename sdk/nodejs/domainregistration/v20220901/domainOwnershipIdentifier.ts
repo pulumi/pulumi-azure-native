@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Domain ownership Identifier.
+ *
+ * ## Example Usage
+ * ### Create App Service Domain OwnershipIdentifier
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const domainOwnershipIdentifier = new azure_native.domainregistration.v20220901.DomainOwnershipIdentifier("domainOwnershipIdentifier", {
+ *     domainName: "example.com",
+ *     name: "SampleOwnershipId",
+ *     ownershipId: "SampleOwnershipId",
+ *     resourceGroupName: "testrg123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:domainregistration/v20220901:DomainOwnershipIdentifier SampleOwnershipId /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.DomainRegistration/domains/example.com/domainownershipidentifiers/SampleOwnershipId 
+ * ```
  */
 export class DomainOwnershipIdentifier extends pulumi.CustomResource {
     /**

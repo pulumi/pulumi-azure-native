@@ -149,6 +149,33 @@ class QueueAuthorizationRule(pulumi.CustomResource):
         """
         Description of a namespace authorization rule.
 
+        ## Example Usage
+        ### QueueAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue_authorization_rule = azure_native.servicebus.v20150801.QueueAuthorizationRule("queueAuthorizationRule",
+            authorization_rule_name="sdk-Authrules7319",
+            namespace_name="sdk-Namespace6556",
+            queue_name="sdk-Queues3136",
+            resource_group_name="Default-ServiceBus-WestUS",
+            rights=[
+                azure_native.servicebus/v20150801.AccessRights.LISTEN,
+                azure_native.servicebus/v20150801.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20150801:QueueAuthorizationRule sdk-Authrules7319 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace6556/queues/sdk-Queues3136/authorizationRules/sdk-Authrules7319 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
@@ -167,6 +194,33 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Description of a namespace authorization rule.
+
+        ## Example Usage
+        ### QueueAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue_authorization_rule = azure_native.servicebus.v20150801.QueueAuthorizationRule("queueAuthorizationRule",
+            authorization_rule_name="sdk-Authrules7319",
+            namespace_name="sdk-Namespace6556",
+            queue_name="sdk-Queues3136",
+            resource_group_name="Default-ServiceBus-WestUS",
+            rights=[
+                azure_native.servicebus/v20150801.AccessRights.LISTEN,
+                azure_native.servicebus/v20150801.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20150801:QueueAuthorizationRule sdk-Authrules7319 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace6556/queues/sdk-Queues3136/authorizationRules/sdk-Authrules7319 
+        ```
 
         :param str resource_name: The name of the resource.
         :param QueueAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,42 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB SQL Role Definition.
  * API Version: 2022-11-15.
  * Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CosmosDBSqlRoleDefinitionCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlResourceSqlRoleDefinition = new azure_native.documentdb.SqlResourceSqlRoleDefinition("sqlResourceSqlRoleDefinition", {
+ *     accountName: "myAccountName",
+ *     assignableScopes: [
+ *         "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/sales",
+ *         "/subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/dbs/purchases",
+ *     ],
+ *     permissions: [{
+ *         dataActions: [
+ *             "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create",
+ *             "Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read",
+ *         ],
+ *         notDataActions: [],
+ *     }],
+ *     resourceGroupName: "myResourceGroupName",
+ *     roleDefinitionId: "myRoleDefinitionId",
+ *     roleName: "myRoleName",
+ *     type: azure_native.documentdb.RoleDefinitionType.CustomRole,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb:SqlResourceSqlRoleDefinition myRoleDefinitionId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/sqlRoleDefinitions/myRoleDefinitionId 
+ * ```
  */
 export class SqlResourceSqlRoleDefinition extends pulumi.CustomResource {
     /**

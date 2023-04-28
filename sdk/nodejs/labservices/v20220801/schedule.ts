@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Schedule for automatically turning virtual machines in a lab on and off at specified times.
+ *
+ * ## Example Usage
+ * ### putSchedule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const schedule = new azure_native.labservices.v20220801.Schedule("schedule", {
+ *     labName: "testlab",
+ *     notes: "Schedule 1 for students",
+ *     recurrencePattern: {
+ *         expirationDate: "2020-08-14T23:59:59Z",
+ *         frequency: azure_native.labservices.v20220801.RecurrenceFrequency.Daily,
+ *         interval: 2,
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     scheduleName: "schedule1",
+ *     startAt: "2020-05-26T12:00:00Z",
+ *     stopAt: "2020-05-26T18:00:00Z",
+ *     timeZoneId: "America/Los_Angeles",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:labservices/v20220801:Schedule schedule1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labs/testlab/schedules/schedule1 
+ * ```
  */
 export class Schedule extends pulumi.CustomResource {
     /**

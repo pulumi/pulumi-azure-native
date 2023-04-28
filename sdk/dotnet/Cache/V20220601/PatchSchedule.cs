@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Cache.V20220601
 {
     /// <summary>
     /// Response to put/get patch schedules for Redis cache.
+    /// 
+    /// ## Example Usage
+    /// ### RedisCachePatchSchedulesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var patchSchedule = new AzureNative.Cache.V20220601.PatchSchedule("patchSchedule", new()
+    ///     {
+    ///         Default = "default",
+    ///         Name = "cache1",
+    ///         ResourceGroupName = "rg1",
+    ///         ScheduleEntries = new[]
+    ///         {
+    ///             new AzureNative.Cache.V20220601.Inputs.ScheduleEntryArgs
+    ///             {
+    ///                 DayOfWeek = AzureNative.Cache.V20220601.DayOfWeek.Monday,
+    ///                 MaintenanceWindow = "PT5H",
+    ///                 StartHourUtc = 12,
+    ///             },
+    ///             new AzureNative.Cache.V20220601.Inputs.ScheduleEntryArgs
+    ///             {
+    ///                 DayOfWeek = AzureNative.Cache.V20220601.DayOfWeek.Tuesday,
+    ///                 StartHourUtc = 12,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cache/v20220601:PatchSchedule cachename1/default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/Redis/cache1/patchSchedules/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20220601:PatchSchedule")]
     public partial class PatchSchedule : global::Pulumi.CustomResource

@@ -230,6 +230,56 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
         """
         Represents MicrosoftSecurityIncidentCreation rule.
 
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_security_incident_creation_alert_rule = azure_native.securityinsights.v20221101.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_security_incident_creation_alert_rule = azure_native.securityinsights.v20221101.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule",
+            display_name="testing displayname",
+            enabled=True,
+            kind="MicrosoftSecurityIncidentCreation",
+            product_filter="Microsoft Cloud App Security",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_security_incident_creation_alert_rule = azure_native.securityinsights.v20221101.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20221101:MicrosoftSecurityIncidentCreationAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alert_rule_template_name: The Name of the alert rule template used to create this rule.
@@ -254,6 +304,56 @@ class MicrosoftSecurityIncidentCreationAlertRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents MicrosoftSecurityIncidentCreation rule.
+
+        ## Example Usage
+        ### Creates or updates a Fusion alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_security_incident_creation_alert_rule = azure_native.securityinsights.v20221101.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule",
+            resource_group_name="myRg",
+            rule_id="myFirstFusionRule",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_security_incident_creation_alert_rule = azure_native.securityinsights.v20221101.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule",
+            display_name="testing displayname",
+            enabled=True,
+            kind="MicrosoftSecurityIncidentCreation",
+            product_filter="Microsoft Cloud App Security",
+            resource_group_name="myRg",
+            rule_id="microsoftSecurityIncidentCreationRuleExample",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Scheduled alert rule.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_security_incident_creation_alert_rule = azure_native.securityinsights.v20221101.MicrosoftSecurityIncidentCreationAlertRule("microsoftSecurityIncidentCreationAlertRule",
+            resource_group_name="myRg",
+            rule_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20221101:MicrosoftSecurityIncidentCreationAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MicrosoftSecurityIncidentCreationAlertRuleArgs args: The arguments to use to populate this resource's properties.

@@ -10,6 +10,32 @@ import * as utilities from "../../utilities";
 /**
  * Information about appliance.
  *
+ * ## Example Usage
+ * ### Create or update appliance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const appliance = new azure_native.solutions.v20160901preview.Appliance("appliance", {
+ *     applianceDefinitionId: "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myAppDef",
+ *     applianceName: "myAppliance",
+ *     kind: "ServiceCatalog",
+ *     location: "East US 2",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:solutions/v20160901preview:Appliance myAppliance /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/appliances/myAppliance 
+ * ```
+ *
  * @deprecated Version 2016-09-01-preview will be removed in v2 of the provider.
  */
 export class Appliance extends pulumi.CustomResource {

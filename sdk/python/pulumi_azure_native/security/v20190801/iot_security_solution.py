@@ -270,6 +270,50 @@ class IotSecuritySolution(pulumi.CustomResource):
         """
         IoT Security solution configuration and resource information.
 
+        ## Example Usage
+        ### Create or update a IoT security solution
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_security_solution = azure_native.security.v20190801.IotSecuritySolution("iotSecuritySolution",
+            disabled_data_sources=[],
+            display_name="Solution Default",
+            export=[],
+            iot_hubs=["/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub"],
+            location="East Us",
+            recommendations_configuration=[
+                {
+                    "recommendationType": "IoT_OpenPorts",
+                    "status": "Disabled",
+                },
+                {
+                    "recommendationType": "IoT_SharedCredentials",
+                    "status": "Disabled",
+                },
+            ],
+            resource_group_name="MyGroup",
+            solution_name="default",
+            status="Enabled",
+            tags={},
+            unmasked_ip_logging_status="Enabled",
+            user_defined_resources=azure_native.security.v20190801.UserDefinedResourcesPropertiesResponseArgs(
+                query="where type != \\"microsoft.devices/iothubs\\" | where name contains \\"iot\\"",
+                query_subscriptions=["075423e9-7d33-4166-8bdf-3920b04e3735"],
+            ),
+            workspace="/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20190801:IotSecuritySolution default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/MyGroup/providers/Microsoft.Security/Locations/eastus/IoTSecuritySolutions/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalWorkspacesPropertiesArgs']]]] additional_workspaces: List of additional workspaces
@@ -295,6 +339,50 @@ class IotSecuritySolution(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IoT Security solution configuration and resource information.
+
+        ## Example Usage
+        ### Create or update a IoT security solution
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_security_solution = azure_native.security.v20190801.IotSecuritySolution("iotSecuritySolution",
+            disabled_data_sources=[],
+            display_name="Solution Default",
+            export=[],
+            iot_hubs=["/subscriptions/075423e9-7d33-4166-8bdf-3920b04e3735/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/FirstIotHub"],
+            location="East Us",
+            recommendations_configuration=[
+                {
+                    "recommendationType": "IoT_OpenPorts",
+                    "status": "Disabled",
+                },
+                {
+                    "recommendationType": "IoT_SharedCredentials",
+                    "status": "Disabled",
+                },
+            ],
+            resource_group_name="MyGroup",
+            solution_name="default",
+            status="Enabled",
+            tags={},
+            unmasked_ip_logging_status="Enabled",
+            user_defined_resources=azure_native.security.v20190801.UserDefinedResourcesPropertiesResponseArgs(
+                query="where type != \\"microsoft.devices/iothubs\\" | where name contains \\"iot\\"",
+                query_subscriptions=["075423e9-7d33-4166-8bdf-3920b04e3735"],
+            ),
+            workspace="/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20190801:IotSecuritySolution default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/MyGroup/providers/Microsoft.Security/Locations/eastus/IoTSecuritySolutions/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IotSecuritySolutionArgs args: The arguments to use to populate this resource's properties.

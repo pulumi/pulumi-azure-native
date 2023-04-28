@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.DocumentDB.V20230315
 {
     /// <summary>
     /// A managed Cassandra data center.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBManagedCassandraDataCenterCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cassandraDataCenter = new AzureNative.DocumentDB.V20230315.CassandraDataCenter("cassandraDataCenter", new()
+    ///     {
+    ///         ClusterName = "cassandra-prod",
+    ///         DataCenterName = "dc1",
+    ///         Properties = new AzureNative.DocumentDB.V20230315.Inputs.DataCenterResourcePropertiesArgs
+    ///         {
+    ///             Base64EncodedCassandraYamlFragment = "Y29tcGFjdGlvbl90aHJvdWdocHV0X21iX3Blcl9zZWM6IDMyCmNvbXBhY3Rpb25fbGFyZ2VfcGFydGl0aW9uX3dhcm5pbmdfdGhyZXNob2xkX21iOiAxMDA=",
+    ///             DataCenterLocation = "West US 2",
+    ///             DelegatedSubnetId = "/subscriptions/536e130b-d7d6-4ac7-98a5-de20d69588d2/resourceGroups/customer-vnet-rg/providers/Microsoft.Network/virtualNetworks/customer-vnet/subnets/dc1-subnet",
+    ///             NodeCount = 9,
+    ///         },
+    ///         ResourceGroupName = "cassandra-prod-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20230315:CassandraDataCenter dc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/cassandra-prod-rg/providers/Microsoft.DocumentDB/cassandraClusters/cassandra-prod/dataCenters/dc1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20230315:CassandraDataCenter")]
     public partial class CassandraDataCenter : global::Pulumi.CustomResource

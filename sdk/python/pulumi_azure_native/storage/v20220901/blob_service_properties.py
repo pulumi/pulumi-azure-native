@@ -233,6 +233,123 @@ class BlobServiceProperties(pulumi.CustomResource):
         """
         The properties of a storage account’s Blob service.
 
+        ## Example Usage
+        ### BlobServicesPutAllowPermanentDelete
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_service_properties = azure_native.storage.v20220901.BlobServiceProperties("blobServiceProperties",
+            account_name="sto8607",
+            blob_services_name="default",
+            delete_retention_policy=azure_native.storage.v20220901.DeleteRetentionPolicyArgs(
+                allow_permanent_delete=True,
+                days=300,
+                enabled=True,
+            ),
+            is_versioning_enabled=True,
+            resource_group_name="res4410")
+
+        ```
+        ### BlobServicesPutLastAccessTimeBasedTracking
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_service_properties = azure_native.storage.v20220901.BlobServiceProperties("blobServiceProperties",
+            account_name="sto8607",
+            blob_services_name="default",
+            last_access_time_tracking_policy=azure_native.storage.v20220901.LastAccessTimeTrackingPolicyResponseArgs(
+                blob_type=["blockBlob"],
+                enable=True,
+                name="AccessTimeTracking",
+                tracking_granularity_in_days=1,
+            ),
+            resource_group_name="res4410")
+
+        ```
+        ### PutBlobServices
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_service_properties = azure_native.storage.v20220901.BlobServiceProperties("blobServiceProperties",
+            account_name="sto8607",
+            blob_services_name="default",
+            change_feed=azure_native.storage.v20220901.ChangeFeedArgs(
+                enabled=True,
+                retention_in_days=7,
+            ),
+            cors=azure_native.storage.v20220901.CorsRulesArgs(
+                cors_rules=[
+                    azure_native.storage.v20220901.CorsRuleArgs(
+                        allowed_headers=[
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        allowed_methods=[
+                            "GET",
+                            "HEAD",
+                            "POST",
+                            "OPTIONS",
+                            "MERGE",
+                            "PUT",
+                        ],
+                        allowed_origins=[
+                            "http://www.contoso.com",
+                            "http://www.fabrikam.com",
+                        ],
+                        exposed_headers=["x-ms-meta-*"],
+                        max_age_in_seconds=100,
+                    ),
+                    azure_native.storage.v20220901.CorsRuleArgs(
+                        allowed_headers=["*"],
+                        allowed_methods=["GET"],
+                        allowed_origins=["*"],
+                        exposed_headers=["*"],
+                        max_age_in_seconds=2,
+                    ),
+                    azure_native.storage.v20220901.CorsRuleArgs(
+                        allowed_headers=["x-ms-meta-12345675754564*"],
+                        allowed_methods=[
+                            "GET",
+                            "PUT",
+                        ],
+                        allowed_origins=[
+                            "http://www.abc23.com",
+                            "https://www.fabrikam.com/*",
+                        ],
+                        exposed_headers=[
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x -ms-meta-target*",
+                        ],
+                        max_age_in_seconds=2000,
+                    ),
+                ],
+            ),
+            default_service_version="2017-07-29",
+            delete_retention_policy=azure_native.storage.v20220901.DeleteRetentionPolicyArgs(
+                days=300,
+                enabled=True,
+            ),
+            is_versioning_enabled=True,
+            resource_group_name="res4410")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:BlobServiceProperties default /subscriptions/{subscription-id}/resourceGroups/res4410/providers/Microsoft.Storage/storageAccounts/sto8607/blobServices/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -256,6 +373,123 @@ class BlobServiceProperties(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The properties of a storage account’s Blob service.
+
+        ## Example Usage
+        ### BlobServicesPutAllowPermanentDelete
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_service_properties = azure_native.storage.v20220901.BlobServiceProperties("blobServiceProperties",
+            account_name="sto8607",
+            blob_services_name="default",
+            delete_retention_policy=azure_native.storage.v20220901.DeleteRetentionPolicyArgs(
+                allow_permanent_delete=True,
+                days=300,
+                enabled=True,
+            ),
+            is_versioning_enabled=True,
+            resource_group_name="res4410")
+
+        ```
+        ### BlobServicesPutLastAccessTimeBasedTracking
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_service_properties = azure_native.storage.v20220901.BlobServiceProperties("blobServiceProperties",
+            account_name="sto8607",
+            blob_services_name="default",
+            last_access_time_tracking_policy=azure_native.storage.v20220901.LastAccessTimeTrackingPolicyResponseArgs(
+                blob_type=["blockBlob"],
+                enable=True,
+                name="AccessTimeTracking",
+                tracking_granularity_in_days=1,
+            ),
+            resource_group_name="res4410")
+
+        ```
+        ### PutBlobServices
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blob_service_properties = azure_native.storage.v20220901.BlobServiceProperties("blobServiceProperties",
+            account_name="sto8607",
+            blob_services_name="default",
+            change_feed=azure_native.storage.v20220901.ChangeFeedArgs(
+                enabled=True,
+                retention_in_days=7,
+            ),
+            cors=azure_native.storage.v20220901.CorsRulesArgs(
+                cors_rules=[
+                    azure_native.storage.v20220901.CorsRuleArgs(
+                        allowed_headers=[
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x-ms-meta-target*",
+                        ],
+                        allowed_methods=[
+                            "GET",
+                            "HEAD",
+                            "POST",
+                            "OPTIONS",
+                            "MERGE",
+                            "PUT",
+                        ],
+                        allowed_origins=[
+                            "http://www.contoso.com",
+                            "http://www.fabrikam.com",
+                        ],
+                        exposed_headers=["x-ms-meta-*"],
+                        max_age_in_seconds=100,
+                    ),
+                    azure_native.storage.v20220901.CorsRuleArgs(
+                        allowed_headers=["*"],
+                        allowed_methods=["GET"],
+                        allowed_origins=["*"],
+                        exposed_headers=["*"],
+                        max_age_in_seconds=2,
+                    ),
+                    azure_native.storage.v20220901.CorsRuleArgs(
+                        allowed_headers=["x-ms-meta-12345675754564*"],
+                        allowed_methods=[
+                            "GET",
+                            "PUT",
+                        ],
+                        allowed_origins=[
+                            "http://www.abc23.com",
+                            "https://www.fabrikam.com/*",
+                        ],
+                        exposed_headers=[
+                            "x-ms-meta-abc",
+                            "x-ms-meta-data*",
+                            "x -ms-meta-target*",
+                        ],
+                        max_age_in_seconds=2000,
+                    ),
+                ],
+            ),
+            default_service_version="2017-07-29",
+            delete_retention_policy=azure_native.storage.v20220901.DeleteRetentionPolicyArgs(
+                days=300,
+                enabled=True,
+            ),
+            is_versioning_enabled=True,
+            resource_group_name="res4410")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:BlobServiceProperties default /subscriptions/{subscription-id}/resourceGroups/res4410/providers/Microsoft.Storage/storageAccounts/sto8607/blobServices/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlobServicePropertiesArgs args: The arguments to use to populate this resource's properties.

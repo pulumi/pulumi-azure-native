@@ -11,6 +11,105 @@ import * as utilities from "../utilities";
  * FirewallPolicy Resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create FirewallPolicy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallPolicy = new azure_native.network.FirewallPolicy("firewallPolicy", {
+ *     dnsSettings: {
+ *         enableProxy: true,
+ *         requireProxyForNetworkRules: false,
+ *         servers: ["30.3.4.5"],
+ *     },
+ *     explicitProxy: {
+ *         enableExplicitProxy: true,
+ *         enablePacFile: true,
+ *         httpPort: 8087,
+ *         httpsPort: 8087,
+ *         pacFile: `https://tinawstorage.file.core.windows.net/?sv=2020-02-10&ss=bfqt&srt=sco&sp=rwdlacuptfx&se=2021-06-04T07:01:12Z&st=2021-06-03T23:01:12Z&sip=68.65.171.11&spr=https&sig=Plsa0RRVpGbY0IETZZOT6znOHcSro71LLTTbzquYPgs%3D`,
+ *         pacFilePort: 8087,
+ *     },
+ *     firewallPolicyName: "firewallPolicy",
+ *     insights: {
+ *         isEnabled: true,
+ *         logAnalyticsResources: {
+ *             defaultWorkspaceId: {
+ *                 id: "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/defaultWorkspace",
+ *             },
+ *             workspaces: [
+ *                 {
+ *                     region: "westus",
+ *                     workspaceId: {
+ *                         id: "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace1",
+ *                     },
+ *                 },
+ *                 {
+ *                     region: "eastus",
+ *                     workspaceId: {
+ *                         id: "/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace2",
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *         retentionDays: 100,
+ *     },
+ *     intrusionDetection: {
+ *         configuration: {
+ *             bypassTrafficSettings: [{
+ *                 description: "Rule 1",
+ *                 destinationAddresses: ["5.6.7.8"],
+ *                 destinationPorts: ["*"],
+ *                 name: "bypassRule1",
+ *                 protocol: "TCP",
+ *                 sourceAddresses: ["1.2.3.4"],
+ *             }],
+ *             signatureOverrides: [{
+ *                 id: "2525004",
+ *                 mode: "Deny",
+ *             }],
+ *         },
+ *         mode: "Alert",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         tier: "Premium",
+ *     },
+ *     snat: {
+ *         privateRanges: ["IANAPrivateRanges"],
+ *     },
+ *     sql: {
+ *         allowSqlRedirect: true,
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     threatIntelMode: "Alert",
+ *     threatIntelWhitelist: {
+ *         fqdns: ["*.microsoft.com"],
+ *         ipAddresses: ["20.3.4.5"],
+ *     },
+ *     transportSecurity: {
+ *         certificateAuthority: {
+ *             keyVaultSecretId: "https://kv/secret",
+ *             name: "clientcert",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:FirewallPolicy firewallPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy 
+ * ```
  */
 export class FirewallPolicy extends pulumi.CustomResource {
     /**

@@ -6,6 +6,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the watcher type.
+ *
+ * ## Example Usage
+ * ### Create or update watcher
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const watcher = new azure_native.automation.v20190601.Watcher("watcher", {
+ *     automationAccountName: "MyTestAutomationAccount",
+ *     description: "This is a test watcher.",
+ *     executionFrequencyInSeconds: 60,
+ *     resourceGroupName: "rg",
+ *     scriptName: "MyTestWatcherRunbook",
+ *     scriptRunOn: "MyTestHybridWorkerGroup",
+ *     tags: {},
+ *     watcherName: "MyTestWatcher",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation/v20190601:Watcher MyTestWatcher /subscriptions/subId/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/MyTestAutomationAccount/watchers/MyTestWatcher 
+ * ```
  */
 export class Watcher extends pulumi.CustomResource {
     /**

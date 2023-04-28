@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.CognitiveServices.V20160201Preview
 {
     /// <summary>
     /// Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-02-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:cognitiveservices/v20160201preview:CognitiveServicesAccount")]

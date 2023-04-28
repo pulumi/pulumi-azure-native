@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.HybridCompute
     /// Describes a Machine Extension.
     /// API Version: 2022-11-10.
     /// Previous API Version: 2020-08-02. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine Extension
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineExtension = new AzureNative.HybridCompute.MachineExtension("machineExtension", new()
+    ///     {
+    ///         ExtensionName = "CustomScriptExtension",
+    ///         Location = "eastus2euap",
+    ///         MachineName = "myMachine",
+    ///         Publisher = "Microsoft.Compute",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Settings = 
+    ///         {
+    ///             { "commandToExecute", "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"" },
+    ///         },
+    ///         Type = "CustomScriptExtension",
+    ///         TypeHandlerVersion = "1.10",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/myMachine/Extensions/CustomScriptExtension 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource

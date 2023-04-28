@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Network.V20220501
 {
     /// <summary>
     /// Network watcher in a resource group.
+    /// 
+    /// ## Example Usage
+    /// ### Create network watcher
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkWatcher = new AzureNative.Network.V20220501.NetworkWatcher("networkWatcher", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         NetworkWatcherName = "nw1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220501:NetworkWatcher nw1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220501:NetworkWatcher")]
     public partial class NetworkWatcher : global::Pulumi.CustomResource

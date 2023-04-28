@@ -9,6 +9,63 @@ import * as utilities from "../../utilities";
 
 /**
  * A class represent a resource.
+ *
+ * ## Example Usage
+ * ### WebPubSub_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webPubSub = new azure_native.webpubsub.v20230201.WebPubSub("webPubSub", {
+ *     disableAadAuth: false,
+ *     disableLocalAuth: false,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     liveTraceConfiguration: {
+ *         categories: [{
+ *             enabled: "true",
+ *             name: "ConnectivityLogs",
+ *         }],
+ *         enabled: "false",
+ *     },
+ *     location: "eastus",
+ *     networkACLs: {
+ *         defaultAction: "Deny",
+ *         privateEndpoints: [{
+ *             allow: ["ServerConnection"],
+ *             name: "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+ *         }],
+ *         publicNetwork: {
+ *             allow: ["ClientConnection"],
+ *         },
+ *     },
+ *     publicNetworkAccess: "Enabled",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myWebPubSubService",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Premium_P1",
+ *         tier: "Premium",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     tls: {
+ *         clientCertEnabled: false,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:webpubsub/v20230201:WebPubSub myWebPubSubService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService 
+ * ```
  */
 export class WebPubSub extends pulumi.CustomResource {
     /**

@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
     /// <summary>
     /// Linked service.
+    /// 
+    /// ## Example Usage
+    /// ### CreateLinkedService
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linkedService = new AzureNative.MachineLearningServices.V20200901Preview.LinkedService("linkedService", new()
+    ///     {
+    ///         Identity = new AzureNative.MachineLearningServices.V20200901Preview.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.MachineLearningServices.V20200901Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         LinkName = "link-1",
+    ///         Location = "westus",
+    ///         Name = "link-1",
+    ///         Properties = new AzureNative.MachineLearningServices.V20200901Preview.Inputs.LinkedServicePropsArgs
+    ///         {
+    ///             LinkedServiceResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.Synapse/workspaces/Syn-1",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup-1",
+    ///         WorkspaceName = "workspace-1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20200901preview:LinkedService link-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/linkedServices/link-1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200901preview:LinkedService")]
     public partial class LinkedService : global::Pulumi.CustomResource

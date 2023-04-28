@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The private endpoint connection of a workspace
+ *
+ * ## Example Usage
+ * ### Update a private endpoint connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.databricks.v20230201.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "myWorkspace.23456789-1111-1111-1111-111111111111",
+ *     properties: {
+ *         privateLinkServiceConnectionState: {
+ *             description: "Approved by databricksadmin@contoso.com",
+ *             status: "Approved",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databricks/v20230201:PrivateEndpointConnection myWorkspace.23456789-1111-1111-1111-111111111111 /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Databricks/workspaces/myWorkspace/PrivateEndpointConnections/myWorkspace.23456789-1111-1111-1111-111111111111 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

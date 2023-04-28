@@ -9,6 +9,59 @@ import * as utilities from "../../utilities";
 
 /**
  * Private link service resource.
+ *
+ * ## Example Usage
+ * ### Create private link service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateLinkService = new azure_native.network.v20201101.PrivateLinkService("privateLinkService", {
+ *     autoApproval: {
+ *         subscriptions: [
+ *             "subscription1",
+ *             "subscription2",
+ *         ],
+ *     },
+ *     fqdns: [
+ *         "fqdn1",
+ *         "fqdn2",
+ *         "fqdn3",
+ *     ],
+ *     ipConfigurations: [{
+ *         name: "fe-lb",
+ *         privateIPAddress: "10.0.1.4",
+ *         privateIPAddressVersion: "IPv4",
+ *         privateIPAllocationMethod: "Static",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+ *         },
+ *     }],
+ *     loadBalancerFrontendIpConfigurations: [{
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+ *     }],
+ *     location: "eastus",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "testPls",
+ *     visibility: {
+ *         subscriptions: [
+ *             "subscription1",
+ *             "subscription2",
+ *             "subscription3",
+ *         ],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:PrivateLinkService testPls /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls 
+ * ```
  */
 export class PrivateLinkService extends pulumi.CustomResource {
     /**

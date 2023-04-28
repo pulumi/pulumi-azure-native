@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.RecoveryServices
     /// Base class for backup ProtectionIntent.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Azure Vm Protection Intent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var protectionIntent = new AzureNative.RecoveryServices.ProtectionIntent("protectionIntent", new()
+    ///     {
+    ///         FabricName = "Azure",
+    ///         IntentObjectName = "vm;iaasvmcontainerv2;chamsrgtest;chamscandel",
+    ///         Properties = new AzureNative.RecoveryServices.Inputs.AzureResourceProtectionIntentArgs
+    ///         {
+    ///             PolicyId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupPolicies/myPolicy",
+    ///             ProtectionIntentItemType = "AzureResourceItem",
+    ///             SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/chamsrgtest/providers/Microsoft.Compute/virtualMachines/chamscandel",
+    ///         },
+    ///         ResourceGroupName = "myRG",
+    ///         VaultName = "myVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices:ProtectionIntent vm;iaasvmcontainerv2;chamsrgtest;chamscandel /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.RecoveryServices/vaults/myVault/backupFabrics/Azure/backupProtectionIntent/vm;iaasvmcontainerv2;chamsrgtest;chamscandel 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices:ProtectionIntent")]
     public partial class ProtectionIntent : global::Pulumi.CustomResource

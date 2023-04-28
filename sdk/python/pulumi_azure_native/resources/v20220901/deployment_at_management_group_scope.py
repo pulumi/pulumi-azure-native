@@ -114,6 +114,35 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
         """
         Deployment information.
 
+        ## Example Usage
+        ### Create deployment at management group scope.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_management_group_scope = azure_native.resources.v20220901.DeploymentAtManagementGroupScope("deploymentAtManagementGroupScope",
+            deployment_name="my-deployment",
+            group_id="my-management-group-id",
+            location="eastus",
+            properties=azure_native.resources.v20220901.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources/v20220901.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.v20220901.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20220901:DeploymentAtManagementGroupScope my-deployment /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: The name of the deployment.
@@ -130,6 +159,35 @@ class DeploymentAtManagementGroupScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment information.
+
+        ## Example Usage
+        ### Create deployment at management group scope.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment_at_management_group_scope = azure_native.resources.v20220901.DeploymentAtManagementGroupScope("deploymentAtManagementGroupScope",
+            deployment_name="my-deployment",
+            group_id="my-management-group-id",
+            location="eastus",
+            properties=azure_native.resources.v20220901.DeploymentPropertiesExtendedResponseArgs(
+                mode=azure_native.resources/v20220901.DeploymentMode.INCREMENTAL,
+                parameters={},
+                template_link=azure_native.resources.v20220901.TemplateLinkArgs(
+                    uri="https://example.com/exampleTemplate.json",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20220901:DeploymentAtManagementGroupScope my-deployment /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/my-deployment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentAtManagementGroupScopeArgs args: The arguments to use to populate this resource's properties.

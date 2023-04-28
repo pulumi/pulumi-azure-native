@@ -12,6 +12,52 @@ namespace Pulumi.AzureNative.NetworkCloud
     /// <summary>
     /// API Version: 2022-12-12-preview.
     /// Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Update metrics configuration of cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var metricsConfiguration = new AzureNative.NetworkCloud.MetricsConfiguration("metricsConfiguration", new()
+    ///     {
+    ///         ClusterName = "clusterName",
+    ///         CollectionInterval = 15,
+    ///         EnabledMetrics = new[]
+    ///         {
+    ///             "metric1",
+    ///             "metric2",
+    ///         },
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         MetricsConfigurationName = "default",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud:MetricsConfiguration default /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/metricsConfigurations/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud:MetricsConfiguration")]
     public partial class MetricsConfiguration : global::Pulumi.CustomResource

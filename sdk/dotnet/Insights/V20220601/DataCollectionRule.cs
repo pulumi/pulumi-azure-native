@@ -11,6 +11,164 @@ namespace Pulumi.AzureNative.Insights.V20220601
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update data collection rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataCollectionRule = new AzureNative.Insights.V20220601.DataCollectionRule("dataCollectionRule", new()
+    ///     {
+    ///         DataCollectionRuleName = "myCollectionRule",
+    ///         DataFlows = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20220601.Inputs.DataFlowArgs
+    ///             {
+    ///                 Destinations = new[]
+    ///                 {
+    ///                     "centralWorkspace",
+    ///                 },
+    ///                 Streams = new[]
+    ///                 {
+    ///                     "Microsoft-Perf",
+    ///                     "Microsoft-Syslog",
+    ///                     "Microsoft-WindowsEvent",
+    ///                 },
+    ///             },
+    ///         },
+    ///         DataSources = new AzureNative.Insights.V20220601.Inputs.DataCollectionRuleDataSourcesArgs
+    ///         {
+    ///             PerformanceCounters = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20220601.Inputs.PerfCounterDataSourceArgs
+    ///                 {
+    ///                     CounterSpecifiers = new[]
+    ///                     {
+    ///                         "\\Processor(_Total)\\% Processor Time",
+    ///                         "\\Memory\\Committed Bytes",
+    ///                         "\\LogicalDisk(_Total)\\Free Megabytes",
+    ///                         "\\PhysicalDisk(_Total)\\Avg. Disk Queue Length",
+    ///                     },
+    ///                     Name = "cloudTeamCoreCounters",
+    ///                     SamplingFrequencyInSeconds = 15,
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-Perf",
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Insights.V20220601.Inputs.PerfCounterDataSourceArgs
+    ///                 {
+    ///                     CounterSpecifiers = new[]
+    ///                     {
+    ///                         "\\Process(_Total)\\Thread Count",
+    ///                     },
+    ///                     Name = "appTeamExtraCounters",
+    ///                     SamplingFrequencyInSeconds = 30,
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-Perf",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Syslog = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20220601.Inputs.SyslogDataSourceArgs
+    ///                 {
+    ///                     FacilityNames = new[]
+    ///                     {
+    ///                         "cron",
+    ///                     },
+    ///                     LogLevels = new[]
+    ///                     {
+    ///                         "Debug",
+    ///                         "Critical",
+    ///                         "Emergency",
+    ///                     },
+    ///                     Name = "cronSyslog",
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-Syslog",
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Insights.V20220601.Inputs.SyslogDataSourceArgs
+    ///                 {
+    ///                     FacilityNames = new[]
+    ///                     {
+    ///                         "syslog",
+    ///                     },
+    ///                     LogLevels = new[]
+    ///                     {
+    ///                         "Alert",
+    ///                         "Critical",
+    ///                         "Emergency",
+    ///                     },
+    ///                     Name = "syslogBase",
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-Syslog",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             WindowsEventLogs = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20220601.Inputs.WindowsEventLogDataSourceArgs
+    ///                 {
+    ///                     Name = "cloudSecurityTeamEvents",
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-WindowsEvent",
+    ///                     },
+    ///                     XPathQueries = new[]
+    ///                     {
+    ///                         "Security!",
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Insights.V20220601.Inputs.WindowsEventLogDataSourceArgs
+    ///                 {
+    ///                     Name = "appTeam1AppEvents",
+    ///                     Streams = new[]
+    ///                     {
+    ///                         "Microsoft-WindowsEvent",
+    ///                     },
+    ///                     XPathQueries = new[]
+    ///                     {
+    ///                         "System![System[(Level = 1 or Level = 2 or Level = 3)]]",
+    ///                         "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Destinations = new AzureNative.Insights.V20220601.Inputs.DataCollectionRuleDestinationsArgs
+    ///         {
+    ///             LogAnalytics = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20220601.Inputs.LogAnalyticsDestinationArgs
+    ///                 {
+    ///                     Name = "centralWorkspace",
+    ///                     WorkspaceResourceId = "/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20220601:DataCollectionRule myCollectionRule /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20220601:DataCollectionRule")]
     public partial class DataCollectionRule : global::Pulumi.CustomResource

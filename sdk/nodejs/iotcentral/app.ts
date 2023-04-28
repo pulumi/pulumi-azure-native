@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * The IoT Central application.
  * API Version: 2021-06-01.
  * Previous API Version: 2021-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Apps_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const app = new azure_native.iotcentral.App("app", {
+ *     displayName: "My IoT Central App",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myIoTCentralApp",
+ *     sku: {
+ *         name: "ST2",
+ *     },
+ *     subdomain: "my-iot-central-app",
+ *     template: "iotc-pnp-preview@1.0.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotcentral:App myIoTCentralApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.IoTCentral/IoTApps/myIoTCentralApp 
+ * ```
  */
 export class App extends pulumi.CustomResource {
     /**

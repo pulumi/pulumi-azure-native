@@ -133,6 +133,33 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         """
         Single item in a List or Get AuthorizationRule operation
 
+        ## Example Usage
+        ### NameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_authorization_rule = azure_native.eventhub.v20150801.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="sdk-Authrules4867",
+            location="West US",
+            namespace_name="sdk-Namespace743",
+            resource_group_name="Default-ServiceBus-WestUS",
+            rights=[
+                azure_native.eventhub/v20150801.AccessRights.LISTEN,
+                azure_native.eventhub/v20150801.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20150801:NamespaceAuthorizationRule sdk-Authrules4867 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace743/AuthorizationRules/sdk-Authrules4867 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
@@ -150,6 +177,33 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get AuthorizationRule operation
+
+        ## Example Usage
+        ### NameSpaceAuthorizationRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_authorization_rule = azure_native.eventhub.v20150801.NamespaceAuthorizationRule("namespaceAuthorizationRule",
+            authorization_rule_name="sdk-Authrules4867",
+            location="West US",
+            namespace_name="sdk-Namespace743",
+            resource_group_name="Default-ServiceBus-WestUS",
+            rights=[
+                azure_native.eventhub/v20150801.AccessRights.LISTEN,
+                azure_native.eventhub/v20150801.AccessRights.SEND,
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20150801:NamespaceAuthorizationRule sdk-Authrules4867 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace743/AuthorizationRules/sdk-Authrules4867 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.

@@ -205,6 +205,70 @@ class Profile(pulumi.CustomResource):
         """
         Class representing a Traffic Manager profile.
 
+        ## Example Usage
+        ### Profile-PUT-NoEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180201.Profile("profile",
+            dns_config=azure_native.network.v20180201.DnsConfigArgs(
+                relative_name="azsmnet6386",
+                ttl=35,
+            ),
+            location="global",
+            monitor_config=azure_native.network.v20180201.MonitorConfigArgs(
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+            ),
+            profile_name="azsmnet6386",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            traffic_routing_method="Performance")
+
+        ```
+        ### Profile-PUT-WithEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180201.Profile("profile",
+            dns_config=azure_native.network.v20180201.DnsConfigArgs(
+                relative_name="azuresdkfornetautoresttrafficmanager6192",
+                ttl=35,
+            ),
+            endpoints=[azure_native.network.v20180201.EndpointArgs(
+                endpoint_location="North Europe",
+                endpoint_status="Enabled",
+                target="foobar.contoso.com",
+            )],
+            location="global",
+            monitor_config=azure_native.network.v20180201.MonitorConfigArgs(
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180201:Profile azuresdkfornetautoresttrafficmanager6192 /subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DnsConfigArgs']] dns_config: The DNS settings of the Traffic Manager profile.
@@ -226,6 +290,70 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Traffic Manager profile.
+
+        ## Example Usage
+        ### Profile-PUT-NoEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180201.Profile("profile",
+            dns_config=azure_native.network.v20180201.DnsConfigArgs(
+                relative_name="azsmnet6386",
+                ttl=35,
+            ),
+            location="global",
+            monitor_config=azure_native.network.v20180201.MonitorConfigArgs(
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+            ),
+            profile_name="azsmnet6386",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            traffic_routing_method="Performance")
+
+        ```
+        ### Profile-PUT-WithEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180201.Profile("profile",
+            dns_config=azure_native.network.v20180201.DnsConfigArgs(
+                relative_name="azuresdkfornetautoresttrafficmanager6192",
+                ttl=35,
+            ),
+            endpoints=[azure_native.network.v20180201.EndpointArgs(
+                endpoint_location="North Europe",
+                endpoint_status="Enabled",
+                target="foobar.contoso.com",
+            )],
+            location="global",
+            monitor_config=azure_native.network.v20180201.MonitorConfigArgs(
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180201:Profile azuresdkfornetautoresttrafficmanager6192 /subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

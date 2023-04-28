@@ -11,6 +11,110 @@ namespace Pulumi.AzureNative.SignalRService.V20200501
 {
     /// <summary>
     /// A class represent a SignalR service resource.
+    /// 
+    /// ## Example Usage
+    /// ### SignalR_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var signalR = new AzureNative.SignalRService.V20200501.SignalR("signalR", new()
+    ///     {
+    ///         Cors = new AzureNative.SignalRService.V20200501.Inputs.SignalRCorsSettingsArgs
+    ///         {
+    ///             AllowedOrigins = new[]
+    ///             {
+    ///                 "https://foo.com",
+    ///                 "https://bar.com",
+    ///             },
+    ///         },
+    ///         Features = new[]
+    ///         {
+    ///             new AzureNative.SignalRService.V20200501.Inputs.SignalRFeatureArgs
+    ///             {
+    ///                 Flag = "ServiceMode",
+    ///                 Properties = null,
+    ///                 Value = "Serverless",
+    ///             },
+    ///             new AzureNative.SignalRService.V20200501.Inputs.SignalRFeatureArgs
+    ///             {
+    ///                 Flag = "EnableConnectivityLogs",
+    ///                 Properties = null,
+    ///                 Value = "True",
+    ///             },
+    ///             new AzureNative.SignalRService.V20200501.Inputs.SignalRFeatureArgs
+    ///             {
+    ///                 Flag = "EnableMessagingLogs",
+    ///                 Properties = null,
+    ///                 Value = "False",
+    ///             },
+    ///         },
+    ///         Kind = "SignalR",
+    ///         Location = "eastus",
+    ///         NetworkACLs = new AzureNative.SignalRService.V20200501.Inputs.SignalRNetworkACLsArgs
+    ///         {
+    ///             DefaultAction = "Deny",
+    ///             PrivateEndpoints = new[]
+    ///             {
+    ///                 new AzureNative.SignalRService.V20200501.Inputs.PrivateEndpointACLArgs
+    ///                 {
+    ///                     Allow = new[]
+    ///                     {
+    ///                         "ServerConnection",
+    ///                     },
+    ///                     Name = "mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    ///                 },
+    ///             },
+    ///             PublicNetwork = new AzureNative.SignalRService.V20200501.Inputs.NetworkACLArgs
+    ///             {
+    ///                 Allow = new[]
+    ///                 {
+    ///                     "ClientConnection",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "mySignalRService",
+    ///         Sku = new AzureNative.SignalRService.V20200501.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Standard_S1",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         Upstream = new AzureNative.SignalRService.V20200501.Inputs.ServerlessUpstreamSettingsArgs
+    ///         {
+    ///             Templates = new[]
+    ///             {
+    ///                 new AzureNative.SignalRService.V20200501.Inputs.UpstreamTemplateArgs
+    ///                 {
+    ///                     CategoryPattern = "*",
+    ///                     EventPattern = "connect,disconnect",
+    ///                     HubPattern = "*",
+    ///                     UrlTemplate = "https://example.com/chat/api/connect",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:signalrservice/v20200501:SignalR mySignalRService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice/v20200501:SignalR")]
     public partial class SignalR : global::Pulumi.CustomResource

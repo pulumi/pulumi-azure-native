@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.ServiceFabricMesh.V20180901Preview
 {
     /// <summary>
     /// This type describes a secret resource.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateSecret
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var secret = new AzureNative.ServiceFabricMesh.V20180901Preview.Secret("secret", new()
+    ///     {
+    ///         Location = "EastUS",
+    ///         Properties = null,
+    ///         ResourceGroupName = "sbz_demo",
+    ///         SecretResourceName = "dbConnectionString",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabricmesh/v20180901preview:Secret dbConnectionString /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/secrets/dbConnectionString 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabricmesh/v20180901preview:Secret")]
     public partial class Secret : global::Pulumi.CustomResource

@@ -11,6 +11,116 @@ namespace Pulumi.AzureNative.DataShare.V20200901
 {
     /// <summary>
     /// An ADLS Gen2 file system data set mapping.
+    /// 
+    /// ## Example Usage
+    /// ### DataSetMappings_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adlsGen2FileSystemDataSetMapping = new AzureNative.DataShare.V20200901.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SqlDB_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adlsGen2FileSystemDataSetMapping = new AzureNative.DataShare.V20200901.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adlsGen2FileSystemDataSetMapping = new AzureNative.DataShare.V20200901.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SqlDW_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adlsGen2FileSystemDataSetMapping = new AzureNative.DataShare.V20200901.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         DataSetMappingName = "DatasetMapping1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adlsGen2FileSystemDataSetMapping = new AzureNative.DataShare.V20200901.ADLSGen2FileSystemDataSetMapping("adlsGen2FileSystemDataSetMapping", new()
+    ///     {
+    ///         AccountName = "consumerAccount",
+    ///         DataSetMappingName = "datasetMappingName1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping datasetMappingName /subscriptions/4e745bb7-c420-479b-b0d6-a0f92d48a227/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/consumerAccount/shareSubscriptions/ShareSubscription1/dataSetMappings/datasetMappingName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20200901:ADLSGen2FileSystemDataSetMapping")]
     public partial class ADLSGen2FileSystemDataSetMapping : global::Pulumi.CustomResource

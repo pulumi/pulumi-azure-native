@@ -249,6 +249,34 @@ class Slice(pulumi.CustomResource):
         """
         Network slice resource.
 
+        ## Example Usage
+        ### Create network slice
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        slice = azure_native.mobilenetwork.v20220401preview.Slice("slice",
+            description="myFavouriteSlice",
+            location="eastus",
+            mobile_network_name="testMobileNetwork",
+            resource_group_name="rg1",
+            slice_name="testSlice",
+            snssai=azure_native.mobilenetwork.v20220401preview.SnssaiArgs(
+                sd="1abcde",
+                sst=1,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork/v20220401preview:Slice testSlice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] created_at: The timestamp of resource creation (UTC).
@@ -273,6 +301,34 @@ class Slice(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network slice resource.
+
+        ## Example Usage
+        ### Create network slice
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        slice = azure_native.mobilenetwork.v20220401preview.Slice("slice",
+            description="myFavouriteSlice",
+            location="eastus",
+            mobile_network_name="testMobileNetwork",
+            resource_group_name="rg1",
+            slice_name="testSlice",
+            snssai=azure_native.mobilenetwork.v20220401preview.SnssaiArgs(
+                sd="1abcde",
+                sst=1,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork/v20220401preview:Slice testSlice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SliceArgs args: The arguments to use to populate this resource's properties.

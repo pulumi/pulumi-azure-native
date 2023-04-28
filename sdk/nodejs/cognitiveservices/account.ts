@@ -11,6 +11,70 @@ import * as utilities from "../utilities";
  * Cognitive Services account is an Azure resource representing the provisioned account, it's type, location and SKU.
  * API Version: 2022-12-01.
  * Previous API Version: 2017-04-18. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.cognitiveservices.Account("account", {
+ *     accountName: "testCreate1",
+ *     identity: {
+ *         type: azure_native.cognitiveservices.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     kind: "Emotion",
+ *     location: "West US",
+ *     properties: {
+ *         encryption: {
+ *             keySource: "Microsoft.KeyVault",
+ *             keyVaultProperties: {
+ *                 keyName: "KeyName",
+ *                 keyVaultUri: "https://pltfrmscrts-use-pc-dev.vault.azure.net/",
+ *                 keyVersion: "891CF236-D241-4738-9462-D506AF493DFA",
+ *             },
+ *         },
+ *         userOwnedStorage: [{
+ *             resourceId: "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+ *         }],
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "S0",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create Account Min
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.cognitiveservices.Account("account", {
+ *     accountName: "testCreate1",
+ *     identity: {
+ *         type: azure_native.cognitiveservices.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     kind: "CognitiveServices",
+ *     location: "West US",
+ *     properties: {},
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "S0",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices:Account testCreate1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.CognitiveServices/accounts/testCreate1 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Description of the WCF relay resource.
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RelayCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const wcfRelay = new azure_native.relay.WCFRelay("wcfRelay", {
+ *     namespaceName: "example-RelayNamespace-9953",
+ *     relayName: "example-Relay-Wcf-1194",
+ *     relayType: azure_native.relay.Relaytype.NetTcp,
+ *     requiresClientAuthorization: true,
+ *     requiresTransportSecurity: true,
+ *     resourceGroupName: "resourcegroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:relay:WCFRelay example-Relay-Wcf-1194 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-9953/WcfRelays/example-Relay-Wcf-1194 
+ * ```
  */
 export class WCFRelay extends pulumi.CustomResource {
     /**

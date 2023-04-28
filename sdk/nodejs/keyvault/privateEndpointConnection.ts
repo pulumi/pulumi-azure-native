@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Private endpoint connection resource.
  * API Version: 2023-02-01.
  * Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### KeyVaultPutPrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.keyvault.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "sample-pec",
+ *     privateLinkServiceConnectionState: {
+ *         description: "My name is Joe and I'm approving this.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "sample-group",
+ *     vaultName: "sample-vault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:keyvault:PrivateEndpointConnection sample-pec /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/privateEndpointConnections/sample-pec 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

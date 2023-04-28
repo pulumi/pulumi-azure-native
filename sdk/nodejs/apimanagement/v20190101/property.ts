@@ -6,6 +6,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Property details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateProperty
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const property = new azure_native.apimanagement.v20190101.Property("property", {
+ *     displayName: "prop3name",
+ *     propId: "testprop2",
+ *     resourceGroupName: "rg1",
+ *     secret: true,
+ *     serviceName: "apimService1",
+ *     tags: [
+ *         "foo",
+ *         "bar",
+ *     ],
+ *     value: "propValue",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20190101:Property testprop2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/properties/testprop2 
+ * ```
  */
 export class Property extends pulumi.CustomResource {
     /**

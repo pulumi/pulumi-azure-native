@@ -112,6 +112,45 @@ class IscsiTarget(pulumi.CustomResource):
         """
         Response for iSCSI target requests.
 
+        ## Example Usage
+        ### Create or Update iSCSI target
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iscsi_target = azure_native.storagepool.v20200315preview.IscsiTarget("iscsiTarget",
+            disk_pool_name="myDiskPool",
+            iscsi_target_name="myIscsiTarget",
+            resource_group_name="myResourceGroup",
+            target_iqn="iqn.2005-03.org.iscsi:server1",
+            tpgs=[azure_native.storagepool.v20200315preview.TargetPortalGroupCreateArgs(
+                acls=[azure_native.storagepool.v20200315preview.AclArgs(
+                    initiator_iqn="iqn.2005-03.org.iscsi:client",
+                    mapped_luns=["lun0"],
+                    password="some_password",
+                    username="some_username",
+                )],
+                attributes=azure_native.storagepool.v20200315preview.AttributesArgs(
+                    authentication=True,
+                    prod_mode_write_protect=False,
+                ),
+                luns=[azure_native.storagepool.v20200315preview.IscsiLunArgs(
+                    managed_disk_azure_resource_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+                    name="lun0",
+                )],
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagepool/v20200315preview:IscsiTarget myIscsiTarget /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool/iscsiTargets/myIscsiTarget 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disk_pool_name: The name of the Disk pool.
@@ -128,6 +167,45 @@ class IscsiTarget(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Response for iSCSI target requests.
+
+        ## Example Usage
+        ### Create or Update iSCSI target
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iscsi_target = azure_native.storagepool.v20200315preview.IscsiTarget("iscsiTarget",
+            disk_pool_name="myDiskPool",
+            iscsi_target_name="myIscsiTarget",
+            resource_group_name="myResourceGroup",
+            target_iqn="iqn.2005-03.org.iscsi:server1",
+            tpgs=[azure_native.storagepool.v20200315preview.TargetPortalGroupCreateArgs(
+                acls=[azure_native.storagepool.v20200315preview.AclArgs(
+                    initiator_iqn="iqn.2005-03.org.iscsi:client",
+                    mapped_luns=["lun0"],
+                    password="some_password",
+                    username="some_username",
+                )],
+                attributes=azure_native.storagepool.v20200315preview.AttributesArgs(
+                    authentication=True,
+                    prod_mode_write_protect=False,
+                ),
+                luns=[azure_native.storagepool.v20200315preview.IscsiLunArgs(
+                    managed_disk_azure_resource_id="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+                    name="lun0",
+                )],
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagepool/v20200315preview:IscsiTarget myIscsiTarget /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool/iscsiTargets/myIscsiTarget 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IscsiTargetArgs args: The arguments to use to populate this resource's properties.

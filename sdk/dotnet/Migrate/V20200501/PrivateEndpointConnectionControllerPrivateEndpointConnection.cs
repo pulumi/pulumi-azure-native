@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Migrate.V20200501
 {
     /// <summary>
     /// REST model used to encapsulate the user visible state of a PrivateEndpoint.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_Put
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnectionControllerPrivateEndpointConnection = new AzureNative.Migrate.V20200501.PrivateEndpointConnectionControllerPrivateEndpointConnection("privateEndpointConnectionControllerPrivateEndpointConnection", new()
+    ///     {
+    ///         MigrateProjectName = "proj567",
+    ///         PeConnectionName = "proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6",
+    ///         Properties = new AzureNative.Migrate.V20200501.Inputs.ConnectionStateRequestBodyPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.Migrate.V20200501.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 ActionsRequired = "",
+    ///                 Status = "Approved",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "pajindTest1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest1/providers/Microsoft.Migrate/MigrateProjects/proj567/privateEndpointConnections/proj5675162pe.fdccace0-e303-4a79-80c8-3aa7c1f09cc6 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20200501:PrivateEndpointConnectionControllerPrivateEndpointConnection")]
     public partial class PrivateEndpointConnectionControllerPrivateEndpointConnection : global::Pulumi.CustomResource

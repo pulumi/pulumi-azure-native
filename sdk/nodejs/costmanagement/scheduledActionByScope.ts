@@ -11,6 +11,16 @@ import * as utilities from "../utilities";
  * Scheduled action definition.
  * API Version: 2022-10-01.
  * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement:ScheduledActionByScope monthlyCostByResource subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/scheduledActions/monthlyCostByResource 
+ * ```
  */
 export class ScheduledActionByScope extends pulumi.CustomResource {
     /**

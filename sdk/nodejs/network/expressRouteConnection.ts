@@ -11,6 +11,64 @@ import * as utilities from "../utilities";
  * ExpressRouteConnection resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ExpressRouteConnectionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteConnection = new azure_native.network.ExpressRouteConnection("expressRouteConnection", {
+ *     authorizationKey: "authorizationKey",
+ *     connectionName: "connectionName",
+ *     expressRouteCircuitPeering: {
+ *         id: "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/circuitName/peerings/AzurePrivatePeering",
+ *     },
+ *     expressRouteGatewayName: "gateway-2",
+ *     id: "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName",
+ *     name: "connectionName",
+ *     resourceGroupName: "resourceGroupName",
+ *     routingConfiguration: {
+ *         associatedRouteTable: {
+ *             id: "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+ *         },
+ *         inboundRouteMap: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+ *         },
+ *         outboundRouteMap: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+ *         },
+ *         propagatedRouteTables: {
+ *             ids: [
+ *                 {
+ *                     id: "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+ *                 },
+ *                 {
+ *                     id: "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable2",
+ *                 },
+ *                 {
+ *                     id: "/subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
+ *                 },
+ *             ],
+ *             labels: [
+ *                 "label1",
+ *                 "label2",
+ *             ],
+ *         },
+ *     },
+ *     routingWeight: 2,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:ExpressRouteConnection connectionName /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2/expressRouteConnections/connectionName 
+ * ```
  */
 export class ExpressRouteConnection extends pulumi.CustomResource {
     /**

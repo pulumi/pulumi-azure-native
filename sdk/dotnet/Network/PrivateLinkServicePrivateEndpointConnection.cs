@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.Network
     /// PrivateEndpointConnection resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### approve or reject private end point connection for a private link service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkServicePrivateEndpointConnection = new AzureNative.Network.PrivateLinkServicePrivateEndpointConnection("privateLinkServicePrivateEndpointConnection", new()
+    ///     {
+    ///         Name = "testPlePeConnection",
+    ///         PeConnectionName = "testPlePeConnection",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.Network.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             Description = "approved it for some reason.",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "testPls",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:PrivateLinkServicePrivateEndpointConnection testPlePeConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices/{serviceName}/privateEndpointConnections/{peConnectionName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateLinkServicePrivateEndpointConnection")]
     public partial class PrivateLinkServicePrivateEndpointConnection : global::Pulumi.CustomResource

@@ -313,6 +313,89 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
         """
         Represents Anomaly Security ML Analytics Settings
 
+        ## Example Usage
+        ### Creates or updates a Anomaly Security ML Analytics Settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        anomaly_security_ml_analytics_settings = azure_native.securityinsights.v20220901preview.AnomalySecurityMLAnalyticsSettings("anomalySecurityMLAnalyticsSettings",
+            anomaly_settings_version=0,
+            anomaly_version="1.0.5",
+            customizable_observations={
+                "multiSelectObservations": None,
+                "prioritizeExcludeObservations": None,
+                "singleSelectObservations": [{
+                    "description": "Select device vendor of network connection logs from CommonSecurityLog",
+                    "name": "Device vendor",
+                    "rerun": "RerunAlways",
+                    "sequenceNumber": 1,
+                    "supportedValues": [
+                        "Palo Alto Networks",
+                        "Fortinet",
+                        "Check Point",
+                    ],
+                    "supportedValuesKql": None,
+                    "value": ["Palo Alto Networks"],
+                    "valuesKql": None,
+                }],
+                "singleValueObservations": None,
+                "thresholdObservations": [
+                    {
+                        "description": "Suppress anomalies when daily data transfered (in MB) per hour is less than the chosen value",
+                        "maximum": "100",
+                        "minimum": "1",
+                        "name": "Daily data transfer threshold in MB",
+                        "rerun": "RerunAlways",
+                        "sequenceNumber": 1,
+                        "value": "25",
+                    },
+                    {
+                        "description": "Triggers anomalies when number of standard deviations is greater than the chosen value",
+                        "maximum": "10",
+                        "minimum": "2",
+                        "name": "Number of standard deviations",
+                        "rerun": "RerunAlways",
+                        "sequenceNumber": 2,
+                        "value": "3",
+                    },
+                ],
+            },
+            description="When account logs from a source region that has rarely been logged in from during the last 14 days, an anomaly is triggered.",
+            display_name="Login from unusual region",
+            enabled=True,
+            frequency="PT1H",
+            is_default_settings=True,
+            kind="Anomaly",
+            required_data_connectors=[azure_native.securityinsights.v20220901preview.SecurityMLAnalyticsSettingsDataSourceArgs(
+                connector_id="AWS",
+                data_types=["AWSCloudTrail"],
+            )],
+            resource_group_name="myRg",
+            settings_definition_id="f209187f-1d17-4431-94af-c141bf5f23db",
+            settings_resource_name="f209187f-1d17-4431-94af-c141bf5f23db",
+            settings_status="Production",
+            tactics=[
+                "Exfiltration",
+                "CommandAndControl",
+            ],
+            techniques=[
+                "T1037",
+                "T1021",
+            ],
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings f209187f-1d17-4431-94af-c141bf5f23db /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/securityMLAnalyticsSettings/f209187f-1d17-4431-94af-c141bf5f23db 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] anomaly_settings_version: The anomaly settings version of the Anomaly security ml analytics settings that dictates whether job version gets updated or not.
@@ -342,6 +425,89 @@ class AnomalySecurityMLAnalyticsSettings(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents Anomaly Security ML Analytics Settings
+
+        ## Example Usage
+        ### Creates or updates a Anomaly Security ML Analytics Settings.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        anomaly_security_ml_analytics_settings = azure_native.securityinsights.v20220901preview.AnomalySecurityMLAnalyticsSettings("anomalySecurityMLAnalyticsSettings",
+            anomaly_settings_version=0,
+            anomaly_version="1.0.5",
+            customizable_observations={
+                "multiSelectObservations": None,
+                "prioritizeExcludeObservations": None,
+                "singleSelectObservations": [{
+                    "description": "Select device vendor of network connection logs from CommonSecurityLog",
+                    "name": "Device vendor",
+                    "rerun": "RerunAlways",
+                    "sequenceNumber": 1,
+                    "supportedValues": [
+                        "Palo Alto Networks",
+                        "Fortinet",
+                        "Check Point",
+                    ],
+                    "supportedValuesKql": None,
+                    "value": ["Palo Alto Networks"],
+                    "valuesKql": None,
+                }],
+                "singleValueObservations": None,
+                "thresholdObservations": [
+                    {
+                        "description": "Suppress anomalies when daily data transfered (in MB) per hour is less than the chosen value",
+                        "maximum": "100",
+                        "minimum": "1",
+                        "name": "Daily data transfer threshold in MB",
+                        "rerun": "RerunAlways",
+                        "sequenceNumber": 1,
+                        "value": "25",
+                    },
+                    {
+                        "description": "Triggers anomalies when number of standard deviations is greater than the chosen value",
+                        "maximum": "10",
+                        "minimum": "2",
+                        "name": "Number of standard deviations",
+                        "rerun": "RerunAlways",
+                        "sequenceNumber": 2,
+                        "value": "3",
+                    },
+                ],
+            },
+            description="When account logs from a source region that has rarely been logged in from during the last 14 days, an anomaly is triggered.",
+            display_name="Login from unusual region",
+            enabled=True,
+            frequency="PT1H",
+            is_default_settings=True,
+            kind="Anomaly",
+            required_data_connectors=[azure_native.securityinsights.v20220901preview.SecurityMLAnalyticsSettingsDataSourceArgs(
+                connector_id="AWS",
+                data_types=["AWSCloudTrail"],
+            )],
+            resource_group_name="myRg",
+            settings_definition_id="f209187f-1d17-4431-94af-c141bf5f23db",
+            settings_resource_name="f209187f-1d17-4431-94af-c141bf5f23db",
+            settings_status="Production",
+            tactics=[
+                "Exfiltration",
+                "CommandAndControl",
+            ],
+            techniques=[
+                "T1037",
+                "T1021",
+            ],
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20220901preview:AnomalySecurityMLAnalyticsSettings f209187f-1d17-4431-94af-c141bf5f23db /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/securityMLAnalyticsSettings/f209187f-1d17-4431-94af-c141bf5f23db 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AnomalySecurityMLAnalyticsSettingsArgs args: The arguments to use to populate this resource's properties.

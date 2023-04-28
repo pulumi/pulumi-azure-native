@@ -11,6 +11,63 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
 {
     /// <summary>
     /// An Azure Cosmos DB MongoDB collection.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBMongoDBCollectionCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseAccountMongoDBCollection = new AzureNative.DocumentDB.V20160331.DatabaseAccountMongoDBCollection("databaseAccountMongoDBCollection", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         CollectionName = "collectionName",
+    ///         DatabaseName = "databaseName",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20160331.Inputs.MongoDBCollectionResourceArgs
+    ///         {
+    ///             Id = "testcoll",
+    ///             Indexes = new[]
+    ///             {
+    ///                 new AzureNative.DocumentDB.V20160331.Inputs.MongoIndexArgs
+    ///                 {
+    ///                     Key = new AzureNative.DocumentDB.V20160331.Inputs.MongoIndexKeysArgs
+    ///                     {
+    ///                         Keys = new[]
+    ///                         {
+    ///                             "testKey",
+    ///                         },
+    ///                     },
+    ///                     Options = new AzureNative.DocumentDB.V20160331.Inputs.MongoIndexOptionsArgs
+    ///                     {
+    ///                         ExpireAfterSeconds = 100,
+    ///                         Unique = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ShardKey = 
+    ///             {
+    ///                 { "testKey", "Hash" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection collectionName collectionName 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-03-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20160331:DatabaseAccountMongoDBCollection")]

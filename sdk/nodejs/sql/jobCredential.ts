@@ -8,6 +8,32 @@ import * as utilities from "../utilities";
  * A stored credential that can be used by a job to connect to target databases.
  * API Version: 2021-11-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a credential
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const jobCredential = new azure_native.sql.JobCredential("jobCredential", {
+ *     credentialName: "cred1",
+ *     jobAgentName: "agent1",
+ *     password: "<password>",
+ *     resourceGroupName: "group1",
+ *     serverName: "server1",
+ *     username: "myuser",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:JobCredential cred1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred1 
+ * ```
  */
 export class JobCredential extends pulumi.CustomResource {
     /**

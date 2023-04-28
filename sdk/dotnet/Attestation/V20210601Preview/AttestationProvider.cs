@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Attestation.V20210601Preview
 {
     /// <summary>
     /// Attestation service response message.
+    /// 
+    /// ## Example Usage
+    /// ### AttestationProviders_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var attestationProvider = new AzureNative.Attestation.V20210601Preview.AttestationProvider("attestationProvider", new()
+    ///     {
+    ///         Location = "East US",
+    ///         Properties = new AzureNative.Attestation.V20210601Preview.Inputs.AttestationServiceCreationSpecificParamsArgs
+    ///         {
+    ///             PublicNetworkAccess = "Enabled",
+    ///         },
+    ///         ProviderName = "myattestationprovider",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Property1", "Value1" },
+    ///             { "Property2", "Value2" },
+    ///             { "Property3", "Value3" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:attestation/v20210601preview:AttestationProvider myattestationprovider subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/myattestationprovider 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:attestation/v20210601preview:AttestationProvider")]
     public partial class AttestationProvider : global::Pulumi.CustomResource

@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20220501Preview
 {
     /// <summary>
     /// The endpoint for the target resource.
+    /// 
+    /// ## Example Usage
+    /// ### HybridConnectivityEndpointsPutCustom
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.HybridConnectivity.V20220501Preview.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "custom",
+    ///         ResourceId = "/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
+    ///         ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+    ///         Type = "custom",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### HybridConnectivityEndpointsPutDefault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.HybridConnectivity.V20220501Preview.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "default",
+    ///         ResourceUri = "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+    ///         Type = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridconnectivity/v20220501preview:Endpoint default /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity/v20220501preview:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource

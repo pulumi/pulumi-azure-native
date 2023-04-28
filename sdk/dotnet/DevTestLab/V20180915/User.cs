@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// Profile of a lab user.
+    /// 
+    /// ## Example Usage
+    /// ### Users_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var user = new AzureNative.DevTestLab.V20180915.User("user", new()
+    ///     {
+    ///         Identity = new AzureNative.DevTestLab.V20180915.Inputs.UserIdentityArgs
+    ///         {
+    ///             AppId = "{appId}",
+    ///             ObjectId = "{objectId}",
+    ///             PrincipalId = "{principalId}",
+    ///             PrincipalName = "{principalName}",
+    ///             TenantId = "{tenantId}",
+    ///         },
+    ///         LabName = "{devtestlabName}",
+    ///         Location = "{location}",
+    ///         Name = "{userName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SecretStore = new AzureNative.DevTestLab.V20180915.Inputs.UserSecretStoreArgs
+    ///         {
+    ///             KeyVaultId = "{keyVaultId}",
+    ///             KeyVaultUri = "{keyVaultUri}",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20180915:User myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:User")]
     public partial class User : global::Pulumi.CustomResource

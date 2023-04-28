@@ -7,6 +7,34 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### IncidentTasks_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const incidentTask = new azure_native.securityinsights.v20230401preview.IncidentTask("incidentTask", {
+ *     description: "Task description",
+ *     incidentId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     incidentTaskId: "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+ *     resourceGroupName: "myRg",
+ *     status: "New",
+ *     title: "Task title",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20230401preview:IncidentTask 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5/tasks/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+ * ```
+ */
 export class IncidentTask extends pulumi.CustomResource {
     /**
      * Get an existing IncidentTask resource's state with the given name, ID, and optional extra

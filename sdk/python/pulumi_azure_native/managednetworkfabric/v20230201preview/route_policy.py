@@ -148,6 +148,51 @@ class RoutePolicy(pulumi.CustomResource):
         """
         The RoutePolicy resource definition.
 
+        ## Example Usage
+        ### RoutePolicies_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_policy = azure_native.managednetworkfabric.v20230201preview.RoutePolicy("routePolicy",
+            annotation="example routepolicy",
+            conditions=[{
+                "action": {
+                    "action": "allow",
+                    "set": {
+                        "set": azure_native.managednetworkfabric.v20230201preview.RoutePolicyPropertiesSetSetArgs(
+                            ip_community_list_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName"],
+                            ip_extended_community_list_ids=[""],
+                        ),
+                    },
+                },
+                "annotation": "",
+                "match": azure_native.managednetworkfabric.v20230201preview.RoutePolicyPropertiesMatchArgs(
+                    access_control_list_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/accessControlLists/accessControlListName"],
+                    ip_community_list_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName"],
+                    ip_extended_community_list_ids=[""],
+                ),
+                "sequenceNumber": 7,
+            }],
+            description="RPexample",
+            location="EastUS",
+            resource_group_name="rgRoutePolicies",
+            route_policy_name="example RoutePolicy",
+            tags={
+                "key8254": "",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:RoutePolicy routePolicyName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
@@ -166,6 +211,51 @@ class RoutePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The RoutePolicy resource definition.
+
+        ## Example Usage
+        ### RoutePolicies_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_policy = azure_native.managednetworkfabric.v20230201preview.RoutePolicy("routePolicy",
+            annotation="example routepolicy",
+            conditions=[{
+                "action": {
+                    "action": "allow",
+                    "set": {
+                        "set": azure_native.managednetworkfabric.v20230201preview.RoutePolicyPropertiesSetSetArgs(
+                            ip_community_list_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName"],
+                            ip_extended_community_list_ids=[""],
+                        ),
+                    },
+                },
+                "annotation": "",
+                "match": azure_native.managednetworkfabric.v20230201preview.RoutePolicyPropertiesMatchArgs(
+                    access_control_list_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/accessControlLists/accessControlListName"],
+                    ip_community_list_ids=["/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName"],
+                    ip_extended_community_list_ids=[""],
+                ),
+                "sequenceNumber": 7,
+            }],
+            description="RPexample",
+            location="EastUS",
+            resource_group_name="rgRoutePolicies",
+            route_policy_name="example RoutePolicy",
+            tags={
+                "key8254": "",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:RoutePolicy routePolicyName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RoutePolicyArgs args: The arguments to use to populate this resource's properties.

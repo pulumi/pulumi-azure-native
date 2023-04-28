@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.VideoAnalyzer.V20211101Preview
 {
     /// <summary>
     /// Live pipeline represents a unique instance of a live topology, used for real-time ingestion, archiving and publishing of content for a unique RTSP camera.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a live pipeline
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var livePipeline = new AzureNative.VideoAnalyzer.V20211101Preview.LivePipeline("livePipeline", new()
+    ///     {
+    ///         AccountName = "testaccount2",
+    ///         BitrateKbps = 500,
+    ///         Description = "Live Pipeline 1 Description",
+    ///         LivePipelineName = "livePipeline1",
+    ///         Parameters = new[]
+    ///         {
+    ///             new AzureNative.VideoAnalyzer.V20211101Preview.Inputs.ParameterDefinitionArgs
+    ///             {
+    ///                 Name = "rtspUrlParameter",
+    ///                 Value = "rtsp://contoso.com/stream",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         TopologyName = "pipelinetopology1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer/v20211101preview:LivePipeline livePipeline1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/livePipelines/livePipeline1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer/v20211101preview:LivePipeline")]
     public partial class LivePipeline : global::Pulumi.CustomResource

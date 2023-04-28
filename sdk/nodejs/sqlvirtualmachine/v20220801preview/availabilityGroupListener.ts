@@ -9,6 +9,74 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL Server availability group listener.
+ *
+ * ## Example Usage
+ * ### Creates or updates an availability group listener using load balancer. This is used for VMs present in single subnet.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const availabilityGroupListener = new azure_native.sqlvirtualmachine.v20220801preview.AvailabilityGroupListener("availabilityGroupListener", {
+ *     availabilityGroupListenerName: "agl-test",
+ *     availabilityGroupName: "ag-test",
+ *     loadBalancerConfigurations: [{
+ *         loadBalancerResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb-test",
+ *         privateIpAddress: {
+ *             ipAddress: "10.1.0.112",
+ *             subnetResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+ *         },
+ *         probePort: 59983,
+ *         sqlVirtualMachineInstances: [
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm2",
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm3",
+ *         ],
+ *     }],
+ *     port: 1433,
+ *     resourceGroupName: "testrg",
+ *     sqlVirtualMachineGroupName: "testvmgroup",
+ * });
+ *
+ * ```
+ * ### Creates or updates an availability group listener. This is used for VMs present in multi subnet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const availabilityGroupListener = new azure_native.sqlvirtualmachine.v20220801preview.AvailabilityGroupListener("availabilityGroupListener", {
+ *     availabilityGroupListenerName: "agl-test",
+ *     availabilityGroupName: "ag-test",
+ *     multiSubnetIpConfigurations: [
+ *         {
+ *             privateIpAddress: {
+ *                 ipAddress: "10.0.0.112",
+ *                 subnetResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+ *             },
+ *             sqlVirtualMachineInstance: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm2",
+ *         },
+ *         {
+ *             privateIpAddress: {
+ *                 ipAddress: "10.0.1.112",
+ *                 subnetResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/alternate",
+ *             },
+ *             sqlVirtualMachineInstance: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm1",
+ *         },
+ *     ],
+ *     port: 1433,
+ *     resourceGroupName: "testrg",
+ *     sqlVirtualMachineGroupName: "testvmgroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sqlvirtualmachine/v20220801preview:AvailabilityGroupListener agl-test /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup/availabilityGroupListeners/agl-test 
+ * ```
  */
 export class AvailabilityGroupListener extends pulumi.CustomResource {
     /**

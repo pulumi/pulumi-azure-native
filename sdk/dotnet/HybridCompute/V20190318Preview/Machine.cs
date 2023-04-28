@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.HybridCompute.V20190318Preview
 {
     /// <summary>
     /// Describes a hybrid machine.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute/v20190318preview:Machine myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridCompute/machines/{name} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-03-18-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20190318preview:Machine")]

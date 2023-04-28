@@ -115,6 +115,31 @@ class PrivateLinkHub(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a privateLinkHub
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_hub = azure_native.synapse.PrivateLinkHub("privateLinkHub",
+            location="East US",
+            private_link_hub_name="privateLinkHub1",
+            resource_group_name="resourceGroup1",
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:PrivateLinkHub privateLinkHub1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/privateLinkHubs/privateLinkHub1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -133,6 +158,31 @@ class PrivateLinkHub(pulumi.CustomResource):
         A privateLinkHub
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a privateLinkHub
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_hub = azure_native.synapse.PrivateLinkHub("privateLinkHub",
+            location="East US",
+            private_link_hub_name="privateLinkHub1",
+            resource_group_name="resourceGroup1",
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:PrivateLinkHub privateLinkHub1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/privateLinkHubs/privateLinkHub1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkHubArgs args: The arguments to use to populate this resource's properties.

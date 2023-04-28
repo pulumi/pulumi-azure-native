@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes an inbound endpoint for a DNS resolver.
+ *
+ * ## Example Usage
+ * ### Upsert inbound endpoint for DNS resolver
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const inboundEndpoint = new azure_native.network.v20220701.InboundEndpoint("inboundEndpoint", {
+ *     dnsResolverName: "sampleDnsResolver",
+ *     inboundEndpointName: "sampleInboundEndpoint",
+ *     ipConfigurations: [{
+ *         privateIpAllocationMethod: "Dynamic",
+ *         subnet: {
+ *             id: "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork/subnets/sampleSubnet",
+ *         },
+ *     }],
+ *     location: "westus2",
+ *     resourceGroupName: "sampleResourceGroup",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220701:InboundEndpoint sampleInboundEndpoint /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/inboundEndpoints/sampleInboundEndpoint 
+ * ```
  */
 export class InboundEndpoint extends pulumi.CustomResource {
     /**

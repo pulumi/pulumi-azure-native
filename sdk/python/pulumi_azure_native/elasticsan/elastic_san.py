@@ -165,6 +165,54 @@ class ElasticSan(pulumi.CustomResource):
         API Version: 2021-11-20-preview.
         Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ElasticSans_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_san = azure_native.elasticsan.ElasticSan("elasticSan",
+            availability_zones=["aaaaaaaaaaaaaaaaa"],
+            base_size_ti_b=26,
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            extended_capacity_size_ti_b=7,
+            location="aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            resource_group_name="rgelasticsan",
+            sku=azure_native.elasticsan.SkuArgs(
+                name="Premium_LRS",
+                tier="Premium",
+            ),
+            tags={
+                "key896": "aaaaaaaaaaaaaaaaaa",
+            })
+
+        ```
+        ### ElasticSans_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_san = azure_native.elasticsan.ElasticSan("elasticSan",
+            base_size_ti_b=26,
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            extended_capacity_size_ti_b=7,
+            resource_group_name="rgelasticsan",
+            sku=azure_native.elasticsan.SkuArgs(
+                name="Premium_LRS",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elasticsan:ElasticSan aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: Logical zone for Elastic San resource; example: ["1"].
@@ -186,6 +234,54 @@ class ElasticSan(pulumi.CustomResource):
         Response for ElasticSan request.
         API Version: 2021-11-20-preview.
         Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ElasticSans_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_san = azure_native.elasticsan.ElasticSan("elasticSan",
+            availability_zones=["aaaaaaaaaaaaaaaaa"],
+            base_size_ti_b=26,
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            extended_capacity_size_ti_b=7,
+            location="aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            resource_group_name="rgelasticsan",
+            sku=azure_native.elasticsan.SkuArgs(
+                name="Premium_LRS",
+                tier="Premium",
+            ),
+            tags={
+                "key896": "aaaaaaaaaaaaaaaaaa",
+            })
+
+        ```
+        ### ElasticSans_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_san = azure_native.elasticsan.ElasticSan("elasticSan",
+            base_size_ti_b=26,
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            extended_capacity_size_ti_b=7,
+            resource_group_name="rgelasticsan",
+            sku=azure_native.elasticsan.SkuArgs(
+                name="Premium_LRS",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elasticsan:ElasticSan aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ElasticSanArgs args: The arguments to use to populate this resource's properties.

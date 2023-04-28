@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * A network interface in a resource group.
+ *
+ * ## Example Usage
+ * ### Create network interface
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkInterface = new azure_native.network.v20190801.NetworkInterface("networkInterface", {
+ *     enableAcceleratedNetworking: true,
+ *     ipConfigurations: [{
+ *         name: "ipconfig1",
+ *         publicIPAddress: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+ *         },
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+ *         },
+ *     }],
+ *     location: "eastus",
+ *     networkInterfaceName: "test-nic",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20190801:NetworkInterface test-nic /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic 
+ * ```
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**

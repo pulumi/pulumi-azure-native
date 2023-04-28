@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnConnection Resource.
+ *
+ * ## Example Usage
+ * ### VpnConnectionPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vpnConnection = new azure_native.network.v20180701.VpnConnection("vpnConnection", {
+ *     connectionName: "vpnConnection1",
+ *     gatewayName: "gateway1",
+ *     remoteVpnSite: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     sharedKey: "key",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20180701:VpnConnection vpnConnection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1 
+ * ```
  */
 export class VpnConnection extends pulumi.CustomResource {
     /**

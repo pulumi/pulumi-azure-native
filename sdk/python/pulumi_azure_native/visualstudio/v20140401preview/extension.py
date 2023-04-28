@@ -147,6 +147,38 @@ class Extension(pulumi.CustomResource):
         """
         The response to an extension resource GET request.
 
+        ## Example Usage
+        ### Create an extension resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.visualstudio.v20140401preview.Extension("extension",
+            account_resource_name="ExampleAccount",
+            extension_resource_name="ms.example",
+            location="Central US",
+            plan=azure_native.visualstudio.v20140401preview.ExtensionResourcePlanArgs(
+                name="ExamplePlan",
+                product="ExampleExtensionName",
+                promotion_code="",
+                publisher="ExampleExtensionPublisher",
+                version="1.0",
+            ),
+            properties={},
+            resource_group_name="VS-Example-Group",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:visualstudio/v20140401preview:Extension ms.example /subscriptions/0de7f055-dbea-498d-8e9e-da287eedca90/resourceGroups/VS-Example-Group/providers/Microsoft.VisualStudio/account/ExampleAccount/extension/ms.example 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_resource_name: The name of the Visual Studio Team Services account resource.
@@ -165,6 +197,38 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The response to an extension resource GET request.
+
+        ## Example Usage
+        ### Create an extension resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extension = azure_native.visualstudio.v20140401preview.Extension("extension",
+            account_resource_name="ExampleAccount",
+            extension_resource_name="ms.example",
+            location="Central US",
+            plan=azure_native.visualstudio.v20140401preview.ExtensionResourcePlanArgs(
+                name="ExamplePlan",
+                product="ExampleExtensionName",
+                promotion_code="",
+                publisher="ExampleExtensionPublisher",
+                version="1.0",
+            ),
+            properties={},
+            resource_group_name="VS-Example-Group",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:visualstudio/v20140401preview:Extension ms.example /subscriptions/0de7f055-dbea-498d-8e9e-da287eedca90/resourceGroups/VS-Example-Group/providers/Microsoft.VisualStudio/account/ExampleAccount/extension/ms.example 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExtensionArgs args: The arguments to use to populate this resource's properties.

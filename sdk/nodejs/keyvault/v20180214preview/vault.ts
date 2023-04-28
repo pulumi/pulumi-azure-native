@@ -10,6 +10,127 @@ import * as utilities from "../../utilities";
 /**
  * Resource information with extended details.
  *
+ * ## Example Usage
+ * ### Create a new vault or update an existing vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vault = new azure_native.keyvault.v20180214preview.Vault("vault", {
+ *     location: "westus",
+ *     properties: {
+ *         accessPolicies: [{
+ *             objectId: "00000000-0000-0000-0000-000000000000",
+ *             permissions: {
+ *                 certificates: [
+ *                     "get",
+ *                     "list",
+ *                     "delete",
+ *                     "create",
+ *                     "import",
+ *                     "update",
+ *                     "managecontacts",
+ *                     "getissuers",
+ *                     "listissuers",
+ *                     "setissuers",
+ *                     "deleteissuers",
+ *                     "manageissuers",
+ *                     "recover",
+ *                     "purge",
+ *                 ],
+ *                 keys: [
+ *                     "encrypt",
+ *                     "decrypt",
+ *                     "wrapKey",
+ *                     "unwrapKey",
+ *                     "sign",
+ *                     "verify",
+ *                     "get",
+ *                     "list",
+ *                     "create",
+ *                     "update",
+ *                     "import",
+ *                     "delete",
+ *                     "backup",
+ *                     "restore",
+ *                     "recover",
+ *                     "purge",
+ *                 ],
+ *                 secrets: [
+ *                     "get",
+ *                     "list",
+ *                     "set",
+ *                     "delete",
+ *                     "backup",
+ *                     "restore",
+ *                     "recover",
+ *                     "purge",
+ *                 ],
+ *             },
+ *             tenantId: "00000000-0000-0000-0000-000000000000",
+ *         }],
+ *         enabledForDeployment: true,
+ *         enabledForDiskEncryption: true,
+ *         enabledForTemplateDeployment: true,
+ *         sku: {
+ *             family: "A",
+ *             name: azure_native.keyvault.v20180214preview.SkuName.Standard,
+ *         },
+ *         tenantId: "00000000-0000-0000-0000-000000000000",
+ *     },
+ *     resourceGroupName: "sample-resource-group",
+ *     vaultName: "sample-vault",
+ * });
+ *
+ * ```
+ * ### Create or update a vault with network acls
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vault = new azure_native.keyvault.v20180214preview.Vault("vault", {
+ *     location: "westus",
+ *     properties: {
+ *         enabledForDeployment: true,
+ *         enabledForDiskEncryption: true,
+ *         enabledForTemplateDeployment: true,
+ *         networkAcls: {
+ *             bypass: "AzureServices",
+ *             defaultAction: "Deny",
+ *             ipRules: [
+ *                 {
+ *                     value: "124.56.78.91",
+ *                 },
+ *                 {
+ *                     value: "'10.91.4.0/24'",
+ *                 },
+ *             ],
+ *             virtualNetworkRules: [{
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+ *             }],
+ *         },
+ *         sku: {
+ *             family: "A",
+ *             name: azure_native.keyvault.v20180214preview.SkuName.Standard,
+ *         },
+ *         tenantId: "00000000-0000-0000-0000-000000000000",
+ *     },
+ *     resourceGroupName: "sample-resource-group",
+ *     vaultName: "sample-vault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:keyvault/v20180214preview:Vault sample-vault /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-resource-group/providers/Microsoft.KeyVault/vaults/sample-vault 
+ * ```
+ *
  * @deprecated Version 2018-02-14-preview will be removed in v2 of the provider.
  */
 export class Vault extends pulumi.CustomResource {

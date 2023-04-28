@@ -197,6 +197,75 @@ class PrometheusRuleGroup(pulumi.CustomResource):
         """
         The Prometheus rule group resource.
 
+        ## Example Usage
+        ### Create or Update a PrometheusRuleGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        prometheus_rule_group = azure_native.alertsmanagement.v20230301.PrometheusRuleGroup("prometheusRuleGroup",
+            cluster_name="myClusterName",
+            description="This is the description of the following rule group",
+            enabled=True,
+            interval="PT10M",
+            location="East US",
+            resource_group_name="promResourceGroup",
+            rule_group_name="myPrometheusRuleGroup",
+            rules=[
+                azure_native.alertsmanagement.v20230301.PrometheusRuleArgs(
+                    expression="histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))",
+                    labels={
+                        "team": "prod",
+                    },
+                    record="job_type:billing_jobs_duration_seconds:99p5m",
+                ),
+                {
+                    "actions": [
+                        azure_native.alertsmanagement.v20230301.PrometheusRuleGroupActionArgs(
+                            action_group_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/myrg/providers/microsoft.insights/actiongroups/myactiongroup",
+                            action_properties={
+                                "key11": "value11",
+                                "key12": "value12",
+                            },
+                        ),
+                        azure_native.alertsmanagement.v20230301.PrometheusRuleGroupActionArgs(
+                            action_group_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/myrg/providers/microsoft.insights/actiongroups/myotheractiongroup",
+                            action_properties={
+                                "key21": "value21",
+                                "key22": "value22",
+                            },
+                        ),
+                    ],
+                    "alert": "Billing_Processing_Very_Slow",
+                    "annotations": {
+                        "annotationName1": "annotationValue1",
+                    },
+                    "enabled": True,
+                    "expression": "job_type:billing_jobs_duration_seconds:99p5m > 30",
+                    "for": "PT5M",
+                    "labels": {
+                        "team": "prod",
+                    },
+                    "resolveConfiguration": azure_native.alertsmanagement.v20230301.PrometheusRuleResolveConfigurationArgs(
+                        auto_resolved=True,
+                        time_to_resolve="PT10M",
+                    ),
+                    "severity": 2,
+                },
+            ],
+            scopes=["/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroup/providers/microsoft.monitor/accounts/myAzureMonitorWorkspace"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:alertsmanagement/v20230301:PrometheusRuleGroup myresource1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/promResourceGroup/providers/Microsoft.AlertsManagement/prometheusRuleGroups/myPrometheusRuleGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: Apply rule to data from a specific cluster.
@@ -218,6 +287,75 @@ class PrometheusRuleGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Prometheus rule group resource.
+
+        ## Example Usage
+        ### Create or Update a PrometheusRuleGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        prometheus_rule_group = azure_native.alertsmanagement.v20230301.PrometheusRuleGroup("prometheusRuleGroup",
+            cluster_name="myClusterName",
+            description="This is the description of the following rule group",
+            enabled=True,
+            interval="PT10M",
+            location="East US",
+            resource_group_name="promResourceGroup",
+            rule_group_name="myPrometheusRuleGroup",
+            rules=[
+                azure_native.alertsmanagement.v20230301.PrometheusRuleArgs(
+                    expression="histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\\"billing-processing\\"}[5m])) by (job_type))",
+                    labels={
+                        "team": "prod",
+                    },
+                    record="job_type:billing_jobs_duration_seconds:99p5m",
+                ),
+                {
+                    "actions": [
+                        azure_native.alertsmanagement.v20230301.PrometheusRuleGroupActionArgs(
+                            action_group_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/myrg/providers/microsoft.insights/actiongroups/myactiongroup",
+                            action_properties={
+                                "key11": "value11",
+                                "key12": "value12",
+                            },
+                        ),
+                        azure_native.alertsmanagement.v20230301.PrometheusRuleGroupActionArgs(
+                            action_group_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/myrg/providers/microsoft.insights/actiongroups/myotheractiongroup",
+                            action_properties={
+                                "key21": "value21",
+                                "key22": "value22",
+                            },
+                        ),
+                    ],
+                    "alert": "Billing_Processing_Very_Slow",
+                    "annotations": {
+                        "annotationName1": "annotationValue1",
+                    },
+                    "enabled": True,
+                    "expression": "job_type:billing_jobs_duration_seconds:99p5m > 30",
+                    "for": "PT5M",
+                    "labels": {
+                        "team": "prod",
+                    },
+                    "resolveConfiguration": azure_native.alertsmanagement.v20230301.PrometheusRuleResolveConfigurationArgs(
+                        auto_resolved=True,
+                        time_to_resolve="PT10M",
+                    ),
+                    "severity": 2,
+                },
+            ],
+            scopes=["/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/myResourceGroup/providers/microsoft.monitor/accounts/myAzureMonitorWorkspace"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:alertsmanagement/v20230301:PrometheusRuleGroup myresource1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/promResourceGroup/providers/Microsoft.AlertsManagement/prometheusRuleGroups/myPrometheusRuleGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrometheusRuleGroupArgs args: The arguments to use to populate this resource's properties.

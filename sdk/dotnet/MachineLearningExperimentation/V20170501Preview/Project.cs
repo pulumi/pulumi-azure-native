@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation.V20170501Preview
 {
     /// <summary>
     /// An object that represents a machine learning project.
+    /// 
+    /// ## Example Usage
+    /// ### CreateProject
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var project = new AzureNative.MachineLearningExperimentation.V20170501Preview.Project("project", new()
+    ///     {
+    ///         AccountName = "testaccount",
+    ///         FriendlyName = "testName",
+    ///         Gitrepo = "https://github/abc",
+    ///         Location = "East US",
+    ///         ProjectName = "testProject",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "TagValue1" },
+    ///         },
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningexperimentation/v20170501preview:Project testProject /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningExperimentation/accounts/testaccount/workspaces/testworkspace/projects/testProject 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningexperimentation/v20170501preview:Project")]
     public partial class Project : global::Pulumi.CustomResource

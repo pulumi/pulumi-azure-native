@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
     /// <summary>
     /// Define the virtualMachineTemplate.
+    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualMachineTemplate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineTemplate = new AzureNative.ConnectedVMwarevSphere.V20201001Preview.VirtualMachineTemplate("virtualMachineTemplate", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.ConnectedVMwarevSphere.V20201001Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+    ///             Type = "customLocation",
+    ///         },
+    ///         Location = "East US",
+    ///         MoRefId = "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    ///         ResourceGroupName = "testrg",
+    ///         VCenterId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter",
+    ///         VirtualMachineTemplateName = "WebFrontEndTemplate",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachineTemplate WebFrontEndTemplate /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VirtualMachineTemplates/WebFrontEndTemplate 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachineTemplate")]
     public partial class VirtualMachineTemplate : global::Pulumi.CustomResource

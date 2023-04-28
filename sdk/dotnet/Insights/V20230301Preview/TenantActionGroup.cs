@@ -11,6 +11,104 @@ namespace Pulumi.AzureNative.Insights.V20230301Preview
 {
     /// <summary>
     /// A tenant action group resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a tenant action group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tenantActionGroup = new AzureNative.Insights.V20230301Preview.TenantActionGroup("tenantActionGroup", new()
+    ///     {
+    ///         AzureAppPushReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230301Preview.Inputs.AzureAppPushReceiverArgs
+    ///             {
+    ///                 EmailAddress = "johndoe@email.com",
+    ///                 Name = "Sample azureAppPush",
+    ///             },
+    ///         },
+    ///         EmailReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230301Preview.Inputs.EmailReceiverArgs
+    ///             {
+    ///                 EmailAddress = "johndoe@email.com",
+    ///                 Name = "John Doe's email",
+    ///                 UseCommonAlertSchema = false,
+    ///             },
+    ///             new AzureNative.Insights.V20230301Preview.Inputs.EmailReceiverArgs
+    ///             {
+    ///                 EmailAddress = "janesmith@email.com",
+    ///                 Name = "Jane Smith's email",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///         Enabled = true,
+    ///         GroupShortName = "sample",
+    ///         Location = "Global",
+    ///         ManagementGroupId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///         SmsReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230301Preview.Inputs.SmsReceiverArgs
+    ///             {
+    ///                 CountryCode = "1",
+    ///                 Name = "John Doe's mobile",
+    ///                 PhoneNumber = "2062022299",
+    ///             },
+    ///             new AzureNative.Insights.V20230301Preview.Inputs.SmsReceiverArgs
+    ///             {
+    ///                 CountryCode = "1",
+    ///                 Name = "Jane Smith's mobile",
+    ///                 PhoneNumber = "0987654321",
+    ///             },
+    ///         },
+    ///         Tags = null,
+    ///         TenantActionGroupName = "testTenantActionGroup",
+    ///         VoiceReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230301Preview.Inputs.VoiceReceiverArgs
+    ///             {
+    ///                 CountryCode = "1",
+    ///                 Name = "Sample voice",
+    ///                 PhoneNumber = "2062022299",
+    ///             },
+    ///         },
+    ///         WebhookReceivers = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20230301Preview.Inputs.WebhookReceiverArgs
+    ///             {
+    ///                 Name = "Sample webhook 1",
+    ///                 ServiceUri = "http://www.example.com/webhook1",
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///             new AzureNative.Insights.V20230301Preview.Inputs.WebhookReceiverArgs
+    ///             {
+    ///                 IdentifierUri = "http://someidentifier/d7811ba3-7996-4a93-99b6-6b2f3f355f8a",
+    ///                 Name = "Sample webhook 2",
+    ///                 ObjectId = "d3bb868c-fe44-452c-aa26-769a6538c808",
+    ///                 ServiceUri = "http://www.example.com/webhook2",
+    ///                 TenantId = "68a4459a-ccb8-493c-b9da-dd30457d1b84",
+    ///                 UseAadAuth = true,
+    ///                 UseCommonAlertSchema = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20230301preview:TenantActionGroup testTenantActionGroup /providers/Microsoft.Management/managementGroups/72f988bf-86f1-41af-91ab-2d7cd011db47/providers/Microsoft.Insights/tenantActionGroups/testTenantActionGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20230301preview:TenantActionGroup")]
     public partial class TenantActionGroup : global::Pulumi.CustomResource

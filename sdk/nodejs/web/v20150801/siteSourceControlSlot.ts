@@ -6,6 +6,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes the source control configuration for web app
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20150801:SiteSourceControlSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/sourcecontrols/web 
+ * ```
  *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */

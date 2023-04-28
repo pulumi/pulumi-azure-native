@@ -446,6 +446,154 @@ class Cluster(pulumi.CustomResource):
         """
         The cluster resource
 
+        ## Example Usage
+        ### Put a cluster with max parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.servicefabric.v20170701preview.Cluster("cluster",
+            add_on_features=[
+                "RepairManager",
+                "DnsService",
+            ],
+            azure_active_directory=azure_native.servicefabric.v20170701preview.AzureActiveDirectoryArgs(
+                client_application="d151ad89-4bce-4ae8-b3d1-1dc79679fa75",
+                cluster_application="5886372e-7bf4-4878-a497-8098aba608ae",
+                tenant_id="6abcc6a0-8666-43f1-87b8-172cf86a9f9c",
+            ),
+            certificate=azure_native.servicefabric.v20170701preview.CertificateDescriptionResponseArgs(
+                thumbprint="5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                thumbprint_secondary="361A93445450CC8F2FF747F74500E8044942DAFD",
+                x509_store_name="My",
+            ),
+            client_certificate_common_names=[{
+                "certificateCommonName": "abc.com",
+                "certificateIssuerThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": True,
+            }],
+            client_certificate_thumbprints=[{
+                "certificateThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": False,
+            }],
+            cluster_code_version="6.0.219.9494",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config=azure_native.servicefabric.v20170701preview.DiagnosticsStorageAccountConfigResponseArgs(
+                blob_endpoint="https://diag.blob.core.windows.net/",
+                protected_account_key_name="StorageAccountKey1",
+                queue_endpoint="https://diag.queue.core.windows.net/",
+                storage_account_name="diag",
+                table_endpoint="https://diag.table.core.windows.net/",
+            ),
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            location="eastus",
+            management_endpoint="https://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[azure_native.servicefabric.v20170701preview.NodeTypeDescriptionArgs(
+                application_ports=azure_native.servicefabric.v20170701preview.EndpointRangeDescriptionArgs(
+                    end_port=30000,
+                    start_port=20000,
+                ),
+                client_connection_endpoint_port=19000,
+                durability_level="Bronze",
+                ephemeral_ports=azure_native.servicefabric.v20170701preview.EndpointRangeDescriptionArgs(
+                    end_port=64000,
+                    start_port=49000,
+                ),
+                http_gateway_endpoint_port=19007,
+                is_primary=True,
+                name="nt1vm",
+                vm_instance_count=5,
+            )],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            reverse_proxy_certificate=azure_native.servicefabric.v20170701preview.CertificateDescriptionResponseArgs(
+                thumbprint="5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                thumbprint_secondary="361A93445450CC8F2FF747F74500E8044942DAFD",
+                x509_store_name="My",
+            ),
+            upgrade_description=azure_native.servicefabric.v20170701preview.ClusterUpgradePolicyResponseArgs(
+                delta_health_policy=azure_native.servicefabric.v20170701preview.ClusterUpgradeDeltaHealthPolicyArgs(
+                    max_percent_delta_unhealthy_applications=0,
+                    max_percent_delta_unhealthy_nodes=0,
+                    max_percent_upgrade_domain_delta_unhealthy_nodes=0,
+                ),
+                force_restart=True,
+                health_check_retry_timeout="00:05:00",
+                health_check_stable_duration="00:00:30",
+                health_check_wait_duration="00:00:30",
+                health_policy=azure_native.servicefabric.v20170701preview.ClusterHealthPolicyArgs(
+                    max_percent_unhealthy_applications=100,
+                    max_percent_unhealthy_nodes=100,
+                ),
+                upgrade_domain_timeout="00:15:00",
+                upgrade_replica_set_check_timeout="00:10:00",
+                upgrade_timeout="00:15:00",
+            ),
+            upgrade_mode="Manual",
+            vm_image="Windows")
+
+        ```
+        ### Put a cluster with min parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.servicefabric.v20170701preview.Cluster("cluster",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config=azure_native.servicefabric.v20170701preview.DiagnosticsStorageAccountConfigResponseArgs(
+                blob_endpoint="https://diag.blob.core.windows.net/",
+                protected_account_key_name="StorageAccountKey1",
+                queue_endpoint="https://diag.queue.core.windows.net/",
+                storage_account_name="diag",
+                table_endpoint="https://diag.table.core.windows.net/",
+            ),
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            location="eastus",
+            management_endpoint="http://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[azure_native.servicefabric.v20170701preview.NodeTypeDescriptionArgs(
+                application_ports=azure_native.servicefabric.v20170701preview.EndpointRangeDescriptionArgs(
+                    end_port=30000,
+                    start_port=20000,
+                ),
+                client_connection_endpoint_port=19000,
+                durability_level="Bronze",
+                ephemeral_ports=azure_native.servicefabric.v20170701preview.EndpointRangeDescriptionArgs(
+                    end_port=64000,
+                    start_port=49000,
+                ),
+                http_gateway_endpoint_port=19007,
+                is_primary=True,
+                name="nt1vm",
+                vm_instance_count=5,
+            )],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            upgrade_mode="Automatic")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20170701preview:Cluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/clusters/myCluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] add_on_features: The list of add-on features to enable in the cluster.
@@ -499,6 +647,154 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The cluster resource
+
+        ## Example Usage
+        ### Put a cluster with max parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.servicefabric.v20170701preview.Cluster("cluster",
+            add_on_features=[
+                "RepairManager",
+                "DnsService",
+            ],
+            azure_active_directory=azure_native.servicefabric.v20170701preview.AzureActiveDirectoryArgs(
+                client_application="d151ad89-4bce-4ae8-b3d1-1dc79679fa75",
+                cluster_application="5886372e-7bf4-4878-a497-8098aba608ae",
+                tenant_id="6abcc6a0-8666-43f1-87b8-172cf86a9f9c",
+            ),
+            certificate=azure_native.servicefabric.v20170701preview.CertificateDescriptionResponseArgs(
+                thumbprint="5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                thumbprint_secondary="361A93445450CC8F2FF747F74500E8044942DAFD",
+                x509_store_name="My",
+            ),
+            client_certificate_common_names=[{
+                "certificateCommonName": "abc.com",
+                "certificateIssuerThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": True,
+            }],
+            client_certificate_thumbprints=[{
+                "certificateThumbprint": "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                "isAdmin": False,
+            }],
+            cluster_code_version="6.0.219.9494",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config=azure_native.servicefabric.v20170701preview.DiagnosticsStorageAccountConfigResponseArgs(
+                blob_endpoint="https://diag.blob.core.windows.net/",
+                protected_account_key_name="StorageAccountKey1",
+                queue_endpoint="https://diag.queue.core.windows.net/",
+                storage_account_name="diag",
+                table_endpoint="https://diag.table.core.windows.net/",
+            ),
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            location="eastus",
+            management_endpoint="https://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[azure_native.servicefabric.v20170701preview.NodeTypeDescriptionArgs(
+                application_ports=azure_native.servicefabric.v20170701preview.EndpointRangeDescriptionArgs(
+                    end_port=30000,
+                    start_port=20000,
+                ),
+                client_connection_endpoint_port=19000,
+                durability_level="Bronze",
+                ephemeral_ports=azure_native.servicefabric.v20170701preview.EndpointRangeDescriptionArgs(
+                    end_port=64000,
+                    start_port=49000,
+                ),
+                http_gateway_endpoint_port=19007,
+                is_primary=True,
+                name="nt1vm",
+                vm_instance_count=5,
+            )],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            reverse_proxy_certificate=azure_native.servicefabric.v20170701preview.CertificateDescriptionResponseArgs(
+                thumbprint="5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+                thumbprint_secondary="361A93445450CC8F2FF747F74500E8044942DAFD",
+                x509_store_name="My",
+            ),
+            upgrade_description=azure_native.servicefabric.v20170701preview.ClusterUpgradePolicyResponseArgs(
+                delta_health_policy=azure_native.servicefabric.v20170701preview.ClusterUpgradeDeltaHealthPolicyArgs(
+                    max_percent_delta_unhealthy_applications=0,
+                    max_percent_delta_unhealthy_nodes=0,
+                    max_percent_upgrade_domain_delta_unhealthy_nodes=0,
+                ),
+                force_restart=True,
+                health_check_retry_timeout="00:05:00",
+                health_check_stable_duration="00:00:30",
+                health_check_wait_duration="00:00:30",
+                health_policy=azure_native.servicefabric.v20170701preview.ClusterHealthPolicyArgs(
+                    max_percent_unhealthy_applications=100,
+                    max_percent_unhealthy_nodes=100,
+                ),
+                upgrade_domain_timeout="00:15:00",
+                upgrade_replica_set_check_timeout="00:10:00",
+                upgrade_timeout="00:15:00",
+            ),
+            upgrade_mode="Manual",
+            vm_image="Windows")
+
+        ```
+        ### Put a cluster with min parameter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.servicefabric.v20170701preview.Cluster("cluster",
+            cluster_name="myCluster",
+            diagnostics_storage_account_config=azure_native.servicefabric.v20170701preview.DiagnosticsStorageAccountConfigResponseArgs(
+                blob_endpoint="https://diag.blob.core.windows.net/",
+                protected_account_key_name="StorageAccountKey1",
+                queue_endpoint="https://diag.queue.core.windows.net/",
+                storage_account_name="diag",
+                table_endpoint="https://diag.table.core.windows.net/",
+            ),
+            fabric_settings=[{
+                "name": "UpgradeService",
+                "parameters": [{
+                    "name": "AppPollIntervalInSeconds",
+                    "value": "60",
+                }],
+            }],
+            location="eastus",
+            management_endpoint="http://myCluster.eastus.cloudapp.azure.com:19080",
+            node_types=[azure_native.servicefabric.v20170701preview.NodeTypeDescriptionArgs(
+                application_ports=azure_native.servicefabric.v20170701preview.EndpointRangeDescriptionArgs(
+                    end_port=30000,
+                    start_port=20000,
+                ),
+                client_connection_endpoint_port=19000,
+                durability_level="Bronze",
+                ephemeral_ports=azure_native.servicefabric.v20170701preview.EndpointRangeDescriptionArgs(
+                    end_port=64000,
+                    start_port=49000,
+                ),
+                http_gateway_endpoint_port=19007,
+                is_primary=True,
+                name="nt1vm",
+                vm_instance_count=5,
+            )],
+            reliability_level="Silver",
+            resource_group_name="resRg",
+            upgrade_mode="Automatic")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric/v20170701preview:Cluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/clusters/myCluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,100 @@ import * as utilities from "../utilities";
  * Deployment information.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a deployment that will deploy a template with a uri and queryString
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deployment = new azure_native.resources.Deployment("deployment", {
+ *     deploymentName: "my-deployment",
+ *     properties: {
+ *         mode: azure_native.resources.DeploymentMode.Incremental,
+ *         parameters: {},
+ *         templateLink: {
+ *             queryString: `sv=2019-02-02&st=2019-04-29T22%3A18%3A26Z&se=2019-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=xxxxxxxx0xxxxxxxxxxxxx%2bxxxxxxxxxxxxxxxxxxxx%3d`,
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ *     resourceGroupName: "my-resource-group",
+ * });
+ *
+ * ```
+ * ### Create a deployment that will deploy a templateSpec with the given resourceId
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deployment = new azure_native.resources.Deployment("deployment", {
+ *     deploymentName: "my-deployment",
+ *     properties: {
+ *         mode: azure_native.resources.DeploymentMode.Incremental,
+ *         parameters: {},
+ *         templateLink: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+ *         },
+ *     },
+ *     resourceGroupName: "my-resource-group",
+ * });
+ *
+ * ```
+ * ### Create a deployment that will redeploy another deployment on failure
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deployment = new azure_native.resources.Deployment("deployment", {
+ *     deploymentName: "my-deployment",
+ *     properties: {
+ *         mode: azure_native.resources.DeploymentMode.Complete,
+ *         onErrorDeployment: {
+ *             deploymentName: "name-of-deployment-to-use",
+ *             type: azure_native.resources.OnErrorDeploymentType.SpecificDeployment,
+ *         },
+ *         parameters: {},
+ *         templateLink: {
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ *     resourceGroupName: "my-resource-group",
+ * });
+ *
+ * ```
+ * ### Create a deployment that will redeploy the last successful deployment on failure
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deployment = new azure_native.resources.Deployment("deployment", {
+ *     deploymentName: "my-deployment",
+ *     properties: {
+ *         mode: azure_native.resources.DeploymentMode.Complete,
+ *         onErrorDeployment: {
+ *             type: azure_native.resources.OnErrorDeploymentType.LastSuccessful,
+ *         },
+ *         parameters: {},
+ *         templateLink: {
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ *     resourceGroupName: "my-resource-group",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources:Deployment my-deployment /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.Resources/deployments/my-deployment 
+ * ```
  */
 export class Deployment extends pulumi.CustomResource {
     /**

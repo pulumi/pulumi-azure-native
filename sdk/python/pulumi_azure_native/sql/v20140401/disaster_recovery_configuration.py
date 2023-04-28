@@ -77,6 +77,28 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
         """
         Represents a disaster recovery configuration.
 
+        ## Example Usage
+        ### Update a disaster recovery configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disaster_recovery_configuration = azure_native.sql.v20140401.DisasterRecoveryConfiguration("disasterRecoveryConfiguration",
+            disaster_recovery_configuration_name="Default",
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-5961")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20140401:DisasterRecoveryConfiguration Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/databases/testdw/geoBackupPolicies/Default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] disaster_recovery_configuration_name: The name of the disaster recovery configuration to be created/updated.
@@ -91,6 +113,28 @@ class DisasterRecoveryConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a disaster recovery configuration.
+
+        ## Example Usage
+        ### Update a disaster recovery configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disaster_recovery_configuration = azure_native.sql.v20140401.DisasterRecoveryConfiguration("disasterRecoveryConfiguration",
+            disaster_recovery_configuration_name="Default",
+            resource_group_name="sqlcrudtest-4799",
+            server_name="sqlcrudtest-5961")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20140401:DisasterRecoveryConfiguration Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/databases/testdw/geoBackupPolicies/Default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigurationArgs args: The arguments to use to populate this resource's properties.

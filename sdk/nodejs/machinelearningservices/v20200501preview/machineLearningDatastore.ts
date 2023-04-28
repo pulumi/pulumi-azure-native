@@ -9,6 +9,155 @@ import * as utilities from "../../utilities";
 
 /**
  * Machine Learning datastore object wrapped into ARM resource envelope.
+ *
+ * ## Example Usage
+ * ### Create ADLS  Datastore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningDatastore = new azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore", {
+ *     clientId: "233d7008-b157-4354-88d1-ba191f06a900",
+ *     clientSecret: "vdvgdvdvdv",
+ *     dataStoreType: "adls",
+ *     datastoreName: "adlsDatastore",
+ *     resourceGroupName: "acjain-mleastUS2",
+ *     storeName: "stanley",
+ *     tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *     workspaceName: "acjain-mleastUS2",
+ * });
+ *
+ * ```
+ * ### Create ADLS Gen2 Datastore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningDatastore = new azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore", {
+ *     accountName: "nicksadlsgen2storage",
+ *     clientId: "233d7008-b157-4354-88d1-ba191f06a900",
+ *     clientSecret: "vdegbvedgeg",
+ *     dataStoreType: "adls-gen2",
+ *     datastoreName: "adlsgen2Datastore",
+ *     fileSystem: "testfs1",
+ *     resourceGroupName: "acjain-mleastUS2",
+ *     tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *     workspaceName: "acjain-mleastUS2",
+ * });
+ *
+ * ```
+ * ### Create Blob Datastore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningDatastore = new azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore", {
+ *     accountKey: "wddrfewfewsgewgrrwegwreg",
+ *     accountName: "acjainmleastus9484093746",
+ *     containerName: "azureml-blobstore-5da947c5-53aa-41a5-bb2b-074074e73b7",
+ *     dataStoreType: "blob",
+ *     datastoreName: "blobDatastore",
+ *     resourceGroupName: "acjain-mleastUS2",
+ *     workspaceName: "acjain-mleastUS2",
+ * });
+ *
+ * ```
+ * ### Create Databricks File System Datastore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningDatastore = new azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore", {
+ *     dataStoreType: "dbfs",
+ *     datastoreName: "blobDatastore",
+ *     resourceGroupName: "acjain-mleastUS2",
+ *     workspaceName: "acjain-mleastUS2",
+ * });
+ *
+ * ```
+ * ### Create File Datastore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningDatastore = new azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore", {
+ *     accountKey: "wddrfewfewsgewgrrwegwreg",
+ *     accountName: "acjainmleastus9484093746",
+ *     dataStoreType: "file",
+ *     datastoreName: "fileDatastore",
+ *     resourceGroupName: "acjain-mleastUS2",
+ *     shareName: "azureml-filestore-5da947c5-53aa-41a5-bb2b-074074e73b76",
+ *     workspaceName: "acjain-mleastUS2",
+ * });
+ *
+ * ```
+ * ### Create MySQL Datastore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningDatastore = new azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore", {
+ *     dataStoreType: "mysqldb",
+ *     databaseName: "dataset",
+ *     datastoreName: "mySqlDatastore",
+ *     password: "<password>",
+ *     resourceGroupName: "acjain-mleastUS2",
+ *     serverName: "dataset-mysql-srv",
+ *     userId: "demo_user@dataset-mysql-srv",
+ *     workspaceName: "acjain-mleastUS2",
+ * });
+ *
+ * ```
+ * ### Create PostgreSQL Datastore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningDatastore = new azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore", {
+ *     dataStoreType: "psqldb",
+ *     databaseName: "dataset",
+ *     datastoreName: "postgreSqlDatastore",
+ *     password: "<password>",
+ *     resourceGroupName: "acjain-mleastUS2",
+ *     serverName: "dataset-pgsql-srv",
+ *     userId: "demo_user@dataset-pgsql-srv",
+ *     workspaceName: "acjain-mleastUS2",
+ * });
+ *
+ * ```
+ * ### Create SQL Datastore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineLearningDatastore = new azure_native.machinelearningservices.v20200501preview.MachineLearningDatastore("machineLearningDatastore", {
+ *     dataStoreType: "sqldb",
+ *     databaseName: "dataset",
+ *     datastoreName: "sqlDatastore",
+ *     password: "<password>",
+ *     resourceGroupName: "acjain-mleastUS2",
+ *     serverName: "dataset-azsql-srv",
+ *     userName: "demo_user",
+ *     workspaceName: "acjain-mleastUS2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore sqlDatastore /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/acjain-mleastUS2/providers/Microsoft.MachineLearningServices/workspaces/acjain-mleastUS2/datastores/sqlDatastore 
+ * ```
  */
 export class MachineLearningDatastore extends pulumi.CustomResource {
     /**

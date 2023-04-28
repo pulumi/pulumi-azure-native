@@ -402,6 +402,76 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
         """
         A common class for general resource information.
 
+        ## Example Usage
+        ### CreateVirtualNetworkGatewayConnection_S2S
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_gateway_connection = azure_native.network.v20201101.VirtualNetworkGatewayConnection("virtualNetworkGatewayConnection",
+            connection_mode="Default",
+            connection_protocol="IKEv2",
+            connection_type="IPsec",
+            dpd_timeout_seconds=30,
+            enable_bgp=False,
+            ipsec_policies=[],
+            local_network_gateway2=azure_native.network.v20201101.LocalNetworkGatewayResponseArgs(
+                gateway_ip_address="x.x.x.x",
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw",
+                local_network_address_space=azure_native.network.v20201101.AddressSpaceArgs(
+                    address_prefixes=["10.1.0.0/16"],
+                ),
+                location="centralus",
+                tags={},
+            ),
+            location="centralus",
+            resource_group_name="rg1",
+            routing_weight=0,
+            shared_key="Abc123",
+            traffic_selector_policies=[],
+            use_policy_based_traffic_selectors=False,
+            virtual_network_gateway1=azure_native.network.v20201101.VirtualNetworkGatewayResponseArgs(
+                active_active=False,
+                bgp_settings=azure_native.network.v20201101.BgpSettingsArgs(
+                    asn=65514,
+                    bgp_peering_address="10.0.1.30",
+                    peer_weight=0,
+                ),
+                enable_bgp=False,
+                gateway_type="Vpn",
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw",
+                ip_configurations=[{
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/gwipconfig1",
+                    "name": "gwipconfig1",
+                    "privateIPAllocationMethod": "Dynamic",
+                    "publicIPAddress": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+                    ),
+                    "subnet": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+                    ),
+                }],
+                location="centralus",
+                sku=azure_native.network.v20201101.VirtualNetworkGatewaySkuArgs(
+                    name="VpnGw1",
+                    tier="VpnGw1",
+                ),
+                tags={},
+                vpn_type="RouteBased",
+            ),
+            virtual_network_gateway_connection_name="connS2S")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:VirtualNetworkGatewayConnection connS2S /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/connections/connS2S 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorizationKey.
@@ -435,6 +505,76 @@ class VirtualNetworkGatewayConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information.
+
+        ## Example Usage
+        ### CreateVirtualNetworkGatewayConnection_S2S
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_gateway_connection = azure_native.network.v20201101.VirtualNetworkGatewayConnection("virtualNetworkGatewayConnection",
+            connection_mode="Default",
+            connection_protocol="IKEv2",
+            connection_type="IPsec",
+            dpd_timeout_seconds=30,
+            enable_bgp=False,
+            ipsec_policies=[],
+            local_network_gateway2=azure_native.network.v20201101.LocalNetworkGatewayResponseArgs(
+                gateway_ip_address="x.x.x.x",
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw",
+                local_network_address_space=azure_native.network.v20201101.AddressSpaceArgs(
+                    address_prefixes=["10.1.0.0/16"],
+                ),
+                location="centralus",
+                tags={},
+            ),
+            location="centralus",
+            resource_group_name="rg1",
+            routing_weight=0,
+            shared_key="Abc123",
+            traffic_selector_policies=[],
+            use_policy_based_traffic_selectors=False,
+            virtual_network_gateway1=azure_native.network.v20201101.VirtualNetworkGatewayResponseArgs(
+                active_active=False,
+                bgp_settings=azure_native.network.v20201101.BgpSettingsArgs(
+                    asn=65514,
+                    bgp_peering_address="10.0.1.30",
+                    peer_weight=0,
+                ),
+                enable_bgp=False,
+                gateway_type="Vpn",
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw",
+                ip_configurations=[{
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw/ipConfigurations/gwipconfig1",
+                    "name": "gwipconfig1",
+                    "privateIPAllocationMethod": "Dynamic",
+                    "publicIPAddress": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+                    ),
+                    "subnet": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+                    ),
+                }],
+                location="centralus",
+                sku=azure_native.network.v20201101.VirtualNetworkGatewaySkuArgs(
+                    name="VpnGw1",
+                    tier="VpnGw1",
+                ),
+                tags={},
+                vpn_type="RouteBased",
+            ),
+            virtual_network_gateway_connection_name="connS2S")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:VirtualNetworkGatewayConnection connS2S /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/connections/connS2S 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayConnectionArgs args: The arguments to use to populate this resource's properties.

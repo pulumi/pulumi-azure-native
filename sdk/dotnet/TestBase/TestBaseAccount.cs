@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.TestBase
     /// The Test Base Account resource.
     /// API Version: 2022-04-01-preview.
     /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### TestBaseAccountCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var testBaseAccount = new AzureNative.TestBase.TestBaseAccount("testBaseAccount", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ResourceGroupName = "contoso-rg1",
+    ///         Sku = new AzureNative.TestBase.Inputs.TestBaseAccountSKUArgs
+    ///         {
+    ///             Name = "S0",
+    ///             Tier = "Standard",
+    ///         },
+    ///         TestBaseAccountName = "contoso-testBaseAccount1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:testbase:TestBaseAccount contoso-testBaseAccount1 /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:TestBaseAccount")]
     public partial class TestBaseAccount : global::Pulumi.CustomResource

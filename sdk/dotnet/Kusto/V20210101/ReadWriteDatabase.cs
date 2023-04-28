@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.Kusto.V20210101
 {
     /// <summary>
     /// Class representing a read write database.
+    /// 
+    /// ## Example Usage
+    /// ### Kusto ReadOnly database update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var readWriteDatabase = new AzureNative.Kusto.V20210101.ReadWriteDatabase("readWriteDatabase", new()
+    ///     {
+    ///         ClusterName = "kustoclusterrptest4",
+    ///         DatabaseName = "KustoreadOnlyDatabase",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Kusto ReadWrite database create or update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var readWriteDatabase = new AzureNative.Kusto.V20210101.ReadWriteDatabase("readWriteDatabase", new()
+    ///     {
+    ///         ClusterName = "kustoclusterrptest4",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///         SoftDeletePeriod = "P1D",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto/v20210101:ReadWriteDatabase KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20210101:ReadWriteDatabase")]
     public partial class ReadWriteDatabase : global::Pulumi.CustomResource

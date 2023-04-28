@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.EventHub.V20170401
 {
     /// <summary>
     /// Single item in List or Get Event Hub operation
+    /// 
+    /// ## Example Usage
+    /// ### EventHubCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHub = new AzureNative.EventHub.V20170401.EventHub("eventHub", new()
+    ///     {
+    ///         CaptureDescription = new AzureNative.EventHub.V20170401.Inputs.CaptureDescriptionArgs
+    ///         {
+    ///             Destination = new AzureNative.EventHub.V20170401.Inputs.DestinationArgs
+    ///             {
+    ///                 ArchiveNameFormat = "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+    ///                 BlobContainer = "container",
+    ///                 Name = "EventHubArchive.AzureBlockBlob",
+    ///                 StorageAccountResourceId = "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-Storage-SouthCentralUS/providers/Microsoft.ClassicStorage/storageAccounts/arjunteststorage",
+    ///             },
+    ///             Enabled = true,
+    ///             Encoding = AzureNative.EventHub.V20170401.EncodingCaptureDescription.Avro,
+    ///             IntervalInSeconds = 120,
+    ///             SizeLimitInBytes = 10485763,
+    ///         },
+    ///         EventHubName = "sdk-EventHub-6547",
+    ///         MessageRetentionInDays = 4,
+    ///         NamespaceName = "sdk-Namespace-5357",
+    ///         PartitionCount = 4,
+    ///         ResourceGroupName = "Default-NotificationHubs-AustraliaEast",
+    ///         Status = AzureNative.EventHub.V20170401.EntityStatus.Active,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20170401:EventHub sdk-EventHub-10 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-NotificationHubs-AustraliaEast/providers/Microsoft.EventHub/namespaces/sdk-Namespace-716/eventhubs/sdk-EventHub-10 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20170401:EventHub")]
     public partial class EventHub : global::Pulumi.CustomResource

@@ -6,6 +6,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Site Extension Information.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:WebAppSiteExtensionSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/siteextensions/{siteExtensionId} 
+ * ```
  */
 export class WebAppSiteExtensionSlot extends pulumi.CustomResource {
     /**

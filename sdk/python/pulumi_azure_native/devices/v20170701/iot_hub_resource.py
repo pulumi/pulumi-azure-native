@@ -167,6 +167,13 @@ class IotHubResource(pulumi.CustomResource):
                  __props__=None):
         """
         The description of the IoT hub.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20170701:IotHubResource myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -187,6 +194,13 @@ class IotHubResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the IoT hub.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20170701:IotHubResource myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IotHubResourceArgs args: The arguments to use to populate this resource's properties.

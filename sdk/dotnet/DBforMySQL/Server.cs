@@ -13,6 +13,182 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Represents a server.
     /// API Version: 2021-05-01.
     /// Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "cloudsa",
+    ///         AdministratorLoginPassword = "your_password",
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforMySQL.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = "Disabled",
+    ///         },
+    ///         CreateMode = "Default",
+    ///         HighAvailability = new AzureNative.DBforMySQL.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = "ZoneRedundant",
+    ///             StandbyAvailabilityZone = "3",
+    ///         },
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "mysqltestserver",
+    ///         Sku = new AzureNative.DBforMySQL.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D2ds_v4",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Storage = new AzureNative.DBforMySQL.Inputs.StorageArgs
+    ///         {
+    ///             AutoGrow = "Disabled",
+    ///             Iops = 600,
+    ///             StorageSizeGB = 100,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "num", "1" },
+    ///         },
+    ///         Version = "5.7",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a replica server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.Server("server", new()
+    ///     {
+    ///         CreateMode = "Replica",
+    ///         Location = "SoutheastAsia",
+    ///         ResourceGroupName = "testgr",
+    ///         ServerName = "replica-server",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testgr/providers/Microsoft.DBforMySQL/flexibleServers/source-server",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a server as a point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.Server("server", new()
+    ///     {
+    ///         CreateMode = "PointInTimeRestore",
+    ///         Location = "SoutheastAsia",
+    ///         ResourceGroupName = "TargetResourceGroup",
+    ///         RestorePointInTime = "2021-06-24T00:00:37.467Z",
+    ///         ServerName = "targetserver",
+    ///         Sku = new AzureNative.DBforMySQL.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D14_v2",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/SourceResourceGroup/providers/Microsoft.DBforMySQL/flexibleServers/sourceserver",
+    ///         Tags = 
+    ///         {
+    ///             { "num", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a server with byok
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforMySQL.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "cloudsa",
+    ///         AdministratorLoginPassword = "your_password",
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforMySQL.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = "Disabled",
+    ///         },
+    ///         CreateMode = "Default",
+    ///         DataEncryption = new AzureNative.DBforMySQL.Inputs.DataEncryptionArgs
+    ///         {
+    ///             GeoBackupKeyURI = "https://test-geo.vault.azure.net/keys/key/c8a92236622244c0a4fdb892666f671a",
+    ///             GeoBackupUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-geo-identity",
+    ///             PrimaryKeyURI = "https://test.vault.azure.net/keys/key/c8a92236622244c0a4fdb892666f671a",
+    ///             PrimaryUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity",
+    ///             Type = AzureNative.DBforMySQL.DataEncryptionType.AzureKeyVault,
+    ///         },
+    ///         HighAvailability = new AzureNative.DBforMySQL.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = "ZoneRedundant",
+    ///             StandbyAvailabilityZone = "3",
+    ///         },
+    ///         Identity = new AzureNative.DBforMySQL.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.DBforMySQL.ManagedServiceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-identity", null },
+    ///             },
+    ///         },
+    ///         Location = "southeastasia",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "mysqltestserver",
+    ///         Sku = new AzureNative.DBforMySQL.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D2ds_v4",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Storage = new AzureNative.DBforMySQL.Inputs.StorageArgs
+    ///         {
+    ///             AutoGrow = "Disabled",
+    ///             Iops = 600,
+    ///             StorageSizeGB = 100,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "num", "1" },
+    ///         },
+    ///         Version = "5.7",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformysql:Server mysqltestserver /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/flexibleServers/mysqltestserver 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Server")]
     public partial class Server : global::Pulumi.CustomResource

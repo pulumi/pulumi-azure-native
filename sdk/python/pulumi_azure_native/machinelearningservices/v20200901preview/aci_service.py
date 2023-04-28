@@ -392,6 +392,89 @@ class ACIService(pulumi.CustomResource):
         """
         Machine Learning service object wrapped into ARM resource envelope.
 
+        ## Example Usage
+        ### Create Or Update service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aci_service = azure_native.machinelearningservices.v20200901preview.ACIService("aciService",
+            app_insights_enabled=True,
+            auth_enabled=True,
+            compute_type="ACI",
+            container_resource_requirements=azure_native.machinelearningservices.v20200901preview.ContainerResourceRequirementsArgs(
+                cpu=1,
+                memory_in_gb=1,
+            ),
+            environment_image_request=azure_native.machinelearningservices.v20200901preview.CreateServiceRequestEnvironmentImageRequestArgs(
+                assets=[azure_native.machinelearningservices.v20200901preview.ImageAssetArgs(
+                    mime_type="application/x-python",
+                    unpack=False,
+                    url="aml://storage/azureml/score.py",
+                )],
+                driver_program="score.py",
+                environment=azure_native.machinelearningservices.v20200901preview.EnvironmentImageRequestEnvironmentArgs(
+                    docker=azure_native.machinelearningservices.v20200901preview.ModelEnvironmentDefinitionDockerArgs(
+                        base_image="mcr.microsoft.com/azureml/base:openmpi3.1.2-ubuntu16.04",
+                        base_image_registry=azure_native.machinelearningservices.v20200901preview.ModelDockerSectionBaseImageRegistryArgs(),
+                    ),
+                    environment_variables={
+                        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE",
+                    },
+                    name="AzureML-Scikit-learn-0.20.3",
+                    python=azure_native.machinelearningservices.v20200901preview.ModelEnvironmentDefinitionPythonArgs(
+                        conda_dependencies={
+                            "channels": ["conda-forge"],
+                            "dependencies": [
+                                "python=3.6.2",
+                                {
+                                    "pip": [
+                                        "azureml-core==1.0.69",
+                                        "azureml-defaults==1.0.69",
+                                        "azureml-telemetry==1.0.69",
+                                        "azureml-train-restclients-hyperdrive==1.0.69",
+                                        "azureml-train-core==1.0.69",
+                                        "scikit-learn==0.20.3",
+                                        "scipy==1.2.1",
+                                        "numpy==1.16.2",
+                                        "joblib==0.13.2",
+                                    ],
+                                },
+                            ],
+                            "name": "azureml_ae1acbe6e1e6aabbad900b53c491a17c",
+                        },
+                        interpreter_path="python",
+                        user_managed_dependencies=False,
+                    ),
+                    spark=azure_native.machinelearningservices.v20200901preview.ModelEnvironmentDefinitionSparkArgs(
+                        packages=[],
+                        precache_packages=True,
+                        repositories=[],
+                    ),
+                    version="3",
+                ),
+                models=[azure_native.machinelearningservices.v20200901preview.ModelArgs(
+                    mime_type="application/x-python",
+                    name="sklearn_regression_model.pkl",
+                    url="aml://storage/azureml/sklearn_regression_model.pkl",
+                )],
+            ),
+            location="eastus2",
+            resource_group_name="testrg123",
+            service_name="service456",
+            workspace_name="workspaces123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200901preview:ACIService service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] app_insights_enabled: Whether or not Application Insights is enabled.
@@ -425,6 +508,89 @@ class ACIService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Machine Learning service object wrapped into ARM resource envelope.
+
+        ## Example Usage
+        ### Create Or Update service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aci_service = azure_native.machinelearningservices.v20200901preview.ACIService("aciService",
+            app_insights_enabled=True,
+            auth_enabled=True,
+            compute_type="ACI",
+            container_resource_requirements=azure_native.machinelearningservices.v20200901preview.ContainerResourceRequirementsArgs(
+                cpu=1,
+                memory_in_gb=1,
+            ),
+            environment_image_request=azure_native.machinelearningservices.v20200901preview.CreateServiceRequestEnvironmentImageRequestArgs(
+                assets=[azure_native.machinelearningservices.v20200901preview.ImageAssetArgs(
+                    mime_type="application/x-python",
+                    unpack=False,
+                    url="aml://storage/azureml/score.py",
+                )],
+                driver_program="score.py",
+                environment=azure_native.machinelearningservices.v20200901preview.EnvironmentImageRequestEnvironmentArgs(
+                    docker=azure_native.machinelearningservices.v20200901preview.ModelEnvironmentDefinitionDockerArgs(
+                        base_image="mcr.microsoft.com/azureml/base:openmpi3.1.2-ubuntu16.04",
+                        base_image_registry=azure_native.machinelearningservices.v20200901preview.ModelDockerSectionBaseImageRegistryArgs(),
+                    ),
+                    environment_variables={
+                        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE",
+                    },
+                    name="AzureML-Scikit-learn-0.20.3",
+                    python=azure_native.machinelearningservices.v20200901preview.ModelEnvironmentDefinitionPythonArgs(
+                        conda_dependencies={
+                            "channels": ["conda-forge"],
+                            "dependencies": [
+                                "python=3.6.2",
+                                {
+                                    "pip": [
+                                        "azureml-core==1.0.69",
+                                        "azureml-defaults==1.0.69",
+                                        "azureml-telemetry==1.0.69",
+                                        "azureml-train-restclients-hyperdrive==1.0.69",
+                                        "azureml-train-core==1.0.69",
+                                        "scikit-learn==0.20.3",
+                                        "scipy==1.2.1",
+                                        "numpy==1.16.2",
+                                        "joblib==0.13.2",
+                                    ],
+                                },
+                            ],
+                            "name": "azureml_ae1acbe6e1e6aabbad900b53c491a17c",
+                        },
+                        interpreter_path="python",
+                        user_managed_dependencies=False,
+                    ),
+                    spark=azure_native.machinelearningservices.v20200901preview.ModelEnvironmentDefinitionSparkArgs(
+                        packages=[],
+                        precache_packages=True,
+                        repositories=[],
+                    ),
+                    version="3",
+                ),
+                models=[azure_native.machinelearningservices.v20200901preview.ModelArgs(
+                    mime_type="application/x-python",
+                    name="sklearn_regression_model.pkl",
+                    url="aml://storage/azureml/sklearn_regression_model.pkl",
+                )],
+            ),
+            location="eastus2",
+            resource_group_name="testrg123",
+            service_name="service456",
+            workspace_name="workspaces123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20200901preview:ACIService service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ACIServiceArgs args: The arguments to use to populate this resource's properties.

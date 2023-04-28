@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Full view of the custom domain suffix configuration for ASEv3.
+ *
+ * ## Example Usage
+ * ### Update ASE custom DNS suffix configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const appServiceEnvironmentAseCustomDnsSuffixConfiguration = new azure_native.web.v20220901.AppServiceEnvironmentAseCustomDnsSuffixConfiguration("appServiceEnvironmentAseCustomDnsSuffixConfiguration", {
+ *     certificateUrl: "https://test-kv.vault.azure.net/secrets/contosocert",
+ *     dnsSuffix: "contoso.com",
+ *     keyVaultReferenceIdentity: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/test-rg/providers/microsoft.managedidentity/userassignedidentities/test-user-mi",
+ *     name: "test-ase",
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:AppServiceEnvironmentAseCustomDnsSuffixConfiguration customDnsSuffix /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase/configurations/customdnssuffix 
+ * ```
  */
 export class AppServiceEnvironmentAseCustomDnsSuffixConfiguration extends pulumi.CustomResource {
     /**

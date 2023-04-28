@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
  * API Version: 2021-11-01-preview.
  * Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a pipeline job
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pipelineJob = new azure_native.videoanalyzer.PipelineJob("pipelineJob", {
+ *     accountName: "testaccount2",
+ *     description: "Pipeline Job 1 Dsecription",
+ *     parameters: [
+ *         {
+ *             name: "timesequences",
+ *             value: "[[\"2020-10-05T03:30:00Z\", \"2020-10-05T04:30:00Z\"]]",
+ *         },
+ *         {
+ *             name: "videoSourceName",
+ *             value: "camera001",
+ *         },
+ *     ],
+ *     pipelineJobName: "pipelineJob1",
+ *     resourceGroupName: "testrg",
+ *     topologyName: "pipelinetopology1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:videoanalyzer:PipelineJob pipelineJob1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/pipelineJobs/pipelineJob1 
+ * ```
  */
 export class PipelineJob extends pulumi.CustomResource {
     /**

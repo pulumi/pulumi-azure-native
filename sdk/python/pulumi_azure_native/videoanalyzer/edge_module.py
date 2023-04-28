@@ -80,6 +80,28 @@ class EdgeModule(pulumi.CustomResource):
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Registers an edge module.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        edge_module = azure_native.videoanalyzer.EdgeModule("edgeModule",
+            account_name="testaccount2",
+            edge_module_name="edgeModule1",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer:EdgeModule edgeModule1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/edgeModules/edgeModule1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
@@ -96,6 +118,28 @@ class EdgeModule(pulumi.CustomResource):
         The representation of an edge module.
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Registers an edge module.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        edge_module = azure_native.videoanalyzer.EdgeModule("edgeModule",
+            account_name="testaccount2",
+            edge_module_name="edgeModule1",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer:EdgeModule edgeModule1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/edgeModules/edgeModule1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EdgeModuleArgs args: The arguments to use to populate this resource's properties.

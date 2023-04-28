@@ -438,6 +438,103 @@ class ServerGroup(pulumi.CustomResource):
         """
         Represents a server group for create.
 
+        ## Example Usage
+        ### Create a new server group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_group = azure_native.dbforpostgresql.v20201005privatepreview.ServerGroup("serverGroup",
+            administrator_login="citus",
+            administrator_login_password="password",
+            availability_zone="1",
+            backup_retention_days=35,
+            citus_version="9.5",
+            delegated_subnet_arguments=azure_native.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesDelegatedSubnetArgumentsArgs(
+                subnet_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+            ),
+            enable_mx=True,
+            enable_zfs=False,
+            location="westus",
+            postgresql_version="12",
+            private_dns_zone_arguments=azure_native.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesPrivateDnsZoneArgumentsArgs(
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone",
+            ),
+            resource_group_name="TestGroup",
+            server_group_name="hsctestsg",
+            server_role_groups=[
+                azure_native.dbforpostgresql.v20201005privatepreview.ServerRoleGroupArgs(
+                    enable_ha=True,
+                    name="",
+                    role="Coordinator",
+                    server_count=1,
+                    server_edition="GeneralPurpose",
+                    storage_quota_in_mb=524288,
+                    v_cores=4,
+                ),
+                azure_native.dbforpostgresql.v20201005privatepreview.ServerRoleGroupArgs(
+                    enable_ha=False,
+                    name="",
+                    role="Worker",
+                    server_count=3,
+                    server_edition="MemoryOptimized",
+                    storage_quota_in_mb=524288,
+                    v_cores=4,
+                ),
+            ],
+            standby_availability_zone="2",
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a new server group as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_group = azure_native.dbforpostgresql.v20201005privatepreview.ServerGroup("serverGroup",
+            create_mode="PointInTimeRestore",
+            enable_mx=True,
+            enable_zfs=False,
+            location="westus",
+            point_in_time_utc="2017-12-14T00:00:37.467Z",
+            resource_group_name="TestGroup",
+            server_group_name="hsctestsg",
+            source_location="eastus",
+            source_resource_group_name="SourceGroup",
+            source_server_group_name="pgtests-source-server-group",
+            source_subscription_id="dddddddd-dddd-dddd-dddd-dddddddddddd")
+
+        ```
+        ### Create a new server group as a read replica
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_group = azure_native.dbforpostgresql.v20201005privatepreview.ServerGroup("serverGroup",
+            create_mode="ReadReplica",
+            location="westus",
+            resource_group_name="TestGroup",
+            server_group_name="hsctestsg",
+            source_location="eastus",
+            source_resource_group_name="SourceGroup",
+            source_server_group_name="pgtests-source-server-group",
+            source_subscription_id="dddddddd-dddd-dddd-dddd-dddddddddddd")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup hsctestsg /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/hsctestsg 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator's login name of servers in server group. Can only be specified when the server is being created (and is required for creation).
@@ -473,6 +570,103 @@ class ServerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server group for create.
+
+        ## Example Usage
+        ### Create a new server group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_group = azure_native.dbforpostgresql.v20201005privatepreview.ServerGroup("serverGroup",
+            administrator_login="citus",
+            administrator_login_password="password",
+            availability_zone="1",
+            backup_retention_days=35,
+            citus_version="9.5",
+            delegated_subnet_arguments=azure_native.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesDelegatedSubnetArgumentsArgs(
+                subnet_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+            ),
+            enable_mx=True,
+            enable_zfs=False,
+            location="westus",
+            postgresql_version="12",
+            private_dns_zone_arguments=azure_native.dbforpostgresql.v20201005privatepreview.ServerGroupPropertiesPrivateDnsZoneArgumentsArgs(
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone",
+            ),
+            resource_group_name="TestGroup",
+            server_group_name="hsctestsg",
+            server_role_groups=[
+                azure_native.dbforpostgresql.v20201005privatepreview.ServerRoleGroupArgs(
+                    enable_ha=True,
+                    name="",
+                    role="Coordinator",
+                    server_count=1,
+                    server_edition="GeneralPurpose",
+                    storage_quota_in_mb=524288,
+                    v_cores=4,
+                ),
+                azure_native.dbforpostgresql.v20201005privatepreview.ServerRoleGroupArgs(
+                    enable_ha=False,
+                    name="",
+                    role="Worker",
+                    server_count=3,
+                    server_edition="MemoryOptimized",
+                    storage_quota_in_mb=524288,
+                    v_cores=4,
+                ),
+            ],
+            standby_availability_zone="2",
+            tags={
+                "ElasticServer": "1",
+            })
+
+        ```
+        ### Create a new server group as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_group = azure_native.dbforpostgresql.v20201005privatepreview.ServerGroup("serverGroup",
+            create_mode="PointInTimeRestore",
+            enable_mx=True,
+            enable_zfs=False,
+            location="westus",
+            point_in_time_utc="2017-12-14T00:00:37.467Z",
+            resource_group_name="TestGroup",
+            server_group_name="hsctestsg",
+            source_location="eastus",
+            source_resource_group_name="SourceGroup",
+            source_server_group_name="pgtests-source-server-group",
+            source_subscription_id="dddddddd-dddd-dddd-dddd-dddddddddddd")
+
+        ```
+        ### Create a new server group as a read replica
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_group = azure_native.dbforpostgresql.v20201005privatepreview.ServerGroup("serverGroup",
+            create_mode="ReadReplica",
+            location="westus",
+            resource_group_name="TestGroup",
+            server_group_name="hsctestsg",
+            source_location="eastus",
+            source_resource_group_name="SourceGroup",
+            source_server_group_name="pgtests-source-server-group",
+            source_subscription_id="dddddddd-dddd-dddd-dddd-dddddddddddd")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup hsctestsg /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/hsctestsg 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerGroupArgs args: The arguments to use to populate this resource's properties.

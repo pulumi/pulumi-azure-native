@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200901Preview
 {
     /// <summary>
     /// Machine Learning service object wrapped into ARM resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### Create Or Update service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpointVariant = new AzureNative.MachineLearningServices.V20200901Preview.EndpointVariant("endpointVariant", new()
+    ///     {
+    ///         ResourceGroupName = "testrg123",
+    ///         ServiceName = "service456",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20200901preview:EndpointVariant service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200901preview:EndpointVariant")]
     public partial class EndpointVariant : global::Pulumi.CustomResource

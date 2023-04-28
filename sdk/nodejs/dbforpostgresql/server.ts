@@ -11,6 +11,200 @@ import * as utilities from "../utilities";
  * Represents a server.
  * API Version: 2022-12-01.
  * Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a database as a geo-restore in geo-paired location
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     createMode: "GeoRestore",
+ *     location: "eastus",
+ *     pointInTimeUTC: "2021-06-27T00:04:59.4078005+00:00",
+ *     resourceGroupName: "testrg",
+ *     serverName: "pgtestsvc5geo",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername",
+ * });
+ *
+ * ```
+ * ### Create a database as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     createMode: "PointInTimeRestore",
+ *     location: "westus",
+ *     pointInTimeUTC: "2021-06-27T00:04:59.4078005+00:00",
+ *     resourceGroupName: "testrg",
+ *     serverName: "pgtestsvc5",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername",
+ * });
+ *
+ * ```
+ * ### Create a new server
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     administratorLogin: "cloudsa",
+ *     administratorLoginPassword: "password",
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ *     createMode: "Create",
+ *     highAvailability: {
+ *         mode: "ZoneRedundant",
+ *     },
+ *     location: "westus",
+ *     network: {
+ *         delegatedSubnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+ *         privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     serverName: "pgtestsvc4",
+ *     sku: {
+ *         name: "Standard_D4s_v3",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storage: {
+ *         storageSizeGB: 512,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ *     version: "12",
+ * });
+ *
+ * ```
+ * ### Create a new server with active directory authentication enabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     administratorLogin: "cloudsa",
+ *     administratorLoginPassword: "password",
+ *     authConfig: {
+ *         activeDirectoryAuth: "Enabled",
+ *         passwordAuth: "Enabled",
+ *         tenantId: "tttttt-tttt-tttt-tttt-tttttttttttt",
+ *     },
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ *     createMode: "Create",
+ *     dataEncryption: {
+ *         type: "SystemManaged",
+ *     },
+ *     highAvailability: {
+ *         mode: "ZoneRedundant",
+ *     },
+ *     location: "westus",
+ *     network: {
+ *         delegatedSubnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+ *         privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     serverName: "pgtestsvc4",
+ *     sku: {
+ *         name: "Standard_D4s_v3",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storage: {
+ *         storageSizeGB: 512,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ *     version: "12",
+ * });
+ *
+ * ```
+ * ### ServerCreateReplica
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     createMode: "Replica",
+ *     location: "westus",
+ *     pointInTimeUTC: "2021-06-27T00:04:59.4078005+00:00",
+ *     resourceGroupName: "testrg",
+ *     serverName: "pgtestsvc5rep",
+ *     sourceServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername",
+ * });
+ *
+ * ```
+ * ### ServerCreateWithDataEncryptionEnabled
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const server = new azure_native.dbforpostgresql.Server("server", {
+ *     administratorLogin: "cloudsa",
+ *     administratorLoginPassword: "password",
+ *     availabilityZone: "1",
+ *     backup: {
+ *         backupRetentionDays: 7,
+ *         geoRedundantBackup: "Disabled",
+ *     },
+ *     createMode: "Create",
+ *     dataEncryption: {
+ *         primaryKeyURI: "https://test-kv.vault.azure.net/keys/test-key1/77f57315bab34b0189daa113fbc78787",
+ *         primaryUserAssignedIdentityId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity",
+ *         type: "AzureKeyVault",
+ *     },
+ *     highAvailability: {
+ *         mode: "ZoneRedundant",
+ *     },
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity": {},
+ *         },
+ *     },
+ *     location: "westus",
+ *     network: {
+ *         delegatedSubnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+ *         privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     serverName: "pgtestsvc4",
+ *     sku: {
+ *         name: "Standard_D4s_v3",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     storage: {
+ *         storageSizeGB: 512,
+ *     },
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ *     version: "12",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql:Server pgtestsvc4 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4 
+ * ```
  */
 export class Server extends pulumi.CustomResource {
     /**

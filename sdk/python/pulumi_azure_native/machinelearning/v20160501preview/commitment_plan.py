@@ -113,6 +113,13 @@ class CommitmentPlan(pulumi.CustomResource):
                  __props__=None):
         """
         An Azure ML commitment plan resource.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearning/v20160501preview:CommitmentPlan myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/commitmentPlans/{commitmentPlanName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,6 +137,13 @@ class CommitmentPlan(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure ML commitment plan resource.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearning/v20160501preview:CommitmentPlan myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearning/commitmentPlans/{commitmentPlanName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CommitmentPlanInitArgs args: The arguments to use to populate this resource's properties.

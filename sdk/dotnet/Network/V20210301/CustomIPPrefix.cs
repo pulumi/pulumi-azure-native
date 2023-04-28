@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Network.V20210301
 {
     /// <summary>
     /// Custom IP prefix resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create custom IP prefix allocation method
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customIPPrefix = new AzureNative.Network.V20210301.CustomIPPrefix("customIPPrefix", new()
+    ///     {
+    ///         Cidr = "0.0.0.0/24",
+    ///         CustomIpPrefixName = "test-customipprefix",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210301:CustomIPPrefix test-customipprefix /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/customIpPrefixes/test-customipprefix 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210301:CustomIPPrefix")]
     public partial class CustomIPPrefix : global::Pulumi.CustomResource

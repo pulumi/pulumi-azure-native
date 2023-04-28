@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The Endpoint resource, which contains information about file sources and targets.
+ *
+ * ## Example Usage
+ * ### Endpoints_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const endpoint = new azure_native.storagemover.v20230301.Endpoint("endpoint", {
+ *     endpointName: "examples-endpointName",
+ *     properties: {
+ *         blobContainerName: "examples-blobContainerName",
+ *         description: "Example Storage Container Endpoint Description",
+ *         endpointType: "AzureStorageBlobContainer",
+ *         storageAccountResourceId: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.Storage/storageAccounts/examples-storageAccountName/",
+ *     },
+ *     resourceGroupName: "examples-rg",
+ *     storageMoverName: "examples-storageMoverName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagemover/v20230301:Endpoint examples-endpointName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/endpoints/examples-endpointName 
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

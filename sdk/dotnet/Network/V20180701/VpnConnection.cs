@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Network.V20180701
 {
     /// <summary>
     /// VpnConnection Resource.
+    /// 
+    /// ## Example Usage
+    /// ### VpnConnectionPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpnConnection = new AzureNative.Network.V20180701.VpnConnection("vpnConnection", new()
+    ///     {
+    ///         ConnectionName = "vpnConnection1",
+    ///         GatewayName = "gateway1",
+    ///         RemoteVpnSite = new AzureNative.Network.V20180701.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         SharedKey = "key",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180701:VpnConnection vpnConnection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180701:VpnConnection")]
     public partial class VpnConnection : global::Pulumi.CustomResource

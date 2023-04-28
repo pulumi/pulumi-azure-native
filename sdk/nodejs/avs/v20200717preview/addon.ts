@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * An addon resource
+ *
+ * ## Example Usage
+ * ### Addons_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const addon = new azure_native.avs.v20200717preview.Addon("addon", {
+ *     addonName: "srm",
+ *     addonType: "SRM",
+ *     licenseKey: "41915178-A8FF-4A4D-B683-6D735AF5E3F5",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20200717preview:Addon srm /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/addons/srm 
+ * ```
  */
 export class Addon extends pulumi.CustomResource {
     /**

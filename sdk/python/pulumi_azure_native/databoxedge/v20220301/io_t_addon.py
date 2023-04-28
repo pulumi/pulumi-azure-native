@@ -146,6 +146,29 @@ class IoTAddon(pulumi.CustomResource):
         """
         IoT Addon.
 
+        ## Example Usage
+        ### PutAddOns
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        io_t_addon = azure_native.databoxedge.v20220301.IoTAddon("ioTAddon",
+            addon_name="arcName",
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            role_name="KubernetesRole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20220301:IoTAddon arcName /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourcegroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/addonExamples/roles/kubernetesRole/addons/arcName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] addon_name: The addon name.
@@ -165,6 +188,29 @@ class IoTAddon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IoT Addon.
+
+        ## Example Usage
+        ### PutAddOns
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        io_t_addon = azure_native.databoxedge.v20220301.IoTAddon("ioTAddon",
+            addon_name="arcName",
+            device_name="testedgedevice",
+            resource_group_name="GroupForEdgeAutomation",
+            role_name="KubernetesRole")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databoxedge/v20220301:IoTAddon arcName /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourcegroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/addonExamples/roles/kubernetesRole/addons/arcName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IoTAddonArgs args: The arguments to use to populate this resource's properties.

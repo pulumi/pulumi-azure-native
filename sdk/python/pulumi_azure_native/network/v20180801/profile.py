@@ -285,6 +285,239 @@ class Profile(pulumi.CustomResource):
         """
         Class representing a Traffic Manager profile.
 
+        ## Example Usage
+        ### Profile-PUT-MultiValue
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azsmnet6386",
+                ttl=35,
+            ),
+            location="global",
+            max_return=2,
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+            ),
+            profile_name="azsmnet6386",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            traffic_routing_method="MultiValue",
+            traffic_view_enrollment_status="Disabled")
+
+        ```
+        ### Profile-PUT-NoEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azsmnet6386",
+                ttl=35,
+            ),
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+            ),
+            profile_name="azsmnet6386",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            traffic_routing_method="Performance")
+
+        ```
+        ### Profile-PUT-WithAliasing
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            allowed_endpoint_record_types=["DomainName"],
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azuresdkfornetautoresttrafficmanager6192",
+                ttl=35,
+            ),
+            endpoints=[azure_native.network.v20180801.EndpointArgs(
+                endpoint_location="North Europe",
+                endpoint_status="Enabled",
+                name="My external endpoint",
+                target="foobar.contoso.com",
+                type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            )],
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance")
+
+        ```
+        ### Profile-PUT-WithCustomHeaders
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azuresdkfornetautoresttrafficmanager6192",
+                ttl=35,
+            ),
+            endpoints=[{
+                "customHeaders": [azure_native.network.v20180801.EndpointPropertiesCustomHeadersArgs(
+                    name="header-2",
+                    value="value-2-overridden",
+                )],
+                "endpointLocation": "North Europe",
+                "endpointStatus": "Enabled",
+                "name": "My external endpoint",
+                "target": "foobar.contoso.com",
+                "type": "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            }],
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigResponseArgs(
+                custom_headers=[
+                    azure_native.network.v20180801.MonitorConfigCustomHeadersArgs(
+                        name="header-1",
+                        value="value-1",
+                    ),
+                    azure_native.network.v20180801.MonitorConfigCustomHeadersArgs(
+                        name="header-2",
+                        value="value-2",
+                    ),
+                ],
+                expected_status_code_ranges=[
+                    azure_native.network.v20180801.MonitorConfigExpectedStatusCodeRangesArgs(
+                        max=205,
+                        min=200,
+                    ),
+                    azure_native.network.v20180801.MonitorConfigExpectedStatusCodeRangesArgs(
+                        max=410,
+                        min=400,
+                    ),
+                ],
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance",
+            traffic_view_enrollment_status="Disabled")
+
+        ```
+        ### Profile-PUT-WithEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azuresdkfornetautoresttrafficmanager6192",
+                ttl=35,
+            ),
+            endpoints=[azure_native.network.v20180801.EndpointArgs(
+                endpoint_location="North Europe",
+                endpoint_status="Enabled",
+                name="My external endpoint",
+                target="foobar.contoso.com",
+                type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            )],
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance")
+
+        ```
+        ### Profile-PUT-WithNestedEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="parentprofile",
+                ttl=35,
+            ),
+            endpoints=[
+                azure_native.network.v20180801.EndpointArgs(
+                    endpoint_status="Enabled",
+                    min_child_endpoints=2,
+                    min_child_endpoints_i_pv4=1,
+                    min_child_endpoints_i_pv6=2,
+                    name="MyFirstNestedEndpoint",
+                    priority=1,
+                    target="firstnestedprofile.tmpreview.watmtest.azure-test.net",
+                    type="Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+                    weight=1,
+                ),
+                azure_native.network.v20180801.EndpointArgs(
+                    endpoint_status="Enabled",
+                    min_child_endpoints=2,
+                    min_child_endpoints_i_pv4=2,
+                    min_child_endpoints_i_pv6=1,
+                    name="MySecondNestedEndpoint",
+                    priority=2,
+                    target="secondnestedprofile.tmpreview.watmtest.azure-test.net",
+                    type="Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+                    weight=1,
+                ),
+            ],
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="parentprofile",
+            profile_status="Enabled",
+            resource_group_name="myresourcegroup",
+            traffic_routing_method="Priority")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180801:Profile parentprofile /subscriptions/{subscription-id}/resourceGroups/myresourcegroup/providers/Microsoft.Network/trafficManagerProfiles/parentprofile 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AllowedEndpointRecordType']]]] allowed_endpoint_record_types: The list of allowed endpoint record types.
@@ -311,6 +544,239 @@ class Profile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Traffic Manager profile.
+
+        ## Example Usage
+        ### Profile-PUT-MultiValue
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azsmnet6386",
+                ttl=35,
+            ),
+            location="global",
+            max_return=2,
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+            ),
+            profile_name="azsmnet6386",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            traffic_routing_method="MultiValue",
+            traffic_view_enrollment_status="Disabled")
+
+        ```
+        ### Profile-PUT-NoEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azsmnet6386",
+                ttl=35,
+            ),
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+            ),
+            profile_name="azsmnet6386",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            traffic_routing_method="Performance")
+
+        ```
+        ### Profile-PUT-WithAliasing
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            allowed_endpoint_record_types=["DomainName"],
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azuresdkfornetautoresttrafficmanager6192",
+                ttl=35,
+            ),
+            endpoints=[azure_native.network.v20180801.EndpointArgs(
+                endpoint_location="North Europe",
+                endpoint_status="Enabled",
+                name="My external endpoint",
+                target="foobar.contoso.com",
+                type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            )],
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance")
+
+        ```
+        ### Profile-PUT-WithCustomHeaders
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azuresdkfornetautoresttrafficmanager6192",
+                ttl=35,
+            ),
+            endpoints=[{
+                "customHeaders": [azure_native.network.v20180801.EndpointPropertiesCustomHeadersArgs(
+                    name="header-2",
+                    value="value-2-overridden",
+                )],
+                "endpointLocation": "North Europe",
+                "endpointStatus": "Enabled",
+                "name": "My external endpoint",
+                "target": "foobar.contoso.com",
+                "type": "Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            }],
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigResponseArgs(
+                custom_headers=[
+                    azure_native.network.v20180801.MonitorConfigCustomHeadersArgs(
+                        name="header-1",
+                        value="value-1",
+                    ),
+                    azure_native.network.v20180801.MonitorConfigCustomHeadersArgs(
+                        name="header-2",
+                        value="value-2",
+                    ),
+                ],
+                expected_status_code_ranges=[
+                    azure_native.network.v20180801.MonitorConfigExpectedStatusCodeRangesArgs(
+                        max=205,
+                        min=200,
+                    ),
+                    azure_native.network.v20180801.MonitorConfigExpectedStatusCodeRangesArgs(
+                        max=410,
+                        min=400,
+                    ),
+                ],
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance",
+            traffic_view_enrollment_status="Disabled")
+
+        ```
+        ### Profile-PUT-WithEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="azuresdkfornetautoresttrafficmanager6192",
+                ttl=35,
+            ),
+            endpoints=[azure_native.network.v20180801.EndpointArgs(
+                endpoint_location="North Europe",
+                endpoint_status="Enabled",
+                name="My external endpoint",
+                target="foobar.contoso.com",
+                type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints",
+            )],
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="azuresdkfornetautoresttrafficmanager6192",
+            profile_status="Enabled",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2583",
+            traffic_routing_method="Performance")
+
+        ```
+        ### Profile-PUT-WithNestedEndpoints
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        profile = azure_native.network.v20180801.Profile("profile",
+            dns_config=azure_native.network.v20180801.DnsConfigArgs(
+                relative_name="parentprofile",
+                ttl=35,
+            ),
+            endpoints=[
+                azure_native.network.v20180801.EndpointArgs(
+                    endpoint_status="Enabled",
+                    min_child_endpoints=2,
+                    min_child_endpoints_i_pv4=1,
+                    min_child_endpoints_i_pv6=2,
+                    name="MyFirstNestedEndpoint",
+                    priority=1,
+                    target="firstnestedprofile.tmpreview.watmtest.azure-test.net",
+                    type="Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+                    weight=1,
+                ),
+                azure_native.network.v20180801.EndpointArgs(
+                    endpoint_status="Enabled",
+                    min_child_endpoints=2,
+                    min_child_endpoints_i_pv4=2,
+                    min_child_endpoints_i_pv6=1,
+                    name="MySecondNestedEndpoint",
+                    priority=2,
+                    target="secondnestedprofile.tmpreview.watmtest.azure-test.net",
+                    type="Microsoft.Network/trafficManagerProfiles/nestedEndpoints",
+                    weight=1,
+                ),
+            ],
+            location="global",
+            monitor_config=azure_native.network.v20180801.MonitorConfigArgs(
+                interval_in_seconds=10,
+                path="/testpath.aspx",
+                port=80,
+                protocol="HTTP",
+                timeout_in_seconds=5,
+                tolerated_number_of_failures=2,
+            ),
+            profile_name="parentprofile",
+            profile_status="Enabled",
+            resource_group_name="myresourcegroup",
+            traffic_routing_method="Priority")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180801:Profile parentprofile /subscriptions/{subscription-id}/resourceGroups/myresourcegroup/providers/Microsoft.Network/trafficManagerProfiles/parentprofile 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProfileArgs args: The arguments to use to populate this resource's properties.

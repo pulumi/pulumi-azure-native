@@ -438,6 +438,34 @@ class ServerEndpoint(pulumi.CustomResource):
         """
         Server Endpoint object.
 
+        ## Example Usage
+        ### ServerEndpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_endpoint = azure_native.storagesync.v20170605preview.ServerEndpoint("serverEndpoint",
+            cloud_tiering="off",
+            provisioning_state="Created",
+            resource_group_name="SampleResourceGroup_1",
+            server_endpoint_name="SampleServerEndpoint_1",
+            server_local_path="D:\\\\SampleServerEndpoint_1",
+            server_resource_id="/subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncServer_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            sync_group_name="SampleSyncGroup_1",
+            volume_free_space_percent=100)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagesync/v20170605preview:ServerEndpoint SampleServerEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/10.91.86.47/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/serverEndpoints/SampleServerEndpoint_1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] byte_progress: Bytes in progress
@@ -473,6 +501,34 @@ class ServerEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Server Endpoint object.
+
+        ## Example Usage
+        ### ServerEndpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_endpoint = azure_native.storagesync.v20170605preview.ServerEndpoint("serverEndpoint",
+            cloud_tiering="off",
+            provisioning_state="Created",
+            resource_group_name="SampleResourceGroup_1",
+            server_endpoint_name="SampleServerEndpoint_1",
+            server_local_path="D:\\\\SampleServerEndpoint_1",
+            server_resource_id="/subscriptions/3a048283-338f-4002-a9dd-a50fdadcb392/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncServer_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
+            storage_sync_service_name="SampleStorageSyncService_1",
+            sync_group_name="SampleSyncGroup_1",
+            volume_free_space_percent=100)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagesync/v20170605preview:ServerEndpoint SampleServerEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/10.91.86.47/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/serverEndpoints/SampleServerEndpoint_1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerEndpointArgs args: The arguments to use to populate this resource's properties.

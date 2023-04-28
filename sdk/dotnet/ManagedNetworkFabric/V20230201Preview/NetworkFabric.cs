@@ -11,6 +11,85 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 {
     /// <summary>
     /// The NetworkFabric resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkFabrics_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkFabric = new AzureNative.ManagedNetworkFabric.V20230201Preview.NetworkFabric("networkFabric", new()
+    ///     {
+    ///         FabricASN = 29249,
+    ///         Ipv4Prefix = "10.18.0.0/19",
+    ///         Ipv6Prefix = "3FFE:FFFF:0:CD40::/59",
+    ///         Location = "eastus",
+    ///         ManagementNetworkConfiguration = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.NetworkFabricPropertiesManagementNetworkConfigurationArgs
+    ///         {
+    ///             InfrastructureVpnConfiguration = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.NetworkFabricPropertiesInfrastructureVpnConfigurationArgs
+    ///             {
+    ///                 OptionBProperties = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.FabricOptionBPropertiesArgs
+    ///                 {
+    ///                     ExportRouteTargets = new[]
+    ///                     {
+    ///                         "65046:10039",
+    ///                     },
+    ///                     ImportRouteTargets = new[]
+    ///                     {
+    ///                         "65046:10039",
+    ///                     },
+    ///                 },
+    ///                 PeeringOption = "OptionA",
+    ///             },
+    ///             WorkloadVpnConfiguration = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.NetworkFabricPropertiesWorkloadVpnConfigurationArgs
+    ///             {
+    ///                 OptionBProperties = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.FabricOptionBPropertiesArgs
+    ///                 {
+    ///                     ExportRouteTargets = new[]
+    ///                     {
+    ///                         "65046:10050",
+    ///                     },
+    ///                     ImportRouteTargets = new[]
+    ///                     {
+    ///                         "65046:10050",
+    ///                     },
+    ///                 },
+    ///                 PeeringOption = "OptionA",
+    ///             },
+    ///         },
+    ///         NetworkFabricControllerId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+    ///         NetworkFabricName = "FabricName",
+    ///         NetworkFabricSku = "M4-A400-A100-C16-aa",
+    ///         RackCount = 4,
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         ServerCountPerRack = 8,
+    ///         TerminalServerConfiguration = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.NetworkFabricPropertiesTerminalServerConfigurationArgs
+    ///         {
+    ///             Password = "xxxx",
+    ///             PrimaryIpv4Prefix = "20.0.0.12/30",
+    ///             PrimaryIpv6Prefix = "3FFE:FFFF:0:CD30::a8/126",
+    ///             SecondaryIpv4Prefix = "20.0.0.13/30",
+    ///             SecondaryIpv6Prefix = "3FFE:FFFF:0:CD30::ac/126",
+    ///             SerialNumber = "123456",
+    ///             Username = "username",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkFabric FabricName /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric/v20230201preview:NetworkFabric")]
     public partial class NetworkFabric : global::Pulumi.CustomResource

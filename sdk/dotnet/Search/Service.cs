@@ -13,6 +13,257 @@ namespace Pulumi.AzureNative.Search
     /// Describes an Azure Cognitive Search service and its current state.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SearchCreateOrUpdateService
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.Search.Service("service", new()
+    ///     {
+    ///         HostingMode = AzureNative.Search.HostingMode.Default,
+    ///         Location = "westus",
+    ///         PartitionCount = 1,
+    ///         ReplicaCount = 3,
+    ///         ResourceGroupName = "rg1",
+    ///         SearchServiceName = "mysearchservice",
+    ///         Sku = new AzureNative.Search.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.Search.SkuName.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "app-name", "My e-commerce app" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceAuthOptions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.Search.Service("service", new()
+    ///     {
+    ///         AuthOptions = new AzureNative.Search.Inputs.DataPlaneAuthOptionsArgs
+    ///         {
+    ///             AadOrApiKey = new AzureNative.Search.Inputs.DataPlaneAadOrApiKeyAuthOptionArgs
+    ///             {
+    ///                 AadAuthFailureMode = AzureNative.Search.AadAuthFailureMode.Http401WithBearerChallenge,
+    ///             },
+    ///         },
+    ///         HostingMode = AzureNative.Search.HostingMode.Default,
+    ///         Location = "westus",
+    ///         PartitionCount = 1,
+    ///         ReplicaCount = 3,
+    ///         ResourceGroupName = "rg1",
+    ///         SearchServiceName = "mysearchservice",
+    ///         Sku = new AzureNative.Search.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.Search.SkuName.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "app-name", "My e-commerce app" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceDisableLocalAuth
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.Search.Service("service", new()
+    ///     {
+    ///         DisableLocalAuth = true,
+    ///         HostingMode = AzureNative.Search.HostingMode.Default,
+    ///         Location = "westus",
+    ///         PartitionCount = 1,
+    ///         ReplicaCount = 3,
+    ///         ResourceGroupName = "rg1",
+    ///         SearchServiceName = "mysearchservice",
+    ///         Sku = new AzureNative.Search.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.Search.SkuName.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "app-name", "My e-commerce app" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceToAllowAccessFromPrivateEndpoints
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.Search.Service("service", new()
+    ///     {
+    ///         HostingMode = AzureNative.Search.HostingMode.Default,
+    ///         Location = "westus",
+    ///         PartitionCount = 1,
+    ///         PublicNetworkAccess = AzureNative.Search.PublicNetworkAccess.Disabled,
+    ///         ReplicaCount = 3,
+    ///         ResourceGroupName = "rg1",
+    ///         SearchServiceName = "mysearchservice",
+    ///         Sku = new AzureNative.Search.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.Search.SkuName.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "app-name", "My e-commerce app" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceToAllowAccessFromPublicCustomIPs
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.Search.Service("service", new()
+    ///     {
+    ///         HostingMode = AzureNative.Search.HostingMode.Default,
+    ///         Location = "westus",
+    ///         NetworkRuleSet = new AzureNative.Search.Inputs.NetworkRuleSetArgs
+    ///         {
+    ///             IpRules = new[]
+    ///             {
+    ///                 new AzureNative.Search.Inputs.IpRuleArgs
+    ///                 {
+    ///                     Value = "123.4.5.6",
+    ///                 },
+    ///                 new AzureNative.Search.Inputs.IpRuleArgs
+    ///                 {
+    ///                     Value = "123.4.6.0/18",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PartitionCount = 1,
+    ///         ReplicaCount = 1,
+    ///         ResourceGroupName = "rg1",
+    ///         SearchServiceName = "mysearchservice",
+    ///         Sku = new AzureNative.Search.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.Search.SkuName.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "app-name", "My e-commerce app" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceWithCmkEnforcement
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.Search.Service("service", new()
+    ///     {
+    ///         EncryptionWithCmk = new AzureNative.Search.Inputs.EncryptionWithCmkArgs
+    ///         {
+    ///             Enforcement = AzureNative.Search.SearchEncryptionWithCmk.Enabled,
+    ///         },
+    ///         HostingMode = AzureNative.Search.HostingMode.Default,
+    ///         Location = "westus",
+    ///         PartitionCount = 1,
+    ///         ReplicaCount = 3,
+    ///         ResourceGroupName = "rg1",
+    ///         SearchServiceName = "mysearchservice",
+    ///         Sku = new AzureNative.Search.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.Search.SkuName.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "app-name", "My e-commerce app" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SearchCreateOrUpdateServiceWithIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.Search.Service("service", new()
+    ///     {
+    ///         HostingMode = AzureNative.Search.HostingMode.Default,
+    ///         Identity = new AzureNative.Search.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.Search.IdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "westus",
+    ///         PartitionCount = 1,
+    ///         ReplicaCount = 3,
+    ///         ResourceGroupName = "rg1",
+    ///         SearchServiceName = "mysearchservice",
+    ///         Sku = new AzureNative.Search.Inputs.SkuArgs
+    ///         {
+    ///             Name = AzureNative.Search.SkuName.Standard,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "app-name", "My e-commerce app" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:search:Service mysearchservice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:search:Service")]
     public partial class Service : global::Pulumi.CustomResource

@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a virtual network link.
+ *
+ * ## Example Usage
+ * ### Upsert virtual network link to a DNS forwarding ruleset
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetworkLink = new azure_native.network.v20220701.VirtualNetworkLink("virtualNetworkLink", {
+ *     dnsForwardingRulesetName: "sampleDnsForwardingRuleset",
+ *     metadata: {
+ *         additionalProp1: "value1",
+ *     },
+ *     resourceGroupName: "sampleResourceGroup",
+ *     virtualNetwork: {
+ *         id: "/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+ *     },
+ *     virtualNetworkLinkName: "sampleVirtualNetworkLink",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220701:VirtualNetworkLink sampleVirtualNetworkLink /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRuleset/sampleDnsForwardingRuleset/virtualNetworkLinks/sampleVirtualNetworkLink 
+ * ```
  */
 export class VirtualNetworkLink extends pulumi.CustomResource {
     /**

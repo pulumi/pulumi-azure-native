@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.AVS
     /// An HCX Enterprise Site resource
     /// API Version: 2022-05-01.
     /// Previous API Version: 2020-03-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### HcxEnterpriseSites_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hcxEnterpriseSite = new AzureNative.AVS.HcxEnterpriseSite("hcxEnterpriseSite", new()
+    ///     {
+    ///         HcxEnterpriseSiteName = "site1",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs:HcxEnterpriseSite site1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/hcxEnterpriseSites/site1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:HcxEnterpriseSite")]
     public partial class HcxEnterpriseSite : global::Pulumi.CustomResource

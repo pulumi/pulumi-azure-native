@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a relation between two resources
+ *
+ * ## Example Usage
+ * ### Creates or updates a bookmark relation.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bookmarkRelation = new azure_native.securityinsights.v20190101preview.BookmarkRelation("bookmarkRelation", {
+ *     bookmarkId: "2216d0e1-91e3-4902-89fd-d2df8c535096",
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     relatedResourceId: "/subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/afbd324f-6c48-459c-8710-8d1e1cd03812",
+ *     relationName: "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20190101preview:BookmarkRelation 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096/relations/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+ * ```
  */
 export class BookmarkRelation extends pulumi.CustomResource {
     /**

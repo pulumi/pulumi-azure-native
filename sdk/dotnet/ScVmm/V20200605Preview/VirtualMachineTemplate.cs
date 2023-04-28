@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.ScVmm.V20200605Preview
 {
     /// <summary>
     /// The VirtualMachineTemplates resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualMachineTemplate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineTemplate = new AzureNative.ScVmm.V20200605Preview.VirtualMachineTemplate("virtualMachineTemplate", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.ScVmm.V20200605Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+    ///             Type = "customLocation",
+    ///         },
+    ///         Location = "East US",
+    ///         ResourceGroupName = "testrg",
+    ///         Uuid = "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    ///         VirtualMachineTemplateName = "HRVirtualMachineTemplate",
+    ///         VmmServerId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scvmm/v20200605preview:VirtualMachineTemplate HRVirtualMachineTemplate /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualMachineTemplates/HRVirtualMachineTemplate 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm/v20200605preview:VirtualMachineTemplate")]
     public partial class VirtualMachineTemplate : global::Pulumi.CustomResource

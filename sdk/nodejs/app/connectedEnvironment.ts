@@ -10,6 +10,40 @@ import * as utilities from "../utilities";
 /**
  * An environment for Kubernetes cluster specialized for web workloads by Azure App Service
  * API Version: 2022-10-01.
+ *
+ * ## Example Usage
+ * ### Create kube environments
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connectedEnvironment = new azure_native.app.ConnectedEnvironment("connectedEnvironment", {
+ *     connectedEnvironmentName: "testenv",
+ *     customDomainConfiguration: {
+ *         certificatePassword: "private key password",
+ *         certificateValue: "Y2VydA==",
+ *         dnsSuffix: "www.my-name.com",
+ *     },
+ *     daprAIConnectionString: "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
+ *     extendedLocation: {
+ *         name: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.ExtendedLocation/customLocations/testcustomlocation",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "East US",
+ *     resourceGroupName: "examplerg",
+ *     staticIp: "1.2.3.4",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app:ConnectedEnvironment testenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/connectedEnvironments/testenv 
+ * ```
  */
 export class ConnectedEnvironment extends pulumi.CustomResource {
     /**

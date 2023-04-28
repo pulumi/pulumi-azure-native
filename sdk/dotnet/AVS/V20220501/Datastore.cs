@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.AVS.V20220501
 {
     /// <summary>
     /// A datastore resource
+    /// 
+    /// ## Example Usage
+    /// ### Datastores_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var datastore = new AzureNative.AVS.V20220501.Datastore("datastore", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         DatastoreName = "datastore1",
+    ///         NetAppVolume = new AzureNative.AVS.V20220501.Inputs.NetAppVolumeArgs
+    ///         {
+    ///             Id = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/ResourceGroup1/providers/Microsoft.NetApp/netAppAccounts/NetAppAccount1/capacityPools/CapacityPool1/volumes/NFSVol1",
+    ///         },
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20220501:Datastore datastore1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/datastores/datastore1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20220501:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource

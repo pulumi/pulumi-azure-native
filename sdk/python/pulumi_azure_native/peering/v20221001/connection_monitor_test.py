@@ -145,6 +145,32 @@ class ConnectionMonitorTest(pulumi.CustomResource):
         """
         The Connection Monitor Test class.
 
+        ## Example Usage
+        ### Create or Update Connection Monitor Test
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor_test = azure_native.peering.v20221001.ConnectionMonitorTest("connectionMonitorTest",
+            connection_monitor_test_name="connectionMonitorTestName",
+            destination="Example Destination",
+            destination_port=443,
+            peering_service_name="peeringServiceName",
+            resource_group_name="rgName",
+            source_agent="Example Source Agent",
+            test_frequency_in_sec=30)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20221001:ConnectionMonitorTest connectionMonitorTestName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName/connectionMonitorTests/connectionMonitorTestName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_monitor_test_name: The name of the connection monitor test
@@ -163,6 +189,32 @@ class ConnectionMonitorTest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Connection Monitor Test class.
+
+        ## Example Usage
+        ### Create or Update Connection Monitor Test
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_monitor_test = azure_native.peering.v20221001.ConnectionMonitorTest("connectionMonitorTest",
+            connection_monitor_test_name="connectionMonitorTestName",
+            destination="Example Destination",
+            destination_port=443,
+            peering_service_name="peeringServiceName",
+            resource_group_name="rgName",
+            source_agent="Example Source Agent",
+            test_frequency_in_sec=30)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20221001:ConnectionMonitorTest connectionMonitorTestName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName/connectionMonitorTests/connectionMonitorTestName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionMonitorTestArgs args: The arguments to use to populate this resource's properties.

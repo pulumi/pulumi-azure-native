@@ -11,6 +11,149 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220901Preview
 {
     /// <summary>
     /// Represents NRT alert rule.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a Fusion alert rule with scenario exclusion pattern.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nrtAlertRule = new AzureNative.SecurityInsights.V20220901Preview.NrtAlertRule("nrtAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "myFirstFusionRule",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Fusion alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nrtAlertRule = new AzureNative.SecurityInsights.V20220901Preview.NrtAlertRule("nrtAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "myFirstFusionRule",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nrtAlertRule = new AzureNative.SecurityInsights.V20220901Preview.NrtAlertRule("nrtAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "microsoftSecurityIncidentCreationRuleExample",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Nrt alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nrtAlertRule = new AzureNative.SecurityInsights.V20220901Preview.NrtAlertRule("nrtAlertRule", new()
+    ///     {
+    ///         Description = "",
+    ///         DisplayName = "Rule2",
+    ///         Enabled = true,
+    ///         EventGroupingSettings = new AzureNative.SecurityInsights.V20220901Preview.Inputs.EventGroupingSettingsArgs
+    ///         {
+    ///             AggregationKind = "AlertPerResult",
+    ///         },
+    ///         IncidentConfiguration = new AzureNative.SecurityInsights.V20220901Preview.Inputs.IncidentConfigurationArgs
+    ///         {
+    ///             CreateIncident = true,
+    ///             GroupingConfiguration = new AzureNative.SecurityInsights.V20220901Preview.Inputs.GroupingConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 GroupByEntities = new[]
+    ///                 {
+    ///                     "Host",
+    ///                     "Account",
+    ///                 },
+    ///                 LookbackDuration = "PT5H",
+    ///                 MatchingMethod = "Selected",
+    ///                 ReopenClosedIncident = false,
+    ///             },
+    ///         },
+    ///         Kind = "NRT",
+    ///         Query = "ProtectionStatus | extend HostCustomEntity = Computer | extend IPCustomEntity = ComputerIP_Hidden",
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         Severity = "High",
+    ///         SuppressionDuration = "PT1H",
+    ///         SuppressionEnabled = false,
+    ///         Tactics = new[]
+    ///         {
+    ///             "Persistence",
+    ///             "LateralMovement",
+    ///         },
+    ///         Techniques = new[]
+    ///         {
+    ///             "T1037",
+    ///             "T1021",
+    ///         },
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Scheduled alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var nrtAlertRule = new AzureNative.SecurityInsights.V20220901Preview.NrtAlertRule("nrtAlertRule", new()
+    ///     {
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20220901preview:NrtAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220901preview:NrtAlertRule")]
     public partial class NrtAlertRule : global::Pulumi.CustomResource

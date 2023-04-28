@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a container registry.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20160627preview:Registry myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerRegistry/registries/{registryName} 
+ * ```
  */
 export class Registry extends pulumi.CustomResource {
     /**

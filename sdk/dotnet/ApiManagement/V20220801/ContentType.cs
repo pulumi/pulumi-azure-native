@@ -11,6 +11,93 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Content type contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateContentType
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var contentType = new AzureNative.ApiManagement.V20220801.ContentType("contentType", new()
+    ///     {
+    ///         ContentTypeId = "page",
+    ///         Description = "A regular page",
+    ///         Name = "Page",
+    ///         ResourceGroupName = "rg1",
+    ///         Schema = 
+    ///         {
+    ///             { "additionalProperties", false },
+    ///             { "properties", 
+    ///             {
+    ///                 { "en_us", 
+    ///                 {
+    ///                     { "additionalProperties", false },
+    ///                     { "properties", 
+    ///                     {
+    ///                         { "description", 
+    ///                         {
+    ///                             { "description", "Page description. This property gets included in SEO attributes." },
+    ///                             { "indexed", true },
+    ///                             { "title", "Description" },
+    ///                             { "type", "string" },
+    ///                         } },
+    ///                         { "documentId", 
+    ///                         {
+    ///                             { "description", "Reference to page content document." },
+    ///                             { "title", "Document ID" },
+    ///                             { "type", "string" },
+    ///                         } },
+    ///                         { "keywords", 
+    ///                         {
+    ///                             { "description", "Page keywords. This property gets included in SEO attributes." },
+    ///                             { "indexed", true },
+    ///                             { "title", "Keywords" },
+    ///                             { "type", "string" },
+    ///                         } },
+    ///                         { "permalink", 
+    ///                         {
+    ///                             { "description", "Page permalink, e.g. '/about'." },
+    ///                             { "indexed", true },
+    ///                             { "title", "Permalink" },
+    ///                             { "type", "string" },
+    ///                         } },
+    ///                         { "title", 
+    ///                         {
+    ///                             { "description", "Page title. This property gets included in SEO attributes." },
+    ///                             { "indexed", true },
+    ///                             { "title", "Title" },
+    ///                             { "type", "string" },
+    ///                         } },
+    ///                     } },
+    ///                     { "required", new[]
+    ///                     {
+    ///                         "title",
+    ///                         "permalink",
+    ///                         "documentId",
+    ///                     } },
+    ///                     { "type", "object" },
+    ///                 } },
+    ///             } },
+    ///         },
+    ///         ServiceName = "apimService1",
+    ///         Version = "1.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:ContentType page /contentTypes/page 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:ContentType")]
     public partial class ContentType : global::Pulumi.CustomResource

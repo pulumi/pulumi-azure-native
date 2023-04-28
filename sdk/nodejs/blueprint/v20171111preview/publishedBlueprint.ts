@@ -10,6 +10,29 @@ import * as utilities from "../../utilities";
 /**
  * Represents a published Blueprint.
  *
+ * ## Example Usage
+ * ### PublishedBlueprint_Publish
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const publishedBlueprint = new azure_native.blueprint.v20171111preview.PublishedBlueprint("publishedBlueprint", {
+ *     blueprintName: "simpleBlueprint",
+ *     managementGroupName: "ContosoOnlineGroup",
+ *     versionId: "v2",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blueprint/v20171111preview:PublishedBlueprint v2 /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+ * ```
+ *
  * @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
  */
 export class PublishedBlueprint extends pulumi.CustomResource {

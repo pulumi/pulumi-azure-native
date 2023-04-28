@@ -149,6 +149,50 @@ class Volume(pulumi.CustomResource):
         API Version: 2021-11-20-preview.
         Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Volumes_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.elasticsan.Volume("volume",
+            creation_data=azure_native.elasticsan.SourceCreationDataArgs(
+                create_source=azure_native.elasticsan.VolumeCreateOption.NONE,
+                source_uri="aaaaaa",
+            ),
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            resource_group_name="rgelasticsan",
+            size_gi_b=22,
+            tags={
+                "key7423": "aaaa",
+            },
+            volume_group_name="u_5I_1j4t3",
+            volume_name="9132y")
+
+        ```
+        ### Volumes_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.elasticsan.Volume("volume",
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            resource_group_name="rgelasticsan",
+            volume_group_name="u_5I_1j4t3",
+            volume_name="9132y")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elasticsan:Volume aaaaaaaaaaaa aaaaaaaa 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SourceCreationDataArgs']] creation_data: State of the operation on the resource.
@@ -169,6 +213,50 @@ class Volume(pulumi.CustomResource):
         Response for Volume request.
         API Version: 2021-11-20-preview.
         Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Volumes_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.elasticsan.Volume("volume",
+            creation_data=azure_native.elasticsan.SourceCreationDataArgs(
+                create_source=azure_native.elasticsan.VolumeCreateOption.NONE,
+                source_uri="aaaaaa",
+            ),
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            resource_group_name="rgelasticsan",
+            size_gi_b=22,
+            tags={
+                "key7423": "aaaa",
+            },
+            volume_group_name="u_5I_1j4t3",
+            volume_name="9132y")
+
+        ```
+        ### Volumes_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.elasticsan.Volume("volume",
+            elastic_san_name="ti7q-k952-1qB3J_5",
+            resource_group_name="rgelasticsan",
+            volume_group_name="u_5I_1j4t3",
+            volume_name="9132y")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:elasticsan:Volume aaaaaaaaaaaa aaaaaaaa 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

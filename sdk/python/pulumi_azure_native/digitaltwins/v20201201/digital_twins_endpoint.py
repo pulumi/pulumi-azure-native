@@ -96,6 +96,52 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
         """
         DigitalTwinsInstance endpoint resource.
 
+        ## Example Usage
+        ### Put a DigitalTwinsInstance resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twins_endpoint = azure_native.digitaltwins.v20201201.DigitalTwinsEndpoint("digitalTwinsEndpoint",
+            endpoint_name="myServiceBus",
+            properties=azure_native.digitaltwins.v20201201.ServiceBusArgs(
+                authentication_type="KeyBased",
+                endpoint_type="ServiceBus",
+                primary_connection_string="Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+                secondary_connection_string="Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+        ### Put a DigitalTwinsInstance resource with identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twins_endpoint = azure_native.digitaltwins.v20201201.DigitalTwinsEndpoint("digitalTwinsEndpoint",
+            endpoint_name="myServiceBus",
+            properties=azure_native.digitaltwins.v20201201.ServiceBusArgs(
+                authentication_type="IdentityBased",
+                endpoint_type="ServiceBus",
+                endpoint_uri="sb://mysb.servicebus.windows.net/",
+                entity_path="mysbtopic",
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint myServiceBus /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/endpoints/myServiceBus 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name of Endpoint Resource.
@@ -111,6 +157,52 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         DigitalTwinsInstance endpoint resource.
+
+        ## Example Usage
+        ### Put a DigitalTwinsInstance resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twins_endpoint = azure_native.digitaltwins.v20201201.DigitalTwinsEndpoint("digitalTwinsEndpoint",
+            endpoint_name="myServiceBus",
+            properties=azure_native.digitaltwins.v20201201.ServiceBusArgs(
+                authentication_type="KeyBased",
+                endpoint_type="ServiceBus",
+                primary_connection_string="Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+                secondary_connection_string="Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+        ### Put a DigitalTwinsInstance resource with identity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        digital_twins_endpoint = azure_native.digitaltwins.v20201201.DigitalTwinsEndpoint("digitalTwinsEndpoint",
+            endpoint_name="myServiceBus",
+            properties=azure_native.digitaltwins.v20201201.ServiceBusArgs(
+                authentication_type="IdentityBased",
+                endpoint_type="ServiceBus",
+                endpoint_uri="sb://mysb.servicebus.windows.net/",
+                entity_path="mysbtopic",
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint myServiceBus /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/endpoints/myServiceBus 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DigitalTwinsEndpointArgs args: The arguments to use to populate this resource's properties.

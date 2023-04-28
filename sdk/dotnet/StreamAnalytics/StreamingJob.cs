@@ -13,6 +13,142 @@ namespace Pulumi.AzureNative.StreamAnalytics
     /// A streaming job object, containing all information associated with the named streaming job.
     /// API Version: 2020-03-01.
     /// Previous API Version: 2016-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a complete streaming job (a streaming job with a transformation, at least 1 input and at least 1 output)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingJob = new AzureNative.StreamAnalytics.StreamingJob("streamingJob", new()
+    ///     {
+    ///         CompatibilityLevel = "1.0",
+    ///         DataLocale = "en-US",
+    ///         EventsLateArrivalMaxDelayInSeconds = 5,
+    ///         EventsOutOfOrderMaxDelayInSeconds = 0,
+    ///         EventsOutOfOrderPolicy = "Drop",
+    ///         Functions = new[] {},
+    ///         Inputs = new[]
+    ///         {
+    ///             new AzureNative.StreamAnalytics.Inputs.InputArgs
+    ///             {
+    ///                 Name = "inputtest",
+    ///                 Properties = new AzureNative.StreamAnalytics.Inputs.StreamInputPropertiesArgs
+    ///                 {
+    ///                     Datasource = new AzureNative.StreamAnalytics.Inputs.BlobStreamInputDataSourceArgs
+    ///                     {
+    ///                         Container = "containerName",
+    ///                         PathPattern = "",
+    ///                         StorageAccounts = new[]
+    ///                         {
+    ///                             new AzureNative.StreamAnalytics.Inputs.StorageAccountArgs
+    ///                             {
+    ///                                 AccountKey = "yourAccountKey==",
+    ///                                 AccountName = "yourAccountName",
+    ///                             },
+    ///                         },
+    ///                         Type = "Microsoft.Storage/Blob",
+    ///                     },
+    ///                     Serialization = new AzureNative.StreamAnalytics.Inputs.JsonSerializationArgs
+    ///                     {
+    ///                         Encoding = "UTF8",
+    ///                         Type = "Json",
+    ///                     },
+    ///                     Type = "Stream",
+    ///                 },
+    ///             },
+    ///         },
+    ///         JobName = "sj7804",
+    ///         Location = "West US",
+    ///         OutputErrorPolicy = "Drop",
+    ///         Outputs = new[]
+    ///         {
+    ///             new AzureNative.StreamAnalytics.Inputs.OutputArgs
+    ///             {
+    ///                 Datasource = new AzureNative.StreamAnalytics.Inputs.AzureSqlDatabaseOutputDataSourceArgs
+    ///                 {
+    ///                     Database = "databaseName",
+    ///                     Password = "userPassword",
+    ///                     Server = "serverName",
+    ///                     Table = "tableName",
+    ///                     Type = "Microsoft.Sql/Server/Database",
+    ///                     User = "&lt;user&gt;",
+    ///                 },
+    ///                 Name = "outputtest",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "sjrg3276",
+    ///         Sku = new AzureNative.StreamAnalytics.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key3", "value3" },
+    ///             { "randomKey", "randomValue" },
+    ///         },
+    ///         Transformation = new AzureNative.StreamAnalytics.Inputs.TransformationArgs
+    ///         {
+    ///             Name = "transformationtest",
+    ///             Query = "Select Id, Name from inputtest",
+    ///             StreamingUnits = 1,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a streaming job shell (a streaming job with no inputs, outputs, transformation, or functions)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingJob = new AzureNative.StreamAnalytics.StreamingJob("streamingJob", new()
+    ///     {
+    ///         CompatibilityLevel = "1.0",
+    ///         DataLocale = "en-US",
+    ///         EventsLateArrivalMaxDelayInSeconds = 16,
+    ///         EventsOutOfOrderMaxDelayInSeconds = 5,
+    ///         EventsOutOfOrderPolicy = "Drop",
+    ///         Functions = new[] {},
+    ///         Inputs = new[] {},
+    ///         JobName = "sj59",
+    ///         Location = "West US",
+    ///         OutputErrorPolicy = "Drop",
+    ///         Outputs = new[] {},
+    ///         ResourceGroupName = "sjrg6936",
+    ///         Sku = new AzureNative.StreamAnalytics.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key3", "value3" },
+    ///             { "randomKey", "randomValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:streamanalytics:StreamingJob sj59 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg6936/providers/Microsoft.StreamAnalytics/streamingjobs/sj59 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics:StreamingJob")]
     public partial class StreamingJob : global::Pulumi.CustomResource

@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.HybridCompute.V20190802Preview
 {
     /// <summary>
     /// Describes a Machine Extension.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine Extension
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineExtension = new AzureNative.HybridCompute.V20190802Preview.MachineExtension("machineExtension", new()
+    ///     {
+    ///         AutoUpgradeMinorVersion = true,
+    ///         ExtensionName = "MMA",
+    ///         ForceUpdateTag = "false",
+    ///         InstanceView = new AzureNative.HybridCompute.V20190802Preview.Inputs.MachineExtensionInstanceViewArgs
+    ///         {
+    ///             Name = "string",
+    ///             Status = new AzureNative.HybridCompute.V20190802Preview.Inputs.MachineExtensionInstanceViewStatusArgs
+    ///             {
+    ///                 Code = "string",
+    ///                 DisplayStatus = "string",
+    ///                 Level = AzureNative.HybridCompute.V20190802Preview.StatusLevelTypes.Info,
+    ///                 Message = "string",
+    ///                 Time = "2019-08-08T20:36:46.620Z",
+    ///             },
+    ///             Type = "string",
+    ///             TypeHandlerVersion = "string",
+    ///         },
+    ///         Location = "string",
+    ///         Name = "myMachine",
+    ///         ProtectedSettings = null,
+    ///         Publisher = "Publisher1",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Settings = null,
+    ///         TypeHandlerVersion = "1.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute/v20190802preview:MachineExtension string string 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-08-02-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:hybridcompute/v20190802preview:MachineExtension")]

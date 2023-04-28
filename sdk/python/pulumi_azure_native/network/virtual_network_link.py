@@ -114,6 +114,34 @@ class VirtualNetworkLink(pulumi.CustomResource):
         API Version: 2022-07-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Upsert virtual network link to a DNS forwarding ruleset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_link = azure_native.network.VirtualNetworkLink("virtualNetworkLink",
+            dns_forwarding_ruleset_name="sampleDnsForwardingRuleset",
+            metadata={
+                "additionalProp1": "value1",
+            },
+            resource_group_name="sampleResourceGroup",
+            virtual_network=azure_native.network.SubResourceArgs(
+                id="/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+            ),
+            virtual_network_link_name="sampleVirtualNetworkLink")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkLink sampleVirtualNetworkLink /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRuleset/sampleDnsForwardingRuleset/virtualNetworkLinks/sampleVirtualNetworkLink 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -132,6 +160,34 @@ class VirtualNetworkLink(pulumi.CustomResource):
         Describes a virtual network link.
         API Version: 2022-07-01.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Upsert virtual network link to a DNS forwarding ruleset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_link = azure_native.network.VirtualNetworkLink("virtualNetworkLink",
+            dns_forwarding_ruleset_name="sampleDnsForwardingRuleset",
+            metadata={
+                "additionalProp1": "value1",
+            },
+            resource_group_name="sampleResourceGroup",
+            virtual_network=azure_native.network.SubResourceArgs(
+                id="/subscriptions/0403cfa9-9659-4f33-9f30-1f191c51d111/resourceGroups/sampleVnetResourceGroupName/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+            ),
+            virtual_network_link_name="sampleVirtualNetworkLink")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VirtualNetworkLink sampleVirtualNetworkLink /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRuleset/sampleDnsForwardingRuleset/virtualNetworkLinks/sampleVirtualNetworkLink 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkLinkArgs args: The arguments to use to populate this resource's properties.

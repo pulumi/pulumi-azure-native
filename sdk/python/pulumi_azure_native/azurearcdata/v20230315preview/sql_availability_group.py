@@ -114,6 +114,45 @@ class SqlAvailabilityGroup(pulumi.CustomResource):
         """
         A SqlAvailabilityGroup.
 
+        ## Example Usage
+        ### Updates a SQL Availability Group tags.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_availability_group = azure_native.azurearcdata.v20230315preview.SqlAvailabilityGroup("sqlAvailabilityGroup",
+            location="northeurope",
+            properties=azure_native.azurearcdata.v20230315preview.SqlAvailabilityGroupPropertiesResponseArgs(
+                availability_group_id="00000000-1111-2222-3333-444444444444",
+                availability_group_name="myAvailabilityGroup",
+                basic_features=False,
+                cluster_type_desc="WSFC",
+                collection_timestamp="2022-05-05T16:26:33.883Z",
+                db_failover=True,
+                dtc_support=False,
+                instance_name="testInstance",
+                is_contained=False,
+                is_distributed=False,
+                required_synchronized_secondaries_commit=0,
+                version=0,
+            ),
+            resource_group_name="testrg",
+            sql_availability_group_name="testsqlAvailabilityGroup",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20230315preview:SqlAvailabilityGroup testsqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlAvailabilityGroups/testsqlAvailabilityGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -130,6 +169,45 @@ class SqlAvailabilityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A SqlAvailabilityGroup.
+
+        ## Example Usage
+        ### Updates a SQL Availability Group tags.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_availability_group = azure_native.azurearcdata.v20230315preview.SqlAvailabilityGroup("sqlAvailabilityGroup",
+            location="northeurope",
+            properties=azure_native.azurearcdata.v20230315preview.SqlAvailabilityGroupPropertiesResponseArgs(
+                availability_group_id="00000000-1111-2222-3333-444444444444",
+                availability_group_name="myAvailabilityGroup",
+                basic_features=False,
+                cluster_type_desc="WSFC",
+                collection_timestamp="2022-05-05T16:26:33.883Z",
+                db_failover=True,
+                dtc_support=False,
+                instance_name="testInstance",
+                is_contained=False,
+                is_distributed=False,
+                required_synchronized_secondaries_commit=0,
+                version=0,
+            ),
+            resource_group_name="testrg",
+            sql_availability_group_name="testsqlAvailabilityGroup",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20230315preview:SqlAvailabilityGroup testsqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlAvailabilityGroups/testsqlAvailabilityGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlAvailabilityGroupArgs args: The arguments to use to populate this resource's properties.

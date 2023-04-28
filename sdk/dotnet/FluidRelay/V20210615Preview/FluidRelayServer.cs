@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.FluidRelay.V20210615Preview
 {
     /// <summary>
     /// A FluidRelay Server.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Fluid Relay server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fluidRelayServer = new AzureNative.FluidRelay.V20210615Preview.FluidRelayServer("fluidRelayServer", new()
+    ///     {
+    ///         Identity = new AzureNative.FluidRelay.V20210615Preview.Inputs.IdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "west-us",
+    ///         Name = "myFluidRelayServer",
+    ///         ResourceGroup = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "Category", "sales" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:fluidrelay/v20210615preview:FluidRelayServer myFluidRelayServer /subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/Microsoft.FluidRelay/fluidRelayServers/myFluidRelayServer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:fluidrelay/v20210615preview:FluidRelayServer")]
     public partial class FluidRelayServer : global::Pulumi.CustomResource

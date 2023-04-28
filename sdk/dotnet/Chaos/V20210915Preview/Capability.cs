@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Chaos.V20210915Preview
 {
     /// <summary>
     /// Model that represents a Capability resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create/update a Capability that extends a virtual machine Target resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var capability = new AzureNative.Chaos.V20210915Preview.Capability("capability", new()
+    ///     {
+    ///         CapabilityName = "Shutdown-1.0",
+    ///         ParentProviderNamespace = "Microsoft.Compute",
+    ///         ParentResourceName = "exampleVM",
+    ///         ParentResourceType = "virtualMachines",
+    ///         ResourceGroupName = "exampleRG",
+    ///         TargetName = "Microsoft-VirtualMachine",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:chaos/v20210915preview:Capability Shutdown-1.0 /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/Shutdown-1.0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:chaos/v20210915preview:Capability")]
     public partial class Capability : global::Pulumi.CustomResource

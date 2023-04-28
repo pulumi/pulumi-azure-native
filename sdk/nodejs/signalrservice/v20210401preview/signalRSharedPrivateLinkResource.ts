@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Shared Private Link Resource
+ *
+ * ## Example Usage
+ * ### SignalRSharedPrivateLinkResources_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const signalRSharedPrivateLinkResource = new azure_native.signalrservice.v20210401preview.SignalRSharedPrivateLinkResource("signalRSharedPrivateLinkResource", {
+ *     groupId: "sites",
+ *     privateLinkResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp",
+ *     requestMessage: "Please approve",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "mySignalRService",
+ *     sharedPrivateLinkResourceName: "upstream",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:signalrservice/v20210401preview:SignalRSharedPrivateLinkResource upstream /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/privateEndpointConnections/upstream 
+ * ```
  */
 export class SignalRSharedPrivateLinkResource extends pulumi.CustomResource {
     /**

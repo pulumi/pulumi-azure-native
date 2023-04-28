@@ -11,6 +11,62 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// An Azure SQL managed instance administrator.
+    /// 
+    /// ## Example Usage
+    /// ### Create administrator of managed instance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedInstanceAdministrator = new AzureNative.Sql.V20220801Preview.ManagedInstanceAdministrator("managedInstanceAdministrator", new()
+    ///     {
+    ///         AdministratorName = "ActiveDirectory",
+    ///         AdministratorType = "ActiveDirectory",
+    ///         Login = "bob@contoso.com",
+    ///         ManagedInstanceName = "managedInstance",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         Sid = "44444444-3333-2222-1111-000000000000",
+    ///         TenantId = "55555555-4444-3333-2222-111111111111",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update administrator of managed instance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedInstanceAdministrator = new AzureNative.Sql.V20220801Preview.ManagedInstanceAdministrator("managedInstanceAdministrator", new()
+    ///     {
+    ///         AdministratorName = "ActiveDirectory",
+    ///         AdministratorType = "ActiveDirectory",
+    ///         Login = "bob@contoso.com",
+    ///         ManagedInstanceName = "managedInstance",
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         Sid = "44444444-3333-2222-1111-000000000000",
+    ///         TenantId = "55555555-4444-3333-2222-111111111111",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:ManagedInstanceAdministrator ActiveDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/managedInstances/managedInstance/administrators/ActiveDirectory 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:ManagedInstanceAdministrator")]
     public partial class ManagedInstanceAdministrator : global::Pulumi.CustomResource

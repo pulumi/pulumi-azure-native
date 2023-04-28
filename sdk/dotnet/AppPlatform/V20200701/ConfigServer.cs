@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
 {
     /// <summary>
     /// Config Server resource
+    /// 
+    /// ## Example Usage
+    /// ### ConfigServers_UpdatePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configServer = new AzureNative.AppPlatform.V20200701.ConfigServer("configServer", new()
+    ///     {
+    ///         Properties = new AzureNative.AppPlatform.V20200701.Inputs.ConfigServerPropertiesArgs
+    ///         {
+    ///             ConfigServer = new AzureNative.AppPlatform.V20200701.Inputs.ConfigServerSettingsArgs
+    ///             {
+    ///                 GitProperty = new AzureNative.AppPlatform.V20200701.Inputs.ConfigServerGitPropertyArgs
+    ///                 {
+    ///                     Label = "master",
+    ///                     SearchPaths = new[]
+    ///                     {
+    ///                         "/",
+    ///                     },
+    ///                     Uri = "https://github.com/fake-user/fake-repository.git",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20200701:ConfigServer default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configServers/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20200701:ConfigServer")]
     public partial class ConfigServer : global::Pulumi.CustomResource

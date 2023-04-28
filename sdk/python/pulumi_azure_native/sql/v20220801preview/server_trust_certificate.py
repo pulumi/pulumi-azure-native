@@ -94,6 +94,29 @@ class ServerTrustCertificate(pulumi.CustomResource):
         """
         Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
 
+        ## Example Usage
+        ### Create server trust certificate.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_trust_certificate = azure_native.sql.v20220801preview.ServerTrustCertificate("serverTrustCertificate",
+            certificate_name="customerCertificateName",
+            managed_instance_name="testcl",
+            public_blob="308203AE30820296A0030201020210",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerTrustCertificate customerCertificateName /subscriptions/0574222d-5c7f-489c-a172-b3013eafab53/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testcl/serverTrustCertificates/customerCertificateName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: Name of of the certificate to upload.
@@ -109,6 +132,29 @@ class ServerTrustCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
+
+        ## Example Usage
+        ### Create server trust certificate.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_trust_certificate = azure_native.sql.v20220801preview.ServerTrustCertificate("serverTrustCertificate",
+            certificate_name="customerCertificateName",
+            managed_instance_name="testcl",
+            public_blob="308203AE30820296A0030201020210",
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerTrustCertificate customerCertificateName /subscriptions/0574222d-5c7f-489c-a172-b3013eafab53/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testcl/serverTrustCertificates/customerCertificateName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerTrustCertificateArgs args: The arguments to use to populate this resource's properties.

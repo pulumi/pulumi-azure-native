@@ -11,6 +11,64 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220801
 {
     /// <summary>
     /// Represents threat intelligence data connector.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an Office365 data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tiDataConnector = new AzureNative.SecurityInsights.V20220801.TIDataConnector("tiDataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates an Threat Intelligence Platform data connector.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tiDataConnector = new AzureNative.SecurityInsights.V20220801.TIDataConnector("tiDataConnector", new()
+    ///     {
+    ///         DataConnectorId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         DataTypes = new AzureNative.SecurityInsights.V20220801.Inputs.TIDataConnectorDataTypesArgs
+    ///         {
+    ///             Indicators = new AzureNative.SecurityInsights.V20220801.Inputs.TIDataConnectorDataTypesIndicatorsArgs
+    ///             {
+    ///                 State = "Enabled",
+    ///             },
+    ///         },
+    ///         Kind = "ThreatIntelligence",
+    ///         ResourceGroupName = "myRg",
+    ///         TenantId = "06b3ccb8-1384-4bcc-aec7-852f6d57161b",
+    ///         TipLookbackPeriod = "2020-01-01T13:00:30.123Z",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20220801:TIDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20220801:TIDataConnector")]
     public partial class TIDataConnector : global::Pulumi.CustomResource

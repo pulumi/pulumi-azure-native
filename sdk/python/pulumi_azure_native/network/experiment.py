@@ -184,6 +184,38 @@ class Experiment(pulumi.CustomResource):
         API Version: 2019-11-01.
         Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates an Experiment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        experiment = azure_native.network.Experiment("experiment",
+            description="this is my first experiment!",
+            enabled_state="Enabled",
+            endpoint_a=azure_native.network.ExperimentEndpointArgs(
+                endpoint="endpointA.net",
+                name="endpoint A",
+            ),
+            endpoint_b=azure_native.network.ExperimentEndpointArgs(
+                endpoint="endpointB.net",
+                name="endpoint B",
+            ),
+            experiment_name="MyExperiment",
+            profile_name="MyProfile",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:Experiment MyExperiment /subscriptions/subid/resourceGroups/MyResourceGroup/providers/Microsoft.Network/NetworkExperimentProfiles/MyProfile/Experiments/MyExperiment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the details or intents of the Experiment
@@ -206,6 +238,38 @@ class Experiment(pulumi.CustomResource):
         Defines the properties of an Experiment
         API Version: 2019-11-01.
         Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates an Experiment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        experiment = azure_native.network.Experiment("experiment",
+            description="this is my first experiment!",
+            enabled_state="Enabled",
+            endpoint_a=azure_native.network.ExperimentEndpointArgs(
+                endpoint="endpointA.net",
+                name="endpoint A",
+            ),
+            endpoint_b=azure_native.network.ExperimentEndpointArgs(
+                endpoint="endpointB.net",
+                name="endpoint B",
+            ),
+            experiment_name="MyExperiment",
+            profile_name="MyProfile",
+            resource_group_name="MyResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:Experiment MyExperiment /subscriptions/subid/resourceGroups/MyResourceGroup/providers/Microsoft.Network/NetworkExperimentProfiles/MyProfile/Experiments/MyExperiment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExperimentArgs args: The arguments to use to populate this resource's properties.

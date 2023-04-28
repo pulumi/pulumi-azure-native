@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20210901Preview
 {
     /// <summary>
     /// The virtual hard disk resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutVirtualHardDisk
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualharddiskRetrieve = new AzureNative.AzureStackHCI.V20210901Preview.VirtualharddiskRetrieve("virtualharddiskRetrieve", new()
+    ///     {
+    ///         DiskSizeBytes = 32,
+    ///         ExtendedLocation = new AzureNative.AzureStackHCI.V20210901Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "West US2",
+    ///         ResourceGroupName = "test-rg",
+    ///         VirtualharddisksName = "test-vhd",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve test-vhd /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualharddisks/test-vhd 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve")]
     public partial class VirtualharddiskRetrieve : global::Pulumi.CustomResource

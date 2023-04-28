@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
     /// <summary>
     /// The workspace manager configuration
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a workspace manager Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceManagerConfiguration = new AzureNative.SecurityInsights.V20230401Preview.WorkspaceManagerConfiguration("workspaceManagerConfiguration", new()
+    ///     {
+    ///         Mode = "Enabled",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceManagerConfigurationName = "default",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration default /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerConfigurations/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration")]
     public partial class WorkspaceManagerConfiguration : global::Pulumi.CustomResource

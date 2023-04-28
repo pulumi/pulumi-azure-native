@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the rule collection.
+ *
+ * ## Example Usage
+ * ### Create or Update a User Rule Collection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const userRuleCollection = new azure_native.network.v20210501preview.UserRuleCollection("userRuleCollection", {
+ *     appliesToGroups: [{
+ *         networkGroupId: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+ *     }],
+ *     configurationName: "myTestSecurityConfig",
+ *     description: "A sample policy",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210501preview:UserRuleCollection myTestSecurityConfig /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityUserConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection 
+ * ```
  */
 export class UserRuleCollection extends pulumi.CustomResource {
     /**

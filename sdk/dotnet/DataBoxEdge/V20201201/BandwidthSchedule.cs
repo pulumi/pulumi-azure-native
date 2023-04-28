@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20201201
 {
     /// <summary>
     /// The bandwidth schedule details.
+    /// 
+    /// ## Example Usage
+    /// ### BandwidthSchedulePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bandwidthSchedule = new AzureNative.DataBoxEdge.V20201201.BandwidthSchedule("bandwidthSchedule", new()
+    ///     {
+    ///         Days = new[]
+    ///         {
+    ///             "Sunday",
+    ///             "Monday",
+    ///         },
+    ///         DeviceName = "testedgedevice",
+    ///         Name = "bandwidth-1",
+    ///         RateInMbps = 100,
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         Start = "0:0:0",
+    ///         Stop = "13:59:0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20201201:BandwidthSchedule bandwidth-1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/bandwidthSchedules/bandwidth-1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20201201:BandwidthSchedule")]
     public partial class BandwidthSchedule : global::Pulumi.CustomResource

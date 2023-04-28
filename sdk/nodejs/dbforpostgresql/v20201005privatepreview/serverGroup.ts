@@ -9,6 +9,106 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a server group for create.
+ *
+ * ## Example Usage
+ * ### Create a new server group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroup = new azure_native.dbforpostgresql.v20201005privatepreview.ServerGroup("serverGroup", {
+ *     administratorLogin: "citus",
+ *     administratorLoginPassword: "password",
+ *     availabilityZone: "1",
+ *     backupRetentionDays: 35,
+ *     citusVersion: "9.5",
+ *     delegatedSubnetArguments: {
+ *         subnetArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+ *     },
+ *     enableMx: true,
+ *     enableZfs: false,
+ *     location: "westus",
+ *     postgresqlVersion: "12",
+ *     privateDnsZoneArguments: {
+ *         privateDnsZoneArmResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone",
+ *     },
+ *     resourceGroupName: "TestGroup",
+ *     serverGroupName: "hsctestsg",
+ *     serverRoleGroups: [
+ *         {
+ *             enableHa: true,
+ *             name: "",
+ *             role: "Coordinator",
+ *             serverCount: 1,
+ *             serverEdition: "GeneralPurpose",
+ *             storageQuotaInMb: 524288,
+ *             vCores: 4,
+ *         },
+ *         {
+ *             enableHa: false,
+ *             name: "",
+ *             role: "Worker",
+ *             serverCount: 3,
+ *             serverEdition: "MemoryOptimized",
+ *             storageQuotaInMb: 524288,
+ *             vCores: 4,
+ *         },
+ *     ],
+ *     standbyAvailabilityZone: "2",
+ *     tags: {
+ *         ElasticServer: "1",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a new server group as a point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroup = new azure_native.dbforpostgresql.v20201005privatepreview.ServerGroup("serverGroup", {
+ *     createMode: "PointInTimeRestore",
+ *     enableMx: true,
+ *     enableZfs: false,
+ *     location: "westus",
+ *     pointInTimeUTC: "2017-12-14T00:00:37.467Z",
+ *     resourceGroupName: "TestGroup",
+ *     serverGroupName: "hsctestsg",
+ *     sourceLocation: "eastus",
+ *     sourceResourceGroupName: "SourceGroup",
+ *     sourceServerGroupName: "pgtests-source-server-group",
+ *     sourceSubscriptionId: "dddddddd-dddd-dddd-dddd-dddddddddddd",
+ * });
+ *
+ * ```
+ * ### Create a new server group as a read replica
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverGroup = new azure_native.dbforpostgresql.v20201005privatepreview.ServerGroup("serverGroup", {
+ *     createMode: "ReadReplica",
+ *     location: "westus",
+ *     resourceGroupName: "TestGroup",
+ *     serverGroupName: "hsctestsg",
+ *     sourceLocation: "eastus",
+ *     sourceResourceGroupName: "SourceGroup",
+ *     sourceServerGroupName: "pgtests-source-server-group",
+ *     sourceSubscriptionId: "dddddddd-dddd-dddd-dddd-dddddddddddd",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup hsctestsg /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/hsctestsg 
+ * ```
  */
 export class ServerGroup extends pulumi.CustomResource {
     /**

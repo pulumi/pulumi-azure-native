@@ -11,6 +11,46 @@ import * as utilities from "../utilities";
  * The container for solution.
  * API Version: 2015-11-01-preview.
  * Previous API Version: 2015-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### SolutionCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const solution = new azure_native.operationsmanagement.Solution("solution", {
+ *     location: "East US",
+ *     plan: {
+ *         name: "name1",
+ *         product: "product1",
+ *         promotionCode: "promocode1",
+ *         publisher: "publisher1",
+ *     },
+ *     properties: {
+ *         containedResources: [
+ *             "/subscriptions/sub2/resourceGroups/rg2/providers/provider1/resources/resource1",
+ *             "/subscriptions/sub2/resourceGroups/rg2/providers/provider2/resources/resource2",
+ *         ],
+ *         referencedResources: [
+ *             "/subscriptions/sub2/resourceGroups/rg2/providers/provider1/resources/resource2",
+ *             "/subscriptions/sub2/resourceGroups/rg2/providers/provider2/resources/resource3",
+ *         ],
+ *         workspaceResourceId: "/subscriptions/sub2/resourceGroups/rg2/providers/Microsoft.OperationalInsights/workspaces/ws1",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     solutionName: "solution1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationsmanagement:Solution solution1 subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationsManagement/solutions/solution1 
+ * ```
  */
 export class Solution extends pulumi.CustomResource {
     /**

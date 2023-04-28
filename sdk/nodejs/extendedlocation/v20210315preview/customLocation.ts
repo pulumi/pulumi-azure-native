@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Custom Locations definition.
+ *
+ * ## Example Usage
+ * ### Create/Update Custom Location
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customLocation = new azure_native.extendedlocation.v20210315preview.CustomLocation("customLocation", {
+ *     authentication: {
+ *         type: "KubeConfig",
+ *         value: "<base64 KubeConfig>",
+ *     },
+ *     clusterExtensionIds: ["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedCluster/someCluster/Microsoft.KubernetesConfiguration/clusterExtensions/fooExtension"],
+ *     displayName: "customLocationLocation01",
+ *     hostResourceId: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ContainerService/managedClusters/cluster01",
+ *     location: "West US",
+ *     namespace: "namespace01",
+ *     resourceGroupName: "testresourcegroup",
+ *     resourceName: "customLocation01",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:extendedlocation/v20210315preview:CustomLocation customLocation01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/customLocation01 
+ * ```
  */
 export class CustomLocation extends pulumi.CustomResource {
     /**

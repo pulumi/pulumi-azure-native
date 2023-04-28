@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * A private endpoint connection to an azure resource
+ *
+ * ## Example Usage
+ * ### WebPubSubPrivateEndpointConnections_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webPubSubPrivateEndpointConnection = new azure_native.webpubsub.v20210401preview.WebPubSubPrivateEndpointConnection("webPubSubPrivateEndpointConnection", {
+ *     privateEndpoint: {
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+ *     },
+ *     privateEndpointConnectionName: "mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "None",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myWebPubSubService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:webpubsub/v20210401preview:WebPubSubPrivateEndpointConnection mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/privateEndpointConnections/mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e 
+ * ```
  */
 export class WebPubSubPrivateEndpointConnection extends pulumi.CustomResource {
     /**

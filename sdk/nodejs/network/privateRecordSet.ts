@@ -11,6 +11,197 @@ import * as utilities from "../utilities";
  * Describes a DNS record set (a collection of DNS records with the same name and type) in a Private DNS zone.
  * API Version: 2020-06-01.
  * Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PUT Private DNS Zone A Record Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+ *     aRecords: [{
+ *         ipv4Address: "1.2.3.4",
+ *     }],
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     privateZoneName: "privatezone1.com",
+ *     recordType: "A",
+ *     relativeRecordSetName: "recordA",
+ *     resourceGroupName: "resourceGroup1",
+ *     ttl: 3600,
+ * });
+ *
+ * ```
+ * ### PUT Private DNS Zone AAAA Record Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+ *     aaaaRecords: [{
+ *         ipv6Address: "::1",
+ *     }],
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     privateZoneName: "privatezone1.com",
+ *     recordType: "AAAA",
+ *     relativeRecordSetName: "recordAAAA",
+ *     resourceGroupName: "resourceGroup1",
+ *     ttl: 3600,
+ * });
+ *
+ * ```
+ * ### PUT Private DNS Zone CNAME Record Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+ *     cnameRecord: {
+ *         cname: "contoso.com",
+ *     },
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     privateZoneName: "privatezone1.com",
+ *     recordType: "CNAME",
+ *     relativeRecordSetName: "recordCNAME",
+ *     resourceGroupName: "resourceGroup1",
+ *     ttl: 3600,
+ * });
+ *
+ * ```
+ * ### PUT Private DNS Zone MX Record Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     mxRecords: [{
+ *         exchange: "mail.privatezone1.com",
+ *         preference: 0,
+ *     }],
+ *     privateZoneName: "privatezone1.com",
+ *     recordType: "MX",
+ *     relativeRecordSetName: "recordMX",
+ *     resourceGroupName: "resourceGroup1",
+ *     ttl: 3600,
+ * });
+ *
+ * ```
+ * ### PUT Private DNS Zone PTR Record Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     privateZoneName: "0.0.127.in-addr.arpa",
+ *     ptrRecords: [{
+ *         ptrdname: "localhost",
+ *     }],
+ *     recordType: "PTR",
+ *     relativeRecordSetName: "1",
+ *     resourceGroupName: "resourceGroup1",
+ *     ttl: 3600,
+ * });
+ *
+ * ```
+ * ### PUT Private DNS Zone SOA Record Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     privateZoneName: "privatezone1.com",
+ *     recordType: "SOA",
+ *     relativeRecordSetName: "@",
+ *     resourceGroupName: "resourceGroup1",
+ *     soaRecord: {
+ *         email: "azureprivatedns-hostmaster.microsoft.com",
+ *         expireTime: 2419200,
+ *         host: "azureprivatedns.net",
+ *         minimumTtl: 300,
+ *         refreshTime: 3600,
+ *         retryTime: 300,
+ *         serialNumber: 1,
+ *     },
+ *     ttl: 3600,
+ * });
+ *
+ * ```
+ * ### PUT Private DNS Zone SRV Record Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     privateZoneName: "privatezone1.com",
+ *     recordType: "SRV",
+ *     relativeRecordSetName: "recordSRV",
+ *     resourceGroupName: "resourceGroup1",
+ *     srvRecords: [{
+ *         port: 80,
+ *         priority: 0,
+ *         target: "contoso.com",
+ *         weight: 10,
+ *     }],
+ *     ttl: 3600,
+ * });
+ *
+ * ```
+ * ### PUT Private DNS Zone TXT Record Set
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateRecordSet = new azure_native.network.PrivateRecordSet("privateRecordSet", {
+ *     metadata: {
+ *         key1: "value1",
+ *     },
+ *     privateZoneName: "privatezone1.com",
+ *     recordType: "TXT",
+ *     relativeRecordSetName: "recordTXT",
+ *     resourceGroupName: "resourceGroup1",
+ *     ttl: 3600,
+ *     txtRecords: [{
+ *         value: [
+ *             "string1",
+ *             "string2",
+ *         ],
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:PrivateRecordSet recordtxt /subscriptions/subscriptionId/resourceGroups/resourceGroup1/providers/Microsoft.Network/privateDnsZones/privatezone1.com/TXT/recordtxt 
+ * ```
  */
 export class PrivateRecordSet extends pulumi.CustomResource {
     /**

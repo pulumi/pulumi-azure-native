@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.Synapse
     /// IP firewall rule
     /// API Version: 2021-06-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create an IP firewall rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipFirewallRule = new AzureNative.Synapse.IpFirewallRule("ipFirewallRule", new()
+    ///     {
+    ///         EndIpAddress = "10.0.0.254",
+    ///         ResourceGroupName = "ExampleResourceGroup",
+    ///         RuleName = "ExampleIpFirewallRule",
+    ///         StartIpAddress = "10.0.0.0",
+    ///         WorkspaceName = "ExampleWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse:IpFirewallRule ExampleIpFirewallRule /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/firewallRules/ExampleIpFirewallRule 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:IpFirewallRule")]
     public partial class IpFirewallRule : global::Pulumi.CustomResource

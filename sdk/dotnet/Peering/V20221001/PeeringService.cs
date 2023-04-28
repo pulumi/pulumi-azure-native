@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Peering.V20221001
 {
     /// <summary>
     /// Peering Service
+    /// 
+    /// ## Example Usage
+    /// ### Create a  peering service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var peeringService = new AzureNative.Peering.V20221001.PeeringService("peeringService", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         PeeringServiceLocation = "state1",
+    ///         PeeringServiceName = "peeringServiceName",
+    ///         PeeringServiceProvider = "serviceProvider1",
+    ///         ProviderBackupPeeringLocation = "peeringLocation2",
+    ///         ProviderPrimaryPeeringLocation = "peeringLocation1",
+    ///         ResourceGroupName = "rgName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering/v20221001:PeeringService peeringServiceName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peeringServices/peeringServiceName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering/v20221001:PeeringService")]
     public partial class PeeringService : global::Pulumi.CustomResource

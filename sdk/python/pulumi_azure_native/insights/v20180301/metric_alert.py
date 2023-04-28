@@ -279,6 +279,364 @@ class MetricAlert(pulumi.CustomResource):
         """
         The metric alert resource.
 
+        ## Example Usage
+        ### Create or update a dynamic alert rule for Multiple Resources
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.DynamicMetricCriteriaArgs(
+                    alert_sensitivity="Medium",
+                    criterion_type="DynamicThresholdCriterion",
+                    dimensions=[],
+                    failing_periods=azure_native.insights.v20180301.DynamicThresholdFailingPeriodsArgs(
+                        min_failing_periods_to_alert=4,
+                        number_of_evaluation_periods=4,
+                    ),
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterOrLessThan",
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="MetricAlertOnMultipleResources",
+            scopes=[
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+            ],
+            severity=3,
+            tags={},
+            target_resource_region="southcentralus",
+            target_resource_type="Microsoft.Compute/virtualMachines",
+            window_size="PT15M")
+
+        ```
+        ### Create or update a dynamic alert rule for Single Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.DynamicMetricCriteriaArgs(
+                    alert_sensitivity="Medium",
+                    criterion_type="DynamicThresholdCriterion",
+                    dimensions=[],
+                    failing_periods=azure_native.insights.v20180301.DynamicThresholdFailingPeriodsArgs(
+                        min_failing_periods_to_alert=4,
+                        number_of_evaluation_periods=4,
+                    ),
+                    ignore_data_before="2019-04-04T21:00:00.000Z",
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterOrLessThan",
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="chiricutin",
+            scopes=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"],
+            severity=3,
+            tags={},
+            window_size="PT15M")
+
+        ```
+        ### Create or update a web test alert rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[],
+            criteria=azure_native.insights.v20180301.WebtestLocationAvailabilityCriteriaArgs(
+                component_id="/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+                failed_location_count=2,
+                odata_type="Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+                web_test_id="/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+            ),
+            description="Automatically created alert rule for availability test \\"component-example\\" a",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="rg-example",
+            rule_name="webtest-name-example",
+            scopes=[
+                "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+                "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+            ],
+            severity=4,
+            tags={
+                "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example": "Resource",
+                "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example": "Resource",
+            },
+            window_size="PT15M")
+
+        ```
+        ### Create or update an alert rule for Multiple Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[],
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterThan",
+                    threshold=80.5,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="MetricAlertOnMultipleResources",
+            scopes=[
+                "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+                "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+            ],
+            severity=3,
+            tags={},
+            target_resource_region="southcentralus",
+            target_resource_type="Microsoft.Compute/virtualMachines",
+            window_size="PT15M")
+
+        ```
+        ### Create or update an alert rule for Single Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertSingleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[],
+                    metric_name="\\\\Processor(_Total)\\\\% Processor Time",
+                    name="High_CPU_80",
+                    operator="GreaterThan",
+                    threshold=80.5,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="Pt1m",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="chiricutin",
+            scopes=["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"],
+            severity=3,
+            tags={},
+            window_size="Pt15m")
+
+        ```
+        ### Create or update an alert rule on Resource group(s)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[],
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterThan",
+                    threshold=80.5,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest1",
+            rule_name="MetricAlertAtResourceGroupLevel",
+            scopes=[
+                "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest1",
+                "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest2",
+            ],
+            severity=3,
+            tags={},
+            target_resource_region="southcentralus",
+            target_resource_type="Microsoft.Compute/virtualMachines",
+            window_size="PT15M")
+
+        ```
+        ### Create or update an alert rule on Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[],
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterThan",
+                    threshold=80.5,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="MetricAlertAtSubscriptionLevel",
+            scopes=["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7"],
+            severity=3,
+            tags={},
+            target_resource_region="southcentralus",
+            target_resource_type="Microsoft.Compute/virtualMachines",
+            window_size="PT15M")
+
+        ```
+        ### Create or update an alert rules with dimensions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[
+                        azure_native.insights.v20180301.MetricDimensionArgs(
+                            name="ActivityName",
+                            operator="Include",
+                            values=["*"],
+                        ),
+                        azure_native.insights.v20180301.MetricDimensionArgs(
+                            name="StatusCode",
+                            operator="Include",
+                            values=["200"],
+                        ),
+                    ],
+                    metric_name="Availability",
+                    metric_namespace="Microsoft.KeyVault/vaults",
+                    name="Metric1",
+                    operator="GreaterThan",
+                    threshold=55,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1H",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="MetricAlertOnMultipleDimensions",
+            scopes=["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.KeyVault/vaults/keyVaultResource"],
+            severity=3,
+            tags={},
+            window_size="P1D")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20180301:MetricAlert webtest-name-example /subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/providers/microsoft.insights/metricalerts/MetricAlertWithDimensions 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MetricAlertActionArgs']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
@@ -305,6 +663,364 @@ class MetricAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The metric alert resource.
+
+        ## Example Usage
+        ### Create or update a dynamic alert rule for Multiple Resources
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.DynamicMetricCriteriaArgs(
+                    alert_sensitivity="Medium",
+                    criterion_type="DynamicThresholdCriterion",
+                    dimensions=[],
+                    failing_periods=azure_native.insights.v20180301.DynamicThresholdFailingPeriodsArgs(
+                        min_failing_periods_to_alert=4,
+                        number_of_evaluation_periods=4,
+                    ),
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterOrLessThan",
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="MetricAlertOnMultipleResources",
+            scopes=[
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+                "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+            ],
+            severity=3,
+            tags={},
+            target_resource_region="southcentralus",
+            target_resource_type="Microsoft.Compute/virtualMachines",
+            window_size="PT15M")
+
+        ```
+        ### Create or update a dynamic alert rule for Single Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.DynamicMetricCriteriaArgs(
+                    alert_sensitivity="Medium",
+                    criterion_type="DynamicThresholdCriterion",
+                    dimensions=[],
+                    failing_periods=azure_native.insights.v20180301.DynamicThresholdFailingPeriodsArgs(
+                        min_failing_periods_to_alert=4,
+                        number_of_evaluation_periods=4,
+                    ),
+                    ignore_data_before="2019-04-04T21:00:00.000Z",
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterOrLessThan",
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="chiricutin",
+            scopes=["/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"],
+            severity=3,
+            tags={},
+            window_size="PT15M")
+
+        ```
+        ### Create or update a web test alert rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[],
+            criteria=azure_native.insights.v20180301.WebtestLocationAvailabilityCriteriaArgs(
+                component_id="/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+                failed_location_count=2,
+                odata_type="Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+                web_test_id="/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+            ),
+            description="Automatically created alert rule for availability test \\"component-example\\" a",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="rg-example",
+            rule_name="webtest-name-example",
+            scopes=[
+                "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example",
+                "/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example",
+            ],
+            severity=4,
+            tags={
+                "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/components/webtest-name-example": "Resource",
+                "hidden-link:/subscriptions/12345678-1234-1234-1234-123456789101/resourcegroups/rg-example/providers/microsoft.insights/webtests/component-example": "Resource",
+            },
+            window_size="PT15M")
+
+        ```
+        ### Create or update an alert rule for Multiple Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[],
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterThan",
+                    threshold=80.5,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="MetricAlertOnMultipleResources",
+            scopes=[
+                "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme1",
+                "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme2",
+            ],
+            severity=3,
+            tags={},
+            target_resource_region="southcentralus",
+            target_resource_type="Microsoft.Compute/virtualMachines",
+            window_size="PT15M")
+
+        ```
+        ### Create or update an alert rule for Single Resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertSingleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[],
+                    metric_name="\\\\Processor(_Total)\\\\% Processor Time",
+                    name="High_CPU_80",
+                    operator="GreaterThan",
+                    threshold=80.5,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="Pt1m",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="chiricutin",
+            scopes=["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.Compute/virtualMachines/gigwadme"],
+            severity=3,
+            tags={},
+            window_size="Pt15m")
+
+        ```
+        ### Create or update an alert rule on Resource group(s)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[],
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterThan",
+                    threshold=80.5,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest1",
+            rule_name="MetricAlertAtResourceGroupLevel",
+            scopes=[
+                "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest1",
+                "/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest2",
+            ],
+            severity=3,
+            tags={},
+            target_resource_region="southcentralus",
+            target_resource_type="Microsoft.Compute/virtualMachines",
+            window_size="PT15M")
+
+        ```
+        ### Create or update an alert rule on Subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[],
+                    metric_name="Percentage CPU",
+                    metric_namespace="microsoft.compute/virtualmachines",
+                    name="High_CPU_80",
+                    operator="GreaterThan",
+                    threshold=80.5,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1M",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="MetricAlertAtSubscriptionLevel",
+            scopes=["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7"],
+            severity=3,
+            tags={},
+            target_resource_region="southcentralus",
+            target_resource_type="Microsoft.Compute/virtualMachines",
+            window_size="PT15M")
+
+        ```
+        ### Create or update an alert rules with dimensions
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metric_alert = azure_native.insights.v20180301.MetricAlert("metricAlert",
+            actions=[azure_native.insights.v20180301.MetricAlertActionArgs(
+                action_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/gigtest/providers/microsoft.insights/actiongroups/group2",
+                web_hook_properties={
+                    "key11": "value11",
+                    "key12": "value12",
+                },
+            )],
+            auto_mitigate=True,
+            criteria=azure_native.insights.v20180301.MetricAlertMultipleResourceMultipleMetricCriteriaArgs(
+                all_of=[azure_native.insights.v20180301.MetricCriteriaArgs(
+                    criterion_type="StaticThresholdCriterion",
+                    dimensions=[
+                        azure_native.insights.v20180301.MetricDimensionArgs(
+                            name="ActivityName",
+                            operator="Include",
+                            values=["*"],
+                        ),
+                        azure_native.insights.v20180301.MetricDimensionArgs(
+                            name="StatusCode",
+                            operator="Include",
+                            values=["200"],
+                        ),
+                    ],
+                    metric_name="Availability",
+                    metric_namespace="Microsoft.KeyVault/vaults",
+                    name="Metric1",
+                    operator="GreaterThan",
+                    threshold=55,
+                    time_aggregation="Average",
+                )],
+                odata_type="Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+            ),
+            description="This is the description of the rule1",
+            enabled=True,
+            evaluation_frequency="PT1H",
+            location="global",
+            resource_group_name="gigtest",
+            rule_name="MetricAlertOnMultipleDimensions",
+            scopes=["/subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/Microsoft.KeyVault/vaults/keyVaultResource"],
+            severity=3,
+            tags={},
+            window_size="P1D")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20180301:MetricAlert webtest-name-example /subscriptions/14ddf0c5-77c5-4b53-84f6-e1fa43ad68f7/resourceGroups/gigtest/providers/providers/microsoft.insights/metricalerts/MetricAlertWithDimensions 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MetricAlertArgs args: The arguments to use to populate this resource's properties.

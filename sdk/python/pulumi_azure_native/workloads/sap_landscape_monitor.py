@@ -97,6 +97,49 @@ class SapLandscapeMonitor(pulumi.CustomResource):
         configuration associated with SAP Landscape Monitor Dashboard.
         API Version: 2023-04-01.
 
+        ## Example Usage
+        ### Create for SAP Landscape monitor Dashboard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_landscape_monitor = azure_native.workloads.SapLandscapeMonitor("sapLandscapeMonitor",
+            grouping=azure_native.workloads.SapLandscapeMonitorPropertiesResponseGroupingArgs(
+                landscape=[azure_native.workloads.SapLandscapeMonitorSidMappingArgs(
+                    name="Prod",
+                    top_sid=[
+                        "SID1",
+                        "SID2",
+                    ],
+                )],
+                sap_application=[azure_native.workloads.SapLandscapeMonitorSidMappingArgs(
+                    name="ERP1",
+                    top_sid=[
+                        "SID1",
+                        "SID2",
+                    ],
+                )],
+            ),
+            monitor_name="mySapMonitor",
+            resource_group_name="myResourceGroup",
+            top_metrics_thresholds=[azure_native.workloads.SapLandscapeMonitorMetricThresholdsArgs(
+                green=90,
+                name="Instance Availability",
+                red=50,
+                yellow=75,
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SapLandscapeMonitor default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/myMonitor/sapLandscapeMonitor/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SapLandscapeMonitorPropertiesGroupingArgs']] grouping: Gets or sets the SID groupings by landscape and Environment.
@@ -113,6 +156,49 @@ class SapLandscapeMonitor(pulumi.CustomResource):
         """
         configuration associated with SAP Landscape Monitor Dashboard.
         API Version: 2023-04-01.
+
+        ## Example Usage
+        ### Create for SAP Landscape monitor Dashboard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_landscape_monitor = azure_native.workloads.SapLandscapeMonitor("sapLandscapeMonitor",
+            grouping=azure_native.workloads.SapLandscapeMonitorPropertiesResponseGroupingArgs(
+                landscape=[azure_native.workloads.SapLandscapeMonitorSidMappingArgs(
+                    name="Prod",
+                    top_sid=[
+                        "SID1",
+                        "SID2",
+                    ],
+                )],
+                sap_application=[azure_native.workloads.SapLandscapeMonitorSidMappingArgs(
+                    name="ERP1",
+                    top_sid=[
+                        "SID1",
+                        "SID2",
+                    ],
+                )],
+            ),
+            monitor_name="mySapMonitor",
+            resource_group_name="myResourceGroup",
+            top_metrics_thresholds=[azure_native.workloads.SapLandscapeMonitorMetricThresholdsArgs(
+                green=90,
+                name="Instance Availability",
+                red=50,
+                yellow=75,
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads:SapLandscapeMonitor default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Workloads/monitors/myMonitor/sapLandscapeMonitor/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SapLandscapeMonitorArgs args: The arguments to use to populate this resource's properties.

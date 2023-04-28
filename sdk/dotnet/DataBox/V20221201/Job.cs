@@ -11,6 +11,346 @@ namespace Pulumi.AzureNative.DataBox.V20221201
 {
     /// <summary>
     /// Job Resource.
+    /// 
+    /// ## Example Usage
+    /// ### JobsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.V20221201.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.V20221201.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.V20221201.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "Public SDK Test",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "testing@microsoft.com",
+    ///                 },
+    ///                 Phone = "1234567890",
+    ///                 PhoneExtension = "1234",
+    ///             },
+    ///             DataImportDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.V20221201.Inputs.DataImportDetailsArgs
+    ///                 {
+    ///                     AccountDetails = new AzureNative.DataBox.V20221201.Inputs.StorageAccountDetailsArgs
+    ///                     {
+    ///                         DataAccountType = "StorageAccount",
+    ///                         StorageAccountId = "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             JobDetailsType = "DataBox",
+    ///             ShippingAddress = new AzureNative.DataBox.V20221201.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = "Commercial",
+    ///                 City = "San Francisco",
+    ///                 CompanyName = "Microsoft",
+    ///                 Country = "US",
+    ///                 PostalCode = "94107",
+    ///                 StateOrProvince = "CA",
+    ///                 StreetAddress1 = "16 TOWNSEND ST",
+    ///                 StreetAddress2 = "Unit 1",
+    ///             },
+    ///         },
+    ///         JobName = "SdkJob952",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "SdkRg5154",
+    ///         Sku = new AzureNative.DataBox.V20221201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "DataBox",
+    ///         },
+    ///         TransferType = "ImportToAzure",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### JobsCreateDevicePassword
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.V20221201.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.V20221201.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.V20221201.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "Public SDK Test",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "testing@microsoft.com",
+    ///                 },
+    ///                 Phone = "1234567890",
+    ///                 PhoneExtension = "1234",
+    ///             },
+    ///             DataImportDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.V20221201.Inputs.DataImportDetailsArgs
+    ///                 {
+    ///                     AccountDetails = new AzureNative.DataBox.V20221201.Inputs.StorageAccountDetailsArgs
+    ///                     {
+    ///                         DataAccountType = "StorageAccount",
+    ///                         SharePassword = "&lt;sharePassword&gt;",
+    ///                         StorageAccountId = "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/databoxbvt1/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             DevicePassword = "&lt;devicePassword&gt;",
+    ///             JobDetailsType = "DataBox",
+    ///             ShippingAddress = new AzureNative.DataBox.V20221201.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = "Commercial",
+    ///                 City = "San Francisco",
+    ///                 CompanyName = "Microsoft",
+    ///                 Country = "US",
+    ///                 PostalCode = "94107",
+    ///                 StateOrProvince = "CA",
+    ///                 StreetAddress1 = "16 TOWNSEND ST",
+    ///                 StreetAddress2 = "Unit 1",
+    ///             },
+    ///         },
+    ///         JobName = "SdkJob9640",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "SdkRg7478",
+    ///         Sku = new AzureNative.DataBox.V20221201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "DataBox",
+    ///         },
+    ///         TransferType = "ImportToAzure",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### JobsCreateDoubleEncryption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.V20221201.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.V20221201.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.V20221201.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "Public SDK Test",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "testing@microsoft.com",
+    ///                 },
+    ///                 Phone = "1234567890",
+    ///                 PhoneExtension = "1234",
+    ///             },
+    ///             DataImportDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.V20221201.Inputs.DataImportDetailsArgs
+    ///                 {
+    ///                     AccountDetails = new AzureNative.DataBox.V20221201.Inputs.StorageAccountDetailsArgs
+    ///                     {
+    ///                         DataAccountType = "StorageAccount",
+    ///                         StorageAccountId = "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             JobDetailsType = "DataBox",
+    ///             Preferences = new AzureNative.DataBox.V20221201.Inputs.PreferencesArgs
+    ///             {
+    ///                 EncryptionPreferences = new AzureNative.DataBox.V20221201.Inputs.EncryptionPreferencesArgs
+    ///                 {
+    ///                     DoubleEncryption = "Enabled",
+    ///                 },
+    ///             },
+    ///             ShippingAddress = new AzureNative.DataBox.V20221201.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = "Commercial",
+    ///                 City = "San Francisco",
+    ///                 CompanyName = "Microsoft",
+    ///                 Country = "US",
+    ///                 PostalCode = "94107",
+    ///                 StateOrProvince = "CA",
+    ///                 StreetAddress1 = "16 TOWNSEND ST",
+    ///                 StreetAddress2 = "Unit 1",
+    ///             },
+    ///         },
+    ///         JobName = "SdkJob6599",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "SdkRg608",
+    ///         Sku = new AzureNative.DataBox.V20221201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "DataBox",
+    ///         },
+    ///         TransferType = "ImportToAzure",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### JobsCreateExport
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.V20221201.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.V20221201.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.V20221201.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "Public SDK Test",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "testing@microsoft.com",
+    ///                 },
+    ///                 Phone = "1234567890",
+    ///                 PhoneExtension = "1234",
+    ///             },
+    ///             DataExportDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.V20221201.Inputs.DataExportDetailsArgs
+    ///                 {
+    ///                     AccountDetails = new AzureNative.DataBox.V20221201.Inputs.StorageAccountDetailsArgs
+    ///                     {
+    ///                         DataAccountType = "StorageAccount",
+    ///                         StorageAccountId = "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/akvenkat/providers/Microsoft.Storage/storageAccounts/aaaaaa2",
+    ///                     },
+    ///                     TransferConfiguration = new AzureNative.DataBox.V20221201.Inputs.TransferConfigurationArgs
+    ///                     {
+    ///                         TransferAllDetails = new AzureNative.DataBox.V20221201.Inputs.TransferConfigurationTransferAllDetailsArgs
+    ///                         {
+    ///                             Include = new AzureNative.DataBox.V20221201.Inputs.TransferAllDetailsArgs
+    ///                             {
+    ///                                 DataAccountType = "StorageAccount",
+    ///                                 TransferAllBlobs = true,
+    ///                                 TransferAllFiles = true,
+    ///                             },
+    ///                         },
+    ///                         TransferConfigurationType = "TransferAll",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             JobDetailsType = "DataBox",
+    ///             ShippingAddress = new AzureNative.DataBox.V20221201.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = "Commercial",
+    ///                 City = "San Francisco",
+    ///                 CompanyName = "Microsoft",
+    ///                 Country = "US",
+    ///                 PostalCode = "94107",
+    ///                 StateOrProvince = "CA",
+    ///                 StreetAddress1 = "16 TOWNSEND ST",
+    ///                 StreetAddress2 = "Unit 1",
+    ///             },
+    ///         },
+    ///         JobName = "SdkJob6429",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "SdkRg8091",
+    ///         Sku = new AzureNative.DataBox.V20221201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "DataBox",
+    ///         },
+    ///         TransferType = "ExportFromAzure",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### JobsCreateWithUserAssignedIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.DataBox.V20221201.Job("job", new()
+    ///     {
+    ///         Details = new AzureNative.DataBox.V20221201.Inputs.DataBoxJobDetailsArgs
+    ///         {
+    ///             ContactDetails = new AzureNative.DataBox.V20221201.Inputs.ContactDetailsArgs
+    ///             {
+    ///                 ContactName = "Public SDK Test",
+    ///                 EmailList = new[]
+    ///                 {
+    ///                     "testing@microsoft.com",
+    ///                 },
+    ///                 Phone = "1234567890",
+    ///                 PhoneExtension = "1234",
+    ///             },
+    ///             DataImportDetails = new[]
+    ///             {
+    ///                 new AzureNative.DataBox.V20221201.Inputs.DataImportDetailsArgs
+    ///                 {
+    ///                     AccountDetails = new AzureNative.DataBox.V20221201.Inputs.StorageAccountDetailsArgs
+    ///                     {
+    ///                         DataAccountType = "StorageAccount",
+    ///                         StorageAccountId = "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/databoxbvt1/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount2",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             JobDetailsType = "DataBox",
+    ///             ShippingAddress = new AzureNative.DataBox.V20221201.Inputs.ShippingAddressArgs
+    ///             {
+    ///                 AddressType = "Commercial",
+    ///                 City = "San Francisco",
+    ///                 CompanyName = "Microsoft",
+    ///                 Country = "US",
+    ///                 PostalCode = "94107",
+    ///                 StateOrProvince = "CA",
+    ///                 StreetAddress1 = "16 TOWNSEND ST",
+    ///                 StreetAddress2 = "Unit 1",
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.DataBox.V20221201.Inputs.ResourceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/akvenkat/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sdkIdentity", null },
+    ///             },
+    ///         },
+    ///         JobName = "SdkJob5337",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "SdkRg7552",
+    ///         Sku = new AzureNative.DataBox.V20221201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "DataBox",
+    ///         },
+    ///         TransferType = "ImportToAzure",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databox/v20221201:Job SdkJob5337 /subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/SdkRg7552/providers/Microsoft.DataBox/jobs/SdkJob5337 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databox/v20221201:Job")]
     public partial class Job : global::Pulumi.CustomResource

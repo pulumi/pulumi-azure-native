@@ -133,6 +133,37 @@ class CredentialSet(pulumi.CustomResource):
         """
         An object that represents a credential set resource for a container registry.
 
+        ## Example Usage
+        ### CredentialSetCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential_set = azure_native.containerregistry.v20230101preview.CredentialSet("credentialSet",
+            auth_credentials=[azure_native.containerregistry.v20230101preview.AuthCredentialArgs(
+                name="Credential1",
+                password_secret_identifier="https://myvault.vault.azure.net/secrets/password",
+                username_secret_identifier="https://myvault.vault.azure.net/secrets/username",
+            )],
+            credential_set_name="myCredentialSet",
+            identity=azure_native.containerregistry.v20230101preview.IdentityPropertiesArgs(
+                type=azure_native.containerregistry/v20230101preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            login_server="docker.io",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:CredentialSet myCredentialSet /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AuthCredentialArgs']]]] auth_credentials: List of authentication credentials stored for an upstream.
@@ -151,6 +182,37 @@ class CredentialSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a credential set resource for a container registry.
+
+        ## Example Usage
+        ### CredentialSetCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        credential_set = azure_native.containerregistry.v20230101preview.CredentialSet("credentialSet",
+            auth_credentials=[azure_native.containerregistry.v20230101preview.AuthCredentialArgs(
+                name="Credential1",
+                password_secret_identifier="https://myvault.vault.azure.net/secrets/password",
+                username_secret_identifier="https://myvault.vault.azure.net/secrets/username",
+            )],
+            credential_set_name="myCredentialSet",
+            identity=azure_native.containerregistry.v20230101preview.IdentityPropertiesArgs(
+                type=azure_native.containerregistry/v20230101preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            login_server="docker.io",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:CredentialSet myCredentialSet /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CredentialSetArgs args: The arguments to use to populate this resource's properties.

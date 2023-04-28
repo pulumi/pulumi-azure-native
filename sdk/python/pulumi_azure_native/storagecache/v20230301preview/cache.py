@@ -287,6 +287,147 @@ class Cache(pulumi.CustomResource):
         """
         A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 
+        ## Example Usage
+        ### Caches_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.storagecache.v20230301preview.Cache("cache",
+            cache_name="sc1",
+            cache_size_gb=3072,
+            directory_services_settings=azure_native.storagecache.v20230301preview.CacheDirectorySettingsResponseArgs(
+                active_directory={
+                    "cacheNetBiosName": "contosoSmb",
+                    "credentials": azure_native.storagecache.v20230301preview.CacheActiveDirectorySettingsCredentialsArgs(
+                        password="<password>",
+                        username="consotoAdmin",
+                    ),
+                    "domainName": "contosoAd.contoso.local",
+                    "domainNetBiosName": "contosoAd",
+                    "primaryDnsIpAddress": "192.0.2.10",
+                    "secondaryDnsIpAddress": "192.0.2.11",
+                },
+                username_download={
+                    "credentials": azure_native.storagecache.v20230301preview.CacheUsernameDownloadSettingsCredentialsArgs(
+                        bind_dn="cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+                        bind_password="<bindPassword>",
+                    ),
+                    "extendedGroups": True,
+                    "ldapBaseDN": "dc=contosoad,dc=contoso,dc=local",
+                    "ldapServer": "192.0.2.12",
+                    "usernameSource": "LDAP",
+                },
+            ),
+            encryption_settings=azure_native.storagecache.v20230301preview.CacheEncryptionSettingsResponseArgs(
+                key_encryption_key={
+                    "keyUrl": "https://keyvault-cmk.vault.azure.net/keys/key2047/test",
+                    "sourceVault": azure_native.storagecache.v20230301preview.KeyVaultKeyReferenceSourceVaultArgs(
+                        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+                    ),
+                },
+            ),
+            identity=azure_native.storagecache.v20230301preview.CacheIdentityArgs(
+                type=azure_native.storagecache/v20230301preview.CacheIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            location="westus",
+            resource_group_name="scgroup",
+            scaling_factor=1,
+            security_settings=azure_native.storagecache.v20230301preview.CacheSecuritySettingsResponseArgs(
+                access_policies=[{
+                    "accessRules": [azure_native.storagecache.v20230301preview.NfsAccessRuleArgs(
+                        access="rw",
+                        root_squash=False,
+                        scope="default",
+                        submount_access=True,
+                        suid=False,
+                    )],
+                    "name": "default",
+                }],
+            ),
+            sku=azure_native.storagecache.v20230301preview.CacheSkuArgs(
+                name="Standard_2G",
+            ),
+            subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+            tags={
+                "Dept": "Contoso",
+            },
+            upgrade_settings=azure_native.storagecache.v20230301preview.CacheUpgradeSettingsArgs(
+                scheduled_time="2022-04-26T18:25:43.511Z",
+                upgrade_schedule_enabled=True,
+            ))
+
+        ```
+        ### Caches_CreateOrUpdate_ldap_only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.storagecache.v20230301preview.Cache("cache",
+            cache_name="sc1",
+            cache_size_gb=3072,
+            directory_services_settings=azure_native.storagecache.v20230301preview.CacheDirectorySettingsResponseArgs(
+                username_download={
+                    "credentials": azure_native.storagecache.v20230301preview.CacheUsernameDownloadSettingsCredentialsArgs(
+                        bind_dn="cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+                        bind_password="<bindPassword>",
+                    ),
+                    "extendedGroups": True,
+                    "ldapBaseDN": "dc=contosoad,dc=contoso,dc=local",
+                    "ldapServer": "192.0.2.12",
+                    "usernameSource": "LDAP",
+                },
+            ),
+            encryption_settings=azure_native.storagecache.v20230301preview.CacheEncryptionSettingsResponseArgs(
+                key_encryption_key={
+                    "keyUrl": "https://keyvault-cmk.vault.azure.net/keys/key2048/test",
+                    "sourceVault": azure_native.storagecache.v20230301preview.KeyVaultKeyReferenceSourceVaultArgs(
+                        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+                    ),
+                },
+            ),
+            location="westus",
+            resource_group_name="scgroup",
+            scaling_factor=1,
+            security_settings=azure_native.storagecache.v20230301preview.CacheSecuritySettingsResponseArgs(
+                access_policies=[{
+                    "accessRules": [azure_native.storagecache.v20230301preview.NfsAccessRuleArgs(
+                        access="rw",
+                        root_squash=False,
+                        scope="default",
+                        submount_access=True,
+                        suid=False,
+                    )],
+                    "name": "default",
+                }],
+            ),
+            sku=azure_native.storagecache.v20230301preview.CacheSkuArgs(
+                name="Standard_2G",
+            ),
+            subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+            tags={
+                "Dept": "Contoso",
+            },
+            upgrade_settings=azure_native.storagecache.v20230301preview.CacheUpgradeSettingsArgs(
+                scheduled_time="2022-04-26T18:25:43.511Z",
+                upgrade_schedule_enabled=True,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagecache/v20230301preview:Cache sc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_name: Name of cache. Length of name must not be greater than 80 and chars must be from the [-0-9a-zA-Z_] char class.
@@ -313,6 +454,147 @@ class Cache(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
+
+        ## Example Usage
+        ### Caches_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.storagecache.v20230301preview.Cache("cache",
+            cache_name="sc1",
+            cache_size_gb=3072,
+            directory_services_settings=azure_native.storagecache.v20230301preview.CacheDirectorySettingsResponseArgs(
+                active_directory={
+                    "cacheNetBiosName": "contosoSmb",
+                    "credentials": azure_native.storagecache.v20230301preview.CacheActiveDirectorySettingsCredentialsArgs(
+                        password="<password>",
+                        username="consotoAdmin",
+                    ),
+                    "domainName": "contosoAd.contoso.local",
+                    "domainNetBiosName": "contosoAd",
+                    "primaryDnsIpAddress": "192.0.2.10",
+                    "secondaryDnsIpAddress": "192.0.2.11",
+                },
+                username_download={
+                    "credentials": azure_native.storagecache.v20230301preview.CacheUsernameDownloadSettingsCredentialsArgs(
+                        bind_dn="cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+                        bind_password="<bindPassword>",
+                    ),
+                    "extendedGroups": True,
+                    "ldapBaseDN": "dc=contosoad,dc=contoso,dc=local",
+                    "ldapServer": "192.0.2.12",
+                    "usernameSource": "LDAP",
+                },
+            ),
+            encryption_settings=azure_native.storagecache.v20230301preview.CacheEncryptionSettingsResponseArgs(
+                key_encryption_key={
+                    "keyUrl": "https://keyvault-cmk.vault.azure.net/keys/key2047/test",
+                    "sourceVault": azure_native.storagecache.v20230301preview.KeyVaultKeyReferenceSourceVaultArgs(
+                        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+                    ),
+                },
+            ),
+            identity=azure_native.storagecache.v20230301preview.CacheIdentityArgs(
+                type=azure_native.storagecache/v20230301preview.CacheIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+                },
+            ),
+            location="westus",
+            resource_group_name="scgroup",
+            scaling_factor=1,
+            security_settings=azure_native.storagecache.v20230301preview.CacheSecuritySettingsResponseArgs(
+                access_policies=[{
+                    "accessRules": [azure_native.storagecache.v20230301preview.NfsAccessRuleArgs(
+                        access="rw",
+                        root_squash=False,
+                        scope="default",
+                        submount_access=True,
+                        suid=False,
+                    )],
+                    "name": "default",
+                }],
+            ),
+            sku=azure_native.storagecache.v20230301preview.CacheSkuArgs(
+                name="Standard_2G",
+            ),
+            subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+            tags={
+                "Dept": "Contoso",
+            },
+            upgrade_settings=azure_native.storagecache.v20230301preview.CacheUpgradeSettingsArgs(
+                scheduled_time="2022-04-26T18:25:43.511Z",
+                upgrade_schedule_enabled=True,
+            ))
+
+        ```
+        ### Caches_CreateOrUpdate_ldap_only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache = azure_native.storagecache.v20230301preview.Cache("cache",
+            cache_name="sc1",
+            cache_size_gb=3072,
+            directory_services_settings=azure_native.storagecache.v20230301preview.CacheDirectorySettingsResponseArgs(
+                username_download={
+                    "credentials": azure_native.storagecache.v20230301preview.CacheUsernameDownloadSettingsCredentialsArgs(
+                        bind_dn="cn=ldapadmin,dc=contosoad,dc=contoso,dc=local",
+                        bind_password="<bindPassword>",
+                    ),
+                    "extendedGroups": True,
+                    "ldapBaseDN": "dc=contosoad,dc=contoso,dc=local",
+                    "ldapServer": "192.0.2.12",
+                    "usernameSource": "LDAP",
+                },
+            ),
+            encryption_settings=azure_native.storagecache.v20230301preview.CacheEncryptionSettingsResponseArgs(
+                key_encryption_key={
+                    "keyUrl": "https://keyvault-cmk.vault.azure.net/keys/key2048/test",
+                    "sourceVault": azure_native.storagecache.v20230301preview.KeyVaultKeyReferenceSourceVaultArgs(
+                        id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.KeyVault/vaults/keyvault-cmk",
+                    ),
+                },
+            ),
+            location="westus",
+            resource_group_name="scgroup",
+            scaling_factor=1,
+            security_settings=azure_native.storagecache.v20230301preview.CacheSecuritySettingsResponseArgs(
+                access_policies=[{
+                    "accessRules": [azure_native.storagecache.v20230301preview.NfsAccessRuleArgs(
+                        access="rw",
+                        root_squash=False,
+                        scope="default",
+                        submount_access=True,
+                        suid=False,
+                    )],
+                    "name": "default",
+                }],
+            ),
+            sku=azure_native.storagecache.v20230301preview.CacheSkuArgs(
+                name="Standard_2G",
+            ),
+            subnet="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.Network/virtualNetworks/scvnet/subnets/sub1",
+            tags={
+                "Dept": "Contoso",
+            },
+            upgrade_settings=azure_native.storagecache.v20230301preview.CacheUpgradeSettingsArgs(
+                scheduled_time="2022-04-26T18:25:43.511Z",
+                upgrade_schedule_enabled=True,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storagecache/v20230301preview:Cache sc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scgroup/providers/Microsoft.StorageCache/caches/sc1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CacheArgs args: The arguments to use to populate this resource's properties.

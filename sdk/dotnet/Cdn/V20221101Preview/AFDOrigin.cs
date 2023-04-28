@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
 {
     /// <summary>
     /// Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
+    /// 
+    /// ## Example Usage
+    /// ### AFDOrigins_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var afdOrigin = new AzureNative.Cdn.V20221101Preview.AFDOrigin("afdOrigin", new()
+    ///     {
+    ///         EnabledState = "Enabled",
+    ///         HostName = "host1.blob.core.windows.net",
+    ///         HttpPort = 80,
+    ///         HttpsPort = 443,
+    ///         OriginGroupName = "origingroup1",
+    ///         OriginHostHeader = "host1.foo.com",
+    ///         OriginName = "origin1",
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20221101preview:AFDOrigin origin1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/origingroups/origingroup1/origins/origin1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20221101preview:AFDOrigin")]
     public partial class AFDOrigin : global::Pulumi.CustomResource

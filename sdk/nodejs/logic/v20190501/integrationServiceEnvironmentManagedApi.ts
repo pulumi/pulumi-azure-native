@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration service environment managed api.
+ *
+ * ## Example Usage
+ * ### Gets the integration service environment managed Apis
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const integrationServiceEnvironmentManagedApi = new azure_native.logic.v20190501.IntegrationServiceEnvironmentManagedApi("integrationServiceEnvironmentManagedApi", {
+ *     apiName: "servicebus",
+ *     integrationServiceEnvironmentName: "testIntegrationServiceEnvironment",
+ *     location: "brazilsouth",
+ *     resourceGroup: "testResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic/v20190501:IntegrationServiceEnvironmentManagedApi servicebus /subscriptions/80d4fe69-c95b-4dd2-a938-9250f1c8ab03/resourceGroups/rohithah-ise/providers/Microsoft.Logic/integrationServiceEnvironments/tes-ise-ga/managedApis/servicebus 
+ * ```
  */
 export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResource {
     /**

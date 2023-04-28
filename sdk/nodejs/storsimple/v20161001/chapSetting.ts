@@ -10,6 +10,35 @@ import * as utilities from "../../utilities";
 /**
  * Challenge-Handshake Authentication Protocol (CHAP) setting
  *
+ * ## Example Usage
+ * ### ChapSettingsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const chapSetting = new azure_native.storsimple.v20161001.ChapSetting("chapSetting", {
+ *     chapUserName: "ChapSettingForSDK",
+ *     deviceName: "HSDK-WSJQERQW3F",
+ *     managerName: "hAzureSDKOperations",
+ *     password: {
+ *         encryptionAlgorithm: azure_native.storsimple.v20161001.EncryptionAlgorithm.RSAES_PKCS1_v_1_5,
+ *         encryptionCertificateThumbprint: "D73DB57C4CDD6761E159F8D1E8A7D759424983FD",
+ *         value: "<value>",
+ *     },
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple/v20161001:ChapSetting ChapSettingForSDK /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-WSJQERQW3F/chapSettings/ChapSettingForSDK 
+ * ```
+ *
  * @deprecated Version 2016-10-01 will be removed in v2 of the provider.
  */
 export class ChapSetting extends pulumi.CustomResource {

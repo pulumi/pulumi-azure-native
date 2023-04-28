@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
     /// <summary>
     /// Class representing a Kusto kusto pool.
+    /// 
+    /// ## Example Usage
+    /// ### kustoPoolsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoPool = new AzureNative.Synapse.V20210601Preview.KustoPool("kustoPool", new()
+    ///     {
+    ///         EnablePurge = true,
+    ///         EnableStreamingIngest = true,
+    ///         KustoPoolName = "kustoclusterrptest4",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///         Sku = new AzureNative.Synapse.V20210601Preview.Inputs.AzureSkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///             Name = "Storage optimized",
+    ///             Size = "Medium",
+    ///         },
+    ///         WorkspaceName = "synapseWorkspaceName",
+    ///         WorkspaceUID = "11111111-2222-3333-444444444444",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210601preview:KustoPool KustoClusterRPTest4 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustopools/KustoClusterRPTest4 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:KustoPool")]
     public partial class KustoPool : global::Pulumi.CustomResource

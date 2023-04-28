@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Integration runtime resource type.
+ *
+ * ## Example Usage
+ * ### IntegrationRuntimes_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const integrationRuntime = new azure_native.datafactory.v20180601.IntegrationRuntime("integrationRuntime", {
+ *     factoryName: "exampleFactoryName",
+ *     integrationRuntimeName: "exampleIntegrationRuntime",
+ *     properties: {
+ *         description: "A selfhosted integration runtime",
+ *         type: "SelfHosted",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datafactory/v20180601:IntegrationRuntime exampleIntegrationRuntime /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/integrationruntimes/exampleIntegrationRuntime 
+ * ```
  */
 export class IntegrationRuntime extends pulumi.CustomResource {
     /**

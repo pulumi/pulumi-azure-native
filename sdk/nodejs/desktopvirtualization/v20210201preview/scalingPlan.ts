@@ -9,6 +9,68 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a scaling plan definition.
+ *
+ * ## Example Usage
+ * ### ScalingPlans_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scalingPlan = new azure_native.desktopvirtualization.v20210201preview.ScalingPlan("scalingPlan", {
+ *     description: "des1",
+ *     exclusionTag: "value",
+ *     friendlyName: "friendly",
+ *     hostPoolReferences: [{
+ *         hostPoolArmPath: "/subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/hostPools/hostPool1",
+ *         scalingPlanEnabled: true,
+ *     }],
+ *     hostPoolType: "Personal",
+ *     location: "centralus",
+ *     resourceGroupName: "resourceGroup1",
+ *     ring: 1,
+ *     scalingPlanName: "scalingPlan1",
+ *     schedules: [{
+ *         daysOfWeek: [
+ *             "Monday",
+ *             "Tuesday",
+ *             "Wednesday",
+ *             "Thursday",
+ *             "Friday",
+ *         ],
+ *         name: "schedule1",
+ *         offPeakLoadBalancingAlgorithm: "DepthFirst",
+ *         offPeakStartTime: "2020-11-10T20:00:00.000Z",
+ *         peakLoadBalancingAlgorithm: "BreadthFirst",
+ *         peakStartTime: "2020-11-10T08:00:00.000Z",
+ *         rampDownCapacityThresholdPct: 50,
+ *         rampDownForceLogoffUsers: true,
+ *         rampDownLoadBalancingAlgorithm: "DepthFirst",
+ *         rampDownMinimumHostsPct: 20,
+ *         rampDownNotificationMessage: "message",
+ *         rampDownStartTime: "2020-11-10T18:00:00.000Z",
+ *         rampDownWaitTimeMinutes: 30,
+ *         rampUpCapacityThresholdPct: 80,
+ *         rampUpLoadBalancingAlgorithm: "DepthFirst",
+ *         rampUpMinimumHostsPct: 20,
+ *         rampUpStartTime: "2020-11-10T06:00:00.000Z",
+ *     }],
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     timeZone: "",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization/v20210201preview:ScalingPlan scalingPlan1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/scalingPlan1 
+ * ```
  */
 export class ScalingPlan extends pulumi.CustomResource {
     /**

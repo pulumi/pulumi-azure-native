@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Intune.V20150114PrivatePreview
 {
     /// <summary>
     /// Android Policy entity for Intune MAM.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName myresource1 /providers/Microsoft.Intune/locations/{hostName}/androidPolicies/{policyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:intune/v20150114privatepreview:AndroidMAMPolicyByName")]
     public partial class AndroidMAMPolicyByName : global::Pulumi.CustomResource

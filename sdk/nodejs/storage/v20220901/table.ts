@@ -9,6 +9,60 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the table, including Id, resource name, resource type.
+ *
+ * ## Example Usage
+ * ### TableOperationPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const table = new azure_native.storage.v20220901.Table("table", {
+ *     accountName: "sto328",
+ *     resourceGroupName: "res3376",
+ *     tableName: "table6185",
+ * });
+ *
+ * ```
+ * ### TableOperationPutOrPatchAcls
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const table = new azure_native.storage.v20220901.Table("table", {
+ *     accountName: "sto328",
+ *     resourceGroupName: "res3376",
+ *     signedIdentifiers: [
+ *         {
+ *             accessPolicy: {
+ *                 expiryTime: "2022-03-20T08:49:37.0000000Z",
+ *                 permission: "raud",
+ *                 startTime: "2022-03-17T08:49:37.0000000Z",
+ *             },
+ *             id: "MTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODkwMTI",
+ *         },
+ *         {
+ *             accessPolicy: {
+ *                 expiryTime: "2022-03-20T08:49:37.0000000Z",
+ *                 permission: "rad",
+ *                 startTime: "2022-03-17T08:49:37.0000000Z",
+ *             },
+ *             id: "PTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3ODklMTI",
+ *         },
+ *     ],
+ *     tableName: "table6185",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20220901:Table table6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/tableServices/default/tables/table6185 
+ * ```
  */
 export class Table extends pulumi.CustomResource {
     /**

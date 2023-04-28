@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Workspace data table definition.
+ *
+ * ## Example Usage
+ * ### TablesUpsert
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const table = new azure_native.operationalinsights.v20221001.Table("table", {
+ *     resourceGroupName: "oiautorest6685",
+ *     retentionInDays: 45,
+ *     schema: {
+ *         columns: [{
+ *             name: "MyNewColumn",
+ *             type: "guid",
+ *         }],
+ *         name: "AzureNetworkFlow",
+ *     },
+ *     tableName: "AzureNetworkFlow",
+ *     totalRetentionInDays: 70,
+ *     workspaceName: "oiautorest6685",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights/v20221001:Table AzureNetworkFlow /subscriptions/00000000-0000-0000-0000-00000000000/resourcegroups/oiautorest6685/providers/Microsoft.OperationalInsights/workspaces/oiautorest6685/tables/AzureNetworkFlow 
+ * ```
  */
 export class Table extends pulumi.CustomResource {
     /**

@@ -146,6 +146,32 @@ class Variable(pulumi.CustomResource):
         API Version: 2022-08-08.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a variable
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable = azure_native.automation.Variable("variable",
+            automation_account_name="sampleAccount9",
+            description="my description",
+            is_encrypted=False,
+            name="sampleVariable",
+            resource_group_name="rg",
+            value="\\"ComputerName.domain.com\\"",
+            variable_name="sampleVariable")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Variable sampleVariable /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/variables/sampleVariable 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -166,6 +192,32 @@ class Variable(pulumi.CustomResource):
         Definition of the variable.
         API Version: 2022-08-08.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a variable
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable = azure_native.automation.Variable("variable",
+            automation_account_name="sampleAccount9",
+            description="my description",
+            is_encrypted=False,
+            name="sampleVariable",
+            resource_group_name="rg",
+            value="\\"ComputerName.domain.com\\"",
+            variable_name="sampleVariable")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation:Variable sampleVariable /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/variables/sampleVariable 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VariableArgs args: The arguments to use to populate this resource's properties.

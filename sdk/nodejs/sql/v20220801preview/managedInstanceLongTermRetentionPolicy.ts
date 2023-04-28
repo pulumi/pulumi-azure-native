@@ -6,6 +6,34 @@ import * as utilities from "../../utilities";
 
 /**
  * A long term retention policy.
+ *
+ * ## Example Usage
+ * ### Create or update the LTR policy for the managed database.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedInstanceLongTermRetentionPolicy = new azure_native.sql.v20220801preview.ManagedInstanceLongTermRetentionPolicy("managedInstanceLongTermRetentionPolicy", {
+ *     databaseName: "testDatabase",
+ *     managedInstanceName: "testInstance",
+ *     monthlyRetention: "P1Y",
+ *     policyName: "default",
+ *     resourceGroupName: "testResourceGroup",
+ *     weekOfYear: 5,
+ *     weeklyRetention: "P1M",
+ *     yearlyRetention: "P5Y",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testResourceGroup/providers/Microsoft.Sql/managedInstances/testInstance/databases/testDatabase/backupLongTermRetentionPolicies/default 
+ * ```
  */
 export class ManagedInstanceLongTermRetentionPolicy extends pulumi.CustomResource {
     /**

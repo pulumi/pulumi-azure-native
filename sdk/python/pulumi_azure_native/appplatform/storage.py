@@ -98,6 +98,33 @@ class Storage(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2021-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Storages_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage = azure_native.appplatform.Storage("storage",
+            properties=azure_native.appplatform.StorageAccountResponseArgs(
+                account_key="account-key-of-storage-account",
+                account_name="storage-account-name",
+                storage_type="StorageAccount",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            storage_name="mystorage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Storage mystorage /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/storages/mystorage 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StorageAccountArgs']] properties: Properties of the storage resource payload.
@@ -115,6 +142,33 @@ class Storage(pulumi.CustomResource):
         Storage resource payload.
         API Version: 2022-12-01.
         Previous API Version: 2021-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Storages_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage = azure_native.appplatform.Storage("storage",
+            properties=azure_native.appplatform.StorageAccountResponseArgs(
+                account_key="account-key-of-storage-account",
+                account_name="storage-account-name",
+                storage_type="StorageAccount",
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice",
+            storage_name="mystorage")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:Storage mystorage /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/storages/mystorage 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageArgs args: The arguments to use to populate this resource's properties.

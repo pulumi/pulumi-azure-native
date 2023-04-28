@@ -11,6 +11,58 @@ import * as utilities from "../utilities";
  * Class representing an iot hub data connection.
  * API Version: 2022-12-29.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### KustoDataConnectionsCosmosDbCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotHubDataConnection = new azure_native.kusto.IotHubDataConnection("iotHubDataConnection", {
+ *     clusterName: "kustoCluster",
+ *     dataConnectionName: "dataConnectionTest",
+ *     databaseName: "KustoDatabase1",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
+ * ### KustoDataConnectionsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotHubDataConnection = new azure_native.kusto.IotHubDataConnection("iotHubDataConnection", {
+ *     clusterName: "kustoCluster",
+ *     dataConnectionName: "dataConnectionTest",
+ *     databaseName: "KustoDatabase8",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
+ * ### KustoDataConnectionsEventGridCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iotHubDataConnection = new azure_native.kusto.IotHubDataConnection("iotHubDataConnection", {
+ *     clusterName: "kustoCluster",
+ *     dataConnectionName: "dataConnectionTest",
+ *     databaseName: "KustoDatabase8",
+ *     resourceGroupName: "kustorptest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto:IotHubDataConnection kustoCluster/KustoDatabase8/dataConnectionTest /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/KustoDatabase8/DataConnections/KustoDataConnection9 
+ * ```
  */
 export class IotHubDataConnection extends pulumi.CustomResource {
     /**

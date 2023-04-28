@@ -161,6 +161,33 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
         """
         A long term retention policy.
 
+        ## Example Usage
+        ### Create or update the LTR policy for the managed database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance_long_term_retention_policy = azure_native.sql.v20220801preview.ManagedInstanceLongTermRetentionPolicy("managedInstanceLongTermRetentionPolicy",
+            database_name="testDatabase",
+            managed_instance_name="testInstance",
+            monthly_retention="P1Y",
+            policy_name="default",
+            resource_group_name="testResourceGroup",
+            week_of_year=5,
+            weekly_retention="P1M",
+            yearly_retention="P5Y")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testResourceGroup/providers/Microsoft.Sql/managedInstances/testInstance/databases/testDatabase/backupLongTermRetentionPolicies/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database.
@@ -180,6 +207,33 @@ class ManagedInstanceLongTermRetentionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A long term retention policy.
+
+        ## Example Usage
+        ### Create or update the LTR policy for the managed database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_instance_long_term_retention_policy = azure_native.sql.v20220801preview.ManagedInstanceLongTermRetentionPolicy("managedInstanceLongTermRetentionPolicy",
+            database_name="testDatabase",
+            managed_instance_name="testInstance",
+            monthly_retention="P1Y",
+            policy_name="default",
+            resource_group_name="testResourceGroup",
+            week_of_year=5,
+            weekly_retention="P1M",
+            yearly_retention="P5Y")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ManagedInstanceLongTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testResourceGroup/providers/Microsoft.Sql/managedInstances/testInstance/databases/testDatabase/backupLongTermRetentionPolicies/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedInstanceLongTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.

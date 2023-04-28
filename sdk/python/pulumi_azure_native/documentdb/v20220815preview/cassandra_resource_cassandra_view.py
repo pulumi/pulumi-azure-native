@@ -180,6 +180,35 @@ class CassandraResourceCassandraView(pulumi.CustomResource):
         """
         An Azure Cosmos DB Cassandra view.
 
+        ## Example Usage
+        ### CosmosDBCassandraViewCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_resource_cassandra_view = azure_native.documentdb.v20220815preview.CassandraResourceCassandraView("cassandraResourceCassandraView",
+            account_name="ddb1",
+            keyspace_name="keyspacename",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.CassandraViewResourceArgs(
+                id="viewname",
+                view_definition="SELECT columna, columnb, columnc FROM keyspacename.srctablename WHERE columna IS NOT NULL AND columnc IS NOT NULL PRIMARY (columnc, columna)",
+            ),
+            resource_group_name="rg1",
+            tags={},
+            view_name="viewname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:CassandraResourceCassandraView viewname /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspacename/views/viewname 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -200,6 +229,35 @@ class CassandraResourceCassandraView(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB Cassandra view.
+
+        ## Example Usage
+        ### CosmosDBCassandraViewCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cassandra_resource_cassandra_view = azure_native.documentdb.v20220815preview.CassandraResourceCassandraView("cassandraResourceCassandraView",
+            account_name="ddb1",
+            keyspace_name="keyspacename",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.CassandraViewResourceArgs(
+                id="viewname",
+                view_definition="SELECT columna, columnb, columnc FROM keyspacename.srctablename WHERE columna IS NOT NULL AND columnc IS NOT NULL PRIMARY (columnc, columna)",
+            ),
+            resource_group_name="rg1",
+            tags={},
+            view_name="viewname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:CassandraResourceCassandraView viewname /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspacename/views/viewname 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CassandraResourceCassandraViewArgs args: The arguments to use to populate this resource's properties.

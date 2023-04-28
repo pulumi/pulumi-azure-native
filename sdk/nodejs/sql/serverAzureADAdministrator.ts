@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Azure Active Directory administrator.
  * API Version: 2021-11-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates or updates an existing Azure Active Directory administrator.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverAzureADAdministrator = new azure_native.sql.ServerAzureADAdministrator("serverAzureADAdministrator", {
+ *     administratorName: "ActiveDirectory",
+ *     administratorType: "ActiveDirectory",
+ *     login: "bob@contoso.com",
+ *     resourceGroupName: "sqlcrudtest-4799",
+ *     serverName: "sqlcrudtest-6440",
+ *     sid: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+ *     tenantId: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:ServerAzureADAdministrator ActiveDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-6440/administrators/ActiveDirectory 
+ * ```
  */
 export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**

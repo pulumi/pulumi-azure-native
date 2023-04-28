@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Network
     /// Authorization in an ExpressRouteCircuit resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create ExpressRouteCircuit Authorization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteCircuitAuthorization = new AzureNative.Network.ExpressRouteCircuitAuthorization("expressRouteCircuitAuthorization", new()
+    ///     {
+    ///         AuthorizationName = "authorizatinName",
+    ///         CircuitName = "circuitName",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:ExpressRouteCircuitAuthorization authorizationName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName/authorizations/authorizationName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteCircuitAuthorization")]
     public partial class ExpressRouteCircuitAuthorization : global::Pulumi.CustomResource

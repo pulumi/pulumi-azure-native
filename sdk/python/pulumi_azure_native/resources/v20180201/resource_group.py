@@ -118,6 +118,13 @@ class ResourceGroup(pulumi.CustomResource):
                  __props__=None):
         """
         Resource group information.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20180201:ResourceGroup myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,6 +142,13 @@ class ResourceGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource group information.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20180201:ResourceGroup myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceGroupArgs args: The arguments to use to populate this resource's properties.

@@ -10,6 +10,29 @@ import * as utilities from "../../utilities";
 /**
  * The description of the DigitalTwins service.
  *
+ * ## Example Usage
+ * ### Put a DigitalTwinsInstance resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwin = new azure_native.digitaltwins.v20200301preview.DigitalTwin("digitalTwin", {
+ *     location: "WestUS",
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:digitaltwins/v20200301preview:DigitalTwin myDigitalTwinsService /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/DigitalTwinsInstance/myDigitalTwinsService 
+ * ```
+ *
  * @deprecated Version 2020-03-01-preview will be removed in v2 of the provider.
  */
 export class DigitalTwin extends pulumi.CustomResource {

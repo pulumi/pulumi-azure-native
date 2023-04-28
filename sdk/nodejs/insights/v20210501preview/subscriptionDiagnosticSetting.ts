@@ -9,6 +9,56 @@ import * as utilities from "../../utilities";
 
 /**
  * The subscription diagnostic setting resource.
+ *
+ * ## Example Usage
+ * ### Creates or Updates the subscription diagnostic setting
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subscriptionDiagnosticSetting = new azure_native.insights.v20210501preview.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting", {
+ *     eventHubAuthorizationRuleId: "/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+ *     eventHubName: "myeventhub",
+ *     logs: [{
+ *         categoryGroup: "allLogs",
+ *         enabled: true,
+ *     }],
+ *     marketplacePartnerId: "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+ *     name: "ds4",
+ *     storageAccountId: "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+ *     workspaceId: "",
+ * });
+ *
+ * ```
+ * ### Creates or Updates the subscription diagnostic setting for category
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const subscriptionDiagnosticSetting = new azure_native.insights.v20210501preview.SubscriptionDiagnosticSetting("subscriptionDiagnosticSetting", {
+ *     eventHubAuthorizationRuleId: "/subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/authorizationrules/myrule",
+ *     eventHubName: "myeventhub",
+ *     logs: [{
+ *         category: "Security",
+ *         enabled: true,
+ *     }],
+ *     marketplacePartnerId: "/subscriptions/abcdeabc-1234-1234-ab12-123a1234567a/resourceGroups/test-rg/providers/Microsoft.Datadog/monitors/dd1",
+ *     name: "ds4",
+ *     storageAccountId: "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+ *     workspaceId: "",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20210501preview:SubscriptionDiagnosticSetting ds4 subscriptions/fb9f25f9-5785-4510-a38f-a62f188eb9f8/providers/AzureResourceManager/diagnosticSettings/ds4 
+ * ```
  */
 export class SubscriptionDiagnosticSetting extends pulumi.CustomResource {
     /**

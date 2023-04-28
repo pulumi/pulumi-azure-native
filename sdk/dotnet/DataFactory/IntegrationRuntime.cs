@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.DataFactory
     /// Integration runtime resource type.
     /// API Version: 2018-06-01.
     /// Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### IntegrationRuntimes_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var integrationRuntime = new AzureNative.DataFactory.IntegrationRuntime("integrationRuntime", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         IntegrationRuntimeName = "exampleIntegrationRuntime",
+    ///         Properties = new AzureNative.DataFactory.Inputs.SelfHostedIntegrationRuntimeArgs
+    ///         {
+    ///             Description = "A selfhosted integration runtime",
+    ///             Type = "SelfHosted",
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory:IntegrationRuntime exampleIntegrationRuntime /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/integrationruntimes/exampleIntegrationRuntime 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory:IntegrationRuntime")]
     public partial class IntegrationRuntime : global::Pulumi.CustomResource

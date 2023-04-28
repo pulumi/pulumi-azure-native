@@ -241,6 +241,43 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Certificate order
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_certificate_order = azure_native.certificateregistration.AppServiceCertificateOrder("appServiceCertificateOrder",
+            auto_renew=True,
+            certificate_order_name="SampleCertificateOrderName",
+            certificates={
+                "SampleCertName1": azure_native.certificateregistration.AppServiceCertificateArgs(
+                    key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+                    key_vault_secret_name="SampleSecretName1",
+                ),
+                "SampleCertName2": azure_native.certificateregistration.AppServiceCertificateArgs(
+                    key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+                    key_vault_secret_name="SampleSecretName2",
+                ),
+            },
+            distinguished_name="CN=SampleCustomDomain.com",
+            key_size=2048,
+            location="Global",
+            product_type=azure_native.certificateregistration.CertificateProductType.STANDARD_DOMAIN_VALIDATED_SSL,
+            resource_group_name="testrg123",
+            validity_in_years=2)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:certificateregistration:AppServiceCertificateOrder SampleCertificateOrderName /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.CertificateRegistration/certificateOrders/SampleCertificateOrderName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_renew: <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
@@ -266,6 +303,43 @@ class AppServiceCertificateOrder(pulumi.CustomResource):
         SSL certificate purchase order.
         API Version: 2022-09-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Certificate order
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_certificate_order = azure_native.certificateregistration.AppServiceCertificateOrder("appServiceCertificateOrder",
+            auto_renew=True,
+            certificate_order_name="SampleCertificateOrderName",
+            certificates={
+                "SampleCertName1": azure_native.certificateregistration.AppServiceCertificateArgs(
+                    key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+                    key_vault_secret_name="SampleSecretName1",
+                ),
+                "SampleCertName2": azure_native.certificateregistration.AppServiceCertificateArgs(
+                    key_vault_id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourcegroups/testrg123/providers/microsoft.keyvault/vaults/SamplevaultName",
+                    key_vault_secret_name="SampleSecretName2",
+                ),
+            },
+            distinguished_name="CN=SampleCustomDomain.com",
+            key_size=2048,
+            location="Global",
+            product_type=azure_native.certificateregistration.CertificateProductType.STANDARD_DOMAIN_VALIDATED_SSL,
+            resource_group_name="testrg123",
+            validity_in_years=2)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:certificateregistration:AppServiceCertificateOrder SampleCertificateOrderName /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.CertificateRegistration/certificateOrders/SampleCertificateOrderName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderArgs args: The arguments to use to populate this resource's properties.

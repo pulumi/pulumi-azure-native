@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
 {
     /// <summary>
     /// The network group resource
+    /// 
+    /// ## Example Usage
+    /// ### NetworkGroupsPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkGroup = new AzureNative.Network.V20210501Preview.NetworkGroup("networkGroup", new()
+    ///     {
+    ///         Description = "A sample group",
+    ///         DisplayName = "My Network Group",
+    ///         MemberType = "VirtualNetwork",
+    ///         NetworkGroupName = "testNetworkGroup",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210501preview:NetworkGroup testNetworkGroup /subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testNetworkGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210501preview:NetworkGroup")]
     public partial class NetworkGroup : global::Pulumi.CustomResource

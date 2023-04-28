@@ -163,6 +163,42 @@ class FailoverGroup(pulumi.CustomResource):
         """
         A failover group.
 
+        ## Example Usage
+        ### Create failover group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        failover_group = azure_native.sql.v20220801preview.FailoverGroup("failoverGroup",
+            databases=[
+                "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-1",
+                "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-2",
+            ],
+            failover_group_name="failover-group-test-3",
+            partner_servers=[azure_native.sql.v20220801preview.PartnerInfoArgs(
+                id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-secondary-server",
+            )],
+            read_only_endpoint=azure_native.sql.v20220801preview.FailoverGroupReadOnlyEndpointArgs(
+                failover_policy="Disabled",
+            ),
+            read_write_endpoint=azure_native.sql.v20220801preview.FailoverGroupReadWriteEndpointArgs(
+                failover_policy="Automatic",
+                failover_with_data_loss_grace_period_minutes=480,
+            ),
+            resource_group_name="Default",
+            server_name="failover-group-primary-server")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:FailoverGroup failover-group-test-3 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/failoverGroups/failover-group-test-3 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] databases: List of databases in the failover group.
@@ -182,6 +218,42 @@ class FailoverGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A failover group.
+
+        ## Example Usage
+        ### Create failover group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        failover_group = azure_native.sql.v20220801preview.FailoverGroup("failoverGroup",
+            databases=[
+                "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-1",
+                "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-2",
+            ],
+            failover_group_name="failover-group-test-3",
+            partner_servers=[azure_native.sql.v20220801preview.PartnerInfoArgs(
+                id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-secondary-server",
+            )],
+            read_only_endpoint=azure_native.sql.v20220801preview.FailoverGroupReadOnlyEndpointArgs(
+                failover_policy="Disabled",
+            ),
+            read_write_endpoint=azure_native.sql.v20220801preview.FailoverGroupReadWriteEndpointArgs(
+                failover_policy="Automatic",
+                failover_with_data_loss_grace_period_minutes=480,
+            ),
+            resource_group_name="Default",
+            server_name="failover-group-primary-server")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:FailoverGroup failover-group-test-3 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/failoverGroups/failover-group-test-3 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FailoverGroupArgs args: The arguments to use to populate this resource's properties.

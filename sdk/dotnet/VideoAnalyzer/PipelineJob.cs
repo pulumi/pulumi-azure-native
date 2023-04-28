@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.VideoAnalyzer
     /// Pipeline job represents a unique instance of a batch topology, used for offline processing of selected portions of archived content.
     /// API Version: 2021-11-01-preview.
     /// Previous API Version: 2021-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a pipeline job
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pipelineJob = new AzureNative.VideoAnalyzer.PipelineJob("pipelineJob", new()
+    ///     {
+    ///         AccountName = "testaccount2",
+    ///         Description = "Pipeline Job 1 Dsecription",
+    ///         Parameters = new[]
+    ///         {
+    ///             new AzureNative.VideoAnalyzer.Inputs.ParameterDefinitionArgs
+    ///             {
+    ///                 Name = "timesequences",
+    ///                 Value = "[[\"2020-10-05T03:30:00Z\", \"2020-10-05T04:30:00Z\"]]",
+    ///             },
+    ///             new AzureNative.VideoAnalyzer.Inputs.ParameterDefinitionArgs
+    ///             {
+    ///                 Name = "videoSourceName",
+    ///                 Value = "camera001",
+    ///             },
+    ///         },
+    ///         PipelineJobName = "pipelineJob1",
+    ///         ResourceGroupName = "testrg",
+    ///         TopologyName = "pipelinetopology1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:videoanalyzer:PipelineJob pipelineJob1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/pipelineJobs/pipelineJob1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:videoanalyzer:PipelineJob")]
     public partial class PipelineJob : global::Pulumi.CustomResource

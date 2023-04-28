@@ -13,6 +13,69 @@ namespace Pulumi.AzureNative.Network
     /// NetworkSecurityGroup resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create network security group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkSecurityGroup = new AzureNative.Network.NetworkSecurityGroup("networkSecurityGroup", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         NetworkSecurityGroupName = "testnsg",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create network security group with rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkSecurityGroup = new AzureNative.Network.NetworkSecurityGroup("networkSecurityGroup", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         NetworkSecurityGroupName = "testnsg",
+    ///         ResourceGroupName = "rg1",
+    ///         SecurityRules = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.SecurityRuleArgs
+    ///             {
+    ///                 Access = "Allow",
+    ///                 DestinationAddressPrefix = "*",
+    ///                 DestinationPortRange = "80",
+    ///                 Direction = "Inbound",
+    ///                 Name = "rule1",
+    ///                 Priority = 130,
+    ///                 Protocol = "*",
+    ///                 SourceAddressPrefix = "*",
+    ///                 SourcePortRange = "*",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:NetworkSecurityGroup testnsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkSecurityGroup")]
     public partial class NetworkSecurityGroup : global::Pulumi.CustomResource

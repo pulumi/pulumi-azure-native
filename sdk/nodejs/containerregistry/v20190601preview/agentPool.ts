@@ -10,6 +10,36 @@ import * as utilities from "../../utilities";
 /**
  * The agentpool that has the ARM resource and properties.
  * The agentpool will have all information to create an agent pool.
+ *
+ * ## Example Usage
+ * ### AgentPools_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agentPool = new azure_native.containerregistry.v20190601preview.AgentPool("agentPool", {
+ *     agentPoolName: "myAgentPool",
+ *     count: 1,
+ *     location: "WESTUS",
+ *     os: "Linux",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     tier: "S1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20190601preview:AgentPool myAgentPool /subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourceGroups/huanwudfwestgroup/providers/Microsoft.ContainerRegistry/registries/huanglidfwest01/agentPools/testagent26 
+ * ```
  */
 export class AgentPool extends pulumi.CustomResource {
     /**

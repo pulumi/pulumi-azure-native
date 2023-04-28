@@ -162,6 +162,13 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
                  __props__=None):
         """
         Key Vault container ARM resource for a certificate that is purchased through Azure.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -182,6 +189,13 @@ class AppServiceCertificateOrderCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Key Vault container ARM resource for a certificate that is purchased through Azure.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:certificateregistration/v20201001:AppServiceCertificateOrderCertificate myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppServiceCertificateOrderCertificateArgs args: The arguments to use to populate this resource's properties.

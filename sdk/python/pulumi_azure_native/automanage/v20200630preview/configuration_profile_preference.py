@@ -115,6 +115,39 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
         """
         Definition of the configuration profile preference.
 
+        ## Example Usage
+        ### Create or update configuration profile preference
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile_preference = azure_native.automanage.v20200630preview.ConfigurationProfilePreference("configurationProfilePreference",
+            configuration_profile_preference_name="defaultProfilePreference",
+            location="East US",
+            properties=azure_native.automanage.v20200630preview.ConfigurationProfilePreferencePropertiesResponseArgs(
+                anti_malware=azure_native.automanage.v20200630preview.ConfigurationProfilePreferenceAntiMalwareArgs(
+                    enable_real_time_protection="True",
+                ),
+                vm_backup=azure_native.automanage.v20200630preview.ConfigurationProfilePreferenceVmBackupArgs(
+                    time_zone="Pacific Standard Time",
+                ),
+            ),
+            resource_group_name="myResourceGroupName",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage/v20200630preview:ConfigurationProfilePreference defaultProfilePreference /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfilePreferences/defaultProfilePreference 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_profile_preference_name: Name of the configuration profile preference.
@@ -131,6 +164,39 @@ class ConfigurationProfilePreference(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the configuration profile preference.
+
+        ## Example Usage
+        ### Create or update configuration profile preference
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_profile_preference = azure_native.automanage.v20200630preview.ConfigurationProfilePreference("configurationProfilePreference",
+            configuration_profile_preference_name="defaultProfilePreference",
+            location="East US",
+            properties=azure_native.automanage.v20200630preview.ConfigurationProfilePreferencePropertiesResponseArgs(
+                anti_malware=azure_native.automanage.v20200630preview.ConfigurationProfilePreferenceAntiMalwareArgs(
+                    enable_real_time_protection="True",
+                ),
+                vm_backup=azure_native.automanage.v20200630preview.ConfigurationProfilePreferenceVmBackupArgs(
+                    time_zone="Pacific Standard Time",
+                ),
+            ),
+            resource_group_name="myResourceGroupName",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage/v20200630preview:ConfigurationProfilePreference defaultProfilePreference /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfilePreferences/defaultProfilePreference 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationProfilePreferenceArgs args: The arguments to use to populate this resource's properties.

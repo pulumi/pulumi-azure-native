@@ -13,6 +13,171 @@ namespace Pulumi.AzureNative.BotService
     /// Bot channel resource definition
     /// API Version: 2022-09-15.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Alexa Channel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var channel = new AzureNative.BotService.Channel("channel", new()
+    ///     {
+    ///         ChannelName = "AlexaChannel",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BotService.Inputs.AlexaChannelArgs
+    ///         {
+    ///             ChannelName = "AlexaChannel",
+    ///             Properties = new AzureNative.BotService.Inputs.AlexaChannelPropertiesArgs
+    ///             {
+    ///                 AlexaSkillId = "XAlexaSkillIdX",
+    ///                 IsEnabled = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "OneResourceGroupName",
+    ///         ResourceName = "samplebotname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Channel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var channel = new AzureNative.BotService.Channel("channel", new()
+    ///     {
+    ///         ChannelName = "EmailChannel",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BotService.Inputs.EmailChannelArgs
+    ///         {
+    ///             ChannelName = "EmailChannel",
+    ///             Properties = new AzureNative.BotService.Inputs.EmailChannelPropertiesArgs
+    ///             {
+    ///                 EmailAddress = "a@b.com",
+    ///                 IsEnabled = true,
+    ///                 Password = "pwd",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "OneResourceGroupName",
+    ///         ResourceName = "samplebotname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create DirectLine Speech Channel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var channel = new AzureNative.BotService.Channel("channel", new()
+    ///     {
+    ///         ChannelName = "DirectLineSpeechChannel",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BotService.Inputs.DirectLineSpeechChannelArgs
+    ///         {
+    ///             ChannelName = "DirectLineSpeechChannel",
+    ///             Properties = new AzureNative.BotService.Inputs.DirectLineSpeechChannelPropertiesArgs
+    ///             {
+    ///                 CognitiveServiceRegion = "XcognitiveServiceRegionX",
+    ///                 CognitiveServiceSubscriptionKey = "XcognitiveServiceSubscriptionKeyX",
+    ///                 IsEnabled = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "OneResourceGroupName",
+    ///         ResourceName = "samplebotname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Email Channel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var channel = new AzureNative.BotService.Channel("channel", new()
+    ///     {
+    ///         ChannelName = "EmailChannel",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BotService.Inputs.EmailChannelArgs
+    ///         {
+    ///             ChannelName = "EmailChannel",
+    ///             Properties = new AzureNative.BotService.Inputs.EmailChannelPropertiesArgs
+    ///             {
+    ///                 AuthMethod = 1,
+    ///                 EmailAddress = "a@b.com",
+    ///                 IsEnabled = true,
+    ///                 MagicCode = "000000",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "OneResourceGroupName",
+    ///         ResourceName = "samplebotname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Line Channel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var channel = new AzureNative.BotService.Channel("channel", new()
+    ///     {
+    ///         ChannelName = "LineChannel",
+    ///         Location = "global",
+    ///         Properties = new AzureNative.BotService.Inputs.LineChannelArgs
+    ///         {
+    ///             ChannelName = "LineChannel",
+    ///             Properties = new AzureNative.BotService.Inputs.LineChannelPropertiesArgs
+    ///             {
+    ///                 LineRegistrations = new[]
+    ///                 {
+    ///                     new AzureNative.BotService.Inputs.LineRegistrationArgs
+    ///                     {
+    ///                         ChannelAccessToken = "channelAccessToken",
+    ///                         ChannelSecret = "channelSecret",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "OneResourceGroupName",
+    ///         ResourceName = "samplebotname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:botservice:Channel myresource1 /subscriptions/subscription-id/providers/Microsoft.BotService/botServices 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice:Channel")]
     public partial class Channel : global::Pulumi.CustomResource

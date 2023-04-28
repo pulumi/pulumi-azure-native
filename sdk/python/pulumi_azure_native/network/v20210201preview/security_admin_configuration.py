@@ -147,6 +147,31 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
         """
         Defines the security configuration
 
+        ## Example Usage
+        ### Create network manager security admin configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_admin_configuration = azure_native.network.v20210201preview.SecurityAdminConfiguration("securityAdminConfiguration",
+            configuration_name="myTestSecurityConfig",
+            delete_existing_nsgs="True",
+            description="A sample policy",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            security_type="AdminPolicy")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:SecurityAdminConfiguration myTestSecurityConfig /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the network manager security Configuration.
@@ -165,6 +190,31 @@ class SecurityAdminConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the security configuration
+
+        ## Example Usage
+        ### Create network manager security admin configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_admin_configuration = azure_native.network.v20210201preview.SecurityAdminConfiguration("securityAdminConfiguration",
+            configuration_name="myTestSecurityConfig",
+            delete_existing_nsgs="True",
+            description="A sample policy",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            security_type="AdminPolicy")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:SecurityAdminConfiguration myTestSecurityConfig /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityAdminConfigurationArgs args: The arguments to use to populate this resource's properties.

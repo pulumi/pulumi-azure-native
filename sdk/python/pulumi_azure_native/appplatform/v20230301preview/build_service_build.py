@@ -112,6 +112,41 @@ class BuildServiceBuild(pulumi.CustomResource):
         """
         Build resource payload
 
+        ## Example Usage
+        ### BuildService_CreateOrUpdateBuild
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        build_service_build = azure_native.appplatform.v20230301preview.BuildServiceBuild("buildServiceBuild",
+            build_name="mybuild",
+            build_service_name="default",
+            properties=azure_native.appplatform.v20230301preview.BuildPropertiesResponseArgs(
+                agent_pool="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default",
+                builder="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default",
+                env={
+                    "environmentVariable": "test",
+                },
+                relative_path="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855-20210601-3ed9f4a2-986b-4bbd-b833-a42dccb2f777",
+                resource_requests=azure_native.appplatform.v20230301preview.BuildResourceRequestsArgs(
+                    cpu="1",
+                    memory="2Gi",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:BuildServiceBuild mybuild /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builds/mybuild 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] build_name: The name of the build resource.
@@ -128,6 +163,41 @@ class BuildServiceBuild(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Build resource payload
+
+        ## Example Usage
+        ### BuildService_CreateOrUpdateBuild
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        build_service_build = azure_native.appplatform.v20230301preview.BuildServiceBuild("buildServiceBuild",
+            build_name="mybuild",
+            build_service_name="default",
+            properties=azure_native.appplatform.v20230301preview.BuildPropertiesResponseArgs(
+                agent_pool="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default",
+                builder="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default",
+                env={
+                    "environmentVariable": "test",
+                },
+                relative_path="e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855-20210601-3ed9f4a2-986b-4bbd-b833-a42dccb2f777",
+                resource_requests=azure_native.appplatform.v20230301preview.BuildResourceRequestsArgs(
+                    cpu="1",
+                    memory="2Gi",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20230301preview:BuildServiceBuild mybuild /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builds/mybuild 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BuildServiceBuildArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20171115
 {
     /// <summary>
     /// An event source that receives its data from an Azure IoTHub.
+    /// 
+    /// ## Example Usage
+    /// ### CreateEventHubEventSource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ioTHubEventSource = new AzureNative.TimeSeriesInsights.V20171115.IoTHubEventSource("ioTHubEventSource", new()
+    ///     {
+    ///         EnvironmentName = "env1",
+    ///         EventSourceName = "es1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights/v20171115:IoTHubEventSource es1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/eventSources/es1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20171115:IoTHubEventSource")]
     public partial class IoTHubEventSource : global::Pulumi.CustomResource

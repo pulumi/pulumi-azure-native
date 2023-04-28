@@ -129,6 +129,37 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
         """
         Protection container mapping object.
 
+        ## Example Usage
+        ### Create protection container mapping.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_protection_container_mapping = azure_native.recoveryservices.v20230201.ReplicationProtectionContainerMapping("replicationProtectionContainerMapping",
+            fabric_name="cloud1",
+            mapping_name="cloud1protectionprofile1",
+            properties=azure_native.recoveryservices.v20230201.ProtectionContainerMappingPropertiesResponseArgs(
+                policy_id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
+                provider_specific_input={
+                    "instanceType": "ReplicationProviderSpecificContainerMappingInput",
+                },
+                target_protection_container_id="Microsoft Azure",
+            ),
+            protection_container_name="cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping cloud1protectionprofile1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectionContainerMappings/cloud1protectionprofile1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
@@ -146,6 +177,37 @@ class ReplicationProtectionContainerMapping(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Protection container mapping object.
+
+        ## Example Usage
+        ### Create protection container mapping.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_protection_container_mapping = azure_native.recoveryservices.v20230201.ReplicationProtectionContainerMapping("replicationProtectionContainerMapping",
+            fabric_name="cloud1",
+            mapping_name="cloud1protectionprofile1",
+            properties=azure_native.recoveryservices.v20230201.ProtectionContainerMappingPropertiesResponseArgs(
+                policy_id="/Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1",
+                provider_specific_input={
+                    "instanceType": "ReplicationProviderSpecificContainerMappingInput",
+                },
+                target_protection_container_id="Microsoft Azure",
+            ),
+            protection_container_name="cloud_6d224fc6-f326-5d35-96de-fbf51efb3179",
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20230201:ReplicationProtectionContainerMapping cloud1protectionprofile1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1/replicationProtectionContainers/cloud_6d224fc6-f326-5d35-96de-fbf51efb3179/replicationProtectionContainerMappings/cloud1protectionprofile1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationProtectionContainerMappingArgs args: The arguments to use to populate this resource's properties.

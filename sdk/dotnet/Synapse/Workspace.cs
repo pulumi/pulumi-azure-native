@@ -13,6 +13,100 @@ namespace Pulumi.AzureNative.Synapse
     /// A workspace
     /// API Version: 2021-06-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a workspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Synapse.Workspace("workspace", new()
+    ///     {
+    ///         CspWorkspaceAdminProperties = new AzureNative.Synapse.Inputs.CspWorkspaceAdminPropertiesArgs
+    ///         {
+    ///             InitialWorkspaceAdminObjectId = "6c20646f-8050-49ec-b3b1-80a0e58e454d",
+    ///         },
+    ///         DefaultDataLakeStorage = new AzureNative.Synapse.Inputs.DataLakeStorageAccountDetailsArgs
+    ///         {
+    ///             AccountUrl = "https://accountname.dfs.core.windows.net",
+    ///             Filesystem = "default",
+    ///         },
+    ///         Encryption = new AzureNative.Synapse.Inputs.EncryptionDetailsArgs
+    ///         {
+    ///             Cmk = new AzureNative.Synapse.Inputs.CustomerManagedKeyDetailsArgs
+    ///             {
+    ///                 KekIdentity = new AzureNative.Synapse.Inputs.KekIdentityPropertiesArgs
+    ///                 {
+    ///                     UseSystemAssignedIdentity = false,
+    ///                     UserAssignedIdentity = "/subscriptions/b64d7b94-73e7-4d36-94b2-7764ea3fd74a/resourcegroups/SynapseCI/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami1",
+    ///                 },
+    ///                 Key = new AzureNative.Synapse.Inputs.WorkspaceKeyDetailsArgs
+    ///                 {
+    ///                     KeyVaultUrl = "https://vault.azure.net/keys/key1",
+    ///                     Name = "default",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.Synapse.Inputs.ManagedIdentityArgs
+    ///         {
+    ///             Type = AzureNative.Synapse.ResourceIdentityType.SystemAssigned_UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/resourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uami1", null },
+    ///             },
+    ///         },
+    ///         Location = "East US",
+    ///         ManagedResourceGroupName = "workspaceManagedResourceGroupUnique",
+    ///         ManagedVirtualNetwork = "default",
+    ///         ManagedVirtualNetworkSettings = new AzureNative.Synapse.Inputs.ManagedVirtualNetworkSettingsArgs
+    ///         {
+    ///             AllowedAadTenantIdsForLinking = new[]
+    ///             {
+    ///                 "740239CE-A25B-485B-86A0-262F29F6EBDB",
+    ///             },
+    ///             LinkedAccessCheckOnTargetResource = false,
+    ///             PreventDataExfiltration = false,
+    ///         },
+    ///         PublicNetworkAccess = "Enabled",
+    ///         PurviewConfiguration = new AzureNative.Synapse.Inputs.PurviewConfigurationArgs
+    ///         {
+    ///             PurviewResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.ProjectPurview/accounts/accountname1",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         SqlAdministratorLogin = "login",
+    ///         SqlAdministratorLoginPassword = "password",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///         WorkspaceName = "workspace1",
+    ///         WorkspaceRepositoryConfiguration = new AzureNative.Synapse.Inputs.WorkspaceRepositoryConfigurationArgs
+    ///         {
+    ///             AccountName = "mygithubaccount",
+    ///             CollaborationBranch = "master",
+    ///             HostName = "",
+    ///             ProjectName = "myproject",
+    ///             RepositoryName = "myrepository",
+    ///             RootFolder = "/",
+    ///             Type = "FactoryGitHubConfiguration",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse:Workspace workspace1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the NetworkInterface resource.
+ *
+ * ## Example Usage
+ * ### NetworkInterfaces_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkInterface = new azure_native.managednetworkfabric.v20230201preview.NetworkInterface("networkInterface", {
+ *     annotation: "null",
+ *     networkDeviceName: "networkDeviceName",
+ *     networkInterfaceName: "networkInterfaceName",
+ *     resourceGroupName: "resourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkInterface networkInterfaceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/networkDeviceName/networkInterfaces/networkInterfaceName 
+ * ```
  */
 export class NetworkInterface extends pulumi.CustomResource {
     /**

@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Policy Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateGraphQLApiResolverPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var graphQLApiResolverPolicy = new AzureNative.ApiManagement.V20220801.GraphQLApiResolverPolicy("graphQLApiResolverPolicy", new()
+    ///     {
+    ///         ApiId = "5600b57e7e8880006a040001",
+    ///         Format = "xml",
+    ///         PolicyId = "policy",
+    ///         ResolverId = "5600b57e7e8880006a080001",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = "&lt;http-data-source&gt;&lt;http-request&gt;&lt;set-method&gt;GET&lt;/set-method&gt;&lt;set-backend-service base-url=\"https://some.service.com\" /&gt;&lt;set-url&gt;/api/users&lt;/set-url&gt;&lt;/http-request&gt;&lt;/http-data-source&gt;",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/5600b57e7e8880006a040001/resolvers/5600b57e7e8880006a080001/policies/policy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:GraphQLApiResolverPolicy")]
     public partial class GraphQLApiResolverPolicy : global::Pulumi.CustomResource

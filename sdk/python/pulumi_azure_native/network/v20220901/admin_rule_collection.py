@@ -128,6 +128,33 @@ class AdminRuleCollection(pulumi.CustomResource):
         """
         Defines the admin rule collection.
 
+        ## Example Usage
+        ### Create or Update an admin rule collection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        admin_rule_collection = azure_native.network.v20220901.AdminRuleCollection("adminRuleCollection",
+            applies_to_groups=[azure_native.network.v20220901.NetworkManagerSecurityGroupItemArgs(
+                network_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+            )],
+            configuration_name="myTestSecurityConfig",
+            description="A sample policy",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:AdminRuleCollection myTestSecurityConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['NetworkManagerSecurityGroupItemArgs']]]] applies_to_groups: Groups for configuration
@@ -145,6 +172,33 @@ class AdminRuleCollection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the admin rule collection.
+
+        ## Example Usage
+        ### Create or Update an admin rule collection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        admin_rule_collection = azure_native.network.v20220901.AdminRuleCollection("adminRuleCollection",
+            applies_to_groups=[azure_native.network.v20220901.NetworkManagerSecurityGroupItemArgs(
+                network_group_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+            )],
+            configuration_name="myTestSecurityConfig",
+            description="A sample policy",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:AdminRuleCollection myTestSecurityConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AdminRuleCollectionArgs args: The arguments to use to populate this resource's properties.

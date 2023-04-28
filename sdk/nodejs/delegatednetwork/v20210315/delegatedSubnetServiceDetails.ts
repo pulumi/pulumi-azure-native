@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an instance of a orchestrator.
+ *
+ * ## Example Usage
+ * ### put delegated subnet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const delegatedSubnetServiceDetails = new azure_native.delegatednetwork.v20210315.DelegatedSubnetServiceDetails("delegatedSubnetServiceDetails", {
+ *     controllerDetails: {
+ *         id: "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/dnctestcontroller",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "TestRG",
+ *     resourceName: "delegated1",
+ *     subnetDetails: {
+ *         id: "/subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/testsubnet",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:delegatednetwork/v20210315:DelegatedSubnetServiceDetails delegated1 /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/delegatedSubnets/delegated1 
+ * ```
  */
 export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
     /**

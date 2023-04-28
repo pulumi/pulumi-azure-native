@@ -11,6 +11,113 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
 {
     /// <summary>
     /// Represents scheduled alert rule.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a Fusion alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledAlertRule = new AzureNative.SecurityInsights.V20190101Preview.ScheduledAlertRule("scheduledAlertRule", new()
+    ///     {
+    ///         OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "myFirstFusionRule",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledAlertRule = new AzureNative.SecurityInsights.V20190101Preview.ScheduledAlertRule("scheduledAlertRule", new()
+    ///     {
+    ///         OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "microsoftSecurityIncidentCreationRuleExample",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates a Scheduled alert rule.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledAlertRule = new AzureNative.SecurityInsights.V20190101Preview.ScheduledAlertRule("scheduledAlertRule", new()
+    ///     {
+    ///         Description = "",
+    ///         DisplayName = "Rule2",
+    ///         Enabled = true,
+    ///         EventGroupingSettings = new AzureNative.SecurityInsights.V20190101Preview.Inputs.EventGroupingSettingsArgs
+    ///         {
+    ///             AggregationKind = "AlertPerResult",
+    ///         },
+    ///         IncidentConfiguration = new AzureNative.SecurityInsights.V20190101Preview.Inputs.IncidentConfigurationArgs
+    ///         {
+    ///             CreateIncident = true,
+    ///             GroupingConfiguration = new AzureNative.SecurityInsights.V20190101Preview.Inputs.GroupingConfigurationArgs
+    ///             {
+    ///                 Enabled = true,
+    ///                 EntitiesMatchingMethod = "Custom",
+    ///                 GroupByEntities = new[]
+    ///                 {
+    ///                     "Host",
+    ///                     "Account",
+    ///                 },
+    ///                 LookbackDuration = "PT5H",
+    ///                 ReopenClosedIncident = false,
+    ///             },
+    ///         },
+    ///         Kind = "Scheduled",
+    ///         OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///         Query = "ProtectionStatus | extend HostCustomEntity = Computer | extend IPCustomEntity = ComputerIP_Hidden",
+    ///         QueryFrequency = "PT1H",
+    ///         QueryPeriod = "P2DT1H30M",
+    ///         ResourceGroupName = "myRg",
+    ///         RuleId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         Severity = "High",
+    ///         SuppressionDuration = "PT1H",
+    ///         SuppressionEnabled = false,
+    ///         Tactics = new[]
+    ///         {
+    ///             "Persistence",
+    ///             "LateralMovement",
+    ///         },
+    ///         TriggerOperator = AzureNative.SecurityInsights.V20190101Preview.TriggerOperator.GreaterThan,
+    ///         TriggerThreshold = 0,
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20190101preview:ScheduledAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20190101preview:ScheduledAlertRule")]
     public partial class ScheduledAlertRule : global::Pulumi.CustomResource

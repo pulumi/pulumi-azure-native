@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Outbound Rule Basic Resource for the managed network of a machine learning workspace.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate ManagedNetworkSettingsRule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managedNetworkSettingsRule = new azure_native.machinelearningservices.v20230401preview.ManagedNetworkSettingsRule("managedNetworkSettingsRule", {
+ *     properties: {
+ *         category: "UserDefined",
+ *         destination: "some_string",
+ *         status: "Active",
+ *         type: "FQDN",
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     ruleName: "some_string",
+ *     workspaceName: "aml-workspace-name",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230401preview:ManagedNetworkSettingsRule some_string some_string 
+ * ```
  */
 export class ManagedNetworkSettingsRule extends pulumi.CustomResource {
     /**

@@ -162,6 +162,43 @@ class InstanceFailoverGroup(pulumi.CustomResource):
         """
         An instance failover group.
 
+        ## Example Usage
+        ### Create failover group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_failover_group = azure_native.sql.v20220801preview.InstanceFailoverGroup("instanceFailoverGroup",
+            failover_group_name="failover-group-test-3",
+            location_name="Japan East",
+            managed_instance_pairs=[azure_native.sql.v20220801preview.ManagedInstancePairInfoArgs(
+                partner_managed_instance_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-secondary-mngdInstance",
+                primary_managed_instance_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-primary-mngdInstance",
+            )],
+            partner_regions=[azure_native.sql.v20220801preview.PartnerRegionInfoArgs(
+                location="Japan West",
+            )],
+            read_only_endpoint=azure_native.sql.v20220801preview.InstanceFailoverGroupReadOnlyEndpointArgs(
+                failover_policy="Disabled",
+            ),
+            read_write_endpoint=azure_native.sql.v20220801preview.InstanceFailoverGroupReadWriteEndpointArgs(
+                failover_policy="Automatic",
+                failover_with_data_loss_grace_period_minutes=480,
+            ),
+            resource_group_name="Default",
+            secondary_type="Geo")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:InstanceFailoverGroup failover-group-test-3 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/locations/JapanEast/instanceFailoverGroups/failover-group-test-3 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] failover_group_name: The name of the failover group.
@@ -181,6 +218,43 @@ class InstanceFailoverGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An instance failover group.
+
+        ## Example Usage
+        ### Create failover group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance_failover_group = azure_native.sql.v20220801preview.InstanceFailoverGroup("instanceFailoverGroup",
+            failover_group_name="failover-group-test-3",
+            location_name="Japan East",
+            managed_instance_pairs=[azure_native.sql.v20220801preview.ManagedInstancePairInfoArgs(
+                partner_managed_instance_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-secondary-mngdInstance",
+                primary_managed_instance_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/failover-group-primary-mngdInstance",
+            )],
+            partner_regions=[azure_native.sql.v20220801preview.PartnerRegionInfoArgs(
+                location="Japan West",
+            )],
+            read_only_endpoint=azure_native.sql.v20220801preview.InstanceFailoverGroupReadOnlyEndpointArgs(
+                failover_policy="Disabled",
+            ),
+            read_write_endpoint=azure_native.sql.v20220801preview.InstanceFailoverGroupReadWriteEndpointArgs(
+                failover_policy="Automatic",
+                failover_with_data_loss_grace_period_minutes=480,
+            ),
+            resource_group_name="Default",
+            secondary_type="Geo")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:InstanceFailoverGroup failover-group-test-3 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/locations/JapanEast/instanceFailoverGroups/failover-group-test-3 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InstanceFailoverGroupArgs args: The arguments to use to populate this resource's properties.

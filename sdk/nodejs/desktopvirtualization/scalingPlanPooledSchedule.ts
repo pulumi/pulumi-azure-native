@@ -11,6 +11,63 @@ import * as utilities from "../utilities";
  * Represents a ScalingPlanPooledSchedule definition.
  * API Version: 2022-09-09.
  * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ScalingPlanPooledSchedules_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scalingPlanPooledSchedule = new azure_native.desktopvirtualization.ScalingPlanPooledSchedule("scalingPlanPooledSchedule", {
+ *     daysOfWeek: [
+ *         "Monday",
+ *         "Tuesday",
+ *         "Wednesday",
+ *         "Thursday",
+ *         "Friday",
+ *     ],
+ *     offPeakLoadBalancingAlgorithm: "DepthFirst",
+ *     offPeakStartTime: {
+ *         hour: 20,
+ *         minute: 0,
+ *     },
+ *     peakLoadBalancingAlgorithm: "BreadthFirst",
+ *     peakStartTime: {
+ *         hour: 8,
+ *         minute: 0,
+ *     },
+ *     rampDownCapacityThresholdPct: 50,
+ *     rampDownForceLogoffUsers: true,
+ *     rampDownLoadBalancingAlgorithm: "DepthFirst",
+ *     rampDownMinimumHostsPct: 20,
+ *     rampDownNotificationMessage: "message",
+ *     rampDownStartTime: {
+ *         hour: 18,
+ *         minute: 0,
+ *     },
+ *     rampDownWaitTimeMinutes: 30,
+ *     rampUpCapacityThresholdPct: 80,
+ *     rampUpLoadBalancingAlgorithm: "DepthFirst",
+ *     rampUpMinimumHostsPct: 20,
+ *     rampUpStartTime: {
+ *         hour: 6,
+ *         minute: 0,
+ *     },
+ *     resourceGroupName: "resourceGroup1",
+ *     scalingPlanName: "scalingPlan1",
+ *     scalingPlanScheduleName: "scalingPlanScheduleWeekdays1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:desktopvirtualization:ScalingPlanPooledSchedule scalingPlanScheduleWeekdays1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/scalingPlan1/pooledSchedules/scalingPlanScheduleWeekdays1 
+ * ```
  */
 export class ScalingPlanPooledSchedule extends pulumi.CustomResource {
     /**

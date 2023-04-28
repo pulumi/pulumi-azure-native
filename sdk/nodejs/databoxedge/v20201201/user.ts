@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
+ *
+ * ## Example Usage
+ * ### UserPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const user = new azure_native.databoxedge.v20201201.User("user", {
+ *     deviceName: "testedgedevice",
+ *     encryptedPassword: {
+ *         encryptionAlgorithm: "None",
+ *         encryptionCertThumbprint: "blah",
+ *         value: "<value>",
+ *     },
+ *     name: "user1",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     userType: "Share",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge/v20201201:User user1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/users/user1 
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

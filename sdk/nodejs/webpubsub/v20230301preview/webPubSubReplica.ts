@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * A class represent a replica resource.
+ *
+ * ## Example Usage
+ * ### WebPubSubReplicas_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webPubSubReplica = new azure_native.webpubsub.v20230301preview.WebPubSubReplica("webPubSubReplica", {
+ *     location: "eastus",
+ *     replicaName: "myWebPubSubService-eastus",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myWebPubSubService",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Premium_P1",
+ *         tier: "Premium",
+ *     },
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:webpubsub/v20230301preview:WebPubSubReplica myWebPubSubService-eastus /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/replicas/myWebPubSubService-eastus 
+ * ```
  */
 export class WebPubSubReplica extends pulumi.CustomResource {
     /**

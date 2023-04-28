@@ -9,6 +9,64 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.ProviderHub.V20210901Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Skus_CreateOrUpdateNestedResourceTypeThird
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var skusNestedResourceTypeThird = new AzureNative.ProviderHub.V20210901Preview.SkusNestedResourceTypeThird("skusNestedResourceTypeThird", new()
+    ///     {
+    ///         NestedResourceTypeFirst = "nestedResourceTypeFirst",
+    ///         NestedResourceTypeSecond = "nestedResourceTypeSecond",
+    ///         NestedResourceTypeThird = "nestedResourceTypeThird",
+    ///         Properties = new AzureNative.ProviderHub.V20210901Preview.Inputs.SkuResourcePropertiesArgs
+    ///         {
+    ///             SkuSettings = new[]
+    ///             {
+    ///                 new AzureNative.ProviderHub.V20210901Preview.Inputs.SkuSettingArgs
+    ///                 {
+    ///                     Kind = "Standard",
+    ///                     Name = "freeSku",
+    ///                     Tier = "Tier1",
+    ///                 },
+    ///                 new AzureNative.ProviderHub.V20210901Preview.Inputs.SkuSettingArgs
+    ///                 {
+    ///                     Costs = new[]
+    ///                     {
+    ///                         new AzureNative.ProviderHub.V20210901Preview.Inputs.SkuCostArgs
+    ///                         {
+    ///                             MeterId = "xxx",
+    ///                         },
+    ///                     },
+    ///                     Kind = "Premium",
+    ///                     Name = "premiumSku",
+    ///                     Tier = "Tier2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ProviderNamespace = "Microsoft.Contoso",
+    ///         ResourceType = "testResourceType",
+    ///         Sku = "testSku",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:providerhub/v20210901preview:SkusNestedResourceTypeThird Microsoft.Contoso/ /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/ 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:providerhub/v20210901preview:SkusNestedResourceTypeThird")]
     public partial class SkusNestedResourceTypeThird : global::Pulumi.CustomResource
     {

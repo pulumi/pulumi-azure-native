@@ -129,6 +129,30 @@ class DataNetwork(pulumi.CustomResource):
         """
         Data network resource. Must be created in the same location as its parent mobile network.
 
+        ## Example Usage
+        ### Create data network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_network = azure_native.mobilenetwork.v20221101.DataNetwork("dataNetwork",
+            data_network_name="testDataNetwork",
+            description="myFavouriteDataNetwork",
+            location="eastus",
+            mobile_network_name="testMobileNetwork",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork/v20221101:DataNetwork testDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testDataNetwork 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_network_name: The name of the data network.
@@ -146,6 +170,30 @@ class DataNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data network resource. Must be created in the same location as its parent mobile network.
+
+        ## Example Usage
+        ### Create data network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_network = azure_native.mobilenetwork.v20221101.DataNetwork("dataNetwork",
+            data_network_name="testDataNetwork",
+            description="myFavouriteDataNetwork",
+            location="eastus",
+            mobile_network_name="testMobileNetwork",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork/v20221101:DataNetwork testDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testDataNetwork 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataNetworkArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB Graph resource.
+ *
+ * ## Example Usage
+ * ### CosmosDBGraphCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const graphResourceGraph = new azure_native.documentdb.v20221115preview.GraphResourceGraph("graphResourceGraph", {
+ *     accountName: "ddb1",
+ *     graphName: "graphName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         id: "graphName",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20221115preview:GraphResourceGraph graphName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/graphs/graphName 
+ * ```
  */
 export class GraphResourceGraph extends pulumi.CustomResource {
     /**

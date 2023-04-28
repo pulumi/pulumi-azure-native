@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * Defines the properties of an Experiment
  * API Version: 2019-11-01.
  * Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates an Experiment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const experiment = new azure_native.network.Experiment("experiment", {
+ *     description: "this is my first experiment!",
+ *     enabledState: "Enabled",
+ *     endpointA: {
+ *         endpoint: "endpointA.net",
+ *         name: "endpoint A",
+ *     },
+ *     endpointB: {
+ *         endpoint: "endpointB.net",
+ *         name: "endpoint B",
+ *     },
+ *     experimentName: "MyExperiment",
+ *     profileName: "MyProfile",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:Experiment MyExperiment /subscriptions/subid/resourceGroups/MyResourceGroup/providers/Microsoft.Network/NetworkExperimentProfiles/MyProfile/Experiments/MyExperiment 
+ * ```
  */
 export class Experiment extends pulumi.CustomResource {
     /**

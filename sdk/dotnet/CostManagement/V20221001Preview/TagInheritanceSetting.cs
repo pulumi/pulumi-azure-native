@@ -11,6 +11,16 @@ namespace Pulumi.AzureNative.CostManagement.V20221001Preview
 {
     /// <summary>
     /// Tag Inheritance Setting definition.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement/v20221001preview:TagInheritanceSetting taginheritance /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/settings/taginheritance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20221001preview:TagInheritanceSetting")]
     public partial class TagInheritanceSetting : global::Pulumi.CustomResource

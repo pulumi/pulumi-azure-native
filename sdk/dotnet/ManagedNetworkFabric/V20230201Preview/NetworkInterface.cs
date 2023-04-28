@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 {
     /// <summary>
     /// Defines the NetworkInterface resource.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkInterfaces_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkInterface = new AzureNative.ManagedNetworkFabric.V20230201Preview.NetworkInterface("networkInterface", new()
+    ///     {
+    ///         Annotation = "null",
+    ///         NetworkDeviceName = "networkDeviceName",
+    ///         NetworkInterfaceName = "networkInterfaceName",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkInterface networkInterfaceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/networkDeviceName/networkInterfaces/networkInterfaceName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric/v20230201preview:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource

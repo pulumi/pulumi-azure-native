@@ -13,6 +13,91 @@ namespace Pulumi.AzureNative.Network
     /// A network interface in a resource group.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create network interface
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkInterface = new AzureNative.Network.NetworkInterface("networkInterface", new()
+    ///     {
+    ///         DisableTcpStateTracking = true,
+    ///         EnableAcceleratedNetworking = true,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///             {
+    ///                 Name = "ipconfig1",
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.PublicIPAddressArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         NetworkInterfaceName = "test-nic",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create network interface with Gateway Load Balancer Consumer configured
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkInterface = new AzureNative.Network.NetworkInterface("networkInterface", new()
+    ///     {
+    ///         EnableAcceleratedNetworking = true,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///             {
+    ///                 GatewayLoadBalancer = new AzureNative.Network.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb-provider",
+    ///                 },
+    ///                 Name = "ipconfig1",
+    ///                 PublicIPAddress = new AzureNative.Network.Inputs.PublicIPAddressArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         NetworkInterfaceName = "test-nic",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:NetworkInterface test-nic /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource

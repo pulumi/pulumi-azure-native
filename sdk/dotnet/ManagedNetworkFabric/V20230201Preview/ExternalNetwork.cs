@@ -11,6 +11,59 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 {
     /// <summary>
     /// Defines the ExternalNetwork item.
+    /// 
+    /// ## Example Usage
+    /// ### ExternalNetworks_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var externalNetwork = new AzureNative.ManagedNetworkFabric.V20230201Preview.ExternalNetwork("externalNetwork", new()
+    ///     {
+    ///         ExportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+    ///         ExternalNetworkName = "example-externalnetwork",
+    ///         ImportRoutePolicyId = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+    ///         L3IsolationDomainName = "example-l3domain",
+    ///         OptionAProperties = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.ExternalNetworkPropertiesOptionAPropertiesArgs
+    ///         {
+    ///             Mtu = 1500,
+    ///             PeerASN = 65047,
+    ///             PrimaryIpv4Prefix = "10.1.1.0/30",
+    ///             PrimaryIpv6Prefix = "3FFE:FFFF:0:CD30::a0/126",
+    ///             SecondaryIpv4Prefix = "10.1.1.4/30",
+    ///             SecondaryIpv6Prefix = "3FFE:FFFF:0:CD30::a4/126",
+    ///             VlanId = 1001,
+    ///         },
+    ///         OptionBProperties = new AzureNative.ManagedNetworkFabric.V20230201Preview.Inputs.OptionBPropertiesArgs
+    ///         {
+    ///             ExportRouteTargets = new[]
+    ///             {
+    ///                 "65046:10039",
+    ///             },
+    ///             ImportRouteTargets = new[]
+    ///             {
+    ///                 "65046:10039",
+    ///             },
+    ///         },
+    ///         PeeringOption = "OptionA",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric/v20230201preview:ExternalNetwork example-externalnetwork /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/example-l3domain/externalNetworks/example-externalnetwork 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric/v20230201preview:ExternalNetwork")]
     public partial class ExternalNetwork : global::Pulumi.CustomResource

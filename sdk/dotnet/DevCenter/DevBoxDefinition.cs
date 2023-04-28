@@ -13,6 +13,46 @@ namespace Pulumi.AzureNative.DevCenter
     /// Represents a definition for a Developer Machine.
     /// API Version: 2022-11-11-preview.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### DevBoxDefinitions_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var devBoxDefinition = new AzureNative.DevCenter.DevBoxDefinition("devBoxDefinition", new()
+    ///     {
+    ///         DevBoxDefinitionName = "WebDevBox",
+    ///         DevCenterName = "Contoso",
+    ///         HibernateSupport = "Enabled",
+    ///         ImageReference = new AzureNative.DevCenter.Inputs.ImageReferenceArgs
+    ///         {
+    ///             Id = "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/Example/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/contosogallery/images/exampleImage/version/1.0.0",
+    ///         },
+    ///         Location = "centralus",
+    ///         OsStorageType = "SSD_1024",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.DevCenter.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Preview",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter:DevBoxDefinition WebDevBox /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/devboxdefinitions/devBoxDefinitionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:DevBoxDefinition")]
     public partial class DevBoxDefinition : global::Pulumi.CustomResource

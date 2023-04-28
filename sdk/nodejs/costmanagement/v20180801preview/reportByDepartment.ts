@@ -9,6 +9,16 @@ import * as utilities from "../../utilities";
 
 /**
  * A report resource.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement/v20180801preview:ReportByDepartment TestReport providers/Microsoft.Billing/departments/{department-Id}/providers/Microsoft.CostManagement/reports/TestReport 
+ * ```
  */
 export class ReportByDepartment extends pulumi.CustomResource {
     /**

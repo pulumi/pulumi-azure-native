@@ -13,6 +13,49 @@ namespace Pulumi.AzureNative.OperationalInsights
     /// The top level storage insight resource container.
     /// API Version: 2020-08-01.
     /// Previous API Version: 2020-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### StorageInsightsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageInsightConfig = new AzureNative.OperationalInsights.StorageInsightConfig("storageInsightConfig", new()
+    ///     {
+    ///         Containers = new[]
+    ///         {
+    ///             "wad-iis-logfiles",
+    ///         },
+    ///         ResourceGroupName = "OIAutoRest5123",
+    ///         StorageAccount = new AzureNative.OperationalInsights.Inputs.StorageAccountArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
+    ///             Key = "1234",
+    ///         },
+    ///         StorageInsightName = "AzTestSI1110",
+    ///         Tables = new[]
+    ///         {
+    ///             "WADWindowsEventLogsTable",
+    ///             "LinuxSyslogVer2v0",
+    ///         },
+    ///         WorkspaceName = "aztest5048",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights:StorageInsightConfig AzTestSI1110 /subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/oiautorest6987/providers/microsoft.operationalinsights/workspaces/aztest5048/storageinsightconfigs/AzTestSI1110 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights:StorageInsightConfig")]
     public partial class StorageInsightConfig : global::Pulumi.CustomResource

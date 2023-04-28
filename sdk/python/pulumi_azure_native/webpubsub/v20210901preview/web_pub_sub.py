@@ -269,6 +269,80 @@ class WebPubSub(pulumi.CustomResource):
         """
         A class represent a resource.
 
+        ## Example Usage
+        ### WebPubSub_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub = azure_native.webpubsub.v20210901preview.WebPubSub("webPubSub",
+            disable_aad_auth=False,
+            disable_local_auth=False,
+            event_handler=azure_native.webpubsub.v20210901preview.EventHandlerSettingsResponseArgs(
+                items={
+                    "hub1": [azure_native.webpubsub.v20210901preview.EventHandlerTemplateArgs(
+                        url_template="https://example.com/chat/api/hub1",
+                        user_event_pattern="*",
+                    )],
+                    "hub2": [
+                        azure_native.webpubsub.v20210901preview.EventHandlerTemplateArgs(
+                            url_template="https://example.com/chat/api/hub2/example1",
+                            user_event_pattern="example1",
+                        ),
+                        azure_native.webpubsub.v20210901preview.EventHandlerTemplateArgs(
+                            url_template="https://example.com/chat/api/hub2/example2",
+                            user_event_pattern="example2",
+                        ),
+                    ],
+                },
+            ),
+            identity=azure_native.webpubsub.v20210901preview.ManagedIdentityArgs(
+                type="SystemAssigned",
+            ),
+            live_trace_configuration=azure_native.webpubsub.v20210901preview.LiveTraceConfigurationResponseArgs(
+                categories=[azure_native.webpubsub.v20210901preview.LiveTraceCategoryArgs(
+                    enabled="true",
+                    name="ConnectivityLogs",
+                )],
+                enabled="false",
+            ),
+            location="eastus",
+            network_acls=azure_native.webpubsub.v20210901preview.WebPubSubNetworkACLsResponseArgs(
+                default_action="Deny",
+                private_endpoints=[azure_native.webpubsub.v20210901preview.PrivateEndpointACLArgs(
+                    allow=["ServerConnection"],
+                    name="mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+                )],
+                public_network=azure_native.webpubsub.v20210901preview.NetworkACLArgs(
+                    allow=["ClientConnection"],
+                ),
+            ),
+            public_network_access="Enabled",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService",
+            sku=azure_native.webpubsub.v20210901preview.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Standard_S1",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            tls=azure_native.webpubsub.v20210901preview.WebPubSubTlsSettingsArgs(
+                client_cert_enabled=False,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub/v20210901preview:WebPubSub myWebPubSubService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
@@ -299,6 +373,80 @@ class WebPubSub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a resource.
+
+        ## Example Usage
+        ### WebPubSub_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub = azure_native.webpubsub.v20210901preview.WebPubSub("webPubSub",
+            disable_aad_auth=False,
+            disable_local_auth=False,
+            event_handler=azure_native.webpubsub.v20210901preview.EventHandlerSettingsResponseArgs(
+                items={
+                    "hub1": [azure_native.webpubsub.v20210901preview.EventHandlerTemplateArgs(
+                        url_template="https://example.com/chat/api/hub1",
+                        user_event_pattern="*",
+                    )],
+                    "hub2": [
+                        azure_native.webpubsub.v20210901preview.EventHandlerTemplateArgs(
+                            url_template="https://example.com/chat/api/hub2/example1",
+                            user_event_pattern="example1",
+                        ),
+                        azure_native.webpubsub.v20210901preview.EventHandlerTemplateArgs(
+                            url_template="https://example.com/chat/api/hub2/example2",
+                            user_event_pattern="example2",
+                        ),
+                    ],
+                },
+            ),
+            identity=azure_native.webpubsub.v20210901preview.ManagedIdentityArgs(
+                type="SystemAssigned",
+            ),
+            live_trace_configuration=azure_native.webpubsub.v20210901preview.LiveTraceConfigurationResponseArgs(
+                categories=[azure_native.webpubsub.v20210901preview.LiveTraceCategoryArgs(
+                    enabled="true",
+                    name="ConnectivityLogs",
+                )],
+                enabled="false",
+            ),
+            location="eastus",
+            network_acls=azure_native.webpubsub.v20210901preview.WebPubSubNetworkACLsResponseArgs(
+                default_action="Deny",
+                private_endpoints=[azure_native.webpubsub.v20210901preview.PrivateEndpointACLArgs(
+                    allow=["ServerConnection"],
+                    name="mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+                )],
+                public_network=azure_native.webpubsub.v20210901preview.NetworkACLArgs(
+                    allow=["ClientConnection"],
+                ),
+            ),
+            public_network_access="Enabled",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService",
+            sku=azure_native.webpubsub.v20210901preview.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Standard_S1",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            tls=azure_native.webpubsub.v20210901preview.WebPubSubTlsSettingsArgs(
+                client_cert_enabled=False,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub/v20210901preview:WebPubSub myWebPubSubService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebPubSubArgs args: The arguments to use to populate this resource's properties.

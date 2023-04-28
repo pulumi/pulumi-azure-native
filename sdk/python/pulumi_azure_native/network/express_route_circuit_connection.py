@@ -216,6 +216,40 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ExpressRouteCircuitConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit_connection = azure_native.network.ExpressRouteCircuitConnection("expressRouteCircuitConnection",
+            address_prefix="10.0.0.0/29",
+            authorization_key="946a1918-b7a2-4917-b43c-8c4cdaee006a",
+            circuit_name="ExpressRouteARMCircuitA",
+            connection_name="circuitConnectionUSAUS",
+            express_route_circuit_peering=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/dedharcktlocal/peerings/AzurePrivatePeering",
+            ),
+            ipv6_circuit_connection_config=azure_native.network.Ipv6CircuitConnectionConfigArgs(
+                address_prefix="aa:bb::/125",
+            ),
+            peer_express_route_circuit_peering=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid2/resourceGroups/dedharcktpeer/providers/Microsoft.Network/expressRouteCircuits/dedharcktremote/peerings/AzurePrivatePeering",
+            ),
+            peering_name="AzurePrivatePeering",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRouteCircuitConnection circuitConnectionUSAUS /subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuitA/peerings/AzurePrivatePeering/connections/circuitConnectionUSAUS 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] address_prefix: /29 IP address space to carve out Customer addresses for tunnels.
@@ -240,6 +274,40 @@ class ExpressRouteCircuitConnection(pulumi.CustomResource):
         Express Route Circuit Connection in an ExpressRouteCircuitPeering resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ExpressRouteCircuitConnectionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit_connection = azure_native.network.ExpressRouteCircuitConnection("expressRouteCircuitConnection",
+            address_prefix="10.0.0.0/29",
+            authorization_key="946a1918-b7a2-4917-b43c-8c4cdaee006a",
+            circuit_name="ExpressRouteARMCircuitA",
+            connection_name="circuitConnectionUSAUS",
+            express_route_circuit_peering=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/dedharcktlocal/peerings/AzurePrivatePeering",
+            ),
+            ipv6_circuit_connection_config=azure_native.network.Ipv6CircuitConnectionConfigArgs(
+                address_prefix="aa:bb::/125",
+            ),
+            peer_express_route_circuit_peering=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid2/resourceGroups/dedharcktpeer/providers/Microsoft.Network/expressRouteCircuits/dedharcktremote/peerings/AzurePrivatePeering",
+            ),
+            peering_name="AzurePrivatePeering",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ExpressRouteCircuitConnection circuitConnectionUSAUS /subscriptions/subid1/resourceGroups/dedharcktinit/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuitA/peerings/AzurePrivatePeering/connections/circuitConnectionUSAUS 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitConnectionInitArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,49 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services account deployment.
     /// API Version: 2022-12-01.
     /// Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### PutDeployment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deployment = new AzureNative.CognitiveServices.Deployment("deployment", new()
+    ///     {
+    ///         AccountName = "accountName",
+    ///         DeploymentName = "deploymentName",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Model = new AzureNative.CognitiveServices.Inputs.DeploymentModelArgs
+    ///             {
+    ///                 Format = "OpenAI",
+    ///                 Name = "ada",
+    ///                 Version = "1",
+    ///             },
+    ///             ScaleSettings = new AzureNative.CognitiveServices.Inputs.DeploymentScaleSettingsArgs
+    ///             {
+    ///                 Capacity = 1,
+    ///                 ScaleType = "Manual",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:Deployment deploymentName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName/deployments/deploymentName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

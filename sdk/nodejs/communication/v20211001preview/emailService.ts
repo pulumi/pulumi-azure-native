@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * A class representing an EmailService resource.
+ *
+ * ## Example Usage
+ * ### Create or update EmailService resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const emailService = new azure_native.communication.v20211001preview.EmailService("emailService", {
+ *     dataLocation: "United States",
+ *     emailServiceName: "MyEmailServiceResource",
+ *     location: "Global",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:communication/v20211001preview:EmailService MyEmailServiceResource /subscriptions/12345/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/EmailServices/MyEmailServiceResource 
+ * ```
  */
 export class EmailService extends pulumi.CustomResource {
     /**

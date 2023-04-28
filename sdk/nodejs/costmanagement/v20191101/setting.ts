@@ -9,6 +9,16 @@ import * as utilities from "../../utilities";
 
 /**
  * State of the myscope setting.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement/v20191101:Setting myscope /providers/Microsoft.CostManagement/settings/myscope 
+ * ```
  */
 export class Setting extends pulumi.CustomResource {
     /**

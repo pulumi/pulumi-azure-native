@@ -131,6 +131,88 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
         """
         Represents Amazon Web Services CloudTrail data connector.
 
+        ## Example Usage
+        ### Creates or updates a APIPolling data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Dynamics365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="c2541efb-c9a6-47fe-9501-87d1017d1512",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a GenericUI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Threat Intelligence Taxii data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aws_role_arn: The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
@@ -149,6 +231,88 @@ class AwsCloudTrailDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents Amazon Web Services CloudTrail data connector.
+
+        ## Example Usage
+        ### Creates or updates a APIPolling data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Dynamics365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="c2541efb-c9a6-47fe-9501-87d1017d1512",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a GenericUI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Threat Intelligence Taxii data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        aws_cloud_trail_data_connector = azure_native.securityinsights.v20210901preview.AwsCloudTrailDataConnector("awsCloudTrailDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20210901preview:AwsCloudTrailDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AwsCloudTrailDataConnectorArgs args: The arguments to use to populate this resource's properties.

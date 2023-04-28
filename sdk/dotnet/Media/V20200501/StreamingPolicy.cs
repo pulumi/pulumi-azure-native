@@ -11,6 +11,299 @@ namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// A Streaming Policy resource
+    /// 
+    /// ## Example Usage
+    /// ### Creates a Streaming Policy with clear streaming
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingPolicy = new AzureNative.Media.V20200501.StreamingPolicy("streamingPolicy", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         NoEncryption = new AzureNative.Media.V20200501.Inputs.NoEncryptionArgs
+    ///         {
+    ///             EnabledProtocols = new AzureNative.Media.V20200501.Inputs.EnabledProtocolsArgs
+    ///             {
+    ///                 Dash = true,
+    ///                 Download = true,
+    ///                 Hls = true,
+    ///                 SmoothStreaming = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contoso",
+    ///         StreamingPolicyName = "UserCreatedClearStreamingPolicy",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a Streaming Policy with commonEncryptionCbcs only
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingPolicy = new AzureNative.Media.V20200501.StreamingPolicy("streamingPolicy", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         CommonEncryptionCbcs = new AzureNative.Media.V20200501.Inputs.CommonEncryptionCbcsArgs
+    ///         {
+    ///             ContentKeys = new AzureNative.Media.V20200501.Inputs.StreamingPolicyContentKeysArgs
+    ///             {
+    ///                 DefaultKey = new AzureNative.Media.V20200501.Inputs.DefaultKeyArgs
+    ///                 {
+    ///                     Label = "cbcsDefaultKey",
+    ///                 },
+    ///             },
+    ///             Drm = new AzureNative.Media.V20200501.Inputs.CbcsDrmConfigurationArgs
+    ///             {
+    ///                 FairPlay = new AzureNative.Media.V20200501.Inputs.StreamingPolicyFairPlayConfigurationArgs
+    ///                 {
+    ///                     AllowPersistentLicense = true,
+    ///                     CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+    ///                 },
+    ///             },
+    ///             EnabledProtocols = new AzureNative.Media.V20200501.Inputs.EnabledProtocolsArgs
+    ///             {
+    ///                 Dash = false,
+    ///                 Download = false,
+    ///                 Hls = true,
+    ///                 SmoothStreaming = false,
+    ///             },
+    ///         },
+    ///         DefaultContentKeyPolicyName = "PolicyWithMultipleOptions",
+    ///         ResourceGroupName = "contoso",
+    ///         StreamingPolicyName = "UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a Streaming Policy with commonEncryptionCenc only
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingPolicy = new AzureNative.Media.V20200501.StreamingPolicy("streamingPolicy", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         CommonEncryptionCenc = new AzureNative.Media.V20200501.Inputs.CommonEncryptionCencArgs
+    ///         {
+    ///             ClearTracks = new[]
+    ///             {
+    ///                 new AzureNative.Media.V20200501.Inputs.TrackSelectionArgs
+    ///                 {
+    ///                     TrackSelections = new[]
+    ///                     {
+    ///                         new AzureNative.Media.V20200501.Inputs.TrackPropertyConditionArgs
+    ///                         {
+    ///                             Operation = "Equal",
+    ///                             Property = "FourCC",
+    ///                             Value = "hev1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ContentKeys = new AzureNative.Media.V20200501.Inputs.StreamingPolicyContentKeysArgs
+    ///             {
+    ///                 DefaultKey = new AzureNative.Media.V20200501.Inputs.DefaultKeyArgs
+    ///                 {
+    ///                     Label = "cencDefaultKey",
+    ///                 },
+    ///             },
+    ///             Drm = new AzureNative.Media.V20200501.Inputs.CencDrmConfigurationArgs
+    ///             {
+    ///                 PlayReady = new AzureNative.Media.V20200501.Inputs.StreamingPolicyPlayReadyConfigurationArgs
+    ///                 {
+    ///                     CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+    ///                     PlayReadyCustomAttributes = "PlayReady CustomAttributes",
+    ///                 },
+    ///                 Widevine = new AzureNative.Media.V20200501.Inputs.StreamingPolicyWidevineConfigurationArgs
+    ///                 {
+    ///                     CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+    ///                 },
+    ///             },
+    ///             EnabledProtocols = new AzureNative.Media.V20200501.Inputs.EnabledProtocolsArgs
+    ///             {
+    ///                 Dash = true,
+    ///                 Download = false,
+    ///                 Hls = false,
+    ///                 SmoothStreaming = true,
+    ///             },
+    ///         },
+    ///         DefaultContentKeyPolicyName = "PolicyWithPlayReadyOptionAndOpenRestriction",
+    ///         ResourceGroupName = "contoso",
+    ///         StreamingPolicyName = "UserCreatedSecureStreamingPolicyWithCommonEncryptionCencOnly",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a Streaming Policy with envelopeEncryption only
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingPolicy = new AzureNative.Media.V20200501.StreamingPolicy("streamingPolicy", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         DefaultContentKeyPolicyName = "PolicyWithClearKeyOptionAndTokenRestriction",
+    ///         EnvelopeEncryption = new AzureNative.Media.V20200501.Inputs.EnvelopeEncryptionArgs
+    ///         {
+    ///             ContentKeys = new AzureNative.Media.V20200501.Inputs.StreamingPolicyContentKeysArgs
+    ///             {
+    ///                 DefaultKey = new AzureNative.Media.V20200501.Inputs.DefaultKeyArgs
+    ///                 {
+    ///                     Label = "aesDefaultKey",
+    ///                 },
+    ///             },
+    ///             CustomKeyAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+    ///             EnabledProtocols = new AzureNative.Media.V20200501.Inputs.EnabledProtocolsArgs
+    ///             {
+    ///                 Dash = true,
+    ///                 Download = false,
+    ///                 Hls = true,
+    ///                 SmoothStreaming = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contoso",
+    ///         StreamingPolicyName = "UserCreatedSecureStreamingPolicyWithEnvelopeEncryptionOnly",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates a Streaming Policy with secure streaming
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var streamingPolicy = new AzureNative.Media.V20200501.StreamingPolicy("streamingPolicy", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         CommonEncryptionCbcs = new AzureNative.Media.V20200501.Inputs.CommonEncryptionCbcsArgs
+    ///         {
+    ///             ContentKeys = new AzureNative.Media.V20200501.Inputs.StreamingPolicyContentKeysArgs
+    ///             {
+    ///                 DefaultKey = new AzureNative.Media.V20200501.Inputs.DefaultKeyArgs
+    ///                 {
+    ///                     Label = "cbcsDefaultKey",
+    ///                 },
+    ///             },
+    ///             Drm = new AzureNative.Media.V20200501.Inputs.CbcsDrmConfigurationArgs
+    ///             {
+    ///                 FairPlay = new AzureNative.Media.V20200501.Inputs.StreamingPolicyFairPlayConfigurationArgs
+    ///                 {
+    ///                     AllowPersistentLicense = true,
+    ///                     CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+    ///                 },
+    ///             },
+    ///             EnabledProtocols = new AzureNative.Media.V20200501.Inputs.EnabledProtocolsArgs
+    ///             {
+    ///                 Dash = false,
+    ///                 Download = false,
+    ///                 Hls = true,
+    ///                 SmoothStreaming = false,
+    ///             },
+    ///         },
+    ///         CommonEncryptionCenc = new AzureNative.Media.V20200501.Inputs.CommonEncryptionCencArgs
+    ///         {
+    ///             ClearTracks = new[]
+    ///             {
+    ///                 new AzureNative.Media.V20200501.Inputs.TrackSelectionArgs
+    ///                 {
+    ///                     TrackSelections = new[]
+    ///                     {
+    ///                         new AzureNative.Media.V20200501.Inputs.TrackPropertyConditionArgs
+    ///                         {
+    ///                             Operation = "Equal",
+    ///                             Property = "FourCC",
+    ///                             Value = "hev1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             ContentKeys = new AzureNative.Media.V20200501.Inputs.StreamingPolicyContentKeysArgs
+    ///             {
+    ///                 DefaultKey = new AzureNative.Media.V20200501.Inputs.DefaultKeyArgs
+    ///                 {
+    ///                     Label = "cencDefaultKey",
+    ///                 },
+    ///             },
+    ///             Drm = new AzureNative.Media.V20200501.Inputs.CencDrmConfigurationArgs
+    ///             {
+    ///                 PlayReady = new AzureNative.Media.V20200501.Inputs.StreamingPolicyPlayReadyConfigurationArgs
+    ///                 {
+    ///                     CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+    ///                     PlayReadyCustomAttributes = "PlayReady CustomAttributes",
+    ///                 },
+    ///                 Widevine = new AzureNative.Media.V20200501.Inputs.StreamingPolicyWidevineConfigurationArgs
+    ///                 {
+    ///                     CustomLicenseAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+    ///                 },
+    ///             },
+    ///             EnabledProtocols = new AzureNative.Media.V20200501.Inputs.EnabledProtocolsArgs
+    ///             {
+    ///                 Dash = true,
+    ///                 Download = false,
+    ///                 Hls = false,
+    ///                 SmoothStreaming = true,
+    ///             },
+    ///         },
+    ///         DefaultContentKeyPolicyName = "PolicyWithMultipleOptions",
+    ///         EnvelopeEncryption = new AzureNative.Media.V20200501.Inputs.EnvelopeEncryptionArgs
+    ///         {
+    ///             ContentKeys = new AzureNative.Media.V20200501.Inputs.StreamingPolicyContentKeysArgs
+    ///             {
+    ///                 DefaultKey = new AzureNative.Media.V20200501.Inputs.DefaultKeyArgs
+    ///                 {
+    ///                     Label = "aesDefaultKey",
+    ///                 },
+    ///             },
+    ///             CustomKeyAcquisitionUrlTemplate = "https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+    ///             EnabledProtocols = new AzureNative.Media.V20200501.Inputs.EnabledProtocolsArgs
+    ///             {
+    ///                 Dash = true,
+    ///                 Download = false,
+    ///                 Hls = true,
+    ///                 SmoothStreaming = true,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contoso",
+    ///         StreamingPolicyName = "UserCreatedSecureStreamingPolicy",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20200501:StreamingPolicy UserCreatedSecureStreamingPolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/streamingPolicies/UserCreatedSecureStreamingPolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20200501:StreamingPolicy")]
     public partial class StreamingPolicy : global::Pulumi.CustomResource

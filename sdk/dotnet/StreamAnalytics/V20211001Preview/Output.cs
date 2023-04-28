@@ -11,6 +11,487 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
 {
     /// <summary>
     /// An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Delta Lake output
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.BlobOutputDataSourceArgs
+    ///         {
+    ///             Container = "deltaoutput",
+    ///             StorageAccounts = new[]
+    ///             {
+    ///                 new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StorageAccountArgs
+    ///                 {
+    ///                     AccountKey = "accountKey==",
+    ///                     AccountName = "someAccountName",
+    ///                 },
+    ///             },
+    ///             Type = "Microsoft.Storage/Blob",
+    ///         },
+    ///         JobName = "sjName",
+    ///         OutputName = "output1221",
+    ///         ResourceGroupName = "sjrg",
+    ///         Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.DeltaSerializationArgs
+    ///         {
+    ///             DeltaTablePath = "/folder1/table1",
+    ///             PartitionColumns = new[]
+    ///             {
+    ///                 "column1",
+    ///             },
+    ///             Type = "Delta",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a DocumentDB output
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.DocumentDbOutputDataSourceArgs
+    ///         {
+    ///             AccountId = "someAccountId",
+    ///             AccountKey = "accountKey==",
+    ///             AuthenticationMode = "Msi",
+    ///             CollectionNamePattern = "collection",
+    ///             Database = "db01",
+    ///             DocumentId = "documentId",
+    ///             PartitionKey = "key",
+    ///             Type = "Microsoft.Storage/DocumentDB",
+    ///         },
+    ///         JobName = "sj2331",
+    ///         OutputName = "output3022",
+    ///         ResourceGroupName = "sjrg7983",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Gateway Message Bus output
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.GatewayMessageBusOutputDataSourceArgs
+    ///         {
+    ///             Topic = "EdgeTopic1",
+    ///             Type = "GatewayMessageBus",
+    ///         },
+    ///         JobName = "sj2331",
+    ///         OutputName = "output3022",
+    ///         ResourceGroupName = "sjrg7983",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a PostgreSQL output
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.PostgreSQLOutputDataSourceArgs
+    ///         {
+    ///             AuthenticationMode = "Msi",
+    ///             Database = "someDatabase",
+    ///             MaxWriterCount = 1,
+    ///             Password = "somePassword",
+    ///             Server = "someServer",
+    ///             Table = "someTable",
+    ///             Type = "Microsoft.DBForPostgreSQL/servers/databases",
+    ///             User = "user",
+    ///         },
+    ///         JobName = "sj2331",
+    ///         OutputName = "output3022",
+    ///         ResourceGroupName = "sjrg7983",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Power BI output
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.PowerBIOutputDataSourceArgs
+    ///         {
+    ///             Dataset = "someDataset",
+    ///             GroupId = "ac40305e-3e8d-43ac-8161-c33799f43e95",
+    ///             GroupName = "MyPowerBIGroup",
+    ///             RefreshToken = "someRefreshToken==",
+    ///             Table = "someTable",
+    ///             TokenUserDisplayName = "Bob Smith",
+    ///             TokenUserPrincipalName = "bobsmith@contoso.com",
+    ///             Type = "PowerBI",
+    ///         },
+    ///         JobName = "sj2331",
+    ///         OutputName = "output3022",
+    ///         ResourceGroupName = "sjrg7983",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Service Bus Queue output with Avro serialization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.ServiceBusQueueOutputDataSourceArgs
+    ///         {
+    ///             PropertyColumns = new[]
+    ///             {
+    ///                 "column1",
+    ///                 "column2",
+    ///             },
+    ///             QueueName = "sdkqueue",
+    ///             ServiceBusNamespace = "sdktest",
+    ///             SharedAccessPolicyKey = "sharedAccessPolicyKey=",
+    ///             SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///             SystemPropertyColumns = 
+    ///             {
+    ///                 { "MessageId", "col3" },
+    ///                 { "PartitionKey", "col4" },
+    ///             },
+    ///             Type = "Microsoft.ServiceBus/Queue",
+    ///         },
+    ///         JobName = "sj5095",
+    ///         OutputName = "output3456",
+    ///         ResourceGroupName = "sjrg3410",
+    ///         Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.AvroSerializationArgs
+    ///         {
+    ///             Type = "Avro",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Service Bus Topic output with CSV serialization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.ServiceBusTopicOutputDataSourceArgs
+    ///         {
+    ///             PropertyColumns = new[]
+    ///             {
+    ///                 "column1",
+    ///                 "column2",
+    ///             },
+    ///             ServiceBusNamespace = "sdktest",
+    ///             SharedAccessPolicyKey = "sharedAccessPolicyKey=",
+    ///             SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///             TopicName = "sdktopic",
+    ///             Type = "Microsoft.ServiceBus/Topic",
+    ///         },
+    ///         JobName = "sj7094",
+    ///         OutputName = "output7886",
+    ///         ResourceGroupName = "sjrg6450",
+    ///         Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.CsvSerializationArgs
+    ///         {
+    ///             Encoding = "UTF8",
+    ///             FieldDelimiter = ",",
+    ///             Type = "Csv",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a blob output with CSV serialization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.BlobOutputDataSourceArgs
+    ///         {
+    ///             BlobPathPrefix = "my/path",
+    ///             BlobWriteMode = "Once",
+    ///             Container = "state",
+    ///             DateFormat = "yyyy/MM/dd",
+    ///             PathPattern = "{date}/{time}",
+    ///             StorageAccounts = new[]
+    ///             {
+    ///                 new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StorageAccountArgs
+    ///                 {
+    ///                     AccountKey = "accountKey==",
+    ///                     AccountName = "someAccountName",
+    ///                 },
+    ///             },
+    ///             TimeFormat = "HH",
+    ///             Type = "Microsoft.Storage/Blob",
+    ///         },
+    ///         JobName = "sj900",
+    ///         OutputName = "output1623",
+    ///         ResourceGroupName = "sjrg5023",
+    ///         Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.CsvSerializationArgs
+    ///         {
+    ///             Encoding = "UTF8",
+    ///             FieldDelimiter = ",",
+    ///             Type = "Csv",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Azure Data Lake Store output with JSON serialization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.AzureDataLakeStoreOutputDataSourceArgs
+    ///         {
+    ///             AccountName = "someaccount",
+    ///             DateFormat = "yyyy/MM/dd",
+    ///             FilePathPrefix = "{date}/{time}",
+    ///             RefreshToken = "someRefreshToken==",
+    ///             TenantId = "cea4e98b-c798-49e7-8c40-4a2b3beb47dd",
+    ///             TimeFormat = "HH",
+    ///             TokenUserDisplayName = "Bob Smith",
+    ///             TokenUserPrincipalName = "bobsmith@contoso.com",
+    ///             Type = "Microsoft.DataLake/Accounts",
+    ///         },
+    ///         JobName = "sj3310",
+    ///         OutputName = "output5195",
+    ///         ResourceGroupName = "sjrg6912",
+    ///         Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.JsonSerializationArgs
+    ///         {
+    ///             Encoding = "UTF8",
+    ///             Format = "Array",
+    ///             Type = "Json",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Azure Data Warehouse output
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.AzureSynapseOutputDataSourceArgs
+    ///         {
+    ///             AuthenticationMode = "Msi",
+    ///             Database = "zhayaSQLpool",
+    ///             Password = "password123",
+    ///             Server = "asatestserver",
+    ///             Table = "test2",
+    ///             Type = "Microsoft.Sql/Server/DataWarehouse",
+    ///             User = "tolladmin",
+    ///         },
+    ///         JobName = "sjName",
+    ///         OutputName = "dwOutput",
+    ///         ResourceGroupName = "sjrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Azure Function output
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.AzureFunctionOutputDataSourceArgs
+    ///         {
+    ///             FunctionAppName = "functionappforasaautomation",
+    ///             FunctionName = "HttpTrigger2",
+    ///             MaxBatchCount = 100,
+    ///             MaxBatchSize = 256,
+    ///             Type = "Microsoft.AzureFunction",
+    ///         },
+    ///         JobName = "sjName",
+    ///         OutputName = "azureFunction1",
+    ///         ResourceGroupName = "sjrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Azure SQL database output
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.AzureSqlDatabaseOutputDataSourceArgs
+    ///         {
+    ///             Database = "someDatabase",
+    ///             Password = "somePassword",
+    ///             Server = "someServer",
+    ///             Table = "someTable",
+    ///             Type = "Microsoft.Sql/Server/Database",
+    ///             User = "&lt;user&gt;",
+    ///         },
+    ///         JobName = "sj6458",
+    ///         OutputName = "output1755",
+    ///         ResourceGroupName = "sjrg2157",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Azure Table output
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.AzureTableOutputDataSourceArgs
+    ///         {
+    ///             AccountKey = "accountKey==",
+    ///             AccountName = "someAccountName",
+    ///             BatchSize = 25,
+    ///             ColumnsToRemove = new[]
+    ///             {
+    ///                 "column1",
+    ///                 "column2",
+    ///             },
+    ///             PartitionKey = "partitionKey",
+    ///             RowKey = "rowKey",
+    ///             Table = "samples",
+    ///             Type = "Microsoft.Storage/Table",
+    ///         },
+    ///         JobName = "sj2790",
+    ///         OutputName = "output958",
+    ///         ResourceGroupName = "sjrg5176",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Event Hub output with JSON serialization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var output = new AzureNative.StreamAnalytics.V20211001Preview.Output("output", new()
+    ///     {
+    ///         Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.EventHubOutputDataSourceArgs
+    ///         {
+    ///             EventHubName = "sdkeventhub",
+    ///             PartitionKey = "partitionKey",
+    ///             ServiceBusNamespace = "sdktest",
+    ///             SharedAccessPolicyKey = "sharedAccessPolicyKey=",
+    ///             SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///             Type = "Microsoft.ServiceBus/EventHub",
+    ///         },
+    ///         JobName = "sj3310",
+    ///         OutputName = "output5195",
+    ///         ResourceGroupName = "sjrg6912",
+    ///         Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.JsonSerializationArgs
+    ///         {
+    ///             Encoding = "UTF8",
+    ///             Format = "Array",
+    ///             Type = "Json",
+    ///         },
+    ///         WatermarkSettings = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.OutputWatermarkPropertiesArgs
+    ///         {
+    ///             MaxWatermarkDifferenceAcrossPartitions = "16:14:30",
+    ///             WatermarkMode = "SendCurrentPartitionWatermark",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:streamanalytics/v20211001preview:Output output5195 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg6912/providers/Microsoft.StreamAnalytics/streamingjobs/sj3310/outputs/output5195 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20211001preview:Output")]
     public partial class Output : global::Pulumi.CustomResource

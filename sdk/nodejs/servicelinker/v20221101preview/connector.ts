@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * Linker of source and target resource
+ *
+ * ## Example Usage
+ * ### PutConnector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const connector = new azure_native.servicelinker.v20221101preview.Connector("connector", {
+ *     authInfo: {
+ *         authType: "secret",
+ *     },
+ *     connectorName: "connectorName",
+ *     location: "westus",
+ *     resourceGroupName: "test-rg",
+ *     secretStore: {
+ *         keyVaultId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/test-kv",
+ *     },
+ *     targetService: {
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+ *         type: "AzureResource",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicelinker/v20221101preview:Connector linkName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName 
+ * ```
  */
 export class Connector extends pulumi.CustomResource {
     /**

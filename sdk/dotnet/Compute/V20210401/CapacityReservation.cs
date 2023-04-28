@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Compute.V20210401
 {
     /// <summary>
     /// Specifies information about the capacity reservation.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a capacity reservation .
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var capacityReservation = new AzureNative.Compute.V20210401.CapacityReservation("capacityReservation", new()
+    ///     {
+    ///         CapacityReservationGroupName = "myCapacityReservationGroup",
+    ///         CapacityReservationName = "myCapacityReservation",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Compute.V20210401.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 4,
+    ///             Name = "Standard_DS1_v2",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "department", "HR" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20210401:CapacityReservation myCapacityReservation /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/capacityReservationGroups/myCapacityReservationGroup/capacityReservations/myCapacityReservation 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20210401:CapacityReservation")]
     public partial class CapacityReservation : global::Pulumi.CustomResource

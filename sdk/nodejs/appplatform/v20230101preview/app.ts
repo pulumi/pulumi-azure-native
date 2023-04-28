@@ -9,6 +9,164 @@ import * as utilities from "../../utilities";
 
 /**
  * App resource payload
+ *
+ * ## Example Usage
+ * ### Apps_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const app = new azure_native.appplatform.v20230101preview.App("app", {
+ *     appName: "myapp",
+ *     identity: {
+ *         type: "SystemAssigned,UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {
+ *                 clientId: undefined,
+ *                 principalId: undefined,
+ *             },
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {
+ *                 clientId: undefined,
+ *                 principalId: undefined,
+ *             },
+ *         },
+ *     },
+ *     location: "eastus",
+ *     properties: {
+ *         addonConfigs: {
+ *             ApplicationConfigurationService: {
+ *                 resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/myacs",
+ *             },
+ *             ServiceRegistry: {
+ *                 resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/myServiceRegistry",
+ *             },
+ *         },
+ *         customPersistentDisks: [{
+ *             customPersistentDiskProperties: {
+ *                 enableSubPath: true,
+ *                 mountOptions: [
+ *                     "uid=0",
+ *                     "gid=0",
+ *                     "dir_mode=0777",
+ *                     "file_mode=0777",
+ *                 ],
+ *                 mountPath: "/mypath1/mypath2",
+ *                 shareName: "myFileShare",
+ *                 type: "AzureFileVolume",
+ *             },
+ *             storageId: "myASCStorageID",
+ *         }],
+ *         enableEndToEndTLS: false,
+ *         httpsOnly: false,
+ *         loadedCertificates: [
+ *             {
+ *                 loadTrustStore: false,
+ *                 resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+ *             },
+ *             {
+ *                 loadTrustStore: true,
+ *                 resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+ *             },
+ *         ],
+ *         persistentDisk: {
+ *             mountPath: "/mypersistentdisk",
+ *             sizeInGB: 2,
+ *         },
+ *         "public": true,
+ *         temporaryDisk: {
+ *             mountPath: "/mytemporarydisk",
+ *             sizeInGB: 2,
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ * ### Apps_CreateOrUpdate_VNetInjection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const app = new azure_native.appplatform.v20230101preview.App("app", {
+ *     appName: "myapp",
+ *     identity: {
+ *         type: "SystemAssigned,UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": {
+ *                 clientId: undefined,
+ *                 principalId: undefined,
+ *             },
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/samplegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2": {
+ *                 clientId: undefined,
+ *                 principalId: undefined,
+ *             },
+ *         },
+ *     },
+ *     location: "eastus",
+ *     properties: {
+ *         addonConfigs: {
+ *             ApplicationConfigurationService: {
+ *                 resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/myacs",
+ *             },
+ *             ServiceRegistry: {
+ *                 resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/myServiceRegistry",
+ *             },
+ *         },
+ *         customPersistentDisks: [{
+ *             customPersistentDiskProperties: {
+ *                 mountOptions: [
+ *                     "uid=0",
+ *                     "gid=0",
+ *                     "dir_mode=0777",
+ *                     "file_mode=0777",
+ *                 ],
+ *                 mountPath: "/mypath1/mypath2",
+ *                 shareName: "myFileShare",
+ *                 type: "AzureFileVolume",
+ *             },
+ *             storageId: "myASCStorageID",
+ *         }],
+ *         enableEndToEndTLS: false,
+ *         httpsOnly: false,
+ *         loadedCertificates: [
+ *             {
+ *                 loadTrustStore: false,
+ *                 resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert1",
+ *             },
+ *             {
+ *                 loadTrustStore: true,
+ *                 resourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/certificates/mycert2",
+ *             },
+ *         ],
+ *         persistentDisk: {
+ *             mountPath: "/mypersistentdisk",
+ *             sizeInGB: 2,
+ *         },
+ *         "public": true,
+ *         temporaryDisk: {
+ *             mountPath: "/mytemporarydisk",
+ *             sizeInGB: 2,
+ *         },
+ *         vnetAddons: {
+ *             publicEndpoint: true,
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230101preview:App myapp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp 
+ * ```
  */
 export class App extends pulumi.CustomResource {
     /**

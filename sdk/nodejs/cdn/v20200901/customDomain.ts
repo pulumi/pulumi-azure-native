@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+ *
+ * ## Example Usage
+ * ### CustomDomains_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customDomain = new azure_native.cdn.v20200901.CustomDomain("customDomain", {
+ *     customDomainName: "www-someDomain-net",
+ *     endpointName: "endpoint1",
+ *     hostName: "www.someDomain.net",
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn/v20200901:CustomDomain www-someDomain-net /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customdomains/www-someDomain-net 
+ * ```
  */
 export class CustomDomain extends pulumi.CustomResource {
     /**

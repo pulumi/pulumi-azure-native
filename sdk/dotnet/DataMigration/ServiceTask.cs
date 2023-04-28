@@ -12,6 +12,43 @@ namespace Pulumi.AzureNative.DataMigration
     /// <summary>
     /// A task resource
     /// API Version: 2021-06-30.
+    /// 
+    /// ## Example Usage
+    /// ### Tasks_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceTask = new AzureNative.DataMigration.ServiceTask("serviceTask", new()
+    ///     {
+    ///         GroupName = "DmsSdkRg",
+    ///         Properties = 
+    ///         {
+    ///             { "input", new AzureNative.DataMigration.Inputs.MongoDbConnectionInfoArgs
+    ///             {
+    ///                 ServerVersion = "NA",
+    ///             } },
+    ///             { "taskType", "Service.Check.OCI" },
+    ///         },
+    ///         ServiceName = "DmsSdkService",
+    ///         TaskName = "DmsSdkTask",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datamigration:ServiceTask DmsSdkTask /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/serviceTasks/DmsSdkTask 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration:ServiceTask")]
     public partial class ServiceTask : global::Pulumi.CustomResource

@@ -186,6 +186,36 @@ class SqlPoolsV3(pulumi.CustomResource):
         """
         A sql pool resource.
 
+        ## Example Usage
+        ### Creates a sqlpool.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pools_v3 = azure_native.synapse.v20200401preview.SqlPoolsV3("sqlPoolsV3",
+            location="westus",
+            resource_group_name="rg_fb5ce457-3576-425e-b22d-7300689fbea0",
+            sku=azure_native.synapse.v20200401preview.SkuV3ResponseArgs(
+                name="DW1000f",
+                tier="Synapse",
+            ),
+            sql_pool_name="22c317e3-97a3-4ae3-9e91-a3456a5fff31",
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20200401preview:SqlPoolsV3 22c317e3-97a3-4ae3-9e91-a3456a5fff31 /subscriptions/2ce559e9-b582-446a-8eb3-0cd81e07b7df/resourceGroups/rg_fb5ce457-3576-425e-b22d-7300689fbea0/providers/Microsoft.Synapse/workspaces/srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c/sqlPools/22c317e3-97a3-4ae3-9e91-a3456a5fff31 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] auto_pause_timer: The period of inactivity in minutes before automatically pausing the sql pool.
@@ -206,6 +236,36 @@ class SqlPoolsV3(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A sql pool resource.
+
+        ## Example Usage
+        ### Creates a sqlpool.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pools_v3 = azure_native.synapse.v20200401preview.SqlPoolsV3("sqlPoolsV3",
+            location="westus",
+            resource_group_name="rg_fb5ce457-3576-425e-b22d-7300689fbea0",
+            sku=azure_native.synapse.v20200401preview.SkuV3ResponseArgs(
+                name="DW1000f",
+                tier="Synapse",
+            ),
+            sql_pool_name="22c317e3-97a3-4ae3-9e91-a3456a5fff31",
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20200401preview:SqlPoolsV3 22c317e3-97a3-4ae3-9e91-a3456a5fff31 /subscriptions/2ce559e9-b582-446a-8eb3-0cd81e07b7df/resourceGroups/rg_fb5ce457-3576-425e-b22d-7300689fbea0/providers/Microsoft.Synapse/workspaces/srv_1e04aaa9-b30e-46ad-af06-7a21202bcc6c/sqlPools/22c317e3-97a3-4ae3-9e91-a3456a5fff31 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlPoolsV3Args args: The arguments to use to populate this resource's properties.

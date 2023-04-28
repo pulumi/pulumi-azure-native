@@ -13,6 +13,151 @@ namespace Pulumi.AzureNative.AzureArcData
     /// A Postgres Instance.
     /// API Version: 2023-03-15-preview.
     /// Previous API Version: 2021-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Postgres Instance.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var postgresInstance = new AzureNative.AzureArcData.PostgresInstance("postgresInstance", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.AzureArcData.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "eastus",
+    ///         PostgresInstanceName = "testpostgresInstance",
+    ///         Properties = new AzureNative.AzureArcData.Inputs.PostgresInstancePropertiesArgs
+    ///         {
+    ///             Admin = "admin",
+    ///             BasicLoginInformation = new AzureNative.AzureArcData.Inputs.BasicLoginInformationArgs
+    ///             {
+    ///                 Password = "********",
+    ///                 Username = "username",
+    ///             },
+    ///             DataControllerId = "dataControllerId",
+    ///             K8sRaw = 
+    ///             {
+    ///                 { "apiVersion", "apiVersion" },
+    ///                 { "kind", "postgresql-12" },
+    ///                 { "metadata", 
+    ///                 {
+    ///                     { "creationTimestamp", "2020-08-25T14:55:10Z" },
+    ///                     { "generation", 1 },
+    ///                     { "name", "pg1" },
+    ///                     { "namespace", "test" },
+    ///                     { "resourceVersion", "527780" },
+    ///                     { "selfLink", "/apis/arcdata.microsoft.com/v1alpha1/namespaces/test/postgresql-12s/pg1" },
+    ///                     { "uid", "1111aaaa-ffff-ffff-ffff-99999aaaaaaa" },
+    ///                 } },
+    ///                 { "spec", 
+    ///                 {
+    ///                     { "backups", 
+    ///                     {
+    ///                         { "deltaMinutes", 3 },
+    ///                         { "fullMinutes", 10 },
+    ///                         { "tiers", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "retention", 
+    ///                                 {
+    ///                                     { "maximums", new[]
+    ///                                     {
+    ///                                         "6",
+    ///                                         "512MB",
+    ///                                     } },
+    ///                                     { "minimums", new[]
+    ///                                     {
+    ///                                         "3",
+    ///                                     } },
+    ///                                 } },
+    ///                                 { "storage", 
+    ///                                 {
+    ///                                     { "volumeSize", "1Gi" },
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                     } },
+    ///                     { "engine", 
+    ///                     {
+    ///                         { "extensions", new[]
+    ///                         {
+    ///                             
+    ///                             {
+    ///                                 { "name", "citus" },
+    ///                             },
+    ///                         } },
+    ///                     } },
+    ///                     { "scale", 
+    ///                     {
+    ///                         { "shards", 3 },
+    ///                     } },
+    ///                     { "scheduling", 
+    ///                     {
+    ///                         { "default", 
+    ///                         {
+    ///                             { "resources", 
+    ///                             {
+    ///                                 { "requests", 
+    ///                                 {
+    ///                                     { "memory", "256Mi" },
+    ///                                 } },
+    ///                             } },
+    ///                         } },
+    ///                     } },
+    ///                     { "service", 
+    ///                     {
+    ///                         { "type", "NodePort" },
+    ///                     } },
+    ///                     { "storage", 
+    ///                     {
+    ///                         { "data", 
+    ///                         {
+    ///                             { "className", "local-storage" },
+    ///                             { "size", "5Gi" },
+    ///                         } },
+    ///                         { "logs", 
+    ///                         {
+    ///                             { "className", "local-storage" },
+    ///                             { "size", "5Gi" },
+    ///                         } },
+    ///                     } },
+    ///                 } },
+    ///                 { "status", 
+    ///                 {
+    ///                     { "externalEndpoint", null },
+    ///                     { "readyPods", "4/4" },
+    ///                     { "state", "Ready" },
+    ///                 } },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Sku = new AzureNative.AzureArcData.Inputs.PostgresInstanceSkuArgs
+    ///         {
+    ///             Dev = true,
+    ///             Name = "default",
+    ///             Tier = AzureNative.AzureArcData.PostgresInstanceSkuTier.Hyperscale,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata:PostgresInstance testpostgresInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/PostgresInstance/testpostgresInstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:PostgresInstance")]
     public partial class PostgresInstance : global::Pulumi.CustomResource

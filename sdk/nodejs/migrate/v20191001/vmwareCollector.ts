@@ -7,6 +7,43 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### VMwareCollectors_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vMwareCollector = new azure_native.migrate.v20191001.VMwareCollector("vMwareCollector", {
+ *     eTag: "\"01003d32-0000-0d00-0000-5d74d2e50000\"",
+ *     projectName: "abgoyalWEselfhostb72bproject",
+ *     properties: {
+ *         agentProperties: {
+ *             spnDetails: {
+ *                 applicationId: "fc717575-8173-4b21-92a5-658b655e613e",
+ *                 audience: "https://72f988bf-86f1-41af-91ab-2d7cd011db47/PortalvCenterbc2fagentauthaadapp",
+ *                 authority: "https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *                 objectId: "29d94f38-db94-4980-aec0-0cfd55ab1cd0",
+ *                 tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *             },
+ *         },
+ *         discoverySiteId: "/subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westEurope/providers/Microsoft.OffAzure/VMwareSites/PortalvCenterbc2fsite",
+ *     },
+ *     resourceGroupName: "abgoyal-westEurope",
+ *     vmWareCollectorName: "PortalvCenterbc2fcollector",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20191001:VMwareCollector PortalvCenterbc2fcollector /subscriptions/6393a73f-8d55-47ef-b6dd-179b3e0c7910/resourceGroups/abgoyal-westeurope/providers/Microsoft.Migrate/assessmentprojects/abgoyalWEselfhostb72bproject/vmwarecollectors/PortalvCenterbc2fcollector 
+ * ```
+ */
 export class VMwareCollector extends pulumi.CustomResource {
     /**
      * Get an existing VMwareCollector resource's state with the given name, ID, and optional extra

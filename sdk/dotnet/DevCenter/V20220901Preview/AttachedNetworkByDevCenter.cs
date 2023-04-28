@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.DevCenter.V20220901Preview
 {
     /// <summary>
     /// Represents an attached NetworkConnection.
+    /// 
+    /// ## Example Usage
+    /// ### AttachedNetworks_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var attachedNetworkByDevCenter = new AzureNative.DevCenter.V20220901Preview.AttachedNetworkByDevCenter("attachedNetworkByDevCenter", new()
+    ///     {
+    ///         AttachedNetworkConnectionName = "{attachedNetworkConnectionName}",
+    ///         DevCenterName = "Contoso",
+    ///         NetworkConnectionId = "/subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/NetworkConnections/network-uswest3",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter {attachedNetworkConnectionName} /subscriptions/{subscriptionId}/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/attachednetworks/network-uswest3 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20220901preview:AttachedNetworkByDevCenter")]
     public partial class AttachedNetworkByDevCenter : global::Pulumi.CustomResource

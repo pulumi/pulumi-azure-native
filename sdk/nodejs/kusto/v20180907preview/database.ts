@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a Kusto database.
+ *
+ * ## Example Usage
+ * ### KustoDatabasesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.kusto.v20180907preview.Database("database", {
+ *     clusterName: "KustoClusterRPTest4",
+ *     databaseName: "KustoDatabase8",
+ *     location: "westus",
+ *     resourceGroupName: "kustorptest",
+ *     softDeletePeriodInDays: 1,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto/v20180907preview:Database KustoClusterRPTest4/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/clusters/KustoClusterRPTest4/Databases/KustoDatabase8 
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

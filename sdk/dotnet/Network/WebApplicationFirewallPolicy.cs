@@ -13,6 +13,200 @@ namespace Pulumi.AzureNative.Network
     /// Defines web application firewall policy.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a WAF policy within a resource group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var webApplicationFirewallPolicy = new AzureNative.Network.WebApplicationFirewallPolicy("webApplicationFirewallPolicy", new()
+    ///     {
+    ///         CustomRules = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.WebApplicationFirewallCustomRuleArgs
+    ///             {
+    ///                 Action = "Block",
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.MatchConditionArgs
+    ///                     {
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "192.168.1.0/24",
+    ///                             "10.0.0.0/24",
+    ///                         },
+    ///                         MatchVariables = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.MatchVariableArgs
+    ///                             {
+    ///                                 VariableName = "RemoteAddr",
+    ///                             },
+    ///                         },
+    ///                         Operator = "IPMatch",
+    ///                     },
+    ///                 },
+    ///                 Name = "Rule1",
+    ///                 Priority = 1,
+    ///                 RuleType = "MatchRule",
+    ///             },
+    ///             new AzureNative.Network.Inputs.WebApplicationFirewallCustomRuleArgs
+    ///             {
+    ///                 Action = "Block",
+    ///                 MatchConditions = new[]
+    ///                 {
+    ///                     new AzureNative.Network.Inputs.MatchConditionArgs
+    ///                     {
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "192.168.1.0/24",
+    ///                         },
+    ///                         MatchVariables = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.MatchVariableArgs
+    ///                             {
+    ///                                 VariableName = "RemoteAddr",
+    ///                             },
+    ///                         },
+    ///                         Operator = "IPMatch",
+    ///                     },
+    ///                     new AzureNative.Network.Inputs.MatchConditionArgs
+    ///                     {
+    ///                         MatchValues = new[]
+    ///                         {
+    ///                             "Windows",
+    ///                         },
+    ///                         MatchVariables = new[]
+    ///                         {
+    ///                             new AzureNative.Network.Inputs.MatchVariableArgs
+    ///                             {
+    ///                                 Selector = "UserAgent",
+    ///                                 VariableName = "RequestHeaders",
+    ///                             },
+    ///                         },
+    ///                         Operator = "Contains",
+    ///                     },
+    ///                 },
+    ///                 Name = "Rule2",
+    ///                 Priority = 2,
+    ///                 RuleType = "MatchRule",
+    ///             },
+    ///         },
+    ///         Location = "WestUs",
+    ///         ManagedRules = new AzureNative.Network.Inputs.ManagedRulesDefinitionArgs
+    ///         {
+    ///             Exclusions = new[]
+    ///             {
+    ///                 new AzureNative.Network.Inputs.OwaspCrsExclusionEntryArgs
+    ///                 {
+    ///                     ExclusionManagedRuleSets = new[]
+    ///                     {
+    ///                         new AzureNative.Network.Inputs.ExclusionManagedRuleSetArgs
+    ///                         {
+    ///                             RuleGroups = new[]
+    ///                             {
+    ///                                 new AzureNative.Network.Inputs.ExclusionManagedRuleGroupArgs
+    ///                                 {
+    ///                                     RuleGroupName = "REQUEST-930-APPLICATION-ATTACK-LFI",
+    ///                                     Rules = new[]
+    ///                                     {
+    ///                                         new AzureNative.Network.Inputs.ExclusionManagedRuleArgs
+    ///                                         {
+    ///                                             RuleId = "930120",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                                 new AzureNative.Network.Inputs.ExclusionManagedRuleGroupArgs
+    ///                                 {
+    ///                                     RuleGroupName = "REQUEST-932-APPLICATION-ATTACK-RCE",
+    ///                                 },
+    ///                             },
+    ///                             RuleSetType = "OWASP",
+    ///                             RuleSetVersion = "3.2",
+    ///                         },
+    ///                     },
+    ///                     MatchVariable = "RequestArgNames",
+    ///                     Selector = "hello",
+    ///                     SelectorMatchOperator = "StartsWith",
+    ///                 },
+    ///                 new AzureNative.Network.Inputs.OwaspCrsExclusionEntryArgs
+    ///                 {
+    ///                     ExclusionManagedRuleSets = new[]
+    ///                     {
+    ///                         new AzureNative.Network.Inputs.ExclusionManagedRuleSetArgs
+    ///                         {
+    ///                             RuleGroups = new[] {},
+    ///                             RuleSetType = "OWASP",
+    ///                             RuleSetVersion = "3.1",
+    ///                         },
+    ///                     },
+    ///                     MatchVariable = "RequestArgNames",
+    ///                     Selector = "hello",
+    ///                     SelectorMatchOperator = "EndsWith",
+    ///                 },
+    ///                 new AzureNative.Network.Inputs.OwaspCrsExclusionEntryArgs
+    ///                 {
+    ///                     MatchVariable = "RequestArgNames",
+    ///                     Selector = "test",
+    ///                     SelectorMatchOperator = "StartsWith",
+    ///                 },
+    ///                 new AzureNative.Network.Inputs.OwaspCrsExclusionEntryArgs
+    ///                 {
+    ///                     MatchVariable = "RequestArgValues",
+    ///                     Selector = "test",
+    ///                     SelectorMatchOperator = "StartsWith",
+    ///                 },
+    ///             },
+    ///             ManagedRuleSets = new[]
+    ///             {
+    ///                 new AzureNative.Network.Inputs.ManagedRuleSetArgs
+    ///                 {
+    ///                     RuleGroupOverrides = new[]
+    ///                     {
+    ///                         new AzureNative.Network.Inputs.ManagedRuleGroupOverrideArgs
+    ///                         {
+    ///                             RuleGroupName = "REQUEST-931-APPLICATION-ATTACK-RFI",
+    ///                             Rules = new[]
+    ///                             {
+    ///                                 new AzureNative.Network.Inputs.ManagedRuleOverrideArgs
+    ///                                 {
+    ///                                     Action = "Log",
+    ///                                     RuleId = "931120",
+    ///                                     State = "Enabled",
+    ///                                 },
+    ///                                 new AzureNative.Network.Inputs.ManagedRuleOverrideArgs
+    ///                                 {
+    ///                                     Action = "AnomalyScoring",
+    ///                                     RuleId = "931130",
+    ///                                     State = "Disabled",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     RuleSetType = "OWASP",
+    ///                     RuleSetVersion = "3.2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PolicyName = "Policy1",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:WebApplicationFirewallPolicy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/Policy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:WebApplicationFirewallPolicy")]
     public partial class WebApplicationFirewallPolicy : global::Pulumi.CustomResource

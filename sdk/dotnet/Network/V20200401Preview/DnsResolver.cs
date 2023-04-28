@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Network.V20200401Preview
 {
     /// <summary>
     /// Describes a DNS resolver.
+    /// 
+    /// ## Example Usage
+    /// ### Upsert DNS resolver
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dnsResolver = new AzureNative.Network.V20200401Preview.DnsResolver("dnsResolver", new()
+    ///     {
+    ///         DnsResolverName = "sampleDnsResolver",
+    ///         Location = "westus2",
+    ///         ResourceGroupName = "sampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualNetwork = new AzureNative.Network.V20200401Preview.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/cbb1387e-4b03-44f2-ad41-58d4677b9873/resourceGroups/virtualNetworkResourceGroup/providers/Microsoft.Network/virtualNetworks/sampleVirtualNetwork",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20200401preview:DnsResolver sampleDnsResolver /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20200401preview:DnsResolver")]
     public partial class DnsResolver : global::Pulumi.CustomResource

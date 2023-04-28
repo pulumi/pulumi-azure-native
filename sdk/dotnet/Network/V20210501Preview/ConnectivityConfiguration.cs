@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
 {
     /// <summary>
     /// The network manager connectivity configuration resource
+    /// 
+    /// ## Example Usage
+    /// ### ConnectivityConfigurationsPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var connectivityConfiguration = new AzureNative.Network.V20210501Preview.ConnectivityConfiguration("connectivityConfiguration", new()
+    ///     {
+    ///         AppliesToGroups = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210501Preview.Inputs.ConnectivityGroupItemArgs
+    ///             {
+    ///                 GroupConnectivity = "None",
+    ///                 IsGlobal = "False",
+    ///                 NetworkGroupId = "subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/group1",
+    ///                 UseHubGateway = "True",
+    ///             },
+    ///         },
+    ///         ConfigurationName = "myTestConnectivityConfig",
+    ///         ConnectivityTopology = "HubAndSpoke",
+    ///         DeleteExistingPeering = "True",
+    ///         Description = "Sample Configuration",
+    ///         DisplayName = "myTestConnectivityConfig",
+    ///         Hubs = new[]
+    ///         {
+    ///             new AzureNative.Network.V20210501Preview.Inputs.HubArgs
+    ///             {
+    ///                 ResourceId = "subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myTestConnectivityConfig",
+    ///                 ResourceType = "Microsoft.Network/virtualNetworks",
+    ///             },
+    ///         },
+    ///         IsGlobal = "True",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210501preview:ConnectivityConfiguration myTestConnectivityConfig subscriptions/subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkManagers/testNetworkManager/connectivityConfigurations/myTestConnectivityConfig 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210501preview:ConnectivityConfiguration")]
     public partial class ConnectivityConfiguration : global::Pulumi.CustomResource

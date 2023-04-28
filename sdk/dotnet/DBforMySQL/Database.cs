@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// Represents a Database.
     /// API Version: 2021-05-01.
     /// Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a database
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var database = new AzureNative.DBforMySQL.Database("database", new()
+    ///     {
+    ///         Charset = "utf8",
+    ///         Collation = "utf8_general_ci",
+    ///         DatabaseName = "db1",
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerName = "testserver",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformysql:Database db1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMySQL/flexibleServers/testserver/databases/db1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Database")]
     public partial class Database : global::Pulumi.CustomResource

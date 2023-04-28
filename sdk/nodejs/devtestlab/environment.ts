@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * An environment, which is essentially an ARM template deployment.
  * API Version: 2018-09-15.
  * Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Environments_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const environment = new azure_native.devtestlab.Environment("environment", {
+ *     deploymentProperties: {
+ *         armTemplateId: "/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{armTemplateName}",
+ *         parameters: [],
+ *     },
+ *     labName: "{labName}",
+ *     name: "{environmentName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     userName: "@me",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab:Environment {environmentName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/users/{uniqueIdentifier}/environments/{environmentName} 
+ * ```
  */
 export class Environment extends pulumi.CustomResource {
     /**

@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The NSP access rule resource
+ *
+ * ## Example Usage
+ * ### NspAccessRulePut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nspAccessRule = new azure_native.network.v20210201preview.NspAccessRule("nspAccessRule", {
+ *     accessRuleName: "accessRule1",
+ *     addressPrefixes: [
+ *         "10.11.0.0/16",
+ *         "10.10.1.0/24",
+ *     ],
+ *     direction: "Inbound",
+ *     networkSecurityPerimeterName: "nsp1",
+ *     profileName: "profile1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210201preview:NspAccessRule accessRule1 /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/profile1/accessRules/accessRule1 
+ * ```
  */
 export class NspAccessRule extends pulumi.CustomResource {
     /**

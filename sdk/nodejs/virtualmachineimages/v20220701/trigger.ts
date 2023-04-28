@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a trigger that can invoke an image template build.
+ *
+ * ## Example Usage
+ * ### Create or update a source image type trigger
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const trigger = new azure_native.virtualmachineimages.v20220701.Trigger("trigger", {
+ *     imageTemplateName: "myImageTemplate",
+ *     kind: "SourceImage",
+ *     resourceGroupName: "myResourceGroup",
+ *     triggerName: "source",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:virtualmachineimages/v20220701:Trigger source /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate/triggers/source 
+ * ```
  */
 export class Trigger extends pulumi.CustomResource {
     /**

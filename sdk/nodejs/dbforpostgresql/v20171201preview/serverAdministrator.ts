@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a and external administrator to be created.
+ *
+ * ## Example Usage
+ * ### ServerAdministratorCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverAdministrator = new azure_native.dbforpostgresql.v20171201preview.ServerAdministrator("serverAdministrator", {
+ *     administratorType: "ActiveDirectory",
+ *     login: "bob@contoso.com",
+ *     resourceGroupName: "testrg",
+ *     serverName: "pgtestsvc4",
+ *     sid: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+ *     tenantId: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20171201preview:ServerAdministrator activeDirectory /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/servers/pgtestsvc4/administrators/activeDirectory 
+ * ```
  */
 export class ServerAdministrator extends pulumi.CustomResource {
     /**

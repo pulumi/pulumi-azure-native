@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Frontend Subresource of Traffic Controller.
  * API Version: 2022-10-01-preview.
  * Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Put Frontend
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const frontendsInterface = new azure_native.servicenetworking.FrontendsInterface("frontendsInterface", {
+ *     frontendName: "fe1",
+ *     ipAddressVersion: azure_native.servicenetworking.FrontendIPAddressVersion.IPv4,
+ *     location: "NorthCentralUS",
+ *     mode: azure_native.servicenetworking.FrontendMode.Public,
+ *     publicIPAddress: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIP-fe1",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     trafficControllerName: "tc1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicenetworking:FrontendsInterface fe1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1/frontends/fe1 
+ * ```
  */
 export class FrontendsInterface extends pulumi.CustomResource {
     /**

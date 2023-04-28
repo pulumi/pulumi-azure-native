@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
+ *
+ * ## Example Usage
+ * ### PutContainerWithDefaultEncryptionScope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainer = new azure_native.storage.v20210201.BlobContainer("blobContainer", {
+ *     accountName: "sto328",
+ *     containerName: "container6185",
+ *     defaultEncryptionScope: "encryptionscope185",
+ *     denyEncryptionScopeOverride: true,
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ * ### PutContainers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blobContainer = new azure_native.storage.v20210201.BlobContainer("blobContainer", {
+ *     accountName: "sto328",
+ *     containerName: "container6185",
+ *     resourceGroupName: "res3376",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20210201:BlobContainer container6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/blobServices/default/containers/container6185 
+ * ```
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**

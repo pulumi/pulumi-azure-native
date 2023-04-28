@@ -160,7 +160,42 @@ class MetricsConfiguration(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a MetricsConfiguration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Update metrics configuration of cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metrics_configuration = azure_native.networkcloud.v20221212preview.MetricsConfiguration("metricsConfiguration",
+            cluster_name="clusterName",
+            collection_interval=15,
+            enabled_metrics=[
+                "metric1",
+                "metric2",
+            ],
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            metrics_configuration_name="default",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:MetricsConfiguration default /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/metricsConfigurations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -179,7 +214,42 @@ class MetricsConfiguration(pulumi.CustomResource):
                  args: MetricsConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MetricsConfiguration resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Update metrics configuration of cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metrics_configuration = azure_native.networkcloud.v20221212preview.MetricsConfiguration("metricsConfiguration",
+            cluster_name="clusterName",
+            collection_interval=15,
+            enabled_metrics=[
+                "metric1",
+                "metric2",
+            ],
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            metrics_configuration_name="default",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:MetricsConfiguration default /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/metricsConfigurations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param MetricsConfigurationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

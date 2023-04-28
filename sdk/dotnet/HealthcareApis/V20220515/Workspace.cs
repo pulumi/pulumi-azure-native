@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.HealthcareApis.V20220515
 {
     /// <summary>
     /// Workspace resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a workspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.HealthcareApis.V20220515.Workspace("workspace", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testRG",
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthcareapis/v20220515:Workspace workspace1 /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis/v20220515:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

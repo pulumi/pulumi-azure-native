@@ -9,6 +9,61 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure SQL instance pool.
+ *
+ * ## Example Usage
+ * ### Create an instance pool with all properties.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const instancePool = new azure_native.sql.v20201101preview.InstancePool("instancePool", {
+ *     instancePoolName: "testIP",
+ *     licenseType: "LicenseIncluded",
+ *     location: "japaneast",
+ *     resourceGroupName: "group1",
+ *     sku: {
+ *         family: "Gen5",
+ *         name: "GP_Gen5",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     subnetId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+ *     tags: {
+ *         a: "b",
+ *     },
+ *     vCores: 8,
+ * });
+ *
+ * ```
+ * ### Create an instance pool with min properties.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const instancePool = new azure_native.sql.v20201101preview.InstancePool("instancePool", {
+ *     instancePoolName: "testIP",
+ *     licenseType: "LicenseIncluded",
+ *     location: "japaneast",
+ *     resourceGroupName: "group1",
+ *     sku: {
+ *         family: "Gen5",
+ *         name: "GP_Gen5",
+ *         tier: "GeneralPurpose",
+ *     },
+ *     subnetId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet1",
+ *     vCores: 8,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20201101preview:InstancePool testIP /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/instancePools/testIP 
+ * ```
  */
 export class InstancePool extends pulumi.CustomResource {
     /**

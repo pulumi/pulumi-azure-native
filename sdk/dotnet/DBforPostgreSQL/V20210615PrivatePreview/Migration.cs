@@ -11,6 +11,64 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20210615PrivatePreview
 {
     /// <summary>
     /// Represents a migration resource.
+    /// 
+    /// ## Example Usage
+    /// ### Migrations_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var migration = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Migration("migration", new()
+    ///     {
+    ///         DBsToMigrate = new[]
+    ///         {
+    ///             "db1",
+    ///             "db2",
+    ///             "db3",
+    ///             "db4",
+    ///         },
+    ///         Location = "westus",
+    ///         MigrationName = "testmigration",
+    ///         MigrationResourceGroup = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs.MigrationResourceGroupArgs
+    ///         {
+    ///             ResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg",
+    ///             SubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/default",
+    ///         },
+    ///         SecretParameters = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs.MigrationSecretParametersArgs
+    ///         {
+    ///             AadApp = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs.AADAppArgs
+    ///             {
+    ///                 AadSecret = "testaadsecret",
+    ///                 ClientId = "cccccccc-cccc-cccc-cccc-cccccccccccc",
+    ///                 TenantId = "tttttttt-tttt-tttt-tttt-tttttttttttt",
+    ///             },
+    ///             AdminCredentials = new AzureNative.DBforPostgreSQL.V20210615PrivatePreview.Inputs.AdminCredentialsArgs
+    ///             {
+    ///                 SourceServerPassword = "testsourcepassword",
+    ///                 TargetServerPassword = "testtargetpassword",
+    ///             },
+    ///         },
+    ///         SourceDBServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+    ///         TargetDBServerName = "testtarget",
+    ///         TargetDBServerResourceGroupName = "testrg",
+    ///         TargetDBServerSubscriptionId = "ffffffff-ffff-ffff-ffff-ffffffffffff",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20210615privatepreview:Migration mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20210615privatepreview:Migration")]
     public partial class Migration : global::Pulumi.CustomResource

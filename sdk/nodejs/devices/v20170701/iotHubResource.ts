@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the IoT hub.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devices/v20170701:IotHubResource myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName} 
+ * ```
  *
  * @deprecated Version 2017-07-01 will be removed in v2 of the provider.
  */

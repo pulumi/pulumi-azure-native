@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.AzureArcData.V20230315Preview
 {
     /// <summary>
     /// Arc Sql Server Availability Group
+    /// 
+    /// ## Example Usage
+    /// ### Create a Arc Sql Server availability group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlServerAvailabilityGroup = new AzureNative.AzureArcData.V20230315Preview.SqlServerAvailabilityGroup("sqlServerAvailabilityGroup", new()
+    ///     {
+    ///         Location = "southeastasia",
+    ///         Properties = new AzureNative.AzureArcData.V20230315Preview.Inputs.SqlServerAvailabilityGroupResourcePropertiesArgs
+    ///         {
+    ///             AvailabilityGroupId = "00000000-1111-2222-3333-444444444444",
+    ///             AvailabilityGroupName = "testAG",
+    ///             Configure = new AzureNative.AzureArcData.V20230315Preview.Inputs.AvailabilityGroupConfigureArgs
+    ///             {
+    ///                 AvailabilityModeDesc = "SYNCHRONOUS_COMMIT",
+    ///                 BackupPriority = 50,
+    ///                 EndpointUrl = "TCP://mytest60-0.mytest60-svc:5022",
+    ///                 FailoverModeDesc = "EXTERNAL",
+    ///                 PrimaryRoleAllowConnectionsDesc = "ALL",
+    ///                 SecondaryRoleAllowConnectionsDesc = "ALL",
+    ///                 SeedingModeDesc = "AUTOMATIC",
+    ///                 SessionTimeout = 10,
+    ///             },
+    ///             State = new AzureNative.AzureArcData.V20230315Preview.Inputs.AvailabilityGroupStateArgs
+    ///             {
+    ///                 AvailabilityGroupReplicaRole = "SECONDARY",
+    ///                 ConnectedStateDesc = "CONNECTED",
+    ///                 LastConnectErrorDescription = "",
+    ///                 LastConnectErrorTimestamp = "2022-05-05T16:26:33.883Z",
+    ///                 OperationalStateDesc = "ONLINE",
+    ///                 RecoveryHealthDesc = "ONLINE_IN_PROGRESS",
+    ///                 SynchronizationHealthDesc = "HEALTHY",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SqlAvailabilityGroupName = "testAG",
+    ///         SqlServerInstanceName = "testSqlServerInstance",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata/v20230315preview:SqlServerAvailabilityGroup testAG /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlServerInstances/testSqlServerInstance/sqlAvailabilityGroups/testAG 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20230315preview:SqlServerAvailabilityGroup")]
     public partial class SqlServerAvailabilityGroup : global::Pulumi.CustomResource

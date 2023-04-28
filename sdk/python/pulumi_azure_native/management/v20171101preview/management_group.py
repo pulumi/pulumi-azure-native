@@ -85,6 +85,25 @@ class ManagementGroup(pulumi.CustomResource):
         """
         The management group details.
 
+        ## Example Usage
+        ### PutManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group = azure_native.management.v20171101preview.ManagementGroup("managementGroup", group_id="00000000-0000-0000-0000-000000000002")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management/v20171101preview:ManagementGroup 00000000-0000-0000-0000-000000000002 /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000002 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The friendly name of the management group.
@@ -99,6 +118,25 @@ class ManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The management group details.
+
+        ## Example Usage
+        ### PutManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group = azure_native.management.v20171101preview.ManagementGroup("managementGroup", group_id="00000000-0000-0000-0000-000000000002")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management/v20171101preview:ManagementGroup 00000000-0000-0000-0000-000000000002 /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000002 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * The Scope Connections resource
  * API Version: 2022-09-01.
  * Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or Update Network Manager Scope Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scopeConnection = new azure_native.network.ScopeConnection("scopeConnection", {
+ *     description: "This is a scope connection to a cross tenant subscription.",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ *     resourceId: "subscriptions/f0dc2b34-dfad-40e4-83e0-2309fed8d00b",
+ *     scopeConnectionName: "TestScopeConnection",
+ *     tenantId: "6babcaad-604b-40ac-a9d7-9fd97c0b779f",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:ScopeConnection TestScopeConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/scopeConnections/TestScopeConnection 
+ * ```
  */
 export class ScopeConnection extends pulumi.CustomResource {
     /**

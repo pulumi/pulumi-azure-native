@@ -114,6 +114,29 @@ class InventoryItem(pulumi.CustomResource):
         API Version: 2020-06-05-preview.
         Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.scvmm.InventoryItem("inventoryItem",
+            inventory_item_name="12345678-1234-1234-1234-123456789abc",
+            inventory_type="Cloud",
+            resource_group_name="testrg",
+            vmm_server_name="ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:InventoryItem 12345678-1234-1234-1234-123456789abc /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer/InventoryItems/12345678-1234-1234-1234-123456789abc 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] inventory_item_name: Name of the inventoryItem.
@@ -132,6 +155,29 @@ class InventoryItem(pulumi.CustomResource):
         Defines the inventory item.
         API Version: 2020-06-05-preview.
         Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateInventoryItem
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        inventory_item = azure_native.scvmm.InventoryItem("inventoryItem",
+            inventory_item_name="12345678-1234-1234-1234-123456789abc",
+            inventory_type="Cloud",
+            resource_group_name="testrg",
+            vmm_server_name="ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm:InventoryItem 12345678-1234-1234-1234-123456789abc /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer/InventoryItems/12345678-1234-1234-1234-123456789abc 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InventoryItemArgs args: The arguments to use to populate this resource's properties.

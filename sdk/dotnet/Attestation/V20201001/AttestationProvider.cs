@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Attestation.V20201001
 {
     /// <summary>
     /// Attestation service response message.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:attestation/v20201001:AttestationProvider myattestationprovider subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/myattestationprovider 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:attestation/v20201001:AttestationProvider")]
     public partial class AttestationProvider : global::Pulumi.CustomResource

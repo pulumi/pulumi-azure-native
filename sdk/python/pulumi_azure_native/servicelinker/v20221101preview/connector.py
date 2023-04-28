@@ -233,6 +233,38 @@ class Connector(pulumi.CustomResource):
         """
         Linker of source and target resource
 
+        ## Example Usage
+        ### PutConnector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector = azure_native.servicelinker.v20221101preview.Connector("connector",
+            auth_info=azure_native.servicelinker.v20221101preview.SecretAuthInfoArgs(
+                auth_type="secret",
+            ),
+            connector_name="connectorName",
+            location="westus",
+            resource_group_name="test-rg",
+            secret_store=azure_native.servicelinker.v20221101preview.SecretStoreArgs(
+                key_vault_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/test-kv",
+            ),
+            target_service=azure_native.servicelinker.v20221101preview.AzureResourceArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+                type="AzureResource",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicelinker/v20221101preview:Connector linkName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[pulumi.InputType['AccessKeyInfoBaseArgs'], pulumi.InputType['SecretAuthInfoArgs'], pulumi.InputType['ServicePrincipalCertificateAuthInfoArgs'], pulumi.InputType['ServicePrincipalSecretAuthInfoArgs'], pulumi.InputType['SystemAssignedIdentityAuthInfoArgs'], pulumi.InputType['UserAccountAuthInfoArgs'], pulumi.InputType['UserAssignedIdentityAuthInfoArgs']]] auth_info: The authentication type.
@@ -256,6 +288,38 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Linker of source and target resource
+
+        ## Example Usage
+        ### PutConnector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connector = azure_native.servicelinker.v20221101preview.Connector("connector",
+            auth_info=azure_native.servicelinker.v20221101preview.SecretAuthInfoArgs(
+                auth_type="secret",
+            ),
+            connector_name="connectorName",
+            location="westus",
+            resource_group_name="test-rg",
+            secret_store=azure_native.servicelinker.v20221101preview.SecretStoreArgs(
+                key_vault_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.KeyVault/vaults/test-kv",
+            ),
+            target_service=azure_native.servicelinker.v20221101preview.AzureResourceArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+                type="AzureResource",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicelinker/v20221101preview:Connector linkName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/links/linkName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectorArgs args: The arguments to use to populate this resource's properties.

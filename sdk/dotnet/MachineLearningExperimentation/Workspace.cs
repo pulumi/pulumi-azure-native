@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
     /// An object that represents a machine learning team account workspace.
     /// API Version: 2017-05-01-preview.
     /// Previous API Version: 2017-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### WorkspaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.MachineLearningExperimentation.Workspace("workspace", new()
+    ///     {
+    ///         AccountName = "testaccount",
+    ///         FriendlyName = "testName",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "TagValue1" },
+    ///         },
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningexperimentation:Workspace testworkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningExperimentation/accounts/testaccount/workspaces/testworkspace 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningexperimentation:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

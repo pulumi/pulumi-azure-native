@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Cloud shell console
  * API Version: 2018-10-01.
  * Previous API Version: 2018-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PutConsole
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const console = new azure_native.portal.Console("console", {
+ *     consoleName: "default",
+ *     properties: {
+ *         osType: "Linux",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:portal:Console myresource1 /providers/Microsoft.Portal/consoles/{consoleName} 
+ * ```
  */
 export class Console extends pulumi.CustomResource {
     /**

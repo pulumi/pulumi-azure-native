@@ -254,6 +254,104 @@ class FluxConfiguration(pulumi.CustomResource):
         """
         The Flux Configuration object returned in Get & Put response.
 
+        ## Example Usage
+        ### Create Flux Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flux_configuration = azure_native.kubernetesconfiguration.v20220101preview.FluxConfiguration("fluxConfiguration",
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            flux_configuration_name="srs-fluxconfig",
+            git_repository=azure_native.kubernetesconfiguration.v20220101preview.GitRepositoryDefinitionResponseArgs(
+                https_ca_cert="ZXhhbXBsZWNlcnRpZmljYXRl",
+                repository_ref=azure_native.kubernetesconfiguration.v20220101preview.RepositoryRefDefinitionArgs(
+                    branch="master",
+                ),
+                sync_interval_in_seconds=600,
+                timeout_in_seconds=600,
+                url="https://github.com/Azure/arc-k8s-demo",
+            ),
+            kustomizations={
+                "srs-kustomization1": azure_native.kubernetesconfiguration.v20220101preview.KustomizationDefinitionArgs(
+                    depends_on=[],
+                    path="./test/path",
+                    sync_interval_in_seconds=600,
+                    timeout_in_seconds=600,
+                ),
+                "srs-kustomization2": azure_native.kubernetesconfiguration.v20220101preview.KustomizationDefinitionArgs(
+                    depends_on=[azure_native.kubernetesconfiguration.v20220101preview.DependsOnDefinitionArgs(
+                        kustomization_name="srs-kustomization1",
+                    )],
+                    path="./other/test/path",
+                    prune=False,
+                    retry_interval_in_seconds=600,
+                    sync_interval_in_seconds=600,
+                    timeout_in_seconds=600,
+                ),
+            },
+            namespace="srs-namespace",
+            resource_group_name="rg1",
+            scope="cluster",
+            source_kind="GitRepository",
+            suspend=False)
+
+        ```
+        ### Create Flux Configuration with Bucket Source Kind
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flux_configuration = azure_native.kubernetesconfiguration.v20220101preview.FluxConfiguration("fluxConfiguration",
+            bucket=azure_native.kubernetesconfiguration.v20220101preview.BucketDefinitionArgs(
+                access_key="fluxminiotest",
+                bucket_name="flux",
+                sync_interval_in_seconds=1000,
+                timeout_in_seconds=1000,
+                url="https://fluxminiotest.az.minio.io",
+            ),
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            flux_configuration_name="srs-fluxconfig",
+            kustomizations={
+                "srs-kustomization1": azure_native.kubernetesconfiguration.v20220101preview.KustomizationDefinitionArgs(
+                    depends_on=[],
+                    path="./test/path",
+                    sync_interval_in_seconds=600,
+                    timeout_in_seconds=600,
+                ),
+                "srs-kustomization2": azure_native.kubernetesconfiguration.v20220101preview.KustomizationDefinitionArgs(
+                    depends_on=[azure_native.kubernetesconfiguration.v20220101preview.DependsOnDefinitionArgs(
+                        kustomization_name="srs-kustomization1",
+                    )],
+                    path="./other/test/path",
+                    prune=False,
+                    retry_interval_in_seconds=600,
+                    sync_interval_in_seconds=600,
+                    timeout_in_seconds=600,
+                ),
+            },
+            namespace="srs-namespace",
+            resource_group_name="rg1",
+            scope="cluster",
+            source_kind="Bucket",
+            suspend=False)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration srs-fluxconfig /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/srs-fluxconfig 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BucketDefinitionArgs']] bucket: Parameters to reconcile to the Bucket source kind type.
@@ -278,6 +376,104 @@ class FluxConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Flux Configuration object returned in Get & Put response.
+
+        ## Example Usage
+        ### Create Flux Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flux_configuration = azure_native.kubernetesconfiguration.v20220101preview.FluxConfiguration("fluxConfiguration",
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            flux_configuration_name="srs-fluxconfig",
+            git_repository=azure_native.kubernetesconfiguration.v20220101preview.GitRepositoryDefinitionResponseArgs(
+                https_ca_cert="ZXhhbXBsZWNlcnRpZmljYXRl",
+                repository_ref=azure_native.kubernetesconfiguration.v20220101preview.RepositoryRefDefinitionArgs(
+                    branch="master",
+                ),
+                sync_interval_in_seconds=600,
+                timeout_in_seconds=600,
+                url="https://github.com/Azure/arc-k8s-demo",
+            ),
+            kustomizations={
+                "srs-kustomization1": azure_native.kubernetesconfiguration.v20220101preview.KustomizationDefinitionArgs(
+                    depends_on=[],
+                    path="./test/path",
+                    sync_interval_in_seconds=600,
+                    timeout_in_seconds=600,
+                ),
+                "srs-kustomization2": azure_native.kubernetesconfiguration.v20220101preview.KustomizationDefinitionArgs(
+                    depends_on=[azure_native.kubernetesconfiguration.v20220101preview.DependsOnDefinitionArgs(
+                        kustomization_name="srs-kustomization1",
+                    )],
+                    path="./other/test/path",
+                    prune=False,
+                    retry_interval_in_seconds=600,
+                    sync_interval_in_seconds=600,
+                    timeout_in_seconds=600,
+                ),
+            },
+            namespace="srs-namespace",
+            resource_group_name="rg1",
+            scope="cluster",
+            source_kind="GitRepository",
+            suspend=False)
+
+        ```
+        ### Create Flux Configuration with Bucket Source Kind
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        flux_configuration = azure_native.kubernetesconfiguration.v20220101preview.FluxConfiguration("fluxConfiguration",
+            bucket=azure_native.kubernetesconfiguration.v20220101preview.BucketDefinitionArgs(
+                access_key="fluxminiotest",
+                bucket_name="flux",
+                sync_interval_in_seconds=1000,
+                timeout_in_seconds=1000,
+                url="https://fluxminiotest.az.minio.io",
+            ),
+            cluster_name="clusterName1",
+            cluster_resource_name="connectedClusters",
+            cluster_rp="Microsoft.Kubernetes",
+            flux_configuration_name="srs-fluxconfig",
+            kustomizations={
+                "srs-kustomization1": azure_native.kubernetesconfiguration.v20220101preview.KustomizationDefinitionArgs(
+                    depends_on=[],
+                    path="./test/path",
+                    sync_interval_in_seconds=600,
+                    timeout_in_seconds=600,
+                ),
+                "srs-kustomization2": azure_native.kubernetesconfiguration.v20220101preview.KustomizationDefinitionArgs(
+                    depends_on=[azure_native.kubernetesconfiguration.v20220101preview.DependsOnDefinitionArgs(
+                        kustomization_name="srs-kustomization1",
+                    )],
+                    path="./other/test/path",
+                    prune=False,
+                    retry_interval_in_seconds=600,
+                    sync_interval_in_seconds=600,
+                    timeout_in_seconds=600,
+                ),
+            },
+            namespace="srs-namespace",
+            resource_group_name="rg1",
+            scope="cluster",
+            source_kind="Bucket",
+            suspend=False)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration srs-fluxconfig /subscriptions/subId1/resourceGroups/rg1/providers/Microsoft.Kubernetes/connectedClusters/clusterName1/providers/Microsoft.KubernetesConfiguration/fluxConfigurations/srs-fluxconfig 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FluxConfigurationArgs args: The arguments to use to populate this resource's properties.

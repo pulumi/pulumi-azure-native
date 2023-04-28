@@ -9,6 +9,54 @@ import * as utilities from "../../utilities";
 
 /**
  * The HDInsight cluster application
+ *
+ * ## Example Usage
+ * ### Create Application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.hdinsight.v20210601.Application("application", {
+ *     applicationName: "hue",
+ *     clusterName: "cluster1",
+ *     properties: {
+ *         applicationType: "CustomApplication",
+ *         computeProfile: {
+ *             roles: [{
+ *                 hardwareProfile: {
+ *                     vmSize: "Standard_D12_v2",
+ *                 },
+ *                 name: "edgenode",
+ *                 targetInstanceCount: 1,
+ *             }],
+ *         },
+ *         errors: [],
+ *         httpsEndpoints: [{
+ *             accessModes: ["WebPage"],
+ *             destinationPort: 20000,
+ *             subDomainSuffix: "dss",
+ *         }],
+ *         installScriptActions: [{
+ *             name: "app-install-app1",
+ *             parameters: "-version latest -port 20000",
+ *             roles: ["edgenode"],
+ *             uri: "https://.../install.sh",
+ *         }],
+ *         uninstallScriptActions: [],
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hdinsight/v20210601:Application hue /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1/applications/hue 
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

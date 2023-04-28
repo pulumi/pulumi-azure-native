@@ -116,6 +116,62 @@ class AccessPolicy(pulumi.CustomResource):
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Register access policy entity.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_policy = azure_native.videoanalyzer.AccessPolicy("accessPolicy",
+            access_policy_name="accessPolicyName1",
+            account_name="testaccount2",
+            authentication=azure_native.videoanalyzer.JwtAuthenticationResponseArgs(
+                audiences=["audience1"],
+                claims=[
+                    azure_native.videoanalyzer.TokenClaimArgs(
+                        name="claimname1",
+                        value="claimvalue1",
+                    ),
+                    azure_native.videoanalyzer.TokenClaimArgs(
+                        name="claimname2",
+                        value="claimvalue2",
+                    ),
+                ],
+                issuers=[
+                    "issuer1",
+                    "issuer2",
+                ],
+                keys=[
+                    azure_native.videoanalyzer.RsaTokenKeyArgs(
+                        alg="RS256",
+                        e="ZLFzZTY0IQ==",
+                        kid="123",
+                        n="YmFzZTY0IQ==",
+                        type="#Microsoft.VideoAnalyzer.RsaTokenKey",
+                    ),
+                    azure_native.videoanalyzer.EccTokenKeyArgs(
+                        alg="ES256",
+                        kid="124",
+                        type="#Microsoft.VideoAnalyzer.EccTokenKey",
+                        x="XX==",
+                        y="YY==",
+                    ),
+                ],
+                type="#Microsoft.VideoAnalyzer.JwtAuthentication",
+            ),
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer:AccessPolicy accessPolicyName1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/accesspolicies/accessPolicyName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policy_name: The Access Policy name.
@@ -134,6 +190,62 @@ class AccessPolicy(pulumi.CustomResource):
         Access policies help define the authentication rules, and control access to specific video resources.
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Register access policy entity.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        access_policy = azure_native.videoanalyzer.AccessPolicy("accessPolicy",
+            access_policy_name="accessPolicyName1",
+            account_name="testaccount2",
+            authentication=azure_native.videoanalyzer.JwtAuthenticationResponseArgs(
+                audiences=["audience1"],
+                claims=[
+                    azure_native.videoanalyzer.TokenClaimArgs(
+                        name="claimname1",
+                        value="claimvalue1",
+                    ),
+                    azure_native.videoanalyzer.TokenClaimArgs(
+                        name="claimname2",
+                        value="claimvalue2",
+                    ),
+                ],
+                issuers=[
+                    "issuer1",
+                    "issuer2",
+                ],
+                keys=[
+                    azure_native.videoanalyzer.RsaTokenKeyArgs(
+                        alg="RS256",
+                        e="ZLFzZTY0IQ==",
+                        kid="123",
+                        n="YmFzZTY0IQ==",
+                        type="#Microsoft.VideoAnalyzer.RsaTokenKey",
+                    ),
+                    azure_native.videoanalyzer.EccTokenKeyArgs(
+                        alg="ES256",
+                        kid="124",
+                        type="#Microsoft.VideoAnalyzer.EccTokenKey",
+                        x="XX==",
+                        y="YY==",
+                    ),
+                ],
+                type="#Microsoft.VideoAnalyzer.JwtAuthentication",
+            ),
+            resource_group_name="testrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer:AccessPolicy accessPolicyName1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/accesspolicies/accessPolicyName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -148,6 +148,27 @@ class RoleDefinition(pulumi.CustomResource):
         """
         Role definition.
 
+        ## Example Usage
+        ### Create role definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_definition = azure_native.authorization.v20220401.RoleDefinition("roleDefinition",
+            role_definition_id="roleDefinitionId",
+            scope="scope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220401:RoleDefinition roleDefinitionId /subscriptions/subID/providers/Microsoft.Authorization/roleDefinitions/roleDefinitionId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] assignable_scopes: Role definition assignable scopes.
@@ -166,6 +187,27 @@ class RoleDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Role definition.
+
+        ## Example Usage
+        ### Create role definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_definition = azure_native.authorization.v20220401.RoleDefinition("roleDefinition",
+            role_definition_id="roleDefinitionId",
+            scope="scope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220401:RoleDefinition roleDefinitionId /subscriptions/subID/providers/Microsoft.Authorization/roleDefinitions/roleDefinitionId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RoleDefinitionArgs args: The arguments to use to populate this resource's properties.

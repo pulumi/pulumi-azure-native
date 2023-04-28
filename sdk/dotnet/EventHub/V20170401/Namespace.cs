@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.EventHub.V20170401
 {
     /// <summary>
     /// Single Namespace item in List or Get Operation
+    /// 
+    /// ## Example Usage
+    /// ### NamespaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @namespace = new AzureNative.EventHub.V20170401.Namespace("namespace", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         NamespaceName = "sdk-Namespace-5849",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///         Sku = new AzureNative.EventHub.V20170401.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20170401:Namespace sdk-Namespace-5849 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5849 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20170401:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

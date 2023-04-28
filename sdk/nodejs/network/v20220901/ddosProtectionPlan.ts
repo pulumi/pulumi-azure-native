@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * A DDoS protection plan in a resource group.
+ *
+ * ## Example Usage
+ * ### Create DDoS protection plan
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ddosProtectionPlan = new azure_native.network.v20220901.DdosProtectionPlan("ddosProtectionPlan", {
+ *     ddosProtectionPlanName: "test-plan",
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:DdosProtectionPlan test-plan /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ddosProtectionPlans/test-plan 
+ * ```
  */
 export class DdosProtectionPlan extends pulumi.CustomResource {
     /**

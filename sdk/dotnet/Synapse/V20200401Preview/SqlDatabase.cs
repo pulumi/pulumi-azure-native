@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Synapse.V20200401Preview
 {
     /// <summary>
     /// A sql database resource.
+    /// 
+    /// ## Example Usage
+    /// ### Creates a sqldatabase.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlDatabase = new AzureNative.Synapse.V20200401Preview.SqlDatabase("sqlDatabase", new()
+    ///     {
+    ///         DataRetention = new AzureNative.Synapse.V20200401Preview.Inputs.SqlDatabaseDataRetentionArgs
+    ///         {
+    ///             DropRetentionPeriod = "P3D",
+    ///             RetentionPeriod = "PT0S",
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg_bfd258ab-71bb-4a86-bf48-076df66c8640",
+    ///         SqlDatabaseName = "113a9eb2-7d40-4009-9dcb-b42daade3760",
+    ///         StorageRedundancy = "Geo",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "val1" },
+    ///         },
+    ///         WorkspaceName = "srv_b33229ec-42a0-4929-9883-7f46e1b75c2f",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20200401preview:SqlDatabase 113a9eb2-7d40-4009-9dcb-b42daade3760 /subscriptions/e682b8de-be70-4b81-a931-1699b27e2a92/resourceGroups/rg_bfd258ab-71bb-4a86-bf48-076df66c8640/providers/Microsoft.Synapse/workspaces/srv_b33229ec-42a0-4929-9883-7f46e1b75c2f/sqlDatabases/113a9eb2-7d40-4009-9dcb-b42daade3760 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2020-04-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:synapse/v20200401preview:SqlDatabase")]

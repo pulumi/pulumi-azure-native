@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.ServiceBus
     /// Description of subscription resource.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SubscriptionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subscription = new AzureNative.ServiceBus.Subscription("subscription", new()
+    ///     {
+    ///         EnableBatchedOperations = true,
+    ///         NamespaceName = "sdk-Namespace-1349",
+    ///         ResourceGroupName = "ResourceGroup",
+    ///         SubscriptionName = "sdk-Subscriptions-2178",
+    ///         TopicName = "sdk-Topics-8740",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus:Subscription sdk-Subscriptions-2178 /subscriptions/Subscriptionid/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1349/topics/sdk-Topics-8740/subscriptions/sdk-Subscriptions-2178 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus:Subscription")]
     public partial class Subscription : global::Pulumi.CustomResource

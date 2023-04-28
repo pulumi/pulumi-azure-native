@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
 {
     /// <summary>
     /// Governance assignment over a given scope
+    /// 
+    /// ## Example Usage
+    /// ### Create Governance assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var governanceAssignment = new AzureNative.Security.V20220101Preview.GovernanceAssignment("governanceAssignment", new()
+    ///     {
+    ///         AdditionalData = new AzureNative.Security.V20220101Preview.Inputs.GovernanceAssignmentAdditionalDataArgs
+    ///         {
+    ///             TicketLink = "https://snow.com",
+    ///             TicketNumber = 123123,
+    ///             TicketStatus = "Active",
+    ///         },
+    ///         AssessmentName = "6b9421dd-5555-2251-9b3d-2be58e2f82cd",
+    ///         AssignmentKey = "6634ff9f-127b-4bf2-8e6e-b1737f5e789c",
+    ///         GovernanceEmailNotification = new AzureNative.Security.V20220101Preview.Inputs.GovernanceEmailNotificationArgs
+    ///         {
+    ///             DisableManagerEmailNotification = false,
+    ///             DisableOwnerEmailNotification = false,
+    ///         },
+    ///         IsGracePeriod = true,
+    ///         Owner = "user@contoso.com",
+    ///         RemediationDueDate = "2022-01-07T13:00:00.0000000Z",
+    ///         RemediationEta = new AzureNative.Security.V20220101Preview.Inputs.RemediationEtaArgs
+    ///         {
+    ///             Eta = "2022-01-08T13:00:00.0000000Z",
+    ///             Justification = "Justification of ETA",
+    ///         },
+    ///         Scope = "subscriptions/c32e05d9-7207-4e22-bdf4-4f7d9c72e5fd/resourceGroups/compute_servers/providers/Microsoft.Compute/virtualMachines/win2012",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20220101preview:GovernanceAssignment 6634ff9f-127b-4bf2-8e6e-b1737f5e789c /subscriptions/c32e05d9-7207-4e22-bdf4-4f7d9c72e5fd/resourceGroups/compute_servers/providers/Microsoft.Compute/virtualMachines/win2012/providers/Microsoft.Security/assessments/6b9421dd-5555-2251-9b3d-2be58e2f82cd/governanceAssignments/6634ff9f-127b-4bf2-8e6e-b1737f5e789c 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20220101preview:GovernanceAssignment")]
     public partial class GovernanceAssignment : global::Pulumi.CustomResource

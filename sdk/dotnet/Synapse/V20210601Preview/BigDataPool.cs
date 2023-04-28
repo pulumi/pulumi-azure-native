@@ -11,6 +11,63 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
     /// <summary>
     /// A Big Data pool
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Big Data pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bigDataPool = new AzureNative.Synapse.V20210601Preview.BigDataPool("bigDataPool", new()
+    ///     {
+    ///         AutoPause = new AzureNative.Synapse.V20210601Preview.Inputs.AutoPausePropertiesArgs
+    ///         {
+    ///             DelayInMinutes = 15,
+    ///             Enabled = true,
+    ///         },
+    ///         AutoScale = new AzureNative.Synapse.V20210601Preview.Inputs.AutoScalePropertiesArgs
+    ///         {
+    ///             Enabled = true,
+    ///             MaxNodeCount = 50,
+    ///             MinNodeCount = 3,
+    ///         },
+    ///         BigDataPoolName = "ExamplePool",
+    ///         DefaultSparkLogFolder = "/logs",
+    ///         IsAutotuneEnabled = false,
+    ///         LibraryRequirements = new AzureNative.Synapse.V20210601Preview.Inputs.LibraryRequirementsArgs
+    ///         {
+    ///             Content = "",
+    ///             Filename = "requirements.txt",
+    ///         },
+    ///         Location = "West US 2",
+    ///         NodeCount = 4,
+    ///         NodeSize = "Medium",
+    ///         NodeSizeFamily = "MemoryOptimized",
+    ///         ResourceGroupName = "ExampleResourceGroup",
+    ///         SparkEventsFolder = "/events",
+    ///         SparkVersion = "3.3",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///         WorkspaceName = "ExampleWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210601preview:BigDataPool ExamplePool /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/bigDataPools/ExamplePool 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:BigDataPool")]
     public partial class BigDataPool : global::Pulumi.CustomResource

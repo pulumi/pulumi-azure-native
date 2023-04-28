@@ -12,6 +12,41 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// API Version: 2022-10-01.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateWorkspaceConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceConnection = new AzureNative.MachineLearningServices.WorkspaceConnection("workspaceConnection", new()
+    ///     {
+    ///         ConnectionName = "connection-1",
+    ///         Properties = new AzureNative.MachineLearningServices.Inputs.NoneAuthTypeWorkspaceConnectionPropertiesArgs
+    ///         {
+    ///             AuthType = "None",
+    ///             Category = "ContainerRegistry",
+    ///             Target = "www.facebook.com",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup-1",
+    ///         WorkspaceName = "workspace-1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices:WorkspaceConnection connection-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/connections/connection-1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:WorkspaceConnection")]
     public partial class WorkspaceConnection : global::Pulumi.CustomResource

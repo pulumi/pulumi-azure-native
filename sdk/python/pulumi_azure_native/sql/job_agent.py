@@ -148,6 +148,30 @@ class JobAgent(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a job agent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_agent = azure_native.sql.JobAgent("jobAgent",
+            database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1",
+            job_agent_name="agent1",
+            location="southeastasia",
+            resource_group_name="group1",
+            server_name="server1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:JobAgent agent1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_id: Resource ID of the database to store job metadata in.
@@ -168,6 +192,30 @@ class JobAgent(pulumi.CustomResource):
         An Azure SQL job agent.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a job agent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_agent = azure_native.sql.JobAgent("jobAgent",
+            database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/db1",
+            job_agent_name="agent1",
+            location="southeastasia",
+            resource_group_name="group1",
+            server_name="server1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:JobAgent agent1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobAgentArgs args: The arguments to use to populate this resource's properties.

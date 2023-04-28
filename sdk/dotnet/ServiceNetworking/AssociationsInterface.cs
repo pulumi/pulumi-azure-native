@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.ServiceNetworking
     /// Association Subresource of Traffic Controller
     /// API Version: 2022-10-01-preview.
     /// Previous API Version: 2022-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Put Association
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var associationsInterface = new AzureNative.ServiceNetworking.AssociationsInterface("associationsInterface", new()
+    ///     {
+    ///         AssociationName = "as1",
+    ///         AssociationType = AzureNative.ServiceNetworking.AssociationType.Subnets,
+    ///         Location = "NorthCentralUS",
+    ///         ResourceGroupName = "rg1",
+    ///         Subnet = new AzureNative.ServiceNetworking.Inputs.AssociationSubnetArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet-tc/subnets/tc-subnet",
+    ///         },
+    ///         TrafficControllerName = "tc1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicenetworking:AssociationsInterface associatedvnet-1 /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ServiceNetworking/trafficControllers/tc1/associations/as1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicenetworking:AssociationsInterface")]
     public partial class AssociationsInterface : global::Pulumi.CustomResource

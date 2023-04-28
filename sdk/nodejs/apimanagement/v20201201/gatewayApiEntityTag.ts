@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Api details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateGatewayApi
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gatewayApiEntityTag = new azure_native.apimanagement.v20201201.GatewayApiEntityTag("gatewayApiEntityTag", {
+ *     apiId: "echo-api",
+ *     gatewayId: "gw1",
+ *     provisioningState: azure_native.apimanagement.v20201201.ProvisioningState.Created,
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:GatewayApiEntityTag echo-api /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/apis/echo-api 
+ * ```
  */
 export class GatewayApiEntityTag extends pulumi.CustomResource {
     /**

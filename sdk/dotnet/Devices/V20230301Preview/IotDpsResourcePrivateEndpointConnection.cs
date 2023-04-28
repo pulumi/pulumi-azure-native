@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Devices.V20230301Preview
 {
     /// <summary>
     /// The private endpoint connection of a provisioning service
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotDpsResourcePrivateEndpointConnection = new AzureNative.Devices.V20230301Preview.IotDpsResourcePrivateEndpointConnection("iotDpsResourcePrivateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "myPrivateEndpointConnection",
+    ///         Properties = new AzureNative.Devices.V20230301Preview.Inputs.PrivateEndpointConnectionPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.Devices.V20230301Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Approved by johndoe@contoso.com",
+    ///                 Status = "Approved",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "myFirstProvisioningService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection myPrivateEndpointConnection /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService/PrivateEndpointConnections/myPrivateEndpointConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devices/v20230301preview:IotDpsResourcePrivateEndpointConnection")]
     public partial class IotDpsResourcePrivateEndpointConnection : global::Pulumi.CustomResource

@@ -64,6 +64,27 @@ class DeviceGroup(pulumi.CustomResource):
         API Version: 2021-02-01-preview.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update device group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device_group = azure_native.iotsecurity.DeviceGroup("deviceGroup",
+            device_group_name="myGroup",
+            iot_defender_location="eastus")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity:DeviceGroup myGroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.IoTSecurity/deviceGroups/myGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] device_group_name: Device group name
@@ -79,6 +100,27 @@ class DeviceGroup(pulumi.CustomResource):
         Device group
         API Version: 2021-02-01-preview.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update device group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        device_group = azure_native.iotsecurity.DeviceGroup("deviceGroup",
+            device_group_name="myGroup",
+            iot_defender_location="eastus")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity:DeviceGroup myGroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.IoTSecurity/deviceGroups/myGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeviceGroupArgs args: The arguments to use to populate this resource's properties.

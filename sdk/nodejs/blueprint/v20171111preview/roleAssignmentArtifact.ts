@@ -6,6 +6,59 @@ import * as utilities from "../../utilities";
 
 /**
  * Blueprint artifact applies Azure role assignment.
+ *
+ * ## Example Usage
+ * ### ARMTemplateArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignmentArtifact = new azure_native.blueprint.v20171111preview.RoleAssignmentArtifact("roleAssignmentArtifact", {
+ *     artifactName: "storageTemplate",
+ *     blueprintName: "simpleBlueprint",
+ *     managementGroupName: "ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### PolicyAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignmentArtifact = new azure_native.blueprint.v20171111preview.RoleAssignmentArtifact("roleAssignmentArtifact", {
+ *     artifactName: "costCenterPolicy",
+ *     blueprintName: "simpleBlueprint",
+ *     managementGroupName: "ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### RoleAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignmentArtifact = new azure_native.blueprint.v20171111preview.RoleAssignmentArtifact("roleAssignmentArtifact", {
+ *     artifactName: "ownerAssignment",
+ *     blueprintName: "simpleBlueprint",
+ *     displayName: "enforce owners of given subscription",
+ *     kind: "roleAssignment",
+ *     managementGroupName: "ContosoOnlineGroup",
+ *     principalIds: "[parameters('owners')]",
+ *     roleDefinitionId: "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blueprint/v20171111preview:RoleAssignmentArtifact ownerAssignment /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+ * ```
  */
 export class RoleAssignmentArtifact extends pulumi.CustomResource {
     /**

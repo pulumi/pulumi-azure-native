@@ -147,6 +147,29 @@ class MaintenanceConfiguration(pulumi.CustomResource):
         """
         Maintenance configuration record type
 
+        ## Example Usage
+        ### MaintenanceConfigurations_CreateOrUpdateForResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        maintenance_configuration = azure_native.maintenance.v20200401.MaintenanceConfiguration("maintenanceConfiguration",
+            location="westus2",
+            namespace="Microsoft.Maintenance",
+            resource_group_name="examplerg",
+            resource_name_="configuration1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maintenance/v20200401:MaintenanceConfiguration configuration1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] extension_properties: Gets or sets extensionProperties of the maintenanceConfiguration. This is for future use only and would be a set of key value pairs for additional information e.g. whether to follow SDP etc.
@@ -165,6 +188,29 @@ class MaintenanceConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Maintenance configuration record type
+
+        ## Example Usage
+        ### MaintenanceConfigurations_CreateOrUpdateForResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        maintenance_configuration = azure_native.maintenance.v20200401.MaintenanceConfiguration("maintenanceConfiguration",
+            location="westus2",
+            namespace="Microsoft.Maintenance",
+            resource_group_name="examplerg",
+            resource_name_="configuration1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maintenance/v20200401:MaintenanceConfiguration configuration1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourcegroups/examplerg/providers/Microsoft.Maintenance/maintenanceConfigurations/configuration1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MaintenanceConfigurationArgs args: The arguments to use to populate this resource's properties.

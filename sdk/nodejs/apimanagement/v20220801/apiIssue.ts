@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * Issue Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiIssue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiIssue = new azure_native.apimanagement.v20220801.ApiIssue("apiIssue", {
+ *     apiId: "57d1f7558aa04f15146d9d8a",
+ *     createdDate: "2018-02-01T22:21:20.467Z",
+ *     description: "New API issue description",
+ *     issueId: "57d2ef278aa04f0ad01d6cdc",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     state: "open",
+ *     title: "New API issue",
+ *     userId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:ApiIssue 57d2ef278aa04f0ad01d6cdc /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc 
+ * ```
  */
 export class ApiIssue extends pulumi.CustomResource {
     /**

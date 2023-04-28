@@ -11,6 +11,85 @@ namespace Pulumi.AzureNative.Insights.V20210308
 {
     /// <summary>
     /// An Application Insights workbook definition.
+    /// 
+    /// ## Example Usage
+    /// ### WorkbookAdd
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workbook = new AzureNative.Insights.V20210308.Workbook("workbook", new()
+    ///     {
+    ///         Category = "workbook",
+    ///         Description = "Sample workbook",
+    ///         DisplayName = "tttt",
+    ///         Id = "c0deea5e-3344-40f2-96f8-6f8e1c3b5722",
+    ///         Kind = "shared",
+    ///         Location = "west us",
+    ///         Name = "Blah Blah Blah",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "deadb33f-8bee-4d3b-a059-9be8dac93960",
+    ///         SerializedData = "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":\"{\"json\":\"## New workbook\\r\\n---\\r\\n\\r\\nWelcome to your new workbook.  This area will display text formatted as markdown.\\r\\n\\r\\n\\r\\nWe've included a basic analytics query to get you started. Use the `Edit` button below each section to configure it or add more sections.\"}\",\"halfWidth\":null,\"conditionalVisibility\":null},{\"type\":3,\"content\":\"{\"version\":\"KqlItem/1.0\",\"query\":\"union withsource=TableName *\\n| summarize Count=count() by TableName\\n| render barchart\",\"showQuery\":false,\"size\":1,\"aggregation\":0,\"showAnnotations\":false}\",\"halfWidth\":null,\"conditionalVisibility\":null}],\"isLocked\":false}",
+    ///         SourceId = "/subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyGroup",
+    ///         Tags = new[]
+    ///         {
+    ///             "TagSample01",
+    ///             "TagSample02",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### WorkbookManagedAdd
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workbook = new AzureNative.Insights.V20210308.Workbook("workbook", new()
+    ///     {
+    ///         Category = "workbook",
+    ///         Description = "Sample workbook",
+    ///         DisplayName = "tttt",
+    ///         Id = "/subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyGroup/providers/Microsoft.Insights/workbooks/e378d137-1243-4256-b5c4-ad2a937cae79",
+    ///         Identity = new AzureNative.Insights.V20210308.Inputs.WorkbookManagedIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///         },
+    ///         Kind = "shared",
+    ///         Location = "westus",
+    ///         Name = "e378d137-1243-4256-b5c4-ad2a937cae79",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "deadb33f-5e0d-4064-8ebb-1a4ed0313eb2",
+    ///         SerializedData = "{\"version\":\"Notebook/1.0\",\"items\":[{\"type\":1,\"content\":{\"json\":\"test\"},\"name\":\"text - 0\"}],\"isLocked\":false,\"fallbackResourceIds\":[\"/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/MyGroup\"]}",
+    ///         SourceId = "/subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyGroup",
+    ///         StorageUri = "/subscriptions/00000000-0000-0000-0000-00000000/resourceGroups/MyGroup/providers/Microsoft.Storage/storageAccounts/testStorage/blobServices/default/containers/testContainer",
+    ///         Tags = 
+    ///         {
+    ///             { "hidden-title", "tttt" },
+    ///         },
+    ///         Version = "Notebook/1.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20210308:Workbook e378d137-1243-4256-b5c4-ad2a937cae79 /subscriptions/00000000-0000-0000-0000-00000000/resourcegroups/MyGroup/providers/Microsoft.Insights/workbooks/72377f0c-b7e7-4044-a882-471bcbd9696e 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20210308:Workbook")]
     public partial class Workbook : global::Pulumi.CustomResource

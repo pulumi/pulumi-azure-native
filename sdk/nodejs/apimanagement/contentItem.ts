@@ -8,6 +8,39 @@ import * as utilities from "../utilities";
  * Content type contract details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateContentTypeContentItem
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const contentItem = new azure_native.apimanagement.ContentItem("contentItem", {
+ *     contentItemId: "4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+ *     contentTypeId: "page",
+ *     properties: {
+ *         en_us: {
+ *             description: "Short story about the company.",
+ *             documentId: "contentTypes/document/contentItems/4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8",
+ *             keywords: "company, about",
+ *             permalink: "/about",
+ *             title: "About",
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:ContentItem 4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8 /contentTypes/page/contentItems/4e3cf6a5-574a-ba08-1f23-2e7a38faa6d8 
+ * ```
  */
 export class ContentItem extends pulumi.CustomResource {
     /**

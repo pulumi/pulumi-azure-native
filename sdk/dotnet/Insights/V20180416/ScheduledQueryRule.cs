@@ -11,6 +11,166 @@ namespace Pulumi.AzureNative.Insights.V20180416
 {
     /// <summary>
     /// The Log Search Rule resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update rule - AlertingAction
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledQueryRule = new AzureNative.Insights.V20180416.ScheduledQueryRule("scheduledQueryRule", new()
+    ///     {
+    ///         Action = new AzureNative.Insights.V20180416.Inputs.AlertingActionArgs
+    ///         {
+    ///             AznsAction = new AzureNative.Insights.V20180416.Inputs.AzNsActionGroupArgs
+    ///             {
+    ///                 ActionGroup = new[] {},
+    ///                 CustomWebhookPayload = "{}",
+    ///                 EmailSubject = "Email Header",
+    ///             },
+    ///             OdataType = "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+    ///             Severity = "1",
+    ///             Trigger = new AzureNative.Insights.V20180416.Inputs.TriggerConditionArgs
+    ///             {
+    ///                 MetricTrigger = new AzureNative.Insights.V20180416.Inputs.LogMetricTriggerArgs
+    ///                 {
+    ///                     MetricColumn = "Computer",
+    ///                     MetricTriggerType = "Consecutive",
+    ///                     Threshold = 5,
+    ///                     ThresholdOperator = "GreaterThan",
+    ///                 },
+    ///                 Threshold = 3,
+    ///                 ThresholdOperator = "GreaterThan",
+    ///             },
+    ///         },
+    ///         Description = "log alert description",
+    ///         Enabled = "true",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "Rac46PostSwapRG",
+    ///         RuleName = "logalertfoo",
+    ///         Schedule = new AzureNative.Insights.V20180416.Inputs.ScheduleArgs
+    ///         {
+    ///             FrequencyInMinutes = 15,
+    ///             TimeWindowInMinutes = 15,
+    ///         },
+    ///         Source = new AzureNative.Insights.V20180416.Inputs.SourceArgs
+    ///         {
+    ///             DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+    ///             Query = "Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)",
+    ///             QueryType = "ResultCount",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update rule - AlertingAction with Cross-Resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledQueryRule = new AzureNative.Insights.V20180416.ScheduledQueryRule("scheduledQueryRule", new()
+    ///     {
+    ///         Action = new AzureNative.Insights.V20180416.Inputs.AlertingActionArgs
+    ///         {
+    ///             AznsAction = new AzureNative.Insights.V20180416.Inputs.AzNsActionGroupArgs
+    ///             {
+    ///                 ActionGroup = new[]
+    ///                 {
+    ///                     "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/actiongroups/test-ag",
+    ///                 },
+    ///                 EmailSubject = "Cross Resource Mail!!",
+    ///             },
+    ///             OdataType = "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+    ///             Severity = "3",
+    ///             Trigger = new AzureNative.Insights.V20180416.Inputs.TriggerConditionArgs
+    ///             {
+    ///                 Threshold = 5000,
+    ///                 ThresholdOperator = "GreaterThan",
+    ///             },
+    ///         },
+    ///         Description = "Sample Cross Resource alert",
+    ///         Enabled = "true",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "Rac46PostSwapRG",
+    ///         RuleName = "SampleCrossResourceAlert",
+    ///         Schedule = new AzureNative.Insights.V20180416.Inputs.ScheduleArgs
+    ///         {
+    ///             FrequencyInMinutes = 60,
+    ///             TimeWindowInMinutes = 60,
+    ///         },
+    ///         Source = new AzureNative.Insights.V20180416.Inputs.SourceArgs
+    ///         {
+    ///             AuthorizedResources = new[]
+    ///             {
+    ///                 "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace",
+    ///                 "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+    ///             },
+    ///             DataSourceId = "/subscriptions/b67f7fec-69fc-4974-9099-a26bd6ffeda3/resourceGroups/Rac46PostSwapRG/providers/microsoft.insights/components/sampleAI",
+    ///             Query = "union requests, workspace(\"sampleWorkspace\").Update",
+    ///             QueryType = "ResultCount",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update rule - LogToMetricAction
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledQueryRule = new AzureNative.Insights.V20180416.ScheduledQueryRule("scheduledQueryRule", new()
+    ///     {
+    ///         Action = new AzureNative.Insights.V20180416.Inputs.LogToMetricActionArgs
+    ///         {
+    ///             Criteria = new[]
+    ///             {
+    ///                 new AzureNative.Insights.V20180416.Inputs.CriteriaArgs
+    ///                 {
+    ///                     Dimensions = new[] {},
+    ///                     MetricName = "Average_% Idle Time",
+    ///                 },
+    ///             },
+    ///             OdataType = "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
+    ///         },
+    ///         Description = "log to metric description",
+    ///         Enabled = "true",
+    ///         Location = "West Europe",
+    ///         ResourceGroupName = "alertsweu",
+    ///         RuleName = "logtometricfoo",
+    ///         Source = new AzureNative.Insights.V20180416.Inputs.SourceArgs
+    ///         {
+    ///             DataSourceId = "/subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/Microsoft.OperationalInsights/workspaces/alertsweu",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20180416:ScheduledQueryRule logtometricfoo /subscriptions/af52d502-a447-4bc6-8cb7-4780fbb00490/resourceGroups/alertsweu/providers/microsoft.insights/scheduledqueryrules/logtometricfoo 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20180416:ScheduledQueryRule")]
     public partial class ScheduledQueryRule : global::Pulumi.CustomResource

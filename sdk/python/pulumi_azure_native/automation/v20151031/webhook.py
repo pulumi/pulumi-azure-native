@@ -197,6 +197,35 @@ class Webhook(pulumi.CustomResource):
         """
         Definition of the webhook type.
 
+        ## Example Usage
+        ### Create or update webhook
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        webhook = azure_native.automation.v20151031.Webhook("webhook",
+            automation_account_name="myAutomationAccount33",
+            expiry_time="2018-03-29T22:18:13.7002872Z",
+            is_enabled=True,
+            name="TestWebhook",
+            resource_group_name="rg",
+            runbook=azure_native.automation.v20151031.RunbookAssociationPropertyArgs(
+                name="TestRunbook",
+            ),
+            uri="<uri>",
+            webhook_name="TestWebhook")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20151031:Webhook TestWebhook /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/webhooks/TestWebhook 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -218,6 +247,35 @@ class Webhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the webhook type.
+
+        ## Example Usage
+        ### Create or update webhook
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        webhook = azure_native.automation.v20151031.Webhook("webhook",
+            automation_account_name="myAutomationAccount33",
+            expiry_time="2018-03-29T22:18:13.7002872Z",
+            is_enabled=True,
+            name="TestWebhook",
+            resource_group_name="rg",
+            runbook=azure_native.automation.v20151031.RunbookAssociationPropertyArgs(
+                name="TestRunbook",
+            ),
+            uri="<uri>",
+            webhook_name="TestWebhook")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20151031:Webhook TestWebhook /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/webhooks/TestWebhook 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

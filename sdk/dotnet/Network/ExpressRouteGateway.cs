@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.Network
     /// ExpressRoute gateway resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ExpressRouteGatewayCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteGateway = new AzureNative.Network.ExpressRouteGateway("expressRouteGateway", new()
+    ///     {
+    ///         AllowNonVirtualWanTraffic = false,
+    ///         AutoScaleConfiguration = new AzureNative.Network.Inputs.ExpressRouteGatewayPropertiesAutoScaleConfigurationArgs
+    ///         {
+    ///             Bounds = new AzureNative.Network.Inputs.ExpressRouteGatewayPropertiesBoundsArgs
+    ///             {
+    ///                 Min = 3,
+    ///             },
+    ///         },
+    ///         ExpressRouteGatewayName = "gateway-2",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         VirtualHub = new AzureNative.Network.Inputs.VirtualHubIdArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/resourceGroupId/providers/Microsoft.Network/virtualHubs/virtualHubName",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:ExpressRouteGateway gateway-2 /subscriptions/subid/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteGateways/gateway-2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRouteGateway")]
     public partial class ExpressRouteGateway : global::Pulumi.CustomResource

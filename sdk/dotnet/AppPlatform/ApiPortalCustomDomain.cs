@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.AppPlatform
     /// Custom domain of the API portal
     /// API Version: 2022-12-01.
     /// Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiPortalCustomDomains_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiPortalCustomDomain = new AzureNative.AppPlatform.ApiPortalCustomDomain("apiPortalCustomDomain", new()
+    ///     {
+    ///         ApiPortalName = "default",
+    ///         DomainName = "myDomainName",
+    ///         Properties = new AzureNative.AppPlatform.Inputs.ApiPortalCustomDomainPropertiesArgs
+    ///         {
+    ///             Thumbprint = "*",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform:ApiPortalCustomDomain myDomainName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apiPortals/default/domains/myDomainName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform:ApiPortalCustomDomain")]
     public partial class ApiPortalCustomDomain : global::Pulumi.CustomResource

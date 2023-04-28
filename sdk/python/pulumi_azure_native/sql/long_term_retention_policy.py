@@ -163,6 +163,33 @@ class LongTermRetentionPolicy(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update the long term retention policy for the database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        long_term_retention_policy = azure_native.sql.LongTermRetentionPolicy("longTermRetentionPolicy",
+            database_name="testDatabase",
+            monthly_retention="P1Y",
+            policy_name="default",
+            resource_group_name="resourceGroup",
+            server_name="testserver",
+            week_of_year=5,
+            weekly_retention="P1M",
+            yearly_retention="P5Y")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:LongTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupLongTermRetentionPolicies/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database.
@@ -184,6 +211,33 @@ class LongTermRetentionPolicy(pulumi.CustomResource):
         A long term retention policy.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update the long term retention policy for the database.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        long_term_retention_policy = azure_native.sql.LongTermRetentionPolicy("longTermRetentionPolicy",
+            database_name="testDatabase",
+            monthly_retention="P1Y",
+            policy_name="default",
+            resource_group_name="resourceGroup",
+            server_name="testserver",
+            week_of_year=5,
+            weekly_retention="P1M",
+            yearly_retention="P5Y")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:LongTermRetentionPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupLongTermRetentionPolicies/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LongTermRetentionPolicyArgs args: The arguments to use to populate this resource's properties.

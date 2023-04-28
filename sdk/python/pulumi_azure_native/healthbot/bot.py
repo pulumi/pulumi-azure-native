@@ -150,6 +150,38 @@ class Bot(pulumi.CustomResource):
         API Version: 2022-08-08.
         Previous API Version: 2020-12-08. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### BotCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot = azure_native.healthbot.Bot("bot",
+            bot_name="samplebotname",
+            identity=azure_native.healthbot.IdentityArgs(
+                type=azure_native.healthbot.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi": {},
+                    "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi2": {},
+                },
+            ),
+            location="East US",
+            resource_group_name="healthbotClient",
+            sku=azure_native.healthbot.SkuArgs(
+                name=azure_native.healthbot.SkuName.F0,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthbot:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bot_name: The name of the Bot resource.
@@ -170,6 +202,38 @@ class Bot(pulumi.CustomResource):
         Azure Health Bot resource definition
         API Version: 2022-08-08.
         Previous API Version: 2020-12-08. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### BotCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bot = azure_native.healthbot.Bot("bot",
+            bot_name="samplebotname",
+            identity=azure_native.healthbot.IdentityArgs(
+                type=azure_native.healthbot.ResourceIdentityType.SYSTEM_ASSIGNED_USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi": {},
+                    "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi2": {},
+                },
+            ),
+            location="East US",
+            resource_group_name="healthbotClient",
+            sku=azure_native.healthbot.SkuArgs(
+                name=azure_native.healthbot.SkuName.F0,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthbot:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BotArgs args: The arguments to use to populate this resource's properties.

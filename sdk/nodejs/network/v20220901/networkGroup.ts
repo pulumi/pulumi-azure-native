@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The network group resource
+ *
+ * ## Example Usage
+ * ### NetworkGroupsPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkGroup = new azure_native.network.v20220901.NetworkGroup("networkGroup", {
+ *     description: "A sample group",
+ *     networkGroupName: "testNetworkGroup",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:NetworkGroup testNetworkGroup /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testNetworkGroup 
+ * ```
  */
 export class NetworkGroup extends pulumi.CustomResource {
     /**

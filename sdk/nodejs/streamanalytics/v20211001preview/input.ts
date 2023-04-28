@@ -9,6 +9,220 @@ import * as utilities from "../../utilities";
 
 /**
  * An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+ *
+ * ## Example Usage
+ * ### Create a Gateway Message Bus input
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const input = new azure_native.streamanalytics.v20211001preview.Input("input", {
+ *     inputName: "input7970",
+ *     jobName: "sj9742",
+ *     properties: {
+ *         datasource: {
+ *             topic: "EdgeTopic1",
+ *             type: "GatewayMessageBus",
+ *         },
+ *         type: "Stream",
+ *     },
+ *     resourceGroupName: "sjrg3467",
+ * });
+ *
+ * ```
+ * ### Create a reference blob input with CSV serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const input = new azure_native.streamanalytics.v20211001preview.Input("input", {
+ *     inputName: "input7225",
+ *     jobName: "sj9597",
+ *     properties: {
+ *         datasource: {
+ *             blobName: "myblobinput",
+ *             container: "state",
+ *             dateFormat: "yyyy/MM/dd",
+ *             deltaPathPattern: "/testBlob/{date}/delta/{time}/",
+ *             deltaSnapshotRefreshRate: "16:14:30",
+ *             fullSnapshotRefreshRate: "16:14:30",
+ *             pathPattern: "{date}/{time}",
+ *             sourcePartitionCount: 16,
+ *             storageAccounts: [{
+ *                 accountKey: "someAccountKey==",
+ *                 accountName: "someAccountName",
+ *             }],
+ *             timeFormat: "HH",
+ *             type: "Microsoft.Storage/Blob",
+ *         },
+ *         serialization: {
+ *             encoding: "UTF8",
+ *             fieldDelimiter: ",",
+ *             type: "Csv",
+ *         },
+ *         type: "Reference",
+ *     },
+ *     resourceGroupName: "sjrg8440",
+ * });
+ *
+ * ```
+ * ### Create a reference file input
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const input = new azure_native.streamanalytics.v20211001preview.Input("input", {
+ *     inputName: "input7225",
+ *     jobName: "sj9597",
+ *     properties: {
+ *         datasource: {
+ *             path: "my/path",
+ *             type: "File",
+ *         },
+ *         type: "Reference",
+ *     },
+ *     resourceGroupName: "sjrg8440",
+ * });
+ *
+ * ```
+ * ### Create a stream Event Hub input with JSON serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const input = new azure_native.streamanalytics.v20211001preview.Input("input", {
+ *     inputName: "input7425",
+ *     jobName: "sj197",
+ *     properties: {
+ *         datasource: {
+ *             consumerGroupName: "sdkconsumergroup",
+ *             eventHubName: "sdkeventhub",
+ *             serviceBusNamespace: "sdktest",
+ *             sharedAccessPolicyKey: "someSharedAccessPolicyKey==",
+ *             sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *             type: "Microsoft.ServiceBus/EventHub",
+ *         },
+ *         serialization: {
+ *             encoding: "UTF8",
+ *             type: "Json",
+ *         },
+ *         type: "Stream",
+ *         watermarkSettings: {
+ *             watermarkMode: "ReadWatermark",
+ *         },
+ *     },
+ *     resourceGroupName: "sjrg3139",
+ * });
+ *
+ * ```
+ * ### Create a stream IoT Hub input with Avro serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const input = new azure_native.streamanalytics.v20211001preview.Input("input", {
+ *     inputName: "input7970",
+ *     jobName: "sj9742",
+ *     properties: {
+ *         datasource: {
+ *             consumerGroupName: "sdkconsumergroup",
+ *             endpoint: "messages/events",
+ *             iotHubNamespace: "iothub",
+ *             sharedAccessPolicyKey: "sharedAccessPolicyKey=",
+ *             sharedAccessPolicyName: "owner",
+ *             type: "Microsoft.Devices/IotHubs",
+ *         },
+ *         serialization: {
+ *             type: "Avro",
+ *         },
+ *         type: "Stream",
+ *     },
+ *     resourceGroupName: "sjrg3467",
+ * });
+ *
+ * ```
+ * ### Create a stream blob input with CSV serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const input = new azure_native.streamanalytics.v20211001preview.Input("input", {
+ *     inputName: "input8899",
+ *     jobName: "sj6695",
+ *     properties: {
+ *         datasource: {
+ *             container: "state",
+ *             dateFormat: "yyyy/MM/dd",
+ *             pathPattern: "{date}/{time}",
+ *             sourcePartitionCount: 16,
+ *             storageAccounts: [{
+ *                 accountKey: "someAccountKey==",
+ *                 accountName: "someAccountName",
+ *             }],
+ *             timeFormat: "HH",
+ *             type: "Microsoft.Storage/Blob",
+ *         },
+ *         serialization: {
+ *             encoding: "UTF8",
+ *             fieldDelimiter: ",",
+ *             type: "Csv",
+ *         },
+ *         type: "Stream",
+ *     },
+ *     resourceGroupName: "sjrg8161",
+ * });
+ *
+ * ```
+ * ### Create an Event Grid input
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const input = new azure_native.streamanalytics.v20211001preview.Input("input", {
+ *     inputName: "input7970",
+ *     jobName: "sj9742",
+ *     properties: {
+ *         datasource: {
+ *             eventTypes: ["Microsoft.Storage.BlobCreated"],
+ *             schema: "CloudEventSchema",
+ *             storageAccounts: [{
+ *                 accountKey: "myaccountkey",
+ *                 accountName: "myaccount",
+ *                 authenticationMode: "Msi",
+ *             }],
+ *             subscriber: {
+ *                 authenticationMode: "Msi",
+ *                 consumerGroupName: "sdkconsumergroup",
+ *                 eventHubName: "sdkeventhub",
+ *                 partitionCount: 16,
+ *                 serviceBusNamespace: "sdktest",
+ *                 sharedAccessPolicyKey: "someSharedAccessPolicyKey==",
+ *                 sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *                 type: "Microsoft.EventHub/EventHub",
+ *             },
+ *             type: "Microsoft.EventGrid/EventSubscriptions",
+ *         },
+ *         type: "Stream",
+ *     },
+ *     resourceGroupName: "sjrg3467",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:streamanalytics/v20211001preview:Input input7970 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg3467/providers/Microsoft.StreamAnalytics/streamingjobs/sj9742/inputs/input7970 
+ * ```
  */
 export class Input extends pulumi.CustomResource {
     /**

@@ -180,6 +180,29 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         API Version: 2017-06-01.
         Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ManagersCreateExtendedInfo
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        manager_extended_info = azure_native.storsimple.ManagerExtendedInfo("managerExtendedInfo",
+            algorithm="None",
+            integrity_key="BIl+RHqO8PZ6DRvuXTTK7g==",
+            manager_name="ManagerForSDKTest2",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple:ManagerExtendedInfo vaultExtendedInfo /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/Managers/ManagerForSDKTest2extendedInformation/vaultExtendedInfo 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] algorithm: Represents the encryption algorithm used to encrypt the keys. None - if Key is saved in plain text format. Algorithm name - if key is encrypted
@@ -202,6 +225,29 @@ class ManagerExtendedInfo(pulumi.CustomResource):
         The extended info of the manager.
         API Version: 2017-06-01.
         Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ManagersCreateExtendedInfo
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        manager_extended_info = azure_native.storsimple.ManagerExtendedInfo("managerExtendedInfo",
+            algorithm="None",
+            integrity_key="BIl+RHqO8PZ6DRvuXTTK7g==",
+            manager_name="ManagerForSDKTest2",
+            resource_group_name="ResourceGroupForSDKTest")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple:ManagerExtendedInfo vaultExtendedInfo /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/Managers/ManagerForSDKTest2extendedInformation/vaultExtendedInfo 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagerExtendedInfoArgs args: The arguments to use to populate this resource's properties.

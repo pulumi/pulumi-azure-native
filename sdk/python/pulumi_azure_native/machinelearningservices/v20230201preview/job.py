@@ -96,6 +96,361 @@ class Job(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate AutoML Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.machinelearningservices.v20230201preview.Job("job",
+            id="string",
+            job_base_properties=azure_native.machinelearningservices.v20230201preview.CommandJobArgs(
+                autologger_settings=azure_native.machinelearningservices.v20230201preview.AutologgerSettingsArgs(
+                    mlflow_autologger="Disabled",
+                ),
+                code_id="string",
+                command="string",
+                component_id="string",
+                compute_id="string",
+                description="string",
+                display_name="string",
+                distribution=azure_native.machinelearningservices.v20230201preview.TensorFlowArgs(
+                    distribution_type="TensorFlow",
+                    parameter_server_count=1,
+                    worker_count=1,
+                ),
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                experiment_name="string",
+                identity=azure_native.machinelearningservices.v20230201preview.AmlTokenArgs(
+                    identity_type="AMLToken",
+                ),
+                inputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.LiteralJobInputArgs(
+                        description="string",
+                        job_input_type="literal",
+                        value="string",
+                    ),
+                },
+                is_archived=False,
+                job_type="Command",
+                limits=azure_native.machinelearningservices.v20230201preview.CommandJobLimitsArgs(
+                    job_limits_type="Command",
+                    timeout="PT5M",
+                ),
+                notification_setting=azure_native.machinelearningservices.v20230201preview.NotificationSettingArgs(
+                    email_on=["JobCompleted"],
+                    emails=["string"],
+                ),
+                outputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.UriFileJobOutputArgs(
+                        asset_name="string",
+                        asset_version="string",
+                        description="string",
+                        job_output_type="uri_file",
+                        mode="Direct",
+                        uri="string",
+                    ),
+                },
+                properties={
+                    "string": "string",
+                },
+                queue_settings=azure_native.machinelearningservices.v20230201preview.QueueSettingsArgs(
+                    job_tier="Premium",
+                    priority=1,
+                ),
+                resources=azure_native.machinelearningservices.v20230201preview.JobResourceConfigurationArgs(
+                    docker_args="string",
+                    instance_count=1,
+                    instance_type="string",
+                    locations=["string"],
+                    properties={
+                        "string": {
+                            "f69c8d5a-9b39-4183-92d3-a2b18944cf95": None,
+                        },
+                    },
+                    shm_size="2g",
+                ),
+                services={
+                    "string": azure_native.machinelearningservices.v20230201preview.JobServiceArgs(
+                        endpoint="string",
+                        job_service_type="string",
+                        nodes=azure_native.machinelearningservices.v20230201preview.AllNodesArgs(
+                            nodes_value_type="All",
+                        ),
+                        port=1,
+                        properties={
+                            "string": "string",
+                        },
+                    ),
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate Command Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.machinelearningservices.v20230201preview.Job("job",
+            id="string",
+            job_base_properties=azure_native.machinelearningservices.v20230201preview.CommandJobArgs(
+                autologger_settings=azure_native.machinelearningservices.v20230201preview.AutologgerSettingsArgs(
+                    mlflow_autologger="Disabled",
+                ),
+                code_id="string",
+                command="string",
+                component_id="string",
+                compute_id="string",
+                description="string",
+                display_name="string",
+                distribution=azure_native.machinelearningservices.v20230201preview.TensorFlowArgs(
+                    distribution_type="TensorFlow",
+                    parameter_server_count=1,
+                    worker_count=1,
+                ),
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                experiment_name="string",
+                identity=azure_native.machinelearningservices.v20230201preview.AmlTokenArgs(
+                    identity_type="AMLToken",
+                ),
+                inputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.LiteralJobInputArgs(
+                        description="string",
+                        job_input_type="literal",
+                        value="string",
+                    ),
+                },
+                is_archived=False,
+                job_type="Command",
+                limits=azure_native.machinelearningservices.v20230201preview.CommandJobLimitsArgs(
+                    job_limits_type="Command",
+                    timeout="PT5M",
+                ),
+                notification_setting=azure_native.machinelearningservices.v20230201preview.NotificationSettingArgs(
+                    email_on=["JobCancelled"],
+                    emails=["string"],
+                ),
+                outputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.UriFileJobOutputArgs(
+                        asset_name="string",
+                        asset_version="string",
+                        description="string",
+                        job_output_type="uri_file",
+                        mode="Upload",
+                        uri="string",
+                    ),
+                },
+                properties={
+                    "string": "string",
+                },
+                queue_settings=azure_native.machinelearningservices.v20230201preview.QueueSettingsArgs(
+                    job_tier="Basic",
+                    priority=1,
+                ),
+                resources=azure_native.machinelearningservices.v20230201preview.JobResourceConfigurationArgs(
+                    docker_args="string",
+                    instance_count=1,
+                    instance_type="string",
+                    locations=["string"],
+                    properties={
+                        "string": {
+                            "c9ac10d0-915b-4de5-afe8-a4c78a37a558": None,
+                        },
+                    },
+                    shm_size="2g",
+                ),
+                services={
+                    "string": azure_native.machinelearningservices.v20230201preview.JobServiceArgs(
+                        endpoint="string",
+                        job_service_type="string",
+                        nodes=azure_native.machinelearningservices.v20230201preview.AllNodesArgs(
+                            nodes_value_type="All",
+                        ),
+                        port=1,
+                        properties={
+                            "string": "string",
+                        },
+                    ),
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate Pipeline Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.machinelearningservices.v20230201preview.Job("job",
+            id="string",
+            job_base_properties=azure_native.machinelearningservices.v20230201preview.PipelineJobArgs(
+                compute_id="string",
+                description="string",
+                display_name="string",
+                experiment_name="string",
+                inputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.LiteralJobInputArgs(
+                        description="string",
+                        job_input_type="literal",
+                        value="string",
+                    ),
+                },
+                job_type="Pipeline",
+                outputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.UriFileJobOutputArgs(
+                        description="string",
+                        job_output_type="uri_file",
+                        mode="Upload",
+                        uri="string",
+                    ),
+                },
+                properties={
+                    "string": "string",
+                },
+                services={
+                    "string": azure_native.machinelearningservices.v20230201preview.JobServiceArgs(
+                        endpoint="string",
+                        job_service_type="string",
+                        port=1,
+                        properties={
+                            "string": "string",
+                        },
+                    ),
+                },
+                settings={},
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate Sweep Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.machinelearningservices.v20230201preview.Job("job",
+            id="string",
+            job_base_properties=azure_native.machinelearningservices.v20230201preview.CommandJobArgs(
+                autologger_settings=azure_native.machinelearningservices.v20230201preview.AutologgerSettingsArgs(
+                    mlflow_autologger="Disabled",
+                ),
+                code_id="string",
+                command="string",
+                component_id="string",
+                compute_id="string",
+                description="string",
+                display_name="string",
+                distribution=azure_native.machinelearningservices.v20230201preview.TensorFlowArgs(
+                    distribution_type="TensorFlow",
+                    parameter_server_count=1,
+                    worker_count=1,
+                ),
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                experiment_name="string",
+                identity=azure_native.machinelearningservices.v20230201preview.AmlTokenArgs(
+                    identity_type="AMLToken",
+                ),
+                inputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.LiteralJobInputArgs(
+                        description="string",
+                        job_input_type="literal",
+                        value="string",
+                    ),
+                },
+                is_archived=False,
+                job_type="Command",
+                limits=azure_native.machinelearningservices.v20230201preview.CommandJobLimitsArgs(
+                    job_limits_type="Command",
+                    timeout="PT5M",
+                ),
+                notification_setting=azure_native.machinelearningservices.v20230201preview.NotificationSettingArgs(
+                    email_on=["JobCompleted"],
+                    emails=["string"],
+                ),
+                outputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.UriFileJobOutputArgs(
+                        asset_name="string",
+                        asset_version="string",
+                        description="string",
+                        job_output_type="uri_file",
+                        mode="ReadWriteMount",
+                        uri="string",
+                    ),
+                },
+                properties={
+                    "string": "string",
+                },
+                queue_settings=azure_native.machinelearningservices.v20230201preview.QueueSettingsArgs(
+                    job_tier="Basic",
+                    priority=1,
+                ),
+                resources=azure_native.machinelearningservices.v20230201preview.JobResourceConfigurationArgs(
+                    docker_args="string",
+                    instance_count=1,
+                    instance_type="string",
+                    locations=["string"],
+                    properties={
+                        "string": {
+                            "5fc1f627-491e-45a0-a6a2-f5b4be884911": None,
+                        },
+                    },
+                    shm_size="2g",
+                ),
+                services={
+                    "string": azure_native.machinelearningservices.v20230201preview.JobServiceArgs(
+                        endpoint="string",
+                        job_service_type="string",
+                        nodes=azure_native.machinelearningservices.v20230201preview.AllNodesArgs(
+                            nodes_value_type="All",
+                        ),
+                        port=1,
+                        properties={
+                            "string": "string",
+                        },
+                    ),
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:Job string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: The name and identifier for the Job. This is case-sensitive.
@@ -111,6 +466,361 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate AutoML Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.machinelearningservices.v20230201preview.Job("job",
+            id="string",
+            job_base_properties=azure_native.machinelearningservices.v20230201preview.CommandJobArgs(
+                autologger_settings=azure_native.machinelearningservices.v20230201preview.AutologgerSettingsArgs(
+                    mlflow_autologger="Disabled",
+                ),
+                code_id="string",
+                command="string",
+                component_id="string",
+                compute_id="string",
+                description="string",
+                display_name="string",
+                distribution=azure_native.machinelearningservices.v20230201preview.TensorFlowArgs(
+                    distribution_type="TensorFlow",
+                    parameter_server_count=1,
+                    worker_count=1,
+                ),
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                experiment_name="string",
+                identity=azure_native.machinelearningservices.v20230201preview.AmlTokenArgs(
+                    identity_type="AMLToken",
+                ),
+                inputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.LiteralJobInputArgs(
+                        description="string",
+                        job_input_type="literal",
+                        value="string",
+                    ),
+                },
+                is_archived=False,
+                job_type="Command",
+                limits=azure_native.machinelearningservices.v20230201preview.CommandJobLimitsArgs(
+                    job_limits_type="Command",
+                    timeout="PT5M",
+                ),
+                notification_setting=azure_native.machinelearningservices.v20230201preview.NotificationSettingArgs(
+                    email_on=["JobCompleted"],
+                    emails=["string"],
+                ),
+                outputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.UriFileJobOutputArgs(
+                        asset_name="string",
+                        asset_version="string",
+                        description="string",
+                        job_output_type="uri_file",
+                        mode="Direct",
+                        uri="string",
+                    ),
+                },
+                properties={
+                    "string": "string",
+                },
+                queue_settings=azure_native.machinelearningservices.v20230201preview.QueueSettingsArgs(
+                    job_tier="Premium",
+                    priority=1,
+                ),
+                resources=azure_native.machinelearningservices.v20230201preview.JobResourceConfigurationArgs(
+                    docker_args="string",
+                    instance_count=1,
+                    instance_type="string",
+                    locations=["string"],
+                    properties={
+                        "string": {
+                            "f69c8d5a-9b39-4183-92d3-a2b18944cf95": None,
+                        },
+                    },
+                    shm_size="2g",
+                ),
+                services={
+                    "string": azure_native.machinelearningservices.v20230201preview.JobServiceArgs(
+                        endpoint="string",
+                        job_service_type="string",
+                        nodes=azure_native.machinelearningservices.v20230201preview.AllNodesArgs(
+                            nodes_value_type="All",
+                        ),
+                        port=1,
+                        properties={
+                            "string": "string",
+                        },
+                    ),
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate Command Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.machinelearningservices.v20230201preview.Job("job",
+            id="string",
+            job_base_properties=azure_native.machinelearningservices.v20230201preview.CommandJobArgs(
+                autologger_settings=azure_native.machinelearningservices.v20230201preview.AutologgerSettingsArgs(
+                    mlflow_autologger="Disabled",
+                ),
+                code_id="string",
+                command="string",
+                component_id="string",
+                compute_id="string",
+                description="string",
+                display_name="string",
+                distribution=azure_native.machinelearningservices.v20230201preview.TensorFlowArgs(
+                    distribution_type="TensorFlow",
+                    parameter_server_count=1,
+                    worker_count=1,
+                ),
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                experiment_name="string",
+                identity=azure_native.machinelearningservices.v20230201preview.AmlTokenArgs(
+                    identity_type="AMLToken",
+                ),
+                inputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.LiteralJobInputArgs(
+                        description="string",
+                        job_input_type="literal",
+                        value="string",
+                    ),
+                },
+                is_archived=False,
+                job_type="Command",
+                limits=azure_native.machinelearningservices.v20230201preview.CommandJobLimitsArgs(
+                    job_limits_type="Command",
+                    timeout="PT5M",
+                ),
+                notification_setting=azure_native.machinelearningservices.v20230201preview.NotificationSettingArgs(
+                    email_on=["JobCancelled"],
+                    emails=["string"],
+                ),
+                outputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.UriFileJobOutputArgs(
+                        asset_name="string",
+                        asset_version="string",
+                        description="string",
+                        job_output_type="uri_file",
+                        mode="Upload",
+                        uri="string",
+                    ),
+                },
+                properties={
+                    "string": "string",
+                },
+                queue_settings=azure_native.machinelearningservices.v20230201preview.QueueSettingsArgs(
+                    job_tier="Basic",
+                    priority=1,
+                ),
+                resources=azure_native.machinelearningservices.v20230201preview.JobResourceConfigurationArgs(
+                    docker_args="string",
+                    instance_count=1,
+                    instance_type="string",
+                    locations=["string"],
+                    properties={
+                        "string": {
+                            "c9ac10d0-915b-4de5-afe8-a4c78a37a558": None,
+                        },
+                    },
+                    shm_size="2g",
+                ),
+                services={
+                    "string": azure_native.machinelearningservices.v20230201preview.JobServiceArgs(
+                        endpoint="string",
+                        job_service_type="string",
+                        nodes=azure_native.machinelearningservices.v20230201preview.AllNodesArgs(
+                            nodes_value_type="All",
+                        ),
+                        port=1,
+                        properties={
+                            "string": "string",
+                        },
+                    ),
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate Pipeline Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.machinelearningservices.v20230201preview.Job("job",
+            id="string",
+            job_base_properties=azure_native.machinelearningservices.v20230201preview.PipelineJobArgs(
+                compute_id="string",
+                description="string",
+                display_name="string",
+                experiment_name="string",
+                inputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.LiteralJobInputArgs(
+                        description="string",
+                        job_input_type="literal",
+                        value="string",
+                    ),
+                },
+                job_type="Pipeline",
+                outputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.UriFileJobOutputArgs(
+                        description="string",
+                        job_output_type="uri_file",
+                        mode="Upload",
+                        uri="string",
+                    ),
+                },
+                properties={
+                    "string": "string",
+                },
+                services={
+                    "string": azure_native.machinelearningservices.v20230201preview.JobServiceArgs(
+                        endpoint="string",
+                        job_service_type="string",
+                        port=1,
+                        properties={
+                            "string": "string",
+                        },
+                    ),
+                },
+                settings={},
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate Sweep Job.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.machinelearningservices.v20230201preview.Job("job",
+            id="string",
+            job_base_properties=azure_native.machinelearningservices.v20230201preview.CommandJobArgs(
+                autologger_settings=azure_native.machinelearningservices.v20230201preview.AutologgerSettingsArgs(
+                    mlflow_autologger="Disabled",
+                ),
+                code_id="string",
+                command="string",
+                component_id="string",
+                compute_id="string",
+                description="string",
+                display_name="string",
+                distribution=azure_native.machinelearningservices.v20230201preview.TensorFlowArgs(
+                    distribution_type="TensorFlow",
+                    parameter_server_count=1,
+                    worker_count=1,
+                ),
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                experiment_name="string",
+                identity=azure_native.machinelearningservices.v20230201preview.AmlTokenArgs(
+                    identity_type="AMLToken",
+                ),
+                inputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.LiteralJobInputArgs(
+                        description="string",
+                        job_input_type="literal",
+                        value="string",
+                    ),
+                },
+                is_archived=False,
+                job_type="Command",
+                limits=azure_native.machinelearningservices.v20230201preview.CommandJobLimitsArgs(
+                    job_limits_type="Command",
+                    timeout="PT5M",
+                ),
+                notification_setting=azure_native.machinelearningservices.v20230201preview.NotificationSettingArgs(
+                    email_on=["JobCompleted"],
+                    emails=["string"],
+                ),
+                outputs={
+                    "string": azure_native.machinelearningservices.v20230201preview.UriFileJobOutputArgs(
+                        asset_name="string",
+                        asset_version="string",
+                        description="string",
+                        job_output_type="uri_file",
+                        mode="ReadWriteMount",
+                        uri="string",
+                    ),
+                },
+                properties={
+                    "string": "string",
+                },
+                queue_settings=azure_native.machinelearningservices.v20230201preview.QueueSettingsArgs(
+                    job_tier="Basic",
+                    priority=1,
+                ),
+                resources=azure_native.machinelearningservices.v20230201preview.JobResourceConfigurationArgs(
+                    docker_args="string",
+                    instance_count=1,
+                    instance_type="string",
+                    locations=["string"],
+                    properties={
+                        "string": {
+                            "5fc1f627-491e-45a0-a6a2-f5b4be884911": None,
+                        },
+                    },
+                    shm_size="2g",
+                ),
+                services={
+                    "string": azure_native.machinelearningservices.v20230201preview.JobServiceArgs(
+                        endpoint="string",
+                        job_service_type="string",
+                        nodes=azure_native.machinelearningservices.v20230201preview.AllNodesArgs(
+                            nodes_value_type="All",
+                        ),
+                        port=1,
+                        properties={
+                            "string": "string",
+                        },
+                    ),
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:Job string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * EventGrid Partner Namespace.
+ *
+ * ## Example Usage
+ * ### PartnerNamespaces_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const partnerNamespace = new azure_native.eventgrid.v20210601preview.PartnerNamespace("partnerNamespace", {
+ *     location: "westus",
+ *     partnerNamespaceName: "examplePartnerNamespaceName1",
+ *     partnerRegistrationFullyQualifiedId: "/subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerRegistrations/ContosoCorpAccount1",
+ *     resourceGroupName: "examplerg",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid/v20210601preview:PartnerNamespace examplePartnerNamespaceName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerNamespaces/examplePartnerNamespaceName1 
+ * ```
  */
 export class PartnerNamespace extends pulumi.CustomResource {
     /**

@@ -13,6 +13,81 @@ namespace Pulumi.AzureNative.HDInsight
     /// The HDInsight cluster application
     /// API Version: 2021-06-01.
     /// Previous API Version: 2018-06-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Application
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.HDInsight.Application("application", new()
+    ///     {
+    ///         ApplicationName = "hue",
+    ///         ClusterName = "cluster1",
+    ///         Properties = new AzureNative.HDInsight.Inputs.ApplicationPropertiesArgs
+    ///         {
+    ///             ApplicationType = "CustomApplication",
+    ///             ComputeProfile = new AzureNative.HDInsight.Inputs.ComputeProfileArgs
+    ///             {
+    ///                 Roles = new[]
+    ///                 {
+    ///                     new AzureNative.HDInsight.Inputs.RoleArgs
+    ///                     {
+    ///                         HardwareProfile = new AzureNative.HDInsight.Inputs.HardwareProfileArgs
+    ///                         {
+    ///                             VmSize = "Standard_D12_v2",
+    ///                         },
+    ///                         Name = "edgenode",
+    ///                         TargetInstanceCount = 1,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Errors = new[] {},
+    ///             HttpsEndpoints = new[]
+    ///             {
+    ///                 new AzureNative.HDInsight.Inputs.ApplicationGetHttpsEndpointArgs
+    ///                 {
+    ///                     AccessModes = new[]
+    ///                     {
+    ///                         "WebPage",
+    ///                     },
+    ///                     DestinationPort = 20000,
+    ///                     SubDomainSuffix = "dss",
+    ///                 },
+    ///             },
+    ///             InstallScriptActions = new[]
+    ///             {
+    ///                 new AzureNative.HDInsight.Inputs.RuntimeScriptActionArgs
+    ///                 {
+    ///                     Name = "app-install-app1",
+    ///                     Parameters = "-version latest -port 20000",
+    ///                     Roles = new[]
+    ///                     {
+    ///                         "edgenode",
+    ///                     },
+    ///                     Uri = "https://.../install.sh",
+    ///                 },
+    ///             },
+    ///             UninstallScriptActions = new[] {},
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hdinsight:Application hue /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HDInsight/clusters/cluster1/applications/hue 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hdinsight:Application")]
     public partial class Application : global::Pulumi.CustomResource

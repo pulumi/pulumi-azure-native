@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.HealthcareApis.V20221001Preview
 {
     /// <summary>
     /// Analytics Connector definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Analytics Connectors Service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var analyticsConnector = new AzureNative.HealthcareApis.V20221001Preview.AnalyticsConnector("analyticsConnector", new()
+    ///     {
+    ///         AnalyticsConnectorName = "exampleconnector",
+    ///         DataDestinationConfiguration = new AzureNative.HealthcareApis.V20221001Preview.Inputs.AnalyticsConnectorDataLakeDataDestinationArgs
+    ///         {
+    ///             DataLakeName = "exampledatalake",
+    ///             Type = "datalake",
+    ///         },
+    ///         DataMappingConfiguration = new AzureNative.HealthcareApis.V20221001Preview.Inputs.AnalyticsConnectorFhirToParquetMappingArgs
+    ///         {
+    ///             ExtensionSchemaReference = "acrexample.azurecr.io/blah@sha256aaa/Extension",
+    ///             FilterConfigurationReference = "acrexample.azurecr.io/blah@sha256xxx",
+    ///             Type = "fhirToParquet",
+    ///         },
+    ///         DataSourceConfiguration = new AzureNative.HealthcareApis.V20221001Preview.Inputs.AnalyticsConnectorFhirServiceDataSourceArgs
+    ///         {
+    ///             Kind = "R4",
+    ///             Type = "fhirservice",
+    ///             Url = "https://workspace-examplefhir.fhir.azurehealthcareapis.com",
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testRG",
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthcareapis/v20221001preview:AnalyticsConnector exampleconnector /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/analyticsconnectors/exampleconnector 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis/v20221001preview:AnalyticsConnector")]
     public partial class AnalyticsConnector : global::Pulumi.CustomResource

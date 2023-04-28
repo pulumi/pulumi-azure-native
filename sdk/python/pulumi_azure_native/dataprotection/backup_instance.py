@@ -116,6 +116,71 @@ class BackupInstance(pulumi.CustomResource):
         API Version: 2023-01-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create BackupInstance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.BackupInstance("backupInstance",
+            backup_instance_name="testInstance1",
+            properties=azure_native.dataprotection.BackupInstanceResponseArgs(
+                data_source_info={
+                    "datasourceType": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "objectType": "Datasource",
+                    "resourceID": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+                    "resourceLocation": "",
+                    "resourceName": "testdb",
+                    "resourceType": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "resourceUri": "",
+                },
+                data_source_set_info=azure_native.dataprotection.DatasourceSetArgs(
+                    datasource_type="Microsoft.DBforPostgreSQL/servers/databases",
+                    object_type="DatasourceSet",
+                    resource_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+                    resource_location="",
+                    resource_name="viveksipgtest",
+                    resource_type="Microsoft.DBforPostgreSQL/servers",
+                    resource_uri="",
+                ),
+                datasource_auth_credentials=azure_native.dataprotection.SecretStoreBasedAuthCredentialsResponseArgs(
+                    object_type="SecretStoreBasedAuthCredentials",
+                    secret_store_resource=azure_native.dataprotection.SecretStoreResourceArgs(
+                        secret_store_type="AzureKeyVault",
+                        uri="https://samplevault.vault.azure.net/secrets/credentials",
+                    ),
+                ),
+                friendly_name="harshitbi2",
+                object_type="BackupInstance",
+                policy_info={
+                    "policyId": "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+                    "policyParameters": {
+                        "dataStoreParametersList": [azure_native.dataprotection.AzureOperationalStoreParametersResponseArgs(
+                            data_store_type="OperationalStore",
+                            object_type="AzureOperationalStoreParameters",
+                            resource_group_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
+                        )],
+                    },
+                },
+                validation_type="ShallowValidation",
+            ),
+            resource_group_name="000pikumar",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="PratikPrivatePreviewVault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:BackupInstance harshitbi2 /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/backupVaults/PratikPrivatePreviewVault1/backupInstances/harshitbi2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] backup_instance_name: The name of the backup instance.
@@ -134,6 +199,71 @@ class BackupInstance(pulumi.CustomResource):
         BackupInstance Resource
         API Version: 2023-01-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create BackupInstance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_instance = azure_native.dataprotection.BackupInstance("backupInstance",
+            backup_instance_name="testInstance1",
+            properties=azure_native.dataprotection.BackupInstanceResponseArgs(
+                data_source_info={
+                    "datasourceType": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "objectType": "Datasource",
+                    "resourceID": "/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest/databases/testdb",
+                    "resourceLocation": "",
+                    "resourceName": "testdb",
+                    "resourceType": "Microsoft.DBforPostgreSQL/servers/databases",
+                    "resourceUri": "",
+                },
+                data_source_set_info=azure_native.dataprotection.DatasourceSetArgs(
+                    datasource_type="Microsoft.DBforPostgreSQL/servers/databases",
+                    object_type="DatasourceSet",
+                    resource_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest/providers/Microsoft.DBforPostgreSQL/servers/viveksipgtest",
+                    resource_location="",
+                    resource_name="viveksipgtest",
+                    resource_type="Microsoft.DBforPostgreSQL/servers",
+                    resource_uri="",
+                ),
+                datasource_auth_credentials=azure_native.dataprotection.SecretStoreBasedAuthCredentialsResponseArgs(
+                    object_type="SecretStoreBasedAuthCredentials",
+                    secret_store_resource=azure_native.dataprotection.SecretStoreResourceArgs(
+                        secret_store_type="AzureKeyVault",
+                        uri="https://samplevault.vault.azure.net/secrets/credentials",
+                    ),
+                ),
+                friendly_name="harshitbi2",
+                object_type="BackupInstance",
+                policy_info={
+                    "policyId": "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/Backupvaults/PratikPrivatePreviewVault1/backupPolicies/PratikPolicy1",
+                    "policyParameters": {
+                        "dataStoreParametersList": [azure_native.dataprotection.AzureOperationalStoreParametersResponseArgs(
+                            data_store_type="OperationalStore",
+                            object_type="AzureOperationalStoreParameters",
+                            resource_group_id="/subscriptions/f75d8d8b-6735-4697-82e1-1a7a3ff0d5d4/resourceGroups/viveksipgtest",
+                        )],
+                    },
+                },
+                validation_type="ShallowValidation",
+            ),
+            resource_group_name="000pikumar",
+            tags={
+                "key1": "val1",
+            },
+            vault_name="PratikPrivatePreviewVault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dataprotection:BackupInstance harshitbi2 /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/000pikumar/providers/Microsoft.DataProtection/backupVaults/PratikPrivatePreviewVault1/backupInstances/harshitbi2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackupInstanceInitArgs args: The arguments to use to populate this resource's properties.

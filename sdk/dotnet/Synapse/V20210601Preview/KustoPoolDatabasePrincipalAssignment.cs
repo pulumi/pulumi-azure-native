@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
     /// <summary>
     /// Class representing a database principal assignment.
+    /// 
+    /// ## Example Usage
+    /// ### KustoPoolDatabasePrincipalAssignmentsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoPoolDatabasePrincipalAssignment = new AzureNative.Synapse.V20210601Preview.KustoPoolDatabasePrincipalAssignment("kustoPoolDatabasePrincipalAssignment", new()
+    ///     {
+    ///         DatabaseName = "Kustodatabase8",
+    ///         KustoPoolName = "kustoclusterrptest4",
+    ///         PrincipalAssignmentName = "kustoprincipal1",
+    ///         PrincipalId = "87654321-1234-1234-1234-123456789123",
+    ///         PrincipalType = "App",
+    ///         ResourceGroupName = "kustorptest",
+    ///         Role = "Admin",
+    ///         TenantId = "12345678-1234-1234-1234-123456789123",
+    ///         WorkspaceName = "synapseWorkspaceName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment synapseWorkspaceName/kustoclusterrptest4/Kustodatabase8/kustoprincipal1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustoPools/kustoclusterrptest4/Databases/Kustodatabase8/PrincipalAssignments/kustoprincipal1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:KustoPoolDatabasePrincipalAssignment")]
     public partial class KustoPoolDatabasePrincipalAssignment : global::Pulumi.CustomResource

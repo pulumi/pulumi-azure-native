@@ -116,6 +116,31 @@ class GitHubConnector(pulumi.CustomResource):
         API Version: 2022-09-01-preview.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### GitHubConnector_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        git_hub_connector = azure_native.securitydevops.GitHubConnector("gitHubConnector",
+            git_hub_connector_name="testconnector",
+            location="West US",
+            properties=azure_native.securitydevops.GitHubConnectorPropertiesArgs(
+                code="00000000000000000000",
+            ),
+            resource_group_name="westusrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securitydevops:GitHubConnector testconnector /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/westusrg/providers/Microsoft.SecurityDevOps/gitHubConnectors/testconnector 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] git_hub_connector_name: Name of the GitHub Connector.
@@ -134,6 +159,31 @@ class GitHubConnector(pulumi.CustomResource):
         Represents an ARM resource for /subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.SecurityDevOps/gitHubConnectors.
         API Version: 2022-09-01-preview.
         Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### GitHubConnector_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        git_hub_connector = azure_native.securitydevops.GitHubConnector("gitHubConnector",
+            git_hub_connector_name="testconnector",
+            location="West US",
+            properties=azure_native.securitydevops.GitHubConnectorPropertiesArgs(
+                code="00000000000000000000",
+            ),
+            resource_group_name="westusrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securitydevops:GitHubConnector testconnector /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/westusrg/providers/Microsoft.SecurityDevOps/gitHubConnectors/testconnector 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GitHubConnectorArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.Automation
     /// Definition of the credential.
     /// API Version: 2022-08-08.
     /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a credential
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var credential = new AzureNative.Automation.Credential("credential", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount18",
+    ///         CredentialName = "myCredential",
+    ///         Description = "my description goes here",
+    ///         Name = "myCredential",
+    ///         Password = "&lt;password&gt;",
+    ///         ResourceGroupName = "rg",
+    ///         UserName = "mylingaiah",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation:Credential myCredential /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount18/credentials/myCredential 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:Credential")]
     public partial class Credential : global::Pulumi.CustomResource

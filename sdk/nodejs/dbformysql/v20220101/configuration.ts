@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Configuration.
+ *
+ * ## Example Usage
+ * ### ConfigurationCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configuration = new azure_native.dbformysql.v20220101.Configuration("configuration", {
+ *     configurationName: "event_scheduler",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ *     source: "user-override",
+ *     value: "off",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbformysql/v20220101:Configuration event_scheduler /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMySQL/servers/testserver/configurations/event_scheduler 
+ * ```
  */
 export class Configuration extends pulumi.CustomResource {
     /**

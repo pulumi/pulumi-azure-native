@@ -11,6 +11,179 @@ import * as utilities from "../utilities";
  * Information about workspace.
  * API Version: 2023-02-01.
  * Previous API Version: 2018-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a workspace which is ready for Customer-Managed Key (CMK) encryption
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.databricks.Workspace("workspace", {
+ *     location: "westus",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     parameters: {
+ *         prepareEncryption: {
+ *             value: true,
+ *         },
+ *     },
+ *     resourceGroupName: "rg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Create a workspace with Customer-Managed Key (CMK) encryption for Managed Disks
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.databricks.Workspace("workspace", {
+ *     encryption: {
+ *         entities: {
+ *             managedDisk: {
+ *                 keySource: "Microsoft.Keyvault",
+ *                 keyVaultProperties: {
+ *                     keyName: "test-cmk-key",
+ *                     keyVaultUri: "https://test-vault-name.vault.azure.net/",
+ *                     keyVersion: "00000000000000000000000000000000",
+ *                 },
+ *                 rotationToLatestKeyVersionEnabled: true,
+ *             },
+ *         },
+ *     },
+ *     location: "westus",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     resourceGroupName: "rg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Create or update workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.databricks.Workspace("workspace", {
+ *     location: "westus",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     resourceGroupName: "rg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Create or update workspace with custom parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.databricks.Workspace("workspace", {
+ *     location: "westus",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     parameters: {
+ *         customPrivateSubnetName: {
+ *             value: "myPrivateSubnet",
+ *         },
+ *         customPublicSubnetName: {
+ *             value: "myPublicSubnet",
+ *         },
+ *         customVirtualNetworkId: {
+ *             value: "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Network/virtualNetworks/myNetwork",
+ *         },
+ *     },
+ *     resourceGroupName: "rg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Enable Customer-Managed Key (CMK) encryption on a workspace which is prepared for encryption
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.databricks.Workspace("workspace", {
+ *     location: "westus",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     parameters: {
+ *         encryption: {
+ *             value: {
+ *                 keyName: "myKeyName",
+ *                 keySource: "Microsoft.Keyvault",
+ *                 keyVaultUri: "https://myKeyVault.vault.azure.net/",
+ *                 keyVersion: "00000000000000000000000000000000",
+ *             },
+ *         },
+ *         prepareEncryption: {
+ *             value: true,
+ *         },
+ *     },
+ *     resourceGroupName: "rg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Revert Customer-Managed Key (CMK) encryption to Microsoft Managed Keys encryption on a workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.databricks.Workspace("workspace", {
+ *     location: "westus",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     parameters: {
+ *         encryption: {
+ *             value: {
+ *                 keySource: "Default",
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "rg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Update a workspace with Customer-Managed Key (CMK) encryption for Managed Disks
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.databricks.Workspace("workspace", {
+ *     encryption: {
+ *         entities: {
+ *             managedDisk: {
+ *                 keySource: "Microsoft.Keyvault",
+ *                 keyVaultProperties: {
+ *                     keyName: "test-cmk-key",
+ *                     keyVaultUri: "https://test-vault-name.vault.azure.net/",
+ *                     keyVersion: "00000000000000000000000000000000",
+ *                 },
+ *                 rotationToLatestKeyVersionEnabled: true,
+ *             },
+ *         },
+ *     },
+ *     location: "westus",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     resourceGroupName: "rg",
+ *     tags: {
+ *         mytag1: "myvalue1",
+ *     },
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databricks:Workspace myWorkspace /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Databricks/workspaces/myWorkspace 
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

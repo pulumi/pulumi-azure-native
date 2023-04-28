@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Model that represents a Capability resource.
  * API Version: 2022-10-01-preview.
  * Previous API Version: 2021-09-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create/update a Capability that extends a virtual machine Target resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const capability = new azure_native.chaos.Capability("capability", {
+ *     capabilityName: "Shutdown-1.0",
+ *     parentProviderNamespace: "Microsoft.Compute",
+ *     parentResourceName: "exampleVM",
+ *     parentResourceType: "virtualMachines",
+ *     resourceGroupName: "exampleRG",
+ *     targetName: "Microsoft-VirtualMachine",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:chaos:Capability Shutdown-1.0 /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine/capabilities/Shutdown-1.0 
+ * ```
  */
 export class Capability extends pulumi.CustomResource {
     /**

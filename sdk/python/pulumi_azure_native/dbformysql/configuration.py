@@ -115,6 +115,30 @@ class Configuration(pulumi.CustomResource):
         API Version: 2021-05-01.
         Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update a user configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration = azure_native.dbformysql.Configuration("configuration",
+            configuration_name="event_scheduler",
+            resource_group_name="testrg",
+            server_name="testserver",
+            source="user-override",
+            value="on")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:Configuration event_scheduler /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMySQL/flexibleServers/testserver/configurations/event_scheduler 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the server configuration.
@@ -133,6 +157,30 @@ class Configuration(pulumi.CustomResource):
         Represents a Configuration.
         API Version: 2021-05-01.
         Previous API Version: 2017-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update a user configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration = azure_native.dbformysql.Configuration("configuration",
+            configuration_name="event_scheduler",
+            resource_group_name="testrg",
+            server_name="testserver",
+            source="user-override",
+            value="on")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformysql:Configuration event_scheduler /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMySQL/flexibleServers/testserver/configurations/event_scheduler 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationArgs args: The arguments to use to populate this resource's properties.

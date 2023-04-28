@@ -163,6 +163,40 @@ class LogProfile(pulumi.CustomResource):
         """
         The log profile resource.
 
+        ## Example Usage
+        ### Create or update a log profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        log_profile = azure_native.insights.v20160301.LogProfile("logProfile",
+            categories=[
+                "Write",
+                "Delete",
+                "Action",
+            ],
+            location="",
+            locations=["global"],
+            log_profile_name="Rac46PostSwapRG",
+            retention_policy=azure_native.insights.v20160301.RetentionPolicyArgs(
+                days=3,
+                enabled=True,
+            ),
+            service_bus_rule_id="",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20160301:LogProfile default /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/providers/microsoft.insights/logprofiles/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] categories: the categories of the logs. These categories are created as is convenient to the user. Some values are: 'Write', 'Delete', and/or 'Action.'
@@ -182,6 +216,40 @@ class LogProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The log profile resource.
+
+        ## Example Usage
+        ### Create or update a log profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        log_profile = azure_native.insights.v20160301.LogProfile("logProfile",
+            categories=[
+                "Write",
+                "Delete",
+                "Action",
+            ],
+            location="",
+            locations=["global"],
+            log_profile_name="Rac46PostSwapRG",
+            retention_policy=azure_native.insights.v20160301.RetentionPolicyArgs(
+                days=3,
+                enabled=True,
+            ),
+            service_bus_rule_id="",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20160301:LogProfile default /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/providers/microsoft.insights/logprofiles/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LogProfileArgs args: The arguments to use to populate this resource's properties.

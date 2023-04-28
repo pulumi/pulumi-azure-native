@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * The X509 Certificate.
  * API Version: 2022-12-12.
  * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### DPSCreateOrUpdateCertificate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dpsCertificate = new azure_native.devices.DpsCertificate("dpsCertificate", {
+ *     certificateName: "cert",
+ *     properties: {
+ *         certificate: "MA==",
+ *     },
+ *     provisioningServiceName: "myFirstProvisioningService",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devices:DpsCertificate cert /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServives/myFirstProvisioningService/certificates/cert 
+ * ```
  */
 export class DpsCertificate extends pulumi.CustomResource {
     /**

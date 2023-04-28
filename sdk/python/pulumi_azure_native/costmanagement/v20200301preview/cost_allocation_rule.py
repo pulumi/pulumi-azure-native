@@ -81,6 +81,16 @@ class CostAllocationRule(pulumi.CustomResource):
         """
         The cost allocation rule model definition
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20200301preview:CostAllocationRule testRule providers/Microsoft.Billing/billingAccounts/100/providers/Microsoft.CostManagement/costAllocationRules/testRule 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] billing_account_id: BillingAccount ID
@@ -95,6 +105,16 @@ class CostAllocationRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The cost allocation rule model definition
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20200301preview:CostAllocationRule testRule providers/Microsoft.Billing/billingAccounts/100/providers/Microsoft.CostManagement/costAllocationRules/testRule 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CostAllocationRuleArgs args: The arguments to use to populate this resource's properties.

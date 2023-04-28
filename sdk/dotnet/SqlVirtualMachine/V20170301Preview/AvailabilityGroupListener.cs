@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20170301Preview
 {
     /// <summary>
     /// A SQL Server availability group listener.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an availability group listener.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var availabilityGroupListener = new AzureNative.SqlVirtualMachine.V20170301Preview.AvailabilityGroupListener("availabilityGroupListener", new()
+    ///     {
+    ///         AvailabilityGroupListenerName = "agl-test",
+    ///         AvailabilityGroupName = "ag-test",
+    ///         LoadBalancerConfigurations = new[]
+    ///         {
+    ///             new AzureNative.SqlVirtualMachine.V20170301Preview.Inputs.LoadBalancerConfigurationArgs
+    ///             {
+    ///                 LoadBalancerResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb-test",
+    ///                 PrivateIpAddress = new AzureNative.SqlVirtualMachine.V20170301Preview.Inputs.PrivateIPAddressArgs
+    ///                 {
+    ///                     IpAddress = "10.1.0.112",
+    ///                     SubnetResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+    ///                 },
+    ///                 ProbePort = 59983,
+    ///                 SqlVirtualMachineInstances = new[]
+    ///                 {
+    ///                     "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm2",
+    ///                     "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachines/testvm3",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Port = 1433,
+    ///         ResourceGroupName = "testrg",
+    ///         SqlVirtualMachineGroupName = "testvmgroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener agl-test /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/testvmgroup/availabilityGroupListeners/agl-test 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener")]
     public partial class AvailabilityGroupListener : global::Pulumi.CustomResource

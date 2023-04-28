@@ -131,6 +131,67 @@ class Dashboard(pulumi.CustomResource):
         """
         The shared dashboard resource definition.
 
+        ## Example Usage
+        ### Create or update a Dashboard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dashboard = azure_native.portal.v20190101preview.Dashboard("dashboard",
+            dashboard_name="testDashboard",
+            lenses={
+                "aLens": azure_native.portal.v20190101preview.DashboardLensArgs(
+                    order=1,
+                    parts={
+                        "aPart": azure_native.portal.v20190101preview.DashboardPartsArgs(
+                            position=azure_native.portal.v20190101preview.DashboardPartsPositionArgs(
+                                col_span=3,
+                                row_span=4,
+                                x=1,
+                                y=2,
+                            ),
+                        ),
+                        "bPart": azure_native.portal.v20190101preview.DashboardPartsArgs(
+                            position=azure_native.portal.v20190101preview.DashboardPartsPositionArgs(
+                                col_span=6,
+                                row_span=6,
+                                x=5,
+                                y=5,
+                            ),
+                        ),
+                    },
+                ),
+                "bLens": azure_native.portal.v20190101preview.DashboardLensArgs(
+                    order=2,
+                    parts={},
+                ),
+            },
+            location="eastus",
+            metadata={
+                "metadata": {
+                    "ColSpan": 2,
+                    "RowSpan": 1,
+                    "X": 4,
+                    "Y": 3,
+                },
+            },
+            resource_group_name="testRG",
+            tags={
+                "aKey": "aValue",
+                "anotherKey": "anotherValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal/v20190101preview:Dashboard testDashboard /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Portal/dashboards/testDashboard 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dashboard_name: The name of the dashboard.
@@ -148,6 +209,67 @@ class Dashboard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The shared dashboard resource definition.
+
+        ## Example Usage
+        ### Create or update a Dashboard
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dashboard = azure_native.portal.v20190101preview.Dashboard("dashboard",
+            dashboard_name="testDashboard",
+            lenses={
+                "aLens": azure_native.portal.v20190101preview.DashboardLensArgs(
+                    order=1,
+                    parts={
+                        "aPart": azure_native.portal.v20190101preview.DashboardPartsArgs(
+                            position=azure_native.portal.v20190101preview.DashboardPartsPositionArgs(
+                                col_span=3,
+                                row_span=4,
+                                x=1,
+                                y=2,
+                            ),
+                        ),
+                        "bPart": azure_native.portal.v20190101preview.DashboardPartsArgs(
+                            position=azure_native.portal.v20190101preview.DashboardPartsPositionArgs(
+                                col_span=6,
+                                row_span=6,
+                                x=5,
+                                y=5,
+                            ),
+                        ),
+                    },
+                ),
+                "bLens": azure_native.portal.v20190101preview.DashboardLensArgs(
+                    order=2,
+                    parts={},
+                ),
+            },
+            location="eastus",
+            metadata={
+                "metadata": {
+                    "ColSpan": 2,
+                    "RowSpan": 1,
+                    "X": 4,
+                    "Y": 3,
+                },
+            },
+            resource_group_name="testRG",
+            tags={
+                "aKey": "aValue",
+                "anotherKey": "anotherValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal/v20190101preview:Dashboard testDashboard /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Portal/dashboards/testDashboard 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DashboardArgs args: The arguments to use to populate this resource's properties.

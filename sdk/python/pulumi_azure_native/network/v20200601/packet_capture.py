@@ -186,6 +186,42 @@ class PacketCapture(pulumi.CustomResource):
         """
         Information about packet capture session.
 
+        ## Example Usage
+        ### Create packet capture
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        packet_capture = azure_native.network.v20200601.PacketCapture("packetCapture",
+            bytes_to_capture_per_packet=10000,
+            filters=[azure_native.network.v20200601.PacketCaptureFilterArgs(
+                local_ip_address="10.0.0.4",
+                local_port="80",
+                protocol="TCP",
+            )],
+            network_watcher_name="nw1",
+            packet_capture_name="pc1",
+            resource_group_name="rg1",
+            storage_location=azure_native.network.v20200601.PacketCaptureStorageLocationArgs(
+                file_path="D:\\\\capture\\\\pc1.cap",
+                storage_id="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/pcstore",
+                storage_path="https://mytestaccountname.blob.core.windows.net/capture/pc1.cap",
+            ),
+            target="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1",
+            time_limit_in_seconds=100,
+            total_bytes_per_session=100000)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200601:PacketCapture pc1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/packetCaptures/pc1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] bytes_to_capture_per_packet: Number of bytes captured per packet, the remaining bytes are truncated.
@@ -206,6 +242,42 @@ class PacketCapture(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Information about packet capture session.
+
+        ## Example Usage
+        ### Create packet capture
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        packet_capture = azure_native.network.v20200601.PacketCapture("packetCapture",
+            bytes_to_capture_per_packet=10000,
+            filters=[azure_native.network.v20200601.PacketCaptureFilterArgs(
+                local_ip_address="10.0.0.4",
+                local_port="80",
+                protocol="TCP",
+            )],
+            network_watcher_name="nw1",
+            packet_capture_name="pc1",
+            resource_group_name="rg1",
+            storage_location=azure_native.network.v20200601.PacketCaptureStorageLocationArgs(
+                file_path="D:\\\\capture\\\\pc1.cap",
+                storage_id="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/pcstore",
+                storage_path="https://mytestaccountname.blob.core.windows.net/capture/pc1.cap",
+            ),
+            target="/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1",
+            time_limit_in_seconds=100,
+            total_bytes_per_session=100000)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200601:PacketCapture pc1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/packetCaptures/pc1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PacketCaptureArgs args: The arguments to use to populate this resource's properties.

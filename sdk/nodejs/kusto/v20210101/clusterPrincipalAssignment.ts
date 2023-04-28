@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Class representing a cluster principal assignment.
+ *
+ * ## Example Usage
+ * ### KustoClusterPrincipalAssignmentsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const clusterPrincipalAssignment = new azure_native.kusto.v20210101.ClusterPrincipalAssignment("clusterPrincipalAssignment", {
+ *     clusterName: "kustoclusterrptest4",
+ *     principalAssignmentName: "kustoprincipal1",
+ *     principalId: "87654321-1234-1234-1234-123456789123",
+ *     principalType: "App",
+ *     resourceGroupName: "kustorptest",
+ *     role: "AllDatabasesAdmin",
+ *     tenantId: "12345678-1234-1234-1234-123456789123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:kusto/v20210101:ClusterPrincipalAssignment kustoclusterrptest4/kustoprincipal1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoclusterrptest4/PrincipalAssignments/kustoprincipal1 
+ * ```
  */
 export class ClusterPrincipalAssignment extends pulumi.CustomResource {
     /**

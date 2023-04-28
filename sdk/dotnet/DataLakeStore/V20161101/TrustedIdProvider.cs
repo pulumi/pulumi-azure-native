@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.DataLakeStore.V20161101
 {
     /// <summary>
     /// Data Lake Store trusted identity provider information.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the specified trusted identity provider. During update, the trusted identity provider with the specified name will be replaced with this new provider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var trustedIdProvider = new AzureNative.DataLakeStore.V20161101.TrustedIdProvider("trustedIdProvider", new()
+    ///     {
+    ///         AccountName = "contosoadla",
+    ///         IdProvider = "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+    ///         ResourceGroupName = "contosorg",
+    ///         TrustedIdProviderName = "test_trusted_id_provider_name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datalakestore/v20161101:TrustedIdProvider test_trusted_id_provider_name 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakestore/v20161101:TrustedIdProvider")]
     public partial class TrustedIdProvider : global::Pulumi.CustomResource

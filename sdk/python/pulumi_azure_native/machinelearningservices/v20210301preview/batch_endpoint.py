@@ -162,7 +162,61 @@ class BatchEndpoint(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a BatchEndpoint resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Batch Endpoint.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        batch_endpoint = azure_native.machinelearningservices.v20210301preview.BatchEndpoint("batchEndpoint",
+            endpoint_name="testBatchEndpoint",
+            identity=azure_native.machinelearningservices.v20210301preview.ResourceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuseridentity": azure_native.machinelearningservices.v20210301preview.UserAssignedIdentityMetaArgs(
+                        client_id="string",
+                        principal_id="string",
+                    ),
+                },
+            ),
+            kind="string",
+            location="string",
+            properties=azure_native.machinelearningservices.v20210301preview.BatchEndpointResponseArgs(
+                auth_mode="AMLToken",
+                description="string",
+                keys=azure_native.machinelearningservices.v20210301preview.EndpointAuthKeysArgs(
+                    primary_key="string",
+                    secondary_key="string",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                traffic={
+                    "myDeployment1": 0,
+                    "myDeployment2": 1,
+                },
+            ),
+            resource_group_name="resourceGroup-1234",
+            tags={
+                "additionalProp1": "string",
+                "additionalProp2": "string",
+                "additionalProp3": "string",
+            },
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:BatchEndpoint testBatchEndpoint /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/batchEndpoints/testBatchEndpoint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_name: Name for the Batch inference endpoint.
@@ -181,7 +235,61 @@ class BatchEndpoint(pulumi.CustomResource):
                  args: BatchEndpointInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BatchEndpoint resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Batch Endpoint.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        batch_endpoint = azure_native.machinelearningservices.v20210301preview.BatchEndpoint("batchEndpoint",
+            endpoint_name="testBatchEndpoint",
+            identity=azure_native.machinelearningservices.v20210301preview.ResourceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuseridentity": azure_native.machinelearningservices.v20210301preview.UserAssignedIdentityMetaArgs(
+                        client_id="string",
+                        principal_id="string",
+                    ),
+                },
+            ),
+            kind="string",
+            location="string",
+            properties=azure_native.machinelearningservices.v20210301preview.BatchEndpointResponseArgs(
+                auth_mode="AMLToken",
+                description="string",
+                keys=azure_native.machinelearningservices.v20210301preview.EndpointAuthKeysArgs(
+                    primary_key="string",
+                    secondary_key="string",
+                ),
+                properties={
+                    "additionalProp1": "string",
+                    "additionalProp2": "string",
+                    "additionalProp3": "string",
+                },
+                traffic={
+                    "myDeployment1": 0,
+                    "myDeployment2": 1,
+                },
+            ),
+            resource_group_name="resourceGroup-1234",
+            tags={
+                "additionalProp1": "string",
+                "additionalProp2": "string",
+                "additionalProp3": "string",
+            },
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:BatchEndpoint testBatchEndpoint /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/batchEndpoints/testBatchEndpoint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param BatchEndpointInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

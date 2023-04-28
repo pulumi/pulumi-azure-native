@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * IoT Addon.
+ *
+ * ## Example Usage
+ * ### PutAddOns
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ioTAddon = new azure_native.databoxedge.v20210601.IoTAddon("ioTAddon", {
+ *     addonName: "arcName",
+ *     deviceName: "testedgedevice",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     roleName: "KubernetesRole",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge/v20210601:IoTAddon arcName /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourcegroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/addonExamples/roles/kubernetesRole/addons/arcName 
+ * ```
  */
 export class IoTAddon extends pulumi.CustomResource {
     /**

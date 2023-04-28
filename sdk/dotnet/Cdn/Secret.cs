@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.Cdn
     /// Friendly Secret name mapping to the any Secret or secret related information.
     /// API Version: 2021-06-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Secrets_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var secret = new AzureNative.Cdn.Secret("secret", new()
+    ///     {
+    ///         Parameters = new AzureNative.Cdn.Inputs.CustomerCertificateParametersArgs
+    ///         {
+    ///             SecretSource = new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.KeyVault/vault/kvName/secrets/certificatename",
+    ///             },
+    ///             SecretVersion = "abcdef1234578900abcdef1234567890",
+    ///             Type = "CustomerCertificate",
+    ///             UseLatestVersion = false,
+    ///         },
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         SecretName = "secret1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:Secret secret1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Secret")]
     public partial class Secret : global::Pulumi.CustomResource

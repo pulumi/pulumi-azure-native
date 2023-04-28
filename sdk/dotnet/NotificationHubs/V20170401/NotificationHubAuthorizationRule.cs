@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
 {
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
+    /// 
+    /// ## Example Usage
+    /// ### NotificationHubAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var notificationHubAuthorizationRule = new AzureNative.NotificationHubs.V20170401.NotificationHubAuthorizationRule("notificationHubAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "DefaultListenSharedAccessSignature",
+    ///         NamespaceName = "nh-sdk-ns",
+    ///         NotificationHubName = "nh-sdk-hub",
+    ///         Properties = new AzureNative.NotificationHubs.V20170401.Inputs.SharedAccessAuthorizationRulePropertiesArgs
+    ///         {
+    ///             Rights = new[]
+    ///             {
+    ///                 AzureNative.NotificationHubs.V20170401.AccessRights.Listen,
+    ///                 AzureNative.NotificationHubs.V20170401.AccessRights.Send,
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "5ktrial",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule DefaultListenSharedAccessSignature /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/5ktrial/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/NotificationHubs/nh-sdk-hub/AuthorizationRules/DefaultListenSharedAccessSignature 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs/v20170401:NotificationHubAuthorizationRule")]
     public partial class NotificationHubAuthorizationRule : global::Pulumi.CustomResource

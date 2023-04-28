@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// VirtualRouter Resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create VirtualRouter
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualRouter = new AzureNative.Network.V20220901.VirtualRouter("virtualRouter", new()
+    ///     {
+    ///         HostedGateway = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vnetGateway",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualRouterName = "virtualRouter",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:VirtualRouter virtualRouter /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualRouters/virtualRouter 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:VirtualRouter")]
     public partial class VirtualRouter : global::Pulumi.CustomResource

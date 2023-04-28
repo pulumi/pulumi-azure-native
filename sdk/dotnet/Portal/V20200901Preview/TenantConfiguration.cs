@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.Portal.V20200901Preview
 {
     /// <summary>
     /// Tenant configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update Tenant configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tenantConfiguration = new AzureNative.Portal.V20200901Preview.TenantConfiguration("tenantConfiguration", new()
+    ///     {
+    ///         ConfigurationName = "default",
+    ///         EnforcePrivateMarkdownStorage = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:portal/v20200901preview:TenantConfiguration default /providers/Microsoft.Portal/tenantConfigurations/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:portal/v20200901preview:TenantConfiguration")]
     public partial class TenantConfiguration : global::Pulumi.CustomResource

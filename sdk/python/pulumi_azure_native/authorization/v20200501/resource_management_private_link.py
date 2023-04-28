@@ -77,7 +77,28 @@ class ResourceManagementPrivateLink(pulumi.CustomResource):
                  rmpl_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ResourceManagementPrivateLink resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create Resource Management Private Link.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_management_private_link = azure_native.authorization.v20200501.ResourceManagementPrivateLink("resourceManagementPrivateLink",
+            location="eastus",
+            resource_group_name="my-resource-group",
+            rmpl_name="my-rmplName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20200501:ResourceManagementPrivateLink my-pla 00000000-0000-0000-0000-000000000000 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: the region to create private link association.
@@ -91,7 +112,28 @@ class ResourceManagementPrivateLink(pulumi.CustomResource):
                  args: ResourceManagementPrivateLinkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ResourceManagementPrivateLink resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create Resource Management Private Link.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_management_private_link = azure_native.authorization.v20200501.ResourceManagementPrivateLink("resourceManagementPrivateLink",
+            location="eastus",
+            resource_group_name="my-resource-group",
+            rmpl_name="my-rmplName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20200501:ResourceManagementPrivateLink my-pla 00000000-0000-0000-0000-000000000000 
+        ```
+
         :param str resource_name: The name of the resource.
         :param ResourceManagementPrivateLinkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

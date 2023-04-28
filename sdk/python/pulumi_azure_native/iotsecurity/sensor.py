@@ -116,6 +116,30 @@ class Sensor(pulumi.CustomResource):
         API Version: 2021-02-01-preview.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update IoT sensor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sensor = azure_native.iotsecurity.Sensor("sensor",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub",
+            sensor_name="mySensor",
+            sensor_type="Ot",
+            ti_automatic_updates=True,
+            zone="Zone Name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity:Sensor mySensor /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub/providers/Microsoft.IoTSecurity/sensors/mySensor 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] scope: Scope of the query (IoT Hub, /providers/Microsoft.Devices/iotHubs/myHub)
@@ -134,6 +158,30 @@ class Sensor(pulumi.CustomResource):
         IoT sensor model
         API Version: 2021-02-01-preview.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update IoT sensor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sensor = azure_native.iotsecurity.Sensor("sensor",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub",
+            sensor_name="mySensor",
+            sensor_type="Ot",
+            ti_automatic_updates=True,
+            zone="Zone Name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity:Sensor mySensor /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Devices/IotHubs/myHub/providers/Microsoft.IoTSecurity/sensors/mySensor 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SensorArgs args: The arguments to use to populate this resource's properties.

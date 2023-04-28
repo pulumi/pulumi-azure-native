@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Kusto.V20221229
 {
     /// <summary>
     /// Class representing a cluster principal assignment.
+    /// 
+    /// ## Example Usage
+    /// ### KustoClusterPrincipalAssignmentsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var clusterPrincipalAssignment = new AzureNative.Kusto.V20221229.ClusterPrincipalAssignment("clusterPrincipalAssignment", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         PrincipalAssignmentName = "kustoprincipal1",
+    ///         PrincipalId = "87654321-1234-1234-1234-123456789123",
+    ///         PrincipalType = "App",
+    ///         ResourceGroupName = "kustorptest",
+    ///         Role = "AllDatabasesAdmin",
+    ///         TenantId = "12345678-1234-1234-1234-123456789123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto/v20221229:ClusterPrincipalAssignment kustoCluster/kustoprincipal1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/PrincipalAssignments/kustoprincipal1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20221229:ClusterPrincipalAssignment")]
     public partial class ClusterPrincipalAssignment : global::Pulumi.CustomResource

@@ -212,6 +212,51 @@ class WorkloadClassifier(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a workload group with all properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_classifier = azure_native.sql.WorkloadClassifier("workloadClassifier",
+            context="test_context",
+            database_name="testdb",
+            end_time="14:00",
+            importance="high",
+            label="test_label",
+            member_name="dbo",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            start_time="12:00",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup")
+
+        ```
+        ### Create a workload group with the required properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_classifier = azure_native.sql.WorkloadClassifier("workloadClassifier",
+            database_name="testdb",
+            member_name="dbo",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:WorkloadClassifier wlm_workloadclassifier /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb/workloadGroups/wlm_workloadgroup/workloadClassifiers/wlm_workloadclassifier 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] context: The workload classifier context.
@@ -236,6 +281,51 @@ class WorkloadClassifier(pulumi.CustomResource):
         Workload classifier operations for a data warehouse
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a workload group with all properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_classifier = azure_native.sql.WorkloadClassifier("workloadClassifier",
+            context="test_context",
+            database_name="testdb",
+            end_time="14:00",
+            importance="high",
+            label="test_label",
+            member_name="dbo",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            start_time="12:00",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup")
+
+        ```
+        ### Create a workload group with the required properties specified.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_classifier = azure_native.sql.WorkloadClassifier("workloadClassifier",
+            database_name="testdb",
+            member_name="dbo",
+            resource_group_name="Default-SQL-SouthEastAsia",
+            server_name="testsvr",
+            workload_classifier_name="wlm_workloadclassifier",
+            workload_group_name="wlm_workloadgroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:WorkloadClassifier wlm_workloadclassifier /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb/workloadGroups/wlm_workloadgroup/workloadClassifiers/wlm_workloadclassifier 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkloadClassifierArgs args: The arguments to use to populate this resource's properties.

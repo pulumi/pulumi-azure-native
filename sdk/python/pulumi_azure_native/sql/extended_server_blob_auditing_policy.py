@@ -453,6 +453,57 @@ class ExtendedServerBlobAuditingPolicy(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update a server's extended blob auditing policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_server_blob_auditing_policy = azure_native.sql.ExtendedServerBlobAuditingPolicy("extendedServerBlobAuditingPolicy",
+            audit_actions_and_groups=[
+                "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
+                "FAILED_DATABASE_AUTHENTICATION_GROUP",
+                "BATCH_COMPLETED_GROUP",
+            ],
+            blob_auditing_policy_name="default",
+            is_azure_monitor_target_enabled=True,
+            is_storage_secondary_key_in_use=False,
+            predicate_expression="object_name = 'SensitiveData'",
+            queue_delay_ms=4000,
+            resource_group_name="blobauditingtest-4799",
+            retention_days=6,
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_account_subscription_id="00000000-1234-0000-5678-000000000000",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Update a server's extended blob auditing policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_server_blob_auditing_policy = azure_native.sql.ExtendedServerBlobAuditingPolicy("extendedServerBlobAuditingPolicy",
+            blob_auditing_policy_name="default",
+            resource_group_name="blobauditingtest-4799",
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ExtendedServerBlobAuditingPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-4799/providers/Microsoft.Sql/servers/blobauditingtest-6440/extendedAuditingSettings/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] audit_actions_and_groups: Specifies the Actions-Groups and Actions to audit.
@@ -566,6 +617,57 @@ class ExtendedServerBlobAuditingPolicy(pulumi.CustomResource):
         An extended server blob auditing policy.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update a server's extended blob auditing policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_server_blob_auditing_policy = azure_native.sql.ExtendedServerBlobAuditingPolicy("extendedServerBlobAuditingPolicy",
+            audit_actions_and_groups=[
+                "SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP",
+                "FAILED_DATABASE_AUTHENTICATION_GROUP",
+                "BATCH_COMPLETED_GROUP",
+            ],
+            blob_auditing_policy_name="default",
+            is_azure_monitor_target_enabled=True,
+            is_storage_secondary_key_in_use=False,
+            predicate_expression="object_name = 'SensitiveData'",
+            queue_delay_ms=4000,
+            resource_group_name="blobauditingtest-4799",
+            retention_days=6,
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_account_subscription_id="00000000-1234-0000-5678-000000000000",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Update a server's extended blob auditing policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        extended_server_blob_auditing_policy = azure_native.sql.ExtendedServerBlobAuditingPolicy("extendedServerBlobAuditingPolicy",
+            blob_auditing_policy_name="default",
+            resource_group_name="blobauditingtest-4799",
+            server_name="blobauditingtest-6440",
+            state=azure_native.sql.BlobAuditingPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:ExtendedServerBlobAuditingPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-4799/providers/Microsoft.Sql/servers/blobauditingtest-6440/extendedAuditingSettings/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExtendedServerBlobAuditingPolicyArgs args: The arguments to use to populate this resource's properties.

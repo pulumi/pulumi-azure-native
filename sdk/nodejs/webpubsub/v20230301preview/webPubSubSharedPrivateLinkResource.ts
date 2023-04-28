@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Shared Private Link Resource
+ *
+ * ## Example Usage
+ * ### WebPubSubSharedPrivateLinkResources_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webPubSubSharedPrivateLinkResource = new azure_native.webpubsub.v20230301preview.WebPubSubSharedPrivateLinkResource("webPubSubSharedPrivateLinkResource", {
+ *     groupId: "sites",
+ *     privateLinkResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Web/sites/myWebApp",
+ *     requestMessage: "Please approve",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "myWebPubSubService",
+ *     sharedPrivateLinkResourceName: "upstream",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:webpubsub/v20230301preview:WebPubSubSharedPrivateLinkResource upstream /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/privateEndpointConnections/upstream 
+ * ```
  */
 export class WebPubSubSharedPrivateLinkResource extends pulumi.CustomResource {
     /**

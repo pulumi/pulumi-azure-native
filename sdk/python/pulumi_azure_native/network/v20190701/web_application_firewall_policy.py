@@ -149,6 +149,69 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
         """
         Defines web application firewall policy.
 
+        ## Example Usage
+        ### Creates or updates a WAF policy within a resource group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_application_firewall_policy = azure_native.network.v20190701.WebApplicationFirewallPolicy("webApplicationFirewallPolicy",
+            custom_rules=[
+                {
+                    "action": "Block",
+                    "matchConditions": [{
+                        "matchValues": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                        "matchVariables": [{
+                            "variableName": "RemoteAddr",
+                        }],
+                        "operator": "IPMatch",
+                    }],
+                    "name": "Rule1",
+                    "priority": 1,
+                    "ruleType": "MatchRule",
+                },
+                {
+                    "action": "Block",
+                    "matchConditions": [
+                        {
+                            "matchValues": ["192.168.1.0/24"],
+                            "matchVariables": [{
+                                "variableName": "RemoteAddr",
+                            }],
+                            "operator": "IPMatch",
+                        },
+                        {
+                            "matchValues": ["Windows"],
+                            "matchVariables": [{
+                                "selector": "UserAgent",
+                                "variableName": "RequestHeaders",
+                            }],
+                            "operator": "Contains",
+                        },
+                    ],
+                    "name": "Rule2",
+                    "priority": 2,
+                    "ruleType": "MatchRule",
+                },
+            ],
+            location="WestUs",
+            policy_name="Policy1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190701:WebApplicationFirewallPolicy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/Policy1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebApplicationFirewallCustomRuleArgs']]]] custom_rules: Describes custom rules inside the policy.
@@ -167,6 +230,69 @@ class WebApplicationFirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines web application firewall policy.
+
+        ## Example Usage
+        ### Creates or updates a WAF policy within a resource group
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_application_firewall_policy = azure_native.network.v20190701.WebApplicationFirewallPolicy("webApplicationFirewallPolicy",
+            custom_rules=[
+                {
+                    "action": "Block",
+                    "matchConditions": [{
+                        "matchValues": [
+                            "192.168.1.0/24",
+                            "10.0.0.0/24",
+                        ],
+                        "matchVariables": [{
+                            "variableName": "RemoteAddr",
+                        }],
+                        "operator": "IPMatch",
+                    }],
+                    "name": "Rule1",
+                    "priority": 1,
+                    "ruleType": "MatchRule",
+                },
+                {
+                    "action": "Block",
+                    "matchConditions": [
+                        {
+                            "matchValues": ["192.168.1.0/24"],
+                            "matchVariables": [{
+                                "variableName": "RemoteAddr",
+                            }],
+                            "operator": "IPMatch",
+                        },
+                        {
+                            "matchValues": ["Windows"],
+                            "matchVariables": [{
+                                "selector": "UserAgent",
+                                "variableName": "RequestHeaders",
+                            }],
+                            "operator": "Contains",
+                        },
+                    ],
+                    "name": "Rule2",
+                    "priority": 2,
+                    "ruleType": "MatchRule",
+                },
+            ],
+            location="WestUs",
+            policy_name="Policy1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190701:WebApplicationFirewallPolicy Policy1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/Policy1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebApplicationFirewallPolicyArgs args: The arguments to use to populate this resource's properties.

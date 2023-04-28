@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a database on the RedisEnterprise cluster
+ *
+ * ## Example Usage
+ * ### RedisEnterpriseDatabasesCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.cache.v20210301.Database("database", {
+ *     clientProtocol: "Encrypted",
+ *     clusterName: "cache1",
+ *     clusteringPolicy: "EnterpriseCluster",
+ *     databaseName: "default",
+ *     evictionPolicy: "AllKeysLRU",
+ *     modules: [
+ *         {
+ *             args: "ERROR_RATE 0.00 INITIAL_SIZE 400",
+ *             name: "RedisBloom",
+ *         },
+ *         {
+ *             args: "RETENTION_POLICY 20",
+ *             name: "RedisTimeSeries",
+ *         },
+ *         {
+ *             name: "RediSearch",
+ *         },
+ *     ],
+ *     persistence: {
+ *         aofEnabled: true,
+ *         aofFrequency: "1s",
+ *     },
+ *     port: 10000,
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cache/v20210301:Database cache1/default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default 
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

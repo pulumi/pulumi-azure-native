@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Devices.V20170701
 {
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devices/v20170701:IotHubResourceEventHubConsumerGroup myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/IotHubs/{resourceName}/eventHubEndpoints/{eventHubEndpointName}/ConsumerGroups/{name} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devices/v20170701:IotHubResourceEventHubConsumerGroup")]

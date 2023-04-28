@@ -148,6 +148,111 @@ class PostgresInstance(pulumi.CustomResource):
         """
         A Postgres Instance.
 
+        ## Example Usage
+        ### Create or update a Postgres Instance.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        postgres_instance = azure_native.azurearcdata.v20210601preview.PostgresInstance("postgresInstance",
+            extended_location=azure_native.azurearcdata.v20210601preview.ExtendedLocationArgs(
+                name="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+                type="CustomLocation",
+            ),
+            location="eastus",
+            postgres_instance_name="testpostgresInstance",
+            properties=azure_native.azurearcdata.v20210601preview.PostgresInstancePropertiesResponseArgs(
+                admin="admin",
+                basic_login_information=azure_native.azurearcdata.v20210601preview.BasicLoginInformationArgs(
+                    password="********",
+                    username="username",
+                ),
+                data_controller_id="dataControllerId",
+                k8s_raw={
+                    "apiVersion": "apiVersion",
+                    "kind": "postgresql-12",
+                    "metadata": {
+                        "creationTimestamp": "2020-08-25T14:55:10Z",
+                        "generation": 1,
+                        "name": "pg1",
+                        "namespace": "test",
+                        "resourceVersion": "527780",
+                        "selfLink": "/apis/arcdata.microsoft.com/v1alpha1/namespaces/test/postgresql-12s/pg1",
+                        "uid": "1111aaaa-ffff-ffff-ffff-99999aaaaaaa",
+                    },
+                    "spec": {
+                        "backups": {
+                            "deltaMinutes": 3,
+                            "fullMinutes": 10,
+                            "tiers": [{
+                                "retention": {
+                                    "maximums": [
+                                        "6",
+                                        "512MB",
+                                    ],
+                                    "minimums": ["3"],
+                                },
+                                "storage": {
+                                    "volumeSize": "1Gi",
+                                },
+                            }],
+                        },
+                        "engine": {
+                            "extensions": [{
+                                "name": "citus",
+                            }],
+                        },
+                        "scale": {
+                            "shards": 3,
+                        },
+                        "scheduling": {
+                            "default": {
+                                "resources": {
+                                    "requests": {
+                                        "memory": "256Mi",
+                                    },
+                                },
+                            },
+                        },
+                        "service": {
+                            "type": "NodePort",
+                        },
+                        "storage": {
+                            "data": {
+                                "className": "local-storage",
+                                "size": "5Gi",
+                            },
+                            "logs": {
+                                "className": "local-storage",
+                                "size": "5Gi",
+                            },
+                        },
+                    },
+                    "status": {
+                        "externalEndpoint": None,
+                        "readyPods": "4/4",
+                        "state": "Ready",
+                    },
+                },
+            ),
+            resource_group_name="testrg",
+            sku=azure_native.azurearcdata.v20210601preview.PostgresInstanceSkuResponseArgs(
+                dev=True,
+                name="default",
+                tier=azure_native.azurearcdata/v20210601preview.PostgresInstanceSkuTier.HYPERSCALE,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20210601preview:PostgresInstance testpostgresInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/PostgresInstance/testpostgresInstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
@@ -166,6 +271,111 @@ class PostgresInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Postgres Instance.
+
+        ## Example Usage
+        ### Create or update a Postgres Instance.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        postgres_instance = azure_native.azurearcdata.v20210601preview.PostgresInstance("postgresInstance",
+            extended_location=azure_native.azurearcdata.v20210601preview.ExtendedLocationArgs(
+                name="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+                type="CustomLocation",
+            ),
+            location="eastus",
+            postgres_instance_name="testpostgresInstance",
+            properties=azure_native.azurearcdata.v20210601preview.PostgresInstancePropertiesResponseArgs(
+                admin="admin",
+                basic_login_information=azure_native.azurearcdata.v20210601preview.BasicLoginInformationArgs(
+                    password="********",
+                    username="username",
+                ),
+                data_controller_id="dataControllerId",
+                k8s_raw={
+                    "apiVersion": "apiVersion",
+                    "kind": "postgresql-12",
+                    "metadata": {
+                        "creationTimestamp": "2020-08-25T14:55:10Z",
+                        "generation": 1,
+                        "name": "pg1",
+                        "namespace": "test",
+                        "resourceVersion": "527780",
+                        "selfLink": "/apis/arcdata.microsoft.com/v1alpha1/namespaces/test/postgresql-12s/pg1",
+                        "uid": "1111aaaa-ffff-ffff-ffff-99999aaaaaaa",
+                    },
+                    "spec": {
+                        "backups": {
+                            "deltaMinutes": 3,
+                            "fullMinutes": 10,
+                            "tiers": [{
+                                "retention": {
+                                    "maximums": [
+                                        "6",
+                                        "512MB",
+                                    ],
+                                    "minimums": ["3"],
+                                },
+                                "storage": {
+                                    "volumeSize": "1Gi",
+                                },
+                            }],
+                        },
+                        "engine": {
+                            "extensions": [{
+                                "name": "citus",
+                            }],
+                        },
+                        "scale": {
+                            "shards": 3,
+                        },
+                        "scheduling": {
+                            "default": {
+                                "resources": {
+                                    "requests": {
+                                        "memory": "256Mi",
+                                    },
+                                },
+                            },
+                        },
+                        "service": {
+                            "type": "NodePort",
+                        },
+                        "storage": {
+                            "data": {
+                                "className": "local-storage",
+                                "size": "5Gi",
+                            },
+                            "logs": {
+                                "className": "local-storage",
+                                "size": "5Gi",
+                            },
+                        },
+                    },
+                    "status": {
+                        "externalEndpoint": None,
+                        "readyPods": "4/4",
+                        "state": "Ready",
+                    },
+                },
+            ),
+            resource_group_name="testrg",
+            sku=azure_native.azurearcdata.v20210601preview.PostgresInstanceSkuResponseArgs(
+                dev=True,
+                name="default",
+                tier=azure_native.azurearcdata/v20210601preview.PostgresInstanceSkuTier.HYPERSCALE,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20210601preview:PostgresInstance testpostgresInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/PostgresInstance/testpostgresInstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PostgresInstanceArgs args: The arguments to use to populate this resource's properties.

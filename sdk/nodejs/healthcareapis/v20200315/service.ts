@@ -10,6 +10,90 @@ import * as utilities from "../../utilities";
 /**
  * The description of the service.
  *
+ * ## Example Usage
+ * ### Create or Update a service with all parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.healthcareapis.v20200315.Service("service", {
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     kind: azure_native.healthcareapis.v20200315.Kind.Fhir_R4,
+ *     location: "westus2",
+ *     properties: {
+ *         accessPolicies: [
+ *             {
+ *                 objectId: "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+ *             },
+ *             {
+ *                 objectId: "5b307da8-43d4-492b-8b66-b0294ade872f",
+ *             },
+ *         ],
+ *         authenticationConfiguration: {
+ *             audience: "https://azurehealthcareapis.com",
+ *             authority: "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
+ *             smartProxyEnabled: true,
+ *         },
+ *         corsConfiguration: {
+ *             allowCredentials: false,
+ *             headers: ["*"],
+ *             maxAge: 1440,
+ *             methods: [
+ *                 "DELETE",
+ *                 "GET",
+ *                 "OPTIONS",
+ *                 "PATCH",
+ *                 "POST",
+ *                 "PUT",
+ *             ],
+ *             origins: ["*"],
+ *         },
+ *         cosmosDbConfiguration: {
+ *             keyVaultKeyUri: "https://my-vault.vault.azure.net/keys/my-key",
+ *             offerThroughput: 1000,
+ *         },
+ *         exportConfiguration: {
+ *             storageAccountName: "existingStorageAccount",
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "service1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Create or Update a service with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.healthcareapis.v20200315.Service("service", {
+ *     kind: azure_native.healthcareapis.v20200315.Kind.Fhir_R4,
+ *     location: "westus2",
+ *     properties: {
+ *         accessPolicies: [{
+ *             objectId: "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+ *         }],
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "service2",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:healthcareapis/v20200315:Service service2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/services/service2 
+ * ```
+ *
  * @deprecated Version 2020-03-15 will be removed in v2 of the provider.
  */
 export class Service extends pulumi.CustomResource {

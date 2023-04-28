@@ -11,6 +11,71 @@ namespace Pulumi.AzureNative.Cache.V20230301Preview
 {
     /// <summary>
     /// Describes the RedisEnterprise cluster
+    /// 
+    /// ## Example Usage
+    /// ### RedisEnterpriseCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var redisEnterprise = new AzureNative.Cache.V20230301Preview.RedisEnterprise("redisEnterprise", new()
+    ///     {
+    ///         ClusterName = "cache1",
+    ///         Encryption = new AzureNative.Cache.V20230301Preview.Inputs.ClusterPropertiesEncryptionArgs
+    ///         {
+    ///             CustomerManagedKeyEncryption = new AzureNative.Cache.V20230301Preview.Inputs.ClusterPropertiesCustomerManagedKeyEncryptionArgs
+    ///             {
+    ///                 KeyEncryptionKeyIdentity = new AzureNative.Cache.V20230301Preview.Inputs.ClusterPropertiesKeyEncryptionKeyIdentityArgs
+    ///                 {
+    ///                     IdentityType = "userAssignedIdentity",
+    ///                     UserAssignedIdentityResourceId = "/subscriptions/your-subscription/resourceGroups/your-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/your-identity",
+    ///                 },
+    ///                 KeyEncryptionKeyUrl = "https://your-kv.vault.azure.net/keys/your-key/your-key-version",
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.Cache.V20230301Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/your-subscription/resourceGroups/your-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/your-identity", null },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         MinimumTlsVersion = "1.2",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Cache.V20230301Preview.Inputs.EnterpriseSkuArgs
+    ///         {
+    ///             Capacity = 3,
+    ///             Name = "EnterpriseFlash_F300",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///             "3",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cache/v20230301preview:RedisEnterprise cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cache/v20230301preview:RedisEnterprise")]
     public partial class RedisEnterprise : global::Pulumi.CustomResource

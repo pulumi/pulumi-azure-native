@@ -9,6 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.RecoveryServices.V20210201Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create ResourceGuardProxy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var resourceGuardProxy = new AzureNative.RecoveryServices.V20210201Preview.ResourceGuardProxy("resourceGuardProxy", new()
+    ///     {
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ResourceGuardProxyName = "swaggerExample",
+    ///         VaultName = "sampleVault",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20210201preview:ResourceGuardProxy swaggerExample /backupmanagement/resources/sampleVault/backupResourceGuardProxies/swaggerExample 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20210201preview:ResourceGuardProxy")]
     public partial class ResourceGuardProxy : global::Pulumi.CustomResource
     {

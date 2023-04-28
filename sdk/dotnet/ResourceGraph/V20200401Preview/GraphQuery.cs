@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.ResourceGraph.V20200401Preview
 {
     /// <summary>
     /// Graph Query entity definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create Graph Query
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var graphQuery = new AzureNative.ResourceGraph.V20200401Preview.GraphQuery("graphQuery", new()
+    ///     {
+    ///         Description = "Docker VMs in PROD",
+    ///         Query = "where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "MyDockerVMs",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resourcegraph/v20200401preview:GraphQuery MyDockerVMs  /subscriptions/024e2271-06fa-46b6-9079-f1ed3c7b070e/resources/my-resource-group/providers/Microsoft.ResourceGraph/queries/MyDockerVMs 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resourcegraph/v20200401preview:GraphQuery")]
     public partial class GraphQuery : global::Pulumi.CustomResource

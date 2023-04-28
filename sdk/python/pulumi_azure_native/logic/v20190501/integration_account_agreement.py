@@ -227,6 +227,180 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         """
         The integration account agreement.
 
+        ## Example Usage
+        ### Create or update an agreement
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_agreement = azure_native.logic.v20190501.IntegrationAccountAgreement("integrationAccountAgreement",
+            agreement_name="testAgreement",
+            agreement_type=azure_native.logic/v20190501.AgreementType.AS2,
+            content=azure_native.logic.v20190501.AgreementContentResponseArgs(
+                a_s2={
+                    "receiveAgreement": {
+                        "protocolSettings": {
+                            "acknowledgementConnectionSettings": azure_native.logic.v20190501.AS2AcknowledgementConnectionSettingsArgs(
+                                ignore_certificate_name_mismatch=True,
+                                keep_http_connection_alive=True,
+                                support_http_status_code_continue=True,
+                                unfold_http_headers=True,
+                            ),
+                            "envelopeSettings": azure_native.logic.v20190501.AS2EnvelopeSettingsArgs(
+                                autogenerate_file_name=True,
+                                file_name_template="Test",
+                                message_content_type="text/plain",
+                                suspend_message_on_file_name_generation_error=True,
+                                transmit_file_name_in_mime_header=True,
+                            ),
+                            "errorSettings": azure_native.logic.v20190501.AS2ErrorSettingsArgs(
+                                resend_if_mdn_not_received=True,
+                                suspend_duplicate_message=True,
+                            ),
+                            "mdnSettings": azure_native.logic.v20190501.AS2MdnSettingsArgs(
+                                disposition_notification_to="http://tempuri.org",
+                                mdn_text="Sample",
+                                mic_hashing_algorithm="SHA1",
+                                need_mdn=True,
+                                receipt_delivery_url="http://tempuri.org",
+                                send_inbound_mdn_to_message_box=True,
+                                send_mdnasynchronously=True,
+                                sign_mdn=True,
+                                sign_outbound_mdn_if_optional=True,
+                            ),
+                            "messageConnectionSettings": azure_native.logic.v20190501.AS2MessageConnectionSettingsArgs(
+                                ignore_certificate_name_mismatch=True,
+                                keep_http_connection_alive=True,
+                                support_http_status_code_continue=True,
+                                unfold_http_headers=True,
+                            ),
+                            "securitySettings": azure_native.logic.v20190501.AS2SecuritySettingsArgs(
+                                enable_nrr_for_inbound_decoded_messages=True,
+                                enable_nrr_for_inbound_encoded_messages=True,
+                                enable_nrr_for_inbound_mdn=True,
+                                enable_nrr_for_outbound_decoded_messages=True,
+                                enable_nrr_for_outbound_encoded_messages=True,
+                                enable_nrr_for_outbound_mdn=True,
+                                override_group_signing_certificate=False,
+                            ),
+                            "validationSettings": azure_native.logic.v20190501.AS2ValidationSettingsArgs(
+                                check_certificate_revocation_list_on_receive=True,
+                                check_certificate_revocation_list_on_send=True,
+                                check_duplicate_message=True,
+                                compress_message=True,
+                                encrypt_message=False,
+                                encryption_algorithm="AES128",
+                                interchange_duplicates_validity_days=100,
+                                override_message_properties=True,
+                                sign_message=False,
+                            ),
+                        },
+                        "receiverBusinessIdentity": azure_native.logic.v20190501.BusinessIdentityArgs(
+                            qualifier="ZZ",
+                            value="ZZ",
+                        ),
+                        "senderBusinessIdentity": azure_native.logic.v20190501.BusinessIdentityArgs(
+                            qualifier="AA",
+                            value="AA",
+                        ),
+                    },
+                    "sendAgreement": {
+                        "protocolSettings": {
+                            "acknowledgementConnectionSettings": azure_native.logic.v20190501.AS2AcknowledgementConnectionSettingsArgs(
+                                ignore_certificate_name_mismatch=True,
+                                keep_http_connection_alive=True,
+                                support_http_status_code_continue=True,
+                                unfold_http_headers=True,
+                            ),
+                            "envelopeSettings": azure_native.logic.v20190501.AS2EnvelopeSettingsArgs(
+                                autogenerate_file_name=True,
+                                file_name_template="Test",
+                                message_content_type="text/plain",
+                                suspend_message_on_file_name_generation_error=True,
+                                transmit_file_name_in_mime_header=True,
+                            ),
+                            "errorSettings": azure_native.logic.v20190501.AS2ErrorSettingsArgs(
+                                resend_if_mdn_not_received=True,
+                                suspend_duplicate_message=True,
+                            ),
+                            "mdnSettings": azure_native.logic.v20190501.AS2MdnSettingsArgs(
+                                disposition_notification_to="http://tempuri.org",
+                                mdn_text="Sample",
+                                mic_hashing_algorithm="SHA1",
+                                need_mdn=True,
+                                receipt_delivery_url="http://tempuri.org",
+                                send_inbound_mdn_to_message_box=True,
+                                send_mdnasynchronously=True,
+                                sign_mdn=True,
+                                sign_outbound_mdn_if_optional=True,
+                            ),
+                            "messageConnectionSettings": azure_native.logic.v20190501.AS2MessageConnectionSettingsArgs(
+                                ignore_certificate_name_mismatch=True,
+                                keep_http_connection_alive=True,
+                                support_http_status_code_continue=True,
+                                unfold_http_headers=True,
+                            ),
+                            "securitySettings": azure_native.logic.v20190501.AS2SecuritySettingsArgs(
+                                enable_nrr_for_inbound_decoded_messages=True,
+                                enable_nrr_for_inbound_encoded_messages=True,
+                                enable_nrr_for_inbound_mdn=True,
+                                enable_nrr_for_outbound_decoded_messages=True,
+                                enable_nrr_for_outbound_encoded_messages=True,
+                                enable_nrr_for_outbound_mdn=True,
+                                override_group_signing_certificate=False,
+                            ),
+                            "validationSettings": azure_native.logic.v20190501.AS2ValidationSettingsArgs(
+                                check_certificate_revocation_list_on_receive=True,
+                                check_certificate_revocation_list_on_send=True,
+                                check_duplicate_message=True,
+                                compress_message=True,
+                                encrypt_message=False,
+                                encryption_algorithm="AES128",
+                                interchange_duplicates_validity_days=100,
+                                override_message_properties=True,
+                                sign_message=False,
+                            ),
+                        },
+                        "receiverBusinessIdentity": azure_native.logic.v20190501.BusinessIdentityArgs(
+                            qualifier="AA",
+                            value="AA",
+                        ),
+                        "senderBusinessIdentity": azure_native.logic.v20190501.BusinessIdentityArgs(
+                            qualifier="ZZ",
+                            value="ZZ",
+                        ),
+                    },
+                },
+            ),
+            guest_identity=azure_native.logic.v20190501.BusinessIdentityArgs(
+                qualifier="AA",
+                value="AA",
+            ),
+            guest_partner="GuestPartner",
+            host_identity=azure_native.logic.v20190501.BusinessIdentityArgs(
+                qualifier="ZZ",
+                value="ZZ",
+            ),
+            host_partner="HostPartner",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            metadata={},
+            resource_group_name="testResourceGroup",
+            tags={
+                "IntegrationAccountAgreement": "<IntegrationAccountAgreementName>",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20190501:IntegrationAccountAgreement <IntegrationAccountAgreementName> /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/IntegrationAccount4533/agreements/<IntegrationAccountAgreementName> 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agreement_name: The integration account agreement name.
@@ -250,6 +424,180 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The integration account agreement.
+
+        ## Example Usage
+        ### Create or update an agreement
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_agreement = azure_native.logic.v20190501.IntegrationAccountAgreement("integrationAccountAgreement",
+            agreement_name="testAgreement",
+            agreement_type=azure_native.logic/v20190501.AgreementType.AS2,
+            content=azure_native.logic.v20190501.AgreementContentResponseArgs(
+                a_s2={
+                    "receiveAgreement": {
+                        "protocolSettings": {
+                            "acknowledgementConnectionSettings": azure_native.logic.v20190501.AS2AcknowledgementConnectionSettingsArgs(
+                                ignore_certificate_name_mismatch=True,
+                                keep_http_connection_alive=True,
+                                support_http_status_code_continue=True,
+                                unfold_http_headers=True,
+                            ),
+                            "envelopeSettings": azure_native.logic.v20190501.AS2EnvelopeSettingsArgs(
+                                autogenerate_file_name=True,
+                                file_name_template="Test",
+                                message_content_type="text/plain",
+                                suspend_message_on_file_name_generation_error=True,
+                                transmit_file_name_in_mime_header=True,
+                            ),
+                            "errorSettings": azure_native.logic.v20190501.AS2ErrorSettingsArgs(
+                                resend_if_mdn_not_received=True,
+                                suspend_duplicate_message=True,
+                            ),
+                            "mdnSettings": azure_native.logic.v20190501.AS2MdnSettingsArgs(
+                                disposition_notification_to="http://tempuri.org",
+                                mdn_text="Sample",
+                                mic_hashing_algorithm="SHA1",
+                                need_mdn=True,
+                                receipt_delivery_url="http://tempuri.org",
+                                send_inbound_mdn_to_message_box=True,
+                                send_mdnasynchronously=True,
+                                sign_mdn=True,
+                                sign_outbound_mdn_if_optional=True,
+                            ),
+                            "messageConnectionSettings": azure_native.logic.v20190501.AS2MessageConnectionSettingsArgs(
+                                ignore_certificate_name_mismatch=True,
+                                keep_http_connection_alive=True,
+                                support_http_status_code_continue=True,
+                                unfold_http_headers=True,
+                            ),
+                            "securitySettings": azure_native.logic.v20190501.AS2SecuritySettingsArgs(
+                                enable_nrr_for_inbound_decoded_messages=True,
+                                enable_nrr_for_inbound_encoded_messages=True,
+                                enable_nrr_for_inbound_mdn=True,
+                                enable_nrr_for_outbound_decoded_messages=True,
+                                enable_nrr_for_outbound_encoded_messages=True,
+                                enable_nrr_for_outbound_mdn=True,
+                                override_group_signing_certificate=False,
+                            ),
+                            "validationSettings": azure_native.logic.v20190501.AS2ValidationSettingsArgs(
+                                check_certificate_revocation_list_on_receive=True,
+                                check_certificate_revocation_list_on_send=True,
+                                check_duplicate_message=True,
+                                compress_message=True,
+                                encrypt_message=False,
+                                encryption_algorithm="AES128",
+                                interchange_duplicates_validity_days=100,
+                                override_message_properties=True,
+                                sign_message=False,
+                            ),
+                        },
+                        "receiverBusinessIdentity": azure_native.logic.v20190501.BusinessIdentityArgs(
+                            qualifier="ZZ",
+                            value="ZZ",
+                        ),
+                        "senderBusinessIdentity": azure_native.logic.v20190501.BusinessIdentityArgs(
+                            qualifier="AA",
+                            value="AA",
+                        ),
+                    },
+                    "sendAgreement": {
+                        "protocolSettings": {
+                            "acknowledgementConnectionSettings": azure_native.logic.v20190501.AS2AcknowledgementConnectionSettingsArgs(
+                                ignore_certificate_name_mismatch=True,
+                                keep_http_connection_alive=True,
+                                support_http_status_code_continue=True,
+                                unfold_http_headers=True,
+                            ),
+                            "envelopeSettings": azure_native.logic.v20190501.AS2EnvelopeSettingsArgs(
+                                autogenerate_file_name=True,
+                                file_name_template="Test",
+                                message_content_type="text/plain",
+                                suspend_message_on_file_name_generation_error=True,
+                                transmit_file_name_in_mime_header=True,
+                            ),
+                            "errorSettings": azure_native.logic.v20190501.AS2ErrorSettingsArgs(
+                                resend_if_mdn_not_received=True,
+                                suspend_duplicate_message=True,
+                            ),
+                            "mdnSettings": azure_native.logic.v20190501.AS2MdnSettingsArgs(
+                                disposition_notification_to="http://tempuri.org",
+                                mdn_text="Sample",
+                                mic_hashing_algorithm="SHA1",
+                                need_mdn=True,
+                                receipt_delivery_url="http://tempuri.org",
+                                send_inbound_mdn_to_message_box=True,
+                                send_mdnasynchronously=True,
+                                sign_mdn=True,
+                                sign_outbound_mdn_if_optional=True,
+                            ),
+                            "messageConnectionSettings": azure_native.logic.v20190501.AS2MessageConnectionSettingsArgs(
+                                ignore_certificate_name_mismatch=True,
+                                keep_http_connection_alive=True,
+                                support_http_status_code_continue=True,
+                                unfold_http_headers=True,
+                            ),
+                            "securitySettings": azure_native.logic.v20190501.AS2SecuritySettingsArgs(
+                                enable_nrr_for_inbound_decoded_messages=True,
+                                enable_nrr_for_inbound_encoded_messages=True,
+                                enable_nrr_for_inbound_mdn=True,
+                                enable_nrr_for_outbound_decoded_messages=True,
+                                enable_nrr_for_outbound_encoded_messages=True,
+                                enable_nrr_for_outbound_mdn=True,
+                                override_group_signing_certificate=False,
+                            ),
+                            "validationSettings": azure_native.logic.v20190501.AS2ValidationSettingsArgs(
+                                check_certificate_revocation_list_on_receive=True,
+                                check_certificate_revocation_list_on_send=True,
+                                check_duplicate_message=True,
+                                compress_message=True,
+                                encrypt_message=False,
+                                encryption_algorithm="AES128",
+                                interchange_duplicates_validity_days=100,
+                                override_message_properties=True,
+                                sign_message=False,
+                            ),
+                        },
+                        "receiverBusinessIdentity": azure_native.logic.v20190501.BusinessIdentityArgs(
+                            qualifier="AA",
+                            value="AA",
+                        ),
+                        "senderBusinessIdentity": azure_native.logic.v20190501.BusinessIdentityArgs(
+                            qualifier="ZZ",
+                            value="ZZ",
+                        ),
+                    },
+                },
+            ),
+            guest_identity=azure_native.logic.v20190501.BusinessIdentityArgs(
+                qualifier="AA",
+                value="AA",
+            ),
+            guest_partner="GuestPartner",
+            host_identity=azure_native.logic.v20190501.BusinessIdentityArgs(
+                qualifier="ZZ",
+                value="ZZ",
+            ),
+            host_partner="HostPartner",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            metadata={},
+            resource_group_name="testResourceGroup",
+            tags={
+                "IntegrationAccountAgreement": "<IntegrationAccountAgreementName>",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20190501:IntegrationAccountAgreement <IntegrationAccountAgreementName> /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/IntegrationAccount4533/agreements/<IntegrationAccountAgreementName> 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountAgreementArgs args: The arguments to use to populate this resource's properties.

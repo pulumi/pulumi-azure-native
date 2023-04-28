@@ -9,6 +9,47 @@ import * as utilities from "../../utilities";
 
 /**
  * Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const group = new azure_native.apimanagement.v20201201.Group("group", {
+ *     displayName: "temp group",
+ *     groupId: "tempgroup",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ * ### ApiManagementCreateGroupExternal
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const group = new azure_native.apimanagement.v20201201.Group("group", {
+ *     description: "new group to test",
+ *     displayName: "NewGroup (samiraad.onmicrosoft.com)",
+ *     externalId: "aad://samiraad.onmicrosoft.com/groups/83cf2753-5831-4675-bc0e-2f8dc067c58d",
+ *     groupId: "aadGroup",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     type: azure_native.apimanagement.v20201201.GroupType.External,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:Group aadGroup /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/groups/aadGroup 
+ * ```
  */
 export class Group extends pulumi.CustomResource {
     /**

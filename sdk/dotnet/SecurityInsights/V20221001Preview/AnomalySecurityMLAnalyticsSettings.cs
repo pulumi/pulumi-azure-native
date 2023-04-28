@@ -11,6 +11,117 @@ namespace Pulumi.AzureNative.SecurityInsights.V20221001Preview
 {
     /// <summary>
     /// Represents Anomaly Security ML Analytics Settings
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a Anomaly Security ML Analytics Settings.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var anomalySecurityMLAnalyticsSettings = new AzureNative.SecurityInsights.V20221001Preview.AnomalySecurityMLAnalyticsSettings("anomalySecurityMLAnalyticsSettings", new()
+    ///     {
+    ///         AnomalySettingsVersion = 0,
+    ///         AnomalyVersion = "1.0.5",
+    ///         CustomizableObservations = 
+    ///         {
+    ///             { "multiSelectObservations", null },
+    ///             { "prioritizeExcludeObservations", null },
+    ///             { "singleSelectObservations", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "description", "Select device vendor of network connection logs from CommonSecurityLog" },
+    ///                     { "name", "Device vendor" },
+    ///                     { "rerun", "RerunAlways" },
+    ///                     { "sequenceNumber", 1 },
+    ///                     { "supportedValues", new[]
+    ///                     {
+    ///                         "Palo Alto Networks",
+    ///                         "Fortinet",
+    ///                         "Check Point",
+    ///                     } },
+    ///                     { "supportedValuesKql", null },
+    ///                     { "value", new[]
+    ///                     {
+    ///                         "Palo Alto Networks",
+    ///                     } },
+    ///                     { "valuesKql", null },
+    ///                 },
+    ///             } },
+    ///             { "singleValueObservations", null },
+    ///             { "thresholdObservations", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "description", "Suppress anomalies when daily data transfered (in MB) per hour is less than the chosen value" },
+    ///                     { "maximum", "100" },
+    ///                     { "minimum", "1" },
+    ///                     { "name", "Daily data transfer threshold in MB" },
+    ///                     { "rerun", "RerunAlways" },
+    ///                     { "sequenceNumber", 1 },
+    ///                     { "value", "25" },
+    ///                 },
+    ///                 
+    ///                 {
+    ///                     { "description", "Triggers anomalies when number of standard deviations is greater than the chosen value" },
+    ///                     { "maximum", "10" },
+    ///                     { "minimum", "2" },
+    ///                     { "name", "Number of standard deviations" },
+    ///                     { "rerun", "RerunAlways" },
+    ///                     { "sequenceNumber", 2 },
+    ///                     { "value", "3" },
+    ///                 },
+    ///             } },
+    ///         },
+    ///         Description = "When account logs from a source region that has rarely been logged in from during the last 14 days, an anomaly is triggered.",
+    ///         DisplayName = "Login from unusual region",
+    ///         Enabled = true,
+    ///         Frequency = "PT1H",
+    ///         IsDefaultSettings = true,
+    ///         Kind = "Anomaly",
+    ///         RequiredDataConnectors = new[]
+    ///         {
+    ///             new AzureNative.SecurityInsights.V20221001Preview.Inputs.SecurityMLAnalyticsSettingsDataSourceArgs
+    ///             {
+    ///                 ConnectorId = "AWS",
+    ///                 DataTypes = new[]
+    ///                 {
+    ///                     "AWSCloudTrail",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myRg",
+    ///         SettingsDefinitionId = "f209187f-1d17-4431-94af-c141bf5f23db",
+    ///         SettingsResourceName = "f209187f-1d17-4431-94af-c141bf5f23db",
+    ///         SettingsStatus = "Production",
+    ///         Tactics = new[]
+    ///         {
+    ///             "Exfiltration",
+    ///             "CommandAndControl",
+    ///         },
+    ///         Techniques = new[]
+    ///         {
+    ///             "T1037",
+    ///             "T1021",
+    ///         },
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20221001preview:AnomalySecurityMLAnalyticsSettings f209187f-1d17-4431-94af-c141bf5f23db /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/securityMLAnalyticsSettings/f209187f-1d17-4431-94af-c141bf5f23db 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20221001preview:AnomalySecurityMLAnalyticsSettings")]
     public partial class AnomalySecurityMLAnalyticsSettings : global::Pulumi.CustomResource

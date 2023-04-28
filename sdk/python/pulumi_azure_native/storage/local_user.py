@@ -183,6 +183,62 @@ class LocalUser(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2021-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateLocalUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_user = azure_native.storage.LocalUser("localUser",
+            account_name="sto2527",
+            has_ssh_password=True,
+            home_directory="homedirectory",
+            permission_scopes=[
+                {
+                    "permissions": "rwd",
+                    "resourceName": "share1",
+                    "service": "file",
+                },
+                {
+                    "permissions": "rw",
+                    "resourceName": "share2",
+                    "service": "file",
+                },
+            ],
+            resource_group_name="res6977",
+            ssh_authorized_keys=[azure_native.storage.SshPublicKeyArgs(
+                description="key name",
+                key="ssh-rsa keykeykeykeykey=",
+            )],
+            username="user1")
+
+        ```
+        ### UpdateLocalUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_user = azure_native.storage.LocalUser("localUser",
+            account_name="sto2527",
+            has_shared_key=False,
+            has_ssh_key=False,
+            has_ssh_password=False,
+            home_directory="homedirectory2",
+            resource_group_name="res6977",
+            username="user1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:LocalUser user1 /subscriptions/{subscription-id}/resourceGroups/res6977/providers/Microsoft.Storage/storageAccounts/sto2527/loalUsers/user1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -205,6 +261,62 @@ class LocalUser(pulumi.CustomResource):
         The local user associated with the storage accounts.
         API Version: 2022-09-01.
         Previous API Version: 2021-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateLocalUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_user = azure_native.storage.LocalUser("localUser",
+            account_name="sto2527",
+            has_ssh_password=True,
+            home_directory="homedirectory",
+            permission_scopes=[
+                {
+                    "permissions": "rwd",
+                    "resourceName": "share1",
+                    "service": "file",
+                },
+                {
+                    "permissions": "rw",
+                    "resourceName": "share2",
+                    "service": "file",
+                },
+            ],
+            resource_group_name="res6977",
+            ssh_authorized_keys=[azure_native.storage.SshPublicKeyArgs(
+                description="key name",
+                key="ssh-rsa keykeykeykeykey=",
+            )],
+            username="user1")
+
+        ```
+        ### UpdateLocalUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        local_user = azure_native.storage.LocalUser("localUser",
+            account_name="sto2527",
+            has_shared_key=False,
+            has_ssh_key=False,
+            has_ssh_password=False,
+            home_directory="homedirectory2",
+            resource_group_name="res6977",
+            username="user1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage:LocalUser user1 /subscriptions/{subscription-id}/resourceGroups/res6977/providers/Microsoft.Storage/storageAccounts/sto2527/loalUsers/user1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LocalUserArgs args: The arguments to use to populate this resource's properties.

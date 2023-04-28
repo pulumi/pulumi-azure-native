@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Tag Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiOperationTag
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tagByOperation = new azure_native.apimanagement.v20220801.TagByOperation("tagByOperation", {
+ *     apiId: "5931a75ae4bbd512a88c680b",
+ *     operationId: "5931a75ae4bbd512a88c680a",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     tagId: "tagId1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:TagByOperation tagId1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/tags/tagId1 
+ * ```
  */
 export class TagByOperation extends pulumi.CustomResource {
     /**

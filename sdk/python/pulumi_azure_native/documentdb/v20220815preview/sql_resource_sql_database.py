@@ -164,6 +164,57 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
         """
         An Azure Cosmos DB SQL database.
 
+        ## Example Usage
+        ### CosmosDBSqlDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_database = azure_native.documentdb.v20220815preview.SqlResourceSqlDatabase("sqlResourceSqlDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlDatabaseResourceArgs(
+                id="databaseName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+        ### CosmosDBSqlDatabaseRestore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_database = azure_native.documentdb.v20220815preview.SqlResourceSqlDatabase("sqlResourceSqlDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlDatabaseGetPropertiesResponseResourceArgs(
+                create_mode="Restore",
+                id="databaseName",
+                restore_parameters=azure_native.documentdb.v20220815preview.ResourceRestoreParametersArgs(
+                    restore_source="/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+                    restore_timestamp_in_utc="2022-07-20T18:28:00Z",
+                ),
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -183,6 +234,57 @@ class SqlResourceSqlDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB SQL database.
+
+        ## Example Usage
+        ### CosmosDBSqlDatabaseCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_database = azure_native.documentdb.v20220815preview.SqlResourceSqlDatabase("sqlResourceSqlDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlDatabaseResourceArgs(
+                id="databaseName",
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+        ### CosmosDBSqlDatabaseRestore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_database = azure_native.documentdb.v20220815preview.SqlResourceSqlDatabase("sqlResourceSqlDatabase",
+            account_name="ddb1",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlDatabaseGetPropertiesResponseResourceArgs(
+                create_mode="Restore",
+                id="databaseName",
+                restore_parameters=azure_native.documentdb.v20220815preview.ResourceRestoreParametersArgs(
+                    restore_source="/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+                    restore_timestamp_in_utc="2022-07-20T18:28:00Z",
+                ),
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:SqlResourceSqlDatabase databaseName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlDatabaseArgs args: The arguments to use to populate this resource's properties.

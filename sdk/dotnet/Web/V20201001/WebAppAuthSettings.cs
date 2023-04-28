@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20201001
 {
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization feature.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201001:WebAppAuthSettings myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/authsettings 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201001:WebAppAuthSettings")]
     public partial class WebAppAuthSettings : global::Pulumi.CustomResource

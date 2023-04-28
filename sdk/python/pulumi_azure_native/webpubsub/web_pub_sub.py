@@ -271,6 +271,62 @@ class WebPubSub(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### WebPubSub_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub = azure_native.webpubsub.WebPubSub("webPubSub",
+            disable_aad_auth=False,
+            disable_local_auth=False,
+            identity=azure_native.webpubsub.ManagedIdentityArgs(
+                type="SystemAssigned",
+            ),
+            live_trace_configuration=azure_native.webpubsub.LiveTraceConfigurationResponseArgs(
+                categories=[azure_native.webpubsub.LiveTraceCategoryArgs(
+                    enabled="true",
+                    name="ConnectivityLogs",
+                )],
+                enabled="false",
+            ),
+            location="eastus",
+            network_acls=azure_native.webpubsub.WebPubSubNetworkACLsResponseArgs(
+                default_action="Deny",
+                private_endpoints=[azure_native.webpubsub.PrivateEndpointACLArgs(
+                    allow=["ServerConnection"],
+                    name="mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+                )],
+                public_network=azure_native.webpubsub.NetworkACLArgs(
+                    allow=["ClientConnection"],
+                ),
+            ),
+            public_network_access="Enabled",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService",
+            sku=azure_native.webpubsub.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Premium_P1",
+                tier="Premium",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            tls=azure_native.webpubsub.WebPubSubTlsSettingsArgs(
+                client_cert_enabled=False,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub:WebPubSub myWebPubSubService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] disable_aad_auth: DisableLocalAuth
@@ -303,6 +359,62 @@ class WebPubSub(pulumi.CustomResource):
         A class represent a resource.
         API Version: 2023-02-01.
         Previous API Version: 2021-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### WebPubSub_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub = azure_native.webpubsub.WebPubSub("webPubSub",
+            disable_aad_auth=False,
+            disable_local_auth=False,
+            identity=azure_native.webpubsub.ManagedIdentityArgs(
+                type="SystemAssigned",
+            ),
+            live_trace_configuration=azure_native.webpubsub.LiveTraceConfigurationResponseArgs(
+                categories=[azure_native.webpubsub.LiveTraceCategoryArgs(
+                    enabled="true",
+                    name="ConnectivityLogs",
+                )],
+                enabled="false",
+            ),
+            location="eastus",
+            network_acls=azure_native.webpubsub.WebPubSubNetworkACLsResponseArgs(
+                default_action="Deny",
+                private_endpoints=[azure_native.webpubsub.PrivateEndpointACLArgs(
+                    allow=["ServerConnection"],
+                    name="mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+                )],
+                public_network=azure_native.webpubsub.NetworkACLArgs(
+                    allow=["ClientConnection"],
+                ),
+            ),
+            public_network_access="Enabled",
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService",
+            sku=azure_native.webpubsub.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Premium_P1",
+                tier="Premium",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            tls=azure_native.webpubsub.WebPubSubTlsSettingsArgs(
+                client_cert_enabled=False,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub:WebPubSub myWebPubSubService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebPubSubArgs args: The arguments to use to populate this resource's properties.

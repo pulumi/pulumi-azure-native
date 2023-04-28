@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * A TestLine resource
  * API Version: 2023-01-31.
  * Previous API Version: 2022-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateTestLineResource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const testLine = new azure_native.voiceservices.TestLine("testLine", {
+ *     communicationsGatewayName: "myname",
+ *     location: "useast",
+ *     phoneNumber: "+1-555-1234",
+ *     purpose: "Automated",
+ *     resourceGroupName: "testrg",
+ *     testLineName: "myline",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:voiceservices:TestLine myline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceServices/communicationsGateways/myname/TestLines/myline 
+ * ```
  */
 export class TestLine extends pulumi.CustomResource {
     /**

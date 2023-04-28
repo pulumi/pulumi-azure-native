@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20210201Preview
 {
     /// <summary>
     /// Kubernetes role.
+    /// 
+    /// ## Example Usage
+    /// ### RolePut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kubernetesRole = new AzureNative.DataBoxEdge.V20210201Preview.KubernetesRole("kubernetesRole", new()
+    ///     {
+    ///         DeviceName = "testedgedevice",
+    ///         Name = "IoTRole1",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20210201preview:KubernetesRole IoTRole1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20210201preview:KubernetesRole")]
     public partial class KubernetesRole : global::Pulumi.CustomResource

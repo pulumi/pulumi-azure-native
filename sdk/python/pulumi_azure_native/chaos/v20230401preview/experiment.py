@@ -131,6 +131,57 @@ class Experiment(pulumi.CustomResource):
         """
         Model that represents a Experiment resource.
 
+        ## Example Usage
+        ### Create/update a Experiment in a resource group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        experiment = azure_native.chaos.v20230401preview.Experiment("experiment",
+            experiment_name="exampleExperiment",
+            identity=azure_native.chaos.v20230401preview.ResourceIdentityResponseArgs(
+                type=azure_native.chaos/v20230401preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            properties=azure_native.chaos.v20230401preview.ExperimentPropertiesResponseArgs(
+                selectors=[azure_native.chaos.v20230401preview.SelectorArgs(
+                    id="selector1",
+                    targets=[azure_native.chaos.v20230401preview.TargetReferenceArgs(
+                        id="/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine",
+                        type=azure_native.chaos/v20230401preview.TargetReferenceType.CHAOS_TARGET,
+                    )],
+                    type=azure_native.chaos/v20230401preview.SelectorType.LIST,
+                )],
+                steps=[{
+                    "branches": [{
+                        "actions": [azure_native.chaos.v20230401preview.ContinuousActionArgs(
+                            duration="PT10M",
+                            name="urn:csci:microsoft:virtualMachine:shutdown/1.0",
+                            parameters=[azure_native.chaos.v20230401preview.KeyValuePairArgs(
+                                key="abruptShutdown",
+                                value="false",
+                            )],
+                            selector_id="selector1",
+                            type="continuous",
+                        )],
+                        "name": "branch1",
+                    }],
+                    "name": "step1",
+                }],
+            ),
+            resource_group_name="exampleRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:chaos/v20230401preview:Experiment exampleExperiment /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] experiment_name: String that represents a Experiment resource name.
@@ -148,6 +199,57 @@ class Experiment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Model that represents a Experiment resource.
+
+        ## Example Usage
+        ### Create/update a Experiment in a resource group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        experiment = azure_native.chaos.v20230401preview.Experiment("experiment",
+            experiment_name="exampleExperiment",
+            identity=azure_native.chaos.v20230401preview.ResourceIdentityResponseArgs(
+                type=azure_native.chaos/v20230401preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="eastus2euap",
+            properties=azure_native.chaos.v20230401preview.ExperimentPropertiesResponseArgs(
+                selectors=[azure_native.chaos.v20230401preview.SelectorArgs(
+                    id="selector1",
+                    targets=[azure_native.chaos.v20230401preview.TargetReferenceArgs(
+                        id="/subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Compute/virtualMachines/exampleVM/providers/Microsoft.Chaos/targets/Microsoft-VirtualMachine",
+                        type=azure_native.chaos/v20230401preview.TargetReferenceType.CHAOS_TARGET,
+                    )],
+                    type=azure_native.chaos/v20230401preview.SelectorType.LIST,
+                )],
+                steps=[{
+                    "branches": [{
+                        "actions": [azure_native.chaos.v20230401preview.ContinuousActionArgs(
+                            duration="PT10M",
+                            name="urn:csci:microsoft:virtualMachine:shutdown/1.0",
+                            parameters=[azure_native.chaos.v20230401preview.KeyValuePairArgs(
+                                key="abruptShutdown",
+                                value="false",
+                            )],
+                            selector_id="selector1",
+                            type="continuous",
+                        )],
+                        "name": "branch1",
+                    }],
+                    "name": "step1",
+                }],
+            ),
+            resource_group_name="exampleRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:chaos/v20230401preview:Experiment exampleExperiment /subscriptions/6b052e15-03d3-4f17-b2e1-be7f07588291/resourceGroups/exampleRG/providers/Microsoft.Chaos/experiments/exampleExperiment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExperimentArgs args: The arguments to use to populate this resource's properties.

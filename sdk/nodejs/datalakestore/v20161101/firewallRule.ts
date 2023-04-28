@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Data Lake Store firewall rule information.
+ *
+ * ## Example Usage
+ * ### Creates or updates the specified firewall rule. During update, the firewall rule with the specified name will be replaced with this new firewall rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallRule = new azure_native.datalakestore.v20161101.FirewallRule("firewallRule", {
+ *     accountName: "contosoadla",
+ *     endIpAddress: "2.2.2.2",
+ *     firewallRuleName: "test_rule",
+ *     resourceGroupName: "contosorg",
+ *     startIpAddress: "1.1.1.1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datalakestore/v20161101:FirewallRule test_rule 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+ * ```
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**

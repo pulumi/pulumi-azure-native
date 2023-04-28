@@ -11,6 +11,41 @@ import * as utilities from "../utilities";
  * A SQL Analytics pool
  * API Version: 2021-06-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a SQL Analytics pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlPool = new azure_native.synapse.SqlPool("sqlPool", {
+ *     collation: "",
+ *     createMode: "",
+ *     location: "Southeast Asia",
+ *     maxSizeBytes: 0,
+ *     recoverableDatabaseId: "",
+ *     resourceGroupName: "ExampleResourceGroup",
+ *     sku: {
+ *         name: "",
+ *         tier: "",
+ *     },
+ *     sourceDatabaseId: "",
+ *     sqlPoolName: "ExampleSqlPool",
+ *     storageAccountType: "LRS",
+ *     tags: {},
+ *     workspaceName: "ExampleWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:SqlPool ExampleSqlPool /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspaces/sqlPools/ExampleSqlPool 
+ * ```
  */
 export class SqlPool extends pulumi.CustomResource {
     /**

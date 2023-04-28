@@ -114,6 +114,16 @@ class Report(pulumi.CustomResource):
         """
         A report resource.
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20180801preview:Report TestReport subscriptions/{subscription-id}/providers/Microsoft.CostManagement/reports/TestReport 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReportDefinitionArgs']] definition: Has definition for the report.
@@ -130,6 +140,16 @@ class Report(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A report resource.
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20180801preview:Report TestReport subscriptions/{subscription-id}/providers/Microsoft.CostManagement/reports/TestReport 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReportArgs args: The arguments to use to populate this resource's properties.

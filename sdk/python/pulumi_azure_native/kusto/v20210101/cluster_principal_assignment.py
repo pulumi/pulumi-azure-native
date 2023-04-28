@@ -143,6 +143,32 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         """
         Class representing a cluster principal assignment.
 
+        ## Example Usage
+        ### KustoClusterPrincipalAssignmentsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster_principal_assignment = azure_native.kusto.v20210101.ClusterPrincipalAssignment("clusterPrincipalAssignment",
+            cluster_name="kustoclusterrptest4",
+            principal_assignment_name="kustoprincipal1",
+            principal_id="87654321-1234-1234-1234-123456789123",
+            principal_type="App",
+            resource_group_name="kustorptest",
+            role="AllDatabasesAdmin",
+            tenant_id="12345678-1234-1234-1234-123456789123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210101:ClusterPrincipalAssignment kustoclusterrptest4/kustoprincipal1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoclusterrptest4/PrincipalAssignments/kustoprincipal1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -161,6 +187,32 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a cluster principal assignment.
+
+        ## Example Usage
+        ### KustoClusterPrincipalAssignmentsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster_principal_assignment = azure_native.kusto.v20210101.ClusterPrincipalAssignment("clusterPrincipalAssignment",
+            cluster_name="kustoclusterrptest4",
+            principal_assignment_name="kustoprincipal1",
+            principal_id="87654321-1234-1234-1234-123456789123",
+            principal_type="App",
+            resource_group_name="kustorptest",
+            role="AllDatabasesAdmin",
+            tenant_id="12345678-1234-1234-1234-123456789123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210101:ClusterPrincipalAssignment kustoclusterrptest4/kustoprincipal1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoclusterrptest4/PrincipalAssignments/kustoprincipal1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterPrincipalAssignmentArgs args: The arguments to use to populate this resource's properties.

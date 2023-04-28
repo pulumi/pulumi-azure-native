@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.AzureStack.V20200601Preview
 {
     /// <summary>
     /// Linked Subscription information.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Linked Subscription.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linkedSubscription = new AzureNative.AzureStack.V20200601Preview.LinkedSubscription("linkedSubscription", new()
+    ///     {
+    ///         LinkedSubscriptionId = "104fbb77-2b0e-476a-83de-65ad8acd1f0b",
+    ///         LinkedSubscriptionName = "testLinkedSubscription",
+    ///         Location = "eastus",
+    ///         RegistrationResourceId = "/subscriptions/dd8597b4-8739-4467-8b10-f8679f62bfbf/resourceGroups/azurestack/providers/Microsoft.AzureStack/registrations/testRegistration",
+    ///         ResourceGroup = "azurestack",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestack/v20200601preview:LinkedSubscription testLinkedSubscription /subscriptions/dd8597b4-8739-4467-8b10-f8679f62bfbf/resourceGroups/azurestack/providers/Microsoft.AzureStack/linkedSubscriptions/testLinkedSubscription 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestack/v20200601preview:LinkedSubscription")]
     public partial class LinkedSubscription : global::Pulumi.CustomResource

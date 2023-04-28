@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20201001
 {
     /// <summary>
     /// String dictionary resource.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201001:WebAppConnectionStrings myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/connectionstrings 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201001:WebAppConnectionStrings")]
     public partial class WebAppConnectionStrings : global::Pulumi.CustomResource

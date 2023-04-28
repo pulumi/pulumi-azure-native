@@ -337,6 +337,36 @@ class Migration(pulumi.CustomResource):
         """
         Represents a migration resource.
 
+        ## Example Usage
+        ### Migrations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.v20220501preview.Migration("migration",
+            d_bs_to_migrate=[
+                "db1",
+                "db2",
+                "db3",
+                "db4",
+            ],
+            location="westus",
+            migration_name="testmigration",
+            resource_group_name="testrg",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+            target_db_server_name="testtarget")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20220501preview:Migration d3ceacbb-a5fd-43dc-a9db-6022b5154856 d3ceacbb-a5fd-43dc-a9db-6022b5154856 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] cancel: To trigger cancel for entire migration we need to send this flag as true
@@ -360,6 +390,36 @@ class Migration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a migration resource.
+
+        ## Example Usage
+        ### Migrations_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        migration = azure_native.dbforpostgresql.v20220501preview.Migration("migration",
+            d_bs_to_migrate=[
+                "db1",
+                "db2",
+                "db3",
+                "db4",
+            ],
+            location="westus",
+            migration_name="testmigration",
+            resource_group_name="testrg",
+            source_db_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+            target_db_server_name="testtarget")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20220501preview:Migration d3ceacbb-a5fd-43dc-a9db-6022b5154856 d3ceacbb-a5fd-43dc-a9db-6022b5154856 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MigrationArgs args: The arguments to use to populate this resource's properties.

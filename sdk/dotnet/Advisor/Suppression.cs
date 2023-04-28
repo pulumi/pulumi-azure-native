@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.Advisor
     /// The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateSuppression
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var suppression = new AzureNative.Advisor.Suppression("suppression", new()
+    ///     {
+    ///         Name = "suppressionName1",
+    ///         RecommendationId = "recommendationId",
+    ///         ResourceUri = "resourceUri",
+    ///         Ttl = "07:00:00:00",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:advisor:Suppression suppressionName1 /resourceUri/providers/Microsoft.Advisor/recommendations/recommendationId/suppressions/suppressionName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:advisor:Suppression")]
     public partial class Suppression : global::Pulumi.CustomResource

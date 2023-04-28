@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Insights.V20191017Preview
 {
     /// <summary>
     /// An Application Insights workbook template definition.
+    /// 
+    /// ## Example Usage
+    /// ### WorkbookTemplateAdd
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workbookTemplate = new AzureNative.Insights.V20191017Preview.WorkbookTemplate("workbookTemplate", new()
+    ///     {
+    ///         Author = "Contoso",
+    ///         Galleries = new[]
+    ///         {
+    ///             new AzureNative.Insights.V20191017Preview.Inputs.WorkbookTemplateGalleryArgs
+    ///             {
+    ///                 Category = "Failures",
+    ///                 Name = "Simple Template",
+    ///                 Order = 100,
+    ///                 ResourceType = "microsoft.insights/components",
+    ///                 Type = "tsg",
+    ///             },
+    ///         },
+    ///         Location = "west us",
+    ///         Priority = 1,
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ResourceName = "testtemplate2",
+    ///         TemplateData = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20191017preview:WorkbookTemplate testtemplate2 /subscriptions/50359d91-7b9d-4823-85af-eb298a61ba95/resourceGroups/testrg/providers/microsoft.insights/workbooktemplates/testtemplate2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20191017preview:WorkbookTemplate")]
     public partial class WorkbookTemplate : global::Pulumi.CustomResource

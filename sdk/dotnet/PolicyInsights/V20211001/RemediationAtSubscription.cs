@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.PolicyInsights.V20211001
 {
     /// <summary>
     /// The remediation definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create remediation at subscription scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var remediationAtSubscription = new AzureNative.PolicyInsights.V20211001.RemediationAtSubscription("remediationAtSubscription", new()
+    ///     {
+    ///         PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///         RemediationName = "storageRemediation",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create remediation at subscription scope with all properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var remediationAtSubscription = new AzureNative.PolicyInsights.V20211001.RemediationAtSubscription("remediationAtSubscription", new()
+    ///     {
+    ///         FailureThreshold = new AzureNative.PolicyInsights.V20211001.Inputs.RemediationPropertiesFailureThresholdArgs
+    ///         {
+    ///             Percentage = 0.1,
+    ///         },
+    ///         Filters = new AzureNative.PolicyInsights.V20211001.Inputs.RemediationFiltersArgs
+    ///         {
+    ///             Locations = new[]
+    ///             {
+    ///                 "eastus",
+    ///                 "westus",
+    ///             },
+    ///         },
+    ///         ParallelDeployments = 6,
+    ///         PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///         PolicyDefinitionReferenceId = "8c8fa9e4",
+    ///         RemediationName = "storageRemediation",
+    ///         ResourceCount = 42,
+    ///         ResourceDiscoveryMode = "ReEvaluateCompliance",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:policyinsights/v20211001:RemediationAtSubscription storageRemediation /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.policyinsights/remediations/storageRemediation 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights/v20211001:RemediationAtSubscription")]
     public partial class RemediationAtSubscription : global::Pulumi.CustomResource

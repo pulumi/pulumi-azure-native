@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.RecoveryServices.V20210201
 {
     /// <summary>
     /// Private Endpoint Connection Response Properties
+    /// 
+    /// ## Example Usage
+    /// ### Update PrivateEndpointConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.RecoveryServices.V20210201.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
+    ///         Properties = new AzureNative.RecoveryServices.V20210201.Inputs.PrivateEndpointConnectionArgs
+    ///         {
+    ///             PrivateEndpoint = new AzureNative.RecoveryServices.V20210201.Inputs.PrivateEndpointArgs
+    ///             {
+    ///                 Id = "/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.Network/privateEndpoints/gaallatestpe3",
+    ///             },
+    ///             PrivateLinkServiceConnectionState = new AzureNative.RecoveryServices.V20210201.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 Description = "Approved by johndoe@company.com",
+    ///                 Status = "Approved",
+    ///             },
+    ///             ProvisioningState = "Succeeded",
+    ///         },
+    ///         ResourceGroupName = "gaallaRG",
+    ///         VaultName = "gaallavaultbvtd2msi",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20210201:PrivateEndpointConnection gaallatestpe1.3592346090307038890.backup.5704c932-249a-490b-a142-1396838cd3b /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.RecoveryServicesBVTD2/vaults/gaallavaultbvtd2msi/privateEndpointConnections/gaallatestpe3.3592346090307038890.backup.5704c932-249a-490b-a142-1396838cd3b 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20210201:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

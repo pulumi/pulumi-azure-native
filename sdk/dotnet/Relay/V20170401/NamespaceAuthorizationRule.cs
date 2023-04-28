@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Relay.V20170401
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// 
+    /// ## Example Usage
+    /// ### RelayNameSpaceAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceAuthorizationRule = new AzureNative.Relay.V20170401.NamespaceAuthorizationRule("namespaceAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "example-RelayAuthRules-01",
+    ///         NamespaceName = "example-RelayNamespace-01",
+    ///         ResourceGroupName = "resourcegroup",
+    ///         Rights = new[]
+    ///         {
+    ///             AzureNative.Relay.V20170401.AccessRights.Listen,
+    ///             AzureNative.Relay.V20170401.AccessRights.Send,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relay/v20170401:NamespaceAuthorizationRule example-RelayAuthRules-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01/AuthorizationRules/example-RelayAuthRules-01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relay/v20170401:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource

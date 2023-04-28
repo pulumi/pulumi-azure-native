@@ -197,6 +197,96 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
         API Version: 2018-11-01-preview.
         Previous API Version: 2018-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### MG-ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### MG-PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### MG-RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            display_name="enforce owners of given subscription",
+            kind="roleAssignment",
+            principal_ids="[parameters('owners')]",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+            role_definition_id="/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7")
+
+        ```
+        ### Sub-ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Sub-PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Sub-RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            display_name="enforce owners of given subscription",
+            kind="roleAssignment",
+            principal_ids="[parameters('owners')]",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000",
+            role_definition_id="/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint:RoleAssignmentArtifact ownerAssignment /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_name: Name of the blueprint artifact.
@@ -221,6 +311,96 @@ class RoleAssignmentArtifact(pulumi.CustomResource):
         Blueprint artifact that applies a Role assignment.
         API Version: 2018-11-01-preview.
         Previous API Version: 2018-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### MG-ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### MG-PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup")
+
+        ```
+        ### MG-RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            display_name="enforce owners of given subscription",
+            kind="roleAssignment",
+            principal_ids="[parameters('owners')]",
+            resource_scope="providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+            role_definition_id="/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7")
+
+        ```
+        ### Sub-ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Sub-PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Sub-RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment_artifact = azure_native.blueprint.RoleAssignmentArtifact("roleAssignmentArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            display_name="enforce owners of given subscription",
+            kind="roleAssignment",
+            principal_ids="[parameters('owners')]",
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000",
+            role_definition_id="/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint:RoleAssignmentArtifact ownerAssignment /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArtifactArgs args: The arguments to use to populate this resource's properties.

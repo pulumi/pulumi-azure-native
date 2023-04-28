@@ -9,6 +9,365 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate AutoML Job.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.machinelearningservices.v20230401preview.Job("job", {
+ *     id: "string",
+ *     jobBaseProperties: {
+ *         autologgerSettings: {
+ *             mlflowAutologger: "Disabled",
+ *         },
+ *         codeId: "string",
+ *         command: "string",
+ *         componentId: "string",
+ *         computeId: "string",
+ *         description: "string",
+ *         displayName: "string",
+ *         distribution: {
+ *             distributionType: "TensorFlow",
+ *             parameterServerCount: 1,
+ *             workerCount: 1,
+ *         },
+ *         environmentId: "string",
+ *         environmentVariables: {
+ *             string: "string",
+ *         },
+ *         experimentName: "string",
+ *         identity: {
+ *             identityType: "AMLToken",
+ *         },
+ *         inputs: {
+ *             string: {
+ *                 description: "string",
+ *                 jobInputType: "literal",
+ *                 value: "string",
+ *             },
+ *         },
+ *         isArchived: false,
+ *         jobType: "Command",
+ *         limits: {
+ *             jobLimitsType: "Command",
+ *             timeout: "PT5M",
+ *         },
+ *         notificationSetting: {
+ *             emailOn: ["JobCompleted"],
+ *             emails: ["string"],
+ *         },
+ *         outputs: {
+ *             string: {
+ *                 assetName: "string",
+ *                 assetVersion: "string",
+ *                 description: "string",
+ *                 jobOutputType: "uri_file",
+ *                 mode: "Direct",
+ *                 uri: "string",
+ *             },
+ *         },
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         queueSettings: {
+ *             jobTier: "Premium",
+ *             priority: 1,
+ *         },
+ *         resources: {
+ *             dockerArgs: "string",
+ *             instanceCount: 1,
+ *             instanceType: "string",
+ *             locations: ["string"],
+ *             properties: {
+ *                 string: {
+ *                     "f69c8d5a-9b39-4183-92d3-a2b18944cf95": undefined,
+ *                 },
+ *             },
+ *             shmSize: "2g",
+ *         },
+ *         services: {
+ *             string: {
+ *                 endpoint: "string",
+ *                 jobServiceType: "string",
+ *                 nodes: {
+ *                     nodesValueType: "All",
+ *                 },
+ *                 port: 1,
+ *                 properties: {
+ *                     string: "string",
+ *                 },
+ *             },
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdate Command Job.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.machinelearningservices.v20230401preview.Job("job", {
+ *     id: "string",
+ *     jobBaseProperties: {
+ *         autologgerSettings: {
+ *             mlflowAutologger: "Disabled",
+ *         },
+ *         codeId: "string",
+ *         command: "string",
+ *         componentId: "string",
+ *         computeId: "string",
+ *         description: "string",
+ *         displayName: "string",
+ *         distribution: {
+ *             distributionType: "TensorFlow",
+ *             parameterServerCount: 1,
+ *             workerCount: 1,
+ *         },
+ *         environmentId: "string",
+ *         environmentVariables: {
+ *             string: "string",
+ *         },
+ *         experimentName: "string",
+ *         identity: {
+ *             identityType: "AMLToken",
+ *         },
+ *         inputs: {
+ *             string: {
+ *                 description: "string",
+ *                 jobInputType: "literal",
+ *                 value: "string",
+ *             },
+ *         },
+ *         isArchived: false,
+ *         jobType: "Command",
+ *         limits: {
+ *             jobLimitsType: "Command",
+ *             timeout: "PT5M",
+ *         },
+ *         notificationSetting: {
+ *             emailOn: ["JobCancelled"],
+ *             emails: ["string"],
+ *         },
+ *         outputs: {
+ *             string: {
+ *                 assetName: "string",
+ *                 assetVersion: "string",
+ *                 description: "string",
+ *                 jobOutputType: "uri_file",
+ *                 mode: "Upload",
+ *                 uri: "string",
+ *             },
+ *         },
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         queueSettings: {
+ *             jobTier: "Basic",
+ *             priority: 1,
+ *         },
+ *         resources: {
+ *             dockerArgs: "string",
+ *             instanceCount: 1,
+ *             instanceType: "string",
+ *             locations: ["string"],
+ *             properties: {
+ *                 string: {
+ *                     "c9ac10d0-915b-4de5-afe8-a4c78a37a558": undefined,
+ *                 },
+ *             },
+ *             shmSize: "2g",
+ *         },
+ *         services: {
+ *             string: {
+ *                 endpoint: "string",
+ *                 jobServiceType: "string",
+ *                 nodes: {
+ *                     nodesValueType: "All",
+ *                 },
+ *                 port: 1,
+ *                 properties: {
+ *                     string: "string",
+ *                 },
+ *             },
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdate Pipeline Job.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.machinelearningservices.v20230401preview.Job("job", {
+ *     id: "string",
+ *     jobBaseProperties: {
+ *         computeId: "string",
+ *         description: "string",
+ *         displayName: "string",
+ *         experimentName: "string",
+ *         inputs: {
+ *             string: {
+ *                 description: "string",
+ *                 jobInputType: "literal",
+ *                 value: "string",
+ *             },
+ *         },
+ *         jobType: "Pipeline",
+ *         outputs: {
+ *             string: {
+ *                 description: "string",
+ *                 jobOutputType: "uri_file",
+ *                 mode: "Upload",
+ *                 uri: "string",
+ *             },
+ *         },
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         services: {
+ *             string: {
+ *                 endpoint: "string",
+ *                 jobServiceType: "string",
+ *                 port: 1,
+ *                 properties: {
+ *                     string: "string",
+ *                 },
+ *             },
+ *         },
+ *         settings: {},
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdate Sweep Job.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.machinelearningservices.v20230401preview.Job("job", {
+ *     id: "string",
+ *     jobBaseProperties: {
+ *         autologgerSettings: {
+ *             mlflowAutologger: "Disabled",
+ *         },
+ *         codeId: "string",
+ *         command: "string",
+ *         componentId: "string",
+ *         computeId: "string",
+ *         description: "string",
+ *         displayName: "string",
+ *         distribution: {
+ *             distributionType: "TensorFlow",
+ *             parameterServerCount: 1,
+ *             workerCount: 1,
+ *         },
+ *         environmentId: "string",
+ *         environmentVariables: {
+ *             string: "string",
+ *         },
+ *         experimentName: "string",
+ *         identity: {
+ *             identityType: "AMLToken",
+ *         },
+ *         inputs: {
+ *             string: {
+ *                 description: "string",
+ *                 jobInputType: "literal",
+ *                 value: "string",
+ *             },
+ *         },
+ *         isArchived: false,
+ *         jobType: "Command",
+ *         limits: {
+ *             jobLimitsType: "Command",
+ *             timeout: "PT5M",
+ *         },
+ *         notificationSetting: {
+ *             emailOn: ["JobCompleted"],
+ *             emails: ["string"],
+ *         },
+ *         outputs: {
+ *             string: {
+ *                 assetName: "string",
+ *                 assetVersion: "string",
+ *                 description: "string",
+ *                 jobOutputType: "uri_file",
+ *                 mode: "ReadWriteMount",
+ *                 uri: "string",
+ *             },
+ *         },
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         queueSettings: {
+ *             jobTier: "Basic",
+ *             priority: 1,
+ *         },
+ *         resources: {
+ *             dockerArgs: "string",
+ *             instanceCount: 1,
+ *             instanceType: "string",
+ *             locations: ["string"],
+ *             properties: {
+ *                 string: {
+ *                     "5fc1f627-491e-45a0-a6a2-f5b4be884911": undefined,
+ *                 },
+ *             },
+ *             shmSize: "2g",
+ *         },
+ *         services: {
+ *             string: {
+ *                 endpoint: "string",
+ *                 jobServiceType: "string",
+ *                 nodes: {
+ *                     nodesValueType: "All",
+ *                 },
+ *                 port: 1,
+ *                 properties: {
+ *                     string: "string",
+ *                 },
+ *             },
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230401preview:Job string string 
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

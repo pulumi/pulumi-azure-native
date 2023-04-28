@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20230101Preview
 {
     /// <summary>
     /// Represents a container on the  Data Box Edge/Gateway device.
+    /// 
+    /// ## Example Usage
+    /// ### ContainerPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var container = new AzureNative.DataBoxEdge.V20230101Preview.Container("container", new()
+    ///     {
+    ///         ContainerName = "blobcontainer1",
+    ///         DataFormat = "BlockBlob",
+    ///         DeviceName = "testedgedevice",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         StorageAccountName = "storageaccount1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20230101preview:Container blobcontainer-5e155efe /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccounts/storageaccount1/containers/blobcontainer1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20230101preview:Container")]
     public partial class Container : global::Pulumi.CustomResource

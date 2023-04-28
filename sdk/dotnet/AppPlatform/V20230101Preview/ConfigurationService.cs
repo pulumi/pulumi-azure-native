@@ -11,6 +11,57 @@ namespace Pulumi.AzureNative.AppPlatform.V20230101Preview
 {
     /// <summary>
     /// Application Configuration Service resource
+    /// 
+    /// ## Example Usage
+    /// ### ConfigurationServices_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationService = new AzureNative.AppPlatform.V20230101Preview.ConfigurationService("configurationService", new()
+    ///     {
+    ///         ConfigurationServiceName = "default",
+    ///         Properties = new AzureNative.AppPlatform.V20230101Preview.Inputs.ConfigurationServicePropertiesArgs
+    ///         {
+    ///             Settings = new AzureNative.AppPlatform.V20230101Preview.Inputs.ConfigurationServiceSettingsArgs
+    ///             {
+    ///                 GitProperty = new AzureNative.AppPlatform.V20230101Preview.Inputs.ConfigurationServiceGitPropertyArgs
+    ///                 {
+    ///                     Repositories = new[]
+    ///                     {
+    ///                         new AzureNative.AppPlatform.V20230101Preview.Inputs.ConfigurationServiceGitRepositoryArgs
+    ///                         {
+    ///                             Label = "master",
+    ///                             Name = "fake",
+    ///                             Patterns = new[]
+    ///                             {
+    ///                                 "app/dev",
+    ///                             },
+    ///                             Uri = "https://github.com/fake-user/fake-repository",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230101preview:ConfigurationService default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configurationServices/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230101preview:ConfigurationService")]
     public partial class ConfigurationService : global::Pulumi.CustomResource

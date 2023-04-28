@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.Network
     /// Defines an Network Experiment Profile and lists of Experiments
     /// API Version: 2019-11-01.
     /// Previous API Version: 2019-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates an NetworkExperiment Profile in a Resource Group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkExperimentProfile = new AzureNative.Network.NetworkExperimentProfile("networkExperimentProfile", new()
+    ///     {
+    ///         EnabledState = "Enabled",
+    ///         Location = "WestUs",
+    ///         ProfileName = "MyProfile",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:NetworkExperimentProfile MyProfile /subscriptions/subid/resourceGroups/MyResourceGroup/providers/Microsoft.Network/NetworkExperimentProfiles/MyProfile 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:NetworkExperimentProfile")]
     public partial class NetworkExperimentProfile : global::Pulumi.CustomResource

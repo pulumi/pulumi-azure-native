@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.TimeSeriesInsights
     /// An access policy is used to grant users and applications access to the environment. Roles are assigned to service principals in Azure Active Directory. These roles define the actions the principal can perform through the Time Series Insights data plane APIs.
     /// API Version: 2020-05-15.
     /// Previous API Version: 2020-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### AccessPoliciesCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var accessPolicy = new AzureNative.TimeSeriesInsights.AccessPolicy("accessPolicy", new()
+    ///     {
+    ///         AccessPolicyName = "ap1",
+    ///         Description = "some description",
+    ///         EnvironmentName = "env1",
+    ///         PrincipalObjectId = "aGuid",
+    ///         ResourceGroupName = "rg1",
+    ///         Roles = new[]
+    ///         {
+    ///             "Reader",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights:AccessPolicy ap1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/accessPolicies/ap1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights:AccessPolicy")]
     public partial class AccessPolicy : global::Pulumi.CustomResource

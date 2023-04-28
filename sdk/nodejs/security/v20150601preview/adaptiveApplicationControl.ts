@@ -8,6 +8,28 @@ import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
 /**
+ * ## Example Usage
+ * ### Update an application control VM/server group by adding a new file
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adaptiveApplicationControl = new azure_native.security.v20150601preview.AdaptiveApplicationControl("adaptiveApplicationControl", {
+ *     ascLocation: "centralus",
+ *     groupName: "ERELGROUP1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20150601preview:AdaptiveApplicationControl ERELGROUP1 /subscriptions/3eeab341-f466-499c-a8be-85427e154baf/providers/Microsoft.Security/locations/centralus/applicationWhitelistings/ERELGROUP1 
+ * ```
+ *
  * @deprecated Version 2015-06-01-preview will be removed in v2 of the provider.
  */
 export class AdaptiveApplicationControl extends pulumi.CustomResource {

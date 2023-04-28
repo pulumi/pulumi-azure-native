@@ -254,6 +254,57 @@ class Schedule(pulumi.CustomResource):
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Schedules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.devtestlab.Schedule("schedule",
+            daily_recurrence=azure_native.devtestlab.DayDetailsArgs(
+                time="{timeOfTheDayTheScheduleWillOccurEveryDay}",
+            ),
+            hourly_recurrence=azure_native.devtestlab.HourDetailsArgs(
+                minute=30,
+            ),
+            lab_name="{labName}",
+            location="{location}",
+            name="{scheduleName}",
+            notification_settings=azure_native.devtestlab.NotificationSettingsArgs(
+                email_recipient="{email}",
+                notification_locale="EN",
+                status="{Enabled|Disabled}",
+                time_in_minutes=15,
+                webhook_url="{webhookUrl}",
+            ),
+            resource_group_name="resourceGroupName",
+            status="{Enabled|Disabled}",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            target_resource_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}",
+            task_type="{myLabVmTaskType}",
+            time_zone_id="Pacific Standard Time",
+            weekly_recurrence=azure_native.devtestlab.WeekDetailsArgs(
+                time="{timeOfTheDayTheScheduleWillOccurOnThoseDays}",
+                weekdays=[
+                    "Monday",
+                    "Wednesday",
+                    "Friday",
+                ],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:Schedule {scheduleName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/schedules/{scheduleName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DayDetailsArgs']] daily_recurrence: If the schedule will occur once each day of the week, specify the daily recurrence.
@@ -280,6 +331,57 @@ class Schedule(pulumi.CustomResource):
         A schedule.
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Schedules_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        schedule = azure_native.devtestlab.Schedule("schedule",
+            daily_recurrence=azure_native.devtestlab.DayDetailsArgs(
+                time="{timeOfTheDayTheScheduleWillOccurEveryDay}",
+            ),
+            hourly_recurrence=azure_native.devtestlab.HourDetailsArgs(
+                minute=30,
+            ),
+            lab_name="{labName}",
+            location="{location}",
+            name="{scheduleName}",
+            notification_settings=azure_native.devtestlab.NotificationSettingsArgs(
+                email_recipient="{email}",
+                notification_locale="EN",
+                status="{Enabled|Disabled}",
+                time_in_minutes=15,
+                webhook_url="{webhookUrl}",
+            ),
+            resource_group_name="resourceGroupName",
+            status="{Enabled|Disabled}",
+            tags={
+                "tagName1": "tagValue1",
+            },
+            target_resource_id="/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}",
+            task_type="{myLabVmTaskType}",
+            time_zone_id="Pacific Standard Time",
+            weekly_recurrence=azure_native.devtestlab.WeekDetailsArgs(
+                time="{timeOfTheDayTheScheduleWillOccurOnThoseDays}",
+                weekdays=[
+                    "Monday",
+                    "Wednesday",
+                    "Friday",
+                ],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:Schedule {scheduleName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/schedules/{scheduleName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScheduleArgs args: The arguments to use to populate this resource's properties.

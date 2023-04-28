@@ -162,6 +162,33 @@ class Script(pulumi.CustomResource):
         """
         Class representing a database script.
 
+        ## Example Usage
+        ### KustoScriptsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        script = azure_native.kusto.v20210827.Script("script",
+            cluster_name="kustoclusterrptest4",
+            continue_on_errors=True,
+            database_name="KustoDatabase8",
+            force_update_tag="2bcf3c21-ffd1-4444-b9dd-e52e00ee53fe",
+            resource_group_name="kustorptest",
+            script_name="kustoScript1",
+            script_url="https://mysa.blob.core.windows.net/container/script.txt",
+            script_url_sas_token="?sv=2019-02-02&st=2019-04-29T22%3A18%3A26Z&se=2019-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=********************************")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210827:Script KustoClusterRPTest4/KustoDatabase8/kustoScript1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8/Scripts/kustoScript1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the Kusto cluster.
@@ -181,6 +208,33 @@ class Script(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a database script.
+
+        ## Example Usage
+        ### KustoScriptsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        script = azure_native.kusto.v20210827.Script("script",
+            cluster_name="kustoclusterrptest4",
+            continue_on_errors=True,
+            database_name="KustoDatabase8",
+            force_update_tag="2bcf3c21-ffd1-4444-b9dd-e52e00ee53fe",
+            resource_group_name="kustorptest",
+            script_name="kustoScript1",
+            script_url="https://mysa.blob.core.windows.net/container/script.txt",
+            script_url_sas_token="?sv=2019-02-02&st=2019-04-29T22%3A18%3A26Z&se=2019-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=********************************")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:kusto/v20210827:Script KustoClusterRPTest4/KustoDatabase8/kustoScript1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/KustoClusterRPTest4/Databases/KustoDatabase8/Scripts/kustoScript1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScriptArgs args: The arguments to use to populate this resource's properties.

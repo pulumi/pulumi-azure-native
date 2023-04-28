@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Private Endpoint connection on an application gateway.
+ *
+ * ## Example Usage
+ * ### Update Application Gateway Private Endpoint Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationGatewayPrivateEndpointConnection = new azure_native.network.v20220901.ApplicationGatewayPrivateEndpointConnection("applicationGatewayPrivateEndpointConnection", {
+ *     applicationGatewayName: "appgw",
+ *     connectionName: "connection1",
+ *     name: "connection1",
+ *     privateLinkServiceConnectionState: {
+ *         description: "approved it for some reason.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:ApplicationGatewayPrivateEndpointConnection testPlePeConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/privateEndpointConnections/{connectionName} 
+ * ```
  */
 export class ApplicationGatewayPrivateEndpointConnection extends pulumi.CustomResource {
     /**

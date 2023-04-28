@@ -13,6 +13,38 @@ namespace Pulumi.AzureNative.DataShare
     /// A Invitation data transfer object.
     /// API Version: 2021-08-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Invitations_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var invitation = new AzureNative.DataShare.Invitation("invitation", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         ExpirationDate = "2020-08-26T22:33:24.5785265Z",
+    ///         InvitationName = "Invitation1",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareName = "Share1",
+    ///         TargetEmail = "receiver@microsoft.com",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare:Invitation Invitation1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1/invitations/Invitation1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare:Invitation")]
     public partial class Invitation : global::Pulumi.CustomResource

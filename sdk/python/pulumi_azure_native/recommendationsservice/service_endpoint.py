@@ -132,6 +132,35 @@ class ServiceEndpoint(pulumi.CustomResource):
         API Version: 2022-02-01.
         Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update ServiceEndpoint resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint = azure_native.recommendationsservice.ServiceEndpoint("serviceEndpoint",
+            account_name="sampleAccount",
+            location="West US",
+            properties=azure_native.recommendationsservice.ServiceEndpointResourcePropertiesArgs(
+                pre_allocated_capacity=100,
+            ),
+            resource_group_name="rg",
+            service_endpoint_name="s1",
+            tags={
+                "Environment": "Prod",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recommendationsservice:ServiceEndpoint s1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount/serviceEndpoints/s1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the RecommendationsService Account resource.
@@ -151,6 +180,35 @@ class ServiceEndpoint(pulumi.CustomResource):
         ServiceEndpoint resource details.
         API Version: 2022-02-01.
         Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update ServiceEndpoint resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service_endpoint = azure_native.recommendationsservice.ServiceEndpoint("serviceEndpoint",
+            account_name="sampleAccount",
+            location="West US",
+            properties=azure_native.recommendationsservice.ServiceEndpointResourcePropertiesArgs(
+                pre_allocated_capacity=100,
+            ),
+            resource_group_name="rg",
+            service_endpoint_name="s1",
+            tags={
+                "Environment": "Prod",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recommendationsservice:ServiceEndpoint s1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount/serviceEndpoints/s1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceEndpointArgs args: The arguments to use to populate this resource's properties.

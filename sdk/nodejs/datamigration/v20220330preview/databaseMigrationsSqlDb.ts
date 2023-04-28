@@ -9,6 +9,90 @@ import * as utilities from "../../utilities";
 
 /**
  * Database Migration Resource for SQL Database.
+ *
+ * ## Example Usage
+ * ### Create or Update Database Migration resource with Maximum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseMigrationsSqlDb = new azure_native.datamigration.v20220330preview.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb", {
+ *     properties: {
+ *         kind: "SqlDb",
+ *         migrationService: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+ *         scope: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+ *         sourceDatabaseName: "aaa",
+ *         sourceSqlConnection: {
+ *             authentication: "WindowsAuthentication",
+ *             dataSource: "aaa",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *         tableList: [
+ *             "[Schema1].[TableName1]",
+ *             "[Schema2].[TableName2]",
+ *         ],
+ *         targetSqlConnection: {
+ *             authentication: "SqlAuthentication",
+ *             dataSource: "sqldbinstance",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlDbInstanceName: "sqldbinstance",
+ *     targetDbName: "db1",
+ * });
+ *
+ * ```
+ * ### Create or Update Database Migration resource with Minimum parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseMigrationsSqlDb = new azure_native.datamigration.v20220330preview.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb", {
+ *     properties: {
+ *         kind: "SqlDb",
+ *         migrationService: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+ *         scope: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+ *         sourceDatabaseName: "aaa",
+ *         sourceSqlConnection: {
+ *             authentication: "WindowsAuthentication",
+ *             dataSource: "aaa",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *         targetSqlConnection: {
+ *             authentication: "SqlAuthentication",
+ *             dataSource: "sqldbinstance",
+ *             encryptConnection: true,
+ *             password: "placeholder",
+ *             trustServerCertificate: true,
+ *             userName: "bbb",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlDbInstanceName: "sqldbinstance",
+ *     targetDbName: "db1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration/v20220330preview:DatabaseMigrationsSqlDb db1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance/providers/Microsoft.DataMigration/databaseMigrations/db1 
+ * ```
  */
 export class DatabaseMigrationsSqlDb extends pulumi.CustomResource {
     /**

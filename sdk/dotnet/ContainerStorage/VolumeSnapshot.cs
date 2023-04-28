@@ -13,6 +13,61 @@ namespace Pulumi.AzureNative.ContainerStorage
     /// Concrete proxy resource types can be created by aliasing this type using a specific property type.
     /// API Version: 2023-03-01-preview.
     /// Previous API Version: 2023-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### VolumeSnapshots_CreateOrUpdate_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volumeSnapshot = new AzureNative.ContainerStorage.VolumeSnapshot("volumeSnapshot", new()
+    ///     {
+    ///         MountOptions = new[]
+    ///         {
+    ///             "ozllffotmjyosqwx",
+    ///         },
+    ///         PoolName = "-1Jk-",
+    ///         ReclaimPolicy = "Delete",
+    ///         ResourceGroupName = "rgcontainerstorage",
+    ///         Source = "oytmtfvq",
+    ///         VolumeMode = "Filesystem",
+    ///         VolumeSnapshotName = "XBOVLQ-UDJ2n5kod886SN",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### VolumeSnapshots_CreateOrUpdate_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volumeSnapshot = new AzureNative.ContainerStorage.VolumeSnapshot("volumeSnapshot", new()
+    ///     {
+    ///         PoolName = "E-sfxFA3nN-FcID851Rq-Q3u",
+    ///         ResourceGroupName = "rgcontainerstorage",
+    ///         VolumeSnapshotName = "CjG-k-K4nWgGVV3VL-jT-5",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerstorage:VolumeSnapshot nvn vdihfxdstmkozaxfocgt 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerstorage:VolumeSnapshot")]
     public partial class VolumeSnapshot : global::Pulumi.CustomResource

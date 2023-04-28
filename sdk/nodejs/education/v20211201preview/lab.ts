@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Lab details.
+ *
+ * ## Example Usage
+ * ### CreateLab
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const lab = new azure_native.education.v20211201preview.Lab("lab", {
+ *     billingAccountName: "{billingAccountName}",
+ *     billingProfileName: "{billingProfileName}",
+ *     budgetPerStudent: {
+ *         currency: "USD",
+ *         value: 100,
+ *     },
+ *     description: "example lab description",
+ *     displayName: "example lab",
+ *     expirationDate: "2021-12-09T22:11:29.422Z",
+ *     invoiceSectionName: "{invoiceSectionName}",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:education/v20211201preview:Lab default /providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/invoiceSections/{invoiceSectionName}/providers/Microsoft.Education/labs/default 
+ * ```
  */
 export class Lab extends pulumi.CustomResource {
     /**

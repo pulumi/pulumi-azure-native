@@ -10,6 +10,16 @@ import * as utilities from "../../utilities";
 /**
  * A report config resource.
  *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement/v20180531:ReportConfigByResourceGroupName TestReportConfig subscriptions/{subscription-id}/providers/Microsoft.Consumption/reportconfigs/TestReportConfig 
+ * ```
+ *
  * @deprecated Version 2018-05-31 will be removed in v2 of the provider.
  */
 export class ReportConfigByResourceGroupName extends pulumi.CustomResource {

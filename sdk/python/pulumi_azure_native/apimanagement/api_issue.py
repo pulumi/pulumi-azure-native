@@ -178,6 +178,34 @@ class ApiIssue(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateApiIssue
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_issue = azure_native.apimanagement.ApiIssue("apiIssue",
+            api_id="57d1f7558aa04f15146d9d8a",
+            created_date="2018-02-01T22:21:20.467Z",
+            description="New API issue description",
+            issue_id="57d2ef278aa04f0ad01d6cdc",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            state="open",
+            title="New API issue",
+            user_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:ApiIssue 57d2ef278aa04f0ad01d6cdc /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: A resource identifier for the API the issue was created for.
@@ -200,6 +228,34 @@ class ApiIssue(pulumi.CustomResource):
         Issue Contract details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateApiIssue
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_issue = azure_native.apimanagement.ApiIssue("apiIssue",
+            api_id="57d1f7558aa04f15146d9d8a",
+            created_date="2018-02-01T22:21:20.467Z",
+            description="New API issue description",
+            issue_id="57d2ef278aa04f0ad01d6cdc",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            state="open",
+            title="New API issue",
+            user_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:ApiIssue 57d2ef278aa04f0ad01d6cdc /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiIssueArgs args: The arguments to use to populate this resource's properties.

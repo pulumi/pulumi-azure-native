@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * a dryrun job resource
+ *
+ * ## Example Usage
+ * ### PutDryrun
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const linkerDryrun = new azure_native.servicelinker.v20221101preview.LinkerDryrun("linkerDryrun", {
+ *     dryrunName: "dryrunName",
+ *     parameters: {
+ *         actionName: "createOrUpdate",
+ *         authInfo: {
+ *             authType: "secret",
+ *             name: "name",
+ *             secretInfo: {
+ *                 secretType: "rawValue",
+ *                 value: "secret",
+ *             },
+ *         },
+ *         targetService: {
+ *             id: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+ *             type: "AzureResource",
+ *         },
+ *     },
+ *     resourceUri: "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicelinker/v20221101preview:LinkerDryrun dryrunName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/dryruns/dryrunName 
+ * ```
  */
 export class LinkerDryrun extends pulumi.CustomResource {
     /**

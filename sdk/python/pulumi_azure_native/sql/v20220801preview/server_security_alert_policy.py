@@ -197,6 +197,51 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
         """
         A server security alert policy.
 
+        ## Example Usage
+        ### Update a server's threat detection policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_security_alert_policy = azure_native.sql.v20220801preview.ServerSecurityAlertPolicy("serverSecurityAlertPolicy",
+            disabled_alerts=[
+                "Access_Anomaly",
+                "Usage_Anomaly",
+            ],
+            email_account_admins=True,
+            email_addresses=["testSecurityAlert@microsoft.com"],
+            resource_group_name="securityalert-4799",
+            retention_days=5,
+            security_alert_policy_name="Default",
+            server_name="securityalert-6440",
+            state=azure_native.sql/v20220801preview.SecurityAlertsPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Update a server's threat detection policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_security_alert_policy = azure_native.sql.v20220801preview.ServerSecurityAlertPolicy("serverSecurityAlertPolicy",
+            resource_group_name="securityalert-4799",
+            security_alert_policy_name="Default",
+            server_name="securityalert-6440",
+            state=azure_native.sql/v20220801preview.SecurityAlertsPolicyState.ENABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerSecurityAlertPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.Sql/servers/securityalert-6440/securityAlertPolicies/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_alerts: Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force
@@ -218,6 +263,51 @@ class ServerSecurityAlertPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A server security alert policy.
+
+        ## Example Usage
+        ### Update a server's threat detection policy with all parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_security_alert_policy = azure_native.sql.v20220801preview.ServerSecurityAlertPolicy("serverSecurityAlertPolicy",
+            disabled_alerts=[
+                "Access_Anomaly",
+                "Usage_Anomaly",
+            ],
+            email_account_admins=True,
+            email_addresses=["testSecurityAlert@microsoft.com"],
+            resource_group_name="securityalert-4799",
+            retention_days=5,
+            security_alert_policy_name="Default",
+            server_name="securityalert-6440",
+            state=azure_native.sql/v20220801preview.SecurityAlertsPolicyState.ENABLED,
+            storage_account_access_key="sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+            storage_endpoint="https://mystorage.blob.core.windows.net")
+
+        ```
+        ### Update a server's threat detection policy with minimal parameters
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_security_alert_policy = azure_native.sql.v20220801preview.ServerSecurityAlertPolicy("serverSecurityAlertPolicy",
+            resource_group_name="securityalert-4799",
+            security_alert_policy_name="Default",
+            server_name="securityalert-6440",
+            state=azure_native.sql/v20220801preview.SecurityAlertsPolicyState.ENABLED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerSecurityAlertPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.Sql/servers/securityalert-6440/securityAlertPolicies/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerSecurityAlertPolicyArgs args: The arguments to use to populate this resource's properties.

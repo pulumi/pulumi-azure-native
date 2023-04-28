@@ -167,6 +167,42 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ConfigurationPolicyGroupPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_policy_group = azure_native.network.ConfigurationPolicyGroup("configurationPolicyGroup",
+            configuration_policy_group_name="policyGroup1",
+            is_default=True,
+            policy_members=[
+                azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+                    attribute_type="RadiusAzureGroupId",
+                    attribute_value="6ad1bd08",
+                    name="policy1",
+                ),
+                azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+                    attribute_type="CertificateGroupId",
+                    attribute_value="red.com",
+                    name="policy2",
+                ),
+            ],
+            priority=0,
+            resource_group_name="rg1",
+            vpn_server_configuration_name="vpnServerConfiguration1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ConfigurationPolicyGroup policyGroup1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_policy_group_name: The name of the ConfigurationPolicyGroup.
@@ -188,6 +224,42 @@ class ConfigurationPolicyGroup(pulumi.CustomResource):
         VpnServerConfigurationPolicyGroup Resource.
         API Version: 2022-09-01.
         Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ConfigurationPolicyGroupPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_policy_group = azure_native.network.ConfigurationPolicyGroup("configurationPolicyGroup",
+            configuration_policy_group_name="policyGroup1",
+            is_default=True,
+            policy_members=[
+                azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+                    attribute_type="RadiusAzureGroupId",
+                    attribute_value="6ad1bd08",
+                    name="policy1",
+                ),
+                azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+                    attribute_type="CertificateGroupId",
+                    attribute_value="red.com",
+                    name="policy2",
+                ),
+            ],
+            priority=0,
+            resource_group_name="rg1",
+            vpn_server_configuration_name="vpnServerConfiguration1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:ConfigurationPolicyGroup policyGroup1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationPolicyGroupArgs args: The arguments to use to populate this resource's properties.

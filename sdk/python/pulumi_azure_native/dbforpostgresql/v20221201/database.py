@@ -112,6 +112,30 @@ class Database(pulumi.CustomResource):
         """
         Represents a Database.
 
+        ## Example Usage
+        ### Create a database
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.dbforpostgresql.v20221201.Database("database",
+            charset="utf8",
+            collation="en_US.utf8",
+            database_name="db1",
+            resource_group_name="TestGroup",
+            server_name="testserver")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221201:Database db1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/databases/db1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] charset: The charset of the database.
@@ -128,6 +152,30 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Database.
+
+        ## Example Usage
+        ### Create a database
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.dbforpostgresql.v20221201.Database("database",
+            charset="utf8",
+            collation="en_US.utf8",
+            database_name="db1",
+            resource_group_name="TestGroup",
+            server_name="testserver")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20221201:Database db1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/testserver/databases/db1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

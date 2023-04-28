@@ -146,6 +146,32 @@ class ComputePolicy(pulumi.CustomResource):
         API Version: 2019-11-01-preview.
         Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates the specified compute policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute_policy = azure_native.datalakeanalytics.ComputePolicy("computePolicy",
+            account_name="contosoadla",
+            compute_policy_name="test_policy",
+            max_degree_of_parallelism_per_job=10,
+            min_priority_per_job=30,
+            object_id="776b9091-8916-4638-87f7-9c989a38da98",
+            object_type="User",
+            resource_group_name="contosorg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakeanalytics:ComputePolicy test_policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName}/computePolicies/{computePolicyName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Data Lake Analytics account.
@@ -166,6 +192,32 @@ class ComputePolicy(pulumi.CustomResource):
         Data Lake Analytics compute policy information.
         API Version: 2019-11-01-preview.
         Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates the specified compute policy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        compute_policy = azure_native.datalakeanalytics.ComputePolicy("computePolicy",
+            account_name="contosoadla",
+            compute_policy_name="test_policy",
+            max_degree_of_parallelism_per_job=10,
+            min_priority_per_job=30,
+            object_id="776b9091-8916-4638-87f7-9c989a38da98",
+            object_type="User",
+            resource_group_name="contosorg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datalakeanalytics:ComputePolicy test_policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName}/computePolicies/{computePolicyName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ComputePolicyArgs args: The arguments to use to populate this resource's properties.

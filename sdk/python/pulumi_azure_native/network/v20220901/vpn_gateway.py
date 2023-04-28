@@ -234,6 +234,80 @@ class VpnGateway(pulumi.CustomResource):
         """
         VpnGateway Resource.
 
+        ## Example Usage
+        ### VpnGatewayPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_gateway = azure_native.network.v20220901.VpnGateway("vpnGateway",
+            bgp_settings=azure_native.network.v20220901.BgpSettingsResponseArgs(
+                asn=65515,
+                bgp_peering_addresses=[
+                    azure_native.network.v20220901.IPConfigurationBgpPeeringAddressArgs(
+                        custom_bgp_ip_addresses=["169.254.21.5"],
+                        ipconfiguration_id="Instance0",
+                    ),
+                    azure_native.network.v20220901.IPConfigurationBgpPeeringAddressArgs(
+                        custom_bgp_ip_addresses=["169.254.21.10"],
+                        ipconfiguration_id="Instance1",
+                    ),
+                ],
+                peer_weight=0,
+            ),
+            connections=[{
+                "name": "vpnConnection1",
+                "remoteVpnSite": azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+                ),
+                "vpnLinkConnections": [{
+                    "connectionBandwidth": 200,
+                    "egressNatRules": [azure_native.network.v20220901.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/natRules/nat03",
+                    )],
+                    "name": "Connection-Link1",
+                    "sharedKey": "key",
+                    "vpnConnectionProtocolType": "IKEv2",
+                    "vpnSiteLink": azure_native.network.v20220901.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
+                    ),
+                }],
+            }],
+            enable_bgp_route_translation_for_nat=False,
+            gateway_name="gateway1",
+            is_routing_preference_internet=False,
+            location="westcentralus",
+            nat_rules=[{
+                "externalMappings": [azure_native.network.v20220901.VpnNatRuleMappingArgs(
+                    address_space="192.168.0.0/26",
+                )],
+                "internalMappings": [azure_native.network.v20220901.VpnNatRuleMappingArgs(
+                    address_space="0.0.0.0/26",
+                )],
+                "ipConfigurationId": "",
+                "mode": "EgressSnat",
+                "name": "nat03",
+                "type": "Static",
+            }],
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.v20220901.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:VpnGateway gateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['BgpSettingsArgs']] bgp_settings: Local network gateway's BGP speaker settings.
@@ -257,6 +331,80 @@ class VpnGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnGateway Resource.
+
+        ## Example Usage
+        ### VpnGatewayPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_gateway = azure_native.network.v20220901.VpnGateway("vpnGateway",
+            bgp_settings=azure_native.network.v20220901.BgpSettingsResponseArgs(
+                asn=65515,
+                bgp_peering_addresses=[
+                    azure_native.network.v20220901.IPConfigurationBgpPeeringAddressArgs(
+                        custom_bgp_ip_addresses=["169.254.21.5"],
+                        ipconfiguration_id="Instance0",
+                    ),
+                    azure_native.network.v20220901.IPConfigurationBgpPeeringAddressArgs(
+                        custom_bgp_ip_addresses=["169.254.21.10"],
+                        ipconfiguration_id="Instance1",
+                    ),
+                ],
+                peer_weight=0,
+            ),
+            connections=[{
+                "name": "vpnConnection1",
+                "remoteVpnSite": azure_native.network.v20220901.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+                ),
+                "vpnLinkConnections": [{
+                    "connectionBandwidth": 200,
+                    "egressNatRules": [azure_native.network.v20220901.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/natRules/nat03",
+                    )],
+                    "name": "Connection-Link1",
+                    "sharedKey": "key",
+                    "vpnConnectionProtocolType": "IKEv2",
+                    "vpnSiteLink": azure_native.network.v20220901.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
+                    ),
+                }],
+            }],
+            enable_bgp_route_translation_for_nat=False,
+            gateway_name="gateway1",
+            is_routing_preference_internet=False,
+            location="westcentralus",
+            nat_rules=[{
+                "externalMappings": [azure_native.network.v20220901.VpnNatRuleMappingArgs(
+                    address_space="192.168.0.0/26",
+                )],
+                "internalMappings": [azure_native.network.v20220901.VpnNatRuleMappingArgs(
+                    address_space="0.0.0.0/26",
+                )],
+                "ipConfigurationId": "",
+                "mode": "EgressSnat",
+                "name": "nat03",
+                "type": "Static",
+            }],
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.v20220901.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:VpnGateway gateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpnGatewayArgs args: The arguments to use to populate this resource's properties.

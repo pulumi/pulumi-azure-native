@@ -180,6 +180,35 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CosmosDBSqlUserDefinedFunctionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_user_defined_function = azure_native.documentdb.SqlResourceSqlUserDefinedFunction("sqlResourceSqlUserDefinedFunction",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.SqlUserDefinedFunctionResourceArgs(
+                body="body",
+                id="userDefinedFunctionName",
+            ),
+            resource_group_name="rg1",
+            user_defined_function_name="userDefinedFunctionName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:SqlResourceSqlUserDefinedFunction userDefinedFunctionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlUserDefinedFunctions/userDefinedFunctionName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -202,6 +231,35 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
         An Azure Cosmos DB userDefinedFunction.
         API Version: 2022-11-15.
         Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CosmosDBSqlUserDefinedFunctionCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_user_defined_function = azure_native.documentdb.SqlResourceSqlUserDefinedFunction("sqlResourceSqlUserDefinedFunction",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            options=azure_native.documentdb.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.SqlUserDefinedFunctionResourceArgs(
+                body="body",
+                id="userDefinedFunctionName",
+            ),
+            resource_group_name="rg1",
+            user_defined_function_name="userDefinedFunctionName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb:SqlResourceSqlUserDefinedFunction userDefinedFunctionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/sqlContainers/containerName/sqlUserDefinedFunctions/userDefinedFunctionName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlUserDefinedFunctionArgs args: The arguments to use to populate this resource's properties.

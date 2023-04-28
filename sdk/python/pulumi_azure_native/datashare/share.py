@@ -132,6 +132,31 @@ class Share(pulumi.CustomResource):
         API Version: 2021-08-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Shares_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        share = azure_native.datashare.Share("share",
+            account_name="Account1",
+            description="share description",
+            resource_group_name="SampleResourceGroup",
+            share_kind="CopyBased",
+            share_name="Share1",
+            terms="Confidential")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:Share Share1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -151,6 +176,31 @@ class Share(pulumi.CustomResource):
         A share data transfer object.
         API Version: 2021-08-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Shares_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        share = azure_native.datashare.Share("share",
+            account_name="Account1",
+            description="share description",
+            resource_group_name="SampleResourceGroup",
+            share_kind="CopyBased",
+            share_name="Share1",
+            terms="Confidential")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:Share Share1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shares/Share1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.

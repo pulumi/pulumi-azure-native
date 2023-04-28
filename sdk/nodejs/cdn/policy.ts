@@ -11,6 +11,116 @@ import * as utilities from "../utilities";
  * Defines web application firewall policy for Azure CDN.
  * API Version: 2021-06-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates specific policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policy = new azure_native.cdn.Policy("policy", {
+ *     customRules: {
+ *         rules: [{
+ *             action: "Block",
+ *             enabledState: "Enabled",
+ *             matchConditions: [
+ *                 {
+ *                     matchValue: ["CH"],
+ *                     matchVariable: "RemoteAddr",
+ *                     negateCondition: false,
+ *                     operator: "GeoMatch",
+ *                     transforms: [],
+ *                 },
+ *                 {
+ *                     matchValue: ["windows"],
+ *                     matchVariable: "RequestHeader",
+ *                     negateCondition: false,
+ *                     operator: "Contains",
+ *                     selector: "UserAgent",
+ *                     transforms: [],
+ *                 },
+ *                 {
+ *                     matchValue: [
+ *                         "<?php",
+ *                         "?>",
+ *                     ],
+ *                     matchVariable: "QueryString",
+ *                     negateCondition: false,
+ *                     operator: "Contains",
+ *                     selector: "search",
+ *                     transforms: [
+ *                         "UrlDecode",
+ *                         "Lowercase",
+ *                     ],
+ *                 },
+ *             ],
+ *             name: "CustomRule1",
+ *             priority: 2,
+ *         }],
+ *     },
+ *     location: "WestUs",
+ *     managedRules: {
+ *         managedRuleSets: [{
+ *             ruleGroupOverrides: [{
+ *                 ruleGroupName: "Group1",
+ *                 rules: [
+ *                     {
+ *                         action: "Redirect",
+ *                         enabledState: "Enabled",
+ *                         ruleId: "GROUP1-0001",
+ *                     },
+ *                     {
+ *                         enabledState: "Disabled",
+ *                         ruleId: "GROUP1-0002",
+ *                     },
+ *                 ],
+ *             }],
+ *             ruleSetType: "DefaultRuleSet",
+ *             ruleSetVersion: "preview-1.0",
+ *         }],
+ *     },
+ *     policyName: "MicrosoftCdnWafPolicy",
+ *     policySettings: {
+ *         defaultCustomBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+ *         defaultCustomBlockResponseStatusCode: 200,
+ *         defaultRedirectUrl: "http://www.bing.com",
+ *     },
+ *     rateLimitRules: {
+ *         rules: [{
+ *             action: "Block",
+ *             enabledState: "Enabled",
+ *             matchConditions: [{
+ *                 matchValue: [
+ *                     "192.168.1.0/24",
+ *                     "10.0.0.0/24",
+ *                 ],
+ *                 matchVariable: "RemoteAddr",
+ *                 negateCondition: false,
+ *                 operator: "IPMatch",
+ *                 transforms: [],
+ *             }],
+ *             name: "RateLimitRule1",
+ *             priority: 1,
+ *             rateLimitDurationInMinutes: 0,
+ *             rateLimitThreshold: 1000,
+ *         }],
+ *     },
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "Standard_Microsoft",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:Policy MicrosoftCdnWafPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cdn/CdnWebApplicationFirewallPolicies/MicrosoftCdnWafPolicy 
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**

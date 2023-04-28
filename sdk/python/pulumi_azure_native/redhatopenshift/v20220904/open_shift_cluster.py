@@ -251,6 +251,65 @@ class OpenShiftCluster(pulumi.CustomResource):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
 
+        ## Example Usage
+        ### Creates or updates a OpenShift cluster with the specified subscription, resource group and resource name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_shift_cluster = azure_native.redhatopenshift.v20220904.OpenShiftCluster("openShiftCluster",
+            apiserver_profile=azure_native.redhatopenshift.v20220904.APIServerProfileArgs(
+                visibility="Public",
+            ),
+            cluster_profile=azure_native.redhatopenshift.v20220904.ClusterProfileArgs(
+                domain="cluster.location.aroapp.io",
+                fips_validated_modules="Enabled",
+                pull_secret="{\\"auths\\":{\\"registry.connect.redhat.com\\":{\\"auth\\":\\"\\"},\\"registry.redhat.io\\":{\\"auth\\":\\"\\"}}}",
+                resource_group_id="/subscriptions/subscriptionId/resourceGroups/clusterResourceGroup",
+            ),
+            console_profile=azure_native.redhatopenshift.v20220904.ConsoleProfileArgs(),
+            ingress_profiles=[azure_native.redhatopenshift.v20220904.IngressProfileArgs(
+                name="default",
+                visibility="Public",
+            )],
+            location="location",
+            master_profile=azure_native.redhatopenshift.v20220904.MasterProfileArgs(
+                encryption_at_host="Enabled",
+                subnet_id="/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/master",
+                vm_size="Standard_D8s_v3",
+            ),
+            network_profile=azure_native.redhatopenshift.v20220904.NetworkProfileArgs(
+                pod_cidr="10.128.0.0/14",
+                service_cidr="172.30.0.0/16",
+            ),
+            resource_group_name="resourceGroup",
+            resource_name_="resourceName",
+            service_principal_profile=azure_native.redhatopenshift.v20220904.ServicePrincipalProfileArgs(
+                client_id="clientId",
+                client_secret="clientSecret",
+            ),
+            tags={
+                "key": "value",
+            },
+            worker_profiles=[azure_native.redhatopenshift.v20220904.WorkerProfileArgs(
+                count=3,
+                disk_size_gb=128,
+                name="worker",
+                subnet_id="/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/worker",
+                vm_size="Standard_D2s_v3",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redhatopenshift/v20220904:OpenShiftCluster resourceName /subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/resourceName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['APIServerProfileArgs']] apiserver_profile: The cluster API server profile.
@@ -275,6 +334,65 @@ class OpenShiftCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+
+        ## Example Usage
+        ### Creates or updates a OpenShift cluster with the specified subscription, resource group and resource name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        open_shift_cluster = azure_native.redhatopenshift.v20220904.OpenShiftCluster("openShiftCluster",
+            apiserver_profile=azure_native.redhatopenshift.v20220904.APIServerProfileArgs(
+                visibility="Public",
+            ),
+            cluster_profile=azure_native.redhatopenshift.v20220904.ClusterProfileArgs(
+                domain="cluster.location.aroapp.io",
+                fips_validated_modules="Enabled",
+                pull_secret="{\\"auths\\":{\\"registry.connect.redhat.com\\":{\\"auth\\":\\"\\"},\\"registry.redhat.io\\":{\\"auth\\":\\"\\"}}}",
+                resource_group_id="/subscriptions/subscriptionId/resourceGroups/clusterResourceGroup",
+            ),
+            console_profile=azure_native.redhatopenshift.v20220904.ConsoleProfileArgs(),
+            ingress_profiles=[azure_native.redhatopenshift.v20220904.IngressProfileArgs(
+                name="default",
+                visibility="Public",
+            )],
+            location="location",
+            master_profile=azure_native.redhatopenshift.v20220904.MasterProfileArgs(
+                encryption_at_host="Enabled",
+                subnet_id="/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/master",
+                vm_size="Standard_D8s_v3",
+            ),
+            network_profile=azure_native.redhatopenshift.v20220904.NetworkProfileArgs(
+                pod_cidr="10.128.0.0/14",
+                service_cidr="172.30.0.0/16",
+            ),
+            resource_group_name="resourceGroup",
+            resource_name_="resourceName",
+            service_principal_profile=azure_native.redhatopenshift.v20220904.ServicePrincipalProfileArgs(
+                client_id="clientId",
+                client_secret="clientSecret",
+            ),
+            tags={
+                "key": "value",
+            },
+            worker_profiles=[azure_native.redhatopenshift.v20220904.WorkerProfileArgs(
+                count=3,
+                disk_size_gb=128,
+                name="worker",
+                subnet_id="/subscriptions/subscriptionId/resourceGroups/vnetResourceGroup/providers/Microsoft.Network/virtualNetworks/vnet/subnets/worker",
+                vm_size="Standard_D2s_v3",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:redhatopenshift/v20220904:OpenShiftCluster resourceName /subscriptions/subscriptionId/resourceGroups/resourceGroup/providers/Microsoft.RedHatOpenShift/OpenShiftClusters/resourceName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OpenShiftClusterArgs args: The arguments to use to populate this resource's properties.

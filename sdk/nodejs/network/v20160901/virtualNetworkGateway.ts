@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * A common class for general resource information
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20160901:VirtualNetworkGateway myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworkGateways/{virtualNetworkGatewayName} 
+ * ```
  *
  * @deprecated Version 2016-09-01 will be removed in v2 of the provider.
  */

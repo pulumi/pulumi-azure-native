@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.EventHub
     /// Single item in List or Get Consumer group operation
     /// API Version: 2021-11-01.
     /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ConsumerGroupCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var consumerGroup = new AzureNative.EventHub.ConsumerGroup("consumerGroup", new()
+    ///     {
+    ///         ConsumerGroupName = "sdk-ConsumerGroup-5563",
+    ///         EventHubName = "sdk-EventHub-6681",
+    ///         NamespaceName = "sdk-Namespace-2661",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///         UserMetadata = "New consumergroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:ConsumerGroup sdk-ConsumerGroup-5563 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-2661/eventhubs/sdk-EventHub-6681/consumergroups/sdk-ConsumerGroup-5563 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:ConsumerGroup")]
     public partial class ConsumerGroup : global::Pulumi.CustomResource

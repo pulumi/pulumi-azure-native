@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170426
 {
     /// <summary>
     /// The view resource format.
+    /// 
+    /// ## Example Usage
+    /// ### Views_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var view = new AzureNative.CustomerInsights.V20170426.View("view", new()
+    ///     {
+    ///         Definition = "{\\\"isProfileType\\\":false,\\\"profileTypes\\\":[],\\\"widgets\\\":[],\\\"style\\\":[]}",
+    ///         DisplayName = 
+    ///         {
+    ///             { "en", "some name" },
+    ///         },
+    ///         HubName = "sdkTestHub",
+    ///         ResourceGroupName = "TestHubRG",
+    ///         UserId = "testUser",
+    ///         ViewName = "testView",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customerinsights/v20170426:View sdkTestHub/testView /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/views/testView 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customerinsights/v20170426:View")]
     public partial class View : global::Pulumi.CustomResource

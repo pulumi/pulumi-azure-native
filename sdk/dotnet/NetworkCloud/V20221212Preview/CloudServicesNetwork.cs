@@ -14,6 +14,61 @@ namespace Pulumi.AzureNative.NetworkCloud.V20221212Preview
     /// represented in the status of this resource. All resources associated with this cloud services network will be part
     /// of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
     /// virtual machines and/or Hybrid AKS clusters.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update cloud services network
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cloudServicesNetwork = new AzureNative.NetworkCloud.V20221212Preview.CloudServicesNetwork("cloudServicesNetwork", new()
+    ///     {
+    ///         AdditionalEgressEndpoints = new[]
+    ///         {
+    ///             new AzureNative.NetworkCloud.V20221212Preview.Inputs.EgressEndpointArgs
+    ///             {
+    ///                 Category = "azure-resource-management",
+    ///                 Endpoints = new[]
+    ///                 {
+    ///                     new AzureNative.NetworkCloud.V20221212Preview.Inputs.EndpointDependencyArgs
+    ///                     {
+    ///                         DomainName = "https://storageaccountex.blob.core.windows.net",
+    ///                         Port = 443,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         CloudServicesNetworkName = "cloudServicesNetworkName",
+    ///         EnableDefaultEgressEndpoints = "False",
+    ///         ExtendedLocation = new AzureNative.NetworkCloud.V20221212Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "location",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "myvalue1" },
+    ///             { "key2", "myvalue2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkcloud/v20221212preview:CloudServicesNetwork cloudServicesNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkcloud/v20221212preview:CloudServicesNetwork")]
     public partial class CloudServicesNetwork : global::Pulumi.CustomResource

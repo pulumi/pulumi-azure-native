@@ -165,6 +165,48 @@ class EventHub(pulumi.CustomResource):
         """
         Single item in List or Get Event Hub operation
 
+        ## Example Usage
+        ### EventHubCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub = azure_native.eventhub.v20221001preview.EventHub("eventHub",
+            capture_description=azure_native.eventhub.v20221001preview.CaptureDescriptionResponseArgs(
+                destination=azure_native.eventhub.v20221001preview.DestinationArgs(
+                    archive_name_format="{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+                    blob_container="container",
+                    name="EventHubArchive.AzureBlockBlob",
+                    storage_account_resource_id="/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-Storage-SouthCentralUS/providers/Microsoft.ClassicStorage/storageAccounts/arjunteststorage",
+                ),
+                enabled=True,
+                encoding=azure_native.eventhub/v20221001preview.EncodingCaptureDescription.AVRO,
+                interval_in_seconds=120,
+                size_limit_in_bytes=10485763,
+            ),
+            event_hub_name="sdk-EventHub-6547",
+            message_retention_in_days=4,
+            namespace_name="sdk-Namespace-5357",
+            partition_count=4,
+            resource_group_name="Default-NotificationHubs-AustraliaEast",
+            retention_description=azure_native.eventhub.v20221001preview.RetentionDescriptionArgs(
+                cleanup_policy="Compaction",
+                retention_time_in_hours=96,
+                tombstone_retention_time_in_hours=1,
+            ),
+            status=azure_native.eventhub/v20221001preview.EntityStatus.ACTIVE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20221001preview:EventHub sdk-EventHub-10 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-NotificationHubs-AustraliaEast/providers/Microsoft.EventHub/namespaces/sdk-Namespace-716/eventhubs/sdk-EventHub-10 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CaptureDescriptionArgs']] capture_description: Properties of capture description
@@ -184,6 +226,48 @@ class EventHub(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Event Hub operation
+
+        ## Example Usage
+        ### EventHubCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        event_hub = azure_native.eventhub.v20221001preview.EventHub("eventHub",
+            capture_description=azure_native.eventhub.v20221001preview.CaptureDescriptionResponseArgs(
+                destination=azure_native.eventhub.v20221001preview.DestinationArgs(
+                    archive_name_format="{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+                    blob_container="container",
+                    name="EventHubArchive.AzureBlockBlob",
+                    storage_account_resource_id="/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-Storage-SouthCentralUS/providers/Microsoft.ClassicStorage/storageAccounts/arjunteststorage",
+                ),
+                enabled=True,
+                encoding=azure_native.eventhub/v20221001preview.EncodingCaptureDescription.AVRO,
+                interval_in_seconds=120,
+                size_limit_in_bytes=10485763,
+            ),
+            event_hub_name="sdk-EventHub-6547",
+            message_retention_in_days=4,
+            namespace_name="sdk-Namespace-5357",
+            partition_count=4,
+            resource_group_name="Default-NotificationHubs-AustraliaEast",
+            retention_description=azure_native.eventhub.v20221001preview.RetentionDescriptionArgs(
+                cleanup_policy="Compaction",
+                retention_time_in_hours=96,
+                tombstone_retention_time_in_hours=1,
+            ),
+            status=azure_native.eventhub/v20221001preview.EntityStatus.ACTIVE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20221001preview:EventHub sdk-EventHub-10 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-NotificationHubs-AustraliaEast/providers/Microsoft.EventHub/namespaces/sdk-Namespace-716/eventhubs/sdk-EventHub-10 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventHubArgs args: The arguments to use to populate this resource's properties.

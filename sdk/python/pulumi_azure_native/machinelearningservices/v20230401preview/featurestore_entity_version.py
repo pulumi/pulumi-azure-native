@@ -112,6 +112,44 @@ class FeaturestoreEntityVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Workspace Featurestore Entity Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        featurestore_entity_version = azure_native.machinelearningservices.v20230401preview.FeaturestoreEntityVersion("featurestoreEntityVersion",
+            featurestore_entity_version_properties=azure_native.machinelearningservices.v20230401preview.FeaturestoreEntityVersionResponseArgs(
+                description="string",
+                index_columns=[azure_native.machinelearningservices.v20230401preview.IndexColumnArgs(
+                    column_name="string",
+                    data_type="Datetime",
+                )],
+                is_anonymous=False,
+                is_archived=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:FeaturestoreEntityVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['FeaturestoreEntityVersionArgs']] featurestore_entity_version_properties: [Required] Additional attributes of the entity.
@@ -128,6 +166,44 @@ class FeaturestoreEntityVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Workspace Featurestore Entity Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        featurestore_entity_version = azure_native.machinelearningservices.v20230401preview.FeaturestoreEntityVersion("featurestoreEntityVersion",
+            featurestore_entity_version_properties=azure_native.machinelearningservices.v20230401preview.FeaturestoreEntityVersionResponseArgs(
+                description="string",
+                index_columns=[azure_native.machinelearningservices.v20230401preview.IndexColumnArgs(
+                    column_name="string",
+                    data_type="Datetime",
+                )],
+                is_anonymous=False,
+                is_archived=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            name="string",
+            resource_group_name="test-rg",
+            version="string",
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:FeaturestoreEntityVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FeaturestoreEntityVersionInitArgs args: The arguments to use to populate this resource's properties.

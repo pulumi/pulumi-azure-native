@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.Sql.V20210801Preview
 {
     /// <summary>
     /// An IPv6 server firewall rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create an IPv6 firewall rule max/min
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iPv6FirewallRule = new AzureNative.Sql.V20210801Preview.IPv6FirewallRule("iPv6FirewallRule", new()
+    ///     {
+    ///         EndIPv6Address = "0000:0000:0000:0000:0000:ffff:0000:0003",
+    ///         FirewallRuleName = "firewallrulecrudtest-5370",
+    ///         ResourceGroupName = "firewallrulecrudtest-12",
+    ///         ServerName = "firewallrulecrudtest-6285",
+    ///         StartIPv6Address = "0000:0000:0000:0000:0000:ffff:0000:0003",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update an IPv6 firewall rule max/min
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iPv6FirewallRule = new AzureNative.Sql.V20210801Preview.IPv6FirewallRule("iPv6FirewallRule", new()
+    ///     {
+    ///         EndIPv6Address = "0000:0000:0000:0000:0000:ffff:0000:0001",
+    ///         FirewallRuleName = "firewallrulecrudtest-3927",
+    ///         ResourceGroupName = "firewallrulecrudtest-12",
+    ///         ServerName = "firewallrulecrudtest-6285",
+    ///         StartIPv6Address = "0000:0000:0000:0000:0000:ffff:0000:0001",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20210801preview:IPv6FirewallRule firewallrulecrudtest-3927 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/firewallrulecrudtest-12/providers/Microsoft.Sql/servers/firewallrulecrudtest-6285/ipv6FirewallRules/firewallrulecrudtest-3927 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20210801preview:IPv6FirewallRule")]
     public partial class IPv6FirewallRule : global::Pulumi.CustomResource

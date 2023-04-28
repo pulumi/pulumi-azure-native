@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * The Live Output.
  * API Version: 2022-11-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a LiveOutput
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const liveOutput = new azure_native.media.LiveOutput("liveOutput", {
+ *     accountName: "slitestmedia10",
+ *     archiveWindowLength: "PT5M",
+ *     assetName: "6f3264f5-a189-48b4-a29a-a40f22575212",
+ *     description: "test live output 1",
+ *     hls: {
+ *         fragmentsPerTsSegment: 5,
+ *     },
+ *     liveEventName: "myLiveEvent1",
+ *     liveOutputName: "myLiveOutput1",
+ *     manifestName: "testmanifest",
+ *     resourceGroupName: "mediaresources",
+ *     rewindWindowLength: "PT4M",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media:LiveOutput myLiveOutput1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/liveevents/myLiveEvent1/liveoutputs/myLiveOutput1 
+ * ```
  */
 export class LiveOutput extends pulumi.CustomResource {
     /**

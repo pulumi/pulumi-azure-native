@@ -96,6 +96,42 @@ class SyncAgent(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a new sync agent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sync_agent = azure_native.sql.SyncAgent("syncAgent",
+            resource_group_name="syncagentcrud-65440",
+            server_name="syncagentcrud-8475",
+            sync_agent_name="syncagentcrud-3187",
+            sync_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync")
+
+        ```
+        ### Update a sync agent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sync_agent = azure_native.sql.SyncAgent("syncAgent",
+            resource_group_name="syncagentcrud-65440",
+            server_name="syncagentcrud-8475",
+            sync_agent_name="syncagentcrud-3187",
+            sync_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:SyncAgent syncagent /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/syncAgents/syncagentcrud-3187 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -113,6 +149,42 @@ class SyncAgent(pulumi.CustomResource):
         An Azure SQL Database sync agent.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a new sync agent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sync_agent = azure_native.sql.SyncAgent("syncAgent",
+            resource_group_name="syncagentcrud-65440",
+            server_name="syncagentcrud-8475",
+            sync_agent_name="syncagentcrud-3187",
+            sync_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync")
+
+        ```
+        ### Update a sync agent
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sync_agent = azure_native.sql.SyncAgent("syncAgent",
+            resource_group_name="syncagentcrud-65440",
+            server_name="syncagentcrud-8475",
+            sync_agent_name="syncagentcrud-3187",
+            sync_database_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:SyncAgent syncagent /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/syncAgents/syncagentcrud-3187 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SyncAgentArgs args: The arguments to use to populate this resource's properties.

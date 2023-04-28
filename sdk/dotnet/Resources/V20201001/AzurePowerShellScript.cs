@@ -11,6 +11,205 @@ namespace Pulumi.AzureNative.Resources.V20201001
 {
     /// <summary>
     /// Object model for the Azure PowerShell script.
+    /// 
+    /// ## Example Usage
+    /// ### DeploymentScriptsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azurePowerShellScript = new AzureNative.Resources.V20201001.AzurePowerShellScript("azurePowerShellScript", new()
+    ///     {
+    ///         Arguments = "-Location 'westus' -Name \"*rg2\"",
+    ///         AzPowerShellVersion = "1.7.0",
+    ///         CleanupPreference = "Always",
+    ///         Identity = new AzureNative.Resources.V20201001.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai", null },
+    ///             },
+    ///         },
+    ///         Kind = "AzurePowerShell",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "script-rg",
+    ///         RetentionInterval = "PT7D",
+    ///         ScriptContent = "Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+    ///         ScriptName = "MyDeploymentScript",
+    ///         SupportingScriptUris = new[]
+    ///         {
+    ///             "https://uri1.to.supporting.script",
+    ///             "https://uri2.to.supporting.script",
+    ///         },
+    ///         Timeout = "PT1H",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DeploymentScriptsCreateNoUserManagedIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azurePowerShellScript = new AzureNative.Resources.V20201001.AzurePowerShellScript("azurePowerShellScript", new()
+    ///     {
+    ///         Arguments = "-Location 'westus' -Name \"*rg2\"",
+    ///         AzPowerShellVersion = "1.7.0",
+    ///         CleanupPreference = "Always",
+    ///         Kind = "AzurePowerShell",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "script-rg",
+    ///         RetentionInterval = "PT7D",
+    ///         ScriptContent = "Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+    ///         ScriptName = "MyDeploymentScript",
+    ///         SupportingScriptUris = new[]
+    ///         {
+    ///             "https://uri1.to.supporting.script",
+    ///             "https://uri2.to.supporting.script",
+    ///         },
+    ///         Timeout = "PT1H",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DeploymentScriptsCreate_MinCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azurePowerShellScript = new AzureNative.Resources.V20201001.AzurePowerShellScript("azurePowerShellScript", new()
+    ///     {
+    ///         Arguments = "-Location 'westus' -Name \"*rg2\"",
+    ///         AzPowerShellVersion = "1.7.0",
+    ///         Identity = new AzureNative.Resources.V20201001.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai", null },
+    ///             },
+    ///         },
+    ///         Kind = "AzurePowerShell",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "script-rg",
+    ///         RetentionInterval = "P7D",
+    ///         ScriptContent = "Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+    ///         ScriptName = "MyDeploymentScript",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DeploymentScriptsCreate_UsingCustomACIName
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azurePowerShellScript = new AzureNative.Resources.V20201001.AzurePowerShellScript("azurePowerShellScript", new()
+    ///     {
+    ///         Arguments = "-Location 'westus' -Name \"*rg2\"",
+    ///         AzPowerShellVersion = "1.7.0",
+    ///         CleanupPreference = "Always",
+    ///         ContainerSettings = new AzureNative.Resources.V20201001.Inputs.ContainerConfigurationArgs
+    ///         {
+    ///             ContainerGroupName = "contoso-aci",
+    ///         },
+    ///         Identity = new AzureNative.Resources.V20201001.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai", null },
+    ///             },
+    ///         },
+    ///         Kind = "AzurePowerShell",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "script-rg",
+    ///         RetentionInterval = "PT7D",
+    ///         ScriptContent = "Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+    ///         ScriptName = "MyDeploymentScript",
+    ///         SupportingScriptUris = new[]
+    ///         {
+    ///             "https://uri1.to.supporting.script",
+    ///             "https://uri2.to.supporting.script",
+    ///         },
+    ///         Timeout = "PT1H",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DeploymentScriptsCreate_UsingExistingStorageAccount
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azurePowerShellScript = new AzureNative.Resources.V20201001.AzurePowerShellScript("azurePowerShellScript", new()
+    ///     {
+    ///         Arguments = "-Location 'westus' -Name \"*rg2\"",
+    ///         AzPowerShellVersion = "1.7.0",
+    ///         CleanupPreference = "Always",
+    ///         Identity = new AzureNative.Resources.V20201001.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/scriptRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/uai", null },
+    ///             },
+    ///         },
+    ///         Kind = "AzurePowerShell",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "script-rg",
+    ///         RetentionInterval = "PT7D",
+    ///         ScriptContent = "Param([string]$Location,[string]$Name) $deploymentScriptOutputs['test'] = 'value' Get-AzResourceGroup -Location $Location -Name $Name",
+    ///         ScriptName = "MyDeploymentScript",
+    ///         StorageAccountSettings = new AzureNative.Resources.V20201001.Inputs.StorageAccountConfigurationArgs
+    ///         {
+    ///             StorageAccountKey = "contosostoragekey",
+    ///             StorageAccountName = "contosostorage",
+    ///         },
+    ///         SupportingScriptUris = new[]
+    ///         {
+    ///             "https://uri1.to.supporting.script",
+    ///             "https://uri2.to.supporting.script",
+    ///         },
+    ///         Timeout = "PT1H",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources/v20201001:AzurePowerShellScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources/v20201001:AzurePowerShellScript")]
     public partial class AzurePowerShellScript : global::Pulumi.CustomResource

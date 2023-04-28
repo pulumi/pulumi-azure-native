@@ -8,6 +8,36 @@ import * as utilities from "../utilities";
  * Gateway hostname configuration details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateGatewayHostnameConfiguration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gatewayHostnameConfiguration = new azure_native.apimanagement.GatewayHostnameConfiguration("gatewayHostnameConfiguration", {
+ *     certificateId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/certificates/cert1",
+ *     gatewayId: "gw1",
+ *     hcId: "default",
+ *     hostname: "*",
+ *     http2Enabled: true,
+ *     negotiateClientCertificate: false,
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     tls10Enabled: false,
+ *     tls11Enabled: false,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:GatewayHostnameConfiguration default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/gateways/gw1/hostnameConfigurations/default 
+ * ```
  */
 export class GatewayHostnameConfiguration extends pulumi.CustomResource {
     /**

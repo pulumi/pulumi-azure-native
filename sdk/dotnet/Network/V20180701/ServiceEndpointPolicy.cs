@@ -11,6 +11,67 @@ namespace Pulumi.AzureNative.Network.V20180701
 {
     /// <summary>
     /// Service End point policy resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create service endpoint policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceEndpointPolicy = new AzureNative.Network.V20180701.ServiceEndpointPolicy("serviceEndpointPolicy", new()
+    ///     {
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceEndpointPolicyName = "testPolicy",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create service endpoint policy with definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceEndpointPolicy = new AzureNative.Network.V20180701.ServiceEndpointPolicy("serviceEndpointPolicy", new()
+    ///     {
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceEndpointPolicyDefinitions = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180701.Inputs.ServiceEndpointPolicyDefinitionArgs
+    ///             {
+    ///                 Description = "Storage Service EndpointPolicy Definition",
+    ///                 Name = "StorageServiceEndpointPolicyDefinition",
+    ///                 Service = "Microsoft.Storage",
+    ///                 ServiceResources = new[]
+    ///                 {
+    ///                     "/subscriptions/subid1",
+    ///                     "/subscriptions/subid1/resourceGroups/storageRg",
+    ///                     "/subscriptions/subid1/resourceGroups/storageRg/providers/Microsoft.Storage/storageAccounts/stAccount",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ServiceEndpointPolicyName = "testPolicy",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180701:ServiceEndpointPolicy testnsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ServiceEndpointPolicies/testpolicy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180701:ServiceEndpointPolicy")]
     public partial class ServiceEndpointPolicy : global::Pulumi.CustomResource

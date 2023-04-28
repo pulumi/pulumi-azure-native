@@ -10,6 +10,36 @@ import * as utilities from "../../utilities";
 /**
  * This type describes a volume resource.
  *
+ * ## Example Usage
+ * ### VolumeCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volume = new azure_native.servicefabricmesh.v20180701preview.Volume("volume", {
+ *     azureFileParameters: {
+ *         accountKey: "provide-account-key-here",
+ *         accountName: "sbzdemoaccount",
+ *         shareName: "sharel",
+ *     },
+ *     description: "File share backed by Azure Files storage.",
+ *     location: "eastus",
+ *     provider: "SFAzureFile",
+ *     resourceGroupName: "sbz_demo",
+ *     volumeName: "sbzDemoVolume",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabricmesh/v20180701preview:Volume sbzDemoVolume /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/volumes/sbzDemoVolume 
+ * ```
+ *
  * @deprecated Version 2018-07-01-preview will be removed in v2 of the provider.
  */
 export class Volume extends pulumi.CustomResource {

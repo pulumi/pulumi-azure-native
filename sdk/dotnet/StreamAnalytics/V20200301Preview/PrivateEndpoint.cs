@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301Preview
 {
     /// <summary>
     /// Complete information about the private endpoint.
+    /// 
+    /// ## Example Usage
+    /// ### Create a private endpoint
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpoint = new AzureNative.StreamAnalytics.V20200301Preview.PrivateEndpoint("privateEndpoint", new()
+    ///     {
+    ///         ClusterName = "testcluster",
+    ///         PrivateEndpointName = "testpe",
+    ///         Properties = new AzureNative.StreamAnalytics.V20200301Preview.Inputs.PrivateEndpointPropertiesArgs
+    ///         {
+    ///             ManualPrivateLinkServiceConnections = new[]
+    ///             {
+    ///                 new AzureNative.StreamAnalytics.V20200301Preview.Inputs.PrivateLinkServiceConnectionArgs
+    ///                 {
+    ///                     GroupIds = new[]
+    ///                     {
+    ///                         "groupIdFromResource",
+    ///                     },
+    ///                     PrivateLinkServiceId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "sjrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:streamanalytics/v20200301preview:PrivateEndpoint An Example Private Endpoint /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/sjrg/providers/Microsoft.StreamAnalytics/clusters/testcluster/privateEndpoints/AnExamplePrivateEndpoint 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20200301preview:PrivateEndpoint")]
     public partial class PrivateEndpoint : global::Pulumi.CustomResource

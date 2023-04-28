@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Purview.V20210701
 {
     /// <summary>
     /// Account resource
+    /// 
+    /// ## Example Usage
+    /// ### Accounts_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.Purview.V20210701.Account("account", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         Location = "West US 2",
+    ///         ManagedResourceGroupName = "custom-rgname",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:purview/v20210701:Account account1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/SampleResourceGroup/providers/Microsoft.Purview/accounts/account1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:purview/v20210701:Account")]
     public partial class Account : global::Pulumi.CustomResource

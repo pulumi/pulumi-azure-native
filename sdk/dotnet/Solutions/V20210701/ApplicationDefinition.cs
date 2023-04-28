@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.Solutions.V20210701
 {
     /// <summary>
     /// Information about managed application definition.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update managed application definition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationDefinition = new AzureNative.Solutions.V20210701.ApplicationDefinition("applicationDefinition", new()
+    ///     {
+    ///         ApplicationDefinitionName = "myManagedApplicationDef",
+    ///         Authorizations = new[]
+    ///         {
+    ///             new AzureNative.Solutions.V20210701.Inputs.ApplicationAuthorizationArgs
+    ///             {
+    ///                 PrincipalId = "validprincipalguid",
+    ///                 RoleDefinitionId = "validroleguid",
+    ///             },
+    ///         },
+    ///         Description = "myManagedApplicationDef description",
+    ///         DisplayName = "myManagedApplicationDef",
+    ///         LockLevel = AzureNative.Solutions.V20210701.ApplicationLockLevel.None,
+    ///         PackageFileUri = "https://path/to/packagezipfile",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:solutions/v20210701:ApplicationDefinition myManagedApplicationDef /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myManagedApplicationDef 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:solutions/v20210701:ApplicationDefinition")]
     public partial class ApplicationDefinition : global::Pulumi.CustomResource

@@ -13,6 +13,45 @@ namespace Pulumi.AzureNative.StoragePool
     /// Response for iSCSI Target requests.
     /// API Version: 2021-08-01.
     /// Previous API Version: 2020-03-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update iSCSI Target
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iscsiTarget = new AzureNative.StoragePool.IscsiTarget("iscsiTarget", new()
+    ///     {
+    ///         AclMode = "Dynamic",
+    ///         DiskPoolName = "myDiskPool",
+    ///         IscsiTargetName = "myIscsiTarget",
+    ///         Luns = new[]
+    ///         {
+    ///             new AzureNative.StoragePool.Inputs.IscsiLunArgs
+    ///             {
+    ///                 ManagedDiskAzureResourceId = "/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/vm-name_DataDisk_1",
+    ///                 Name = "lun0",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         TargetIqn = "iqn.2005-03.org.iscsi:server1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagepool:IscsiTarget myIscsiTarget /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.StoragePool/diskPools/myDiskPool/iscsiTargets/myIscsiTarget 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagepool:IscsiTarget")]
     public partial class IscsiTarget : global::Pulumi.CustomResource

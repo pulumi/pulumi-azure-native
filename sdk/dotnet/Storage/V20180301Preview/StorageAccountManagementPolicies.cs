@@ -11,6 +11,86 @@ namespace Pulumi.AzureNative.Storage.V20180301Preview
 {
     /// <summary>
     /// The Get Storage Account ManagementPolicies operation response.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountSetManagementPolicies
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAccountManagementPolicies = new AzureNative.Storage.V20180301Preview.StorageAccountManagementPolicies("storageAccountManagementPolicies", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         ManagementPolicyName = "default",
+    ///         Policy = 
+    ///         {
+    ///             { "rules", new[]
+    ///             {
+    ///                 
+    ///                 {
+    ///                     { "definition", 
+    ///                     {
+    ///                         { "actions", 
+    ///                         {
+    ///                             { "baseBlob", 
+    ///                             {
+    ///                                 { "delete", 
+    ///                                 {
+    ///                                     { "daysAfterModificationGreaterThan", 1000 },
+    ///                                 } },
+    ///                                 { "tierToArchive", 
+    ///                                 {
+    ///                                     { "daysAfterModificationGreaterThan", 90 },
+    ///                                 } },
+    ///                                 { "tierToCool", 
+    ///                                 {
+    ///                                     { "daysAfterModificationGreaterThan", 30 },
+    ///                                 } },
+    ///                             } },
+    ///                             { "snapshot", 
+    ///                             {
+    ///                                 { "delete", 
+    ///                                 {
+    ///                                     { "daysAfterCreationGreaterThan", 30 },
+    ///                                 } },
+    ///                             } },
+    ///                         } },
+    ///                         { "filters", 
+    ///                         {
+    ///                             { "blobTypes", new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                             } },
+    ///                             { "prefixMatch", new[]
+    ///                             {
+    ///                                 "olcmtestcontainer",
+    ///                             } },
+    ///                         } },
+    ///                     } },
+    ///                     { "name", "olcmtest" },
+    ///                     { "type", "Lifecycle" },
+    ///                 },
+    ///             } },
+    ///             { "version", "0.5" },
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20180301preview:StorageAccountManagementPolicies DefaultManagementPolicy /subscriptions/{subscription-id}/resourceGroups/res7231/providers/Microsoft.Storage/storageAccounts/sto288/managementPolicies/default 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20180301preview:StorageAccountManagementPolicies")]

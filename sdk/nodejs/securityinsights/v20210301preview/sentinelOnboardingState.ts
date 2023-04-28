@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Sentinel onboarding state
+ *
+ * ## Example Usage
+ * ### Create Sentinel onboarding state
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sentinelOnboardingState = new azure_native.securityinsights.v20210301preview.SentinelOnboardingState("sentinelOnboardingState", {
+ *     customerManagedKey: false,
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     resourceGroupName: "myRg",
+ *     sentinelOnboardingStateName: "default",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20210301preview:SentinelOnboardingState default /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/onboardingStates/default 
+ * ```
  */
 export class SentinelOnboardingState extends pulumi.CustomResource {
     /**

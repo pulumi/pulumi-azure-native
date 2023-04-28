@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * API Version Set Contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiVersionSet
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiVersionSet = new azure_native.apimanagement.v20220801.ApiVersionSet("apiVersionSet", {
+ *     description: "Version configuration",
+ *     displayName: "api set 1",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     versionSetId: "api1",
+ *     versioningScheme: "Segment",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:ApiVersionSet api1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apiVersionSets/api1 
+ * ```
  */
 export class ApiVersionSet extends pulumi.CustomResource {
     /**

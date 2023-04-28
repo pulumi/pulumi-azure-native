@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * The virtual hard disk resource definition.
+ *
+ * ## Example Usage
+ * ### PutVirtualHardDisk
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualharddiskRetrieve = new azure_native.azurestackhci.v20210901preview.VirtualharddiskRetrieve("virtualharddiskRetrieve", {
+ *     diskSizeBytes: 32,
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "West US2",
+ *     resourceGroupName: "test-rg",
+ *     virtualharddisksName: "test-vhd",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci/v20210901preview:virtualharddiskRetrieve test-vhd /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/virtualharddisks/test-vhd 
+ * ```
  */
 export class VirtualharddiskRetrieve extends pulumi.CustomResource {
     /**

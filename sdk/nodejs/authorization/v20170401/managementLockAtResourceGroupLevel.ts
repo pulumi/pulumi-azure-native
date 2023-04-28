@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * The lock information.
+ *
+ * ## Example Usage
+ * ### Create management lock at resource group level
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementLockAtResourceGroupLevel = new azure_native.authorization.v20170401.ManagementLockAtResourceGroupLevel("managementLockAtResourceGroupLevel", {
+ *     level: "ReadOnly",
+ *     lockName: "testlock",
+ *     resourceGroupName: "resourcegroupname",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20170401:ManagementLockAtResourceGroupLevel testlock /subscriptions/subscriptionId/resourceGroups/resourcegroupname/providers/Microsoft.Authorization/locks/testlock 
+ * ```
  */
 export class ManagementLockAtResourceGroupLevel extends pulumi.CustomResource {
     /**

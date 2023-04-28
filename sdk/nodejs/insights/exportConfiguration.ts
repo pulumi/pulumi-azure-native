@@ -8,6 +8,38 @@ import * as utilities from "../utilities";
  * Properties that define a Continuous Export configuration.
  * API Version: 2015-05-01.
  * Previous API Version: 2015-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ExportConfigurationUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const exportConfiguration = new azure_native.insights.ExportConfiguration("exportConfiguration", {
+ *     destinationAccountId: "/subscriptions/subid/resourceGroups/my-resource-group/providers/Microsoft.ClassicStorage/storageAccounts/mystorageblob",
+ *     destinationAddress: "https://mystorageblob.blob.core.windows.net/fchentest?sv=2015-04-05&sr=c&sig=token",
+ *     destinationStorageLocationId: "eastus",
+ *     destinationStorageSubscriptionId: "subid",
+ *     destinationType: "Blob",
+ *     exportId: "uGOoki0jQsyEs3IdQ83Q4QsNr4=",
+ *     isEnabled: "true",
+ *     notificationQueueEnabled: "false",
+ *     notificationQueueUri: "",
+ *     recordTypes: "Requests, Event, Exceptions, Metrics, PageViews, PageViewPerformance, Rdd, PerformanceCounters, Availability",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "my-component",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights:ExportConfiguration myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{resourceName}/exportconfiguration/{exportId} 
+ * ```
  */
 export class ExportConfiguration extends pulumi.CustomResource {
     /**

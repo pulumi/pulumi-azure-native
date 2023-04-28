@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * The log profile resource.
+ *
+ * ## Example Usage
+ * ### Create or update a log profile
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const logProfile = new azure_native.insights.v20160301.LogProfile("logProfile", {
+ *     categories: [
+ *         "Write",
+ *         "Delete",
+ *         "Action",
+ *     ],
+ *     location: "",
+ *     locations: ["global"],
+ *     logProfileName: "Rac46PostSwapRG",
+ *     retentionPolicy: {
+ *         days: 3,
+ *         enabled: true,
+ *     },
+ *     serviceBusRuleId: "",
+ *     storageAccountId: "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/JohnKemTest/providers/Microsoft.Storage/storageAccounts/johnkemtest8162",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:insights/v20160301:LogProfile default /subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/providers/microsoft.insights/logprofiles/default 
+ * ```
  */
 export class LogProfile extends pulumi.CustomResource {
     /**

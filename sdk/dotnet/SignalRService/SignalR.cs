@@ -13,6 +13,151 @@ namespace Pulumi.AzureNative.SignalRService
     /// A class represent a resource.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SignalR_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var signalR = new AzureNative.SignalRService.SignalR("signalR", new()
+    ///     {
+    ///         Cors = new AzureNative.SignalRService.Inputs.SignalRCorsSettingsArgs
+    ///         {
+    ///             AllowedOrigins = new[]
+    ///             {
+    ///                 "https://foo.com",
+    ///                 "https://bar.com",
+    ///             },
+    ///         },
+    ///         DisableAadAuth = false,
+    ///         DisableLocalAuth = false,
+    ///         Features = new[]
+    ///         {
+    ///             new AzureNative.SignalRService.Inputs.SignalRFeatureArgs
+    ///             {
+    ///                 Flag = "ServiceMode",
+    ///                 Properties = null,
+    ///                 Value = "Serverless",
+    ///             },
+    ///             new AzureNative.SignalRService.Inputs.SignalRFeatureArgs
+    ///             {
+    ///                 Flag = "EnableConnectivityLogs",
+    ///                 Properties = null,
+    ///                 Value = "True",
+    ///             },
+    ///             new AzureNative.SignalRService.Inputs.SignalRFeatureArgs
+    ///             {
+    ///                 Flag = "EnableMessagingLogs",
+    ///                 Properties = null,
+    ///                 Value = "False",
+    ///             },
+    ///             new AzureNative.SignalRService.Inputs.SignalRFeatureArgs
+    ///             {
+    ///                 Flag = "EnableLiveTrace",
+    ///                 Properties = null,
+    ///                 Value = "False",
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.SignalRService.Inputs.ManagedIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Kind = "SignalR",
+    ///         LiveTraceConfiguration = new AzureNative.SignalRService.Inputs.LiveTraceConfigurationArgs
+    ///         {
+    ///             Categories = new[]
+    ///             {
+    ///                 new AzureNative.SignalRService.Inputs.LiveTraceCategoryArgs
+    ///                 {
+    ///                     Enabled = "true",
+    ///                     Name = "ConnectivityLogs",
+    ///                 },
+    ///             },
+    ///             Enabled = "false",
+    ///         },
+    ///         Location = "eastus",
+    ///         NetworkACLs = new AzureNative.SignalRService.Inputs.SignalRNetworkACLsArgs
+    ///         {
+    ///             DefaultAction = "Deny",
+    ///             PrivateEndpoints = new[]
+    ///             {
+    ///                 new AzureNative.SignalRService.Inputs.PrivateEndpointACLArgs
+    ///                 {
+    ///                     Allow = new[]
+    ///                     {
+    ///                         "ServerConnection",
+    ///                     },
+    ///                     Name = "mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+    ///                 },
+    ///             },
+    ///             PublicNetwork = new AzureNative.SignalRService.Inputs.NetworkACLArgs
+    ///             {
+    ///                 Allow = new[]
+    ///                 {
+    ///                     "ClientConnection",
+    ///                 },
+    ///             },
+    ///         },
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "mySignalRService",
+    ///         Serverless = new AzureNative.SignalRService.Inputs.ServerlessSettingsArgs
+    ///         {
+    ///             ConnectionTimeoutInSeconds = 5,
+    ///         },
+    ///         Sku = new AzureNative.SignalRService.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Premium_P1",
+    ///             Tier = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         Tls = new AzureNative.SignalRService.Inputs.SignalRTlsSettingsArgs
+    ///         {
+    ///             ClientCertEnabled = false,
+    ///         },
+    ///         Upstream = new AzureNative.SignalRService.Inputs.ServerlessUpstreamSettingsArgs
+    ///         {
+    ///             Templates = new[]
+    ///             {
+    ///                 new AzureNative.SignalRService.Inputs.UpstreamTemplateArgs
+    ///                 {
+    ///                     Auth = new AzureNative.SignalRService.Inputs.UpstreamAuthSettingsArgs
+    ///                     {
+    ///                         ManagedIdentity = new AzureNative.SignalRService.Inputs.ManagedIdentitySettingsArgs
+    ///                         {
+    ///                             Resource = "api://example",
+    ///                         },
+    ///                         Type = "ManagedIdentity",
+    ///                     },
+    ///                     CategoryPattern = "*",
+    ///                     EventPattern = "connect,disconnect",
+    ///                     HubPattern = "*",
+    ///                     UrlTemplate = "https://example.com/chat/api/connect",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:signalrservice:SignalR mySignalRService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice:SignalR")]
     public partial class SignalR : global::Pulumi.CustomResource

@@ -111,6 +111,48 @@ class RegistryModelVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Registry Model Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_model_version = azure_native.machinelearningservices.v20221201preview.RegistryModelVersion("registryModelVersion",
+            model_name="string",
+            model_version_properties=azure_native.machinelearningservices.v20221201preview.ModelVersionResponseArgs(
+                description="string",
+                flavors={
+                    "string": azure_native.machinelearningservices.v20221201preview.FlavorDataArgs(
+                        data={
+                            "string": "string",
+                        },
+                    ),
+                },
+                is_anonymous=False,
+                model_type="CustomModel",
+                model_uri="string",
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            registry_name="my-aml-registry",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20221201preview:RegistryModelVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] model_name: Container name.
@@ -127,6 +169,48 @@ class RegistryModelVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Registry Model Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_model_version = azure_native.machinelearningservices.v20221201preview.RegistryModelVersion("registryModelVersion",
+            model_name="string",
+            model_version_properties=azure_native.machinelearningservices.v20221201preview.ModelVersionResponseArgs(
+                description="string",
+                flavors={
+                    "string": azure_native.machinelearningservices.v20221201preview.FlavorDataArgs(
+                        data={
+                            "string": "string",
+                        },
+                    ),
+                },
+                is_anonymous=False,
+                model_type="CustomModel",
+                model_uri="string",
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            registry_name="my-aml-registry",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20221201preview:RegistryModelVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryModelVersionArgs args: The arguments to use to populate this resource's properties.

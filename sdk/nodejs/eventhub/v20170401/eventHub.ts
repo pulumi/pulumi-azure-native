@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in List or Get Event Hub operation
+ *
+ * ## Example Usage
+ * ### EventHubCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventHub = new azure_native.eventhub.v20170401.EventHub("eventHub", {
+ *     captureDescription: {
+ *         destination: {
+ *             archiveNameFormat: "{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}",
+ *             blobContainer: "container",
+ *             name: "EventHubArchive.AzureBlockBlob",
+ *             storageAccountResourceId: "/subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-Storage-SouthCentralUS/providers/Microsoft.ClassicStorage/storageAccounts/arjunteststorage",
+ *         },
+ *         enabled: true,
+ *         encoding: azure_native.eventhub.v20170401.EncodingCaptureDescription.Avro,
+ *         intervalInSeconds: 120,
+ *         sizeLimitInBytes: 10485763,
+ *     },
+ *     eventHubName: "sdk-EventHub-6547",
+ *     messageRetentionInDays: 4,
+ *     namespaceName: "sdk-Namespace-5357",
+ *     partitionCount: 4,
+ *     resourceGroupName: "Default-NotificationHubs-AustraliaEast",
+ *     status: azure_native.eventhub.v20170401.EntityStatus.Active,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub/v20170401:EventHub sdk-EventHub-10 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-NotificationHubs-AustraliaEast/providers/Microsoft.EventHub/namespaces/sdk-Namespace-716/eventhubs/sdk-EventHub-10 
+ * ```
  */
 export class EventHub extends pulumi.CustomResource {
     /**

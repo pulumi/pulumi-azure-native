@@ -11,6 +11,119 @@ import * as utilities from "../utilities";
  * A SQL DB table data set.
  * API Version: 2021-08-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### DataSets_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDBTableDataSet = new azure_native.datashare.SqlDBTableDataSet("sqlDBTableDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoCluster_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDBTableDataSet = new azure_native.datashare.SqlDBTableDataSet("sqlDBTableDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoDatabase_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDBTableDataSet = new azure_native.datashare.SqlDBTableDataSet("sqlDBTableDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDBTableDataSet = new azure_native.datashare.SqlDBTableDataSet("sqlDBTableDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDBTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDBTableDataSet = new azure_native.datashare.SqlDBTableDataSet("sqlDBTableDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     databaseName: "SqlDB1",
+ *     kind: "SqlDBTable",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     schemaName: "dbo",
+ *     shareName: "Share1",
+ *     sqlServerResourceId: "/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Sql/servers/Server1",
+ *     tableName: "Table1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDWTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDBTableDataSet = new azure_native.datashare.SqlDBTableDataSet("sqlDBTableDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDBTableDataSet = new azure_native.datashare.SqlDBTableDataSet("sqlDBTableDataSet", {
+ *     accountName: "sourceAccount",
+ *     dataSetName: "dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "share1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare:SqlDBTableDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+ * ```
  */
 export class SqlDBTableDataSet extends pulumi.CustomResource {
     /**

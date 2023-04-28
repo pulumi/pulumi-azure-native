@@ -212,6 +212,36 @@ class FileShare(pulumi.CustomResource):
         """
         The File Share.
 
+        ## Example Usage
+        ### FileSharesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_share = azure_native.storsimple.v20161001.FileShare("fileShare",
+            admin_user="fareast\\\\idcdlslb",
+            data_policy=azure_native.storsimple/v20161001.DataPolicy.TIERED,
+            description="Demo FileShare for SDK Test Tiered",
+            device_name="HSDK-4XY4FI2IVG",
+            file_server_name="HSDK-4XY4FI2IVG",
+            manager_name="hAzureSDKOperations",
+            monitoring_status=azure_native.storsimple/v20161001.MonitoringStatus.ENABLED,
+            provisioned_capacity_in_bytes=536870912000,
+            resource_group_name="ResourceGroupForSDKTest",
+            share_name="Auto-TestFileShare1",
+            share_status=azure_native.storsimple/v20161001.ShareStatus.ONLINE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:FileShare Auto-TestFileShare1 /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/fileServers/HSDK-4XY4FI2IVG/shares/Auto-TestFileShare1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_user: The user/group who will have full permission in this share. Active directory email address. Example: xyz@contoso.com or Contoso\\xyz.
@@ -234,6 +264,36 @@ class FileShare(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The File Share.
+
+        ## Example Usage
+        ### FileSharesCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file_share = azure_native.storsimple.v20161001.FileShare("fileShare",
+            admin_user="fareast\\\\idcdlslb",
+            data_policy=azure_native.storsimple/v20161001.DataPolicy.TIERED,
+            description="Demo FileShare for SDK Test Tiered",
+            device_name="HSDK-4XY4FI2IVG",
+            file_server_name="HSDK-4XY4FI2IVG",
+            manager_name="hAzureSDKOperations",
+            monitoring_status=azure_native.storsimple/v20161001.MonitoringStatus.ENABLED,
+            provisioned_capacity_in_bytes=536870912000,
+            resource_group_name="ResourceGroupForSDKTest",
+            share_name="Auto-TestFileShare1",
+            share_status=azure_native.storsimple/v20161001.ShareStatus.ONLINE)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storsimple/v20161001:FileShare Auto-TestFileShare1 /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/fileServers/HSDK-4XY4FI2IVG/shares/Auto-TestFileShare1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FileShareArgs args: The arguments to use to populate this resource's properties.

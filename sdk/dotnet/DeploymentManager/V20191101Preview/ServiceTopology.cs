@@ -11,6 +11,57 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
 {
     /// <summary>
     /// The resource representation of a service topology.
+    /// 
+    /// ## Example Usage
+    /// ### Create a topology with Artifact Source
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceTopology = new AzureNative.DeploymentManager.V20191101Preview.ServiceTopology("serviceTopology", new()
+    ///     {
+    ///         ArtifactSourceId = "Microsoft.DeploymentManager/artifactSources/myArtifactSource",
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceTopologyName = "myTopology",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a topology without Artifact Source
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceTopology = new AzureNative.DeploymentManager.V20191101Preview.ServiceTopology("serviceTopology", new()
+    ///     {
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceTopologyName = "myTopology",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deploymentmanager/v20191101preview:ServiceTopology myTopology /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/serviceTopologies/{serviceTopologyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager/v20191101preview:ServiceTopology")]
     public partial class ServiceTopology : global::Pulumi.CustomResource

@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.NetApp.V20201201
 {
     /// <summary>
     /// NetApp account resource
+    /// 
+    /// ## Example Usage
+    /// ### Accounts_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.NetApp.V20201201.Account("account", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         ActiveDirectories = new[]
+    ///         {
+    ///             new AzureNative.NetApp.V20201201.Inputs.ActiveDirectoryArgs
+    ///             {
+    ///                 AesEncryption = true,
+    ///                 Dns = "10.10.10.3, 10.10.10.4",
+    ///                 Domain = "10.10.10.3",
+    ///                 LdapSigning = false,
+    ///                 OrganizationalUnit = "Engineering",
+    ///                 Password = "ad_password",
+    ///                 Site = "SiteName",
+    ///                 SmbServerName = "SMBServer",
+    ///                 Username = "ad_user_name",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "myRG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20201201:Account account1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp/v20201201:Account")]
     public partial class Account : global::Pulumi.CustomResource

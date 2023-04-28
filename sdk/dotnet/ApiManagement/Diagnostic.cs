@@ -13,6 +13,92 @@ namespace Pulumi.AzureNative.ApiManagement
     /// Diagnostic details.
     /// API Version: 2022-08-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateDiagnostic
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diagnostic = new AzureNative.ApiManagement.Diagnostic("diagnostic", new()
+    ///     {
+    ///         AlwaysLog = "allErrors",
+    ///         Backend = new AzureNative.ApiManagement.Inputs.PipelineDiagnosticSettingsArgs
+    ///         {
+    ///             Request = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+    ///             {
+    ///                 Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+    ///                 {
+    ///                     Bytes = 512,
+    ///                 },
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "Content-type",
+    ///                 },
+    ///             },
+    ///             Response = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+    ///             {
+    ///                 Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+    ///                 {
+    ///                     Bytes = 512,
+    ///                 },
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "Content-type",
+    ///                 },
+    ///             },
+    ///         },
+    ///         DiagnosticId = "applicationinsights",
+    ///         Frontend = new AzureNative.ApiManagement.Inputs.PipelineDiagnosticSettingsArgs
+    ///         {
+    ///             Request = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+    ///             {
+    ///                 Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+    ///                 {
+    ///                     Bytes = 512,
+    ///                 },
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "Content-type",
+    ///                 },
+    ///             },
+    ///             Response = new AzureNative.ApiManagement.Inputs.HttpMessageDiagnosticArgs
+    ///             {
+    ///                 Body = new AzureNative.ApiManagement.Inputs.BodyDiagnosticSettingsArgs
+    ///                 {
+    ///                     Bytes = 512,
+    ///                 },
+    ///                 Headers = new[]
+    ///                 {
+    ///                     "Content-type",
+    ///                 },
+    ///             },
+    ///         },
+    ///         LoggerId = "/loggers/azuremonitor",
+    ///         ResourceGroupName = "rg1",
+    ///         Sampling = new AzureNative.ApiManagement.Inputs.SamplingSettingsArgs
+    ///         {
+    ///             Percentage = 50,
+    ///             SamplingType = "fixed",
+    ///         },
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement:Diagnostic applicationinsights /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/applicationinsights 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement:Diagnostic")]
     public partial class Diagnostic : global::Pulumi.CustomResource

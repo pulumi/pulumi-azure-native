@@ -113,6 +113,30 @@ class User(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2018-10-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### putUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.labservices.User("user",
+            additional_usage_quota="PT10H",
+            email="testuser@contoso.com",
+            lab_name="testlab",
+            resource_group_name="testrg123",
+            user_name="testuser")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices:User default /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labs/testlab/users/testuser 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] additional_usage_quota: The amount of usage quota time the user gets in addition to the lab usage quota.
@@ -131,6 +155,30 @@ class User(pulumi.CustomResource):
         User of a lab that can register for and use virtual machines within the lab.
         API Version: 2022-08-01.
         Previous API Version: 2018-10-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### putUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.labservices.User("user",
+            additional_usage_quota="PT10H",
+            email="testuser@contoso.com",
+            lab_name="testlab",
+            resource_group_name="testrg123",
+            user_name="testuser")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices:User default /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labs/testlab/users/testuser 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

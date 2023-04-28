@@ -454,6 +454,250 @@ class Disk(pulumi.CustomResource):
         """
         Disk resource.
 
+        ## Example Usage
+        ### Create a managed disk and associate with disk access resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_access_id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/{existing-diskAccess-name}",
+            disk_name="myDisk",
+            disk_size_gb=200,
+            location="West US",
+            network_access_policy="AllowPrivate",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk and associate with disk encryption set.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            encryption=azure_native.compute.v20201201.EncryptionArgs(
+                disk_encryption_set_id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk by copying a snapshot.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Copy",
+                source_resource_id="subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+            ),
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk by importing an unmanaged blob from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Import",
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                storage_account_id="subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+            ),
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk by importing an unmanaged blob from the same subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Import",
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            ),
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk from a platform image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataResponseArgs(
+                create_option="FromImage",
+                image_reference=azure_native.compute.v20201201.ImageDiskReferenceArgs(
+                    id="/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus/Publishers/{publisher}/ArtifactTypes/VMImage/Offers/{offer}/Skus/{sku}/Versions/1.0.0",
+                ),
+            ),
+            disk_name="myDisk",
+            location="West US",
+            os_type=azure_native.compute/v20201201.OperatingSystemTypes.WINDOWS,
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk from an existing managed disk in the same or different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Copy",
+                source_resource_id="subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk1",
+            ),
+            disk_name="myDisk2",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk with security profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataResponseArgs(
+                create_option="FromImage",
+                image_reference=azure_native.compute.v20201201.ImageDiskReferenceArgs(
+                    id="/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}",
+                ),
+            ),
+            disk_name="myDisk",
+            location="North Central US",
+            os_type=azure_native.compute/v20201201.OperatingSystemTypes.WINDOWS,
+            resource_group_name="myResourceGroup",
+            security_profile=azure_native.compute.v20201201.DiskSecurityProfileArgs(
+                security_type="TrustedLaunch",
+            ))
+
+        ```
+        ### Create a managed disk with ssd zrs account type.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            location="West US",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.compute.v20201201.DiskSkuArgs(
+                name="Premium_ZRS",
+            ))
+
+        ```
+        ### Create a managed upload disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Upload",
+                upload_size_bytes=10737418752,
+            ),
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create an empty managed disk in extended location.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            extended_location=azure_native.compute.v20201201.ExtendedLocationArgs(
+                name="{edge-zone-id}",
+                type="EdgeZone",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create an empty managed disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create an ultra managed disk with logicalSectorSize 512E
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+                logical_sector_size=512,
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            location="West US",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.compute.v20201201.DiskSkuArgs(
+                name="UltraSSD_LRS",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20201201:Disk myDisk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/disks/{diskName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] bursting_enabled: Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
@@ -490,6 +734,250 @@ class Disk(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Disk resource.
+
+        ## Example Usage
+        ### Create a managed disk and associate with disk access resource.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_access_id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskAccesses/{existing-diskAccess-name}",
+            disk_name="myDisk",
+            disk_size_gb=200,
+            location="West US",
+            network_access_policy="AllowPrivate",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk and associate with disk encryption set.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            encryption=azure_native.compute.v20201201.EncryptionArgs(
+                disk_encryption_set_id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/diskEncryptionSets/{existing-diskEncryptionSet-name}",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk by copying a snapshot.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Copy",
+                source_resource_id="subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/snapshots/mySnapshot",
+            ),
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk by importing an unmanaged blob from a different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Import",
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+                storage_account_id="subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/myStorageAccount",
+            ),
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk by importing an unmanaged blob from the same subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Import",
+                source_uri="https://mystorageaccount.blob.core.windows.net/osimages/osimage.vhd",
+            ),
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk from a platform image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataResponseArgs(
+                create_option="FromImage",
+                image_reference=azure_native.compute.v20201201.ImageDiskReferenceArgs(
+                    id="/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/westus/Publishers/{publisher}/ArtifactTypes/VMImage/Offers/{offer}/Skus/{sku}/Versions/1.0.0",
+                ),
+            ),
+            disk_name="myDisk",
+            location="West US",
+            os_type=azure_native.compute/v20201201.OperatingSystemTypes.WINDOWS,
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk from an existing managed disk in the same or different subscription.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Copy",
+                source_resource_id="subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/myDisk1",
+            ),
+            disk_name="myDisk2",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create a managed disk with security profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataResponseArgs(
+                create_option="FromImage",
+                image_reference=azure_native.compute.v20201201.ImageDiskReferenceArgs(
+                    id="/Subscriptions/{subscriptionId}/Providers/Microsoft.Compute/Locations/uswest/Publishers/Microsoft/ArtifactTypes/VMImage/Offers/{offer}",
+                ),
+            ),
+            disk_name="myDisk",
+            location="North Central US",
+            os_type=azure_native.compute/v20201201.OperatingSystemTypes.WINDOWS,
+            resource_group_name="myResourceGroup",
+            security_profile=azure_native.compute.v20201201.DiskSecurityProfileArgs(
+                security_type="TrustedLaunch",
+            ))
+
+        ```
+        ### Create a managed disk with ssd zrs account type.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            location="West US",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.compute.v20201201.DiskSkuArgs(
+                name="Premium_ZRS",
+            ))
+
+        ```
+        ### Create a managed upload disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Upload",
+                upload_size_bytes=10737418752,
+            ),
+            disk_name="myDisk",
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create an empty managed disk in extended location.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            extended_location=azure_native.compute.v20201201.ExtendedLocationArgs(
+                name="{edge-zone-id}",
+                type="EdgeZone",
+            ),
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create an empty managed disk.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            location="West US",
+            resource_group_name="myResourceGroup")
+
+        ```
+        ### Create an ultra managed disk with logicalSectorSize 512E
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disk = azure_native.compute.v20201201.Disk("disk",
+            creation_data=azure_native.compute.v20201201.CreationDataArgs(
+                create_option="Empty",
+                logical_sector_size=512,
+            ),
+            disk_name="myDisk",
+            disk_size_gb=200,
+            location="West US",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.compute.v20201201.DiskSkuArgs(
+                name="UltraSSD_LRS",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20201201:Disk myDisk /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/disks/{diskName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiskArgs args: The arguments to use to populate this resource's properties.

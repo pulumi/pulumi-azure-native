@@ -128,6 +128,30 @@ class HybridRunbookWorker(pulumi.CustomResource):
         """
         Definition of hybrid runbook worker.
 
+        ## Example Usage
+        ### Create a V2 hybrid runbook worker
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_runbook_worker = azure_native.automation.v20220808.HybridRunbookWorker("hybridRunbookWorker",
+            automation_account_name="testaccount",
+            hybrid_runbook_worker_group_name="TestHybridGroup",
+            hybrid_runbook_worker_id="c010ad12-ef14-4a2a-aa9e-ef22c4745ddd",
+            resource_group_name="rg",
+            vm_resource_id="/subscriptions/vmsubid/resourceGroups/vmrg/providers/Microsoft.Compute/virtualMachines/vmname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:HybridRunbookWorker c010ad12-ef14-4a2a-aa9e-ef22c4745ddd /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/testaccount/hybridRunbookWorkerGroups/TestHybridGroup/hybridRunbookWorkers/c010ad12-ef14-4a2a-aa9e-ef22c4745ddd 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -145,6 +169,30 @@ class HybridRunbookWorker(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of hybrid runbook worker.
+
+        ## Example Usage
+        ### Create a V2 hybrid runbook worker
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_runbook_worker = azure_native.automation.v20220808.HybridRunbookWorker("hybridRunbookWorker",
+            automation_account_name="testaccount",
+            hybrid_runbook_worker_group_name="TestHybridGroup",
+            hybrid_runbook_worker_id="c010ad12-ef14-4a2a-aa9e-ef22c4745ddd",
+            resource_group_name="rg",
+            vm_resource_id="/subscriptions/vmsubid/resourceGroups/vmrg/providers/Microsoft.Compute/virtualMachines/vmname")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:HybridRunbookWorker c010ad12-ef14-4a2a-aa9e-ef22c4745ddd /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/testaccount/hybridRunbookWorkerGroups/TestHybridGroup/hybridRunbookWorkers/c010ad12-ef14-4a2a-aa9e-ef22c4745ddd 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HybridRunbookWorkerArgs args: The arguments to use to populate this resource's properties.

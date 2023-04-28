@@ -148,6 +148,48 @@ class RouteMap(pulumi.CustomResource):
         """
         The RouteMap child resource of a Virtual hub.
 
+        ## Example Usage
+        ### RouteMapPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_map = azure_native.network.v20220901.RouteMap("routeMap",
+            associated_inbound_connections=["/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteGateways/exrGateway1/expressRouteConnections/exrConn1"],
+            associated_outbound_connections=[],
+            resource_group_name="rg1",
+            route_map_name="routeMap1",
+            rules=[{
+                "actions": [{
+                    "parameters": [azure_native.network.v20220901.ParameterArgs(
+                        as_path=["22334"],
+                        community=[],
+                        route_prefix=[],
+                    )],
+                    "type": "Add",
+                }],
+                "matchCriteria": [azure_native.network.v20220901.CriterionArgs(
+                    as_path=[],
+                    community=[],
+                    match_condition="Contains",
+                    route_prefix=["10.0.0.0/8"],
+                )],
+                "name": "rule1",
+                "nextStepIfMatched": "Continue",
+            }],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:RouteMap routeMap1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] associated_inbound_connections: List of connections which have this RoutMap associated for inbound traffic.
@@ -166,6 +208,48 @@ class RouteMap(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The RouteMap child resource of a Virtual hub.
+
+        ## Example Usage
+        ### RouteMapPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        route_map = azure_native.network.v20220901.RouteMap("routeMap",
+            associated_inbound_connections=["/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteGateways/exrGateway1/expressRouteConnections/exrConn1"],
+            associated_outbound_connections=[],
+            resource_group_name="rg1",
+            route_map_name="routeMap1",
+            rules=[{
+                "actions": [{
+                    "parameters": [azure_native.network.v20220901.ParameterArgs(
+                        as_path=["22334"],
+                        community=[],
+                        route_prefix=[],
+                    )],
+                    "type": "Add",
+                }],
+                "matchCriteria": [azure_native.network.v20220901.CriterionArgs(
+                    as_path=[],
+                    community=[],
+                    match_condition="Contains",
+                    route_prefix=["10.0.0.0/8"],
+                )],
+                "name": "rule1",
+                "nextStepIfMatched": "Continue",
+            }],
+            virtual_hub_name="virtualHub1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:RouteMap routeMap1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteMapArgs args: The arguments to use to populate this resource's properties.

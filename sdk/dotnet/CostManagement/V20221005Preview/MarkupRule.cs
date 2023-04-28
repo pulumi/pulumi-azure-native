@@ -11,6 +11,16 @@ namespace Pulumi.AzureNative.CostManagement.V20221005Preview
 {
     /// <summary>
     /// Markup rule
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement/v20221005preview:MarkupRule markup-2022 providers/Microsoft.CostManagement/markupRules/markup-2022 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20221005preview:MarkupRule")]
     public partial class MarkupRule : global::Pulumi.CustomResource

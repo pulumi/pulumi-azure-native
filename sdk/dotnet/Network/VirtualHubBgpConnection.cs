@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.Network
     /// Virtual Appliance Site resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### VirtualHubRouteTableV2Put
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualHubBgpConnection = new AzureNative.Network.VirtualHubBgpConnection("virtualHubBgpConnection", new()
+    ///     {
+    ///         ConnectionName = "conn1",
+    ///         HubVirtualNetworkConnection = new AzureNative.Network.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubVirtualNetworkConnections/hubVnetConn1",
+    ///         },
+    ///         PeerAsn = 20000,
+    ///         PeerIp = "192.168.1.5",
+    ///         ResourceGroupName = "rg1",
+    ///         VirtualHubName = "hub1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:VirtualHubBgpConnection conn1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/bgpConnections/conn1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:VirtualHubBgpConnection")]
     public partial class VirtualHubBgpConnection : global::Pulumi.CustomResource

@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
     /// Describes a Machine Extension.
     /// API Version: 2022-07-15-preview.
     /// Previous API Version: 2020-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine Extension (PUT)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineExtension = new AzureNative.ConnectedVMwarevSphere.MachineExtension("machineExtension", new()
+    ///     {
+    ///         ExtensionName = "CustomScriptExtension",
+    ///         Location = "eastus2euap",
+    ///         Publisher = "Microsoft.Compute",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Settings = 
+    ///         {
+    ///             { "commandToExecute", "powershell.exe -c \"Get-Process | Where-Object { $_.CPU -gt 10000 }\"" },
+    ///         },
+    ///         Type = "CustomScriptExtension",
+    ///         TypeHandlerVersion = "1.10",
+    ///         VirtualMachineName = "myMachine",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:connectedvmwarevsphere:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/myMachine/Extensions/CustomScriptExtension 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere:MachineExtension")]
     public partial class MachineExtension : global::Pulumi.CustomResource

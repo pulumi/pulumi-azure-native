@@ -11,6 +11,310 @@ import * as utilities from "../utilities";
  * An output object, containing all information associated with the named output. All outputs are contained under a streaming job.
  * API Version: 2020-03-01.
  * Previous API Version: 2016-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a DocumentDB output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         accountId: "someAccountId",
+ *         accountKey: "accountKey==",
+ *         collectionNamePattern: "collection",
+ *         database: "db01",
+ *         documentId: "documentId",
+ *         partitionKey: "key",
+ *         type: "Microsoft.Storage/DocumentDB",
+ *     },
+ *     jobName: "sj2331",
+ *     outputName: "output3022",
+ *     resourceGroupName: "sjrg7983",
+ * });
+ *
+ * ```
+ * ### Create a Gateway Message Bus output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         topic: "EdgeTopic1",
+ *         type: "GatewayMessageBus",
+ *     },
+ *     jobName: "sj2331",
+ *     outputName: "output3022",
+ *     resourceGroupName: "sjrg7983",
+ * });
+ *
+ * ```
+ * ### Create a Power BI output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         dataset: "someDataset",
+ *         groupId: "ac40305e-3e8d-43ac-8161-c33799f43e95",
+ *         groupName: "MyPowerBIGroup",
+ *         refreshToken: "someRefreshToken==",
+ *         table: "someTable",
+ *         tokenUserDisplayName: "Bob Smith",
+ *         tokenUserPrincipalName: "bobsmith@contoso.com",
+ *         type: "PowerBI",
+ *     },
+ *     jobName: "sj2331",
+ *     outputName: "output3022",
+ *     resourceGroupName: "sjrg7983",
+ * });
+ *
+ * ```
+ * ### Create a Service Bus Queue output with Avro serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         propertyColumns: [
+ *             "column1",
+ *             "column2",
+ *         ],
+ *         queueName: "sdkqueue",
+ *         serviceBusNamespace: "sdktest",
+ *         sharedAccessPolicyKey: "sharedAccessPolicyKey=",
+ *         sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *         systemPropertyColumns: {
+ *             MessageId: "col3",
+ *             PartitionKey: "col4",
+ *         },
+ *         type: "Microsoft.ServiceBus/Queue",
+ *     },
+ *     jobName: "sj5095",
+ *     outputName: "output3456",
+ *     resourceGroupName: "sjrg3410",
+ *     serialization: {
+ *         type: "Avro",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a Service Bus Topic output with CSV serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         propertyColumns: [
+ *             "column1",
+ *             "column2",
+ *         ],
+ *         serviceBusNamespace: "sdktest",
+ *         sharedAccessPolicyKey: "sharedAccessPolicyKey=",
+ *         sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *         topicName: "sdktopic",
+ *         type: "Microsoft.ServiceBus/Topic",
+ *     },
+ *     jobName: "sj7094",
+ *     outputName: "output7886",
+ *     resourceGroupName: "sjrg6450",
+ *     serialization: {
+ *         encoding: "UTF8",
+ *         fieldDelimiter: ",",
+ *         type: "Csv",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create a blob output with CSV serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         container: "state",
+ *         dateFormat: "yyyy/MM/dd",
+ *         pathPattern: "{date}/{time}",
+ *         storageAccounts: [{
+ *             accountKey: "accountKey==",
+ *             accountName: "someAccountName",
+ *         }],
+ *         timeFormat: "HH",
+ *         type: "Microsoft.Storage/Blob",
+ *     },
+ *     jobName: "sj900",
+ *     outputName: "output1623",
+ *     resourceGroupName: "sjrg5023",
+ *     serialization: {
+ *         encoding: "UTF8",
+ *         fieldDelimiter: ",",
+ *         type: "Csv",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create an Azure Data Lake Store output with JSON serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         accountName: "someaccount",
+ *         dateFormat: "yyyy/MM/dd",
+ *         filePathPrefix: "{date}/{time}",
+ *         refreshToken: "someRefreshToken==",
+ *         tenantId: "cea4e98b-c798-49e7-8c40-4a2b3beb47dd",
+ *         timeFormat: "HH",
+ *         tokenUserDisplayName: "Bob Smith",
+ *         tokenUserPrincipalName: "bobsmith@contoso.com",
+ *         type: "Microsoft.DataLake/Accounts",
+ *     },
+ *     jobName: "sj3310",
+ *     outputName: "output5195",
+ *     resourceGroupName: "sjrg6912",
+ *     serialization: {
+ *         encoding: "UTF8",
+ *         format: "Array",
+ *         type: "Json",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create an Azure Data Warehouse output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         database: "zhayaSQLpool",
+ *         password: "password123",
+ *         server: "asatestserver",
+ *         table: "test2",
+ *         type: "Microsoft.Sql/Server/DataWarehouse",
+ *         user: "tolladmin",
+ *     },
+ *     jobName: "sjName",
+ *     outputName: "dwOutput",
+ *     resourceGroupName: "sjrg",
+ * });
+ *
+ * ```
+ * ### Create an Azure Function output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         functionAppName: "functionappforasaautomation",
+ *         functionName: "HttpTrigger2",
+ *         maxBatchCount: 100,
+ *         maxBatchSize: 256,
+ *         type: "Microsoft.AzureFunction",
+ *     },
+ *     jobName: "sjName",
+ *     outputName: "azureFunction1",
+ *     resourceGroupName: "sjrg",
+ * });
+ *
+ * ```
+ * ### Create an Azure SQL database output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         database: "someDatabase",
+ *         password: "somePassword",
+ *         server: "someServer",
+ *         table: "someTable",
+ *         type: "Microsoft.Sql/Server/Database",
+ *         user: "<user>",
+ *     },
+ *     jobName: "sj6458",
+ *     outputName: "output1755",
+ *     resourceGroupName: "sjrg2157",
+ * });
+ *
+ * ```
+ * ### Create an Azure Table output
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         accountKey: "accountKey==",
+ *         accountName: "someAccountName",
+ *         batchSize: 25,
+ *         columnsToRemove: [
+ *             "column1",
+ *             "column2",
+ *         ],
+ *         partitionKey: "partitionKey",
+ *         rowKey: "rowKey",
+ *         table: "samples",
+ *         type: "Microsoft.Storage/Table",
+ *     },
+ *     jobName: "sj2790",
+ *     outputName: "output958",
+ *     resourceGroupName: "sjrg5176",
+ * });
+ *
+ * ```
+ * ### Create an Event Hub output with JSON serialization
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const output = new azure_native.streamanalytics.Output("output", {
+ *     datasource: {
+ *         eventHubName: "sdkeventhub",
+ *         partitionKey: "partitionKey",
+ *         serviceBusNamespace: "sdktest",
+ *         sharedAccessPolicyKey: "sharedAccessPolicyKey=",
+ *         sharedAccessPolicyName: "RootManageSharedAccessKey",
+ *         type: "Microsoft.ServiceBus/EventHub",
+ *     },
+ *     jobName: "sj3310",
+ *     outputName: "output5195",
+ *     resourceGroupName: "sjrg6912",
+ *     serialization: {
+ *         encoding: "UTF8",
+ *         format: "Array",
+ *         type: "Json",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:streamanalytics:Output output5195 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg6912/providers/Microsoft.StreamAnalytics/streamingjobs/sj3310/outputs/output5195 
+ * ```
  */
 export class Output extends pulumi.CustomResource {
     /**

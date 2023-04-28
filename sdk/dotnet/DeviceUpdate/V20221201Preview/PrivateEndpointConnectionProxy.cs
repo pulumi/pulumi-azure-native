@@ -11,6 +11,62 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20221201Preview
 {
     /// <summary>
     /// Private endpoint connection proxy details.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnectionProxyCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnectionProxy = new AzureNative.DeviceUpdate.V20221201Preview.PrivateEndpointConnectionProxy("privateEndpointConnectionProxy", new()
+    ///     {
+    ///         AccountName = "contoso",
+    ///         PrivateEndpointConnectionProxyId = "peexample01",
+    ///         RemotePrivateEndpoint = new AzureNative.DeviceUpdate.V20221201Preview.Inputs.RemotePrivateEndpointArgs
+    ///         {
+    ///             Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
+    ///             ImmutableResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{peName}",
+    ///             ImmutableSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///             Location = "westus2",
+    ///             ManualPrivateLinkServiceConnections = new[]
+    ///             {
+    ///                 new AzureNative.DeviceUpdate.V20221201Preview.Inputs.PrivateLinkServiceConnectionArgs
+    ///                 {
+    ///                     GroupIds = new[]
+    ///                     {
+    ///                         "DeviceUpdate",
+    ///                     },
+    ///                     Name = "{privateEndpointConnectionProxyId}",
+    ///                     RequestMessage = "Please approve my connection, thanks.",
+    ///                 },
+    ///             },
+    ///             PrivateLinkServiceProxies = new[]
+    ///             {
+    ///                 new AzureNative.DeviceUpdate.V20221201Preview.Inputs.PrivateLinkServiceProxyArgs
+    ///                 {
+    ///                     GroupConnectivityInformation = new[] {},
+    ///                     Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/privateEndpoints/{privateEndpointConnectionProxyId}/privateLinkServiceProxies/{privateEndpointConnectionProxyId}",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy peexample01 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso/privateEndpointConnectionProxies/peexample01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate/v20221201preview:PrivateEndpointConnectionProxy")]
     public partial class PrivateEndpointConnectionProxy : global::Pulumi.CustomResource

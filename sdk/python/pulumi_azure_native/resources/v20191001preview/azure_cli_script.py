@@ -338,6 +338,60 @@ class AzureCliScript(pulumi.CustomResource):
         """
         Object model for the Azure CLI script.
 
+        ## Example Usage
+        ### DeploymentScriptsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.v20191001preview.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_MinCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.v20191001preview.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingCustomACIName
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.v20191001preview.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingExistingStorageAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.v20191001preview.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20191001preview:AzureCliScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arguments: Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
@@ -368,6 +422,60 @@ class AzureCliScript(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Object model for the Azure CLI script.
+
+        ## Example Usage
+        ### DeploymentScriptsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.v20191001preview.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_MinCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.v20191001preview.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingCustomACIName
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.v20191001preview.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+        ### DeploymentScriptsCreate_UsingExistingStorageAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        azure_cli_script = azure_native.resources.v20191001preview.AzureCliScript("azureCliScript",
+            resource_group_name="script-rg",
+            script_name="MyDeploymentScript")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20191001preview:AzureCliScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AzureCliScriptArgs args: The arguments to use to populate this resource's properties.

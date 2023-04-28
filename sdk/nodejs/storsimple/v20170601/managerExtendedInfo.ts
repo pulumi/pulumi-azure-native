@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The extended info of the manager.
+ *
+ * ## Example Usage
+ * ### ManagersCreateExtendedInfo
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managerExtendedInfo = new azure_native.storsimple.v20170601.ManagerExtendedInfo("managerExtendedInfo", {
+ *     algorithm: "None",
+ *     integrityKey: "BIl+RHqO8PZ6DRvuXTTK7g==",
+ *     managerName: "ManagerForSDKTest2",
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple/v20170601:ManagerExtendedInfo vaultExtendedInfo /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/Managers/ManagerForSDKTest2extendedInformation/vaultExtendedInfo 
+ * ```
  */
 export class ManagerExtendedInfo extends pulumi.CustomResource {
     /**

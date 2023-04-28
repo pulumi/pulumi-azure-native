@@ -385,6 +385,129 @@ class Endpoint(pulumi.CustomResource):
         """
         Class representing a Traffic Manager endpoint.
 
+        ## Example Usage
+        ### Endpoint-PUT-External-WithAlwaysServe
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            always_serve="Enabled",
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="azsmnet7187",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+        ### Endpoint-PUT-External-WithCustomHeaders
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            custom_headers=[
+                azure_native.network.v20220401preview.EndpointPropertiesCustomHeadersArgs(
+                    name="header-1",
+                    value="value-1",
+                ),
+                azure_native.network.v20220401preview.EndpointPropertiesCustomHeadersArgs(
+                    name="header-2",
+                    value="value-2",
+                ),
+            ],
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="azsmnet7187",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+        ### Endpoint-PUT-External-WithGeoMapping
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            endpoint_name="My%20external%20endpoint",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            geo_mapping=[
+                "GEO-AS",
+                "GEO-AF",
+            ],
+            name="My external endpoint",
+            profile_name="azuresdkfornetautoresttrafficmanager8224",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+        ### Endpoint-PUT-External-WithLocation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="azsmnet7187",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+        ### Endpoint-PUT-External-WithSubnetMapping
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            endpoint_name="My%20external%20endpoint",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="My external endpoint",
+            profile_name="azuresdkfornetautoresttrafficmanager8224",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+            subnets=[
+                azure_native.network.v20220401preview.EndpointPropertiesSubnetsArgs(
+                    first="1.2.3.0",
+                    scope=24,
+                ),
+                azure_native.network.v20220401preview.EndpointPropertiesSubnetsArgs(
+                    first="25.26.27.28",
+                    last="29.30.31.32",
+                ),
+            ],
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220401preview:Endpoint My external endpoint /subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AlwaysServe']] always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
@@ -417,6 +540,129 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Traffic Manager endpoint.
+
+        ## Example Usage
+        ### Endpoint-PUT-External-WithAlwaysServe
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            always_serve="Enabled",
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="azsmnet7187",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+        ### Endpoint-PUT-External-WithCustomHeaders
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            custom_headers=[
+                azure_native.network.v20220401preview.EndpointPropertiesCustomHeadersArgs(
+                    name="header-1",
+                    value="value-1",
+                ),
+                azure_native.network.v20220401preview.EndpointPropertiesCustomHeadersArgs(
+                    name="header-2",
+                    value="value-2",
+                ),
+            ],
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="azsmnet7187",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+        ### Endpoint-PUT-External-WithGeoMapping
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            endpoint_name="My%20external%20endpoint",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            geo_mapping=[
+                "GEO-AS",
+                "GEO-AF",
+            ],
+            name="My external endpoint",
+            profile_name="azuresdkfornetautoresttrafficmanager8224",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+        ### Endpoint-PUT-External-WithLocation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="azsmnet7187",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+        ### Endpoint-PUT-External-WithSubnetMapping
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20220401preview.Endpoint("endpoint",
+            endpoint_name="My%20external%20endpoint",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            name="My external endpoint",
+            profile_name="azuresdkfornetautoresttrafficmanager8224",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+            subnets=[
+                azure_native.network.v20220401preview.EndpointPropertiesSubnetsArgs(
+                    first="1.2.3.0",
+                    scope=24,
+                ),
+                azure_native.network.v20220401preview.EndpointPropertiesSubnetsArgs(
+                    first="25.26.27.28",
+                    last="29.30.31.32",
+                ),
+            ],
+            target="foobar.contoso.com",
+            type="Microsoft.network/TrafficManagerProfiles/ExternalEndpoints")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220401preview:Endpoint My external endpoint /subscriptions/{subscription-id}/resourceGroups/azuresdkfornetautoresttrafficmanager2191/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager8224/externalEndpoints/My external endpoint 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EndpointInitArgs args: The arguments to use to populate this resource's properties.

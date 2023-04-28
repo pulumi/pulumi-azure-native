@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about managed application.
+ *
+ * ## Example Usage
+ * ### Create or update managed application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.solutions.v20190701.Application("application", {
+ *     applicationDefinitionId: "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applicationDefinitions/myAppDef",
+ *     applicationName: "myManagedApplication",
+ *     kind: "ServiceCatalog",
+ *     location: "East US 2",
+ *     managedResourceGroupId: "/subscriptions/subid/resourceGroups/myManagedRG",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:solutions/v20190701:Application myManagedApplication /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applications/myManagedApplication 
+ * ```
  */
 export class Application extends pulumi.CustomResource {
     /**

@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * The L2IsolationDomain resource definition.
+ *
+ * ## Example Usage
+ * ### L2IsolationDomains_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const l2IsolationDomain = new azure_native.managednetworkfabric.v20230201preview.L2IsolationDomain("l2IsolationDomain", {
+ *     l2IsolationDomainName: "example-l2domain",
+ *     location: "eastus",
+ *     mtu: 1500,
+ *     networkFabricId: "/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+ *     resourceGroupName: "resourceGroupName",
+ *     vlanId: 501,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric/v20230201preview:L2IsolationDomain wcpalyqmig /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/example-l2domain 
+ * ```
  */
 export class L2IsolationDomain extends pulumi.CustomResource {
     /**

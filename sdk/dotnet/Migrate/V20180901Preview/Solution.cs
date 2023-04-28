@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview
 {
     /// <summary>
     /// Solution REST Resource.
+    /// 
+    /// ## Example Usage
+    /// ### Solutions_Put
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var solution = new AzureNative.Migrate.V20180901Preview.Solution("solution", new()
+    ///     {
+    ///         MigrateProjectName = "project01",
+    ///         Properties = new AzureNative.Migrate.V20180901Preview.Inputs.SolutionPropertiesArgs
+    ///         {
+    ///             Goal = "Databases",
+    ///             Purpose = "Assessment",
+    ///             Tool = "DataMigrationAssistant",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SolutionName = "dbsolution",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20180901preview:Solution dbsolution /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/MigrateProjects/project01/Solutions/dbsolution 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20180901preview:Solution")]
     public partial class Solution : global::Pulumi.CustomResource

@@ -9,6 +9,62 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a pipeline run for a container registry.
+ *
+ * ## Example Usage
+ * ### PipelineRunCreate_Export
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pipelineRun = new azure_native.containerregistry.v20230101preview.PipelineRun("pipelineRun", {
+ *     pipelineRunName: "myPipelineRun",
+ *     registryName: "myRegistry",
+ *     request: {
+ *         artifacts: [
+ *             "sourceRepository/hello-world",
+ *             "sourceRepository2@sha256:00000000000000000000000000000000000",
+ *         ],
+ *         pipelineResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/exportPipelines/myExportPipeline",
+ *         target: {
+ *             name: "myblob.tar.gz",
+ *             type: "AzureStorageBlob",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ * ### PipelineRunCreate_Import
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pipelineRun = new azure_native.containerregistry.v20230101preview.PipelineRun("pipelineRun", {
+ *     forceUpdateTag: "2020-03-04T17:23:21.9261521+00:00",
+ *     pipelineRunName: "myPipelineRun",
+ *     registryName: "myRegistry",
+ *     request: {
+ *         catalogDigest: "sha256@",
+ *         pipelineResourceId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline",
+ *         source: {
+ *             name: "myblob.tar.gz",
+ *             type: "AzureStorageBlob",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20230101preview:PipelineRun myPipelineRun /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/pipelineRuns/myPipelineRun 
+ * ```
  */
 export class PipelineRun extends pulumi.CustomResource {
     /**

@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Authorization access policy contract.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateAuthorizationAccessPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var authorizationAccessPolicy = new AzureNative.ApiManagement.V20220801.AuthorizationAccessPolicy("authorizationAccessPolicy", new()
+    ///     {
+    ///         AuthorizationAccessPolicyId = "fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+    ///         AuthorizationId = "authz1",
+    ///         AuthorizationProviderId = "aadwithauthcode",
+    ///         ObjectId = "fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         TenantId = "13932a0d-5c63-4d37-901d-1df9c97722ff",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:AuthorizationAccessPolicy fe0bed83-631f-4149-bd0b-0464b1bc7cab /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/aadwithauthcode/authorizations/authz1/accessPolicies 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:AuthorizationAccessPolicy")]
     public partial class AuthorizationAccessPolicy : global::Pulumi.CustomResource

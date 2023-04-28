@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.AadIam
     /// The diagnostic setting resource.
     /// API Version: 2017-04-01.
     /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### BatchAccountDelete
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diagnosticSetting = new AzureNative.AadIam.DiagnosticSetting("diagnosticSetting", new()
+    ///     {
+    ///         EventHubAuthorizationRuleId = "/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+    ///         EventHubName = "myeventhub",
+    ///         Logs = new[]
+    ///         {
+    ///             new AzureNative.AadIam.Inputs.LogSettingsArgs
+    ///             {
+    ///                 Category = "AuditLogs",
+    ///                 Enabled = true,
+    ///                 RetentionPolicy = new AzureNative.AadIam.Inputs.RetentionPolicyArgs
+    ///                 {
+    ///                     Days = 0,
+    ///                     Enabled = false,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "mysetting",
+    ///         StorageAccountId = "/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+    ///         WorkspaceId = "",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:aadiam:DiagnosticSetting mysetting providers/microsoft.aadiam/diagnosticSettings/mysetting 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:aadiam:DiagnosticSetting")]
     public partial class DiagnosticSetting : global::Pulumi.CustomResource

@@ -120,6 +120,45 @@ class RemediationAtSubscription(pulumi.CustomResource):
         """
         The remediation definition.
 
+        ## Example Usage
+        ### Create remediation at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.v20180701preview.RemediationAtSubscription("remediationAtSubscription",
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            remediation_name="storageRemediation")
+
+        ```
+        ### Create remediation at subscription scope with all properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.v20180701preview.RemediationAtSubscription("remediationAtSubscription",
+            filters=azure_native.policyinsights.v20180701preview.RemediationFiltersArgs(
+                locations=[
+                    "eastus",
+                    "westus",
+                ],
+            ),
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="8c8fa9e4",
+            remediation_name="storageRemediation")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights/v20180701preview:RemediationAtSubscription storageRemediation /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.policyinsights/remediations/storageRemediation 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RemediationDeploymentSummaryArgs']] deployment_status: The deployment status summary for all deployments created by the remediation.
@@ -136,6 +175,45 @@ class RemediationAtSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The remediation definition.
+
+        ## Example Usage
+        ### Create remediation at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.v20180701preview.RemediationAtSubscription("remediationAtSubscription",
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            remediation_name="storageRemediation")
+
+        ```
+        ### Create remediation at subscription scope with all properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        remediation_at_subscription = azure_native.policyinsights.v20180701preview.RemediationAtSubscription("remediationAtSubscription",
+            filters=azure_native.policyinsights.v20180701preview.RemediationFiltersArgs(
+                locations=[
+                    "eastus",
+                    "westus",
+                ],
+            ),
+            policy_assignment_id="/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+            policy_definition_reference_id="8c8fa9e4",
+            remediation_name="storageRemediation")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:policyinsights/v20180701preview:RemediationAtSubscription storageRemediation /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.policyinsights/remediations/storageRemediation 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RemediationAtSubscriptionArgs args: The arguments to use to populate this resource's properties.

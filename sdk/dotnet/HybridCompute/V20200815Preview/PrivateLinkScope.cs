@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.HybridCompute.V20200815Preview
 {
     /// <summary>
     /// An Azure Arc PrivateLinkScope definition.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateLinkScopeCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkScope = new AzureNative.HybridCompute.V20200815Preview.PrivateLinkScope("privateLinkScope", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ScopeName = "my-privatelinkscope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PrivateLinkScopeUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkScope = new AzureNative.HybridCompute.V20200815Preview.PrivateLinkScope("privateLinkScope", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ResourceGroupName = "my-resource-group",
+    ///         ScopeName = "my-privatelinkscope",
+    ///         Tags = 
+    ///         {
+    ///             { "Tag1", "Value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute/v20200815preview:PrivateLinkScope my-privatelinkscope /subscriptions/86dc51d3-92ed-4d7e-947a-775ea79b4919/resourceGroups/my-resource-group/providers/microsoft.hybridCompute/privateLinkScopes/my-privatelinkscope 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute/v20200815preview:PrivateLinkScope")]
     public partial class PrivateLinkScope : global::Pulumi.CustomResource

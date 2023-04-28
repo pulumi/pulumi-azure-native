@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Security Application over a given scope
  * API Version: 2022-07-01-preview.
  * Previous API Version: 2022-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Application
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityConnectorApplication = new azure_native.security.SecurityConnectorApplication("securityConnectorApplication", {
+ *     applicationId: "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+ *     description: "An application on critical GCP recommendations",
+ *     displayName: "GCP Admin's application",
+ *     resourceGroupName: "gcpResourceGroup",
+ *     securityConnectorName: "gcpconnector",
+ *     sourceResourceType: "Assessments",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security:SecurityConnectorApplication 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector/providers/Microsoft.Security/applications/ad9a8e26-29d9-4829-bb30-e597a58cdbb8 
+ * ```
  */
 export class SecurityConnectorApplication extends pulumi.CustomResource {
     /**

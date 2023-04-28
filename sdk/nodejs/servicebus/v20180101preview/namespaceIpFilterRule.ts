@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Single item in a List or Get IpFilterRules operation
+ *
+ * ## Example Usage
+ * ### NameSpaceIpFilterRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceIpFilterRule = new azure_native.servicebus.v20180101preview.NamespaceIpFilterRule("namespaceIpFilterRule", {
+ *     action: "Accept",
+ *     filterName: "sdk-IPFilterRules-7337",
+ *     ipFilterRuleName: "sdk-IPFilterRules-7337",
+ *     ipMask: "13.78.143.246/32",
+ *     namespaceName: "sdk-Namespace-5232",
+ *     resourceGroupName: "ResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus/v20180101preview:NamespaceIpFilterRule sdk-IPFilterRules-7337 /subscriptions/Subscription/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-5232/ipfilterrules/sdk-IPFilterRules-7337 
+ * ```
  */
 export class NamespaceIpFilterRule extends pulumi.CustomResource {
     /**

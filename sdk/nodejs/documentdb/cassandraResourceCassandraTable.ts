@@ -11,6 +11,50 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB Cassandra table.
  * API Version: 2022-11-15.
  * Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CosmosDBCassandraTableCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cassandraResourceCassandraTable = new azure_native.documentdb.CassandraResourceCassandraTable("cassandraResourceCassandraTable", {
+ *     accountName: "ddb1",
+ *     keyspaceName: "keyspaceName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         defaultTtl: 100,
+ *         id: "tableName",
+ *         schema: {
+ *             clusterKeys: [{
+ *                 name: "columnA",
+ *                 orderBy: "Asc",
+ *             }],
+ *             columns: [{
+ *                 name: "columnA",
+ *                 type: "Ascii",
+ *             }],
+ *             partitionKeys: [{
+ *                 name: "columnA",
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tableName: "tableName",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb:CassandraResourceCassandraTable tableName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/cassandraKeyspaces/keyspaceName/cassandraTables/tableName 
+ * ```
  */
 export class CassandraResourceCassandraTable extends pulumi.CustomResource {
     /**

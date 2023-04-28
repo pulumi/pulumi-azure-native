@@ -11,6 +11,122 @@ namespace Pulumi.AzureNative.ImportExport.V20200801
 {
     /// <summary>
     /// Contains the job information.
+    /// 
+    /// ## Example Usage
+    /// ### Create export job
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.ImportExport.V20200801.Job("job", new()
+    ///     {
+    ///         JobName = "myExportJob",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.ImportExport.V20200801.Inputs.JobDetailsArgs
+    ///         {
+    ///             BackupDriveManifest = true,
+    ///             DiagnosticsPath = "waimportexport",
+    ///             Export = new AzureNative.ImportExport.V20200801.Inputs.ExportArgs
+    ///             {
+    ///                 BlobPathPrefix = new[]
+    ///                 {
+    ///                     "/",
+    ///                 },
+    ///             },
+    ///             JobType = "Export",
+    ///             LogLevel = "Verbose",
+    ///             ReturnAddress = new AzureNative.ImportExport.V20200801.Inputs.ReturnAddressArgs
+    ///             {
+    ///                 City = "Redmond",
+    ///                 CountryOrRegion = "USA",
+    ///                 Email = "Test@contoso.com",
+    ///                 Phone = "4250000000",
+    ///                 PostalCode = "98007",
+    ///                 RecipientName = "Test",
+    ///                 StateOrProvince = "wa",
+    ///                 StreetAddress1 = "Street1",
+    ///                 StreetAddress2 = "street2",
+    ///             },
+    ///             ReturnShipping = new AzureNative.ImportExport.V20200801.Inputs.ReturnShippingArgs
+    ///             {
+    ///                 CarrierAccountNumber = "989ffff",
+    ///                 CarrierName = "FedEx",
+    ///             },
+    ///             StorageAccountId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.ClassicStorage/storageAccounts/test",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create import job
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var job = new AzureNative.ImportExport.V20200801.Job("job", new()
+    ///     {
+    ///         JobName = "myJob",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.ImportExport.V20200801.Inputs.JobDetailsArgs
+    ///         {
+    ///             BackupDriveManifest = true,
+    ///             DiagnosticsPath = "waimportexport",
+    ///             DriveList = new[]
+    ///             {
+    ///                 new AzureNative.ImportExport.V20200801.Inputs.DriveStatusArgs
+    ///                 {
+    ///                     BitLockerKey = "238810-662376-448998-450120-652806-203390-606320-483076",
+    ///                     DriveHeaderHash = "0:1048576:FB6B6ED500D49DA6E0D723C98D42C657F2881CC13357C28DCECA6A524F1292501571A321238540E621AB5BD9C9A32637615919A75593E6CB5C1515DAE341CABF;135266304:143360:C957A189AFC38C4E80731252301EB91427CE55E61448FA3C73C6FDDE70ABBC197947EC8D0249A2C639BB10B95957D5820A4BE8DFBBF76FFFA688AE5CE0D42EC3",
+    ///                     DriveId = "9CA995BB",
+    ///                     ManifestFile = "\\8a0c23f7-14b7-470a-9633-fcd46590a1bc.manifest",
+    ///                     ManifestHash = "4228EC5D8E048CB9B515338C789314BE8D0B2FDBC7C7A0308E1C826242CDE74E",
+    ///                 },
+    ///             },
+    ///             JobType = "Import",
+    ///             LogLevel = "Verbose",
+    ///             ReturnAddress = new AzureNative.ImportExport.V20200801.Inputs.ReturnAddressArgs
+    ///             {
+    ///                 City = "Redmond",
+    ///                 CountryOrRegion = "USA",
+    ///                 Email = "Test@contoso.com",
+    ///                 Phone = "4250000000",
+    ///                 PostalCode = "98007",
+    ///                 RecipientName = "Test",
+    ///                 StateOrProvince = "wa",
+    ///                 StreetAddress1 = "Street1",
+    ///                 StreetAddress2 = "street2",
+    ///             },
+    ///             ReturnShipping = new AzureNative.ImportExport.V20200801.Inputs.ReturnShippingArgs
+    ///             {
+    ///                 CarrierAccountNumber = "989ffff",
+    ///                 CarrierName = "FedEx",
+    ///             },
+    ///             StorageAccountId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.ClassicStorage/storageAccounts/test",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:importexport/v20200801:Job myJob /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.ImportExport/jobs/myJob 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:importexport/v20200801:Job")]
     public partial class Job : global::Pulumi.CustomResource

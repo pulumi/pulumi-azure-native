@@ -131,6 +131,43 @@ class App(pulumi.CustomResource):
         """
         App resource payload
 
+        ## Example Usage
+        ### Apps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app = azure_native.appplatform.v20200701.App("app",
+            app_name="myapp",
+            location="eastus",
+            properties=azure_native.appplatform.v20200701.AppResourcePropertiesResponseArgs(
+                active_deployment_name="mydeployment1",
+                fqdn="myapp.mydomain.com",
+                https_only=False,
+                persistent_disk=azure_native.appplatform.v20200701.PersistentDiskArgs(
+                    mount_path="/mypersistentdisk",
+                    size_in_gb=2,
+                ),
+                public=True,
+                temporary_disk=azure_native.appplatform.v20200701.TemporaryDiskArgs(
+                    mount_path="/mytemporarydisk",
+                    size_in_gb=2,
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:App myapp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.
@@ -148,6 +185,43 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         App resource payload
+
+        ## Example Usage
+        ### Apps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app = azure_native.appplatform.v20200701.App("app",
+            app_name="myapp",
+            location="eastus",
+            properties=azure_native.appplatform.v20200701.AppResourcePropertiesResponseArgs(
+                active_deployment_name="mydeployment1",
+                fqdn="myapp.mydomain.com",
+                https_only=False,
+                persistent_disk=azure_native.appplatform.v20200701.PersistentDiskArgs(
+                    mount_path="/mypersistentdisk",
+                    size_in_gb=2,
+                ),
+                public=True,
+                temporary_disk=azure_native.appplatform.v20200701.TemporaryDiskArgs(
+                    mount_path="/mytemporarydisk",
+                    size_in_gb=2,
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:App myapp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.

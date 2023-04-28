@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.ApiManagement.V20161010
 {
     /// <summary>
     /// A single API Management service resource in List or Get response.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateService
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiManagementService = new AzureNative.ApiManagement.V20161010.ApiManagementService("apiManagementService", new()
+    ///     {
+    ///         Location = "West US",
+    ///         PublisherEmail = "admin@live.com",
+    ///         PublisherName = "contoso",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Sku = new AzureNative.ApiManagement.V20161010.Inputs.ApiManagementServiceSkuPropertiesArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = AzureNative.ApiManagement.V20161010.SkuType.Premium,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20161010:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20161010:ApiManagementService")]
     public partial class ApiManagementService : global::Pulumi.CustomResource

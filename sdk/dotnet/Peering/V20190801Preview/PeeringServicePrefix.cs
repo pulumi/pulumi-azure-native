@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Peering.V20190801Preview
 {
     /// <summary>
     /// The peering service prefix class.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a prefix for the peering service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var peeringServicePrefix = new AzureNative.Peering.V20190801Preview.PeeringServicePrefix("peeringServicePrefix", new()
+    ///     {
+    ///         PeeringServiceName = "MyPeeringService",
+    ///         Prefix = "192.168.1.0/24",
+    ///         PrefixName = "MyPeeringServicePrefix",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering/v20190801preview:PeeringServicePrefix MyPeeringServicePrefix /subscriptions/subId/resourceGroups/MyResourceGroup/providers/Microsoft.Peering/peeringServices/MyPeeringService/prefixes/MyPeeringServicePrefix 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-08-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:peering/v20190801preview:PeeringServicePrefix")]

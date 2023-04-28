@@ -227,6 +227,43 @@ class Topic(pulumi.CustomResource):
         API Version: 2022-06-15.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Topics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.eventgrid.Topic("topic",
+            inbound_ip_rules=[
+                azure_native.eventgrid.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.30.15",
+                ),
+                azure_native.eventgrid.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.176.1",
+                ),
+            ],
+            location="westus2",
+            public_network_access="Enabled",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_name="exampletopic1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:Topic exampletopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'DataResidencyBoundary']] data_residency_boundary: Data Residency Boundary of the resource.
@@ -252,6 +289,43 @@ class Topic(pulumi.CustomResource):
         EventGrid Topic
         API Version: 2022-06-15.
         Previous API Version: 2020-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Topics_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        topic = azure_native.eventgrid.Topic("topic",
+            inbound_ip_rules=[
+                azure_native.eventgrid.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.30.15",
+                ),
+                azure_native.eventgrid.InboundIpRuleArgs(
+                    action="Allow",
+                    ip_mask="12.18.176.1",
+                ),
+            ],
+            location="westus2",
+            public_network_access="Enabled",
+            resource_group_name="examplerg",
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            },
+            topic_name="exampletopic1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid:Topic exampletopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

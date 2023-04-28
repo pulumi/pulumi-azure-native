@@ -10,6 +10,50 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Blueprint definition.
  *
+ * ## Example Usage
+ * ### Blueprint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const blueprint = new azure_native.blueprint.v20171111preview.Blueprint("blueprint", {
+ *     blueprintName: "simpleBlueprint",
+ *     description: "blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+ *     managementGroupName: "ContosoOnlineGroup",
+ *     parameters: {
+ *         costCenter: {
+ *             displayName: "force cost center tag for all resources under given subscription.",
+ *             type: "string",
+ *         },
+ *         owners: {
+ *             displayName: "assign owners to subscription along with blueprint assignment.",
+ *             type: "array",
+ *         },
+ *         storageAccountType: {
+ *             displayName: "storage account type.",
+ *             type: "string",
+ *         },
+ *     },
+ *     resourceGroups: {
+ *         storageRG: {
+ *             description: "Contains storageAccounts that collect all shoebox logs.",
+ *             displayName: "storage resource group",
+ *         },
+ *     },
+ *     targetScope: "subscription",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blueprint/v20171111preview:Blueprint simpleBlueprint /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+ * ```
+ *
  * @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
  */
 export class Blueprint extends pulumi.CustomResource {

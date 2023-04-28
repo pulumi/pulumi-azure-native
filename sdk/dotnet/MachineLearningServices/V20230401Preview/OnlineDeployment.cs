@@ -9,6 +9,200 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### CreateOrUpdate Kubernetes Online Deployment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var onlineDeployment = new AzureNative.MachineLearningServices.V20230401Preview.OnlineDeployment("onlineDeployment", new()
+    ///     {
+    ///         DeploymentName = "testDeploymentName",
+    ///         EndpointName = "testEndpointName",
+    ///         Identity = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "string", null },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         OnlineDeploymentProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.KubernetesOnlineDeploymentArgs
+    ///         {
+    ///             AppInsightsEnabled = false,
+    ///             CodeConfiguration = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.CodeConfigurationArgs
+    ///             {
+    ///                 CodeId = "string",
+    ///                 ScoringScript = "string",
+    ///             },
+    ///             ContainerResourceRequirements = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ContainerResourceRequirementsArgs
+    ///             {
+    ///                 ContainerResourceLimits = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ContainerResourceSettingsArgs
+    ///                 {
+    ///                     Cpu = "\"1\"",
+    ///                     Gpu = "\"1\"",
+    ///                     Memory = "\"2Gi\"",
+    ///                 },
+    ///                 ContainerResourceRequests = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ContainerResourceSettingsArgs
+    ///                 {
+    ///                     Cpu = "\"1\"",
+    ///                     Gpu = "\"1\"",
+    ///                     Memory = "\"2Gi\"",
+    ///                 },
+    ///             },
+    ///             Description = "string",
+    ///             EndpointComputeType = "Kubernetes",
+    ///             EnvironmentId = "string",
+    ///             EnvironmentVariables = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             InstanceType = "string",
+    ///             LivenessProbe = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ProbeSettingsArgs
+    ///             {
+    ///                 FailureThreshold = 1,
+    ///                 InitialDelay = "PT5M",
+    ///                 Period = "PT5M",
+    ///                 SuccessThreshold = 1,
+    ///                 Timeout = "PT5M",
+    ///             },
+    ///             Model = "string",
+    ///             ModelMountPath = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             RequestSettings = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.OnlineRequestSettingsArgs
+    ///             {
+    ///                 MaxConcurrentRequestsPerInstance = 1,
+    ///                 MaxQueueWait = "PT5M",
+    ///                 RequestTimeout = "PT5M",
+    ///             },
+    ///             ScaleSettings = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.DefaultScaleSettingsArgs
+    ///             {
+    ///                 ScaleType = "Default",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         Sku = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "string",
+    ///             Name = "string",
+    ///             Size = "string",
+    ///             Tier = AzureNative.MachineLearningServices.V20230401Preview.SkuTier.Free,
+    ///         },
+    ///         Tags = null,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrUpdate Managed Online Deployment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var onlineDeployment = new AzureNative.MachineLearningServices.V20230401Preview.OnlineDeployment("onlineDeployment", new()
+    ///     {
+    ///         DeploymentName = "testDeploymentName",
+    ///         EndpointName = "testEndpointName",
+    ///         Identity = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ManagedServiceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "string", null },
+    ///             },
+    ///         },
+    ///         Kind = "string",
+    ///         Location = "string",
+    ///         OnlineDeploymentProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ManagedOnlineDeploymentArgs
+    ///         {
+    ///             AppInsightsEnabled = false,
+    ///             CodeConfiguration = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.CodeConfigurationArgs
+    ///             {
+    ///                 CodeId = "string",
+    ///                 ScoringScript = "string",
+    ///             },
+    ///             Description = "string",
+    ///             EndpointComputeType = "Managed",
+    ///             EnvironmentId = "string",
+    ///             EnvironmentVariables = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             InstanceType = "string",
+    ///             LivenessProbe = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ProbeSettingsArgs
+    ///             {
+    ///                 FailureThreshold = 1,
+    ///                 InitialDelay = "PT5M",
+    ///                 Period = "PT5M",
+    ///                 SuccessThreshold = 1,
+    ///                 Timeout = "PT5M",
+    ///             },
+    ///             Model = "string",
+    ///             ModelMountPath = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             ReadinessProbe = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ProbeSettingsArgs
+    ///             {
+    ///                 FailureThreshold = 30,
+    ///                 InitialDelay = "PT1S",
+    ///                 Period = "PT10S",
+    ///                 SuccessThreshold = 1,
+    ///                 Timeout = "PT2S",
+    ///             },
+    ///             RequestSettings = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.OnlineRequestSettingsArgs
+    ///             {
+    ///                 MaxConcurrentRequestsPerInstance = 1,
+    ///                 MaxQueueWait = "PT5M",
+    ///                 RequestTimeout = "PT5M",
+    ///             },
+    ///             ScaleSettings = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.DefaultScaleSettingsArgs
+    ///             {
+    ///                 ScaleType = "Default",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "test-rg",
+    ///         Sku = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Family = "string",
+    ///             Name = "string",
+    ///             Size = "string",
+    ///             Tier = AzureNative.MachineLearningServices.V20230401Preview.SkuTier.Free,
+    ///         },
+    ///         Tags = null,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:OnlineDeployment string string 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:OnlineDeployment")]
     public partial class OnlineDeployment : global::Pulumi.CustomResource
     {

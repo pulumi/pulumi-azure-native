@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.StorageMover.V20230301
 {
     /// <summary>
     /// The Agent resource.
+    /// 
+    /// ## Example Usage
+    /// ### Agents_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agent = new AzureNative.StorageMover.V20230301.Agent("agent", new()
+    ///     {
+    ///         AgentName = "examples-agentName",
+    ///         ArcResourceId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName",
+    ///         ArcVmUuid = "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
+    ///         Description = "Example Agent Description",
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagemover/v20230301:Agent examples-agentName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/agents/examples-agentName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover/v20230301:Agent")]
     public partial class Agent : global::Pulumi.CustomResource

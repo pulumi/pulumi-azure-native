@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * User credentials used for publishing activity.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201001:WebAppDeploymentSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/deployments/{id} 
+ * ```
  */
 export class WebAppDeploymentSlot extends pulumi.CustomResource {
     /**

@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// A server trust group.
+    /// 
+    /// ## Example Usage
+    /// ### Create server trust group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverTrustGroup = new AzureNative.Sql.V20220801Preview.ServerTrustGroup("serverTrustGroup", new()
+    ///     {
+    ///         GroupMembers = new[]
+    ///         {
+    ///             new AzureNative.Sql.V20220801Preview.Inputs.ServerInfoArgs
+    ///             {
+    ///                 ServerId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-1",
+    ///             },
+    ///             new AzureNative.Sql.V20220801Preview.Inputs.ServerInfoArgs
+    ///             {
+    ///                 ServerId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/managedInstance-2",
+    ///             },
+    ///         },
+    ///         LocationName = "Japan East",
+    ///         ResourceGroupName = "Default",
+    ///         ServerTrustGroupName = "server-trust-group-test",
+    ///         TrustScopes = new[]
+    ///         {
+    ///             "GlobalTransactions",
+    ///             "ServiceBroker",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:ServerTrustGroup server-trust-group-test /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/locations/Japan East/serverTrustGroups/server-trust-group-test 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:ServerTrustGroup")]
     public partial class ServerTrustGroup : global::Pulumi.CustomResource

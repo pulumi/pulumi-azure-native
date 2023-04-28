@@ -166,6 +166,36 @@ class IotDpsResource(pulumi.CustomResource):
         API Version: 2022-12-12.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### DPSCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_dps_resource = azure_native.devices.IotDpsResource("iotDpsResource",
+            location="East US",
+            properties=azure_native.devices.IotDpsPropertiesDescriptionArgs(
+                enable_data_residency=False,
+            ),
+            provisioning_service_name="myFirstProvisioningService",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.devices.IotDpsSkuInfoArgs(
+                capacity=1,
+                name="S1",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices:IotDpsResource myFirstProvisioningService /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups//providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The resource location.
@@ -187,6 +217,36 @@ class IotDpsResource(pulumi.CustomResource):
         The description of the provisioning service.
         API Version: 2022-12-12.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### DPSCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_dps_resource = azure_native.devices.IotDpsResource("iotDpsResource",
+            location="East US",
+            properties=azure_native.devices.IotDpsPropertiesDescriptionArgs(
+                enable_data_residency=False,
+            ),
+            provisioning_service_name="myFirstProvisioningService",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.devices.IotDpsSkuInfoArgs(
+                capacity=1,
+                name="S1",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices:IotDpsResource myFirstProvisioningService /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups//providers/Microsoft.Devices/ProvisioningServices/myFirstProvisioningService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IotDpsResourceArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Contact details and configurations for notifications coming from Microsoft Defender for Cloud.
+ *
+ * ## Example Usage
+ * ### Create security contact data
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityContact = new azure_native.security.v20200101preview.SecurityContact("securityContact", {
+ *     alertNotifications: {
+ *         minimalSeverity: "Low",
+ *         state: "On",
+ *     },
+ *     emails: "john@contoso.com;jane@contoso.com",
+ *     notificationsByRole: {
+ *         roles: ["Owner"],
+ *         state: "On",
+ *     },
+ *     phone: "(214)275-4038",
+ *     securityContactName: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20200101preview:SecurityContact default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/securityContacts/default 
+ * ```
  */
 export class SecurityContact extends pulumi.CustomResource {
     /**

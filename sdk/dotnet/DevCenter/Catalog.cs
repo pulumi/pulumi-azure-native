@@ -13,6 +13,68 @@ namespace Pulumi.AzureNative.DevCenter
     /// Represents a catalog.
     /// API Version: 2022-11-11-preview.
     /// Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Catalogs_CreateOrUpdateAdo
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var catalog = new AzureNative.DevCenter.Catalog("catalog", new()
+    ///     {
+    ///         AdoGit = new AzureNative.DevCenter.Inputs.GitCatalogArgs
+    ///         {
+    ///             Branch = "main",
+    ///             Path = "/templates",
+    ///             SecretIdentifier = "https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+    ///             Uri = "https://contoso@dev.azure.com/contoso/contosoOrg/_git/centralrepo-fakecontoso",
+    ///         },
+    ///         CatalogName = "CentralCatalog",
+    ///         DevCenterName = "Contoso",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Catalogs_CreateOrUpdateGitHub
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var catalog = new AzureNative.DevCenter.Catalog("catalog", new()
+    ///     {
+    ///         CatalogName = "CentralCatalog",
+    ///         DevCenterName = "Contoso",
+    ///         GitHub = new AzureNative.DevCenter.Inputs.GitCatalogArgs
+    ///         {
+    ///             Branch = "main",
+    ///             Path = "/templates",
+    ///             SecretIdentifier = "https://contosokv.vault.azure.net/secrets/CentralRepoPat",
+    ///             Uri = "https://github.com/Contoso/centralrepo-fake.git",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter:Catalog CentralCatalog /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/catalogs/CentralCatalog 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter:Catalog")]
     public partial class Catalog : global::Pulumi.CustomResource

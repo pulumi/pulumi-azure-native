@@ -9,6 +9,60 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a machine learning workspace.
+ *
+ * ## Example Usage
+ * ### Create Workspace
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspace = new azure_native.machinelearningservices.v20230401preview.Workspace("workspace", {
+ *     applicationInsights: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+ *     containerRegistry: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+ *     description: "test description",
+ *     encryption: {
+ *         identity: {
+ *             userAssignedIdentity: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testuai",
+ *         },
+ *         keyVaultProperties: {
+ *             identityClientId: "",
+ *             keyIdentifier: "https://testkv.vault.azure.net/keys/testkey/aabbccddee112233445566778899aabb",
+ *             keyVaultArmId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+ *         },
+ *         status: "Enabled",
+ *     },
+ *     friendlyName: "HelloName",
+ *     hbiWorkspace: false,
+ *     identity: {
+ *         type: "SystemAssigned,UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testuai": {},
+ *         },
+ *     },
+ *     keyVault: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+ *     location: "eastus2euap",
+ *     resourceGroupName: "workspace-1234",
+ *     sharedPrivateLinkResources: [{
+ *         groupId: "Sql",
+ *         name: "testdbresource",
+ *         privateLinkResourceId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.DocumentDB/databaseAccounts/testdbresource/privateLinkResources/Sql",
+ *         requestMessage: "Please approve",
+ *         status: "Approved",
+ *     }],
+ *     storageAccount: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230401preview:Workspace testworkspace /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace 
+ * ```
  */
 export class Workspace extends pulumi.CustomResource {
     /**

@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Single item in List or Get Consumer group operation
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ConsumerGroupCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const consumerGroup = new azure_native.eventhub.ConsumerGroup("consumerGroup", {
+ *     consumerGroupName: "sdk-ConsumerGroup-5563",
+ *     eventHubName: "sdk-EventHub-6681",
+ *     namespaceName: "sdk-Namespace-2661",
+ *     resourceGroupName: "ArunMonocle",
+ *     userMetadata: "New consumergroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub:ConsumerGroup sdk-ConsumerGroup-5563 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-2661/eventhubs/sdk-EventHub-6681/consumergroups/sdk-ConsumerGroup-5563 
+ * ```
  */
 export class ConsumerGroup extends pulumi.CustomResource {
     /**

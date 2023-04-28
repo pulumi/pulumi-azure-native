@@ -9,6 +9,53 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Schedule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const schedule = new azure_native.machinelearningservices.v20230201preview.Schedule("schedule", {
+ *     name: "string",
+ *     resourceGroupName: "test-rg",
+ *     scheduleProperties: {
+ *         action: {
+ *             actionType: "InvokeBatchEndpoint",
+ *             endpointInvocationDefinition: {
+ *                 "9965593e-526f-4b89-bb36-761138cf2794": undefined,
+ *             },
+ *         },
+ *         description: "string",
+ *         displayName: "string",
+ *         isEnabled: false,
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *         trigger: {
+ *             endTime: "string",
+ *             expression: "string",
+ *             startTime: "string",
+ *             timeZone: "string",
+ *             triggerType: "Cron",
+ *         },
+ *     },
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230201preview:Schedule string string 
+ * ```
  */
 export class Schedule extends pulumi.CustomResource {
     /**

@@ -182,6 +182,41 @@ class ManagedNetworkGroup(pulumi.CustomResource):
         """
         The Managed Network Group resource
 
+        ## Example Usage
+        ### ManagementNetworkGroupsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network_group = azure_native.managednetwork.v20190601preview.ManagedNetworkGroup("managedNetworkGroup",
+            managed_network_group_name="myManagedNetworkGroup1",
+            managed_network_name="myManagedNetwork",
+            management_groups=[],
+            resource_group_name="myResourceGroup",
+            subnets=[azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
+            )],
+            subscriptions=[],
+            virtual_networks=[
+                azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                    id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+                ),
+                azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                    id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork/v20190601preview:ManagedNetworkGroup myManagedNetworkGroup1 /subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Kind']] kind: Responsibility role under which this Managed Network Group will be created
@@ -202,6 +237,41 @@ class ManagedNetworkGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Managed Network Group resource
+
+        ## Example Usage
+        ### ManagementNetworkGroupsPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_network_group = azure_native.managednetwork.v20190601preview.ManagedNetworkGroup("managedNetworkGroup",
+            managed_network_group_name="myManagedNetworkGroup1",
+            managed_network_name="myManagedNetwork",
+            management_groups=[],
+            resource_group_name="myResourceGroup",
+            subnets=[azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA/subnets/subnetA",
+            )],
+            subscriptions=[],
+            virtual_networks=[
+                azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                    id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetA",
+                ),
+                azure_native.managednetwork.v20190601preview.ResourceIdArgs(
+                    id="/subscriptionB/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/VnetB",
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetwork/v20190601preview:ManagedNetworkGroup myManagedNetworkGroup1 /subscriptionA/resourceGroups/myResourceGroup/providers/Microsoft.ManagedNetwork/managedNetworks/myManagedNetwork/managedNetworkGroups/myManagedNetworkGroup1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedNetworkGroupArgs args: The arguments to use to populate this resource's properties.

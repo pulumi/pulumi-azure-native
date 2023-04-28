@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ApiManagement.V20170301
 {
     /// <summary>
     /// Logger details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateDiagnosticLogger
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diagnosticLogger = new AzureNative.ApiManagement.V20170301.DiagnosticLogger("diagnosticLogger", new()
+    ///     {
+    ///         DiagnosticId = "default",
+    ///         Loggerid = "applicationinsights",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20170301:DiagnosticLogger applicationinsights /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default/loggers/applicationinsights 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20170301:DiagnosticLogger")]
     public partial class DiagnosticLogger : global::Pulumi.CustomResource

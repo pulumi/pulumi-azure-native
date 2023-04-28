@@ -11,6 +11,76 @@ import * as utilities from "../utilities";
  * An Asset Filter.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create an Asset Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assetFilter = new azure_native.media.AssetFilter("assetFilter", {
+ *     accountName: "contosomedia",
+ *     assetName: "ClimbingMountRainer",
+ *     filterName: "newAssetFilter",
+ *     firstQuality: {
+ *         bitrate: 128000,
+ *     },
+ *     presentationTimeRange: {
+ *         endTimestamp: 170000000,
+ *         forceEndTimestamp: false,
+ *         liveBackoffDuration: 0,
+ *         presentationWindowDuration: 9223372036854774784,
+ *         startTimestamp: 0,
+ *         timescale: 10000000,
+ *     },
+ *     resourceGroupName: "contosorg",
+ *     tracks: [
+ *         {
+ *             trackSelections: [
+ *                 {
+ *                     operation: "Equal",
+ *                     property: "Type",
+ *                     value: "Audio",
+ *                 },
+ *                 {
+ *                     operation: "NotEqual",
+ *                     property: "Language",
+ *                     value: "en",
+ *                 },
+ *                 {
+ *                     operation: "NotEqual",
+ *                     property: "FourCC",
+ *                     value: "EC-3",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             trackSelections: [
+ *                 {
+ *                     operation: "Equal",
+ *                     property: "Type",
+ *                     value: "Video",
+ *                 },
+ *                 {
+ *                     operation: "Equal",
+ *                     property: "Bitrate",
+ *                     value: "3000000-5000000",
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media:AssetFilter newAssetFilter /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountRainer/assetFilters/newAssetFilter 
+ * ```
  */
 export class AssetFilter extends pulumi.CustomResource {
     /**

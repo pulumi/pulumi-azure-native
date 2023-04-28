@@ -506,6 +506,27 @@ class ScopeAccessReviewScheduleDefinitionById(pulumi.CustomResource):
         """
         Access Review Schedule Definition.
 
+        ## Example Usage
+        ### PutAccessReview
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_access_review_schedule_definition_by_id = azure_native.authorization.v20211201preview.ScopeAccessReviewScheduleDefinitionById("scopeAccessReviewScheduleDefinitionById",
+            schedule_definition_id="fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
+            scope="subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20211201preview:ScopeAccessReviewScheduleDefinitionById fa73e90b-5bf1-45fd-a182-35ce5fc0674d /subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_apply_decisions_enabled: Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
@@ -545,6 +566,27 @@ class ScopeAccessReviewScheduleDefinitionById(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Access Review Schedule Definition.
+
+        ## Example Usage
+        ### PutAccessReview
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        scope_access_review_schedule_definition_by_id = azure_native.authorization.v20211201preview.ScopeAccessReviewScheduleDefinitionById("scopeAccessReviewScheduleDefinitionById",
+            schedule_definition_id="fa73e90b-5bf1-45fd-a182-35ce5fc0674d",
+            scope="subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20211201preview:ScopeAccessReviewScheduleDefinitionById fa73e90b-5bf1-45fd-a182-35ce5fc0674d /subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ScopeAccessReviewScheduleDefinitionByIdArgs args: The arguments to use to populate this resource's properties.

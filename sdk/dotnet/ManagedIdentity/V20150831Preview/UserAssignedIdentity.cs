@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20150831Preview
 {
     /// <summary>
     /// Describes an identity resource.
+    /// 
+    /// ## Example Usage
+    /// ### IdentityCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var userAssignedIdentity = new AzureNative.ManagedIdentity.V20150831Preview.UserAssignedIdentity("userAssignedIdentity", new()
+    ///     {
+    ///         Location = "cus",
+    ///         ResourceGroupName = "rgName",
+    ///         ResourceName = "resourceName",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managedidentity/v20150831preview:UserAssignedIdentity identityName /subscriptions/subid/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-08-31-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:managedidentity/v20150831preview:UserAssignedIdentity")]

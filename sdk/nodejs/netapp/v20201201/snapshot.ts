@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Snapshot of a Volume
+ *
+ * ## Example Usage
+ * ### Snapshots_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const snapshot = new azure_native.netapp.v20201201.Snapshot("snapshot", {
+ *     accountName: "account1",
+ *     location: "eastus",
+ *     poolName: "pool1",
+ *     resourceGroupName: "myRG",
+ *     snapshotName: "snapshot1",
+ *     volumeName: "volume1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp/v20201201:Snapshot account1/pool1/volume1/snapshot1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/snapshots/snapshot1 
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

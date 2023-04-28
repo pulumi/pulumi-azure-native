@@ -145,6 +145,46 @@ class DefaultAdminRule(pulumi.CustomResource):
         """
         Network default admin rule.
 
+        ## Example Usage
+        ### Create a default admin rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_admin_rule = azure_native.network.v20220901.DefaultAdminRule("defaultAdminRule",
+            configuration_name="myTestSecurityConfig",
+            flag="AllowVnetInbound",
+            kind="Default",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleDefaultAdminRule")
+
+        ```
+        ### Create an admin rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_admin_rule = azure_native.network.v20220901.DefaultAdminRule("defaultAdminRule",
+            configuration_name="myTestSecurityConfig",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleAdminRule")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:DefaultAdminRule SampleAdminRule /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection/rules/SampleAdminRule 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The name of the network manager Security Configuration.
@@ -164,6 +204,46 @@ class DefaultAdminRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Network default admin rule.
+
+        ## Example Usage
+        ### Create a default admin rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_admin_rule = azure_native.network.v20220901.DefaultAdminRule("defaultAdminRule",
+            configuration_name="myTestSecurityConfig",
+            flag="AllowVnetInbound",
+            kind="Default",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleDefaultAdminRule")
+
+        ```
+        ### Create an admin rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_admin_rule = azure_native.network.v20220901.DefaultAdminRule("defaultAdminRule",
+            configuration_name="myTestSecurityConfig",
+            network_manager_name="testNetworkManager",
+            resource_group_name="rg1",
+            rule_collection_name="testRuleCollection",
+            rule_name="SampleAdminRule")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20220901:DefaultAdminRule SampleAdminRule /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection/rules/SampleAdminRule 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DefaultAdminRuleArgs args: The arguments to use to populate this resource's properties.

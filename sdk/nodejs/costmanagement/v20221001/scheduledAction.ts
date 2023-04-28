@@ -9,6 +9,16 @@ import * as utilities from "../../utilities";
 
 /**
  * Scheduled action definition.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:costmanagement/v20221001:ScheduledAction monthlyCostByResource providers/Microsoft.CostManagement/scheduledActions/monthlyCostByResource 
+ * ```
  */
 export class ScheduledAction extends pulumi.CustomResource {
     /**

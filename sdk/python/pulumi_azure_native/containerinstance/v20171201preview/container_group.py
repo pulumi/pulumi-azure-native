@@ -209,6 +209,90 @@ class ContainerGroup(pulumi.CustomResource):
         """
         A container group.
 
+        ## Example Usage
+        ### ContainerGroupsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.v20171201preview.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "command": [],
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.v20171201preview.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": azure_native.containerinstance.v20171201preview.ResourceRequirementsArgs(
+                    requests=azure_native.containerinstance.v20171201preview.ResourceRequestsArgs(
+                        cpu=1,
+                        memory_in_gb=1.5,
+                    ),
+                ),
+                "volumeMounts": [
+                    azure_native.containerinstance.v20171201preview.VolumeMountArgs(
+                        mount_path="/mnt/volume1",
+                        name="volume1",
+                        read_only=False,
+                    ),
+                    azure_native.containerinstance.v20171201preview.VolumeMountArgs(
+                        mount_path="/mnt/volume2",
+                        name="volume2",
+                        read_only=False,
+                    ),
+                    azure_native.containerinstance.v20171201preview.VolumeMountArgs(
+                        mount_path="/mnt/volume3",
+                        name="volume3",
+                        read_only=True,
+                    ),
+                ],
+            }],
+            image_registry_credentials=[],
+            ip_address=azure_native.containerinstance.v20171201preview.IpAddressResponseArgs(
+                ports=[{
+                    "port": 80,
+                    "protocol": "TCP",
+                }],
+                type="Public",
+            ),
+            location="west us",
+            os_type="Linux",
+            resource_group_name="demo",
+            volumes=[
+                {
+                    "azureFile": azure_native.containerinstance.v20171201preview.AzureFileVolumeArgs(
+                        share_name="shareName",
+                        storage_account_key="accountKey",
+                        storage_account_name="accountName",
+                    ),
+                    "name": "volume1",
+                },
+                {
+                    "emptyDir": {},
+                    "name": "volume2",
+                },
+                {
+                    "name": "volume3",
+                    "secret": {
+                        "secretKey1": "SecretValue1InBase64",
+                        "secretKey2": "SecretValue2InBase64",
+                    },
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerinstance/v20171201preview:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_group_name: The name of the container group.
@@ -233,6 +317,90 @@ class ContainerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A container group.
+
+        ## Example Usage
+        ### ContainerGroupsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.v20171201preview.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "command": [],
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.v20171201preview.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": azure_native.containerinstance.v20171201preview.ResourceRequirementsArgs(
+                    requests=azure_native.containerinstance.v20171201preview.ResourceRequestsArgs(
+                        cpu=1,
+                        memory_in_gb=1.5,
+                    ),
+                ),
+                "volumeMounts": [
+                    azure_native.containerinstance.v20171201preview.VolumeMountArgs(
+                        mount_path="/mnt/volume1",
+                        name="volume1",
+                        read_only=False,
+                    ),
+                    azure_native.containerinstance.v20171201preview.VolumeMountArgs(
+                        mount_path="/mnt/volume2",
+                        name="volume2",
+                        read_only=False,
+                    ),
+                    azure_native.containerinstance.v20171201preview.VolumeMountArgs(
+                        mount_path="/mnt/volume3",
+                        name="volume3",
+                        read_only=True,
+                    ),
+                ],
+            }],
+            image_registry_credentials=[],
+            ip_address=azure_native.containerinstance.v20171201preview.IpAddressResponseArgs(
+                ports=[{
+                    "port": 80,
+                    "protocol": "TCP",
+                }],
+                type="Public",
+            ),
+            location="west us",
+            os_type="Linux",
+            resource_group_name="demo",
+            volumes=[
+                {
+                    "azureFile": azure_native.containerinstance.v20171201preview.AzureFileVolumeArgs(
+                        share_name="shareName",
+                        storage_account_key="accountKey",
+                        storage_account_name="accountName",
+                    ),
+                    "name": "volume1",
+                },
+                {
+                    "emptyDir": {},
+                    "name": "volume2",
+                },
+                {
+                    "name": "volume3",
+                    "secret": {
+                        "secretKey1": "SecretValue1InBase64",
+                        "secretKey2": "SecretValue2InBase64",
+                    },
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerinstance/v20171201preview:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerGroupArgs args: The arguments to use to populate this resource's properties.

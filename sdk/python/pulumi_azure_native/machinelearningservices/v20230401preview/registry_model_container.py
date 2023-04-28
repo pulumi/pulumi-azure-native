@@ -95,6 +95,35 @@ class RegistryModelContainer(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Registry Model Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_model_container = azure_native.machinelearningservices.v20230401preview.RegistryModelContainer("registryModelContainer",
+            model_container_properties=azure_native.machinelearningservices.v20230401preview.ModelContainerArgs(
+                description="Model container description",
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            model_name="testContainer",
+            registry_name="registry123",
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryModelContainer testContainer /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/registries/registry123/models/testContainer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ModelContainerArgs']] model_container_properties: [Required] Additional attributes of the entity.
@@ -110,6 +139,35 @@ class RegistryModelContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Registry Model Container.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_model_container = azure_native.machinelearningservices.v20230401preview.RegistryModelContainer("registryModelContainer",
+            model_container_properties=azure_native.machinelearningservices.v20230401preview.ModelContainerArgs(
+                description="Model container description",
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            model_name="testContainer",
+            registry_name="registry123",
+            resource_group_name="testrg123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryModelContainer testContainer /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/registries/registry123/models/testContainer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryModelContainerArgs args: The arguments to use to populate this resource's properties.

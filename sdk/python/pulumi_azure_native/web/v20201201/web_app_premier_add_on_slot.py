@@ -228,6 +228,13 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Premier add-on.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201201:WebAppPremierAddOnSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/premieraddons/{premierAddOnName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -252,6 +259,13 @@ class WebAppPremierAddOnSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Premier add-on.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201201:WebAppPremierAddOnSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/premieraddons/{premierAddOnName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppPremierAddOnSlotArgs args: The arguments to use to populate this resource's properties.

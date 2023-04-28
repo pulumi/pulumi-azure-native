@@ -12,6 +12,43 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
     /// <summary>
     /// The agentpool that has the ARM resource and properties.
     /// The agentpool will have all information to create an agent pool.
+    /// 
+    /// ## Example Usage
+    /// ### AgentPools_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerRegistry.V20190601Preview.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "myAgentPool",
+    ///         Count = 1,
+    ///         Location = "WESTUS",
+    ///         Os = "Linux",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///         Tier = "S1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20190601preview:AgentPool myAgentPool /subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourceGroups/huanwudfwestgroup/providers/Microsoft.ContainerRegistry/registries/huanglidfwest01/agentPools/testagent26 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20190601preview:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource

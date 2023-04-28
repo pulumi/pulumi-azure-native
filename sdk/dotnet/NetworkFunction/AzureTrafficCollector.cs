@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.NetworkFunction
     /// Azure Traffic Collector resource.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2022-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a traffic collector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureTrafficCollector = new AzureNative.NetworkFunction.AzureTrafficCollector("azureTrafficCollector", new()
+    ///     {
+    ///         AzureTrafficCollectorName = "atc",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:networkfunction:AzureTrafficCollector atc /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.NetworkFunction/azureTrafficCollectors/atc 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:networkfunction:AzureTrafficCollector")]
     public partial class AzureTrafficCollector : global::Pulumi.CustomResource

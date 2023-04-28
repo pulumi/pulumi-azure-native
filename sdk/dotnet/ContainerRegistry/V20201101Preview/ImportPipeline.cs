@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
 {
     /// <summary>
     /// An object that represents an import pipeline for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### ImportPipelineCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var importPipeline = new AzureNative.ContainerRegistry.V20201101Preview.ImportPipeline("importPipeline", new()
+    ///     {
+    ///         Identity = new AzureNative.ContainerRegistry.V20201101Preview.Inputs.IdentityPropertiesArgs
+    ///         {
+    ///             Type = AzureNative.ContainerRegistry.V20201101Preview.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2", null },
+    ///             },
+    ///         },
+    ///         ImportPipelineName = "myImportPipeline",
+    ///         Location = "westus",
+    ///         Options = new[]
+    ///         {
+    ///             "OverwriteTags",
+    ///             "DeleteSourceBlobOnSuccess",
+    ///             "ContinueOnErrors",
+    ///         },
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Source = new AzureNative.ContainerRegistry.V20201101Preview.Inputs.ImportPipelineSourcePropertiesArgs
+    ///         {
+    ///             KeyVaultUri = "https://myvault.vault.azure.net/secrets/acrimportsas",
+    ///             Type = "AzureStorageBlobContainer",
+    ///             Uri = "https://accountname.blob.core.windows.net/containername",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20201101preview:ImportPipeline myImportPipeline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20201101preview:ImportPipeline")]
     public partial class ImportPipeline : global::Pulumi.CustomResource

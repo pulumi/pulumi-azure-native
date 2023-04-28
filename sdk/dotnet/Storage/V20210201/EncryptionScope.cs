@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.Storage.V20210201
 {
     /// <summary>
     /// The Encryption Scope resource.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountPutEncryptionScope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var encryptionScope = new AzureNative.Storage.V20210201.EncryptionScope("encryptionScope", new()
+    ///     {
+    ///         AccountName = "{storage-account-name}",
+    ///         EncryptionScopeName = "{encryption-scope-name}",
+    ///         ResourceGroupName = "resource-group-name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountPutEncryptionScopeWithInfrastructureEncryption
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var encryptionScope = new AzureNative.Storage.V20210201.EncryptionScope("encryptionScope", new()
+    ///     {
+    ///         AccountName = "{storage-account-name}",
+    ///         EncryptionScopeName = "{encryption-scope-name}",
+    ///         RequireInfrastructureEncryption = true,
+    ///         ResourceGroupName = "resource-group-name",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20210201:EncryptionScope {encryption-scope-name} /subscriptions/{subscription-id}/resourceGroups/resource-group-name/providers/Microsoft.Storage/storageAccounts/{storage-account-name}/encryptionScopes/{encryption-scope-name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210201:EncryptionScope")]
     public partial class EncryptionScope : global::Pulumi.CustomResource

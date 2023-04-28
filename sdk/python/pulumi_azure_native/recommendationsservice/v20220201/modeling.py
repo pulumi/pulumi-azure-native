@@ -131,6 +131,40 @@ class Modeling(pulumi.CustomResource):
         """
         Modeling resource details.
 
+        ## Example Usage
+        ### Create or update Modeling resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        modeling = azure_native.recommendationsservice.v20220201.Modeling("modeling",
+            account_name="sampleAccount",
+            location="West US",
+            modeling_name="c1",
+            properties=azure_native.recommendationsservice.v20220201.ModelingResourceResponsePropertiesArgs(
+                features="Standard",
+                frequency="High",
+                input_data=azure_native.recommendationsservice.v20220201.ModelingInputDataArgs(
+                    connection_string="https://storageAccount.blob.core.windows.net/container/root",
+                ),
+                size="Medium",
+            ),
+            resource_group_name="rg",
+            tags={
+                "Environment": "Prod",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recommendationsservice/v20220201:Modeling c1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount/modeling/c1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the RecommendationsService Account resource.
@@ -148,6 +182,40 @@ class Modeling(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Modeling resource details.
+
+        ## Example Usage
+        ### Create or update Modeling resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        modeling = azure_native.recommendationsservice.v20220201.Modeling("modeling",
+            account_name="sampleAccount",
+            location="West US",
+            modeling_name="c1",
+            properties=azure_native.recommendationsservice.v20220201.ModelingResourceResponsePropertiesArgs(
+                features="Standard",
+                frequency="High",
+                input_data=azure_native.recommendationsservice.v20220201.ModelingInputDataArgs(
+                    connection_string="https://storageAccount.blob.core.windows.net/container/root",
+                ),
+                size="Medium",
+            ),
+            resource_group_name="rg",
+            tags={
+                "Environment": "Prod",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recommendationsservice/v20220201:Modeling c1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount/modeling/c1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ModelingArgs args: The arguments to use to populate this resource's properties.

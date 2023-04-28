@@ -13,6 +13,46 @@ namespace Pulumi.AzureNative.MachineLearningExperimentation
     /// An object that represents a machine learning team account.
     /// API Version: 2017-05-01-preview.
     /// Previous API Version: 2017-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### AccountCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.MachineLearningExperimentation.Account("account", new()
+    ///     {
+    ///         AccountName = "accountcrud5678",
+    ///         KeyVaultId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.KeyVault/vaults/testkv",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "accountcrud-1234",
+    ///         StorageAccount = new AzureNative.MachineLearningExperimentation.Inputs.StorageAccountPropertiesArgs
+    ///         {
+    ///             AccessKey = "key",
+    ///             StorageAccountId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "TagValue1" },
+    ///         },
+    ///         VsoAccountId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/microsoft.visualstudio/account/vsotest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningexperimentation:Account accountcrud5678 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.MachineLearningExperimentation/accounts/accountcrud5678 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningexperimentation:Account")]
     public partial class Account : global::Pulumi.CustomResource

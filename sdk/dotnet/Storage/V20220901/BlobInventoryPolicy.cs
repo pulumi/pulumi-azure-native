@@ -11,6 +11,348 @@ namespace Pulumi.AzureNative.Storage.V20220901
 {
     /// <summary>
     /// The storage account blob inventory policy.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountSetBlobInventoryPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobInventoryPolicy = new AzureNative.Storage.V20220901.BlobInventoryPolicy("blobInventoryPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         BlobInventoryPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicySchemaArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyDefinitionArgs
+    ///                     {
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                                 "appendBlob",
+    ///                                 "pageBlob",
+    ///                             },
+    ///                             ExcludePrefix = new[]
+    ///                             {
+    ///                                 "excludeprefix1",
+    ///                                 "excludeprefix2",
+    ///                             },
+    ///                             IncludeBlobVersions = true,
+    ///                             IncludeSnapshots = true,
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "inventoryprefix1",
+    ///                                 "inventoryprefix2",
+    ///                             },
+    ///                         },
+    ///                         Format = "Csv",
+    ///                         ObjectType = "Blob",
+    ///                         Schedule = "Daily",
+    ///                         SchemaFields = new[]
+    ///                         {
+    ///                             "Name",
+    ///                             "Creation-Time",
+    ///                             "Last-Modified",
+    ///                             "Content-Length",
+    ///                             "Content-MD5",
+    ///                             "BlobType",
+    ///                             "AccessTier",
+    ///                             "AccessTierChangeTime",
+    ///                             "Snapshot",
+    ///                             "VersionId",
+    ///                             "IsCurrentVersion",
+    ///                             "Metadata",
+    ///                         },
+    ///                     },
+    ///                     Destination = "container1",
+    ///                     Enabled = true,
+    ///                     Name = "inventoryPolicyRule1",
+    ///                 },
+    ///                 new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyDefinitionArgs
+    ///                     {
+    ///                         Format = "Parquet",
+    ///                         ObjectType = "Container",
+    ///                         Schedule = "Weekly",
+    ///                         SchemaFields = new[]
+    ///                         {
+    ///                             "Name",
+    ///                             "Last-Modified",
+    ///                             "Metadata",
+    ///                             "LeaseStatus",
+    ///                             "LeaseState",
+    ///                             "LeaseDuration",
+    ///                             "PublicAccess",
+    ///                             "HasImmutabilityPolicy",
+    ///                             "HasLegalHold",
+    ///                         },
+    ///                     },
+    ///                     Destination = "container2",
+    ///                     Enabled = true,
+    ///                     Name = "inventoryPolicyRule2",
+    ///                 },
+    ///             },
+    ///             Type = "Inventory",
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountSetBlobInventoryPolicyIncludeDeleteAndNewSchemaForHnsAccount
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobInventoryPolicy = new AzureNative.Storage.V20220901.BlobInventoryPolicy("blobInventoryPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         BlobInventoryPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicySchemaArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyDefinitionArgs
+    ///                     {
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                                 "appendBlob",
+    ///                                 "pageBlob",
+    ///                             },
+    ///                             ExcludePrefix = new[]
+    ///                             {
+    ///                                 "excludeprefix1",
+    ///                                 "excludeprefix2",
+    ///                             },
+    ///                             IncludeBlobVersions = true,
+    ///                             IncludeDeleted = true,
+    ///                             IncludeSnapshots = true,
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "inventoryprefix1",
+    ///                                 "inventoryprefix2",
+    ///                             },
+    ///                         },
+    ///                         Format = "Csv",
+    ///                         ObjectType = "Blob",
+    ///                         Schedule = "Daily",
+    ///                         SchemaFields = new[]
+    ///                         {
+    ///                             "Name",
+    ///                             "Creation-Time",
+    ///                             "Last-Modified",
+    ///                             "Content-Length",
+    ///                             "Content-MD5",
+    ///                             "BlobType",
+    ///                             "AccessTier",
+    ///                             "AccessTierChangeTime",
+    ///                             "Snapshot",
+    ///                             "VersionId",
+    ///                             "IsCurrentVersion",
+    ///                             "ContentType",
+    ///                             "ContentEncoding",
+    ///                             "ContentLanguage",
+    ///                             "ContentCRC64",
+    ///                             "CacheControl",
+    ///                             "Metadata",
+    ///                             "DeletionId",
+    ///                             "Deleted",
+    ///                             "DeletedTime",
+    ///                             "RemainingRetentionDays",
+    ///                         },
+    ///                     },
+    ///                     Destination = "container1",
+    ///                     Enabled = true,
+    ///                     Name = "inventoryPolicyRule1",
+    ///                 },
+    ///                 new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyDefinitionArgs
+    ///                     {
+    ///                         Format = "Parquet",
+    ///                         ObjectType = "Container",
+    ///                         Schedule = "Weekly",
+    ///                         SchemaFields = new[]
+    ///                         {
+    ///                             "Name",
+    ///                             "Last-Modified",
+    ///                             "Metadata",
+    ///                             "LeaseStatus",
+    ///                             "LeaseState",
+    ///                             "LeaseDuration",
+    ///                             "PublicAccess",
+    ///                             "HasImmutabilityPolicy",
+    ///                             "HasLegalHold",
+    ///                             "Etag",
+    ///                             "DefaultEncryptionScope",
+    ///                             "DenyEncryptionScopeOverride",
+    ///                             "ImmutableStorageWithVersioningEnabled",
+    ///                             "Deleted",
+    ///                             "Version",
+    ///                             "DeletedTime",
+    ///                             "RemainingRetentionDays",
+    ///                         },
+    ///                     },
+    ///                     Destination = "container2",
+    ///                     Enabled = true,
+    ///                     Name = "inventoryPolicyRule2",
+    ///                 },
+    ///             },
+    ///             Type = "Inventory",
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### StorageAccountSetBlobInventoryPolicyIncludeDeleteAndNewSchemaForNonHnsAccount
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobInventoryPolicy = new AzureNative.Storage.V20220901.BlobInventoryPolicy("blobInventoryPolicy", new()
+    ///     {
+    ///         AccountName = "sto9699",
+    ///         BlobInventoryPolicyName = "default",
+    ///         Policy = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicySchemaArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Rules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyDefinitionArgs
+    ///                     {
+    ///                         Filters = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyFilterArgs
+    ///                         {
+    ///                             BlobTypes = new[]
+    ///                             {
+    ///                                 "blockBlob",
+    ///                                 "appendBlob",
+    ///                                 "pageBlob",
+    ///                             },
+    ///                             ExcludePrefix = new[]
+    ///                             {
+    ///                                 "excludeprefix1",
+    ///                                 "excludeprefix2",
+    ///                             },
+    ///                             IncludeBlobVersions = true,
+    ///                             IncludeDeleted = true,
+    ///                             IncludeSnapshots = true,
+    ///                             PrefixMatch = new[]
+    ///                             {
+    ///                                 "inventoryprefix1",
+    ///                                 "inventoryprefix2",
+    ///                             },
+    ///                         },
+    ///                         Format = "Csv",
+    ///                         ObjectType = "Blob",
+    ///                         Schedule = "Daily",
+    ///                         SchemaFields = new[]
+    ///                         {
+    ///                             "Name",
+    ///                             "Creation-Time",
+    ///                             "Last-Modified",
+    ///                             "Content-Length",
+    ///                             "Content-MD5",
+    ///                             "BlobType",
+    ///                             "AccessTier",
+    ///                             "AccessTierChangeTime",
+    ///                             "Snapshot",
+    ///                             "VersionId",
+    ///                             "IsCurrentVersion",
+    ///                             "Tags",
+    ///                             "ContentType",
+    ///                             "ContentEncoding",
+    ///                             "ContentLanguage",
+    ///                             "ContentCRC64",
+    ///                             "CacheControl",
+    ///                             "Metadata",
+    ///                             "Deleted",
+    ///                             "RemainingRetentionDays",
+    ///                         },
+    ///                     },
+    ///                     Destination = "container1",
+    ///                     Enabled = true,
+    ///                     Name = "inventoryPolicyRule1",
+    ///                 },
+    ///                 new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyRuleArgs
+    ///                 {
+    ///                     Definition = new AzureNative.Storage.V20220901.Inputs.BlobInventoryPolicyDefinitionArgs
+    ///                     {
+    ///                         Format = "Parquet",
+    ///                         ObjectType = "Container",
+    ///                         Schedule = "Weekly",
+    ///                         SchemaFields = new[]
+    ///                         {
+    ///                             "Name",
+    ///                             "Last-Modified",
+    ///                             "Metadata",
+    ///                             "LeaseStatus",
+    ///                             "LeaseState",
+    ///                             "LeaseDuration",
+    ///                             "PublicAccess",
+    ///                             "HasImmutabilityPolicy",
+    ///                             "HasLegalHold",
+    ///                             "Etag",
+    ///                             "DefaultEncryptionScope",
+    ///                             "DenyEncryptionScopeOverride",
+    ///                             "ImmutableStorageWithVersioningEnabled",
+    ///                             "Deleted",
+    ///                             "Version",
+    ///                             "DeletedTime",
+    ///                             "RemainingRetentionDays",
+    ///                         },
+    ///                     },
+    ///                     Destination = "container2",
+    ///                     Enabled = true,
+    ///                     Name = "inventoryPolicyRule2",
+    ///                 },
+    ///             },
+    ///             Type = "Inventory",
+    ///         },
+    ///         ResourceGroupName = "res7687",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20220901:BlobInventoryPolicy DefaultInventoryPolicy /subscriptions/{subscription-id}/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/sto9699/inventoryPolicies/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20220901:BlobInventoryPolicy")]
     public partial class BlobInventoryPolicy : global::Pulumi.CustomResource

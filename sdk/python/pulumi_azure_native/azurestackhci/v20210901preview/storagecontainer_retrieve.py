@@ -153,6 +153,33 @@ class StoragecontainerRetrieve(pulumi.CustomResource):
         """
         The storage container resource definition.
 
+        ## Example Usage
+        ### PutStorageContainer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storagecontainer_retrieve = azure_native.azurestackhci.v20210901preview.StoragecontainerRetrieve("storagecontainerRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.StoragecontainersExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            location="West US2",
+            path="C:\\\\container_storage",
+            resource_group_name="test-rg",
+            storagecontainers_name="Default_Container")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve Default_Container /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storagecontainers/test-galimg3325 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The resource location
@@ -169,6 +196,33 @@ class StoragecontainerRetrieve(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage container resource definition.
+
+        ## Example Usage
+        ### PutStorageContainer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storagecontainer_retrieve = azure_native.azurestackhci.v20210901preview.StoragecontainerRetrieve("storagecontainerRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.StoragecontainersExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            location="West US2",
+            path="C:\\\\container_storage",
+            resource_group_name="test-rg",
+            storagecontainers_name="Default_Container")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:storagecontainerRetrieve Default_Container /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/storagecontainers/test-galimg3325 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StoragecontainerRetrieveArgs args: The arguments to use to populate this resource's properties.

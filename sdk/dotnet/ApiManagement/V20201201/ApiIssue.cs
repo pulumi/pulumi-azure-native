@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Issue Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateApiIssue
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var apiIssue = new AzureNative.ApiManagement.V20201201.ApiIssue("apiIssue", new()
+    ///     {
+    ///         ApiId = "57d1f7558aa04f15146d9d8a",
+    ///         CreatedDate = "2018-02-01T22:21:20.467Z",
+    ///         Description = "New API issue description",
+    ///         IssueId = "57d2ef278aa04f0ad01d6cdc",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         State = "open",
+    ///         Title = "New API issue",
+    ///         UserId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:ApiIssue 57d2ef278aa04f0ad01d6cdc /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:ApiIssue")]
     public partial class ApiIssue : global::Pulumi.CustomResource

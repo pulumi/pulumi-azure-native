@@ -180,6 +180,101 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
         """
         An Azure Cosmos DB container.
 
+        ## Example Usage
+        ### CosmosDBSqlContainerCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_container = azure_native.documentdb.v20220815preview.SqlResourceSqlContainer("sqlResourceSqlContainer",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlContainerGetPropertiesResponseResourceArgs(
+                client_encryption_policy=azure_native.documentdb.v20220815preview.ClientEncryptionPolicyArgs(
+                    included_paths=[azure_native.documentdb.v20220815preview.ClientEncryptionIncludedPathArgs(
+                        client_encryption_key_id="keyId",
+                        encryption_algorithm="AEAD_AES_256_CBC_HMAC_SHA256",
+                        encryption_type="Deterministic",
+                        path="/path",
+                    )],
+                ),
+                conflict_resolution_policy=azure_native.documentdb.v20220815preview.ConflictResolutionPolicyArgs(
+                    conflict_resolution_path="/path",
+                    mode="LastWriterWins",
+                ),
+                default_ttl=100,
+                id="containerName",
+                indexing_policy={
+                    "automatic": True,
+                    "excludedPaths": [],
+                    "includedPaths": [{
+                        "indexes": [
+                            azure_native.documentdb.v20220815preview.IndexesArgs(
+                                data_type="String",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                            azure_native.documentdb.v20220815preview.IndexesArgs(
+                                data_type="Number",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                        ],
+                        "path": "/*",
+                    }],
+                    "indexingMode": "consistent",
+                },
+                partition_key=azure_native.documentdb.v20220815preview.ContainerPartitionKeyArgs(
+                    kind="Hash",
+                    paths=["/AccountNumber"],
+                ),
+                unique_key_policy={
+                    "uniqueKeys": [azure_native.documentdb.v20220815preview.UniqueKeyArgs(
+                        paths=["/testPath"],
+                    )],
+                },
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+        ### CosmosDBSqlContainerRestore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_container = azure_native.documentdb.v20220815preview.SqlResourceSqlContainer("sqlResourceSqlContainer",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlContainerGetPropertiesResponseResourceArgs(
+                create_mode="Restore",
+                id="containerName",
+                restore_parameters=azure_native.documentdb.v20220815preview.ResourceRestoreParametersArgs(
+                    restore_source="/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+                    restore_timestamp_in_utc="2022-07-20T18:28:00Z",
+                ),
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:SqlResourceSqlContainer containerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/containers/containerName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Cosmos DB database account name.
@@ -200,6 +295,101 @@ class SqlResourceSqlContainer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure Cosmos DB container.
+
+        ## Example Usage
+        ### CosmosDBSqlContainerCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_container = azure_native.documentdb.v20220815preview.SqlResourceSqlContainer("sqlResourceSqlContainer",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlContainerGetPropertiesResponseResourceArgs(
+                client_encryption_policy=azure_native.documentdb.v20220815preview.ClientEncryptionPolicyArgs(
+                    included_paths=[azure_native.documentdb.v20220815preview.ClientEncryptionIncludedPathArgs(
+                        client_encryption_key_id="keyId",
+                        encryption_algorithm="AEAD_AES_256_CBC_HMAC_SHA256",
+                        encryption_type="Deterministic",
+                        path="/path",
+                    )],
+                ),
+                conflict_resolution_policy=azure_native.documentdb.v20220815preview.ConflictResolutionPolicyArgs(
+                    conflict_resolution_path="/path",
+                    mode="LastWriterWins",
+                ),
+                default_ttl=100,
+                id="containerName",
+                indexing_policy={
+                    "automatic": True,
+                    "excludedPaths": [],
+                    "includedPaths": [{
+                        "indexes": [
+                            azure_native.documentdb.v20220815preview.IndexesArgs(
+                                data_type="String",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                            azure_native.documentdb.v20220815preview.IndexesArgs(
+                                data_type="Number",
+                                kind="Range",
+                                precision=-1,
+                            ),
+                        ],
+                        "path": "/*",
+                    }],
+                    "indexingMode": "consistent",
+                },
+                partition_key=azure_native.documentdb.v20220815preview.ContainerPartitionKeyArgs(
+                    kind="Hash",
+                    paths=["/AccountNumber"],
+                ),
+                unique_key_policy={
+                    "uniqueKeys": [azure_native.documentdb.v20220815preview.UniqueKeyArgs(
+                        paths=["/testPath"],
+                    )],
+                },
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+        ### CosmosDBSqlContainerRestore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_resource_sql_container = azure_native.documentdb.v20220815preview.SqlResourceSqlContainer("sqlResourceSqlContainer",
+            account_name="ddb1",
+            container_name="containerName",
+            database_name="databaseName",
+            location="West US",
+            options=azure_native.documentdb.v20220815preview.CreateUpdateOptionsArgs(),
+            resource=azure_native.documentdb.v20220815preview.SqlContainerGetPropertiesResponseResourceArgs(
+                create_mode="Restore",
+                id="containerName",
+                restore_parameters=azure_native.documentdb.v20220815preview.ResourceRestoreParametersArgs(
+                    restore_source="/subscriptions/subid/providers/Microsoft.DocumentDB/locations/WestUS/restorableDatabaseAccounts/restorableDatabaseAccountId",
+                    restore_timestamp_in_utc="2022-07-20T18:28:00Z",
+                ),
+            ),
+            resource_group_name="rg1",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:documentdb/v20220815preview:SqlResourceSqlContainer containerName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/sqlDatabases/databaseName/containers/containerName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlResourceSqlContainerArgs args: The arguments to use to populate this resource's properties.

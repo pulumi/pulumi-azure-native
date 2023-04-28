@@ -11,6 +11,28 @@ import * as utilities from "../utilities";
  * Device group
  * API Version: 2021-02-01-preview.
  * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update device group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deviceGroup = new azure_native.iotsecurity.DeviceGroup("deviceGroup", {
+ *     deviceGroupName: "myGroup",
+ *     iotDefenderLocation: "eastus",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:iotsecurity:DeviceGroup myGroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.IoTSecurity/deviceGroups/myGroup 
+ * ```
  */
 export class DeviceGroup extends pulumi.CustomResource {
     /**

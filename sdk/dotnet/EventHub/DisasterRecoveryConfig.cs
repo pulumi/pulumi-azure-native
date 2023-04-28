@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.EventHub
     /// Single item in List or Get Alias(Disaster Recovery configuration) operation
     /// API Version: 2021-11-01.
     /// Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### EHAliasCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disasterRecoveryConfig = new AzureNative.EventHub.DisasterRecoveryConfig("disasterRecoveryConfig", new()
+    ///     {
+    ///         Alias = "sdk-DisasterRecovery-3814",
+    ///         NamespaceName = "sdk-Namespace-8859",
+    ///         PartnerNamespace = "sdk-Namespace-37",
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub:DisasterRecoveryConfig sdk-DisasterRecovery-3814 /subscriptions/exampleResourceGroup/resourceGroups/exampleResourceGroup/providers/Microsoft.EventHub/namespaces/sdk-Namespace-8859/disasterRecoveryConfig/sdk-DisasterRecovery-3814 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub:DisasterRecoveryConfig")]
     public partial class DisasterRecoveryConfig : global::Pulumi.CustomResource

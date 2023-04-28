@@ -10,6 +10,36 @@ import * as utilities from "../../utilities";
 /**
  * The essential information related to the peer's ASN.
  *
+ * ## Example Usage
+ * ### Create a peer ASN
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const peerAsn = new azure_native.peering.v20190901preview.PeerAsn("peerAsn", {
+ *     peerAsn: 65000,
+ *     peerAsnName: "MyPeerAsn",
+ *     peerContactInfo: {
+ *         emails: [
+ *             "abc@contoso.com",
+ *             "xyz@contoso.com",
+ *         ],
+ *         phone: ["+1 (234) 567-8900"],
+ *     },
+ *     peerName: "Contoso",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:peering/v20190901preview:PeerAsn MyPeerAsn /subscriptions/subId/providers/Microsoft.Peering/peerAsns/MyPeerAsn 
+ * ```
+ *
  * @deprecated Version 2019-09-01-preview will be removed in v2 of the provider.
  */
 export class PeerAsn extends pulumi.CustomResource {

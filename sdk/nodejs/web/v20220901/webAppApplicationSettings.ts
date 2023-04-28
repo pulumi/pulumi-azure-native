@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * String dictionary resource.
+ *
+ * ## Example Usage
+ * ### Update App Settings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webAppApplicationSettings = new azure_native.web.v20220901.WebAppApplicationSettings("webAppApplicationSettings", {
+ *     name: "sitef6141",
+ *     properties: {
+ *         Setting1: "Value1",
+ *         Setting2: "Value2",
+ *     },
+ *     resourceGroupName: "testrg123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:WebAppApplicationSettings appsettings /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/appsettings 
+ * ```
  */
 export class WebAppApplicationSettings extends pulumi.CustomResource {
     /**

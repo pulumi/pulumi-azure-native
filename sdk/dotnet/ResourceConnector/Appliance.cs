@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.ResourceConnector
     /// Appliances definition.
     /// API Version: 2022-10-27.
     /// Previous API Version: 2021-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Appliance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appliance = new AzureNative.ResourceConnector.Appliance("appliance", new()
+    ///     {
+    ///         Distro = "AKSEdge",
+    ///         InfrastructureConfig = new AzureNative.ResourceConnector.Inputs.AppliancePropertiesInfrastructureConfigArgs
+    ///         {
+    ///             Provider = "VMWare",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "testresourcegroup",
+    ///         ResourceName = "appliance01",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resourceconnector:Appliance appliance01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ResourceConnector/appliances/appliance01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resourceconnector:Appliance")]
     public partial class Appliance : global::Pulumi.CustomResource

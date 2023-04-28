@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.NetApp.V20220901
 {
     /// <summary>
     /// Quota Rule of a Volume
+    /// 
+    /// ## Example Usage
+    /// ### VolumeQuotaRules_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volumeQuotaRule = new AzureNative.NetApp.V20220901.VolumeQuotaRule("volumeQuotaRule", new()
+    ///     {
+    ///         AccountName = "account-9957",
+    ///         Location = "westus",
+    ///         PoolName = "pool-5210",
+    ///         QuotaSizeInKiBs = 100005,
+    ///         QuotaTarget = "1821",
+    ///         QuotaType = "IndividualUserQuota",
+    ///         ResourceGroupName = "myRG",
+    ///         VolumeName = "volume-6387",
+    ///         VolumeQuotaRuleName = "rule-0004",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20220901:VolumeQuotaRule account-9957/pool-5210/volume-6387/rule-0004 /subscriptions/5275316f-a498-48d6-b324-2cbfdc4311b9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account-9957/capacityPools/pool-5210/volumes/volume-6387/volumeQuotaRules/rule-0004 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp/v20220901:VolumeQuotaRule")]
     public partial class VolumeQuotaRule : global::Pulumi.CustomResource

@@ -149,6 +149,30 @@ class Video(pulumi.CustomResource):
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Register video entity.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        video = azure_native.videoanalyzer.Video("video",
+            account_name="testaccount2",
+            description="Sample Description 1",
+            resource_group_name="testrg",
+            title="Sample Title 1",
+            video_name="video1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer:Video video1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/videos/video1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Azure Video Analyzer account name.
@@ -169,6 +193,30 @@ class Video(pulumi.CustomResource):
         Represents a video resource within Azure Video Analyzer. Videos can be ingested from RTSP cameras through live pipelines or can be created by exporting sequences from existing captured video through a pipeline job. Videos ingested through live pipelines can be streamed through Azure Video Analyzer Player Widget or compatible players. Exported videos can be downloaded as MP4 files.
         API Version: 2021-11-01-preview.
         Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Register video entity.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        video = azure_native.videoanalyzer.Video("video",
+            account_name="testaccount2",
+            description="Sample Description 1",
+            resource_group_name="testrg",
+            title="Sample Title 1",
+            video_name="video1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer:Video video1 /subscriptions/591e76c3-3e97-44db-879c-3e2b12961b62/resourceGroups/testrg/providers/Microsoft.Media/videoAnalyzers/testaccount2/videos/video1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VideoArgs args: The arguments to use to populate this resource's properties.

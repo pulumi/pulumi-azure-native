@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
     /// <summary>
     /// An Azure SQL Database sync member.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new sync member
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var syncMember = new AzureNative.Sql.V20201101Preview.SyncMember("syncMember", new()
+    ///     {
+    ///         DatabaseName = "syncgroupcrud-4328",
+    ///         DatabaseType = "AzureSqlDatabase",
+    ///         ResourceGroupName = "syncgroupcrud-65440",
+    ///         ServerName = "syncgroupcrud-8475",
+    ///         SyncDirection = "Bidirectional",
+    ///         SyncGroupName = "syncgroupcrud-3187",
+    ///         SyncMemberAzureDatabaseResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    ///         SyncMemberName = "syncmembercrud-4879",
+    ///         UsePrivateLinkConnection = true,
+    ///         UserName = "myUser",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update a sync member
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var syncMember = new AzureNative.Sql.V20201101Preview.SyncMember("syncMember", new()
+    ///     {
+    ///         DatabaseName = "syncgroupcrud-4328",
+    ///         DatabaseType = "AzureSqlDatabase",
+    ///         ResourceGroupName = "syncgroupcrud-65440",
+    ///         ServerName = "syncgroupcrud-8475",
+    ///         SyncDirection = "Bidirectional",
+    ///         SyncGroupName = "syncgroupcrud-3187",
+    ///         SyncMemberAzureDatabaseResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328",
+    ///         SyncMemberName = "syncmembercrud-4879",
+    ///         UsePrivateLinkConnection = true,
+    ///         UserName = "myUser",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20201101preview:SyncMember syncmembercrud-4879 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/syncgroupcrud-65440/providers/Microsoft.Sql/servers/syncgroupcrud-8475/databases/syncgroupcrud-4328/syncGroups/syncgroupcrud-3187/syncMembers/syncmembercrud-4879 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20201101preview:SyncMember")]
     public partial class SyncMember : global::Pulumi.CustomResource

@@ -11,6 +11,297 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
 {
     /// <summary>
     /// An input object, containing all information associated with the named input. All inputs are contained under a streaming job.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Gateway Message Bus input
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var input = new AzureNative.StreamAnalytics.V20211001Preview.Input("input", new()
+    ///     {
+    ///         InputName = "input7970",
+    ///         JobName = "sj9742",
+    ///         Properties = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StreamInputPropertiesArgs
+    ///         {
+    ///             Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.GatewayMessageBusStreamInputDataSourceArgs
+    ///             {
+    ///                 Topic = "EdgeTopic1",
+    ///                 Type = "GatewayMessageBus",
+    ///             },
+    ///             Type = "Stream",
+    ///         },
+    ///         ResourceGroupName = "sjrg3467",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a reference blob input with CSV serialization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var input = new AzureNative.StreamAnalytics.V20211001Preview.Input("input", new()
+    ///     {
+    ///         InputName = "input7225",
+    ///         JobName = "sj9597",
+    ///         Properties = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.ReferenceInputPropertiesArgs
+    ///         {
+    ///             Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.BlobReferenceInputDataSourceArgs
+    ///             {
+    ///                 BlobName = "myblobinput",
+    ///                 Container = "state",
+    ///                 DateFormat = "yyyy/MM/dd",
+    ///                 DeltaPathPattern = "/testBlob/{date}/delta/{time}/",
+    ///                 DeltaSnapshotRefreshRate = "16:14:30",
+    ///                 FullSnapshotRefreshRate = "16:14:30",
+    ///                 PathPattern = "{date}/{time}",
+    ///                 SourcePartitionCount = 16,
+    ///                 StorageAccounts = new[]
+    ///                 {
+    ///                     new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         AccountKey = "someAccountKey==",
+    ///                         AccountName = "someAccountName",
+    ///                     },
+    ///                 },
+    ///                 TimeFormat = "HH",
+    ///                 Type = "Microsoft.Storage/Blob",
+    ///             },
+    ///             Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.CsvSerializationArgs
+    ///             {
+    ///                 Encoding = "UTF8",
+    ///                 FieldDelimiter = ",",
+    ///                 Type = "Csv",
+    ///             },
+    ///             Type = "Reference",
+    ///         },
+    ///         ResourceGroupName = "sjrg8440",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a reference file input
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var input = new AzureNative.StreamAnalytics.V20211001Preview.Input("input", new()
+    ///     {
+    ///         InputName = "input7225",
+    ///         JobName = "sj9597",
+    ///         Properties = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.ReferenceInputPropertiesArgs
+    ///         {
+    ///             Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.FileReferenceInputDataSourceArgs
+    ///             {
+    ///                 Path = "my/path",
+    ///                 Type = "File",
+    ///             },
+    ///             Type = "Reference",
+    ///         },
+    ///         ResourceGroupName = "sjrg8440",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a stream Event Hub input with JSON serialization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var input = new AzureNative.StreamAnalytics.V20211001Preview.Input("input", new()
+    ///     {
+    ///         InputName = "input7425",
+    ///         JobName = "sj197",
+    ///         Properties = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StreamInputPropertiesArgs
+    ///         {
+    ///             Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.EventHubStreamInputDataSourceArgs
+    ///             {
+    ///                 ConsumerGroupName = "sdkconsumergroup",
+    ///                 EventHubName = "sdkeventhub",
+    ///                 ServiceBusNamespace = "sdktest",
+    ///                 SharedAccessPolicyKey = "someSharedAccessPolicyKey==",
+    ///                 SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///                 Type = "Microsoft.ServiceBus/EventHub",
+    ///             },
+    ///             Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.JsonSerializationArgs
+    ///             {
+    ///                 Encoding = "UTF8",
+    ///                 Type = "Json",
+    ///             },
+    ///             Type = "Stream",
+    ///             WatermarkSettings = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.InputWatermarkPropertiesArgs
+    ///             {
+    ///                 WatermarkMode = "ReadWatermark",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "sjrg3139",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a stream IoT Hub input with Avro serialization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var input = new AzureNative.StreamAnalytics.V20211001Preview.Input("input", new()
+    ///     {
+    ///         InputName = "input7970",
+    ///         JobName = "sj9742",
+    ///         Properties = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StreamInputPropertiesArgs
+    ///         {
+    ///             Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.IoTHubStreamInputDataSourceArgs
+    ///             {
+    ///                 ConsumerGroupName = "sdkconsumergroup",
+    ///                 Endpoint = "messages/events",
+    ///                 IotHubNamespace = "iothub",
+    ///                 SharedAccessPolicyKey = "sharedAccessPolicyKey=",
+    ///                 SharedAccessPolicyName = "owner",
+    ///                 Type = "Microsoft.Devices/IotHubs",
+    ///             },
+    ///             Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.AvroSerializationArgs
+    ///             {
+    ///                 Type = "Avro",
+    ///             },
+    ///             Type = "Stream",
+    ///         },
+    ///         ResourceGroupName = "sjrg3467",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a stream blob input with CSV serialization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var input = new AzureNative.StreamAnalytics.V20211001Preview.Input("input", new()
+    ///     {
+    ///         InputName = "input8899",
+    ///         JobName = "sj6695",
+    ///         Properties = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StreamInputPropertiesArgs
+    ///         {
+    ///             Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.BlobStreamInputDataSourceArgs
+    ///             {
+    ///                 Container = "state",
+    ///                 DateFormat = "yyyy/MM/dd",
+    ///                 PathPattern = "{date}/{time}",
+    ///                 SourcePartitionCount = 16,
+    ///                 StorageAccounts = new[]
+    ///                 {
+    ///                     new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         AccountKey = "someAccountKey==",
+    ///                         AccountName = "someAccountName",
+    ///                     },
+    ///                 },
+    ///                 TimeFormat = "HH",
+    ///                 Type = "Microsoft.Storage/Blob",
+    ///             },
+    ///             Serialization = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.CsvSerializationArgs
+    ///             {
+    ///                 Encoding = "UTF8",
+    ///                 FieldDelimiter = ",",
+    ///                 Type = "Csv",
+    ///             },
+    ///             Type = "Stream",
+    ///         },
+    ///         ResourceGroupName = "sjrg8161",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create an Event Grid input
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var input = new AzureNative.StreamAnalytics.V20211001Preview.Input("input", new()
+    ///     {
+    ///         InputName = "input7970",
+    ///         JobName = "sj9742",
+    ///         Properties = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StreamInputPropertiesArgs
+    ///         {
+    ///             Datasource = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.EventGridStreamInputDataSourceArgs
+    ///             {
+    ///                 EventTypes = new[]
+    ///                 {
+    ///                     "Microsoft.Storage.BlobCreated",
+    ///                 },
+    ///                 Schema = "CloudEventSchema",
+    ///                 StorageAccounts = new[]
+    ///                 {
+    ///                     new AzureNative.StreamAnalytics.V20211001Preview.Inputs.StorageAccountArgs
+    ///                     {
+    ///                         AccountKey = "myaccountkey",
+    ///                         AccountName = "myaccount",
+    ///                         AuthenticationMode = "Msi",
+    ///                     },
+    ///                 },
+    ///                 Subscriber = new AzureNative.StreamAnalytics.V20211001Preview.Inputs.EventHubV2StreamInputDataSourceArgs
+    ///                 {
+    ///                     AuthenticationMode = "Msi",
+    ///                     ConsumerGroupName = "sdkconsumergroup",
+    ///                     EventHubName = "sdkeventhub",
+    ///                     PartitionCount = 16,
+    ///                     ServiceBusNamespace = "sdktest",
+    ///                     SharedAccessPolicyKey = "someSharedAccessPolicyKey==",
+    ///                     SharedAccessPolicyName = "RootManageSharedAccessKey",
+    ///                     Type = "Microsoft.EventHub/EventHub",
+    ///                 },
+    ///                 Type = "Microsoft.EventGrid/EventSubscriptions",
+    ///             },
+    ///             Type = "Stream",
+    ///         },
+    ///         ResourceGroupName = "sjrg3467",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:streamanalytics/v20211001preview:Input input7970 /subscriptions/56b5e0a9-b645-407d-99b0-c64f86013e3d/resourceGroups/sjrg3467/providers/Microsoft.StreamAnalytics/streamingjobs/sj9742/inputs/input7970 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:streamanalytics/v20211001preview:Input")]
     public partial class Input : global::Pulumi.CustomResource

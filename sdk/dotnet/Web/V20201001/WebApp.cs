@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Web.V20201001
 {
     /// <summary>
     /// A web app, a mobile app backend, or an API app.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201001:WebApp myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201001:WebApp")]
     public partial class WebApp : global::Pulumi.CustomResource

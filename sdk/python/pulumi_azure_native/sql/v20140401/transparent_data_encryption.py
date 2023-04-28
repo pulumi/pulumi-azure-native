@@ -111,6 +111,30 @@ class TransparentDataEncryption(pulumi.CustomResource):
         """
         Represents a database transparent data encryption configuration.
 
+        ## Example Usage
+        ### Create or update a database's transparent data encryption configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        transparent_data_encryption = azure_native.sql.v20140401.TransparentDataEncryption("transparentDataEncryption",
+            database_name="sqlcrudtest-9187",
+            resource_group_name="sqlcrudtest-6852",
+            server_name="sqlcrudtest-2080",
+            status="Enabled",
+            transparent_data_encryption_name="current")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20140401:TransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-9187/transparentDataEncryption/current 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: The name of the database for which setting the transparent data encryption applies.
@@ -127,6 +151,30 @@ class TransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a database transparent data encryption configuration.
+
+        ## Example Usage
+        ### Create or update a database's transparent data encryption configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        transparent_data_encryption = azure_native.sql.v20140401.TransparentDataEncryption("transparentDataEncryption",
+            database_name="sqlcrudtest-9187",
+            resource_group_name="sqlcrudtest-6852",
+            server_name="sqlcrudtest-2080",
+            status="Enabled",
+            transparent_data_encryption_name="current")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20140401:TransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-9187/transparentDataEncryption/current 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.

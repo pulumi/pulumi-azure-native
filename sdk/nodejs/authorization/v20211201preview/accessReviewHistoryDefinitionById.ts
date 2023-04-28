@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Access Review History Definition.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/{historyDefinitionId} 
+ * ```
  */
 export class AccessReviewHistoryDefinitionById extends pulumi.CustomResource {
     /**

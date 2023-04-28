@@ -147,6 +147,35 @@ class Controller(pulumi.CustomResource):
         API Version: 2019-04-01.
         Previous API Version: 2019-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ControllersCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        controller = azure_native.devspaces.Controller("controller",
+            location="eastus",
+            name="myControllerResource",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.devspaces.SkuArgs(
+                name="S1",
+                tier="Standard",
+            ),
+            tags={},
+            target_container_host_credentials_base64="QmFzZTY0IEVuY29kZWQgVmFsdWUK",
+            target_container_host_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myCluster")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devspaces:Controller myControllerResource /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DevSpaces/controllers/myControllerResource 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Region where the Azure resource is located.
@@ -166,6 +195,35 @@ class Controller(pulumi.CustomResource):
         """
         API Version: 2019-04-01.
         Previous API Version: 2019-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ControllersCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        controller = azure_native.devspaces.Controller("controller",
+            location="eastus",
+            name="myControllerResource",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.devspaces.SkuArgs(
+                name="S1",
+                tier="Standard",
+            ),
+            tags={},
+            target_container_host_credentials_base64="QmFzZTY0IEVuY29kZWQgVmFsdWUK",
+            target_container_host_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myCluster")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devspaces:Controller myControllerResource /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DevSpaces/controllers/myControllerResource 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ControllerArgs args: The arguments to use to populate this resource's properties.

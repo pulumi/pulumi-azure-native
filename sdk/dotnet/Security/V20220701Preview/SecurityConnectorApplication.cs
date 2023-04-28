@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
 {
     /// <summary>
     /// Security Application over a given scope
+    /// 
+    /// ## Example Usage
+    /// ### Create Application
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityConnectorApplication = new AzureNative.Security.V20220701Preview.SecurityConnectorApplication("securityConnectorApplication", new()
+    ///     {
+    ///         ApplicationId = "ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+    ///         Description = "An application on critical GCP recommendations",
+    ///         DisplayName = "GCP Admin's application",
+    ///         ResourceGroupName = "gcpResourceGroup",
+    ///         SecurityConnectorName = "gcpconnector",
+    ///         SourceResourceType = "Assessments",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20220701preview:SecurityConnectorApplication 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourcegroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector/providers/Microsoft.Security/applications/ad9a8e26-29d9-4829-bb30-e597a58cdbb8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20220701preview:SecurityConnectorApplication")]
     public partial class SecurityConnectorApplication : global::Pulumi.CustomResource

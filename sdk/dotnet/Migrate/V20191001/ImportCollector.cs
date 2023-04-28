@@ -9,6 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Migrate.V20191001
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### ImportCollectors_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var importCollector = new AzureNative.Migrate.V20191001.ImportCollector("importCollector", new()
+    ///     {
+    ///         ImportCollectorName = "importCollector2952",
+    ///         ProjectName = "rajoshCCY9671project",
+    ///         ResourceGroupName = "markusavstestrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20191001:ImportCollector importCollector2952 /subscriptions/31be0ff4-c932-4cb3-8efc-efa411d79280/resourceGroups/markusavstestrg/providers/Microsoft.Migrate/assessmentprojects/rajoshCCY9671project/importcollectors/importCollector2952 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20191001:ImportCollector")]
     public partial class ImportCollector : global::Pulumi.CustomResource
     {

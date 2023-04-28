@@ -195,7 +195,161 @@ class OnlineDeployment(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a OnlineDeployment resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Kubernetes Online Deployment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        online_deployment = azure_native.machinelearningservices.v20220201preview.OnlineDeployment("onlineDeployment",
+            deployment_name="testDeploymentName",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.v20220201preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            online_deployment_details=azure_native.machinelearningservices.v20220201preview.KubernetesOnlineDeploymentArgs(
+                app_insights_enabled=False,
+                code_configuration=azure_native.machinelearningservices.v20220201preview.CodeConfigurationArgs(
+                    code_id="string",
+                    scoring_script="string",
+                ),
+                container_resource_requirements=azure_native.machinelearningservices.v20220201preview.ContainerResourceRequirementsArgs(
+                    container_resource_limits=azure_native.machinelearningservices.v20220201preview.ContainerResourceSettingsArgs(
+                        cpu="\\"1\\"",
+                        gpu="\\"1\\"",
+                        memory="\\"2Gi\\"",
+                    ),
+                    container_resource_requests=azure_native.machinelearningservices.v20220201preview.ContainerResourceSettingsArgs(
+                        cpu="\\"1\\"",
+                        gpu="\\"1\\"",
+                        memory="\\"2Gi\\"",
+                    ),
+                ),
+                description="string",
+                endpoint_compute_type="Kubernetes",
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                instance_type="string",
+                liveness_probe=azure_native.machinelearningservices.v20220201preview.ProbeSettingsArgs(
+                    failure_threshold=1,
+                    initial_delay="PT5M",
+                    period="PT5M",
+                    success_threshold=1,
+                    timeout="PT5M",
+                ),
+                model="string",
+                model_mount_path="string",
+                properties={
+                    "string": "string",
+                },
+                request_settings=azure_native.machinelearningservices.v20220201preview.OnlineRequestSettingsArgs(
+                    max_concurrent_requests_per_instance=1,
+                    max_queue_wait="PT5M",
+                    request_timeout="PT5M",
+                ),
+                scale_settings=azure_native.machinelearningservices.v20220201preview.DefaultScaleSettingsArgs(
+                    scale_type="Default",
+                ),
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20220201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20220201preview.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate Managed Online Deployment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        online_deployment = azure_native.machinelearningservices.v20220201preview.OnlineDeployment("onlineDeployment",
+            deployment_name="testDeploymentName",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.v20220201preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            online_deployment_details=azure_native.machinelearningservices.v20220201preview.ManagedOnlineDeploymentArgs(
+                app_insights_enabled=False,
+                code_configuration=azure_native.machinelearningservices.v20220201preview.CodeConfigurationArgs(
+                    code_id="string",
+                    scoring_script="string",
+                ),
+                description="string",
+                endpoint_compute_type="Managed",
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                instance_type="string",
+                liveness_probe=azure_native.machinelearningservices.v20220201preview.ProbeSettingsArgs(
+                    failure_threshold=1,
+                    initial_delay="PT5M",
+                    period="PT5M",
+                    success_threshold=1,
+                    timeout="PT5M",
+                ),
+                model="string",
+                model_mount_path="string",
+                properties={
+                    "string": "string",
+                },
+                readiness_probe=azure_native.machinelearningservices.v20220201preview.ProbeSettingsArgs(
+                    failure_threshold=30,
+                    initial_delay="PT1S",
+                    period="PT10S",
+                    success_threshold=1,
+                    timeout="PT2S",
+                ),
+                request_settings=azure_native.machinelearningservices.v20220201preview.OnlineRequestSettingsArgs(
+                    max_concurrent_requests_per_instance=1,
+                    max_queue_wait="PT5M",
+                    request_timeout="PT5M",
+                ),
+                scale_settings=azure_native.machinelearningservices.v20220201preview.DefaultScaleSettingsArgs(
+                    scale_type="Default",
+                ),
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20220201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20220201preview.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20220201preview:OnlineDeployment string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] deployment_name: Inference Endpoint Deployment name.
@@ -216,7 +370,161 @@ class OnlineDeployment(pulumi.CustomResource):
                  args: OnlineDeploymentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a OnlineDeployment resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Kubernetes Online Deployment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        online_deployment = azure_native.machinelearningservices.v20220201preview.OnlineDeployment("onlineDeployment",
+            deployment_name="testDeploymentName",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.v20220201preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            online_deployment_details=azure_native.machinelearningservices.v20220201preview.KubernetesOnlineDeploymentArgs(
+                app_insights_enabled=False,
+                code_configuration=azure_native.machinelearningservices.v20220201preview.CodeConfigurationArgs(
+                    code_id="string",
+                    scoring_script="string",
+                ),
+                container_resource_requirements=azure_native.machinelearningservices.v20220201preview.ContainerResourceRequirementsArgs(
+                    container_resource_limits=azure_native.machinelearningservices.v20220201preview.ContainerResourceSettingsArgs(
+                        cpu="\\"1\\"",
+                        gpu="\\"1\\"",
+                        memory="\\"2Gi\\"",
+                    ),
+                    container_resource_requests=azure_native.machinelearningservices.v20220201preview.ContainerResourceSettingsArgs(
+                        cpu="\\"1\\"",
+                        gpu="\\"1\\"",
+                        memory="\\"2Gi\\"",
+                    ),
+                ),
+                description="string",
+                endpoint_compute_type="Kubernetes",
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                instance_type="string",
+                liveness_probe=azure_native.machinelearningservices.v20220201preview.ProbeSettingsArgs(
+                    failure_threshold=1,
+                    initial_delay="PT5M",
+                    period="PT5M",
+                    success_threshold=1,
+                    timeout="PT5M",
+                ),
+                model="string",
+                model_mount_path="string",
+                properties={
+                    "string": "string",
+                },
+                request_settings=azure_native.machinelearningservices.v20220201preview.OnlineRequestSettingsArgs(
+                    max_concurrent_requests_per_instance=1,
+                    max_queue_wait="PT5M",
+                    request_timeout="PT5M",
+                ),
+                scale_settings=azure_native.machinelearningservices.v20220201preview.DefaultScaleSettingsArgs(
+                    scale_type="Default",
+                ),
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20220201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20220201preview.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+        ### CreateOrUpdate Managed Online Deployment.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        online_deployment = azure_native.machinelearningservices.v20220201preview.OnlineDeployment("onlineDeployment",
+            deployment_name="testDeploymentName",
+            endpoint_name="testEndpointName",
+            identity=azure_native.machinelearningservices.v20220201preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            online_deployment_details=azure_native.machinelearningservices.v20220201preview.ManagedOnlineDeploymentArgs(
+                app_insights_enabled=False,
+                code_configuration=azure_native.machinelearningservices.v20220201preview.CodeConfigurationArgs(
+                    code_id="string",
+                    scoring_script="string",
+                ),
+                description="string",
+                endpoint_compute_type="Managed",
+                environment_id="string",
+                environment_variables={
+                    "string": "string",
+                },
+                instance_type="string",
+                liveness_probe=azure_native.machinelearningservices.v20220201preview.ProbeSettingsArgs(
+                    failure_threshold=1,
+                    initial_delay="PT5M",
+                    period="PT5M",
+                    success_threshold=1,
+                    timeout="PT5M",
+                ),
+                model="string",
+                model_mount_path="string",
+                properties={
+                    "string": "string",
+                },
+                readiness_probe=azure_native.machinelearningservices.v20220201preview.ProbeSettingsArgs(
+                    failure_threshold=30,
+                    initial_delay="PT1S",
+                    period="PT10S",
+                    success_threshold=1,
+                    timeout="PT2S",
+                ),
+                request_settings=azure_native.machinelearningservices.v20220201preview.OnlineRequestSettingsArgs(
+                    max_concurrent_requests_per_instance=1,
+                    max_queue_wait="PT5M",
+                    request_timeout="PT5M",
+                ),
+                scale_settings=azure_native.machinelearningservices.v20220201preview.DefaultScaleSettingsArgs(
+                    scale_type="Default",
+                ),
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20220201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20220201preview.SkuTier.FREE,
+            ),
+            tags={},
+            workspace_name="my-aml-workspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20220201preview:OnlineDeployment string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param OnlineDeploymentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

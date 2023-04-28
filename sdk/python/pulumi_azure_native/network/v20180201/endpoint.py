@@ -252,6 +252,51 @@ class Endpoint(pulumi.CustomResource):
         """
         Class representing a Traffic Manager endpoint.
 
+        ## Example Usage
+        ### Endpoint-PUT-External-WithGeoMapping
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20180201.Endpoint("endpoint",
+            endpoint_name="My%20external%20endpoint",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            geo_mapping=[
+                "GEO-AS",
+                "GEO-AF",
+            ],
+            profile_name="azuresdkfornetautoresttrafficmanager8224",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+            target="foobar.contoso.com")
+
+        ```
+        ### Endpoint-PUT-External-WithLocation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20180201.Endpoint("endpoint",
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180201:Endpoint azsmnet7187 /subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] endpoint_location: Specifies the location of the external or nested endpoints when using the ‘Performance’ traffic routing method.
@@ -276,6 +321,51 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Class representing a Traffic Manager endpoint.
+
+        ## Example Usage
+        ### Endpoint-PUT-External-WithGeoMapping
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20180201.Endpoint("endpoint",
+            endpoint_name="My%20external%20endpoint",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            geo_mapping=[
+                "GEO-AS",
+                "GEO-AF",
+            ],
+            profile_name="azuresdkfornetautoresttrafficmanager8224",
+            resource_group_name="azuresdkfornetautoresttrafficmanager2191",
+            target="foobar.contoso.com")
+
+        ```
+        ### Endpoint-PUT-External-WithLocation
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        endpoint = azure_native.network.v20180201.Endpoint("endpoint",
+            endpoint_location="North Europe",
+            endpoint_name="azsmnet7187",
+            endpoint_status="Enabled",
+            endpoint_type="ExternalEndpoints",
+            profile_name="azsmnet6386",
+            resource_group_name="azuresdkfornetautoresttrafficmanager1421",
+            target="foobar.contoso.com")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180201:Endpoint azsmnet7187 /subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager1421/providers/Microsoft.Network/trafficManagerProfiles/azsmnet6386/externalEndpoints/azsmnet7187 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EndpointInitArgs args: The arguments to use to populate this resource's properties.

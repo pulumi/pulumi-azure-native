@@ -11,6 +11,33 @@ import * as utilities from "../utilities";
  * Custom domain of the Spring Cloud Gateway
  * API Version: 2022-12-01.
  * Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### GatewayCustomDomains_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gatewayCustomDomain = new azure_native.appplatform.GatewayCustomDomain("gatewayCustomDomain", {
+ *     domainName: "myDomainName",
+ *     gatewayName: "default",
+ *     properties: {
+ *         thumbprint: "*",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform:GatewayCustomDomain myDomainName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/gateways/default/domains/myDomainName 
+ * ```
  */
 export class GatewayCustomDomain extends pulumi.CustomResource {
     /**

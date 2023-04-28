@@ -6,6 +6,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Customer provided domain for branding purposes, e.g. www.contoso.com.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn/v20161002:CustomDomain myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/customDomains/{customDomainName} 
+ * ```
  *
  * @deprecated Version 2016-10-02 will be removed in v2 of the provider.
  */

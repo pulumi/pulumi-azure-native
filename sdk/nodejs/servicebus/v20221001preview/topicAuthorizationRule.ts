@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a namespace authorization rule.
+ *
+ * ## Example Usage
+ * ### TopicAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const topicAuthorizationRule = new azure_native.servicebus.v20221001preview.TopicAuthorizationRule("topicAuthorizationRule", {
+ *     authorizationRuleName: "sdk-AuthRules-4310",
+ *     namespaceName: "sdk-Namespace-6261",
+ *     resourceGroupName: "ArunMonocle",
+ *     rights: [
+ *         azure_native.servicebus.v20221001preview.AccessRights.Listen,
+ *         azure_native.servicebus.v20221001preview.AccessRights.Send,
+ *     ],
+ *     topicName: "sdk-Topics-1984",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus/v20221001preview:TopicAuthorizationRule sdk-AuthRules-4310 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-6261/topics/sdk-Topics-1984/authorizationRules/sdk-AuthRules-4310 
+ * ```
  */
 export class TopicAuthorizationRule extends pulumi.CustomResource {
     /**

@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Automation.V20200113Preview
 {
     /// <summary>
     /// Definition of the watcher type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update watcher
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var watcher = new AzureNative.Automation.V20200113Preview.Watcher("watcher", new()
+    ///     {
+    ///         AutomationAccountName = "MyTestAutomationAccount",
+    ///         Description = "This is a test watcher.",
+    ///         ExecutionFrequencyInSeconds = 60,
+    ///         ResourceGroupName = "rg",
+    ///         ScriptName = "MyTestWatcherRunbook",
+    ///         ScriptRunOn = "MyTestHybridWorkerGroup",
+    ///         Tags = null,
+    ///         WatcherName = "MyTestWatcher",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20200113preview:Watcher MyTestWatcher /subscriptions/subId/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/MyTestAutomationAccount/watchers/MyTestWatcher 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20200113preview:Watcher")]
     public partial class Watcher : global::Pulumi.CustomResource

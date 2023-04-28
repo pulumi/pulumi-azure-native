@@ -216,6 +216,37 @@ class App(pulumi.CustomResource):
         """
         The IoT Central application.
 
+        ## Example Usage
+        ### Apps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app = azure_native.iotcentral.v20211101preview.App("app",
+            display_name="My IoT Central App",
+            identity=azure_native.iotcentral.v20211101preview.SystemAssignedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="westus",
+            resource_group_name="resRg",
+            resource_name_="myIoTCentralApp",
+            sku=azure_native.iotcentral.v20211101preview.AppSkuInfoArgs(
+                name="ST2",
+            ),
+            subdomain="my-iot-central-app",
+            template="iotc-pnp-preview@1.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotcentral/v20211101preview:App myIoTCentralApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.IoTCentral/iotApps/myIoTCentralApp 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name of the application.
@@ -238,6 +269,37 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The IoT Central application.
+
+        ## Example Usage
+        ### Apps_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app = azure_native.iotcentral.v20211101preview.App("app",
+            display_name="My IoT Central App",
+            identity=azure_native.iotcentral.v20211101preview.SystemAssignedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="westus",
+            resource_group_name="resRg",
+            resource_name_="myIoTCentralApp",
+            sku=azure_native.iotcentral.v20211101preview.AppSkuInfoArgs(
+                name="ST2",
+            ),
+            subdomain="my-iot-central-app",
+            template="iotc-pnp-preview@1.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotcentral/v20211101preview:App myIoTCentralApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.IoTCentral/iotApps/myIoTCentralApp 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.

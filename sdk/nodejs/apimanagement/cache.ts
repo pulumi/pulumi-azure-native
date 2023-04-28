@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
  * Cache details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateCache
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cache = new azure_native.apimanagement.Cache("cache", {
+ *     cacheId: "c1",
+ *     connectionString: "apim.redis.cache.windows.net:6380,password=xc,ssl=True,abortConnect=False",
+ *     description: "Redis cache instances in West India",
+ *     resourceGroupName: "rg1",
+ *     resourceId: "https://management.azure.com/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redis/apimservice1",
+ *     serviceName: "apimService1",
+ *     useFromLocation: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:Cache c1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/caches/c1 
+ * ```
  */
 export class Cache extends pulumi.CustomResource {
     /**

@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Shared Private Link Resource managed by the Azure Cognitive Search service.
+ *
+ * ## Example Usage
+ * ### SharedPrivateLinkResourceCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sharedPrivateLinkResource = new azure_native.search.v20220901.SharedPrivateLinkResource("sharedPrivateLinkResource", {
+ *     properties: {
+ *         groupId: "blob",
+ *         privateLinkResourceId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/storageAccountName",
+ *         requestMessage: "please approve",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     searchServiceName: "mysearchservice",
+ *     sharedPrivateLinkResourceName: "testResource",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:search/v20220901:SharedPrivateLinkResource testResource /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Search/searchServices/mysearchservice/sharedPrivateLinkResources/testResource 
+ * ```
  */
 export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**

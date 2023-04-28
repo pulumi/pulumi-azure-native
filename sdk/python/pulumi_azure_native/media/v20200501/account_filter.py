@@ -131,6 +131,74 @@ class AccountFilter(pulumi.CustomResource):
         """
         An Account Filter.
 
+        ## Example Usage
+        ### Create an Account Filter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account_filter = azure_native.media.v20200501.AccountFilter("accountFilter",
+            account_name="contosomedia",
+            filter_name="newAccountFilter",
+            first_quality=azure_native.media.v20200501.FirstQualityResponseArgs(
+                bitrate=128000,
+            ),
+            presentation_time_range=azure_native.media.v20200501.PresentationTimeRangeArgs(
+                end_timestamp=170000000,
+                force_end_timestamp=False,
+                live_backoff_duration=0,
+                presentation_window_duration=9223372036854774784,
+                start_timestamp=0,
+                timescale=10000000,
+            ),
+            resource_group_name="contoso",
+            tracks=[
+                {
+                    "trackSelections": [
+                        {
+                            "operation": "Equal",
+                            "property": "Type",
+                            "value": "Audio",
+                        },
+                        {
+                            "operation": "NotEqual",
+                            "property": "Language",
+                            "value": "en",
+                        },
+                        {
+                            "operation": "NotEqual",
+                            "property": "FourCC",
+                            "value": "EC-3",
+                        },
+                    ],
+                },
+                {
+                    "trackSelections": [
+                        {
+                            "operation": "Equal",
+                            "property": "Type",
+                            "value": "Video",
+                        },
+                        {
+                            "operation": "Equal",
+                            "property": "Bitrate",
+                            "value": "3000000-5000000",
+                        },
+                    ],
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20200501:AccountFilter newAccountFilter /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/accountFilters/newAccountFilter 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -148,6 +216,74 @@ class AccountFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Account Filter.
+
+        ## Example Usage
+        ### Create an Account Filter
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account_filter = azure_native.media.v20200501.AccountFilter("accountFilter",
+            account_name="contosomedia",
+            filter_name="newAccountFilter",
+            first_quality=azure_native.media.v20200501.FirstQualityResponseArgs(
+                bitrate=128000,
+            ),
+            presentation_time_range=azure_native.media.v20200501.PresentationTimeRangeArgs(
+                end_timestamp=170000000,
+                force_end_timestamp=False,
+                live_backoff_duration=0,
+                presentation_window_duration=9223372036854774784,
+                start_timestamp=0,
+                timescale=10000000,
+            ),
+            resource_group_name="contoso",
+            tracks=[
+                {
+                    "trackSelections": [
+                        {
+                            "operation": "Equal",
+                            "property": "Type",
+                            "value": "Audio",
+                        },
+                        {
+                            "operation": "NotEqual",
+                            "property": "Language",
+                            "value": "en",
+                        },
+                        {
+                            "operation": "NotEqual",
+                            "property": "FourCC",
+                            "value": "EC-3",
+                        },
+                    ],
+                },
+                {
+                    "trackSelections": [
+                        {
+                            "operation": "Equal",
+                            "property": "Type",
+                            "value": "Video",
+                        },
+                        {
+                            "operation": "Equal",
+                            "property": "Bitrate",
+                            "value": "3000000-5000000",
+                        },
+                    ],
+                },
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20200501:AccountFilter newAccountFilter /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/accountFilters/newAccountFilter 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountFilterArgs args: The arguments to use to populate this resource's properties.

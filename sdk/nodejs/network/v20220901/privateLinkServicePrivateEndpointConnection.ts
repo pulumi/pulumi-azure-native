@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * PrivateEndpointConnection resource.
+ *
+ * ## Example Usage
+ * ### approve or reject private end point connection for a private link service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateLinkServicePrivateEndpointConnection = new azure_native.network.v20220901.PrivateLinkServicePrivateEndpointConnection("privateLinkServicePrivateEndpointConnection", {
+ *     name: "testPlePeConnection",
+ *     peConnectionName: "testPlePeConnection",
+ *     privateLinkServiceConnectionState: {
+ *         description: "approved it for some reason.",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     serviceName: "testPls",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:PrivateLinkServicePrivateEndpointConnection testPlePeConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices/{serviceName}/privateEndpointConnections/{peConnectionName} 
+ * ```
  */
 export class PrivateLinkServicePrivateEndpointConnection extends pulumi.CustomResource {
     /**

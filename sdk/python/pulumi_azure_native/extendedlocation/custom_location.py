@@ -236,6 +236,39 @@ class CustomLocation(pulumi.CustomResource):
         API Version: 2021-08-15.
         Previous API Version: 2021-03-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create/Update Custom Location
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_location = azure_native.extendedlocation.CustomLocation("customLocation",
+            authentication=azure_native.extendedlocation.CustomLocationPropertiesAuthenticationArgs(
+                type="KubeConfig",
+                value="<base64 KubeConfig>",
+            ),
+            cluster_extension_ids=["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedCluster/someCluster/Microsoft.KubernetesConfiguration/clusterExtensions/fooExtension"],
+            display_name="customLocationLocation01",
+            host_resource_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ContainerService/managedClusters/cluster01",
+            identity=azure_native.extendedlocation.IdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            namespace="namespace01",
+            resource_group_name="testresourcegroup",
+            resource_name_="customLocation01")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:extendedlocation:CustomLocation customLocation01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/customLocation01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CustomLocationPropertiesAuthenticationArgs']] authentication: This is optional input that contains the authentication that should be used to generate the namespace.
@@ -261,6 +294,39 @@ class CustomLocation(pulumi.CustomResource):
         Custom Locations definition.
         API Version: 2021-08-15.
         Previous API Version: 2021-03-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create/Update Custom Location
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_location = azure_native.extendedlocation.CustomLocation("customLocation",
+            authentication=azure_native.extendedlocation.CustomLocationPropertiesAuthenticationArgs(
+                type="KubeConfig",
+                value="<base64 KubeConfig>",
+            ),
+            cluster_extension_ids=["/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedCluster/someCluster/Microsoft.KubernetesConfiguration/clusterExtensions/fooExtension"],
+            display_name="customLocationLocation01",
+            host_resource_id="/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ContainerService/managedClusters/cluster01",
+            identity=azure_native.extendedlocation.IdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            namespace="namespace01",
+            resource_group_name="testresourcegroup",
+            resource_name_="customLocation01")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:extendedlocation:CustomLocation customLocation01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/customLocation01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomLocationArgs args: The arguments to use to populate this resource's properties.

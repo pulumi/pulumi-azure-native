@@ -9,6 +9,45 @@ import * as utilities from "../../utilities";
 
 /**
  * The IpCommunityList resource definition.
+ *
+ * ## Example Usage
+ * ### IpCommunityLists_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ipCommunityList = new azure_native.managednetworkfabric.v20230201preview.IpCommunityList("ipCommunityList", {
+ *     action: "allow",
+ *     advertise: "true",
+ *     annotation: "aaaa",
+ *     communityMembers: [{
+ *         annotation: "app2",
+ *         communityMember: "1234:5678",
+ *     }],
+ *     evpnEsImportRouteTargets: [{
+ *         annotation: "app1",
+ *         evpnEsImportRouteTarget: "1.1.1",
+ *     }],
+ *     "export": "true",
+ *     ipCommunityListName: "aaaaa",
+ *     localAS: "true",
+ *     location: "EastUS",
+ *     resourceGroupName: "rgIpCommunityLists",
+ *     tags: {
+ *         key2814: "",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric/v20230201preview:IpCommunityList aaaaa /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/IpCommunityList/ipCommunityListName 
+ * ```
  */
 export class IpCommunityList extends pulumi.CustomResource {
     /**

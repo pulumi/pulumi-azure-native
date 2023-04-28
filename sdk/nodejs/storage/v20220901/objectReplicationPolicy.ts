@@ -9,6 +9,133 @@ import * as utilities from "../../utilities";
 
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
+ *
+ * ## Example Usage
+ * ### StorageAccountCreateObjectReplicationPolicyOnDestination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const objectReplicationPolicy = new azure_native.storage.v20220901.ObjectReplicationPolicy("objectReplicationPolicy", {
+ *     accountName: "dst112",
+ *     destinationAccount: "dst112",
+ *     objectReplicationPolicyId: "default",
+ *     resourceGroupName: "res7687",
+ *     rules: [{
+ *         destinationContainer: "dcont139",
+ *         filters: {
+ *             prefixMatch: [
+ *                 "blobA",
+ *                 "blobB",
+ *             ],
+ *         },
+ *         sourceContainer: "scont139",
+ *     }],
+ *     sourceAccount: "src1122",
+ * });
+ *
+ * ```
+ * ### StorageAccountCreateObjectReplicationPolicyOnSource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const objectReplicationPolicy = new azure_native.storage.v20220901.ObjectReplicationPolicy("objectReplicationPolicy", {
+ *     accountName: "src1122",
+ *     destinationAccount: "dst112",
+ *     objectReplicationPolicyId: "2a20bb73-5717-4635-985a-5d4cf777438f",
+ *     resourceGroupName: "res7687",
+ *     rules: [{
+ *         destinationContainer: "dcont139",
+ *         filters: {
+ *             minCreationTime: "2020-02-19T16:05:00Z",
+ *             prefixMatch: [
+ *                 "blobA",
+ *                 "blobB",
+ *             ],
+ *         },
+ *         ruleId: "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+ *         sourceContainer: "scont139",
+ *     }],
+ *     sourceAccount: "src1122",
+ * });
+ *
+ * ```
+ * ### StorageAccountUpdateObjectReplicationPolicyOnDestination
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const objectReplicationPolicy = new azure_native.storage.v20220901.ObjectReplicationPolicy("objectReplicationPolicy", {
+ *     accountName: "dst112",
+ *     destinationAccount: "dst112",
+ *     objectReplicationPolicyId: "2a20bb73-5717-4635-985a-5d4cf777438f",
+ *     resourceGroupName: "res7687",
+ *     rules: [
+ *         {
+ *             destinationContainer: "dcont139",
+ *             filters: {
+ *                 prefixMatch: [
+ *                     "blobA",
+ *                     "blobB",
+ *                 ],
+ *             },
+ *             ruleId: "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+ *             sourceContainer: "scont139",
+ *         },
+ *         {
+ *             destinationContainer: "dcont179",
+ *             sourceContainer: "scont179",
+ *         },
+ *     ],
+ *     sourceAccount: "src1122",
+ * });
+ *
+ * ```
+ * ### StorageAccountUpdateObjectReplicationPolicyOnSource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const objectReplicationPolicy = new azure_native.storage.v20220901.ObjectReplicationPolicy("objectReplicationPolicy", {
+ *     accountName: "src1122",
+ *     destinationAccount: "dst112",
+ *     objectReplicationPolicyId: "2a20bb73-5717-4635-985a-5d4cf777438f",
+ *     resourceGroupName: "res7687",
+ *     rules: [
+ *         {
+ *             destinationContainer: "dcont139",
+ *             filters: {
+ *                 prefixMatch: [
+ *                     "blobA",
+ *                     "blobB",
+ *                 ],
+ *             },
+ *             ruleId: "d5d18a48-8801-4554-aeaa-74faf65f5ef9",
+ *             sourceContainer: "scont139",
+ *         },
+ *         {
+ *             destinationContainer: "dcont179",
+ *             ruleId: "cfbb4bc2-8b60-429f-b05a-d1e0942b33b2",
+ *             sourceContainer: "scont179",
+ *         },
+ *     ],
+ *     sourceAccount: "src1122",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20220901:ObjectReplicationPolicy 2a20bb73-5717-4635-985a-5d4cf777438f /subscriptions/{subscription-id}/resourceGroups/res7687/providers/Microsoft.Storage/storageAccounts/src1122/objectReplicationPolicies/2a20bb73-5717-4635-985a-5d4cf777438f 
+ * ```
  */
 export class ObjectReplicationPolicy extends pulumi.CustomResource {
     /**

@@ -11,6 +11,333 @@ namespace Pulumi.AzureNative.ServiceFabric.V20210601
 {
     /// <summary>
     /// The cluster resource
+    /// 
+    /// ## Example Usage
+    /// ### Put a cluster with maximum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.ServiceFabric.V20210601.Cluster("cluster", new()
+    ///     {
+    ///         AddOnFeatures = new[]
+    ///         {
+    ///             "RepairManager",
+    ///             "DnsService",
+    ///             "BackupRestoreService",
+    ///             "ResourceMonitorService",
+    ///         },
+    ///         ApplicationTypeVersionsCleanupPolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ApplicationTypeVersionsCleanupPolicyArgs
+    ///         {
+    ///             MaxUnusedVersionsToKeep = 2,
+    ///         },
+    ///         AzureActiveDirectory = new AzureNative.ServiceFabric.V20210601.Inputs.AzureActiveDirectoryArgs
+    ///         {
+    ///             ClientApplication = "d151ad89-4bce-4ae8-b3d1-1dc79679fa75",
+    ///             ClusterApplication = "5886372e-7bf4-4878-a497-8098aba608ae",
+    ///             TenantId = "6abcc6a0-8666-43f1-87b8-172cf86a9f9c",
+    ///         },
+    ///         CertificateCommonNames = new AzureNative.ServiceFabric.V20210601.Inputs.ServerCertificateCommonNamesArgs
+    ///         {
+    ///             CommonNames = new[]
+    ///             {
+    ///                 new AzureNative.ServiceFabric.V20210601.Inputs.ServerCertificateCommonNameArgs
+    ///                 {
+    ///                     CertificateCommonName = "abc.com",
+    ///                     CertificateIssuerThumbprint = "12599211F8F14C90AFA9532AD79A6F2CA1C00622",
+    ///                 },
+    ///             },
+    ///             X509StoreName = "My",
+    ///         },
+    ///         ClientCertificateCommonNames = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20210601.Inputs.ClientCertificateCommonNameArgs
+    ///             {
+    ///                 CertificateCommonName = "abc.com",
+    ///                 CertificateIssuerThumbprint = "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+    ///                 IsAdmin = true,
+    ///             },
+    ///         },
+    ///         ClientCertificateThumbprints = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20210601.Inputs.ClientCertificateThumbprintArgs
+    ///             {
+    ///                 CertificateThumbprint = "5F3660C715EBBDA31DB1FFDCF508302348DE8E7A",
+    ///                 IsAdmin = true,
+    ///             },
+    ///         },
+    ///         ClusterCodeVersion = "7.0.470.9590",
+    ///         ClusterName = "myCluster",
+    ///         DiagnosticsStorageAccountConfig = new AzureNative.ServiceFabric.V20210601.Inputs.DiagnosticsStorageAccountConfigArgs
+    ///         {
+    ///             BlobEndpoint = "https://diag.blob.core.windows.net/",
+    ///             ProtectedAccountKeyName = "StorageAccountKey1",
+    ///             QueueEndpoint = "https://diag.queue.core.windows.net/",
+    ///             StorageAccountName = "diag",
+    ///             TableEndpoint = "https://diag.table.core.windows.net/",
+    ///         },
+    ///         EventStoreServiceEnabled = true,
+    ///         FabricSettings = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20210601.Inputs.SettingsSectionDescriptionArgs
+    ///             {
+    ///                 Name = "UpgradeService",
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabric.V20210601.Inputs.SettingsParameterDescriptionArgs
+    ///                     {
+    ///                         Name = "AppPollIntervalInSeconds",
+    ///                         Value = "60",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         InfrastructureServiceManager = true,
+    ///         Location = "eastus",
+    ///         ManagementEndpoint = "https://myCluster.eastus.cloudapp.azure.com:19080",
+    ///         NodeTypes = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20210601.Inputs.NodeTypeDescriptionArgs
+    ///             {
+    ///                 ApplicationPorts = new AzureNative.ServiceFabric.V20210601.Inputs.EndpointRangeDescriptionArgs
+    ///                 {
+    ///                     EndPort = 30000,
+    ///                     StartPort = 20000,
+    ///                 },
+    ///                 ClientConnectionEndpointPort = 19000,
+    ///                 DurabilityLevel = "Silver",
+    ///                 EphemeralPorts = new AzureNative.ServiceFabric.V20210601.Inputs.EndpointRangeDescriptionArgs
+    ///                 {
+    ///                     EndPort = 64000,
+    ///                     StartPort = 49000,
+    ///                 },
+    ///                 HttpGatewayEndpointPort = 19007,
+    ///                 IsPrimary = true,
+    ///                 IsStateless = false,
+    ///                 MultipleAvailabilityZones = true,
+    ///                 Name = "nt1vm",
+    ///                 VmInstanceCount = 5,
+    ///             },
+    ///         },
+    ///         Notifications = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20210601.Inputs.NotificationArgs
+    ///             {
+    ///                 IsEnabled = true,
+    ///                 NotificationCategory = "WaveProgress",
+    ///                 NotificationLevel = "Critical",
+    ///                 NotificationTargets = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabric.V20210601.Inputs.NotificationTargetArgs
+    ///                     {
+    ///                         NotificationChannel = "EmailUser",
+    ///                         Receivers = new[]
+    ///                         {
+    ///                             "****@microsoft.com",
+    ///                             "****@microsoft.com",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.ServiceFabric.V20210601.Inputs.NotificationTargetArgs
+    ///                     {
+    ///                         NotificationChannel = "EmailSubscription",
+    ///                         Receivers = new[]
+    ///                         {
+    ///                             "Owner",
+    ///                             "AccountAdmin",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             new AzureNative.ServiceFabric.V20210601.Inputs.NotificationArgs
+    ///             {
+    ///                 IsEnabled = true,
+    ///                 NotificationCategory = "WaveProgress",
+    ///                 NotificationLevel = "All",
+    ///                 NotificationTargets = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabric.V20210601.Inputs.NotificationTargetArgs
+    ///                     {
+    ///                         NotificationChannel = "EmailUser",
+    ///                         Receivers = new[]
+    ///                         {
+    ///                             "****@microsoft.com",
+    ///                             "****@microsoft.com",
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.ServiceFabric.V20210601.Inputs.NotificationTargetArgs
+    ///                     {
+    ///                         NotificationChannel = "EmailSubscription",
+    ///                         Receivers = new[]
+    ///                         {
+    ///                             "Owner",
+    ///                             "AccountAdmin",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ReliabilityLevel = "Platinum",
+    ///         ResourceGroupName = "resRg",
+    ///         ReverseProxyCertificateCommonNames = new AzureNative.ServiceFabric.V20210601.Inputs.ServerCertificateCommonNamesArgs
+    ///         {
+    ///             CommonNames = new[]
+    ///             {
+    ///                 new AzureNative.ServiceFabric.V20210601.Inputs.ServerCertificateCommonNameArgs
+    ///                 {
+    ///                     CertificateCommonName = "abc.com",
+    ///                     CertificateIssuerThumbprint = "12599211F8F14C90AFA9532AD79A6F2CA1C00622",
+    ///                 },
+    ///             },
+    ///             X509StoreName = "My",
+    ///         },
+    ///         SfZonalUpgradeMode = "Hierarchical",
+    ///         Tags = null,
+    ///         UpgradeDescription = new AzureNative.ServiceFabric.V20210601.Inputs.ClusterUpgradePolicyArgs
+    ///         {
+    ///             DeltaHealthPolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ClusterUpgradeDeltaHealthPolicyArgs
+    ///             {
+    ///                 ApplicationDeltaHealthPolicies = 
+    ///                 {
+    ///                     { "fabric:/myApp1", new AzureNative.ServiceFabric.V20210601.Inputs.ApplicationDeltaHealthPolicyArgs
+    ///                     {
+    ///                         DefaultServiceTypeDeltaHealthPolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ServiceTypeDeltaHealthPolicyArgs
+    ///                         {
+    ///                             MaxPercentDeltaUnhealthyServices = 0,
+    ///                         },
+    ///                         ServiceTypeDeltaHealthPolicies = 
+    ///                         {
+    ///                             { "myServiceType1", new AzureNative.ServiceFabric.V20210601.Inputs.ServiceTypeDeltaHealthPolicyArgs
+    ///                             {
+    ///                                 MaxPercentDeltaUnhealthyServices = 0,
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///                 MaxPercentDeltaUnhealthyApplications = 0,
+    ///                 MaxPercentDeltaUnhealthyNodes = 0,
+    ///                 MaxPercentUpgradeDomainDeltaUnhealthyNodes = 0,
+    ///             },
+    ///             ForceRestart = false,
+    ///             HealthCheckRetryTimeout = "00:05:00",
+    ///             HealthCheckStableDuration = "00:00:30",
+    ///             HealthCheckWaitDuration = "00:00:30",
+    ///             HealthPolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ClusterHealthPolicyArgs
+    ///             {
+    ///                 ApplicationHealthPolicies = 
+    ///                 {
+    ///                     { "fabric:/myApp1", new AzureNative.ServiceFabric.V20210601.Inputs.ApplicationHealthPolicyArgs
+    ///                     {
+    ///                         DefaultServiceTypeHealthPolicy = new AzureNative.ServiceFabric.V20210601.Inputs.ServiceTypeHealthPolicyArgs
+    ///                         {
+    ///                             MaxPercentUnhealthyServices = 0,
+    ///                         },
+    ///                         ServiceTypeHealthPolicies = 
+    ///                         {
+    ///                             { "myServiceType1", new AzureNative.ServiceFabric.V20210601.Inputs.ServiceTypeHealthPolicyArgs
+    ///                             {
+    ///                                 MaxPercentUnhealthyServices = 100,
+    ///                             } },
+    ///                         },
+    ///                     } },
+    ///                 },
+    ///                 MaxPercentUnhealthyApplications = 0,
+    ///                 MaxPercentUnhealthyNodes = 0,
+    ///             },
+    ///             UpgradeDomainTimeout = "00:15:00",
+    ///             UpgradeReplicaSetCheckTimeout = "00:10:00",
+    ///             UpgradeTimeout = "01:00:00",
+    ///         },
+    ///         UpgradeMode = "Manual",
+    ///         UpgradePauseEndTimestampUtc = "2021-06-25T22:00:00Z",
+    ///         UpgradePauseStartTimestampUtc = "2021-06-21T22:00:00Z",
+    ///         UpgradeWave = "Wave1",
+    ///         VmImage = "Windows",
+    ///         VmssZonalUpgradeMode = "Parallel",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put a cluster with minimum parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.ServiceFabric.V20210601.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "myCluster",
+    ///         DiagnosticsStorageAccountConfig = new AzureNative.ServiceFabric.V20210601.Inputs.DiagnosticsStorageAccountConfigArgs
+    ///         {
+    ///             BlobEndpoint = "https://diag.blob.core.windows.net/",
+    ///             ProtectedAccountKeyName = "StorageAccountKey1",
+    ///             QueueEndpoint = "https://diag.queue.core.windows.net/",
+    ///             StorageAccountName = "diag",
+    ///             TableEndpoint = "https://diag.table.core.windows.net/",
+    ///         },
+    ///         FabricSettings = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20210601.Inputs.SettingsSectionDescriptionArgs
+    ///             {
+    ///                 Name = "UpgradeService",
+    ///                 Parameters = new[]
+    ///                 {
+    ///                     new AzureNative.ServiceFabric.V20210601.Inputs.SettingsParameterDescriptionArgs
+    ///                     {
+    ///                         Name = "AppPollIntervalInSeconds",
+    ///                         Value = "60",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ManagementEndpoint = "http://myCluster.eastus.cloudapp.azure.com:19080",
+    ///         NodeTypes = new[]
+    ///         {
+    ///             new AzureNative.ServiceFabric.V20210601.Inputs.NodeTypeDescriptionArgs
+    ///             {
+    ///                 ApplicationPorts = new AzureNative.ServiceFabric.V20210601.Inputs.EndpointRangeDescriptionArgs
+    ///                 {
+    ///                     EndPort = 30000,
+    ///                     StartPort = 20000,
+    ///                 },
+    ///                 ClientConnectionEndpointPort = 19000,
+    ///                 DurabilityLevel = "Bronze",
+    ///                 EphemeralPorts = new AzureNative.ServiceFabric.V20210601.Inputs.EndpointRangeDescriptionArgs
+    ///                 {
+    ///                     EndPort = 64000,
+    ///                     StartPort = 49000,
+    ///                 },
+    ///                 HttpGatewayEndpointPort = 19007,
+    ///                 IsPrimary = true,
+    ///                 Name = "nt1vm",
+    ///                 VmInstanceCount = 5,
+    ///             },
+    ///         },
+    ///         ReliabilityLevel = "Silver",
+    ///         ResourceGroupName = "resRg",
+    ///         Tags = null,
+    ///         UpgradeMode = "Automatic",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicefabric/v20210601:Cluster myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/clusters/myCluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicefabric/v20210601:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

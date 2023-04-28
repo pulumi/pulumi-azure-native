@@ -11,6 +11,16 @@ namespace Pulumi.AzureNative.CostManagement.V20220401Preview
 {
     /// <summary>
     /// Scheduled action definition.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:costmanagement/v20220401preview:ScheduledAction monthlyCostByResource providers/Microsoft.CostManagement/scheduledActions/monthlyCostByResource 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:costmanagement/v20220401preview:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource

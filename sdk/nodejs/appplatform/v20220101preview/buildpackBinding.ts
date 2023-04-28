@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * Buildpack Binding Resource object
+ *
+ * ## Example Usage
+ * ### BuildpackBinding_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const buildpackBinding = new azure_native.appplatform.v20220101preview.BuildpackBinding("buildpackBinding", {
+ *     buildServiceName: "default",
+ *     builderName: "default",
+ *     buildpackBindingName: "myBuildpackBinding",
+ *     properties: {
+ *         bindingType: "ApplicationInsights",
+ *         launchProperties: {
+ *             properties: {
+ *                 abc: "def",
+ *                 "any-string": "any-string",
+ *                 "sampling-rate": "12.0",
+ *             },
+ *             secrets: {
+ *                 "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20220101preview:BuildpackBinding myBuildpackBinding /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default/buildpackBindings/myBuildpackBinding 
+ * ```
  */
 export class BuildpackBinding extends pulumi.CustomResource {
     /**

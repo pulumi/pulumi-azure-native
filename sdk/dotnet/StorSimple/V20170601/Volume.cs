@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.StorSimple.V20170601
 {
     /// <summary>
     /// The volume.
+    /// 
+    /// ## Example Usage
+    /// ### VolumesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.StorSimple.V20170601.Volume("volume", new()
+    ///     {
+    ///         AccessControlRecordIds = new[]
+    ///         {
+    ///             "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/accessControlRecords/ACR2",
+    ///         },
+    ///         DeviceName = "Device05ForSDKTest",
+    ///         ManagerName = "ManagerForSDKTest1",
+    ///         MonitoringStatus = AzureNative.StorSimple.V20170601.MonitoringStatus.Enabled,
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         SizeInBytes = 5368709120,
+    ///         VolumeContainerName = "VolumeContainerForSDKTest",
+    ///         VolumeName = "Volume1ForSDKTest",
+    ///         VolumeStatus = AzureNative.StorSimple.V20170601.VolumeStatus.Offline,
+    ///         VolumeType = AzureNative.StorSimple.V20170601.VolumeType.Tiered,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20170601:Volume Volume1ForSDKTest /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/ManagerForSDKTest1/devices/Device05ForSDKTest/volumeContainers/VolumeContainerForSDKTest/volumes/Volume1ForSDKTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple/v20170601:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

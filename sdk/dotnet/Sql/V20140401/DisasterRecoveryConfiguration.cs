@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Sql.V20140401
 {
     /// <summary>
     /// Represents a disaster recovery configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Update a disaster recovery configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var disasterRecoveryConfiguration = new AzureNative.Sql.V20140401.DisasterRecoveryConfiguration("disasterRecoveryConfiguration", new()
+    ///     {
+    ///         DisasterRecoveryConfigurationName = "Default",
+    ///         ResourceGroupName = "sqlcrudtest-4799",
+    ///         ServerName = "sqlcrudtest-5961",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20140401:DisasterRecoveryConfiguration Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-4799/providers/Microsoft.Sql/servers/sqlcrudtest-5961/databases/testdw/geoBackupPolicies/Default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20140401:DisasterRecoveryConfiguration")]
     public partial class DisasterRecoveryConfiguration : global::Pulumi.CustomResource

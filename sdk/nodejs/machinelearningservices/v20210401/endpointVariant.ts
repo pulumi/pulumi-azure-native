@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Machine Learning service object wrapped into ARM resource envelope.
+ *
+ * ## Example Usage
+ * ### Create Or Update service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const endpointVariant = new azure_native.machinelearningservices.v20210401.EndpointVariant("endpointVariant", {
+ *     resourceGroupName: "testrg123",
+ *     serviceName: "service456",
+ *     workspaceName: "workspaces123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20210401:EndpointVariant service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+ * ```
  */
 export class EndpointVariant extends pulumi.CustomResource {
     /**

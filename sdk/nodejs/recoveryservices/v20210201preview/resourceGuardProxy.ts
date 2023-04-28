@@ -7,6 +7,30 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Create ResourceGuardProxy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceGuardProxy = new azure_native.recoveryservices.v20210201preview.ResourceGuardProxy("resourceGuardProxy", {
+ *     resourceGroupName: "SampleResourceGroup",
+ *     resourceGuardProxyName: "swaggerExample",
+ *     vaultName: "sampleVault",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20210201preview:ResourceGuardProxy swaggerExample /backupmanagement/resources/sampleVault/backupResourceGuardProxies/swaggerExample 
+ * ```
+ */
 export class ResourceGuardProxy extends pulumi.CustomResource {
     /**
      * Get an existing ResourceGuardProxy resource's state with the given name, ID, and optional extra

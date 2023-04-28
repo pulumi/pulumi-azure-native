@@ -13,6 +13,106 @@ namespace Pulumi.AzureNative.Resources
     /// Object model for the Azure CLI script.
     /// API Version: 2020-10-01.
     /// Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### DeploymentScriptsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureCliScript = new AzureNative.Resources.AzureCliScript("azureCliScript", new()
+    ///     {
+    ///         ResourceGroupName = "script-rg",
+    ///         ScriptName = "MyDeploymentScript",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DeploymentScriptsCreateNoUserManagedIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureCliScript = new AzureNative.Resources.AzureCliScript("azureCliScript", new()
+    ///     {
+    ///         ResourceGroupName = "script-rg",
+    ///         ScriptName = "MyDeploymentScript",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DeploymentScriptsCreate_MinCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureCliScript = new AzureNative.Resources.AzureCliScript("azureCliScript", new()
+    ///     {
+    ///         ResourceGroupName = "script-rg",
+    ///         ScriptName = "MyDeploymentScript",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DeploymentScriptsCreate_UsingCustomACIName
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureCliScript = new AzureNative.Resources.AzureCliScript("azureCliScript", new()
+    ///     {
+    ///         ResourceGroupName = "script-rg",
+    ///         ScriptName = "MyDeploymentScript",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### DeploymentScriptsCreate_UsingExistingStorageAccount
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var azureCliScript = new AzureNative.Resources.AzureCliScript("azureCliScript", new()
+    ///     {
+    ///         ResourceGroupName = "script-rg",
+    ///         ScriptName = "MyDeploymentScript",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:AzureCliScript myresource1 /subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{scriptName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:AzureCliScript")]
     public partial class AzureCliScript : global::Pulumi.CustomResource

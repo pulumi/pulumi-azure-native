@@ -11,6 +11,60 @@ namespace Pulumi.AzureNative.DocumentDB.V20210401Preview
 {
     /// <summary>
     /// Properties for the database account.
+    /// 
+    /// ## Example Usage
+    /// ### DataTransferServiceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.DocumentDB.V20210401Preview.Service("service", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         InstanceCount = 1,
+    ///         InstanceSize = "Cosmos.D4s",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "DataTransfer",
+    ///         ServiceType = "DataTransfer",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SqlDedicatedGatewayServiceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.DocumentDB.V20210401Preview.Service("service", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         InstanceCount = 1,
+    ///         InstanceSize = "Cosmos.D4s",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "SqlDedicatedGateway",
+    ///         ServiceType = "SqlDedicatedGateway",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20210401preview:Service SqlDedicatedGateway /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/services/SqlDedicatedGateway 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20210401preview:Service")]
     public partial class Service : global::Pulumi.CustomResource

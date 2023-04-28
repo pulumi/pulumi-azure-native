@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.AppPlatform.V20230301Preview
 {
     /// <summary>
     /// Application Live View resource
+    /// 
+    /// ## Example Usage
+    /// ### ApplicationLiveViews_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationLiveView = new AzureNative.AppPlatform.V20230301Preview.ApplicationLiveView("applicationLiveView", new()
+    ///     {
+    ///         ApplicationLiveViewName = "default",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230301preview:ApplicationLiveView default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/applicationLiveViews/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230301preview:ApplicationLiveView")]
     public partial class ApplicationLiveView : global::Pulumi.CustomResource

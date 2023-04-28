@@ -95,6 +95,29 @@ class NotificationRecipientUser(pulumi.CustomResource):
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ApiManagementCreateNotificationRecipientUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_recipient_user = azure_native.apimanagement.NotificationRecipientUser("notificationRecipientUser",
+            notification_name="RequestPublisherNotificationMessage",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            user_id="576823d0a40f7e74ec07d642")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:NotificationRecipientUser 576823d0a40f7e74ec07d642 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/notifications/RequestPublisherNotificationMessage/recipientUsers/576823d0a40f7e74ec07d642 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] notification_name: Notification Name Identifier.
@@ -112,6 +135,29 @@ class NotificationRecipientUser(pulumi.CustomResource):
         Recipient User details.
         API Version: 2022-08-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ApiManagementCreateNotificationRecipientUser
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_recipient_user = azure_native.apimanagement.NotificationRecipientUser("notificationRecipientUser",
+            notification_name="RequestPublisherNotificationMessage",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            user_id="576823d0a40f7e74ec07d642")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:NotificationRecipientUser 576823d0a40f7e74ec07d642 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/notifications/RequestPublisherNotificationMessage/recipientUsers/576823d0a40f7e74ec07d642 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NotificationRecipientUserArgs args: The arguments to use to populate this resource's properties.

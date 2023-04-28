@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// An application security group in a resource group.
+    /// 
+    /// ## Example Usage
+    /// ### Create application security group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationSecurityGroup = new AzureNative.Network.V20201101.ApplicationSecurityGroup("applicationSecurityGroup", new()
+    ///     {
+    ///         ApplicationSecurityGroupName = "test-asg",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:ApplicationSecurityGroup test-asg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationSecurityGroups/test-asg 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:ApplicationSecurityGroup")]
     public partial class ApplicationSecurityGroup : global::Pulumi.CustomResource

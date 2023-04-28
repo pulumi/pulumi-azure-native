@@ -131,6 +131,33 @@ class ManagedCertificate(pulumi.CustomResource):
         """
         Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
 
+        ## Example Usage
+        ### Create or Update Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_certificate = azure_native.app.v20221101preview.ManagedCertificate("managedCertificate",
+            environment_name="testcontainerenv",
+            location="East US",
+            managed_certificate_name="certificate-firendly-name",
+            properties=azure_native.app.v20221101preview.ManagedCertificatePropertiesArgs(
+                domain_control_validation="CNAME",
+                subject_name="my-subject-name.company.country.net",
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221101preview:ManagedCertificate myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv/managedCertificates/certificate-firendly-name 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
@@ -148,6 +175,33 @@ class ManagedCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Managed certificates used for Custom Domain bindings of Container Apps in a Managed Environment
+
+        ## Example Usage
+        ### Create or Update Certificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_certificate = azure_native.app.v20221101preview.ManagedCertificate("managedCertificate",
+            environment_name="testcontainerenv",
+            location="East US",
+            managed_certificate_name="certificate-firendly-name",
+            properties=azure_native.app.v20221101preview.ManagedCertificatePropertiesArgs(
+                domain_control_validation="CNAME",
+                subject_name="my-subject-name.company.country.net",
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app/v20221101preview:ManagedCertificate myresource1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv/managedCertificates/certificate-firendly-name 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedCertificateArgs args: The arguments to use to populate this resource's properties.

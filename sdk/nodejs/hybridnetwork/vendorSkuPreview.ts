@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * Customer subscription which can use a sku.
  * API Version: 2021-05-01.
  * Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update preview subscription of vendor sku sub resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vendorSkuPreview = new azure_native.hybridnetwork.VendorSkuPreview("vendorSkuPreview", {
+ *     previewSubscription: "previewSub",
+ *     skuName: "TestSku",
+ *     vendorName: "TestVendor",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridnetwork:VendorSkuPreview previewSub /subscriptions/subid/providers/Microsoft.HybridNetwork/vendors/TestVendor/vendorskus/TestSku/previewsubscriptions/previewSub 
+ * ```
  */
 export class VendorSkuPreview extends pulumi.CustomResource {
     /**

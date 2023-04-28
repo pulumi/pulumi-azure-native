@@ -13,6 +13,41 @@ namespace Pulumi.AzureNative.Network
     /// IpAllocation resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create IpAllocation
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipAllocation = new AzureNative.Network.IpAllocation("ipAllocation", new()
+    ///     {
+    ///         AllocationTags = 
+    ///         {
+    ///             { "VNetID", "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/HypernetVnet1" },
+    ///         },
+    ///         IpAllocationName = "test-ipallocation",
+    ///         Location = "centraluseuap",
+    ///         Prefix = "3.2.5.0/24",
+    ///         ResourceGroupName = "rg1",
+    ///         Type = "Hypernet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:IpAllocation test-ipallocation /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/IpAllocations/test-ipallocation 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:IpAllocation")]
     public partial class IpAllocation : global::Pulumi.CustomResource

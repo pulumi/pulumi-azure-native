@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Relay.V20211101
 {
     /// <summary>
     /// Description of a namespace resource.
+    /// 
+    /// ## Example Usage
+    /// ### RelayNamespaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @namespace = new AzureNative.Relay.V20211101.Namespace("namespace", new()
+    ///     {
+    ///         Location = "South Central US",
+    ///         NamespaceName = "example-RelayNamespace-5849",
+    ///         ResourceGroupName = "resourcegroup",
+    ///         Sku = new AzureNative.Relay.V20211101.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///             Tier = "Standard",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relay/v20211101:Namespace example-RelayNamespace-5849 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-5849 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relay/v20211101:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource

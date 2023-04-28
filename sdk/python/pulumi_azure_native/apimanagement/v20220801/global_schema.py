@@ -128,6 +128,68 @@ class GlobalSchema(pulumi.CustomResource):
         """
         Global Schema Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateSchema1
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_schema = azure_native.apimanagement.v20220801.GlobalSchema("globalSchema",
+            description="sample schema description",
+            resource_group_name="rg1",
+            schema_id="schema1",
+            schema_type="xml",
+            service_name="apimService1",
+            value=\"\"\"<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:tns="http://tempuri.org/PurchaseOrderSchema.xsd"
+                   targetNamespace="http://tempuri.org/PurchaseOrderSchema.xsd"
+                   elementFormDefault="qualified">
+         <xsd:element name="PurchaseOrder" type="tns:PurchaseOrderType"/>
+         <xsd:complexType name="PurchaseOrderType">
+          <xsd:sequence>
+           <xsd:element name="ShipTo" type="tns:USAddress" maxOccurs="2"/>
+           <xsd:element name="BillTo" type="tns:USAddress"/>
+          </xsd:sequence>
+          <xsd:attribute name="OrderDate" type="xsd:date"/>
+         </xsd:complexType>
+        
+         <xsd:complexType name="USAddress">
+          <xsd:sequence>
+           <xsd:element name="name"   type="xsd:string"/>
+           <xsd:element name="street" type="xsd:string"/>
+           <xsd:element name="city"   type="xsd:string"/>
+           <xsd:element name="state"  type="xsd:string"/>
+           <xsd:element name="zip"    type="xsd:integer"/>
+          </xsd:sequence>
+          <xsd:attribute name="country" type="xsd:NMTOKEN" fixed="US"/>
+         </xsd:complexType>
+        </xsd:schema>\"\"\")
+
+        ```
+        ### ApiManagementCreateSchema2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_schema = azure_native.apimanagement.v20220801.GlobalSchema("globalSchema",
+            description="sample schema description",
+            resource_group_name="rg1",
+            schema_id="schema1",
+            schema_type="json",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:GlobalSchema schema1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/schemas/schema1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Free-form schema entity description.
@@ -145,6 +207,68 @@ class GlobalSchema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Global Schema Contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateSchema1
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_schema = azure_native.apimanagement.v20220801.GlobalSchema("globalSchema",
+            description="sample schema description",
+            resource_group_name="rg1",
+            schema_id="schema1",
+            schema_type="xml",
+            service_name="apimService1",
+            value=\"\"\"<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:tns="http://tempuri.org/PurchaseOrderSchema.xsd"
+                   targetNamespace="http://tempuri.org/PurchaseOrderSchema.xsd"
+                   elementFormDefault="qualified">
+         <xsd:element name="PurchaseOrder" type="tns:PurchaseOrderType"/>
+         <xsd:complexType name="PurchaseOrderType">
+          <xsd:sequence>
+           <xsd:element name="ShipTo" type="tns:USAddress" maxOccurs="2"/>
+           <xsd:element name="BillTo" type="tns:USAddress"/>
+          </xsd:sequence>
+          <xsd:attribute name="OrderDate" type="xsd:date"/>
+         </xsd:complexType>
+        
+         <xsd:complexType name="USAddress">
+          <xsd:sequence>
+           <xsd:element name="name"   type="xsd:string"/>
+           <xsd:element name="street" type="xsd:string"/>
+           <xsd:element name="city"   type="xsd:string"/>
+           <xsd:element name="state"  type="xsd:string"/>
+           <xsd:element name="zip"    type="xsd:integer"/>
+          </xsd:sequence>
+          <xsd:attribute name="country" type="xsd:NMTOKEN" fixed="US"/>
+         </xsd:complexType>
+        </xsd:schema>\"\"\")
+
+        ```
+        ### ApiManagementCreateSchema2
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        global_schema = azure_native.apimanagement.v20220801.GlobalSchema("globalSchema",
+            description="sample schema description",
+            resource_group_name="rg1",
+            schema_id="schema1",
+            schema_type="json",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:GlobalSchema schema1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/schemas/schema1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GlobalSchemaArgs args: The arguments to use to populate this resource's properties.

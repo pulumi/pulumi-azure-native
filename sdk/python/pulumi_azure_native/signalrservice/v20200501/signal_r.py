@@ -210,6 +210,78 @@ class SignalR(pulumi.CustomResource):
         """
         A class represent a SignalR service resource.
 
+        ## Example Usage
+        ### SignalR_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r = azure_native.signalrservice.v20200501.SignalR("signalR",
+            cors=azure_native.signalrservice.v20200501.SignalRCorsSettingsArgs(
+                allowed_origins=[
+                    "https://foo.com",
+                    "https://bar.com",
+                ],
+            ),
+            features=[
+                {
+                    "flag": "ServiceMode",
+                    "properties": {},
+                    "value": "Serverless",
+                },
+                {
+                    "flag": "EnableConnectivityLogs",
+                    "properties": {},
+                    "value": "True",
+                },
+                {
+                    "flag": "EnableMessagingLogs",
+                    "properties": {},
+                    "value": "False",
+                },
+            ],
+            kind="SignalR",
+            location="eastus",
+            network_acls=azure_native.signalrservice.v20200501.SignalRNetworkACLsResponseArgs(
+                default_action="Deny",
+                private_endpoints=[azure_native.signalrservice.v20200501.PrivateEndpointACLArgs(
+                    allow=["ServerConnection"],
+                    name="mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+                )],
+                public_network=azure_native.signalrservice.v20200501.NetworkACLArgs(
+                    allow=["ClientConnection"],
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService",
+            sku=azure_native.signalrservice.v20200501.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Standard_S1",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            upstream=azure_native.signalrservice.v20200501.ServerlessUpstreamSettingsResponseArgs(
+                templates=[azure_native.signalrservice.v20200501.UpstreamTemplateArgs(
+                    category_pattern="*",
+                    event_pattern="connect,disconnect",
+                    hub_pattern="*",
+                    url_template="https://example.com/chat/api/connect",
+                )],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20200501:SignalR mySignalRService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']] cors: Cross-Origin Resource Sharing (CORS) settings.
@@ -236,6 +308,78 @@ class SignalR(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a SignalR service resource.
+
+        ## Example Usage
+        ### SignalR_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r = azure_native.signalrservice.v20200501.SignalR("signalR",
+            cors=azure_native.signalrservice.v20200501.SignalRCorsSettingsArgs(
+                allowed_origins=[
+                    "https://foo.com",
+                    "https://bar.com",
+                ],
+            ),
+            features=[
+                {
+                    "flag": "ServiceMode",
+                    "properties": {},
+                    "value": "Serverless",
+                },
+                {
+                    "flag": "EnableConnectivityLogs",
+                    "properties": {},
+                    "value": "True",
+                },
+                {
+                    "flag": "EnableMessagingLogs",
+                    "properties": {},
+                    "value": "False",
+                },
+            ],
+            kind="SignalR",
+            location="eastus",
+            network_acls=azure_native.signalrservice.v20200501.SignalRNetworkACLsResponseArgs(
+                default_action="Deny",
+                private_endpoints=[azure_native.signalrservice.v20200501.PrivateEndpointACLArgs(
+                    allow=["ServerConnection"],
+                    name="mySignalRService.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+                )],
+                public_network=azure_native.signalrservice.v20200501.NetworkACLArgs(
+                    allow=["ClientConnection"],
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService",
+            sku=azure_native.signalrservice.v20200501.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Standard_S1",
+                tier="Standard",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            upstream=azure_native.signalrservice.v20200501.ServerlessUpstreamSettingsResponseArgs(
+                templates=[azure_native.signalrservice.v20200501.UpstreamTemplateArgs(
+                    category_pattern="*",
+                    event_pattern="connect,disconnect",
+                    hub_pattern="*",
+                    url_template="https://example.com/chat/api/connect",
+                )],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20200501:SignalR mySignalRService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SignalRArgs args: The arguments to use to populate this resource's properties.

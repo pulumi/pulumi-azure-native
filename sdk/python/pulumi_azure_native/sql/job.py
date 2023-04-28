@@ -134,6 +134,50 @@ class Job(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a job with all properties specified
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.sql.Job("job",
+            description="my favourite job",
+            job_agent_name="agent1",
+            job_name="job1",
+            resource_group_name="group1",
+            schedule=azure_native.sql.JobScheduleArgs(
+                enabled=True,
+                end_time="2015-09-24T23:59:59Z",
+                interval="PT5M",
+                start_time="2015-09-24T18:30:01Z",
+                type=azure_native.sql.JobScheduleType.RECURRING,
+            ),
+            server_name="server1")
+
+        ```
+        ### Create a job with default properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.sql.Job("job",
+            job_agent_name="agent1",
+            job_name="job1",
+            resource_group_name="group1",
+            server_name="server1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:Job job1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/jobs/job1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: User-defined description of the job.
@@ -153,6 +197,50 @@ class Job(pulumi.CustomResource):
         A job.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a job with all properties specified
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.sql.Job("job",
+            description="my favourite job",
+            job_agent_name="agent1",
+            job_name="job1",
+            resource_group_name="group1",
+            schedule=azure_native.sql.JobScheduleArgs(
+                enabled=True,
+                end_time="2015-09-24T23:59:59Z",
+                interval="PT5M",
+                start_time="2015-09-24T18:30:01Z",
+                type=azure_native.sql.JobScheduleType.RECURRING,
+            ),
+            server_name="server1")
+
+        ```
+        ### Create a job with default properties
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.sql.Job("job",
+            job_agent_name="agent1",
+            job_name="job1",
+            resource_group_name="group1",
+            server_name="server1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:Job job1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/jobs/job1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

@@ -165,6 +165,33 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
         """
         The privateStore offer data structure.
 
+        ## Example Usage
+        ### PrivateStoreOffer_update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_store_collection_offer = azure_native.marketplace.v20211201.PrivateStoreCollectionOffer("privateStoreCollectionOffer",
+            collection_id="56a1a02d-8cf8-45df-bf37-d5f7120fcb3d",
+            e_tag="\\"9301f4fd-0000-0100-0000-5e248b350666\\"",
+            offer_id="marketplacetestthirdparty.md-test-third-party-2",
+            private_store_id="a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+            specific_plan_ids_limitation=[
+                "0001",
+                "0002",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:marketplace/v20211201:PrivateStoreCollectionOffer marketplacetestthirdparty.md-test-third-party-2 /providers/Microsoft.Marketplace/privateStores/a0e28e55-90c4-41d8-8e34-bb7ef7775406/collections/56a1a02d-8cf8-45df-bf37-d5f7120fcb3d/offers/marketplacetestthirdparty.md-test-third-party-2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collection_id: The collection ID
@@ -184,6 +211,33 @@ class PrivateStoreCollectionOffer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The privateStore offer data structure.
+
+        ## Example Usage
+        ### PrivateStoreOffer_update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_store_collection_offer = azure_native.marketplace.v20211201.PrivateStoreCollectionOffer("privateStoreCollectionOffer",
+            collection_id="56a1a02d-8cf8-45df-bf37-d5f7120fcb3d",
+            e_tag="\\"9301f4fd-0000-0100-0000-5e248b350666\\"",
+            offer_id="marketplacetestthirdparty.md-test-third-party-2",
+            private_store_id="a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+            specific_plan_ids_limitation=[
+                "0001",
+                "0002",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:marketplace/v20211201:PrivateStoreCollectionOffer marketplacetestthirdparty.md-test-third-party-2 /providers/Microsoft.Marketplace/privateStores/a0e28e55-90c4-41d8-8e34-bb7ef7775406/collections/56a1a02d-8cf8-45df-bf37-d5f7120fcb3d/offers/marketplacetestthirdparty.md-test-third-party-2 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateStoreCollectionOfferArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.ApiManagement.V20180601Preview
 {
     /// <summary>
     /// Policy Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreatePolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policy = new AzureNative.ApiManagement.V20180601Preview.Policy("policy", new()
+    ///     {
+    ///         ContentFormat = "xml",
+    ///         PolicyContent = @"&lt;policies&gt;
+    ///   &lt;inbound /&gt;
+    ///   &lt;backend&gt;
+    ///     &lt;forward-request /&gt;
+    ///   &lt;/backend&gt;
+    ///   &lt;outbound /&gt;
+    /// &lt;/policies&gt;",
+    ///         PolicyId = "policy",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20180601preview:Policy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/policies/policy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180601preview:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

@@ -183,6 +183,36 @@ class DedicatedHost(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a dedicated host .
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host = azure_native.compute.DedicatedHost("dedicatedHost",
+            host_group_name="myDedicatedHostGroup",
+            host_name="myDedicatedHost",
+            location="westus",
+            platform_fault_domain=1,
+            resource_group_name="myResourceGroup",
+            sku=azure_native.compute.SkuArgs(
+                name="DSv3-Type1",
+            ),
+            tags={
+                "department": "HR",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DedicatedHost myDedicatedHost /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/HostGroups/myDedicatedHostGroup/hosts/myDedicatedHost 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_replace_on_failure: Specifies whether the dedicated host should be replaced automatically in case of a failure. The value is defaulted to 'true' when not provided.
@@ -205,6 +235,36 @@ class DedicatedHost(pulumi.CustomResource):
         Specifies information about the Dedicated host.
         API Version: 2022-11-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a dedicated host .
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dedicated_host = azure_native.compute.DedicatedHost("dedicatedHost",
+            host_group_name="myDedicatedHostGroup",
+            host_name="myDedicatedHost",
+            location="westus",
+            platform_fault_domain=1,
+            resource_group_name="myResourceGroup",
+            sku=azure_native.compute.SkuArgs(
+                name="DSv3-Type1",
+            ),
+            tags={
+                "department": "HR",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:DedicatedHost myDedicatedHost /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/HostGroups/myDedicatedHostGroup/hosts/myDedicatedHost 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DedicatedHostArgs args: The arguments to use to populate this resource's properties.

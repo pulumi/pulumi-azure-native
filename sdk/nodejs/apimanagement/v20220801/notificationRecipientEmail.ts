@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Recipient Email details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateNotificationRecipientEmail
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const notificationRecipientEmail = new azure_native.apimanagement.v20220801.NotificationRecipientEmail("notificationRecipientEmail", {
+ *     email: "foobar@live.com",
+ *     notificationName: "RequestPublisherNotificationMessage",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:NotificationRecipientEmail foobar@live.com /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/notifications/RequestPublisherNotificationMessage/recipientEmails/foobar@live.com 
+ * ```
  */
 export class NotificationRecipientEmail extends pulumi.CustomResource {
     /**

@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.EventHub.V20221001Preview
 {
     /// <summary>
     /// The Application Group object
+    /// 
+    /// ## Example Usage
+    /// ### ApplicationGroupCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationGroup = new AzureNative.EventHub.V20221001Preview.ApplicationGroup("applicationGroup", new()
+    ///     {
+    ///         ApplicationGroupName = "appGroup1",
+    ///         ClientAppGroupIdentifier = "SASKeyName=KeyName",
+    ///         IsEnabled = true,
+    ///         NamespaceName = "contoso-ua-test-eh-system-1",
+    ///         Policies = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "metricId", "IncomingMessages" },
+    ///                 { "name", "ThrottlingPolicy1" },
+    ///                 { "rateLimitThreshold", 7912 },
+    ///                 { "type", "ThrottlingPolicy" },
+    ///             },
+    ///             
+    ///             {
+    ///                 { "metricId", "IncomingBytes" },
+    ///                 { "name", "ThrottlingPolicy2" },
+    ///                 { "rateLimitThreshold", 3951729 },
+    ///                 { "type", "ThrottlingPolicy" },
+    ///             },
+    ///             
+    ///             {
+    ///                 { "metricId", "OutgoingBytes" },
+    ///                 { "name", "ThrottlingPolicy3" },
+    ///                 { "rateLimitThreshold", 245175 },
+    ///                 { "type", "ThrottlingPolicy" },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contosotest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventhub/v20221001preview:ApplicationGroup appGroup1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosotest/providers/Microsoft.EventHub/namespaces/contoso-ua-test-eh-system-1/applicationgroups/appGroup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventhub/v20221001preview:ApplicationGroup")]
     public partial class ApplicationGroup : global::Pulumi.CustomResource

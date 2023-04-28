@@ -92,6 +92,28 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
         """
         A managed server DNS alias.
 
+        ## Example Usage
+        ### Create managed server DNS alias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_server_dns_alias = azure_native.sql.v20220801preview.ManagedServerDnsAlias("managedServerDnsAlias",
+            dns_alias_name="dns-alias-mi",
+            managed_instance_name="dns-mi",
+            resource_group_name="Default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ManagedServerDnsAlias dns-alias-mi /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/dns-mi/dnsAliases/dns-alias-mi 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] create_dns_record: Whether or not DNS record should be created for this alias.
@@ -106,6 +128,28 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A managed server DNS alias.
+
+        ## Example Usage
+        ### Create managed server DNS alias
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        managed_server_dns_alias = azure_native.sql.v20220801preview.ManagedServerDnsAlias("managedServerDnsAlias",
+            dns_alias_name="dns-alias-mi",
+            managed_instance_name="dns-mi",
+            resource_group_name="Default")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ManagedServerDnsAlias dns-alias-mi /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/managedInstances/dns-mi/dnsAliases/dns-alias-mi 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagedServerDnsAliasArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,72 @@ import * as utilities from "../utilities";
  * VpnConnection Resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### VpnConnectionPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vpnConnection = new azure_native.network.VpnConnection("vpnConnection", {
+ *     connectionName: "vpnConnection1",
+ *     gatewayName: "gateway1",
+ *     remoteVpnSite: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     routingConfiguration: {
+ *         associatedRouteTable: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+ *         },
+ *         inboundRouteMap: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1",
+ *         },
+ *         outboundRouteMap: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap2",
+ *         },
+ *         propagatedRouteTables: {
+ *             ids: [
+ *                 {
+ *                     id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable1",
+ *                 },
+ *                 {
+ *                     id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable2",
+ *                 },
+ *                 {
+ *                     id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1/hubRouteTables/hubRouteTable3",
+ *                 },
+ *             ],
+ *             labels: [
+ *                 "label1",
+ *                 "label2",
+ *             ],
+ *         },
+ *     },
+ *     trafficSelectorPolicies: [],
+ *     vpnLinkConnections: [{
+ *         connectionBandwidth: 200,
+ *         name: "Connection-Link1",
+ *         sharedKey: "key",
+ *         usePolicyBasedTrafficSelectors: false,
+ *         vpnConnectionProtocolType: "IKEv2",
+ *         vpnLinkConnectionMode: "Default",
+ *         vpnSiteLink: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1/vpnSiteLinks/siteLink1",
+ *         },
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:VpnConnection vpnConnection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/vpnConnection1 
+ * ```
  */
 export class VpnConnection extends pulumi.CustomResource {
     /**

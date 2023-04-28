@@ -79,6 +79,36 @@ class ConfigServer(pulumi.CustomResource):
         """
         Config Server resource
 
+        ## Example Usage
+        ### ConfigServers_UpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        config_server = azure_native.appplatform.v20200701.ConfigServer("configServer",
+            properties=azure_native.appplatform.v20200701.ConfigServerPropertiesResponseArgs(
+                config_server={
+                    "gitProperty": azure_native.appplatform.v20200701.ConfigServerGitPropertyArgs(
+                        label="master",
+                        search_paths=["/"],
+                        uri="https://github.com/fake-user/fake-repository.git",
+                    ),
+                },
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:ConfigServer default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configServers/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigServerPropertiesArgs']] properties: Properties of the Config Server resource
@@ -93,6 +123,36 @@ class ConfigServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Config Server resource
+
+        ## Example Usage
+        ### ConfigServers_UpdatePut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        config_server = azure_native.appplatform.v20200701.ConfigServer("configServer",
+            properties=azure_native.appplatform.v20200701.ConfigServerPropertiesResponseArgs(
+                config_server={
+                    "gitProperty": azure_native.appplatform.v20200701.ConfigServerGitPropertyArgs(
+                        label="master",
+                        search_paths=["/"],
+                        uri="https://github.com/fake-user/fake-repository.git",
+                    ),
+                },
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:ConfigServer default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/configServers/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigServerArgs args: The arguments to use to populate this resource's properties.

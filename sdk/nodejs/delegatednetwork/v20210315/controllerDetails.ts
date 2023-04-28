@@ -6,6 +6,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an instance of a DNC controller.
+ *
+ * ## Example Usage
+ * ### Create controller
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const controllerDetails = new azure_native.delegatednetwork.v20210315.ControllerDetails("controllerDetails", {
+ *     location: "West US",
+ *     resourceGroupName: "TestRG",
+ *     resourceName: "testcontroller",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:delegatednetwork/v20210315:ControllerDetails testcontroller /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.DelegatedNetwork/controller/testcontroller 
+ * ```
  */
 export class ControllerDetails extends pulumi.CustomResource {
     /**

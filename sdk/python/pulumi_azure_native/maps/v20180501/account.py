@@ -113,6 +113,34 @@ class Account(pulumi.CustomResource):
         """
         An Azure resource which represents access to a suite of Maps REST APIs.
 
+        ## Example Usage
+        ### CreateAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.maps.v20180501.Account("account",
+            account_name="myMapsAccount",
+            location="global",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.maps.v20180501.SkuArgs(
+                name="S0",
+            ),
+            tags={
+                "test": "true",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maps/v20180501:Account myMapsAccount /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Maps Account.
@@ -129,6 +157,34 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure resource which represents access to a suite of Maps REST APIs.
+
+        ## Example Usage
+        ### CreateAccount
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.maps.v20180501.Account("account",
+            account_name="myMapsAccount",
+            location="global",
+            resource_group_name="myResourceGroup",
+            sku=azure_native.maps.v20180501.SkuArgs(
+                name="S0",
+            ),
+            tags={
+                "test": "true",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:maps/v20180501:Account myMapsAccount /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// The Scope Connections resource
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Network Manager Scope Connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scopeConnection = new AzureNative.Network.V20220901.ScopeConnection("scopeConnection", new()
+    ///     {
+    ///         Description = "This is a scope connection to a cross tenant subscription.",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceId = "subscriptions/f0dc2b34-dfad-40e4-83e0-2309fed8d00b",
+    ///         ScopeConnectionName = "TestScopeConnection",
+    ///         TenantId = "6babcaad-604b-40ac-a9d7-9fd97c0b779f",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:ScopeConnection TestScopeConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/scopeConnections/TestScopeConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:ScopeConnection")]
     public partial class ScopeConnection : global::Pulumi.CustomResource

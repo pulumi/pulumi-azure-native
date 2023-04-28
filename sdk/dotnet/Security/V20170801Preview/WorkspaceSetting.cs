@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Security.V20170801Preview
 {
     /// <summary>
     /// Configures where to store the OMS agent data for workspaces under a scope
+    /// 
+    /// ## Example Usage
+    /// ### Create a workspace setting data for subscription
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceSetting = new AzureNative.Security.V20170801Preview.WorkspaceSetting("workspaceSetting", new()
+    ///     {
+    ///         Scope = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+    ///         WorkspaceId = "/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace",
+    ///         WorkspaceSettingName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20170801preview:WorkspaceSetting default /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/workspaceSettings/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20170801preview:WorkspaceSetting")]
     public partial class WorkspaceSetting : global::Pulumi.CustomResource

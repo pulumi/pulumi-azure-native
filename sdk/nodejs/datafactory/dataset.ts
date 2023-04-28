@@ -11,6 +11,95 @@ import * as utilities from "../utilities";
  * Dataset resource type.
  * API Version: 2018-06-01.
  * Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Datasets_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataset = new azure_native.datafactory.Dataset("dataset", {
+ *     datasetName: "exampleDataset",
+ *     factoryName: "exampleFactoryName",
+ *     properties: {
+ *         fileName: {
+ *             type: "Expression",
+ *             value: "@dataset().MyFileName",
+ *         },
+ *         folderPath: {
+ *             type: "Expression",
+ *             value: "@dataset().MyFolderPath",
+ *         },
+ *         format: {
+ *             type: "TextFormat",
+ *         },
+ *         linkedServiceName: {
+ *             referenceName: "exampleLinkedService",
+ *             type: "LinkedServiceReference",
+ *         },
+ *         parameters: {
+ *             MyFileName: {
+ *                 type: "String",
+ *             },
+ *             MyFolderPath: {
+ *                 type: "String",
+ *             },
+ *         },
+ *         type: "AzureBlob",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ * ### Datasets_Update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataset = new azure_native.datafactory.Dataset("dataset", {
+ *     datasetName: "exampleDataset",
+ *     factoryName: "exampleFactoryName",
+ *     properties: {
+ *         description: "Example description",
+ *         fileName: {
+ *             type: "Expression",
+ *             value: "@dataset().MyFileName",
+ *         },
+ *         folderPath: {
+ *             type: "Expression",
+ *             value: "@dataset().MyFolderPath",
+ *         },
+ *         format: {
+ *             type: "TextFormat",
+ *         },
+ *         linkedServiceName: {
+ *             referenceName: "exampleLinkedService",
+ *             type: "LinkedServiceReference",
+ *         },
+ *         parameters: {
+ *             MyFileName: {
+ *                 type: "String",
+ *             },
+ *             MyFolderPath: {
+ *                 type: "String",
+ *             },
+ *         },
+ *         type: "AzureBlob",
+ *     },
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datafactory:Dataset exampleDataset /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/datasets/exampleDataset 
+ * ```
  */
 export class Dataset extends pulumi.CustomResource {
     /**

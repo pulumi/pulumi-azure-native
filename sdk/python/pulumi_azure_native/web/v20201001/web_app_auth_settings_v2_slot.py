@@ -159,7 +159,14 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
                  slot: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a WebAppAuthSettingsV2Slot resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:WebAppAuthSettingsV2Slot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettingsV2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -174,7 +181,14 @@ class WebAppAuthSettingsV2Slot(pulumi.CustomResource):
                  args: WebAppAuthSettingsV2SlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a WebAppAuthSettingsV2Slot resource with the given unique name, props, and options.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:WebAppAuthSettingsV2Slot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettingsV2 
+        ```
+
         :param str resource_name: The name of the resource.
         :param WebAppAuthSettingsV2SlotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

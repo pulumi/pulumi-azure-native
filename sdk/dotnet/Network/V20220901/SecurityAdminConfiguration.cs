@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// Defines the security admin configuration
+    /// 
+    /// ## Example Usage
+    /// ### Create network manager security admin configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityAdminConfiguration = new AzureNative.Network.V20220901.SecurityAdminConfiguration("securityAdminConfiguration", new()
+    ///     {
+    ///         ApplyOnNetworkIntentPolicyBasedServices = new[]
+    ///         {
+    ///             "None",
+    ///         },
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         Description = "A sample policy",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:SecurityAdminConfiguration myTestSecurityConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:SecurityAdminConfiguration")]
     public partial class SecurityAdminConfiguration : global::Pulumi.CustomResource

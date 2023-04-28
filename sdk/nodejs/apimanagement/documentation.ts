@@ -7,6 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Markdown documentation details.
  * API Version: 2022-08-01.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateDocumentation
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const documentation = new azure_native.apimanagement.Documentation("documentation", {
+ *     content: "content",
+ *     documentationId: "57d1f7558aa04f15146d9d8a",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     title: "Title",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:Documentation 57d1f7558aa04f15146d9d8a /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/documentations/57d1f7558aa04f15146d9d8a 
+ * ```
  */
 export class Documentation extends pulumi.CustomResource {
     /**

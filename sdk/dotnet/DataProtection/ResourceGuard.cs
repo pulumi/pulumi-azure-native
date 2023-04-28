@@ -12,6 +12,39 @@ namespace Pulumi.AzureNative.DataProtection
     /// <summary>
     /// API Version: 2023-01-01.
     /// Previous API Version: 2021-10-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create ResourceGuard
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var resourceGuard = new AzureNative.DataProtection.ResourceGuard("resourceGuard", new()
+    ///     {
+    ///         Location = "WestUS",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ResourceGuardsName = "swaggerExample",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dataprotection:ResourceGuard VaultGuardTestNew /subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:ResourceGuard")]
     public partial class ResourceGuard : global::Pulumi.CustomResource

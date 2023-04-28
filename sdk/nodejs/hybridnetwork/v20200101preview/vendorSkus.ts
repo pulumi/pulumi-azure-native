@@ -9,6 +9,100 @@ import * as utilities from "../../utilities";
 
 /**
  * Sku sub resource.
+ *
+ * ## Example Usage
+ * ### Create or update the sku of vendor resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vendorSkus = new azure_native.hybridnetwork.v20200101preview.VendorSkus("vendorSkus", {
+ *     deploymentMode: "PrivateEdgeZone",
+ *     managedApplicationTemplate: {},
+ *     networkFunctionTemplate: {
+ *         networkFunctionRoleConfigurations: [{
+ *             customProfile: {
+ *                 metadataConfigurationPath: "/var/logs/network.cfg",
+ *             },
+ *             networkInterfaces: [
+ *                 {
+ *                     ipConfigurations: [{
+ *                         gateway: "",
+ *                         ipAddress: "",
+ *                         ipAllocationMethod: "Dynamic",
+ *                         ipVersion: "IPv4",
+ *                         subnet: "",
+ *                     }],
+ *                     macAddress: "",
+ *                     networkInterfaceName: "nic1",
+ *                     vmSwitchType: "Wan",
+ *                 },
+ *                 {
+ *                     ipConfigurations: [{
+ *                         gateway: "",
+ *                         ipAddress: "",
+ *                         ipAllocationMethod: "Dynamic",
+ *                         ipVersion: "IPv4",
+ *                         subnet: "",
+ *                     }],
+ *                     macAddress: "",
+ *                     networkInterfaceName: "nic2",
+ *                     vmSwitchType: "Management",
+ *                 },
+ *             ],
+ *             osProfile: {
+ *                 adminUsername: "dummyuser",
+ *                 customData: "base-64 encoded string of custom data",
+ *                 linuxConfiguration: {
+ *                     ssh: {
+ *                         publicKeys: [{
+ *                             keyData: "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAgEAwrr66r8n6B8Y0zMF3dOpXEapIQD9DiYQ6D6/zwor9o39jSkHNiMMER/GETBbzP83LOcekm02aRjo55ArO7gPPVvCXbrirJu9pkm4AC4BBre5xSLS= user@constoso-DSH",
+ *                             path: "home/user/.ssh/authorized_keys",
+ *                         }],
+ *                     },
+ *                 },
+ *             },
+ *             roleName: "test",
+ *             roleType: "VirtualMachine",
+ *             storageProfile: {
+ *                 dataDisks: [{
+ *                     createOption: "Empty",
+ *                     diskSizeGB: 10,
+ *                     name: "DataDisk1",
+ *                 }],
+ *                 imageReference: {
+ *                     offer: "UbuntuServer",
+ *                     publisher: "Canonical",
+ *                     sku: "18.04-LTS",
+ *                     version: "18.04.201804262",
+ *                 },
+ *                 osDisk: {
+ *                     diskSizeGB: 30,
+ *                     name: "vhdName",
+ *                     osType: "Linux",
+ *                     vhd: {
+ *                         uri: `https://contoso.net/link/vnd.vhd?sp=rl&st=2020-10-08T20:38:19Z&se=2020-12-09T19:38:00Z&sv=2019-12-12&sr=b&sig=7BM2f4yOw%3D`,
+ *                     },
+ *                 },
+ *             },
+ *             virtualMachineSize: "Standard_D3_v2",
+ *         }],
+ *     },
+ *     preview: true,
+ *     skuName: "TestSku",
+ *     vendorName: "TestVendor",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridnetwork/v20200101preview:VendorSkus TestSku /subscriptions/subid/providers/Microsoft.HybridNetwork/vendors/TestVendor/vendorskus/TestSku 
+ * ```
  */
 export class VendorSkus extends pulumi.CustomResource {
     /**

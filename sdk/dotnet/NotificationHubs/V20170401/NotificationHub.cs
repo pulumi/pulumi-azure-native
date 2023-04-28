@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.NotificationHubs.V20170401
 {
     /// <summary>
     /// Description of a NotificationHub Resource.
+    /// 
+    /// ## Example Usage
+    /// ### NotificationHubCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var notificationHub = new AzureNative.NotificationHubs.V20170401.NotificationHub("notificationHub", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         NamespaceName = "nh-sdk-ns",
+    ///         NotificationHubName = "nh-sdk-hub",
+    ///         ResourceGroupName = "5ktrial",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:notificationhubs/v20170401:NotificationHub nh-sdk-hub /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/sdkresourceGroup/providers/Microsoft.NotificationHubs/namespaces/nh-sdk-ns/notificationHubs/nh-sdk-hub 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:notificationhubs/v20170401:NotificationHub")]
     public partial class NotificationHub : global::Pulumi.CustomResource

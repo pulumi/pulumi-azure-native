@@ -198,6 +198,73 @@ class ContactProfile(pulumi.CustomResource):
         """
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
 
+        ## Example Usage
+        ### Create a contact profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        contact_profile = azure_native.orbital.v20220301.ContactProfile("contactProfile",
+            auto_tracking_configuration=azure_native.orbital/v20220301.AutoTrackingConfiguration.DISABLED,
+            contact_profile_name="CONTOSO-CP",
+            event_hub_uri="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub",
+            links=[
+                {
+                    "channels": [azure_native.orbital.v20220301.ContactProfileLinkChannelArgs(
+                        bandwidth_m_hz=2,
+                        center_frequency_m_hz=2250,
+                        end_point=azure_native.orbital.v20220301.EndPointArgs(
+                            end_point_name="ContosoTest_Uplink",
+                            ip_address="10.1.0.4",
+                            port="50000",
+                            protocol="TCP",
+                        ),
+                        name="contoso-uplink-channel",
+                    )],
+                    "direction": "uplink",
+                    "eirpdBW": 45,
+                    "gainOverTemperature": 0,
+                    "name": "contoso-uplink",
+                    "polarization": "LHCP",
+                },
+                {
+                    "channels": [azure_native.orbital.v20220301.ContactProfileLinkChannelArgs(
+                        bandwidth_m_hz=15,
+                        center_frequency_m_hz=8160,
+                        end_point=azure_native.orbital.v20220301.EndPointArgs(
+                            end_point_name="ContosoTest_Downlink",
+                            ip_address="10.1.0.5",
+                            port="50001",
+                            protocol="UDP",
+                        ),
+                        name="contoso-downlink-channel",
+                    )],
+                    "direction": "downlink",
+                    "eirpdBW": 0,
+                    "gainOverTemperature": 25,
+                    "name": "contoso-downlink",
+                    "polarization": "RHCP",
+                },
+            ],
+            location="eastus2",
+            minimum_elevation_degrees=5,
+            minimum_viable_contact_duration="PT1M",
+            network_configuration=azure_native.orbital.v20220301.ContactProfilesPropertiesNetworkConfigurationArgs(
+                subnet_id="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet",
+            ),
+            resource_group_name="contoso-Rgp")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:orbital/v20220301:ContactProfile CONTOSO-CP /subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto-tracking configuration.
@@ -219,6 +286,73 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+
+        ## Example Usage
+        ### Create a contact profile
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        contact_profile = azure_native.orbital.v20220301.ContactProfile("contactProfile",
+            auto_tracking_configuration=azure_native.orbital/v20220301.AutoTrackingConfiguration.DISABLED,
+            contact_profile_name="CONTOSO-CP",
+            event_hub_uri="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub",
+            links=[
+                {
+                    "channels": [azure_native.orbital.v20220301.ContactProfileLinkChannelArgs(
+                        bandwidth_m_hz=2,
+                        center_frequency_m_hz=2250,
+                        end_point=azure_native.orbital.v20220301.EndPointArgs(
+                            end_point_name="ContosoTest_Uplink",
+                            ip_address="10.1.0.4",
+                            port="50000",
+                            protocol="TCP",
+                        ),
+                        name="contoso-uplink-channel",
+                    )],
+                    "direction": "uplink",
+                    "eirpdBW": 45,
+                    "gainOverTemperature": 0,
+                    "name": "contoso-uplink",
+                    "polarization": "LHCP",
+                },
+                {
+                    "channels": [azure_native.orbital.v20220301.ContactProfileLinkChannelArgs(
+                        bandwidth_m_hz=15,
+                        center_frequency_m_hz=8160,
+                        end_point=azure_native.orbital.v20220301.EndPointArgs(
+                            end_point_name="ContosoTest_Downlink",
+                            ip_address="10.1.0.5",
+                            port="50001",
+                            protocol="UDP",
+                        ),
+                        name="contoso-downlink-channel",
+                    )],
+                    "direction": "downlink",
+                    "eirpdBW": 0,
+                    "gainOverTemperature": 25,
+                    "name": "contoso-downlink",
+                    "polarization": "RHCP",
+                },
+            ],
+            location="eastus2",
+            minimum_elevation_degrees=5,
+            minimum_viable_contact_duration="PT1M",
+            network_configuration=azure_native.orbital.v20220301.ContactProfilesPropertiesNetworkConfigurationArgs(
+                subnet_id="/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet",
+            ),
+            resource_group_name="contoso-Rgp")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:orbital/v20220301:ContactProfile CONTOSO-CP /subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContactProfileArgs args: The arguments to use to populate this resource's properties.

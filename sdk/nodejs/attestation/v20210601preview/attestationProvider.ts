@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Attestation service response message.
+ *
+ * ## Example Usage
+ * ### AttestationProviders_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const attestationProvider = new azure_native.attestation.v20210601preview.AttestationProvider("attestationProvider", {
+ *     location: "East US",
+ *     properties: {
+ *         publicNetworkAccess: "Enabled",
+ *     },
+ *     providerName: "myattestationprovider",
+ *     resourceGroupName: "MyResourceGroup",
+ *     tags: {
+ *         Property1: "Value1",
+ *         Property2: "Value2",
+ *         Property3: "Value3",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:attestation/v20210601preview:AttestationProvider myattestationprovider subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup/providers/Microsoft.Attestation/attestationProviders/myattestationprovider 
+ * ```
  */
 export class AttestationProvider extends pulumi.CustomResource {
     /**

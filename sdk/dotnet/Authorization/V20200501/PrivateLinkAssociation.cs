@@ -9,6 +9,40 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Authorization.V20200501
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create a private link association, associate scope to rmpl.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkAssociation = new AzureNative.Authorization.V20200501.PrivateLinkAssociation("privateLinkAssociation", new()
+    ///     {
+    ///         GroupId = "my-management-group",
+    ///         PlaId = "00000000-0000-0000-0000-000000000000",
+    ///         Properties = new AzureNative.Authorization.V20200501.Inputs.PrivateLinkAssociationPropertiesArgs
+    ///         {
+    ///             PrivateLink = "00000000-0000-0000-0000-000000000000",
+    ///             PublicNetworkAccess = "Enabled",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20200501:PrivateLinkAssociation my-pla 00000000-0000-0000-0000-000000000000 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20200501:PrivateLinkAssociation")]
     public partial class PrivateLinkAssociation : global::Pulumi.CustomResource
     {

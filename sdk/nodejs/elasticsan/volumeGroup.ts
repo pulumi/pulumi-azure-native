@@ -11,6 +11,53 @@ import * as utilities from "../utilities";
  * Response for Volume Group request.
  * API Version: 2021-11-20-preview.
  * Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### VolumeGroups_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volumeGroup = new azure_native.elasticsan.VolumeGroup("volumeGroup", {
+ *     elasticSanName: "ti7q-k952-1qB3J_5",
+ *     encryption: "EncryptionAtRestWithPlatformKey",
+ *     networkAcls: {
+ *         virtualNetworkRules: [{
+ *             action: azure_native.elasticsan.Action.Allow,
+ *             virtualNetworkResourceId: "aaaaaaaaaaaaaaaa",
+ *         }],
+ *     },
+ *     protocolType: "Iscsi",
+ *     resourceGroupName: "rgelasticsan",
+ *     tags: {
+ *         key5933: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+ *     },
+ *     volumeGroupName: "u_5I_1j4t3",
+ * });
+ *
+ * ```
+ * ### VolumeGroups_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const volumeGroup = new azure_native.elasticsan.VolumeGroup("volumeGroup", {
+ *     elasticSanName: "ti7q-k952-1qB3J_5",
+ *     resourceGroupName: "rgelasticsan",
+ *     volumeGroupName: "u_5I_1j4t3",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:elasticsan:VolumeGroup aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa 
+ * ```
  */
 export class VolumeGroup extends pulumi.CustomResource {
     /**

@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.ContainerService.V20230202Preview
 {
     /// <summary>
     /// Defines binding between a resource and role
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a trusted access role binding
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var trustedAccessRoleBinding = new AzureNative.ContainerService.V20230202Preview.TrustedAccessRoleBinding("trustedAccessRoleBinding", new()
+    ///     {
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         Roles = new[]
+    ///         {
+    ///             "Microsoft.MachineLearningServices/workspaces/reader",
+    ///             "Microsoft.MachineLearningServices/workspaces/writer",
+    ///         },
+    ///         SourceResourceId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/b/providers/Microsoft.MachineLearningServices/workspaces/c",
+    ///         TrustedAccessRoleBindingName = "binding1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20230202preview:TrustedAccessRoleBinding binding1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/trustedAccessRoleBindings/binding1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20230202preview:TrustedAccessRoleBinding")]
     public partial class TrustedAccessRoleBinding : global::Pulumi.CustomResource

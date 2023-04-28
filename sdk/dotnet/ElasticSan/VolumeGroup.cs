@@ -13,6 +13,71 @@ namespace Pulumi.AzureNative.ElasticSan
     /// Response for Volume Group request.
     /// API Version: 2021-11-20-preview.
     /// Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### VolumeGroups_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volumeGroup = new AzureNative.ElasticSan.VolumeGroup("volumeGroup", new()
+    ///     {
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         Encryption = "EncryptionAtRestWithPlatformKey",
+    ///         NetworkAcls = new AzureNative.ElasticSan.Inputs.NetworkRuleSetArgs
+    ///         {
+    ///             VirtualNetworkRules = new[]
+    ///             {
+    ///                 new AzureNative.ElasticSan.Inputs.VirtualNetworkRuleArgs
+    ///                 {
+    ///                     Action = AzureNative.ElasticSan.Action.Allow,
+    ///                     VirtualNetworkResourceId = "aaaaaaaaaaaaaaaa",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ProtocolType = "Iscsi",
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         Tags = 
+    ///         {
+    ///             { "key5933", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa" },
+    ///         },
+    ///         VolumeGroupName = "u_5I_1j4t3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### VolumeGroups_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volumeGroup = new AzureNative.ElasticSan.VolumeGroup("volumeGroup", new()
+    ///     {
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         VolumeGroupName = "u_5I_1j4t3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:elasticsan:VolumeGroup aaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaa 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:VolumeGroup")]
     public partial class VolumeGroup : global::Pulumi.CustomResource

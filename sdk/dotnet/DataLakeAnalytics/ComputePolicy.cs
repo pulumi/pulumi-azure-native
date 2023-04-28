@@ -13,6 +13,39 @@ namespace Pulumi.AzureNative.DataLakeAnalytics
     /// Data Lake Analytics compute policy information.
     /// API Version: 2019-11-01-preview.
     /// Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the specified compute policy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var computePolicy = new AzureNative.DataLakeAnalytics.ComputePolicy("computePolicy", new()
+    ///     {
+    ///         AccountName = "contosoadla",
+    ///         ComputePolicyName = "test_policy",
+    ///         MaxDegreeOfParallelismPerJob = 10,
+    ///         MinPriorityPerJob = 30,
+    ///         ObjectId = "776b9091-8916-4638-87f7-9c989a38da98",
+    ///         ObjectType = "User",
+    ///         ResourceGroupName = "contosorg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datalakeanalytics:ComputePolicy test_policy /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataLakeAnalytics/accounts/{accountName}/computePolicies/{computePolicyName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakeanalytics:ComputePolicy")]
     public partial class ComputePolicy : global::Pulumi.CustomResource

@@ -239,6 +239,42 @@ class ServerDetails(pulumi.CustomResource):
         """
         Represents an instance of an Analysis Services resource.
 
+        ## Example Usage
+        ### Create a server.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_details = azure_native.analysisservices.v20170801beta.ServerDetails("serverDetails",
+            as_administrators=azure_native.analysisservices.v20170801beta.ServerAdministratorsArgs(
+                members=[
+                    "azsdktest@microsoft.com",
+                    "azsdktest2@microsoft.com",
+                ],
+            ),
+            location="West US",
+            resource_group_name="TestRG",
+            server_name="azsdktest",
+            sku=azure_native.analysisservices.v20170801beta.ResourceSkuArgs(
+                capacity=1,
+                name="S1",
+                tier="Standard",
+            ),
+            tags={
+                "testKey": "testValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:analysisservices/v20170801beta:ServerDetails azsdktest /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServerAdministratorsArgs']] as_administrators: A collection of AS server administrators
@@ -262,6 +298,42 @@ class ServerDetails(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents an instance of an Analysis Services resource.
+
+        ## Example Usage
+        ### Create a server.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_details = azure_native.analysisservices.v20170801beta.ServerDetails("serverDetails",
+            as_administrators=azure_native.analysisservices.v20170801beta.ServerAdministratorsArgs(
+                members=[
+                    "azsdktest@microsoft.com",
+                    "azsdktest2@microsoft.com",
+                ],
+            ),
+            location="West US",
+            resource_group_name="TestRG",
+            server_name="azsdktest",
+            sku=azure_native.analysisservices.v20170801beta.ResourceSkuArgs(
+                capacity=1,
+                name="S1",
+                tier="Standard",
+            ),
+            tags={
+                "testKey": "testValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:analysisservices/v20170801beta:ServerDetails azsdktest /subscriptions/613192d7-503f-477a-9cfe-4efc3ee2bd60/resourceGroups/TestRG/providers/Microsoft.AnalysisServices/servers/azsdktest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerDetailsArgs args: The arguments to use to populate this resource's properties.

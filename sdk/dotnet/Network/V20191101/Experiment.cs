@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.Network.V20191101
 {
     /// <summary>
     /// Defines the properties of an Experiment
+    /// 
+    /// ## Example Usage
+    /// ### Creates an Experiment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var experiment = new AzureNative.Network.V20191101.Experiment("experiment", new()
+    ///     {
+    ///         Description = "this is my first experiment!",
+    ///         EnabledState = "Enabled",
+    ///         EndpointA = new AzureNative.Network.V20191101.Inputs.ExperimentEndpointArgs
+    ///         {
+    ///             Endpoint = "endpointA.net",
+    ///             Name = "endpoint A",
+    ///         },
+    ///         EndpointB = new AzureNative.Network.V20191101.Inputs.ExperimentEndpointArgs
+    ///         {
+    ///             Endpoint = "endpointB.net",
+    ///             Name = "endpoint B",
+    ///         },
+    ///         ExperimentName = "MyExperiment",
+    ///         ProfileName = "MyProfile",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20191101:Experiment MyExperiment /subscriptions/subid/resourceGroups/MyResourceGroup/providers/Microsoft.Network/NetworkExperimentProfiles/MyProfile/Experiments/MyExperiment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20191101:Experiment")]
     public partial class Experiment : global::Pulumi.CustomResource

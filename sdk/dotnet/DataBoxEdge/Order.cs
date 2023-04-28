@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.DataBoxEdge
     /// The order details.
     /// API Version: 2022-03-01.
     /// Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### OrderPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var order = new AzureNative.DataBoxEdge.Order("order", new()
+    ///     {
+    ///         ContactInformation = new AzureNative.DataBoxEdge.Inputs.ContactDetailsArgs
+    ///         {
+    ///             CompanyName = "Microsoft",
+    ///             ContactPerson = "John Mcclane",
+    ///             EmailList = new[]
+    ///             {
+    ///                 "john@microsoft.com",
+    ///             },
+    ///             Phone = "(800) 426-9400",
+    ///         },
+    ///         DeviceName = "testedgedevice",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         ShippingAddress = new AzureNative.DataBoxEdge.Inputs.AddressArgs
+    ///         {
+    ///             AddressLine1 = "Microsoft Corporation",
+    ///             AddressLine2 = "One Microsoft Way",
+    ///             AddressLine3 = "Redmond",
+    ///             City = "WA",
+    ///             Country = "USA",
+    ///             PostalCode = "98052",
+    ///             State = "WA",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge:Order default /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/orders/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge:Order")]
     public partial class Order : global::Pulumi.CustomResource

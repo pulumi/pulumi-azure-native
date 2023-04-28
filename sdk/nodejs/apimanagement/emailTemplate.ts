@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Email Template details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateTemplate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const emailTemplate = new azure_native.apimanagement.EmailTemplate("emailTemplate", {
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     subject: `Your request for $IssueName was successfully received.`,
+ *     templateName: "newIssueNotificationMessage",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:EmailTemplate NewIssueNotificationMessage /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/templates/NewIssueNotificationMessage 
+ * ```
  */
 export class EmailTemplate extends pulumi.CustomResource {
     /**

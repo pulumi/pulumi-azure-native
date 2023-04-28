@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.ContainerService.V20210301
 {
     /// <summary>
     /// maintenance configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Maintenance Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var maintenanceConfiguration = new AzureNative.ContainerService.V20210301.MaintenanceConfiguration("maintenanceConfiguration", new()
+    ///     {
+    ///         ConfigName = "default",
+    ///         NotAllowedTime = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20210301.Inputs.TimeSpanArgs
+    ///             {
+    ///                 End = "2020-11-30T12:00:00Z",
+    ///                 Start = "2020-11-26T03:00:00Z",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         TimeInWeek = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20210301.Inputs.TimeInWeekArgs
+    ///             {
+    ///                 Day = "Monday",
+    ///                 HourSlots = new[]
+    ///                 {
+    ///                     1,
+    ///                     2,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20210301:MaintenanceConfiguration default /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/maintenanceConfigurations/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20210301:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource

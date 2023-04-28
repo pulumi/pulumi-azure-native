@@ -249,6 +249,44 @@ class IpCommunityList(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### IpCommunityLists_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_community_list = azure_native.managednetworkfabric.IpCommunityList("ipCommunityList",
+            action="allow",
+            advertise="true",
+            annotation="aaaa",
+            community_members=[{
+                "annotation": "app2",
+                "communityMember": "1234:5678",
+            }],
+            evpn_es_import_route_targets=[{
+                "annotation": "app1",
+                "evpnEsImportRouteTarget": "1.1.1",
+            }],
+            export="true",
+            ip_community_list_name="aaaaa",
+            local_as="true",
+            location="EastUS",
+            resource_group_name="rgIpCommunityLists",
+            tags={
+                "key2814": "",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:IpCommunityList aaaaa /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/IpCommunityList/ipCommunityListName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'CommunityActionType']] action: action. Example: allow | deny.
@@ -275,6 +313,44 @@ class IpCommunityList(pulumi.CustomResource):
         The IpCommunityList resource definition.
         API Version: 2023-02-01-preview.
         Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### IpCommunityLists_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        ip_community_list = azure_native.managednetworkfabric.IpCommunityList("ipCommunityList",
+            action="allow",
+            advertise="true",
+            annotation="aaaa",
+            community_members=[{
+                "annotation": "app2",
+                "communityMember": "1234:5678",
+            }],
+            evpn_es_import_route_targets=[{
+                "annotation": "app1",
+                "evpnEsImportRouteTarget": "1.1.1",
+            }],
+            export="true",
+            ip_community_list_name="aaaaa",
+            local_as="true",
+            location="EastUS",
+            resource_group_name="rgIpCommunityLists",
+            tags={
+                "key2814": "",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric:IpCommunityList aaaaa /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/IpCommunityList/ipCommunityListName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IpCommunityListArgs args: The arguments to use to populate this resource's properties.

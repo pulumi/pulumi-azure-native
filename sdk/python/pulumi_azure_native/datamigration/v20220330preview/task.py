@@ -113,6 +113,43 @@ class Task(pulumi.CustomResource):
         """
         A task resource
 
+        ## Example Usage
+        ### Tasks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        task = azure_native.datamigration.v20220330preview.Task("task",
+            group_name="DmsSdkRg",
+            project_name="DmsSdkProject",
+            properties=azure_native.datamigration.v20220330preview.ConnectToTargetSqlDbTaskPropertiesArgs(
+                input=azure_native.datamigration.v20220330preview.ConnectToTargetSqlDbTaskInputArgs(
+                    target_connection_info=azure_native.datamigration.v20220330preview.SqlConnectionInfoArgs(
+                        authentication="SqlAuthentication",
+                        data_source="ssma-test-server.database.windows.net",
+                        encrypt_connection=True,
+                        password="testpassword",
+                        trust_server_certificate=True,
+                        type="SqlConnectionInfo",
+                        user_name="testuser",
+                    ),
+                ),
+                task_type="ConnectToTarget.SqlDb",
+            ),
+            service_name="DmsSdkService",
+            task_name="DmsSdkTask")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20220330preview:Task DmsSdkTask /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject/tasks/DmsSdkTask 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group_name: Name of the resource group
@@ -129,6 +166,43 @@ class Task(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A task resource
+
+        ## Example Usage
+        ### Tasks_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        task = azure_native.datamigration.v20220330preview.Task("task",
+            group_name="DmsSdkRg",
+            project_name="DmsSdkProject",
+            properties=azure_native.datamigration.v20220330preview.ConnectToTargetSqlDbTaskPropertiesArgs(
+                input=azure_native.datamigration.v20220330preview.ConnectToTargetSqlDbTaskInputArgs(
+                    target_connection_info=azure_native.datamigration.v20220330preview.SqlConnectionInfoArgs(
+                        authentication="SqlAuthentication",
+                        data_source="ssma-test-server.database.windows.net",
+                        encrypt_connection=True,
+                        password="testpassword",
+                        trust_server_certificate=True,
+                        type="SqlConnectionInfo",
+                        user_name="testuser",
+                    ),
+                ),
+                task_type="ConnectToTarget.SqlDb",
+            ),
+            service_name="DmsSdkService",
+            task_name="DmsSdkTask")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20220330preview:Task DmsSdkTask /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject/tasks/DmsSdkTask 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.

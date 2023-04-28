@@ -13,6 +13,64 @@ namespace Pulumi.AzureNative.Cdn
     /// SecurityPolicy association for AzureFrontDoor profile
     /// API Version: 2021-06-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SecurityPolicies_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityPolicy = new AzureNative.Cdn.SecurityPolicy("securityPolicy", new()
+    ///     {
+    ///         Parameters = new AzureNative.Cdn.Inputs.SecurityPolicyWebApplicationFirewallParametersArgs
+    ///         {
+    ///             Associations = new[]
+    ///             {
+    ///                 new AzureNative.Cdn.Inputs.SecurityPolicyWebApplicationFirewallAssociationArgs
+    ///                 {
+    ///                     Domains = new[]
+    ///                     {
+    ///                         new AzureNative.Cdn.Inputs.ActivatedResourceReferenceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain1",
+    ///                         },
+    ///                         new AzureNative.Cdn.Inputs.ActivatedResourceReferenceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/customdomains/testdomain2",
+    ///                         },
+    ///                     },
+    ///                     PatternsToMatch = new[]
+    ///                     {
+    ///                         "/*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Type = "WebApplicationFirewall",
+    ///             WafPolicy = new AzureNative.Cdn.Inputs.ResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/wafTest",
+    ///             },
+    ///         },
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         SecurityPolicyName = "securityPolicy1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:SecurityPolicy securityPolicy1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/securitypolicies/securityPolicy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:SecurityPolicy")]
     public partial class SecurityPolicy : global::Pulumi.CustomResource

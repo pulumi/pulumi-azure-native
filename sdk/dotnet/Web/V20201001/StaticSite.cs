@@ -11,6 +11,49 @@ namespace Pulumi.AzureNative.Web.V20201001
 {
     /// <summary>
     /// Static Site ARM resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a static site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var staticSite = new AzureNative.Web.V20201001.StaticSite("staticSite", new()
+    ///     {
+    ///         Branch = "master",
+    ///         BuildProperties = new AzureNative.Web.V20201001.Inputs.StaticSiteBuildPropertiesArgs
+    ///         {
+    ///             ApiLocation = "api",
+    ///             AppArtifactLocation = "build",
+    ///             AppLocation = "app",
+    ///         },
+    ///         Location = "West US 2",
+    ///         Name = "testStaticSite0",
+    ///         RepositoryToken = "repoToken123",
+    ///         RepositoryUrl = "https://github.com/username/RepoName",
+    ///         ResourceGroupName = "rg",
+    ///         Sku = new AzureNative.Web.V20201001.Inputs.SkuDescriptionArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Basic",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20201001:StaticSite testStaticSite0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20201001:StaticSite")]
     public partial class StaticSite : global::Pulumi.CustomResource

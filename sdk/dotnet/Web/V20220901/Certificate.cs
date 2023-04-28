@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Web.V20220901
 {
     /// <summary>
     /// SSL certificate for an app.
+    /// 
+    /// ## Example Usage
+    /// ### Create Or Update Certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.Web.V20220901.Certificate("certificate", new()
+    ///     {
+    ///         HostNames = new[]
+    ///         {
+    ///             "ServerCert",
+    ///         },
+    ///         Location = "East US",
+    ///         Name = "testc6282",
+    ///         Password = "&lt;password&gt;",
+    ///         ResourceGroupName = "testrg123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web/v20220901:Certificate testc6282 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/certificates/testc6282 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web/v20220901:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

@@ -98,6 +98,32 @@ class ManagementGroup(pulumi.CustomResource):
         """
         The management group details.
 
+        ## Example Usage
+        ### PutManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group = azure_native.management.v20210401.ManagementGroup("managementGroup",
+            details=azure_native.management.v20210401.ManagementGroupDetailsResponseArgs(
+                parent=azure_native.management.v20210401.CreateParentGroupInfoArgs(
+                    id="/providers/Microsoft.Management/managementGroups/RootGroup",
+                ),
+            ),
+            display_name="ChildGroup",
+            group_id="ChildGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management/v20210401:ManagementGroup ChildGroup /providers/Microsoft.Management/managementGroups/ChildGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CreateManagementGroupDetailsArgs']] details: The details of a management group used during creation.
@@ -113,6 +139,32 @@ class ManagementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The management group details.
+
+        ## Example Usage
+        ### PutManagementGroup
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        management_group = azure_native.management.v20210401.ManagementGroup("managementGroup",
+            details=azure_native.management.v20210401.ManagementGroupDetailsResponseArgs(
+                parent=azure_native.management.v20210401.CreateParentGroupInfoArgs(
+                    id="/providers/Microsoft.Management/managementGroups/RootGroup",
+                ),
+            ),
+            display_name="ChildGroup",
+            group_id="ChildGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:management/v20210401:ManagementGroup ChildGroup /providers/Microsoft.Management/managementGroups/ChildGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ManagementGroupArgs args: The arguments to use to populate this resource's properties.

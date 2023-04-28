@@ -11,6 +11,98 @@ import * as utilities from "../utilities";
  * The service resource.
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Put a service with maximum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.servicefabric.Service("service", {
+ *     applicationName: "myApp",
+ *     clusterName: "myCluster",
+ *     location: "eastus",
+ *     properties: {
+ *         correlationScheme: [{
+ *             scheme: "AlignedAffinity",
+ *             serviceName: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService1",
+ *         }],
+ *         defaultMoveCost: "Medium",
+ *         instanceCount: 5,
+ *         minInstanceCount: 3,
+ *         minInstancePercentage: 30,
+ *         partitionDescription: {
+ *             partitionScheme: "Singleton",
+ *         },
+ *         placementConstraints: "NodeType==frontend",
+ *         scalingPolicies: [{
+ *             scalingMechanism: {
+ *                 kind: "ScalePartitionInstanceCount",
+ *                 maxInstanceCount: 9,
+ *                 minInstanceCount: 3,
+ *                 scaleIncrement: 2,
+ *             },
+ *             scalingTrigger: {
+ *                 kind: "AveragePartitionLoadTrigger",
+ *                 lowerLoadThreshold: 2,
+ *                 metricName: "metricName",
+ *                 scaleInterval: "00:01:00",
+ *                 upperLoadThreshold: 8,
+ *             },
+ *         }],
+ *         serviceDnsName: "myservicednsname.myApp",
+ *         serviceKind: "Stateless",
+ *         serviceLoadMetrics: [{
+ *             defaultLoad: 3,
+ *             name: "metric1",
+ *             weight: "Low",
+ *         }],
+ *         servicePackageActivationMode: "SharedProcess",
+ *         servicePlacementPolicies: [{
+ *             type: "NonPartiallyPlaceService",
+ *         }],
+ *         serviceTypeName: "myServiceType",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     serviceName: "myService",
+ *     tags: {
+ *         a: "b",
+ *     },
+ * });
+ *
+ * ```
+ * ### Put a service with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.servicefabric.Service("service", {
+ *     applicationName: "myApp",
+ *     clusterName: "myCluster",
+ *     location: "eastus",
+ *     properties: {
+ *         instanceCount: 1,
+ *         partitionDescription: {
+ *             partitionScheme: "Singleton",
+ *         },
+ *         serviceKind: "Stateless",
+ *         serviceTypeName: "myServiceType",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     serviceName: "myService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabric:Service myService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applications/myApp/services/myService 
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

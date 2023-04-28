@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Peering.V20221001
 {
     /// <summary>
     /// The customer's prefix that is registered by the peering service provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a registered prefix for the peering
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var registeredPrefix = new AzureNative.Peering.V20221001.RegisteredPrefix("registeredPrefix", new()
+    ///     {
+    ///         PeeringName = "peeringName",
+    ///         Prefix = "10.22.20.0/24",
+    ///         RegisteredPrefixName = "registeredPrefixName",
+    ///         ResourceGroupName = "rgName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering/v20221001:RegisteredPrefix registeredPrefixName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName/registeredPrefixes/registeredPrefixName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering/v20221001:RegisteredPrefix")]
     public partial class RegisteredPrefix : global::Pulumi.CustomResource

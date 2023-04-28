@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Network
     /// Security Partner Provider resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Security Partner Provider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityPartnerProvider = new AzureNative.Network.SecurityPartnerProvider("securityPartnerProvider", new()
+    ///     {
+    ///         Location = "West US",
+    ///         ResourceGroupName = "rg1",
+    ///         SecurityPartnerProviderName = "securityPartnerProvider",
+    ///         SecurityProviderName = "ZScaler",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualHub = new AzureNative.Network.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/hub1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:SecurityPartnerProvider securityPartnerProvider /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/securityPartnerProviders/securityPartnerProvider 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SecurityPartnerProvider")]
     public partial class SecurityPartnerProvider : global::Pulumi.CustomResource

@@ -127,6 +127,37 @@ class ConnectionGateway(pulumi.CustomResource):
         """
         The gateway definition
 
+        ## Example Usage
+        ### Replace a connection gateway definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_gateway = azure_native.web.v20160601.ConnectionGateway("connectionGateway",
+            connection_gateway_name="test123",
+            properties=azure_native.web.v20160601.ConnectionGatewayDefinitionResponsePropertiesArgs(
+                backend_uri="https://WABI-WEST-US-redirect.analysis.windows.net",
+                connection_gateway_installation=azure_native.web.v20160601.ConnectionGatewayReferenceArgs(
+                    id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                ),
+                contact_information=["test123@microsoft.com"],
+                display_name="test123",
+                machine_name="TEST123",
+                status="Installed",
+            ),
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20160601:ConnectionGateway test123 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_gateway_name: The connection gateway name
@@ -143,6 +174,37 @@ class ConnectionGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The gateway definition
+
+        ## Example Usage
+        ### Replace a connection gateway definition
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        connection_gateway = azure_native.web.v20160601.ConnectionGateway("connectionGateway",
+            connection_gateway_name="test123",
+            properties=azure_native.web.v20160601.ConnectionGatewayDefinitionResponsePropertiesArgs(
+                backend_uri="https://WABI-WEST-US-redirect.analysis.windows.net",
+                connection_gateway_installation=azure_native.web.v20160601.ConnectionGatewayReferenceArgs(
+                    id="/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/westus/connectionGatewayInstallations/865dccd1-5d5c-45fe-b5a0-249d4de4134c",
+                ),
+                contact_information=["test123@microsoft.com"],
+                display_name="test123",
+                machine_name="TEST123",
+                status="Installed",
+            ),
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20160601:ConnectionGateway test123 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/connectionGateways/test123 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConnectionGatewayArgs args: The arguments to use to populate this resource's properties.

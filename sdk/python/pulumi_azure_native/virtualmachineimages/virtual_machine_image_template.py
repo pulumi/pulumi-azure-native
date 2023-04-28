@@ -252,6 +252,181 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         API Version: 2022-07-01.
         Previous API Version: 2020-02-14. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create an Image Template for Linux.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_image_template = azure_native.virtualmachineimages.VirtualMachineImageTemplate("virtualMachineImageTemplate",
+            customize=[azure_native.virtualmachineimages.ImageTemplateShellCustomizerArgs(
+                name="Shell Customizer Example",
+                script_uri="https://example.com/path/to/script.sh",
+                type="Shell",
+            )],
+            distribute=[azure_native.virtualmachineimages.ImageTemplateManagedImageDistributorArgs(
+                artifact_tags={
+                    "tagName": "value",
+                },
+                image_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                location="1_location",
+                run_output_name="image_it_pir_1",
+                type="ManagedImage",
+            )],
+            identity=azure_native.virtualmachineimages.ImageTemplateIdentityArgs(
+                type=azure_native.virtualmachineimages.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1": {},
+                },
+            ),
+            image_template_name="myImageTemplate",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            source=azure_native.virtualmachineimages.ImageTemplateManagedImageSourceArgs(
+                image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+                type="ManagedImage",
+            ),
+            tags={
+                "imagetemplate_tag1": "IT_T1",
+                "imagetemplate_tag2": "IT_T2",
+            },
+            vm_profile=azure_native.virtualmachineimages.ImageTemplateVmProfileResponseArgs(
+                os_disk_size_gb=64,
+                vm_size="Standard_D2s_v3",
+                vnet_config=azure_native.virtualmachineimages.VirtualNetworkConfigArgs(
+                    subnet_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+                ),
+            ))
+
+        ```
+        ### Create an Image Template for Windows.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_image_template = azure_native.virtualmachineimages.VirtualMachineImageTemplate("virtualMachineImageTemplate",
+            customize=[
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    inline=[
+                        "Powershell command-1",
+                        "Powershell command-2",
+                        "Powershell command-3",
+                    ],
+                    name="PowerShell (inline) Customizer Example",
+                    type="PowerShell",
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    inline=[
+                        "Powershell command-1",
+                        "Powershell command-2",
+                        "Powershell command-3",
+                    ],
+                    name="PowerShell (inline) Customizer Elevated user Example",
+                    run_elevated=True,
+                    type="PowerShell",
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    inline=[
+                        "Powershell command-1",
+                        "Powershell command-2",
+                        "Powershell command-3",
+                    ],
+                    name="PowerShell (inline) Customizer Elevated Local System user Example",
+                    run_as_system=True,
+                    run_elevated=True,
+                    type="PowerShell",
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    name="PowerShell (script) Customizer Example",
+                    script_uri="https://example.com/path/to/script.ps1",
+                    type="PowerShell",
+                    valid_exit_codes=[
+                        0,
+                        1,
+                    ],
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    name="PowerShell (script) Customizer Elevated Local System user Example",
+                    run_elevated=True,
+                    script_uri="https://example.com/path/to/script.ps1",
+                    type="PowerShell",
+                    valid_exit_codes=[
+                        0,
+                        1,
+                    ],
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    name="PowerShell (script) Customizer Elevated Local System user Example",
+                    run_as_system=True,
+                    run_elevated=True,
+                    script_uri="https://example.com/path/to/script.ps1",
+                    type="PowerShell",
+                    valid_exit_codes=[
+                        0,
+                        1,
+                    ],
+                ),
+                azure_native.virtualmachineimages.ImageTemplateRestartCustomizerArgs(
+                    name="Restart Customizer Example",
+                    restart_check_command="powershell -command \\"& {Write-Output 'restarted.'}\\"",
+                    restart_command="shutdown /f /r /t 0 /c \\"packer restart\\"",
+                    restart_timeout="10m",
+                    type="WindowsRestart",
+                ),
+                azure_native.virtualmachineimages.ImageTemplateWindowsUpdateCustomizerArgs(
+                    filters=["$_.BrowseOnly"],
+                    name="Windows Update Customizer Example",
+                    search_criteria="BrowseOnly=0 and IsInstalled=0",
+                    type="WindowsUpdate",
+                    update_limit=100,
+                ),
+            ],
+            distribute=[azure_native.virtualmachineimages.ImageTemplateManagedImageDistributorArgs(
+                artifact_tags={
+                    "tagName": "value",
+                },
+                image_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                location="1_location",
+                run_output_name="image_it_pir_1",
+                type="ManagedImage",
+            )],
+            identity=azure_native.virtualmachineimages.ImageTemplateIdentityArgs(
+                type=azure_native.virtualmachineimages.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1": {},
+                },
+            ),
+            image_template_name="myImageTemplate",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            source=azure_native.virtualmachineimages.ImageTemplateManagedImageSourceArgs(
+                image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+                type="ManagedImage",
+            ),
+            tags={
+                "imagetemplate_tag1": "IT_T1",
+                "imagetemplate_tag2": "IT_T2",
+            },
+            vm_profile=azure_native.virtualmachineimages.ImageTemplateVmProfileResponseArgs(
+                os_disk_size_gb=64,
+                vm_size="Standard_D2s_v3",
+                vnet_config=azure_native.virtualmachineimages.VirtualNetworkConfigArgs(
+                    subnet_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:virtualmachineimages:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] build_timeout_in_minutes: Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
@@ -278,6 +453,181 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
         Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
         API Version: 2022-07-01.
         Previous API Version: 2020-02-14. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create an Image Template for Linux.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_image_template = azure_native.virtualmachineimages.VirtualMachineImageTemplate("virtualMachineImageTemplate",
+            customize=[azure_native.virtualmachineimages.ImageTemplateShellCustomizerArgs(
+                name="Shell Customizer Example",
+                script_uri="https://example.com/path/to/script.sh",
+                type="Shell",
+            )],
+            distribute=[azure_native.virtualmachineimages.ImageTemplateManagedImageDistributorArgs(
+                artifact_tags={
+                    "tagName": "value",
+                },
+                image_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                location="1_location",
+                run_output_name="image_it_pir_1",
+                type="ManagedImage",
+            )],
+            identity=azure_native.virtualmachineimages.ImageTemplateIdentityArgs(
+                type=azure_native.virtualmachineimages.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1": {},
+                },
+            ),
+            image_template_name="myImageTemplate",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            source=azure_native.virtualmachineimages.ImageTemplateManagedImageSourceArgs(
+                image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+                type="ManagedImage",
+            ),
+            tags={
+                "imagetemplate_tag1": "IT_T1",
+                "imagetemplate_tag2": "IT_T2",
+            },
+            vm_profile=azure_native.virtualmachineimages.ImageTemplateVmProfileResponseArgs(
+                os_disk_size_gb=64,
+                vm_size="Standard_D2s_v3",
+                vnet_config=azure_native.virtualmachineimages.VirtualNetworkConfigArgs(
+                    subnet_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+                ),
+            ))
+
+        ```
+        ### Create an Image Template for Windows.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_machine_image_template = azure_native.virtualmachineimages.VirtualMachineImageTemplate("virtualMachineImageTemplate",
+            customize=[
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    inline=[
+                        "Powershell command-1",
+                        "Powershell command-2",
+                        "Powershell command-3",
+                    ],
+                    name="PowerShell (inline) Customizer Example",
+                    type="PowerShell",
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    inline=[
+                        "Powershell command-1",
+                        "Powershell command-2",
+                        "Powershell command-3",
+                    ],
+                    name="PowerShell (inline) Customizer Elevated user Example",
+                    run_elevated=True,
+                    type="PowerShell",
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    inline=[
+                        "Powershell command-1",
+                        "Powershell command-2",
+                        "Powershell command-3",
+                    ],
+                    name="PowerShell (inline) Customizer Elevated Local System user Example",
+                    run_as_system=True,
+                    run_elevated=True,
+                    type="PowerShell",
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    name="PowerShell (script) Customizer Example",
+                    script_uri="https://example.com/path/to/script.ps1",
+                    type="PowerShell",
+                    valid_exit_codes=[
+                        0,
+                        1,
+                    ],
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    name="PowerShell (script) Customizer Elevated Local System user Example",
+                    run_elevated=True,
+                    script_uri="https://example.com/path/to/script.ps1",
+                    type="PowerShell",
+                    valid_exit_codes=[
+                        0,
+                        1,
+                    ],
+                ),
+                azure_native.virtualmachineimages.ImageTemplatePowerShellCustomizerArgs(
+                    name="PowerShell (script) Customizer Elevated Local System user Example",
+                    run_as_system=True,
+                    run_elevated=True,
+                    script_uri="https://example.com/path/to/script.ps1",
+                    type="PowerShell",
+                    valid_exit_codes=[
+                        0,
+                        1,
+                    ],
+                ),
+                azure_native.virtualmachineimages.ImageTemplateRestartCustomizerArgs(
+                    name="Restart Customizer Example",
+                    restart_check_command="powershell -command \\"& {Write-Output 'restarted.'}\\"",
+                    restart_command="shutdown /f /r /t 0 /c \\"packer restart\\"",
+                    restart_timeout="10m",
+                    type="WindowsRestart",
+                ),
+                azure_native.virtualmachineimages.ImageTemplateWindowsUpdateCustomizerArgs(
+                    filters=["$_.BrowseOnly"],
+                    name="Windows Update Customizer Example",
+                    search_criteria="BrowseOnly=0 and IsInstalled=0",
+                    type="WindowsUpdate",
+                    update_limit=100,
+                ),
+            ],
+            distribute=[azure_native.virtualmachineimages.ImageTemplateManagedImageDistributorArgs(
+                artifact_tags={
+                    "tagName": "value",
+                },
+                image_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Compute/images/image_it_1",
+                location="1_location",
+                run_output_name="image_it_pir_1",
+                type="ManagedImage",
+            )],
+            identity=azure_native.virtualmachineimages.ImageTemplateIdentityArgs(
+                type=azure_native.virtualmachineimages.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity_1": {},
+                },
+            ),
+            image_template_name="myImageTemplate",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            source=azure_native.virtualmachineimages.ImageTemplateManagedImageSourceArgs(
+                image_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Compute/images/source_image",
+                type="ManagedImage",
+            ),
+            tags={
+                "imagetemplate_tag1": "IT_T1",
+                "imagetemplate_tag2": "IT_T2",
+            },
+            vm_profile=azure_native.virtualmachineimages.ImageTemplateVmProfileResponseArgs(
+                os_disk_size_gb=64,
+                vm_size="Standard_D2s_v3",
+                vnet_config=azure_native.virtualmachineimages.VirtualNetworkConfigArgs(
+                    subnet_id="/subscriptions/{subscription-id}/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet_name/subnets/subnet_name",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:virtualmachineimages:VirtualMachineImageTemplate myImageTemplate /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/myImageTemplate 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualMachineImageTemplateArgs args: The arguments to use to populate this resource's properties.

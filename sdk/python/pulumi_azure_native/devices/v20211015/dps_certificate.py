@@ -112,6 +112,29 @@ class DpsCertificate(pulumi.CustomResource):
         """
         The X509 Certificate.
 
+        ## Example Usage
+        ### DPSCreateOrUpdateCertificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dps_certificate = azure_native.devices.v20211015.DpsCertificate("dpsCertificate",
+            certificate="############################################",
+            certificate_name="cert",
+            provisioning_service_name="myFirstProvisioningService",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20211015:DpsCertificate cert /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServives/myFirstProvisioningService/certificates/cert 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate: Base-64 representation of the X509 leaf certificate .cer file or just .pem file content.
@@ -128,6 +151,29 @@ class DpsCertificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The X509 Certificate.
+
+        ## Example Usage
+        ### DPSCreateOrUpdateCertificate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dps_certificate = azure_native.devices.v20211015.DpsCertificate("dpsCertificate",
+            certificate="############################################",
+            certificate_name="cert",
+            provisioning_service_name="myFirstProvisioningService",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20211015:DpsCertificate cert /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServives/myFirstProvisioningService/certificates/cert 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DpsCertificateArgs args: The arguments to use to populate this resource's properties.

@@ -10,6 +10,46 @@ import * as utilities from "../utilities";
 /**
  * Definition of the configuration profile.
  * API Version: 2022-05-04.
+ *
+ * ## Example Usage
+ * ### Create or update configuration profile version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationProfilesVersion = new azure_native.automanage.ConfigurationProfilesVersion("configurationProfilesVersion", {
+ *     configurationProfileName: "customConfigurationProfile",
+ *     location: "East US",
+ *     properties: {
+ *         configuration: {
+ *             "Antimalware/Enable": false,
+ *             "AzureSecurityCenter/Enable": true,
+ *             "Backup/Enable": false,
+ *             "BootDiagnostics/Enable": true,
+ *             "ChangeTrackingAndInventory/Enable": true,
+ *             "GuestConfiguration/Enable": true,
+ *             "LogAnalytics/Enable": true,
+ *             "UpdateManagement/Enable": true,
+ *             "VMInsights/Enable": true,
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroupName",
+ *     tags: {
+ *         Organization: "Administration",
+ *     },
+ *     versionName: "version1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automanage:ConfigurationProfilesVersion customConfigurationProfile/version1 /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfiles/customConfigurationProfile/versions/version1 
+ * ```
  */
 export class ConfigurationProfilesVersion extends pulumi.CustomResource {
     /**

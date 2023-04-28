@@ -148,6 +148,41 @@ class RedisEnterprise(pulumi.CustomResource):
         """
         Describes the RedisEnterprise cluster
 
+        ## Example Usage
+        ### RedisEnterpriseCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        redis_enterprise = azure_native.cache.v20210301.RedisEnterprise("redisEnterprise",
+            cluster_name="cache1",
+            location="West US",
+            minimum_tls_version="1.2",
+            resource_group_name="rg1",
+            sku=azure_native.cache.v20210301.EnterpriseSkuArgs(
+                capacity=3,
+                name="EnterpriseFlash_F300",
+            ),
+            tags={
+                "tag1": "value1",
+            },
+            zones=[
+                "1",
+                "2",
+                "3",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache/v20210301:RedisEnterprise cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the RedisEnterprise cluster.
@@ -166,6 +201,41 @@ class RedisEnterprise(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes the RedisEnterprise cluster
+
+        ## Example Usage
+        ### RedisEnterpriseCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        redis_enterprise = azure_native.cache.v20210301.RedisEnterprise("redisEnterprise",
+            cluster_name="cache1",
+            location="West US",
+            minimum_tls_version="1.2",
+            resource_group_name="rg1",
+            sku=azure_native.cache.v20210301.EnterpriseSkuArgs(
+                capacity=3,
+                name="EnterpriseFlash_F300",
+            ),
+            tags={
+                "tag1": "value1",
+            },
+            zones=[
+                "1",
+                "2",
+                "3",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache/v20210301:RedisEnterprise cache1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RedisEnterpriseArgs args: The arguments to use to populate this resource's properties.

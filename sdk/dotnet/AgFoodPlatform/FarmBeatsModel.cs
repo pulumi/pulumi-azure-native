@@ -13,6 +13,40 @@ namespace Pulumi.AzureNative.AgFoodPlatform
     /// FarmBeats ARM Resource.
     /// API Version: 2021-09-01-preview.
     /// Previous API Version: 2020-05-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### FarmBeatsModels_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var farmBeatsModel = new AzureNative.AgFoodPlatform.FarmBeatsModel("farmBeatsModel", new()
+    ///     {
+    ///         FarmBeatsResourceName = "examples-farmbeatsResourceName",
+    ///         Location = "eastus2",
+    ///         ResourceGroupName = "examples-rg",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:agfoodplatform:FarmBeatsModel examples-farmbeatsResourceName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:agfoodplatform:FarmBeatsModel")]
     public partial class FarmBeatsModel : global::Pulumi.CustomResource

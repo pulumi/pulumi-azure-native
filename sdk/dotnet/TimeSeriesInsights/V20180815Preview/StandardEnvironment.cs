@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.TimeSeriesInsights.V20180815Preview
 {
     /// <summary>
     /// An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource. Standard environments have data retention limits.
+    /// 
+    /// ## Example Usage
+    /// ### EnvironmentsCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var standardEnvironment = new AzureNative.TimeSeriesInsights.V20180815Preview.StandardEnvironment("standardEnvironment", new()
+    ///     {
+    ///         DataRetentionTime = "P31D",
+    ///         EnvironmentName = "env1",
+    ///         Kind = "Standard",
+    ///         Location = "West US",
+    ///         PartitionKeyProperties = new[]
+    ///         {
+    ///             new AzureNative.TimeSeriesInsights.V20180815Preview.Inputs.TimeSeriesIdPropertyArgs
+    ///             {
+    ///                 Name = "DeviceId1",
+    ///                 Type = "String",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.TimeSeriesInsights.V20180815Preview.Inputs.SkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "S1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:timeseriesinsights/v20180815preview:StandardEnvironment env1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:timeseriesinsights/v20180815preview:StandardEnvironment")]
     public partial class StandardEnvironment : global::Pulumi.CustomResource

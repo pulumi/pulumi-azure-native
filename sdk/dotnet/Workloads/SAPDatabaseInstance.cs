@@ -13,6 +13,58 @@ namespace Pulumi.AzureNative.Workloads
     /// Define the Database resource.
     /// API Version: 2023-04-01.
     /// Previous API Version: 2021-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create SAP Database Instances for HA System with Availability Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapDatabaseInstance = new AzureNative.Workloads.SAPDatabaseInstance("sapDatabaseInstance", new()
+    ///     {
+    ///         DatabaseInstanceName = "databaseServer",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### SAPDatabaseInstances_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapDatabaseInstance = new AzureNative.Workloads.SAPDatabaseInstance("sapDatabaseInstance", new()
+    ///     {
+    ///         DatabaseInstanceName = "databaseServer",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads:SAPDatabaseInstance databaseServer /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/databaseInstances/databaseServer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads:SAPDatabaseInstance")]
     public partial class SAPDatabaseInstance : global::Pulumi.CustomResource

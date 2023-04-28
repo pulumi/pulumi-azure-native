@@ -9,6 +9,71 @@ import * as utilities from "../../utilities";
 
 /**
  * Container App Job
+ *
+ * ## Example Usage
+ * ### Create or Update Container Apps Job
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.app.v20221101preview.Job("job", {
+ *     configuration: {
+ *         manualTriggerConfig: {
+ *             parallelism: 4,
+ *             replicaCompletionCount: 1,
+ *         },
+ *         replicaRetryLimit: 10,
+ *         replicaTimeout: 10,
+ *         triggerType: "Manual",
+ *     },
+ *     environmentId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+ *     jobName: "testcontainerAppsJob0",
+ *     location: "East US",
+ *     resourceGroupName: "rg",
+ *     template: {
+ *         containers: [{
+ *             image: "repo/testcontainerAppsJob0:v1",
+ *             name: "testcontainerAppsJob0",
+ *             probes: [{
+ *                 httpGet: {
+ *                     httpHeaders: [{
+ *                         name: "Custom-Header",
+ *                         value: "Awesome",
+ *                     }],
+ *                     path: "/health",
+ *                     port: 8080,
+ *                 },
+ *                 initialDelaySeconds: 5,
+ *                 periodSeconds: 3,
+ *                 type: "Liveness",
+ *             }],
+ *         }],
+ *         initContainers: [{
+ *             args: [
+ *                 "-c",
+ *                 "while true; do echo hello; sleep 10;done",
+ *             ],
+ *             command: ["/bin/sh"],
+ *             image: "repo/testcontainerAppsJob0:v4",
+ *             name: "testinitcontainerAppsJob0",
+ *             resources: {
+ *                 cpu: 0.2,
+ *                 memory: "100Mi",
+ *             },
+ *         }],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:app/v20221101preview:Job testcontainerAppsJob0 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/jobs/testcontainerAppsJob0 
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

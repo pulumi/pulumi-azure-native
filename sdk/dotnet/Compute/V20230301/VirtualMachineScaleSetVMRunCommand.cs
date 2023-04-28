@@ -11,6 +11,70 @@ namespace Pulumi.AzureNative.Compute.V20230301
 {
     /// <summary>
     /// Describes a Virtual Machine run command.
+    /// 
+    /// ## Example Usage
+    /// ### Create VirtualMachineScaleSet VM run command.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachineScaleSetVMRunCommand = new AzureNative.Compute.V20230301.VirtualMachineScaleSetVMRunCommand("virtualMachineScaleSetVMRunCommand", new()
+    ///     {
+    ///         AsyncExecution = false,
+    ///         ErrorBlobManagedIdentity = null,
+    ///         ErrorBlobUri = "https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
+    ///         InstanceId = "0",
+    ///         Location = "West US",
+    ///         OutputBlobManagedIdentity = new AzureNative.Compute.V20230301.Inputs.RunCommandManagedIdentityArgs
+    ///         {
+    ///             ClientId = "22d35efb-0c99-4041-8c5b-6d24db33a69a",
+    ///         },
+    ///         OutputBlobUri = "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+    ///         Parameters = new[]
+    ///         {
+    ///             new AzureNative.Compute.V20230301.Inputs.RunCommandInputParameterArgs
+    ///             {
+    ///                 Name = "param1",
+    ///                 Value = "value1",
+    ///             },
+    ///             new AzureNative.Compute.V20230301.Inputs.RunCommandInputParameterArgs
+    ///             {
+    ///                 Name = "param2",
+    ///                 Value = "value2",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RunAsPassword = "&lt;runAsPassword&gt;",
+    ///         RunAsUser = "user1",
+    ///         RunCommandName = "myRunCommand",
+    ///         Source = new AzureNative.Compute.V20230301.Inputs.VirtualMachineRunCommandScriptSourceArgs
+    ///         {
+    ///             ScriptUri = "https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1",
+    ///             ScriptUriManagedIdentity = new AzureNative.Compute.V20230301.Inputs.RunCommandManagedIdentityArgs
+    ///             {
+    ///                 ObjectId = "4231e4d2-33e4-4e23-96b2-17888afa6072",
+    ///             },
+    ///         },
+    ///         TimeoutInSeconds = 3600,
+    ///         TreatFailureAsDeploymentFailure = true,
+    ///         VmScaleSetName = "myvmScaleSet",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20230301:VirtualMachineScaleSetVMRunCommand myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myvmScaleSet/virtualMachines/0/runCommands/myRunCommand 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20230301:VirtualMachineScaleSetVMRunCommand")]
     public partial class VirtualMachineScaleSetVMRunCommand : global::Pulumi.CustomResource

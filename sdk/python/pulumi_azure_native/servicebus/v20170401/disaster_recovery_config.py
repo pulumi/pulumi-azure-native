@@ -111,6 +111,30 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
 
+        ## Example Usage
+        ### SBAliasCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disaster_recovery_config = azure_native.servicebus.v20170401.DisasterRecoveryConfig("disasterRecoveryConfig",
+            alias="sdk-Namespace-8860",
+            alternate_name="alternameforAlias-Namespace-8860",
+            namespace_name="sdk-Namespace-8860",
+            partner_namespace="sdk-Namespace-37",
+            resource_group_name="ardsouzatestRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20170401:DisasterRecoveryConfig sdk-Namespace-8860 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ardsouzatestRG/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-8860/disasterRecoveryConfig/sdk-Namespace-8860 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] alias: The Disaster Recovery configuration name
@@ -127,6 +151,30 @@ class DisasterRecoveryConfig(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in List or Get Alias(Disaster Recovery configuration) operation
+
+        ## Example Usage
+        ### SBAliasCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        disaster_recovery_config = azure_native.servicebus.v20170401.DisasterRecoveryConfig("disasterRecoveryConfig",
+            alias="sdk-Namespace-8860",
+            alternate_name="alternameforAlias-Namespace-8860",
+            namespace_name="sdk-Namespace-8860",
+            partner_namespace="sdk-Namespace-37",
+            resource_group_name="ardsouzatestRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus/v20170401:DisasterRecoveryConfig sdk-Namespace-8860 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ardsouzatestRG/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-8860/disasterRecoveryConfig/sdk-Namespace-8860 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DisasterRecoveryConfigArgs args: The arguments to use to populate this resource's properties.

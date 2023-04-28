@@ -115,6 +115,30 @@ class Network(pulumi.CustomResource):
         API Version: 2018-09-01-preview.
         Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateOrUpdateNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network = azure_native.servicefabricmesh.Network("network",
+            location="EastUS",
+            network_resource_name="sampleNetwork",
+            properties=azure_native.servicefabricmesh.NetworkResourcePropertiesArgs(),
+            resource_group_name="sbz_demo",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh:Network sampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -133,6 +157,30 @@ class Network(pulumi.CustomResource):
         This type describes a network resource.
         API Version: 2018-09-01-preview.
         Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateOrUpdateNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network = azure_native.servicefabricmesh.Network("network",
+            location="EastUS",
+            network_resource_name="sampleNetwork",
+            properties=azure_native.servicefabricmesh.NetworkResourcePropertiesArgs(),
+            resource_group_name="sbz_demo",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh:Network sampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/networks/sampleNetwork 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkArgs args: The arguments to use to populate this resource's properties.

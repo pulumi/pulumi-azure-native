@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.NetApp.V20220901
 {
     /// <summary>
     /// Backup policy information
+    /// 
+    /// ## Example Usage
+    /// ### BackupPolicies_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupPolicy = new AzureNative.NetApp.V20220901.BackupPolicy("backupPolicy", new()
+    ///     {
+    ///         AccountName = "account1",
+    ///         BackupPolicyName = "backupPolicyName",
+    ///         DailyBackupsToKeep = 10,
+    ///         Enabled = true,
+    ///         Location = "westus",
+    ///         MonthlyBackupsToKeep = 10,
+    ///         ResourceGroupName = "myRG",
+    ///         WeeklyBackupsToKeep = 10,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20220901:BackupPolicy account1/backupPolicyName /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/backupPolocies/backupPolicyName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:netapp/v20220901:BackupPolicy")]
     public partial class BackupPolicy : global::Pulumi.CustomResource

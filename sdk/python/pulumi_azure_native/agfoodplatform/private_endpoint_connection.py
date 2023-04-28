@@ -97,6 +97,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The private endpoint connection resource.
         API Version: 2021-09-01-preview.
 
+        ## Example Usage
+        ### PrivateEndpointConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.agfoodplatform.PrivateEndpointConnection("privateEndpointConnection",
+            farm_beats_resource_name="examples-farmbeatsResourceName",
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state=azure_native.agfoodplatform.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="examples-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agfoodplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName/privateEndpointConnections/privateEndpointConnectionName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] farm_beats_resource_name: FarmBeats resource name.
@@ -113,6 +139,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The private endpoint connection resource.
         API Version: 2021-09-01-preview.
+
+        ## Example Usage
+        ### PrivateEndpointConnections_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.agfoodplatform.PrivateEndpointConnection("privateEndpointConnection",
+            farm_beats_resource_name="examples-farmbeatsResourceName",
+            private_endpoint_connection_name="privateEndpointConnectionName",
+            private_link_service_connection_state=azure_native.agfoodplatform.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by johndoe@contoso.com",
+                status="Approved",
+            ),
+            resource_group_name="examples-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:agfoodplatform:PrivateEndpointConnection privateEndpointConnectionName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.AgFoodPlatform/farmBeats/examples-farmbeatsResourceName/privateEndpointConnections/privateEndpointConnectionName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

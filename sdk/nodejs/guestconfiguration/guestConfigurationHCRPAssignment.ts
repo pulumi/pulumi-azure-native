@@ -11,6 +11,45 @@ import * as utilities from "../utilities";
  * Guest configuration assignment is an association between a machine and guest configuration.
  * API Version: 2022-01-25.
  * Previous API Version: 2020-06-25. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update guest configuration assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const guestConfigurationHCRPAssignment = new azure_native.guestconfiguration.GuestConfigurationHCRPAssignment("guestConfigurationHCRPAssignment", {
+ *     guestConfigurationAssignmentName: "NotInstalledApplicationForWindows",
+ *     location: "westcentralus",
+ *     machineName: "myMachineName",
+ *     name: "NotInstalledApplicationForWindows",
+ *     properties: {
+ *         context: "Azure policy",
+ *         guestConfiguration: {
+ *             assignmentType: "ApplyAndAutoCorrect",
+ *             configurationParameter: [{
+ *                 name: "[InstalledApplication]NotInstalledApplicationResource1;Name",
+ *                 value: "NotePad,sql",
+ *             }],
+ *             contentHash: "123contenthash",
+ *             contentUri: "https://thisisfake/pacakge",
+ *             name: "NotInstalledApplicationForWindows",
+ *             version: "1.0.0.3",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:guestconfiguration:GuestConfigurationHCRPAssignment NotInstalledApplicationForWindows /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/HybridRP.Compute/virtualMachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows 
+ * ```
  */
 export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
     /**

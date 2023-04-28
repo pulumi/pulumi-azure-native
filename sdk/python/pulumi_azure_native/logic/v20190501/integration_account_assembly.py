@@ -129,6 +129,34 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
         """
         The assembly definition.
 
+        ## Example Usage
+        ### Create or update an account assembly
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_assembly = azure_native.logic.v20190501.IntegrationAccountAssembly("integrationAccountAssembly",
+            assembly_artifact_name="testAssembly",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            properties=azure_native.logic.v20190501.AssemblyPropertiesArgs(
+                assembly_name="System.IdentityModel.Tokens.Jwt",
+                content="Base64 encoded Assembly Content",
+                metadata={},
+            ),
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20190501:IntegrationAccountAssembly testAssembly /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/assemblies/testAssembly 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assembly_artifact_name: The assembly artifact name.
@@ -146,6 +174,34 @@ class IntegrationAccountAssembly(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The assembly definition.
+
+        ## Example Usage
+        ### Create or update an account assembly
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        integration_account_assembly = azure_native.logic.v20190501.IntegrationAccountAssembly("integrationAccountAssembly",
+            assembly_artifact_name="testAssembly",
+            integration_account_name="testIntegrationAccount",
+            location="westus",
+            properties=azure_native.logic.v20190501.AssemblyPropertiesArgs(
+                assembly_name="System.IdentityModel.Tokens.Jwt",
+                content="Base64 encoded Assembly Content",
+                metadata={},
+            ),
+            resource_group_name="testResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20190501:IntegrationAccountAssembly testAssembly /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/testIntegrationAccount/assemblies/testAssembly 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IntegrationAccountAssemblyArgs args: The arguments to use to populate this resource's properties.

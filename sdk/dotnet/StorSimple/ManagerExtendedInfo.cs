@@ -13,6 +13,36 @@ namespace Pulumi.AzureNative.StorSimple
     /// The extended info of the manager.
     /// API Version: 2017-06-01.
     /// Previous API Version: 2017-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ManagersCreateExtendedInfo
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managerExtendedInfo = new AzureNative.StorSimple.ManagerExtendedInfo("managerExtendedInfo", new()
+    ///     {
+    ///         Algorithm = "None",
+    ///         IntegrityKey = "BIl+RHqO8PZ6DRvuXTTK7g==",
+    ///         ManagerName = "ManagerForSDKTest2",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple:ManagerExtendedInfo vaultExtendedInfo /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/Managers/ManagerForSDKTest2extendedInformation/vaultExtendedInfo 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storsimple:ManagerExtendedInfo")]
     public partial class ManagerExtendedInfo : global::Pulumi.CustomResource

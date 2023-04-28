@@ -130,6 +130,155 @@ class MicrosoftPurviewInformationProtectionDataConnector(pulumi.CustomResource):
         """
         Represents Microsoft Purview Information Protection data connector.
 
+        ## Example Usage
+        ### Creates or updates a APIPolling data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Dynamics365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="c2541efb-c9a6-47fe-9501-87d1017d1512",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a GenericUI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Microsoft Threat Intelligence data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="c345bf40-8509-4ed2-b947-50cb773aaf04",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftThreatProtection data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Threat Intelligence Taxii data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an MicrosoftPurviewInformationProtection data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            data_types=azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionConnectorDataTypesArgs(
+                logs=azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionConnectorDataTypesLogsArgs(
+                    state="Enabled",
+                ),
+            ),
+            kind="MicrosoftPurviewInformationProtection",
+            resource_group_name="myRg",
+            tenant_id="2070ecc9-b4d5-4ae4-adaa-936fa1954fa8",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office PowerBI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 Project data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230301preview:MicrosoftPurviewInformationProtectionDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_connector_id: Connector ID
@@ -148,6 +297,155 @@ class MicrosoftPurviewInformationProtectionDataConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents Microsoft Purview Information Protection data connector.
+
+        ## Example Usage
+        ### Creates or updates a APIPolling data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Dynamics365 data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="c2541efb-c9a6-47fe-9501-87d1017d1512",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a GenericUI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Microsoft Threat Intelligence data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="c345bf40-8509-4ed2-b947-50cb773aaf04",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a MicrosoftThreatProtection data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates a Threat Intelligence Taxii data connector.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an MicrosoftPurviewInformationProtection data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            data_types=azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionConnectorDataTypesArgs(
+                logs=azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionConnectorDataTypesLogsArgs(
+                    state="Enabled",
+                ),
+            ),
+            kind="MicrosoftPurviewInformationProtection",
+            resource_group_name="myRg",
+            tenant_id="2070ecc9-b4d5-4ae4-adaa-936fa1954fa8",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office PowerBI data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 Project data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Office365 data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+        ### Creates or updates an Threat Intelligence Platform data connector
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        microsoft_purview_information_protection_data_connector = azure_native.securityinsights.v20230301preview.MicrosoftPurviewInformationProtectionDataConnector("microsoftPurviewInformationProtectionDataConnector",
+            data_connector_id="73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+            resource_group_name="myRg",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230301preview:MicrosoftPurviewInformationProtectionDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MicrosoftPurviewInformationProtectionDataConnectorArgs args: The arguments to use to populate this resource's properties.

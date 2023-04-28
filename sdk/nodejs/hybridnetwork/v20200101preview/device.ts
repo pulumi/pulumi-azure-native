@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Device resource.
+ *
+ * ## Example Usage
+ * ### Create or update device
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const device = new azure_native.hybridnetwork.v20200101preview.Device("device", {
+ *     deviceName: "TestDevice",
+ *     deviceType: "AzureStackEdge",
+ *     location: "eastus",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridnetwork/v20200101preview:Device TestDevice /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HybridNetwork/devices/TestDevice 
+ * ```
  */
 export class Device extends pulumi.CustomResource {
     /**

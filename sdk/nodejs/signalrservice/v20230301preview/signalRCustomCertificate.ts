@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * A custom certificate.
+ *
+ * ## Example Usage
+ * ### SignalRCustomCertificates_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const signalRCustomCertificate = new azure_native.signalrservice.v20230301preview.SignalRCustomCertificate("signalRCustomCertificate", {
+ *     certificateName: "myCert",
+ *     keyVaultBaseUri: "https://myvault.keyvault.azure.net/",
+ *     keyVaultSecretName: "mycert",
+ *     keyVaultSecretVersion: "bb6a44b2743f47f68dad0d6cc9756432",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "mySignalRService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:signalrservice/v20230301preview:SignalRCustomCertificate myCert /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customCertificates/myCert 
+ * ```
  */
 export class SignalRCustomCertificate extends pulumi.CustomResource {
     /**

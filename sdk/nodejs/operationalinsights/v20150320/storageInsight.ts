@@ -10,6 +10,38 @@ import * as utilities from "../../utilities";
 /**
  * The top level storage insight resource container.
  *
+ * ## Example Usage
+ * ### StorageInsightsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storageInsight = new azure_native.operationalinsights.v20150320.StorageInsight("storageInsight", {
+ *     containers: ["wad-iis-logfiles"],
+ *     resourceGroupName: "OIAutoRest5123",
+ *     storageAccount: {
+ *         id: "/subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/OIAutoRest6987/providers/microsoft.storage/storageaccounts/AzTestFakeSA9945",
+ *         key: "1234",
+ *     },
+ *     storageInsightName: "AzTestSI1110",
+ *     tables: [
+ *         "WADWindowsEventLogsTable",
+ *         "LinuxSyslogVer2v0",
+ *     ],
+ *     workspaceName: "aztest5048",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:operationalinsights/v20150320:StorageInsight AzTestSI1110 /subscriptions/00000000-0000-0000-0000-000000000005/resourcegroups/oiautorest6987/providers/microsoft.operationalinsights/workspaces/aztest5048/storageinsightconfigs/AzTestSI1110 
+ * ```
+ *
  * @deprecated Version 2015-03-20 will be removed in v2 of the provider.
  */
 export class StorageInsight extends pulumi.CustomResource {

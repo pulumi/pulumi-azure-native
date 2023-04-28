@@ -9,6 +9,40 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### IncidentTasks_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var incidentTask = new AzureNative.SecurityInsights.V20230401Preview.IncidentTask("incidentTask", new()
+    ///     {
+    ///         Description = "Task description",
+    ///         IncidentId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         IncidentTaskId = "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+    ///         ResourceGroupName = "myRg",
+    ///         Status = "New",
+    ///         Title = "Task title",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:IncidentTask 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5/tasks/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:IncidentTask")]
     public partial class IncidentTask : global::Pulumi.CustomResource
     {

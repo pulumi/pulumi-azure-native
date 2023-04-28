@@ -181,6 +181,44 @@ class ExternalNetwork(pulumi.CustomResource):
         """
         Defines the ExternalNetwork item.
 
+        ## Example Usage
+        ### ExternalNetworks_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        external_network = azure_native.managednetworkfabric.v20230201preview.ExternalNetwork("externalNetwork",
+            export_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            external_network_name="example-externalnetwork",
+            import_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            l3_isolation_domain_name="example-l3domain",
+            option_a_properties=azure_native.managednetworkfabric.v20230201preview.ExternalNetworkPropertiesResponseOptionAPropertiesArgs(
+                mtu=1500,
+                peer_asn=65047,
+                primary_ipv4_prefix="10.1.1.0/30",
+                primary_ipv6_prefix="3FFE:FFFF:0:CD30::a0/126",
+                secondary_ipv4_prefix="10.1.1.4/30",
+                secondary_ipv6_prefix="3FFE:FFFF:0:CD30::a4/126",
+                vlan_id=1001,
+            ),
+            option_b_properties=azure_native.managednetworkfabric.v20230201preview.OptionBPropertiesArgs(
+                export_route_targets=["65046:10039"],
+                import_route_targets=["65046:10039"],
+            ),
+            peering_option="OptionA",
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:ExternalNetwork example-externalnetwork /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/example-l3domain/externalNetworks/example-externalnetwork 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
@@ -201,6 +239,44 @@ class ExternalNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the ExternalNetwork item.
+
+        ## Example Usage
+        ### ExternalNetworks_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        external_network = azure_native.managednetworkfabric.v20230201preview.ExternalNetwork("externalNetwork",
+            export_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            external_network_name="example-externalnetwork",
+            import_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName",
+            l3_isolation_domain_name="example-l3domain",
+            option_a_properties=azure_native.managednetworkfabric.v20230201preview.ExternalNetworkPropertiesResponseOptionAPropertiesArgs(
+                mtu=1500,
+                peer_asn=65047,
+                primary_ipv4_prefix="10.1.1.0/30",
+                primary_ipv6_prefix="3FFE:FFFF:0:CD30::a0/126",
+                secondary_ipv4_prefix="10.1.1.4/30",
+                secondary_ipv6_prefix="3FFE:FFFF:0:CD30::a4/126",
+                vlan_id=1001,
+            ),
+            option_b_properties=azure_native.managednetworkfabric.v20230201preview.OptionBPropertiesArgs(
+                export_route_targets=["65046:10039"],
+                import_route_targets=["65046:10039"],
+            ),
+            peering_option="OptionA",
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:ExternalNetwork example-externalnetwork /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/example-l3domain/externalNetworks/example-externalnetwork 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExternalNetworkArgs args: The arguments to use to populate this resource's properties.

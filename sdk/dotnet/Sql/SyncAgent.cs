@@ -13,6 +13,56 @@ namespace Pulumi.AzureNative.Sql
     /// An Azure SQL Database sync agent.
     /// API Version: 2021-11-01.
     /// Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new sync agent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var syncAgent = new AzureNative.Sql.SyncAgent("syncAgent", new()
+    ///     {
+    ///         ResourceGroupName = "syncagentcrud-65440",
+    ///         ServerName = "syncagentcrud-8475",
+    ///         SyncAgentName = "syncagentcrud-3187",
+    ///         SyncDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update a sync agent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var syncAgent = new AzureNative.Sql.SyncAgent("syncAgent", new()
+    ///     {
+    ///         ResourceGroupName = "syncagentcrud-65440",
+    ///         ServerName = "syncagentcrud-8475",
+    ///         SyncAgentName = "syncagentcrud-3187",
+    ///         SyncDatabaseId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/databases/sync",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql:SyncAgent syncagent /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-Onebox/providers/Microsoft.Sql/servers/syncagentcrud-8475/syncAgents/syncagentcrud-3187 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql:SyncAgent")]
     public partial class SyncAgent : global::Pulumi.CustomResource

@@ -113,6 +113,31 @@ class RestorePoint(pulumi.CustomResource):
         """
         Restore Point details.
 
+        ## Example Usage
+        ### Create a restore point
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        restore_point = azure_native.compute.v20210301.RestorePoint("restorePoint",
+            exclude_disks=[azure_native.compute.v20210301.ApiEntityReferenceArgs(
+                id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+            )],
+            resource_group_name="myResourceGroup",
+            restore_point_collection_name="rpcName",
+            restore_point_name="rpName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210301:RestorePoint rpName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName/restorePoints/rpName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApiEntityReferenceArgs']]]] exclude_disks: List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
@@ -129,6 +154,31 @@ class RestorePoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Restore Point details.
+
+        ## Example Usage
+        ### Create a restore point
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        restore_point = azure_native.compute.v20210301.RestorePoint("restorePoint",
+            exclude_disks=[azure_native.compute.v20210301.ApiEntityReferenceArgs(
+                id="/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/disks/disk123",
+            )],
+            resource_group_name="myResourceGroup",
+            restore_point_collection_name="rpcName",
+            restore_point_name="rpName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210301:RestorePoint rpName /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/rpcName/restorePoints/rpName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RestorePointArgs args: The arguments to use to populate this resource's properties.

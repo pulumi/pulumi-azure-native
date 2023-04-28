@@ -13,6 +13,84 @@ namespace Pulumi.AzureNative.EdgeOrder
     /// Represents order item contract
     /// API Version: 2021-12-01.
     /// Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrderItem
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var orderItemByName = new AzureNative.EdgeOrder.OrderItemByName("orderItemByName", new()
+    ///     {
+    ///         AddressDetails = new AzureNative.EdgeOrder.Inputs.AddressDetailsArgs
+    ///         {
+    ///             ForwardAddress = new AzureNative.EdgeOrder.Inputs.AddressPropertiesArgs
+    ///             {
+    ///                 ContactDetails = new AzureNative.EdgeOrder.Inputs.ContactDetailsArgs
+    ///                 {
+    ///                     ContactName = "XXXX XXXX",
+    ///                     EmailList = new[]
+    ///                     {
+    ///                         "xxxx@xxxx.xxx",
+    ///                     },
+    ///                     Phone = "0000000000",
+    ///                     PhoneExtension = "",
+    ///                 },
+    ///                 ShippingAddress = new AzureNative.EdgeOrder.Inputs.ShippingAddressArgs
+    ///                 {
+    ///                     AddressType = "None",
+    ///                     City = "San Francisco",
+    ///                     CompanyName = "Microsoft",
+    ///                     Country = "US",
+    ///                     PostalCode = "94107",
+    ///                     StateOrProvince = "CA",
+    ///                     StreetAddress1 = "16 TOWNSEND ST",
+    ///                     StreetAddress2 = "UNIT 1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         OrderId = "/subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/locations/eastus/orders/TestOrderName2",
+    ///         OrderItemDetails = new AzureNative.EdgeOrder.Inputs.OrderItemDetailsArgs
+    ///         {
+    ///             OrderItemType = "Purchase",
+    ///             Preferences = new AzureNative.EdgeOrder.Inputs.PreferencesArgs
+    ///             {
+    ///                 TransportPreferences = new AzureNative.EdgeOrder.Inputs.TransportPreferencesArgs
+    ///                 {
+    ///                     PreferredShipmentType = "MicrosoftManaged",
+    ///                 },
+    ///             },
+    ///             ProductDetails = new AzureNative.EdgeOrder.Inputs.ProductDetailsArgs
+    ///             {
+    ///                 HierarchyInformation = new AzureNative.EdgeOrder.Inputs.HierarchyInformationArgs
+    ///                 {
+    ///                     ConfigurationName = "edgep_base",
+    ///                     ProductFamilyName = "azurestackedge",
+    ///                     ProductLineName = "azurestackedge",
+    ///                     ProductName = "azurestackedgegpu",
+    ///                 },
+    ///             },
+    ///         },
+    ///         OrderItemName = "TestOrderItemName2",
+    ///         ResourceGroupName = "YourResourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edgeorder:OrderItemByName TestOrderItemName2 /subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/orderItems/TestOrderItemName2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:OrderItemByName")]
     public partial class OrderItemByName : global::Pulumi.CustomResource

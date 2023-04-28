@@ -11,6 +11,76 @@ import * as utilities from "../utilities";
  * A database blob auditing policy.
  * API Version: 2021-11-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a database's azure monitor auditing policy with minimal parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseBlobAuditingPolicy = new azure_native.sql.DatabaseBlobAuditingPolicy("databaseBlobAuditingPolicy", {
+ *     blobAuditingPolicyName: "default",
+ *     databaseName: "testdb",
+ *     isAzureMonitorTargetEnabled: true,
+ *     resourceGroupName: "blobauditingtest-4799",
+ *     serverName: "blobauditingtest-6440",
+ *     state: azure_native.sql.BlobAuditingPolicyState.Enabled,
+ * });
+ *
+ * ```
+ * ### Create or update a database's blob auditing policy with all parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseBlobAuditingPolicy = new azure_native.sql.DatabaseBlobAuditingPolicy("databaseBlobAuditingPolicy", {
+ *     auditActionsAndGroups: [
+ *         "DATABASE_LOGOUT_GROUP",
+ *         "DATABASE_ROLE_MEMBER_CHANGE_GROUP",
+ *         "UPDATE on database::TestDatabaseName by public",
+ *     ],
+ *     blobAuditingPolicyName: "default",
+ *     databaseName: "testdb",
+ *     isAzureMonitorTargetEnabled: true,
+ *     isStorageSecondaryKeyInUse: false,
+ *     queueDelayMs: 4000,
+ *     resourceGroupName: "blobauditingtest-4799",
+ *     retentionDays: 6,
+ *     serverName: "blobauditingtest-6440",
+ *     state: azure_native.sql.BlobAuditingPolicyState.Enabled,
+ *     storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+ *     storageAccountSubscriptionId: "00000000-1234-0000-5678-000000000000",
+ *     storageEndpoint: "https://mystorage.blob.core.windows.net",
+ * });
+ *
+ * ```
+ * ### Create or update a database's blob auditing policy with minimal parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseBlobAuditingPolicy = new azure_native.sql.DatabaseBlobAuditingPolicy("databaseBlobAuditingPolicy", {
+ *     blobAuditingPolicyName: "default",
+ *     databaseName: "testdb",
+ *     resourceGroupName: "blobauditingtest-4799",
+ *     serverName: "blobauditingtest-6440",
+ *     state: azure_native.sql.BlobAuditingPolicyState.Enabled,
+ *     storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+ *     storageEndpoint: "https://mystorage.blob.core.windows.net",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:DatabaseBlobAuditingPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-4799/providers/Microsoft.Sql/servers/blobauditingtest-6440/databases/testdb 
+ * ```
  */
 export class DatabaseBlobAuditingPolicy extends pulumi.CustomResource {
     /**

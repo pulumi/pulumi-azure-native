@@ -11,6 +11,131 @@ namespace Pulumi.AzureNative.Authorization.V20200301
 {
     /// <summary>
     /// The policy assignment.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a policy assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignment = new AzureNative.Authorization.V20200301.PolicyAssignment("policyAssignment", new()
+    ///     {
+    ///         Description = "Force resource names to begin with given DeptA and end with -LC",
+    ///         DisplayName = "Enforce resource naming rules",
+    ///         Metadata = 
+    ///         {
+    ///             { "assignedBy", "Special Someone" },
+    ///         },
+    ///         Parameters = 
+    ///         {
+    ///             { "prefix", new AzureNative.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///             {
+    ///                 Value = "DeptA",
+    ///             } },
+    ///             { "suffix", new AzureNative.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///             {
+    ///                 Value = "-LC",
+    ///             } },
+    ///         },
+    ///         PolicyAssignmentName = "EnforceNaming",
+    ///         PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+    ///         Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a policy assignment with a managed identity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignment = new AzureNative.Authorization.V20200301.PolicyAssignment("policyAssignment", new()
+    ///     {
+    ///         Description = "Force resource names to begin with given DeptA and end with -LC",
+    ///         DisplayName = "Enforce resource naming rules",
+    ///         EnforcementMode = "Default",
+    ///         Identity = new AzureNative.Authorization.V20200301.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.Authorization.V20200301.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "eastus",
+    ///         Metadata = 
+    ///         {
+    ///             { "assignedBy", "Foo Bar" },
+    ///         },
+    ///         Parameters = 
+    ///         {
+    ///             { "prefix", new AzureNative.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///             {
+    ///                 Value = "DeptA",
+    ///             } },
+    ///             { "suffix", new AzureNative.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///             {
+    ///                 Value = "-LC",
+    ///             } },
+    ///         },
+    ///         PolicyAssignmentName = "EnforceNaming",
+    ///         PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+    ///         Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a policy assignment without enforcing policy effect during resource creation or update.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var policyAssignment = new AzureNative.Authorization.V20200301.PolicyAssignment("policyAssignment", new()
+    ///     {
+    ///         Description = "Force resource names to begin with given DeptA and end with -LC",
+    ///         DisplayName = "Enforce resource naming rules",
+    ///         EnforcementMode = "DoNotEnforce",
+    ///         Metadata = 
+    ///         {
+    ///             { "assignedBy", "Special Someone" },
+    ///         },
+    ///         Parameters = 
+    ///         {
+    ///             { "prefix", new AzureNative.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///             {
+    ///                 Value = "DeptA",
+    ///             } },
+    ///             { "suffix", new AzureNative.Authorization.V20200301.Inputs.ParameterValuesValueArgs
+    ///             {
+    ///                 Value = "-LC",
+    ///             } },
+    ///         },
+    ///         PolicyAssignmentName = "EnforceNaming",
+    ///         PolicyDefinitionId = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming",
+    ///         Scope = "subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20200301:PolicyAssignment EnforceNaming /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/policyAssignments/EnforceNaming 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20200301:PolicyAssignment")]
     public partial class PolicyAssignment : global::Pulumi.CustomResource

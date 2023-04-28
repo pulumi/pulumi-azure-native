@@ -8,6 +8,34 @@ import * as utilities from "../utilities";
  * Issue Comment Contract details.
  * API Version: 2022-08-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiIssueComment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiIssueComment = new azure_native.apimanagement.ApiIssueComment("apiIssueComment", {
+ *     apiId: "57d1f7558aa04f15146d9d8a",
+ *     commentId: "599e29ab193c3c0bd0b3e2fb",
+ *     createdDate: "2018-02-01T22:21:20.467Z",
+ *     issueId: "57d2ef278aa04f0ad01d6cdc",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     text: "Issue comment.",
+ *     userId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement:ApiIssueComment 599e29ab193c3c0bd0b3e2fb /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/57d1f7558aa04f15146d9d8a/issues/57d2ef278aa04f0ad01d6cdc/comments/599e29ab193c3c0bd0b3e2fb 
+ * ```
  */
 export class ApiIssueComment extends pulumi.CustomResource {
     /**

@@ -252,6 +252,32 @@ class Cluster(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.azurestackhci.Cluster("cluster",
+            aad_client_id="24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
+            aad_tenant_id="7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
+            cloud_management_endpoint="https://98294836-31be-4668-aeae-698667faf99b.waconazure.com",
+            cluster_name="myCluster",
+            location="East US",
+            resource_group_name="test-rg",
+            type="SystemAssigned")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:Cluster myCluster /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] aad_application_object_id: Object id of cluster AAD identity.
@@ -278,6 +304,32 @@ class Cluster(pulumi.CustomResource):
         Cluster details.
         API Version: 2023-02-01.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cluster = azure_native.azurestackhci.Cluster("cluster",
+            aad_client_id="24a6e53d-04e5-44d2-b7cc-1b732a847dfc",
+            aad_tenant_id="7e589cc1-a8b6-4dff-91bd-5ec0fa18db94",
+            cloud_management_endpoint="https://98294836-31be-4668-aeae-698667faf99b.waconazure.com",
+            cluster_name="myCluster",
+            location="East US",
+            resource_group_name="test-rg",
+            type="SystemAssigned")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci:Cluster myCluster /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/test-rg/providers/Microsoft.AzureStackHCI/clusters/myCluster 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

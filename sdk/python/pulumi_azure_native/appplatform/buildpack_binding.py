@@ -131,6 +131,43 @@ class BuildpackBinding(pulumi.CustomResource):
         API Version: 2022-12-01.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### BuildpackBinding_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        buildpack_binding = azure_native.appplatform.BuildpackBinding("buildpackBinding",
+            build_service_name="default",
+            builder_name="default",
+            buildpack_binding_name="myBuildpackBinding",
+            properties=azure_native.appplatform.BuildpackBindingPropertiesResponseArgs(
+                binding_type="ApplicationInsights",
+                launch_properties=azure_native.appplatform.BuildpackBindingLaunchPropertiesArgs(
+                    properties={
+                        "abc": "def",
+                        "any-string": "any-string",
+                        "sampling-rate": "12.0",
+                    },
+                    secrets={
+                        "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+                    },
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:BuildpackBinding myBuildpackBinding /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default/buildpackBindings/myBuildpackBinding 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] build_service_name: The name of the build service resource.
@@ -150,6 +187,43 @@ class BuildpackBinding(pulumi.CustomResource):
         Buildpack Binding Resource object
         API Version: 2022-12-01.
         Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### BuildpackBinding_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        buildpack_binding = azure_native.appplatform.BuildpackBinding("buildpackBinding",
+            build_service_name="default",
+            builder_name="default",
+            buildpack_binding_name="myBuildpackBinding",
+            properties=azure_native.appplatform.BuildpackBindingPropertiesResponseArgs(
+                binding_type="ApplicationInsights",
+                launch_properties=azure_native.appplatform.BuildpackBindingLaunchPropertiesArgs(
+                    properties={
+                        "abc": "def",
+                        "any-string": "any-string",
+                        "sampling-rate": "12.0",
+                    },
+                    secrets={
+                        "connection-string": "XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXX-XXXXXXXXXXXXXXXXXXX;XXXXXXXXXXXXXXXXX=XXXXXXXXXXXXXXXXXXX",
+                    },
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform:BuildpackBinding myBuildpackBinding /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default/buildpackBindings/myBuildpackBinding 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BuildpackBindingArgs args: The arguments to use to populate this resource's properties.

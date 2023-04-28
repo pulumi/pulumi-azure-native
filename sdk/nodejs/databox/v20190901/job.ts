@@ -10,6 +10,55 @@ import * as utilities from "../../utilities";
 /**
  * Job Resource.
  *
+ * ## Example Usage
+ * ### JobsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.databox.v20190901.Job("job", {
+ *     details: {
+ *         contactDetails: {
+ *             contactName: "Public SDK Test",
+ *             emailList: ["testing@microsoft.com"],
+ *             phone: "1234567890",
+ *             phoneExtension: "1234",
+ *         },
+ *         destinationAccountDetails: [{
+ *             dataDestinationType: "StorageAccount",
+ *             storageAccountId: "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+ *         }],
+ *         jobDetailsType: "DataBox",
+ *         shippingAddress: {
+ *             addressType: "Commercial",
+ *             city: "San Francisco",
+ *             companyName: "Microsoft",
+ *             country: "US",
+ *             postalCode: "94107",
+ *             stateOrProvince: "CA",
+ *             streetAddress1: "16 TOWNSEND ST",
+ *             streetAddress2: "Unit 1",
+ *         },
+ *     },
+ *     jobName: "SdkJob3971",
+ *     location: "westus",
+ *     resourceGroupName: "SdkRg4981",
+ *     sku: {
+ *         name: "DataBox",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databox/v20190901:Job SdkJob3971 /subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/SdkRg4981/providers/Microsoft.DataBox/jobs/SdkJob3971 
+ * ```
+ *
  * @deprecated Version 2019-09-01 will be removed in v2 of the provider.
  */
 export class Job extends pulumi.CustomResource {

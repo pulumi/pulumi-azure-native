@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.LabServices.V20211001Preview
 {
     /// <summary>
     /// Schedule for automatically turning virtual machines in a lab on and off at specified times.
+    /// 
+    /// ## Example Usage
+    /// ### putSchedule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schedule = new AzureNative.LabServices.V20211001Preview.Schedule("schedule", new()
+    ///     {
+    ///         LabName = "testlab",
+    ///         Notes = "Schedule 1 for students",
+    ///         RecurrencePattern = new AzureNative.LabServices.V20211001Preview.Inputs.RecurrencePatternArgs
+    ///         {
+    ///             ExpirationDate = "2020-08-14",
+    ///             Frequency = AzureNative.LabServices.V20211001Preview.RecurrenceFrequency.Daily,
+    ///             Interval = 2,
+    ///         },
+    ///         ResourceGroupName = "testrg123",
+    ///         ScheduleName = "schedule1",
+    ///         StartAt = "2020-05-26T12:00:00Z",
+    ///         StopAt = "2020-05-26T18:00:00Z",
+    ///         TimeZoneId = "America/Los_Angeles",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:labservices/v20211001preview:Schedule schedule1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labs/testlab/schedules/schedule1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices/v20211001preview:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

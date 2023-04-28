@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.App.V20220101Preview
 {
     /// <summary>
     /// An environment for hosting container apps
+    /// 
+    /// ## Example Usage
+    /// ### Create environments
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedEnvironment = new AzureNative.App.V20220101Preview.ManagedEnvironment("managedEnvironment", new()
+    ///     {
+    ///         AppLogsConfiguration = new AzureNative.App.V20220101Preview.Inputs.AppLogsConfigurationArgs
+    ///         {
+    ///             LogAnalyticsConfiguration = new AzureNative.App.V20220101Preview.Inputs.LogAnalyticsConfigurationArgs
+    ///             {
+    ///                 CustomerId = "string",
+    ///                 SharedKey = "string",
+    ///             },
+    ///         },
+    ///         Location = "East US",
+    ///         Name = "testcontainerenv",
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20220101preview:ManagedEnvironment testcontainerenv /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/examplerg/providers/Microsoft.App/managedEnvironments/testcontainerenv 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20220101preview:ManagedEnvironment")]
     public partial class ManagedEnvironment : global::Pulumi.CustomResource

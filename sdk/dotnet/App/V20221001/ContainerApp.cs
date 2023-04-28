@@ -11,6 +11,279 @@ namespace Pulumi.AzureNative.App.V20221001
 {
     /// <summary>
     /// Container App.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Container App
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerApp = new AzureNative.App.V20221001.ContainerApp("containerApp", new()
+    ///     {
+    ///         Configuration = new AzureNative.App.V20221001.Inputs.ConfigurationArgs
+    ///         {
+    ///             Dapr = new AzureNative.App.V20221001.Inputs.DaprArgs
+    ///             {
+    ///                 AppPort = 3000,
+    ///                 AppProtocol = "http",
+    ///                 EnableApiLogging = true,
+    ///                 Enabled = true,
+    ///                 HttpMaxRequestSize = 10,
+    ///                 HttpReadBufferSize = 30,
+    ///                 LogLevel = "debug",
+    ///             },
+    ///             Ingress = new AzureNative.App.V20221001.Inputs.IngressArgs
+    ///             {
+    ///                 ClientCertificateMode = "accept",
+    ///                 CorsPolicy = new AzureNative.App.V20221001.Inputs.CorsPolicyArgs
+    ///                 {
+    ///                     AllowCredentials = true,
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "HEADER1",
+    ///                         "HEADER2",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         "GET",
+    ///                         "POST",
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "https://a.test.com",
+    ///                         "https://b.test.com",
+    ///                     },
+    ///                     ExposeHeaders = new[]
+    ///                     {
+    ///                         "HEADER3",
+    ///                         "HEADER4",
+    ///                     },
+    ///                     MaxAge = 1234,
+    ///                 },
+    ///                 CustomDomains = new[]
+    ///                 {
+    ///                     new AzureNative.App.V20221001.Inputs.CustomDomainArgs
+    ///                     {
+    ///                         BindingType = "SniEnabled",
+    ///                         CertificateId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-name-dot-com",
+    ///                         Name = "www.my-name.com",
+    ///                     },
+    ///                     new AzureNative.App.V20221001.Inputs.CustomDomainArgs
+    ///                     {
+    ///                         BindingType = "SniEnabled",
+    ///                         CertificateId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube/certificates/my-certificate-for-my-other-name-dot-com",
+    ///                         Name = "www.my-other-name.com",
+    ///                     },
+    ///                 },
+    ///                 External = true,
+    ///                 IpSecurityRestrictions = new[]
+    ///                 {
+    ///                     new AzureNative.App.V20221001.Inputs.IpSecurityRestrictionRuleArgs
+    ///                     {
+    ///                         Action = "Allow",
+    ///                         Description = "Allowing all IP's within the subnet below to access containerapp",
+    ///                         IpAddressRange = "192.168.1.1/32",
+    ///                         Name = "Allow work IP A subnet",
+    ///                     },
+    ///                     new AzureNative.App.V20221001.Inputs.IpSecurityRestrictionRuleArgs
+    ///                     {
+    ///                         Action = "Allow",
+    ///                         Description = "Allowing all IP's within the subnet below to access containerapp",
+    ///                         IpAddressRange = "192.168.1.1/8",
+    ///                         Name = "Allow work IP B subnet",
+    ///                     },
+    ///                 },
+    ///                 TargetPort = 3000,
+    ///                 Traffic = new[]
+    ///                 {
+    ///                     new AzureNative.App.V20221001.Inputs.TrafficWeightArgs
+    ///                     {
+    ///                         Label = "production",
+    ///                         RevisionName = "testcontainerApp0-ab1234",
+    ///                         Weight = 100,
+    ///                     },
+    ///                 },
+    ///             },
+    ///             MaxInactiveRevisions = 10,
+    ///         },
+    ///         ContainerAppName = "testcontainerApp0",
+    ///         EnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "rg",
+    ///         Template = new AzureNative.App.V20221001.Inputs.TemplateArgs
+    ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new AzureNative.App.V20221001.Inputs.ContainerArgs
+    ///                 {
+    ///                     Image = "repo/testcontainerApp0:v1",
+    ///                     Name = "testcontainerApp0",
+    ///                     Probes = new[]
+    ///                     {
+    ///                         new AzureNative.App.V20221001.Inputs.ContainerAppProbeArgs
+    ///                         {
+    ///                             HttpGet = new AzureNative.App.V20221001.Inputs.ContainerAppProbeHttpGetArgs
+    ///                             {
+    ///                                 HttpHeaders = new[]
+    ///                                 {
+    ///                                     new AzureNative.App.V20221001.Inputs.ContainerAppProbeHttpHeadersArgs
+    ///                                     {
+    ///                                         Name = "Custom-Header",
+    ///                                         Value = "Awesome",
+    ///                                     },
+    ///                                 },
+    ///                                 Path = "/health",
+    ///                                 Port = 8080,
+    ///                             },
+    ///                             InitialDelaySeconds = 3,
+    ///                             PeriodSeconds = 3,
+    ///                             Type = "Liveness",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             InitContainers = new[]
+    ///             {
+    ///                 new AzureNative.App.V20221001.Inputs.InitContainerArgs
+    ///                 {
+    ///                     Args = new[]
+    ///                     {
+    ///                         "-c",
+    ///                         "while true; do echo hello; sleep 10;done",
+    ///                     },
+    ///                     Command = new[]
+    ///                     {
+    ///                         "/bin/sh",
+    ///                     },
+    ///                     Image = "repo/testcontainerApp0:v4",
+    ///                     Name = "testinitcontainerApp0",
+    ///                     Resources = new AzureNative.App.V20221001.Inputs.ContainerResourcesArgs
+    ///                     {
+    ///                         Cpu = 0.2,
+    ///                         Memory = "100Mi",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Scale = new AzureNative.App.V20221001.Inputs.ScaleArgs
+    ///             {
+    ///                 MaxReplicas = 5,
+    ///                 MinReplicas = 1,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.App.V20221001.Inputs.ScaleRuleArgs
+    ///                     {
+    ///                         Custom = new AzureNative.App.V20221001.Inputs.CustomScaleRuleArgs
+    ///                         {
+    ///                             Metadata = 
+    ///                             {
+    ///                                 { "concurrentRequests", "50" },
+    ///                             },
+    ///                             Type = "http",
+    ///                         },
+    ///                         Name = "httpscalingrule",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         WorkloadProfileType = "GeneralPurpose",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Tcp App
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerApp = new AzureNative.App.V20221001.ContainerApp("containerApp", new()
+    ///     {
+    ///         Configuration = new AzureNative.App.V20221001.Inputs.ConfigurationArgs
+    ///         {
+    ///             Ingress = new AzureNative.App.V20221001.Inputs.IngressArgs
+    ///             {
+    ///                 ExposedPort = 4000,
+    ///                 External = true,
+    ///                 TargetPort = 3000,
+    ///                 Traffic = new[]
+    ///                 {
+    ///                     new AzureNative.App.V20221001.Inputs.TrafficWeightArgs
+    ///                     {
+    ///                         RevisionName = "testcontainerAppTcp-ab1234",
+    ///                         Weight = 100,
+    ///                     },
+    ///                 },
+    ///                 Transport = "tcp",
+    ///             },
+    ///         },
+    ///         ContainerAppName = "testcontainerAppTcp",
+    ///         EnvironmentId = "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/managedEnvironments/demokube",
+    ///         Location = "East US",
+    ///         ResourceGroupName = "rg",
+    ///         Template = new AzureNative.App.V20221001.Inputs.TemplateArgs
+    ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new AzureNative.App.V20221001.Inputs.ContainerArgs
+    ///                 {
+    ///                     Image = "repo/testcontainerAppTcp:v1",
+    ///                     Name = "testcontainerAppTcp",
+    ///                     Probes = new[]
+    ///                     {
+    ///                         new AzureNative.App.V20221001.Inputs.ContainerAppProbeArgs
+    ///                         {
+    ///                             InitialDelaySeconds = 3,
+    ///                             PeriodSeconds = 3,
+    ///                             TcpSocket = new AzureNative.App.V20221001.Inputs.ContainerAppProbeTcpSocketArgs
+    ///                             {
+    ///                                 Port = 8080,
+    ///                             },
+    ///                             Type = "Liveness",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///             Scale = new AzureNative.App.V20221001.Inputs.ScaleArgs
+    ///             {
+    ///                 MaxReplicas = 5,
+    ///                 MinReplicas = 1,
+    ///                 Rules = new[]
+    ///                 {
+    ///                     new AzureNative.App.V20221001.Inputs.ScaleRuleArgs
+    ///                     {
+    ///                         Name = "tcpscalingrule",
+    ///                         Tcp = new AzureNative.App.V20221001.Inputs.TcpScaleRuleArgs
+    ///                         {
+    ///                             Metadata = 
+    ///                             {
+    ///                                 { "concurrentConnections", "50" },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app/v20221001:ContainerApp testcontainerAppTcp /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.App/containerApps/testcontainerAppTcp 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app/v20221001:ContainerApp")]
     public partial class ContainerApp : global::Pulumi.CustomResource

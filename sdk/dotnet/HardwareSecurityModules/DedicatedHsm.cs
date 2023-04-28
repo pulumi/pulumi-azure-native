@@ -13,6 +13,159 @@ namespace Pulumi.AzureNative.HardwareSecurityModules
     /// Resource information with extended details.
     /// API Version: 2021-11-30.
     /// Previous API Version: 2018-10-31-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new or update an existing dedicated HSM
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedHsm = new AzureNative.HardwareSecurityModules.DedicatedHsm("dedicatedHsm", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Name = "hsm1",
+    ///         NetworkProfile = new AzureNative.HardwareSecurityModules.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.HardwareSecurityModules.Inputs.NetworkInterfaceArgs
+    ///                 {
+    ///                     PrivateIpAddress = "1.0.0.1",
+    ///                 },
+    ///             },
+    ///             Subnet = new AzureNative.HardwareSecurityModules.Inputs.ApiEntityReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "hsm-group",
+    ///         Sku = new AzureNative.HardwareSecurityModules.Inputs.SkuArgs
+    ///         {
+    ///             Name = "SafeNet Luna Network HSM A790",
+    ///         },
+    ///         StampId = "stamp01",
+    ///         Tags = 
+    ///         {
+    ///             { "Dept", "hsm" },
+    ///             { "Environment", "dogfood" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new or update an existing payment HSM
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedHsm = new AzureNative.HardwareSecurityModules.DedicatedHsm("dedicatedHsm", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Name = "hsm1",
+    ///         NetworkProfile = new AzureNative.HardwareSecurityModules.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.HardwareSecurityModules.Inputs.NetworkInterfaceArgs
+    ///                 {
+    ///                     PrivateIpAddress = "1.0.0.1",
+    ///                 },
+    ///             },
+    ///             Subnet = new AzureNative.HardwareSecurityModules.Inputs.ApiEntityReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "hsm-group",
+    ///         Sku = new AzureNative.HardwareSecurityModules.Inputs.SkuArgs
+    ///         {
+    ///             Name = "payShield10K_LMK1_CPS60",
+    ///         },
+    ///         StampId = "stamp01",
+    ///         Tags = 
+    ///         {
+    ///             { "Dept", "hsm" },
+    ///             { "Environment", "dogfood" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new or update an existing payment HSM with management profile
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedHsm = new AzureNative.HardwareSecurityModules.DedicatedHsm("dedicatedHsm", new()
+    ///     {
+    ///         Location = "westus",
+    ///         ManagementNetworkProfile = new AzureNative.HardwareSecurityModules.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.HardwareSecurityModules.Inputs.NetworkInterfaceArgs
+    ///                 {
+    ///                     PrivateIpAddress = "1.0.0.2",
+    ///                 },
+    ///             },
+    ///             Subnet = new AzureNative.HardwareSecurityModules.Inputs.ApiEntityReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+    ///             },
+    ///         },
+    ///         Name = "hsm1",
+    ///         NetworkProfile = new AzureNative.HardwareSecurityModules.Inputs.NetworkProfileArgs
+    ///         {
+    ///             NetworkInterfaces = new[]
+    ///             {
+    ///                 new AzureNative.HardwareSecurityModules.Inputs.NetworkInterfaceArgs
+    ///                 {
+    ///                     PrivateIpAddress = "1.0.0.1",
+    ///                 },
+    ///             },
+    ///             Subnet = new AzureNative.HardwareSecurityModules.Inputs.ApiEntityReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.Network/virtualNetworks/stamp01/subnets/stamp01",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "hsm-group",
+    ///         Sku = new AzureNative.HardwareSecurityModules.Inputs.SkuArgs
+    ///         {
+    ///             Name = "payShield10K_LMK1_CPS60",
+    ///         },
+    ///         StampId = "stamp01",
+    ///         Tags = 
+    ///         {
+    ///             { "Dept", "hsm" },
+    ///             { "Environment", "dogfood" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hardwaresecuritymodules:DedicatedHsm hsm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hardwaresecuritymodules:DedicatedHsm")]
     public partial class DedicatedHsm : global::Pulumi.CustomResource

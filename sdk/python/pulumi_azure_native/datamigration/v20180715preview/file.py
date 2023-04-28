@@ -112,6 +112,32 @@ class File(pulumi.CustomResource):
         """
         A file resource
 
+        ## Example Usage
+        ### Files_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file = azure_native.datamigration.v20180715preview.File("file",
+            file_name="x114d023d8",
+            group_name="DmsSdkRg",
+            project_name="DmsSdkProject",
+            properties=azure_native.datamigration.v20180715preview.ProjectFilePropertiesArgs(
+                file_path="DmsSdkFilePath/DmsSdkFile.sql",
+            ),
+            service_name="DmsSdkService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20180715preview:File x114d023d8 /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject/files/x114d023d8 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] file_name: Name of the File
@@ -128,6 +154,32 @@ class File(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A file resource
+
+        ## Example Usage
+        ### Files_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        file = azure_native.datamigration.v20180715preview.File("file",
+            file_name="x114d023d8",
+            group_name="DmsSdkRg",
+            project_name="DmsSdkProject",
+            properties=azure_native.datamigration.v20180715preview.ProjectFilePropertiesArgs(
+                file_path="DmsSdkFilePath/DmsSdkFile.sql",
+            ),
+            service_name="DmsSdkService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datamigration/v20180715preview:File x114d023d8 /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject/files/x114d023d8 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FileArgs args: The arguments to use to populate this resource's properties.

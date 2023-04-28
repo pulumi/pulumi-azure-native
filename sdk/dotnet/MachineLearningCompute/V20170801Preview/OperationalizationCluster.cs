@@ -11,6 +11,64 @@ namespace Pulumi.AzureNative.MachineLearningCompute.V20170801Preview
 {
     /// <summary>
     /// Instance of an Azure ML Operationalization Cluster resource.
+    /// 
+    /// ## Example Usage
+    /// ### PUT Operationalization Cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var operationalizationCluster = new AzureNative.MachineLearningCompute.V20170801Preview.OperationalizationCluster("operationalizationCluster", new()
+    ///     {
+    ///         ClusterName = "myCluster",
+    ///         ClusterType = "ACS",
+    ///         ContainerService = new AzureNative.MachineLearningCompute.V20170801Preview.Inputs.AcsClusterPropertiesArgs
+    ///         {
+    ///             OrchestratorProperties = new AzureNative.MachineLearningCompute.V20170801Preview.Inputs.KubernetesClusterPropertiesArgs
+    ///             {
+    ///                 ServicePrincipal = new AzureNative.MachineLearningCompute.V20170801Preview.Inputs.ServicePrincipalPropertiesArgs
+    ///                 {
+    ///                     ClientId = "abcdefghijklmnopqrt",
+    ///                     Secret = "&lt;secret&gt;",
+    ///                 },
+    ///             },
+    ///             OrchestratorType = "Kubernetes",
+    ///         },
+    ///         Description = "My Operationalization Cluster",
+    ///         GlobalServiceConfiguration = new AzureNative.MachineLearningCompute.V20170801Preview.Inputs.GlobalServiceConfigurationArgs
+    ///         {
+    ///             Ssl = new AzureNative.MachineLearningCompute.V20170801Preview.Inputs.SslConfigurationArgs
+    ///             {
+    ///                 Cert = "afjdklq2131casfakld=",
+    ///                 Cname = "foo.bar.com",
+    ///                 Key = "flksdafkldsajf=",
+    ///                 Status = "Enabled",
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "alpha" },
+    ///             { "key2", "beta" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster MyCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningCompute/operationalizationClusters/MyCluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningcompute/v20170801preview:OperationalizationCluster")]
     public partial class OperationalizationCluster : global::Pulumi.CustomResource

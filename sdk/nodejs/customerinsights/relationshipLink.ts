@@ -11,6 +11,45 @@ import * as utilities from "../utilities";
  * The relationship link resource format.
  * API Version: 2017-04-26.
  * Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RelationshipLinks_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const relationshipLink = new azure_native.customerinsights.RelationshipLink("relationshipLink", {
+ *     description: {
+ *         "en-us": "Link Description",
+ *     },
+ *     displayName: {
+ *         "en-us": "Link DisplayName",
+ *     },
+ *     hubName: "sdkTestHub",
+ *     interactionType: "testInteraction4332",
+ *     profilePropertyReferences: [{
+ *         interactionPropertyName: "profile1",
+ *         profilePropertyName: "ProfileId",
+ *     }],
+ *     relatedProfilePropertyReferences: [{
+ *         interactionPropertyName: "profile1",
+ *         profilePropertyName: "ProfileId",
+ *     }],
+ *     relationshipLinkName: "Somelink",
+ *     relationshipName: "testProfile2326994",
+ *     resourceGroupName: "TestHubRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights:RelationshipLink sdkTestHub/Somelink /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/relationshipLinks/Somelink 
+ * ```
  */
 export class RelationshipLink extends pulumi.CustomResource {
     /**

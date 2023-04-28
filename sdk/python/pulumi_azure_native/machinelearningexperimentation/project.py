@@ -179,6 +179,35 @@ class Project(pulumi.CustomResource):
         API Version: 2017-05-01-preview.
         Previous API Version: 2017-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateProject
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.machinelearningexperimentation.Project("project",
+            account_name="testaccount",
+            friendly_name="testName",
+            gitrepo="https://github/abc",
+            location="East US",
+            project_name="testProject",
+            resource_group_name="myResourceGroup",
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningexperimentation:Project testProject /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningExperimentation/accounts/testaccount/workspaces/testworkspace/projects/testProject 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the machine learning team account.
@@ -201,6 +230,35 @@ class Project(pulumi.CustomResource):
         An object that represents a machine learning project.
         API Version: 2017-05-01-preview.
         Previous API Version: 2017-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateProject
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.machinelearningexperimentation.Project("project",
+            account_name="testaccount",
+            friendly_name="testName",
+            gitrepo="https://github/abc",
+            location="East US",
+            project_name="testProject",
+            resource_group_name="myResourceGroup",
+            tags={
+                "tagKey1": "TagValue1",
+            },
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningexperimentation:Project testProject /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearningExperimentation/accounts/testaccount/workspaces/testworkspace/projects/testProject 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

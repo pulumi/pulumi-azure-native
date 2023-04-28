@@ -11,6 +11,65 @@ import * as utilities from "../utilities";
  * ExpressRouteCircuit resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create ExpressRouteCircuit
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteCircuit = new azure_native.network.ExpressRouteCircuit("expressRouteCircuit", {
+ *     allowClassicOperations: false,
+ *     authorizations: [],
+ *     circuitName: "circuitName",
+ *     location: "Brazil South",
+ *     peerings: [],
+ *     resourceGroupName: "rg1",
+ *     serviceProviderProperties: {
+ *         bandwidthInMbps: 200,
+ *         peeringLocation: "Silicon Valley",
+ *         serviceProviderName: "Equinix",
+ *     },
+ *     sku: {
+ *         family: "MeteredData",
+ *         name: "Standard_MeteredData",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create ExpressRouteCircuit on ExpressRoutePort
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const expressRouteCircuit = new azure_native.network.ExpressRouteCircuit("expressRouteCircuit", {
+ *     authorizationKey: "b0be57f5-1fba-463b-adec-ffe767354cdd",
+ *     bandwidthInGbps: 10,
+ *     circuitName: "expressRouteCircuit1",
+ *     expressRoutePort: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName",
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         family: "MeteredData",
+ *         name: "Premium_MeteredData",
+ *         tier: "Premium",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:ExpressRouteCircuit expressRouteCircuit1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuit1 
+ * ```
  */
 export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**

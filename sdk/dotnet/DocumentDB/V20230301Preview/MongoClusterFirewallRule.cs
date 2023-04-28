@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.DocumentDB.V20230301Preview
 {
     /// <summary>
     /// Represents a mongo cluster firewall rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create a firewall rule of the mongo cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var mongoClusterFirewallRule = new AzureNative.DocumentDB.V20230301Preview.MongoClusterFirewallRule("mongoClusterFirewallRule", new()
+    ///     {
+    ///         EndIpAddress = "255.255.255.255",
+    ///         FirewallRuleName = "rule1",
+    ///         MongoClusterName = "myMongoCluster",
+    ///         ResourceGroupName = "TestGroup",
+    ///         StartIpAddress = "0.0.0.0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20230301preview:MongoClusterFirewallRule rule1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster/firewallRules/rule1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20230301preview:MongoClusterFirewallRule")]
     public partial class MongoClusterFirewallRule : global::Pulumi.CustomResource

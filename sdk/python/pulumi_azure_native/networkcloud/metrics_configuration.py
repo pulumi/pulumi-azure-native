@@ -163,6 +163,42 @@ class MetricsConfiguration(pulumi.CustomResource):
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update metrics configuration of cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metrics_configuration = azure_native.networkcloud.MetricsConfiguration("metricsConfiguration",
+            cluster_name="clusterName",
+            collection_interval=15,
+            enabled_metrics=[
+                "metric1",
+                "metric2",
+            ],
+            extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            metrics_configuration_name="default",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:MetricsConfiguration default /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/metricsConfigurations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -183,6 +219,42 @@ class MetricsConfiguration(pulumi.CustomResource):
         """
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update metrics configuration of cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        metrics_configuration = azure_native.networkcloud.MetricsConfiguration("metricsConfiguration",
+            cluster_name="clusterName",
+            collection_interval=15,
+            enabled_metrics=[
+                "metric1",
+                "metric2",
+            ],
+            extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            metrics_configuration_name="default",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:MetricsConfiguration default /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/metricsConfigurations/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MetricsConfigurationArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.Quantum.V20220110Preview
 {
     /// <summary>
     /// The resource proxy definition object for quantum workspace.
+    /// 
+    /// ## Example Usage
+    /// ### QuantumWorkspacesPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.Quantum.V20220110Preview.Workspace("workspace", new()
+    ///     {
+    ///         Location = "West US",
+    ///         Providers = new[]
+    ///         {
+    ///             new AzureNative.Quantum.V20220110Preview.Inputs.ProviderArgs
+    ///             {
+    ///                 ProviderId = "Honeywell",
+    ///                 ProviderSku = "Basic",
+    ///             },
+    ///             new AzureNative.Quantum.V20220110Preview.Inputs.ProviderArgs
+    ///             {
+    ///                 ProviderId = "IonQ",
+    ///                 ProviderSku = "Basic",
+    ///             },
+    ///             new AzureNative.Quantum.V20220110Preview.Inputs.ProviderArgs
+    ///             {
+    ///                 ProviderId = "OneQBit",
+    ///                 ProviderSku = "Basic",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "quantumResourcegroup",
+    ///         StorageAccount = "/subscriptions/1C4B2828-7D49-494F-933D-061373BE28C2/resourceGroups/quantumResourcegroup/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+    ///         WorkspaceName = "quantumworkspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:quantum/v20220110preview:Workspace quantumworkspace1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/quantumResourcegroup/providers/Microsoft.Quantum/Workspaces/quantumworkspace1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:quantum/v20220110preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

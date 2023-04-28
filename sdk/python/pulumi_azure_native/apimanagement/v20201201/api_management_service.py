@@ -375,6 +375,277 @@ class ApiManagementService(pulumi.CustomResource):
         """
         A single API Management service resource in List or Get response.
 
+        ## Example Usage
+        ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            additional_locations=[{
+                "disableGateway": True,
+                "location": "East US",
+                "sku": {
+                    "capacity": 1,
+                    "name": "Premium",
+                },
+            }],
+            api_version_constraint=azure_native.apimanagement.v20201201.ApiVersionConstraintArgs(
+                min_api_version="2019-01-01",
+            ),
+            hostname_configurations=[
+                {
+                    "certificatePassword": "Password",
+                    "defaultSslBinding": True,
+                    "encodedCertificate": "****** Base 64 Encoded Certificate ************",
+                    "hostName": "gateway1.msitesting.net",
+                    "type": "Proxy",
+                },
+                {
+                    "certificatePassword": "Password",
+                    "encodedCertificate": "****** Base 64 Encoded Certificate ************",
+                    "hostName": "mgmt.msitesting.net",
+                    "type": "Management",
+                },
+                {
+                    "certificatePassword": "Password",
+                    "encodedCertificate": "****** Base 64 Encoded Certificate ************",
+                    "hostName": "portal1.msitesting.net",
+                    "type": "Portal",
+                },
+            ],
+            location="West US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            },
+            virtual_network_type="None")
+
+        ```
+        ### ApiManagementCreateService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            location="South Central US",
+            publisher_email="foo@contoso.com",
+            publisher_name="foo",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Developer",
+            ),
+            tags={
+                "Name": "Contoso",
+                "Test": "User",
+            })
+
+        ```
+        ### ApiManagementCreateServiceHavingMsi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            identity=azure_native.apimanagement.v20201201.ApiManagementServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=0,
+                name="Consumption",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            })
+
+        ```
+        ### ApiManagementCreateServiceInZones
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            location="North europe",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            },
+            zones=[
+                "1",
+                "2",
+            ])
+
+        ```
+        ### ApiManagementCreateServiceWithCustomHostnameKeyVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            api_version_constraint=azure_native.apimanagement.v20201201.ApiVersionConstraintArgs(
+                min_api_version="2019-01-01",
+            ),
+            hostname_configurations=[
+                {
+                    "defaultSslBinding": True,
+                    "hostName": "gateway1.msitesting.net",
+                    "identityClientId": "329419bc-adec-4dce-9568-25a6d486e468",
+                    "keyVaultId": "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+                    "type": "Proxy",
+                },
+                {
+                    "hostName": "mgmt.msitesting.net",
+                    "identityClientId": "329419bc-adec-4dce-9568-25a6d486e468",
+                    "keyVaultId": "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+                    "type": "Management",
+                },
+                {
+                    "hostName": "portal1.msitesting.net",
+                    "identityClientId": "329419bc-adec-4dce-9568-25a6d486e468",
+                    "keyVaultId": "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+                    "type": "Portal",
+                },
+            ],
+            identity=azure_native.apimanagement.v20201201.ApiManagementServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": azure_native.apimanagement.v20201201.UserIdentityPropertiesArgs(),
+                },
+            ),
+            location="North Europe",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            },
+            virtual_network_type="None")
+
+        ```
+        ### ApiManagementCreateServiceWithSystemCertificates
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            certificates=[{
+                "certificatePassword": "Password",
+                "encodedCertificate": "*******Base64 encoded Certificate******************",
+                "storeName": "CertificateAuthority",
+            }],
+            location="Central US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Basic",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            })
+
+        ```
+        ### ApiManagementCreateServiceWithUserAssignedIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            identity=azure_native.apimanagement.v20201201.ApiManagementServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/apimService1": azure_native.apimanagement.v20201201.UserIdentityPropertiesArgs(),
+                },
+            ),
+            location="West US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=0,
+                name="Consumption",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            })
+
+        ```
+        ### ApiManagementUndelete
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            location="South Central US",
+            publisher_email="foo@contoso.com",
+            publisher_name="foo",
+            resource_group_name="rg1",
+            restore=True,
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Developer",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AdditionalLocationArgs']]]] additional_locations: Additional datacenter locations of the API Management service.
@@ -406,6 +677,277 @@ class ApiManagementService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A single API Management service resource in List or Get response.
+
+        ## Example Usage
+        ### ApiManagementCreateMultiRegionServiceWithCustomHostname
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            additional_locations=[{
+                "disableGateway": True,
+                "location": "East US",
+                "sku": {
+                    "capacity": 1,
+                    "name": "Premium",
+                },
+            }],
+            api_version_constraint=azure_native.apimanagement.v20201201.ApiVersionConstraintArgs(
+                min_api_version="2019-01-01",
+            ),
+            hostname_configurations=[
+                {
+                    "certificatePassword": "Password",
+                    "defaultSslBinding": True,
+                    "encodedCertificate": "****** Base 64 Encoded Certificate ************",
+                    "hostName": "gateway1.msitesting.net",
+                    "type": "Proxy",
+                },
+                {
+                    "certificatePassword": "Password",
+                    "encodedCertificate": "****** Base 64 Encoded Certificate ************",
+                    "hostName": "mgmt.msitesting.net",
+                    "type": "Management",
+                },
+                {
+                    "certificatePassword": "Password",
+                    "encodedCertificate": "****** Base 64 Encoded Certificate ************",
+                    "hostName": "portal1.msitesting.net",
+                    "type": "Portal",
+                },
+            ],
+            location="West US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            },
+            virtual_network_type="None")
+
+        ```
+        ### ApiManagementCreateService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            location="South Central US",
+            publisher_email="foo@contoso.com",
+            publisher_name="foo",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Developer",
+            ),
+            tags={
+                "Name": "Contoso",
+                "Test": "User",
+            })
+
+        ```
+        ### ApiManagementCreateServiceHavingMsi
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            identity=azure_native.apimanagement.v20201201.ApiManagementServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            location="West US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=0,
+                name="Consumption",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            })
+
+        ```
+        ### ApiManagementCreateServiceInZones
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            location="North europe",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            },
+            zones=[
+                "1",
+                "2",
+            ])
+
+        ```
+        ### ApiManagementCreateServiceWithCustomHostnameKeyVault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            api_version_constraint=azure_native.apimanagement.v20201201.ApiVersionConstraintArgs(
+                min_api_version="2019-01-01",
+            ),
+            hostname_configurations=[
+                {
+                    "defaultSslBinding": True,
+                    "hostName": "gateway1.msitesting.net",
+                    "identityClientId": "329419bc-adec-4dce-9568-25a6d486e468",
+                    "keyVaultId": "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+                    "type": "Proxy",
+                },
+                {
+                    "hostName": "mgmt.msitesting.net",
+                    "identityClientId": "329419bc-adec-4dce-9568-25a6d486e468",
+                    "keyVaultId": "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+                    "type": "Management",
+                },
+                {
+                    "hostName": "portal1.msitesting.net",
+                    "identityClientId": "329419bc-adec-4dce-9568-25a6d486e468",
+                    "keyVaultId": "https://rpbvtkeyvaultintegration.vault.azure.net/secrets/msitestingCert",
+                    "type": "Portal",
+                },
+            ],
+            identity=azure_native.apimanagement.v20201201.ApiManagementServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1": azure_native.apimanagement.v20201201.UserIdentityPropertiesArgs(),
+                },
+            ),
+            location="North Europe",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Premium",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            },
+            virtual_network_type="None")
+
+        ```
+        ### ApiManagementCreateServiceWithSystemCertificates
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            certificates=[{
+                "certificatePassword": "Password",
+                "encodedCertificate": "*******Base64 encoded Certificate******************",
+                "storeName": "CertificateAuthority",
+            }],
+            location="Central US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Basic",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            })
+
+        ```
+        ### ApiManagementCreateServiceWithUserAssignedIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            identity=azure_native.apimanagement.v20201201.ApiManagementServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/apimService1": azure_native.apimanagement.v20201201.UserIdentityPropertiesArgs(),
+                },
+            ),
+            location="West US",
+            publisher_email="apim@autorestsdk.com",
+            publisher_name="autorestsdk",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=0,
+                name="Consumption",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+                "tag3": "value3",
+            })
+
+        ```
+        ### ApiManagementUndelete
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_management_service = azure_native.apimanagement.v20201201.ApiManagementService("apiManagementService",
+            location="South Central US",
+            publisher_email="foo@contoso.com",
+            publisher_name="foo",
+            resource_group_name="rg1",
+            restore=True,
+            service_name="apimService1",
+            sku=azure_native.apimanagement.v20201201.ApiManagementServiceSkuPropertiesArgs(
+                capacity=1,
+                name="Developer",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:ApiManagementService apimService1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiManagementServiceArgs args: The arguments to use to populate this resource's properties.

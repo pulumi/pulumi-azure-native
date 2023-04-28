@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Network
     /// Defines the admin rule collection.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update an admin rule collection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var adminRuleCollection = new AzureNative.Network.AdminRuleCollection("adminRuleCollection", new()
+    ///     {
+    ///         AppliesToGroups = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.NetworkManagerSecurityGroupItemArgs
+    ///             {
+    ///                 NetworkGroupId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/networkGroups/testGroup",
+    ///             },
+    ///         },
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         Description = "A sample policy",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///         RuleCollectionName = "testRuleCollection",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:AdminRuleCollection myTestSecurityConfig /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:AdminRuleCollection")]
     public partial class AdminRuleCollection : global::Pulumi.CustomResource

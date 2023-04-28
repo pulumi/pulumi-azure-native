@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.ServiceBus.V20221001Preview
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceAuthorizationRule = new AzureNative.ServiceBus.V20221001Preview.NamespaceAuthorizationRule("namespaceAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "sdk-AuthRules-1788",
+    ///         NamespaceName = "sdk-Namespace-6914",
+    ///         ResourceGroupName = "ArunMonocle",
+    ///         Rights = new[]
+    ///         {
+    ///             AzureNative.ServiceBus.V20221001Preview.AccessRights.Listen,
+    ///             AzureNative.ServiceBus.V20221001Preview.AccessRights.Send,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule sdk-AuthRules-1788 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-6914/AuthorizationRules/sdk-AuthRules-1788 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20221001preview:NamespaceAuthorizationRule")]
     public partial class NamespaceAuthorizationRule : global::Pulumi.CustomResource

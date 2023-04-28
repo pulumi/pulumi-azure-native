@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * Information about packet capture session.
+ *
+ * ## Example Usage
+ * ### Create packet capture
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const packetCapture = new azure_native.network.v20201101.PacketCapture("packetCapture", {
+ *     bytesToCapturePerPacket: 10000,
+ *     filters: [{
+ *         localIPAddress: "10.0.0.4",
+ *         localPort: "80",
+ *         protocol: "TCP",
+ *     }],
+ *     networkWatcherName: "nw1",
+ *     packetCaptureName: "pc1",
+ *     resourceGroupName: "rg1",
+ *     storageLocation: {
+ *         filePath: "D:\\capture\\pc1.cap",
+ *         storageId: "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Storage/storageAccounts/pcstore",
+ *         storagePath: "https://mytestaccountname.blob.core.windows.net/capture/pc1.cap",
+ *     },
+ *     target: "/subscriptions/subid/resourceGroups/rg2/providers/Microsoft.Compute/virtualMachines/vm1",
+ *     timeLimitInSeconds: 100,
+ *     totalBytesPerSession: 100000,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:PacketCapture pc1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw1/packetCaptures/pc1 
+ * ```
  */
 export class PacketCapture extends pulumi.CustomResource {
     /**

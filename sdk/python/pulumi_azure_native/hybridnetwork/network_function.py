@@ -202,6 +202,64 @@ class NetworkFunction(pulumi.CustomResource):
         API Version: 2021-05-01.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create network function resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            device=azure_native.hybridnetwork.SubResourceArgs(
+                id="/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/devices/testDevice",
+            ),
+            location="eastus",
+            managed_application_parameters={},
+            network_function_name="testNf",
+            network_function_user_configurations=[{
+                "networkInterfaces": [
+                    {
+                        "ipConfigurations": [azure_native.hybridnetwork.NetworkInterfaceIPConfigurationArgs(
+                            gateway="",
+                            ip_address="",
+                            ip_allocation_method="Dynamic",
+                            ip_version="IPv4",
+                            subnet="",
+                        )],
+                        "macAddress": "",
+                        "networkInterfaceName": "nic1",
+                        "vmSwitchType": "Management",
+                    },
+                    {
+                        "ipConfigurations": [azure_native.hybridnetwork.NetworkInterfaceIPConfigurationArgs(
+                            gateway="",
+                            ip_address="",
+                            ip_allocation_method="Dynamic",
+                            ip_version="IPv4",
+                            subnet="",
+                        )],
+                        "macAddress": "DC-97-F8-79-16-7D",
+                        "networkInterfaceName": "nic2",
+                        "vmSwitchType": "Wan",
+                    },
+                ],
+                "roleName": "testRole",
+                "userDataParameters": {},
+            }],
+            resource_group_name="rg",
+            sku_name="testSku",
+            vendor_name="testVendor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:NetworkFunction testNf /subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/networkFunctions/testNf 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] device: The reference to the device resource. Once set, it cannot be updated.
@@ -225,6 +283,64 @@ class NetworkFunction(pulumi.CustomResource):
         Network function resource response.
         API Version: 2021-05-01.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create network function resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_function = azure_native.hybridnetwork.NetworkFunction("networkFunction",
+            device=azure_native.hybridnetwork.SubResourceArgs(
+                id="/subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/devices/testDevice",
+            ),
+            location="eastus",
+            managed_application_parameters={},
+            network_function_name="testNf",
+            network_function_user_configurations=[{
+                "networkInterfaces": [
+                    {
+                        "ipConfigurations": [azure_native.hybridnetwork.NetworkInterfaceIPConfigurationArgs(
+                            gateway="",
+                            ip_address="",
+                            ip_allocation_method="Dynamic",
+                            ip_version="IPv4",
+                            subnet="",
+                        )],
+                        "macAddress": "",
+                        "networkInterfaceName": "nic1",
+                        "vmSwitchType": "Management",
+                    },
+                    {
+                        "ipConfigurations": [azure_native.hybridnetwork.NetworkInterfaceIPConfigurationArgs(
+                            gateway="",
+                            ip_address="",
+                            ip_allocation_method="Dynamic",
+                            ip_version="IPv4",
+                            subnet="",
+                        )],
+                        "macAddress": "DC-97-F8-79-16-7D",
+                        "networkInterfaceName": "nic2",
+                        "vmSwitchType": "Wan",
+                    },
+                ],
+                "roleName": "testRole",
+                "userDataParameters": {},
+            }],
+            resource_group_name="rg",
+            sku_name="testSku",
+            vendor_name="testVendor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:NetworkFunction testNf /subscriptions/subid/resourcegroups/rg/providers/Microsoft.HybridNetwork/networkFunctions/testNf 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkFunctionArgs args: The arguments to use to populate this resource's properties.

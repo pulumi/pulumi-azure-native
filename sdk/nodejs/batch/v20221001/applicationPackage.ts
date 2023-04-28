@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * An application package which represents a particular version of an application.
+ *
+ * ## Example Usage
+ * ### ApplicationPackageCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationPackage = new azure_native.batch.v20221001.ApplicationPackage("applicationPackage", {
+ *     accountName: "sampleacct",
+ *     applicationName: "app1",
+ *     resourceGroupName: "default-azurebatch-japaneast",
+ *     versionName: "1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:batch/v20221001:ApplicationPackage 1 /subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct/applications/app1/versions/1 
+ * ```
  */
 export class ApplicationPackage extends pulumi.CustomResource {
     /**

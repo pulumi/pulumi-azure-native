@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Batch.V20170901
 {
     /// <summary>
     /// Contains information about an application in a Batch account.
+    /// 
+    /// ## Example Usage
+    /// ### ApplicationCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.Batch.V20170901.Application("application", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         AllowUpdates = false,
+    ///         ApplicationId = "app1",
+    ///         DisplayName = "myAppName",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:batch/v20170901:Application myresource1 app1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:batch/v20170901:Application")]

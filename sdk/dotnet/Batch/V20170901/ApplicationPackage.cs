@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Batch.V20170901
 {
     /// <summary>
     /// An application package which represents a particular version of an application.
+    /// 
+    /// ## Example Usage
+    /// ### ApplicationPackageCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var applicationPackage = new AzureNative.Batch.V20170901.ApplicationPackage("applicationPackage", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         ApplicationId = "app1",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///         Version = "1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:batch/v20170901:ApplicationPackage myresource1 app1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:batch/v20170901:ApplicationPackage")]

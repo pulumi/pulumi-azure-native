@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.BotService.V20180712
 {
     /// <summary>
     /// Enterprise Channel resource definition
+    /// 
+    /// ## Example Usage
+    /// ### Create Enterprise Channel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var enterpriseChannel = new AzureNative.BotService.V20180712.EnterpriseChannel("enterpriseChannel", new()
+    ///     {
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.BotService.V20180712.Inputs.EnterpriseChannelPropertiesArgs
+    ///         {
+    ///             Nodes = new[]
+    ///             {
+    ///                 new AzureNative.BotService.V20180712.Inputs.EnterpriseChannelNodeArgs
+    ///                 {
+    ///                     AzureLocation = "WestUs",
+    ///                     AzureSku = "Int1",
+    ///                     Name = "Node 1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "OneResourceGroupName",
+    ///         ResourceName = "contoso-dl",
+    ///         Sku = new AzureNative.BotService.V20180712.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:botservice/v20180712:EnterpriseChannel myresource1 someid 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:botservice/v20180712:EnterpriseChannel")]
     public partial class EnterpriseChannel : global::Pulumi.CustomResource

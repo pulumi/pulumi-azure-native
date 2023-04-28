@@ -166,6 +166,75 @@ class Workflow(pulumi.CustomResource):
         """
         The workflow type.
 
+        ## Example Usage
+        ### Create or update a workflow
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workflow = azure_native.logic.v20160601.Workflow("workflow",
+            definition={
+                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                "actions": {
+                    "Find_pet_by_ID": {
+                        "inputs": {
+                            "host": {
+                                "connection": {
+                                    "name": "@parameters('$connections')['test-custom-connector']['connectionId']",
+                                },
+                            },
+                            "method": "get",
+                            "path": "/pet/@{encodeURIComponent('1')}",
+                        },
+                        "runAfter": {},
+                        "type": "ApiConnection",
+                    },
+                },
+                "contentVersion": "1.0.0.0",
+                "outputs": {},
+                "parameters": {
+                    "$connections": {
+                        "defaultValue": {},
+                        "type": "Object",
+                    },
+                },
+                "triggers": {
+                    "manual": {
+                        "inputs": {
+                            "schema": {},
+                        },
+                        "kind": "Http",
+                        "type": "Request",
+                    },
+                },
+            },
+            location="brazilsouth",
+            parameters={
+                "$connections": azure_native.logic.v20160601.WorkflowParameterArgs(
+                    value={
+                        "test-custom-connector": {
+                            "connectionId": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Web/connections/test-custom-connector",
+                            "connectionName": "test-custom-connector",
+                            "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/brazilsouth/managedApis/test-custom-connector",
+                        },
+                    },
+                ),
+            },
+            resource_group_name="test-resource-group",
+            tags={},
+            workflow_name="test-workflow")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20160601:Workflow myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any definition: The definition. See [Schema reference for Workflow Definition Language in Azure Logic Apps](https://aka.ms/logic-apps-workflow-definition-language).
@@ -185,6 +254,75 @@ class Workflow(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The workflow type.
+
+        ## Example Usage
+        ### Create or update a workflow
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workflow = azure_native.logic.v20160601.Workflow("workflow",
+            definition={
+                "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+                "actions": {
+                    "Find_pet_by_ID": {
+                        "inputs": {
+                            "host": {
+                                "connection": {
+                                    "name": "@parameters('$connections')['test-custom-connector']['connectionId']",
+                                },
+                            },
+                            "method": "get",
+                            "path": "/pet/@{encodeURIComponent('1')}",
+                        },
+                        "runAfter": {},
+                        "type": "ApiConnection",
+                    },
+                },
+                "contentVersion": "1.0.0.0",
+                "outputs": {},
+                "parameters": {
+                    "$connections": {
+                        "defaultValue": {},
+                        "type": "Object",
+                    },
+                },
+                "triggers": {
+                    "manual": {
+                        "inputs": {
+                            "schema": {},
+                        },
+                        "kind": "Http",
+                        "type": "Request",
+                    },
+                },
+            },
+            location="brazilsouth",
+            parameters={
+                "$connections": azure_native.logic.v20160601.WorkflowParameterArgs(
+                    value={
+                        "test-custom-connector": {
+                            "connectionId": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-resource-group/providers/Microsoft.Web/connections/test-custom-connector",
+                            "connectionName": "test-custom-connector",
+                            "id": "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/providers/Microsoft.Web/locations/brazilsouth/managedApis/test-custom-connector",
+                        },
+                    },
+                ),
+            },
+            resource_group_name="test-resource-group",
+            tags={},
+            workflow_name="test-workflow")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logic/v20160601:Workflow myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkflowArgs args: The arguments to use to populate this resource's properties.

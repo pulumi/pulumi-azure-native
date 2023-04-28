@@ -150,6 +150,13 @@ class PolicyAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         The policy assignment.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20160401:PolicyAssignment myresource1 /{scope}/providers/Microsoft.Authorization/policyassignments/{policyAssignmentName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -169,6 +176,13 @@ class PolicyAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The policy assignment.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20160401:PolicyAssignment myresource1 /{scope}/providers/Microsoft.Authorization/policyassignments/{policyAssignmentName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyAssignmentArgs args: The arguments to use to populate this resource's properties.

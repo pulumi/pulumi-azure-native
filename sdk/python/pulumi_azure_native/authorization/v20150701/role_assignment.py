@@ -84,6 +84,31 @@ class RoleAssignment(pulumi.CustomResource):
         """
         Role Assignments
 
+        ## Example Usage
+        ### Create role assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment = azure_native.authorization.v20150701.RoleAssignment("roleAssignment",
+            properties=azure_native.authorization.v20150701.RoleAssignmentPropertiesArgs(
+                principal_id="d93a38bc-d029-4160-bfb0-fbda779ac214",
+                role_definition_id="/subscriptions/4004a9fd-d58e-48dc-aeb2-4a4aec58606f/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772",
+            ),
+            role_assignment_name="roleAssignmentName",
+            scope="scope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20150701:RoleAssignment roleassignmentId /subscriptions/subId/resourcegroups/rgname/providers/Microsoft.Authorization/roleAssignments/roleassignmentId 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['RoleAssignmentPropertiesArgs']] properties: Role assignment properties.
@@ -98,6 +123,31 @@ class RoleAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Role Assignments
+
+        ## Example Usage
+        ### Create role assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        role_assignment = azure_native.authorization.v20150701.RoleAssignment("roleAssignment",
+            properties=azure_native.authorization.v20150701.RoleAssignmentPropertiesArgs(
+                principal_id="d93a38bc-d029-4160-bfb0-fbda779ac214",
+                role_definition_id="/subscriptions/4004a9fd-d58e-48dc-aeb2-4a4aec58606f/providers/Microsoft.Authorization/roleDefinitions/de139f84-1756-47ae-9be6-808fbbe84772",
+            ),
+            role_assignment_name="roleAssignmentName",
+            scope="scope")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20150701:RoleAssignment roleassignmentId /subscriptions/subId/resourcegroups/rgname/providers/Microsoft.Authorization/roleAssignments/roleassignmentId 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RoleAssignmentArgs args: The arguments to use to populate this resource's properties.

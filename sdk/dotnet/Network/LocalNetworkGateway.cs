@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Network
     /// A common class for general resource information.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateLocalNetworkGateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var localNetworkGateway = new AzureNative.Network.LocalNetworkGateway("localNetworkGateway", new()
+    ///     {
+    ///         Fqdn = "site1.contoso.com",
+    ///         GatewayIpAddress = "11.12.13.14",
+    ///         LocalNetworkAddressSpace = new AzureNative.Network.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "10.1.0.0/16",
+    ///             },
+    ///         },
+    ///         LocalNetworkGatewayName = "localgw",
+    ///         Location = "Central US",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:LocalNetworkGateway localgw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/localNetworkGateways/localgw 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:LocalNetworkGateway")]
     public partial class LocalNetworkGateway : global::Pulumi.CustomResource

@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Management lock information.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20150101:ManagementLock myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.Authorization/locks/{lockName} 
+ * ```
  *
  * @deprecated Version 2015-01-01 will be removed in v2 of the provider.
  */

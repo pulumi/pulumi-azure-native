@@ -83,6 +83,37 @@ class DefaultRollout(pulumi.CustomResource):
         API Version: 2020-11-20.
         Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### DefaultRollouts_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_rollout = azure_native.providerhub.DefaultRollout("defaultRollout",
+            properties=azure_native.providerhub.DefaultRolloutResponsePropertiesArgs(
+                specification={
+                    "canary": azure_native.providerhub.DefaultRolloutSpecificationCanaryArgs(
+                        skip_regions=["eastus2euap"],
+                    ),
+                    "restOfTheWorldGroupTwo": azure_native.providerhub.DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs(
+                        wait_duration="PT4H",
+                    ),
+                },
+            ),
+            provider_namespace="Microsoft.Contoso",
+            rollout_name="2020week10")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:DefaultRollout Microsoft.Contoso/2020week10 /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/defaultRollouts/2020week10 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DefaultRolloutPropertiesArgs']] properties: Properties of the rollout.
@@ -99,6 +130,37 @@ class DefaultRollout(pulumi.CustomResource):
         Default rollout definition.
         API Version: 2020-11-20.
         Previous API Version: 2020-11-20. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### DefaultRollouts_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        default_rollout = azure_native.providerhub.DefaultRollout("defaultRollout",
+            properties=azure_native.providerhub.DefaultRolloutResponsePropertiesArgs(
+                specification={
+                    "canary": azure_native.providerhub.DefaultRolloutSpecificationCanaryArgs(
+                        skip_regions=["eastus2euap"],
+                    ),
+                    "restOfTheWorldGroupTwo": azure_native.providerhub.DefaultRolloutSpecificationRestOfTheWorldGroupTwoArgs(
+                        wait_duration="PT4H",
+                    ),
+                },
+            ),
+            provider_namespace="Microsoft.Contoso",
+            rollout_name="2020week10")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:providerhub:DefaultRollout Microsoft.Contoso/2020week10 /subscriptions/ab7a8701-f7ef-471a-a2f4-d0ebbf494f77providers/Microsoft.ProviderHub/providerRegistrations/Microsoft.Contoso/defaultRollouts/2020week10 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DefaultRolloutArgs args: The arguments to use to populate this resource's properties.

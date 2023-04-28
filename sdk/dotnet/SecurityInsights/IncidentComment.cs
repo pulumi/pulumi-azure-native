@@ -13,6 +13,37 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Represents an incident comment
     /// API Version: 2023-02-01.
     /// Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an incident comment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var incidentComment = new AzureNative.SecurityInsights.IncidentComment("incidentComment", new()
+    ///     {
+    ///         IncidentCommentId = "4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014",
+    ///         IncidentId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         Message = "Some message",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:IncidentComment 4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5/comments/4bb36b7b-26ff-4d1c-9cbe-0d8ab3da0014 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:IncidentComment")]
     public partial class IncidentComment : global::Pulumi.CustomResource

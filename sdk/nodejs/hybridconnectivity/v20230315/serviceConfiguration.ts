@@ -9,6 +9,46 @@ import * as utilities from "../../utilities";
 
 /**
  * The service configuration details associated with the target resource.
+ *
+ * ## Example Usage
+ * ### ServiceConfigurationsPutSSH
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceConfiguration = new azure_native.hybridconnectivity.v20230315.ServiceConfiguration("serviceConfiguration", {
+ *     endpointName: "default",
+ *     port: 22,
+ *     resourceUri: "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
+ *     serviceConfigurationName: "SSH",
+ *     serviceName: "SSH",
+ * });
+ *
+ * ```
+ * ### ServiceConfigurationsPutWAC
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceConfiguration = new azure_native.hybridconnectivity.v20230315.ServiceConfiguration("serviceConfiguration", {
+ *     endpointName: "default",
+ *     port: 6516,
+ *     resourceUri: "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default",
+ *     serviceConfigurationName: "WAC",
+ *     serviceName: "WAC",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridconnectivity/v20230315:ServiceConfiguration myresource1 /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default/serviceconfigurations/WAC 
+ * ```
  */
 export class ServiceConfiguration extends pulumi.CustomResource {
     /**

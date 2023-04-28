@@ -267,6 +267,52 @@ class CommunicationsGateway(pulumi.CustomResource):
         """
         A CommunicationsGateway resource
 
+        ## Example Usage
+        ### CreateCommunicationsGatewayResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        communications_gateway = azure_native.voiceservices.v20230131.CommunicationsGateway("communicationsGateway",
+            auto_generated_domain_name_label_scope="NoReuse",
+            codecs=["PCMA"],
+            communications_gateway_name="myname",
+            connectivity="PublicAddress",
+            e911_type="Standard",
+            location="useast",
+            platforms=["OperatorConnect"],
+            resource_group_name="testrg",
+            service_locations=[
+                {
+                    "name": "useast",
+                    "primaryRegionProperties": azure_native.voiceservices.v20230131.PrimaryRegionPropertiesArgs(
+                        allowed_media_source_address_prefixes=["10.1.2.0/24"],
+                        allowed_signaling_source_address_prefixes=["10.1.1.0/24"],
+                        operator_addresses=["198.51.100.1"],
+                    ),
+                },
+                {
+                    "name": "useast2",
+                    "primaryRegionProperties": azure_native.voiceservices.v20230131.PrimaryRegionPropertiesArgs(
+                        allowed_media_source_address_prefixes=["10.2.2.0/24"],
+                        allowed_signaling_source_address_prefixes=["10.2.1.0/24"],
+                        operator_addresses=["198.51.100.2"],
+                    ),
+                },
+            ],
+            teams_voicemail_pilot_number="1234567890")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:voiceservices/v20230131:CommunicationsGateway myname /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceServices/communicationsGateways/myname 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param Any api_bridge: Details of API bridge functionality, if required
@@ -292,6 +338,52 @@ class CommunicationsGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A CommunicationsGateway resource
+
+        ## Example Usage
+        ### CreateCommunicationsGatewayResource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        communications_gateway = azure_native.voiceservices.v20230131.CommunicationsGateway("communicationsGateway",
+            auto_generated_domain_name_label_scope="NoReuse",
+            codecs=["PCMA"],
+            communications_gateway_name="myname",
+            connectivity="PublicAddress",
+            e911_type="Standard",
+            location="useast",
+            platforms=["OperatorConnect"],
+            resource_group_name="testrg",
+            service_locations=[
+                {
+                    "name": "useast",
+                    "primaryRegionProperties": azure_native.voiceservices.v20230131.PrimaryRegionPropertiesArgs(
+                        allowed_media_source_address_prefixes=["10.1.2.0/24"],
+                        allowed_signaling_source_address_prefixes=["10.1.1.0/24"],
+                        operator_addresses=["198.51.100.1"],
+                    ),
+                },
+                {
+                    "name": "useast2",
+                    "primaryRegionProperties": azure_native.voiceservices.v20230131.PrimaryRegionPropertiesArgs(
+                        allowed_media_source_address_prefixes=["10.2.2.0/24"],
+                        allowed_signaling_source_address_prefixes=["10.2.1.0/24"],
+                        operator_addresses=["198.51.100.2"],
+                    ),
+                },
+            ],
+            teams_voicemail_pilot_number="1234567890")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:voiceservices/v20230131:CommunicationsGateway myname /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testrg/providers/Microsoft.VoiceServices/communicationsGateways/myname 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CommunicationsGatewayArgs args: The arguments to use to populate this resource's properties.

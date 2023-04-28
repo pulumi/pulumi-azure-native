@@ -64,6 +64,27 @@ class TenantConfiguration(pulumi.CustomResource):
         API Version: 2020-09-01-preview.
         Previous API Version: 2020-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update Tenant configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tenant_configuration = azure_native.portal.TenantConfiguration("tenantConfiguration",
+            configuration_name="default",
+            enforce_private_markdown_storage=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal:TenantConfiguration default /providers/Microsoft.Portal/tenantConfigurations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] configuration_name: The configuration name. Value must be 'default'
@@ -79,6 +100,27 @@ class TenantConfiguration(pulumi.CustomResource):
         Tenant configuration.
         API Version: 2020-09-01-preview.
         Previous API Version: 2020-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update Tenant configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tenant_configuration = azure_native.portal.TenantConfiguration("tenantConfiguration",
+            configuration_name="default",
+            enforce_private_markdown_storage=True)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal:TenantConfiguration default /providers/Microsoft.Portal/tenantConfigurations/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TenantConfigurationArgs args: The arguments to use to populate this resource's properties.

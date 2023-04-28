@@ -11,6 +11,81 @@ import * as utilities from "../utilities";
  * A Streaming Locator resource
  * API Version: 2022-08-01.
  * Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates a Streaming Locator with clear streaming
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const streamingLocator = new azure_native.media.StreamingLocator("streamingLocator", {
+ *     accountName: "contosomedia",
+ *     assetName: "ClimbingMountRainier",
+ *     resourceGroupName: "contosorg",
+ *     streamingLocatorName: "UserCreatedClearStreamingLocator",
+ *     streamingPolicyName: "clearStreamingPolicy",
+ * });
+ *
+ * ```
+ * ### Creates a Streaming Locator with secure streaming
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const streamingLocator = new azure_native.media.StreamingLocator("streamingLocator", {
+ *     accountName: "contosomedia",
+ *     assetName: "ClimbingMountRainier",
+ *     endTime: "2028-12-31T23:59:59.9999999Z",
+ *     resourceGroupName: "contosorg",
+ *     startTime: "2018-03-01T00:00:00Z",
+ *     streamingLocatorName: "UserCreatedSecureStreamingLocator",
+ *     streamingPolicyName: "UserCreatedSecureStreamingPolicy",
+ * });
+ *
+ * ```
+ * ### Creates a Streaming Locator with user defined content keys
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const streamingLocator = new azure_native.media.StreamingLocator("streamingLocator", {
+ *     accountName: "contosomedia",
+ *     assetName: "ClimbingMountRainier",
+ *     contentKeys: [
+ *         {
+ *             id: "60000000-0000-0000-0000-000000000001",
+ *             labelReferenceInStreamingPolicy: "aesDefaultKey",
+ *             value: "1UqLohAfWsEGkULYxHjYZg==",
+ *         },
+ *         {
+ *             id: "60000000-0000-0000-0000-000000000004",
+ *             labelReferenceInStreamingPolicy: "cencDefaultKey",
+ *             value: "4UqLohAfWsEGkULYxHjYZg==",
+ *         },
+ *         {
+ *             id: "60000000-0000-0000-0000-000000000007",
+ *             labelReferenceInStreamingPolicy: "cbcsDefaultKey",
+ *             value: "7UqLohAfWsEGkULYxHjYZg==",
+ *         },
+ *     ],
+ *     resourceGroupName: "contosorg",
+ *     streamingLocatorId: "90000000-0000-0000-0000-00000000000A",
+ *     streamingLocatorName: "UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys",
+ *     streamingPolicyName: "secureStreamingPolicy",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media:StreamingLocator UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/streamingLocators/UserCreatedSecureStreamingLocatorWithUserDefinedContentKeys 
+ * ```
  */
 export class StreamingLocator extends pulumi.CustomResource {
     /**

@@ -6,6 +6,53 @@ import * as utilities from "../../utilities";
 
 /**
  * Workload classifier operations for a data warehouse
+ *
+ * ## Example Usage
+ * ### Create a workload group with all properties specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadClassifier = new azure_native.sql.v20220801preview.WorkloadClassifier("workloadClassifier", {
+ *     context: "test_context",
+ *     databaseName: "testdb",
+ *     endTime: "14:00",
+ *     importance: "high",
+ *     label: "test_label",
+ *     memberName: "dbo",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     startTime: "12:00",
+ *     workloadClassifierName: "wlm_workloadclassifier",
+ *     workloadGroupName: "wlm_workloadgroup",
+ * });
+ *
+ * ```
+ * ### Create a workload group with the required properties specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadClassifier = new azure_native.sql.v20220801preview.WorkloadClassifier("workloadClassifier", {
+ *     databaseName: "testdb",
+ *     memberName: "dbo",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     workloadClassifierName: "wlm_workloadclassifier",
+ *     workloadGroupName: "wlm_workloadgroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:WorkloadClassifier wlm_workloadclassifier /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb/workloadGroups/wlm_workloadgroup/workloadClassifiers/wlm_workloadclassifier 
+ * ```
  */
 export class WorkloadClassifier extends pulumi.CustomResource {
     /**

@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// User details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateUserBasic
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var user = new AzureNative.ApiManagement.V20180101.User("user", new()
+    ///     {
+    ///         Confirmation = "signup",
+    ///         Email = "foobar@outlook.com",
+    ///         FirstName = "foo",
+    ///         LastName = "bar",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Uid = "5931a75ae4bbd512288c680b",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20180101:User 5931a75ae4bbd512288c680b /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/5931a75ae4bbd512288c680b 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:User")]
     public partial class User : global::Pulumi.CustomResource

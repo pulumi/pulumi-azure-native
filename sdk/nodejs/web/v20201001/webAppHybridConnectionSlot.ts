@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Hybrid Connection contract. This is used to configure a Hybrid Connection.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201001:WebAppHybridConnectionSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/hybridConnectionNamespaces/{namespaceName}/relays/{relayName} 
+ * ```
  */
 export class WebAppHybridConnectionSlot extends pulumi.CustomResource {
     /**

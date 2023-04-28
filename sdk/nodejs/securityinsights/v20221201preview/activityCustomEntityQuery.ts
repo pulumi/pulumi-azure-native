@@ -9,6 +9,84 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents Activity entity query.
+ *
+ * ## Example Usage
+ * ### Creates or updates an Activity entity query.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const activityCustomEntityQuery = new azure_native.securityinsights.v20221201preview.ActivityCustomEntityQuery("activityCustomEntityQuery", {
+ *     content: "On '{{Computer}}' the account '{{TargetAccount}}' was deleted by '{{AddedBy}}'",
+ *     description: "Account deleted on host",
+ *     enabled: true,
+ *     entitiesFilter: {
+ *         Host_OsFamily: ["Windows"],
+ *     },
+ *     entityQueryId: "07da3cc8-c8ad-4710-a44e-334cdcb7882b",
+ *     inputEntityType: "Host",
+ *     kind: "Activity",
+ *     queryDefinitions: {
+ *         query: `let GetAccountActions = (v_Host_Name:string, v_Host_NTDomain:string, v_Host_DnsDomain:string, v_Host_AzureID:string, v_Host_OMSAgentID:string){
+ * SecurityEvent
+ * | where EventID in (4725, 4726, 4767, 4720, 4722, 4723, 4724)
+ * // parsing for Host to handle variety of conventions coming from data
+ * | extend Host_HostName = case(
+ * Computer has '@', tostring(split(Computer, '@')[0]),
+ * Computer has '\\\\', tostring(split(Computer, '\\\\')[1]),
+ * Computer has '.', tostring(split(Computer, '.')[0]),
+ * Computer
+ * )
+ * | extend Host_NTDomain = case(
+ * Computer has '\\\\', tostring(split(Computer, '\\\\')[0]), 
+ * Computer has '.', tostring(split(Computer, '.')[-2]), 
+ * Computer
+ * )
+ * | extend Host_DnsDomain = case(
+ * Computer has '\\\\', tostring(split(Computer, '\\\\')[0]), 
+ * Computer has '.', strcat_array(array_slice(split(Computer,'.'),-2,-1),'.'), 
+ * Computer
+ * )
+ * | where (Host_HostName =~ v_Host_Name and Host_NTDomain =~ v_Host_NTDomain) 
+ * or (Host_HostName =~ v_Host_Name and Host_DnsDomain =~ v_Host_DnsDomain) 
+ * or v_Host_AzureID =~ _ResourceId 
+ * or v_Host_OMSAgentID == SourceComputerId
+ * | project TimeGenerated, EventID, Activity, Computer, TargetAccount, TargetUserName, TargetDomainName, TargetSid, SubjectUserName, SubjectUserSid, _ResourceId, SourceComputerId
+ * | extend AddedBy = SubjectUserName
+ * // Future support for Activities
+ * | extend timestamp = TimeGenerated, HostCustomEntity = Computer, AccountCustomEntity = TargetAccount
+ * };
+ * GetAccountActions('{{Host_HostName}}', '{{Host_NTDomain}}', '{{Host_DnsDomain}}', '{{Host_AzureID}}', '{{Host_OMSAgentID}}')
+ *  
+ * | where EventID == 4726 `,
+ *     },
+ *     requiredInputFieldsSets: [
+ *         [
+ *             "Host_HostName",
+ *             "Host_NTDomain",
+ *         ],
+ *         [
+ *             "Host_HostName",
+ *             "Host_DnsDomain",
+ *         ],
+ *         ["Host_AzureID"],
+ *         ["Host_OMSAgentID"],
+ *     ],
+ *     resourceGroupName: "myRg",
+ *     title: "An account was deleted on this host",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20221201preview:ActivityCustomEntityQuery 07da3cc8-c8ad-4710-a44e-334cdcb7882b /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/entityQueries/07da3cc8-c8ad-4710-a44e-334cdcb7882b 
+ * ```
  */
 export class ActivityCustomEntityQuery extends pulumi.CustomResource {
     /**

@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
 {
     /// <summary>
     /// Description of a namespace authorization rule.
+    /// 
+    /// ## Example Usage
+    /// ### TopicAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var topicAuthorizationRule = new AzureNative.ServiceBus.V20150801.TopicAuthorizationRule("topicAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "sdk-Authrules5067",
+    ///         NamespaceName = "sdk-Namespace8408",
+    ///         ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///         Rights = new[]
+    ///         {
+    ///             AzureNative.ServiceBus.V20150801.AccessRights.Listen,
+    ///             AzureNative.ServiceBus.V20150801.AccessRights.Send,
+    ///         },
+    ///         TopicName = "sdk-Topics2075",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20150801:TopicAuthorizationRule sdk-Authrules5067 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace8408/topics/sdk-Topics2075/authorizationRules/sdk-Authrules5067 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicebus/v20150801:TopicAuthorizationRule")]

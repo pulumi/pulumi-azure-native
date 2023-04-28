@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Network
     /// A flow log resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update flow log
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var flowLog = new AzureNative.Network.FlowLog("flowLog", new()
+    ///     {
+    ///         Enabled = true,
+    ///         FlowLogName = "fl",
+    ///         Format = new AzureNative.Network.Inputs.FlowLogFormatParametersArgs
+    ///         {
+    ///             Type = "JSON",
+    ///             Version = 1,
+    ///         },
+    ///         Location = "centraluseuap",
+    ///         NetworkWatcherName = "nw1",
+    ///         ResourceGroupName = "rg1",
+    ///         StorageId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Storage/storageAccounts/nwtest1mgvbfmqsigdxe",
+    ///         TargetResourceId = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/desmondcentral-nsg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:FlowLog Microsoft.Networkdesmond-rgdesmondcentral-nsg /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkWatchers/nw/FlowLogs/fl 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:FlowLog")]
     public partial class FlowLog : global::Pulumi.CustomResource

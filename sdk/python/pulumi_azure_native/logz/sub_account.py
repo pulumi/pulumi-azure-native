@@ -137,6 +137,28 @@ class SubAccount(pulumi.CustomResource):
         API Version: 2022-01-01-preview.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### subAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sub_account = azure_native.logz.SubAccount("subAccount",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            sub_account_name="SubAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logz:SubAccount myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/accounts/SubAccount1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] monitor_name: Monitor resource name
@@ -153,6 +175,28 @@ class SubAccount(pulumi.CustomResource):
         """
         API Version: 2022-01-01-preview.
         Previous API Version: 2020-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### subAccount_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sub_account = azure_native.logz.SubAccount("subAccount",
+            monitor_name="myMonitor",
+            resource_group_name="myResourceGroup",
+            sub_account_name="SubAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:logz:SubAccount myMonitor /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/monitors/myMonitor/accounts/SubAccount1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubAccountArgs args: The arguments to use to populate this resource's properties.

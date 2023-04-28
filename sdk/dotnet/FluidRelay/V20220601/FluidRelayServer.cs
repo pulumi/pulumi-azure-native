@@ -11,6 +11,121 @@ namespace Pulumi.AzureNative.FluidRelay.V20220601
 {
     /// <summary>
     /// A FluidRelay Server.
+    /// 
+    /// ## Example Usage
+    /// ### Create a Fluid Relay server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fluidRelayServer = new AzureNative.FluidRelay.V20220601.FluidRelayServer("fluidRelayServer", new()
+    ///     {
+    ///         FluidRelayServerName = "myFluidRelayServer",
+    ///         Identity = new AzureNative.FluidRelay.V20220601.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.FluidRelay.V20220601.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "west-us",
+    ///         ResourceGroup = "myResourceGroup",
+    ///         Storagesku = "basic",
+    ///         Tags = 
+    ///         {
+    ///             { "Category", "sales" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Fluid Relay server with AMI
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fluidRelayServer = new AzureNative.FluidRelay.V20220601.FluidRelayServer("fluidRelayServer", new()
+    ///     {
+    ///         FluidRelayServerName = "myFluidRelayServer",
+    ///         Identity = new AzureNative.FluidRelay.V20220601.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.FluidRelay.V20220601.ResourceIdentityType.SystemAssigned_UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1", null },
+    ///                 { "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id2", null },
+    ///             },
+    ///         },
+    ///         Location = "west-us",
+    ///         ResourceGroup = "myResourceGroup",
+    ///         Storagesku = "basic",
+    ///         Tags = 
+    ///         {
+    ///             { "Category", "sales" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a Fluid Relay server with CMK
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fluidRelayServer = new AzureNative.FluidRelay.V20220601.FluidRelayServer("fluidRelayServer", new()
+    ///     {
+    ///         Encryption = new AzureNative.FluidRelay.V20220601.Inputs.EncryptionPropertiesArgs
+    ///         {
+    ///             CustomerManagedKeyEncryption = new AzureNative.FluidRelay.V20220601.Inputs.CustomerManagedKeyEncryptionPropertiesArgs
+    ///             {
+    ///                 KeyEncryptionKeyIdentity = new AzureNative.FluidRelay.V20220601.Inputs.CustomerManagedKeyEncryptionPropertiesKeyEncryptionKeyIdentityArgs
+    ///                 {
+    ///                     IdentityType = AzureNative.FluidRelay.V20220601.CmkIdentityType.UserAssigned,
+    ///                     UserAssignedIdentityResourceId = "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityForCMK",
+    ///                 },
+    ///                 KeyEncryptionKeyUrl = "https://contosovault.vault.azure.net/keys/contosokek",
+    ///             },
+    ///         },
+    ///         FluidRelayServerName = "myFluidRelayServer",
+    ///         Identity = new AzureNative.FluidRelay.V20220601.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.FluidRelay.V20220601.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityForCMK", null },
+    ///             },
+    ///         },
+    ///         Location = "west-us",
+    ///         ResourceGroup = "myResourceGroup",
+    ///         Storagesku = "basic",
+    ///         Tags = 
+    ///         {
+    ///             { "Category", "sales" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:fluidrelay/v20220601:FluidRelayServer myFluidRelayServer /subscriptions/xxxx-xxxx-xxxx-xxxx/resourceGroups/myResourceGroup/Microsoft.FluidRelay/fluidRelayServers/myFluidRelayServer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:fluidrelay/v20220601:FluidRelayServer")]
     public partial class FluidRelayServer : global::Pulumi.CustomResource

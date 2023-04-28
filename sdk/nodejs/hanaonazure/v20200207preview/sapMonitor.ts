@@ -6,6 +6,37 @@ import * as utilities from "../../utilities";
 
 /**
  * SAP monitor info on Azure (ARM properties and SAP monitor properties)
+ *
+ * ## Example Usage
+ * ### Create a SAP Monitor
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sapMonitor = new azure_native.hanaonazure.v20200207preview.SapMonitor("sapMonitor", {
+ *     enableCustomerAnalytics: true,
+ *     location: "westus",
+ *     logAnalyticsWorkspaceArmId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.operationalinsights/workspaces/myWorkspace",
+ *     logAnalyticsWorkspaceId: "00000000-0000-0000-0000-000000000000",
+ *     logAnalyticsWorkspaceSharedKey: "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000==",
+ *     monitorSubnet: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+ *     resourceGroupName: "myResourceGroup",
+ *     sapMonitorName: "mySapMonitor",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hanaonazure/v20200207preview:SapMonitor myHanaInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance 
+ * ```
  */
 export class SapMonitor extends pulumi.CustomResource {
     /**

@@ -73,6 +73,28 @@ class OutboundFirewallRule(pulumi.CustomResource):
         """
         An Azure SQL DB Server Outbound Firewall Rule.
 
+        ## Example Usage
+        ### Approve or reject a outbound firewall rule with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        outbound_firewall_rule = azure_native.sql.v20220801preview.OutboundFirewallRule("outboundFirewallRule",
+            outbound_rule_fqdn="server.database.windows.net",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:OutboundFirewallRule server.database.windows.net /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/outboundFirewallRules/server.datbase.windows.net 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
@@ -86,6 +108,28 @@ class OutboundFirewallRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure SQL DB Server Outbound Firewall Rule.
+
+        ## Example Usage
+        ### Approve or reject a outbound firewall rule with a given name.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        outbound_firewall_rule = azure_native.sql.v20220801preview.OutboundFirewallRule("outboundFirewallRule",
+            outbound_rule_fqdn="server.database.windows.net",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:OutboundFirewallRule server.database.windows.net /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/outboundFirewallRules/server.datbase.windows.net 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OutboundFirewallRuleArgs args: The arguments to use to populate this resource's properties.

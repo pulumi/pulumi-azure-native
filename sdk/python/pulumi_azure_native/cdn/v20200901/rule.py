@@ -164,6 +164,48 @@ class Rule(pulumi.CustomResource):
         """
         Friendly Rules name mapping to the any Rules or secret related information.
 
+        ## Example Usage
+        ### Rules_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule = azure_native.cdn.v20200901.Rule("rule",
+            actions=[azure_native.cdn.v20200901.DeliveryRuleResponseHeaderActionArgs(
+                name="ModifyResponseHeader",
+                parameters=azure_native.cdn.v20200901.HeaderActionParametersArgs(
+                    header_action="Overwrite",
+                    header_name="X-CDN",
+                    odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+                    value="MSFT",
+                ),
+            )],
+            conditions=[azure_native.cdn.v20200901.DeliveryRuleRequestMethodConditionArgs(
+                name="RequestMethod",
+                parameters=azure_native.cdn.v20200901.RequestMethodMatchConditionParametersArgs(
+                    match_values=["GET"],
+                    negate_condition=False,
+                    odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters",
+                    operator="Equal",
+                ),
+            )],
+            order=1,
+            profile_name="profile1",
+            resource_group_name="RG",
+            rule_name="rule1",
+            rule_set_name="ruleSet1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Rule rule1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/rule1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union[pulumi.InputType['DeliveryRuleCacheExpirationActionArgs'], pulumi.InputType['DeliveryRuleCacheKeyQueryStringActionArgs'], pulumi.InputType['DeliveryRuleRequestHeaderActionArgs'], pulumi.InputType['DeliveryRuleResponseHeaderActionArgs'], pulumi.InputType['OriginGroupOverrideActionArgs'], pulumi.InputType['UrlRedirectActionArgs'], pulumi.InputType['UrlRewriteActionArgs'], pulumi.InputType['UrlSigningActionArgs']]]]] actions: A list of actions that are executed when all the conditions of a rule are satisfied.
@@ -183,6 +225,48 @@ class Rule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly Rules name mapping to the any Rules or secret related information.
+
+        ## Example Usage
+        ### Rules_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        rule = azure_native.cdn.v20200901.Rule("rule",
+            actions=[azure_native.cdn.v20200901.DeliveryRuleResponseHeaderActionArgs(
+                name="ModifyResponseHeader",
+                parameters=azure_native.cdn.v20200901.HeaderActionParametersArgs(
+                    header_action="Overwrite",
+                    header_name="X-CDN",
+                    odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleHeaderActionParameters",
+                    value="MSFT",
+                ),
+            )],
+            conditions=[azure_native.cdn.v20200901.DeliveryRuleRequestMethodConditionArgs(
+                name="RequestMethod",
+                parameters=azure_native.cdn.v20200901.RequestMethodMatchConditionParametersArgs(
+                    match_values=["GET"],
+                    negate_condition=False,
+                    odata_type="#Microsoft.Azure.Cdn.Models.DeliveryRuleRequestMethodConditionParameters",
+                    operator="Equal",
+                ),
+            )],
+            order=1,
+            profile_name="profile1",
+            resource_group_name="RG",
+            rule_name="rule1",
+            rule_set_name="ruleSet1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:Rule rule1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/rule1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.

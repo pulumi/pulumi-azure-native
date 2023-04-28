@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * Network default admin rule.
+ *
+ * ## Example Usage
+ * ### Create a default admin rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const defaultAdminRule = new azure_native.network.v20210501preview.DefaultAdminRule("defaultAdminRule", {
+ *     configurationName: "myTestSecurityConfig",
+ *     flag: "AllowVnetInbound",
+ *     kind: "Default",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ *     ruleName: "SampleDefaultAdminRule",
+ * });
+ *
+ * ```
+ * ### Create an admin rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const defaultAdminRule = new azure_native.network.v20210501preview.DefaultAdminRule("defaultAdminRule", {
+ *     configurationName: "myTestSecurityConfig",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ *     ruleName: "SampleAdminRule",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210501preview:DefaultAdminRule SampleAdminRule /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/securityAdminConfigurations/myTestSecurityConfig/ruleCollections/testRuleCollection/rules/SampleAdminRule 
+ * ```
  */
 export class DefaultAdminRule extends pulumi.CustomResource {
     /**

@@ -11,6 +11,40 @@ import * as utilities from "../utilities";
  * See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
  * API Version: 2023-01-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create/Update Maintenance Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const maintenanceConfiguration = new azure_native.containerservice.MaintenanceConfiguration("maintenanceConfiguration", {
+ *     configName: "default",
+ *     notAllowedTime: [{
+ *         end: "2020-11-30T12:00:00Z",
+ *         start: "2020-11-26T03:00:00Z",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ *     timeInWeek: [{
+ *         day: "Monday",
+ *         hourSlots: [
+ *             1,
+ *             2,
+ *         ],
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice:MaintenanceConfiguration default /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/maintenanceConfigurations/default 
+ * ```
  */
 export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**

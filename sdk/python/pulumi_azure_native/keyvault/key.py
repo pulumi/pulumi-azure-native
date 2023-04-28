@@ -115,6 +115,31 @@ class Key(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create a key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        key = azure_native.keyvault.Key("key",
+            key_name="sample-key-name",
+            properties=azure_native.keyvault.KeyPropertiesArgs(
+                kty="RSA",
+            ),
+            resource_group_name="sample-group",
+            vault_name="sample-vault-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:Key sample-key-name /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault-name/keys/sample-key-name 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of the key to be created. The value you provide may be copied globally for the purpose of running the service. The value provided should not include personally identifiable or sensitive information.
@@ -133,6 +158,31 @@ class Key(pulumi.CustomResource):
         The key resource.
         API Version: 2023-02-01.
         Previous API Version: 2019-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create a key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        key = azure_native.keyvault.Key("key",
+            key_name="sample-key-name",
+            properties=azure_native.keyvault.KeyPropertiesArgs(
+                kty="RSA",
+            ),
+            resource_group_name="sample-group",
+            vault_name="sample-vault-name")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault:Key sample-key-name /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault-name/keys/sample-key-name 
+        ```
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.

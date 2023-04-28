@@ -163,6 +163,30 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         """
         Authorization in an ExpressRouteCircuit resource.
 
+        ## Example Usage
+        ### Create ExpressRouteCircuit Authorization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit_authorization = azure_native.network.v20190601.ExpressRouteCircuitAuthorization("expressRouteCircuitAuthorization",
+            authorization_key="authKey",
+            authorization_name="authorizatinName",
+            authorization_use_status="Available",
+            circuit_name="circuitName",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190601:ExpressRouteCircuitAuthorization authorizationName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName/authorizations/authorizationName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_key: The authorization key.
@@ -182,6 +206,30 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Authorization in an ExpressRouteCircuit resource.
+
+        ## Example Usage
+        ### Create ExpressRouteCircuit Authorization
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        express_route_circuit_authorization = azure_native.network.v20190601.ExpressRouteCircuitAuthorization("expressRouteCircuitAuthorization",
+            authorization_key="authKey",
+            authorization_name="authorizatinName",
+            authorization_use_status="Available",
+            circuit_name="circuitName",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190601:ExpressRouteCircuitAuthorization authorizationName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/circuitName/authorizations/authorizationName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ExpressRouteCircuitAuthorizationInitArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,88 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// HubVirtualNetworkConnection Resource.
+    /// 
+    /// ## Example Usage
+    /// ### HubVirtualNetworkConnectionPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hubVirtualNetworkConnection = new AzureNative.Network.V20201101.HubVirtualNetworkConnection("hubVirtualNetworkConnection", new()
+    ///     {
+    ///         ConnectionName = "connection1",
+    ///         EnableInternetSecurity = false,
+    ///         RemoteVirtualNetwork = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/SpokeVnet1",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         RoutingConfiguration = new AzureNative.Network.V20201101.Inputs.RoutingConfigurationArgs
+    ///         {
+    ///             AssociatedRouteTable = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+    ///             },
+    ///             PropagatedRouteTables = new AzureNative.Network.V20201101.Inputs.PropagatedRouteTableArgs
+    ///             {
+    ///                 Ids = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+    ///                     },
+    ///                 },
+    ///                 Labels = new[]
+    ///                 {
+    ///                     "label1",
+    ///                     "label2",
+    ///                 },
+    ///             },
+    ///             VnetRoutes = new AzureNative.Network.V20201101.Inputs.VnetRouteArgs
+    ///             {
+    ///                 StaticRoutes = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20201101.Inputs.StaticRouteArgs
+    ///                     {
+    ///                         AddressPrefixes = new[]
+    ///                         {
+    ///                             "10.1.0.0/16",
+    ///                             "10.2.0.0/16",
+    ///                         },
+    ///                         Name = "route1",
+    ///                         NextHopIpAddress = "10.0.0.68",
+    ///                     },
+    ///                     new AzureNative.Network.V20201101.Inputs.StaticRouteArgs
+    ///                     {
+    ///                         AddressPrefixes = new[]
+    ///                         {
+    ///                             "10.3.0.0/16",
+    ///                             "10.4.0.0/16",
+    ///                         },
+    ///                         Name = "route2",
+    ///                         NextHopIpAddress = "10.0.0.65",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         VirtualHubName = "virtualHub1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:HubVirtualNetworkConnection connection1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubVirtualNetworkConnections/connection1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:HubVirtualNetworkConnection")]
     public partial class HubVirtualNetworkConnection : global::Pulumi.CustomResource

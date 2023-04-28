@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * The metric setting details for the role
+ *
+ * ## Example Usage
+ * ### PutMonitoringConfig
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const monitoringConfig = new azure_native.databoxedge.v20230101preview.MonitoringConfig("monitoringConfig", {
+ *     deviceName: "testedgedevice",
+ *     metricConfigurations: [{
+ *         counterSets: [{
+ *             counters: [{
+ *                 name: "test",
+ *             }],
+ *         }],
+ *         mdmAccount: "test",
+ *         metricNameSpace: "test",
+ *         resourceId: "test",
+ *     }],
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     roleName: "testrole",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge/v20230101preview:MonitoringConfig myresource1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/DataBoxEdgeDevices/testedgedevice 
+ * ```
  */
 export class MonitoringConfig extends pulumi.CustomResource {
     /**

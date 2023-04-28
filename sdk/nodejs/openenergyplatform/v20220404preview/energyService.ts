@@ -7,6 +7,29 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### OepResource_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const energyService = new azure_native.openenergyplatform.v20220404preview.EnergyService("energyService", {
+ *     resourceGroupName: "DummyResourceGroupName",
+ *     resourceName: "DummyResourceName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:openenergyplatform/v20220404preview:EnergyService DummyResourceName /subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/DummyResourceGroupName/providers/Microsoft.OEP/oepResource/DummyResourceName 
+ * ```
+ */
 export class EnergyService extends pulumi.CustomResource {
     /**
      * Get an existing EnergyService resource's state with the given name, ID, and optional extra

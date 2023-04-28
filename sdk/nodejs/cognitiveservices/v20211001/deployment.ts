@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Cognitive Services account deployment.
+ *
+ * ## Example Usage
+ * ### PutDeployment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deployment = new azure_native.cognitiveservices.v20211001.Deployment("deployment", {
+ *     accountName: "accountName",
+ *     deploymentName: "deploymentName",
+ *     properties: {
+ *         model: {
+ *             format: "OpenAI",
+ *             name: "ada",
+ *             version: "1",
+ *         },
+ *         scaleSettings: {
+ *             capacity: 1,
+ *             scaleType: "Manual",
+ *         },
+ *     },
+ *     resourceGroupName: "resourceGroupName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cognitiveservices/v20211001:Deployment deploymentName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/accounts/accountName/deployments/deploymentName 
+ * ```
  */
 export class Deployment extends pulumi.CustomResource {
     /**

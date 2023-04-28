@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.ServiceBus.V20170401
 {
     /// <summary>
     /// Single item in List or Get Migration Config operation
+    /// 
+    /// ## Example Usage
+    /// ### MigrationConfigurationsStartMigration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var migrationConfig = new AzureNative.ServiceBus.V20170401.MigrationConfig("migrationConfig", new()
+    ///     {
+    ///         ConfigName = "$default",
+    ///         NamespaceName = "sdk-Namespace-41",
+    ///         PostMigrationName = "sdk-PostMigration-5919",
+    ///         ResourceGroupName = "ResourceGroup",
+    ///         TargetNamespace = "/subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-4028",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20170401:MigrationConfig sdk-Namespace-41 /subscriptions/SubscriptionId/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-41/migrationConfigs/$default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20170401:MigrationConfig")]
     public partial class MigrationConfig : global::Pulumi.CustomResource

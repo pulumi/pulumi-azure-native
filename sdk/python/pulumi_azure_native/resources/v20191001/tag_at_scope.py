@@ -62,6 +62,48 @@ class TagAtScope(pulumi.CustomResource):
         """
         Wrapper resource for tags API requests and responses.
 
+        ## Example Usage
+        ### Update tags on a resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_at_scope = azure_native.resources.v20191001.TagAtScope("tagAtScope",
+            properties=azure_native.resources.v20191001.TagsArgs(
+                tags={
+                    "tagKey1": "tagValue1",
+                    "tagKey2": "tagValue2",
+                },
+            ),
+            scope="subscriptions/eaee6a92-e973-4922-9471-3a0a6abf81cd/resourcegroups/myResourceGroup/providers/myPRNameSpace/VM/myVm")
+
+        ```
+        ### Update tags on a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_at_scope = azure_native.resources.v20191001.TagAtScope("tagAtScope",
+            properties=azure_native.resources.v20191001.TagsArgs(
+                tags={
+                    "tagKey1": "tagValue1",
+                    "tagKey2": "tagValue2",
+                },
+            ),
+            scope="subscriptions/eaee6a92-e973-4922-9471-3a0a6abf81cd")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20191001:TagAtScope myresource1 /{scope}/providers/Microsoft.Resources/tags/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TagsArgs']] properties: The set of tags.
@@ -75,6 +117,48 @@ class TagAtScope(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Wrapper resource for tags API requests and responses.
+
+        ## Example Usage
+        ### Update tags on a resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_at_scope = azure_native.resources.v20191001.TagAtScope("tagAtScope",
+            properties=azure_native.resources.v20191001.TagsArgs(
+                tags={
+                    "tagKey1": "tagValue1",
+                    "tagKey2": "tagValue2",
+                },
+            ),
+            scope="subscriptions/eaee6a92-e973-4922-9471-3a0a6abf81cd/resourcegroups/myResourceGroup/providers/myPRNameSpace/VM/myVm")
+
+        ```
+        ### Update tags on a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_at_scope = azure_native.resources.v20191001.TagAtScope("tagAtScope",
+            properties=azure_native.resources.v20191001.TagsArgs(
+                tags={
+                    "tagKey1": "tagValue1",
+                    "tagKey2": "tagValue2",
+                },
+            ),
+            scope="subscriptions/eaee6a92-e973-4922-9471-3a0a6abf81cd")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources/v20191001:TagAtScope myresource1 /{scope}/providers/Microsoft.Resources/tags/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TagAtScopeArgs args: The arguments to use to populate this resource's properties.

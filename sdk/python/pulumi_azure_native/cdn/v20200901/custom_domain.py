@@ -110,6 +110,30 @@ class CustomDomain(pulumi.CustomResource):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 
+        ## Example Usage
+        ### CustomDomains_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_domain = azure_native.cdn.v20200901.CustomDomain("customDomain",
+            custom_domain_name="www-someDomain-net",
+            endpoint_name="endpoint1",
+            host_name="www.someDomain.net",
+            profile_name="profile1",
+            resource_group_name="RG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:CustomDomain www-someDomain-net /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customdomains/www-someDomain-net 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] custom_domain_name: Name of the custom domain within an endpoint.
@@ -126,6 +150,30 @@ class CustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+
+        ## Example Usage
+        ### CustomDomains_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        custom_domain = azure_native.cdn.v20200901.CustomDomain("customDomain",
+            custom_domain_name="www-someDomain-net",
+            endpoint_name="endpoint1",
+            host_name="www.someDomain.net",
+            profile_name="profile1",
+            resource_group_name="RG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:CustomDomain www-someDomain-net /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customdomains/www-someDomain-net 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomDomainArgs args: The arguments to use to populate this resource's properties.

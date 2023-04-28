@@ -11,6 +11,66 @@ namespace Pulumi.AzureNative.Network.V20180701
 {
     /// <summary>
     /// VpnGateway Resource.
+    /// 
+    /// ## Example Usage
+    /// ### VpnGatewayPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var vpnGateway = new AzureNative.Network.V20180701.VpnGateway("vpnGateway", new()
+    ///     {
+    ///         BgpSettings = new AzureNative.Network.V20180701.Inputs.BgpSettingsArgs
+    ///         {
+    ///             Asn = 65515,
+    ///             BgpPeeringAddress = "10.0.1.30",
+    ///             PeerWeight = 0,
+    ///         },
+    ///         Connections = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180701.Inputs.VpnConnectionArgs
+    ///             {
+    ///                 Name = "vpnConnection1",
+    ///                 RemoteVpnSite = new AzureNative.Network.V20180701.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+    ///                 },
+    ///                 SharedKey = "key",
+    ///             },
+    ///         },
+    ///         GatewayName = "gateway1",
+    ///         Location = "West US",
+    ///         Policies = new AzureNative.Network.V20180701.Inputs.PoliciesArgs
+    ///         {
+    ///             AllowBranchToBranchTraffic = true,
+    ///             AllowVnetToVnetTraffic = false,
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         VirtualHub = new AzureNative.Network.V20180701.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180701:VpnGateway gateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180701:VpnGateway")]
     public partial class VpnGateway : global::Pulumi.CustomResource

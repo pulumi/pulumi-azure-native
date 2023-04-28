@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Operations_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const operationByProviderRegistration = new azure_native.providerhub.v20210901preview.OperationByProviderRegistration("operationByProviderRegistration", {providerNamespace: "Microsoft.Contoso"});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:providerhub/v20210901preview:OperationByProviderRegistration myresource1 /subscriptions/{subscriptionId}/providers/Microsoft.ProviderHub/providerRegistrations/{providerNamespace}/operations/default 
+ * ```
+ */
 export class OperationByProviderRegistration extends pulumi.CustomResource {
     /**
      * Get an existing OperationByProviderRegistration resource's state with the given name, ID, and optional extra

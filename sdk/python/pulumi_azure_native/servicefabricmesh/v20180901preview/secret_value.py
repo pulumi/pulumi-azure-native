@@ -128,6 +128,30 @@ class SecretValue(pulumi.CustomResource):
         """
         This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
 
+        ## Example Usage
+        ### CreateSecretValue
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret_value = azure_native.servicefabricmesh.v20180901preview.SecretValue("secretValue",
+            location="West US",
+            resource_group_name="sbz_demo",
+            secret_resource_name="dbConnectionString",
+            secret_value_resource_name="v1",
+            value="mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180901preview:SecretValue v1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/secrets/dbConnectionString/values/v1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -145,6 +169,30 @@ class SecretValue(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This type describes a value of a secret resource. The name of this resource is the version identifier corresponding to this secret value.
+
+        ## Example Usage
+        ### CreateSecretValue
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret_value = azure_native.servicefabricmesh.v20180901preview.SecretValue("secretValue",
+            location="West US",
+            resource_group_name="sbz_demo",
+            secret_resource_name="dbConnectionString",
+            secret_value_resource_name="v1",
+            value="mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@contoso123.documents.azure.com:10255/mydatabase?ssl=true")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180901preview:SecretValue v1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/secrets/dbConnectionString/values/v1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecretValueArgs args: The arguments to use to populate this resource's properties.

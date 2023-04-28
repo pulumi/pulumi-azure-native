@@ -338,6 +338,87 @@ class VpnServerConfiguration(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### VpnServerConfigurationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_server_configuration = azure_native.network.VpnServerConfiguration("vpnServerConfiguration",
+            configuration_policy_groups=[
+                {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup1",
+                    "isDefault": True,
+                    "name": "policyGroup1",
+                    "policyMembers": [azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+                        attribute_type="RadiusAzureGroupId",
+                        attribute_value="6ad1bd08",
+                        name="policy1",
+                    )],
+                    "priority": 0,
+                },
+                {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup2",
+                    "isDefault": True,
+                    "name": "policyGroup2",
+                    "policyMembers": [azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+                        attribute_type="CertificateGroupId",
+                        attribute_value="red.com",
+                        name="policy2",
+                    )],
+                    "priority": 0,
+                },
+            ],
+            location="West US",
+            radius_client_root_certificates=[azure_native.network.VpnServerConfigRadiusClientRootCertificateArgs(
+                name="vpnServerConfigRadiusClientRootCert1",
+                thumbprint="83FFBFC8848B5A5836C94D0112367E16148A286F",
+            )],
+            radius_server_root_certificates=[azure_native.network.VpnServerConfigRadiusServerRootCertificateArgs(
+                name="vpnServerConfigRadiusServerRootCer1",
+                public_cert_data="MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuM",
+            )],
+            radius_servers=[{
+                "radiusServerAddress": "10.0.0.0",
+                "radiusServerScore": 25,
+                "radiusServerSecret": "radiusServerSecret",
+            }],
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            vpn_client_ipsec_policies=[{
+                "dhGroup": "DHGroup14",
+                "ikeEncryption": "AES256",
+                "ikeIntegrity": "SHA384",
+                "ipsecEncryption": "AES256",
+                "ipsecIntegrity": "SHA256",
+                "pfsGroup": "PFS14",
+                "saDataSizeKilobytes": 429497,
+                "saLifeTimeSeconds": 86472,
+            }],
+            vpn_client_revoked_certificates=[azure_native.network.VpnServerConfigVpnClientRevokedCertificateArgs(
+                name="vpnServerConfigVpnClientRevokedCert1",
+                thumbprint="83FFBFC8848B5A5836C94D0112367E16148A286F",
+            )],
+            vpn_client_root_certificates=[azure_native.network.VpnServerConfigVpnClientRootCertificateArgs(
+                name="vpnServerConfigVpnClientRootCert1",
+                public_cert_data="MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuN",
+            )],
+            vpn_protocols=["IkeV2"],
+            vpn_server_configuration_name="vpnServerConfiguration1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VpnServerConfiguration vpnServerConfiguration1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AadAuthenticationParametersArgs']] aad_authentication_parameters: The set of aad vpn authentication parameters.
@@ -369,6 +450,87 @@ class VpnServerConfiguration(pulumi.CustomResource):
         VpnServerConfiguration Resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### VpnServerConfigurationCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_server_configuration = azure_native.network.VpnServerConfiguration("vpnServerConfiguration",
+            configuration_policy_groups=[
+                {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup1",
+                    "isDefault": True,
+                    "name": "policyGroup1",
+                    "policyMembers": [azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+                        attribute_type="RadiusAzureGroupId",
+                        attribute_value="6ad1bd08",
+                        name="policy1",
+                    )],
+                    "priority": 0,
+                },
+                {
+                    "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1/vpnServerConfigurationPolicyGroups/policyGroup2",
+                    "isDefault": True,
+                    "name": "policyGroup2",
+                    "policyMembers": [azure_native.network.VpnServerConfigurationPolicyGroupMemberArgs(
+                        attribute_type="CertificateGroupId",
+                        attribute_value="red.com",
+                        name="policy2",
+                    )],
+                    "priority": 0,
+                },
+            ],
+            location="West US",
+            radius_client_root_certificates=[azure_native.network.VpnServerConfigRadiusClientRootCertificateArgs(
+                name="vpnServerConfigRadiusClientRootCert1",
+                thumbprint="83FFBFC8848B5A5836C94D0112367E16148A286F",
+            )],
+            radius_server_root_certificates=[azure_native.network.VpnServerConfigRadiusServerRootCertificateArgs(
+                name="vpnServerConfigRadiusServerRootCer1",
+                public_cert_data="MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuM",
+            )],
+            radius_servers=[{
+                "radiusServerAddress": "10.0.0.0",
+                "radiusServerScore": 25,
+                "radiusServerSecret": "radiusServerSecret",
+            }],
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            vpn_client_ipsec_policies=[{
+                "dhGroup": "DHGroup14",
+                "ikeEncryption": "AES256",
+                "ikeIntegrity": "SHA384",
+                "ipsecEncryption": "AES256",
+                "ipsecIntegrity": "SHA256",
+                "pfsGroup": "PFS14",
+                "saDataSizeKilobytes": 429497,
+                "saLifeTimeSeconds": 86472,
+            }],
+            vpn_client_revoked_certificates=[azure_native.network.VpnServerConfigVpnClientRevokedCertificateArgs(
+                name="vpnServerConfigVpnClientRevokedCert1",
+                thumbprint="83FFBFC8848B5A5836C94D0112367E16148A286F",
+            )],
+            vpn_client_root_certificates=[azure_native.network.VpnServerConfigVpnClientRootCertificateArgs(
+                name="vpnServerConfigVpnClientRootCert1",
+                public_cert_data="MIIC5zCCAc+gAwIBAgIQErQ0Hk4aDJxIA+Q5RagB+jANBgkqhkiG9w0BAQsFADAWMRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzEyMTQyMTA3MzhaFw0xODEyMTQyMTI3MzhaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArP7/NQXmW7cQ/ZR1mv3Y3I29Lt7HTOqzo/1KUOoVH3NItbQIRAQbwKy3UWrOFz4eGNX2GWtNRMdCyWsKeqy9Ltsdfcm1IbKXkl84DFeU/ZacXu4Dl3xX3gV5du4TLZjEowJELyur11Ea2YcjPRQ/FzAF9/hGuboS1HZQEPLx4FdUs9OxCYOtc0MxBCwLfVTTRqarb0Ne+arNYd4kCzIhAke1nOyKAJBda5ZL+VHy3S5S8qGlD46jm8HXugmAkUygS4oIIXOmj/1O9sNAi3LN60zufSzCmP8Rm/iUGX+DHAGGiXxwZOKQLEDaZXKqoHjMPP0XudmSWwOIbyeQVrLhkwIDAQABozEwLzAOBgNVHQ8BAf8EBAMCAgQwHQYDVR0OBBYEFEfeNU2trYxNLF9ONmuJUsT13pKDMA0GCSqGSIb3DQEBCwUAA4IBAQBmM6RJzsGGipxyMhimHKN2xlkejhVsgBoTAhOU0llW9aUSwINJ9zFUGgI8IzUFy1VG776fchHp0LMRmPSIUYk5btEPxbsrPtumPuMH8EQGrS+Rt4pD+78c8H1fEPkq5CmDl/PKu4JoFGv+aFcE+Od0hlILstIF10Qysf++QXDolKfzJa/56bgMeYKFiju73loiRM57ns8ddXpfLl792UVpRkFU62LNns6Y1LKTwapmUF4IvIuAIzd6LZNOQng64LAKXtKnViJ1JQiXwf4CEzhgvAti3/ejpb3U90hsrUcyZi6wBv9bZLcAJRWpz61JNYliM1d1grSwQDKGXNQE4xuN",
+            )],
+            vpn_protocols=["IkeV2"],
+            vpn_server_configuration_name="vpnServerConfiguration1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:VpnServerConfiguration vpnServerConfiguration1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpnServerConfigurationArgs args: The arguments to use to populate this resource's properties.

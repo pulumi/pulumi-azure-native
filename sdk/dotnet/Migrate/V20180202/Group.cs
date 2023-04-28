@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.Migrate.V20180202
 {
     /// <summary>
     /// A group created in a Migration project.
+    /// 
+    /// ## Example Usage
+    /// ### Groups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @group = new AzureNative.Migrate.V20180202.Group("group", new()
+    ///     {
+    ///         ETag = "\"1100637e-0000-0000-0000-59f6ed1f0000\"",
+    ///         GroupName = "group01",
+    ///         Machines = new[]
+    ///         {
+    ///             "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm1",
+    ///             "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm2",
+    ///             "/subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/machines/amansing_vm3",
+    ///         },
+    ///         ProjectName = "project01",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20180202:Group group01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01/groups/group01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20180202:Group")]
     public partial class Group : global::Pulumi.CustomResource

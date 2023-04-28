@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.Network.V20190601
 {
     /// <summary>
     /// A network interface in a resource group.
+    /// 
+    /// ## Example Usage
+    /// ### Create network interface
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkInterface = new AzureNative.Network.V20190601.NetworkInterface("networkInterface", new()
+    ///     {
+    ///         EnableAcceleratedNetworking = true,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20190601.Inputs.NetworkInterfaceIPConfigurationArgs
+    ///             {
+    ///                 Name = "ipconfig1",
+    ///                 PublicIPAddress = new AzureNative.Network.V20190601.Inputs.PublicIPAddressArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.V20190601.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/rg1-vnet/subnets/default",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         NetworkInterfaceName = "test-nic",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190601:NetworkInterface test-nic /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/test-nic 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190601:NetworkInterface")]
     public partial class NetworkInterface : global::Pulumi.CustomResource

@@ -9,6 +9,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the HybridIdentityMetadata.
+ *
+ * ## Example Usage
+ * ### CreateHybridIdentityMetadata
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hybridIdentityMetadatum = new azure_native.connectedvmwarevsphere.v20220715preview.HybridIdentityMetadatum("hybridIdentityMetadatum", {
+ *     metadataName: "default",
+ *     publicKey: "8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+ *     resourceGroupName: "testrg",
+ *     virtualMachineName: "ContosoVm",
+ *     vmId: "f8b82dff-38ef-4220-99ef-d3a3f86ddc6c",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:connectedvmwarevsphere/v20220715preview:HybridIdentityMetadatum testItem /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VitualMachines/ContosoVm/hybridIdentityMetadatas/default 
+ * ```
  */
 export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**

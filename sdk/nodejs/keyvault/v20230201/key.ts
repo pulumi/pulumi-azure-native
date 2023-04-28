@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * The key resource.
+ *
+ * ## Example Usage
+ * ### Create a key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const key = new azure_native.keyvault.v20230201.Key("key", {
+ *     keyName: "sample-key-name",
+ *     properties: {
+ *         kty: "RSA",
+ *     },
+ *     resourceGroupName: "sample-group",
+ *     vaultName: "sample-vault-name",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:keyvault/v20230201:Key sample-key-name /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault-name/keys/sample-key-name 
+ * ```
  */
 export class Key extends pulumi.CustomResource {
     /**

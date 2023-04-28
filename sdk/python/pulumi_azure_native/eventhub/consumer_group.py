@@ -113,6 +113,30 @@ class ConsumerGroup(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ConsumerGroupCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        consumer_group = azure_native.eventhub.ConsumerGroup("consumerGroup",
+            consumer_group_name="sdk-ConsumerGroup-5563",
+            event_hub_name="sdk-EventHub-6681",
+            namespace_name="sdk-Namespace-2661",
+            resource_group_name="ArunMonocle",
+            user_metadata="New consumergroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:ConsumerGroup sdk-ConsumerGroup-5563 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-2661/eventhubs/sdk-EventHub-6681/consumergroups/sdk-ConsumerGroup-5563 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] consumer_group_name: The consumer group name
@@ -131,6 +155,30 @@ class ConsumerGroup(pulumi.CustomResource):
         Single item in List or Get Consumer group operation
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ConsumerGroupCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        consumer_group = azure_native.eventhub.ConsumerGroup("consumerGroup",
+            consumer_group_name="sdk-ConsumerGroup-5563",
+            event_hub_name="sdk-EventHub-6681",
+            namespace_name="sdk-Namespace-2661",
+            resource_group_name="ArunMonocle",
+            user_metadata="New consumergroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub:ConsumerGroup sdk-ConsumerGroup-5563 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-2661/eventhubs/sdk-EventHub-6681/consumergroups/sdk-ConsumerGroup-5563 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConsumerGroupArgs args: The arguments to use to populate this resource's properties.

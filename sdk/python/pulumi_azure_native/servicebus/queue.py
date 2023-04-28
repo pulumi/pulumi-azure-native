@@ -353,6 +353,29 @@ class Queue(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### QueueCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue = azure_native.servicebus.Queue("queue",
+            enable_partitioning=True,
+            namespace_name="sdk-Namespace-3174",
+            queue_name="sdk-Queues-5647",
+            resource_group_name="ArunMonocle")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:Queue sdk-Queues-5647 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-3174/queues/sdk-Queues-5647 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] auto_delete_on_idle: ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
@@ -385,6 +408,29 @@ class Queue(pulumi.CustomResource):
         Description of queue Resource.
         API Version: 2021-11-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### QueueCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue = azure_native.servicebus.Queue("queue",
+            enable_partitioning=True,
+            namespace_name="sdk-Namespace-3174",
+            queue_name="sdk-Queues-5647",
+            resource_group_name="ArunMonocle")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicebus:Queue sdk-Queues-5647 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-3174/queues/sdk-Queues-5647 
+        ```
 
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.

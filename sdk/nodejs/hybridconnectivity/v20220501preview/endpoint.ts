@@ -9,6 +9,43 @@ import * as utilities from "../../utilities";
 
 /**
  * The endpoint for the target resource.
+ *
+ * ## Example Usage
+ * ### HybridConnectivityEndpointsPutCustom
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const endpoint = new azure_native.hybridconnectivity.v20220501preview.Endpoint("endpoint", {
+ *     endpointName: "custom",
+ *     resourceId: "/subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.Relay/namespaces/custom-relay-namespace",
+ *     resourceUri: "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+ *     type: "custom",
+ * });
+ *
+ * ```
+ * ### HybridConnectivityEndpointsPutDefault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const endpoint = new azure_native.hybridconnectivity.v20220501preview.Endpoint("endpoint", {
+ *     endpointName: "default",
+ *     resourceUri: "subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine",
+ *     type: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridconnectivity/v20220501preview:Endpoint default /subscriptions/f5bcc1d9-23af-4ae9-aca1-041d0f593a63/resourceGroups/hybridRG/providers/Microsoft.HybridCompute/machines/testMachine/providers/Microsoft.HybridConnectivity/endpoints/default 
+ * ```
  */
 export class Endpoint extends pulumi.CustomResource {
     /**

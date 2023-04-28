@@ -216,6 +216,172 @@ class Assignment(pulumi.CustomResource):
         API Version: 2018-11-01-preview.
         Previous API Version: 2018-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Assignment with system-assigned managed identity at management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.ManagedServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.ParameterValueArgs(
+                    value="Contoso/Online/Shopping/Production",
+                ),
+                "owners": azure_native.blueprint.ParameterValueArgs(
+                    value=[
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                ),
+                "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+                    value="Standard_LRS",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            },
+            resource_scope="managementGroups/ContosoOnlineGroup",
+            scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Assignment with system-assigned managed identity at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.ManagedServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.ParameterValueArgs(
+                    value="Contoso/Online/Shopping/Production",
+                ),
+                "owners": azure_native.blueprint.ParameterValueArgs(
+                    value=[
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                ),
+                "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+                    value="Standard_LRS",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            },
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Assignment with user-assigned managed identity at management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.ManagedServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": azure_native.blueprint.UserAssignedIdentityArgs(),
+                },
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.ParameterValueArgs(
+                    value="Contoso/Online/Shopping/Production",
+                ),
+                "owners": azure_native.blueprint.ParameterValueArgs(
+                    value=[
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                ),
+                "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+                    value="Standard_LRS",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            },
+            resource_scope="managementGroups/ContosoOnlineGroup",
+            scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Assignment with user-assigned managed identity at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.ManagedServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": azure_native.blueprint.UserAssignedIdentityArgs(),
+                },
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.ParameterValueArgs(
+                    value="Contoso/Online/Shopping/Production",
+                ),
+                "owners": azure_native.blueprint.ParameterValueArgs(
+                    value=[
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                ),
+                "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+                    value="Standard_LRS",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            },
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint:Assignment assignSimpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assignment_name: Name of the blueprint assignment.
@@ -240,6 +406,172 @@ class Assignment(pulumi.CustomResource):
         Represents a blueprint assignment.
         API Version: 2018-11-01-preview.
         Previous API Version: 2018-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Assignment with system-assigned managed identity at management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.ManagedServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.ParameterValueArgs(
+                    value="Contoso/Online/Shopping/Production",
+                ),
+                "owners": azure_native.blueprint.ParameterValueArgs(
+                    value=[
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                ),
+                "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+                    value="Standard_LRS",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            },
+            resource_scope="managementGroups/ContosoOnlineGroup",
+            scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Assignment with system-assigned managed identity at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.ManagedServiceIdentityArgs(
+                type="SystemAssigned",
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.ParameterValueArgs(
+                    value="Contoso/Online/Shopping/Production",
+                ),
+                "owners": azure_native.blueprint.ParameterValueArgs(
+                    value=[
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                ),
+                "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+                    value="Standard_LRS",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            },
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Assignment with user-assigned managed identity at management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.ManagedServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": azure_native.blueprint.UserAssignedIdentityArgs(),
+                },
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.ParameterValueArgs(
+                    value="Contoso/Online/Shopping/Production",
+                ),
+                "owners": azure_native.blueprint.ParameterValueArgs(
+                    value=[
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                ),
+                "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+                    value="Standard_LRS",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            },
+            resource_scope="managementGroups/ContosoOnlineGroup",
+            scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+        ### Assignment with user-assigned managed identity at subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        assignment = azure_native.blueprint.Assignment("assignment",
+            assignment_name="assignSimpleBlueprint",
+            blueprint_id="/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+            description="enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+            identity=azure_native.blueprint.ManagedServiceIdentityResponseArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso-resource-group/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-identity": azure_native.blueprint.UserAssignedIdentityArgs(),
+                },
+            ),
+            location="eastus",
+            parameters={
+                "costCenter": azure_native.blueprint.ParameterValueArgs(
+                    value="Contoso/Online/Shopping/Production",
+                ),
+                "owners": azure_native.blueprint.ParameterValueArgs(
+                    value=[
+                        "johnDoe@contoso.com",
+                        "johnsteam@contoso.com",
+                    ],
+                ),
+                "storageAccountType": azure_native.blueprint.ParameterValueArgs(
+                    value="Standard_LRS",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.ResourceGroupValueArgs(
+                    location="eastus",
+                    name="defaultRG",
+                ),
+            },
+            resource_scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint:Assignment assignSimpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -131,6 +131,56 @@ class WorkloadInstance(pulumi.CustomResource):
         """
         Workload instance model.
 
+        ## Example Usage
+        ### WorkloadInstance_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_instance = azure_native.migrate.v20220501preview.WorkloadInstance("workloadInstance",
+            modernize_project_name="mx8",
+            properties=azure_native.migrate.v20220501preview.WorkloadInstanceModelPropertiesResponseArgs(
+                custom_properties={
+                    "instanceType": "IISWorkload",
+                    "webAppArmId": "xseseqsrzdiga",
+                    "webAppSiteName": "mirgzmy",
+                },
+                display_name="juoorbubchvk",
+                master_site_name="ubks",
+                migrate_agent_id="aqgzsxqbk",
+                name="wonkuhgsafzviuwqerzdmme",
+                source_name="weuxcqzwpeyzsjhdgqflhxlwjhbz",
+                source_platform="eh",
+            ),
+            resource_group_name="rgmigrateEngine",
+            tags={
+                "key2836": "biqip",
+            },
+            workload_instance_name="m")
+
+        ```
+        ### WorkloadInstance_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_instance = azure_native.migrate.v20220501preview.WorkloadInstance("workloadInstance",
+            modernize_project_name="tv39",
+            resource_group_name="rgmigrateEngine",
+            workload_instance_name="io")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20220501preview:WorkloadInstance piu tin 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] modernize_project_name: ModernizeProject name.
@@ -148,6 +198,56 @@ class WorkloadInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workload instance model.
+
+        ## Example Usage
+        ### WorkloadInstance_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_instance = azure_native.migrate.v20220501preview.WorkloadInstance("workloadInstance",
+            modernize_project_name="mx8",
+            properties=azure_native.migrate.v20220501preview.WorkloadInstanceModelPropertiesResponseArgs(
+                custom_properties={
+                    "instanceType": "IISWorkload",
+                    "webAppArmId": "xseseqsrzdiga",
+                    "webAppSiteName": "mirgzmy",
+                },
+                display_name="juoorbubchvk",
+                master_site_name="ubks",
+                migrate_agent_id="aqgzsxqbk",
+                name="wonkuhgsafzviuwqerzdmme",
+                source_name="weuxcqzwpeyzsjhdgqflhxlwjhbz",
+                source_platform="eh",
+            ),
+            resource_group_name="rgmigrateEngine",
+            tags={
+                "key2836": "biqip",
+            },
+            workload_instance_name="m")
+
+        ```
+        ### WorkloadInstance_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_instance = azure_native.migrate.v20220501preview.WorkloadInstance("workloadInstance",
+            modernize_project_name="tv39",
+            resource_group_name="rgmigrateEngine",
+            workload_instance_name="io")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20220501preview:WorkloadInstance piu tin 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkloadInstanceArgs args: The arguments to use to populate this resource's properties.

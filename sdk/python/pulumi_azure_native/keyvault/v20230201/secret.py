@@ -112,6 +112,31 @@ class Secret(pulumi.CustomResource):
         """
         Resource information with extended details.
 
+        ## Example Usage
+        ### Create a secret
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.keyvault.v20230201.Secret("secret",
+            properties=azure_native.keyvault.v20230201.SecretPropertiesArgs(
+                value="secret-value",
+            ),
+            resource_group_name="sample-group",
+            secret_name="secret-name",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault/v20230201:Secret secret-name /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/secrets/secret-name 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SecretPropertiesArgs']] properties: Properties of the secret
@@ -128,6 +153,31 @@ class Secret(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information with extended details.
+
+        ## Example Usage
+        ### Create a secret
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        secret = azure_native.keyvault.v20230201.Secret("secret",
+            properties=azure_native.keyvault.v20230201.SecretPropertiesArgs(
+                value="secret-value",
+            ),
+            resource_group_name="sample-group",
+            secret_name="secret-name",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault/v20230201:Secret secret-name /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-group/providers/Microsoft.KeyVault/vaults/sample-vault/secrets/secret-name 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecretArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * The Network Manager Connection resource
  * API Version: 2022-09-01.
  * Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or Update Management Group Network Manager Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const managementGroupNetworkManagerConnection = new azure_native.network.ManagementGroupNetworkManagerConnection("managementGroupNetworkManagerConnection", {
+ *     managementGroupId: "managementGroupA",
+ *     networkManagerConnectionName: "TestNMConnection",
+ *     networkManagerId: "/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:ManagementGroupNetworkManagerConnection TestNMConnection /providers/Microsoft.Management/managementGroups/managementGroupA/providers/Microsoft.Network/networkManagerConnections/TestNMConnection 
+ * ```
  */
 export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResource {
     /**

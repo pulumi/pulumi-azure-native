@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200901Preview
 {
     /// <summary>
     /// IoT Addon.
+    /// 
+    /// ## Example Usage
+    /// ### PutAddons
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ioTAddon = new AzureNative.DataBoxEdge.V20200901Preview.IoTAddon("ioTAddon", new()
+    ///     {
+    ///         AddonName = "arcName",
+    ///         DeviceName = "testedgedevice",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         RoleName = "KubernetesRole",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20200901preview:IoTAddon arcName /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourcegroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/addonExamples/roles/kubernetesRole/addons/arcName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:databoxedge/v20200901preview:IoTAddon")]
     public partial class IoTAddon : global::Pulumi.CustomResource

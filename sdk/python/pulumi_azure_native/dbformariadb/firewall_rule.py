@@ -111,6 +111,30 @@ class FirewallRule(pulumi.CustomResource):
         API Version: 2018-06-01.
         Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### FirewallRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.dbformariadb.FirewallRule("firewallRule",
+            end_ip_address="255.255.255.255",
+            firewall_rule_name="rule1",
+            resource_group_name="TestGroup",
+            server_name="testserver",
+            start_ip_address="0.0.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformariadb:FirewallRule rule1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMariaDB/servers/testserver/firewallRules/rule1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] end_ip_address: The end IP address of the server firewall rule. Must be IPv4 format.
@@ -129,6 +153,30 @@ class FirewallRule(pulumi.CustomResource):
         Represents a server firewall rule.
         API Version: 2018-06-01.
         Previous API Version: 2018-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### FirewallRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_rule = azure_native.dbformariadb.FirewallRule("firewallRule",
+            end_ip_address="255.255.255.255",
+            firewall_rule_name="rule1",
+            resource_group_name="TestGroup",
+            server_name="testserver",
+            start_ip_address="0.0.0.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbformariadb:FirewallRule rule1 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforMariaDB/servers/testserver/firewallRules/rule1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FirewallRuleArgs args: The arguments to use to populate this resource's properties.

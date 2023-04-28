@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// The NetworkDevice resource definition.
     /// API Version: 2023-02-01-preview.
     /// Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### NetworkDevices_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var networkDevice = new AzureNative.ManagedNetworkFabric.NetworkDevice("networkDevice", new()
+    ///     {
+    ///         Annotation = "null",
+    ///         HostName = "networkDeviceName",
+    ///         Location = "eastus",
+    ///         NetworkDeviceName = "networkDeviceName",
+    ///         NetworkDeviceRole = "CE",
+    ///         NetworkDeviceSku = "DefaultSku",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SerialNumber = "Arista;DCS-7280PR3-24;12.05;JPE21330382",
+    ///         Tags = 
+    ///         {
+    ///             { "keyID", "keyValue" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric:NetworkDevice networkDeviceName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkDevices/networkDeviceName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:NetworkDevice")]
     public partial class NetworkDevice : global::Pulumi.CustomResource

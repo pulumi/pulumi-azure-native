@@ -11,6 +11,70 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
 {
     /// <summary>
     /// Global parameters resource type.
+    /// 
+    /// ## Example Usage
+    /// ### GlobalParameters_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var globalParameter = new AzureNative.DataFactory.V20180601.GlobalParameter("globalParameter", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         GlobalParameterName = "default",
+    ///         Properties = 
+    ///         {
+    ///             { "waitTime", new AzureNative.DataFactory.V20180601.Inputs.GlobalParameterSpecificationArgs
+    ///             {
+    ///                 Type = "Int",
+    ///                 Value = 5,
+    ///             } },
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### GlobalParameters_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var globalParameter = new AzureNative.DataFactory.V20180601.GlobalParameter("globalParameter", new()
+    ///     {
+    ///         FactoryName = "exampleFactoryName",
+    ///         GlobalParameterName = "default",
+    ///         Properties = 
+    ///         {
+    ///             { "waitTime", new AzureNative.DataFactory.V20180601.Inputs.GlobalParameterSpecificationArgs
+    ///             {
+    ///                 Type = "Int",
+    ///                 Value = 5,
+    ///             } },
+    ///         },
+    ///         ResourceGroupName = "exampleResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datafactory/v20180601:GlobalParameter default /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/globalParameters/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datafactory/v20180601:GlobalParameter")]
     public partial class GlobalParameter : global::Pulumi.CustomResource

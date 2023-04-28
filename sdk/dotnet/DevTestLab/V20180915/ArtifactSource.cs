@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// Properties of an artifact source.
+    /// 
+    /// ## Example Usage
+    /// ### ArtifactSources_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var artifactSource = new AzureNative.DevTestLab.V20180915.ArtifactSource("artifactSource", new()
+    ///     {
+    ///         ArmTemplateFolderPath = "{armTemplateFolderPath}",
+    ///         BranchRef = "{branchRef}",
+    ///         DisplayName = "{displayName}",
+    ///         FolderPath = "{folderPath}",
+    ///         LabName = "{labName}",
+    ///         Name = "{artifactSourceName}",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SecurityToken = "{securityToken}",
+    ///         SourceType = "{VsoGit|GitHub|StorageAccount}",
+    ///         Status = "{Enabled|Disabled}",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///         Uri = "{artifactSourceUri}",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20180915:ArtifactSource {artifactSourceName} /subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactsources/{artifactSourceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:ArtifactSource")]
     public partial class ArtifactSource : global::Pulumi.CustomResource

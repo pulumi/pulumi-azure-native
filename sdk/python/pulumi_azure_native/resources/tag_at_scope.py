@@ -64,6 +64,48 @@ class TagAtScope(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update tags on a resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_at_scope = azure_native.resources.TagAtScope("tagAtScope",
+            properties=azure_native.resources.TagsArgs(
+                tags={
+                    "tagKey1": "tag-value-1",
+                    "tagKey2": "tag-value-2",
+                },
+            ),
+            scope="subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/myPRNameSpace/VM/myVm")
+
+        ```
+        ### Update tags on a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_at_scope = azure_native.resources.TagAtScope("tagAtScope",
+            properties=azure_native.resources.TagsArgs(
+                tags={
+                    "tagKey1": "tag-value-1",
+                    "tagKey2": "tag-value-2",
+                },
+            ),
+            scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:TagAtScope myresource1 subscriptions/00000000-0000-0000-0000-000000000000 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['TagsArgs']] properties: The set of tags.
@@ -79,6 +121,48 @@ class TagAtScope(pulumi.CustomResource):
         Wrapper resource for tags API requests and responses.
         API Version: 2022-09-01.
         Previous API Version: 2019-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update tags on a resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_at_scope = azure_native.resources.TagAtScope("tagAtScope",
+            properties=azure_native.resources.TagsArgs(
+                tags={
+                    "tagKey1": "tag-value-1",
+                    "tagKey2": "tag-value-2",
+                },
+            ),
+            scope="subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/myPRNameSpace/VM/myVm")
+
+        ```
+        ### Update tags on a subscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        tag_at_scope = azure_native.resources.TagAtScope("tagAtScope",
+            properties=azure_native.resources.TagsArgs(
+                tags={
+                    "tagKey1": "tag-value-1",
+                    "tagKey2": "tag-value-2",
+                },
+            ),
+            scope="subscriptions/00000000-0000-0000-0000-000000000000")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:TagAtScope myresource1 subscriptions/00000000-0000-0000-0000-000000000000 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TagAtScopeArgs args: The arguments to use to populate this resource's properties.

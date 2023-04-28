@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Appliance Site resource.
+ *
+ * ## Example Usage
+ * ### Create Network Virtual Appliance Site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualApplianceSite = new azure_native.network.v20201101.VirtualApplianceSite("virtualApplianceSite", {
+ *     addressPrefix: "192.168.1.0/24",
+ *     networkVirtualApplianceName: "nva",
+ *     o365Policy: {
+ *         breakOutCategories: {
+ *             allow: true,
+ *             "default": true,
+ *             optimize: true,
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     siteName: "site1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:VirtualApplianceSite site1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkVirtualAppliances/nva/virtualApplianceSites/site1 
+ * ```
  */
 export class VirtualApplianceSite extends pulumi.CustomResource {
     /**

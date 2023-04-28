@@ -63,6 +63,37 @@ class Report(pulumi.CustomResource):
         """
         A class represent an AppComplianceAutomation report resource.
 
+        ## Example Usage
+        ### Report_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        report = azure_native.appcomplianceautomation.v20221116preview.Report("report",
+            properties=azure_native.appcomplianceautomation.v20221116preview.ReportPropertiesResponseArgs(
+                offer_guid="0000",
+                resources=[azure_native.appcomplianceautomation.v20221116preview.ResourceMetadataArgs(
+                    resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+                    tags={
+                        "key1": "value1",
+                    },
+                )],
+                time_zone="GMT Standard Time",
+                trigger_time="2022-03-04T05:11:56.197Z",
+            ),
+            report_name="testReportName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appcomplianceautomation/v20221116preview:Report testReportName /provider/Microsfot.AppComplianceAutomation/reports/testReportName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ReportPropertiesArgs']] properties: Report property.
@@ -76,6 +107,37 @@ class Report(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent an AppComplianceAutomation report resource.
+
+        ## Example Usage
+        ### Report_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        report = azure_native.appcomplianceautomation.v20221116preview.Report("report",
+            properties=azure_native.appcomplianceautomation.v20221116preview.ReportPropertiesResponseArgs(
+                offer_guid="0000",
+                resources=[azure_native.appcomplianceautomation.v20221116preview.ResourceMetadataArgs(
+                    resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+                    tags={
+                        "key1": "value1",
+                    },
+                )],
+                time_zone="GMT Standard Time",
+                trigger_time="2022-03-04T05:11:56.197Z",
+            ),
+            report_name="testReportName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appcomplianceautomation/v20221116preview:Report testReportName /provider/Microsfot.AppComplianceAutomation/reports/testReportName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReportArgs args: The arguments to use to populate this resource's properties.

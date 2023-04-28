@@ -187,6 +187,49 @@ class Blueprint(pulumi.CustomResource):
         """
         Represents a Blueprint definition.
 
+        ## Example Usage
+        ### Blueprint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blueprint = azure_native.blueprint.v20171111preview.Blueprint("blueprint",
+            blueprint_name="simpleBlueprint",
+            description="blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+            management_group_name="ContosoOnlineGroup",
+            parameters={
+                "costCenter": azure_native.blueprint.v20171111preview.ParameterDefinitionArgs(
+                    display_name="force cost center tag for all resources under given subscription.",
+                    type="string",
+                ),
+                "owners": azure_native.blueprint.v20171111preview.ParameterDefinitionArgs(
+                    display_name="assign owners to subscription along with blueprint assignment.",
+                    type="array",
+                ),
+                "storageAccountType": azure_native.blueprint.v20171111preview.ParameterDefinitionArgs(
+                    display_name="storage account type.",
+                    type="string",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.v20171111preview.ResourceGroupDefinitionArgs(
+                    description="Contains storageAccounts that collect all shoebox logs.",
+                    display_name="storage resource group",
+                ),
+            },
+            target_scope="subscription")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:Blueprint simpleBlueprint /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] blueprint_name: name of the blueprint.
@@ -207,6 +250,49 @@ class Blueprint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Blueprint definition.
+
+        ## Example Usage
+        ### Blueprint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        blueprint = azure_native.blueprint.v20171111preview.Blueprint("blueprint",
+            blueprint_name="simpleBlueprint",
+            description="blueprint contains all artifact kinds {'template', 'rbac', 'policy'}",
+            management_group_name="ContosoOnlineGroup",
+            parameters={
+                "costCenter": azure_native.blueprint.v20171111preview.ParameterDefinitionArgs(
+                    display_name="force cost center tag for all resources under given subscription.",
+                    type="string",
+                ),
+                "owners": azure_native.blueprint.v20171111preview.ParameterDefinitionArgs(
+                    display_name="assign owners to subscription along with blueprint assignment.",
+                    type="array",
+                ),
+                "storageAccountType": azure_native.blueprint.v20171111preview.ParameterDefinitionArgs(
+                    display_name="storage account type.",
+                    type="string",
+                ),
+            },
+            resource_groups={
+                "storageRG": azure_native.blueprint.v20171111preview.ResourceGroupDefinitionArgs(
+                    description="Contains storageAccounts that collect all shoebox logs.",
+                    display_name="storage resource group",
+                ),
+            },
+            target_scope="subscription")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:Blueprint simpleBlueprint /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BlueprintArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.Automation.V20190601
 {
     /// <summary>
     /// Definition of the source control.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a source control
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sourceControl = new AzureNative.Automation.V20190601.SourceControl("sourceControl", new()
+    ///     {
+    ///         AutoSync = true,
+    ///         AutomationAccountName = "sampleAccount9",
+    ///         Branch = "master",
+    ///         Description = "my description",
+    ///         FolderPath = "/folderOne/folderTwo",
+    ///         PublishRunbook = true,
+    ///         RepoUrl = "https://sampleUser.visualstudio.com/myProject/_git/myRepository",
+    ///         ResourceGroupName = "rg",
+    ///         SecurityToken = new AzureNative.Automation.V20190601.Inputs.SourceControlSecurityTokenPropertiesArgs
+    ///         {
+    ///             AccessToken = "******",
+    ///             TokenType = "PersonalAccessToken",
+    ///         },
+    ///         SourceControlName = "sampleSourceControl",
+    ///         SourceType = "VsoGit",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20190601:SourceControl sampleSourceControl /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/sampleAccount9/sourcecontrols/sampleSourceControl 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:SourceControl")]
     public partial class SourceControl : global::Pulumi.CustomResource

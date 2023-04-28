@@ -182,6 +182,33 @@ class BackupPolicy(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### BackupPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_policy = azure_native.netapp.BackupPolicy("backupPolicy",
+            account_name="account1",
+            backup_policy_name="backupPolicyName",
+            daily_backups_to_keep=10,
+            enabled=True,
+            location="westus",
+            monthly_backups_to_keep=10,
+            resource_group_name="myRG",
+            weekly_backups_to_keep=10)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:BackupPolicy account1/backupPolicyName /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/backupPolocies/backupPolicyName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -204,6 +231,33 @@ class BackupPolicy(pulumi.CustomResource):
         Backup policy information
         API Version: 2022-09-01.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### BackupPolicies_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        backup_policy = azure_native.netapp.BackupPolicy("backupPolicy",
+            account_name="account1",
+            backup_policy_name="backupPolicyName",
+            daily_backups_to_keep=10,
+            enabled=True,
+            location="westus",
+            monthly_backups_to_keep=10,
+            resource_group_name="myRG",
+            weekly_backups_to_keep=10)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp:BackupPolicy account1/backupPolicyName /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/backupPolocies/backupPolicyName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BackupPolicyArgs args: The arguments to use to populate this resource's properties.

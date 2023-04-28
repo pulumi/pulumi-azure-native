@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * The NSP resource association resource
+ *
+ * ## Example Usage
+ * ### NspAssociationPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nspAssociation = new azure_native.network.v20210201preview.NspAssociation("nspAssociation", {
+ *     accessMode: "Enforced",
+ *     associationName: "association1",
+ *     networkSecurityPerimeterName: "nsp1",
+ *     privateLinkResource: {
+ *         id: "/subscriptions/{paasSubscriptionId}/resourceGroups/{paasResourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}",
+ *     },
+ *     profile: {
+ *         id: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/{profileName}",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210201preview:NspAssociation association1 /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/resourceAssociations/association1 
+ * ```
  */
 export class NspAssociation extends pulumi.CustomResource {
     /**

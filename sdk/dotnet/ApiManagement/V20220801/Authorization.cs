@@ -11,6 +11,65 @@ namespace Pulumi.AzureNative.ApiManagement.V20220801
 {
     /// <summary>
     /// Authorization contract.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateAuthorizationAADAuthCode
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var authorization = new AzureNative.ApiManagement.V20220801.Authorization("authorization", new()
+    ///     {
+    ///         AuthorizationId = "authz2",
+    ///         AuthorizationProviderId = "aadwithauthcode",
+    ///         AuthorizationType = "OAuth2",
+    ///         OAuth2GrantType = "AuthorizationCode",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateAuthorizationAADClientCred
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var authorization = new AzureNative.ApiManagement.V20220801.Authorization("authorization", new()
+    ///     {
+    ///         AuthorizationId = "authz1",
+    ///         AuthorizationProviderId = "aadwithclientcred",
+    ///         AuthorizationType = "OAuth2",
+    ///         OAuth2GrantType = "AuthorizationCode",
+    ///         Parameters = 
+    ///         {
+    ///             { "clientId", "53790925-fdd3-4b80-bc7a-4c3aaf25801d" },
+    ///             { "clientSecret", "FcJkQ3iPSaKAQRA7Ft8Q~fZ1X5vKmqzUAfJagcJ8" },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20220801:Authorization authz1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/aadwithclientcred/authorizations/authz1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20220801:Authorization")]
     public partial class Authorization : global::Pulumi.CustomResource

@@ -13,6 +13,66 @@ namespace Pulumi.AzureNative.VMwareCloudSimple
     /// Virtual machine model
     /// API Version: 2019-04-01.
     /// Previous API Version: 2019-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualMachine
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualMachine = new AzureNative.VMwareCloudSimple.VirtualMachine("virtualMachine", new()
+    ///     {
+    ///         AmountOfRam = 4096,
+    ///         Disks = new[]
+    ///         {
+    ///             new AzureNative.VMwareCloudSimple.Inputs.VirtualDiskArgs
+    ///             {
+    ///                 ControllerId = "1000",
+    ///                 IndependenceMode = AzureNative.VMwareCloudSimple.DiskIndependenceMode.Persistent,
+    ///                 TotalSize = 10485760,
+    ///                 VirtualDiskId = "2000",
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         Nics = new[]
+    ///         {
+    ///             new AzureNative.VMwareCloudSimple.Inputs.VirtualNicArgs
+    ///             {
+    ///                 Network = new AzureNative.VMwareCloudSimple.Inputs.VirtualNetworkArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualNetworks/dvportgroup-19",
+    ///                 },
+    ///                 NicType = AzureNative.VMwareCloudSimple.NICType.E1000,
+    ///                 PowerOnBoot = true,
+    ///                 VirtualNicId = "4000",
+    ///             },
+    ///         },
+    ///         NumberOfCores = 2,
+    ///         PrivateCloudId = "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourcePool = new AzureNative.VMwareCloudSimple.Inputs.ResourcePoolArgs
+    ///         {
+    ///             Id = "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/resourcePools/resgroup-26",
+    ///         },
+    ///         TemplateId = "/subscriptions/{subscription-id}/providers/Microsoft.VMwareCloudSimple/locations/westus2/privateClouds/myPrivateCloud/virtualMachineTemplates/vm-34",
+    ///         VirtualMachineName = "myVirtualMachine",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:vmwarecloudsimple:VirtualMachine myVirtualMachine /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VMwareCloudSimple/virtualMachines/myVirtualMachine 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple:VirtualMachine")]
     public partial class VirtualMachine : global::Pulumi.CustomResource

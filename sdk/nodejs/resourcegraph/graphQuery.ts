@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * Graph Query entity definition.
  * API Version: 2020-04-01-preview.
  * Previous API Version: 2018-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Graph Query
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const graphQuery = new azure_native.resourcegraph.GraphQuery("graphQuery", {
+ *     description: "Docker VMs in PROD",
+ *     query: "where isnotnull(tags['Prod']) and properties.extensions[0].Name == 'docker'",
+ *     resourceGroupName: "my-resource-group",
+ *     resourceName: "MyDockerVMs",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resourcegraph:GraphQuery MyDockerVMs  /subscriptions/024e2271-06fa-46b6-9079-f1ed3c7b070e/resources/my-resource-group/providers/Microsoft.ResourceGraph/queries/MyDockerVMs 
+ * ```
  */
 export class GraphQuery extends pulumi.CustomResource {
     /**

@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.ServiceLinker.V20221101Preview
 {
     /// <summary>
     /// a dryrun job resource
+    /// 
+    /// ## Example Usage
+    /// ### PutDryrun
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var linkerDryrun = new AzureNative.ServiceLinker.V20221101Preview.LinkerDryrun("linkerDryrun", new()
+    ///     {
+    ///         DryrunName = "dryrunName",
+    ///         Parameters = new AzureNative.ServiceLinker.V20221101Preview.Inputs.CreateOrUpdateDryrunParametersArgs
+    ///         {
+    ///             ActionName = "createOrUpdate",
+    ///             AuthInfo = new AzureNative.ServiceLinker.V20221101Preview.Inputs.SecretAuthInfoArgs
+    ///             {
+    ///                 AuthType = "secret",
+    ///                 Name = "name",
+    ///                 SecretInfo = new AzureNative.ServiceLinker.V20221101Preview.Inputs.ValueSecretInfoArgs
+    ///                 {
+    ///                     SecretType = "rawValue",
+    ///                     Value = "secret",
+    ///                 },
+    ///             },
+    ///             TargetService = new AzureNative.ServiceLinker.V20221101Preview.Inputs.AzureResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+    ///                 Type = "AzureResource",
+    ///             },
+    ///         },
+    ///         ResourceUri = "subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicelinker/v20221101preview:LinkerDryrun dryrunName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/dryruns/dryrunName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicelinker/v20221101preview:LinkerDryrun")]
     public partial class LinkerDryrun : global::Pulumi.CustomResource

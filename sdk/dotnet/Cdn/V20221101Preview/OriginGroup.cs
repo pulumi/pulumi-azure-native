@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.Cdn.V20221101Preview
 {
     /// <summary>
     /// Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
+    /// 
+    /// ## Example Usage
+    /// ### OriginGroups_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var originGroup = new AzureNative.Cdn.V20221101Preview.OriginGroup("originGroup", new()
+    ///     {
+    ///         EndpointName = "endpoint1",
+    ///         HealthProbeSettings = new AzureNative.Cdn.V20221101Preview.Inputs.HealthProbeParametersArgs
+    ///         {
+    ///             ProbeIntervalInSeconds = 120,
+    ///             ProbePath = "/health.aspx",
+    ///             ProbeProtocol = AzureNative.Cdn.V20221101Preview.ProbeProtocol.Http,
+    ///             ProbeRequestType = AzureNative.Cdn.V20221101Preview.HealthProbeRequestType.GET,
+    ///         },
+    ///         OriginGroupName = "origingroup1",
+    ///         Origins = new[]
+    ///         {
+    ///             new AzureNative.Cdn.V20221101Preview.Inputs.ResourceReferenceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/origins/origin1",
+    ///             },
+    ///         },
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         ResponseBasedOriginErrorDetectionSettings = new AzureNative.Cdn.V20221101Preview.Inputs.ResponseBasedOriginErrorDetectionParametersArgs
+    ///         {
+    ///             ResponseBasedDetectedErrorTypes = AzureNative.Cdn.V20221101Preview.ResponseBasedDetectedErrorTypes.TcpErrorsOnly,
+    ///             ResponseBasedFailoverThresholdPercentage = 10,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn/v20221101preview:OriginGroup origingroup1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/originGroups/originGroup1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn/v20221101preview:OriginGroup")]
     public partial class OriginGroup : global::Pulumi.CustomResource

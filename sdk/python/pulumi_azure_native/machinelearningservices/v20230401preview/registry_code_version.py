@@ -112,6 +112,40 @@ class RegistryCodeVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Registry Code Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_code_version = azure_native.machinelearningservices.v20230401preview.RegistryCodeVersion("registryCodeVersion",
+            code_name="string",
+            code_version_properties=azure_native.machinelearningservices.v20230401preview.CodeVersionArgs(
+                code_uri="https://blobStorage/folderName",
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            registry_name="my-aml-registry",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryCodeVersion string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] code_name: Container name.
@@ -128,6 +162,40 @@ class RegistryCodeVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Registry Code Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry_code_version = azure_native.machinelearningservices.v20230401preview.RegistryCodeVersion("registryCodeVersion",
+            code_name="string",
+            code_version_properties=azure_native.machinelearningservices.v20230401preview.CodeVersionArgs(
+                code_uri="https://blobStorage/folderName",
+                description="string",
+                is_anonymous=False,
+                properties={
+                    "string": "string",
+                },
+                tags={
+                    "string": "string",
+                },
+            ),
+            registry_name="my-aml-registry",
+            resource_group_name="test-rg",
+            version="string")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryCodeVersion string string 
+        ```
 
         :param str resource_name: The name of the resource.
         :param RegistryCodeVersionArgs args: The arguments to use to populate this resource's properties.

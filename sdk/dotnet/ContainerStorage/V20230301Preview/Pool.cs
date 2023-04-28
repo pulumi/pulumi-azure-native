@@ -11,6 +11,98 @@ namespace Pulumi.AzureNative.ContainerStorage.V20230301Preview
 {
     /// <summary>
     /// Pool resource
+    /// 
+    /// ## Example Usage
+    /// ### Pools_CreateOrUpdate_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.ContainerStorage.V20230301Preview.Pool("pool", new()
+    ///     {
+    ///         Assignments = new[]
+    ///         {
+    ///             "qvheujgnqksryltqtkjty",
+    ///         },
+    ///         DiskPoolProperties = new AzureNative.ContainerStorage.V20230301Preview.Inputs.DiskPoolPropertiesArgs
+    ///         {
+    ///             CsiParams = 
+    ///             {
+    ///                 { "key3964", "og" },
+    ///             },
+    ///             Disks = new[]
+    ///             {
+    ///                 "wtsj",
+    ///             },
+    ///             MaxVolumeCapacityGiB = 11,
+    ///         },
+    ///         ElasticSanPoolProperties = new AzureNative.ContainerStorage.V20230301Preview.Inputs.ElasticSanPoolPropertiesArgs
+    ///         {
+    ///             ResourceGroup = "bjdqfuspbvlgkhsyt",
+    ///             SanName = "gu",
+    ///             VolumeGroup = "csbzebtsmcnhxzqp",
+    ///         },
+    ///         EphemeralPoolProperties = new AzureNative.ContainerStorage.V20230301Preview.Inputs.EphemeralPoolPropertiesArgs
+    ///         {
+    ///             DiskFormat = true,
+    ///             DiskSelector = new[]
+    ///             {
+    ///                 "nvpe",
+    ///             },
+    ///             Disks = new[]
+    ///             {
+    ///                 "zokpazvsbrjvkwhsss",
+    ///             },
+    ///         },
+    ///         Location = "jdfanwoyiigytvanvct",
+    ///         PoolCapacityGiB = 23,
+    ///         PoolName = "-EXNI2WK48",
+    ///         PoolType = 26,
+    ///         ResourceGroupName = "rgcontainerstorage",
+    ///         Tags = 
+    ///         {
+    ///             { "key5598", "fxughwwqpqkvojkkuur" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "mzjpggkkungkugtucivmxfjnxmzdj",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Pools_CreateOrUpdate_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var pool = new AzureNative.ContainerStorage.V20230301Preview.Pool("pool", new()
+    ///     {
+    ///         Location = "jdfanwoyiigytvanvct",
+    ///         PoolName = "J873cXX1w3sIX",
+    ///         ResourceGroupName = "rgcontainerstorage",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerstorage/v20230301preview:Pool rgzqqcqrypwtqhgnvcdilsbquamov a 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerstorage/v20230301preview:Pool")]
     public partial class Pool : global::Pulumi.CustomResource

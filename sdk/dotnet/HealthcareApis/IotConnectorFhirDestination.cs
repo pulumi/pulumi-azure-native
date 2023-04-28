@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// IoT Connector FHIR destination definition.
     /// API Version: 2022-12-01.
     /// Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an Iot Connector FHIR destination
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotConnectorFhirDestination = new AzureNative.HealthcareApis.IotConnectorFhirDestination("iotConnectorFhirDestination", new()
+    ///     {
+    ///         FhirDestinationName = "dest1",
+    ///         FhirMapping = new AzureNative.HealthcareApis.Inputs.IotMappingPropertiesArgs
+    ///         {
+    ///             Content = 
+    ///             {
+    ///                 { "template", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "template", 
+    ///                         {
+    ///                             { "codes", new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "code", "8867-4" },
+    ///                                     { "display", "Heart rate" },
+    ///                                     { "system", "http://loinc.org" },
+    ///                                 },
+    ///                             } },
+    ///                             { "periodInterval", 60 },
+    ///                             { "typeName", "heartrate" },
+    ///                             { "value", 
+    ///                             {
+    ///                                 { "defaultPeriod", 5000 },
+    ///                                 { "unit", "count/min" },
+    ///                                 { "valueName", "hr" },
+    ///                                 { "valueType", "SampledData" },
+    ///                             } },
+    ///                         } },
+    ///                         { "templateType", "CodeValueFhir" },
+    ///                     },
+    ///                 } },
+    ///                 { "templateType", "CollectionFhirTemplate" },
+    ///             },
+    ///         },
+    ///         FhirServiceResourceId = "subscriptions/11111111-2222-3333-4444-555566667777/resourceGroups/myrg/providers/Microsoft.HealthcareApis/workspaces/myworkspace/fhirservices/myfhirservice",
+    ///         IotConnectorName = "blue",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testRG",
+    ///         ResourceIdentityResolutionType = "Create",
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthcareapis:IotConnectorFhirDestination dest1 /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue/fhirdestinations/dest1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:IotConnectorFhirDestination")]
     public partial class IotConnectorFhirDestination : global::Pulumi.CustomResource

@@ -11,6 +11,87 @@ namespace Pulumi.AzureNative.Automation.V20190601
 {
     /// <summary>
     /// Definition of the runbook type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update runbook and publish it
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var runbook = new AzureNative.Automation.V20190601.Runbook("runbook", new()
+    ///     {
+    ///         AutomationAccountName = "ContoseAutomationAccount",
+    ///         Description = "Description of the Runbook",
+    ///         Location = "East US 2",
+    ///         LogActivityTrace = 1,
+    ///         LogProgress = true,
+    ///         LogVerbose = false,
+    ///         Name = "Get-AzureVMTutorial",
+    ///         PublishContentLink = new AzureNative.Automation.V20190601.Inputs.ContentLinkArgs
+    ///         {
+    ///             ContentHash = new AzureNative.Automation.V20190601.Inputs.ContentHashArgs
+    ///             {
+    ///                 Algorithm = "SHA256",
+    ///                 Value = "115775B8FF2BE672D8A946BD0B489918C724DDE15A440373CA54461D53010A80",
+    ///             },
+    ///             Uri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         RunbookName = "Get-AzureVMTutorial",
+    ///         RunbookType = "PowerShellWorkflow",
+    ///         Tags = 
+    ///         {
+    ///             { "tag01", "value01" },
+    ///             { "tag02", "value02" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create runbook as draft
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var runbook = new AzureNative.Automation.V20190601.Runbook("runbook", new()
+    ///     {
+    ///         AutomationAccountName = "ContoseAutomationAccount",
+    ///         Description = "Description of the Runbook",
+    ///         Draft = null,
+    ///         Location = "East US 2",
+    ///         LogProgress = false,
+    ///         LogVerbose = false,
+    ///         Name = "Get-AzureVMTutorial",
+    ///         ResourceGroupName = "rg",
+    ///         RunbookName = "Get-AzureVMTutorial",
+    ///         RunbookType = "PowerShellWorkflow",
+    ///         Tags = 
+    ///         {
+    ///             { "tag01", "value01" },
+    ///             { "tag02", "value02" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20190601:Runbook Get-AzureVMTutorial /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/ContoseAutomationAccount/runbooks/Get-AzureVMTutorial 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:Runbook")]
     public partial class Runbook : global::Pulumi.CustomResource

@@ -197,6 +197,95 @@ class TemplateArtifact(pulumi.CustomResource):
         """
         Blueprint artifact deploys Azure resource manager template.
 
+        ## Example Usage
+        ### ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_artifact = azure_native.blueprint.v20171111preview.TemplateArtifact("templateArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            kind="template",
+            management_group_name="ContosoOnlineGroup",
+            parameters={
+                "storageAccountType": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+            },
+            resource_group="storageRG",
+            template={
+                "contentVersion": "1.0.0.0",
+                "outputs": {
+                    "storageAccountName": {
+                        "type": "string",
+                        "value": "[variables('storageAccountName')]",
+                    },
+                },
+                "parameters": {
+                    "storageAccountType": {
+                        "allowedValues": [
+                            "Standard_LRS",
+                            "Standard_GRS",
+                            "Standard_ZRS",
+                            "Premium_LRS",
+                        ],
+                        "defaultValue": "Standard_LRS",
+                        "metadata": {
+                            "description": "Storage Account type",
+                        },
+                        "type": "string",
+                    },
+                },
+                "resources": [{
+                    "apiVersion": "2016-01-01",
+                    "kind": "Storage",
+                    "location": "[resourceGroup().location]",
+                    "name": "[variables('storageAccountName')]",
+                    "properties": {},
+                    "sku": {
+                        "name": "[parameters('storageAccountType')]",
+                    },
+                    "type": "Microsoft.Storage/storageAccounts",
+                }],
+                "variables": {
+                    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]",
+                },
+            })
+
+        ```
+        ### PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_artifact = azure_native.blueprint.v20171111preview.TemplateArtifact("templateArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+        ### RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_artifact = azure_native.blueprint.v20171111preview.TemplateArtifact("templateArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:TemplateArtifact ownerAssignment /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] artifact_name: name of the artifact.
@@ -219,6 +308,95 @@ class TemplateArtifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Blueprint artifact deploys Azure resource manager template.
+
+        ## Example Usage
+        ### ARMTemplateArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_artifact = azure_native.blueprint.v20171111preview.TemplateArtifact("templateArtifact",
+            artifact_name="storageTemplate",
+            blueprint_name="simpleBlueprint",
+            kind="template",
+            management_group_name="ContosoOnlineGroup",
+            parameters={
+                "storageAccountType": azure_native.blueprint.v20171111preview.ParameterValueBaseArgs(),
+            },
+            resource_group="storageRG",
+            template={
+                "contentVersion": "1.0.0.0",
+                "outputs": {
+                    "storageAccountName": {
+                        "type": "string",
+                        "value": "[variables('storageAccountName')]",
+                    },
+                },
+                "parameters": {
+                    "storageAccountType": {
+                        "allowedValues": [
+                            "Standard_LRS",
+                            "Standard_GRS",
+                            "Standard_ZRS",
+                            "Premium_LRS",
+                        ],
+                        "defaultValue": "Standard_LRS",
+                        "metadata": {
+                            "description": "Storage Account type",
+                        },
+                        "type": "string",
+                    },
+                },
+                "resources": [{
+                    "apiVersion": "2016-01-01",
+                    "kind": "Storage",
+                    "location": "[resourceGroup().location]",
+                    "name": "[variables('storageAccountName')]",
+                    "properties": {},
+                    "sku": {
+                        "name": "[parameters('storageAccountType')]",
+                    },
+                    "type": "Microsoft.Storage/storageAccounts",
+                }],
+                "variables": {
+                    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]",
+                },
+            })
+
+        ```
+        ### PolicyAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_artifact = azure_native.blueprint.v20171111preview.TemplateArtifact("templateArtifact",
+            artifact_name="costCenterPolicy",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+        ### RoleAssignmentArtifact
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_artifact = azure_native.blueprint.v20171111preview.TemplateArtifact("templateArtifact",
+            artifact_name="ownerAssignment",
+            blueprint_name="simpleBlueprint",
+            management_group_name="ContosoOnlineGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:blueprint/v20171111preview:TemplateArtifact ownerAssignment /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TemplateArtifactArgs args: The arguments to use to populate this resource's properties.

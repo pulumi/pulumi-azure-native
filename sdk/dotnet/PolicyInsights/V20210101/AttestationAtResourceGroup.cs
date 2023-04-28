@@ -11,6 +11,48 @@ namespace Pulumi.AzureNative.PolicyInsights.V20210101
 {
     /// <summary>
     /// An attestation resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create attestation at resource group scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var attestationAtResourceGroup = new AzureNative.PolicyInsights.V20210101.AttestationAtResourceGroup("attestationAtResourceGroup", new()
+    ///     {
+    ///         AttestationName = "790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
+    ///         Comments = "This subscription has passed a security audit.",
+    ///         ComplianceState = "Compliant",
+    ///         Evidence = new[]
+    ///         {
+    ///             new AzureNative.PolicyInsights.V20210101.Inputs.AttestationEvidenceArgs
+    ///             {
+    ///                 Description = "The results of the security audit.",
+    ///                 SourceUri = "https://gist.github.com/contoso/9573e238762c60166c090ae16b814011",
+    ///             },
+    ///         },
+    ///         ExpiresOn = "2021-06-15T00:00:00Z",
+    ///         Owner = "55a32e28-3aa5-4eea-9b5a-4cd85153b966",
+    ///         PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///         PolicyDefinitionReferenceId = "0b158b46-ff42-4799-8e39-08a5c23b4551",
+    ///         ResourceGroupName = "myRg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:policyinsights/v20210101:AttestationAtResourceGroup 790996e6-9871-4b1f-9cd9-ec42cd6ced1e /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourcegroups/myrg/providers/microsoft.policyinsights/attestations/790996e6-9871-4b1f-9cd9-ec42cd6ced1e 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights/v20210101:AttestationAtResourceGroup")]
     public partial class AttestationAtResourceGroup : global::Pulumi.CustomResource

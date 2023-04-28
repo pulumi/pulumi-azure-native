@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Network related settings
  * API Version: 2022-11-11-preview.
  * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### NetworkConnections_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkConnection = new azure_native.devcenter.NetworkConnection("networkConnection", {
+ *     domainJoinType: "HybridAzureADJoin",
+ *     domainName: "mydomaincontroller.local",
+ *     domainPassword: "Password value for user",
+ *     domainUsername: "testuser@mydomaincontroller.local",
+ *     location: "centralus",
+ *     networkConnectionName: "uswest3network",
+ *     networkingResourceGroupName: "NetworkInterfaces",
+ *     resourceGroupName: "rg1",
+ *     subnetId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/ExampleRG/providers/Microsoft.Network/virtualNetworks/ExampleVNet/subnets/default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter:NetworkConnection uswest3network /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/networkconnections/uswest3network 
+ * ```
  */
 export class NetworkConnection extends pulumi.CustomResource {
     /**

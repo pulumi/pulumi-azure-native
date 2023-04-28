@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * Definition of the module type.
  * API Version: 2022-08-08.
  * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a python 2 package
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const python2Package = new azure_native.automation.Python2Package("python2Package", {
+ *     automationAccountName: "myAutomationAccount33",
+ *     contentLink: {
+ *         contentHash: {
+ *             algorithm: "sha265",
+ *             value: "07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+ *         },
+ *         uri: "https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+ *         version: "1.0.0.0",
+ *     },
+ *     packageName: "OmsCompositeResources",
+ *     resourceGroupName: "rg",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automation:Python2Package OmsCompositeResources /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/python2Packages/OmsCompositeResources 
+ * ```
  */
 export class Python2Package extends pulumi.CustomResource {
     /**

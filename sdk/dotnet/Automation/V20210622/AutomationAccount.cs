@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Automation.V20210622
 {
     /// <summary>
     /// Definition of the automation account type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update automation account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var automationAccount = new AzureNative.Automation.V20210622.AutomationAccount("automationAccount", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount9",
+    ///         Location = "East US 2",
+    ///         Name = "myAutomationAccount9",
+    ///         ResourceGroupName = "rg",
+    ///         Sku = new AzureNative.Automation.V20210622.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Free",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20210622:AutomationAccount ContoseAutomationAccount /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount9 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20210622:AutomationAccount")]
     public partial class AutomationAccount : global::Pulumi.CustomResource

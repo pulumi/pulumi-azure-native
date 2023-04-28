@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.DataBoxEdge.V20200501Preview
 {
     /// <summary>
     /// Represents a Storage Account on the  Data Box Edge/Gateway device.
+    /// 
+    /// ## Example Usage
+    /// ### StorageAccountPut
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageAccount = new AzureNative.DataBoxEdge.V20200501Preview.StorageAccount("storageAccount", new()
+    ///     {
+    ///         DataPolicy = "Cloud",
+    ///         Description = "It's an awesome storage account",
+    ///         DeviceName = "testedgedevice",
+    ///         ResourceGroupName = "GroupForEdgeAutomation",
+    ///         StorageAccountCredentialId = "/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccountCredentials/cisbvt",
+    ///         StorageAccountName = "blobstorageaccount1",
+    ///         StorageAccountStatus = "OK",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:databoxedge/v20200501preview:StorageAccount blobstorageaccount1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForDataBoxEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/storageAccounts/blobstorageaccount1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2020-05-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:databoxedge/v20200501preview:StorageAccount")]

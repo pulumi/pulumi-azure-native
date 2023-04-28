@@ -11,6 +11,171 @@ namespace Pulumi.AzureNative.Storage.V20210201
 {
     /// <summary>
     /// The properties of File services in storage account.
+    /// 
+    /// ## Example Usage
+    /// ### PutFileServices
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileServiceProperties = new AzureNative.Storage.V20210201.FileServiceProperties("fileServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         Cors = new AzureNative.Storage.V20210201.Inputs.CorsRulesArgs
+    ///         {
+    ///             CorsRules = new[]
+    ///             {
+    ///                 new AzureNative.Storage.V20210201.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-abc",
+    ///                         "x-ms-meta-data*",
+    ///                         "x-ms-meta-target*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         "GET",
+    ///                         "HEAD",
+    ///                         "POST",
+    ///                         "OPTIONS",
+    ///                         "MERGE",
+    ///                         "PUT",
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "http://www.contoso.com",
+    ///                         "http://www.fabrikam.com",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 100,
+    ///                 },
+    ///                 new AzureNative.Storage.V20210201.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         "GET",
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 2,
+    ///                 },
+    ///                 new AzureNative.Storage.V20210201.Inputs.CorsRuleArgs
+    ///                 {
+    ///                     AllowedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-12345675754564*",
+    ///                     },
+    ///                     AllowedMethods = new[]
+    ///                     {
+    ///                         "GET",
+    ///                         "PUT",
+    ///                     },
+    ///                     AllowedOrigins = new[]
+    ///                     {
+    ///                         "http://www.abc23.com",
+    ///                         "https://www.fabrikam.com/*",
+    ///                     },
+    ///                     ExposedHeaders = new[]
+    ///                     {
+    ///                         "x-ms-meta-abc",
+    ///                         "x-ms-meta-data*",
+    ///                         "x-ms-meta-target*",
+    ///                     },
+    ///                     MaxAgeInSeconds = 2000,
+    ///                 },
+    ///             },
+    ///         },
+    ///         FileServicesName = "default",
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutFileServices_EnableSMBMultichannel
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileServiceProperties = new AzureNative.Storage.V20210201.FileServiceProperties("fileServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         FileServicesName = "default",
+    ///         ProtocolSettings = new AzureNative.Storage.V20210201.Inputs.ProtocolSettingsArgs
+    ///         {
+    ///             Smb = new AzureNative.Storage.V20210201.Inputs.SmbSettingArgs
+    ///             {
+    ///                 Multichannel = new AzureNative.Storage.V20210201.Inputs.MultichannelArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### PutFileServices_EnableSecureSmbFeatures
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileServiceProperties = new AzureNative.Storage.V20210201.FileServiceProperties("fileServiceProperties", new()
+    ///     {
+    ///         AccountName = "sto8607",
+    ///         FileServicesName = "default",
+    ///         ProtocolSettings = new AzureNative.Storage.V20210201.Inputs.ProtocolSettingsArgs
+    ///         {
+    ///             Smb = new AzureNative.Storage.V20210201.Inputs.SmbSettingArgs
+    ///             {
+    ///                 AuthenticationMethods = "NTLMv2;Kerberos",
+    ///                 ChannelEncryption = "AES-128-CCM;AES-128-GCM;AES-256-GCM",
+    ///                 KerberosTicketEncryption = "RC4-HMAC;AES-256",
+    ///                 Versions = "SMB2.1;SMB3.0;SMB3.1.1",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res4410",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20210201:FileServiceProperties default /subscriptions/{subscription-id}/resourceGroups/res4410/providers/Microsoft.Storage/storageAccounts/sto8607/fileServices/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20210201:FileServiceProperties")]
     public partial class FileServiceProperties : global::Pulumi.CustomResource

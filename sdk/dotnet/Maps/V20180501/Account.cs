@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Maps.V20180501
 {
     /// <summary>
     /// An Azure resource which represents access to a suite of Maps REST APIs.
+    /// 
+    /// ## Example Usage
+    /// ### CreateAccount
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.Maps.V20180501.Account("account", new()
+    ///     {
+    ///         AccountName = "myMapsAccount",
+    ///         Location = "global",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.Maps.V20180501.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "test", "true" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:maps/v20180501:Account myMapsAccount /subscriptions/21a9967a-e8a9-4656-a70b-96ff1c4d05a0/resourceGroups/myResourceGroup/providers/Microsoft.Maps/accounts/myMapsAccount 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:maps/v20180501:Account")]
     public partial class Account : global::Pulumi.CustomResource

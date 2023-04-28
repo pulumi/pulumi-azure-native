@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.Synapse.V20210401Preview
 {
     /// <summary>
     /// Class representing an event hub data connection.
+    /// 
+    /// ## Example Usage
+    /// ### KustoPoolDataConnectionsCreateOrUpdate.json
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eventHubDataConnection = new AzureNative.Synapse.V20210401Preview.EventHubDataConnection("eventHubDataConnection", new()
+    ///     {
+    ///         ConsumerGroup = "testConsumerGroup1",
+    ///         DataConnectionName = "DataConnections8",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         EventHubResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.EventHub/namespaces/eventhubTestns1/eventhubs/eventhubTest1",
+    ///         Kind = "EventHub",
+    ///         KustoPoolName = "kustoclusterrptest4",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///         WorkspaceName = "synapseWorkspaceName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210401preview:EventHubDataConnection KustoClusterRPTest4/KustoDatabase8/DataConnections8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/workspaces/synapseWorkspaceName/kustopools/KustoClusterRPTest4/Databases/KustoDatabase8/DataConnections/DataConnections8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210401preview:EventHubDataConnection")]
     public partial class EventHubDataConnection : global::Pulumi.CustomResource

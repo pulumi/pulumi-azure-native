@@ -15,6 +15,38 @@ namespace Pulumi.AzureNative.Synapse
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
     /// 
     /// Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update workspace active directory admin
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceSqlAadAdmin = new AzureNative.Synapse.WorkspaceSqlAadAdmin("workspaceSqlAadAdmin", new()
+    ///     {
+    ///         AdministratorType = "ActiveDirectory",
+    ///         Login = "bob@contoso.com",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///         TenantId = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse:WorkspaceSqlAadAdmin activeDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/administrators/activeDirectory 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:WorkspaceSqlAadAdmin")]
     public partial class WorkspaceSqlAadAdmin : global::Pulumi.CustomResource

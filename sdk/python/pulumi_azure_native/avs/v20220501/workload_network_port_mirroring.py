@@ -163,6 +163,33 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
         """
         NSX Port Mirroring
 
+        ## Example Usage
+        ### WorkloadNetworks_CreatePortMirroring
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_port_mirroring = azure_native.avs.v20220501.WorkloadNetworkPortMirroring("workloadNetworkPortMirroring",
+            destination="vmGroup2",
+            direction="BIDIRECTIONAL",
+            display_name="portMirroring1",
+            port_mirroring_id="portMirroring1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            source="vmGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20220501:WorkloadNetworkPortMirroring portMirroring1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/portMirroringProfiles/portMirroring1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination: Destination VM Group.
@@ -182,6 +209,33 @@ class WorkloadNetworkPortMirroring(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NSX Port Mirroring
+
+        ## Example Usage
+        ### WorkloadNetworks_CreatePortMirroring
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_port_mirroring = azure_native.avs.v20220501.WorkloadNetworkPortMirroring("workloadNetworkPortMirroring",
+            destination="vmGroup2",
+            direction="BIDIRECTIONAL",
+            display_name="portMirroring1",
+            port_mirroring_id="portMirroring1",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1,
+            source="vmGroup1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs/v20220501:WorkloadNetworkPortMirroring portMirroring1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/portMirroringProfiles/portMirroring1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkPortMirroringArgs args: The arguments to use to populate this resource's properties.

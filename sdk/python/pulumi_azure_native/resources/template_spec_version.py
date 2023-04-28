@@ -200,6 +200,36 @@ class TemplateSpecVersion(pulumi.CustomResource):
         API Version: 2022-02-01.
         Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### TemplateSpecVersionsCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_spec_version = azure_native.resources.TemplateSpecVersion("templateSpecVersion",
+            description="This is version v1.0 of our template content",
+            location="eastus",
+            main_template={
+                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "resources": [],
+            },
+            resource_group_name="templateSpecRG",
+            template_spec_name="simpleTemplateSpec",
+            template_spec_version="v1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:TemplateSpecVersion v1.0 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/simpleTemplateSpec/versions/v1.0 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Template Spec version description.
@@ -223,6 +253,36 @@ class TemplateSpecVersion(pulumi.CustomResource):
         Template Spec Version object.
         API Version: 2022-02-01.
         Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### TemplateSpecVersionsCreateUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        template_spec_version = azure_native.resources.TemplateSpecVersion("templateSpecVersion",
+            description="This is version v1.0 of our template content",
+            location="eastus",
+            main_template={
+                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "contentVersion": "1.0.0.0",
+                "parameters": {},
+                "resources": [],
+            },
+            resource_group_name="templateSpecRG",
+            template_spec_name="simpleTemplateSpec",
+            template_spec_version="v1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:resources:TemplateSpecVersion v1.0 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/templateSpecRG/providers/Microsoft.Resources/templateSpecs/simpleTemplateSpec/versions/v1.0 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TemplateSpecVersionArgs args: The arguments to use to populate this resource's properties.

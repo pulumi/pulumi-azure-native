@@ -228,6 +228,61 @@ class BareMetalMachineKeySet(pulumi.CustomResource):
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update bare metal machine key set of cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bare_metal_machine_key_set = azure_native.networkcloud.BareMetalMachineKeySet("bareMetalMachineKeySet",
+            azure_group_id="f110271b-XXXX-4163-9b99-214d91660f0e",
+            bare_metal_machine_key_set_name="bareMetalMachineKeySetName",
+            cluster_name="clusterName",
+            expiration="2022-12-31T23:59:59.008Z",
+            extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            jump_hosts_allowed=[
+                "192.0.2.1",
+                "192.0.2.5",
+            ],
+            location="location",
+            os_group_name="standardAccessGroup",
+            privilege_level="Standard",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            user_list=[
+                azure_native.networkcloud.KeySetUserArgs(
+                    azure_user_name="userABC",
+                    description="Needs access for troubleshooting as a part of the support team",
+                    ssh_public_key=azure_native.networkcloud.SshPublicKeyArgs(
+                        key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                    ),
+                ),
+                azure_native.networkcloud.KeySetUserArgs(
+                    azure_user_name="userXYZ",
+                    description="Needs access for troubleshooting as a part of the support team",
+                    ssh_public_key=azure_native.networkcloud.SshPublicKeyArgs(
+                        key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                    ),
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:BareMetalMachineKeySet bareMetalMachineKeySetName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/bareMetalMachineKeySets/bareMetalMachineKeySetName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azure_group_id: The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access.
@@ -252,6 +307,61 @@ class BareMetalMachineKeySet(pulumi.CustomResource):
         """
         API Version: 2022-12-12-preview.
         Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update bare metal machine key set of cluster
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bare_metal_machine_key_set = azure_native.networkcloud.BareMetalMachineKeySet("bareMetalMachineKeySet",
+            azure_group_id="f110271b-XXXX-4163-9b99-214d91660f0e",
+            bare_metal_machine_key_set_name="bareMetalMachineKeySetName",
+            cluster_name="clusterName",
+            expiration="2022-12-31T23:59:59.008Z",
+            extended_location=azure_native.networkcloud.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            jump_hosts_allowed=[
+                "192.0.2.1",
+                "192.0.2.5",
+            ],
+            location="location",
+            os_group_name="standardAccessGroup",
+            privilege_level="Standard",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            },
+            user_list=[
+                azure_native.networkcloud.KeySetUserArgs(
+                    azure_user_name="userABC",
+                    description="Needs access for troubleshooting as a part of the support team",
+                    ssh_public_key=azure_native.networkcloud.SshPublicKeyArgs(
+                        key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                    ),
+                ),
+                azure_native.networkcloud.KeySetUserArgs(
+                    azure_user_name="userXYZ",
+                    description="Needs access for troubleshooting as a part of the support team",
+                    ssh_public_key=azure_native.networkcloud.SshPublicKeyArgs(
+                        key_data="ssh-rsa AAtsE3njSONzDYRIZv/WLjVuMfrUSByHp+jfaaOLHTIIB4fJvo6dQUZxE20w2iDHV3tEkmnTo84eba97VMueQD6OzJPEyWZMRpz8UYWOd0IXeRqiFu1lawNblZhwNT/ojNZfpB3af/YDzwQCZgTcTRyNNhL4o/blKUmug0daSsSXISTRnIDpcf5qytjs1Xo+yYyJMvzLL59mhAyb3p/cD+Y3/s3WhAx+l0XOKpzXnblrv9d3q4c2tWmm/SyFqthaqd0= admin@vm",
+                    ),
+                ),
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud:BareMetalMachineKeySet bareMetalMachineKeySetName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName/bareMetalMachineKeySets/bareMetalMachineKeySetName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BareMetalMachineKeySetArgs args: The arguments to use to populate this resource's properties.

@@ -95,6 +95,32 @@ class UserAssignedIdentity(pulumi.CustomResource):
         """
         Describes an identity resource.
 
+        ## Example Usage
+        ### IdentityCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_assigned_identity = azure_native.managedidentity.v20181130.UserAssignedIdentity("userAssignedIdentity",
+            location="eastus",
+            resource_group_name="rgName",
+            resource_name_="resourceName",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedidentity/v20181130:UserAssignedIdentity identityName /subscriptions/subid/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -110,6 +136,32 @@ class UserAssignedIdentity(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes an identity resource.
+
+        ## Example Usage
+        ### IdentityCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user_assigned_identity = azure_native.managedidentity.v20181130.UserAssignedIdentity("userAssignedIdentity",
+            location="eastus",
+            resource_group_name="rgName",
+            resource_name_="resourceName",
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managedidentity/v20181130:UserAssignedIdentity identityName /subscriptions/subid/resourcegroups/rgName/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identityName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserAssignedIdentityArgs args: The arguments to use to populate this resource's properties.

@@ -131,6 +131,31 @@ class CacheRule(pulumi.CustomResource):
         """
         An object that represents a cache rule for a container registry.
 
+        ## Example Usage
+        ### CacheRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache_rule = azure_native.containerregistry.v20230101preview.CacheRule("cacheRule",
+            cache_rule_name="myCacheRule",
+            credential_set_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            source_repository="docker.io/library/hello-world",
+            target_repository="cached-docker-hub/hello-world")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:CacheRule myCacheRule /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/cacheRules/myCacheRule 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cache_rule_name: The name of the cache rule.
@@ -149,6 +174,31 @@ class CacheRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a cache rule for a container registry.
+
+        ## Example Usage
+        ### CacheRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cache_rule = azure_native.containerregistry.v20230101preview.CacheRule("cacheRule",
+            cache_rule_name="myCacheRule",
+            credential_set_resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/credentialSets/myCredentialSet",
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            source_repository="docker.io/library/hello-world",
+            target_repository="cached-docker-hub/hello-world")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20230101preview:CacheRule myCacheRule /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/cacheRules/myCacheRule 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CacheRuleArgs args: The arguments to use to populate this resource's properties.

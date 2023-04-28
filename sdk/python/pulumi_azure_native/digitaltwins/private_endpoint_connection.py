@@ -98,6 +98,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2023-01-31.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update the status of a private endpoint connection with the given name
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.digitaltwins.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="myPrivateConnection",
+            properties=azure_native.digitaltwins.ConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.digitaltwins.ConnectionPropertiesPrivateLinkServiceConnectionStateArgs(
+                    description="Approved by johndoe@company.com.",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins:PrivateEndpointConnection myPrivateConnection /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/privateEndpointConnections/myPrivateConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
@@ -115,6 +143,34 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         The private endpoint connection of a Digital Twin.
         API Version: 2023-01-31.
         Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update the status of a private endpoint connection with the given name
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.digitaltwins.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="myPrivateConnection",
+            properties=azure_native.digitaltwins.ConnectionPropertiesResponseArgs(
+                private_link_service_connection_state=azure_native.digitaltwins.ConnectionPropertiesPrivateLinkServiceConnectionStateArgs(
+                    description="Approved by johndoe@company.com.",
+                    status="Approved",
+                ),
+            ),
+            resource_group_name="resRg",
+            resource_name_="myDigitalTwinsService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:digitaltwins:PrivateEndpointConnection myPrivateConnection /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/privateEndpointConnections/myPrivateConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

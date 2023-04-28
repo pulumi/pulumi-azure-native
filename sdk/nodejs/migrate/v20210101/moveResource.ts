@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the move resource.
+ *
+ * ## Example Usage
+ * ### MoveResources_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const moveResource = new azure_native.migrate.v20210101.MoveResource("moveResource", {
+ *     moveCollectionName: "movecollection1",
+ *     moveResourceName: "moveresourcename1",
+ *     properties: {
+ *         dependsOnOverrides: [{
+ *             id: "/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/eastusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+ *             targetId: "/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/westusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+ *         }],
+ *         resourceSettings: {
+ *             resourceType: "Microsoft.Compute/virtualMachines",
+ *             targetAvailabilitySetId: "/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/availabilitySets/avset1",
+ *             targetAvailabilityZone: "2",
+ *             targetResourceName: "westusvm1",
+ *         },
+ *         sourceId: "/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/virtualMachines/eastusvm1",
+ *     },
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20210101:MoveResource moveresourcename1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Migrate/MoveCollections/movecollection1/MoveResources/moveresource1 
+ * ```
  */
 export class MoveResource extends pulumi.CustomResource {
     /**

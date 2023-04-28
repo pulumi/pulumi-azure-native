@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.Communication.V20211001Preview
 {
     /// <summary>
     /// A class representing an EmailService resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update EmailService resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var emailService = new AzureNative.Communication.V20211001Preview.EmailService("emailService", new()
+    ///     {
+    ///         DataLocation = "United States",
+    ///         EmailServiceName = "MyEmailServiceResource",
+    ///         Location = "Global",
+    ///         ResourceGroupName = "MyResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:communication/v20211001preview:EmailService MyEmailServiceResource /subscriptions/12345/resourceGroups/MyResourceGroup/providers/Microsoft.Communication/EmailServices/MyEmailServiceResource 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:communication/v20211001preview:EmailService")]
     public partial class EmailService : global::Pulumi.CustomResource

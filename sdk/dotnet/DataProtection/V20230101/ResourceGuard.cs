@@ -9,6 +9,40 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataProtection.V20230101
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create ResourceGuard
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var resourceGuard = new AzureNative.DataProtection.V20230101.ResourceGuard("resourceGuard", new()
+    ///     {
+    ///         Location = "WestUS",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ResourceGuardsName = "swaggerExample",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dataprotection/v20230101:ResourceGuard VaultGuardTestNew /subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection/v20230101:ResourceGuard")]
     public partial class ResourceGuard : global::Pulumi.CustomResource
     {

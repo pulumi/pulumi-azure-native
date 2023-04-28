@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Service Registry resource
+ *
+ * ## Example Usage
+ * ### ServiceRegistries_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serviceRegistry = new azure_native.appplatform.v20220101preview.ServiceRegistry("serviceRegistry", {
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     serviceRegistryName: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20220101preview:ServiceRegistry default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/serviceRegistries/default 
+ * ```
  */
 export class ServiceRegistry extends pulumi.CustomResource {
     /**

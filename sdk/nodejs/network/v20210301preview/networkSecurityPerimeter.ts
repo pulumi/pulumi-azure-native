@@ -6,6 +6,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The Network Security Perimeter resource
+ *
+ * ## Example Usage
+ * ### Put Network Security Perimeter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkSecurityPerimeter = new azure_native.network.v20210301preview.NetworkSecurityPerimeter("networkSecurityPerimeter", {
+ *     description: "Description of TestNetworkSecurityPerimeter",
+ *     displayName: "TestNetworkSecurityPerimeter",
+ *     networkSecurityPerimeterName: "nsp1",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210301preview:NetworkSecurityPerimeter TestNetworkSecurityPerimeter /subscriptions/subId/resourceGroup/rg1/providers/Microsoft.Network/networkSecurityPerimeters/TestNetworkSecurityPerimeter 
+ * ```
  */
 export class NetworkSecurityPerimeter extends pulumi.CustomResource {
     /**

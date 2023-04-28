@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 {
     /// <summary>
     /// Defines the security configuration
+    /// 
+    /// ## Example Usage
+    /// ### Create network manager security user configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityUserConfiguration = new AzureNative.Network.V20210201Preview.SecurityUserConfiguration("securityUserConfiguration", new()
+    ///     {
+    ///         ConfigurationName = "myTestSecurityConfig",
+    ///         DeleteExistingNSGs = "True",
+    ///         Description = "A sample policy",
+    ///         NetworkManagerName = "testNetworkManager",
+    ///         ResourceGroupName = "rg1",
+    ///         SecurityType = "UserPolicy",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20210201preview:SecurityUserConfiguration myTestSecurityConfig /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManager/testNetworkManager/securityConfigurations/myTestSecurityConfig 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20210201preview:SecurityUserConfiguration")]
     public partial class SecurityUserConfiguration : global::Pulumi.CustomResource

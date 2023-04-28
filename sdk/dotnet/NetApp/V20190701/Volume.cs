@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.NetApp.V20190701
 {
     /// <summary>
     /// Volume resource
+    /// 
+    /// ## Example Usage
+    /// ### Volumes_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.NetApp.V20190701.Volume("volume", new()
+    ///     {
+    ///         AccountName = "accountName",
+    ///         CreationToken = "my-unique-file-path",
+    ///         Location = "eastus",
+    ///         PoolName = "poolName",
+    ///         ResourceGroupName = "resourceGroup",
+    ///         ServiceLevel = "Premium",
+    ///         SubnetId = "/subscriptions/9760acf5-4638-11e7-9bdb-020073ca7778/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/testsubnet3",
+    ///         UsageThreshold = 107374182400,
+    ///         VolumeName = "volumeName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20190701:Volume myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName}/capacityPools/{poolName}/volumes/{volumeName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20190701:Volume")]

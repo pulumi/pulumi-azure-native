@@ -11,6 +11,79 @@ namespace Pulumi.AzureNative.Network.V20190801
 {
     /// <summary>
     /// Private link service resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create private link service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateLinkService = new AzureNative.Network.V20190801.PrivateLinkService("privateLinkService", new()
+    ///     {
+    ///         AutoApproval = new AzureNative.Network.V20190801.Inputs.PrivateLinkServicePropertiesAutoApprovalArgs
+    ///         {
+    ///             Subscriptions = new[]
+    ///             {
+    ///                 "subscription1",
+    ///                 "subscription2",
+    ///             },
+    ///         },
+    ///         Fqdns = new[]
+    ///         {
+    ///             "fqdn1",
+    ///             "fqdn2",
+    ///             "fqdn3",
+    ///         },
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20190801.Inputs.PrivateLinkServiceIpConfigurationArgs
+    ///             {
+    ///                 Name = "fe-lb",
+    ///                 PrivateIPAddress = "10.0.1.4",
+    ///                 PrivateIPAddressVersion = "IPv4",
+    ///                 PrivateIPAllocationMethod = "Static",
+    ///                 Subnet = new AzureNative.Network.V20190801.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+    ///                 },
+    ///             },
+    ///         },
+    ///         LoadBalancerFrontendIpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20190801.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "testPls",
+    ///         Visibility = new AzureNative.Network.V20190801.Inputs.PrivateLinkServicePropertiesVisibilityArgs
+    ///         {
+    ///             Subscriptions = new[]
+    ///             {
+    ///                 "subscription1",
+    ///                 "subscription2",
+    ///                 "subscription3",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190801:PrivateLinkService testPls /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190801:PrivateLinkService")]
     public partial class PrivateLinkService : global::Pulumi.CustomResource

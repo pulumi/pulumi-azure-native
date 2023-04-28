@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Virtual Network Tap resource.
+ *
+ * ## Example Usage
+ * ### Create Virtual Network Tap
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetworkTap = new azure_native.network.v20220901.VirtualNetworkTap("virtualNetworkTap", {
+ *     destinationNetworkInterfaceIPConfiguration: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkInterfaces/testNetworkInterface/ipConfigurations/ipconfig1",
+ *     },
+ *     location: "centraluseuap",
+ *     resourceGroupName: "rg1",
+ *     tapName: "test-vtap",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:VirtualNetworkTap testvtap /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkTaps/testvtap 
+ * ```
  */
 export class VirtualNetworkTap extends pulumi.CustomResource {
     /**

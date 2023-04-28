@@ -216,6 +216,45 @@ class VpnSite(pulumi.CustomResource):
         """
         VpnSite Resource.
 
+        ## Example Usage
+        ### VpnSiteCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_site = azure_native.network.v20180701.VpnSite("vpnSite",
+            address_space=azure_native.network.v20180701.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            bgp_properties=azure_native.network.v20180701.BgpSettingsArgs(
+                asn=1234,
+                bgp_peering_address="192.168.0.0",
+            ),
+            device_properties=azure_native.network.v20180701.DevicePropertiesArgs(
+                device_model="model01",
+                device_vendor="vendor1",
+                link_speed_in_mbps=200,
+            ),
+            ip_address="10.0.0.0",
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_wan="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/VirtualWans/virtualWan1",
+            vpn_site_name="vpnSite1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180701:VpnSite vpnSite1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AddressSpaceArgs']] address_space: The AddressSpace that contains an array of IP address ranges.
@@ -238,6 +277,45 @@ class VpnSite(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         VpnSite Resource.
+
+        ## Example Usage
+        ### VpnSiteCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vpn_site = azure_native.network.v20180701.VpnSite("vpnSite",
+            address_space=azure_native.network.v20180701.AddressSpaceArgs(
+                address_prefixes=["10.0.0.0/16"],
+            ),
+            bgp_properties=azure_native.network.v20180701.BgpSettingsArgs(
+                asn=1234,
+                bgp_peering_address="192.168.0.0",
+            ),
+            device_properties=azure_native.network.v20180701.DevicePropertiesArgs(
+                device_model="model01",
+                device_vendor="vendor1",
+                link_speed_in_mbps=200,
+            ),
+            ip_address="10.0.0.0",
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_wan="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/VirtualWans/virtualWan1",
+            vpn_site_name="vpnSite1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20180701:VpnSite vpnSite1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpnSiteArgs args: The arguments to use to populate this resource's properties.

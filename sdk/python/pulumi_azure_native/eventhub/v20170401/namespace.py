@@ -166,6 +166,36 @@ class Namespace(pulumi.CustomResource):
         """
         Single Namespace item in List or Get Operation
 
+        ## Example Usage
+        ### NamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.eventhub.v20170401.Namespace("namespace",
+            location="South Central US",
+            namespace_name="sdk-Namespace-5849",
+            resource_group_name="ArunMonocle",
+            sku=azure_native.eventhub.v20170401.SkuResponseArgs(
+                name="Standard",
+                tier="Standard",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20170401:Namespace sdk-Namespace-5849 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5849 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] is_auto_inflate_enabled: Value that indicates whether AutoInflate is enabled for eventhub namespace.
@@ -185,6 +215,36 @@ class Namespace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single Namespace item in List or Get Operation
+
+        ## Example Usage
+        ### NamespaceCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace = azure_native.eventhub.v20170401.Namespace("namespace",
+            location="South Central US",
+            namespace_name="sdk-Namespace-5849",
+            resource_group_name="ArunMonocle",
+            sku=azure_native.eventhub.v20170401.SkuResponseArgs(
+                name="Standard",
+                tier="Standard",
+            ),
+            tags={
+                "tag1": "value1",
+                "tag2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20170401:Namespace sdk-Namespace-5849 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5849 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceArgs args: The arguments to use to populate this resource's properties.

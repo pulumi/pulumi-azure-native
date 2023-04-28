@@ -10,6 +10,56 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-10-01.
  * Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Online Endpoint.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const onlineEndpoint = new azure_native.machinelearningservices.OnlineEndpoint("onlineEndpoint", {
+ *     endpointName: "testEndpointName",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *         userAssignedIdentities: {
+ *             string: {},
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     onlineEndpointProperties: {
+ *         authMode: "AMLToken",
+ *         compute: "string",
+ *         description: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         traffic: {
+ *             string: 1,
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "string",
+ *         name: "string",
+ *         size: "string",
+ *         tier: azure_native.machinelearningservices.SkuTier.Free,
+ *     },
+ *     tags: {},
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices:OnlineEndpoint string string 
+ * ```
  */
 export class OnlineEndpoint extends pulumi.CustomResource {
     /**

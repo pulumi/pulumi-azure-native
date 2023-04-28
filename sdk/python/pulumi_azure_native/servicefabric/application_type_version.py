@@ -146,6 +146,31 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Put an application type version
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_type_version = azure_native.servicefabric.ApplicationTypeVersion("applicationTypeVersion",
+            app_package_url="http://fakelink.test.com/MyAppType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg",
+            version="1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ApplicationTypeVersion 1.0 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_package_url: The URL to the application package
@@ -166,6 +191,31 @@ class ApplicationTypeVersion(pulumi.CustomResource):
         An application type version resource for the specified application type name resource.
         API Version: 2023-02-01-preview.
         Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Put an application type version
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        application_type_version = azure_native.servicefabric.ApplicationTypeVersion("applicationTypeVersion",
+            app_package_url="http://fakelink.test.com/MyAppType",
+            application_type_name="myAppType",
+            cluster_name="myCluster",
+            location="eastus",
+            resource_group_name="resRg",
+            version="1.0")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabric:ApplicationTypeVersion 1.0 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/managedclusters/myCluster/applicationTypes/myAppType/versions/1.0 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApplicationTypeVersionArgs args: The arguments to use to populate this resource's properties.

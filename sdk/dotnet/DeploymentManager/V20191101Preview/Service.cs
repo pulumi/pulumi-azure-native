@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.DeploymentManager.V20191101Preview
 {
     /// <summary>
     /// The resource representation of a service in a service topology.
+    /// 
+    /// ## Example Usage
+    /// ### Create service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var service = new AzureNative.DeploymentManager.V20191101Preview.Service("service", new()
+    ///     {
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myService",
+    ///         ServiceTopologyName = "myTopology",
+    ///         Tags = null,
+    ///         TargetLocation = "centralus",
+    ///         TargetSubscriptionId = "600c95c5-3ee5-44fe-b190-ca38a19adcd7",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deploymentmanager/v20191101preview:Service myService /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/serviceTopologies/{serviceTopologyName}/services/{serviceName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager/v20191101preview:Service")]
     public partial class Service : global::Pulumi.CustomResource

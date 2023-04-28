@@ -146,6 +146,36 @@ class Module(pulumi.CustomResource):
         """
         Definition of the module type.
 
+        ## Example Usage
+        ### Create or update a module
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        module = azure_native.automation.v20190601.Module("module",
+            automation_account_name="myAutomationAccount33",
+            content_link=azure_native.automation.v20190601.ContentLinkArgs(
+                content_hash=azure_native.automation.v20190601.ContentHashArgs(
+                    algorithm="sha265",
+                    value="07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+                ),
+                uri="https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+                version="1.0.0.0",
+            ),
+            module_name="OmsCompositeResources",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20190601:Module OmsCompositeResources /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/modules/OmsCompositeResources 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -164,6 +194,36 @@ class Module(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the module type.
+
+        ## Example Usage
+        ### Create or update a module
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        module = azure_native.automation.v20190601.Module("module",
+            automation_account_name="myAutomationAccount33",
+            content_link=azure_native.automation.v20190601.ContentLinkArgs(
+                content_hash=azure_native.automation.v20190601.ContentHashArgs(
+                    algorithm="sha265",
+                    value="07E108A962B81DD9C9BAA89BB47C0F6EE52B29E83758B07795E408D258B2B87A",
+                ),
+                uri="https://teststorage.blob.core.windows.net/dsccomposite/OmsCompositeResources.zip",
+                version="1.0.0.0",
+            ),
+            module_name="OmsCompositeResources",
+            resource_group_name="rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20190601:Module OmsCompositeResources /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/modules/OmsCompositeResources 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ModuleArgs args: The arguments to use to populate this resource's properties.

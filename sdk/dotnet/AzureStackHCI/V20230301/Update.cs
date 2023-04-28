@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.AzureStackHCI.V20230301
 {
     /// <summary>
     /// Update details
+    /// 
+    /// ## Example Usage
+    /// ### Put a specific update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var update = new AzureNative.AzureStackHCI.V20230301.Update("update", new()
+    ///     {
+    ///         AdditionalProperties = "additional properties",
+    ///         AvailabilityType = "Local",
+    ///         ClusterName = "testcluster",
+    ///         Description = "AzS Update 4.2203.2.32",
+    ///         DisplayName = "AzS Update - 4.2203.2.32",
+    ///         InstalledDate = "2022-04-06T14:08:18.254Z",
+    ///         NotifyMessage = "Brief message with instructions for updates of AvailabilityType Notify",
+    ///         PackagePath = "\\\\SU1FileServer\\SU1_Infrastructure_2\\Updates\\Packages\\Microsoft4.2203.2.32",
+    ///         PackageSizeInMb = 18858,
+    ///         PackageType = "Infrastructure",
+    ///         Prerequisites = new[]
+    ///         {
+    ///             new AzureNative.AzureStackHCI.V20230301.Inputs.UpdatePrerequisiteArgs
+    ///             {
+    ///                 PackageName = "update package name",
+    ///                 UpdateType = "update type",
+    ///                 Version = "prerequisite version",
+    ///             },
+    ///         },
+    ///         ProgressPercentage = 0,
+    ///         Publisher = "Microsoft",
+    ///         ReleaseLink = "https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2203",
+    ///         ResourceGroupName = "testrg",
+    ///         State = "Installed",
+    ///         UpdateName = "Microsoft4.2203.2.32",
+    ///         Version = "4.2203.2.32",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci/v20230301:Update Microsoft4.2203.2.32 /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updates/Microsoft4.2203.2.32 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci/v20230301:Update")]
     public partial class Update : global::Pulumi.CustomResource

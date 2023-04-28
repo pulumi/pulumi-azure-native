@@ -9,6 +9,60 @@ import * as utilities from "../../utilities";
 
 /**
  * Network security user rule.
+ *
+ * ## Example Usage
+ * ### Create a default user rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const userRule = new azure_native.network.v20210201preview.UserRule("userRule", {
+ *     configurationName: "myTestSecurityConfig",
+ *     networkManagerName: "testNetworkManager",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ *     ruleName: "SampleDefaultUserRule",
+ * });
+ *
+ * ```
+ * ### Create a user rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const userRule = new azure_native.network.v20210201preview.UserRule("userRule", {
+ *     configurationName: "myTestSecurityConfig",
+ *     description: "Sample User Rule",
+ *     destinationPortRanges: ["22"],
+ *     destinations: [{
+ *         addressPrefix: "*",
+ *         addressPrefixType: "IPPrefix",
+ *     }],
+ *     direction: "Inbound",
+ *     kind: "Custom",
+ *     networkManagerName: "testNetworkManager",
+ *     protocol: "Tcp",
+ *     resourceGroupName: "rg1",
+ *     ruleCollectionName: "testRuleCollection",
+ *     ruleName: "SampleUserRule",
+ *     sourcePortRanges: ["0-65535"],
+ *     sources: [{
+ *         addressPrefix: "*",
+ *         addressPrefixType: "IPPrefix",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210201preview:UserRule SampleUserRule /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager/SecurityUserConfigurations/Policy1/ruleCollections/testRuleCollection/rules/SampleUserRule 
+ * ```
  */
 export class UserRule extends pulumi.CustomResource {
     /**

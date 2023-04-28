@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.HanaOnAzure.V20200207Preview
 {
     /// <summary>
     /// SAP monitor info on Azure (ARM properties and SAP monitor properties)
+    /// 
+    /// ## Example Usage
+    /// ### Create a SAP Monitor
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapMonitor = new AzureNative.HanaOnAzure.V20200207Preview.SapMonitor("sapMonitor", new()
+    ///     {
+    ///         EnableCustomerAnalytics = true,
+    ///         Location = "westus",
+    ///         LogAnalyticsWorkspaceArmId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/microsoft.operationalinsights/workspaces/myWorkspace",
+    ///         LogAnalyticsWorkspaceId = "00000000-0000-0000-0000-000000000000",
+    ///         LogAnalyticsWorkspaceSharedKey = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000==",
+    ///         MonitorSubnet = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         SapMonitorName = "mySapMonitor",
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hanaonazure/v20200207preview:SapMonitor myHanaInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hanaonazure/v20200207preview:SapMonitor")]
     public partial class SapMonitor : global::Pulumi.CustomResource

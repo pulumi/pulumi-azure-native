@@ -11,6 +11,275 @@ import * as utilities from "../utilities";
  * Application gateway resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Application Gateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const applicationGateway = new azure_native.network.ApplicationGateway("applicationGateway", {
+ *     applicationGatewayName: "appgw",
+ *     backendAddressPools: [
+ *         {
+ *             backendAddresses: [
+ *                 {
+ *                     ipAddress: "10.0.1.1",
+ *                 },
+ *                 {
+ *                     ipAddress: "10.0.1.2",
+ *                 },
+ *             ],
+ *             name: "appgwpool",
+ *         },
+ *         {
+ *             backendAddresses: [
+ *                 "10.0.0.1",
+ *                 "10.0.0.2",
+ *             ],
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool1",
+ *             name: "appgwpool1",
+ *         },
+ *     ],
+ *     backendHttpSettingsCollection: [{
+ *         cookieBasedAffinity: "Disabled",
+ *         name: "appgwbhs",
+ *         port: 80,
+ *         protocol: "Http",
+ *         requestTimeout: 30,
+ *     }],
+ *     frontendIPConfigurations: [{
+ *         name: "appgwfip",
+ *         publicIPAddress: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/appgwpip",
+ *         },
+ *     }],
+ *     frontendPorts: [
+ *         {
+ *             name: "appgwfp",
+ *             port: 443,
+ *         },
+ *         {
+ *             name: "appgwfp80",
+ *             port: 80,
+ *         },
+ *     ],
+ *     gatewayIPConfigurations: [{
+ *         name: "appgwipc",
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet/subnets/appgwsubnet",
+ *         },
+ *     }],
+ *     globalConfiguration: {
+ *         enableRequestBuffering: true,
+ *         enableResponseBuffering: true,
+ *     },
+ *     httpListeners: [
+ *         {
+ *             frontendIPConfiguration: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendIPConfigurations/appgwfip",
+ *             },
+ *             frontendPort: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendPorts/appgwfp",
+ *             },
+ *             name: "appgwhl",
+ *             protocol: "Https",
+ *             requireServerNameIndication: false,
+ *             sslCertificate: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/sslCertificates/sslcert",
+ *             },
+ *             sslProfile: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/sslProfiles/sslProfile1",
+ *             },
+ *         },
+ *         {
+ *             frontendIPConfiguration: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendIPConfigurations/appgwfip",
+ *             },
+ *             frontendPort: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/frontendPorts/appgwfp80",
+ *             },
+ *             name: "appgwhttplistener",
+ *             protocol: "Http",
+ *         },
+ *     ],
+ *     identity: {
+ *         type: azure_native.network.ResourceIdentityType.UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1": {},
+ *         },
+ *     },
+ *     loadDistributionPolicies: [{
+ *         loadDistributionAlgorithm: "RoundRobin",
+ *         loadDistributionTargets: [
+ *             {
+ *                 backendAddressPool: {
+ *                     id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+ *                 },
+ *                 name: "ld11",
+ *                 weightPerServer: 40,
+ *             },
+ *             {
+ *                 backendAddressPool: {
+ *                     id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool1",
+ *                 },
+ *                 name: "ld11",
+ *                 weightPerServer: 60,
+ *             },
+ *         ],
+ *         name: "ldp1",
+ *     }],
+ *     location: "eastus",
+ *     requestRoutingRules: [
+ *         {
+ *             backendAddressPool: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+ *             },
+ *             backendHttpSettings: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+ *             },
+ *             httpListener: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/httpListeners/appgwhl",
+ *             },
+ *             loadDistributionPolicy: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/loadDistributionPolicies/ldp1",
+ *             },
+ *             name: "appgwrule",
+ *             priority: 10,
+ *             rewriteRuleSet: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+ *             },
+ *             ruleType: "Basic",
+ *         },
+ *         {
+ *             httpListener: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/httpListeners/appgwhttplistener",
+ *             },
+ *             name: "appgwPathBasedRule",
+ *             priority: 20,
+ *             ruleType: "PathBasedRouting",
+ *             urlPathMap: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/urlPathMaps/pathMap1",
+ *             },
+ *         },
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     rewriteRuleSets: [{
+ *         name: "rewriteRuleSet1",
+ *         rewriteRules: [{
+ *             actionSet: {
+ *                 requestHeaderConfigurations: [{
+ *                     headerName: "X-Forwarded-For",
+ *                     headerValue: "{var_add_x_forwarded_for_proxy}",
+ *                 }],
+ *                 responseHeaderConfigurations: [{
+ *                     headerName: "Strict-Transport-Security",
+ *                     headerValue: "max-age=31536000",
+ *                 }],
+ *                 urlConfiguration: {
+ *                     modifiedPath: "/abc",
+ *                 },
+ *             },
+ *             conditions: [{
+ *                 ignoreCase: true,
+ *                 negate: false,
+ *                 pattern: "^Bearer",
+ *                 variable: "http_req_Authorization",
+ *             }],
+ *             name: "Set X-Forwarded-For",
+ *             ruleSequence: 102,
+ *         }],
+ *     }],
+ *     sku: {
+ *         capacity: 3,
+ *         name: "Standard_v2",
+ *         tier: "Standard_v2",
+ *     },
+ *     sslCertificates: [
+ *         {
+ *             data: "****",
+ *             name: "sslcert",
+ *             password: "****",
+ *         },
+ *         {
+ *             keyVaultSecretId: "https://kv/secret",
+ *             name: "sslcert2",
+ *         },
+ *     ],
+ *     sslProfiles: [{
+ *         clientAuthConfiguration: {
+ *             verifyClientCertIssuerDN: true,
+ *         },
+ *         name: "sslProfile1",
+ *         sslPolicy: {
+ *             cipherSuites: ["TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"],
+ *             minProtocolVersion: "TLSv1_1",
+ *             policyType: "Custom",
+ *         },
+ *         trustedClientCertificates: [{
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/trustedClientCertificates/clientcert",
+ *         }],
+ *     }],
+ *     trustedClientCertificates: [{
+ *         data: "****",
+ *         name: "clientcert",
+ *     }],
+ *     trustedRootCertificates: [
+ *         {
+ *             data: "****",
+ *             name: "rootcert",
+ *         },
+ *         {
+ *             keyVaultSecretId: "https://kv/secret",
+ *             name: "rootcert1",
+ *         },
+ *     ],
+ *     urlPathMaps: [{
+ *         defaultBackendAddressPool: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+ *         },
+ *         defaultBackendHttpSettings: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+ *         },
+ *         defaultLoadDistributionPolicy: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/loadDistributionPolicies/ldp1",
+ *         },
+ *         defaultRewriteRuleSet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+ *         },
+ *         name: "pathMap1",
+ *         pathRules: [{
+ *             backendAddressPool: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendAddressPools/appgwpool",
+ *             },
+ *             backendHttpSettings: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/backendHttpSettingsCollection/appgwbhs",
+ *             },
+ *             loadDistributionPolicy: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/loadDistributionPolicies/ldp1",
+ *             },
+ *             name: "apiPaths",
+ *             paths: [
+ *                 "/api",
+ *                 "/v1/api",
+ *             ],
+ *             rewriteRuleSet: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw/rewriteRuleSets/rewriteRuleSet1",
+ *             },
+ *         }],
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:ApplicationGateway appgw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/applicationGateways/appgw 
+ * ```
  */
 export class ApplicationGateway extends pulumi.CustomResource {
     /**

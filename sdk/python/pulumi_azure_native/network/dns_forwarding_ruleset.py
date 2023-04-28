@@ -115,6 +115,39 @@ class DnsForwardingRuleset(pulumi.CustomResource):
         API Version: 2022-07-01.
         Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Upsert DNS forwarding ruleset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dns_forwarding_ruleset = azure_native.network.DnsForwardingRuleset("dnsForwardingRuleset",
+            dns_forwarding_ruleset_name="samplednsForwardingRuleset",
+            dns_resolver_outbound_endpoints=[
+                azure_native.network.SubResourceArgs(
+                    id="/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint0",
+                ),
+                azure_native.network.SubResourceArgs(
+                    id="/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint1",
+                ),
+            ],
+            location="westus2",
+            resource_group_name="sampleResourceGroup",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DnsForwardingRuleset sampleDnsForwardingRuleset /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRulesets/sampleDnsForwardingRuleset 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dns_forwarding_ruleset_name: The name of the DNS forwarding ruleset.
@@ -133,6 +166,39 @@ class DnsForwardingRuleset(pulumi.CustomResource):
         Describes a DNS forwarding ruleset.
         API Version: 2022-07-01.
         Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Upsert DNS forwarding ruleset
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dns_forwarding_ruleset = azure_native.network.DnsForwardingRuleset("dnsForwardingRuleset",
+            dns_forwarding_ruleset_name="samplednsForwardingRuleset",
+            dns_resolver_outbound_endpoints=[
+                azure_native.network.SubResourceArgs(
+                    id="/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint0",
+                ),
+                azure_native.network.SubResourceArgs(
+                    id="/subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsResolvers/sampleDnsResolver/outboundEndpoints/sampleOutboundEndpoint1",
+                ),
+            ],
+            location="westus2",
+            resource_group_name="sampleResourceGroup",
+            tags={
+                "key1": "value1",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:DnsForwardingRuleset sampleDnsForwardingRuleset /subscriptions/abdd4249-9f34-4cc6-8e42-c2e32110603e/resourceGroups/sampleResourceGroup/providers/Microsoft.Network/dnsForwardingRulesets/sampleDnsForwardingRuleset 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DnsForwardingRulesetArgs args: The arguments to use to populate this resource's properties.

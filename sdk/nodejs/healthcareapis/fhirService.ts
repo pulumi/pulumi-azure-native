@@ -11,6 +11,80 @@ import * as utilities from "../utilities";
  * The description of Fhir Service
  * API Version: 2022-12-01.
  * Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a Fhir Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fhirService = new azure_native.healthcareapis.FhirService("fhirService", {
+ *     accessPolicies: [
+ *         {
+ *             objectId: "c487e7d1-3210-41a3-8ccc-e9372b78da47",
+ *         },
+ *         {
+ *             objectId: "5b307da8-43d4-492b-8b66-b0294ade872f",
+ *         },
+ *     ],
+ *     acrConfiguration: {
+ *         loginServers: ["test1.azurecr.io"],
+ *     },
+ *     authenticationConfiguration: {
+ *         audience: "https://azurehealthcareapis.com",
+ *         authority: "https://login.microsoftonline.com/abfde7b2-df0f-47e6-aabf-2462b07508dc",
+ *         smartProxyEnabled: true,
+ *     },
+ *     corsConfiguration: {
+ *         allowCredentials: false,
+ *         headers: ["*"],
+ *         maxAge: 1440,
+ *         methods: [
+ *             "DELETE",
+ *             "GET",
+ *             "OPTIONS",
+ *             "PATCH",
+ *             "POST",
+ *             "PUT",
+ *         ],
+ *         origins: ["*"],
+ *     },
+ *     exportConfiguration: {
+ *         storageAccountName: "existingStorageAccount",
+ *     },
+ *     fhirServiceName: "fhirservice1",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     implementationGuidesConfiguration: {
+ *         usCoreMissingData: false,
+ *     },
+ *     importConfiguration: {
+ *         enabled: false,
+ *         initialImportMode: false,
+ *         integrationDataStore: "existingStorageAccount",
+ *     },
+ *     kind: "fhir-R4",
+ *     location: "westus",
+ *     resourceGroupName: "testRG",
+ *     tags: {
+ *         additionalProp1: "string",
+ *         additionalProp2: "string",
+ *         additionalProp3: "string",
+ *     },
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:healthcareapis:FhirService fhirservice1 /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/fhirservices/fhirservice1 
+ * ```
  */
 export class FhirService extends pulumi.CustomResource {
     /**

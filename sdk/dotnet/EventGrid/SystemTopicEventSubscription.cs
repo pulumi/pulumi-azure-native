@@ -13,6 +13,46 @@ namespace Pulumi.AzureNative.EventGrid
     /// Event Subscription
     /// API Version: 2022-06-15.
     /// Previous API Version: 2020-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### SystemTopicEventSubscriptions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var systemTopicEventSubscription = new AzureNative.EventGrid.SystemTopicEventSubscription("systemTopicEventSubscription", new()
+    ///     {
+    ///         Destination = new AzureNative.EventGrid.Inputs.WebHookEventSubscriptionDestinationArgs
+    ///         {
+    ///             EndpointType = "WebHook",
+    ///             EndpointUrl = "https://requestb.in/15ksip71",
+    ///         },
+    ///         EventSubscriptionName = "exampleEventSubscriptionName1",
+    ///         Filter = new AzureNative.EventGrid.Inputs.EventSubscriptionFilterArgs
+    ///         {
+    ///             IsSubjectCaseSensitive = false,
+    ///             SubjectBeginsWith = "ExamplePrefix",
+    ///             SubjectEndsWith = "ExampleSuffix",
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///         SystemTopicName = "exampleSystemTopic1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid:SystemTopicEventSubscription exampleEventSubscriptionName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/systemTopics/exampleSystemTopic1/eventSubscriptions/exampleEventSubscriptionName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid:SystemTopicEventSubscription")]
     public partial class SystemTopicEventSubscription : global::Pulumi.CustomResource

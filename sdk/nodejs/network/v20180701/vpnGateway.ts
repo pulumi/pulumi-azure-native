@@ -9,6 +9,51 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnGateway Resource.
+ *
+ * ## Example Usage
+ * ### VpnGatewayPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vpnGateway = new azure_native.network.v20180701.VpnGateway("vpnGateway", {
+ *     bgpSettings: {
+ *         asn: 65515,
+ *         bgpPeeringAddress: "10.0.1.30",
+ *         peerWeight: 0,
+ *     },
+ *     connections: [{
+ *         name: "vpnConnection1",
+ *         remoteVpnSite: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1",
+ *         },
+ *         sharedKey: "key",
+ *     }],
+ *     gatewayName: "gateway1",
+ *     location: "West US",
+ *     policies: {
+ *         allowBranchToBranchTraffic: true,
+ *         allowVnetToVnetTraffic: false,
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualHub: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20180701:VpnGateway gateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnGateways/gateway1 
+ * ```
  */
 export class VpnGateway extends pulumi.CustomResource {
     /**

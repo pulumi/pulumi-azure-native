@@ -115,6 +115,34 @@ class Account(pulumi.CustomResource):
         """
         Definition of the Automanage account.
 
+        ## Example Usage
+        ### Create or update Automanage account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.automanage.v20200630preview.Account("account",
+            account_name="account",
+            identity=azure_native.automanage.v20200630preview.AccountIdentityArgs(
+                type=azure_native.automanage/v20200630preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="East US",
+            resource_group_name="resourceGroup",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage/v20200630preview:Account account /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automanage/accounts/account 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Name of the Automanage account.
@@ -131,6 +159,34 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the Automanage account.
+
+        ## Example Usage
+        ### Create or update Automanage account
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.automanage.v20200630preview.Account("account",
+            account_name="account",
+            identity=azure_native.automanage.v20200630preview.AccountIdentityArgs(
+                type=azure_native.automanage/v20200630preview.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="East US",
+            resource_group_name="resourceGroup",
+            tags={
+                "Organization": "Administration",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automanage/v20200630preview:Account account /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automanage/accounts/account 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

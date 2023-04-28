@@ -11,6 +11,68 @@ import * as utilities from "../utilities";
  * The shared dashboard resource definition.
  * API Version: 2020-09-01-preview.
  * Previous API Version: 2020-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a Dashboard
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dashboard = new azure_native.portal.Dashboard("dashboard", {
+ *     dashboardName: "testDashboard",
+ *     lenses: [
+ *         {
+ *             order: 1,
+ *             parts: [
+ *                 {
+ *                     position: {
+ *                         colSpan: 3,
+ *                         rowSpan: 4,
+ *                         x: 1,
+ *                         y: 2,
+ *                     },
+ *                 },
+ *                 {
+ *                     position: {
+ *                         colSpan: 6,
+ *                         rowSpan: 6,
+ *                         x: 5,
+ *                         y: 5,
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             order: 2,
+ *             parts: [],
+ *         },
+ *     ],
+ *     location: "eastus",
+ *     metadata: {
+ *         metadata: {
+ *             ColSpan: 2,
+ *             RowSpan: 1,
+ *             X: 4,
+ *             Y: 3,
+ *         },
+ *     },
+ *     resourceGroupName: "testRG",
+ *     tags: {
+ *         aKey: "aValue",
+ *         anotherKey: "anotherValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:portal:Dashboard testDashboard /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Portal/dashboards/testDashboard 
+ * ```
  */
 export class Dashboard extends pulumi.CustomResource {
     /**

@@ -203,6 +203,45 @@ class ContainerGroup(pulumi.CustomResource):
         """
         A container group.
 
+        ## Example Usage
+        ### ContainerGroupsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.v20170801preview.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.v20170801preview.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": azure_native.containerinstance.v20170801preview.ResourceRequirementsArgs(
+                    requests=azure_native.containerinstance.v20170801preview.ResourceRequestsArgs(
+                        cpu=1,
+                    ),
+                ),
+            }],
+            ip_address=azure_native.containerinstance.v20170801preview.IpAddressResponseArgs(
+                type="Public",
+            ),
+            location="west us",
+            os_type="Linux",
+            resource_group_name="demo")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerinstance/v20170801preview:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] container_group_name: The name of the container group to be created or updated.
@@ -224,6 +263,45 @@ class ContainerGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A container group.
+
+        ## Example Usage
+        ### ContainerGroupsCreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_group = azure_native.containerinstance.v20170801preview.ContainerGroup("containerGroup",
+            container_group_name="demo1",
+            containers=[{
+                "environmentVariables": [],
+                "image": "nginx",
+                "name": "demo1",
+                "ports": [azure_native.containerinstance.v20170801preview.ContainerPortArgs(
+                    port=80,
+                )],
+                "resources": azure_native.containerinstance.v20170801preview.ResourceRequirementsArgs(
+                    requests=azure_native.containerinstance.v20170801preview.ResourceRequestsArgs(
+                        cpu=1,
+                    ),
+                ),
+            }],
+            ip_address=azure_native.containerinstance.v20170801preview.IpAddressResponseArgs(
+                type="Public",
+            ),
+            location="west us",
+            os_type="Linux",
+            resource_group_name="demo")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerinstance/v20170801preview:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerGroupArgs args: The arguments to use to populate this resource's properties.

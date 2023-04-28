@@ -129,6 +129,31 @@ class SignalRCustomCertificate(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SignalRCustomCertificates_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r_custom_certificate = azure_native.signalrservice.SignalRCustomCertificate("signalRCustomCertificate",
+            certificate_name="myCert",
+            key_vault_base_uri="https://myvault.keyvault.azure.net/",
+            key_vault_secret_name="mycert",
+            key_vault_secret_version="bb6a44b2743f47f68dad0d6cc9756432",
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice:SignalRCustomCertificate myCert /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customCertificates/myCert 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] certificate_name: Custom certificate name
@@ -148,6 +173,31 @@ class SignalRCustomCertificate(pulumi.CustomResource):
         A custom certificate.
         API Version: 2023-02-01.
         Previous API Version: 2022-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SignalRCustomCertificates_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r_custom_certificate = azure_native.signalrservice.SignalRCustomCertificate("signalRCustomCertificate",
+            certificate_name="myCert",
+            key_vault_base_uri="https://myvault.keyvault.azure.net/",
+            key_vault_secret_name="mycert",
+            key_vault_secret_version="bb6a44b2743f47f68dad0d6cc9756432",
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice:SignalRCustomCertificate myCert /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/customCertificates/myCert 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SignalRCustomCertificateArgs args: The arguments to use to populate this resource's properties.

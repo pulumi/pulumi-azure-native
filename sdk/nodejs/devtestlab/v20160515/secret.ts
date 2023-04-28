@@ -6,6 +6,13 @@ import * as utilities from "../../utilities";
 
 /**
  * A secret.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20160515:Secret myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/secrets/{name} 
+ * ```
  *
  * @deprecated Version 2016-05-15 will be removed in v2 of the provider.
  */

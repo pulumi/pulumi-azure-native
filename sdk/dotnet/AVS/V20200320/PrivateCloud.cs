@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.AVS.V20200320
 {
     /// <summary>
     /// A private cloud resource
+    /// 
+    /// ## Example Usage
+    /// ### PrivateClouds_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateCloud = new AzureNative.AVS.V20200320.PrivateCloud("privateCloud", new()
+    ///     {
+    ///         Location = "eastus2",
+    ///         ManagementCluster = new AzureNative.AVS.V20200320.Inputs.ManagementClusterArgs
+    ///         {
+    ///             ClusterSize = 4,
+    ///         },
+    ///         NetworkBlock = "192.168.48.0/22",
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Sku = new AzureNative.AVS.V20200320.Inputs.SkuArgs
+    ///         {
+    ///             Name = "AV36",
+    ///         },
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20200320:PrivateCloud cloud1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200320:PrivateCloud")]
     public partial class PrivateCloud : global::Pulumi.CustomResource

@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Compute.V20230301
 {
     /// <summary>
     /// Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to an availability set at creation time. An existing VM cannot be added to an availability set.
+    /// 
+    /// ## Example Usage
+    /// ### Create an availability set.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var availabilitySet = new AzureNative.Compute.V20230301.AvailabilitySet("availabilitySet", new()
+    ///     {
+    ///         AvailabilitySetName = "myAvailabilitySet",
+    ///         Location = "westus",
+    ///         PlatformFaultDomainCount = 2,
+    ///         PlatformUpdateDomainCount = 20,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20230301:AvailabilitySet myAvailabilitySet /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/availabilitySets/myAvailabilitySet 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20230301:AvailabilitySet")]
     public partial class AvailabilitySet : global::Pulumi.CustomResource

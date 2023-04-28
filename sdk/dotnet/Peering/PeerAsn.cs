@@ -13,6 +13,56 @@ namespace Pulumi.AzureNative.Peering
     /// The essential information related to the peer's ASN.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a peer ASN
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var peerAsn = new AzureNative.Peering.PeerAsn("peerAsn", new()
+    ///     {
+    ///         PeerAsn = 65000,
+    ///         PeerAsnName = "peerAsnName",
+    ///         PeerContactDetail = new[]
+    ///         {
+    ///             new AzureNative.Peering.Inputs.ContactDetailArgs
+    ///             {
+    ///                 Email = "noc@contoso.com",
+    ///                 Phone = "+1 (234) 567-8999",
+    ///                 Role = "Noc",
+    ///             },
+    ///             new AzureNative.Peering.Inputs.ContactDetailArgs
+    ///             {
+    ///                 Email = "abc@contoso.com",
+    ///                 Phone = "+1 (234) 567-8900",
+    ///                 Role = "Policy",
+    ///             },
+    ///             new AzureNative.Peering.Inputs.ContactDetailArgs
+    ///             {
+    ///                 Email = "xyz@contoso.com",
+    ///                 Phone = "+1 (234) 567-8900",
+    ///                 Role = "Technical",
+    ///             },
+    ///         },
+    ///         PeerName = "Contoso",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:peering:PeerAsn peerAsnName /subscriptions/subId/providers/Microsoft.Peering/peerAsns/peerAsnName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:peering:PeerAsn")]
     public partial class PeerAsn : global::Pulumi.CustomResource

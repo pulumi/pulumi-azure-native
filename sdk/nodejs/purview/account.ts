@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Account resource
  * API Version: 2021-07-01.
  * Previous API Version: 2020-12-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Accounts_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.purview.Account("account", {
+ *     accountName: "account1",
+ *     location: "West US 2",
+ *     managedResourceGroupName: "custom-rgname",
+ *     resourceGroupName: "SampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:purview:Account account1 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/SampleResourceGroup/providers/Microsoft.Purview/accounts/account1 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

@@ -11,6 +11,189 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220201Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate datastore (Azure Data Lake Gen1 w/ ServicePrincipal).
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var datastore = new AzureNative.MachineLearningServices.V20220201Preview.Datastore("datastore", new()
+    ///     {
+    ///         DatastoreDetails = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.AzureDataLakeGen1DatastoreArgs
+    ///         {
+    ///             Credentials = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.ServicePrincipalDatastoreCredentialsArgs
+    ///             {
+    ///                 AuthorityUrl = "string",
+    ///                 ClientId = "00000000-1111-2222-3333-444444444444",
+    ///                 CredentialsType = "ServicePrincipal",
+    ///                 ResourceUrl = "string",
+    ///                 Secrets = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.ServicePrincipalDatastoreSecretsArgs
+    ///                 {
+    ///                     ClientSecret = "string",
+    ///                     SecretsType = "ServicePrincipal",
+    ///                 },
+    ///                 TenantId = "00000000-1111-2222-3333-444444444444",
+    ///             },
+    ///             DatastoreType = "AzureDataLakeGen1",
+    ///             Description = "string",
+    ///             StoreName = "string",
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         SkipValidation = false,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrUpdate datastore (Azure Data Lake Gen2 w/ Service Principal).
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var datastore = new AzureNative.MachineLearningServices.V20220201Preview.Datastore("datastore", new()
+    ///     {
+    ///         DatastoreDetails = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.AzureDataLakeGen2DatastoreArgs
+    ///         {
+    ///             AccountName = "string",
+    ///             Credentials = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.ServicePrincipalDatastoreCredentialsArgs
+    ///             {
+    ///                 AuthorityUrl = "string",
+    ///                 ClientId = "00000000-1111-2222-3333-444444444444",
+    ///                 CredentialsType = "ServicePrincipal",
+    ///                 ResourceUrl = "string",
+    ///                 Secrets = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.ServicePrincipalDatastoreSecretsArgs
+    ///                 {
+    ///                     ClientSecret = "string",
+    ///                     SecretsType = "ServicePrincipal",
+    ///                 },
+    ///                 TenantId = "00000000-1111-2222-3333-444444444444",
+    ///             },
+    ///             DatastoreType = "AzureDataLakeGen2",
+    ///             Description = "string",
+    ///             Endpoint = "string",
+    ///             Filesystem = "string",
+    ///             Protocol = "string",
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         SkipValidation = false,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrUpdate datastore (Azure File store w/ AccountKey).
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var datastore = new AzureNative.MachineLearningServices.V20220201Preview.Datastore("datastore", new()
+    ///     {
+    ///         DatastoreDetails = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.AzureFileDatastoreArgs
+    ///         {
+    ///             AccountName = "string",
+    ///             Credentials = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.AccountKeyDatastoreCredentialsArgs
+    ///             {
+    ///                 CredentialsType = "AccountKey",
+    ///                 Secrets = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.AccountKeyDatastoreSecretsArgs
+    ///                 {
+    ///                     Key = "string",
+    ///                     SecretsType = "AccountKey",
+    ///                 },
+    ///             },
+    ///             DatastoreType = "AzureFile",
+    ///             Description = "string",
+    ///             Endpoint = "string",
+    ///             FileShareName = "string",
+    ///             Protocol = "string",
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         SkipValidation = false,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### CreateOrUpdate datastore (AzureBlob w/ AccountKey).
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var datastore = new AzureNative.MachineLearningServices.V20220201Preview.Datastore("datastore", new()
+    ///     {
+    ///         DatastoreDetails = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.AzureBlobDatastoreArgs
+    ///         {
+    ///             AccountName = "string",
+    ///             ContainerName = "string",
+    ///             Credentials = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.AccountKeyDatastoreCredentialsArgs
+    ///             {
+    ///                 CredentialsType = "AccountKey",
+    ///                 Secrets = new AzureNative.MachineLearningServices.V20220201Preview.Inputs.AccountKeyDatastoreSecretsArgs
+    ///                 {
+    ///                     Key = "string",
+    ///                     SecretsType = "AccountKey",
+    ///                 },
+    ///             },
+    ///             DatastoreType = "AzureBlob",
+    ///             Description = "string",
+    ///             Endpoint = "core.windows.net",
+    ///             Protocol = "https",
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         SkipValidation = false,
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20220201preview:Datastore string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220201preview:Datastore")]
     public partial class Datastore : global::Pulumi.CustomResource

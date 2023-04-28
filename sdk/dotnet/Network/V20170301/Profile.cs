@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.Network.V20170301
 {
     /// <summary>
     /// Class representing a Traffic Manager profile.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20170301:Profile myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficmanagerprofiles/{profileName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20170301:Profile")]

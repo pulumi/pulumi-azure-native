@@ -11,6 +11,81 @@ namespace Pulumi.AzureNative.Security.V20210801Preview
 {
     /// <summary>
     /// Security Assignment on a resource group over a given scope
+    /// 
+    /// ## Example Usage
+    /// ### Define a default standard assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assignment = new AzureNative.Security.V20210801Preview.Assignment("assignment", new()
+    ///     {
+    ///         AssignedStandard = new AzureNative.Security.V20210801Preview.Inputs.AssignedStandardItemArgs
+    ///         {
+    ///             Id = "/providers/Microsoft.Security/Standards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+    ///         },
+    ///         AssignmentId = "1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+    ///         Description = "Set of policies monitored by Azure Security Center for cross cloud",
+    ///         DisplayName = "ASC Default",
+    ///         Effect = "audit",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Scope = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/ResourceGroup/rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Exempt Recommendation From standard and resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assignment = new AzureNative.Security.V20210801Preview.Assignment("assignment", new()
+    ///     {
+    ///         AdditionalData = new AzureNative.Security.V20210801Preview.Inputs.AssignmentPropertiesAdditionalDataArgs
+    ///         {
+    ///             ExemptionCategory = "waiver",
+    ///         },
+    ///         AssignedComponent = new AzureNative.Security.V20210801Preview.Inputs.AssignedComponentItemArgs
+    ///         {
+    ///             Key = "1195afff-c881-495e-9bc5-1486211ae03f",
+    ///         },
+    ///         AssignedStandard = new AzureNative.Security.V20210801Preview.Inputs.AssignedStandardItemArgs
+    ///         {
+    ///             Id = "/providers/Microsoft.Security/Standards/1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+    ///         },
+    ///         AssignmentId = "1f3afdf9-d0c9-4c3d-847f-89da613e70a8",
+    ///         Description = "Set of policies monitored by Azure Security Center for cross cloud",
+    ///         DisplayName = "ASC Default",
+    ///         Effect = "Exempt",
+    ///         ExpiresOn = "2022-05-01T19:50:47.083633Z",
+    ///         Metadata = 
+    ///         {
+    ///             { "ticketId", 12345 },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Scope = "/subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/ResourceGroup/rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20210801preview:Assignment 1f3afdf9-d0c9-4c3d-847f-89da613e70a8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myResourceGroup/providers/Microsoft.Security/assignments/1f3afdf9-d0c9-4c3d-847f-89da613e70a8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20210801preview:Assignment")]
     public partial class Assignment : global::Pulumi.CustomResource

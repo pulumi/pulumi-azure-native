@@ -9,6 +9,53 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a migration resource.
+ *
+ * ## Example Usage
+ * ### Migrations_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const migration = new azure_native.dbforpostgresql.v20210615privatepreview.Migration("migration", {
+ *     dBsToMigrate: [
+ *         "db1",
+ *         "db2",
+ *         "db3",
+ *         "db4",
+ *     ],
+ *     location: "westus",
+ *     migrationName: "testmigration",
+ *     migrationResourceGroup: {
+ *         resourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg",
+ *         subnetResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/default",
+ *     },
+ *     secretParameters: {
+ *         aadApp: {
+ *             aadSecret: "testaadsecret",
+ *             clientId: "cccccccc-cccc-cccc-cccc-cccccccccccc",
+ *             tenantId: "tttttttt-tttt-tttt-tttt-tttttttttttt",
+ *         },
+ *         adminCredentials: {
+ *             sourceServerPassword: "testsourcepassword",
+ *             targetServerPassword: "testtargetpassword",
+ *         },
+ *     },
+ *     sourceDBServerResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+ *     targetDBServerName: "testtarget",
+ *     targetDBServerResourceGroupName: "testrg",
+ *     targetDBServerSubscriptionId: "ffffffff-ffff-ffff-ffff-ffffffffffff",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20210615privatepreview:Migration mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm mmmmmmmm-mmmm-mmmm-mmmm-mmmmmmmmmmmm 
+ * ```
  */
 export class Migration extends pulumi.CustomResource {
     /**

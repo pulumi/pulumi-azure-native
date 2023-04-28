@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes the suppression rule
+ *
+ * ## Example Usage
+ * ### Update or create suppression rule for subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const alertsSuppressionRule = new azure_native.security.v20190101preview.AlertsSuppressionRule("alertsSuppressionRule", {
+ *     alertType: "IpAnomaly",
+ *     alertsSuppressionRuleName: "dismissIpAnomalyAlerts",
+ *     comment: "Test VM",
+ *     expirationDateUtc: "2019-12-01T19:50:47.083633Z",
+ *     reason: "FalsePositive",
+ *     state: "Enabled",
+ *     suppressionAlertsScope: {
+ *         allOf: [
+ *             {
+ *                 field: "entities.ip.address",
+ *             },
+ *             {
+ *                 field: "entities.process.commandline",
+ *             },
+ *         ],
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20190101preview:AlertsSuppressionRule dismissIpAnomalyAlerts /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/alertsSuppressionRules/dismissIpAnomalyAlerts 
+ * ```
  */
 export class AlertsSuppressionRule extends pulumi.CustomResource {
     /**

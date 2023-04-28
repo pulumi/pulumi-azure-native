@@ -9,6 +9,57 @@ import * as utilities from "../../utilities";
 
 /**
  * Arc Sql Server database
+ *
+ * ## Example Usage
+ * ### Create a Arc Sql Server database.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlServerDatabase = new azure_native.azurearcdata.v20230115preview.SqlServerDatabase("sqlServerDatabase", {
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     properties: {
+ *         backupInformation: {
+ *             lastFullBackup: "2022-05-05T16:26:33.883Z",
+ *             lastLogBackup: "2022-05-10T16:26:33.883Z",
+ *         },
+ *         collationName: "SQL_Latin1_General_CP1_CI_AS",
+ *         compatibilityLevel: 150,
+ *         databaseCreationDate: "2022-04-05T16:26:33.883Z",
+ *         databaseOptions: {
+ *             isAutoCloseOn: true,
+ *             isAutoCreateStatsOn: true,
+ *             isAutoShrinkOn: true,
+ *             isAutoUpdateStatsOn: true,
+ *             isEncrypted: true,
+ *             isMemoryOptimizationEnabled: true,
+ *             isRemoteDataArchiveEnabled: true,
+ *             isTrustworthyOn: true,
+ *         },
+ *         isReadOnly: true,
+ *         recoveryMode: "Full",
+ *         sizeMB: 150,
+ *         spaceAvailableMB: 100,
+ *         state: "Online",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlServerInstanceName: "testSqlServerInstance",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata/v20230115preview:SqlServerDatabase testdb /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/testSqlServerInstance/testsqlManagedInstance/databases/testdb 
+ * ```
  */
 export class SqlServerDatabase extends pulumi.CustomResource {
     /**

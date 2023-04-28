@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * A file resource
+ *
+ * ## Example Usage
+ * ### Files_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const file = new azure_native.datamigration.v20180715preview.File("file", {
+ *     fileName: "x114d023d8",
+ *     groupName: "DmsSdkRg",
+ *     projectName: "DmsSdkProject",
+ *     properties: {
+ *         filePath: "DmsSdkFilePath/DmsSdkFile.sql",
+ *     },
+ *     serviceName: "DmsSdkService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datamigration/v20180715preview:File x114d023d8 /subscriptions/fc04246f-04c5-437e-ac5e-206a19e7193f/resourceGroups/DmsSdkRg/providers/Microsoft.DataMigration/services/DmsSdkService/projects/DmsSdkProject/files/x114d023d8 
+ * ```
  */
 export class File extends pulumi.CustomResource {
     /**

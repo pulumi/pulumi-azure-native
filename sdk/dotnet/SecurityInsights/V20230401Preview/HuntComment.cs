@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
     /// <summary>
     /// Represents a Hunt Comment in Azure Security Insights
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a hunt comment.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var huntComment = new AzureNative.SecurityInsights.V20230401Preview.HuntComment("huntComment", new()
+    ///     {
+    ///         HuntCommentId = "2216d0e1-91e3-4902-89fd-d2df8c535096",
+    ///         HuntId = "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+    ///         Message = "This is a test comment.",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:HuntComment 2216d0e1-91e3-4902-89fd-d2df8c123456 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f/comments/2216d0e1-91e3-4902-89fd-d2df8c123456 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:HuntComment")]
     public partial class HuntComment : global::Pulumi.CustomResource

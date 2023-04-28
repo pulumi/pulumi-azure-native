@@ -11,6 +11,70 @@ namespace Pulumi.AzureNative.Compute.V20230301
 {
     /// <summary>
     /// Create or update Restore Point collection parameters.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a restore point collection for cross region copy.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var restorePointCollection = new AzureNative.Compute.V20230301.RestorePointCollection("restorePointCollection", new()
+    ///     {
+    ///         Location = "norwayeast",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RestorePointCollectionName = "myRpc",
+    ///         Source = new AzureNative.Compute.V20230301.Inputs.RestorePointCollectionSourcePropertiesArgs
+    ///         {
+    ///             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/sourceRpcName",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "myTag1", "tagValue1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a restore point collection.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var restorePointCollection = new AzureNative.Compute.V20230301.RestorePointCollection("restorePointCollection", new()
+    ///     {
+    ///         Location = "norwayeast",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         RestorePointCollectionName = "myRpc",
+    ///         Source = new AzureNative.Compute.V20230301.Inputs.RestorePointCollectionSourcePropertiesArgs
+    ///         {
+    ///             Id = "/subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "myTag1", "tagValue1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20230301:RestorePointCollection myRpc /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/restorePointCollections/myRpc 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20230301:RestorePointCollection")]
     public partial class RestorePointCollection : global::Pulumi.CustomResource

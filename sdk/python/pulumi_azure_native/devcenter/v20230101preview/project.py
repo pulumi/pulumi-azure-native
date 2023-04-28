@@ -147,6 +147,51 @@ class Project(pulumi.CustomResource):
         """
         Represents a project resource.
 
+        ## Example Usage
+        ### Projects_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.devcenter.v20230101preview.Project("project",
+            description="This is my first project.",
+            dev_center_id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso",
+            location="centralus",
+            project_name="DevProject",
+            resource_group_name="rg1",
+            tags={
+                "CostCenter": "R&D",
+            })
+
+        ```
+        ### Projects_CreateOrUpdateWithLimitsPerDev
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.devcenter.v20230101preview.Project("project",
+            description="This is my first project.",
+            dev_center_id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso",
+            location="centralus",
+            max_dev_boxes_per_user=3,
+            project_name="DevProject",
+            resource_group_name="rg1",
+            tags={
+                "CostCenter": "R&D",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:Project DevProject /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/DevProject 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the project.
@@ -165,6 +210,51 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a project resource.
+
+        ## Example Usage
+        ### Projects_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.devcenter.v20230101preview.Project("project",
+            description="This is my first project.",
+            dev_center_id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso",
+            location="centralus",
+            project_name="DevProject",
+            resource_group_name="rg1",
+            tags={
+                "CostCenter": "R&D",
+            })
+
+        ```
+        ### Projects_CreateOrUpdateWithLimitsPerDev
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.devcenter.v20230101preview.Project("project",
+            description="This is my first project.",
+            dev_center_id="/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso",
+            location="centralus",
+            max_dev_boxes_per_user=3,
+            project_name="DevProject",
+            resource_group_name="rg1",
+            tags={
+                "CostCenter": "R&D",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devcenter/v20230101preview:Project DevProject /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/DevProject 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

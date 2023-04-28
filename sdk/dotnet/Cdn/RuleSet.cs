@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Cdn
     /// Friendly RuleSet name mapping to the any RuleSet or secret related information.
     /// API Version: 2021-06-01.
     /// Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### RuleSets_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ruleSet = new AzureNative.Cdn.RuleSet("ruleSet", new()
+    ///     {
+    ///         ProfileName = "profile1",
+    ///         ResourceGroupName = "RG",
+    ///         RuleSetName = "ruleSet1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cdn:RuleSet ruleSet1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/rulesets/ruleSet1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:RuleSet")]
     public partial class RuleSet : global::Pulumi.CustomResource

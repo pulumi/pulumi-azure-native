@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the account.
+ *
+ * ## Example Usage
+ * ### Create or update account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.powerplatform.v20201030preview.Account("account", {
+ *     accountName: "account",
+ *     description: "Description of the account.",
+ *     location: "East US",
+ *     resourceGroupName: "resourceGroup",
+ *     tags: {
+ *         Organization: "Administration",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:powerplatform/v20201030preview:Account account /subscriptions/subid/resourceGroups/resourceGroup/providers/Microsoft.PowerPlatform/accounts/account 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

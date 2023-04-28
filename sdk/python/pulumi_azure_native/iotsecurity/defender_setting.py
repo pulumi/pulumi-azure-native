@@ -97,6 +97,31 @@ class DefenderSetting(pulumi.CustomResource):
         API Version: 2021-02-01-preview.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update IoT Defender settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        defender_setting = azure_native.iotsecurity.DefenderSetting("defenderSetting",
+            device_quota=2000,
+            mde_integration=azure_native.iotsecurity.DefenderSettingsPropertiesMdeIntegrationArgs(
+                status="Enabled",
+            ),
+            onboarding_kind="Default",
+            sentinel_workspace_resource_ids=["/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity:DefenderSetting default /subscriptions/{subscriptionId}/providers/Microsoft.IoTSecurity/defenderSettings/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] device_quota: Size of the device quota. Value is required to be in multiples of 100.
@@ -114,6 +139,31 @@ class DefenderSetting(pulumi.CustomResource):
         IoT Defender settings
         API Version: 2021-02-01-preview.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update IoT Defender settings
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        defender_setting = azure_native.iotsecurity.DefenderSetting("defenderSetting",
+            device_quota=2000,
+            mde_integration=azure_native.iotsecurity.DefenderSettingsPropertiesMdeIntegrationArgs(
+                status="Enabled",
+            ),
+            onboarding_kind="Default",
+            sentinel_workspace_resource_ids=["/subscriptions/c4930e90-cd72-4aa5-93e9-2d081d129569/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace1"])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity:DefenderSetting default /subscriptions/{subscriptionId}/providers/Microsoft.IoTSecurity/defenderSettings/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DefenderSettingArgs args: The arguments to use to populate this resource's properties.

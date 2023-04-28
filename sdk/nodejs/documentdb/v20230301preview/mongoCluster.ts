@@ -9,6 +9,57 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a mongo cluster resource.
+ *
+ * ## Example Usage
+ * ### Create a new mongo cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoCluster = new azure_native.documentdb.v20230301preview.MongoCluster("mongoCluster", {
+ *     administratorLogin: "mongoAdmin",
+ *     administratorLoginPassword: "password",
+ *     location: "westus2",
+ *     mongoClusterName: "myMongoCluster",
+ *     nodeGroupSpecs: [{
+ *         diskSizeGB: 128,
+ *         enableHa: true,
+ *         kind: "Shard",
+ *         nodeCount: 3,
+ *         sku: "M30",
+ *     }],
+ *     resourceGroupName: "TestResourceGroup",
+ *     serverVersion: "5.0",
+ * });
+ *
+ * ```
+ * ### Create a new mongo cluster with point in time restore
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoCluster = new azure_native.documentdb.v20230301preview.MongoCluster("mongoCluster", {
+ *     createMode: "PointInTimeRestore",
+ *     location: "westus2",
+ *     mongoClusterName: "myMongoCluster",
+ *     resourceGroupName: "TestResourceGroup",
+ *     restoreParameters: {
+ *         pointInTimeUTC: "2023-01-13T20:07:35Z",
+ *         sourceResourceId: "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myOtherMongoCluster",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20230301preview:MongoCluster myMongoCluster /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DocumentDB/mongoClusters/myMongoCluster 
+ * ```
  */
 export class MongoCluster extends pulumi.CustomResource {
     /**

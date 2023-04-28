@@ -11,6 +11,94 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221108
 {
     /// <summary>
     /// Represents a cluster.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.DBforPostgreSQL.V20221108.Cluster("cluster", new()
+    ///     {
+    ///         AdministratorLoginPassword = "password",
+    ///         CitusVersion = "11.1",
+    ///         ClusterName = "testcluster",
+    ///         CoordinatorEnablePublicIpAccess = true,
+    ///         CoordinatorServerEdition = "GeneralPurpose",
+    ///         CoordinatorStorageQuotaInMb = 524288,
+    ///         CoordinatorVCores = 4,
+    ///         EnableHa = true,
+    ///         EnableShardsOnCoordinator = false,
+    ///         Location = "westus",
+    ///         NodeCount = 3,
+    ///         NodeEnablePublicIpAccess = false,
+    ///         NodeServerEdition = "MemoryOptimized",
+    ///         NodeStorageQuotaInMb = 524288,
+    ///         NodeVCores = 8,
+    ///         PostgresqlVersion = "15",
+    ///         PreferredPrimaryZone = "1",
+    ///         ResourceGroupName = "TestGroup",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new cluster as a point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.DBforPostgreSQL.V20221108.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "testcluster",
+    ///         Location = "westus",
+    ///         PointInTimeUTC = "2017-12-14T00:00:37.467Z",
+    ///         ResourceGroupName = "TestGroup",
+    ///         SourceLocation = "westus",
+    ///         SourceResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/source-cluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new cluster as a read replica
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.DBforPostgreSQL.V20221108.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "testcluster",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "TestGroup",
+    ///         SourceLocation = "westus",
+    ///         SourceResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/sourcecluster",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20221108:Cluster testcluster /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/testcluster 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221108:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

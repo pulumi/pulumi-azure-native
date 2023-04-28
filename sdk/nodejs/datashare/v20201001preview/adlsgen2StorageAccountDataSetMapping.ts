@@ -9,6 +9,120 @@ import * as utilities from "../../utilities";
 
 /**
  * ADLSGen2 storage account data set mapping.
+ *
+ * ## Example Usage
+ * ### DataSetMappings_ADLSGen2StorageAccount_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSetMapping = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping", {
+ *     accountName: "Account1",
+ *     containerName: "Container1",
+ *     dataSetId: "a08f184b-0567-4b11-ba22-a1199336d226",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     folder: "destinationFolder",
+ *     kind: "AdlsGen2StorageAccount",
+ *     mountPath: "foldera/folderd1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ *     storageAccountResourceId: "/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Storage/storageaccounts/storageaccount1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_BlobStorageAccount_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSetMapping = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSetMapping = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDB_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSetMapping = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSetMapping = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDW_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSetMapping = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SynapseWorkspaceSqlPoolTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSetMapping = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSetMapping("adlsGen2StorageAccountDataSetMapping", {
+ *     accountName: "consumerAccount",
+ *     dataSetMappingName: "datasetMappingName1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSetMapping datasetMappingName /subscriptions/4e745bb7-c420-479b-b0d6-a0f92d48a227/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/consumerAccount/shareSubscriptions/ShareSubscription1/dataSetMappings/datasetMappingName1 
+ * ```
  */
 export class ADLSGen2StorageAccountDataSetMapping extends pulumi.CustomResource {
     /**

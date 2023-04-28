@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.Relay.V20211101
 {
     /// <summary>
     /// Single item in a List or Get AuthorizationRule operation
+    /// 
+    /// ## Example Usage
+    /// ### RelayAuthorizationRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var wcfRelayAuthorizationRule = new AzureNative.Relay.V20211101.WCFRelayAuthorizationRule("wcfRelayAuthorizationRule", new()
+    ///     {
+    ///         AuthorizationRuleName = "example-RelayAuthRules-01",
+    ///         NamespaceName = "example-RelayNamespace-01",
+    ///         RelayName = "example-Relay-wcf-01",
+    ///         ResourceGroupName = "resourcegroup",
+    ///         Rights = new[]
+    ///         {
+    ///             "Listen",
+    ///             "Send",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:relay/v20211101:WCFRelayAuthorizationRule example-RelayAuthRules-01 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/resourcegroup/providers/Microsoft.Relay/namespaces/example-RelayNamespace-01/WcfRelays/example-Relay-Wcf-01/AuthorizationRules/example-RelayAuthRules-01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:relay/v20211101:WCFRelayAuthorizationRule")]
     public partial class WCFRelayAuthorizationRule : global::Pulumi.CustomResource

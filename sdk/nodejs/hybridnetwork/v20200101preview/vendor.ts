@@ -9,6 +9,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Vendor resource.
+ *
+ * ## Example Usage
+ * ### Create or update Vendor resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vendor = new azure_native.hybridnetwork.v20200101preview.Vendor("vendor", {vendorName: "TestVendor"});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridnetwork/v20200101preview:Vendor TestVendor /subscriptions/subid/providers/Microsoft.HybridNetwork/vendors/TestVendor 
+ * ```
  */
 export class Vendor extends pulumi.CustomResource {
     /**

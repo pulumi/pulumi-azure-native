@@ -11,6 +11,47 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
 {
     /// <summary>
     /// Event Subscription
+    /// 
+    /// ## Example Usage
+    /// ### DomainTopicEventSubscriptions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var domainTopicEventSubscription = new AzureNative.EventGrid.V20211015Preview.DomainTopicEventSubscription("domainTopicEventSubscription", new()
+    ///     {
+    ///         Destination = new AzureNative.EventGrid.V20211015Preview.Inputs.WebHookEventSubscriptionDestinationArgs
+    ///         {
+    ///             EndpointType = "WebHook",
+    ///             EndpointUrl = "https://requestb.in/15ksip71",
+    ///         },
+    ///         DomainName = "exampleDomain1",
+    ///         EventSubscriptionName = "exampleEventSubscriptionName1",
+    ///         Filter = new AzureNative.EventGrid.V20211015Preview.Inputs.EventSubscriptionFilterArgs
+    ///         {
+    ///             IsSubjectCaseSensitive = false,
+    ///             SubjectBeginsWith = "ExamplePrefix",
+    ///             SubjectEndsWith = "ExampleSuffix",
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///         TopicName = "exampleDomainTopic1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription exampleEventSubscriptionName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampleDomain1/domainTopics/exampleDomainTopic1/eventSubscriptions/exampleEventSubscriptionName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20211015preview:DomainTopicEventSubscription")]
     public partial class DomainTopicEventSubscription : global::Pulumi.CustomResource

@@ -10,6 +10,43 @@ import * as utilities from "../../utilities";
 /**
  * The order details.
  *
+ * ## Example Usage
+ * ### OrderPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const order = new azure_native.databoxedge.v20200501preview.Order("order", {
+ *     contactInformation: {
+ *         companyName: "Microsoft",
+ *         contactPerson: "John Mcclane",
+ *         emailList: ["john@microsoft.com"],
+ *         phone: "(800) 426-9400",
+ *     },
+ *     deviceName: "testedgedevice",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ *     shippingAddress: {
+ *         addressLine1: "Microsoft Corporation",
+ *         addressLine2: "One Microsoft Way",
+ *         addressLine3: "Redmond",
+ *         city: "WA",
+ *         country: "USA",
+ *         postalCode: "98052",
+ *         state: "WA",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge/v20200501preview:Order default /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/orders/default 
+ * ```
+ *
  * @deprecated Version 2020-05-01-preview will be removed in v2 of the provider.
  */
 export class Order extends pulumi.CustomResource {

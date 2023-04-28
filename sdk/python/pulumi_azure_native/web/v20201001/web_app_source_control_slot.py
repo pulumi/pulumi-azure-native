@@ -195,6 +195,13 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
                  __props__=None):
         """
         Source control configuration for an app.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:WebAppSourceControlSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/sourcecontrols/web 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -217,6 +224,13 @@ class WebAppSourceControlSlot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Source control configuration for an app.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20201001:WebAppSourceControlSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/sourcecontrols/web 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebAppSourceControlSlotArgs args: The arguments to use to populate this resource's properties.

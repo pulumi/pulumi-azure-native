@@ -13,6 +13,134 @@ namespace Pulumi.AzureNative.Resources
     /// Deployment information.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a deployment that will deploy a template with a uri and queryString
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deployment = new AzureNative.Resources.Deployment("deployment", new()
+    ///     {
+    ///         DeploymentName = "my-deployment",
+    ///         Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Mode = AzureNative.Resources.DeploymentMode.Incremental,
+    ///             Parameters = null,
+    ///             TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+    ///             {
+    ///                 QueryString = "sv=2019-02-02&amp;st=2019-04-29T22%3A18%3A26Z&amp;se=2019-04-30T02%3A23%3A26Z&amp;sr=b&amp;sp=rw&amp;sip=168.1.5.60-168.1.5.70&amp;spr=https&amp;sig=xxxxxxxx0xxxxxxxxxxxxx%2bxxxxxxxxxxxxxxxxxxxx%3d",
+    ///                 Uri = "https://example.com/exampleTemplate.json",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "my-resource-group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a deployment that will deploy a templateSpec with the given resourceId
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deployment = new AzureNative.Resources.Deployment("deployment", new()
+    ///     {
+    ///         DeploymentName = "my-deployment",
+    ///         Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Mode = AzureNative.Resources.DeploymentMode.Incremental,
+    ///             Parameters = null,
+    ///             TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+    ///             {
+    ///                 Id = "/subscriptions/00000000-0000-0000-0000-000000000001/resourceGroups/my-resource-group/providers/Microsoft.Resources/TemplateSpecs/TemplateSpec-Name/versions/v1",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "my-resource-group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a deployment that will redeploy another deployment on failure
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deployment = new AzureNative.Resources.Deployment("deployment", new()
+    ///     {
+    ///         DeploymentName = "my-deployment",
+    ///         Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Mode = AzureNative.Resources.DeploymentMode.Complete,
+    ///             OnErrorDeployment = new AzureNative.Resources.Inputs.OnErrorDeploymentArgs
+    ///             {
+    ///                 DeploymentName = "name-of-deployment-to-use",
+    ///                 Type = AzureNative.Resources.OnErrorDeploymentType.SpecificDeployment,
+    ///             },
+    ///             Parameters = null,
+    ///             TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+    ///             {
+    ///                 Uri = "https://example.com/exampleTemplate.json",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "my-resource-group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a deployment that will redeploy the last successful deployment on failure
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deployment = new AzureNative.Resources.Deployment("deployment", new()
+    ///     {
+    ///         DeploymentName = "my-deployment",
+    ///         Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Mode = AzureNative.Resources.DeploymentMode.Complete,
+    ///             OnErrorDeployment = new AzureNative.Resources.Inputs.OnErrorDeploymentArgs
+    ///             {
+    ///                 Type = AzureNative.Resources.OnErrorDeploymentType.LastSuccessful,
+    ///             },
+    ///             Parameters = null,
+    ///             TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+    ///             {
+    ///                 Uri = "https://example.com/exampleTemplate.json",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "my-resource-group",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:Deployment my-deployment /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/Microsoft.Resources/deployments/my-deployment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

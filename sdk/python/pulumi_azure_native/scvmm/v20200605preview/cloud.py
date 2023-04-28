@@ -164,6 +164,34 @@ class Cloud(pulumi.CustomResource):
         """
         The Clouds resource definition.
 
+        ## Example Usage
+        ### CreateCloud
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud = azure_native.scvmm.v20200605preview.Cloud("cloud",
+            cloud_name="HRCloud",
+            extended_location=azure_native.scvmm.v20200605preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                type="customLocation",
+            ),
+            location="East US",
+            resource_group_name="testrg",
+            uuid="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            vmm_server_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm/v20200605preview:Cloud HRCloud /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/Clouds/HRCloud 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cloud_name: Name of the Cloud.
@@ -183,6 +211,34 @@ class Cloud(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Clouds resource definition.
+
+        ## Example Usage
+        ### CreateCloud
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud = azure_native.scvmm.v20200605preview.Cloud("cloud",
+            cloud_name="HRCloud",
+            extended_location=azure_native.scvmm.v20200605preview.ExtendedLocationArgs(
+                name="/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+                type="customLocation",
+            ),
+            location="East US",
+            resource_group_name="testrg",
+            uuid="aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+            vmm_server_id="/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:scvmm/v20200605preview:Cloud HRCloud /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/Clouds/HRCloud 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CloudArgs args: The arguments to use to populate this resource's properties.

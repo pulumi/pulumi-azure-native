@@ -93,6 +93,33 @@ class WorkspaceConnection(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateWorkspaceConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_connection = azure_native.machinelearningservices.WorkspaceConnection("workspaceConnection",
+            connection_name="connection-1",
+            properties=azure_native.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesArgs(
+                auth_type="None",
+                category="ContainerRegistry",
+                target="www.facebook.com",
+            ),
+            resource_group_name="resourceGroup-1",
+            workspace_name="workspace-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:WorkspaceConnection connection-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/connections/connection-1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] connection_name: Friendly name of the workspace connection
@@ -108,6 +135,33 @@ class WorkspaceConnection(pulumi.CustomResource):
         """
         API Version: 2022-10-01.
         Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateWorkspaceConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_connection = azure_native.machinelearningservices.WorkspaceConnection("workspaceConnection",
+            connection_name="connection-1",
+            properties=azure_native.machinelearningservices.NoneAuthTypeWorkspaceConnectionPropertiesArgs(
+                auth_type="None",
+                category="ContainerRegistry",
+                target="www.facebook.com",
+            ),
+            resource_group_name="resourceGroup-1",
+            workspace_name="workspace-1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices:WorkspaceConnection connection-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/connections/connection-1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceConnectionArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,52 @@ import * as utilities from "../../utilities";
 
 /**
  * A Big Data pool
+ *
+ * ## Example Usage
+ * ### Create or update a Big Data pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bigDataPool = new azure_native.synapse.v20210501.BigDataPool("bigDataPool", {
+ *     autoPause: {
+ *         delayInMinutes: 15,
+ *         enabled: true,
+ *     },
+ *     autoScale: {
+ *         enabled: true,
+ *         maxNodeCount: 50,
+ *         minNodeCount: 3,
+ *     },
+ *     bigDataPoolName: "ExamplePool",
+ *     defaultSparkLogFolder: "/logs",
+ *     libraryRequirements: {
+ *         content: "",
+ *         filename: "requirements.txt",
+ *     },
+ *     location: "West US 2",
+ *     nodeCount: 4,
+ *     nodeSize: "Medium",
+ *     nodeSizeFamily: "MemoryOptimized",
+ *     resourceGroupName: "ExampleResourceGroup",
+ *     sparkEventsFolder: "/events",
+ *     sparkVersion: "3.3",
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     workspaceName: "ExampleWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse/v20210501:BigDataPool ExamplePool /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/bigDataPools/ExamplePool 
+ * ```
  */
 export class BigDataPool extends pulumi.CustomResource {
     /**

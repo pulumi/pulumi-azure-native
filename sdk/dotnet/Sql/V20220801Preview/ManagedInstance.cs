@@ -11,6 +11,101 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// An Azure SQL managed instance.
+    /// 
+    /// ## Example Usage
+    /// ### Create managed instance with all properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedInstance = new AzureNative.Sql.V20220801Preview.ManagedInstance("managedInstance", new()
+    ///     {
+    ///         AdministratorLogin = "dummylogin",
+    ///         AdministratorLoginPassword = "PLACEHOLDER",
+    ///         Administrators = new AzureNative.Sql.V20220801Preview.Inputs.ManagedInstanceExternalAdministratorArgs
+    ///         {
+    ///             AzureADOnlyAuthentication = true,
+    ///             Login = "bob@contoso.com",
+    ///             PrincipalType = "User",
+    ///             Sid = "00000011-1111-2222-2222-123456789111",
+    ///             TenantId = "00000011-1111-2222-2222-123456789111",
+    ///         },
+    ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
+    ///         DnsZonePartner = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance",
+    ///         InstancePoolId = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Sql/instancePools/pool1",
+    ///         LicenseType = "LicenseIncluded",
+    ///         Location = "Japan East",
+    ///         MaintenanceConfigurationId = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_MI_1",
+    ///         ManagedInstanceName = "testinstance",
+    ///         MinimalTlsVersion = "1.2",
+    ///         ProxyOverride = "Redirect",
+    ///         PublicDataEndpointEnabled = false,
+    ///         RequestedBackupStorageRedundancy = "Geo",
+    ///         ResourceGroupName = "testrg",
+    ///         ServicePrincipal = new AzureNative.Sql.V20220801Preview.Inputs.ServicePrincipalArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Sku = new AzureNative.Sql.V20220801Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "GP_Gen5",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         StorageSizeInGB = 1024,
+    ///         SubnetId = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "TagValue1" },
+    ///         },
+    ///         TimezoneId = "UTC",
+    ///         VCores = 8,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create managed instance with minimal properties
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedInstance = new AzureNative.Sql.V20220801Preview.ManagedInstance("managedInstance", new()
+    ///     {
+    ///         AdministratorLogin = "dummylogin",
+    ///         AdministratorLoginPassword = "PLACEHOLDER",
+    ///         LicenseType = "LicenseIncluded",
+    ///         Location = "Japan East",
+    ///         ManagedInstanceName = "testinstance",
+    ///         ResourceGroupName = "testrg",
+    ///         Sku = new AzureNative.Sql.V20220801Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "GP_Gen4",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         StorageSizeInGB = 1024,
+    ///         SubnetId = "/subscriptions/20D7082A-0FC7-4468-82BD-542694D5042B/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/subnet1",
+    ///         VCores = 8,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:ManagedInstance testinstance /subscriptions/20d7082a-0fc7-4468-82bd-542694d5042b/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testinstance 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:ManagedInstance")]
     public partial class ManagedInstance : global::Pulumi.CustomResource

@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.Authorization.V20211201Preview
 {
     /// <summary>
     /// Access Review History Definition.
+    /// 
+    /// ## Example Usage
+    /// ### PutAccessReviewHistoryDefinition
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scopeAccessReviewHistoryDefinitionById = new AzureNative.Authorization.V20211201Preview.ScopeAccessReviewHistoryDefinitionById("scopeAccessReviewHistoryDefinitionById", new()
+    ///     {
+    ///         HistoryDefinitionId = "44724910-d7a5-4c29-b28f-db73e717165a",
+    ///         Scope = "subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:authorization/v20211201preview:ScopeAccessReviewHistoryDefinitionById 44724910-d7a5-4c29-b28f-db73e717165a /subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/44724910-d7a5-4c29-b28f-db73e717165a 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:authorization/v20211201preview:ScopeAccessReviewHistoryDefinitionById")]
     public partial class ScopeAccessReviewHistoryDefinitionById : global::Pulumi.CustomResource

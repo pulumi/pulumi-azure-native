@@ -136,6 +136,44 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or Update Container App SourceControl
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_apps_source_control = azure_native.app.ContainerAppsSourceControl("containerAppsSourceControl",
+            branch="master",
+            container_app_name="testcanadacentral",
+            github_action_configuration=azure_native.app.GithubActionConfigurationResponseArgs(
+                azure_credentials=azure_native.app.AzureCredentialsArgs(
+                    client_id="<clientid>",
+                    client_secret="<clientsecret>",
+                    tenant_id="<tenantid>",
+                ),
+                context_path="./",
+                image="image/tag",
+                registry_info=azure_native.app.RegistryInfoArgs(
+                    registry_password="<registrypassword>",
+                    registry_url="xwang971reg.azurecr.io",
+                    registry_user_name="xwang971reg",
+                ),
+            ),
+            repo_url="https://github.com/xwang971/ghatest",
+            resource_group_name="workerapps-rg-xj",
+            source_control_name="current")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ContainerAppsSourceControl current /subscriptions/651f8027-33e8-4ec4-97b4-f6e9f3dc8744/resourceGroups/workerapps-rg-xj/providers/Microsoft.App/containerApps/myapp/sourcecontrols/current 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] branch: The branch which will trigger the auto deployment
@@ -157,6 +195,44 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
         Container App SourceControl.
         API Version: 2022-10-01.
         Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or Update Container App SourceControl
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_apps_source_control = azure_native.app.ContainerAppsSourceControl("containerAppsSourceControl",
+            branch="master",
+            container_app_name="testcanadacentral",
+            github_action_configuration=azure_native.app.GithubActionConfigurationResponseArgs(
+                azure_credentials=azure_native.app.AzureCredentialsArgs(
+                    client_id="<clientid>",
+                    client_secret="<clientsecret>",
+                    tenant_id="<tenantid>",
+                ),
+                context_path="./",
+                image="image/tag",
+                registry_info=azure_native.app.RegistryInfoArgs(
+                    registry_password="<registrypassword>",
+                    registry_url="xwang971reg.azurecr.io",
+                    registry_user_name="xwang971reg",
+                ),
+            ),
+            repo_url="https://github.com/xwang971/ghatest",
+            resource_group_name="workerapps-rg-xj",
+            source_control_name="current")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:app:ContainerAppsSourceControl current /subscriptions/651f8027-33e8-4ec4-97b4-f6e9f3dc8744/resourceGroups/workerapps-rg-xj/providers/Microsoft.App/containerApps/myapp/sourcecontrols/current 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerAppsSourceControlArgs args: The arguments to use to populate this resource's properties.

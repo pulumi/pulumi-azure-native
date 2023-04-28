@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * The Role Assignment resource format.
+ *
+ * ## Example Usage
+ * ### RoleAssignments_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignment = new azure_native.customerinsights.v20170426.RoleAssignment("roleAssignment", {
+ *     assignmentName: "assignmentName8976",
+ *     hubName: "sdkTestHub",
+ *     principals: [
+ *         {
+ *             principalId: "4c54c38ffa9b416ba5a6d6c8a20cbe7e",
+ *             principalType: "User",
+ *         },
+ *         {
+ *             principalId: "93061d15a5054f2b9948ae25724cf9d5",
+ *             principalType: "User",
+ *         },
+ *     ],
+ *     resourceGroupName: "TestHubRG",
+ *     role: azure_native.customerinsights.v20170426.RoleTypes.Admin,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights/v20170426:RoleAssignment azSdkTestHub/assignmentName8976 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/azSdkTestHub/RoleAssignments/assignmentName8976 
+ * ```
  */
 export class RoleAssignment extends pulumi.CustomResource {
     /**

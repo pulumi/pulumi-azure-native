@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Custom domain of the API portal
+ *
+ * ## Example Usage
+ * ### ApiPortalCustomDomains_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiPortalCustomDomain = new azure_native.appplatform.v20220101preview.ApiPortalCustomDomain("apiPortalCustomDomain", {
+ *     apiPortalName: "default",
+ *     domainName: "myDomainName",
+ *     properties: {
+ *         thumbprint: "*",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20220101preview:ApiPortalCustomDomain myDomainName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apiPortals/default/domains/myDomainName 
+ * ```
  */
 export class ApiPortalCustomDomain extends pulumi.CustomResource {
     /**

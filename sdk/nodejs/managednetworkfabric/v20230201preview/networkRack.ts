@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The NetworkRack resource definition.
+ *
+ * ## Example Usage
+ * ### NetworkRacks_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkRack = new azure_native.managednetworkfabric.v20230201preview.NetworkRack("networkRack", {
+ *     annotation: "null",
+ *     location: "eastus",
+ *     networkFabricId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/networkFabricName",
+ *     networkRackName: "networkRackName",
+ *     networkRackSku: "RackSKU",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         keyID: "keyValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkRack networkRackName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName 
+ * ```
  */
 export class NetworkRack extends pulumi.CustomResource {
     /**

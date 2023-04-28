@@ -10,6 +10,48 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB MongoDB collection.
  *
+ * ## Example Usage
+ * ### CosmosDBMongoDBCollectionCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoDBResourceMongoDBCollection = new azure_native.documentdb.v20190801.MongoDBResourceMongoDBCollection("mongoDBResourceMongoDBCollection", {
+ *     accountName: "ddb1",
+ *     collectionName: "collectionName",
+ *     databaseName: "databaseName",
+ *     location: "West US",
+ *     options: {},
+ *     resource: {
+ *         id: "collectionName",
+ *         indexes: [{
+ *             key: {
+ *                 keys: ["testKey"],
+ *             },
+ *             options: {
+ *                 expireAfterSeconds: 100,
+ *                 unique: true,
+ *             },
+ *         }],
+ *         shardKey: {
+ *             testKey: "Hash",
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20190801:MongoDBResourceMongoDBCollection collectionName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/mongodbDatabases/databaseName/mongodbCollections/collectionName 
+ * ```
+ *
  * @deprecated Version 2019-08-01 will be removed in v2 of the provider.
  */
 export class MongoDBResourceMongoDBCollection extends pulumi.CustomResource {

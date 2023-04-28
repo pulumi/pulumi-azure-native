@@ -11,6 +11,34 @@ namespace Pulumi.AzureNative.IoTSecurity.V20210201Preview
 {
     /// <summary>
     /// Device group
+    /// 
+    /// ## Example Usage
+    /// ### Create or update device group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deviceGroup = new AzureNative.IoTSecurity.V20210201Preview.DeviceGroup("deviceGroup", new()
+    ///     {
+    ///         DeviceGroupName = "myGroup",
+    ///         IotDefenderLocation = "eastus",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:iotsecurity/v20210201preview:DeviceGroup myGroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.IoTSecurity/deviceGroups/myGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:iotsecurity/v20210201preview:DeviceGroup")]
     public partial class DeviceGroup : global::Pulumi.CustomResource

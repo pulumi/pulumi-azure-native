@@ -131,6 +131,32 @@ class TestBaseAccount(pulumi.CustomResource):
         """
         The Test Base Account resource.
 
+        ## Example Usage
+        ### TestBaseAccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        test_base_account = azure_native.testbase.v20220401preview.TestBaseAccount("testBaseAccount",
+            location="westus",
+            resource_group_name="contoso-rg1",
+            sku=azure_native.testbase.v20220401preview.TestBaseAccountSKUArgs(
+                name="S0",
+                tier="Standard",
+            ),
+            test_base_account_name="contoso-testBaseAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase/v20220401preview:TestBaseAccount contoso-testBaseAccount1 /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -148,6 +174,32 @@ class TestBaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Test Base Account resource.
+
+        ## Example Usage
+        ### TestBaseAccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        test_base_account = azure_native.testbase.v20220401preview.TestBaseAccount("testBaseAccount",
+            location="westus",
+            resource_group_name="contoso-rg1",
+            sku=azure_native.testbase.v20220401preview.TestBaseAccountSKUArgs(
+                name="S0",
+                tier="Standard",
+            ),
+            test_base_account_name="contoso-testBaseAccount1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:testbase/v20220401preview:TestBaseAccount contoso-testBaseAccount1 /subscriptions/subscription-id/resourceGroups/contoso-rg1/providers/Microsoft.TestBase/testBaseAccounts/contoso-testBaseAccount1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TestBaseAccountArgs args: The arguments to use to populate this resource's properties.

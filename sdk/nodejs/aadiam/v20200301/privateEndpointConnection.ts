@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Private endpoint connection resource.
+ *
+ * ## Example Usage
+ * ### AadiamPutPrivateEndpointConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.aadiam.v20200301.PrivateEndpointConnection("privateEndpointConnection", {
+ *     policyName: "example-policy-5849",
+ *     privateEndpoint: {
+ *         id: "subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/microsoft.aadiam/privateLinkForAzureAD/ddb1/privateLinkConnections/{privateEndpointConnection name}",
+ *     },
+ *     privateEndpointConnectionName: "{privateEndpointConnection name}",
+ *     privateLinkServiceConnectionState: {
+ *         actionsRequired: "None",
+ *         description: "You may pass",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "resourcegroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:aadiam/v20200301:PrivateEndpointConnection {privateEndpointConnection name} subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/microsoft.aadiam/privateLinkForAzureAD/ddb1/privateLinkConnections/{privateEndpointConnection name} 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

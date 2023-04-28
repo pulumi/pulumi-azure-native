@@ -153,6 +153,44 @@ class CloudServicesNetwork(pulumi.CustomResource):
         of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
         virtual machines and/or Hybrid AKS clusters.
 
+        ## Example Usage
+        ### Create or update cloud services network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_services_network = azure_native.networkcloud.v20221212preview.CloudServicesNetwork("cloudServicesNetwork",
+            additional_egress_endpoints=[{
+                "category": "azure-resource-management",
+                "endpoints": [{
+                    "domainName": "https://storageaccountex.blob.core.windows.net",
+                    "port": 443,
+                }],
+            }],
+            cloud_services_network_name="cloudServicesNetworkName",
+            enable_default_egress_endpoints="False",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:CloudServicesNetwork cloudServicesNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EgressEndpointArgs']]]] additional_egress_endpoints: The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint.
@@ -174,6 +212,44 @@ class CloudServicesNetwork(pulumi.CustomResource):
         represented in the status of this resource. All resources associated with this cloud services network will be part
         of the same layer 2 (L2) isolation domain. At least one service network must be created but may be reused across many
         virtual machines and/or Hybrid AKS clusters.
+
+        ## Example Usage
+        ### Create or update cloud services network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        cloud_services_network = azure_native.networkcloud.v20221212preview.CloudServicesNetwork("cloudServicesNetwork",
+            additional_egress_endpoints=[{
+                "category": "azure-resource-management",
+                "endpoints": [{
+                    "domainName": "https://storageaccountex.blob.core.windows.net",
+                    "port": 443,
+                }],
+            }],
+            cloud_services_network_name="cloudServicesNetworkName",
+            enable_default_egress_endpoints="False",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:CloudServicesNetwork cloudServicesNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/cloudServicesNetworks/cloudServicesNetworkName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CloudServicesNetworkArgs args: The arguments to use to populate this resource's properties.

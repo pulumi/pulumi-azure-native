@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * The response to an account resource GET request.
+ *
+ * ## Example Usage
+ * ### Create an account resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.visualstudio.v20140401preview.Account("account", {
+ *     accountName: "Example",
+ *     location: "Central US",
+ *     operationType: "create",
+ *     properties: {},
+ *     resourceGroupName: "VS-Example-Group",
+ *     resourceName: "Example",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:visualstudio/v20140401preview:Account VS-Example-Group /subscriptions/0de7f055-dbea-498d-8e9e-da287eedca90/resourceGroups/VS-Example-Group/providers/Microsoft.VisualStudio/account/Example 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

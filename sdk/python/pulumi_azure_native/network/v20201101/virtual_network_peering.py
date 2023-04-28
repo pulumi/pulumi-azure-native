@@ -284,6 +284,35 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         """
         Peerings in a virtual network resource.
 
+        ## Example Usage
+        ### Create peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.v20201101.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            remote_virtual_network=azure_native.network.v20201101.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            ),
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:VirtualNetworkPeering peer /subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_forwarded_traffic: Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
@@ -310,6 +339,35 @@ class VirtualNetworkPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Peerings in a virtual network resource.
+
+        ## Example Usage
+        ### Create peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_peering = azure_native.network.v20201101.VirtualNetworkPeering("virtualNetworkPeering",
+            allow_forwarded_traffic=True,
+            allow_gateway_transit=False,
+            allow_virtual_network_access=True,
+            remote_virtual_network=azure_native.network.v20201101.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet2",
+            ),
+            resource_group_name="peerTest",
+            use_remote_gateways=False,
+            virtual_network_name="vnet1",
+            virtual_network_peering_name="peer")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:VirtualNetworkPeering peer /subscriptions/subid/resourceGroups/peerTest/providers/Microsoft.Network/virtualNetworks/vnet1/virtualNetworkPeerings/peer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkPeeringInitArgs args: The arguments to use to populate this resource's properties.

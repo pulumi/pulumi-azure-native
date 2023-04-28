@@ -11,6 +11,109 @@ namespace Pulumi.AzureNative.Compute.V20220702
 {
     /// <summary>
     /// disk encryption set resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create a disk encryption set with key vault from a different subscription.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diskEncryptionSet = new AzureNative.Compute.V20220702.DiskEncryptionSet("diskEncryptionSet", new()
+    ///     {
+    ///         ActiveKey = new AzureNative.Compute.V20220702.Inputs.KeyForDiskEncryptionSetArgs
+    ///         {
+    ///             KeyUrl = "https://myvaultdifferentsub.vault-int.azure-int.net/keys/{key}",
+    ///         },
+    ///         DiskEncryptionSetName = "myDiskEncryptionSet",
+    ///         EncryptionType = "EncryptionAtRestWithCustomerKey",
+    ///         Identity = new AzureNative.Compute.V20220702.Inputs.EncryptionSetIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a disk encryption set with key vault from a different tenant.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diskEncryptionSet = new AzureNative.Compute.V20220702.DiskEncryptionSet("diskEncryptionSet", new()
+    ///     {
+    ///         ActiveKey = new AzureNative.Compute.V20220702.Inputs.KeyForDiskEncryptionSetArgs
+    ///         {
+    ///             KeyUrl = "https://myvaultdifferenttenant.vault-int.azure-int.net/keys/{key}",
+    ///         },
+    ///         DiskEncryptionSetName = "myDiskEncryptionSet",
+    ///         EncryptionType = "EncryptionAtRestWithCustomerKey",
+    ///         FederatedClientId = "00000000-0000-0000-0000-000000000000",
+    ///         Identity = new AzureNative.Compute.V20220702.Inputs.EncryptionSetIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}", null },
+    ///             },
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a disk encryption set.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diskEncryptionSet = new AzureNative.Compute.V20220702.DiskEncryptionSet("diskEncryptionSet", new()
+    ///     {
+    ///         ActiveKey = new AzureNative.Compute.V20220702.Inputs.KeyForDiskEncryptionSetArgs
+    ///         {
+    ///             KeyUrl = "https://myvmvault.vault-int.azure-int.net/keys/{key}",
+    ///             SourceVault = new AzureNative.Compute.V20220702.Inputs.SourceVaultArgs
+    ///             {
+    ///                 Id = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",
+    ///             },
+    ///         },
+    ///         DiskEncryptionSetName = "myDiskEncryptionSet",
+    ///         EncryptionType = "EncryptionAtRestWithCustomerKey",
+    ///         Identity = new AzureNative.Compute.V20220702.Inputs.EncryptionSetIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20220702:DiskEncryptionSet myDiskEncryptionSet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20220702:DiskEncryptionSet")]
     public partial class DiskEncryptionSet : global::Pulumi.CustomResource

@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Dedicated cloud node model
+ *
+ * ## Example Usage
+ * ### CreateDedicatedCloudNode
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dedicatedCloudNode = new azure_native.vmwarecloudsimple.v20190401.DedicatedCloudNode("dedicatedCloudNode", {
+ *     availabilityZoneId: "az1",
+ *     dedicatedCloudNodeName: "myNode",
+ *     id: "general",
+ *     location: "westus",
+ *     name: "CS28-Node",
+ *     nodesCount: 1,
+ *     placementGroupId: "n1",
+ *     purchaseId: "56acbd46-3d36-4bbf-9b08-57c30fdf6932",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "VMware_CloudSimple_CS28",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode myNode /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VMwareCloudSimple/dedicatedCloudNodes/myNode 
+ * ```
  */
 export class DedicatedCloudNode extends pulumi.CustomResource {
     /**

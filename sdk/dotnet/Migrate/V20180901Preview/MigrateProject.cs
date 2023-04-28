@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Migrate.V20180901Preview
 {
     /// <summary>
     /// Migrate Project REST Resource.
+    /// 
+    /// ## Example Usage
+    /// ### MigrateProjects_Put
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var migrateProject = new AzureNative.Migrate.V20180901Preview.MigrateProject("migrateProject", new()
+    ///     {
+    ///         ETag = "\"b701c73a-0000-0000-0000-59c12ff00000\"",
+    ///         Location = "Southeast Asia",
+    ///         MigrateProjectName = "project01",
+    ///         Properties = null,
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20180901preview:MigrateProject project01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/MigrateProjects/project01 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20180901preview:MigrateProject")]
     public partial class MigrateProject : global::Pulumi.CustomResource

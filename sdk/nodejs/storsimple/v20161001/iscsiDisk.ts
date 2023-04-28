@@ -10,6 +10,37 @@ import * as utilities from "../../utilities";
 /**
  * The iSCSI disk.
  *
+ * ## Example Usage
+ * ### IscsiDisksCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const iscsiDisk = new azure_native.storsimple.v20161001.IscsiDisk("iscsiDisk", {
+ *     accessControlRecords: [],
+ *     dataPolicy: azure_native.storsimple.v20161001.DataPolicy.Tiered,
+ *     description: "Demo IscsiDisk for SDK Test Tiered",
+ *     deviceName: "HSDK-0NZI14MDTF",
+ *     diskName: "Auto-TestIscsiDisk1",
+ *     diskStatus: azure_native.storsimple.v20161001.DiskStatus.Online,
+ *     iscsiServerName: "HSDK-0NZI14MDTF",
+ *     managerName: "hAzureSDKOperations",
+ *     monitoringStatus: azure_native.storsimple.v20161001.MonitoringStatus.Enabled,
+ *     provisionedCapacityInBytes: 536870912000,
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple/v20161001:IscsiDisk Auto-TestIscsiDisk1 /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/HSDK-0NZI14MDTF/iscsiServers/HSDK-0NZI14MDTF/disks/Auto-TestIscsiDisk1 
+ * ```
+ *
  * @deprecated Version 2016-10-01 will be removed in v2 of the provider.
  */
 export class IscsiDisk extends pulumi.CustomResource {

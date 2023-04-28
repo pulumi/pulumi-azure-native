@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.RecoveryServices.V20180710
 {
     /// <summary>
     /// vCenter definition.
+    /// 
+    /// ## Example Usage
+    /// ### Add vCenter.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var replicationvCenter = new AzureNative.RecoveryServices.V20180710.ReplicationvCenter("replicationvCenter", new()
+    ///     {
+    ///         FabricName = "MadhaviFabric",
+    ///         Properties = new AzureNative.RecoveryServices.V20180710.Inputs.AddVCenterRequestPropertiesArgs
+    ///         {
+    ///             FriendlyName = "esx-78",
+    ///             IpAddress = "inmtest78",
+    ///             Port = "443",
+    ///             ProcessServerId = "5A720CAB-39CB-F445-BD1662B0B33164B5",
+    ///             RunAsAccountId = "2",
+    ///         },
+    ///         ResourceGroupName = "MadhaviVRG",
+    ///         ResourceName = "MadhaviVault",
+    ///         VCenterName = "esx-78",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recoveryservices/v20180710:ReplicationvCenter esx-78 /Subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/MadhaviVRG/providers/Microsoft.RecoveryServices/vaults/MadhaviVault/replicationFabrics/239f778f368e34f78216d81f030725cdf2033174b47879b9f2eeede06fdd9c4d/replicationvCenters/esx-78 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recoveryservices/v20180710:ReplicationvCenter")]
     public partial class ReplicationvCenter : global::Pulumi.CustomResource

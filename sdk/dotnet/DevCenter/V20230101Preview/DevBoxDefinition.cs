@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.DevCenter.V20230101Preview
 {
     /// <summary>
     /// Represents a definition for a Developer Machine.
+    /// 
+    /// ## Example Usage
+    /// ### DevBoxDefinitions_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var devBoxDefinition = new AzureNative.DevCenter.V20230101Preview.DevBoxDefinition("devBoxDefinition", new()
+    ///     {
+    ///         DevBoxDefinitionName = "WebDevBox",
+    ///         DevCenterName = "Contoso",
+    ///         HibernateSupport = "Enabled",
+    ///         ImageReference = new AzureNative.DevCenter.V20230101Preview.Inputs.ImageReferenceArgs
+    ///         {
+    ///             Id = "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/Example/providers/Microsoft.DevCenter/devcenters/Contoso/galleries/contosogallery/images/exampleImage/version/1.0.0",
+    ///         },
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.DevCenter.V20230101Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Preview",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter/v20230101preview:DevBoxDefinition WebDevBox /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/devboxdefinitions/devBoxDefinitionName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20230101preview:DevBoxDefinition")]
     public partial class DevBoxDefinition : global::Pulumi.CustomResource

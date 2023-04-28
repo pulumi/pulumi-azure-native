@@ -112,6 +112,30 @@ class WordpressInstance(pulumi.CustomResource):
         """
         WordPress instance resource
 
+        ## Example Usage
+        ### Workloads
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        wordpress_instance = azure_native.workloads.v20211201preview.WordpressInstance("wordpressInstance",
+            database_name="wpdb",
+            database_user="wpuser",
+            php_workload_name="wp39",
+            resource_group_name="test-rg",
+            version="5.4.2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads/v20211201preview:WordpressInstance default /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsot.Workloads/phpWorkloads/wp39/wordpressInstances/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] database_name: Database name used by the application
@@ -128,6 +152,30 @@ class WordpressInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         WordPress instance resource
+
+        ## Example Usage
+        ### Workloads
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        wordpress_instance = azure_native.workloads.v20211201preview.WordpressInstance("wordpressInstance",
+            database_name="wpdb",
+            database_user="wpuser",
+            php_workload_name="wp39",
+            resource_group_name="test-rg",
+            version="5.4.2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads/v20211201preview:WordpressInstance default /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsot.Workloads/phpWorkloads/wp39/wordpressInstances/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WordpressInstanceArgs args: The arguments to use to populate this resource's properties.

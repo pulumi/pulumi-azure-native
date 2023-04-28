@@ -215,6 +215,32 @@ class User(pulumi.CustomResource):
         """
         User details.
 
+        ## Example Usage
+        ### ApiManagementCreateUserBasic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.apimanagement.v20180101.User("user",
+            confirmation="signup",
+            email="foobar@outlook.com",
+            first_name="foo",
+            last_name="bar",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            uid="5931a75ae4bbd512288c680b")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180101:User 5931a75ae4bbd512288c680b /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/5931a75ae4bbd512288c680b 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Confirmation']] confirmation: Determines the type of confirmation e-mail that will be sent to the newly created user.
@@ -237,6 +263,32 @@ class User(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         User details.
+
+        ## Example Usage
+        ### ApiManagementCreateUserBasic
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        user = azure_native.apimanagement.v20180101.User("user",
+            confirmation="signup",
+            email="foobar@outlook.com",
+            first_name="foo",
+            last_name="bar",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            uid="5931a75ae4bbd512288c680b")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20180101:User 5931a75ae4bbd512288c680b /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/5931a75ae4bbd512288c680b 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

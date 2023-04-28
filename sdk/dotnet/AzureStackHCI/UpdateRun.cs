@@ -12,6 +12,57 @@ namespace Pulumi.AzureNative.AzureStackHCI
     /// <summary>
     /// Details of an Update run
     /// API Version: 2023-02-01.
+    /// 
+    /// ## Example Usage
+    /// ### Get Update runs under cluster resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var updateRun = new AzureNative.AzureStackHCI.UpdateRun("updateRun", new()
+    ///     {
+    ///         ClusterName = "testcluster",
+    ///         Description = "Update Azure Stack.",
+    ///         EndTimeUtc = "2022-04-06T13:58:42.969006+00:00",
+    ///         ErrorMessage = "",
+    ///         LastUpdatedTimeUtc = "2022-04-06T13:58:42.969006+00:00",
+    ///         Name = "Unnamed step",
+    ///         ResourceGroupName = "testrg",
+    ///         StartTimeUtc = "2022-04-06T01:36:33.3876751+00:00",
+    ///         Status = "Success",
+    ///         Steps = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "description", "Prepare for SSU update" },
+    ///                 { "endTimeUtc", "2022-04-06T01:37:16.8728314+00:00" },
+    ///                 { "errorMessage", "" },
+    ///                 { "lastUpdatedTimeUtc", "2022-04-06T01:37:16.8728314+00:00" },
+    ///                 { "name", "PreUpdate Cloud" },
+    ///                 { "startTimeUtc", "2022-04-06T01:36:33.3876751+00:00" },
+    ///                 { "status", "Success" },
+    ///                 { "steps", new[] {} },
+    ///             },
+    ///         },
+    ///         UpdateName = "Microsoft4.2203.2.32",
+    ///         UpdateRunName = "23b779ba-0d52-4a80-8571-45ca74664ec3",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurestackhci:UpdateRun Microsoft4.2203.2.32/23b779ba-0d52-4a80-8571-45ca74664ec3 /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updates/Microsoft4.2203.2.32/updateRuns/23b779ba-0d52-4a80-8571-45ca74664ec3 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurestackhci:UpdateRun")]
     public partial class UpdateRun : global::Pulumi.CustomResource

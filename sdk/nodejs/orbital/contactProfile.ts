@@ -10,6 +10,84 @@ import * as utilities from "../utilities";
 /**
  * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
  * API Version: 2022-11-01.
+ *
+ * ## Example Usage
+ * ### Create a contact profile
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const contactProfile = new azure_native.orbital.ContactProfile("contactProfile", {
+ *     autoTrackingConfiguration: azure_native.orbital.AutoTrackingConfiguration.Disabled,
+ *     contactProfileName: "CONTOSO-CP",
+ *     eventHubUri: "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.EventHub/namespaces/contosoHub/eventhubs/contosoHub",
+ *     links: [
+ *         {
+ *             channels: [{
+ *                 bandwidthMHz: 2,
+ *                 centerFrequencyMHz: 2250,
+ *                 endPoint: {
+ *                     endPointName: "ContosoTest_Uplink",
+ *                     ipAddress: "10.1.0.4",
+ *                     port: "50000",
+ *                     protocol: "TCP",
+ *                 },
+ *                 name: "contoso-uplink-channel",
+ *             }],
+ *             direction: "Uplink",
+ *             eirpdBW: 45,
+ *             gainOverTemperature: 0,
+ *             name: "contoso-uplink",
+ *             polarization: "LHCP",
+ *         },
+ *         {
+ *             channels: [{
+ *                 bandwidthMHz: 15,
+ *                 centerFrequencyMHz: 8160,
+ *                 endPoint: {
+ *                     endPointName: "ContosoTest_Downlink",
+ *                     ipAddress: "10.1.0.5",
+ *                     port: "50001",
+ *                     protocol: "UDP",
+ *                 },
+ *                 name: "contoso-downlink-channel",
+ *             }],
+ *             direction: "Downlink",
+ *             eirpdBW: 0,
+ *             gainOverTemperature: 25,
+ *             name: "contoso-downlink",
+ *             polarization: "RHCP",
+ *         },
+ *     ],
+ *     location: "eastus2",
+ *     minimumElevationDegrees: 5,
+ *     minimumViableContactDuration: "PT1M",
+ *     networkConfiguration: {
+ *         subnetId: "/subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Network/virtualNetworks/contoso-vnet/subnets/orbital-delegated-subnet",
+ *     },
+ *     resourceGroupName: "contoso-Rgp",
+ *     thirdPartyConfigurations: [
+ *         {
+ *             missionConfiguration: "Ksat_MissionConfiguration",
+ *             providerName: "KSAT",
+ *         },
+ *         {
+ *             missionConfiguration: "Viasat_Configuration",
+ *             providerName: "VIASAT",
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:orbital:ContactProfile CONTOSO-CP /subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/contactProfiles/CONTOSO-CP 
+ * ```
  */
 export class ContactProfile extends pulumi.CustomResource {
     /**

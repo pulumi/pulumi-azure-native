@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Blockchain.V20180601Preview
 {
     /// <summary>
     /// Payload of the blockchain member which is exposed in the request/response of the resource provider.
+    /// 
+    /// ## Example Usage
+    /// ### BlockchainMembers_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blockchainMember = new AzureNative.Blockchain.V20180601Preview.BlockchainMember("blockchainMember", new()
+    ///     {
+    ///         BlockchainMemberName = "contosemember1",
+    ///         Consortium = "ContoseConsortium",
+    ///         ConsortiumManagementAccountPassword = "&lt;consortiumManagementAccountPassword&gt;",
+    ///         Location = "southeastasia",
+    ///         Password = "&lt;password&gt;",
+    ///         Protocol = "Quorum",
+    ///         ResourceGroupName = "mygroup",
+    ///         ValidatorNodesSku = new AzureNative.Blockchain.V20180601Preview.Inputs.BlockchainMemberNodesSkuArgs
+    ///         {
+    ///             Capacity = 2,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:blockchain/v20180601preview:BlockchainMember contosemember1 /subscriptions/51766542-3ed7-4a72-a187-0c8ab644ddab/resourceGroups/mygroup/providers/Microsoft.Blockchain/blockchainMembers/contosemember1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:blockchain/v20180601preview:BlockchainMember")]
     public partial class BlockchainMember : global::Pulumi.CustomResource

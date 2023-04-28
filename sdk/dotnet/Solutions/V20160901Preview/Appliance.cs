@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Solutions.V20160901Preview
 {
     /// <summary>
     /// Information about appliance.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update appliance
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var appliance = new AzureNative.Solutions.V20160901Preview.Appliance("appliance", new()
+    ///     {
+    ///         ApplianceDefinitionId = "/subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/applianceDefinitions/myAppDef",
+    ///         ApplianceName = "myAppliance",
+    ///         Kind = "ServiceCatalog",
+    ///         Location = "East US 2",
+    ///         ManagedResourceGroupId = "/subscriptions/subid/resourceGroups/myManagedRG",
+    ///         ResourceGroupName = "rg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:solutions/v20160901preview:Appliance myAppliance /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Solutions/appliances/myAppliance 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:solutions/v20160901preview:Appliance")]

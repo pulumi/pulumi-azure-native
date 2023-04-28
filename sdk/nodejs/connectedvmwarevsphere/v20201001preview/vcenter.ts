@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * Defines the vCenter.
+ *
+ * ## Example Usage
+ * ### CreateVCenter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vCenter = new azure_native.connectedvmwarevsphere.v20201001preview.VCenter("vCenter", {
+ *     credentials: {
+ *         password: "<password>",
+ *         username: "tempuser",
+ *     },
+ *     extendedLocation: {
+ *         name: "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.ExtendedLocation/customLocations/contoso",
+ *         type: "customLocation",
+ *     },
+ *     fqdn: "ContosoVMware.contoso.com",
+ *     location: "East US",
+ *     port: 1234,
+ *     resourceGroupName: "testrg",
+ *     vcenterName: "ContosoVCenter",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:connectedvmwarevsphere/v20201001preview:VCenter ContosoVCenter /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VCenters/ContosoVCenter 
+ * ```
  */
 export class VCenter extends pulumi.CustomResource {
     /**

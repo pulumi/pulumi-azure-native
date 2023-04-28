@@ -9,6 +9,43 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### CreateWorkspaceConnection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceConnection = new AzureNative.MachineLearningServices.V20230401Preview.WorkspaceConnection("workspaceConnection", new()
+    ///     {
+    ///         ConnectionName = "connection-1",
+    ///         Properties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.NoneAuthTypeWorkspaceConnectionPropertiesArgs
+    ///         {
+    ///             AuthType = "None",
+    ///             Category = "ContainerRegistry",
+    ///             ExpiryTime = "2024-03-15T14:30:00Z",
+    ///             Target = "www.facebook.com",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup-1",
+    ///         WorkspaceName = "workspace-1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:WorkspaceConnection connection-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/connections/connection-1 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:WorkspaceConnection")]
     public partial class WorkspaceConnection : global::Pulumi.CustomResource
     {

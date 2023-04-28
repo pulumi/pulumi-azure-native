@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * The EngagementFabric account
+ *
+ * ## Example Usage
+ * ### AccountsCreateOrUpdateExample
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.engagementfabric.v20180901preview.Account("account", {
+ *     accountName: "ExampleAccount",
+ *     location: "WestUS",
+ *     resourceGroupName: "ExampleRg",
+ *     sku: {
+ *         name: "B1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:engagementfabric/v20180901preview:Account ExampleAccount subscriptions/EDBF0095-A524-4A84-95FB-F72DA41AA6A1/resourceGroups/ExampleRg/providers/Microsoft.EngagementFabric/Accounts/ExampleAccount 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * RemoteRenderingAccount Response.
+ *
+ * ## Example Usage
+ * ### Create remote rendering account
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const remoteRenderingAccount = new azure_native.mixedreality.v20210101.RemoteRenderingAccount("remoteRenderingAccount", {
+ *     accountName: "MyAccount",
+ *     identity: {
+ *         type: azure_native.mixedreality.v20210101.ResourceIdentityType.SystemAssigned,
+ *     },
+ *     location: "eastus2euap",
+ *     resourceGroupName: "MyResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mixedreality/v20210101:RemoteRenderingAccount MyAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/MyResourceGroup/providers/Microsoft.MixedReality/remoteRenderingAccounts/MyAccount 
+ * ```
  */
 export class RemoteRenderingAccount extends pulumi.CustomResource {
     /**

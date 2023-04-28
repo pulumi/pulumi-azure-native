@@ -11,6 +11,57 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20220125
 {
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update guest configuration assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestConfigurationHCRPAssignment = new AzureNative.GuestConfiguration.V20220125.GuestConfigurationHCRPAssignment("guestConfigurationHCRPAssignment", new()
+    ///     {
+    ///         GuestConfigurationAssignmentName = "NotInstalledApplicationForWindows",
+    ///         Location = "westcentralus",
+    ///         MachineName = "myMachineName",
+    ///         Name = "NotInstalledApplicationForWindows",
+    ///         Properties = new AzureNative.GuestConfiguration.V20220125.Inputs.GuestConfigurationAssignmentPropertiesArgs
+    ///         {
+    ///             Context = "Azure policy",
+    ///             GuestConfiguration = new AzureNative.GuestConfiguration.V20220125.Inputs.GuestConfigurationNavigationArgs
+    ///             {
+    ///                 AssignmentType = "ApplyAndAutoCorrect",
+    ///                 ConfigurationParameter = new[]
+    ///                 {
+    ///                     new AzureNative.GuestConfiguration.V20220125.Inputs.ConfigurationParameterArgs
+    ///                     {
+    ///                         Name = "[InstalledApplication]NotInstalledApplicationResource1;Name",
+    ///                         Value = "NotePad,sql",
+    ///                     },
+    ///                 },
+    ///                 ContentHash = "123contenthash",
+    ///                 ContentUri = "https://thisisfake/pacakge",
+    ///                 Name = "NotInstalledApplicationForWindows",
+    ///                 Version = "1.0.0.3",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment NotInstalledApplicationForWindows /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/HybridRP.Compute/virtualMachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/NotInstalledApplicationForWindows 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment")]
     public partial class GuestConfigurationHCRPAssignment : global::Pulumi.CustomResource

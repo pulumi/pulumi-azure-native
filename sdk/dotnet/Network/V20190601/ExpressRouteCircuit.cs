@@ -11,6 +11,80 @@ namespace Pulumi.AzureNative.Network.V20190601
 {
     /// <summary>
     /// ExpressRouteCircuit resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create ExpressRouteCircuit
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteCircuit = new AzureNative.Network.V20190601.ExpressRouteCircuit("expressRouteCircuit", new()
+    ///     {
+    ///         AllowClassicOperations = false,
+    ///         Authorizations = new[] {},
+    ///         CircuitName = "circuitName",
+    ///         Location = "Brazil South",
+    ///         Peerings = new[] {},
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceProviderProperties = new AzureNative.Network.V20190601.Inputs.ExpressRouteCircuitServiceProviderPropertiesArgs
+    ///         {
+    ///             BandwidthInMbps = 200,
+    ///             PeeringLocation = "Silicon Valley",
+    ///             ServiceProviderName = "Equinix",
+    ///         },
+    ///         Sku = new AzureNative.Network.V20190601.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Family = "MeteredData",
+    ///             Name = "Standard_MeteredData",
+    ///             Tier = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create ExpressRouteCircuit on ExpressRoutePort
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRouteCircuit = new AzureNative.Network.V20190601.ExpressRouteCircuit("expressRouteCircuit", new()
+    ///     {
+    ///         BandwidthInGbps = 10,
+    ///         CircuitName = "expressRouteCircuit1",
+    ///         ExpressRoutePort = new AzureNative.Network.V20190601.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRoutePorts/portName",
+    ///         },
+    ///         Location = "westus",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20190601.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Family = "MeteredData",
+    ///             Name = "Premium_MeteredData",
+    ///             Tier = "Premium",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190601:ExpressRouteCircuit expressRouteCircuit1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuit1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190601:ExpressRouteCircuit")]
     public partial class ExpressRouteCircuit : global::Pulumi.CustomResource

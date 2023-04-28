@@ -12,6 +12,44 @@ namespace Pulumi.AzureNative.AzureArcData
     /// <summary>
     /// A failover group resource.
     /// API Version: 2023-03-15-preview.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a failover group instance.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var failoverGroup = new AzureNative.AzureArcData.FailoverGroup("failoverGroup", new()
+    ///     {
+    ///         FailoverGroupName = "testFailoverGroupName",
+    ///         Properties = new AzureNative.AzureArcData.Inputs.FailoverGroupPropertiesArgs
+    ///         {
+    ///             PartnerManagedInstanceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/partnerMI",
+    ///             Spec = new AzureNative.AzureArcData.Inputs.FailoverGroupSpecArgs
+    ///             {
+    ///                 PartnerSyncMode = "async",
+    ///                 Role = "primary",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SqlManagedInstanceName = "testSqlManagedInstance",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata:FailoverGroup testFailoverGroupName /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testSqlManagedInstance/failoverGroups/testFailoverGroupName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata:FailoverGroup")]
     public partial class FailoverGroup : global::Pulumi.CustomResource

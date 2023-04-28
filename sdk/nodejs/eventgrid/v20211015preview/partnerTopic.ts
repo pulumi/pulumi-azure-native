@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Event Grid Partner Topic.
+ *
+ * ## Example Usage
+ * ### PartnerTopics_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const partnerTopic = new azure_native.eventgrid.v20211015preview.PartnerTopic("partnerTopic", {
+ *     expirationTimeIfNotActivatedUtc: "2022-03-23T23:06:13.109Z",
+ *     location: "westus2",
+ *     messageForActivation: "Example message for activation",
+ *     partnerRegistrationImmutableId: "6f541064-031d-4cc8-9ec3-a3b4fc0f7185",
+ *     partnerTopicFriendlyDescription: "Example description",
+ *     partnerTopicName: "examplePartnerTopicName1",
+ *     resourceGroupName: "examplerg",
+ *     source: "ContosoCorp.Accounts.User1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventgrid/v20211015preview:PartnerTopic examplePartnerTopicName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerTopics/examplePartnerTopicName1 
+ * ```
  */
 export class PartnerTopic extends pulumi.CustomResource {
     /**

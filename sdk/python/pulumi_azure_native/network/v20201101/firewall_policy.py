@@ -285,6 +285,93 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         FirewallPolicy Resource.
 
+        ## Example Usage
+        ### Create FirewallPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_policy = azure_native.network.v20201101.FirewallPolicy("firewallPolicy",
+            dns_settings=azure_native.network.v20201101.DnsSettingsArgs(
+                enable_proxy=True,
+                require_proxy_for_network_rules=False,
+                servers=["30.3.4.5"],
+            ),
+            firewall_policy_name="firewallPolicy",
+            insights=azure_native.network.v20201101.FirewallPolicyInsightsResponseArgs(
+                is_enabled=True,
+                log_analytics_resources={
+                    "defaultWorkspaceId": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/defaultWorkspace",
+                    ),
+                    "workspaces": [
+                        {
+                            "region": "westus",
+                            "workspaceId": azure_native.network.v20201101.SubResourceArgs(
+                                id="/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace1",
+                            ),
+                        },
+                        {
+                            "region": "eastus",
+                            "workspaceId": azure_native.network.v20201101.SubResourceArgs(
+                                id="/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace2",
+                            ),
+                        },
+                    ],
+                },
+                retention_days=100,
+            ),
+            intrusion_detection=azure_native.network.v20201101.FirewallPolicyIntrusionDetectionResponseArgs(
+                configuration={
+                    "bypassTrafficSettings": [azure_native.network.v20201101.FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs(
+                        description="Rule 1",
+                        destination_addresses=["5.6.7.8"],
+                        destination_ports=["*"],
+                        name="bypassRule1",
+                        protocol="TCP",
+                        source_addresses=["1.2.3.4"],
+                    )],
+                    "signatureOverrides": [azure_native.network.v20201101.FirewallPolicyIntrusionDetectionSignatureSpecificationArgs(
+                        id="2525004",
+                        mode="Deny",
+                    )],
+                },
+                mode="Alert",
+            ),
+            location="West US",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20201101.FirewallPolicySkuArgs(
+                tier="Premium",
+            ),
+            snat=azure_native.network.v20201101.FirewallPolicySNATArgs(
+                private_ranges=["IANAPrivateRanges"],
+            ),
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode="Alert",
+            threat_intel_whitelist=azure_native.network.v20201101.FirewallPolicyThreatIntelWhitelistArgs(
+                fqdns=["*.microsoft.com"],
+                ip_addresses=["20.3.4.5"],
+            ),
+            transport_security=azure_native.network.v20201101.FirewallPolicyTransportSecurityResponseArgs(
+                certificate_authority=azure_native.network.v20201101.FirewallPolicyCertificateAuthorityArgs(
+                    key_vault_secret_id="https://kv/secret",
+                    name="clientcert",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:FirewallPolicy firewallPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] base_policy: The parent firewall policy from which rules are inherited.
@@ -311,6 +398,93 @@ class FirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         FirewallPolicy Resource.
+
+        ## Example Usage
+        ### Create FirewallPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_policy = azure_native.network.v20201101.FirewallPolicy("firewallPolicy",
+            dns_settings=azure_native.network.v20201101.DnsSettingsArgs(
+                enable_proxy=True,
+                require_proxy_for_network_rules=False,
+                servers=["30.3.4.5"],
+            ),
+            firewall_policy_name="firewallPolicy",
+            insights=azure_native.network.v20201101.FirewallPolicyInsightsResponseArgs(
+                is_enabled=True,
+                log_analytics_resources={
+                    "defaultWorkspaceId": azure_native.network.v20201101.SubResourceArgs(
+                        id="/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/defaultWorkspace",
+                    ),
+                    "workspaces": [
+                        {
+                            "region": "westus",
+                            "workspaceId": azure_native.network.v20201101.SubResourceArgs(
+                                id="/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace1",
+                            ),
+                        },
+                        {
+                            "region": "eastus",
+                            "workspaceId": azure_native.network.v20201101.SubResourceArgs(
+                                id="/subscriptions/subid/resourcegroups/rg1/providers/microsoft.operationalinsights/workspaces/workspace2",
+                            ),
+                        },
+                    ],
+                },
+                retention_days=100,
+            ),
+            intrusion_detection=azure_native.network.v20201101.FirewallPolicyIntrusionDetectionResponseArgs(
+                configuration={
+                    "bypassTrafficSettings": [azure_native.network.v20201101.FirewallPolicyIntrusionDetectionBypassTrafficSpecificationsArgs(
+                        description="Rule 1",
+                        destination_addresses=["5.6.7.8"],
+                        destination_ports=["*"],
+                        name="bypassRule1",
+                        protocol="TCP",
+                        source_addresses=["1.2.3.4"],
+                    )],
+                    "signatureOverrides": [azure_native.network.v20201101.FirewallPolicyIntrusionDetectionSignatureSpecificationArgs(
+                        id="2525004",
+                        mode="Deny",
+                    )],
+                },
+                mode="Alert",
+            ),
+            location="West US",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20201101.FirewallPolicySkuArgs(
+                tier="Premium",
+            ),
+            snat=azure_native.network.v20201101.FirewallPolicySNATArgs(
+                private_ranges=["IANAPrivateRanges"],
+            ),
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode="Alert",
+            threat_intel_whitelist=azure_native.network.v20201101.FirewallPolicyThreatIntelWhitelistArgs(
+                fqdns=["*.microsoft.com"],
+                ip_addresses=["20.3.4.5"],
+            ),
+            transport_security=azure_native.network.v20201101.FirewallPolicyTransportSecurityResponseArgs(
+                certificate_authority=azure_native.network.v20201101.FirewallPolicyCertificateAuthorityArgs(
+                    key_vault_secret_id="https://kv/secret",
+                    name="clientcert",
+                ),
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:FirewallPolicy firewallPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.

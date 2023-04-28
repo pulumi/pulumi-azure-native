@@ -11,6 +11,44 @@ import * as utilities from "../utilities";
  * The alert rule information
  * API Version: 2021-04-01.
  * Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a Smart Detector alert rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const smartDetectorAlertRule = new azure_native.alertsmanagement.SmartDetectorAlertRule("smartDetectorAlertRule", {
+ *     actionGroups: {
+ *         customEmailSubject: "My custom email subject",
+ *         customWebhookPayload: "{\"AlertRuleName\":\"#alertrulename\"}",
+ *         groupIds: ["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourcegroups/actionGroups/providers/microsoft.insights/actiongroups/MyActionGroup"],
+ *     },
+ *     alertRuleName: "MyAlertRule",
+ *     description: "Sample smart detector alert rule description",
+ *     detector: {
+ *         id: "VMMemoryLeak",
+ *     },
+ *     frequency: "PT5M",
+ *     resourceGroupName: "MyAlertRules",
+ *     scope: ["/subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/MyVms/providers/Microsoft.Compute/virtualMachines/vm1"],
+ *     severity: "Sev3",
+ *     state: "Enabled",
+ *     throttling: {
+ *         duration: "PT20M",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:alertsmanagement:SmartDetectorAlertRule MyAlertRule /subscriptions/b368ca2f-e298-46b7-b0ab-012281956afa/resourceGroups/MyAlertRules/providers/microsoft.alertsManagement/smartDetectorAlertRules/MyAlertRule 
+ * ```
  */
 export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**

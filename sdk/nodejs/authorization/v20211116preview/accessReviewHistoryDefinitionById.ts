@@ -9,6 +9,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Access Review History Definition.
+ *
+ * ## Example Usage
+ * ### PutAccessReviewHistoryDefinition
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accessReviewHistoryDefinitionById = new azure_native.authorization.v20211116preview.AccessReviewHistoryDefinitionById("accessReviewHistoryDefinitionById", {historyDefinitionId: "44724910-d7a5-4c29-b28f-db73e717165a"});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById 44724910-d7a5-4c29-b28f-db73e717165a /subscriptions/129a304b-4aea-4b86-a9f7-ba7e2b23737a/providers/Microsoft.Authorization/accessReviewHistoryDefinitions/44724910-d7a5-4c29-b28f-db73e717165a 
+ * ```
  */
 export class AccessReviewHistoryDefinitionById extends pulumi.CustomResource {
     /**

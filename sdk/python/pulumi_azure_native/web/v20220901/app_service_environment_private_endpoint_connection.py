@@ -109,6 +109,32 @@ class AppServiceEnvironmentPrivateEndpointConnection(pulumi.CustomResource):
         """
         Remote Private Endpoint Connection ARM resource.
 
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_environment_private_endpoint_connection = azure_native.web.v20220901.AppServiceEnvironmentPrivateEndpointConnection("appServiceEnvironmentPrivateEndpointConnection",
+            name="test-ase",
+            private_endpoint_connection_name="fa38656c-034e-43d8-adce-fe06ce039c98",
+            private_link_service_connection_state=azure_native.web.v20220901.PrivateLinkConnectionStateArgs(
+                description="Approved by johndoe@company.com",
+                status="Approved",
+            ),
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection fa38656c-034e-43d8-adce-fe06ce039c98 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase/privateEndpointConnections/fa38656c-034e-43d8-adce-fe06ce039c98 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] kind: Kind of resource.
@@ -124,6 +150,32 @@ class AppServiceEnvironmentPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Remote Private Endpoint Connection ARM resource.
+
+        ## Example Usage
+        ### Approves or rejects a private endpoint connection.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        app_service_environment_private_endpoint_connection = azure_native.web.v20220901.AppServiceEnvironmentPrivateEndpointConnection("appServiceEnvironmentPrivateEndpointConnection",
+            name="test-ase",
+            private_endpoint_connection_name="fa38656c-034e-43d8-adce-fe06ce039c98",
+            private_link_service_connection_state=azure_native.web.v20220901.PrivateLinkConnectionStateArgs(
+                description="Approved by johndoe@company.com",
+                status="Approved",
+            ),
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:web/v20220901:AppServiceEnvironmentPrivateEndpointConnection fa38656c-034e-43d8-adce-fe06ce039c98 /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/test-rg/providers/Microsoft.Web/hostingEnvironments/test-ase/privateEndpointConnections/fa38656c-034e-43d8-adce-fe06ce039c98 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppServiceEnvironmentPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

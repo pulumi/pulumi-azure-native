@@ -127,6 +127,45 @@ class DataMaskingPolicy(pulumi.CustomResource):
         """
         A database data masking policy.
 
+        ## Example Usage
+        ### Create or update data masking policy max
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_masking_policy = azure_native.sql.v20220801preview.DataMaskingPolicy("dataMaskingPolicy",
+            data_masking_policy_name="Default",
+            data_masking_state=azure_native.sql/v20220801preview.DataMaskingState.ENABLED,
+            database_name="sqlcrudtest-331",
+            exempt_principals="testuser;",
+            resource_group_name="sqlcrudtest-6852",
+            server_name="sqlcrudtest-2080")
+
+        ```
+        ### Create or update data masking policy min.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_masking_policy = azure_native.sql.v20220801preview.DataMaskingPolicy("dataMaskingPolicy",
+            data_masking_policy_name="Default",
+            data_masking_state=azure_native.sql/v20220801preview.DataMaskingState.ENABLED,
+            database_name="sqlcrudtest-331",
+            resource_group_name="sqlcrudtest-6852",
+            server_name="sqlcrudtest-2080")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:DataMaskingPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-331/dataMaskingPolicies/Default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_masking_policy_name: The name of the database for which the data masking policy applies.
@@ -144,6 +183,45 @@ class DataMaskingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A database data masking policy.
+
+        ## Example Usage
+        ### Create or update data masking policy max
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_masking_policy = azure_native.sql.v20220801preview.DataMaskingPolicy("dataMaskingPolicy",
+            data_masking_policy_name="Default",
+            data_masking_state=azure_native.sql/v20220801preview.DataMaskingState.ENABLED,
+            database_name="sqlcrudtest-331",
+            exempt_principals="testuser;",
+            resource_group_name="sqlcrudtest-6852",
+            server_name="sqlcrudtest-2080")
+
+        ```
+        ### Create or update data masking policy min.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_masking_policy = azure_native.sql.v20220801preview.DataMaskingPolicy("dataMaskingPolicy",
+            data_masking_policy_name="Default",
+            data_masking_state=azure_native.sql/v20220801preview.DataMaskingState.ENABLED,
+            database_name="sqlcrudtest-331",
+            resource_group_name="sqlcrudtest-6852",
+            server_name="sqlcrudtest-2080")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:DataMaskingPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Sql/servers/sqlcrudtest-2080/databases/sqlcrudtest-331/dataMaskingPolicies/Default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataMaskingPolicyArgs args: The arguments to use to populate this resource's properties.

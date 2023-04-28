@@ -9,6 +9,79 @@ import * as utilities from "../../utilities";
 
 /**
  * A SqlManagedInstance.
+ *
+ * ## Example Usage
+ * ### Create or update a SQL Managed Instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlManagedInstance = new azure_native.azurearcdata.v20220615preview.SqlManagedInstance("sqlManagedInstance", {
+ *     extendedLocation: {
+ *         name: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "northeurope",
+ *     properties: {
+ *         activeDirectoryInformation: {
+ *             keytabInformation: {
+ *                 keytab: "********",
+ *             },
+ *         },
+ *         admin: "Admin user",
+ *         basicLoginInformation: {
+ *             password: "********",
+ *             username: "username",
+ *         },
+ *         clusterId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s",
+ *         endTime: "Instance end time",
+ *         extensionId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s/providers/Microsoft.KubernetesConfiguration/extensions/extension",
+ *         k8sRaw: {
+ *             spec: {
+ *                 replicas: 1,
+ *                 scheduling: {
+ *                     "default": {
+ *                         resources: {
+ *                             limits: {
+ *                                 additionalProperty: "additionalValue",
+ *                                 cpu: "1",
+ *                                 memory: "8Gi",
+ *                             },
+ *                             requests: {
+ *                                 additionalProperty: "additionalValue",
+ *                                 cpu: "1",
+ *                                 memory: "8Gi",
+ *                             },
+ *                         },
+ *                     },
+ *                 },
+ *             },
+ *         },
+ *         licenseType: "LicenseIncluded",
+ *         startTime: "Instance start time",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sku: {
+ *         dev: true,
+ *         name: azure_native.azurearcdata.v20220615preview.SqlManagedInstanceSkuName.VCore,
+ *         tier: azure_native.azurearcdata.v20220615preview.SqlManagedInstanceSkuTier.GeneralPurpose,
+ *     },
+ *     sqlManagedInstanceName: "testsqlManagedInstance",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata/v20220615preview:SqlManagedInstance testsqlManagedInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/sqlManagedInstances/testsqlManagedInstance 
+ * ```
  */
 export class SqlManagedInstance extends pulumi.CustomResource {
     /**

@@ -10,6 +10,44 @@ import * as utilities from "../../utilities";
 /**
  * Represents a Blueprint assignment.
  *
+ * ## Example Usage
+ * ### Assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const assignment = new azure_native.blueprint.v20171111preview.Assignment("assignment", {
+ *     assignmentName: "assignSimpleBlueprint",
+ *     blueprintId: "/providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+ *     description: "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "eastus",
+ *     parameters: {
+ *         costCenter: {},
+ *         owners: {},
+ *         storageAccountType: {},
+ *     },
+ *     resourceGroups: {
+ *         storageRG: {
+ *             location: "eastus",
+ *             name: "defaultRG",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blueprint/v20171111preview:Assignment assignSimpleBlueprint /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint 
+ * ```
+ *
  * @deprecated Version 2017-11-11-preview will be removed in v2 of the provider.
  */
 export class Assignment extends pulumi.CustomResource {

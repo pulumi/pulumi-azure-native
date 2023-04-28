@@ -164,6 +164,32 @@ class Project(pulumi.CustomResource):
         """
         Azure Migrate Project.
 
+        ## Example Usage
+        ### Projects_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.migrate.v20180202.Project("project",
+            customer_workspace_id="url-to-customers-service-map",
+            customer_workspace_location="West Us",
+            e_tag="\\"b701c73a-0000-0000-0000-59c12ff00000\\"",
+            location="West Us",
+            project_name="project01",
+            resource_group_name="myResourceGroup",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20180202:Project project01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] customer_workspace_id: ARM ID of the Service Map workspace created by user.
@@ -183,6 +209,32 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Migrate Project.
+
+        ## Example Usage
+        ### Projects_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        project = azure_native.migrate.v20180202.Project("project",
+            customer_workspace_id="url-to-customers-service-map",
+            customer_workspace_location="West Us",
+            e_tag="\\"b701c73a-0000-0000-0000-59c12ff00000\\"",
+            location="West Us",
+            project_name="project01",
+            resource_group_name="myResourceGroup",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20180202:Project project01 /subscriptions/75dd7e42-4fd1-4512-af04-83ad9864335b/resourceGroups/myResourceGroup/providers/Microsoft.Migrate/projects/project01 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProjectArgs args: The arguments to use to populate this resource's properties.

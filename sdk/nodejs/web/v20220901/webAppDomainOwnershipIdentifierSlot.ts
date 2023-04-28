@@ -6,6 +6,13 @@ import * as utilities from "../../utilities";
 
 /**
  * A domain specific resource identifier.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:WebAppDomainOwnershipIdentifierSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/domainOwnershipIdentifiers/{domainOwnershipIdentifierName} 
+ * ```
  */
 export class WebAppDomainOwnershipIdentifierSlot extends pulumi.CustomResource {
     /**

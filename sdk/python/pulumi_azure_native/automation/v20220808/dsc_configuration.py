@@ -215,6 +215,46 @@ class DscConfiguration(pulumi.CustomResource):
         """
         Definition of the configuration type.
 
+        ## Example Usage
+        ### Create or Update Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dsc_configuration = azure_native.automation.v20220808.DscConfiguration("dscConfiguration",
+            automation_account_name="myAutomationAccount18",
+            configuration_name="SetupServer",
+            description="sample configuration",
+            location="East US 2",
+            name="SetupServer",
+            resource_group_name="rg",
+            source=azure_native.automation.v20220808.ContentSourceArgs(
+                hash=azure_native.automation.v20220808.ContentHashArgs(
+                    algorithm="sha256",
+                    value="A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
+                ),
+                type="embeddedContent",
+                value=\"\"\"Configuration SetupServer {
+            Node localhost {
+                                       WindowsFeature IIS {
+                                       Name = "Web-Server";
+                    Ensure = "Present"
+                }
+            }
+        }\"\"\",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:DscConfiguration SetupServer /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/configurations/SetupServer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] automation_account_name: The name of the automation account.
@@ -237,6 +277,46 @@ class DscConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of the configuration type.
+
+        ## Example Usage
+        ### Create or Update Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dsc_configuration = azure_native.automation.v20220808.DscConfiguration("dscConfiguration",
+            automation_account_name="myAutomationAccount18",
+            configuration_name="SetupServer",
+            description="sample configuration",
+            location="East US 2",
+            name="SetupServer",
+            resource_group_name="rg",
+            source=azure_native.automation.v20220808.ContentSourceArgs(
+                hash=azure_native.automation.v20220808.ContentHashArgs(
+                    algorithm="sha256",
+                    value="A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
+                ),
+                type="embeddedContent",
+                value=\"\"\"Configuration SetupServer {
+            Node localhost {
+                                       WindowsFeature IIS {
+                                       Name = "Web-Server";
+                    Ensure = "Present"
+                }
+            }
+        }\"\"\",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:automation/v20220808:DscConfiguration SetupServer /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/configurations/SetupServer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DscConfigurationArgs args: The arguments to use to populate this resource's properties.

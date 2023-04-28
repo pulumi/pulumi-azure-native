@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * Configuration settings for the Azure App Service Authentication / Authorization feature.
+ *
+ * ## Example Usage
+ * ### Update Auth Settings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webAppAuthSettings = new azure_native.web.v20220901.WebAppAuthSettings("webAppAuthSettings", {
+ *     allowedExternalRedirectUrls: [
+ *         "sitef6141.customdomain.net",
+ *         "sitef6141.customdomain.info",
+ *     ],
+ *     clientId: "42d795a9-8abb-4d06-8534-39528af40f8e.apps.googleusercontent.com",
+ *     defaultProvider: azure_native.web.v20220901.BuiltInAuthenticationProvider.Google,
+ *     enabled: true,
+ *     name: "sitef6141",
+ *     resourceGroupName: "testrg123",
+ *     runtimeVersion: "~1",
+ *     tokenRefreshExtensionHours: 120,
+ *     tokenStoreEnabled: true,
+ *     unauthenticatedClientAction: azure_native.web.v20220901.UnauthenticatedClientAction.RedirectToLoginPage,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:WebAppAuthSettings authsettings /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/authsettings 
+ * ```
  */
 export class WebAppAuthSettings extends pulumi.CustomResource {
     /**

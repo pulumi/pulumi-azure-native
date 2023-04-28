@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.Network
     /// ExpressRoutePort Authorization resource definition.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2022-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create ExpressRoutePort Authorization
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var expressRoutePortAuthorization = new AzureNative.Network.ExpressRoutePortAuthorization("expressRoutePortAuthorization", new()
+    ///     {
+    ///         AuthorizationName = "authorizatinName",
+    ///         ExpressRoutePortName = "expressRoutePortName",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:ExpressRoutePortAuthorization authorizationName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/ExpressRoutePorts/expressRoutePortName/authorizations/authorizationName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRoutePortAuthorization")]
     public partial class ExpressRoutePortAuthorization : global::Pulumi.CustomResource

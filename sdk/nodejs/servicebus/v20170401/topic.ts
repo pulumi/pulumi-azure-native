@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of topic resource.
+ *
+ * ## Example Usage
+ * ### TopicCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const topic = new azure_native.servicebus.v20170401.Topic("topic", {
+ *     enableExpress: true,
+ *     namespaceName: "sdk-Namespace-1617",
+ *     resourceGroupName: "ArunMonocle",
+ *     topicName: "sdk-Topics-5488",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicebus/v20170401:Topic sdk-Topics-5488 /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/ArunMonocle/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-1617/topics/sdk-Topics-5488 
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

@@ -11,6 +11,191 @@ import * as utilities from "../utilities";
  * Instance of an Azure ML web service resource.
  * API Version: 2017-01-01.
  * Previous API Version: 2017-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### PUT WebService
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webService = new azure_native.machinelearning.WebService("webService", {
+ *     location: "West US",
+ *     properties: {
+ *         assets: {
+ *             asset1: {
+ *                 locationInfo: {
+ *                     credentials: "",
+ *                     uri: "aml://module/moduleId-1",
+ *                 },
+ *                 name: "Execute R Script",
+ *                 type: "Module",
+ *             },
+ *             asset2: {
+ *                 locationInfo: {
+ *                     credentials: "",
+ *                     uri: "aml://module/moduleId-2",
+ *                 },
+ *                 name: "Import Data",
+ *                 type: "Module",
+ *             },
+ *         },
+ *         commitmentPlan: {
+ *             id: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.MachineLearning/commitmentPlans/commitmentPlanName",
+ *         },
+ *         description: "Web Service Description",
+ *         diagnostics: {
+ *             level: "None",
+ *         },
+ *         exampleRequest: {
+ *             inputs: {
+ *                 input1: [
+ *                     ["age"],
+ *                     ["workclass"],
+ *                     ["fnlwgt"],
+ *                     ["education"],
+ *                     ["education-num"],
+ *                 ],
+ *             },
+ *         },
+ *         exposeSampleData: true,
+ *         input: {
+ *             description: "",
+ *             properties: {
+ *                 input1: {
+ *                     description: "",
+ *                     properties: {
+ *                         column_name: {
+ *                             type: "String",
+ *                             xMsIsnullable: false,
+ *                         },
+ *                     },
+ *                     title: "",
+ *                     type: "object",
+ *                 },
+ *             },
+ *             title: "",
+ *             type: "object",
+ *         },
+ *         machineLearningWorkspace: {
+ *             id: "workspaceId",
+ *         },
+ *         output: {
+ *             description: "",
+ *             properties: {
+ *                 output1: {
+ *                     description: "",
+ *                     properties: {
+ *                         age: {
+ *                             format: "Int32",
+ *                             type: "Integer",
+ *                             xMsIsnullable: true,
+ *                         },
+ *                         workclass: {
+ *                             type: "String",
+ *                             xMsIsnullable: false,
+ *                         },
+ *                     },
+ *                     title: "",
+ *                     type: "object",
+ *                 },
+ *             },
+ *             title: "",
+ *             type: "object",
+ *         },
+ *         "package": {
+ *             edges: [
+ *                 {
+ *                     sourceNodeId: "node2",
+ *                     sourcePortId: "Results dataset",
+ *                     targetNodeId: "node1",
+ *                     targetPortId: "Dataset2",
+ *                 },
+ *                 {
+ *                     sourceNodeId: "node3",
+ *                     targetNodeId: "node1",
+ *                     targetPortId: "Dataset1",
+ *                 },
+ *                 {
+ *                     sourceNodeId: "node1",
+ *                     sourcePortId: "Result Dataset",
+ *                     targetNodeId: "node4",
+ *                 },
+ *             ],
+ *             graphParameters: {},
+ *             nodes: {
+ *                 node1: {
+ *                     assetId: "asset1",
+ *                     parameters: {
+ *                         "R Script": {
+ *                             certificateThumbprint: "",
+ *                             value: "The R Script",
+ *                         },
+ *                         "R Version": {
+ *                             certificateThumbprint: "",
+ *                             value: "CRAN R 3.1.0",
+ *                         },
+ *                     },
+ *                 },
+ *                 node2: {
+ *                     assetId: "asset2",
+ *                     parameters: {
+ *                         "Account Key": {
+ *                             certificateThumbprint: "TheThumbprint",
+ *                             value: "Encrypted Key",
+ *                         },
+ *                         "Account Name": {
+ *                             certificateThumbprint: "",
+ *                             value: "accountName",
+ *                         },
+ *                         "Please Specify Authentication Type": {
+ *                             certificateThumbprint: "",
+ *                             value: "Account",
+ *                         },
+ *                         "Please Specify Data Source": {
+ *                             certificateThumbprint: "",
+ *                             value: "AzureBlobStorage",
+ *                         },
+ *                     },
+ *                 },
+ *                 node3: {
+ *                     inputId: "input1",
+ *                 },
+ *                 node4: {
+ *                     outputId: "output1",
+ *                 },
+ *             },
+ *         },
+ *         packageType: "Graph",
+ *         parameters: {},
+ *         payloadsInBlobStorage: false,
+ *         readOnly: false,
+ *         realtimeConfiguration: {
+ *             maxConcurrentCalls: 4,
+ *         },
+ *         storageAccount: {
+ *             key: "Storage_Key",
+ *             name: "Storage_Name",
+ *         },
+ *         title: "Web Service Title",
+ *     },
+ *     resourceGroupName: "OneResourceGroupName",
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ *     webServiceName: "TargetWebServiceName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearning:WebService myresource1 TheWebServiceId 
+ * ```
  */
 export class WebService extends pulumi.CustomResource {
     /**

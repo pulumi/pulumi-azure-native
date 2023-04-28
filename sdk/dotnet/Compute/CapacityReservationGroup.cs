@@ -13,6 +13,44 @@ namespace Pulumi.AzureNative.Compute
     /// Specifies information about the capacity reservation group that the capacity reservations should be assigned to. &lt;br&gt;&lt;br&gt; Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2021-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a capacity reservation group.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var capacityReservationGroup = new AzureNative.Compute.CapacityReservationGroup("capacityReservationGroup", new()
+    ///     {
+    ///         CapacityReservationGroupName = "myCapacityReservationGroup",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "department", "finance" },
+    ///         },
+    ///         Zones = new[]
+    ///         {
+    ///             "1",
+    ///             "2",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute:CapacityReservationGroup myCapacityReservationGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/CapacityReservationGroups/myCapacityReservationGroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute:CapacityReservationGroup")]
     public partial class CapacityReservationGroup : global::Pulumi.CustomResource

@@ -11,6 +11,52 @@ import * as utilities from "../utilities";
  * An object that represents a replication for a container registry.
  * API Version: 2022-12-01.
  * Previous API Version: 2019-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ReplicationCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replication = new azure_native.containerregistry.Replication("replication", {
+ *     location: "eastus",
+ *     registryName: "myRegistry",
+ *     replicationName: "myReplication",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
+ * ### ReplicationCreateZoneRedundant
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replication = new azure_native.containerregistry.Replication("replication", {
+ *     location: "eastus",
+ *     regionEndpointEnabled: true,
+ *     registryName: "myRegistry",
+ *     replicationName: "myReplication",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key: "value",
+ *     },
+ *     zoneRedundancy: "Enabled",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry:Replication myReplication /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/replications/myReplication 
+ * ```
  */
 export class Replication extends pulumi.CustomResource {
     /**

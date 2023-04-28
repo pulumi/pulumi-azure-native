@@ -165,6 +165,277 @@ class StreamingPolicy(pulumi.CustomResource):
         """
         A Streaming Policy resource
 
+        ## Example Usage
+        ### Creates a Streaming Policy with ClearKey encryption in commonEncryptionCbcs.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cbcs=azure_native.media.v20230101.CommonEncryptionCbcsResponseArgs(
+                clear_key_encryption_configuration=azure_native.media.v20230101.ClearKeyEncryptionConfigurationArgs(
+                    custom_keys_acquisition_url_template="https://contoso.com/{AlternativeMediaId}/clearkey/",
+                ),
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cbcsDefaultKey",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=False,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=False,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithMultipleOptions",
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly")
+
+        ```
+        ### Creates a Streaming Policy with ClearKey encryption in commonEncryptionCenc.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cenc=azure_native.media.v20230101.CommonEncryptionCencResponseArgs(
+                clear_key_encryption_configuration=azure_native.media.v20230101.ClearKeyEncryptionConfigurationArgs(
+                    custom_keys_acquisition_url_template="https://contoso.com/{AlternativeMediaId}/clearkey/",
+                ),
+                clear_tracks=[{
+                    "trackSelections": [azure_native.media.v20230101.TrackPropertyConditionArgs(
+                        operation="Equal",
+                        property="FourCC",
+                        value="hev1",
+                    )],
+                }],
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cencDefaultKey",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=False,
+                    smooth_streaming=True,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithPlayReadyOptionAndOpenRestriction",
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCencOnly")
+
+        ```
+        ### Creates a Streaming Policy with clear streaming
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            no_encryption=azure_native.media.v20230101.NoEncryptionArgs(
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=True,
+                    hls=True,
+                    smooth_streaming=True,
+                ),
+            ),
+            resource_group_name="contosorg",
+            streaming_policy_name="clearStreamingPolicy")
+
+        ```
+        ### Creates a Streaming Policy with commonEncryptionCbcs only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cbcs=azure_native.media.v20230101.CommonEncryptionCbcsResponseArgs(
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cbcsDefaultKey",
+                    ),
+                },
+                drm={
+                    "fairPlay": azure_native.media.v20230101.StreamingPolicyFairPlayConfigurationArgs(
+                        allow_persistent_license=True,
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=False,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=False,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithMultipleOptions",
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly")
+
+        ```
+        ### Creates a Streaming Policy with commonEncryptionCenc only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cenc=azure_native.media.v20230101.CommonEncryptionCencResponseArgs(
+                clear_tracks=[{
+                    "trackSelections": [azure_native.media.v20230101.TrackPropertyConditionArgs(
+                        operation="Equal",
+                        property="FourCC",
+                        value="hev1",
+                    )],
+                }],
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cencDefaultKey",
+                    ),
+                },
+                drm={
+                    "playReady": azure_native.media.v20230101.StreamingPolicyPlayReadyConfigurationArgs(
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+                        play_ready_custom_attributes="PlayReady CustomAttributes",
+                    ),
+                    "widevine": azure_native.media.v20230101.StreamingPolicyWidevineConfigurationArgs(
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=False,
+                    smooth_streaming=True,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithPlayReadyOptionAndOpenRestriction",
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCencOnly")
+
+        ```
+        ### Creates a Streaming Policy with envelopeEncryption only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            default_content_key_policy_name="PolicyWithClearKeyOptionAndTokenRestriction",
+            envelope_encryption=azure_native.media.v20230101.EnvelopeEncryptionResponseArgs(
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="aesDefaultKey",
+                    ),
+                },
+                custom_key_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=True,
+                ),
+            ),
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithEnvelopeEncryptionOnly")
+
+        ```
+        ### Creates a Streaming Policy with secure streaming
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cbcs=azure_native.media.v20230101.CommonEncryptionCbcsResponseArgs(
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cbcsDefaultKey",
+                    ),
+                },
+                drm={
+                    "fairPlay": azure_native.media.v20230101.StreamingPolicyFairPlayConfigurationArgs(
+                        allow_persistent_license=True,
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=False,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=False,
+                ),
+            ),
+            common_encryption_cenc=azure_native.media.v20230101.CommonEncryptionCencResponseArgs(
+                clear_tracks=[{
+                    "trackSelections": [azure_native.media.v20230101.TrackPropertyConditionArgs(
+                        operation="Equal",
+                        property="FourCC",
+                        value="hev1",
+                    )],
+                }],
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cencDefaultKey",
+                    ),
+                },
+                drm={
+                    "playReady": azure_native.media.v20230101.StreamingPolicyPlayReadyConfigurationArgs(
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+                        play_ready_custom_attributes="PlayReady CustomAttributes",
+                    ),
+                    "widevine": azure_native.media.v20230101.StreamingPolicyWidevineConfigurationArgs(
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=False,
+                    smooth_streaming=True,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithMultipleOptions",
+            envelope_encryption=azure_native.media.v20230101.EnvelopeEncryptionResponseArgs(
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="aesDefaultKey",
+                    ),
+                },
+                custom_key_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=True,
+                ),
+            ),
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicy")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20230101:StreamingPolicy UserCreatedSecureStreamingPolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/streamingPolicies/UserCreatedSecureStreamingPolicy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Media Services account name.
@@ -184,6 +455,277 @@ class StreamingPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A Streaming Policy resource
+
+        ## Example Usage
+        ### Creates a Streaming Policy with ClearKey encryption in commonEncryptionCbcs.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cbcs=azure_native.media.v20230101.CommonEncryptionCbcsResponseArgs(
+                clear_key_encryption_configuration=azure_native.media.v20230101.ClearKeyEncryptionConfigurationArgs(
+                    custom_keys_acquisition_url_template="https://contoso.com/{AlternativeMediaId}/clearkey/",
+                ),
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cbcsDefaultKey",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=False,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=False,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithMultipleOptions",
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly")
+
+        ```
+        ### Creates a Streaming Policy with ClearKey encryption in commonEncryptionCenc.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cenc=azure_native.media.v20230101.CommonEncryptionCencResponseArgs(
+                clear_key_encryption_configuration=azure_native.media.v20230101.ClearKeyEncryptionConfigurationArgs(
+                    custom_keys_acquisition_url_template="https://contoso.com/{AlternativeMediaId}/clearkey/",
+                ),
+                clear_tracks=[{
+                    "trackSelections": [azure_native.media.v20230101.TrackPropertyConditionArgs(
+                        operation="Equal",
+                        property="FourCC",
+                        value="hev1",
+                    )],
+                }],
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cencDefaultKey",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=False,
+                    smooth_streaming=True,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithPlayReadyOptionAndOpenRestriction",
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCencOnly")
+
+        ```
+        ### Creates a Streaming Policy with clear streaming
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            no_encryption=azure_native.media.v20230101.NoEncryptionArgs(
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=True,
+                    hls=True,
+                    smooth_streaming=True,
+                ),
+            ),
+            resource_group_name="contosorg",
+            streaming_policy_name="clearStreamingPolicy")
+
+        ```
+        ### Creates a Streaming Policy with commonEncryptionCbcs only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cbcs=azure_native.media.v20230101.CommonEncryptionCbcsResponseArgs(
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cbcsDefaultKey",
+                    ),
+                },
+                drm={
+                    "fairPlay": azure_native.media.v20230101.StreamingPolicyFairPlayConfigurationArgs(
+                        allow_persistent_license=True,
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=False,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=False,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithMultipleOptions",
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCbcsOnly")
+
+        ```
+        ### Creates a Streaming Policy with commonEncryptionCenc only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cenc=azure_native.media.v20230101.CommonEncryptionCencResponseArgs(
+                clear_tracks=[{
+                    "trackSelections": [azure_native.media.v20230101.TrackPropertyConditionArgs(
+                        operation="Equal",
+                        property="FourCC",
+                        value="hev1",
+                    )],
+                }],
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cencDefaultKey",
+                    ),
+                },
+                drm={
+                    "playReady": azure_native.media.v20230101.StreamingPolicyPlayReadyConfigurationArgs(
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+                        play_ready_custom_attributes="PlayReady CustomAttributes",
+                    ),
+                    "widevine": azure_native.media.v20230101.StreamingPolicyWidevineConfigurationArgs(
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=False,
+                    smooth_streaming=True,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithPlayReadyOptionAndOpenRestriction",
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithCommonEncryptionCencOnly")
+
+        ```
+        ### Creates a Streaming Policy with envelopeEncryption only
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            default_content_key_policy_name="PolicyWithClearKeyOptionAndTokenRestriction",
+            envelope_encryption=azure_native.media.v20230101.EnvelopeEncryptionResponseArgs(
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="aesDefaultKey",
+                    ),
+                },
+                custom_key_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=True,
+                ),
+            ),
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicyWithEnvelopeEncryptionOnly")
+
+        ```
+        ### Creates a Streaming Policy with secure streaming
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        streaming_policy = azure_native.media.v20230101.StreamingPolicy("streamingPolicy",
+            account_name="contosomedia",
+            common_encryption_cbcs=azure_native.media.v20230101.CommonEncryptionCbcsResponseArgs(
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cbcsDefaultKey",
+                    ),
+                },
+                drm={
+                    "fairPlay": azure_native.media.v20230101.StreamingPolicyFairPlayConfigurationArgs(
+                        allow_persistent_license=True,
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/fairplay/{ContentKeyId}",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=False,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=False,
+                ),
+            ),
+            common_encryption_cenc=azure_native.media.v20230101.CommonEncryptionCencResponseArgs(
+                clear_tracks=[{
+                    "trackSelections": [azure_native.media.v20230101.TrackPropertyConditionArgs(
+                        operation="Equal",
+                        property="FourCC",
+                        value="hev1",
+                    )],
+                }],
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="cencDefaultKey",
+                    ),
+                },
+                drm={
+                    "playReady": azure_native.media.v20230101.StreamingPolicyPlayReadyConfigurationArgs(
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/playready/{ContentKeyId}",
+                        play_ready_custom_attributes="PlayReady CustomAttributes",
+                    ),
+                    "widevine": azure_native.media.v20230101.StreamingPolicyWidevineConfigurationArgs(
+                        custom_license_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/widevine/{ContentKeyId",
+                    ),
+                },
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=False,
+                    smooth_streaming=True,
+                ),
+            ),
+            default_content_key_policy_name="PolicyWithMultipleOptions",
+            envelope_encryption=azure_native.media.v20230101.EnvelopeEncryptionResponseArgs(
+                content_keys={
+                    "defaultKey": azure_native.media.v20230101.DefaultKeyArgs(
+                        label="aesDefaultKey",
+                    ),
+                },
+                custom_key_acquisition_url_template="https://contoso.com/{AssetAlternativeId}/envelope/{ContentKeyId}",
+                enabled_protocols=azure_native.media.v20230101.EnabledProtocolsArgs(
+                    dash=True,
+                    download=False,
+                    hls=True,
+                    smooth_streaming=True,
+                ),
+            ),
+            resource_group_name="contosorg",
+            streaming_policy_name="UserCreatedSecureStreamingPolicy")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:media/v20230101:StreamingPolicy UserCreatedSecureStreamingPolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/streamingPolicies/UserCreatedSecureStreamingPolicy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StreamingPolicyArgs args: The arguments to use to populate this resource's properties.

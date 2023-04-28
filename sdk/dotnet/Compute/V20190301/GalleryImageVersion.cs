@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.Compute.V20190301
 {
     /// <summary>
     /// Specifies information about the gallery Image Version that you want to create or update.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a simple Gallery Image Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var galleryImageVersion = new AzureNative.Compute.V20190301.GalleryImageVersion("galleryImageVersion", new()
+    ///     {
+    ///         GalleryImageName = "myGalleryImageName",
+    ///         GalleryImageVersionName = "1.0.0",
+    ///         GalleryName = "myGalleryName",
+    ///         Location = "West US",
+    ///         PublishingProfile = new AzureNative.Compute.V20190301.Inputs.GalleryImageVersionPublishingProfileArgs
+    ///         {
+    ///             Source = new AzureNative.Compute.V20190301.Inputs.GalleryArtifactSourceArgs
+    ///             {
+    ///                 ManagedImage = new AzureNative.Compute.V20190301.Inputs.ManagedArtifactArgs
+    ///                 {
+    ///                     Id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Compute/images/{imageName}",
+    ///                 },
+    ///             },
+    ///             TargetRegions = new[]
+    ///             {
+    ///                 new AzureNative.Compute.V20190301.Inputs.TargetRegionArgs
+    ///                 {
+    ///                     Name = "West US",
+    ///                     RegionalReplicaCount = 1,
+    ///                 },
+    ///                 new AzureNative.Compute.V20190301.Inputs.TargetRegionArgs
+    ///                 {
+    ///                     Name = "East US",
+    ///                     RegionalReplicaCount = 2,
+    ///                     StorageAccountType = "Standard_ZRS",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20190301:GalleryImageVersion 1.0.0 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName}/versions/{galleryImageVersionName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20190301:GalleryImageVersion")]

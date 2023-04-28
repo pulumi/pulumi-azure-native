@@ -9,6 +9,64 @@ import * as utilities from "../../utilities";
 
 /**
  * SIM policy resource.
+ *
+ * ## Example Usage
+ * ### Create SIM policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const simPolicy = new azure_native.mobilenetwork.v20220401preview.SimPolicy("simPolicy", {
+ *     defaultSlice: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+ *     },
+ *     location: "eastus",
+ *     mobileNetworkName: "testMobileNetwork",
+ *     registrationTimer: 3240,
+ *     resourceGroupName: "rg1",
+ *     simPolicyName: "testPolicy",
+ *     sliceConfigurations: [{
+ *         dataNetworkConfigurations: [{
+ *             additionalAllowedSessionTypes: [],
+ *             allocationAndRetentionPriorityLevel: 9,
+ *             allowedServices: [{
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/services/testService",
+ *             }],
+ *             dataNetwork: {
+ *                 id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+ *             },
+ *             defaultSessionType: "IPv4",
+ *             fiveQi: 9,
+ *             preemptionCapability: "NotPreempt",
+ *             preemptionVulnerability: "Preemptable",
+ *             sessionAmbr: {
+ *                 downlink: "1 Gbps",
+ *                 uplink: "500 Mbps",
+ *             },
+ *         }],
+ *         defaultDataNetwork: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/dataNetworks/testdataNetwork",
+ *         },
+ *         slice: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+ *         },
+ *     }],
+ *     ueAmbr: {
+ *         downlink: "1 Gbps",
+ *         uplink: "500 Mbps",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork/v20220401preview:SimPolicy testPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/testPolicy 
+ * ```
  */
 export class SimPolicy extends pulumi.CustomResource {
     /**

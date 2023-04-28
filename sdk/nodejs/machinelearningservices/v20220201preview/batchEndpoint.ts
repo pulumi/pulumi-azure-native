@@ -7,6 +7,56 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### CreateOrUpdate Batch Endpoint.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const batchEndpoint = new azure_native.machinelearningservices.v20220201preview.BatchEndpoint("batchEndpoint", {
+ *     batchEndpointDetails: {
+ *         authMode: "AMLToken",
+ *         defaults: {
+ *             deploymentName: "string",
+ *         },
+ *         description: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *     },
+ *     endpointName: "testEndpointName",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *         userAssignedIdentities: {
+ *             string: {},
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     resourceGroupName: "test-rg",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "string",
+ *         name: "string",
+ *         size: "string",
+ *         tier: azure_native.machinelearningservices.v20220201preview.SkuTier.Free,
+ *     },
+ *     tags: {},
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20220201preview:BatchEndpoint string string 
+ * ```
+ */
 export class BatchEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing BatchEndpoint resource's state with the given name, ID, and optional extra

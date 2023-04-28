@@ -8,6 +8,32 @@ import * as utilities from "../utilities";
  * String dictionary resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Update App Settings
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const webAppApplicationSettings = new azure_native.web.WebAppApplicationSettings("webAppApplicationSettings", {
+ *     name: "sitef6141",
+ *     properties: {
+ *         Setting1: "Value1",
+ *         Setting2: "Value2",
+ *     },
+ *     resourceGroupName: "testrg123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web:WebAppApplicationSettings appsettings /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Web/sites/sitef6141/config/appsettings 
+ * ```
  */
 export class WebAppApplicationSettings extends pulumi.CustomResource {
     /**

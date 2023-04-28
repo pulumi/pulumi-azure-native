@@ -11,6 +11,37 @@ import * as utilities from "../utilities";
  * Friendly Secret name mapping to the any Secret or secret related information.
  * API Version: 2021-06-01.
  * Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Secrets_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const secret = new azure_native.cdn.Secret("secret", {
+ *     parameters: {
+ *         secretSource: {
+ *             id: "/subscriptions/subid/resourcegroups/RG/providers/Microsoft.KeyVault/vault/kvName/secrets/certificatename",
+ *         },
+ *         secretVersion: "abcdef1234578900abcdef1234567890",
+ *         type: "CustomerCertificate",
+ *         useLatestVersion: false,
+ *     },
+ *     profileName: "profile1",
+ *     resourceGroupName: "RG",
+ *     secretName: "secret1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:cdn:Secret secret1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/secrets/secret1 
+ * ```
  */
 export class Secret extends pulumi.CustomResource {
     /**

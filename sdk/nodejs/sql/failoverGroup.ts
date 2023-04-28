@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * A failover group.
  * API Version: 2021-11-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create failover group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const failoverGroup = new azure_native.sql.FailoverGroup("failoverGroup", {
+ *     databases: [
+ *         "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-1",
+ *         "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/databases/testdb-2",
+ *     ],
+ *     failoverGroupName: "failover-group-test-3",
+ *     partnerServers: [{
+ *         id: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-secondary-server",
+ *     }],
+ *     readOnlyEndpoint: {
+ *         failoverPolicy: "Disabled",
+ *     },
+ *     readWriteEndpoint: {
+ *         failoverPolicy: "Automatic",
+ *         failoverWithDataLossGracePeriodMinutes: 480,
+ *     },
+ *     resourceGroupName: "Default",
+ *     serverName: "failover-group-primary-server",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:FailoverGroup failover-group-test-3 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default/providers/Microsoft.Sql/servers/failover-group-primary-server/failoverGroups/failover-group-test-3 
+ * ```
  */
 export class FailoverGroup extends pulumi.CustomResource {
     /**

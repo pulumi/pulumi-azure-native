@@ -11,6 +11,29 @@ import * as utilities from "../utilities";
  * Trigger details.
  * API Version: 2022-03-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### TriggerPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const periodicTimerEventTrigger = new azure_native.databoxedge.PeriodicTimerEventTrigger("periodicTimerEventTrigger", {
+ *     deviceName: "testedgedevice",
+ *     name: "trigger1",
+ *     resourceGroupName: "GroupForEdgeAutomation",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:databoxedge:PeriodicTimerEventTrigger trigger1 /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/triggers/trigger1 
+ * ```
  */
 export class PeriodicTimerEventTrigger extends pulumi.CustomResource {
     /**

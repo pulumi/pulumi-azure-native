@@ -10,6 +10,54 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-12-12-preview.
  * Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update default CNI network
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const defaultCniNetwork = new azure_native.networkcloud.DefaultCniNetwork("defaultCniNetwork", {
+ *     cniBgpConfiguration: {
+ *         bgpPeers: [{
+ *             asNumber: 64497,
+ *             peerIp: "203.0.113.254",
+ *         }],
+ *         communityAdvertisements: [{
+ *             communities: ["64512:100"],
+ *             subnetPrefix: "192.0.2.0/27",
+ *         }],
+ *         serviceExternalPrefixes: ["192.0.2.0/28"],
+ *         serviceLoadBalancerPrefixes: ["192.0.2.16/28"],
+ *     },
+ *     defaultCniNetworkName: "defaultCniNetworkName",
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     ipAllocationType: "DualStack",
+ *     ipv4ConnectedPrefix: "203.0.113.0/24",
+ *     ipv6ConnectedPrefix: "2001:db8:0:3::/64",
+ *     l3IsolationDomainId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/l3IsolationDomainName",
+ *     location: "location",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ *     vlan: 12,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:DefaultCniNetwork defaultcniNetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/defaultcniNetworks/defaultcniNetworkName 
+ * ```
  */
 export class DefaultCniNetwork extends pulumi.CustomResource {
     /**

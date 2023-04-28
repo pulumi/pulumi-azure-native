@@ -7,6 +7,57 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### CreateOrUpdate Workspace Online Endpoint.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const onlineEndpoint = new azure_native.machinelearningservices.v20230201preview.OnlineEndpoint("onlineEndpoint", {
+ *     endpointName: "testEndpointName",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *         userAssignedIdentities: {
+ *             string: {},
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     onlineEndpointProperties: {
+ *         authMode: "AMLToken",
+ *         compute: "string",
+ *         description: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         traffic: {
+ *             string: 1,
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "string",
+ *         name: "string",
+ *         size: "string",
+ *         tier: azure_native.machinelearningservices.v20230201preview.SkuTier.Free,
+ *     },
+ *     tags: {},
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230201preview:OnlineEndpoint string string 
+ * ```
+ */
 export class OnlineEndpoint extends pulumi.CustomResource {
     /**
      * Get an existing OnlineEndpoint resource's state with the given name, ID, and optional extra

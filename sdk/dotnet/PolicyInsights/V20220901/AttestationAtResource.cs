@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.PolicyInsights.V20220901
 {
     /// <summary>
     /// An attestation resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create attestation at individual resource scope
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var attestationAtResource = new AzureNative.PolicyInsights.V20220901.AttestationAtResource("attestationAtResource", new()
+    ///     {
+    ///         AssessmentDate = "2021-06-10T00:00:00Z",
+    ///         AttestationName = "790996e6-9871-4b1f-9cd9-ec42cd6ced1e",
+    ///         Comments = "This subscription has passed a security audit.",
+    ///         ComplianceState = "Compliant",
+    ///         Evidence = new[]
+    ///         {
+    ///             new AzureNative.PolicyInsights.V20220901.Inputs.AttestationEvidenceArgs
+    ///             {
+    ///                 Description = "The results of the security audit.",
+    ///                 SourceUri = "https://gist.github.com/contoso/9573e238762c60166c090ae16b814011",
+    ///             },
+    ///         },
+    ///         ExpiresOn = "2021-06-15T00:00:00Z",
+    ///         Metadata = 
+    ///         {
+    ///             { "departmentId", "NYC-MARKETING-1" },
+    ///         },
+    ///         Owner = "55a32e28-3aa5-4eea-9b5a-4cd85153b966",
+    ///         PolicyAssignmentId = "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+    ///         PolicyDefinitionReferenceId = "0b158b46-ff42-4799-8e39-08a5c23b4551",
+    ///         ResourceId = "subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourcegroups/myrg/providers/microsoft.compute/virtualMachines/devVM",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:policyinsights/v20220901:AttestationAtResource 790996e6-9871-4b1f-9cd9-ec42cd6ced1e /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourcegroups/myrg/providers/microsoft.compute/virtualMachines/devVM/providers/microsoft.policyinsights/attestations/790996e6-9871-4b1f-9cd9-ec42cd6ced1e 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:policyinsights/v20220901:AttestationAtResource")]
     public partial class AttestationAtResource : global::Pulumi.CustomResource

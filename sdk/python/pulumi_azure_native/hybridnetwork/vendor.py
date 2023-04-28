@@ -48,6 +48,25 @@ class Vendor(pulumi.CustomResource):
         API Version: 2021-05-01.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update Vendor resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vendor = azure_native.hybridnetwork.Vendor("vendor", vendor_name="TestVendor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:Vendor TestVendor /subscriptions/subid/providers/Microsoft.HybridNetwork/vendors/TestVendor 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vendor_name: The name of the vendor.
@@ -62,6 +81,25 @@ class Vendor(pulumi.CustomResource):
         Vendor resource.
         API Version: 2021-05-01.
         Previous API Version: 2020-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update Vendor resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vendor = azure_native.hybridnetwork.Vendor("vendor", vendor_name="TestVendor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork:Vendor TestVendor /subscriptions/subid/providers/Microsoft.HybridNetwork/vendors/TestVendor 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VendorArgs args: The arguments to use to populate this resource's properties.

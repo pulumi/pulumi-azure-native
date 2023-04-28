@@ -114,6 +114,29 @@ class Site(pulumi.CustomResource):
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create mobile network site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site = azure_native.mobilenetwork.Site("site",
+            location="testLocation",
+            mobile_network_name="testMobileNetwork",
+            resource_group_name="rg1",
+            site_name="testSite")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:Site testSite /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -132,6 +155,29 @@ class Site(pulumi.CustomResource):
         Site resource. Must be created in the same location as its parent mobile network.
         API Version: 2022-11-01.
         Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create mobile network site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site = azure_native.mobilenetwork.Site("site",
+            location="testLocation",
+            mobile_network_name="testMobileNetwork",
+            resource_group_name="rg1",
+            site_name="testSite")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:mobilenetwork:Site testSite /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/sites/testSite 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.

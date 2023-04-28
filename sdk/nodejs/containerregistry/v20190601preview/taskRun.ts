@@ -10,6 +10,41 @@ import * as utilities from "../../utilities";
 /**
  * The task run that has the ARM resource and properties.
  * The task run will have the information of request and result of a run.
+ *
+ * ## Example Usage
+ * ### TaskRuns_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const taskRun = new azure_native.containerregistry.v20190601preview.TaskRun("taskRun", {
+ *     forceUpdateTag: "test",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     runRequest: {
+ *         credentials: {},
+ *         encodedTaskContent: "c3RlcHM6IAogIC0gY21kOiB7eyAuVmFsdWVzLmNvbW1hbmQgfX0K",
+ *         encodedValuesContent: "Y29tbWFuZDogYmFzaCBlY2hvIHt7LlJ1bi5SZWdpc3RyeX19Cg==",
+ *         platform: {
+ *             architecture: "amd64",
+ *             os: "Linux",
+ *         },
+ *         type: "EncodedTaskRunRequest",
+ *         values: [],
+ *     },
+ *     taskRunName: "myRun",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20190601preview:TaskRun myrun /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/taskRuns/myRun 
+ * ```
  */
 export class TaskRun extends pulumi.CustomResource {
     /**

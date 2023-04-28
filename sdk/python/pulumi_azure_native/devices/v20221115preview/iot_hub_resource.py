@@ -148,6 +148,105 @@ class IotHubResource(pulumi.CustomResource):
         """
         The description of the IoT hub.
 
+        ## Example Usage
+        ### IotHubResource_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_resource = azure_native.devices.v20221115preview.IotHubResource("iotHubResource",
+            location="centraluseuap",
+            properties=azure_native.devices.v20221115preview.IotHubPropertiesResponseArgs(
+                cloud_to_device={
+                    "defaultTtlAsIso8601": "PT1H",
+                    "feedback": azure_native.devices.v20221115preview.FeedbackPropertiesArgs(
+                        lock_duration_as_iso8601="PT1M",
+                        max_delivery_count=10,
+                        ttl_as_iso8601="PT1H",
+                    ),
+                    "maxDeliveryCount": 10,
+                },
+                enable_data_residency=True,
+                enable_file_upload_notifications=False,
+                event_hub_endpoints={
+                    "events": azure_native.devices.v20221115preview.EventHubPropertiesArgs(
+                        partition_count=2,
+                        retention_time_in_days=1,
+                    ),
+                },
+                features="None",
+                ip_filter_rules=[],
+                ip_version="ipv4ipv6",
+                messaging_endpoints={
+                    "fileNotifications": azure_native.devices.v20221115preview.MessagingEndpointPropertiesArgs(
+                        lock_duration_as_iso8601="PT1M",
+                        max_delivery_count=10,
+                        ttl_as_iso8601="PT1H",
+                    ),
+                },
+                min_tls_version="1.2",
+                network_rule_sets={
+                    "applyToBuiltInEventHubEndpoint": True,
+                    "defaultAction": "Deny",
+                    "ipRules": [
+                        azure_native.devices.v20221115preview.NetworkRuleSetIpRuleArgs(
+                            action="Allow",
+                            filter_name="rule1",
+                            ip_mask="131.117.159.53",
+                        ),
+                        azure_native.devices.v20221115preview.NetworkRuleSetIpRuleArgs(
+                            action="Allow",
+                            filter_name="rule2",
+                            ip_mask="157.55.59.128/25",
+                        ),
+                    ],
+                },
+                root_certificate=azure_native.devices.v20221115preview.RootCertificatePropertiesArgs(
+                    enable_root_certificate_v2=True,
+                ),
+                routing={
+                    "endpoints": {
+                        "eventHubs": [],
+                        "serviceBusQueues": [],
+                        "serviceBusTopics": [],
+                        "storageContainers": [],
+                    },
+                    "fallbackRoute": azure_native.devices.v20221115preview.FallbackRoutePropertiesArgs(
+                        condition="true",
+                        endpoint_names=["events"],
+                        is_enabled=True,
+                        name="$fallback",
+                        source="DeviceMessages",
+                    ),
+                    "routes": [],
+                },
+                storage_endpoints={
+                    "$default": azure_native.devices.v20221115preview.StorageEndpointPropertiesArgs(
+                        connection_string="",
+                        container_name="",
+                        sas_ttl_as_iso8601="PT1H",
+                    ),
+                },
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="testHub",
+            sku=azure_native.devices.v20221115preview.IotHubSkuInfoArgs(
+                capacity=1,
+                name="S1",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20221115preview:IotHubResource testHub /subscriptions/ae24ff83-d2ca-4fc8-9717-05dae4bba489/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/testHub 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ArmIdentityArgs']] identity: The managed identities for the IotHub.
@@ -166,6 +265,105 @@ class IotHubResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the IoT hub.
+
+        ## Example Usage
+        ### IotHubResource_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        iot_hub_resource = azure_native.devices.v20221115preview.IotHubResource("iotHubResource",
+            location="centraluseuap",
+            properties=azure_native.devices.v20221115preview.IotHubPropertiesResponseArgs(
+                cloud_to_device={
+                    "defaultTtlAsIso8601": "PT1H",
+                    "feedback": azure_native.devices.v20221115preview.FeedbackPropertiesArgs(
+                        lock_duration_as_iso8601="PT1M",
+                        max_delivery_count=10,
+                        ttl_as_iso8601="PT1H",
+                    ),
+                    "maxDeliveryCount": 10,
+                },
+                enable_data_residency=True,
+                enable_file_upload_notifications=False,
+                event_hub_endpoints={
+                    "events": azure_native.devices.v20221115preview.EventHubPropertiesArgs(
+                        partition_count=2,
+                        retention_time_in_days=1,
+                    ),
+                },
+                features="None",
+                ip_filter_rules=[],
+                ip_version="ipv4ipv6",
+                messaging_endpoints={
+                    "fileNotifications": azure_native.devices.v20221115preview.MessagingEndpointPropertiesArgs(
+                        lock_duration_as_iso8601="PT1M",
+                        max_delivery_count=10,
+                        ttl_as_iso8601="PT1H",
+                    ),
+                },
+                min_tls_version="1.2",
+                network_rule_sets={
+                    "applyToBuiltInEventHubEndpoint": True,
+                    "defaultAction": "Deny",
+                    "ipRules": [
+                        azure_native.devices.v20221115preview.NetworkRuleSetIpRuleArgs(
+                            action="Allow",
+                            filter_name="rule1",
+                            ip_mask="131.117.159.53",
+                        ),
+                        azure_native.devices.v20221115preview.NetworkRuleSetIpRuleArgs(
+                            action="Allow",
+                            filter_name="rule2",
+                            ip_mask="157.55.59.128/25",
+                        ),
+                    ],
+                },
+                root_certificate=azure_native.devices.v20221115preview.RootCertificatePropertiesArgs(
+                    enable_root_certificate_v2=True,
+                ),
+                routing={
+                    "endpoints": {
+                        "eventHubs": [],
+                        "serviceBusQueues": [],
+                        "serviceBusTopics": [],
+                        "storageContainers": [],
+                    },
+                    "fallbackRoute": azure_native.devices.v20221115preview.FallbackRoutePropertiesArgs(
+                        condition="true",
+                        endpoint_names=["events"],
+                        is_enabled=True,
+                        name="$fallback",
+                        source="DeviceMessages",
+                    ),
+                    "routes": [],
+                },
+                storage_endpoints={
+                    "$default": azure_native.devices.v20221115preview.StorageEndpointPropertiesArgs(
+                        connection_string="",
+                        container_name="",
+                        sas_ttl_as_iso8601="PT1H",
+                    ),
+                },
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="testHub",
+            sku=azure_native.devices.v20221115preview.IotHubSkuInfoArgs(
+                capacity=1,
+                name="S1",
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devices/v20221115preview:IotHubResource testHub /subscriptions/ae24ff83-d2ca-4fc8-9717-05dae4bba489/resourceGroups/myResourceGroup/providers/Microsoft.Devices/IotHubs/testHub 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IotHubResourceArgs args: The arguments to use to populate this resource's properties.

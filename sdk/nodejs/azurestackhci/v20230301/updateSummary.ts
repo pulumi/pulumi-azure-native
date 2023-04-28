@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Get the update summaries for the cluster
+ *
+ * ## Example Usage
+ * ### Put Update summaries under cluster resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const updateSummary = new azure_native.azurestackhci.v20230301.UpdateSummary("updateSummary", {
+ *     clusterName: "testcluster",
+ *     currentVersion: "4.2203.2.32",
+ *     hardwareModel: "PowerEdge R730xd",
+ *     lastChecked: "2022-04-07T18:04:07Z",
+ *     lastUpdated: "2022-04-06T14:08:18.254Z",
+ *     oemFamily: "DellEMC",
+ *     resourceGroupName: "testrg",
+ *     state: "AppliedSuccessfully",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci/v20230301:UpdateSummary default /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updateSummaries/default 
+ * ```
  */
 export class UpdateSummary extends pulumi.CustomResource {
     /**

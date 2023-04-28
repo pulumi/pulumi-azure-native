@@ -9,6 +9,72 @@ import * as utilities from "../../utilities";
 
 /**
  * The lab resource.
+ *
+ * ## Example Usage
+ * ### putLab
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const lab = new azure_native.labservices.v20220801.Lab("lab", {
+ *     autoShutdownProfile: {
+ *         disconnectDelay: "PT5M",
+ *         idleDelay: "PT5M",
+ *         noConnectDelay: "PT5M",
+ *         shutdownOnDisconnect: azure_native.labservices.v20220801.EnableState.Enabled,
+ *         shutdownOnIdle: azure_native.labservices.v20220801.ShutdownOnIdleMode.UserAbsence,
+ *         shutdownWhenNotConnected: azure_native.labservices.v20220801.EnableState.Enabled,
+ *     },
+ *     connectionProfile: {
+ *         clientRdpAccess: azure_native.labservices.v20220801.ConnectionType.Public,
+ *         clientSshAccess: azure_native.labservices.v20220801.ConnectionType.Public,
+ *         webRdpAccess: azure_native.labservices.v20220801.ConnectionType.None,
+ *         webSshAccess: azure_native.labservices.v20220801.ConnectionType.None,
+ *     },
+ *     description: "This is a test lab.",
+ *     labName: "testlab",
+ *     labPlanId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labPlans/testlabplan",
+ *     location: "westus",
+ *     networkProfile: {
+ *         subnetId: "/subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/default",
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     securityProfile: {
+ *         openAccess: azure_native.labservices.v20220801.EnableState.Disabled,
+ *     },
+ *     title: "Test Lab",
+ *     virtualMachineProfile: {
+ *         additionalCapabilities: {
+ *             installGpuDrivers: azure_native.labservices.v20220801.EnableState.Disabled,
+ *         },
+ *         adminUser: {
+ *             username: "test-user",
+ *         },
+ *         createOption: azure_native.labservices.v20220801.CreateOption.TemplateVM,
+ *         imageReference: {
+ *             offer: "WindowsServer",
+ *             publisher: "Microsoft",
+ *             sku: "2019-Datacenter",
+ *             version: "2019.0.20190410",
+ *         },
+ *         sku: {
+ *             name: "Medium",
+ *         },
+ *         usageQuota: "PT10H",
+ *         useSharedPassword: azure_native.labservices.v20220801.EnableState.Disabled,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:labservices/v20220801:Lab testlabplan /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.LabServices/labs/testlab 
+ * ```
  */
 export class Lab extends pulumi.CustomResource {
     /**

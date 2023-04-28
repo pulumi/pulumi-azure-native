@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * The Private Endpoint Connection resource.
+ *
+ * ## Example Usage
+ * ### PrivateEndpointConnection_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnectionsForSCCPowershell = new azure_native.securityandcompliance.v20210308.PrivateEndpointConnectionsForSCCPowershell("privateEndpointConnectionsForSCCPowershell", {
+ *     privateEndpointConnectionName: "myConnection",
+ *     privateLinkServiceConnectionState: {
+ *         description: "Auto-Approved",
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rgname",
+ *     resourceName: "service1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityandcompliance/v20210308:PrivateEndpointConnectionsForSCCPowershell myConnection /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.SecurityAndCompliance/privateLinkServicesForSCCPowershell/service1/privateEndpointConnections/myConnection 
+ * ```
  */
 export class PrivateEndpointConnectionsForSCCPowershell extends pulumi.CustomResource {
     /**

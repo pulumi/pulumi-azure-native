@@ -100,6 +100,31 @@ class ConfigurationStore(pulumi.CustomResource):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 
+        ## Example Usage
+        ### ConfigurationStores_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.v20190201preview.ConfigurationStore("configurationStore",
+            config_store_name="fayeh",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appconfiguration/v20190201preview:ConfigurationStore fayeh /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/fayeh 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] config_store_name: The name of the configuration store.
@@ -115,6 +140,31 @@ class ConfigurationStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+
+        ## Example Usage
+        ### ConfigurationStores_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        configuration_store = azure_native.appconfiguration.v20190201preview.ConfigurationStore("configurationStore",
+            config_store_name="fayeh",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            tags={
+                "myTag": "myTagValue",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appconfiguration/v20190201preview:ConfigurationStore fayeh /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/fayeh 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConfigurationStoreArgs args: The arguments to use to populate this resource's properties.

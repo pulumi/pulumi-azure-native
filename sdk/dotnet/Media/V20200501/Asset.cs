@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Media.V20200501
 {
     /// <summary>
     /// An Asset.
+    /// 
+    /// ## Example Usage
+    /// ### Create an Asset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var asset = new AzureNative.Media.V20200501.Asset("asset", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         AssetName = "ClimbingMountLogan",
+    ///         Description = "A documentary showing the ascent of Mount Logan",
+    ///         ResourceGroupName = "contoso",
+    ///         StorageAccountName = "storage0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20200501:Asset ClimbingMountLogan /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountLogan 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20200501:Asset")]
     public partial class Asset : global::Pulumi.CustomResource

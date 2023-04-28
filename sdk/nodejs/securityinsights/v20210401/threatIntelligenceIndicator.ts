@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * Threat intelligence information object.
+ *
+ * ## Example Usage
+ * ### Update a threat Intelligence indicator
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const threatIntelligenceIndicator = new azure_native.securityinsights.v20210401.ThreatIntelligenceIndicator("threatIntelligenceIndicator", {
+ *     confidence: 78,
+ *     createdByRef: "contoso@contoso.com",
+ *     description: "debugging indicators",
+ *     displayName: "new schema",
+ *     externalReferences: [],
+ *     granularMarkings: [],
+ *     killChainPhases: [],
+ *     kind: "indicator",
+ *     labels: [],
+ *     modified: "",
+ *     name: "d9cd6f0b-96b9-3984-17cd-a779d1e15a93",
+ *     operationalInsightsResourceProvider: "Microsoft.OperationalInsights",
+ *     pattern: "[url:value = 'https://www.contoso.com']",
+ *     patternType: "url",
+ *     resourceGroupName: "myRg",
+ *     revoked: false,
+ *     source: "Azure Sentinel",
+ *     threatIntelligenceTags: ["new schema"],
+ *     threatTypes: ["compromised"],
+ *     validFrom: "2020-04-15T17:44:00.114052Z",
+ *     validUntil: "",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20210401:ThreatIntelligenceIndicator 180105c7-a28d-b1a2-4a78-234f6ec80fd6 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/ThreatIntelligence/180105c7-a28d-b1a2-4a78-234f6ec80fd6 
+ * ```
  */
 export class ThreatIntelligenceIndicator extends pulumi.CustomResource {
     /**

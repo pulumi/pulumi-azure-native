@@ -92,7 +92,44 @@ class Queue(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a Queue resource with the given unique name, props, and options.
+        ## Example Usage
+        ### QueueOperationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue = azure_native.storage.v20220901.Queue("queue",
+            account_name="sto328",
+            queue_name="queue6185",
+            resource_group_name="res3376")
+
+        ```
+        ### QueueOperationPutWithMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue = azure_native.storage.v20220901.Queue("queue",
+            account_name="sto328",
+            metadata={
+                "sample1": "meta1",
+                "sample2": "meta2",
+            },
+            queue_name="queue6185",
+            resource_group_name="res3376")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:Queue queue6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/queueServices/default/queues/queue6185 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the storage account within the specified resource group. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
@@ -107,7 +144,44 @@ class Queue(pulumi.CustomResource):
                  args: QueueArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Queue resource with the given unique name, props, and options.
+        ## Example Usage
+        ### QueueOperationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue = azure_native.storage.v20220901.Queue("queue",
+            account_name="sto328",
+            queue_name="queue6185",
+            resource_group_name="res3376")
+
+        ```
+        ### QueueOperationPutWithMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        queue = azure_native.storage.v20220901.Queue("queue",
+            account_name="sto328",
+            metadata={
+                "sample1": "meta1",
+                "sample2": "meta2",
+            },
+            queue_name="queue6185",
+            resource_group_name="res3376")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20220901:Queue queue6185 /subscriptions/{subscription-id}/resourceGroups/res3376/providers/Microsoft.Storage/storageAccounts/sto328/queueServices/default/queues/queue6185 
+        ```
+
         :param str resource_name: The name of the resource.
         :param QueueArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

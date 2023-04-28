@@ -127,6 +127,60 @@ class DataController(pulumi.CustomResource):
         """
         Data controller resource
 
+        ## Example Usage
+        ### Create or update a Data Controller.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_controller = azure_native.azurearcdata.v20210601preview.DataController("dataController",
+            data_controller_name="testdataController",
+            extended_location=azure_native.azurearcdata.v20210601preview.ExtendedLocationArgs(
+                name="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+                type="CustomLocation",
+            ),
+            location="northeurope",
+            properties=azure_native.azurearcdata.v20210601preview.DataControllerPropertiesResponseArgs(
+                basic_login_information=azure_native.azurearcdata.v20210601preview.BasicLoginInformationArgs(
+                    password="********",
+                    username="username",
+                ),
+                log_analytics_workspace_config=azure_native.azurearcdata.v20210601preview.LogAnalyticsWorkspaceConfigArgs(
+                    primary_key="********",
+                    workspace_id="00000000-1111-2222-3333-444444444444",
+                ),
+                on_premise_property=azure_native.azurearcdata.v20210601preview.OnPremisePropertyArgs(
+                    id="12345678-1234-1234-ab12-1a2b3c4d5e6f",
+                    public_signing_key="publicOnPremSigningKey",
+                ),
+                upload_service_principal=azure_native.azurearcdata.v20210601preview.UploadServicePrincipalArgs(
+                    authority="https://login.microsoftonline.com/",
+                    client_id="00000000-1111-2222-3333-444444444444",
+                    client_secret="********",
+                    tenant_id="00000000-1111-2222-3333-444444444444",
+                ),
+                upload_watermark=azure_native.azurearcdata.v20210601preview.UploadWatermarkArgs(
+                    logs="2020-01-01T17:18:19.1234567Z",
+                    metrics="2020-01-01T17:18:19.1234567Z",
+                    usages="2020-01-01T17:18:19.1234567Z",
+                ),
+            ),
+            resource_group_name="testrg",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20210601preview:DataController testdataController /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/dataControllers/testdataController 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extendedLocation of the resource.
@@ -143,6 +197,60 @@ class DataController(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Data controller resource
+
+        ## Example Usage
+        ### Create or update a Data Controller.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_controller = azure_native.azurearcdata.v20210601preview.DataController("dataController",
+            data_controller_name="testdataController",
+            extended_location=azure_native.azurearcdata.v20210601preview.ExtendedLocationArgs(
+                name="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+                type="CustomLocation",
+            ),
+            location="northeurope",
+            properties=azure_native.azurearcdata.v20210601preview.DataControllerPropertiesResponseArgs(
+                basic_login_information=azure_native.azurearcdata.v20210601preview.BasicLoginInformationArgs(
+                    password="********",
+                    username="username",
+                ),
+                log_analytics_workspace_config=azure_native.azurearcdata.v20210601preview.LogAnalyticsWorkspaceConfigArgs(
+                    primary_key="********",
+                    workspace_id="00000000-1111-2222-3333-444444444444",
+                ),
+                on_premise_property=azure_native.azurearcdata.v20210601preview.OnPremisePropertyArgs(
+                    id="12345678-1234-1234-ab12-1a2b3c4d5e6f",
+                    public_signing_key="publicOnPremSigningKey",
+                ),
+                upload_service_principal=azure_native.azurearcdata.v20210601preview.UploadServicePrincipalArgs(
+                    authority="https://login.microsoftonline.com/",
+                    client_id="00000000-1111-2222-3333-444444444444",
+                    client_secret="********",
+                    tenant_id="00000000-1111-2222-3333-444444444444",
+                ),
+                upload_watermark=azure_native.azurearcdata.v20210601preview.UploadWatermarkArgs(
+                    logs="2020-01-01T17:18:19.1234567Z",
+                    metrics="2020-01-01T17:18:19.1234567Z",
+                    usages="2020-01-01T17:18:19.1234567Z",
+                ),
+            ),
+            resource_group_name="testrg",
+            tags={
+                "mytag": "myval",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurearcdata/v20210601preview:DataController testdataController /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/dataControllers/testdataController 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataControllerArgs args: The arguments to use to populate this resource's properties.

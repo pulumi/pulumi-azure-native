@@ -10,6 +10,139 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-12-12-preview.
  * Previous API Version: 2022-12-12-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update cluster
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.networkcloud.Cluster("cluster", {
+ *     aggregatorOrSingleRackDefinition: {
+ *         bareMetalMachineConfigurationData: [
+ *             {
+ *                 bmcCredentials: {
+ *                     password: "{password}",
+ *                     username: "username",
+ *                 },
+ *                 bmcMacAddress: "AA:BB:CC:DD:EE:FF",
+ *                 bootMacAddress: "00:BB:CC:DD:EE:FF",
+ *                 machineDetails: "extraDetails",
+ *                 machineName: "bmmName1",
+ *                 rackSlot: 1,
+ *                 serialNumber: "BM1219XXX",
+ *             },
+ *             {
+ *                 bmcCredentials: {
+ *                     password: "{password}",
+ *                     username: "username",
+ *                 },
+ *                 bmcMacAddress: "AA:BB:CC:DD:EE:00",
+ *                 bootMacAddress: "00:BB:CC:DD:EE:00",
+ *                 machineDetails: "extraDetails",
+ *                 machineName: "bmmName2",
+ *                 rackSlot: 2,
+ *                 serialNumber: "BM1219YYY",
+ *             },
+ *         ],
+ *         networkRackId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName",
+ *         rackLocation: "Foo Datacenter, Floor 3, Aisle 9, Rack 2",
+ *         rackSerialNumber: "AA1234",
+ *         rackSkuId: "/subscriptions/subscriptionId/providers/Microsoft.NetworkCloud/rackSkus/rackSkuName",
+ *         storageApplianceConfigurationData: [{
+ *             adminCredentials: {
+ *                 password: "{password}",
+ *                 username: "username",
+ *             },
+ *             rackSlot: 1,
+ *             serialNumber: "BM1219XXX",
+ *             storageApplianceName: "vmName",
+ *         }],
+ *     },
+ *     analyticsWorkspaceId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/microsoft.operationalInsights/workspaces/logAnalyticsWorkspaceName",
+ *     clusterLocation: "Foo Street, 3rd Floor, row 9",
+ *     clusterName: "clusterName",
+ *     clusterServicePrincipal: {
+ *         applicationId: "12345678-1234-1234-1234-123456789012",
+ *         password: "{password}",
+ *         principalId: "00000008-0004-0004-0004-000000000012",
+ *         tenantId: "80000000-4000-4000-4000-120000000000",
+ *     },
+ *     clusterType: "SingleRack",
+ *     clusterVersion: "1.0.0",
+ *     computeDeploymentThreshold: {
+ *         grouping: "PerCluster",
+ *         type: "PercentSuccess",
+ *         value: 90,
+ *     },
+ *     computeRackDefinitions: [{
+ *         bareMetalMachineConfigurationData: [
+ *             {
+ *                 bmcCredentials: {
+ *                     password: "{password}",
+ *                     username: "username",
+ *                 },
+ *                 bmcMacAddress: "AA:BB:CC:DD:EE:FF",
+ *                 bootMacAddress: "00:BB:CC:DD:EE:FF",
+ *                 machineDetails: "extraDetails",
+ *                 machineName: "bmmName1",
+ *                 rackSlot: 1,
+ *                 serialNumber: "BM1219XXX",
+ *             },
+ *             {
+ *                 bmcCredentials: {
+ *                     password: "{password}",
+ *                     username: "username",
+ *                 },
+ *                 bmcMacAddress: "AA:BB:CC:DD:EE:00",
+ *                 bootMacAddress: "00:BB:CC:DD:EE:00",
+ *                 machineDetails: "extraDetails",
+ *                 machineName: "bmmName2",
+ *                 rackSlot: 2,
+ *                 serialNumber: "BM1219YYY",
+ *             },
+ *         ],
+ *         networkRackId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkRacks/networkRackName",
+ *         rackLocation: "Foo Datacenter, Floor 3, Aisle 9, Rack 2",
+ *         rackSerialNumber: "AA1234",
+ *         rackSkuId: "/subscriptions/subscriptionId/providers/Microsoft.NetworkCloud/rackSkus/rackSkuName",
+ *         storageApplianceConfigurationData: [{
+ *             adminCredentials: {
+ *                 password: "{password}",
+ *                 username: "username",
+ *             },
+ *             rackSlot: 1,
+ *             serialNumber: "BM1219XXX",
+ *             storageApplianceName: "vmName",
+ *         }],
+ *     }],
+ *     extendedLocation: {
+ *         name: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterManagerExtendedLocationName",
+ *         type: "CustomLocation",
+ *     },
+ *     location: "location",
+ *     managedResourceGroupConfiguration: {
+ *         location: "East US",
+ *         name: "my-managed-rg",
+ *     },
+ *     networkFabricId: "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabrics/fabricName",
+ *     resourceGroupName: "resourceGroupName",
+ *     tags: {
+ *         key1: "myvalue1",
+ *         key2: "myvalue2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:networkcloud:Cluster clusterName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/clusters/clusterName 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

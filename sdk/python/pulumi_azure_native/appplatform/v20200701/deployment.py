@@ -130,6 +130,46 @@ class Deployment(pulumi.CustomResource):
         """
         Deployment resource payload
 
+        ## Example Usage
+        ### Deployments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.appplatform.v20200701.Deployment("deployment",
+            app_name="myapp",
+            deployment_name="mydeployment",
+            properties=azure_native.appplatform.v20200701.DeploymentResourcePropertiesResponseArgs(
+                deployment_settings=azure_native.appplatform.v20200701.DeploymentSettingsArgs(
+                    cpu=1,
+                    environment_variables={
+                        "env": "test",
+                    },
+                    jvm_options="-Xms1G -Xmx3G",
+                    memory_in_gb=3,
+                    runtime_version="Java_8",
+                ),
+                source=azure_native.appplatform.v20200701.UserSourceInfoArgs(
+                    artifact_selector="sub-module-1",
+                    relative_path="resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc",
+                    type="Source",
+                    version="1.0",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:Deployment mydeployment /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/deployments/mydeployment 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] app_name: The name of the App resource.
@@ -147,6 +187,46 @@ class Deployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Deployment resource payload
+
+        ## Example Usage
+        ### Deployments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        deployment = azure_native.appplatform.v20200701.Deployment("deployment",
+            app_name="myapp",
+            deployment_name="mydeployment",
+            properties=azure_native.appplatform.v20200701.DeploymentResourcePropertiesResponseArgs(
+                deployment_settings=azure_native.appplatform.v20200701.DeploymentSettingsArgs(
+                    cpu=1,
+                    environment_variables={
+                        "env": "test",
+                    },
+                    jvm_options="-Xms1G -Xmx3G",
+                    memory_in_gb=3,
+                    runtime_version="Java_8",
+                ),
+                source=azure_native.appplatform.v20200701.UserSourceInfoArgs(
+                    artifact_selector="sub-module-1",
+                    relative_path="resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc",
+                    type="Source",
+                    version="1.0",
+                ),
+            ),
+            resource_group_name="myResourceGroup",
+            service_name="myservice")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:appplatform/v20200701:Deployment mydeployment /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/deployments/mydeployment 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

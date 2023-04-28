@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.ScVmm
     /// The VirtualNetworks resource definition.
     /// API Version: 2020-06-05-preview.
     /// Previous API Version: 2020-06-05-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateVirtualNetwork
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetwork = new AzureNative.ScVmm.VirtualNetwork("virtualNetwork", new()
+    ///     {
+    ///         ExtendedLocation = new AzureNative.ScVmm.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/a5015e1c-867f-4533-8541-85cd470d0cfb/resourceGroups/demoRG/providers/Microsoft.Arc/customLocations/contoso",
+    ///             Type = "customLocation",
+    ///         },
+    ///         Location = "East US",
+    ///         ResourceGroupName = "testrg",
+    ///         Uuid = "aaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    ///         VirtualNetworkName = "HRVirtualNetwork",
+    ///         VmmServerId = "/subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VMMServers/ContosoVMMServer",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:scvmm:VirtualNetwork HRVirtualNetwork /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.SCVMM/VirtualNetworks/HRVirtualNetwork 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:scvmm:VirtualNetwork")]
     public partial class VirtualNetwork : global::Pulumi.CustomResource

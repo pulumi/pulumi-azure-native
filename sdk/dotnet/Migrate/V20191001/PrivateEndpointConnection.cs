@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.Migrate.V20191001
 {
     /// <summary>
     /// A private endpoint connection for a project.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnections_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.Migrate.V20191001.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         ETag = "\"00009300-0000-0300-0000-602b967b0000\"",
+    ///         PrivateEndpointConnectionName = "custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43",
+    ///         ProjectName = "abgoyalWEselfhostb72bproject",
+    ///         Properties = new AzureNative.Migrate.V20191001.Inputs.PrivateEndpointConnectionPropertiesArgs
+    ///         {
+    ///             PrivateLinkServiceConnectionState = new AzureNative.Migrate.V20191001.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///             {
+    ///                 ActionsRequired = "",
+    ///                 Status = "Approved",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "abgoyal-westEurope",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate/v20191001:PrivateEndpointConnection custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/madhavicus/providers/Microsoft.Migrate/assessmentprojects/custestpece80project/privateEndpointConnections/custestpece80project3980pe.7e35576b-3df4-478e-9759-f64351cf4f43 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate/v20191001:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource

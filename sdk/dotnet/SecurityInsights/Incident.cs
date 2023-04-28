@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.SecurityInsights
     /// Represents an incident in Azure Security Insights.
     /// API Version: 2023-02-01.
     /// Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates an incident.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var incident = new AzureNative.SecurityInsights.Incident("incident", new()
+    ///     {
+    ///         Classification = "FalsePositive",
+    ///         ClassificationComment = "Not a malicious activity",
+    ///         ClassificationReason = "IncorrectAlertLogic",
+    ///         Description = "This is a demo incident",
+    ///         FirstActivityTimeUtc = "2019-01-01T13:00:30Z",
+    ///         IncidentId = "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+    ///         LastActivityTimeUtc = "2019-01-01T13:05:30Z",
+    ///         Owner = new AzureNative.SecurityInsights.Inputs.IncidentOwnerInfoArgs
+    ///         {
+    ///             ObjectId = "2046feea-040d-4a46-9e2b-91c2941bfa70",
+    ///         },
+    ///         ResourceGroupName = "myRg",
+    ///         Severity = "High",
+    ///         Status = "Closed",
+    ///         Title = "My incident",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights:Incident 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/incidents/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights:Incident")]
     public partial class Incident : global::Pulumi.CustomResource

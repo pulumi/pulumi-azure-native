@@ -9,6 +9,59 @@ import * as utilities from "../../utilities";
 
 /**
  * VpnSite Resource.
+ *
+ * ## Example Usage
+ * ### VpnSiteCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const vpnSite = new azure_native.network.v20201101.VpnSite("vpnSite", {
+ *     addressSpace: {
+ *         addressPrefixes: ["10.0.0.0/16"],
+ *     },
+ *     isSecuritySite: false,
+ *     location: "West US",
+ *     o365Policy: {
+ *         breakOutCategories: {
+ *             allow: true,
+ *             "default": false,
+ *             optimize: true,
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualWan: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWANs/wan1",
+ *     },
+ *     vpnSiteLinks: [{
+ *         bgpProperties: {
+ *             asn: 1234,
+ *             bgpPeeringAddress: "192.168.0.0",
+ *         },
+ *         fqdn: "link1.vpnsite1.contoso.com",
+ *         ipAddress: "50.50.50.56",
+ *         linkProperties: {
+ *             linkProviderName: "vendor1",
+ *             linkSpeedInMbps: 0,
+ *         },
+ *         name: "vpnSiteLink1",
+ *     }],
+ *     vpnSiteName: "vpnSite1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:VpnSite vpnSite1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnSites/vpnSite1 
+ * ```
  */
 export class VpnSite extends pulumi.CustomResource {
     /**

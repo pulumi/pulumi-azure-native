@@ -11,6 +11,375 @@ namespace Pulumi.AzureNative.Network.V20180501
 {
     /// <summary>
     /// Describes a DNS record set (a collection of DNS records with the same name and type).
+    /// 
+    /// ## Example Usage
+    /// ### Create A recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         ARecords = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180501.Inputs.ARecordArgs
+    ///             {
+    ///                 Ipv4Address = "127.0.0.1",
+    ///             },
+    ///         },
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         RecordType = "A",
+    ///         RelativeRecordSetName = "record1",
+    ///         ResourceGroupName = "rg1",
+    ///         Ttl = 3600,
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create A recordset with alias target resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         RecordType = "A",
+    ///         RelativeRecordSetName = "record1",
+    ///         ResourceGroupName = "rg1",
+    ///         TargetResource = new AzureNative.Network.V20180501.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/726f8cd6-6459-4db4-8e6d-2cd2716904e2/resourceGroups/test/providers/Microsoft.Network/trafficManagerProfiles/testpp2",
+    ///         },
+    ///         Ttl = 3600,
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create AAAA recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         AaaaRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180501.Inputs.AaaaRecordArgs
+    ///             {
+    ///                 Ipv6Address = "::1",
+    ///             },
+    ///         },
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         RecordType = "AAAA",
+    ///         RelativeRecordSetName = "record1",
+    ///         ResourceGroupName = "rg1",
+    ///         Ttl = 3600,
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create CAA recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         CaaRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180501.Inputs.CaaRecordArgs
+    ///             {
+    ///                 Flags = 0,
+    ///                 Tag = "issue",
+    ///                 Value = "ca.contoso.com",
+    ///             },
+    ///         },
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         RecordType = "CAA",
+    ///         RelativeRecordSetName = "record1",
+    ///         ResourceGroupName = "rg1",
+    ///         Ttl = 3600,
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create CNAME recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         CnameRecord = new AzureNative.Network.V20180501.Inputs.CnameRecordArgs
+    ///         {
+    ///             Cname = "contoso.com",
+    ///         },
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         RecordType = "CNAME",
+    ///         RelativeRecordSetName = "record1",
+    ///         ResourceGroupName = "rg1",
+    ///         Ttl = 3600,
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create MX recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         MxRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180501.Inputs.MxRecordArgs
+    ///             {
+    ///                 Exchange = "mail.contoso.com",
+    ///                 Preference = 0,
+    ///             },
+    ///         },
+    ///         RecordType = "MX",
+    ///         RelativeRecordSetName = "record1",
+    ///         ResourceGroupName = "rg1",
+    ///         Ttl = 3600,
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create NS recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         NsRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180501.Inputs.NsRecordArgs
+    ///             {
+    ///                 Nsdname = "ns1.contoso.com",
+    ///             },
+    ///         },
+    ///         RecordType = "NS",
+    ///         RelativeRecordSetName = "record1",
+    ///         ResourceGroupName = "rg1",
+    ///         Ttl = 3600,
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create PTR recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         PtrRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180501.Inputs.PtrRecordArgs
+    ///             {
+    ///                 Ptrdname = "localhost",
+    ///             },
+    ///         },
+    ///         RecordType = "PTR",
+    ///         RelativeRecordSetName = "1",
+    ///         ResourceGroupName = "rg1",
+    ///         Ttl = 3600,
+    ///         ZoneName = "0.0.127.in-addr.arpa",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create SOA recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         RecordType = "SOA",
+    ///         RelativeRecordSetName = "@",
+    ///         ResourceGroupName = "rg1",
+    ///         SoaRecord = new AzureNative.Network.V20180501.Inputs.SoaRecordArgs
+    ///         {
+    ///             Email = "hostmaster.contoso.com",
+    ///             ExpireTime = 2419200,
+    ///             Host = "ns1.contoso.com",
+    ///             MinimumTtl = 300,
+    ///             RefreshTime = 3600,
+    ///             RetryTime = 300,
+    ///             SerialNumber = 1,
+    ///         },
+    ///         Ttl = 3600,
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create SRV recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         RecordType = "SRV",
+    ///         RelativeRecordSetName = "record1",
+    ///         ResourceGroupName = "rg1",
+    ///         SrvRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180501.Inputs.SrvRecordArgs
+    ///             {
+    ///                 Port = 80,
+    ///                 Priority = 0,
+    ///                 Target = "contoso.com",
+    ///                 Weight = 10,
+    ///             },
+    ///         },
+    ///         Ttl = 3600,
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create TXT recordset
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var recordSet = new AzureNative.Network.V20180501.RecordSet("recordSet", new()
+    ///     {
+    ///         Metadata = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///         RecordType = "TXT",
+    ///         RelativeRecordSetName = "record1",
+    ///         ResourceGroupName = "rg1",
+    ///         Ttl = 3600,
+    ///         TxtRecords = new[]
+    ///         {
+    ///             new AzureNative.Network.V20180501.Inputs.TxtRecordArgs
+    ///             {
+    ///                 Value = new[]
+    ///                 {
+    ///                     "string1",
+    ///                     "string2",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ZoneName = "zone1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180501:RecordSet record1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/dnsZones/zone1/TXT/record1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180501:RecordSet")]
     public partial class RecordSet : global::Pulumi.CustomResource

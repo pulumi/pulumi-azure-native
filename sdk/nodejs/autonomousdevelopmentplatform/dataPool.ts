@@ -11,6 +11,38 @@ import * as utilities from "../utilities";
  * ADP Data Pool
  * API Version: 2021-11-01-preview.
  * Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Put Data Pool
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dataPool = new azure_native.autonomousdevelopmentplatform.DataPool("dataPool", {
+ *     accountName: "sampleacct",
+ *     dataPoolName: "sampledp",
+ *     locations: [{
+ *         encryption: {
+ *             keyName: "key1",
+ *             keyVaultUri: "https://vaulturi",
+ *             keyVersion: "123",
+ *             userAssignedIdentity: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id1",
+ *         },
+ *         name: "westus",
+ *     }],
+ *     resourceGroupName: "adpClient",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:autonomousdevelopmentplatform:DataPool dp1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.AutonomousDevelopmentPlatform/accounts/adp1/dataPools/dp1 
+ * ```
  */
 export class DataPool extends pulumi.CustomResource {
     /**

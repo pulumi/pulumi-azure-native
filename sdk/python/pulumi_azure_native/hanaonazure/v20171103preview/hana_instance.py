@@ -165,6 +165,41 @@ class HanaInstance(pulumi.CustomResource):
         """
         HANA instance info on Azure (ARM properties and HANA properties)
 
+        ## Example Usage
+        ### Create a HANA instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hana_instance = azure_native.hanaonazure.v20171103preview.HanaInstance("hanaInstance",
+            hana_instance_name="myHanaInstance",
+            location="westus",
+            network_profile=azure_native.hanaonazure.v20171103preview.NetworkProfileResponseArgs(
+                network_interfaces=[azure_native.hanaonazure.v20171103preview.IpAddressArgs(
+                    ip_address="100.100.100.100",
+                )],
+            ),
+            os_profile=azure_native.hanaonazure.v20171103preview.OSProfileArgs(
+                computer_name="myComputerName",
+                ssh_public_key="AAAAB3NzaC1yc2EAAAABJQAAAQB/nAmOjTmezNUDKYvEeIRf2YnwM9/uUG1d0BYsc8/tRtx+RGi7N2lUbp728MXGwdnL9od4cItzky/zVdLZE2cycOa18xBK9cOWmcKS0A8FYBxEQWJ/q9YVUgZbFKfYGaGQxsER+A0w/fX8ALuk78ktP31K69LcQgxIsl7rNzxsoOQKJ/CIxOGMMxczYTiEoLvQhapFQMs3FL96didKr/QbrfB1WT6s3838SEaXfgZvLef1YB2xmfhbT9OXFE3FXvh2UPBfN+ffE7iiayQf/2XR+8j4N4bW30DiPtOQLGUrH1y5X/rpNZNlWW2+jGIxqZtgWg7lTy3mXy5x836Sj/6L",
+            ),
+            partner_node_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance2",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hanaonazure/v20171103preview:HanaInstance myHanaInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hana_instance_name: Name of the SAP HANA on Azure instance.
@@ -184,6 +219,41 @@ class HanaInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         HANA instance info on Azure (ARM properties and HANA properties)
+
+        ## Example Usage
+        ### Create a HANA instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hana_instance = azure_native.hanaonazure.v20171103preview.HanaInstance("hanaInstance",
+            hana_instance_name="myHanaInstance",
+            location="westus",
+            network_profile=azure_native.hanaonazure.v20171103preview.NetworkProfileResponseArgs(
+                network_interfaces=[azure_native.hanaonazure.v20171103preview.IpAddressArgs(
+                    ip_address="100.100.100.100",
+                )],
+            ),
+            os_profile=azure_native.hanaonazure.v20171103preview.OSProfileArgs(
+                computer_name="myComputerName",
+                ssh_public_key="AAAAB3NzaC1yc2EAAAABJQAAAQB/nAmOjTmezNUDKYvEeIRf2YnwM9/uUG1d0BYsc8/tRtx+RGi7N2lUbp728MXGwdnL9od4cItzky/zVdLZE2cycOa18xBK9cOWmcKS0A8FYBxEQWJ/q9YVUgZbFKfYGaGQxsER+A0w/fX8ALuk78ktP31K69LcQgxIsl7rNzxsoOQKJ/CIxOGMMxczYTiEoLvQhapFQMs3FL96didKr/QbrfB1WT6s3838SEaXfgZvLef1YB2xmfhbT9OXFE3FXvh2UPBfN+ffE7iiayQf/2XR+8j4N4bW30DiPtOQLGUrH1y5X/rpNZNlWW2+jGIxqZtgWg7lTy3mXy5x836Sj/6L",
+            ),
+            partner_node_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance2",
+            resource_group_name="myResourceGroup",
+            tags={
+                "key": "value",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hanaonazure/v20171103preview:HanaInstance myHanaInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HanaInstanceArgs args: The arguments to use to populate this resource's properties.

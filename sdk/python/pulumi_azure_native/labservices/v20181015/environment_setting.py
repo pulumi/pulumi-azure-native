@@ -230,6 +230,13 @@ class EnvironmentSetting(pulumi.CustomResource):
                  __props__=None):
         """
         Represents settings of an environment, from which environment instances would be created
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices/v20181015:EnvironmentSetting myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labaccounts/{labAccountName}/labs/{labName}/environmentsettings/{environmentSettingName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,6 +261,13 @@ class EnvironmentSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents settings of an environment, from which environment instances would be created
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:labservices/v20181015:EnvironmentSetting myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labaccounts/{labAccountName}/labs/{labName}/environmentsettings/{environmentSettingName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentSettingArgs args: The arguments to use to populate this resource's properties.

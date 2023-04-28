@@ -233,6 +233,31 @@ class Subscription(pulumi.CustomResource):
         """
         Subscription details.
 
+        ## Example Usage
+        ### ApiManagementCreateSubscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription = azure_native.apimanagement.v20201201.Subscription("subscription",
+            display_name="testsub",
+            owner_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7",
+            resource_group_name="rg1",
+            scope="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b59475ff190048060002",
+            service_name="apimService1",
+            sid="testsub")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:Subscription testsub /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/subscriptions/testsub 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_tracing: Determines whether tracing can be enabled
@@ -258,6 +283,31 @@ class Subscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Subscription details.
+
+        ## Example Usage
+        ### ApiManagementCreateSubscription
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription = azure_native.apimanagement.v20201201.Subscription("subscription",
+            display_name="testsub",
+            owner_id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/57127d485157a511ace86ae7",
+            resource_group_name="rg1",
+            scope="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5600b59475ff190048060002",
+            service_name="apimService1",
+            sid="testsub")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:Subscription testsub /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/subscriptions/testsub 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubscriptionArgs args: The arguments to use to populate this resource's properties.

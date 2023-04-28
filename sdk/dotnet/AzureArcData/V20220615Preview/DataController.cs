@@ -11,6 +11,88 @@ namespace Pulumi.AzureNative.AzureArcData.V20220615Preview
 {
     /// <summary>
     /// Data controller resource
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Data Controller.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataController = new AzureNative.AzureArcData.V20220615Preview.DataController("dataController", new()
+    ///     {
+    ///         DataControllerName = "testdataController",
+    ///         ExtendedLocation = new AzureNative.AzureArcData.V20220615Preview.Inputs.ExtendedLocationArgs
+    ///         {
+    ///             Name = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.ExtendedLocation/customLocations/arclocation",
+    ///             Type = "CustomLocation",
+    ///         },
+    ///         Location = "northeurope",
+    ///         Properties = new AzureNative.AzureArcData.V20220615Preview.Inputs.DataControllerPropertiesArgs
+    ///         {
+    ///             BasicLoginInformation = new AzureNative.AzureArcData.V20220615Preview.Inputs.BasicLoginInformationArgs
+    ///             {
+    ///                 Password = "********",
+    ///                 Username = "username",
+    ///             },
+    ///             ClusterId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s",
+    ///             ExtensionId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Kubernetes/connectedClusters/connectedk8s/providers/Microsoft.KubernetesConfiguration/extensions/extension",
+    ///             Infrastructure = AzureNative.AzureArcData.V20220615Preview.Infrastructure.Onpremises,
+    ///             LogAnalyticsWorkspaceConfig = new AzureNative.AzureArcData.V20220615Preview.Inputs.LogAnalyticsWorkspaceConfigArgs
+    ///             {
+    ///                 PrimaryKey = "********",
+    ///                 WorkspaceId = "00000000-1111-2222-3333-444444444444",
+    ///             },
+    ///             LogsDashboardCredential = new AzureNative.AzureArcData.V20220615Preview.Inputs.BasicLoginInformationArgs
+    ///             {
+    ///                 Password = "********",
+    ///                 Username = "username",
+    ///             },
+    ///             MetricsDashboardCredential = new AzureNative.AzureArcData.V20220615Preview.Inputs.BasicLoginInformationArgs
+    ///             {
+    ///                 Password = "********",
+    ///                 Username = "username",
+    ///             },
+    ///             OnPremiseProperty = new AzureNative.AzureArcData.V20220615Preview.Inputs.OnPremisePropertyArgs
+    ///             {
+    ///                 Id = "12345678-1234-1234-ab12-1a2b3c4d5e6f",
+    ///                 PublicSigningKey = "publicOnPremSigningKey",
+    ///             },
+    ///             UploadServicePrincipal = new AzureNative.AzureArcData.V20220615Preview.Inputs.UploadServicePrincipalArgs
+    ///             {
+    ///                 Authority = "https://login.microsoftonline.com/",
+    ///                 ClientId = "00000000-1111-2222-3333-444444444444",
+    ///                 ClientSecret = "********",
+    ///                 TenantId = "00000000-1111-2222-3333-444444444444",
+    ///             },
+    ///             UploadWatermark = new AzureNative.AzureArcData.V20220615Preview.Inputs.UploadWatermarkArgs
+    ///             {
+    ///                 Logs = "2020-01-01T17:18:19.1234567Z",
+    ///                 Metrics = "2020-01-01T17:18:19.1234567Z",
+    ///                 Usages = "2020-01-01T17:18:19.1234567Z",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         Tags = 
+    ///         {
+    ///             { "mytag", "myval" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azurearcdata/v20220615preview:DataController testdataController /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/dataControllers/testdataController 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:azurearcdata/v20220615preview:DataController")]
     public partial class DataController : global::Pulumi.CustomResource

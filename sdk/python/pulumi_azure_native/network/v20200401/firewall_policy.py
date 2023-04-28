@@ -166,6 +166,36 @@ class FirewallPolicy(pulumi.CustomResource):
         """
         FirewallPolicy Resource.
 
+        ## Example Usage
+        ### Create FirewallPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_policy = azure_native.network.v20200401.FirewallPolicy("firewallPolicy",
+            firewall_policy_name="firewallPolicy",
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode="Alert",
+            threat_intel_whitelist=azure_native.network.v20200401.FirewallPolicyThreatIntelWhitelistArgs(
+                fqdns=["*.microsoft.com"],
+                ip_addresses=["20.3.4.5"],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200401:FirewallPolicy firewallPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SubResourceArgs']] base_policy: The parent firewall policy from which rules are inherited.
@@ -185,6 +215,36 @@ class FirewallPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         FirewallPolicy Resource.
+
+        ## Example Usage
+        ### Create FirewallPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        firewall_policy = azure_native.network.v20200401.FirewallPolicy("firewallPolicy",
+            firewall_policy_name="firewallPolicy",
+            location="West US",
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            threat_intel_mode="Alert",
+            threat_intel_whitelist=azure_native.network.v20200401.FirewallPolicyThreatIntelWhitelistArgs(
+                fqdns=["*.microsoft.com"],
+                ip_addresses=["20.3.4.5"],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20200401:FirewallPolicy firewallPolicy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy 
+        ```
 
         :param str resource_name: The name of the resource.
         :param FirewallPolicyArgs args: The arguments to use to populate this resource's properties.

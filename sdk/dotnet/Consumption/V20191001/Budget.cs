@@ -11,6 +11,113 @@ namespace Pulumi.AzureNative.Consumption.V20191001
 {
     /// <summary>
     /// A budget resource.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdateBudget
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var budget = new AzureNative.Consumption.V20191001.Budget("budget", new()
+    ///     {
+    ///         Amount = 100.65,
+    ///         BudgetName = "TestBudget",
+    ///         Category = "Cost",
+    ///         ETag = "\"1d34d016a593709\"",
+    ///         Filter = new AzureNative.Consumption.V20191001.Inputs.BudgetFilterArgs
+    ///         {
+    ///             And = new[]
+    ///             {
+    ///                 new AzureNative.Consumption.V20191001.Inputs.BudgetFilterPropertiesArgs
+    ///                 {
+    ///                     Dimensions = new AzureNative.Consumption.V20191001.Inputs.BudgetComparisonExpressionArgs
+    ///                     {
+    ///                         Name = "ResourceId",
+    ///                         Operator = "In",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/MSVM2",
+    ///                             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Consumption.V20191001.Inputs.BudgetFilterPropertiesArgs
+    ///                 {
+    ///                     Tags = new AzureNative.Consumption.V20191001.Inputs.BudgetComparisonExpressionArgs
+    ///                     {
+    ///                         Name = "category",
+    ///                         Operator = "In",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "Dev",
+    ///                             "Prod",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 new AzureNative.Consumption.V20191001.Inputs.BudgetFilterPropertiesArgs
+    ///                 {
+    ///                     Tags = new AzureNative.Consumption.V20191001.Inputs.BudgetComparisonExpressionArgs
+    ///                     {
+    ///                         Name = "department",
+    ///                         Operator = "In",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "engineering",
+    ///                             "sales",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Notifications = 
+    ///         {
+    ///             { "Actual_GreaterThan_80_Percent", new AzureNative.Consumption.V20191001.Inputs.NotificationArgs
+    ///             {
+    ///                 ContactEmails = new[]
+    ///                 {
+    ///                     "johndoe@contoso.com",
+    ///                     "janesmith@contoso.com",
+    ///                 },
+    ///                 ContactGroups = new[]
+    ///                 {
+    ///                     "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MYDEVTESTRG/providers/microsoft.insights/actionGroups/SampleActionGroup",
+    ///                 },
+    ///                 ContactRoles = new[]
+    ///                 {
+    ///                     "Contributor",
+    ///                     "Reader",
+    ///                 },
+    ///                 Enabled = true,
+    ///                 Locale = "en-us",
+    ///                 Operator = "GreaterThan",
+    ///                 Threshold = 80,
+    ///                 ThresholdType = "Actual",
+    ///             } },
+    ///         },
+    ///         Scope = "subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         TimeGrain = "Monthly",
+    ///         TimePeriod = new AzureNative.Consumption.V20191001.Inputs.BudgetTimePeriodArgs
+    ///         {
+    ///             EndDate = "2018-10-31T00:00:00Z",
+    ///             StartDate = "2017-10-01T00:00:00Z",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:consumption/v20191001:Budget TestBudget subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/budgets/TestBudget 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:consumption/v20191001:Budget")]
     public partial class Budget : global::Pulumi.CustomResource

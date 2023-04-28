@@ -13,6 +13,47 @@ namespace Pulumi.AzureNative.Media
     /// A Transform encapsulates the rules or instructions for generating desired outputs from input media, such as by transcoding or by extracting insights. After the Transform is created, it can be applied to input media by creating Jobs.
     /// API Version: 2022-07-01.
     /// Previous API Version: 2020-05-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a Transform
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var transform = new AzureNative.Media.Transform("transform", new()
+    ///     {
+    ///         AccountName = "contosomedia",
+    ///         Description = "Example Transform to illustrate create and update.",
+    ///         Outputs = new[]
+    ///         {
+    ///             new AzureNative.Media.Inputs.TransformOutputArgs
+    ///             {
+    ///                 Preset = new AzureNative.Media.Inputs.BuiltInStandardEncoderPresetArgs
+    ///                 {
+    ///                     OdataType = "#Microsoft.Media.BuiltInStandardEncoderPreset",
+    ///                     PresetName = "AdaptiveStreaming",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "contosoresources",
+    ///         TransformName = "createdTransform",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media:Transform createdTransform /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoresources/providers/Microsoft.Media/mediaservices/contosomedia/transforms/createdTransform 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media:Transform")]
     public partial class Transform : global::Pulumi.CustomResource

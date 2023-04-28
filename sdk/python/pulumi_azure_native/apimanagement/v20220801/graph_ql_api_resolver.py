@@ -144,6 +144,32 @@ class GraphQLApiResolver(pulumi.CustomResource):
         """
         GraphQL API Resolver details.
 
+        ## Example Usage
+        ### ApiManagementCreateGraphQLApiResolver
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        graph_ql_api_resolver = azure_native.apimanagement.v20220801.GraphQLApiResolver("graphQLApiResolver",
+            api_id="someAPI",
+            description="A GraphQL Resolver example",
+            display_name="Query Users",
+            path="Query/users",
+            resolver_id="newResolver",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:GraphQLApiResolver newResolver /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/someAPI/resolvers/newResolver 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] api_id: API revision identifier. Must be unique in the current API Management service instance. Non-current revision has ;rev=n as a suffix where n is the revision number.
@@ -162,6 +188,32 @@ class GraphQLApiResolver(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         GraphQL API Resolver details.
+
+        ## Example Usage
+        ### ApiManagementCreateGraphQLApiResolver
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        graph_ql_api_resolver = azure_native.apimanagement.v20220801.GraphQLApiResolver("graphQLApiResolver",
+            api_id="someAPI",
+            description="A GraphQL Resolver example",
+            display_name="Query Users",
+            path="Query/users",
+            resolver_id="newResolver",
+            resource_group_name="rg1",
+            service_name="apimService1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20220801:GraphQLApiResolver newResolver /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/someAPI/resolvers/newResolver 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GraphQLApiResolverArgs args: The arguments to use to populate this resource's properties.

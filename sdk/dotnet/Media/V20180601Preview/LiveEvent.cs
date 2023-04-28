@@ -11,6 +11,64 @@ namespace Pulumi.AzureNative.Media.V20180601Preview
 {
     /// <summary>
     /// The Live Event.
+    /// 
+    /// ## Example Usage
+    /// ### Create a LiveEvent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var liveEvent = new AzureNative.Media.V20180601Preview.LiveEvent("liveEvent", new()
+    ///     {
+    ///         AccountName = "slitestmedia10",
+    ///         Description = "test event 1",
+    ///         Input = new AzureNative.Media.V20180601Preview.Inputs.LiveEventInputArgs
+    ///         {
+    ///             KeyFrameIntervalDuration = "PT2S",
+    ///             StreamingProtocol = AzureNative.Media.V20180601Preview.LiveEventInputProtocol.RTMP,
+    ///         },
+    ///         LiveEventName = "myLiveEvent1",
+    ///         Location = "West US",
+    ///         Preview = new AzureNative.Media.V20180601Preview.Inputs.LiveEventPreviewArgs
+    ///         {
+    ///             AccessControl = new AzureNative.Media.V20180601Preview.Inputs.LiveEventPreviewAccessControlArgs
+    ///             {
+    ///                 Ip = new AzureNative.Media.V20180601Preview.Inputs.IPAccessControlArgs
+    ///                 {
+    ///                     Allow = new[]
+    ///                     {
+    ///                         new AzureNative.Media.V20180601Preview.Inputs.IPRangeArgs
+    ///                         {
+    ///                             Address = "0.0.0.0",
+    ///                             Name = "AllowAll",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "mediaresources",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:media/v20180601preview:LiveEvent myLiveEvent1 /subscriptions/0a6ec948-5a62-437d-b9df-934dc7c1b722/resourceGroups/mediaresources/providers/Microsoft.Media/mediaservices/slitestmedia10/liveevents/myLiveEvent1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:media/v20180601preview:LiveEvent")]
     public partial class LiveEvent : global::Pulumi.CustomResource

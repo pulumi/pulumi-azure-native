@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.CustomProviders.V20180901Preview
 {
     /// <summary>
     /// A manifest file that defines the custom resource provider resources.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update the custom resource provider
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customResourceProvider = new AzureNative.CustomProviders.V20180901Preview.CustomResourceProvider("customResourceProvider", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             new AzureNative.CustomProviders.V20180901Preview.Inputs.CustomRPActionRouteDefinitionArgs
+    ///             {
+    ///                 Endpoint = "https://mytestendpoint/",
+    ///                 Name = "TestAction",
+    ///                 RoutingType = "Proxy",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "testRG",
+    ///         ResourceProviderName = "newrp",
+    ///         ResourceTypes = new[]
+    ///         {
+    ///             new AzureNative.CustomProviders.V20180901Preview.Inputs.CustomRPResourceTypeRouteDefinitionArgs
+    ///             {
+    ///                 Endpoint = "https://mytestendpoint2/",
+    ///                 Name = "TestResource",
+    ///                 RoutingType = "Proxy,Cache",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:customproviders/v20180901preview:CustomResourceProvider newrp /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.CustomProviders/resourceProviders/newrp 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:customproviders/v20180901preview:CustomResourceProvider")]
     public partial class CustomResourceProvider : global::Pulumi.CustomResource

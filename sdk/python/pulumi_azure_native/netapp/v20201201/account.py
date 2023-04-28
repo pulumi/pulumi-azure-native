@@ -131,6 +131,39 @@ class Account(pulumi.CustomResource):
         """
         NetApp account resource
 
+        ## Example Usage
+        ### Accounts_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.netapp.v20201201.Account("account",
+            account_name="account1",
+            active_directories=[azure_native.netapp.v20201201.ActiveDirectoryArgs(
+                aes_encryption=True,
+                dns="10.10.10.3, 10.10.10.4",
+                domain="10.10.10.3",
+                ldap_signing=False,
+                organizational_unit="Engineering",
+                password="ad_password",
+                site="SiteName",
+                smb_server_name="SMBServer",
+                username="ad_user_name",
+            )],
+            location="eastus",
+            resource_group_name="myRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20201201:Account account1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the NetApp account
@@ -148,6 +181,39 @@ class Account(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         NetApp account resource
+
+        ## Example Usage
+        ### Accounts_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        account = azure_native.netapp.v20201201.Account("account",
+            account_name="account1",
+            active_directories=[azure_native.netapp.v20201201.ActiveDirectoryArgs(
+                aes_encryption=True,
+                dns="10.10.10.3, 10.10.10.4",
+                domain="10.10.10.3",
+                ldap_signing=False,
+                organizational_unit="Engineering",
+                password="ad_password",
+                site="SiteName",
+                smb_server_name="SMBServer",
+                username="ad_user_name",
+            )],
+            location="eastus",
+            resource_group_name="myRG")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:netapp/v20201201:Account account1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

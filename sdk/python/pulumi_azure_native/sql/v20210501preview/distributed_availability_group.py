@@ -163,6 +163,32 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
         """
         Distributed availability group between box and Sql Managed Instance.
 
+        ## Example Usage
+        ### Create a distributed availability group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        distributed_availability_group = azure_native.sql.v20210501preview.DistributedAvailabilityGroup("distributedAvailabilityGroup",
+            distributed_availability_group_name="dag",
+            managed_instance_name="testcl",
+            primary_availability_group_name="BoxLocalAg1",
+            resource_group_name="testrg",
+            secondary_availability_group_name="testcl",
+            source_endpoint="TCP://SERVER:7022",
+            target_database="testdb")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20210501preview:DistributedAvailabilityGroup dag /subscriptions/f2669dff-5f08-45dd-b857-b2a60b72cdc9/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testcl/distributedAvailabilityGroups/dag 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] distributed_availability_group_name: The distributed availability group name.
@@ -182,6 +208,32 @@ class DistributedAvailabilityGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Distributed availability group between box and Sql Managed Instance.
+
+        ## Example Usage
+        ### Create a distributed availability group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        distributed_availability_group = azure_native.sql.v20210501preview.DistributedAvailabilityGroup("distributedAvailabilityGroup",
+            distributed_availability_group_name="dag",
+            managed_instance_name="testcl",
+            primary_availability_group_name="BoxLocalAg1",
+            resource_group_name="testrg",
+            secondary_availability_group_name="testcl",
+            source_endpoint="TCP://SERVER:7022",
+            target_database="testdb")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20210501preview:DistributedAvailabilityGroup dag /subscriptions/f2669dff-5f08-45dd-b857-b2a60b72cdc9/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testcl/distributedAvailabilityGroups/dag 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DistributedAvailabilityGroupArgs args: The arguments to use to populate this resource's properties.

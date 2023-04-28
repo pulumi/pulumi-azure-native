@@ -131,6 +131,37 @@ class MachineExtension(pulumi.CustomResource):
         """
         Describes a Machine Extension.
 
+        ## Example Usage
+        ### Create or Update a Machine Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_extension = azure_native.hybridcompute.v20220510preview.MachineExtension("machineExtension",
+            extension_name="CustomScriptExtension",
+            location="eastus2euap",
+            machine_name="myMachine",
+            properties=azure_native.hybridcompute.v20220510preview.MachineExtensionPropertiesArgs(
+                publisher="Microsoft.Compute",
+                settings={
+                    "commandToExecute": "powershell.exe -c \\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\"",
+                },
+                type="CustomScriptExtension",
+                type_handler_version="1.10",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute/v20220510preview:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/myMachine/Extensions/CustomScriptExtension 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] extension_name: The name of the machine extension.
@@ -148,6 +179,37 @@ class MachineExtension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a Machine Extension.
+
+        ## Example Usage
+        ### Create or Update a Machine Extension
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        machine_extension = azure_native.hybridcompute.v20220510preview.MachineExtension("machineExtension",
+            extension_name="CustomScriptExtension",
+            location="eastus2euap",
+            machine_name="myMachine",
+            properties=azure_native.hybridcompute.v20220510preview.MachineExtensionPropertiesArgs(
+                publisher="Microsoft.Compute",
+                settings={
+                    "commandToExecute": "powershell.exe -c \\"Get-Process | Where-Object { $_.CPU -gt 10000 }\\"",
+                },
+                type="CustomScriptExtension",
+                type_handler_version="1.10",
+            ),
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcompute/v20220510preview:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/myMachine/Extensions/CustomScriptExtension 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MachineExtensionArgs args: The arguments to use to populate this resource's properties.

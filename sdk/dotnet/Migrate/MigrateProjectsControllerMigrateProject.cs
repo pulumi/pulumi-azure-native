@@ -12,6 +12,39 @@ namespace Pulumi.AzureNative.Migrate
     /// <summary>
     /// Migrate project.
     /// API Version: 2020-05-01.
+    /// 
+    /// ## Example Usage
+    /// ### MigrateProject_Put
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var migrateProjectsControllerMigrateProject = new AzureNative.Migrate.MigrateProjectsControllerMigrateProject("migrateProjectsControllerMigrateProject", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         MigrateProjectName = "projTest1",
+    ///         Properties = new AzureNative.Migrate.Inputs.MigrateProjectPropertiesArgs
+    ///         {
+    ///             PublicNetworkAccess = "Enabled",
+    ///         },
+    ///         ResourceGroupName = "pajindTest1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:migrate:MigrateProjectsControllerMigrateProject proj90 /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest1/providers/Microsoft.Migrate/MigrateProjects/proj90 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:migrate:MigrateProjectsControllerMigrateProject")]
     public partial class MigrateProjectsControllerMigrateProject : global::Pulumi.CustomResource

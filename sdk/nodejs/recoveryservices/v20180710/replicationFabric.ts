@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Fabric definition.
+ *
+ * ## Example Usage
+ * ### Creates an Azure Site Recovery fabric.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const replicationFabric = new azure_native.recoveryservices.v20180710.ReplicationFabric("replicationFabric", {
+ *     fabricName: "cloud1",
+ *     properties: {
+ *         customDetails: {
+ *             instanceType: "FabricSpecificCreationInput",
+ *         },
+ *     },
+ *     resourceGroupName: "resourceGroupPS1",
+ *     resourceName: "vault1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:recoveryservices/v20180710:ReplicationFabric cloud1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/cloud1 
+ * ```
  */
 export class ReplicationFabric extends pulumi.CustomResource {
     /**

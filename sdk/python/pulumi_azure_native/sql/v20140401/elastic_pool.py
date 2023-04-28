@@ -214,6 +214,47 @@ class ElasticPool(pulumi.CustomResource):
         """
         Represents a database elastic pool.
 
+        ## Example Usage
+        ### Create elastic pool max
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.v20140401.ElasticPool("elasticPool",
+            database_dtu_max=5,
+            database_dtu_min=0,
+            dtu=50,
+            edition="Basic",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            storage_mb=5000)
+
+        ```
+        ### Create elastic pool min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.v20140401.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20140401:ElasticPool sqlcrudtest-8102 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-2369/providers/Microsoft.Sql/servers/sqlcrudtest-8069/elasticPools/sqlcrudtest-8102 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] database_dtu_max: The maximum DTU any one database can consume.
@@ -236,6 +277,47 @@ class ElasticPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a database elastic pool.
+
+        ## Example Usage
+        ### Create elastic pool max
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.v20140401.ElasticPool("elasticPool",
+            database_dtu_max=5,
+            database_dtu_min=0,
+            dtu=50,
+            edition="Basic",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069",
+            storage_mb=5000)
+
+        ```
+        ### Create elastic pool min
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        elastic_pool = azure_native.sql.v20140401.ElasticPool("elasticPool",
+            elastic_pool_name="sqlcrudtest-8102",
+            location="Japan East",
+            resource_group_name="sqlcrudtest-2369",
+            server_name="sqlcrudtest-8069")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20140401:ElasticPool sqlcrudtest-8102 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-2369/providers/Microsoft.Sql/servers/sqlcrudtest-8069/elasticPools/sqlcrudtest-8102 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ElasticPoolArgs args: The arguments to use to populate this resource's properties.

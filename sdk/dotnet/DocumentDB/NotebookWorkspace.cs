@@ -13,6 +13,35 @@ namespace Pulumi.AzureNative.DocumentDB
     /// A notebook workspace resource
     /// API Version: 2022-11-15.
     /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBNotebookWorkspaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var notebookWorkspace = new AzureNative.DocumentDB.NotebookWorkspace("notebookWorkspace", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         NotebookWorkspaceName = "default",
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb:NotebookWorkspace default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/notebookWorkspaces/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:NotebookWorkspace")]
     public partial class NotebookWorkspace : global::Pulumi.CustomResource

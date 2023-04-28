@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
 {
     /// <summary>
     /// Event Subscription
+    /// 
+    /// ## Example Usage
+    /// ### TopicEventSubscriptions_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var topicEventSubscription = new AzureNative.EventGrid.V20211015Preview.TopicEventSubscription("topicEventSubscription", new()
+    ///     {
+    ///         Destination = new AzureNative.EventGrid.V20211015Preview.Inputs.WebHookEventSubscriptionDestinationArgs
+    ///         {
+    ///             EndpointType = "WebHook",
+    ///             EndpointUrl = "https://requestb.in/15ksip71",
+    ///         },
+    ///         EventSubscriptionName = "exampleEventSubscriptionName1",
+    ///         Filter = new AzureNative.EventGrid.V20211015Preview.Inputs.EventSubscriptionFilterArgs
+    ///         {
+    ///             IsSubjectCaseSensitive = false,
+    ///             SubjectBeginsWith = "ExamplePrefix",
+    ///             SubjectEndsWith = "ExampleSuffix",
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///         TopicName = "exampleTopic1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20211015preview:TopicEventSubscription exampleEventSubscriptionName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampleTopic1/eventSubscriptions/exampleEventSubscriptionName1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20211015preview:TopicEventSubscription")]
     public partial class TopicEventSubscription : global::Pulumi.CustomResource

@@ -13,6 +13,76 @@ namespace Pulumi.AzureNative.DataLakeStore
     /// Data Lake Store account information.
     /// API Version: 2016-11-01.
     /// Previous API Version: 2016-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Creates the specified Data Lake Store account
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.DataLakeStore.Account("account", new()
+    ///     {
+    ///         AccountName = "contosoadla",
+    ///         DefaultGroup = "test_default_group",
+    ///         EncryptionConfig = new AzureNative.DataLakeStore.Inputs.EncryptionConfigArgs
+    ///         {
+    ///             KeyVaultMetaInfo = new AzureNative.DataLakeStore.Inputs.KeyVaultMetaInfoArgs
+    ///             {
+    ///                 EncryptionKeyName = "test_encryption_key_name",
+    ///                 EncryptionKeyVersion = "encryption_key_version",
+    ///                 KeyVaultResourceId = "34adfa4f-cedf-4dc0-ba29-b6d1a69ab345",
+    ///             },
+    ///             Type = AzureNative.DataLakeStore.EncryptionConfigType.UserManaged,
+    ///         },
+    ///         EncryptionState = AzureNative.DataLakeStore.EncryptionState.Enabled,
+    ///         FirewallAllowAzureIps = AzureNative.DataLakeStore.FirewallAllowAzureIpsState.Enabled,
+    ///         FirewallRules = new[]
+    ///         {
+    ///             new AzureNative.DataLakeStore.Inputs.CreateFirewallRuleWithAccountParametersArgs
+    ///             {
+    ///                 EndIpAddress = "2.2.2.2",
+    ///                 Name = "test_rule",
+    ///                 StartIpAddress = "1.1.1.1",
+    ///             },
+    ///         },
+    ///         FirewallState = AzureNative.DataLakeStore.FirewallState.Enabled,
+    ///         Identity = new AzureNative.DataLakeStore.Inputs.EncryptionIdentityArgs
+    ///         {
+    ///             Type = AzureNative.DataLakeStore.EncryptionIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "eastus2",
+    ///         NewTier = AzureNative.DataLakeStore.TierType.Consumption,
+    ///         ResourceGroupName = "contosorg",
+    ///         Tags = 
+    ///         {
+    ///             { "test_key", "test_value" },
+    ///         },
+    ///         TrustedIdProviderState = AzureNative.DataLakeStore.TrustedIdProviderState.Enabled,
+    ///         TrustedIdProviders = new[]
+    ///         {
+    ///             new AzureNative.DataLakeStore.Inputs.CreateTrustedIdProviderWithAccountParametersArgs
+    ///             {
+    ///                 IdProvider = "https://sts.windows.net/ea9ec534-a3e3-4e45-ad36-3afc5bb291c1",
+    ///                 Name = "test_trusted_id_provider_name",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datalakestore:Account contosoadla 34adfa4f-cedf-4dc0-ba29-b6d1a69ab345 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datalakestore:Account")]
     public partial class Account : global::Pulumi.CustomResource

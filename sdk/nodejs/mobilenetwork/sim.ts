@@ -11,6 +11,48 @@ import * as utilities from "../utilities";
  * SIM resource.
  * API Version: 2022-11-01.
  * Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create SIM
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sim = new azure_native.mobilenetwork.Sim("sim", {
+ *     authenticationKey: "00000000000000000000000000000000",
+ *     deviceType: "Video camera",
+ *     integratedCircuitCardIdentifier: "8900000000000000000",
+ *     internationalMobileSubscriberIdentity: "00000",
+ *     operatorKeyCode: "00000000000000000000000000000000",
+ *     resourceGroupName: "rg1",
+ *     simGroupName: "testSimGroup",
+ *     simName: "testSim",
+ *     simPolicy: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy",
+ *     },
+ *     staticIpConfiguration: [{
+ *         attachedDataNetwork: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
+ *         },
+ *         slice: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+ *         },
+ *         staticIp: {
+ *             ipv4Address: "2.4.0.1",
+ *         },
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:mobilenetwork:Sim testSim /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simGroups/testSimGroup/sims/testSim 
+ * ```
  */
 export class Sim extends pulumi.CustomResource {
     /**

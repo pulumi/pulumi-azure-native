@@ -8,6 +8,31 @@ import * as utilities from "../utilities";
  * A workspace key
  * API Version: 2021-06-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a workspace key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const key = new azure_native.synapse.Key("key", {
+ *     isActiveCMK: true,
+ *     keyName: "somekey",
+ *     keyVaultUrl: "https://vault.azure.net/keys/somesecret",
+ *     resourceGroupName: "ExampleResourceGroup",
+ *     workspaceName: "ExampleWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse:Key somekey /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/keys/somekey 
+ * ```
  */
 export class Key extends pulumi.CustomResource {
     /**

@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.CertificateRegistration.V20201001
 {
     /// <summary>
     /// SSL certificate purchase order.
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:certificateregistration/v20201001:AppServiceCertificateOrder myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:certificateregistration/v20201001:AppServiceCertificateOrder")]
     public partial class AppServiceCertificateOrder : global::Pulumi.CustomResource

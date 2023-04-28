@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The File Share.
+    /// 
+    /// ## Example Usage
+    /// ### FileSharesCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var fileShare = new AzureNative.StorSimple.V20161001.FileShare("fileShare", new()
+    ///     {
+    ///         AdminUser = "fareast\\idcdlslb",
+    ///         DataPolicy = AzureNative.StorSimple.V20161001.DataPolicy.Tiered,
+    ///         Description = "Demo FileShare for SDK Test Tiered",
+    ///         DeviceName = "HSDK-4XY4FI2IVG",
+    ///         FileServerName = "HSDK-4XY4FI2IVG",
+    ///         ManagerName = "hAzureSDKOperations",
+    ///         MonitoringStatus = AzureNative.StorSimple.V20161001.MonitoringStatus.Enabled,
+    ///         ProvisionedCapacityInBytes = 536870912000,
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         ShareName = "Auto-TestFileShare1",
+    ///         ShareStatus = AzureNative.StorSimple.V20161001.ShareStatus.Online,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20161001:FileShare Auto-TestFileShare1 /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/fileServers/HSDK-4XY4FI2IVG/shares/Auto-TestFileShare1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:FileShare")]

@@ -64,6 +64,29 @@ class Console(pulumi.CustomResource):
         """
         Cloud shell console
 
+        ## Example Usage
+        ### PutConsole
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        console = azure_native.portal.v20181001.Console("console",
+            console_name="default",
+            properties=azure_native.portal.v20181001.ConsoleCreatePropertiesArgs(
+                os_type="Linux",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal/v20181001:Console myresource1 /providers/Microsoft.Portal/consoles/{consoleName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] console_name: The name of the console
@@ -77,6 +100,29 @@ class Console(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Cloud shell console
+
+        ## Example Usage
+        ### PutConsole
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        console = azure_native.portal.v20181001.Console("console",
+            console_name="default",
+            properties=azure_native.portal.v20181001.ConsoleCreatePropertiesArgs(
+                os_type="Linux",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:portal/v20181001:Console myresource1 /providers/Microsoft.Portal/consoles/{consoleName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ConsoleArgs args: The arguments to use to populate this resource's properties.

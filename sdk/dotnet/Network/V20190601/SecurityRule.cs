@@ -11,6 +11,43 @@ namespace Pulumi.AzureNative.Network.V20190601
 {
     /// <summary>
     /// Network security rule.
+    /// 
+    /// ## Example Usage
+    /// ### Create security rule
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var securityRule = new AzureNative.Network.V20190601.SecurityRule("securityRule", new()
+    ///     {
+    ///         Access = "Deny",
+    ///         DestinationAddressPrefix = "11.0.0.0/8",
+    ///         DestinationPortRange = "8080",
+    ///         Direction = "Outbound",
+    ///         NetworkSecurityGroupName = "testnsg",
+    ///         Priority = 100,
+    ///         Protocol = "*",
+    ///         ResourceGroupName = "rg1",
+    ///         SecurityRuleName = "rule1",
+    ///         SourceAddressPrefix = "10.0.0.0/8",
+    ///         SourcePortRange = "*",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190601:SecurityRule rule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/rule1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190601:SecurityRule")]
     public partial class SecurityRule : global::Pulumi.CustomResource

@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
 {
     /// <summary>
     /// Single item in a List or Get IpFilterRules operation
+    /// 
+    /// ## Example Usage
+    /// ### NameSpaceIpFilterRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var namespaceIpFilterRule = new AzureNative.ServiceBus.V20180101Preview.NamespaceIpFilterRule("namespaceIpFilterRule", new()
+    ///     {
+    ///         Action = "Accept",
+    ///         FilterName = "sdk-IPFilterRules-7337",
+    ///         IpFilterRuleName = "sdk-IPFilterRules-7337",
+    ///         IpMask = "13.78.143.246/32",
+    ///         NamespaceName = "sdk-Namespace-5232",
+    ///         ResourceGroupName = "ResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20180101preview:NamespaceIpFilterRule sdk-IPFilterRules-7337 /subscriptions/Subscription/resourceGroups/ResourceGroup/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace-5232/ipfilterrules/sdk-IPFilterRules-7337 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:servicebus/v20180101preview:NamespaceIpFilterRule")]
     public partial class NamespaceIpFilterRule : global::Pulumi.CustomResource

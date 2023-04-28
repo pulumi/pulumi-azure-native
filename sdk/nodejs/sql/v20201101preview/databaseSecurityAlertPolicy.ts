@@ -9,6 +9,58 @@ import * as utilities from "../../utilities";
 
 /**
  * A database security alert policy.
+ *
+ * ## Example Usage
+ * ### Update a database's threat detection policy with all parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseSecurityAlertPolicy = new azure_native.sql.v20201101preview.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy", {
+ *     databaseName: "testdb",
+ *     disabledAlerts: [
+ *         "Sql_Injection",
+ *         "Usage_Anomaly",
+ *     ],
+ *     emailAccountAdmins: true,
+ *     emailAddresses: [
+ *         "test@microsoft.com",
+ *         "user@microsoft.com",
+ *     ],
+ *     resourceGroupName: "securityalert-4799",
+ *     retentionDays: 6,
+ *     securityAlertPolicyName: "Default",
+ *     serverName: "securityalert-6440",
+ *     state: azure_native.sql.v20201101preview.SecurityAlertsPolicyState.Enabled,
+ *     storageAccountAccessKey: "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+ *     storageEndpoint: "https://mystorage.blob.core.windows.net",
+ * });
+ *
+ * ```
+ * ### Update a database's threat detection policy with minimal parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseSecurityAlertPolicy = new azure_native.sql.v20201101preview.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy", {
+ *     databaseName: "testdb",
+ *     resourceGroupName: "securityalert-4799",
+ *     securityAlertPolicyName: "Default",
+ *     serverName: "securityalert-6440",
+ *     state: azure_native.sql.v20201101preview.SecurityAlertsPolicyState.Enabled,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20201101preview:DatabaseSecurityAlertPolicy Default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.Sql/servers/securityalert-6440/databases/testdb 
+ * ```
  */
 export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
     /**

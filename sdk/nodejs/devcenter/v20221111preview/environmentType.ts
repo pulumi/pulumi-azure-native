@@ -9,6 +9,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents an environment type.
+ *
+ * ## Example Usage
+ * ### EnvironmentTypes_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const environmentType = new azure_native.devcenter.v20221111preview.EnvironmentType("environmentType", {
+ *     devCenterName: "Contoso",
+ *     environmentTypeName: "DevTest",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         Owner: "superuser",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter/v20221111preview:EnvironmentType DevTest /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/environmentTypes/DevTest 
+ * ```
  */
 export class EnvironmentType extends pulumi.CustomResource {
     /**

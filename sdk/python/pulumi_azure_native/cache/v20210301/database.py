@@ -182,6 +182,49 @@ class Database(pulumi.CustomResource):
         """
         Describes a database on the RedisEnterprise cluster
 
+        ## Example Usage
+        ### RedisEnterpriseDatabasesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.cache.v20210301.Database("database",
+            client_protocol="Encrypted",
+            cluster_name="cache1",
+            clustering_policy="EnterpriseCluster",
+            database_name="default",
+            eviction_policy="AllKeysLRU",
+            modules=[
+                {
+                    "args": "ERROR_RATE 0.00 INITIAL_SIZE 400",
+                    "name": "RedisBloom",
+                },
+                {
+                    "args": "RETENTION_POLICY 20",
+                    "name": "RedisTimeSeries",
+                },
+                {
+                    "name": "RediSearch",
+                },
+            ],
+            persistence=azure_native.cache.v20210301.PersistenceArgs(
+                aof_enabled=True,
+                aof_frequency="1s",
+            ),
+            port=10000,
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache/v20210301:Database cache1/default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Protocol']] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
@@ -202,6 +245,49 @@ class Database(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Describes a database on the RedisEnterprise cluster
+
+        ## Example Usage
+        ### RedisEnterpriseDatabasesCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        database = azure_native.cache.v20210301.Database("database",
+            client_protocol="Encrypted",
+            cluster_name="cache1",
+            clustering_policy="EnterpriseCluster",
+            database_name="default",
+            eviction_policy="AllKeysLRU",
+            modules=[
+                {
+                    "args": "ERROR_RATE 0.00 INITIAL_SIZE 400",
+                    "name": "RedisBloom",
+                },
+                {
+                    "args": "RETENTION_POLICY 20",
+                    "name": "RedisTimeSeries",
+                },
+                {
+                    "name": "RediSearch",
+                },
+            ],
+            persistence=azure_native.cache.v20210301.PersistenceArgs(
+                aof_enabled=True,
+                aof_frequency="1s",
+            ),
+            port=10000,
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cache/v20210301:Database cache1/default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Cache/redisEnterprise/cache1/databases/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.MobileNetwork
     /// Attached data network resource. Must be created in the same location as its parent packet core data plane.
     /// API Version: 2022-11-01.
     /// Previous API Version: 2022-04-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create attached data network
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var attachedDataNetwork = new AzureNative.MobileNetwork.AttachedDataNetwork("attachedDataNetwork", new()
+    ///     {
+    ///         AttachedDataNetworkName = "TestAttachedDataNetwork",
+    ///         DnsAddresses = new[]
+    ///         {
+    ///             "1.1.1.1",
+    ///         },
+    ///         Location = "eastus",
+    ///         NaptConfiguration = new AzureNative.MobileNetwork.Inputs.NaptConfigurationArgs
+    ///         {
+    ///             Enabled = "Enabled",
+    ///             PinholeLimits = 65536,
+    ///             PinholeTimeouts = new AzureNative.MobileNetwork.Inputs.PinholeTimeoutsArgs
+    ///             {
+    ///                 Icmp = 30,
+    ///                 Tcp = 180,
+    ///                 Udp = 30,
+    ///             },
+    ///             PortRange = new AzureNative.MobileNetwork.Inputs.PortRangeArgs
+    ///             {
+    ///                 MaxPort = 49999,
+    ///                 MinPort = 1024,
+    ///             },
+    ///             PortReuseHoldTime = new AzureNative.MobileNetwork.Inputs.PortReuseHoldTimesArgs
+    ///             {
+    ///                 Tcp = 120,
+    ///                 Udp = 60,
+    ///             },
+    ///         },
+    ///         PacketCoreControlPlaneName = "TestPacketCoreCP",
+    ///         PacketCoreDataPlaneName = "TestPacketCoreDP",
+    ///         ResourceGroupName = "rg1",
+    ///         UserEquipmentAddressPoolPrefix = new[]
+    ///         {
+    ///             "2.2.0.0/16",
+    ///         },
+    ///         UserEquipmentStaticAddressPoolPrefix = new[]
+    ///         {
+    ///             "2.4.0.0/16",
+    ///         },
+    ///         UserPlaneDataInterface = new AzureNative.MobileNetwork.Inputs.InterfacePropertiesArgs
+    ///         {
+    ///             Name = "N6",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork:AttachedDataNetwork TestAttachedDataNetwork /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork:AttachedDataNetwork")]
     public partial class AttachedDataNetwork : global::Pulumi.CustomResource

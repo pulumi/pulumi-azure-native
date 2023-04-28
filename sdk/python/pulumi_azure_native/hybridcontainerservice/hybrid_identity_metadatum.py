@@ -133,6 +133,30 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
         API Version: 2022-09-01-preview.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_identity_metadatum = azure_native.hybridcontainerservice.HybridIdentityMetadatum("hybridIdentityMetadatum",
+            hybrid_identity_metadata_resource_name="default",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_group_name="testrg",
+            resource_name_="ContosoTargetCluster",
+            resource_uid="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:HybridIdentityMetadatum default /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridContainerService/provisionedClusters/ContosoTargetCluster/hybridIdentityMetadata/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] hybrid_identity_metadata_resource_name: Parameter for the name of the hybrid identity metadata resource.
@@ -152,6 +176,30 @@ class HybridIdentityMetadatum(pulumi.CustomResource):
         Defines the hybridIdentityMetadata.
         API Version: 2022-09-01-preview.
         Previous API Version: 2022-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### CreateHybridIdentityMetadata
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        hybrid_identity_metadatum = azure_native.hybridcontainerservice.HybridIdentityMetadatum("hybridIdentityMetadatum",
+            hybrid_identity_metadata_resource_name="default",
+            public_key="8ec7d60c-9700-40b1-8e6e-e5b2f6f477f2",
+            resource_group_name="testrg",
+            resource_name_="ContosoTargetCluster",
+            resource_uid="f8b82dff-38ef-4220-99ef-d3a3f86ddc6c")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice:HybridIdentityMetadatum default /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.HybridContainerService/provisionedClusters/ContosoTargetCluster/hybridIdentityMetadata/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param HybridIdentityMetadatumArgs args: The arguments to use to populate this resource's properties.

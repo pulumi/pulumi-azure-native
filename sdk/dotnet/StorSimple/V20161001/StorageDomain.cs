@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
 {
     /// <summary>
     /// The storage domain.
+    /// 
+    /// ## Example Usage
+    /// ### StorageDomainsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var storageDomain = new AzureNative.StorSimple.V20161001.StorageDomain("storageDomain", new()
+    ///     {
+    ///         EncryptionStatus = AzureNative.StorSimple.V20161001.EncryptionStatus.Disabled,
+    ///         ManagerName = "hAzureSDKOperations",
+    ///         ResourceGroupName = "ResourceGroupForSDKTest",
+    ///         StorageAccountCredentialIds = new[]
+    ///         {
+    ///             "/subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageAccountCredentials/sacforsdktest",
+    ///         },
+    ///         StorageDomainName = "sd-fs-HSDK-4XY4FI2IVG",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storsimple/v20161001:StorageDomain sd-fs-HSDK-4XY4FI2IVG /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/storageDomains/sd-fs-HSDK-4XY4FI2IVG 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:StorageDomain")]

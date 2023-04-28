@@ -180,6 +180,44 @@ class GovernanceAssignment(pulumi.CustomResource):
         """
         Governance assignment over a given scope
 
+        ## Example Usage
+        ### Create Governance assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        governance_assignment = azure_native.security.v20220101preview.GovernanceAssignment("governanceAssignment",
+            additional_data=azure_native.security.v20220101preview.GovernanceAssignmentAdditionalDataArgs(
+                ticket_link="https://snow.com",
+                ticket_number=123123,
+                ticket_status="Active",
+            ),
+            assessment_name="6b9421dd-5555-2251-9b3d-2be58e2f82cd",
+            assignment_key="6634ff9f-127b-4bf2-8e6e-b1737f5e789c",
+            governance_email_notification=azure_native.security.v20220101preview.GovernanceEmailNotificationArgs(
+                disable_manager_email_notification=False,
+                disable_owner_email_notification=False,
+            ),
+            is_grace_period=True,
+            owner="user@contoso.com",
+            remediation_due_date="2022-01-07T13:00:00.0000000Z",
+            remediation_eta=azure_native.security.v20220101preview.RemediationEtaResponseArgs(
+                eta="2022-01-08T13:00:00.0000000Z",
+                justification="Justification of ETA",
+            ),
+            scope="subscriptions/c32e05d9-7207-4e22-bdf4-4f7d9c72e5fd/resourceGroups/compute_servers/providers/Microsoft.Compute/virtualMachines/win2012")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20220101preview:GovernanceAssignment 6634ff9f-127b-4bf2-8e6e-b1737f5e789c /subscriptions/c32e05d9-7207-4e22-bdf4-4f7d9c72e5fd/resourceGroups/compute_servers/providers/Microsoft.Compute/virtualMachines/win2012/providers/Microsoft.Security/assessments/6b9421dd-5555-2251-9b3d-2be58e2f82cd/governanceAssignments/6634ff9f-127b-4bf2-8e6e-b1737f5e789c 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['GovernanceAssignmentAdditionalDataArgs']] additional_data: The additional data for the governance assignment - e.g. links to ticket (optional), see example
@@ -200,6 +238,44 @@ class GovernanceAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Governance assignment over a given scope
+
+        ## Example Usage
+        ### Create Governance assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        governance_assignment = azure_native.security.v20220101preview.GovernanceAssignment("governanceAssignment",
+            additional_data=azure_native.security.v20220101preview.GovernanceAssignmentAdditionalDataArgs(
+                ticket_link="https://snow.com",
+                ticket_number=123123,
+                ticket_status="Active",
+            ),
+            assessment_name="6b9421dd-5555-2251-9b3d-2be58e2f82cd",
+            assignment_key="6634ff9f-127b-4bf2-8e6e-b1737f5e789c",
+            governance_email_notification=azure_native.security.v20220101preview.GovernanceEmailNotificationArgs(
+                disable_manager_email_notification=False,
+                disable_owner_email_notification=False,
+            ),
+            is_grace_period=True,
+            owner="user@contoso.com",
+            remediation_due_date="2022-01-07T13:00:00.0000000Z",
+            remediation_eta=azure_native.security.v20220101preview.RemediationEtaResponseArgs(
+                eta="2022-01-08T13:00:00.0000000Z",
+                justification="Justification of ETA",
+            ),
+            scope="subscriptions/c32e05d9-7207-4e22-bdf4-4f7d9c72e5fd/resourceGroups/compute_servers/providers/Microsoft.Compute/virtualMachines/win2012")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20220101preview:GovernanceAssignment 6634ff9f-127b-4bf2-8e6e-b1737f5e789c /subscriptions/c32e05d9-7207-4e22-bdf4-4f7d9c72e5fd/resourceGroups/compute_servers/providers/Microsoft.Compute/virtualMachines/win2012/providers/Microsoft.Security/assessments/6b9421dd-5555-2251-9b3d-2be58e2f82cd/governanceAssignments/6634ff9f-127b-4bf2-8e6e-b1737f5e789c 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GovernanceAssignmentArgs args: The arguments to use to populate this resource's properties.

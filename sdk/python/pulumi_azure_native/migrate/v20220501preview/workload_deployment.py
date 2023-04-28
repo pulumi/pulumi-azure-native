@@ -131,6 +131,63 @@ class WorkloadDeployment(pulumi.CustomResource):
         """
         Workload deployment model.
 
+        ## Example Usage
+        ### WorkloadDeployment_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_deployment = azure_native.migrate.v20220501preview.WorkloadDeployment("workloadDeployment",
+            modernize_project_name="l6r8",
+            properties=azure_native.migrate.v20220501preview.WorkloadDeploymentModelPropertiesResponseArgs(
+                custom_properties={
+                    "instanceType": "IISAKSWorkloadDeployment",
+                },
+                display_name="wqe",
+                target_platform="AzureKubernetesService",
+                workload_instance_properties={
+                    "customProperties": {
+                        "instanceType": "IISWorkload",
+                        "webAppArmId": "xseseqsrzdiga",
+                        "webAppSiteName": "mirgzmy",
+                    },
+                    "displayName": "juoorbubchvk",
+                    "masterSiteName": "ubks",
+                    "migrateAgentId": "aqgzsxqbk",
+                    "name": "wonkuhgsafzviuwqerzdmme",
+                    "sourceName": "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+                    "sourcePlatform": "eh",
+                },
+            ),
+            resource_group_name="rgmigrateEngine",
+            tags={
+                "key8241": "gcyxztzr",
+            },
+            workload_deployment_name="l4t")
+
+        ```
+        ### WorkloadDeployment_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_deployment = azure_native.migrate.v20220501preview.WorkloadDeployment("workloadDeployment",
+            modernize_project_name="tc",
+            resource_group_name="rgmigrateEngine",
+            workload_deployment_name="wo2rs4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20220501preview:WorkloadDeployment obqwiueoajtezyusejl jvwgspagsnmigxvl 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] modernize_project_name: ModernizeProject name.
@@ -148,6 +205,63 @@ class WorkloadDeployment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Workload deployment model.
+
+        ## Example Usage
+        ### WorkloadDeployment_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_deployment = azure_native.migrate.v20220501preview.WorkloadDeployment("workloadDeployment",
+            modernize_project_name="l6r8",
+            properties=azure_native.migrate.v20220501preview.WorkloadDeploymentModelPropertiesResponseArgs(
+                custom_properties={
+                    "instanceType": "IISAKSWorkloadDeployment",
+                },
+                display_name="wqe",
+                target_platform="AzureKubernetesService",
+                workload_instance_properties={
+                    "customProperties": {
+                        "instanceType": "IISWorkload",
+                        "webAppArmId": "xseseqsrzdiga",
+                        "webAppSiteName": "mirgzmy",
+                    },
+                    "displayName": "juoorbubchvk",
+                    "masterSiteName": "ubks",
+                    "migrateAgentId": "aqgzsxqbk",
+                    "name": "wonkuhgsafzviuwqerzdmme",
+                    "sourceName": "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+                    "sourcePlatform": "eh",
+                },
+            ),
+            resource_group_name="rgmigrateEngine",
+            tags={
+                "key8241": "gcyxztzr",
+            },
+            workload_deployment_name="l4t")
+
+        ```
+        ### WorkloadDeployment_Create_MinimumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_deployment = azure_native.migrate.v20220501preview.WorkloadDeployment("workloadDeployment",
+            modernize_project_name="tc",
+            resource_group_name="rgmigrateEngine",
+            workload_deployment_name="wo2rs4")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20220501preview:WorkloadDeployment obqwiueoajtezyusejl jvwgspagsnmigxvl 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkloadDeploymentArgs args: The arguments to use to populate this resource's properties.

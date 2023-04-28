@@ -200,6 +200,39 @@ class Standard(pulumi.CustomResource):
         """
         Security Standard on a resource
 
+        ## Example Usage
+        ### Create a security standard on a specified scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        standard = azure_native.security.v20210801preview.Standard("standard",
+            category="SecurityCenter",
+            components=[
+                azure_native.security.v20210801preview.StandardComponentPropertiesArgs(
+                    key="1195afff-c881-495e-9bc5-1486211ae03f",
+                ),
+                azure_native.security.v20210801preview.StandardComponentPropertiesArgs(
+                    key="dbd0cb49-b563-45e7-9724-889e799fa648",
+                ),
+            ],
+            description="description of Azure Test Security Standard 1",
+            display_name="Azure Test Security Standard 1",
+            resource_group_name="myResourceGroup",
+            standard_id="8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+            supported_clouds=[azure_native.security/v20210801preview.StandardSupportedClouds.GCP])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20210801preview:Standard 8bb8be0a-6010-4789-812f-e4d661c4ed0e /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myResourceGroup/provider/Microsoft.Security/standards/8bb8be0a-6010-4789-812f-e4d661c4ed0e 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] category: category of the standard provided
@@ -221,6 +254,39 @@ class Standard(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Security Standard on a resource
+
+        ## Example Usage
+        ### Create a security standard on a specified scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        standard = azure_native.security.v20210801preview.Standard("standard",
+            category="SecurityCenter",
+            components=[
+                azure_native.security.v20210801preview.StandardComponentPropertiesArgs(
+                    key="1195afff-c881-495e-9bc5-1486211ae03f",
+                ),
+                azure_native.security.v20210801preview.StandardComponentPropertiesArgs(
+                    key="dbd0cb49-b563-45e7-9724-889e799fa648",
+                ),
+            ],
+            description="description of Azure Test Security Standard 1",
+            display_name="Azure Test Security Standard 1",
+            resource_group_name="myResourceGroup",
+            standard_id="8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+            supported_clouds=[azure_native.security/v20210801preview.StandardSupportedClouds.GCP])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20210801preview:Standard 8bb8be0a-6010-4789-812f-e4d661c4ed0e /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myResourceGroup/provider/Microsoft.Security/standards/8bb8be0a-6010-4789-812f-e4d661c4ed0e 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StandardArgs args: The arguments to use to populate this resource's properties.

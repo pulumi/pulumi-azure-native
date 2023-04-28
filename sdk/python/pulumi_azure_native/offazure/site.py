@@ -146,6 +146,37 @@ class Site(pulumi.CustomResource):
         API Version: 2020-07-07.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create VMware site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site = azure_native.offazure.Site("site",
+            location="eastus",
+            properties=azure_native.offazure.SitePropertiesResponseArgs(
+                service_principal_identity_details=azure_native.offazure.SiteSpnPropertiesArgs(
+                    aad_authority="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    application_id="e9f013df-2a2a-4871-b766-e79867f30348",
+                    audience="https://72f988bf-86f1-41af-91ab-2d7cd011db47/MaheshSite17ac9agentauthaadapp",
+                    object_id="2cd492bc-7ef3-4ee0-b301-59a88108b47b",
+                    tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+                ),
+            ),
+            resource_group_name="pajindTest",
+            site_name="appliance1e39site")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazure:Site appliance1e39site /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest/providers/Microsoft.OffAzure/VMwareSites/appliance1e39site 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: eTag for concurrency control.
@@ -165,6 +196,37 @@ class Site(pulumi.CustomResource):
         Site REST Resource.
         API Version: 2020-07-07.
         Previous API Version: 2020-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create VMware site
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        site = azure_native.offazure.Site("site",
+            location="eastus",
+            properties=azure_native.offazure.SitePropertiesResponseArgs(
+                service_principal_identity_details=azure_native.offazure.SiteSpnPropertiesArgs(
+                    aad_authority="https://login.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47",
+                    application_id="e9f013df-2a2a-4871-b766-e79867f30348",
+                    audience="https://72f988bf-86f1-41af-91ab-2d7cd011db47/MaheshSite17ac9agentauthaadapp",
+                    object_id="2cd492bc-7ef3-4ee0-b301-59a88108b47b",
+                    tenant_id="72f988bf-86f1-41af-91ab-2d7cd011db47",
+                ),
+            ),
+            resource_group_name="pajindTest",
+            site_name="appliance1e39site")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:offazure:Site appliance1e39site /subscriptions/4bd2aa0f-2bd2-4d67-91a8-5a4533d58600/resourceGroups/pajindTest/providers/Microsoft.OffAzure/VMwareSites/appliance1e39site 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SiteArgs args: The arguments to use to populate this resource's properties.

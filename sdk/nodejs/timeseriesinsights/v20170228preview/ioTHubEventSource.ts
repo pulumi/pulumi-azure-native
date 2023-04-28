@@ -6,6 +6,13 @@ import * as utilities from "../../utilities";
 
 /**
  * An event source that receives its data from an Azure IoTHub.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:timeseriesinsights/v20170228preview:IoTHubEventSource myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.TimeSeriesInsights/environments/{environmentName}/eventSources/{eventSourceName} 
+ * ```
  */
 export class IoTHubEventSource extends pulumi.CustomResource {
     /**

@@ -226,6 +226,28 @@ class IoTHubEventSource(pulumi.CustomResource):
         """
         An event source that receives its data from an Azure IoTHub.
 
+        ## Example Usage
+        ### CreateEventHubEventSource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        io_t_hub_event_source = azure_native.timeseriesinsights.v20171115.IoTHubEventSource("ioTHubEventSource",
+            environment_name="env1",
+            event_source_name="es1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20171115:IoTHubEventSource es1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/eventSources/es1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] consumer_group_name: The name of the iot hub's consumer group that holds the partitions from which events will be read.
@@ -250,6 +272,28 @@ class IoTHubEventSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An event source that receives its data from an Azure IoTHub.
+
+        ## Example Usage
+        ### CreateEventHubEventSource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        io_t_hub_event_source = azure_native.timeseriesinsights.v20171115.IoTHubEventSource("ioTHubEventSource",
+            environment_name="env1",
+            event_source_name="es1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20171115:IoTHubEventSource es1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/eventSources/es1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param IoTHubEventSourceArgs args: The arguments to use to populate this resource's properties.

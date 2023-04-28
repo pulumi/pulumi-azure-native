@@ -6,6 +6,77 @@ import * as utilities from "../../utilities";
 
 /**
  * Content type contract details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateContentType
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const contentType = new azure_native.apimanagement.v20220801.ContentType("contentType", {
+ *     contentTypeId: "page",
+ *     description: "A regular page",
+ *     name: "Page",
+ *     resourceGroupName: "rg1",
+ *     schema: {
+ *         additionalProperties: false,
+ *         properties: {
+ *             en_us: {
+ *                 additionalProperties: false,
+ *                 properties: {
+ *                     description: {
+ *                         description: "Page description. This property gets included in SEO attributes.",
+ *                         indexed: true,
+ *                         title: "Description",
+ *                         type: "string",
+ *                     },
+ *                     documentId: {
+ *                         description: "Reference to page content document.",
+ *                         title: "Document ID",
+ *                         type: "string",
+ *                     },
+ *                     keywords: {
+ *                         description: "Page keywords. This property gets included in SEO attributes.",
+ *                         indexed: true,
+ *                         title: "Keywords",
+ *                         type: "string",
+ *                     },
+ *                     permalink: {
+ *                         description: "Page permalink, e.g. '/about'.",
+ *                         indexed: true,
+ *                         title: "Permalink",
+ *                         type: "string",
+ *                     },
+ *                     title: {
+ *                         description: "Page title. This property gets included in SEO attributes.",
+ *                         indexed: true,
+ *                         title: "Title",
+ *                         type: "string",
+ *                     },
+ *                 },
+ *                 required: [
+ *                     "title",
+ *                     "permalink",
+ *                     "documentId",
+ *                 ],
+ *                 type: "object",
+ *             },
+ *         },
+ *     },
+ *     serviceName: "apimService1",
+ *     version: "1.0.0",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:ContentType page /contentTypes/page 
+ * ```
  */
 export class ContentType extends pulumi.CustomResource {
     /**

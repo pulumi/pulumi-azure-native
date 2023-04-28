@@ -133,6 +133,45 @@ class Solution(pulumi.CustomResource):
         API Version: 2015-11-01-preview.
         Previous API Version: 2015-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### SolutionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        solution = azure_native.operationsmanagement.Solution("solution",
+            location="East US",
+            plan=azure_native.operationsmanagement.SolutionPlanArgs(
+                name="name1",
+                product="product1",
+                promotion_code="promocode1",
+                publisher="publisher1",
+            ),
+            properties=azure_native.operationsmanagement.SolutionPropertiesResponseArgs(
+                contained_resources=[
+                    "/subscriptions/sub2/resourceGroups/rg2/providers/provider1/resources/resource1",
+                    "/subscriptions/sub2/resourceGroups/rg2/providers/provider2/resources/resource2",
+                ],
+                referenced_resources=[
+                    "/subscriptions/sub2/resourceGroups/rg2/providers/provider1/resources/resource2",
+                    "/subscriptions/sub2/resourceGroups/rg2/providers/provider2/resources/resource3",
+                ],
+                workspace_resource_id="/subscriptions/sub2/resourceGroups/rg2/providers/Microsoft.OperationalInsights/workspaces/ws1",
+            ),
+            resource_group_name="rg1",
+            solution_name="solution1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationsmanagement:Solution solution1 subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationsManagement/solutions/solution1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
@@ -152,6 +191,45 @@ class Solution(pulumi.CustomResource):
         The container for solution.
         API Version: 2015-11-01-preview.
         Previous API Version: 2015-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### SolutionCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        solution = azure_native.operationsmanagement.Solution("solution",
+            location="East US",
+            plan=azure_native.operationsmanagement.SolutionPlanArgs(
+                name="name1",
+                product="product1",
+                promotion_code="promocode1",
+                publisher="publisher1",
+            ),
+            properties=azure_native.operationsmanagement.SolutionPropertiesResponseArgs(
+                contained_resources=[
+                    "/subscriptions/sub2/resourceGroups/rg2/providers/provider1/resources/resource1",
+                    "/subscriptions/sub2/resourceGroups/rg2/providers/provider2/resources/resource2",
+                ],
+                referenced_resources=[
+                    "/subscriptions/sub2/resourceGroups/rg2/providers/provider1/resources/resource2",
+                    "/subscriptions/sub2/resourceGroups/rg2/providers/provider2/resources/resource3",
+                ],
+                workspace_resource_id="/subscriptions/sub2/resourceGroups/rg2/providers/Microsoft.OperationalInsights/workspaces/ws1",
+            ),
+            resource_group_name="rg1",
+            solution_name="solution1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:operationsmanagement:Solution solution1 subscriptions/subid/resourcegroups/rg1/providers/Microsoft.OperationsManagement/solutions/solution1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SolutionArgs args: The arguments to use to populate this resource's properties.

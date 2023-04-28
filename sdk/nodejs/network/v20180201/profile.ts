@@ -10,6 +10,72 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Traffic Manager profile.
  *
+ * ## Example Usage
+ * ### Profile-PUT-NoEndpoints
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const profile = new azure_native.network.v20180201.Profile("profile", {
+ *     dnsConfig: {
+ *         relativeName: "azsmnet6386",
+ *         ttl: 35,
+ *     },
+ *     location: "global",
+ *     monitorConfig: {
+ *         path: "/testpath.aspx",
+ *         port: 80,
+ *         protocol: "HTTP",
+ *     },
+ *     profileName: "azsmnet6386",
+ *     profileStatus: "Enabled",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager1421",
+ *     trafficRoutingMethod: "Performance",
+ * });
+ *
+ * ```
+ * ### Profile-PUT-WithEndpoints
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const profile = new azure_native.network.v20180201.Profile("profile", {
+ *     dnsConfig: {
+ *         relativeName: "azuresdkfornetautoresttrafficmanager6192",
+ *         ttl: 35,
+ *     },
+ *     endpoints: [{
+ *         endpointLocation: "North Europe",
+ *         endpointStatus: "Enabled",
+ *         target: "foobar.contoso.com",
+ *     }],
+ *     location: "global",
+ *     monitorConfig: {
+ *         intervalInSeconds: 10,
+ *         path: "/testpath.aspx",
+ *         port: 80,
+ *         protocol: "HTTP",
+ *         timeoutInSeconds: 5,
+ *         toleratedNumberOfFailures: 2,
+ *     },
+ *     profileName: "azuresdkfornetautoresttrafficmanager6192",
+ *     profileStatus: "Enabled",
+ *     resourceGroupName: "azuresdkfornetautoresttrafficmanager2583",
+ *     trafficRoutingMethod: "Performance",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20180201:Profile azuresdkfornetautoresttrafficmanager6192 /subscriptions/e68d4145-c9ae-4667-925d-c51c8d88ad73/resourceGroups/azuresdkfornetautoresttrafficmanager2583/providers/Microsoft.Network/trafficManagerProfiles/azuresdkfornetautoresttrafficmanager6192 
+ * ```
+ *
  * @deprecated Version 2018-02-01 will be removed in v2 of the provider.
  */
 export class Profile extends pulumi.CustomResource {

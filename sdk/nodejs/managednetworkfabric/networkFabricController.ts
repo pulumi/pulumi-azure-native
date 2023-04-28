@@ -11,6 +11,43 @@ import * as utilities from "../utilities";
  * The NetworkFabricController resource definition.
  * API Version: 2023-02-01-preview.
  * Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### NetworkFabricControllers_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const networkFabricController = new azure_native.managednetworkfabric.NetworkFabricController("networkFabricController", {
+ *     annotation: "lab 1",
+ *     infrastructureExpressRouteConnections: [{
+ *         expressRouteAuthorizationKey: "xxxxxxx",
+ *         expressRouteCircuitId: "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+ *     }],
+ *     ipv4AddressSpace: "172.253.0.0/19",
+ *     location: "eastus",
+ *     managedResourceGroupConfiguration: {
+ *         location: "eastus",
+ *         name: "managedResourceGroupName",
+ *     },
+ *     networkFabricControllerName: "NetworkControllerName",
+ *     resourceGroupName: "resourceGroupName",
+ *     workloadExpressRouteConnections: [{
+ *         expressRouteAuthorizationKey: "xxxxx",
+ *         expressRouteCircuitId: "/subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.Network/expressRouteCircuits/expressRouteCircuitName",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:managednetworkfabric:NetworkFabricController NetworkFabricName /subscriptions/xxxxx/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/networkFabricControllerName 
+ * ```
  */
 export class NetworkFabricController extends pulumi.CustomResource {
     /**

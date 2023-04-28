@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Description of a Namespace resource.
+ *
+ * ## Example Usage
+ * ### NameSpaceCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespace = new azure_native.notificationhubs.v20170401.Namespace("namespace", {
+ *     location: "South Central US",
+ *     namespaceName: "nh-sdk-ns",
+ *     resourceGroupName: "5ktrial",
+ *     sku: {
+ *         name: "Standard",
+ *         tier: "Standard",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:notificationhubs/v20170401:Namespace sdk-Namespace-2924 /subscriptions/29cfa613-cbbc-4512-b1d6-1b3a92c7fa40/resourceGroups/ArunMonocle/providers/Microsoft.NotificationHubs/namespaces/sdk-Namespace-2924 
+ * ```
  */
 export class Namespace extends pulumi.CustomResource {
     /**

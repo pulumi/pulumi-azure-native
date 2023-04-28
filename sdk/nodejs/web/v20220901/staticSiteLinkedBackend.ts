@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Static Site Linked Backend ARM resource.
+ *
+ * ## Example Usage
+ * ### Link a backend to a static site
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const staticSiteLinkedBackend = new azure_native.web.v20220901.StaticSiteLinkedBackend("staticSiteLinkedBackend", {
+ *     backendResourceId: "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/backendRg/providers/Microsoft.Web/sites/testBackend",
+ *     linkedBackendName: "testBackend",
+ *     name: "testStaticSite0",
+ *     region: "West US 2",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20220901:StaticSiteLinkedBackend testBackend /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/builds/default/linkedBackends/testBackend 
+ * ```
  */
 export class StaticSiteLinkedBackend extends pulumi.CustomResource {
     /**

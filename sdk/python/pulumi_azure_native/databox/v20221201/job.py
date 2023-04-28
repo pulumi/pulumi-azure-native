@@ -200,6 +200,244 @@ class Job(pulumi.CustomResource):
         """
         Job Resource.
 
+        ## Example Usage
+        ### JobsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_import_details=[azure_native.databox.v20221201.DataImportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+                    ),
+                )],
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob952",
+            location="westus",
+            resource_group_name="SdkRg5154",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ImportToAzure")
+
+        ```
+        ### JobsCreateDevicePassword
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_import_details=[azure_native.databox.v20221201.DataImportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        share_password="<sharePassword>",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/databoxbvt1/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount2",
+                    ),
+                )],
+                device_password="<devicePassword>",
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob9640",
+            location="westus",
+            resource_group_name="SdkRg7478",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ImportToAzure")
+
+        ```
+        ### JobsCreateDoubleEncryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_import_details=[azure_native.databox.v20221201.DataImportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+                    ),
+                )],
+                job_details_type="DataBox",
+                preferences=azure_native.databox.v20221201.PreferencesArgs(
+                    encryption_preferences=azure_native.databox.v20221201.EncryptionPreferencesArgs(
+                        double_encryption="Enabled",
+                    ),
+                ),
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob6599",
+            location="westus",
+            resource_group_name="SdkRg608",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ImportToAzure")
+
+        ```
+        ### JobsCreateExport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_export_details=[azure_native.databox.v20221201.DataExportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/akvenkat/providers/Microsoft.Storage/storageAccounts/aaaaaa2",
+                    ),
+                    transfer_configuration=azure_native.databox.v20221201.TransferConfigurationArgs(
+                        transfer_all_details=azure_native.databox.v20221201.TransferConfigurationTransferAllDetailsArgs(
+                            include=azure_native.databox.v20221201.TransferAllDetailsArgs(
+                                data_account_type="StorageAccount",
+                                transfer_all_blobs=True,
+                                transfer_all_files=True,
+                            ),
+                        ),
+                        transfer_configuration_type="TransferAll",
+                    ),
+                )],
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob6429",
+            location="westus",
+            resource_group_name="SdkRg8091",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ExportFromAzure")
+
+        ```
+        ### JobsCreateWithUserAssignedIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_import_details=[azure_native.databox.v20221201.DataImportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/databoxbvt1/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount2",
+                    ),
+                )],
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            identity=azure_native.databox.v20221201.ResourceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/akvenkat/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sdkIdentity": {},
+                },
+            ),
+            job_name="SdkJob5337",
+            location="westus",
+            resource_group_name="SdkRg7552",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ImportToAzure")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databox/v20221201:Job SdkJob5337 /subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/SdkRg7552/providers/Microsoft.DataBox/jobs/SdkJob5337 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['JobDeliveryInfoArgs']] delivery_info: Delivery Info of Job.
@@ -221,6 +459,244 @@ class Job(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Job Resource.
+
+        ## Example Usage
+        ### JobsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_import_details=[azure_native.databox.v20221201.DataImportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+                    ),
+                )],
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob952",
+            location="westus",
+            resource_group_name="SdkRg5154",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ImportToAzure")
+
+        ```
+        ### JobsCreateDevicePassword
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_import_details=[azure_native.databox.v20221201.DataImportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        share_password="<sharePassword>",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/databoxbvt1/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount2",
+                    ),
+                )],
+                device_password="<devicePassword>",
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob9640",
+            location="westus",
+            resource_group_name="SdkRg7478",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ImportToAzure")
+
+        ```
+        ### JobsCreateDoubleEncryption
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_import_details=[azure_native.databox.v20221201.DataImportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourcegroups/databoxbvt/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount",
+                    ),
+                )],
+                job_details_type="DataBox",
+                preferences=azure_native.databox.v20221201.PreferencesArgs(
+                    encryption_preferences=azure_native.databox.v20221201.EncryptionPreferencesArgs(
+                        double_encryption="Enabled",
+                    ),
+                ),
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob6599",
+            location="westus",
+            resource_group_name="SdkRg608",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ImportToAzure")
+
+        ```
+        ### JobsCreateExport
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_export_details=[azure_native.databox.v20221201.DataExportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/akvenkat/providers/Microsoft.Storage/storageAccounts/aaaaaa2",
+                    ),
+                    transfer_configuration=azure_native.databox.v20221201.TransferConfigurationArgs(
+                        transfer_all_details=azure_native.databox.v20221201.TransferConfigurationTransferAllDetailsArgs(
+                            include=azure_native.databox.v20221201.TransferAllDetailsArgs(
+                                data_account_type="StorageAccount",
+                                transfer_all_blobs=True,
+                                transfer_all_files=True,
+                            ),
+                        ),
+                        transfer_configuration_type="TransferAll",
+                    ),
+                )],
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            job_name="SdkJob6429",
+            location="westus",
+            resource_group_name="SdkRg8091",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ExportFromAzure")
+
+        ```
+        ### JobsCreateWithUserAssignedIdentity
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job = azure_native.databox.v20221201.Job("job",
+            details=azure_native.databox.v20221201.DataBoxJobDetailsArgs(
+                contact_details=azure_native.databox.v20221201.ContactDetailsArgs(
+                    contact_name="Public SDK Test",
+                    email_list=["testing@microsoft.com"],
+                    phone="1234567890",
+                    phone_extension="1234",
+                ),
+                data_import_details=[azure_native.databox.v20221201.DataImportDetailsArgs(
+                    account_details=azure_native.databox.v20221201.StorageAccountDetailsArgs(
+                        data_account_type="StorageAccount",
+                        storage_account_id="/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/databoxbvt1/providers/Microsoft.Storage/storageAccounts/databoxbvttestaccount2",
+                    ),
+                )],
+                job_details_type="DataBox",
+                shipping_address=azure_native.databox.v20221201.ShippingAddressArgs(
+                    address_type="Commercial",
+                    city="San Francisco",
+                    company_name="Microsoft",
+                    country="US",
+                    postal_code="94107",
+                    state_or_province="CA",
+                    street_address1="16 TOWNSEND ST",
+                    street_address2="Unit 1",
+                ),
+            ),
+            identity=azure_native.databox.v20221201.ResourceIdentityArgs(
+                type="UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/akvenkat/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sdkIdentity": {},
+                },
+            ),
+            job_name="SdkJob5337",
+            location="westus",
+            resource_group_name="SdkRg7552",
+            sku=azure_native.databox.v20221201.SkuArgs(
+                name="DataBox",
+            ),
+            transfer_type="ImportToAzure")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:databox/v20221201:Job SdkJob5337 /subscriptions/fa68082f-8ff7-4a25-95c7-ce9da541242f/resourceGroups/SdkRg7552/providers/Microsoft.DataBox/jobs/SdkJob5337 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
 {
     /// <summary>
     /// Represents a Workspace definition.
+    /// 
+    /// ## Example Usage
+    /// ### Workspace_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.DesktopVirtualization.V20221014Preview.Workspace("workspace", new()
+    ///     {
+    ///         Description = "des1",
+    ///         FriendlyName = "friendly",
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization/v20221014preview:Workspace workspace1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/workspaces/workspace1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20221014preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

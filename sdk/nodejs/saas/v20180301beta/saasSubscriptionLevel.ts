@@ -9,6 +9,41 @@ import * as utilities from "../../utilities";
 
 /**
  * SaaS REST API resource definition.
+ *
+ * ## Example Usage
+ * ### Create subscription level SaaS resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const saasSubscriptionLevel = new azure_native.saas.v20180301beta.SaasSubscriptionLevel("saasSubscriptionLevel", {
+ *     location: "global",
+ *     name: "MyContosoSubscription",
+ *     properties: {
+ *         offerId: "contosoOffer",
+ *         paymentChannelMetadata: {
+ *             AzureSubscriptionId: "155af98a-3205-47e7-883b-a2ab9db9f88d",
+ *         },
+ *         paymentChannelType: "SubscriptionDelegated",
+ *         publisherId: "microsoft-contoso",
+ *         saasResourceName: "MyContosoSubscription",
+ *         skuId: "free",
+ *         termId: "hjdtn7tfnxcy",
+ *     },
+ *     resourceGroupName: "my-saas-rg",
+ *     resourceName: "MyContosoSubscription",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:saas/v20180301beta:SaasSubscriptionLevel MyContosoSubscription /subscriptions/c825645b-e31b-9cf4-1cee-2aba9e58bc7c/resourceGroups/my-saas-rg/providers/Microsoft.SaaS/resources/MyContosoSubscription 
+ * ```
  */
 export class SaasSubscriptionLevel extends pulumi.CustomResource {
     /**

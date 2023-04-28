@@ -10,6 +10,34 @@ import * as utilities from "../utilities";
 /**
  * API Version: 2022-10-01.
  * Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CreateWorkspaceConnection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceConnection = new azure_native.machinelearningservices.WorkspaceConnection("workspaceConnection", {
+ *     connectionName: "connection-1",
+ *     properties: {
+ *         authType: "None",
+ *         category: "ContainerRegistry",
+ *         target: "www.facebook.com",
+ *     },
+ *     resourceGroupName: "resourceGroup-1",
+ *     workspaceName: "workspace-1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices:WorkspaceConnection connection-1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1/providers/Microsoft.MachineLearningServices/workspaces/workspace-1/connections/connection-1 
+ * ```
  */
 export class WorkspaceConnection extends pulumi.CustomResource {
     /**

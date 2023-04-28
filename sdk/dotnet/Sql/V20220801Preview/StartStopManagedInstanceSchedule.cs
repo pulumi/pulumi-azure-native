@@ -11,6 +11,90 @@ namespace Pulumi.AzureNative.Sql.V20220801Preview
 {
     /// <summary>
     /// Managed instance's Start/Stop schedule.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates the managed instance's Start/Stop schedule with all optional parameters specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var startStopManagedInstanceSchedule = new AzureNative.Sql.V20220801Preview.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule", new()
+    ///     {
+    ///         Description = "This is a schedule for our Dev/Test environment.",
+    ///         ManagedInstanceName = "schedulemi",
+    ///         ResourceGroupName = "schedulerg",
+    ///         ScheduleList = new[]
+    ///         {
+    ///             new AzureNative.Sql.V20220801Preview.Inputs.ScheduleItemArgs
+    ///             {
+    ///                 StartDay = "Thursday",
+    ///                 StartTime = "18:00",
+    ///                 StopDay = "Thursday",
+    ///                 StopTime = "17:00",
+    ///             },
+    ///             new AzureNative.Sql.V20220801Preview.Inputs.ScheduleItemArgs
+    ///             {
+    ///                 StartDay = "Thursday",
+    ///                 StartTime = "15:00",
+    ///                 StopDay = "Thursday",
+    ///                 StopTime = "14:00",
+    ///             },
+    ///         },
+    ///         StartStopScheduleName = "default",
+    ///         TimeZoneId = "Central European Standard Time",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Creates or updates the managed instance's Start/Stop schedule with no optional parameters specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var startStopManagedInstanceSchedule = new AzureNative.Sql.V20220801Preview.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule", new()
+    ///     {
+    ///         ManagedInstanceName = "schedulemi",
+    ///         ResourceGroupName = "schedulerg",
+    ///         ScheduleList = new[]
+    ///         {
+    ///             new AzureNative.Sql.V20220801Preview.Inputs.ScheduleItemArgs
+    ///             {
+    ///                 StartDay = "Thursday",
+    ///                 StartTime = "18:00",
+    ///                 StopDay = "Thursday",
+    ///                 StopTime = "17:00",
+    ///             },
+    ///             new AzureNative.Sql.V20220801Preview.Inputs.ScheduleItemArgs
+    ///             {
+    ///                 StartDay = "Thursday",
+    ///                 StartTime = "15:00",
+    ///                 StopDay = "Thursday",
+    ///                 StopTime = "14:00",
+    ///             },
+    ///         },
+    ///         StartStopScheduleName = "default",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/schedulerg/providers/Microsoft.Sql/managedInstances/schedulemi/startStopSchedules/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule")]
     public partial class StartStopManagedInstanceSchedule : global::Pulumi.CustomResource

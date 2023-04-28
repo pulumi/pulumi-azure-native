@@ -9,6 +9,62 @@ import * as utilities from "../../utilities";
 
 /**
  * Blueprint artifact applies Policy assignments.
+ *
+ * ## Example Usage
+ * ### ARMTemplateArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignmentArtifact = new azure_native.blueprint.v20171111preview.PolicyAssignmentArtifact("policyAssignmentArtifact", {
+ *     artifactName: "storageTemplate",
+ *     blueprintName: "simpleBlueprint",
+ *     managementGroupName: "ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### PolicyAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignmentArtifact = new azure_native.blueprint.v20171111preview.PolicyAssignmentArtifact("policyAssignmentArtifact", {
+ *     artifactName: "costCenterPolicy",
+ *     blueprintName: "simpleBlueprint",
+ *     displayName: "force costCenter tag on all resources",
+ *     kind: "policyAssignment",
+ *     managementGroupName: "ContosoOnlineGroup",
+ *     parameters: {
+ *         tagName: {},
+ *         tagValue: {},
+ *     },
+ *     policyDefinitionId: "/providers/Microsoft.Authorization/policyDefinitions/1e30110a-5ceb-460c-a204-c1c3969c6d62",
+ * });
+ *
+ * ```
+ * ### RoleAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const policyAssignmentArtifact = new azure_native.blueprint.v20171111preview.PolicyAssignmentArtifact("policyAssignmentArtifact", {
+ *     artifactName: "ownerAssignment",
+ *     blueprintName: "simpleBlueprint",
+ *     managementGroupName: "ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blueprint/v20171111preview:PolicyAssignmentArtifact ownerAssignment /providers/Microsoft.Management/managementGroups/ContosoOnlineGroup/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+ * ```
  */
 export class PolicyAssignmentArtifact extends pulumi.CustomResource {
     /**

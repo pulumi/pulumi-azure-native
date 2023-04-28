@@ -11,6 +11,122 @@ namespace Pulumi.AzureNative.ContainerInstance.V20171201Preview
 {
     /// <summary>
     /// A container group.
+    /// 
+    /// ## Example Usage
+    /// ### ContainerGroupsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerGroup = new AzureNative.ContainerInstance.V20171201Preview.ContainerGroup("containerGroup", new()
+    ///     {
+    ///         ContainerGroupName = "demo1",
+    ///         Containers = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20171201Preview.Inputs.ContainerArgs
+    ///             {
+    ///                 Command = new[] {},
+    ///                 EnvironmentVariables = new[] {},
+    ///                 Image = "nginx",
+    ///                 Name = "demo1",
+    ///                 Ports = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerInstance.V20171201Preview.Inputs.ContainerPortArgs
+    ///                     {
+    ///                         Port = 80,
+    ///                     },
+    ///                 },
+    ///                 Resources = new AzureNative.ContainerInstance.V20171201Preview.Inputs.ResourceRequirementsArgs
+    ///                 {
+    ///                     Requests = new AzureNative.ContainerInstance.V20171201Preview.Inputs.ResourceRequestsArgs
+    ///                     {
+    ///                         Cpu = 1,
+    ///                         MemoryInGB = 1.5,
+    ///                     },
+    ///                 },
+    ///                 VolumeMounts = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerInstance.V20171201Preview.Inputs.VolumeMountArgs
+    ///                     {
+    ///                         MountPath = "/mnt/volume1",
+    ///                         Name = "volume1",
+    ///                         ReadOnly = false,
+    ///                     },
+    ///                     new AzureNative.ContainerInstance.V20171201Preview.Inputs.VolumeMountArgs
+    ///                     {
+    ///                         MountPath = "/mnt/volume2",
+    ///                         Name = "volume2",
+    ///                         ReadOnly = false,
+    ///                     },
+    ///                     new AzureNative.ContainerInstance.V20171201Preview.Inputs.VolumeMountArgs
+    ///                     {
+    ///                         MountPath = "/mnt/volume3",
+    ///                         Name = "volume3",
+    ///                         ReadOnly = true,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         ImageRegistryCredentials = new[] {},
+    ///         IpAddress = new AzureNative.ContainerInstance.V20171201Preview.Inputs.IpAddressArgs
+    ///         {
+    ///             Ports = new[]
+    ///             {
+    ///                 new AzureNative.ContainerInstance.V20171201Preview.Inputs.PortArgs
+    ///                 {
+    ///                     Port = 80,
+    ///                     Protocol = "TCP",
+    ///                 },
+    ///             },
+    ///             Type = "Public",
+    ///         },
+    ///         Location = "west us",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "demo",
+    ///         Volumes = new[]
+    ///         {
+    ///             new AzureNative.ContainerInstance.V20171201Preview.Inputs.VolumeArgs
+    ///             {
+    ///                 AzureFile = new AzureNative.ContainerInstance.V20171201Preview.Inputs.AzureFileVolumeArgs
+    ///                 {
+    ///                     ShareName = "shareName",
+    ///                     StorageAccountKey = "accountKey",
+    ///                     StorageAccountName = "accountName",
+    ///                 },
+    ///                 Name = "volume1",
+    ///             },
+    ///             new AzureNative.ContainerInstance.V20171201Preview.Inputs.VolumeArgs
+    ///             {
+    ///                 EmptyDir = null,
+    ///                 Name = "volume2",
+    ///             },
+    ///             new AzureNative.ContainerInstance.V20171201Preview.Inputs.VolumeArgs
+    ///             {
+    ///                 Name = "volume3",
+    ///                 Secret = 
+    ///                 {
+    ///                     { "secretKey1", "SecretValue1InBase64" },
+    ///                     { "secretKey2", "SecretValue2InBase64" },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerinstance/v20171201preview:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-12-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerinstance/v20171201preview:ContainerGroup")]

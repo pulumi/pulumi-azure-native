@@ -185,6 +185,100 @@ class DataCollectionRule(pulumi.CustomResource):
         """
         Definition of ARM tracked top level resource.
 
+        ## Example Usage
+        ### Create or update data collection rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_collection_rule = azure_native.insights.v20191101preview.DataCollectionRule("dataCollectionRule",
+            data_collection_rule_name="myCollectionRule",
+            data_flows=[azure_native.insights.v20191101preview.DataFlowArgs(
+                destinations=["centralWorkspace"],
+                streams=[
+                    "Microsoft-Perf",
+                    "Microsoft-Syslog",
+                    "Microsoft-WindowsEvent",
+                ],
+            )],
+            data_sources=azure_native.insights.v20191101preview.DataCollectionRuleResponseDataSourcesArgs(
+                performance_counters=[
+                    azure_native.insights.v20191101preview.PerfCounterDataSourceArgs(
+                        counter_specifiers=[
+                            "\\\\Processor(_Total)\\\\% Processor Time",
+                            "\\\\Memory\\\\Committed Bytes",
+                            "\\\\LogicalDisk(_Total)\\\\Free Megabytes",
+                            "\\\\PhysicalDisk(_Total)\\\\Avg. Disk Queue Length",
+                        ],
+                        name="cloudTeamCoreCounters",
+                        sampling_frequency_in_seconds=15,
+                        streams=["Microsoft-Perf"],
+                    ),
+                    azure_native.insights.v20191101preview.PerfCounterDataSourceArgs(
+                        counter_specifiers=["\\\\Process(_Total)\\\\Thread Count"],
+                        name="appTeamExtraCounters",
+                        sampling_frequency_in_seconds=30,
+                        streams=["Microsoft-Perf"],
+                    ),
+                ],
+                syslog=[
+                    azure_native.insights.v20191101preview.SyslogDataSourceArgs(
+                        facility_names=["cron"],
+                        log_levels=[
+                            "Debug",
+                            "Critical",
+                            "Emergency",
+                        ],
+                        name="cronSyslog",
+                        streams=["Microsoft-Syslog"],
+                    ),
+                    azure_native.insights.v20191101preview.SyslogDataSourceArgs(
+                        facility_names=["syslog"],
+                        log_levels=[
+                            "Alert",
+                            "Critical",
+                            "Emergency",
+                        ],
+                        name="syslogBase",
+                        streams=["Microsoft-Syslog"],
+                    ),
+                ],
+                windows_event_logs=[
+                    azure_native.insights.v20191101preview.WindowsEventLogDataSourceArgs(
+                        name="cloudSecurityTeamEvents",
+                        streams=["Microsoft-WindowsEvent"],
+                        x_path_queries=["Security!"],
+                    ),
+                    azure_native.insights.v20191101preview.WindowsEventLogDataSourceArgs(
+                        name="appTeam1AppEvents",
+                        streams=["Microsoft-WindowsEvent"],
+                        x_path_queries=[
+                            "System![System[(Level = 1 or Level = 2 or Level = 3)]]",
+                            "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]",
+                        ],
+                    ),
+                ],
+            ),
+            destinations=azure_native.insights.v20191101preview.DataCollectionRuleResponseDestinationsArgs(
+                log_analytics=[azure_native.insights.v20191101preview.LogAnalyticsDestinationArgs(
+                    name="centralWorkspace",
+                    workspace_resource_id="/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+                )],
+            ),
+            location="eastus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20191101preview:DataCollectionRule myCollectionRule /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
@@ -206,6 +300,100 @@ class DataCollectionRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Definition of ARM tracked top level resource.
+
+        ## Example Usage
+        ### Create or update data collection rule
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        data_collection_rule = azure_native.insights.v20191101preview.DataCollectionRule("dataCollectionRule",
+            data_collection_rule_name="myCollectionRule",
+            data_flows=[azure_native.insights.v20191101preview.DataFlowArgs(
+                destinations=["centralWorkspace"],
+                streams=[
+                    "Microsoft-Perf",
+                    "Microsoft-Syslog",
+                    "Microsoft-WindowsEvent",
+                ],
+            )],
+            data_sources=azure_native.insights.v20191101preview.DataCollectionRuleResponseDataSourcesArgs(
+                performance_counters=[
+                    azure_native.insights.v20191101preview.PerfCounterDataSourceArgs(
+                        counter_specifiers=[
+                            "\\\\Processor(_Total)\\\\% Processor Time",
+                            "\\\\Memory\\\\Committed Bytes",
+                            "\\\\LogicalDisk(_Total)\\\\Free Megabytes",
+                            "\\\\PhysicalDisk(_Total)\\\\Avg. Disk Queue Length",
+                        ],
+                        name="cloudTeamCoreCounters",
+                        sampling_frequency_in_seconds=15,
+                        streams=["Microsoft-Perf"],
+                    ),
+                    azure_native.insights.v20191101preview.PerfCounterDataSourceArgs(
+                        counter_specifiers=["\\\\Process(_Total)\\\\Thread Count"],
+                        name="appTeamExtraCounters",
+                        sampling_frequency_in_seconds=30,
+                        streams=["Microsoft-Perf"],
+                    ),
+                ],
+                syslog=[
+                    azure_native.insights.v20191101preview.SyslogDataSourceArgs(
+                        facility_names=["cron"],
+                        log_levels=[
+                            "Debug",
+                            "Critical",
+                            "Emergency",
+                        ],
+                        name="cronSyslog",
+                        streams=["Microsoft-Syslog"],
+                    ),
+                    azure_native.insights.v20191101preview.SyslogDataSourceArgs(
+                        facility_names=["syslog"],
+                        log_levels=[
+                            "Alert",
+                            "Critical",
+                            "Emergency",
+                        ],
+                        name="syslogBase",
+                        streams=["Microsoft-Syslog"],
+                    ),
+                ],
+                windows_event_logs=[
+                    azure_native.insights.v20191101preview.WindowsEventLogDataSourceArgs(
+                        name="cloudSecurityTeamEvents",
+                        streams=["Microsoft-WindowsEvent"],
+                        x_path_queries=["Security!"],
+                    ),
+                    azure_native.insights.v20191101preview.WindowsEventLogDataSourceArgs(
+                        name="appTeam1AppEvents",
+                        streams=["Microsoft-WindowsEvent"],
+                        x_path_queries=[
+                            "System![System[(Level = 1 or Level = 2 or Level = 3)]]",
+                            "Application!*[System[(Level = 1 or Level = 2 or Level = 3)]]",
+                        ],
+                    ),
+                ],
+            ),
+            destinations=azure_native.insights.v20191101preview.DataCollectionRuleResponseDestinationsArgs(
+                log_analytics=[azure_native.insights.v20191101preview.LogAnalyticsDestinationArgs(
+                    name="centralWorkspace",
+                    workspace_resource_id="/subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.OperationalInsights/workspaces/centralTeamWorkspace",
+                )],
+            ),
+            location="eastus",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:insights/v20191101preview:DataCollectionRule myCollectionRule /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionRules/myCollectionRule 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DataCollectionRuleArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,48 @@ import * as utilities from "../../utilities";
 
 /**
  * Route table resource.
+ *
+ * ## Example Usage
+ * ### Create route table
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const routeTable = new azure_native.network.v20201101.RouteTable("routeTable", {
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ *     routeTableName: "testrt",
+ * });
+ *
+ * ```
+ * ### Create route table with route
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const routeTable = new azure_native.network.v20201101.RouteTable("routeTable", {
+ *     disableBgpRoutePropagation: true,
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ *     routeTableName: "testrt",
+ *     routes: [{
+ *         addressPrefix: "10.0.3.0/24",
+ *         name: "route1",
+ *         nextHopType: "VirtualNetworkGateway",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:RouteTable testrt /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeTables/testrt 
+ * ```
  */
 export class RouteTable extends pulumi.CustomResource {
     /**

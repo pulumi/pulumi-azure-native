@@ -111,6 +111,30 @@ class ServerKey(pulumi.CustomResource):
         """
         A server key.
 
+        ## Example Usage
+        ### Creates or updates a server key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_key = azure_native.sql.v20220801preview.ServerKey("serverKey",
+            key_name="someVault_someKey_01234567890123456789012345678901",
+            resource_group_name="sqlcrudtest-7398",
+            server_key_type="AzureKeyVault",
+            server_name="sqlcrudtest-4645",
+            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerKey sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/keys/someVault_someKey_01234567890123456789012345678901 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] key_name: The name of the server key to be operated on (updated or created). The key name is required to be in the format of 'vault_key_version'. For example, if the keyId is https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion, then the server key name should be formatted as: YourVaultName_YourKeyName_YourKeyVersion
@@ -127,6 +151,30 @@ class ServerKey(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A server key.
+
+        ## Example Usage
+        ### Creates or updates a server key
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server_key = azure_native.sql.v20220801preview.ServerKey("serverKey",
+            key_name="someVault_someKey_01234567890123456789012345678901",
+            resource_group_name="sqlcrudtest-7398",
+            server_key_type="AzureKeyVault",
+            server_name="sqlcrudtest-4645",
+            uri="https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20220801preview:ServerKey sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/keys/someVault_someKey_01234567890123456789012345678901 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerKeyArgs args: The arguments to use to populate this resource's properties.

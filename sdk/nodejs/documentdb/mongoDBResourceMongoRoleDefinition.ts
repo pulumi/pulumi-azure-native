@@ -11,6 +11,45 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB Mongo Role Definition.
  * API Version: 2022-11-15.
  * Previous API Version: 2021-10-15-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### CosmosDBMongoDBRoleDefinitionCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const mongoDBResourceMongoRoleDefinition = new azure_native.documentdb.MongoDBResourceMongoRoleDefinition("mongoDBResourceMongoRoleDefinition", {
+ *     accountName: "myAccountName",
+ *     databaseName: "sales",
+ *     mongoRoleDefinitionId: "myMongoRoleDefinitionId",
+ *     privileges: [{
+ *         actions: [
+ *             "insert",
+ *             "find",
+ *         ],
+ *         resource: {
+ *             collection: "sales",
+ *             db: "sales",
+ *         },
+ *     }],
+ *     resourceGroupName: "myResourceGroupName",
+ *     roleName: "myRoleName",
+ *     roles: [{
+ *         db: "sales",
+ *         role: "myInheritedRole",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb:MongoDBResourceMongoRoleDefinition myMongoDbRoleDefinitionId /subscriptions/mySubscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.DocumentDB/databaseAccounts/myAccountName/mongodbRoleDefinitions/myMongoDbRoleDefinitionId 
+ * ```
  */
 export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
     /**

@@ -96,6 +96,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The private endpoint connection resource.
 
+        ## Example Usage
+        ### PrivateEndpointConnections_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.iotcentral.v20211101preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="myIoTCentralAppEndpoint",
+            private_link_service_connection_state=azure_native.iotcentral.v20211101preview.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                description="Auto-approved",
+                status="Approved",
+            ),
+            resource_group_name="resRg",
+            resource_name_="myIoTCentralApp")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotcentral/v20211101preview:PrivateEndpointConnection myIoTCentralAppEndpoint.a791c6b5-874d-4f03-9092-718490d33770 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.IoTCentral/iotApps/myIoTCentralApp/PrivateEndpointConnections/myIoTCentralAppEndpoint.a791c6b5-874d-4f03-9092-718490d33770 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The private endpoint connection name.
@@ -111,6 +138,33 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection resource.
+
+        ## Example Usage
+        ### PrivateEndpointConnections_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.iotcentral.v20211101preview.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="myIoTCentralAppEndpoint",
+            private_link_service_connection_state=azure_native.iotcentral.v20211101preview.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                description="Auto-approved",
+                status="Approved",
+            ),
+            resource_group_name="resRg",
+            resource_name_="myIoTCentralApp")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotcentral/v20211101preview:PrivateEndpointConnection myIoTCentralAppEndpoint.a791c6b5-874d-4f03-9092-718490d33770 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.IoTCentral/iotApps/myIoTCentralApp/PrivateEndpointConnections/myIoTCentralAppEndpoint.a791c6b5-874d-4f03-9092-718490d33770 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

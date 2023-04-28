@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * Route Filter Resource.
+ *
+ * ## Example Usage
+ * ### RouteFilterCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const routeFilter = new azure_native.network.v20190801.RouteFilter("routeFilter", {
+ *     location: "West US",
+ *     peerings: [],
+ *     resourceGroupName: "rg1",
+ *     routeFilterName: "filterName",
+ *     rules: [{
+ *         access: "Allow",
+ *         communities: [
+ *             "12076:5030",
+ *             "12076:5040",
+ *         ],
+ *         name: "ruleName",
+ *         routeFilterRuleType: "Community",
+ *     }],
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20190801:RouteFilter filterName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName 
+ * ```
  */
 export class RouteFilter extends pulumi.CustomResource {
     /**

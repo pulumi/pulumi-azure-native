@@ -9,6 +9,135 @@ import * as utilities from "../../utilities";
 
 /**
  * Data connector to pull Threat intelligence data from TAXII 2.0/2.1 server
+ *
+ * ## Example Usage
+ * ### Creates or updates a APIPolling data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tiTaxiiDataConnector = new azure_native.securityinsights.v20220401preview.TiTaxiiDataConnector("tiTaxiiDataConnector", {
+ *     dataConnectorId: "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Dynamics365 data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tiTaxiiDataConnector = new azure_native.securityinsights.v20220401preview.TiTaxiiDataConnector("tiTaxiiDataConnector", {
+ *     dataConnectorId: "c2541efb-c9a6-47fe-9501-87d1017d1512",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a GenericUI data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tiTaxiiDataConnector = new azure_native.securityinsights.v20220401preview.TiTaxiiDataConnector("tiTaxiiDataConnector", {
+ *     dataConnectorId: "316ec55e-7138-4d63-ab18-90c8a60fd1c8",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Threat Intelligence Taxii data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tiTaxiiDataConnector = new azure_native.securityinsights.v20220401preview.TiTaxiiDataConnector("tiTaxiiDataConnector", {
+ *     collectionId: "135",
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     dataTypes: {
+ *         taxiiClient: {
+ *             state: "Enabled",
+ *         },
+ *     },
+ *     friendlyName: "testTaxii",
+ *     kind: "ThreatIntelligenceTaxii",
+ *     password: "--",
+ *     pollingFrequency: "OnceADay",
+ *     resourceGroupName: "myRg",
+ *     taxiiLookbackPeriod: "2020-01-01T13:00:30.123Z",
+ *     taxiiServer: "https://limo.anomali.com/api/v1/taxii2/feeds",
+ *     tenantId: "06b3ccb8-1384-4bcc-aec7-852f6d57161b",
+ *     userName: "--",
+ *     workspaceId: "dd124572-4962-4495-9bd2-9dade12314b4",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office PowerBI data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tiTaxiiDataConnector = new azure_native.securityinsights.v20220401preview.TiTaxiiDataConnector("tiTaxiiDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office365 Project data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tiTaxiiDataConnector = new azure_native.securityinsights.v20220401preview.TiTaxiiDataConnector("tiTaxiiDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Office365 data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tiTaxiiDataConnector = new azure_native.securityinsights.v20220401preview.TiTaxiiDataConnector("tiTaxiiDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Threat Intelligence Platform data connector
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tiTaxiiDataConnector = new azure_native.securityinsights.v20220401preview.TiTaxiiDataConnector("tiTaxiiDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20220401preview:TiTaxiiDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class TiTaxiiDataConnector extends pulumi.CustomResource {
     /**

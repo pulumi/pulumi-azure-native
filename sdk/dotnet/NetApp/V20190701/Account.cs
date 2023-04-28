@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.NetApp.V20190701
 {
     /// <summary>
     /// NetApp account resource
+    /// 
+    /// ## Example Usage
+    /// ### Accounts_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.NetApp.V20190701.Account("account", new()
+    ///     {
+    ///         AccountName = "accountName",
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "resourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:netapp/v20190701:Account myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{accountName} 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20190701:Account")]

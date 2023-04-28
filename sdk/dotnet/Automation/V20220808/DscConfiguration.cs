@@ -11,6 +11,55 @@ namespace Pulumi.AzureNative.Automation.V20220808
 {
     /// <summary>
     /// Definition of the configuration type.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dscConfiguration = new AzureNative.Automation.V20220808.DscConfiguration("dscConfiguration", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount18",
+    ///         ConfigurationName = "SetupServer",
+    ///         Description = "sample configuration",
+    ///         Location = "East US 2",
+    ///         Name = "SetupServer",
+    ///         ResourceGroupName = "rg",
+    ///         Source = new AzureNative.Automation.V20220808.Inputs.ContentSourceArgs
+    ///         {
+    ///             Hash = new AzureNative.Automation.V20220808.Inputs.ContentHashArgs
+    ///             {
+    ///                 Algorithm = "sha256",
+    ///                 Value = "A9E5DB56BA21513F61E0B3868816FDC6D4DF5131F5617D7FF0D769674BD5072F",
+    ///             },
+    ///             Type = "embeddedContent",
+    ///             Value = @"Configuration SetupServer {
+    ///     Node localhost {
+    ///                                WindowsFeature IIS {
+    ///                                Name = ""Web-Server"";
+    ///             Ensure = ""Present""
+    ///         }
+    ///     }
+    /// }",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20220808:DscConfiguration SetupServer /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/configurations/SetupServer 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20220808:DscConfiguration")]
     public partial class DscConfiguration : global::Pulumi.CustomResource

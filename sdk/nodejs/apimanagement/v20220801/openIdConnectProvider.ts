@@ -6,6 +6,35 @@ import * as utilities from "../../utilities";
 
 /**
  * OpenId Connect Provider details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateOpenIdConnectProvider
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const openIdConnectProvider = new azure_native.apimanagement.v20220801.OpenIdConnectProvider("openIdConnectProvider", {
+ *     clientId: "oidprovidertemplate3",
+ *     clientSecret: "x",
+ *     displayName: "templateoidprovider3",
+ *     metadataEndpoint: "https://oidprovider-template3.net",
+ *     opid: "templateOpenIdConnect3",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     useInApiDocumentation: true,
+ *     useInTestConsole: false,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20220801:OpenIdConnectProvider templateOpenIdConnect3 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/openidConnectProviders/templateOpenIdConnect3 
+ * ```
  */
 export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**

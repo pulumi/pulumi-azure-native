@@ -114,6 +114,126 @@ class Vault(pulumi.CustomResource):
         """
         Resource information with extended details.
 
+        ## Example Usage
+        ### Create a new vault or update an existing vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.keyvault.v20230201.Vault("vault",
+            location="westus",
+            properties=azure_native.keyvault.v20230201.VaultPropertiesResponseArgs(
+                access_policies=[{
+                    "objectId": "00000000-0000-0000-0000-000000000000",
+                    "permissions": azure_native.keyvault.v20230201.PermissionsArgs(
+                        certificates=[
+                            "get",
+                            "list",
+                            "delete",
+                            "create",
+                            "import",
+                            "update",
+                            "managecontacts",
+                            "getissuers",
+                            "listissuers",
+                            "setissuers",
+                            "deleteissuers",
+                            "manageissuers",
+                            "recover",
+                            "purge",
+                        ],
+                        keys=[
+                            "encrypt",
+                            "decrypt",
+                            "wrapKey",
+                            "unwrapKey",
+                            "sign",
+                            "verify",
+                            "get",
+                            "list",
+                            "create",
+                            "update",
+                            "import",
+                            "delete",
+                            "backup",
+                            "restore",
+                            "recover",
+                            "purge",
+                        ],
+                        secrets=[
+                            "get",
+                            "list",
+                            "set",
+                            "delete",
+                            "backup",
+                            "restore",
+                            "recover",
+                            "purge",
+                        ],
+                    ),
+                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                }],
+                enabled_for_deployment=True,
+                enabled_for_disk_encryption=True,
+                enabled_for_template_deployment=True,
+                public_network_access="Enabled",
+                sku=azure_native.keyvault.v20230201.SkuArgs(
+                    family="A",
+                    name=azure_native.keyvault/v20230201.SkuName.STANDARD,
+                ),
+                tenant_id="00000000-0000-0000-0000-000000000000",
+            ),
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+        ### Create or update a vault with network acls
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.keyvault.v20230201.Vault("vault",
+            location="westus",
+            properties=azure_native.keyvault.v20230201.VaultPropertiesResponseArgs(
+                enabled_for_deployment=True,
+                enabled_for_disk_encryption=True,
+                enabled_for_template_deployment=True,
+                network_acls={
+                    "bypass": "AzureServices",
+                    "defaultAction": "Deny",
+                    "ipRules": [
+                        azure_native.keyvault.v20230201.IPRuleArgs(
+                            value="124.56.78.91",
+                        ),
+                        azure_native.keyvault.v20230201.IPRuleArgs(
+                            value="'10.91.4.0/24'",
+                        ),
+                    ],
+                    "virtualNetworkRules": [azure_native.keyvault.v20230201.VirtualNetworkRuleArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+                    )],
+                },
+                sku=azure_native.keyvault.v20230201.SkuArgs(
+                    family="A",
+                    name=azure_native.keyvault/v20230201.SkuName.STANDARD,
+                ),
+                tenant_id="00000000-0000-0000-0000-000000000000",
+            ),
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault/v20230201:Vault sample-vault /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-resource-group/providers/Microsoft.KeyVault/vaults/sample-vault 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The supported Azure location where the key vault should be created.
@@ -130,6 +250,126 @@ class Vault(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource information with extended details.
+
+        ## Example Usage
+        ### Create a new vault or update an existing vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.keyvault.v20230201.Vault("vault",
+            location="westus",
+            properties=azure_native.keyvault.v20230201.VaultPropertiesResponseArgs(
+                access_policies=[{
+                    "objectId": "00000000-0000-0000-0000-000000000000",
+                    "permissions": azure_native.keyvault.v20230201.PermissionsArgs(
+                        certificates=[
+                            "get",
+                            "list",
+                            "delete",
+                            "create",
+                            "import",
+                            "update",
+                            "managecontacts",
+                            "getissuers",
+                            "listissuers",
+                            "setissuers",
+                            "deleteissuers",
+                            "manageissuers",
+                            "recover",
+                            "purge",
+                        ],
+                        keys=[
+                            "encrypt",
+                            "decrypt",
+                            "wrapKey",
+                            "unwrapKey",
+                            "sign",
+                            "verify",
+                            "get",
+                            "list",
+                            "create",
+                            "update",
+                            "import",
+                            "delete",
+                            "backup",
+                            "restore",
+                            "recover",
+                            "purge",
+                        ],
+                        secrets=[
+                            "get",
+                            "list",
+                            "set",
+                            "delete",
+                            "backup",
+                            "restore",
+                            "recover",
+                            "purge",
+                        ],
+                    ),
+                    "tenantId": "00000000-0000-0000-0000-000000000000",
+                }],
+                enabled_for_deployment=True,
+                enabled_for_disk_encryption=True,
+                enabled_for_template_deployment=True,
+                public_network_access="Enabled",
+                sku=azure_native.keyvault.v20230201.SkuArgs(
+                    family="A",
+                    name=azure_native.keyvault/v20230201.SkuName.STANDARD,
+                ),
+                tenant_id="00000000-0000-0000-0000-000000000000",
+            ),
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+        ### Create or update a vault with network acls
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vault = azure_native.keyvault.v20230201.Vault("vault",
+            location="westus",
+            properties=azure_native.keyvault.v20230201.VaultPropertiesResponseArgs(
+                enabled_for_deployment=True,
+                enabled_for_disk_encryption=True,
+                enabled_for_template_deployment=True,
+                network_acls={
+                    "bypass": "AzureServices",
+                    "defaultAction": "Deny",
+                    "ipRules": [
+                        azure_native.keyvault.v20230201.IPRuleArgs(
+                            value="124.56.78.91",
+                        ),
+                        azure_native.keyvault.v20230201.IPRuleArgs(
+                            value="'10.91.4.0/24'",
+                        ),
+                    ],
+                    "virtualNetworkRules": [azure_native.keyvault.v20230201.VirtualNetworkRuleArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1",
+                    )],
+                },
+                sku=azure_native.keyvault.v20230201.SkuArgs(
+                    family="A",
+                    name=azure_native.keyvault/v20230201.SkuName.STANDARD,
+                ),
+                tenant_id="00000000-0000-0000-0000-000000000000",
+            ),
+            resource_group_name="sample-resource-group",
+            vault_name="sample-vault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:keyvault/v20230201:Vault sample-vault /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sample-resource-group/providers/Microsoft.KeyVault/vaults/sample-vault 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VaultArgs args: The arguments to use to populate this resource's properties.

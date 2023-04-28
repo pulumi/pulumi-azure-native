@@ -11,6 +11,871 @@ namespace Pulumi.AzureNative.Network.V20220901
 {
     /// <summary>
     /// LoadBalancer resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create load balancer
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new AzureNative.Network.V20220901.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.BackendAddressPoolArgs
+    ///             {
+    ///                 Name = "be-lb",
+    ///             },
+    ///         },
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 Name = "fe-lb",
+    ///                 Subnet = new AzureNative.Network.V20220901.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+    ///                 },
+    ///             },
+    ///         },
+    ///         InboundNatPools = new[] {},
+    ///         InboundNatRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.InboundNatRuleArgs
+    ///             {
+    ///                 BackendPort = 3389,
+    ///                 EnableFloatingIP = true,
+    ///                 EnableTcpReset = false,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 3389,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 Name = "in-nat-rule",
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         LoadBalancerName = "lb",
+    ///         LoadBalancingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendAddressPool = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+    ///                 },
+    ///                 BackendPort = 80,
+    ///                 EnableFloatingIP = true,
+    ///                 EnableTcpReset = false,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 80,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 LoadDistribution = "Default",
+    ///                 Name = "rulelb",
+    ///                 Probe = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+    ///                 },
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         Probes = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ProbeArgs
+    ///             {
+    ///                 IntervalInSeconds = 15,
+    ///                 Name = "probe-lb",
+    ///                 NumberOfProbes = 2,
+    ///                 Port = 80,
+    ///                 ProbeThreshold = 1,
+    ///                 Protocol = "Http",
+    ///                 RequestPath = "healthcheck.aspx",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create load balancer with Frontend IP in Zone 1
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new AzureNative.Network.V20220901.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.BackendAddressPoolArgs
+    ///             {
+    ///                 Name = "be-lb",
+    ///             },
+    ///         },
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 Name = "fe-lb",
+    ///                 Subnet = new AzureNative.Network.V20220901.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+    ///                 },
+    ///                 Zones = new[]
+    ///                 {
+    ///                     "1",
+    ///                 },
+    ///             },
+    ///         },
+    ///         InboundNatPools = new[] {},
+    ///         InboundNatRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.InboundNatRuleArgs
+    ///             {
+    ///                 BackendPort = 3389,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 3389,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 Name = "in-nat-rule",
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         LoadBalancerName = "lb",
+    ///         LoadBalancingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendAddressPool = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+    ///                 },
+    ///                 BackendPort = 80,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 80,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 LoadDistribution = "Default",
+    ///                 Name = "rulelb",
+    ///                 Probe = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+    ///                 },
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         OutboundRules = new[] {},
+    ///         Probes = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ProbeArgs
+    ///             {
+    ///                 IntervalInSeconds = 15,
+    ///                 Name = "probe-lb",
+    ///                 NumberOfProbes = 2,
+    ///                 Port = 80,
+    ///                 ProbeThreshold = 1,
+    ///                 Protocol = "Http",
+    ///                 RequestPath = "healthcheck.aspx",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20220901.Inputs.LoadBalancerSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create load balancer with Gateway Load Balancer Consumer configured
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new AzureNative.Network.V20220901.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.BackendAddressPoolArgs
+    ///             {
+    ///                 Name = "be-lb",
+    ///             },
+    ///         },
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 GatewayLoadBalancer = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb-provider",
+    ///                 },
+    ///                 Name = "fe-lb",
+    ///                 Subnet = new AzureNative.Network.V20220901.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+    ///                 },
+    ///             },
+    ///         },
+    ///         InboundNatPools = new[] {},
+    ///         InboundNatRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.InboundNatRuleArgs
+    ///             {
+    ///                 BackendPort = 3389,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 3389,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 Name = "in-nat-rule",
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         LoadBalancerName = "lb",
+    ///         LoadBalancingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendAddressPool = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+    ///                 },
+    ///                 BackendPort = 80,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 80,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 LoadDistribution = "Default",
+    ///                 Name = "rulelb",
+    ///                 Probe = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+    ///                 },
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         OutboundRules = new[] {},
+    ///         Probes = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ProbeArgs
+    ///             {
+    ///                 IntervalInSeconds = 15,
+    ///                 Name = "probe-lb",
+    ///                 NumberOfProbes = 2,
+    ///                 Port = 80,
+    ///                 ProbeThreshold = 1,
+    ///                 Protocol = "Http",
+    ///                 RequestPath = "healthcheck.aspx",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20220901.Inputs.LoadBalancerSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create load balancer with Gateway Load Balancer Provider configured with one Backend Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new AzureNative.Network.V20220901.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.BackendAddressPoolArgs
+    ///             {
+    ///                 Name = "be-lb",
+    ///                 TunnelInterfaces = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.GatewayLoadBalancerTunnelInterfaceArgs
+    ///                     {
+    ///                         Identifier = 900,
+    ///                         Port = 15000,
+    ///                         Protocol = "VXLAN",
+    ///                         Type = "Internal",
+    ///                     },
+    ///                     new AzureNative.Network.V20220901.Inputs.GatewayLoadBalancerTunnelInterfaceArgs
+    ///                     {
+    ///                         Identifier = 901,
+    ///                         Port = 15001,
+    ///                         Protocol = "VXLAN",
+    ///                         Type = "Internal",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 Name = "fe-lb",
+    ///                 Subnet = new AzureNative.Network.V20220901.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+    ///                 },
+    ///             },
+    ///         },
+    ///         InboundNatPools = new[] {},
+    ///         LoadBalancerName = "lb",
+    ///         LoadBalancingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendAddressPools = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+    ///                     },
+    ///                 },
+    ///                 BackendPort = 0,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 0,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 LoadDistribution = "Default",
+    ///                 Name = "rulelb",
+    ///                 Probe = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+    ///                 },
+    ///                 Protocol = "All",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         OutboundRules = new[] {},
+    ///         Probes = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ProbeArgs
+    ///             {
+    ///                 IntervalInSeconds = 15,
+    ///                 Name = "probe-lb",
+    ///                 NumberOfProbes = 2,
+    ///                 Port = 80,
+    ///                 ProbeThreshold = 1,
+    ///                 Protocol = "Http",
+    ///                 RequestPath = "healthcheck.aspx",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20220901.Inputs.LoadBalancerSkuArgs
+    ///         {
+    ///             Name = "Premium",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create load balancer with Gateway Load Balancer Provider configured with two Backend Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new AzureNative.Network.V20220901.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.BackendAddressPoolArgs
+    ///             {
+    ///                 Name = "be-lb1",
+    ///             },
+    ///             new AzureNative.Network.V20220901.Inputs.BackendAddressPoolArgs
+    ///             {
+    ///                 Name = "be-lb2",
+    ///             },
+    ///         },
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 Name = "fe-lb",
+    ///                 Subnet = new AzureNative.Network.V20220901.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+    ///                 },
+    ///             },
+    ///         },
+    ///         InboundNatPools = new[] {},
+    ///         LoadBalancerName = "lb",
+    ///         LoadBalancingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendAddressPool = null,
+    ///                 BackendAddressPools = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb1",
+    ///                     },
+    ///                     new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb2",
+    ///                     },
+    ///                 },
+    ///                 BackendPort = 0,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 0,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 LoadDistribution = "Default",
+    ///                 Name = "rulelb",
+    ///                 Probe = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+    ///                 },
+    ///                 Protocol = "All",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         OutboundRules = new[] {},
+    ///         Probes = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ProbeArgs
+    ///             {
+    ///                 IntervalInSeconds = 15,
+    ///                 Name = "probe-lb",
+    ///                 NumberOfProbes = 2,
+    ///                 Port = 80,
+    ///                 ProbeThreshold = 1,
+    ///                 Protocol = "Http",
+    ///                 RequestPath = "healthcheck.aspx",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20220901.Inputs.LoadBalancerSkuArgs
+    ///         {
+    ///             Name = "Premium",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create load balancer with Global Tier and one regional load balancer in its backend pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new AzureNative.Network.V20220901.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.BackendAddressPoolArgs
+    ///             {
+    ///                 LoadBalancerBackendAddresses = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.LoadBalancerBackendAddressArgs
+    ///                     {
+    ///                         LoadBalancerFrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                         {
+    ///                             Id = "/subscriptions/subid/resourceGroups/regional-lb-rg1/providers/Microsoft.Network/loadBalancers/regional-lb/frontendIPConfigurations/fe-rlb",
+    ///                         },
+    ///                         Name = "regional-lb1-address",
+    ///                     },
+    ///                 },
+    ///                 Name = "be-lb",
+    ///             },
+    ///         },
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 Name = "fe-lb",
+    ///                 Subnet = new AzureNative.Network.V20220901.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+    ///                 },
+    ///             },
+    ///         },
+    ///         LoadBalancerName = "lb",
+    ///         LoadBalancingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendAddressPool = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+    ///                 },
+    ///                 BackendPort = 80,
+    ///                 EnableFloatingIP = false,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 80,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 LoadDistribution = "Default",
+    ///                 Name = "rulelb",
+    ///                 Probe = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+    ///                 },
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         Probes = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ProbeArgs
+    ///             {
+    ///                 IntervalInSeconds = 15,
+    ///                 Name = "probe-lb",
+    ///                 NumberOfProbes = 2,
+    ///                 Port = 80,
+    ///                 ProbeThreshold = 1,
+    ///                 Protocol = "Http",
+    ///                 RequestPath = "healthcheck.aspx",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20220901.Inputs.LoadBalancerSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///             Tier = "Global",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create load balancer with Standard SKU
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new AzureNative.Network.V20220901.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.BackendAddressPoolArgs
+    ///             {
+    ///                 Name = "be-lb",
+    ///             },
+    ///         },
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 Name = "fe-lb",
+    ///                 Subnet = new AzureNative.Network.V20220901.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnetlb/subnets/subnetlb",
+    ///                 },
+    ///             },
+    ///         },
+    ///         InboundNatPools = new[] {},
+    ///         InboundNatRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.InboundNatRuleArgs
+    ///             {
+    ///                 BackendPort = 3389,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 3389,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 Name = "in-nat-rule",
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         LoadBalancerName = "lb",
+    ///         LoadBalancingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendAddressPool = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+    ///                 },
+    ///                 BackendPort = 80,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 80,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 LoadDistribution = "Default",
+    ///                 Name = "rulelb",
+    ///                 Probe = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+    ///                 },
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         OutboundRules = new[] {},
+    ///         Probes = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ProbeArgs
+    ///             {
+    ///                 IntervalInSeconds = 15,
+    ///                 Name = "probe-lb",
+    ///                 NumberOfProbes = 2,
+    ///                 Port = 80,
+    ///                 ProbeThreshold = 1,
+    ///                 Protocol = "Http",
+    ///                 RequestPath = "healthcheck.aspx",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20220901.Inputs.LoadBalancerSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create load balancer with inbound nat pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new AzureNative.Network.V20220901.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         BackendAddressPools = new[] {},
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
+    ///                 Name = "test",
+    ///                 PrivateIPAllocationMethod = "Dynamic",
+    ///                 Subnet = new AzureNative.Network.V20220901.Inputs.SubnetArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/lbvnet/subnets/lbsubnet",
+    ///                 },
+    ///                 Zones = new[] {},
+    ///             },
+    ///         },
+    ///         InboundNatPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.InboundNatPoolArgs
+    ///             {
+    ///                 BackendPort = 8888,
+    ///                 EnableFloatingIP = true,
+    ///                 EnableTcpReset = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/test",
+    ///                 },
+    ///                 FrontendPortRangeEnd = 8085,
+    ///                 FrontendPortRangeStart = 8080,
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/inboundNatPools/test",
+    ///                 IdleTimeoutInMinutes = 10,
+    ///                 Name = "test",
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         InboundNatRules = new[] {},
+    ///         LoadBalancerName = "lb",
+    ///         LoadBalancingRules = new[] {},
+    ///         Location = "eastus",
+    ///         OutboundRules = new[] {},
+    ///         Probes = new[] {},
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20220901.Inputs.LoadBalancerSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create load balancer with outbound rules
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var loadBalancer = new AzureNative.Network.V20220901.LoadBalancer("loadBalancer", new()
+    ///     {
+    ///         BackendAddressPools = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.BackendAddressPoolArgs
+    ///             {
+    ///                 Name = "be-lb",
+    ///             },
+    ///         },
+    ///         FrontendIPConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.FrontendIPConfigurationArgs
+    ///             {
+    ///                 Name = "fe-lb",
+    ///                 PublicIPAddress = new AzureNative.Network.V20220901.Inputs.PublicIPAddressArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pip",
+    ///                 },
+    ///             },
+    ///         },
+    ///         InboundNatPools = new[] {},
+    ///         InboundNatRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.InboundNatRuleArgs
+    ///             {
+    ///                 BackendPort = 3389,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 3389,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 Name = "in-nat-rule",
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         LoadBalancerName = "lb",
+    ///         LoadBalancingRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.LoadBalancingRuleArgs
+    ///             {
+    ///                 BackendAddressPool = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+    ///                 },
+    ///                 BackendPort = 80,
+    ///                 DisableOutboundSnat = true,
+    ///                 EnableFloatingIP = true,
+    ///                 FrontendIPConfiguration = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                 },
+    ///                 FrontendPort = 80,
+    ///                 IdleTimeoutInMinutes = 15,
+    ///                 LoadDistribution = "Default",
+    ///                 Name = "rulelb",
+    ///                 Probe = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/probes/probe-lb",
+    ///                 },
+    ///                 Protocol = "Tcp",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         OutboundRules = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.OutboundRuleArgs
+    ///             {
+    ///                 BackendAddressPool = new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/backendAddressPools/be-lb",
+    ///                 },
+    ///                 FrontendIPConfigurations = new[]
+    ///                 {
+    ///                     new AzureNative.Network.V20220901.Inputs.SubResourceArgs
+    ///                     {
+    ///                         Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb/frontendIPConfigurations/fe-lb",
+    ///                     },
+    ///                 },
+    ///                 Name = "rule1",
+    ///                 Protocol = "All",
+    ///             },
+    ///         },
+    ///         Probes = new[]
+    ///         {
+    ///             new AzureNative.Network.V20220901.Inputs.ProbeArgs
+    ///             {
+    ///                 IntervalInSeconds = 15,
+    ///                 Name = "probe-lb",
+    ///                 NumberOfProbes = 2,
+    ///                 Port = 80,
+    ///                 ProbeThreshold = 1,
+    ///                 Protocol = "Http",
+    ///                 RequestPath = "healthcheck.aspx",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20220901.Inputs.LoadBalancerSkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20220901:LoadBalancer lb /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/loadBalancers/lb 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20220901:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource

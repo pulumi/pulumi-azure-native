@@ -163,6 +163,61 @@ class Certificate(pulumi.CustomResource):
         """
         Contains information about a certificate.
 
+        ## Example Usage
+        ### CreateCertificate - Full
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.batch.v20220601.Certificate("certificate",
+            account_name="sampleacct",
+            certificate_name="sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+            data="MIIJsgIBAzCCCW4GCSqGSIb3DQE...",
+            format=azure_native.batch/v20220601.CertificateFormat.PFX,
+            password="<ExamplePassword>",
+            resource_group_name="default-azurebatch-japaneast",
+            thumbprint="0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+            thumbprint_algorithm="sha1")
+
+        ```
+        ### CreateCertificate - Minimal Cer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.batch.v20220601.Certificate("certificate",
+            account_name="sampleacct",
+            certificate_name="sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+            data="MIICrjCCAZagAwI...",
+            format=azure_native.batch/v20220601.CertificateFormat.CER,
+            resource_group_name="default-azurebatch-japaneast")
+
+        ```
+        ### CreateCertificate - Minimal Pfx
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.batch.v20220601.Certificate("certificate",
+            account_name="sampleacct",
+            certificate_name="sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+            data="MIIJsgIBAzCCCW4GCSqGSIb3DQE...",
+            password="<ExamplePassword>",
+            resource_group_name="default-azurebatch-japaneast")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:batch/v20220601:Certificate sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e /subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/samplecct/certificates/sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the Batch account.
@@ -182,6 +237,61 @@ class Certificate(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Contains information about a certificate.
+
+        ## Example Usage
+        ### CreateCertificate - Full
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.batch.v20220601.Certificate("certificate",
+            account_name="sampleacct",
+            certificate_name="sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+            data="MIIJsgIBAzCCCW4GCSqGSIb3DQE...",
+            format=azure_native.batch/v20220601.CertificateFormat.PFX,
+            password="<ExamplePassword>",
+            resource_group_name="default-azurebatch-japaneast",
+            thumbprint="0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+            thumbprint_algorithm="sha1")
+
+        ```
+        ### CreateCertificate - Minimal Cer
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.batch.v20220601.Certificate("certificate",
+            account_name="sampleacct",
+            certificate_name="sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+            data="MIICrjCCAZagAwI...",
+            format=azure_native.batch/v20220601.CertificateFormat.CER,
+            resource_group_name="default-azurebatch-japaneast")
+
+        ```
+        ### CreateCertificate - Minimal Pfx
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        certificate = azure_native.batch.v20220601.Certificate("certificate",
+            account_name="sampleacct",
+            certificate_name="sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e",
+            data="MIIJsgIBAzCCCW4GCSqGSIb3DQE...",
+            password="<ExamplePassword>",
+            resource_group_name="default-azurebatch-japaneast")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:batch/v20220601:Certificate sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e /subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/samplecct/certificates/sha1-0a0e4f50d51beadeac1d35afc5116098e7902e6e 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

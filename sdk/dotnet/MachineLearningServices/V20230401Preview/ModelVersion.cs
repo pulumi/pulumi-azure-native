@@ -11,6 +11,61 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20230401Preview
 {
     /// <summary>
     /// Azure Resource Manager resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### CreateOrUpdate Workspace Model Version.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var modelVersion = new AzureNative.MachineLearningServices.V20230401Preview.ModelVersion("modelVersion", new()
+    ///     {
+    ///         ModelVersionProperties = new AzureNative.MachineLearningServices.V20230401Preview.Inputs.ModelVersionArgs
+    ///         {
+    ///             Description = "string",
+    ///             Flavors = 
+    ///             {
+    ///                 { "string", new AzureNative.MachineLearningServices.V20230401Preview.Inputs.FlavorDataArgs
+    ///                 {
+    ///                     Data = 
+    ///                     {
+    ///                         { "string", "string" },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///             IsAnonymous = false,
+    ///             ModelType = "CustomModel",
+    ///             ModelUri = "string",
+    ///             Properties = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///             Tags = 
+    ///             {
+    ///                 { "string", "string" },
+    ///             },
+    ///         },
+    ///         Name = "string",
+    ///         ResourceGroupName = "test-rg",
+    ///         Version = "string",
+    ///         WorkspaceName = "my-aml-workspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20230401preview:ModelVersion string string 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20230401preview:ModelVersion")]
     public partial class ModelVersion : global::Pulumi.CustomResource

@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Security.V20190801
 {
     /// <summary>
     /// The device security group resource
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a device security group for the specified IoT hub resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deviceSecurityGroup = new AzureNative.Security.V20190801.DeviceSecurityGroup("deviceSecurityGroup", new()
+    ///     {
+    ///         DeviceSecurityGroupName = "samplesecuritygroup",
+    ///         ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub",
+    ///         TimeWindowRules = new[]
+    ///         {
+    ///             null,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20190801:DeviceSecurityGroup samplesecuritygroup /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/SampleRG/providers/Microsoft.Devices/iotHubs/sampleiothub/providers/Microsoft.Security/deviceSecurityGroups/samplesecuritygroup 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20190801:DeviceSecurityGroup")]
     public partial class DeviceSecurityGroup : global::Pulumi.CustomResource

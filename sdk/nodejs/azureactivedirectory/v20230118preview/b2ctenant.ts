@@ -7,6 +7,37 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### Create tenant
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const b2cTenant = new azure_native.azureactivedirectory.v20230118preview.B2CTenant("b2cTenant", {
+ *     countryCode: "US",
+ *     displayName: "Contoso",
+ *     isGoLocalTenant: true,
+ *     location: "United States",
+ *     resourceGroupName: "contosoResourceGroup",
+ *     resourceName: "contoso.onmicrosoft.com",
+ *     sku: {
+ *         name: "Standard",
+ *         tier: "A0",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azureactivedirectory/v20230118preview:B2CTenant contoso.onmicrosoft.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/b2cDirectories/contoso.onmicrosoft.com 
+ * ```
+ */
 export class B2CTenant extends pulumi.CustomResource {
     /**
      * Get an existing B2CTenant resource's state with the given name, ID, and optional extra

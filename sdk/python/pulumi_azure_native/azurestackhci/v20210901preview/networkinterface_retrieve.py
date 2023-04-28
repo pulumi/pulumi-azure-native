@@ -179,6 +179,40 @@ class NetworkinterfaceRetrieve(pulumi.CustomResource):
         """
         The network interface resource definition.
 
+        ## Example Usage
+        ### PutNetworkInterface
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        networkinterface_retrieve = azure_native.azurestackhci.v20210901preview.NetworkinterfaceRetrieve("networkinterfaceRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            ip_configurations=[{
+                "name": "ipconfig-sample",
+                "properties": {
+                    "subnet": azure_native.azurestackhci.v20210901preview.IpConfigurationSubnetArgs(
+                        id="test-vnet",
+                    ),
+                },
+            }],
+            location="West US2",
+            networkinterfaces_name="test-nic",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve test-nic /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkinterfaces/test-nic 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['InterfaceDNSSettingsArgs']] dns_settings: DNS Settings for the interface
@@ -198,6 +232,40 @@ class NetworkinterfaceRetrieve(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The network interface resource definition.
+
+        ## Example Usage
+        ### PutNetworkInterface
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        networkinterface_retrieve = azure_native.azurestackhci.v20210901preview.NetworkinterfaceRetrieve("networkinterfaceRetrieve",
+            extended_location=azure_native.azurestackhci.v20210901preview.ExtendedLocationArgs(
+                name="/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+                type="CustomLocation",
+            ),
+            ip_configurations=[{
+                "name": "ipconfig-sample",
+                "properties": {
+                    "subnet": azure_native.azurestackhci.v20210901preview.IpConfigurationSubnetArgs(
+                        id="test-vnet",
+                    ),
+                },
+            }],
+            location="West US2",
+            networkinterfaces_name="test-nic",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20210901preview:networkinterfaceRetrieve test-nic /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/networkinterfaces/test-nic 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkinterfaceRetrieveArgs args: The arguments to use to populate this resource's properties.

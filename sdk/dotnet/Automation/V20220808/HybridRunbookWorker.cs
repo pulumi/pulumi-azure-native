@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.Automation.V20220808
 {
     /// <summary>
     /// Definition of hybrid runbook worker.
+    /// 
+    /// ## Example Usage
+    /// ### Create a V2 hybrid runbook worker
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hybridRunbookWorker = new AzureNative.Automation.V20220808.HybridRunbookWorker("hybridRunbookWorker", new()
+    ///     {
+    ///         AutomationAccountName = "testaccount",
+    ///         HybridRunbookWorkerGroupName = "TestHybridGroup",
+    ///         HybridRunbookWorkerId = "c010ad12-ef14-4a2a-aa9e-ef22c4745ddd",
+    ///         ResourceGroupName = "rg",
+    ///         VmResourceId = "/subscriptions/vmsubid/resourceGroups/vmrg/providers/Microsoft.Compute/virtualMachines/vmname",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20220808:HybridRunbookWorker c010ad12-ef14-4a2a-aa9e-ef22c4745ddd /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/testaccount/hybridRunbookWorkerGroups/TestHybridGroup/hybridRunbookWorkers/c010ad12-ef14-4a2a-aa9e-ef22c4745ddd 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20220808:HybridRunbookWorker")]
     public partial class HybridRunbookWorker : global::Pulumi.CustomResource

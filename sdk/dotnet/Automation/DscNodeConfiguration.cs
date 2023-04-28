@@ -13,6 +13,82 @@ namespace Pulumi.AzureNative.Automation
     /// Definition of the dsc node configuration.
     /// API Version: 2022-08-08.
     /// Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create node configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dscNodeConfiguration = new AzureNative.Automation.DscNodeConfiguration("dscNodeConfiguration", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount20",
+    ///         Configuration = new AzureNative.Automation.Inputs.DscConfigurationAssociationPropertyArgs
+    ///         {
+    ///             Name = "configName",
+    ///         },
+    ///         IncrementNodeConfigurationBuild = true,
+    ///         Name = "configName.nodeConfigName",
+    ///         NodeConfigurationName = "configName.nodeConfigName",
+    ///         ResourceGroupName = "rg",
+    ///         Source = new AzureNative.Automation.Inputs.ContentSourceArgs
+    ///         {
+    ///             Hash = new AzureNative.Automation.Inputs.ContentHashArgs
+    ///             {
+    ///                 Algorithm = "sha256",
+    ///                 Value = "6DE256A57F01BFA29B88696D5E77A383D6E61484C7686E8DB955FA10ACE9FFE5",
+    ///             },
+    ///             Type = "embeddedContent",
+    ///             Value = @"
+    /// instance of MSFT_RoleResource as $MSFT_RoleResource1ref
+    /// {
+    /// ResourceID = ""[WindowsFeature]IIS"";
+    ///  Ensure = ""Present"";
+    ///  SourceInfo = ""::3::32::WindowsFeature"";
+    ///  Name = ""Web-Server"";
+    ///  ModuleName = ""PsDesiredStateConfiguration"";
+    /// 
+    /// ModuleVersion = ""1.0"";
+    ///  ConfigurationName = ""configName"";
+    /// };
+    /// instance of OMI_ConfigurationDocument
+    /// 
+    ///                     {
+    ///  Version=""2.0.0"";
+    ///  
+    ///                         MinimumCompatibleVersion = ""1.0.0"";
+    ///  
+    ///                         CompatibleVersionAdditionalProperties= {""Omi_BaseResource:ConfigurationName""};
+    ///  
+    ///                         Author=""weijiel"";
+    ///  
+    ///                         GenerationDate=""03/30/2017 13:40:25"";
+    ///  
+    ///                         GenerationHost=""TEST-BACKEND"";
+    ///  
+    ///                         Name=""configName"";
+    /// 
+    ///                     };
+    /// ",
+    ///             Version = "1.0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation:DscNodeConfiguration configName.nodeConfigName /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount20/nodeConfigurations/configName.nodeConfigName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation:DscNodeConfiguration")]
     public partial class DscNodeConfiguration : global::Pulumi.CustomResource

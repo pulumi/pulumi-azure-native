@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * A pool of Virtual Machines.
  * API Version: 2022-11-11-preview.
  * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Pools_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.devcenter.Pool("pool", {
+ *     devBoxDefinitionName: "WebDevBox",
+ *     licenseType: "Windows_Client",
+ *     localAdministrator: "Enabled",
+ *     location: "centralus",
+ *     networkConnectionName: "Network1-westus2",
+ *     poolName: "DevPool",
+ *     projectName: "DevProject",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter:Pool DevPool /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/DevProject/pools/DevPool 
+ * ```
  */
 export class Pool extends pulumi.CustomResource {
     /**

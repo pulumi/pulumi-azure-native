@@ -9,6 +9,69 @@ import * as utilities from "../../utilities";
 
 /**
  * The service resource.
+ *
+ * ## Example Usage
+ * ### Put a service with maximum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.servicefabric.v20210601.Service("service", {
+ *     applicationName: "myApp",
+ *     clusterName: "myCluster",
+ *     correlationScheme: [{
+ *         scheme: "Affinity",
+ *         serviceName: "fabric:/app1/app1~svc1",
+ *     }],
+ *     defaultMoveCost: "Medium",
+ *     partitionDescription: {
+ *         partitionScheme: "Singleton",
+ *     },
+ *     placementConstraints: "NodeType==frontend",
+ *     resourceGroupName: "resRg",
+ *     serviceDnsName: "my.service.dns",
+ *     serviceKind: "Stateless",
+ *     serviceLoadMetrics: [{
+ *         name: "metric1",
+ *         weight: "Low",
+ *     }],
+ *     serviceName: "myService",
+ *     servicePackageActivationMode: "SharedProcess",
+ *     servicePlacementPolicies: [],
+ *     serviceTypeName: "myServiceType",
+ *     tags: {},
+ * });
+ *
+ * ```
+ * ### Put a service with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const service = new azure_native.servicefabric.v20210601.Service("service", {
+ *     applicationName: "myApp",
+ *     clusterName: "myCluster",
+ *     partitionDescription: {
+ *         partitionScheme: "Singleton",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     serviceKind: "Stateless",
+ *     serviceName: "myService",
+ *     serviceTypeName: "myServiceType",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabric/v20210601:Service myCluster /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/resRg/providers/Microsoft.ServiceFabric/clusters/myCluster/applications/myApp/services/myService 
+ * ```
  */
 export class Service extends pulumi.CustomResource {
     /**

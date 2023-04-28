@@ -9,6 +9,146 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Command Job.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.machinelearningservices.v20210301preview.Job("job", {
+ *     id: "testJob",
+ *     properties: {
+ *         codeId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/mycode/versions/1",
+ *         command: "python file.py test",
+ *         compute: {
+ *             instanceCount: 1,
+ *             target: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mycompute",
+ *         },
+ *         description: "string",
+ *         distribution: {
+ *             distributionType: "PyTorch",
+ *             processCount: 2,
+ *         },
+ *         environmentId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/AzureML-Tutorial/versions/1",
+ *         environmentVariables: {
+ *             MY_ENV_VAR1: "string",
+ *             MY_ENV_VAR2: "string",
+ *         },
+ *         experimentName: "myExperiment",
+ *         identity: {
+ *             identityType: "AMLToken",
+ *         },
+ *         inputDataBindings: {
+ *             test: {
+ *                 dataId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/data/mydataset/versions/1",
+ *                 pathOnCompute: "path/on/compute",
+ *             },
+ *         },
+ *         jobType: "Command",
+ *         outputDataBindings: {
+ *             test: {
+ *                 datastoreId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/datastore/mydatastore",
+ *                 pathOnCompute: "path/on/compute",
+ *             },
+ *         },
+ *         properties: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         tags: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         timeout: "PT1M",
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdate Sweep Job.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const job = new azure_native.machinelearningservices.v20210301preview.Job("job", {
+ *     id: "testJob",
+ *     properties: {
+ *         algorithm: "Grid",
+ *         compute: {
+ *             instanceCount: 1,
+ *             target: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/computes/mycompute",
+ *         },
+ *         description: "string",
+ *         identity: {
+ *             identityType: "AMLToken",
+ *         },
+ *         jobType: "Sweep",
+ *         maxConcurrentTrials: 1,
+ *         maxTotalTrials: 1,
+ *         objective: {
+ *             goal: "Minimize",
+ *             primaryMetric: "string",
+ *         },
+ *         properties: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         searchSpace: {
+ *             name: {},
+ *         },
+ *         tags: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         timeout: "PT1M",
+ *         trial: {
+ *             codeId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/mycode/versions/1",
+ *             command: "python file.py test",
+ *             distribution: {
+ *                 distributionType: "PyTorch",
+ *                 processCount: 2,
+ *             },
+ *             environmentId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/AzureML-Tutorial/versions/1",
+ *             environmentVariables: {
+ *                 MY_ENV_VAR1: "string",
+ *                 MY_ENV_VAR2: "string",
+ *             },
+ *             inputDataBindings: {
+ *                 test: {
+ *                     dataId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/data/mydataset/versions/1",
+ *                     pathOnCompute: "path/on/compute",
+ *                 },
+ *             },
+ *             outputDataBindings: {
+ *                 test: {
+ *                     datastoreId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/datastore/mydatastore",
+ *                     pathOnCompute: "path/on/compute",
+ *                 },
+ *             },
+ *             timeout: "PT1M",
+ *         },
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     workspaceName: "testworkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20210301preview:Job testJob /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/jobs/testJob 
+ * ```
  */
 export class Job extends pulumi.CustomResource {
     /**

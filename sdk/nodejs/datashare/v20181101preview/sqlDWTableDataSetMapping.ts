@@ -6,6 +6,78 @@ import * as utilities from "../../utilities";
 
 /**
  * A SQL DW Table data set mapping.
+ *
+ * ## Example Usage
+ * ### DataSetMappings_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDWTableDataSetMapping = new azure_native.datashare.v20181101preview.SqlDWTableDataSetMapping("sqlDWTableDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDB_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDWTableDataSetMapping = new azure_native.datashare.v20181101preview.SqlDWTableDataSetMapping("sqlDWTableDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDWDataSetToAdlsGen2File_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDWTableDataSetMapping = new azure_native.datashare.v20181101preview.SqlDWTableDataSetMapping("sqlDWTableDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ * ### DataSetMappings_SqlDW_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlDWTableDataSetMapping = new azure_native.datashare.v20181101preview.SqlDWTableDataSetMapping("sqlDWTableDataSetMapping", {
+ *     accountName: "Account1",
+ *     dataSetId: "a08f184b-0567-4b11-ba22-a1199336d226",
+ *     dataSetMappingName: "DatasetMapping1",
+ *     dataWarehouseName: "DataWarehouse1",
+ *     kind: "SqlDWTable",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     schemaName: "dbo",
+ *     shareSubscriptionName: "ShareSubscription1",
+ *     sqlServerResourceId: "/subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.Sql/servers/Server1",
+ *     tableName: "Table1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20181101preview:SqlDWTableDataSetMapping DatasetMapping1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shareSubscriptions/ShareSubscription1/dataSetMappings/DatasetMapping1 
+ * ```
  */
 export class SqlDWTableDataSetMapping extends pulumi.CustomResource {
     /**

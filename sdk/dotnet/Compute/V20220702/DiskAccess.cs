@@ -11,6 +11,35 @@ namespace Pulumi.AzureNative.Compute.V20220702
 {
     /// <summary>
     /// disk access resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create a disk access resource.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diskAccess = new AzureNative.Compute.V20220702.DiskAccess("diskAccess", new()
+    ///     {
+    ///         DiskAccessName = "myDiskAccess",
+    ///         Location = "West US",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:compute/v20220702:DiskAccess myDiskAccess /subscriptions/{subscription-id}/resourceGroups/myResourcegroup/providers/Microsoft.Compute/diskAccesses/myDiskAccess 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:compute/v20220702:DiskAccess")]
     public partial class DiskAccess : global::Pulumi.CustomResource

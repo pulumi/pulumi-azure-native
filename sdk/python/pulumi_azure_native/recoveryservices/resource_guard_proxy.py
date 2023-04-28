@@ -144,6 +144,31 @@ class ResourceGuardProxy(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create ResourceGuardProxy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_guard_proxy = azure_native.recoveryservices.ResourceGuardProxy("resourceGuardProxy",
+            properties=azure_native.recoveryservices.ResourceGuardProxyBaseArgs(
+                resource_guard_resource_id="/subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew",
+            ),
+            resource_group_name="SampleResourceGroup",
+            resource_guard_proxy_name="swaggerExample",
+            vault_name="sampleVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ResourceGuardProxy swaggerExample /backupmanagement/resources/sampleVault/backupResourceGuardProxies/swaggerExample 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
@@ -162,6 +187,31 @@ class ResourceGuardProxy(pulumi.CustomResource):
         """
         API Version: 2023-02-01.
         Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create ResourceGuardProxy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        resource_guard_proxy = azure_native.recoveryservices.ResourceGuardProxy("resourceGuardProxy",
+            properties=azure_native.recoveryservices.ResourceGuardProxyBaseArgs(
+                resource_guard_resource_id="/subscriptions/c999d45b-944f-418c-a0d8-c3fcfd1802c8/resourceGroups/vaultguardRGNew/providers/Microsoft.DataProtection/resourceGuards/VaultGuardTestNew",
+            ),
+            resource_group_name="SampleResourceGroup",
+            resource_guard_proxy_name="swaggerExample",
+            vault_name="sampleVault")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:ResourceGuardProxy swaggerExample /backupmanagement/resources/sampleVault/backupResourceGuardProxies/swaggerExample 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourceGuardProxyArgs args: The arguments to use to populate this resource's properties.

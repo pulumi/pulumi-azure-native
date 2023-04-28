@@ -113,6 +113,35 @@ class CapacityReservationGroup(pulumi.CustomResource):
         """
         Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
 
+        ## Example Usage
+        ### Create or update a capacity reservation group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_reservation_group = azure_native.compute.v20210401.CapacityReservationGroup("capacityReservationGroup",
+            capacity_reservation_group_name="myCapacityReservationGroup",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            tags={
+                "department": "finance",
+            },
+            zones=[
+                "1",
+                "2",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210401:CapacityReservationGroup myCapacityReservationGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/CapacityReservationGroups/myCapacityReservationGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capacity_reservation_group_name: The name of the capacity reservation group.
@@ -129,6 +158,35 @@ class CapacityReservationGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the capacity reservation group that the capacity reservations should be assigned to. <br><br> Currently, a capacity reservation can only be added to a capacity reservation group at creation time. An existing capacity reservation cannot be added or moved to another capacity reservation group.
+
+        ## Example Usage
+        ### Create or update a capacity reservation group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        capacity_reservation_group = azure_native.compute.v20210401.CapacityReservationGroup("capacityReservationGroup",
+            capacity_reservation_group_name="myCapacityReservationGroup",
+            location="westus",
+            resource_group_name="myResourceGroup",
+            tags={
+                "department": "finance",
+            },
+            zones=[
+                "1",
+                "2",
+            ])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20210401:CapacityReservationGroup myCapacityReservationGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/CapacityReservationGroups/myCapacityReservationGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationGroupArgs args: The arguments to use to populate this resource's properties.

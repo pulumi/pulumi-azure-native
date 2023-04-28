@@ -111,6 +111,49 @@ class ModelVersion(pulumi.CustomResource):
         """
         Azure Resource Manager resource envelope.
 
+        ## Example Usage
+        ### CreateOrUpdate Model Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        model_version = azure_native.machinelearningservices.v20210301preview.ModelVersion("modelVersion",
+            name="testContainer",
+            properties=azure_native.machinelearningservices.v20210301preview.ModelVersionResponseArgs(
+                datastore_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/datastores/datastore123",
+                description="Model version description",
+                flavors={
+                    "python_function": azure_native.machinelearningservices.v20210301preview.FlavorDataArgs(
+                        data={
+                            "loader_module": "myLoaderModule",
+                        },
+                    ),
+                },
+                path="path/in/datastore",
+                properties={
+                    "prop1": "value1",
+                    "prop2": "value2",
+                },
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            resource_group_name="testrg123",
+            version="1",
+            workspace_name="workspace123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:ModelVersion 1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/models/testContainer/versions/1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: Container name.
@@ -127,6 +170,49 @@ class ModelVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Resource Manager resource envelope.
+
+        ## Example Usage
+        ### CreateOrUpdate Model Version.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        model_version = azure_native.machinelearningservices.v20210301preview.ModelVersion("modelVersion",
+            name="testContainer",
+            properties=azure_native.machinelearningservices.v20210301preview.ModelVersionResponseArgs(
+                datastore_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/datastores/datastore123",
+                description="Model version description",
+                flavors={
+                    "python_function": azure_native.machinelearningservices.v20210301preview.FlavorDataArgs(
+                        data={
+                            "loader_module": "myLoaderModule",
+                        },
+                    ),
+                },
+                path="path/in/datastore",
+                properties={
+                    "prop1": "value1",
+                    "prop2": "value2",
+                },
+                tags={
+                    "tag1": "value1",
+                    "tag2": "value2",
+                },
+            ),
+            resource_group_name="testrg123",
+            version="1",
+            workspace_name="workspace123")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20210301preview:ModelVersion 1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspace123/models/testContainer/versions/1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ModelVersionInitArgs args: The arguments to use to populate this resource's properties.

@@ -10,6 +10,48 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Cassandra table.
  *
+ * ## Example Usage
+ * ### CosmosDBCassandraTableCreateUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseAccountCassandraTable = new azure_native.documentdb.v20160331.DatabaseAccountCassandraTable("databaseAccountCassandraTable", {
+ *     accountName: "ddb1",
+ *     keyspaceName: "tableName",
+ *     options: {},
+ *     resource: {
+ *         defaultTtl: 100,
+ *         id: "tableName",
+ *         schema: {
+ *             clusterKeys: [{
+ *                 name: "columnA",
+ *                 orderBy: "Asc",
+ *             }],
+ *             columns: [{
+ *                 name: "columnA",
+ *                 type: "Ascii",
+ *             }],
+ *             partitionKeys: [{
+ *                 name: "columnA",
+ *             }],
+ *         },
+ *     },
+ *     resourceGroupName: "rg1",
+ *     tableName: "tableName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:documentdb/v20160331:DatabaseAccountCassandraTable tableName tableName 
+ * ```
+ *
  * @deprecated Version 2016-03-31 will be removed in v2 of the provider.
  */
 export class DatabaseAccountCassandraTable extends pulumi.CustomResource {

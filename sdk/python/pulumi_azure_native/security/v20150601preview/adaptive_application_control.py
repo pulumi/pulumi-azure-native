@@ -126,7 +126,27 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  vm_recommendations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VmRecommendationArgs']]]]] = None,
                  __props__=None):
         """
-        Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Update an application control VM/server group by adding a new file
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adaptive_application_control = azure_native.security.v20150601preview.AdaptiveApplicationControl("adaptiveApplicationControl",
+            asc_location="centralus",
+            group_name="ERELGROUP1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20150601preview:AdaptiveApplicationControl ERELGROUP1 /subscriptions/3eeab341-f466-499c-a8be-85427e154baf/providers/Microsoft.Security/locations/centralus/applicationWhitelistings/ERELGROUP1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] asc_location: The location where ASC stores the data of the subscription. can be retrieved from Get locations
@@ -141,7 +161,27 @@ class AdaptiveApplicationControl(pulumi.CustomResource):
                  args: AdaptiveApplicationControlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a AdaptiveApplicationControl resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Update an application control VM/server group by adding a new file
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adaptive_application_control = azure_native.security.v20150601preview.AdaptiveApplicationControl("adaptiveApplicationControl",
+            asc_location="centralus",
+            group_name="ERELGROUP1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20150601preview:AdaptiveApplicationControl ERELGROUP1 /subscriptions/3eeab341-f466-499c-a8be-85427e154baf/providers/Microsoft.Security/locations/centralus/applicationWhitelistings/ERELGROUP1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param AdaptiveApplicationControlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
 {
     /// <summary>
     /// Account resource details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update RecommendationsService Account resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var account = new AzureNative.RecommendationsService.V20220201.Account("account", new()
+    ///     {
+    ///         AccountName = "sampleAccount",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.RecommendationsService.V20220201.Inputs.AccountResourcePropertiesArgs
+    ///         {
+    ///             Configuration = "Capacity",
+    ///             EndpointAuthentications = new[]
+    ///             {
+    ///                 new AzureNative.RecommendationsService.V20220201.Inputs.EndpointAuthenticationArgs
+    ///                 {
+    ///                     AadTenantID = "tenant",
+    ///                     PrincipalID = "oid",
+    ///                     PrincipalType = "User",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Prod" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recommendationsservice/v20220201:Account sampleAccount /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice/v20220201:Account")]
     public partial class Account : global::Pulumi.CustomResource

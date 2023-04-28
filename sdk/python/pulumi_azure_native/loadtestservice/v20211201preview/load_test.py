@@ -132,6 +132,35 @@ class LoadTest(pulumi.CustomResource):
         """
         LoadTest details
 
+        ## Example Usage
+        ### LoadTests_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        load_test = azure_native.loadtestservice.v20211201preview.LoadTest("loadTest",
+            description="This is new load test resource",
+            identity=azure_native.loadtestservice.v20211201preview.SystemAssignedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            load_test_name="myLoadTest",
+            location="westus",
+            resource_group_name="dummyrg",
+            tags={
+                "Team": "Dev Exp",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:loadtestservice/v20211201preview:LoadTest myLoadTest /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.LoadTestService/loadTests/myLoadTest 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the resource.
@@ -149,6 +178,35 @@ class LoadTest(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         LoadTest details
+
+        ## Example Usage
+        ### LoadTests_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        load_test = azure_native.loadtestservice.v20211201preview.LoadTest("loadTest",
+            description="This is new load test resource",
+            identity=azure_native.loadtestservice.v20211201preview.SystemAssignedServiceIdentityResponseArgs(
+                type="SystemAssigned",
+            ),
+            load_test_name="myLoadTest",
+            location="westus",
+            resource_group_name="dummyrg",
+            tags={
+                "Team": "Dev Exp",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:loadtestservice/v20211201preview:LoadTest myLoadTest /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/dummyrg/providers/Microsoft.LoadTestService/loadTests/myLoadTest 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LoadTestArgs args: The arguments to use to populate this resource's properties.

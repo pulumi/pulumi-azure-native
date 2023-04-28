@@ -11,6 +11,74 @@ namespace Pulumi.AzureNative.Network.V20190801
 {
     /// <summary>
     /// A common class for general resource information.
+    /// 
+    /// ## Example Usage
+    /// ### UpdateVirtualNetworkGateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var virtualNetworkGateway = new AzureNative.Network.V20190801.VirtualNetworkGateway("virtualNetworkGateway", new()
+    ///     {
+    ///         ActiveActive = false,
+    ///         BgpSettings = new AzureNative.Network.V20190801.Inputs.BgpSettingsArgs
+    ///         {
+    ///             Asn = 65515,
+    ///             BgpPeeringAddress = "10.0.1.30",
+    ///             PeerWeight = 0,
+    ///         },
+    ///         CustomRoutes = new AzureNative.Network.V20190801.Inputs.AddressSpaceArgs
+    ///         {
+    ///             AddressPrefixes = new[]
+    ///             {
+    ///                 "101.168.0.6/32",
+    ///             },
+    ///         },
+    ///         EnableBgp = false,
+    ///         EnableDnsForwarding = true,
+    ///         GatewayType = "Vpn",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.V20190801.Inputs.VirtualNetworkGatewayIPConfigurationArgs
+    ///             {
+    ///                 Name = "gwipconfig1",
+    ///                 PrivateIPAllocationMethod = "Dynamic",
+    ///                 PublicIPAddress = new AzureNative.Network.V20190801.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+    ///                 },
+    ///                 Subnet = new AzureNative.Network.V20190801.Inputs.SubResourceArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "centralus",
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20190801.Inputs.VirtualNetworkGatewaySkuArgs
+    ///         {
+    ///             Name = "VpnGw1",
+    ///             Tier = "VpnGw1",
+    ///         },
+    ///         VirtualNetworkGatewayName = "vpngw",
+    ///         VpnType = "RouteBased",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20190801:VirtualNetworkGateway vpngw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20190801:VirtualNetworkGateway")]
     public partial class VirtualNetworkGateway : global::Pulumi.CustomResource

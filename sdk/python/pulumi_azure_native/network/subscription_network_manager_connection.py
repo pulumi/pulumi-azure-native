@@ -82,6 +82,27 @@ class SubscriptionNetworkManagerConnection(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or Update Subscription Network Manager Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_network_manager_connection = azure_native.network.SubscriptionNetworkManagerConnection("subscriptionNetworkManagerConnection",
+            network_manager_connection_name="TestNMConnection",
+            network_manager_id="/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:SubscriptionNetworkManagerConnection TestNMConnection /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/TestNMConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of the network manager connection.
@@ -98,6 +119,27 @@ class SubscriptionNetworkManagerConnection(pulumi.CustomResource):
         The Network Manager Connection resource
         API Version: 2022-09-01.
         Previous API Version: 2022-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or Update Subscription Network Manager Connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        subscription_network_manager_connection = azure_native.network.SubscriptionNetworkManagerConnection("subscriptionNetworkManagerConnection",
+            network_manager_connection_name="TestNMConnection",
+            network_manager_id="/subscriptions/subscriptionC/resourceGroup/rg1/providers/Microsoft.Network/networkManagers/testNetworkManager")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:SubscriptionNetworkManagerConnection TestNMConnection /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/TestNMConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubscriptionNetworkManagerConnectionArgs args: The arguments to use to populate this resource's properties.

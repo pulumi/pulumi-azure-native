@@ -11,6 +11,30 @@ namespace Pulumi.AzureNative.Network.V20180801
 {
     /// <summary>
     /// Class representing Traffic Manager User Metrics.
+    /// 
+    /// ## Example Usage
+    /// ### TrafficManagerUserMetricsKeys-PUT
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var trafficManagerUserMetricsKey = new AzureNative.Network.V20180801.TrafficManagerUserMetricsKey("trafficManagerUserMetricsKey");
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20180801:TrafficManagerUserMetricsKey default /providers/Microsoft.Network/trafficManagerUserMetricsKeys/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20180801:TrafficManagerUserMetricsKey")]
     public partial class TrafficManagerUserMetricsKey : global::Pulumi.CustomResource

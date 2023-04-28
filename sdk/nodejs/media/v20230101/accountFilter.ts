@@ -9,6 +9,75 @@ import * as utilities from "../../utilities";
 
 /**
  * An Account Filter.
+ *
+ * ## Example Usage
+ * ### Create an Account Filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accountFilter = new azure_native.media.v20230101.AccountFilter("accountFilter", {
+ *     accountName: "contosomedia",
+ *     filterName: "newAccountFilter",
+ *     firstQuality: {
+ *         bitrate: 128000,
+ *     },
+ *     presentationTimeRange: {
+ *         endTimestamp: 170000000,
+ *         forceEndTimestamp: false,
+ *         liveBackoffDuration: 0,
+ *         presentationWindowDuration: 9223372036854774784,
+ *         startTimestamp: 0,
+ *         timescale: 10000000,
+ *     },
+ *     resourceGroupName: "contosorg",
+ *     tracks: [
+ *         {
+ *             trackSelections: [
+ *                 {
+ *                     operation: "Equal",
+ *                     property: "Type",
+ *                     value: "Audio",
+ *                 },
+ *                 {
+ *                     operation: "NotEqual",
+ *                     property: "Language",
+ *                     value: "en",
+ *                 },
+ *                 {
+ *                     operation: "NotEqual",
+ *                     property: "FourCC",
+ *                     value: "EC-3",
+ *                 },
+ *             ],
+ *         },
+ *         {
+ *             trackSelections: [
+ *                 {
+ *                     operation: "Equal",
+ *                     property: "Type",
+ *                     value: "Video",
+ *                 },
+ *                 {
+ *                     operation: "Equal",
+ *                     property: "Bitrate",
+ *                     value: "3000000-5000000",
+ *                 },
+ *             ],
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media/v20230101:AccountFilter newAccountFilter /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/accountFilters/newAccountFilter 
+ * ```
  */
 export class AccountFilter extends pulumi.CustomResource {
     /**

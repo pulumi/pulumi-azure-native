@@ -595,6 +595,59 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning workspace.
 
+        ## Example Usage
+        ### Create Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.machinelearningservices.v20230401preview.Workspace("workspace",
+            application_insights="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+            container_registry="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+            description="test description",
+            encryption=azure_native.machinelearningservices.v20230401preview.EncryptionPropertyResponseArgs(
+                identity=azure_native.machinelearningservices.v20230401preview.IdentityForCmkArgs(
+                    user_assigned_identity="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testuai",
+                ),
+                key_vault_properties={
+                    "identityClientId": "",
+                    "keyIdentifier": "https://testkv.vault.azure.net/keys/testkey/aabbccddee112233445566778899aabb",
+                    "keyVaultArmId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+                },
+                status="Enabled",
+            ),
+            friendly_name="HelloName",
+            hbi_workspace=False,
+            identity=azure_native.machinelearningservices.v20230401preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned,UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testuai": {},
+                },
+            ),
+            key_vault="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+            location="eastus2euap",
+            resource_group_name="workspace-1234",
+            shared_private_link_resources=[azure_native.machinelearningservices.v20230401preview.SharedPrivateLinkResourceArgs(
+                group_id="Sql",
+                name="testdbresource",
+                private_link_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.DocumentDB/databaseAccounts/testdbresource/privateLinkResources/Sql",
+                request_message="Please approve",
+                status="Approved",
+            )],
+            storage_account="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:Workspace testworkspace /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_public_access_when_behind_vnet: The flag to indicate whether to allow public access when behind VNet.
@@ -638,6 +691,59 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents a machine learning workspace.
+
+        ## Example Usage
+        ### Create Workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.machinelearningservices.v20230401preview.Workspace("workspace",
+            application_insights="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+            container_registry="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+            description="test description",
+            encryption=azure_native.machinelearningservices.v20230401preview.EncryptionPropertyResponseArgs(
+                identity=azure_native.machinelearningservices.v20230401preview.IdentityForCmkArgs(
+                    user_assigned_identity="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testuai",
+                ),
+                key_vault_properties={
+                    "identityClientId": "",
+                    "keyIdentifier": "https://testkv.vault.azure.net/keys/testkey/aabbccddee112233445566778899aabb",
+                    "keyVaultArmId": "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+                },
+                status="Enabled",
+            ),
+            friendly_name="HelloName",
+            hbi_workspace=False,
+            identity=azure_native.machinelearningservices.v20230401preview.ManagedServiceIdentityResponseArgs(
+                type="SystemAssigned,UserAssigned",
+                user_assigned_identities={
+                    "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testuai": {},
+                },
+            ),
+            key_vault="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+            location="eastus2euap",
+            resource_group_name="workspace-1234",
+            shared_private_link_resources=[azure_native.machinelearningservices.v20230401preview.SharedPrivateLinkResourceArgs(
+                group_id="Sql",
+                name="testdbresource",
+                private_link_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.DocumentDB/databaseAccounts/testdbresource/privateLinkResources/Sql",
+                request_message="Please approve",
+                status="Approved",
+            )],
+            storage_account="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+            workspace_name="testworkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230401preview:Workspace testworkspace /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

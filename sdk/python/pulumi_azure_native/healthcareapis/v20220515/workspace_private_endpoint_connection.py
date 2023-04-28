@@ -96,6 +96,32 @@ class WorkspacePrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### WorkspacePrivateEndpointConnection_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_private_endpoint_connection = azure_native.healthcareapis.v20220515.WorkspacePrivateEndpointConnection("workspacePrivateEndpointConnection",
+            private_endpoint_connection_name="myConnection",
+            private_link_service_connection_state=azure_native.healthcareapis.v20220515.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection myConnection /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/workspaces/workspace1/privateEndpointConnections/myConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -111,6 +137,32 @@ class WorkspacePrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
+
+        ## Example Usage
+        ### WorkspacePrivateEndpointConnection_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_private_endpoint_connection = azure_native.healthcareapis.v20220515.WorkspacePrivateEndpointConnection("workspacePrivateEndpointConnection",
+            private_endpoint_connection_name="myConnection",
+            private_link_service_connection_state=azure_native.healthcareapis.v20220515.PrivateLinkServiceConnectionStateArgs(
+                description="Auto-Approved",
+                status="Approved",
+            ),
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection myConnection /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.HealthcareApis/workspaces/workspace1/privateEndpointConnections/myConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspacePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

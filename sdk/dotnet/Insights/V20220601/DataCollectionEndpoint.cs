@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.Insights.V20220601
 {
     /// <summary>
     /// Definition of ARM tracked top level resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update data collection endpoint
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataCollectionEndpoint = new AzureNative.Insights.V20220601.DataCollectionEndpoint("dataCollectionEndpoint", new()
+    ///     {
+    ///         DataCollectionEndpointName = "myCollectionEndpoint",
+    ///         Location = "eastus",
+    ///         NetworkAcls = new AzureNative.Insights.V20220601.Inputs.DataCollectionEndpointNetworkAclsArgs
+    ///         {
+    ///             PublicNetworkAccess = "Enabled",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:insights/v20220601:DataCollectionEndpoint myCollectionEndpoint /subscriptions/703362b3-f278-4e4b-9179-c76eaf41ffc2/resourceGroups/myResourceGroup/providers/Microsoft.Insights/dataCollectionEndpoints/myCollectionEndpoint 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:insights/v20220601:DataCollectionEndpoint")]
     public partial class DataCollectionEndpoint : global::Pulumi.CustomResource

@@ -9,6 +9,42 @@ import * as utilities from "../../utilities";
 
 /**
  * HANA instance info on Azure (ARM properties and HANA properties)
+ *
+ * ## Example Usage
+ * ### Create a HANA instance
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const hanaInstance = new azure_native.hanaonazure.v20171103preview.HanaInstance("hanaInstance", {
+ *     hanaInstanceName: "myHanaInstance",
+ *     location: "westus",
+ *     networkProfile: {
+ *         networkInterfaces: [{
+ *             ipAddress: "100.100.100.100",
+ *         }],
+ *     },
+ *     osProfile: {
+ *         computerName: "myComputerName",
+ *         sshPublicKey: "AAAAB3NzaC1yc2EAAAABJQAAAQB/nAmOjTmezNUDKYvEeIRf2YnwM9/uUG1d0BYsc8/tRtx+RGi7N2lUbp728MXGwdnL9od4cItzky/zVdLZE2cycOa18xBK9cOWmcKS0A8FYBxEQWJ/q9YVUgZbFKfYGaGQxsER+A0w/fX8ALuk78ktP31K69LcQgxIsl7rNzxsoOQKJ/CIxOGMMxczYTiEoLvQhapFQMs3FL96didKr/QbrfB1WT6s3838SEaXfgZvLef1YB2xmfhbT9OXFE3FXvh2UPBfN+ffE7iiayQf/2XR+8j4N4bW30DiPtOQLGUrH1y5X/rpNZNlWW2+jGIxqZtgWg7lTy3mXy5x836Sj/6L",
+ *     },
+ *     partnerNodeId: "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance2",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hanaonazure/v20171103preview:HanaInstance myHanaInstance /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.HanaOnAzure/hanaInstances/myHanaInstance 
+ * ```
  */
 export class HanaInstance extends pulumi.CustomResource {
     /**

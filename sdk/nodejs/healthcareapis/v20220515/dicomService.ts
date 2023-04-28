@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of Dicom Service
+ *
+ * ## Example Usage
+ * ### Create or update a Dicom Service
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dicomService = new azure_native.healthcareapis.v20220515.DicomService("dicomService", {
+ *     dicomServiceName: "blue",
+ *     location: "westus",
+ *     resourceGroupName: "testRG",
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:healthcareapis/v20220515:DicomService blue /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue 
+ * ```
  */
 export class DicomService extends pulumi.CustomResource {
     /**

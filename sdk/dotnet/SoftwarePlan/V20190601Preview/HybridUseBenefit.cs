@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.SoftwarePlan.V20190601Preview
 {
     /// <summary>
     /// Response on GET of a hybrid use benefit
+    /// 
+    /// ## Example Usage
+    /// ### HybridUseBenefit
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var hybridUseBenefit = new AzureNative.SoftwarePlan.V20190601Preview.HybridUseBenefit("hybridUseBenefit", new()
+    ///     {
+    ///         PlanId = "94f46eda-45f8-493a-8425-251921463a89",
+    ///         Scope = "subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}",
+    ///         Sku = new AzureNative.SoftwarePlan.V20190601Preview.Inputs.SkuArgs
+    ///         {
+    ///             Name = "SQL_Server_Perpetual",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:softwareplan/v20190601preview:HybridUseBenefit SQL_{hostGroupName}_{hostName} /subscriptions/{sub-id}/resourceGroups/{rg-name}/providers/Microsoft.Compute/HostGroups/{host-group-name}/hosts/{host-name}/providers/Microsoft.SoftwarePlan/hybridUseBenefits/SQL_{hostGroupName}_{hostName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:softwareplan/v20190601preview:HybridUseBenefit")]
     public partial class HybridUseBenefit : global::Pulumi.CustomResource

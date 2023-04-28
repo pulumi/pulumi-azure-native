@@ -10,6 +10,51 @@ import * as utilities from "../../utilities";
 /**
  * This type describes an application resource.
  *
+ * ## Example Usage
+ * ### ApplicationCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const application = new azure_native.servicefabricmesh.v20180701preview.Application("application", {
+ *     applicationName: "helloWorldApp",
+ *     description: "SeaBreeze HelloWorld Application!",
+ *     location: "EastUS",
+ *     resourceGroupName: "sbz_demo",
+ *     services: [{
+ *         codePackages: [{
+ *             endpoints: [{
+ *                 name: "helloWorldListener",
+ *                 port: 80,
+ *             }],
+ *             image: "seabreeze/sbz-helloworld:1.0-alpine",
+ *             name: "helloWorldCode",
+ *             resources: {
+ *                 requests: {
+ *                     cpu: 1,
+ *                     memoryInGB: 1,
+ *                 },
+ *             },
+ *         }],
+ *         description: "SeaBreeze Hello World Service.",
+ *         name: "helloWorldService",
+ *         osType: "linux",
+ *         replicaCount: 1,
+ *     }],
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:servicefabricmesh/v20180701preview:Application myHelloWorldApp /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/applications/myHelloWorldApp 
+ * ```
+ *
  * @deprecated Version 2018-07-01-preview will be removed in v2 of the provider.
  */
 export class Application extends pulumi.CustomResource {

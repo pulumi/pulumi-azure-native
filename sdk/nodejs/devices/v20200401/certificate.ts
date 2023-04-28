@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The X509 Certificate.
+ *
+ * ## Example Usage
+ * ### Certificates_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const certificate = new azure_native.devices.v20200401.Certificate("certificate", {
+ *     certificate: "############################################",
+ *     certificateName: "cert",
+ *     resourceGroupName: "myResourceGroup",
+ *     resourceName: "iothub",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devices/v20200401:Certificate cert /subscriptions/91d12660-3dec-467a-be2a-213b5544ddc0/resourceGroups/myResourceGroup/providers/Microsoft.Devices/ProvisioningServives/myFirstProvisioningService/certificates/cert 
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

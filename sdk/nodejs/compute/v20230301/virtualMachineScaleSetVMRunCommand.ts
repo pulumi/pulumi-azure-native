@@ -9,6 +9,58 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine run command.
+ *
+ * ## Example Usage
+ * ### Create VirtualMachineScaleSet VM run command.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineScaleSetVMRunCommand = new azure_native.compute.v20230301.VirtualMachineScaleSetVMRunCommand("virtualMachineScaleSetVMRunCommand", {
+ *     asyncExecution: false,
+ *     errorBlobManagedIdentity: {},
+ *     errorBlobUri: "https://mystorageaccount.blob.core.windows.net/mycontainer/MyScriptError.txt",
+ *     instanceId: "0",
+ *     location: "West US",
+ *     outputBlobManagedIdentity: {
+ *         clientId: "22d35efb-0c99-4041-8c5b-6d24db33a69a",
+ *     },
+ *     outputBlobUri: "https://mystorageaccount.blob.core.windows.net/myscriptoutputcontainer/MyScriptoutput.txt",
+ *     parameters: [
+ *         {
+ *             name: "param1",
+ *             value: "value1",
+ *         },
+ *         {
+ *             name: "param2",
+ *             value: "value2",
+ *         },
+ *     ],
+ *     resourceGroupName: "myResourceGroup",
+ *     runAsPassword: "<runAsPassword>",
+ *     runAsUser: "user1",
+ *     runCommandName: "myRunCommand",
+ *     source: {
+ *         scriptUri: "https://mystorageaccount.blob.core.windows.net/scriptcontainer/MyScript.ps1",
+ *         scriptUriManagedIdentity: {
+ *             objectId: "4231e4d2-33e4-4e23-96b2-17888afa6072",
+ *         },
+ *     },
+ *     timeoutInSeconds: 3600,
+ *     treatFailureAsDeploymentFailure: true,
+ *     vmScaleSetName: "myvmScaleSet",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20230301:VirtualMachineScaleSetVMRunCommand myRunCommand /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myvmScaleSet/virtualMachines/0/runCommands/myRunCommand 
+ * ```
  */
 export class VirtualMachineScaleSetVMRunCommand extends pulumi.CustomResource {
     /**

@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.Security.V20200101
 {
     /// <summary>
     /// Security assessment on a resource
+    /// 
+    /// ## Example Usage
+    /// ### Create security recommendation task on a resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var assessment = new AzureNative.Security.V20200101.Assessment("assessment", new()
+    ///     {
+    ///         AssessmentName = "8bb8be0a-6010-4789-812f-e4d661c4ed0e",
+    ///         ResourceDetails = new AzureNative.Security.V20200101.Inputs.AzureResourceDetailsArgs
+    ///         {
+    ///             Source = "Azure",
+    ///         },
+    ///         ResourceId = "subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss2",
+    ///         Status = new AzureNative.Security.V20200101.Inputs.AssessmentStatusArgs
+    ///         {
+    ///             Code = "Healthy",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:security/v20200101:Assessment 8bb8be0a-6010-4789-812f-e4d661c4ed0e /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/myRg/providers/Microsoft.Compute/virtualMachineScaleSets/vmss1/providers/Microsoft.Security/assessments/8bb8be0a-6010-4789-812f-e4d661c4ed0e 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:security/v20200101:Assessment")]
     public partial class Assessment : global::Pulumi.CustomResource

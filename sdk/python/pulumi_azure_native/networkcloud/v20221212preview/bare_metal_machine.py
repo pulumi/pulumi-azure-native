@@ -271,7 +271,49 @@ class BareMetalMachine(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a BareMetalMachine resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update bare metal machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bare_metal_machine = azure_native.networkcloud.v20221212preview.BareMetalMachine("bareMetalMachine",
+            bare_metal_machine_name="bareMetalMachineName",
+            bmc_connection_string="bmcconnectionstring",
+            bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                password="{password}",
+                username="bmcuser",
+            ),
+            bmc_mac_address="00:00:4f:00:57:00",
+            boot_mac_address="00:00:4e:00:58:af",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            machine_details="User-provided machine details.",
+            machine_name="r01c001",
+            machine_sku_id="684E-3B16-399E",
+            rack_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+            rack_slot=1,
+            resource_group_name="resourceGroupName",
+            serial_number="BM1219XXX",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:BareMetalMachine bareMetalMachineName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/bareMetalMachines/bareMetalMachineName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] bare_metal_machine_name: The name of the bare metal machine.
@@ -297,7 +339,49 @@ class BareMetalMachine(pulumi.CustomResource):
                  args: BareMetalMachineArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a BareMetalMachine resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update bare metal machine
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        bare_metal_machine = azure_native.networkcloud.v20221212preview.BareMetalMachine("bareMetalMachine",
+            bare_metal_machine_name="bareMetalMachineName",
+            bmc_connection_string="bmcconnectionstring",
+            bmc_credentials=azure_native.networkcloud.v20221212preview.AdministrativeCredentialsArgs(
+                password="{password}",
+                username="bmcuser",
+            ),
+            bmc_mac_address="00:00:4f:00:57:00",
+            boot_mac_address="00:00:4e:00:58:af",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            location="location",
+            machine_details="User-provided machine details.",
+            machine_name="r01c001",
+            machine_sku_id="684E-3B16-399E",
+            rack_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/racks/rackName",
+            rack_slot=1,
+            resource_group_name="resourceGroupName",
+            serial_number="BM1219XXX",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:BareMetalMachine bareMetalMachineName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/bareMetalMachines/bareMetalMachineName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param BareMetalMachineArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

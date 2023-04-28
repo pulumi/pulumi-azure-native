@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * Single item in List or Get Schema Group operation
  * API Version: 2021-11-01.
  * Previous API Version: 2022-01-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### SchemaRegistryCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const schemaRegistry = new azure_native.eventhub.SchemaRegistry("schemaRegistry", {
+ *     groupProperties: {},
+ *     namespaceName: "ali-ua-test-eh-system-1",
+ *     resourceGroupName: "alitest",
+ *     schemaCompatibility: "Forward",
+ *     schemaGroupName: "testSchemaGroup1",
+ *     schemaType: "Avro",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub:SchemaRegistry testSchemaGroup1 /subscriptions/e8baea74-64ce-459b-bee3-5aa4c47b3ae3/resourceGroups/alitest/providers/Microsoft.EventHub/namespaces/ali-ua-test-eh-system-1/schemagroups/testSchemaGroup1 
+ * ```
  */
 export class SchemaRegistry extends pulumi.CustomResource {
     /**

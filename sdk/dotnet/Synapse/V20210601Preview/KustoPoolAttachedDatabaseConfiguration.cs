@@ -11,6 +11,67 @@ namespace Pulumi.AzureNative.Synapse.V20210601Preview
 {
     /// <summary>
     /// Class representing an attached database configuration.
+    /// 
+    /// ## Example Usage
+    /// ### KustoPoolAttachedDatabaseConfigurationsCreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var kustoPoolAttachedDatabaseConfiguration = new AzureNative.Synapse.V20210601Preview.KustoPoolAttachedDatabaseConfiguration("kustoPoolAttachedDatabaseConfiguration", new()
+    ///     {
+    ///         AttachedDatabaseConfigurationName = "attachedDatabaseConfigurations1",
+    ///         DatabaseName = "kustodatabase",
+    ///         DefaultPrincipalsModificationKind = "Union",
+    ///         KustoPoolName = "kustoclusterrptest4",
+    ///         KustoPoolResourceId = "/subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/Workspaces/kustorptest/KustoPools/kustoclusterrptest4",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///         TableLevelSharingProperties = new AzureNative.Synapse.V20210601Preview.Inputs.TableLevelSharingPropertiesArgs
+    ///         {
+    ///             ExternalTablesToExclude = new[]
+    ///             {
+    ///                 "ExternalTable2",
+    ///             },
+    ///             ExternalTablesToInclude = new[]
+    ///             {
+    ///                 "ExternalTable1",
+    ///             },
+    ///             MaterializedViewsToExclude = new[]
+    ///             {
+    ///                 "MaterializedViewTable2",
+    ///             },
+    ///             MaterializedViewsToInclude = new[]
+    ///             {
+    ///                 "MaterializedViewTable1",
+    ///             },
+    ///             TablesToExclude = new[]
+    ///             {
+    ///                 "Table2",
+    ///             },
+    ///             TablesToInclude = new[]
+    ///             {
+    ///                 "Table1",
+    ///             },
+    ///         },
+    ///         WorkspaceName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration KustoClusterRPTest4/attachedDatabaseConfigurations1 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Synapse/Workspaces/kustorptest/KustoPools/kustoclusterrptest4/attachedDatabaseConfigurations/attachedDatabaseConfigurations1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210601preview:KustoPoolAttachedDatabaseConfiguration")]
     public partial class KustoPoolAttachedDatabaseConfiguration : global::Pulumi.CustomResource

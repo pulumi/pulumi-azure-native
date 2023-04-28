@@ -13,6 +13,54 @@ namespace Pulumi.AzureNative.App
     /// Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
     /// API Version: 2022-10-01.
     /// Previous API Version: 2022-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Container App AuthConfig
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var containerAppsAuthConfig = new AzureNative.App.ContainerAppsAuthConfig("containerAppsAuthConfig", new()
+    ///     {
+    ///         AuthConfigName = "current",
+    ///         ContainerAppName = "testcanadacentral",
+    ///         GlobalValidation = new AzureNative.App.Inputs.GlobalValidationArgs
+    ///         {
+    ///             UnauthenticatedClientAction = AzureNative.App.UnauthenticatedClientActionV2.AllowAnonymous,
+    ///         },
+    ///         IdentityProviders = new AzureNative.App.Inputs.IdentityProvidersArgs
+    ///         {
+    ///             Facebook = new AzureNative.App.Inputs.FacebookArgs
+    ///             {
+    ///                 Registration = new AzureNative.App.Inputs.AppRegistrationArgs
+    ///                 {
+    ///                     AppId = "123",
+    ///                     AppSecretSettingName = "facebook-secret",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Platform = new AzureNative.App.Inputs.AuthPlatformArgs
+    ///         {
+    ///             Enabled = true,
+    ///         },
+    ///         ResourceGroupName = "workerapps-rg-xj",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:app:ContainerAppsAuthConfig current /subscriptions/651f8027-33e8-4ec4-97b4-f6e9f3dc8744/resourceGroups/workerapps-rg-xj/providers/Microsoft.App/containerApps/myapp/authconfigs/current 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:app:ContainerAppsAuthConfig")]
     public partial class ContainerAppsAuthConfig : global::Pulumi.CustomResource

@@ -129,6 +129,31 @@ class ShareSubscription(pulumi.CustomResource):
         API Version: 2021-08-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### ShareSubscriptions_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        share_subscription = azure_native.datashare.ShareSubscription("shareSubscription",
+            account_name="Account1",
+            expiration_date="2020-08-26T22:33:24.5785265Z",
+            invitation_id="12345678-1234-1234-12345678abd",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1",
+            source_share_location="eastus2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:ShareSubscription ShareSubscription1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/sharesubscriptions/ShareSubscription1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The name of the share account.
@@ -148,6 +173,31 @@ class ShareSubscription(pulumi.CustomResource):
         A share subscription data transfer object.
         API Version: 2021-08-01.
         Previous API Version: 2020-09-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### ShareSubscriptions_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        share_subscription = azure_native.datashare.ShareSubscription("shareSubscription",
+            account_name="Account1",
+            expiration_date="2020-08-26T22:33:24.5785265Z",
+            invitation_id="12345678-1234-1234-12345678abd",
+            resource_group_name="SampleResourceGroup",
+            share_subscription_name="ShareSubscription1",
+            source_share_location="eastus2")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datashare:ShareSubscription ShareSubscription1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/sharesubscriptions/ShareSubscription1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ShareSubscriptionArgs args: The arguments to use to populate this resource's properties.

@@ -161,6 +161,31 @@ class ApiVersionSet(pulumi.CustomResource):
         """
         Api Version Set Contract details.
 
+        ## Example Usage
+        ### ApiManagementCreateApiVersionSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_version_set = azure_native.apimanagement.v20201201.ApiVersionSet("apiVersionSet",
+            description="Version configuration",
+            display_name="api set 1",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            version_set_id="api1",
+            versioning_scheme="Segment")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:ApiVersionSet api1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apiVersionSets/api1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of API Version Set.
@@ -180,6 +205,31 @@ class ApiVersionSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Api Version Set Contract details.
+
+        ## Example Usage
+        ### ApiManagementCreateApiVersionSet
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        api_version_set = azure_native.apimanagement.v20201201.ApiVersionSet("apiVersionSet",
+            description="Version configuration",
+            display_name="api set 1",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            version_set_id="api1",
+            versioning_scheme="Segment")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement/v20201201:ApiVersionSet api1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apiVersionSets/api1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ApiVersionSetArgs args: The arguments to use to populate this resource's properties.

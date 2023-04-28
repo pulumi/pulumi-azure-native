@@ -6,6 +6,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Static Site User Provided Function App ARM resource.
+ *
+ * ## Example Usage
+ * ### Register a user provided function app with a static site build
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const staticSiteUserProvidedFunctionAppForStaticSiteBuild = new azure_native.web.v20201201.StaticSiteUserProvidedFunctionAppForStaticSiteBuild("staticSiteUserProvidedFunctionAppForStaticSiteBuild", {
+ *     environmentName: "default",
+ *     functionAppName: "testFunctionApp",
+ *     functionAppRegion: "West US 2",
+ *     functionAppResourceId: "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/functionRG/providers/Microsoft.Web/sites/testFunctionApp",
+ *     isForced: true,
+ *     name: "testStaticSite0",
+ *     resourceGroupName: "rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201201:StaticSiteUserProvidedFunctionAppForStaticSiteBuild testFunctionApp /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/builds/default/userProvidedFunctionApps/testFunctionApp 
+ * ```
  */
 export class StaticSiteUserProvidedFunctionAppForStaticSiteBuild extends pulumi.CustomResource {
     /**

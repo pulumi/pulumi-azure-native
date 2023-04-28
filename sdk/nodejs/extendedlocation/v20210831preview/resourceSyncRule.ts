@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Resource Sync Rules definition.
+ *
+ * ## Example Usage
+ * ### Create/Update Resource Sync Rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const resourceSyncRule = new azure_native.extendedlocation.v20210831preview.ResourceSyncRule("resourceSyncRule", {
+ *     childResourceName: "resourceSyncRule01",
+ *     location: "West US",
+ *     priority: 999,
+ *     resourceGroupName: "testresourcegroup",
+ *     resourceName: "customLocation01",
+ *     selector: {
+ *         matchLabels: {
+ *             key1: "value1",
+ *         },
+ *     },
+ *     targetResourceGroup: "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:extendedlocation/v20210831preview:ResourceSyncRule resourceSyncRule01 /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/testresourcegroup/providers/Microsoft.ExtendedLocation/customLocations/customLocation01/resourcesyncrules/resourceSyncRule01 
+ * ```
  */
 export class ResourceSyncRule extends pulumi.CustomResource {
     /**

@@ -130,6 +130,33 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
         """
         PrivateEndpointConnection resource.
 
+        ## Example Usage
+        ### approve or reject private end point connection for a private link service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_service_private_endpoint_connection = azure_native.network.v20201101.PrivateLinkServicePrivateEndpointConnection("privateLinkServicePrivateEndpointConnection",
+            name="testPlePeConnection",
+            pe_connection_name="testPlePeConnection",
+            private_link_service_connection_state=azure_native.network.v20201101.PrivateLinkServiceConnectionStateArgs(
+                description="approved it for some reason.",
+                status="Approved",
+            ),
+            resource_group_name="rg1",
+            service_name="testPls")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:PrivateLinkServicePrivateEndpointConnection testPlePeConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices/{serviceName}/privateEndpointConnections/{peConnectionName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] id: Resource ID.
@@ -147,6 +174,33 @@ class PrivateLinkServicePrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         PrivateEndpointConnection resource.
+
+        ## Example Usage
+        ### approve or reject private end point connection for a private link service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_link_service_private_endpoint_connection = azure_native.network.v20201101.PrivateLinkServicePrivateEndpointConnection("privateLinkServicePrivateEndpointConnection",
+            name="testPlePeConnection",
+            pe_connection_name="testPlePeConnection",
+            private_link_service_connection_state=azure_native.network.v20201101.PrivateLinkServiceConnectionStateArgs(
+                description="approved it for some reason.",
+                status="Approved",
+            ),
+            resource_group_name="rg1",
+            service_name="testPls")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20201101:PrivateLinkServicePrivateEndpointConnection testPlePeConnection /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/privateLinkServices/{serviceName}/privateEndpointConnections/{peConnectionName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateLinkServicePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

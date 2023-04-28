@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * The IpGroups resource information.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate_IpGroups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const ipGroup = new azure_native.network.v20201101.IpGroup("ipGroup", {
+ *     ipAddresses: [
+ *         "13.64.39.16/32",
+ *         "40.74.146.80/31",
+ *         "40.74.147.32/28",
+ *     ],
+ *     ipGroupsName: "ipGroups1",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:IpGroup ipGroups1 /subscriptions/subId/providers/Microsoft.Network/resourceGroup/myResourceGroup/ipGroups/ipGroups1 
+ * ```
  */
 export class IpGroup extends pulumi.CustomResource {
     /**

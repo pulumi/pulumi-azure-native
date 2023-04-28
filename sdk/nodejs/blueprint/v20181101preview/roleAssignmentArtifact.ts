@@ -6,6 +6,102 @@ import * as utilities from "../../utilities";
 
 /**
  * Blueprint artifact that applies a Role assignment.
+ *
+ * ## Example Usage
+ * ### MG-ARMTemplateArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignmentArtifact = new azure_native.blueprint.v20181101preview.RoleAssignmentArtifact("roleAssignmentArtifact", {
+ *     artifactName: "storageTemplate",
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### MG-PolicyAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignmentArtifact = new azure_native.blueprint.v20181101preview.RoleAssignmentArtifact("roleAssignmentArtifact", {
+ *     artifactName: "costCenterPolicy",
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ * });
+ *
+ * ```
+ * ### MG-RoleAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignmentArtifact = new azure_native.blueprint.v20181101preview.RoleAssignmentArtifact("roleAssignmentArtifact", {
+ *     artifactName: "ownerAssignment",
+ *     blueprintName: "simpleBlueprint",
+ *     displayName: "enforce owners of given subscription",
+ *     kind: "roleAssignment",
+ *     principalIds: "[parameters('owners')]",
+ *     resourceScope: "providers/Microsoft.Management/managementGroups/ContosoOnlineGroup",
+ *     roleDefinitionId: "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+ * });
+ *
+ * ```
+ * ### Sub-ARMTemplateArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignmentArtifact = new azure_native.blueprint.v20181101preview.RoleAssignmentArtifact("roleAssignmentArtifact", {
+ *     artifactName: "storageTemplate",
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ * ### Sub-PolicyAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignmentArtifact = new azure_native.blueprint.v20181101preview.RoleAssignmentArtifact("roleAssignmentArtifact", {
+ *     artifactName: "costCenterPolicy",
+ *     blueprintName: "simpleBlueprint",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ * });
+ *
+ * ```
+ * ### Sub-RoleAssignmentArtifact
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const roleAssignmentArtifact = new azure_native.blueprint.v20181101preview.RoleAssignmentArtifact("roleAssignmentArtifact", {
+ *     artifactName: "ownerAssignment",
+ *     blueprintName: "simpleBlueprint",
+ *     displayName: "enforce owners of given subscription",
+ *     kind: "roleAssignment",
+ *     principalIds: "[parameters('owners')]",
+ *     resourceScope: "subscriptions/00000000-0000-0000-0000-000000000000",
+ *     roleDefinitionId: "/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:blueprint/v20181101preview:RoleAssignmentArtifact ownerAssignment /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprints/simpleBlueprint/artifacts/ownerAssignment 
+ * ```
  */
 export class RoleAssignmentArtifact extends pulumi.CustomResource {
     /**

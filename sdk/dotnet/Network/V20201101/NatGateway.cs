@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// Nat Gateway resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create nat gateway
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var natGateway = new AzureNative.Network.V20201101.NatGateway("natGateway", new()
+    ///     {
+    ///         Location = "westus",
+    ///         NatGatewayName = "test-natgateway",
+    ///         PublicIpAddresses = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/PublicIpAddress1",
+    ///             },
+    ///         },
+    ///         PublicIpPrefixes = new[]
+    ///         {
+    ///             new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///             {
+    ///                 Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPPrefixes/PublicIpPrefix1",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Sku = new AzureNative.Network.V20201101.Inputs.NatGatewaySkuArgs
+    ///         {
+    ///             Name = "Standard",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:NatGateway test-natGateway /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/natGateways/test-natGateway 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:NatGateway")]
     public partial class NatGateway : global::Pulumi.CustomResource

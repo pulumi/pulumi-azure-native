@@ -114,6 +114,37 @@ class DocumentProcessor(pulumi.CustomResource):
         """
         Document processor details
 
+        ## Example Usage
+        ### DocumentProcessor_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        document_processor = azure_native.syntex.v20220915preview.DocumentProcessor("documentProcessor",
+            location="westus",
+            processor_name="myprocessor",
+            properties=azure_native.syntex.v20220915preview.DocumentProcessorPropertiesResponseArgs(
+                spo_tenant_id="e9bb744b-9558-4dc6-9e50-a3297e3332fa",
+                spo_tenant_url="https://test123.sharepoint.com",
+            ),
+            resource_group_name="mygroup",
+            tags={
+                "additionalProp1": "string1",
+                "additionalProp2": "string2",
+                "additionalProp3": "string3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:syntex/v20220915preview:DocumentProcessor myprocessor /subscriptions/cd0d3cc8-cae2-4559-b882-cd707170799b/resourceGroups/mygroup/providers/Microsoft.Syntex/documentProcessors/myprocessor 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -130,6 +161,37 @@ class DocumentProcessor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Document processor details
+
+        ## Example Usage
+        ### DocumentProcessor_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        document_processor = azure_native.syntex.v20220915preview.DocumentProcessor("documentProcessor",
+            location="westus",
+            processor_name="myprocessor",
+            properties=azure_native.syntex.v20220915preview.DocumentProcessorPropertiesResponseArgs(
+                spo_tenant_id="e9bb744b-9558-4dc6-9e50-a3297e3332fa",
+                spo_tenant_url="https://test123.sharepoint.com",
+            ),
+            resource_group_name="mygroup",
+            tags={
+                "additionalProp1": "string1",
+                "additionalProp2": "string2",
+                "additionalProp3": "string3",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:syntex/v20220915preview:DocumentProcessor myprocessor /subscriptions/cd0d3cc8-cae2-4559-b882-cd707170799b/resourceGroups/mygroup/providers/Microsoft.Syntex/documentProcessors/myprocessor 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DocumentProcessorArgs args: The arguments to use to populate this resource's properties.

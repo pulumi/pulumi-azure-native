@@ -163,7 +163,126 @@ class Registry(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a Registry resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Registry with system created accounts.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.machinelearningservices.v20230201preview.Registry("registry",
+            identity=azure_native.machinelearningservices.v20230201preview.ManagedServiceIdentityResponseArgs(
+                type="None",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            registry_name="string",
+            registry_properties=azure_native.machinelearningservices.v20230201preview.RegistryResponseArgs(
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                region_details=[{
+                    "acrDetails": [{
+                        "systemCreatedAcrAccount": {
+                            "acrAccountSku": "string",
+                            "armResourceId": azure_native.machinelearningservices.v20230201preview.ArmResourceIdArgs(
+                                resource_id="string",
+                            ),
+                        },
+                    }],
+                    "location": "string",
+                    "storageAccountDetails": [{
+                        "systemCreatedStorageAccount": {
+                            "allowBlobPublicAccess": False,
+                            "armResourceId": azure_native.machinelearningservices.v20230201preview.ArmResourceIdArgs(
+                                resource_id="string",
+                            ),
+                            "storageAccountHnsEnabled": False,
+                            "storageAccountType": "string",
+                        },
+                    }],
+                }],
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20230201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20230201preview.SkuTier.BASIC,
+            ),
+            tags={})
+
+        ```
+        ### CreateOrUpdate Registry with user created accounts.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.machinelearningservices.v20230201preview.Registry("registry",
+            identity=azure_native.machinelearningservices.v20230201preview.ManagedServiceIdentityResponseArgs(
+                type="None",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            registry_name="string",
+            registry_properties=azure_native.machinelearningservices.v20230201preview.RegistryResponseArgs(
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                region_details=[{
+                    "acrDetails": [{
+                        "userCreatedAcrAccount": {
+                            "armResourceId": azure_native.machinelearningservices.v20230201preview.ArmResourceIdArgs(
+                                resource_id="string",
+                            ),
+                        },
+                    }],
+                    "location": "string",
+                    "storageAccountDetails": [{
+                        "userCreatedStorageAccount": {
+                            "armResourceId": azure_native.machinelearningservices.v20230201preview.ArmResourceIdArgs(
+                                resource_id="string",
+                            ),
+                        },
+                    }],
+                }],
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20230201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20230201preview.SkuTier.BASIC,
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:Registry string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities)
@@ -182,7 +301,126 @@ class Registry(pulumi.CustomResource):
                  args: RegistryInitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Registry resource with the given unique name, props, and options.
+        ## Example Usage
+        ### CreateOrUpdate Registry with system created accounts.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.machinelearningservices.v20230201preview.Registry("registry",
+            identity=azure_native.machinelearningservices.v20230201preview.ManagedServiceIdentityResponseArgs(
+                type="None",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            registry_name="string",
+            registry_properties=azure_native.machinelearningservices.v20230201preview.RegistryResponseArgs(
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                region_details=[{
+                    "acrDetails": [{
+                        "systemCreatedAcrAccount": {
+                            "acrAccountSku": "string",
+                            "armResourceId": azure_native.machinelearningservices.v20230201preview.ArmResourceIdArgs(
+                                resource_id="string",
+                            ),
+                        },
+                    }],
+                    "location": "string",
+                    "storageAccountDetails": [{
+                        "systemCreatedStorageAccount": {
+                            "allowBlobPublicAccess": False,
+                            "armResourceId": azure_native.machinelearningservices.v20230201preview.ArmResourceIdArgs(
+                                resource_id="string",
+                            ),
+                            "storageAccountHnsEnabled": False,
+                            "storageAccountType": "string",
+                        },
+                    }],
+                }],
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20230201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20230201preview.SkuTier.BASIC,
+            ),
+            tags={})
+
+        ```
+        ### CreateOrUpdate Registry with user created accounts.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        registry = azure_native.machinelearningservices.v20230201preview.Registry("registry",
+            identity=azure_native.machinelearningservices.v20230201preview.ManagedServiceIdentityResponseArgs(
+                type="None",
+                user_assigned_identities={
+                    "string": {},
+                },
+            ),
+            kind="string",
+            location="string",
+            registry_name="string",
+            registry_properties=azure_native.machinelearningservices.v20230201preview.RegistryResponseArgs(
+                description="string",
+                properties={
+                    "string": "string",
+                },
+                region_details=[{
+                    "acrDetails": [{
+                        "userCreatedAcrAccount": {
+                            "armResourceId": azure_native.machinelearningservices.v20230201preview.ArmResourceIdArgs(
+                                resource_id="string",
+                            ),
+                        },
+                    }],
+                    "location": "string",
+                    "storageAccountDetails": [{
+                        "userCreatedStorageAccount": {
+                            "armResourceId": azure_native.machinelearningservices.v20230201preview.ArmResourceIdArgs(
+                                resource_id="string",
+                            ),
+                        },
+                    }],
+                }],
+                tags={
+                    "string": "string",
+                },
+            ),
+            resource_group_name="test-rg",
+            sku=azure_native.machinelearningservices.v20230201preview.SkuResponseArgs(
+                capacity=1,
+                family="string",
+                name="string",
+                size="string",
+                tier=azure_native.machinelearningservices/v20230201preview.SkuTier.BASIC,
+            ),
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:machinelearningservices/v20230201preview:Registry string string 
+        ```
+
         :param str resource_name: The name of the resource.
         :param RegistryInitArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

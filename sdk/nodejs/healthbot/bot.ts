@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * Azure Health Bot resource definition
  * API Version: 2022-08-08.
  * Previous API Version: 2020-12-08. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### BotCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bot = new azure_native.healthbot.Bot("bot", {
+ *     botName: "samplebotname",
+ *     identity: {
+ *         type: azure_native.healthbot.ResourceIdentityType.SystemAssigned_UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi": {},
+ *             "/subscriptions/subscription-id/resourcegroups/myrg/providers/microsoft.managedidentity/userassignedidentities/my-mi2": {},
+ *         },
+ *     },
+ *     location: "East US",
+ *     resourceGroupName: "healthbotClient",
+ *     sku: {
+ *         name: azure_native.healthbot.SkuName.F0,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:healthbot:Bot samplebotname /subscriptions/subscription-id/resourceGroups/OneResourceGroupName/providers/Microsoft.HealthBot/healthBots/samplebotname 
+ * ```
  */
 export class Bot extends pulumi.CustomResource {
     /**

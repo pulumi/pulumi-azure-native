@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * An object that represents a scope map for a container registry.
  * API Version: 2022-12-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ScopeMapCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const scopeMap = new azure_native.containerregistry.ScopeMap("scopeMap", {
+ *     actions: [
+ *         "repositories/myrepository/contentWrite",
+ *         "repositories/myrepository/delete",
+ *     ],
+ *     description: "Developer Scopes",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     scopeMapName: "myScopeMap",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry:ScopeMap myScopeMap /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/scopeMaps/myScopeMap 
+ * ```
  */
 export class ScopeMap extends pulumi.CustomResource {
     /**

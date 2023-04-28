@@ -11,6 +11,32 @@ import * as utilities from "../utilities";
  * A private endpoint connection
  * API Version: 2023-01-01.
  * Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Update Private Endpoint Connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpointConnection = new azure_native.containerservice.PrivateEndpointConnection("privateEndpointConnection", {
+ *     privateEndpointConnectionName: "privateendpointconnection1",
+ *     privateLinkServiceConnectionState: {
+ *         status: "Approved",
+ *     },
+ *     resourceGroupName: "rg1",
+ *     resourceName: "clustername1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice:PrivateEndpointConnection privateendpointconnection1 /subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/managedCluster/clustername1/privateEndpointConnections/privateendpointconnection1 
+ * ```
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**

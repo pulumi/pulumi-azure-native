@@ -10,6 +10,29 @@ import * as utilities from "../../utilities";
 /**
  * The remediation definition.
  *
+ * ## Example Usage
+ * ### Create remediation at resource group scope
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const remediationAtResourceGroup = new azure_native.policyinsights.v20180701preview.RemediationAtResourceGroup("remediationAtResourceGroup", {
+ *     policyAssignmentId: "/subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/rg1/providers/microsoft.authorization/policyassignments/b101830944f246d8a14088c5",
+ *     remediationName: "storageRemediation",
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:policyinsights/v20180701preview:RemediationAtResourceGroup storageRemediation /subscriptions/35ee058e-5fa0-414c-8145-3ebb8d09b6e2/resourceGroups/rg1/providers/microsoft.policyinsights/remediations/storageRemediation 
+ * ```
+ *
  * @deprecated Version 2018-07-01-preview will be removed in v2 of the provider.
  */
 export class RemediationAtResourceGroup extends pulumi.CustomResource {

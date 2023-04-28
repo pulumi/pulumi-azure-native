@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * Profile of a lab user.
+ *
+ * ## Example Usage
+ * ### Users_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const user = new azure_native.devtestlab.v20180915.User("user", {
+ *     identity: {
+ *         appId: "{appId}",
+ *         objectId: "{objectId}",
+ *         principalId: "{principalId}",
+ *         principalName: "{principalName}",
+ *         tenantId: "{tenantId}",
+ *     },
+ *     labName: "{devtestlabName}",
+ *     location: "{location}",
+ *     name: "{userName}",
+ *     resourceGroupName: "resourceGroupName",
+ *     secretStore: {
+ *         keyVaultId: "{keyVaultId}",
+ *         keyVaultUri: "{keyVaultUri}",
+ *     },
+ *     tags: {
+ *         tagName1: "tagValue1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20180915:User myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{name} 
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

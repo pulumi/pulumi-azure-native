@@ -184,6 +184,69 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
         """
         A budget resource.
 
+        ## Example Usage
+        ### CreateOrUpdateBudget
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        budget_by_resource_group_name = azure_native.consumption.v20181001.BudgetByResourceGroupName("budgetByResourceGroupName",
+            amount=100.65,
+            budget_name="TestBudget",
+            category="Cost",
+            e_tag="\\"1d34d016a593709\\"",
+            filters=azure_native.consumption.v20181001.FiltersArgs(
+                meters=["00000000-0000-0000-0000-000000000000"],
+                resource_groups=["MYDEVTESTRG"],
+                resources=[
+                    "/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/MYVM2",
+                    "/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
+                ],
+                tags={
+                    "category": [
+                        "Dev",
+                        "Prod",
+                    ],
+                    "department": [
+                        "engineering",
+                        "sales",
+                    ],
+                },
+            ),
+            notifications={
+                "Actual_GreaterThan_80_Percent": azure_native.consumption.v20181001.NotificationArgs(
+                    contact_emails=[
+                        "johndoe@contoso.com",
+                        "janesmith@contoso.com",
+                    ],
+                    contact_groups=["/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/microsoft.insights/actionGroups/SampleActionGroup"],
+                    contact_roles=[
+                        "Contributor",
+                        "Reader",
+                    ],
+                    enabled=True,
+                    operator="GreaterThan",
+                    threshold=80,
+                ),
+            },
+            resource_group_name="MYDEVTESTRG",
+            time_grain="Monthly",
+            time_period=azure_native.consumption.v20181001.BudgetTimePeriodArgs(
+                end_date="2018-10-31T00:00:00Z",
+                start_date="2017-10-01T00:00:00Z",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:consumption/v20181001:BudgetByResourceGroupName TestBudget subscriptions/{subscription-id}/providers/Microsoft.Consumption/budgets/TestBudget 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[float] amount: The total amount of cost to track with the budget
@@ -204,6 +267,69 @@ class BudgetByResourceGroupName(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A budget resource.
+
+        ## Example Usage
+        ### CreateOrUpdateBudget
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        budget_by_resource_group_name = azure_native.consumption.v20181001.BudgetByResourceGroupName("budgetByResourceGroupName",
+            amount=100.65,
+            budget_name="TestBudget",
+            category="Cost",
+            e_tag="\\"1d34d016a593709\\"",
+            filters=azure_native.consumption.v20181001.FiltersArgs(
+                meters=["00000000-0000-0000-0000-000000000000"],
+                resource_groups=["MYDEVTESTRG"],
+                resources=[
+                    "/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/MYVM2",
+                    "/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/Microsoft.Compute/virtualMachines/platformcloudplatformGeneric1",
+                ],
+                tags={
+                    "category": [
+                        "Dev",
+                        "Prod",
+                    ],
+                    "department": [
+                        "engineering",
+                        "sales",
+                    ],
+                },
+            ),
+            notifications={
+                "Actual_GreaterThan_80_Percent": azure_native.consumption.v20181001.NotificationArgs(
+                    contact_emails=[
+                        "johndoe@contoso.com",
+                        "janesmith@contoso.com",
+                    ],
+                    contact_groups=["/subscriptions/{subscription-id}/resourceGroups/MYDEVTESTRG/providers/microsoft.insights/actionGroups/SampleActionGroup"],
+                    contact_roles=[
+                        "Contributor",
+                        "Reader",
+                    ],
+                    enabled=True,
+                    operator="GreaterThan",
+                    threshold=80,
+                ),
+            },
+            resource_group_name="MYDEVTESTRG",
+            time_grain="Monthly",
+            time_period=azure_native.consumption.v20181001.BudgetTimePeriodArgs(
+                end_date="2018-10-31T00:00:00Z",
+                start_date="2017-10-01T00:00:00Z",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:consumption/v20181001:BudgetByResourceGroupName TestBudget subscriptions/{subscription-id}/providers/Microsoft.Consumption/budgets/TestBudget 
+        ```
 
         :param str resource_name: The name of the resource.
         :param BudgetByResourceGroupNameArgs args: The arguments to use to populate this resource's properties.

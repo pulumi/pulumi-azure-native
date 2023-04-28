@@ -9,6 +9,72 @@ import * as utilities from "../../utilities";
 
 /**
  * Managed instance's Start/Stop schedule.
+ *
+ * ## Example Usage
+ * ### Creates or updates the managed instance's Start/Stop schedule with all optional parameters specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const startStopManagedInstanceSchedule = new azure_native.sql.v20220801preview.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule", {
+ *     description: "This is a schedule for our Dev/Test environment.",
+ *     managedInstanceName: "schedulemi",
+ *     resourceGroupName: "schedulerg",
+ *     scheduleList: [
+ *         {
+ *             startDay: "Thursday",
+ *             startTime: "18:00",
+ *             stopDay: "Thursday",
+ *             stopTime: "17:00",
+ *         },
+ *         {
+ *             startDay: "Thursday",
+ *             startTime: "15:00",
+ *             stopDay: "Thursday",
+ *             stopTime: "14:00",
+ *         },
+ *     ],
+ *     startStopScheduleName: "default",
+ *     timeZoneId: "Central European Standard Time",
+ * });
+ *
+ * ```
+ * ### Creates or updates the managed instance's Start/Stop schedule with no optional parameters specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const startStopManagedInstanceSchedule = new azure_native.sql.v20220801preview.StartStopManagedInstanceSchedule("startStopManagedInstanceSchedule", {
+ *     managedInstanceName: "schedulemi",
+ *     resourceGroupName: "schedulerg",
+ *     scheduleList: [
+ *         {
+ *             startDay: "Thursday",
+ *             startTime: "18:00",
+ *             stopDay: "Thursday",
+ *             stopTime: "17:00",
+ *         },
+ *         {
+ *             startDay: "Thursday",
+ *             startTime: "15:00",
+ *             stopDay: "Thursday",
+ *             stopTime: "14:00",
+ *         },
+ *     ],
+ *     startStopScheduleName: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:StartStopManagedInstanceSchedule default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/schedulerg/providers/Microsoft.Sql/managedInstances/schedulemi/startStopSchedules/default 
+ * ```
  */
 export class StartStopManagedInstanceSchedule extends pulumi.CustomResource {
     /**

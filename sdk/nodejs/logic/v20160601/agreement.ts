@@ -9,6 +9,181 @@ import * as utilities from "../../utilities";
 
 /**
  * The integration account agreement.
+ *
+ * ## Example Usage
+ * ### Create or update an agreement
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const agreement = new azure_native.logic.v20160601.Agreement("agreement", {
+ *     agreementName: "testAgreement",
+ *     agreementType: azure_native.logic.v20160601.AgreementType.AS2,
+ *     content: {
+ *         aS2: {
+ *             receiveAgreement: {
+ *                 protocolSettings: {
+ *                     acknowledgementConnectionSettings: {
+ *                         ignoreCertificateNameMismatch: true,
+ *                         keepHttpConnectionAlive: true,
+ *                         supportHttpStatusCodeContinue: true,
+ *                         unfoldHttpHeaders: true,
+ *                     },
+ *                     envelopeSettings: {
+ *                         autogenerateFileName: true,
+ *                         fileNameTemplate: "Test",
+ *                         messageContentType: "text/plain",
+ *                         suspendMessageOnFileNameGenerationError: true,
+ *                         transmitFileNameInMimeHeader: true,
+ *                     },
+ *                     errorSettings: {
+ *                         resendIfMdnNotReceived: true,
+ *                         suspendDuplicateMessage: true,
+ *                     },
+ *                     mdnSettings: {
+ *                         dispositionNotificationTo: "http://tempuri.org",
+ *                         mdnText: "Sample",
+ *                         micHashingAlgorithm: azure_native.logic.v20160601.HashingAlgorithm.SHA1,
+ *                         needMdn: true,
+ *                         receiptDeliveryUrl: "http://tempuri.org",
+ *                         sendInboundMdnToMessageBox: true,
+ *                         sendMdnAsynchronously: true,
+ *                         signMdn: true,
+ *                         signOutboundMdnIfOptional: true,
+ *                     },
+ *                     messageConnectionSettings: {
+ *                         ignoreCertificateNameMismatch: true,
+ *                         keepHttpConnectionAlive: true,
+ *                         supportHttpStatusCodeContinue: true,
+ *                         unfoldHttpHeaders: true,
+ *                     },
+ *                     securitySettings: {
+ *                         enableNrrForInboundDecodedMessages: true,
+ *                         enableNrrForInboundEncodedMessages: true,
+ *                         enableNrrForInboundMdn: true,
+ *                         enableNrrForOutboundDecodedMessages: true,
+ *                         enableNrrForOutboundEncodedMessages: true,
+ *                         enableNrrForOutboundMdn: true,
+ *                         overrideGroupSigningCertificate: false,
+ *                     },
+ *                     validationSettings: {
+ *                         checkCertificateRevocationListOnReceive: true,
+ *                         checkCertificateRevocationListOnSend: true,
+ *                         checkDuplicateMessage: true,
+ *                         compressMessage: true,
+ *                         encryptMessage: false,
+ *                         encryptionAlgorithm: azure_native.logic.v20160601.EncryptionAlgorithm.AES128,
+ *                         interchangeDuplicatesValidityDays: 100,
+ *                         overrideMessageProperties: true,
+ *                         signMessage: false,
+ *                     },
+ *                 },
+ *                 receiverBusinessIdentity: {
+ *                     qualifier: "ZZ",
+ *                     value: "ZZ",
+ *                 },
+ *                 senderBusinessIdentity: {
+ *                     qualifier: "AA",
+ *                     value: "AA",
+ *                 },
+ *             },
+ *             sendAgreement: {
+ *                 protocolSettings: {
+ *                     acknowledgementConnectionSettings: {
+ *                         ignoreCertificateNameMismatch: true,
+ *                         keepHttpConnectionAlive: true,
+ *                         supportHttpStatusCodeContinue: true,
+ *                         unfoldHttpHeaders: true,
+ *                     },
+ *                     envelopeSettings: {
+ *                         autogenerateFileName: true,
+ *                         fileNameTemplate: "Test",
+ *                         messageContentType: "text/plain",
+ *                         suspendMessageOnFileNameGenerationError: true,
+ *                         transmitFileNameInMimeHeader: true,
+ *                     },
+ *                     errorSettings: {
+ *                         resendIfMdnNotReceived: true,
+ *                         suspendDuplicateMessage: true,
+ *                     },
+ *                     mdnSettings: {
+ *                         dispositionNotificationTo: "http://tempuri.org",
+ *                         mdnText: "Sample",
+ *                         micHashingAlgorithm: azure_native.logic.v20160601.HashingAlgorithm.SHA1,
+ *                         needMdn: true,
+ *                         receiptDeliveryUrl: "http://tempuri.org",
+ *                         sendInboundMdnToMessageBox: true,
+ *                         sendMdnAsynchronously: true,
+ *                         signMdn: true,
+ *                         signOutboundMdnIfOptional: true,
+ *                     },
+ *                     messageConnectionSettings: {
+ *                         ignoreCertificateNameMismatch: true,
+ *                         keepHttpConnectionAlive: true,
+ *                         supportHttpStatusCodeContinue: true,
+ *                         unfoldHttpHeaders: true,
+ *                     },
+ *                     securitySettings: {
+ *                         enableNrrForInboundDecodedMessages: true,
+ *                         enableNrrForInboundEncodedMessages: true,
+ *                         enableNrrForInboundMdn: true,
+ *                         enableNrrForOutboundDecodedMessages: true,
+ *                         enableNrrForOutboundEncodedMessages: true,
+ *                         enableNrrForOutboundMdn: true,
+ *                         overrideGroupSigningCertificate: false,
+ *                     },
+ *                     validationSettings: {
+ *                         checkCertificateRevocationListOnReceive: true,
+ *                         checkCertificateRevocationListOnSend: true,
+ *                         checkDuplicateMessage: true,
+ *                         compressMessage: true,
+ *                         encryptMessage: false,
+ *                         encryptionAlgorithm: azure_native.logic.v20160601.EncryptionAlgorithm.AES128,
+ *                         interchangeDuplicatesValidityDays: 100,
+ *                         overrideMessageProperties: true,
+ *                         signMessage: false,
+ *                     },
+ *                 },
+ *                 receiverBusinessIdentity: {
+ *                     qualifier: "AA",
+ *                     value: "AA",
+ *                 },
+ *                 senderBusinessIdentity: {
+ *                     qualifier: "ZZ",
+ *                     value: "ZZ",
+ *                 },
+ *             },
+ *         },
+ *     },
+ *     guestIdentity: {
+ *         qualifier: "AA",
+ *         value: "AA",
+ *     },
+ *     guestPartner: "GuestPartner",
+ *     hostIdentity: {
+ *         qualifier: "ZZ",
+ *         value: "ZZ",
+ *     },
+ *     hostPartner: "HostPartner",
+ *     integrationAccountName: "testIntegrationAccount",
+ *     location: "westus",
+ *     metadata: {},
+ *     resourceGroupName: "testResourceGroup",
+ *     tags: {
+ *         IntegrationAccountAgreement: "<IntegrationAccountAgreementName>",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logic/v20160601:Agreement <IntegrationAccountAgreementName> /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Logic/integrationAccounts/IntegrationAccount4533/agreements/<IntegrationAccountAgreementName> 
+ * ```
  */
 export class Agreement extends pulumi.CustomResource {
     /**

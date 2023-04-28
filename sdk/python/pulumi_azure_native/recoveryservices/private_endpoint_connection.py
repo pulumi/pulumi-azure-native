@@ -150,6 +150,38 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2023-02-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update PrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.recoveryservices.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
+            properties=azure_native.recoveryservices.PrivateEndpointConnectionResponseArgs(
+                private_endpoint=azure_native.recoveryservices.PrivateEndpointArgs(
+                    id="/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.Network/privateEndpoints/gaallatestpe3",
+                ),
+                private_link_service_connection_state=azure_native.recoveryservices.PrivateLinkServiceConnectionStateArgs(
+                    description="Approved by johndoe@company.com",
+                    status="Approved",
+                ),
+                provisioning_state="Succeeded",
+            ),
+            resource_group_name="gaallaRG",
+            vault_name="gaallavaultbvtd2msi")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:PrivateEndpointConnection gaallatestpe1.3592346090307038890.backup.5704c932-249a-490b-a142-1396838cd3b /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.RecoveryServicesBVTD2/vaults/gaallavaultbvtd2msi/privateEndpointConnections/gaallatestpe3.3592346090307038890.backup.5704c932-249a-490b-a142-1396838cd3b 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: Optional ETag.
@@ -170,6 +202,38 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         Private Endpoint Connection Response Properties
         API Version: 2023-02-01.
         Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update PrivateEndpointConnection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.recoveryservices.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="gaallatestpe2.5704c932-249a-490b-a142-1396838cd3b",
+            properties=azure_native.recoveryservices.PrivateEndpointConnectionResponseArgs(
+                private_endpoint=azure_native.recoveryservices.PrivateEndpointArgs(
+                    id="/subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.Network/privateEndpoints/gaallatestpe3",
+                ),
+                private_link_service_connection_state=azure_native.recoveryservices.PrivateLinkServiceConnectionStateArgs(
+                    description="Approved by johndoe@company.com",
+                    status="Approved",
+                ),
+                provisioning_state="Succeeded",
+            ),
+            resource_group_name="gaallaRG",
+            vault_name="gaallavaultbvtd2msi")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices:PrivateEndpointConnection gaallatestpe1.3592346090307038890.backup.5704c932-249a-490b-a142-1396838cd3b /subscriptions/04cf684a-d41f-4550-9f70-7708a3a2283b/resourceGroups/gaallaRG/providers/Microsoft.RecoveryServicesBVTD2/vaults/gaallavaultbvtd2msi/privateEndpointConnections/gaallatestpe3.3592346090307038890.backup.5704c932-249a-490b-a142-1396838cd3b 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

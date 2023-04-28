@@ -11,6 +11,62 @@ namespace Pulumi.AzureNative.MobileNetwork.V20220401Preview
 {
     /// <summary>
     /// SIM resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create SIM
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sim = new AzureNative.MobileNetwork.V20220401Preview.Sim("sim", new()
+    ///     {
+    ///         AuthenticationKey = "00000000000000000000000000000000",
+    ///         DeviceType = "Video camera",
+    ///         IntegratedCircuitCardIdentifier = "8900000000000000000",
+    ///         InternationalMobileSubscriberIdentity = "00000",
+    ///         OperatorKeyCode = "00000000000000000000000000000000",
+    ///         ResourceGroupName = "rg1",
+    ///         SimGroupName = "testSimGroup",
+    ///         SimName = "testSim",
+    ///         SimPolicy = new AzureNative.MobileNetwork.V20220401Preview.Inputs.SimPolicyResourceIdArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/simPolicies/MySimPolicy",
+    ///         },
+    ///         StaticIpConfiguration = new[]
+    ///         {
+    ///             new AzureNative.MobileNetwork.V20220401Preview.Inputs.SimStaticIpPropertiesArgs
+    ///             {
+    ///                 AttachedDataNetwork = new AzureNative.MobileNetwork.V20220401Preview.Inputs.AttachedDataNetworkResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/TestPacketCoreCP/packetCoreDataPlanes/TestPacketCoreDP/attachedDataNetworks/TestAttachedDataNetwork",
+    ///                 },
+    ///                 Slice = new AzureNative.MobileNetwork.V20220401Preview.Inputs.SliceResourceIdArgs
+    ///                 {
+    ///                     Id = "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/mobileNetworks/testMobileNetwork/slices/testSlice",
+    ///                 },
+    ///                 StaticIp = new AzureNative.MobileNetwork.V20220401Preview.Inputs.SimStaticIpPropertiesStaticIpArgs
+    ///                 {
+    ///                     Ipv4Address = "2.4.0.1",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:mobilenetwork/v20220401preview:Sim testSim /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.MobileNetwork/simGroups/testSimGroup/sims/testSim 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:mobilenetwork/v20220401preview:Sim")]
     public partial class Sim : global::Pulumi.CustomResource

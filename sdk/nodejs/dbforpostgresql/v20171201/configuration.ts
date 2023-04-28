@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents a Configuration.
+ *
+ * ## Example Usage
+ * ### ConfigurationCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configuration = new azure_native.dbforpostgresql.v20171201.Configuration("configuration", {
+ *     configurationName: "array_nulls",
+ *     resourceGroupName: "TestGroup",
+ *     serverName: "testserver",
+ *     source: "user-override",
+ *     value: "off",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:dbforpostgresql/v20171201:Configuration array_nulls /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestGroup/providers/Microsoft.DBforPostgreSQL/servers/testserver/configurations/array_nulls 
+ * ```
  */
 export class Configuration extends pulumi.CustomResource {
     /**

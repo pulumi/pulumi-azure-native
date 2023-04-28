@@ -9,6 +9,119 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of File services in storage account.
+ *
+ * ## Example Usage
+ * ### PutFileServices
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileServiceProperties = new azure_native.storage.v20210201.FileServiceProperties("fileServiceProperties", {
+ *     accountName: "sto8607",
+ *     cors: {
+ *         corsRules: [
+ *             {
+ *                 allowedHeaders: [
+ *                     "x-ms-meta-abc",
+ *                     "x-ms-meta-data*",
+ *                     "x-ms-meta-target*",
+ *                 ],
+ *                 allowedMethods: [
+ *                     "GET",
+ *                     "HEAD",
+ *                     "POST",
+ *                     "OPTIONS",
+ *                     "MERGE",
+ *                     "PUT",
+ *                 ],
+ *                 allowedOrigins: [
+ *                     "http://www.contoso.com",
+ *                     "http://www.fabrikam.com",
+ *                 ],
+ *                 exposedHeaders: ["x-ms-meta-*"],
+ *                 maxAgeInSeconds: 100,
+ *             },
+ *             {
+ *                 allowedHeaders: ["*"],
+ *                 allowedMethods: ["GET"],
+ *                 allowedOrigins: ["*"],
+ *                 exposedHeaders: ["*"],
+ *                 maxAgeInSeconds: 2,
+ *             },
+ *             {
+ *                 allowedHeaders: ["x-ms-meta-12345675754564*"],
+ *                 allowedMethods: [
+ *                     "GET",
+ *                     "PUT",
+ *                 ],
+ *                 allowedOrigins: [
+ *                     "http://www.abc23.com",
+ *                     "https://www.fabrikam.com/*",
+ *                 ],
+ *                 exposedHeaders: [
+ *                     "x-ms-meta-abc",
+ *                     "x-ms-meta-data*",
+ *                     "x-ms-meta-target*",
+ *                 ],
+ *                 maxAgeInSeconds: 2000,
+ *             },
+ *         ],
+ *     },
+ *     fileServicesName: "default",
+ *     resourceGroupName: "res4410",
+ * });
+ *
+ * ```
+ * ### PutFileServices_EnableSMBMultichannel
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileServiceProperties = new azure_native.storage.v20210201.FileServiceProperties("fileServiceProperties", {
+ *     accountName: "sto8607",
+ *     fileServicesName: "default",
+ *     protocolSettings: {
+ *         smb: {
+ *             multichannel: {
+ *                 enabled: true,
+ *             },
+ *         },
+ *     },
+ *     resourceGroupName: "res4410",
+ * });
+ *
+ * ```
+ * ### PutFileServices_EnableSecureSmbFeatures
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileServiceProperties = new azure_native.storage.v20210201.FileServiceProperties("fileServiceProperties", {
+ *     accountName: "sto8607",
+ *     fileServicesName: "default",
+ *     protocolSettings: {
+ *         smb: {
+ *             authenticationMethods: "NTLMv2;Kerberos",
+ *             channelEncryption: "AES-128-CCM;AES-128-GCM;AES-256-GCM",
+ *             kerberosTicketEncryption: "RC4-HMAC;AES-256",
+ *             versions: "SMB2.1;SMB3.0;SMB3.1.1",
+ *         },
+ *     },
+ *     resourceGroupName: "res4410",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage/v20210201:FileServiceProperties default /subscriptions/{subscription-id}/resourceGroups/res4410/providers/Microsoft.Storage/storageAccounts/sto8607/fileServices/default 
+ * ```
  */
 export class FileServiceProperties extends pulumi.CustomResource {
     /**

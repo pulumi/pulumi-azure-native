@@ -114,6 +114,35 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection to an azure resource
 
+        ## Example Usage
+        ### SignalRPrivateEndpointConnections_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r_private_endpoint_connection = azure_native.signalrservice.v20230201.SignalRPrivateEndpointConnection("signalRPrivateEndpointConnection",
+            private_endpoint=azure_native.signalrservice.v20230201.PrivateEndpointArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+            ),
+            private_endpoint_connection_name="mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+            private_link_service_connection_state=azure_native.signalrservice.v20230201.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                status="Approved",
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/privateEndpointConnections/mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: Private endpoint
@@ -130,6 +159,35 @@ class SignalRPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection to an azure resource
+
+        ## Example Usage
+        ### SignalRPrivateEndpointConnections_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r_private_endpoint_connection = azure_native.signalrservice.v20230201.SignalRPrivateEndpointConnection("signalRPrivateEndpointConnection",
+            private_endpoint=azure_native.signalrservice.v20230201.PrivateEndpointArgs(
+                id="/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.Network/privateEndpoints/myPrivateEndpoint",
+            ),
+            private_endpoint_connection_name="mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+            private_link_service_connection_state=azure_native.signalrservice.v20230201.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                status="Approved",
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20230201:SignalRPrivateEndpointConnection mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/privateEndpointConnections/mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SignalRPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

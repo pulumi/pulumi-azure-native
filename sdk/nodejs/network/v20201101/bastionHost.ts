@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Bastion Host resource.
+ *
+ * ## Example Usage
+ * ### Create Bastion Host
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const bastionHost = new azure_native.network.v20201101.BastionHost("bastionHost", {
+ *     bastionHostName: "bastionhosttenant'",
+ *     ipConfigurations: [{
+ *         name: "bastionHostIpConfiguration",
+ *         publicIPAddress: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/pipName",
+ *         },
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet2/subnets/BastionHostSubnet",
+ *         },
+ *     }],
+ *     resourceGroupName: "rg1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20201101:BastionHost bastionhost' /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/bastionHosts/bastionhosttenant' 
+ * ```
  */
 export class BastionHost extends pulumi.CustomResource {
     /**

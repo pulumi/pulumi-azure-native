@@ -11,6 +11,34 @@ import * as utilities from "../utilities";
  * Represents a project resource.
  * API Version: 2022-11-11-preview.
  * Previous API Version: 2022-09-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Projects_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const project = new azure_native.devcenter.Project("project", {
+ *     description: "This is my first project.",
+ *     devCenterId: "/subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso",
+ *     location: "centralus",
+ *     projectName: "DevProject",
+ *     resourceGroupName: "rg1",
+ *     tags: {
+ *         CostCenter: "R&D",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devcenter:Project DevProject /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/projects/DevProject 
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

@@ -364,6 +364,108 @@ class SignalR(pulumi.CustomResource):
         """
         A class represent a resource.
 
+        ## Example Usage
+        ### SignalR_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r = azure_native.signalrservice.v20230301preview.SignalR("signalR",
+            cors=azure_native.signalrservice.v20230301preview.SignalRCorsSettingsArgs(
+                allowed_origins=[
+                    "https://foo.com",
+                    "https://bar.com",
+                ],
+            ),
+            disable_aad_auth=False,
+            disable_local_auth=False,
+            features=[
+                {
+                    "flag": "ServiceMode",
+                    "properties": {},
+                    "value": "Serverless",
+                },
+                {
+                    "flag": "EnableConnectivityLogs",
+                    "properties": {},
+                    "value": "True",
+                },
+                {
+                    "flag": "EnableMessagingLogs",
+                    "properties": {},
+                    "value": "False",
+                },
+                {
+                    "flag": "EnableLiveTrace",
+                    "properties": {},
+                    "value": "False",
+                },
+            ],
+            identity=azure_native.signalrservice.v20230301preview.ManagedIdentityArgs(
+                type="SystemAssigned",
+            ),
+            kind="SignalR",
+            live_trace_configuration=azure_native.signalrservice.v20230301preview.LiveTraceConfigurationResponseArgs(
+                categories=[azure_native.signalrservice.v20230301preview.LiveTraceCategoryArgs(
+                    enabled="true",
+                    name="ConnectivityLogs",
+                )],
+                enabled="false",
+            ),
+            location="eastus",
+            network_acls=azure_native.signalrservice.v20230301preview.SignalRNetworkACLsResponseArgs(
+                default_action="Deny",
+                private_endpoints=[azure_native.signalrservice.v20230301preview.PrivateEndpointACLArgs(
+                    allow=["ServerConnection"],
+                    name="mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+                )],
+                public_network=azure_native.signalrservice.v20230301preview.NetworkACLArgs(
+                    allow=["ClientConnection"],
+                ),
+            ),
+            public_network_access="Enabled",
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService",
+            serverless=azure_native.signalrservice.v20230301preview.ServerlessSettingsArgs(
+                connection_timeout_in_seconds=5,
+            ),
+            sku=azure_native.signalrservice.v20230301preview.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Premium_P1",
+                tier="Premium",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            tls=azure_native.signalrservice.v20230301preview.SignalRTlsSettingsArgs(
+                client_cert_enabled=False,
+            ),
+            upstream=azure_native.signalrservice.v20230301preview.ServerlessUpstreamSettingsResponseArgs(
+                templates=[{
+                    "auth": {
+                        "managedIdentity": azure_native.signalrservice.v20230301preview.ManagedIdentitySettingsArgs(
+                            resource="api://example",
+                        ),
+                        "type": "ManagedIdentity",
+                    },
+                    "categoryPattern": "*",
+                    "eventPattern": "connect,disconnect",
+                    "hubPattern": "*",
+                    "urlTemplate": "https://example.com/chat/api/connect",
+                }],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20230301preview:SignalR mySignalRService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SignalRCorsSettingsArgs']] cors: Cross-Origin Resource Sharing (CORS) settings.
@@ -404,6 +506,108 @@ class SignalR(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A class represent a resource.
+
+        ## Example Usage
+        ### SignalR_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        signal_r = azure_native.signalrservice.v20230301preview.SignalR("signalR",
+            cors=azure_native.signalrservice.v20230301preview.SignalRCorsSettingsArgs(
+                allowed_origins=[
+                    "https://foo.com",
+                    "https://bar.com",
+                ],
+            ),
+            disable_aad_auth=False,
+            disable_local_auth=False,
+            features=[
+                {
+                    "flag": "ServiceMode",
+                    "properties": {},
+                    "value": "Serverless",
+                },
+                {
+                    "flag": "EnableConnectivityLogs",
+                    "properties": {},
+                    "value": "True",
+                },
+                {
+                    "flag": "EnableMessagingLogs",
+                    "properties": {},
+                    "value": "False",
+                },
+                {
+                    "flag": "EnableLiveTrace",
+                    "properties": {},
+                    "value": "False",
+                },
+            ],
+            identity=azure_native.signalrservice.v20230301preview.ManagedIdentityArgs(
+                type="SystemAssigned",
+            ),
+            kind="SignalR",
+            live_trace_configuration=azure_native.signalrservice.v20230301preview.LiveTraceConfigurationResponseArgs(
+                categories=[azure_native.signalrservice.v20230301preview.LiveTraceCategoryArgs(
+                    enabled="true",
+                    name="ConnectivityLogs",
+                )],
+                enabled="false",
+            ),
+            location="eastus",
+            network_acls=azure_native.signalrservice.v20230301preview.SignalRNetworkACLsResponseArgs(
+                default_action="Deny",
+                private_endpoints=[azure_native.signalrservice.v20230301preview.PrivateEndpointACLArgs(
+                    allow=["ServerConnection"],
+                    name="mysignalrservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+                )],
+                public_network=azure_native.signalrservice.v20230301preview.NetworkACLArgs(
+                    allow=["ClientConnection"],
+                ),
+            ),
+            public_network_access="Enabled",
+            resource_group_name="myResourceGroup",
+            resource_name_="mySignalRService",
+            serverless=azure_native.signalrservice.v20230301preview.ServerlessSettingsArgs(
+                connection_timeout_in_seconds=5,
+            ),
+            sku=azure_native.signalrservice.v20230301preview.ResourceSkuResponseArgs(
+                capacity=1,
+                name="Premium_P1",
+                tier="Premium",
+            ),
+            tags={
+                "key1": "value1",
+            },
+            tls=azure_native.signalrservice.v20230301preview.SignalRTlsSettingsArgs(
+                client_cert_enabled=False,
+            ),
+            upstream=azure_native.signalrservice.v20230301preview.ServerlessUpstreamSettingsResponseArgs(
+                templates=[{
+                    "auth": {
+                        "managedIdentity": azure_native.signalrservice.v20230301preview.ManagedIdentitySettingsArgs(
+                            resource="api://example",
+                        ),
+                        "type": "ManagedIdentity",
+                    },
+                    "categoryPattern": "*",
+                    "eventPattern": "connect,disconnect",
+                    "hubPattern": "*",
+                    "urlTemplate": "https://example.com/chat/api/connect",
+                }],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:signalrservice/v20230301preview:SignalR mySignalRService /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SignalRArgs args: The arguments to use to populate this resource's properties.

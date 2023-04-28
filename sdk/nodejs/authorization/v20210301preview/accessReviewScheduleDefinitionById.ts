@@ -9,6 +9,25 @@ import * as utilities from "../../utilities";
 
 /**
  * Access Review Schedule Definition.
+ *
+ * ## Example Usage
+ * ### PutAccessReview
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const accessReviewScheduleDefinitionById = new azure_native.authorization.v20210301preview.AccessReviewScheduleDefinitionById("accessReviewScheduleDefinitionById", {scheduleDefinitionId: "fa73e90b-5bf1-45fd-a182-35ce5fc0674d"});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById fa73e90b-5bf1-45fd-a182-35ce5fc0674d /subscriptions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d/providers/Microsoft.Authorization/accessReviewScheduleDefinitions/fa73e90b-5bf1-45fd-a182-35ce5fc0674d 
+ * ```
  */
 export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
     /**

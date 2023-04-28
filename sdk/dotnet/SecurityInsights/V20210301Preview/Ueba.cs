@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.SecurityInsights.V20210301Preview
 {
     /// <summary>
     /// Settings with single toggle.
+    /// 
+    /// ## Example Usage
+    /// ### Update EyesOn settings.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ueba = new AzureNative.SecurityInsights.V20210301Preview.Ueba("ueba", new()
+    ///     {
+    ///         OperationalInsightsResourceProvider = "Microsoft.OperationalInsights",
+    ///         ResourceGroupName = "myRg",
+    ///         SettingsName = "EyesOn",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20210301preview:Ueba EyesOn /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirInt/providers/Microsoft.SecurityInsights/settings/EyesOn 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20210301preview:Ueba")]
     public partial class Ueba : global::Pulumi.CustomResource

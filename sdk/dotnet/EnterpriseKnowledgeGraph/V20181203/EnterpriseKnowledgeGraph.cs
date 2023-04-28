@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.EnterpriseKnowledgeGraph.V20181203
 {
     /// <summary>
     /// EnterpriseKnowledgeGraph resource definition
+    /// 
+    /// ## Example Usage
+    /// ### Create EnterpriseKnowledgeGraph
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var enterpriseKnowledgeGraph = new AzureNative.EnterpriseKnowledgeGraph.V20181203.EnterpriseKnowledgeGraph("enterpriseKnowledgeGraph", new()
+    ///     {
+    ///         Location = "West US",
+    ///         Properties = null,
+    ///         ResourceGroupName = "OneResourceGroupName",
+    ///         ResourceName = "sampleekgname",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph samplename someid 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:enterpriseknowledgegraph/v20181203:EnterpriseKnowledgeGraph")]
     public partial class EnterpriseKnowledgeGraph : global::Pulumi.CustomResource

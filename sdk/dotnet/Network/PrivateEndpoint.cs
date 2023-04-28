@@ -13,6 +13,150 @@ namespace Pulumi.AzureNative.Network
     /// Private endpoint resource.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create private endpoint
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpoint = new AzureNative.Network.PrivateEndpoint("privateEndpoint", new()
+    ///     {
+    ///         CustomNetworkInterfaceName = "testPeNic",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.PrivateEndpointIPConfigurationArgs
+    ///             {
+    ///                 GroupId = "file",
+    ///                 MemberName = "file",
+    ///                 Name = "pestaticconfig",
+    ///                 PrivateIPAddress = "192.168.0.6",
+    ///             },
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         PrivateEndpointName = "testPe",
+    ///         PrivateLinkServiceConnections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.PrivateLinkServiceConnectionArgs
+    ///             {
+    ///                 GroupIds = new[]
+    ///                 {
+    ///                     "groupIdFromResource",
+    ///                 },
+    ///                 PrivateLinkServiceId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+    ///                 RequestMessage = "Please approve my connection.",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Subnet = new AzureNative.Network.Inputs.SubnetArgs
+    ///         {
+    ///             Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create private endpoint with application security groups
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpoint = new AzureNative.Network.PrivateEndpoint("privateEndpoint", new()
+    ///     {
+    ///         ApplicationSecurityGroups = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.ApplicationSecurityGroupArgs
+    ///             {
+    ///                 Id = "/subscriptions/subId/resourceGroups/rg1/provders/Microsoft.Network/applicationSecurityGroup/asg1",
+    ///             },
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         PrivateEndpointName = "testPe",
+    ///         PrivateLinkServiceConnections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.PrivateLinkServiceConnectionArgs
+    ///             {
+    ///                 GroupIds = new[]
+    ///                 {
+    ///                     "groupIdFromResource",
+    ///                 },
+    ///                 PrivateLinkServiceId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+    ///                 RequestMessage = "Please approve my connection.",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Subnet = new AzureNative.Network.Inputs.SubnetArgs
+    ///         {
+    ///             Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create private endpoint with manual approval connection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpoint = new AzureNative.Network.PrivateEndpoint("privateEndpoint", new()
+    ///     {
+    ///         CustomNetworkInterfaceName = "testPeNic",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.PrivateEndpointIPConfigurationArgs
+    ///             {
+    ///                 GroupId = "file",
+    ///                 MemberName = "file",
+    ///                 Name = "pestaticconfig",
+    ///                 PrivateIPAddress = "192.168.0.5",
+    ///             },
+    ///         },
+    ///         Location = "eastus",
+    ///         ManualPrivateLinkServiceConnections = new[]
+    ///         {
+    ///             new AzureNative.Network.Inputs.PrivateLinkServiceConnectionArgs
+    ///             {
+    ///                 GroupIds = new[]
+    ///                 {
+    ///                     "groupIdFromResource",
+    ///                 },
+    ///                 PrivateLinkServiceId = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+    ///                 RequestMessage = "Please manually approve my connection.",
+    ///             },
+    ///         },
+    ///         PrivateEndpointName = "testPe",
+    ///         ResourceGroupName = "rg1",
+    ///         Subnet = new AzureNative.Network.Inputs.SubnetArgs
+    ///         {
+    ///             Id = "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network:PrivateEndpoint testPe /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateEndpoints/testPe 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network:PrivateEndpoint")]
     public partial class PrivateEndpoint : global::Pulumi.CustomResource

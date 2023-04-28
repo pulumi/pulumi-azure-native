@@ -9,6 +9,46 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureActiveDirectory.V20190101Preview
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### Create tenant
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var b2cTenant = new AzureNative.AzureActiveDirectory.V20190101Preview.B2CTenant("b2cTenant", new()
+    ///     {
+    ///         Location = "United States",
+    ///         Properties = new AzureNative.AzureActiveDirectory.V20190101Preview.Inputs.CreateTenantRequestBodyPropertiesArgs
+    ///         {
+    ///             CountryCode = "US",
+    ///             DisplayName = "Contoso",
+    ///         },
+    ///         ResourceGroupName = "contosoResourceGroup",
+    ///         ResourceName = "contoso.onmicrosoft.com",
+    ///         Sku = new AzureNative.AzureActiveDirectory.V20190101Preview.Inputs.B2CResourceSKUArgs
+    ///         {
+    ///             Name = AzureNative.AzureActiveDirectory.V20190101Preview.B2CResourceSKUName.Standard,
+    ///             Tier = AzureNative.AzureActiveDirectory.V20190101Preview.B2CResourceSKUTier.A0,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:azureactivedirectory/v20190101preview:B2CTenant contoso.onmicrosoft.com /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/contosoResourceGroup/providers/Microsoft.AzureActiveDirectory/b2cDirectories/contoso.onmicrosoft.com 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:azureactivedirectory/v20190101preview:B2CTenant")]
     public partial class B2CTenant : global::Pulumi.CustomResource
     {

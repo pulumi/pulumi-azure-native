@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.Network.V20201101
 {
     /// <summary>
     /// Inbound NAT rule of the load balancer.
+    /// 
+    /// ## Example Usage
+    /// ### InboundNatRuleCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var inboundNatRule = new AzureNative.Network.V20201101.InboundNatRule("inboundNatRule", new()
+    ///     {
+    ///         BackendPort = 3389,
+    ///         EnableFloatingIP = false,
+    ///         EnableTcpReset = false,
+    ///         FrontendIPConfiguration = new AzureNative.Network.V20201101.Inputs.SubResourceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/frontendIPConfigurations/ip1",
+    ///         },
+    ///         FrontendPort = 3390,
+    ///         IdleTimeoutInMinutes = 4,
+    ///         InboundNatRuleName = "natRule1.1",
+    ///         LoadBalancerName = "lb1",
+    ///         Protocol = "Tcp",
+    ///         ResourceGroupName = "testrg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:network/v20201101:InboundNatRule natRule1.1 /subscriptions/subid/resourceGroups/testrg/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/natRule1.1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:network/v20201101:InboundNatRule")]
     public partial class InboundNatRule : global::Pulumi.CustomResource

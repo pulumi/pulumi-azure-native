@@ -199,6 +199,35 @@ class NspAssociation(pulumi.CustomResource):
         """
         The NSP resource association resource
 
+        ## Example Usage
+        ### NspAssociationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nsp_association = azure_native.network.v20210201preview.NspAssociation("nspAssociation",
+            access_mode="Enforced",
+            association_name="association1",
+            network_security_perimeter_name="nsp1",
+            private_link_resource=azure_native.network.v20210201preview.SubResourceArgs(
+                id="/subscriptions/{paasSubscriptionId}/resourceGroups/{paasResourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}",
+            ),
+            profile=azure_native.network.v20210201preview.SubResourceArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/{profileName}",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NspAssociation association1 /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/resourceAssociations/association1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'AssociationAccessMode']] access_mode: Access mode on the association.
@@ -220,6 +249,35 @@ class NspAssociation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NSP resource association resource
+
+        ## Example Usage
+        ### NspAssociationPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        nsp_association = azure_native.network.v20210201preview.NspAssociation("nspAssociation",
+            access_mode="Enforced",
+            association_name="association1",
+            network_security_perimeter_name="nsp1",
+            private_link_resource=azure_native.network.v20210201preview.SubResourceArgs(
+                id="/subscriptions/{paasSubscriptionId}/resourceGroups/{paasResourceGroupName}/providers/{providerName}/{resourceType}/{resourceName}",
+            ),
+            profile=azure_native.network.v20210201preview.SubResourceArgs(
+                id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/profiles/{profileName}",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20210201preview:NspAssociation association1 /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityPerimeters/nsp1/resourceAssociations/association1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NspAssociationArgs args: The arguments to use to populate this resource's properties.

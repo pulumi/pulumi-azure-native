@@ -11,6 +11,31 @@ import * as utilities from "../utilities";
  * A server key.
  * API Version: 2021-11-01.
  * Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates or updates a server key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverKey = new azure_native.sql.ServerKey("serverKey", {
+ *     keyName: "someVault_someKey_01234567890123456789012345678901",
+ *     resourceGroupName: "sqlcrudtest-7398",
+ *     serverKeyType: "AzureKeyVault",
+ *     serverName: "sqlcrudtest-4645",
+ *     uri: "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:ServerKey sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/keys/someVault_someKey_01234567890123456789012345678901 
+ * ```
  */
 export class ServerKey extends pulumi.CustomResource {
     /**

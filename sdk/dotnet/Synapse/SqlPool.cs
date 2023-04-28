@@ -13,6 +13,48 @@ namespace Pulumi.AzureNative.Synapse
     /// A SQL Analytics pool
     /// API Version: 2021-06-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create a SQL Analytics pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlPool = new AzureNative.Synapse.SqlPool("sqlPool", new()
+    ///     {
+    ///         Collation = "",
+    ///         CreateMode = "",
+    ///         Location = "Southeast Asia",
+    ///         MaxSizeBytes = 0,
+    ///         RecoverableDatabaseId = "",
+    ///         ResourceGroupName = "ExampleResourceGroup",
+    ///         Sku = new AzureNative.Synapse.Inputs.SkuArgs
+    ///         {
+    ///             Name = "",
+    ///             Tier = "",
+    ///         },
+    ///         SourceDatabaseId = "",
+    ///         SqlPoolName = "ExampleSqlPool",
+    ///         StorageAccountType = "LRS",
+    ///         Tags = null,
+    ///         WorkspaceName = "ExampleWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse:SqlPool ExampleSqlPool /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspaces/sqlPools/ExampleSqlPool 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:SqlPool")]
     public partial class SqlPool : global::Pulumi.CustomResource

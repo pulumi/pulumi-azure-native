@@ -9,6 +9,135 @@ import * as utilities from "../../utilities";
 
 /**
  * An ADLSGen2 storage account data set.
+ *
+ * ## Example Usage
+ * ### DataSets_ADLSGen2StorageAccount_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSet = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSet("adlsGen2StorageAccountDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     kind: "AdlsGen2StorageAccount",
+ *     paths: [{
+ *         consumerPath: "/samplefolder1",
+ *         containerName: "container1",
+ *         providerPath: "samplefile.txt",
+ *     }],
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ *     storageAccountResourceId: "/subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/resourceGroup1/providers/Microsoft.Storage/storageAccounts/storageAccount1",
+ * });
+ *
+ * ```
+ * ### DataSets_BlobStorageAccount_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSet = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSet("adlsGen2StorageAccountDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSet = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSet("adlsGen2StorageAccountDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoCluster_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSet = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSet("adlsGen2StorageAccountDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_KustoDatabase_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSet = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSet("adlsGen2StorageAccountDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDBTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSet = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSet("adlsGen2StorageAccountDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SqlDWTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSet = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSet("adlsGen2StorageAccountDataSet", {
+ *     accountName: "Account1",
+ *     dataSetName: "Dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "Share1",
+ * });
+ *
+ * ```
+ * ### DataSets_SynapseWorkspaceSqlPoolTable_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const adlsGen2StorageAccountDataSet = new azure_native.datashare.v20201001preview.ADLSGen2StorageAccountDataSet("adlsGen2StorageAccountDataSet", {
+ *     accountName: "sourceAccount",
+ *     dataSetName: "dataset1",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareName: "share1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20201001preview:ADLSGen2StorageAccountDataSet dataset1 /subscriptions/0f3dcfc3-18f8-4099-b381-8353e19d43a7/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/sourceAccount/shares/share1/dataSets/dataset1 
+ * ```
  */
 export class ADLSGen2StorageAccountDataSet extends pulumi.CustomResource {
     /**

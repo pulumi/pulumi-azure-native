@@ -9,6 +9,44 @@ import * as utilities from "../../utilities";
 
 /**
  * A database security alert policy.
+ *
+ * ## Example Usage
+ * ### Update a database's threat detection policy with all parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseSecurityAlertPolicy = new azure_native.sql.v20180601preview.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy", {
+ *     databaseName: "testdb",
+ *     resourceGroupName: "securityalert-4799",
+ *     securityAlertPolicyName: "default",
+ *     serverName: "securityalert-6440",
+ * });
+ *
+ * ```
+ * ### Update a database's threat detection policy with minimal parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const databaseSecurityAlertPolicy = new azure_native.sql.v20180601preview.DatabaseSecurityAlertPolicy("databaseSecurityAlertPolicy", {
+ *     databaseName: "testdb",
+ *     resourceGroupName: "securityalert-4799",
+ *     securityAlertPolicyName: "default",
+ *     serverName: "securityalert-6440",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20180601preview:DatabaseSecurityAlertPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/securityalert-4799/providers/Microsoft.Sql/servers/securityalert-6440/databases/testdb 
+ * ```
  */
 export class DatabaseSecurityAlertPolicy extends pulumi.CustomResource {
     /**

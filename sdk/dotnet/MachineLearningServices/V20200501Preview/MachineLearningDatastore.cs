@@ -11,6 +11,203 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20200501Preview
 {
     /// <summary>
     /// Machine Learning datastore object wrapped into ARM resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### Create ADLS  Datastore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDatastore = new AzureNative.MachineLearningServices.V20200501Preview.MachineLearningDatastore("machineLearningDatastore", new()
+    ///     {
+    ///         ClientId = "233d7008-b157-4354-88d1-ba191f06a900",
+    ///         ClientSecret = "vdvgdvdvdv",
+    ///         DataStoreType = "adls",
+    ///         DatastoreName = "adlsDatastore",
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         StoreName = "stanley",
+    ///         TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create ADLS Gen2 Datastore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDatastore = new AzureNative.MachineLearningServices.V20200501Preview.MachineLearningDatastore("machineLearningDatastore", new()
+    ///     {
+    ///         AccountName = "nicksadlsgen2storage",
+    ///         ClientId = "233d7008-b157-4354-88d1-ba191f06a900",
+    ///         ClientSecret = "vdegbvedgeg",
+    ///         DataStoreType = "adls-gen2",
+    ///         DatastoreName = "adlsgen2Datastore",
+    ///         FileSystem = "testfs1",
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         TenantId = "72f988bf-86f1-41af-91ab-2d7cd011db47",
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Blob Datastore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDatastore = new AzureNative.MachineLearningServices.V20200501Preview.MachineLearningDatastore("machineLearningDatastore", new()
+    ///     {
+    ///         AccountKey = "wddrfewfewsgewgrrwegwreg",
+    ///         AccountName = "acjainmleastus9484093746",
+    ///         ContainerName = "azureml-blobstore-5da947c5-53aa-41a5-bb2b-074074e73b7",
+    ///         DataStoreType = "blob",
+    ///         DatastoreName = "blobDatastore",
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Databricks File System Datastore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDatastore = new AzureNative.MachineLearningServices.V20200501Preview.MachineLearningDatastore("machineLearningDatastore", new()
+    ///     {
+    ///         DataStoreType = "dbfs",
+    ///         DatastoreName = "blobDatastore",
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create File Datastore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDatastore = new AzureNative.MachineLearningServices.V20200501Preview.MachineLearningDatastore("machineLearningDatastore", new()
+    ///     {
+    ///         AccountKey = "wddrfewfewsgewgrrwegwreg",
+    ///         AccountName = "acjainmleastus9484093746",
+    ///         DataStoreType = "file",
+    ///         DatastoreName = "fileDatastore",
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         ShareName = "azureml-filestore-5da947c5-53aa-41a5-bb2b-074074e73b76",
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create MySQL Datastore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDatastore = new AzureNative.MachineLearningServices.V20200501Preview.MachineLearningDatastore("machineLearningDatastore", new()
+    ///     {
+    ///         DataStoreType = "mysqldb",
+    ///         DatabaseName = "dataset",
+    ///         DatastoreName = "mySqlDatastore",
+    ///         Password = "&lt;password&gt;",
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         ServerName = "dataset-mysql-srv",
+    ///         UserId = "demo_user@dataset-mysql-srv",
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create PostgreSQL Datastore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDatastore = new AzureNative.MachineLearningServices.V20200501Preview.MachineLearningDatastore("machineLearningDatastore", new()
+    ///     {
+    ///         DataStoreType = "psqldb",
+    ///         DatabaseName = "dataset",
+    ///         DatastoreName = "postgreSqlDatastore",
+    ///         Password = "&lt;password&gt;",
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         ServerName = "dataset-pgsql-srv",
+    ///         UserId = "demo_user@dataset-pgsql-srv",
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create SQL Datastore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machineLearningDatastore = new AzureNative.MachineLearningServices.V20200501Preview.MachineLearningDatastore("machineLearningDatastore", new()
+    ///     {
+    ///         DataStoreType = "sqldb",
+    ///         DatabaseName = "dataset",
+    ///         DatastoreName = "sqlDatastore",
+    ///         Password = "&lt;password&gt;",
+    ///         ResourceGroupName = "acjain-mleastUS2",
+    ///         ServerName = "dataset-azsql-srv",
+    ///         UserName = "demo_user",
+    ///         WorkspaceName = "acjain-mleastUS2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore sqlDatastore /subscriptions/35f16a99-532a-4a47-9e93-00305f6c40f2/resourceGroups/acjain-mleastUS2/providers/Microsoft.MachineLearningServices/workspaces/acjain-mleastUS2/datastores/sqlDatastore 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20200501preview:MachineLearningDatastore")]
     public partial class MachineLearningDatastore : global::Pulumi.CustomResource

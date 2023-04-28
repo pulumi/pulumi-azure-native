@@ -219,6 +219,75 @@ class P2sVpnGateway(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### P2SVpnGatewayPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        p2s_vpn_gateway = azure_native.network.P2sVpnGateway("p2sVpnGateway",
+            custom_dns_servers=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ],
+            gateway_name="p2sVpnGateway1",
+            is_routing_preference_internet=False,
+            location="West US",
+            p2_s_connection_configurations=[{
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/p2sVpnGateways/p2sVpnGateway1/p2sConnectionConfigurations/P2SConnectionConfig1",
+                "name": "P2SConnectionConfig1",
+                "routingConfiguration": {
+                    "associatedRouteTable": azure_native.network.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                    ),
+                    "propagatedRouteTables": {
+                        "ids": [
+                            azure_native.network.SubResourceArgs(
+                                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                            ),
+                            azure_native.network.SubResourceArgs(
+                                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable2",
+                            ),
+                            azure_native.network.SubResourceArgs(
+                                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable3",
+                            ),
+                        ],
+                        "labels": [
+                            "label1",
+                            "label2",
+                        ],
+                    },
+                    "vnetRoutes": {
+                        "staticRoutes": [],
+                    },
+                },
+                "vpnClientAddressPool": azure_native.network.AddressSpaceArgs(
+                    address_prefixes=["101.3.0.0/16"],
+                ),
+            }],
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+            ),
+            vpn_gateway_scale_unit=1,
+            vpn_server_configuration=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:P2sVpnGateway p2sVpnGateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/P2SvpnGateways/p2sVpnGateway1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] custom_dns_servers: List of all customer specified DNS servers IP addresses.
@@ -243,6 +312,75 @@ class P2sVpnGateway(pulumi.CustomResource):
         P2SVpnGateway Resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### P2SVpnGatewayPut
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        p2s_vpn_gateway = azure_native.network.P2sVpnGateway("p2sVpnGateway",
+            custom_dns_servers=[
+                "1.1.1.1",
+                "2.2.2.2",
+            ],
+            gateway_name="p2sVpnGateway1",
+            is_routing_preference_internet=False,
+            location="West US",
+            p2_s_connection_configurations=[{
+                "id": "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/p2sVpnGateways/p2sVpnGateway1/p2sConnectionConfigurations/P2SConnectionConfig1",
+                "name": "P2SConnectionConfig1",
+                "routingConfiguration": {
+                    "associatedRouteTable": azure_native.network.SubResourceArgs(
+                        id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                    ),
+                    "propagatedRouteTables": {
+                        "ids": [
+                            azure_native.network.SubResourceArgs(
+                                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable1",
+                            ),
+                            azure_native.network.SubResourceArgs(
+                                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable2",
+                            ),
+                            azure_native.network.SubResourceArgs(
+                                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/hubRouteTable3",
+                            ),
+                        ],
+                        "labels": [
+                            "label1",
+                            "label2",
+                        ],
+                    },
+                    "vnetRoutes": {
+                        "staticRoutes": [],
+                    },
+                },
+                "vpnClientAddressPool": azure_native.network.AddressSpaceArgs(
+                    address_prefixes=["101.3.0.0/16"],
+                ),
+            }],
+            resource_group_name="rg1",
+            tags={
+                "key1": "value1",
+            },
+            virtual_hub=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub1",
+            ),
+            vpn_gateway_scale_unit=1,
+            vpn_server_configuration=azure_native.network.SubResourceArgs(
+                id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/vpnServerConfigurations/vpnServerConfiguration1",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:P2sVpnGateway p2sVpnGateway1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/P2SvpnGateways/p2sVpnGateway1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param P2sVpnGatewayArgs args: The arguments to use to populate this resource's properties.

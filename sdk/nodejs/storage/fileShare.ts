@@ -11,6 +11,57 @@ import * as utilities from "../utilities";
  * Properties of the file share, including Id, resource name, resource type, Etag.
  * API Version: 2022-09-01.
  * Previous API Version: 2021-02-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create NFS Shares
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileShare = new azure_native.storage.FileShare("fileShare", {
+ *     accountName: "sto666",
+ *     enabledProtocols: "NFS",
+ *     resourceGroupName: "res346",
+ *     shareName: "share1235",
+ * });
+ *
+ * ```
+ * ### PutShares
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileShare = new azure_native.storage.FileShare("fileShare", {
+ *     accountName: "sto328",
+ *     resourceGroupName: "res3376",
+ *     shareName: "share6185",
+ * });
+ *
+ * ```
+ * ### PutShares with Access Tier
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileShare = new azure_native.storage.FileShare("fileShare", {
+ *     accessTier: "Hot",
+ *     accountName: "sto666",
+ *     resourceGroupName: "res346",
+ *     shareName: "share1235",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storage:FileShare share1235 /subscriptions/{subscription-id}/resourceGroups/res346/providers/Microsoft.Storage/storageAccounts/sto666/fileServices/default/shares/share1235 
+ * ```
  */
 export class FileShare extends pulumi.CustomResource {
     /**

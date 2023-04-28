@@ -11,6 +11,130 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20201005PrivatePreview
 {
     /// <summary>
     /// Represents a server group for create.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new server group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverGroup = new AzureNative.DBforPostgreSQL.V20201005PrivatePreview.ServerGroup("serverGroup", new()
+    ///     {
+    ///         AdministratorLogin = "citus",
+    ///         AdministratorLoginPassword = "password",
+    ///         AvailabilityZone = "1",
+    ///         BackupRetentionDays = 35,
+    ///         CitusVersion = "9.5",
+    ///         DelegatedSubnetArguments = new AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs.ServerGroupPropertiesDelegatedSubnetArgumentsArgs
+    ///         {
+    ///             SubnetArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+    ///         },
+    ///         EnableMx = true,
+    ///         EnableZfs = false,
+    ///         Location = "westus",
+    ///         PostgresqlVersion = "12",
+    ///         PrivateDnsZoneArguments = new AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs.ServerGroupPropertiesPrivateDnsZoneArgumentsArgs
+    ///         {
+    ///             PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone",
+    ///         },
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerGroupName = "hsctestsg",
+    ///         ServerRoleGroups = new[]
+    ///         {
+    ///             new AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs.ServerRoleGroupArgs
+    ///             {
+    ///                 EnableHa = true,
+    ///                 Name = "",
+    ///                 Role = "Coordinator",
+    ///                 ServerCount = 1,
+    ///                 ServerEdition = "GeneralPurpose",
+    ///                 StorageQuotaInMb = 524288,
+    ///                 VCores = 4,
+    ///             },
+    ///             new AzureNative.DBforPostgreSQL.V20201005PrivatePreview.Inputs.ServerRoleGroupArgs
+    ///             {
+    ///                 EnableHa = false,
+    ///                 Name = "",
+    ///                 Role = "Worker",
+    ///                 ServerCount = 3,
+    ///                 ServerEdition = "MemoryOptimized",
+    ///                 StorageQuotaInMb = 524288,
+    ///                 VCores = 4,
+    ///             },
+    ///         },
+    ///         StandbyAvailabilityZone = "2",
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server group as a point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverGroup = new AzureNative.DBforPostgreSQL.V20201005PrivatePreview.ServerGroup("serverGroup", new()
+    ///     {
+    ///         CreateMode = "PointInTimeRestore",
+    ///         EnableMx = true,
+    ///         EnableZfs = false,
+    ///         Location = "westus",
+    ///         PointInTimeUTC = "2017-12-14T00:00:37.467Z",
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerGroupName = "hsctestsg",
+    ///         SourceLocation = "eastus",
+    ///         SourceResourceGroupName = "SourceGroup",
+    ///         SourceServerGroupName = "pgtests-source-server-group",
+    ///         SourceSubscriptionId = "dddddddd-dddd-dddd-dddd-dddddddddddd",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server group as a read replica
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverGroup = new AzureNative.DBforPostgreSQL.V20201005PrivatePreview.ServerGroup("serverGroup", new()
+    ///     {
+    ///         CreateMode = "ReadReplica",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "TestGroup",
+    ///         ServerGroupName = "hsctestsg",
+    ///         SourceLocation = "eastus",
+    ///         SourceResourceGroupName = "SourceGroup",
+    ///         SourceServerGroupName = "pgtests-source-server-group",
+    ///         SourceSubscriptionId = "dddddddd-dddd-dddd-dddd-dddddddddddd",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup hsctestsg /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/TestResourceGroup/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/hsctestsg 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20201005privatepreview:ServerGroup")]
     public partial class ServerGroup : global::Pulumi.CustomResource

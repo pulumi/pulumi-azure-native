@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20201101Preview
 {
     /// <summary>
     /// An object that represents a scope map for a container registry.
+    /// 
+    /// ## Example Usage
+    /// ### ScopeMapCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scopeMap = new AzureNative.ContainerRegistry.V20201101Preview.ScopeMap("scopeMap", new()
+    ///     {
+    ///         Actions = new[]
+    ///         {
+    ///             "repositories/myrepository/contentWrite",
+    ///             "repositories/myrepository/delete",
+    ///         },
+    ///         Description = "Developer Scopes",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ScopeMapName = "myScopeMap",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20201101preview:ScopeMap myScopeMap /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/scopeMaps/myScopeMap 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20201101preview:ScopeMap")]
     public partial class ScopeMap : global::Pulumi.CustomResource

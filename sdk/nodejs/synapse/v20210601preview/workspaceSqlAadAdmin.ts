@@ -6,6 +6,32 @@ import * as utilities from "../../utilities";
 
 /**
  * Workspace active directory administrator
+ *
+ * ## Example Usage
+ * ### Create or update workspace active directory admin
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workspaceSqlAadAdmin = new azure_native.synapse.v20210601preview.WorkspaceSqlAadAdmin("workspaceSqlAadAdmin", {
+ *     administratorType: "ActiveDirectory",
+ *     login: "bob@contoso.com",
+ *     resourceGroupName: "resourceGroup1",
+ *     sid: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+ *     tenantId: "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+ *     workspaceName: "workspace1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin activeDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/administrators/activeDirectory 
+ * ```
  */
 export class WorkspaceSqlAadAdmin extends pulumi.CustomResource {
     /**

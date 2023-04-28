@@ -11,6 +11,71 @@ import * as utilities from "../utilities";
  * Description of topic resource.
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### NameSpaceNetworkRuleSetCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceNetworkRuleSet = new azure_native.eventhub.NamespaceNetworkRuleSet("namespaceNetworkRuleSet", {
+ *     defaultAction: "Deny",
+ *     ipRules: [
+ *         {
+ *             action: "Allow",
+ *             ipMask: "1.1.1.1",
+ *         },
+ *         {
+ *             action: "Allow",
+ *             ipMask: "1.1.1.2",
+ *         },
+ *         {
+ *             action: "Allow",
+ *             ipMask: "1.1.1.3",
+ *         },
+ *         {
+ *             action: "Allow",
+ *             ipMask: "1.1.1.4",
+ *         },
+ *         {
+ *             action: "Allow",
+ *             ipMask: "1.1.1.5",
+ *         },
+ *     ],
+ *     namespaceName: "sdk-Namespace-6019",
+ *     resourceGroupName: "ResourceGroup",
+ *     virtualNetworkRules: [
+ *         {
+ *             ignoreMissingVnetServiceEndpoint: true,
+ *             subnet: {
+ *                 id: "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet2",
+ *             },
+ *         },
+ *         {
+ *             ignoreMissingVnetServiceEndpoint: false,
+ *             subnet: {
+ *                 id: "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet3",
+ *             },
+ *         },
+ *         {
+ *             ignoreMissingVnetServiceEndpoint: false,
+ *             subnet: {
+ *                 id: "/subscriptions/subscriptionid/resourcegroups/resourcegroupid/providers/Microsoft.Network/virtualNetworks/myvn/subnets/subnet6",
+ *             },
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub:NamespaceNetworkRuleSet default /subscriptions/854d368f-1828-428f-8f3c-f2affa9b2f7d/resourceGroups/resourcegroupid/providers/Microsoft.EventHub/namespaces/sdk-Namespace-9659/networkruleset/default 
+ * ```
  */
 export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**

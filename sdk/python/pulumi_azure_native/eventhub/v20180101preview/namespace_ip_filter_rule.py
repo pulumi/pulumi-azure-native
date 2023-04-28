@@ -129,6 +129,31 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
         """
         Single item in a List or Get IpFilterRules operation
 
+        ## Example Usage
+        ### NameSpaceIpFilterRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_ip_filter_rule = azure_native.eventhub.v20180101preview.NamespaceIpFilterRule("namespaceIpFilterRule",
+            action="Accept",
+            filter_name="sdk-IPFilterRules-7337",
+            ip_filter_rule_name="sdk-IPFilterRules-7337",
+            ip_mask="13.78.143.246/32",
+            namespace_name="sdk-Namespace-5232",
+            resource_group_name="ResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20180101preview:NamespaceIpFilterRule sdk-IPFilterRules-7337 /subscriptions/Subscription/resourceGroups/ResourceGroup/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5232/ipfilterrules/sdk-IPFilterRules-7337 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'IPAction']] action: The IP Filter Action
@@ -146,6 +171,31 @@ class NamespaceIpFilterRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Single item in a List or Get IpFilterRules operation
+
+        ## Example Usage
+        ### NameSpaceIpFilterRuleCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        namespace_ip_filter_rule = azure_native.eventhub.v20180101preview.NamespaceIpFilterRule("namespaceIpFilterRule",
+            action="Accept",
+            filter_name="sdk-IPFilterRules-7337",
+            ip_filter_rule_name="sdk-IPFilterRules-7337",
+            ip_mask="13.78.143.246/32",
+            namespace_name="sdk-Namespace-5232",
+            resource_group_name="ResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventhub/v20180101preview:NamespaceIpFilterRule sdk-IPFilterRules-7337 /subscriptions/Subscription/resourceGroups/ResourceGroup/providers/Microsoft.EventHub/namespaces/sdk-Namespace-5232/ipfilterrules/sdk-IPFilterRules-7337 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NamespaceIpFilterRuleArgs args: The arguments to use to populate this resource's properties.

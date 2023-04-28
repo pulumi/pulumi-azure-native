@@ -11,6 +11,92 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
     /// <summary>
     /// A job step.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a job step with all properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobStep = new AzureNative.Sql.V20201101Preview.JobStep("jobStep", new()
+    ///     {
+    ///         Action = new AzureNative.Sql.V20201101Preview.Inputs.JobStepActionArgs
+    ///         {
+    ///             Source = "Inline",
+    ///             Type = "TSql",
+    ///             Value = "select 2",
+    ///         },
+    ///         Credential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred1",
+    ///         ExecutionOptions = new AzureNative.Sql.V20201101Preview.Inputs.JobStepExecutionOptionsArgs
+    ///         {
+    ///             InitialRetryIntervalSeconds = 11,
+    ///             MaximumRetryIntervalSeconds = 222,
+    ///             RetryAttempts = 42,
+    ///             RetryIntervalBackoffMultiplier = 3,
+    ///             TimeoutSeconds = 1234,
+    ///         },
+    ///         JobAgentName = "agent1",
+    ///         JobName = "job1",
+    ///         Output = new AzureNative.Sql.V20201101Preview.Inputs.JobStepOutputArgs
+    ///         {
+    ///             Credential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred0",
+    ///             DatabaseName = "database3",
+    ///             ResourceGroupName = "group3",
+    ///             SchemaName = "myschema1234",
+    ///             ServerName = "server3",
+    ///             SubscriptionId = "3501b905-a848-4b5d-96e8-b253f62d735a",
+    ///             TableName = "mytable5678",
+    ///             Type = "SqlDatabase",
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///         ServerName = "server1",
+    ///         StepId = 1,
+    ///         StepName = "step1",
+    ///         TargetGroup = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update a job step with minimal properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var jobStep = new AzureNative.Sql.V20201101Preview.JobStep("jobStep", new()
+    ///     {
+    ///         Action = new AzureNative.Sql.V20201101Preview.Inputs.JobStepActionArgs
+    ///         {
+    ///             Value = "select 1",
+    ///         },
+    ///         Credential = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/credentials/cred0",
+    ///         JobAgentName = "agent1",
+    ///         JobName = "job1",
+    ///         ResourceGroupName = "group1",
+    ///         ServerName = "server1",
+    ///         StepName = "step1",
+    ///         TargetGroup = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/targetGroups/targetGroup0",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20201101preview:JobStep step1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/jobAgents/agent1/jobs/job1/steps/step1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20201101preview:JobStep")]
     public partial class JobStep : global::Pulumi.CustomResource

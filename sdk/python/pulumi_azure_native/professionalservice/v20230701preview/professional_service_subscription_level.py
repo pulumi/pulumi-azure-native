@@ -148,6 +148,56 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
         """
         ProfessionalService REST API resource definition.
 
+        ## Example Usage
+        ### Create subscription level ProfessionalService resource (indefinite term)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        professional_service_subscription_level = azure_native.professionalservice.v20230701preview.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel",
+            location="global",
+            name="MyContosoPS",
+            properties=azure_native.professionalservice.v20230701preview.ProfessionalServiceCreationPropertiesArgs(
+                offer_id="testprofservice",
+                publisher_id="microsoft-contoso",
+                quote_id="quoteabc",
+                sku_id="ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+            ),
+            resource_group_name="my-ps-rg",
+            resource_name_="MyContosoPS")
+
+        ```
+        ### Create subscription level ProfessionalService resource (with term)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        professional_service_subscription_level = azure_native.professionalservice.v20230701preview.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel",
+            location="global",
+            name="MyContosoPS",
+            properties=azure_native.professionalservice.v20230701preview.ProfessionalServiceCreationPropertiesArgs(
+                billing_period="P1Y",
+                offer_id="testprofservice",
+                publisher_id="microsoft-contoso",
+                quote_id="quoteabc",
+                sku_id="ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+                term_unit="P3Y",
+            ),
+            resource_group_name="my-ps-rg",
+            resource_name_="MyContosoPS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:professionalservice/v20230701preview:ProfessionalServiceSubscriptionLevel MyContosoPS /subscriptions/c825645b-e31b-9cf4-1cee-2aba9e58bc7c/resourceGroups/my-ps-rg/providers/Microsoft.ProfessionalService/resources/MyContosoPS 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location. Only value allowed for ProfessionalService is 'global'
@@ -166,6 +216,56 @@ class ProfessionalServiceSubscriptionLevel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ProfessionalService REST API resource definition.
+
+        ## Example Usage
+        ### Create subscription level ProfessionalService resource (indefinite term)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        professional_service_subscription_level = azure_native.professionalservice.v20230701preview.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel",
+            location="global",
+            name="MyContosoPS",
+            properties=azure_native.professionalservice.v20230701preview.ProfessionalServiceCreationPropertiesArgs(
+                offer_id="testprofservice",
+                publisher_id="microsoft-contoso",
+                quote_id="quoteabc",
+                sku_id="ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+            ),
+            resource_group_name="my-ps-rg",
+            resource_name_="MyContosoPS")
+
+        ```
+        ### Create subscription level ProfessionalService resource (with term)
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        professional_service_subscription_level = azure_native.professionalservice.v20230701preview.ProfessionalServiceSubscriptionLevel("professionalServiceSubscriptionLevel",
+            location="global",
+            name="MyContosoPS",
+            properties=azure_native.professionalservice.v20230701preview.ProfessionalServiceCreationPropertiesArgs(
+                billing_period="P1Y",
+                offer_id="testprofservice",
+                publisher_id="microsoft-contoso",
+                quote_id="quoteabc",
+                sku_id="ff051f4f-a6d9-4cbc-8d9a-2a41bd468abc",
+                term_unit="P3Y",
+            ),
+            resource_group_name="my-ps-rg",
+            resource_name_="MyContosoPS")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:professionalservice/v20230701preview:ProfessionalServiceSubscriptionLevel MyContosoPS /subscriptions/c825645b-e31b-9cf4-1cee-2aba9e58bc7c/resourceGroups/my-ps-rg/providers/Microsoft.ProfessionalService/resources/MyContosoPS 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProfessionalServiceSubscriptionLevelArgs args: The arguments to use to populate this resource's properties.

@@ -131,6 +131,44 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
 
+        ## Example Usage
+        ### Create or update guest configuration assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_configuration_assignment = azure_native.guestconfiguration.v20200625.GuestConfigurationAssignment("guestConfigurationAssignment",
+            guest_configuration_assignment_name="WhitelistedApplication",
+            location="westcentralus",
+            name="WhitelistedApplication",
+            properties=azure_native.guestconfiguration.v20200625.GuestConfigurationAssignmentPropertiesResponseArgs(
+                context="Azure policy",
+                guest_configuration={
+                    "assignmentType": "ApplyAndAutoCorrect",
+                    "configurationParameter": [azure_native.guestconfiguration.v20200625.ConfigurationParameterArgs(
+                        name="[InstalledApplication]bwhitelistedapp;Name",
+                        value="NotePad,sql",
+                    )],
+                    "contentHash": "123contenthash",
+                    "contentUri": "https://thisisfake/pacakge",
+                    "name": "WhitelistedApplication",
+                    "version": "1.*",
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            vm_name="myVMName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment WhitelistedApplication /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualMachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/WhitelistedApplication 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] guest_configuration_assignment_name: Name of the guest configuration assignment.
@@ -148,6 +186,44 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
+
+        ## Example Usage
+        ### Create or update guest configuration assignment
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        guest_configuration_assignment = azure_native.guestconfiguration.v20200625.GuestConfigurationAssignment("guestConfigurationAssignment",
+            guest_configuration_assignment_name="WhitelistedApplication",
+            location="westcentralus",
+            name="WhitelistedApplication",
+            properties=azure_native.guestconfiguration.v20200625.GuestConfigurationAssignmentPropertiesResponseArgs(
+                context="Azure policy",
+                guest_configuration={
+                    "assignmentType": "ApplyAndAutoCorrect",
+                    "configurationParameter": [azure_native.guestconfiguration.v20200625.ConfigurationParameterArgs(
+                        name="[InstalledApplication]bwhitelistedapp;Name",
+                        value="NotePad,sql",
+                    )],
+                    "contentHash": "123contenthash",
+                    "contentUri": "https://thisisfake/pacakge",
+                    "name": "WhitelistedApplication",
+                    "version": "1.*",
+                },
+            ),
+            resource_group_name="myResourceGroupName",
+            vm_name="myVMName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment WhitelistedApplication /subscriptions/mysubscriptionid/resourceGroups/myResourceGroupName/providers/Microsoft.Compute/virtualMachines/myvm/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments/WhitelistedApplication 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GuestConfigurationAssignmentArgs args: The arguments to use to populate this resource's properties.

@@ -250,6 +250,44 @@ class JobDefinition(pulumi.CustomResource):
         API Version: 2019-06-01.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### JobDefinitions_CreateOrUpdatePUT83
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_definition = azure_native.hybriddata.JobDefinition("jobDefinition",
+            data_manager_name="TestAzureSDKOperations",
+            data_service_input={
+                "AzureStorageType": "Blob",
+                "BackupChoice": "UseExistingLatest",
+                "ContainerName": "containerfromtest",
+                "DeviceName": "8600-SHG0997877L71FC",
+                "FileNameFilter": "*",
+                "IsDirectoryMode": False,
+                "RootDirectories": ["\\\\"],
+                "VolumeNames": ["TestAutomation"],
+            },
+            data_service_name="DataTransformation",
+            data_sink_id="/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestAzureStorage1",
+            data_source_id="/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestStorSimpleSource1",
+            job_definition_name="jobdeffromtestcode1",
+            resource_group_name="ResourceGroupForSDKTest",
+            run_location=azure_native.hybriddata.RunLocation.WESTUS,
+            state=azure_native.hybriddata.State.ENABLED,
+            user_confirmation=azure_native.hybriddata.UserConfirmation.REQUIRED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybriddata:JobDefinition jobdeffromtestcode1 /subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataServices/DataTransformation/jobDefinitions/jobdeffromtestcode1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CustomerSecretArgs']]]] customer_secrets: List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
@@ -276,6 +314,44 @@ class JobDefinition(pulumi.CustomResource):
         Job Definition.
         API Version: 2019-06-01.
         Previous API Version: 2019-06-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### JobDefinitions_CreateOrUpdatePUT83
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        job_definition = azure_native.hybriddata.JobDefinition("jobDefinition",
+            data_manager_name="TestAzureSDKOperations",
+            data_service_input={
+                "AzureStorageType": "Blob",
+                "BackupChoice": "UseExistingLatest",
+                "ContainerName": "containerfromtest",
+                "DeviceName": "8600-SHG0997877L71FC",
+                "FileNameFilter": "*",
+                "IsDirectoryMode": False,
+                "RootDirectories": ["\\\\"],
+                "VolumeNames": ["TestAutomation"],
+            },
+            data_service_name="DataTransformation",
+            data_sink_id="/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestAzureStorage1",
+            data_source_id="/subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataStores/TestStorSimpleSource1",
+            job_definition_name="jobdeffromtestcode1",
+            resource_group_name="ResourceGroupForSDKTest",
+            run_location=azure_native.hybriddata.RunLocation.WESTUS,
+            state=azure_native.hybriddata.State.ENABLED,
+            user_confirmation=azure_native.hybriddata.UserConfirmation.REQUIRED)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybriddata:JobDefinition jobdeffromtestcode1 /subscriptions/6e0219f5-327a-4365-904f-05eed4227ad7/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.HybridData/dataManagers/TestAzureSDKOperations/dataServices/DataTransformation/jobDefinitions/jobdeffromtestcode1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param JobDefinitionArgs args: The arguments to use to populate this resource's properties.

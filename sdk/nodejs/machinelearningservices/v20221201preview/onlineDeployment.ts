@@ -7,6 +7,164 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### CreateOrUpdate Kubernetes Online Deployment.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const onlineDeployment = new azure_native.machinelearningservices.v20221201preview.OnlineDeployment("onlineDeployment", {
+ *     deploymentName: "testDeploymentName",
+ *     endpointName: "testEndpointName",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *         userAssignedIdentities: {
+ *             string: {},
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     onlineDeploymentProperties: {
+ *         appInsightsEnabled: false,
+ *         codeConfiguration: {
+ *             codeId: "string",
+ *             scoringScript: "string",
+ *         },
+ *         containerResourceRequirements: {
+ *             containerResourceLimits: {
+ *                 cpu: "\"1\"",
+ *                 gpu: "\"1\"",
+ *                 memory: "\"2Gi\"",
+ *             },
+ *             containerResourceRequests: {
+ *                 cpu: "\"1\"",
+ *                 gpu: "\"1\"",
+ *                 memory: "\"2Gi\"",
+ *             },
+ *         },
+ *         description: "string",
+ *         endpointComputeType: "Kubernetes",
+ *         environmentId: "string",
+ *         environmentVariables: {
+ *             string: "string",
+ *         },
+ *         instanceType: "string",
+ *         livenessProbe: {
+ *             failureThreshold: 1,
+ *             initialDelay: "PT5M",
+ *             period: "PT5M",
+ *             successThreshold: 1,
+ *             timeout: "PT5M",
+ *         },
+ *         model: "string",
+ *         modelMountPath: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         requestSettings: {
+ *             maxConcurrentRequestsPerInstance: 1,
+ *             maxQueueWait: "PT5M",
+ *             requestTimeout: "PT5M",
+ *         },
+ *         scaleSettings: {
+ *             scaleType: "Default",
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "string",
+ *         name: "string",
+ *         size: "string",
+ *         tier: azure_native.machinelearningservices.v20221201preview.SkuTier.Free,
+ *     },
+ *     tags: {},
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdate Managed Online Deployment.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const onlineDeployment = new azure_native.machinelearningservices.v20221201preview.OnlineDeployment("onlineDeployment", {
+ *     deploymentName: "testDeploymentName",
+ *     endpointName: "testEndpointName",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *         userAssignedIdentities: {
+ *             string: {},
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     onlineDeploymentProperties: {
+ *         appInsightsEnabled: false,
+ *         codeConfiguration: {
+ *             codeId: "string",
+ *             scoringScript: "string",
+ *         },
+ *         description: "string",
+ *         endpointComputeType: "Managed",
+ *         environmentId: "string",
+ *         environmentVariables: {
+ *             string: "string",
+ *         },
+ *         instanceType: "string",
+ *         livenessProbe: {
+ *             failureThreshold: 1,
+ *             initialDelay: "PT5M",
+ *             period: "PT5M",
+ *             successThreshold: 1,
+ *             timeout: "PT5M",
+ *         },
+ *         model: "string",
+ *         modelMountPath: "string",
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         readinessProbe: {
+ *             failureThreshold: 30,
+ *             initialDelay: "PT1S",
+ *             period: "PT10S",
+ *             successThreshold: 1,
+ *             timeout: "PT2S",
+ *         },
+ *         requestSettings: {
+ *             maxConcurrentRequestsPerInstance: 1,
+ *             maxQueueWait: "PT5M",
+ *             requestTimeout: "PT5M",
+ *         },
+ *         scaleSettings: {
+ *             scaleType: "Default",
+ *         },
+ *     },
+ *     resourceGroupName: "test-rg",
+ *     sku: {
+ *         capacity: 1,
+ *         family: "string",
+ *         name: "string",
+ *         size: "string",
+ *         tier: azure_native.machinelearningservices.v20221201preview.SkuTier.Free,
+ *     },
+ *     tags: {},
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20221201preview:OnlineDeployment string string 
+ * ```
+ */
 export class OnlineDeployment extends pulumi.CustomResource {
     /**
      * Get an existing OnlineDeployment resource's state with the given name, ID, and optional extra

@@ -11,6 +11,42 @@ namespace Pulumi.AzureNative.DocumentDB.V20221115Preview
 {
     /// <summary>
     /// An Azure Cosmos DB Graph resource.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBGraphCreateUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var graphResourceGraph = new AzureNative.DocumentDB.V20221115Preview.GraphResourceGraph("graphResourceGraph", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         GraphName = "graphName",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.V20221115Preview.Inputs.GraphResourceArgs
+    ///         {
+    ///             Id = "graphName",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb/v20221115preview:GraphResourceGraph graphName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/graphs/graphName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb/v20221115preview:GraphResourceGraph")]
     public partial class GraphResourceGraph : global::Pulumi.CustomResource

@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Registry Data Container.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registryDataContainer = new azure_native.machinelearningservices.v20230401preview.RegistryDataContainer("registryDataContainer", {
+ *     dataContainerProperties: {
+ *         dataType: "uri_folder",
+ *         description: "string",
+ *         isArchived: false,
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     registryName: "registryName",
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20230401preview:RegistryDataContainer string string 
+ * ```
  */
 export class RegistryDataContainer extends pulumi.CustomResource {
     /**

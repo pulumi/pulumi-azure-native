@@ -152,6 +152,38 @@ class DiagnosticSetting(pulumi.CustomResource):
         API Version: 2017-04-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### BatchAccountDelete
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic_setting = azure_native.aadiam.DiagnosticSetting("diagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[{
+                "category": "AuditLogs",
+                "enabled": True,
+                "retentionPolicy": azure_native.aadiam.RetentionPolicyArgs(
+                    days=0,
+                    enabled=False,
+                ),
+            }],
+            name="mysetting",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aadiam:DiagnosticSetting mysetting providers/microsoft.aadiam/diagnosticSettings/mysetting 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] event_hub_authorization_rule_id: The resource Id for the event hub authorization rule.
@@ -172,6 +204,38 @@ class DiagnosticSetting(pulumi.CustomResource):
         The diagnostic setting resource.
         API Version: 2017-04-01.
         Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### BatchAccountDelete
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        diagnostic_setting = azure_native.aadiam.DiagnosticSetting("diagnosticSetting",
+            event_hub_authorization_rule_id="/subscriptions/1a66ce04-b633-4a0b-b2bc-a912ec8986a6/resourceGroups/montest/providers/microsoft.eventhub/namespaces/mynamespace/eventhubs/myeventhub/authorizationrules/myrule",
+            event_hub_name="myeventhub",
+            logs=[{
+                "category": "AuditLogs",
+                "enabled": True,
+                "retentionPolicy": azure_native.aadiam.RetentionPolicyArgs(
+                    days=0,
+                    enabled=False,
+                ),
+            }],
+            name="mysetting",
+            storage_account_id="/subscriptions/df602c9c-7aa0-407d-a6fb-eb20c8bd1192/resourceGroups/apptest/providers/Microsoft.Storage/storageAccounts/appteststorage1",
+            workspace_id="")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:aadiam:DiagnosticSetting mysetting providers/microsoft.aadiam/diagnosticSettings/mysetting 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DiagnosticSettingArgs args: The arguments to use to populate this resource's properties.

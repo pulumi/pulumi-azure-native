@@ -336,6 +336,69 @@ class Server(pulumi.CustomResource):
         """
         Represents a server.
 
+        ## Example Usage
+        ### Create a database as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20210615privatepreview.Server("server",
+            create_mode="PointInTimeRestore",
+            location="westus",
+            point_in_time_utc="2021-06-27T00:04:59.4078005+00:00",
+            resource_group_name="testrg",
+            server_name="pgtestsvc5",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername")
+
+        ```
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20210615privatepreview.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="password",
+            availability_zone="1",
+            backup=azure_native.dbforpostgresql.v20210615privatepreview.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Create",
+            high_availability=azure_native.dbforpostgresql.v20210615privatepreview.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+            ),
+            location="westus",
+            network=azure_native.dbforpostgresql.v20210615privatepreview.NetworkArgs(
+                delegated_subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+            ),
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sku=azure_native.dbforpostgresql.v20210615privatepreview.SkuResponseArgs(
+                name="Standard_D4s_v3",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbforpostgresql.v20210615privatepreview.StorageArgs(
+                storage_size_gb=512,
+            ),
+            tags={
+                "ElasticServer": "1",
+            },
+            version="12")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20210615privatepreview:Server pgtestsvc4 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
@@ -365,6 +428,69 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a server.
+
+        ## Example Usage
+        ### Create a database as a point in time restore
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20210615privatepreview.Server("server",
+            create_mode="PointInTimeRestore",
+            location="westus",
+            point_in_time_utc="2021-06-27T00:04:59.4078005+00:00",
+            resource_group_name="testrg",
+            server_name="pgtestsvc5",
+            source_server_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername")
+
+        ```
+        ### Create a new server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.dbforpostgresql.v20210615privatepreview.Server("server",
+            administrator_login="cloudsa",
+            administrator_login_password="password",
+            availability_zone="1",
+            backup=azure_native.dbforpostgresql.v20210615privatepreview.BackupArgs(
+                backup_retention_days=7,
+                geo_redundant_backup="Disabled",
+            ),
+            create_mode="Create",
+            high_availability=azure_native.dbforpostgresql.v20210615privatepreview.HighAvailabilityArgs(
+                mode="ZoneRedundant",
+            ),
+            location="westus",
+            network=azure_native.dbforpostgresql.v20210615privatepreview.NetworkArgs(
+                delegated_subnet_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+                private_dns_zone_arm_resource_id="/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+            ),
+            resource_group_name="testrg",
+            server_name="pgtestsvc4",
+            sku=azure_native.dbforpostgresql.v20210615privatepreview.SkuResponseArgs(
+                name="Standard_D4s_v3",
+                tier="GeneralPurpose",
+            ),
+            storage=azure_native.dbforpostgresql.v20210615privatepreview.StorageArgs(
+                storage_size_gb=512,
+            ),
+            tags={
+                "ElasticServer": "1",
+            },
+            version="12")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:dbforpostgresql/v20210615privatepreview:Server pgtestsvc4 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

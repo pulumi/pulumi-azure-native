@@ -13,6 +13,66 @@ namespace Pulumi.AzureNative.ElasticSan
     /// Response for Volume request.
     /// API Version: 2021-11-20-preview.
     /// Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Volumes_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.ElasticSan.Volume("volume", new()
+    ///     {
+    ///         CreationData = new AzureNative.ElasticSan.Inputs.SourceCreationDataArgs
+    ///         {
+    ///             CreateSource = AzureNative.ElasticSan.VolumeCreateOption.None,
+    ///             SourceUri = "aaaaaa",
+    ///         },
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         SizeGiB = 22,
+    ///         Tags = 
+    ///         {
+    ///             { "key7423", "aaaa" },
+    ///         },
+    ///         VolumeGroupName = "u_5I_1j4t3",
+    ///         VolumeName = "9132y",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Volumes_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var volume = new AzureNative.ElasticSan.Volume("volume", new()
+    ///     {
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         VolumeGroupName = "u_5I_1j4t3",
+    ///         VolumeName = "9132y",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:elasticsan:Volume aaaaaaaaaaaa aaaaaaaa 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:Volume")]
     public partial class Volume : global::Pulumi.CustomResource

@@ -11,6 +11,39 @@ import * as utilities from "../utilities";
  * The relationship resource format.
  * API Version: 2017-04-26.
  * Previous API Version: 2017-04-26. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Relationships_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const relationship = new azure_native.customerinsights.Relationship("relationship", {
+ *     cardinality: azure_native.customerinsights.CardinalityTypes.OneToOne,
+ *     description: {
+ *         "en-us": "Relationship Description",
+ *     },
+ *     displayName: {
+ *         "en-us": "Relationship DisplayName",
+ *     },
+ *     fields: [],
+ *     hubName: "sdkTestHub",
+ *     profileType: "testProfile2326994",
+ *     relatedProfileType: "testProfile2326994",
+ *     relationshipName: "SomeRelationship",
+ *     resourceGroupName: "TestHubRG",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:customerinsights:Relationship sdkTestHub/testProfile2326994 /subscriptions/c909e979-ef71-4def-a970-bc7c154db8c5/resourceGroups/TestHubRG/providers/Microsoft.CustomerInsights/hubs/sdkTestHub/relationships/SomeRelationship 
+ * ```
  */
 export class Relationship extends pulumi.CustomResource {
     /**

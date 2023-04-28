@@ -170,6 +170,37 @@ class SqlDatabase(pulumi.CustomResource):
         """
         A sql database resource.
 
+        ## Example Usage
+        ### Creates a sqldatabase.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_database = azure_native.synapse.v20200401preview.SqlDatabase("sqlDatabase",
+            data_retention=azure_native.synapse.v20200401preview.SqlDatabaseDataRetentionArgs(
+                drop_retention_period="P3D",
+                retention_period="PT0S",
+            ),
+            location="westus",
+            resource_group_name="rg_bfd258ab-71bb-4a86-bf48-076df66c8640",
+            sql_database_name="113a9eb2-7d40-4009-9dcb-b42daade3760",
+            storage_redundancy="Geo",
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="srv_b33229ec-42a0-4929-9883-7f46e1b75c2f")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20200401preview:SqlDatabase 113a9eb2-7d40-4009-9dcb-b42daade3760 /subscriptions/e682b8de-be70-4b81-a931-1699b27e2a92/resourceGroups/rg_bfd258ab-71bb-4a86-bf48-076df66c8640/providers/Microsoft.Synapse/workspaces/srv_b33229ec-42a0-4929-9883-7f46e1b75c2f/sqlDatabases/113a9eb2-7d40-4009-9dcb-b42daade3760 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] collation: The collation of the database.
@@ -189,6 +220,37 @@ class SqlDatabase(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A sql database resource.
+
+        ## Example Usage
+        ### Creates a sqldatabase.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_database = azure_native.synapse.v20200401preview.SqlDatabase("sqlDatabase",
+            data_retention=azure_native.synapse.v20200401preview.SqlDatabaseDataRetentionArgs(
+                drop_retention_period="P3D",
+                retention_period="PT0S",
+            ),
+            location="westus",
+            resource_group_name="rg_bfd258ab-71bb-4a86-bf48-076df66c8640",
+            sql_database_name="113a9eb2-7d40-4009-9dcb-b42daade3760",
+            storage_redundancy="Geo",
+            tags={
+                "tag1": "val1",
+            },
+            workspace_name="srv_b33229ec-42a0-4929-9883-7f46e1b75c2f")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20200401preview:SqlDatabase 113a9eb2-7d40-4009-9dcb-b42daade3760 /subscriptions/e682b8de-be70-4b81-a931-1699b27e2a92/resourceGroups/rg_bfd258ab-71bb-4a86-bf48-076df66c8640/providers/Microsoft.Synapse/workspaces/srv_b33229ec-42a0-4929-9883-7f46e1b75c2f/sqlDatabases/113a9eb2-7d40-4009-9dcb-b42daade3760 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlDatabaseArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,60 @@ import * as utilities from "../../utilities";
 
 /**
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
+ *
+ * ## Example Usage
+ * ### ConfigurationStores_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationStore = new azure_native.appconfiguration.v20200601.ConfigurationStore("configurationStore", {
+ *     configStoreName: "contoso",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     tags: {
+ *         myTag: "myTagValue",
+ *     },
+ * });
+ *
+ * ```
+ * ### ConfigurationStores_Create_WithIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationStore = new azure_native.appconfiguration.v20200601.ConfigurationStore("configurationStore", {
+ *     configStoreName: "contoso",
+ *     identity: {
+ *         type: "SystemAssigned, UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": {},
+ *         },
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Standard",
+ *     },
+ *     tags: {
+ *         myTag: "myTagValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appconfiguration/v20200601:ConfigurationStore contoso /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/contoso 
+ * ```
  */
 export class ConfigurationStore extends pulumi.CustomResource {
     /**

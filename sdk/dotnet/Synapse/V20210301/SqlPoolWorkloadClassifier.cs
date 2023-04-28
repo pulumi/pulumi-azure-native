@@ -11,6 +11,65 @@ namespace Pulumi.AzureNative.Synapse.V20210301
 {
     /// <summary>
     /// Workload classifier operations for a data warehouse
+    /// 
+    /// ## Example Usage
+    /// ### Create a workload classifier with all properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlPoolWorkloadClassifier = new AzureNative.Synapse.V20210301.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier", new()
+    ///     {
+    ///         Context = "test_context",
+    ///         EndTime = "14:00",
+    ///         Importance = "high",
+    ///         Label = "test_label",
+    ///         MemberName = "dbo",
+    ///         ResourceGroupName = "sqlcrudtest-6852",
+    ///         SqlPoolName = "sqlcrudtest-9187",
+    ///         StartTime = "12:00",
+    ///         WorkloadClassifierName = "wlm_workloadclassifier",
+    ///         WorkloadGroupName = "wlm_workloadgroup",
+    ///         WorkspaceName = "sqlcrudtest-2080",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a workload classifier with the required properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sqlPoolWorkloadClassifier = new AzureNative.Synapse.V20210301.SqlPoolWorkloadClassifier("sqlPoolWorkloadClassifier", new()
+    ///     {
+    ///         MemberName = "dbo",
+    ///         ResourceGroupName = "sqlcrudtest-6852",
+    ///         SqlPoolName = "sqlcrudtest-9187",
+    ///         WorkloadClassifierName = "wlm_workloadclassifier",
+    ///         WorkloadGroupName = "wlm_workloadgroup",
+    ///         WorkspaceName = "sqlcrudtest-2080",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210301:SqlPoolWorkloadClassifier wlm_workloadclassifier /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Synapse/workspaces/sqlcrudtest-2080/sqlPools/sqlcrudtest-9187/workloadGroups/wlm_workloadgroup/workloadClassifiers/wlm_workloadclassifier 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210301:SqlPoolWorkloadClassifier")]
     public partial class SqlPoolWorkloadClassifier : global::Pulumi.CustomResource

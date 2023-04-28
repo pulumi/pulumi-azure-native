@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * An object that represents a container registry.
+ *
+ * ## Example Usage
+ * ### RegistryCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const registry = new azure_native.containerregistry.v20170301.Registry("registry", {
+ *     adminUserEnabled: true,
+ *     location: "westus",
+ *     registryName: "myRegistry",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         name: "Basic",
+ *     },
+ *     storageAccount: {
+ *         accessKey: "0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+ *         name: "mystorageaccount",
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerregistry/v20170301:Registry myRegistry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry 
+ * ```
  */
 export class Registry extends pulumi.CustomResource {
     /**

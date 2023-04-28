@@ -164,7 +164,39 @@ class L2Network(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Create a L2Network resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update L2 network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l2_network = azure_native.networkcloud.v20221212preview.L2Network("l2Network",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            hybrid_aks_plugin_type="DPDK",
+            interface_name="eth0",
+            l2_isolation_domain_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+            l2_network_name="l2NetworkName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:L2Network l2NetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l2Networks/l2NetworkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the cluster associated with the resource.
@@ -183,7 +215,39 @@ class L2Network(pulumi.CustomResource):
                  args: L2NetworkArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a L2Network resource with the given unique name, props, and options.
+        ## Example Usage
+        ### Create or update L2 network
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l2_network = azure_native.networkcloud.v20221212preview.L2Network("l2Network",
+            extended_location=azure_native.networkcloud.v20221212preview.ExtendedLocationArgs(
+                name="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ExtendedLocation/customLocations/clusterExtendedLocationName",
+                type="CustomLocation",
+            ),
+            hybrid_aks_plugin_type="DPDK",
+            interface_name="eth0",
+            l2_isolation_domain_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/l2IsolationDomains/l2IsolationDomainName",
+            l2_network_name="l2NetworkName",
+            location="location",
+            resource_group_name="resourceGroupName",
+            tags={
+                "key1": "myvalue1",
+                "key2": "myvalue2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:networkcloud/v20221212preview:L2Network l2NetworkName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.NetworkCloud/l2Networks/l2NetworkName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param L2NetworkArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -9,6 +9,50 @@ import * as utilities from "../../utilities";
 
 /**
  * Wrapper resource for tags API requests and responses.
+ *
+ * ## Example Usage
+ * ### Update tags on a resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tagAtScope = new azure_native.resources.v20191001.TagAtScope("tagAtScope", {
+ *     properties: {
+ *         tags: {
+ *             tagKey1: "tagValue1",
+ *             tagKey2: "tagValue2",
+ *         },
+ *     },
+ *     scope: "subscriptions/eaee6a92-e973-4922-9471-3a0a6abf81cd/resourcegroups/myResourceGroup/providers/myPRNameSpace/VM/myVm",
+ * });
+ *
+ * ```
+ * ### Update tags on a subscription
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const tagAtScope = new azure_native.resources.v20191001.TagAtScope("tagAtScope", {
+ *     properties: {
+ *         tags: {
+ *             tagKey1: "tagValue1",
+ *             tagKey2: "tagValue2",
+ *         },
+ *     },
+ *     scope: "subscriptions/eaee6a92-e973-4922-9471-3a0a6abf81cd",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources/v20191001:TagAtScope myresource1 /{scope}/providers/Microsoft.Resources/tags/default 
+ * ```
  */
 export class TagAtScope extends pulumi.CustomResource {
     /**

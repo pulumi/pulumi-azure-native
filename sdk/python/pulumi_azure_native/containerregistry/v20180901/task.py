@@ -234,6 +234,63 @@ class Task(pulumi.CustomResource):
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
 
+        ## Example Usage
+        ### Tasks_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        task = azure_native.containerregistry.v20180901.Task("task",
+            agent_configuration=azure_native.containerregistry.v20180901.AgentPropertiesArgs(
+                cpu=2,
+            ),
+            location="eastus",
+            platform=azure_native.containerregistry.v20180901.PlatformPropertiesArgs(
+                architecture="amd64",
+                os="Linux",
+            ),
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            status="Enabled",
+            step=azure_native.containerregistry.v20180901.TaskStepPropertiesArgs(
+                context_path="dockerfiles",
+            ),
+            tags={
+                "testkey": "value",
+            },
+            task_name="mytTask",
+            trigger=azure_native.containerregistry.v20180901.TriggerPropertiesResponseArgs(
+                base_image_trigger=azure_native.containerregistry.v20180901.BaseImageTriggerArgs(
+                    base_image_trigger_type="Runtime",
+                    name="myBaseImageTrigger",
+                ),
+                source_triggers=[{
+                    "name": "mySourceTrigger",
+                    "sourceRepository": {
+                        "branch": "master",
+                        "repositoryUrl": "https://github.com/Azure/azure-rest-api-specs",
+                        "sourceControlAuthProperties": azure_native.containerregistry.v20180901.AuthInfoArgs(
+                            token="xxxxx",
+                            token_type="PAT",
+                        ),
+                        "sourceControlType": "Github",
+                    },
+                    "sourceTriggerEvents": ["commit"],
+                    "status": "Enabled",
+                }],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20180901:Task myTask /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tasks/myTask 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['AgentPropertiesArgs']] agent_configuration: The machine configuration of the run agent.
@@ -258,6 +315,63 @@ class Task(pulumi.CustomResource):
         """
         The task that has the ARM resource and task properties.
         The task will have all information to schedule a run against it.
+
+        ## Example Usage
+        ### Tasks_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        task = azure_native.containerregistry.v20180901.Task("task",
+            agent_configuration=azure_native.containerregistry.v20180901.AgentPropertiesArgs(
+                cpu=2,
+            ),
+            location="eastus",
+            platform=azure_native.containerregistry.v20180901.PlatformPropertiesArgs(
+                architecture="amd64",
+                os="Linux",
+            ),
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            status="Enabled",
+            step=azure_native.containerregistry.v20180901.TaskStepPropertiesArgs(
+                context_path="dockerfiles",
+            ),
+            tags={
+                "testkey": "value",
+            },
+            task_name="mytTask",
+            trigger=azure_native.containerregistry.v20180901.TriggerPropertiesResponseArgs(
+                base_image_trigger=azure_native.containerregistry.v20180901.BaseImageTriggerArgs(
+                    base_image_trigger_type="Runtime",
+                    name="myBaseImageTrigger",
+                ),
+                source_triggers=[{
+                    "name": "mySourceTrigger",
+                    "sourceRepository": {
+                        "branch": "master",
+                        "repositoryUrl": "https://github.com/Azure/azure-rest-api-specs",
+                        "sourceControlAuthProperties": azure_native.containerregistry.v20180901.AuthInfoArgs(
+                            token="xxxxx",
+                            token_type="PAT",
+                        ),
+                        "sourceControlType": "Github",
+                    },
+                    "sourceTriggerEvents": ["commit"],
+                    "status": "Enabled",
+                }],
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20180901:Task myTask /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tasks/myTask 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.

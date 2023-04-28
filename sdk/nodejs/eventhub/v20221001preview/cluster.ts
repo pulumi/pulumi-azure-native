@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Single Event Hubs Cluster resource in List or Get operations.
+ *
+ * ## Example Usage
+ * ### ClusterPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const cluster = new azure_native.eventhub.v20221001preview.Cluster("cluster", {
+ *     clusterName: "testCluster",
+ *     location: "South Central US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sku: {
+ *         capacity: 1,
+ *         name: "Dedicated",
+ *     },
+ *     tags: {
+ *         tag1: "value1",
+ *         tag2: "value2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub/v20221001preview:Cluster testCluster /subscriptions/5f750a97-50d9-4e36-8081-c9ee4c0210d4/resourceGroups/myResourceGroup/providers/Microsoft.EventHub/clusters/testCluster 
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

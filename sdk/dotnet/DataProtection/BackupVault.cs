@@ -13,6 +13,106 @@ namespace Pulumi.AzureNative.DataProtection
     /// Backup Vault Resource
     /// API Version: 2023-01-01.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create BackupVault
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupVault = new AzureNative.DataProtection.BackupVault("backupVault", new()
+    ///     {
+    ///         Identity = new AzureNative.DataProtection.Inputs.DppIdentityDetailsArgs
+    ///         {
+    ///             Type = "None",
+    ///         },
+    ///         Location = "WestUS",
+    ///         Properties = new AzureNative.DataProtection.Inputs.BackupVaultArgs
+    ///         {
+    ///             MonitoringSettings = new AzureNative.DataProtection.Inputs.MonitoringSettingsArgs
+    ///             {
+    ///                 AzureMonitorAlertSettings = new AzureNative.DataProtection.Inputs.AzureMonitorAlertSettingsArgs
+    ///                 {
+    ///                     AlertsForAllJobFailures = "Enabled",
+    ///                 },
+    ///             },
+    ///             StorageSettings = new[]
+    ///             {
+    ///                 new AzureNative.DataProtection.Inputs.StorageSettingArgs
+    ///                 {
+    ///                     DatastoreType = "VaultStore",
+    ///                     Type = "LocallyRedundant",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///         VaultName = "swaggerExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create BackupVault With MSI
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var backupVault = new AzureNative.DataProtection.BackupVault("backupVault", new()
+    ///     {
+    ///         Identity = new AzureNative.DataProtection.Inputs.DppIdentityDetailsArgs
+    ///         {
+    ///             Type = "systemAssigned",
+    ///         },
+    ///         Location = "WestUS",
+    ///         Properties = new AzureNative.DataProtection.Inputs.BackupVaultArgs
+    ///         {
+    ///             MonitoringSettings = new AzureNative.DataProtection.Inputs.MonitoringSettingsArgs
+    ///             {
+    ///                 AzureMonitorAlertSettings = new AzureNative.DataProtection.Inputs.AzureMonitorAlertSettingsArgs
+    ///                 {
+    ///                     AlertsForAllJobFailures = "Enabled",
+    ///                 },
+    ///             },
+    ///             StorageSettings = new[]
+    ///             {
+    ///                 new AzureNative.DataProtection.Inputs.StorageSettingArgs
+    ///                 {
+    ///                     DatastoreType = "VaultStore",
+    ///                     Type = "LocallyRedundant",
+    ///                 },
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///         VaultName = "swaggerExample",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dataprotection:BackupVault swaggerExample /subscriptions/0b352192-dcac-4cc7-992e-a96190ccc68c/resourceGroups/SampleResourceGroup/providers/Microsoft.DataProtection/Backupvaults/swaggerExample 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dataprotection:BackupVault")]
     public partial class BackupVault : global::Pulumi.CustomResource

@@ -97,6 +97,33 @@ class ReplicationPolicy(pulumi.CustomResource):
         """
         Protection profile details.
 
+        ## Example Usage
+        ### Creates the policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_policy = azure_native.recoveryservices.v20230201.ReplicationPolicy("replicationPolicy",
+            policy_name="protectionprofile1",
+            properties=azure_native.recoveryservices.v20230201.PolicyPropertiesResponseArgs(
+                provider_specific_input=azure_native.recoveryservices.v20230201.HyperVReplicaAzurePolicyInputArgs(
+                    instance_type="HyperVReplicaAzure",
+                ),
+            ),
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20230201:ReplicationPolicy protectionprofile1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] policy_name: Replication policy name.
@@ -112,6 +139,33 @@ class ReplicationPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Protection profile details.
+
+        ## Example Usage
+        ### Creates the policy.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replication_policy = azure_native.recoveryservices.v20230201.ReplicationPolicy("replicationPolicy",
+            policy_name="protectionprofile1",
+            properties=azure_native.recoveryservices.v20230201.PolicyPropertiesResponseArgs(
+                provider_specific_input=azure_native.recoveryservices.v20230201.HyperVReplicaAzurePolicyInputArgs(
+                    instance_type="HyperVReplicaAzure",
+                ),
+            ),
+            resource_group_name="resourceGroupPS1",
+            resource_name_="vault1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20230201:ReplicationPolicy protectionprofile1 /Subscriptions/c183865e-6077-46f2-a3b1-deb0f4f4650a/resourceGroups/resourceGroupPS1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/protectionprofile1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationPolicyArgs args: The arguments to use to populate this resource's properties.

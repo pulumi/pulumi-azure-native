@@ -11,6 +11,87 @@ import * as utilities from "../utilities";
  * Specifies information about the Shared Image Gallery that you want to create or update.
  * API Version: 2022-03-03.
  * Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create a community gallery.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gallery = new azure_native.compute.Gallery("gallery", {
+ *     description: "This is the gallery description.",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sharingProfile: {
+ *         communityGalleryInfo: {
+ *             eula: "eula",
+ *             publicNamePrefix: "PirPublic",
+ *             publisherContact: "pir@microsoft.com",
+ *             publisherUri: "uri",
+ *         },
+ *         permissions: "Community",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple gallery with sharing profile.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gallery = new azure_native.compute.Gallery("gallery", {
+ *     description: "This is the gallery description.",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     sharingProfile: {
+ *         permissions: "Groups",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple gallery with soft deletion enabled.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gallery = new azure_native.compute.Gallery("gallery", {
+ *     description: "This is the gallery description.",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ *     softDeletePolicy: {
+ *         isSoftDeleteEnabled: true,
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update a simple gallery.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const gallery = new azure_native.compute.Gallery("gallery", {
+ *     description: "This is the gallery description.",
+ *     galleryName: "myGalleryName",
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:Gallery myGalleryName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName} 
+ * ```
  */
 export class Gallery extends pulumi.CustomResource {
     /**

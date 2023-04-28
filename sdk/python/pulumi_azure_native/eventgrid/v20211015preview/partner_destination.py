@@ -218,6 +218,33 @@ class PartnerDestination(pulumi.CustomResource):
         """
         Event Grid Partner Destination.
 
+        ## Example Usage
+        ### PartnerDestinations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner_destination = azure_native.eventgrid.v20211015preview.PartnerDestination("partnerDestination",
+            endpoint_base_url="https://www.example/endpoint",
+            endpoint_service_context="This is an example",
+            expiration_time_if_not_activated_utc="2022-03-14T19:33:43.430Z",
+            location="westus2",
+            message_for_activation="Sample Activation message",
+            partner_destination_name="examplePartnerDestinationName1",
+            partner_registration_immutable_id="0bd70ee2-7d95-447e-ab1f-c4f320019404",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20211015preview:PartnerDestination examplePartnerDestinationName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerDestinations/examplePartnerDestinationName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'PartnerDestinationActivationState']] activation_state: Activation state of the partner destination.
@@ -241,6 +268,33 @@ class PartnerDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Grid Partner Destination.
+
+        ## Example Usage
+        ### PartnerDestinations_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        partner_destination = azure_native.eventgrid.v20211015preview.PartnerDestination("partnerDestination",
+            endpoint_base_url="https://www.example/endpoint",
+            endpoint_service_context="This is an example",
+            expiration_time_if_not_activated_utc="2022-03-14T19:33:43.430Z",
+            location="westus2",
+            message_for_activation="Sample Activation message",
+            partner_destination_name="examplePartnerDestinationName1",
+            partner_registration_immutable_id="0bd70ee2-7d95-447e-ab1f-c4f320019404",
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20211015preview:PartnerDestination examplePartnerDestinationName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/partnerDestinations/examplePartnerDestinationName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PartnerDestinationArgs args: The arguments to use to populate this resource's properties.

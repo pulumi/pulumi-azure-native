@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.Marketplace
     /// The Collection data structure.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreatePrivateStoreCollection
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateStoreCollection = new AzureNative.Marketplace.PrivateStoreCollection("privateStoreCollection", new()
+    ///     {
+    ///         AllSubscriptions = false,
+    ///         Claim = "",
+    ///         CollectionId = "d0f5aa2c-ecc3-4d87-906a-f8c486dcc4f1",
+    ///         CollectionName = "Test Collection",
+    ///         PrivateStoreId = "a0e28e55-90c4-41d8-8e34-bb7ef7775406",
+    ///         SubscriptionsList = new[]
+    ///         {
+    ///             "b340914e-353d-453a-85fb-8f9b65b51f91",
+    ///             "f2baa04d-5bfc-461b-b6d8-61b403c9ec48",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:marketplace:PrivateStoreCollection d0f5aa2c-ecc3-4d87-906a-f8c486dcc4f1 providers/Microsoft.Marketplace/privateStores/a0e28e55-90c4-41d8-8e34-bb7ef7775406/collections/d0f5aa2c-ecc3-4d87-906a-f8c486dcc4f1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:marketplace:PrivateStoreCollection")]
     public partial class PrivateStoreCollection : global::Pulumi.CustomResource

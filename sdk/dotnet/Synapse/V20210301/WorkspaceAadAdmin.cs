@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.Synapse.V20210301
 {
     /// <summary>
     /// Workspace active directory administrator
+    /// 
+    /// ## Example Usage
+    /// ### Create or update workspace active directory admin
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspaceAadAdmin = new AzureNative.Synapse.V20210301.WorkspaceAadAdmin("workspaceAadAdmin", new()
+    ///     {
+    ///         AdministratorType = "ActiveDirectory",
+    ///         Login = "bob@contoso.com",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         Sid = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///         TenantId = "c6b82b90-a647-49cb-8a62-0d2d3cb7ac7c",
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:synapse/v20210301:WorkspaceAadAdmin activeDirectory /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/administrators/activeDirectory 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse/v20210301:WorkspaceAadAdmin")]
     public partial class WorkspaceAadAdmin : global::Pulumi.CustomResource

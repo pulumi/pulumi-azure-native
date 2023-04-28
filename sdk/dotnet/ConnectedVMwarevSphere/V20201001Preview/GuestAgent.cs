@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere.V20201001Preview
 {
     /// <summary>
     /// Defines the GuestAgent.
+    /// 
+    /// ## Example Usage
+    /// ### CreateGuestAgent
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var guestAgent = new AzureNative.ConnectedVMwarevSphere.V20201001Preview.GuestAgent("guestAgent", new()
+    ///     {
+    ///         Credentials = new AzureNative.ConnectedVMwarevSphere.V20201001Preview.Inputs.GuestCredentialArgs
+    ///         {
+    ///             Password = "&lt;password&gt;",
+    ///             Username = "tempuser",
+    ///         },
+    ///         HttpProxyConfig = new AzureNative.ConnectedVMwarevSphere.V20201001Preview.Inputs.HttpProxyConfigurationArgs
+    ///         {
+    ///             HttpsProxy = "http://192.1.2.3:8080",
+    ///         },
+    ///         Name = "default",
+    ///         ProvisioningAction = "install",
+    ///         ResourceGroupName = "testrg",
+    ///         VirtualMachineName = "ContosoVm",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent default /subscriptions/fd3c3665-1729-4b7b-9a38-238e83b0f98b/resourceGroups/testrg/providers/Microsoft.ConnectedVMwarevSphere/VitualMachines/ContosoVm/guestAgents/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:connectedvmwarevsphere/v20201001preview:GuestAgent")]
     public partial class GuestAgent : global::Pulumi.CustomResource

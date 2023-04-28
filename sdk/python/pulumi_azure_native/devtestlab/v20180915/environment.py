@@ -163,6 +163,33 @@ class Environment(pulumi.CustomResource):
         """
         An environment, which is essentially an ARM template deployment.
 
+        ## Example Usage
+        ### Environments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment = azure_native.devtestlab.v20180915.Environment("environment",
+            deployment_properties=azure_native.devtestlab.v20180915.EnvironmentDeploymentPropertiesResponseArgs(
+                arm_template_id="/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{armTemplateName}",
+                parameters=[],
+            ),
+            lab_name="{labName}",
+            name="{environmentName}",
+            resource_group_name="resourceGroupName",
+            user_name="@me")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:Environment {environmentName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/users/{uniqueIdentifier}/environments/{environmentName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arm_template_display_name: The display name of the Azure Resource Manager template that produced the environment.
@@ -182,6 +209,33 @@ class Environment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An environment, which is essentially an ARM template deployment.
+
+        ## Example Usage
+        ### Environments_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        environment = azure_native.devtestlab.v20180915.Environment("environment",
+            deployment_properties=azure_native.devtestlab.v20180915.EnvironmentDeploymentPropertiesResponseArgs(
+                arm_template_id="/subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/artifactSources/{artifactSourceName}/armTemplates/{armTemplateName}",
+                parameters=[],
+            ),
+            lab_name="{labName}",
+            name="{environmentName}",
+            resource_group_name="resourceGroupName",
+            user_name="@me")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab/v20180915:Environment {environmentName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/users/{uniqueIdentifier}/environments/{environmentName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EnvironmentArgs args: The arguments to use to populate this resource's properties.

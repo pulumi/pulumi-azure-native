@@ -9,6 +9,29 @@ import * as utilities from "../../utilities";
 
 /**
  * Custom entity store assignment
+ *
+ * ## Example Usage
+ * ### Create a custom entity store assignment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customEntityStoreAssignment = new azure_native.security.v20210701preview.CustomEntityStoreAssignment("customEntityStoreAssignment", {
+ *     customEntityStoreAssignmentName: "33e7cc6e-a139-4723-a0e5-76993aee0771",
+ *     principal: "aaduser=f3923a3e-ad57-4752-b1a9-fbf3c8e5e082;72f988bf-86f1-41af-91ab-2d7cd011db47",
+ *     resourceGroupName: "TestResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:security/v20210701preview:CustomEntityStoreAssignment 33e7cc6e-a139-4723-a0e5-76993aee0771 /subscriptions/e5d1b86c-3051-44d5-8802-aa65d45a279b/resourcegroups/TestResourceGroup/providers/Microsoft.Security/customEntityStoreAssignments/33e7cc6e-a139-4723-a0e5-76993aee0771 
+ * ```
  */
 export class CustomEntityStoreAssignment extends pulumi.CustomResource {
     /**

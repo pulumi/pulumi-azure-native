@@ -11,6 +11,3799 @@ namespace Pulumi.AzureNative.Workloads.V20230401
 {
     /// <summary>
     /// Define the Virtual Instance for SAP solutions resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create Infrastructure (with OS configuration) with custom resource names for Distributed System
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CustomResourceNames = new AzureNative.Workloads.V20230401.Inputs.ThreeTierFullResourceNamesArgs
+    ///                 {
+    ///                     ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerFullResourceNamesArgs
+    ///                     {
+    ///                         AvailabilitySetName = "appAvSet",
+    ///                         VirtualMachines = new[]
+    ///                         {
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "default", new[]
+    ///                                     {
+    ///                                         "app0disk0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "apphostName0",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "appnic0",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "app0osdisk",
+    ///                                 VmName = "appvm0",
+    ///                             },
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "default", new[]
+    ///                                     {
+    ///                                         "app1disk0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "apphostName1",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "appnic1",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "app1osdisk",
+    ///                                 VmName = "appvm1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerFullResourceNamesArgs
+    ///                     {
+    ///                         VirtualMachines = new[]
+    ///                         {
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "default", new[]
+    ///                                     {
+    ///                                         "ascsdisk0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "ascshostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "ascsnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "ascsosdisk",
+    ///                                 VmName = "ascsvm",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseServerFullResourceNamesArgs
+    ///                     {
+    ///                         VirtualMachines = new[]
+    ///                         {
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "hanaData", new[]
+    ///                                     {
+    ///                                         "hanadata0",
+    ///                                         "hanadata1",
+    ///                                     } },
+    ///                                     { "hanaLog", new[]
+    ///                                     {
+    ///                                         "hanalog0",
+    ///                                         "hanalog1",
+    ///                                         "hanalog2",
+    ///                                     } },
+    ///                                     { "hanaShared", new[]
+    ///                                     {
+    ///                                         "hanashared0",
+    ///                                         "hanashared1",
+    ///                                     } },
+    ///                                     { "usrSap", new[]
+    ///                                     {
+    ///                                         "usrsap0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "dbhostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "dbnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "dbosdisk",
+    ///                                 VmName = "dbvm",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     NamingPatternType = "FullResourceName",
+    ///                     SharedStorage = new AzureNative.Workloads.V20230401.Inputs.SharedStorageResourceNamesArgs
+    ///                     {
+    ///                         SharedStorageAccountName = "storageacc",
+    ///                         SharedStorageAccountPrivateEndPointName = "peForxNFS",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure (with OS configuration) with custom resource names for HA System with Availability Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CustomResourceNames = new AzureNative.Workloads.V20230401.Inputs.ThreeTierFullResourceNamesArgs
+    ///                 {
+    ///                     ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerFullResourceNamesArgs
+    ///                     {
+    ///                         AvailabilitySetName = "appAvSet",
+    ///                         VirtualMachines = new[]
+    ///                         {
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "default", new[]
+    ///                                     {
+    ///                                         "app0disk0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "apphostName0",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "appnic0",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "app0osdisk",
+    ///                                 VmName = "appvm0",
+    ///                             },
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "default", new[]
+    ///                                     {
+    ///                                         "app1disk0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "apphostName1",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "appnic1",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "app1osdisk",
+    ///                                 VmName = "appvm1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerFullResourceNamesArgs
+    ///                     {
+    ///                         AvailabilitySetName = "csAvSet",
+    ///                         LoadBalancer = new AzureNative.Workloads.V20230401.Inputs.LoadBalancerResourceNamesArgs
+    ///                         {
+    ///                             BackendPoolNames = new[]
+    ///                             {
+    ///                                 "ascsBackendPool",
+    ///                             },
+    ///                             FrontendIpConfigurationNames = new[]
+    ///                             {
+    ///                                 "ascsip0",
+    ///                                 "ersip0",
+    ///                             },
+    ///                             HealthProbeNames = new[]
+    ///                             {
+    ///                                 "ascsHealthProbe",
+    ///                                 "ersHealthProbe",
+    ///                             },
+    ///                             LoadBalancerName = "ascslb",
+    ///                         },
+    ///                         VirtualMachines = new[]
+    ///                         {
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 HostName = "ascshostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "ascsnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "ascsosdisk",
+    ///                                 VmName = "ascsvm",
+    ///                             },
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 HostName = "ershostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "ersnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "ersosdisk",
+    ///                                 VmName = "ersvm",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseServerFullResourceNamesArgs
+    ///                     {
+    ///                         AvailabilitySetName = "dbAvSet",
+    ///                         LoadBalancer = new AzureNative.Workloads.V20230401.Inputs.LoadBalancerResourceNamesArgs
+    ///                         {
+    ///                             BackendPoolNames = new[]
+    ///                             {
+    ///                                 "dbBackendPool",
+    ///                             },
+    ///                             FrontendIpConfigurationNames = new[]
+    ///                             {
+    ///                                 "dbip",
+    ///                             },
+    ///                             HealthProbeNames = new[]
+    ///                             {
+    ///                                 "dbHealthProbe",
+    ///                             },
+    ///                             LoadBalancerName = "dblb",
+    ///                         },
+    ///                         VirtualMachines = new[]
+    ///                         {
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "hanaData", new[]
+    ///                                     {
+    ///                                         "hanadatapr0",
+    ///                                         "hanadatapr1",
+    ///                                     } },
+    ///                                     { "hanaLog", new[]
+    ///                                     {
+    ///                                         "hanalogpr0",
+    ///                                         "hanalogpr1",
+    ///                                         "hanalogpr2",
+    ///                                     } },
+    ///                                     { "hanaShared", new[]
+    ///                                     {
+    ///                                         "hanasharedpr0",
+    ///                                         "hanasharedpr1",
+    ///                                     } },
+    ///                                     { "usrSap", new[]
+    ///                                     {
+    ///                                         "usrsappr0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "dbprhostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "dbprnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "dbprosdisk",
+    ///                                 VmName = "dbvmpr",
+    ///                             },
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "hanaData", new[]
+    ///                                     {
+    ///                                         "hanadatasr0",
+    ///                                         "hanadatasr1",
+    ///                                     } },
+    ///                                     { "hanaLog", new[]
+    ///                                     {
+    ///                                         "hanalogsr0",
+    ///                                         "hanalogsr1",
+    ///                                         "hanalogsr2",
+    ///                                     } },
+    ///                                     { "hanaShared", new[]
+    ///                                     {
+    ///                                         "hanasharedsr0",
+    ///                                         "hanasharedsr1",
+    ///                                     } },
+    ///                                     { "usrSap", new[]
+    ///                                     {
+    ///                                         "usrsapsr0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "dbsrhostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "dbsrnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "dbsrosdisk",
+    ///                                 VmName = "dbvmsr",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     NamingPatternType = "FullResourceName",
+    ///                     SharedStorage = new AzureNative.Workloads.V20230401.Inputs.SharedStorageResourceNamesArgs
+    ///                     {
+    ///                         SharedStorageAccountName = "storageacc",
+    ///                         SharedStorageAccountPrivateEndPointName = "peForxNFS",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilitySet",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure (with OS configuration) with custom resource names for HA system with Availability Zone
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CustomResourceNames = new AzureNative.Workloads.V20230401.Inputs.ThreeTierFullResourceNamesArgs
+    ///                 {
+    ///                     ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerFullResourceNamesArgs
+    ///                     {
+    ///                         VirtualMachines = new[]
+    ///                         {
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "default", new[]
+    ///                                     {
+    ///                                         "app0disk0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "apphostName0",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "appnic0",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "app0osdisk",
+    ///                                 VmName = "appvm0",
+    ///                             },
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "default", new[]
+    ///                                     {
+    ///                                         "app1disk0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "apphostName1",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "appnic1",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "app1osdisk",
+    ///                                 VmName = "appvm1",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerFullResourceNamesArgs
+    ///                     {
+    ///                         LoadBalancer = new AzureNative.Workloads.V20230401.Inputs.LoadBalancerResourceNamesArgs
+    ///                         {
+    ///                             BackendPoolNames = new[]
+    ///                             {
+    ///                                 "ascsBackendPool",
+    ///                             },
+    ///                             FrontendIpConfigurationNames = new[]
+    ///                             {
+    ///                                 "ascsip0",
+    ///                                 "ersip0",
+    ///                             },
+    ///                             HealthProbeNames = new[]
+    ///                             {
+    ///                                 "ascsHealthProbe",
+    ///                                 "ersHealthProbe",
+    ///                             },
+    ///                             LoadBalancerName = "ascslb",
+    ///                         },
+    ///                         VirtualMachines = new[]
+    ///                         {
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 HostName = "ascshostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "ascsnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "ascsosdisk",
+    ///                                 VmName = "ascsvm",
+    ///                             },
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 HostName = "ershostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "ersnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "ersosdisk",
+    ///                                 VmName = "ersvm",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseServerFullResourceNamesArgs
+    ///                     {
+    ///                         LoadBalancer = new AzureNative.Workloads.V20230401.Inputs.LoadBalancerResourceNamesArgs
+    ///                         {
+    ///                             BackendPoolNames = new[]
+    ///                             {
+    ///                                 "dbBackendPool",
+    ///                             },
+    ///                             FrontendIpConfigurationNames = new[]
+    ///                             {
+    ///                                 "dbip",
+    ///                             },
+    ///                             HealthProbeNames = new[]
+    ///                             {
+    ///                                 "dbHealthProbe",
+    ///                             },
+    ///                             LoadBalancerName = "dblb",
+    ///                         },
+    ///                         VirtualMachines = new[]
+    ///                         {
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "hanaData", new[]
+    ///                                     {
+    ///                                         "hanadatapr0",
+    ///                                         "hanadatapr1",
+    ///                                     } },
+    ///                                     { "hanaLog", new[]
+    ///                                     {
+    ///                                         "hanalogpr0",
+    ///                                         "hanalogpr1",
+    ///                                         "hanalogpr2",
+    ///                                     } },
+    ///                                     { "hanaShared", new[]
+    ///                                     {
+    ///                                         "hanasharedpr0",
+    ///                                         "hanasharedpr1",
+    ///                                     } },
+    ///                                     { "usrSap", new[]
+    ///                                     {
+    ///                                         "usrsappr0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "dbprhostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "dbprnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "dbprosdisk",
+    ///                                 VmName = "dbvmpr",
+    ///                             },
+    ///                             new AzureNative.Workloads.V20230401.Inputs.VirtualMachineResourceNamesArgs
+    ///                             {
+    ///                                 DataDiskNames = 
+    ///                                 {
+    ///                                     { "hanaData", new[]
+    ///                                     {
+    ///                                         "hanadatasr0",
+    ///                                         "hanadatasr1",
+    ///                                     } },
+    ///                                     { "hanaLog", new[]
+    ///                                     {
+    ///                                         "hanalogsr0",
+    ///                                         "hanalogsr1",
+    ///                                         "hanalogsr2",
+    ///                                     } },
+    ///                                     { "hanaShared", new[]
+    ///                                     {
+    ///                                         "hanasharedsr0",
+    ///                                         "hanasharedsr1",
+    ///                                     } },
+    ///                                     { "usrSap", new[]
+    ///                                     {
+    ///                                         "usrsapsr0",
+    ///                                     } },
+    ///                                 },
+    ///                                 HostName = "dbsrhostName",
+    ///                                 NetworkInterfaces = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.NetworkInterfaceResourceNamesArgs
+    ///                                     {
+    ///                                         NetworkInterfaceName = "dbsrnic",
+    ///                                     },
+    ///                                 },
+    ///                                 OsDiskName = "dbsrosdisk",
+    ///                                 VmName = "dbvmsr",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     NamingPatternType = "FullResourceName",
+    ///                     SharedStorage = new AzureNative.Workloads.V20230401.Inputs.SharedStorageResourceNamesArgs
+    ///                     {
+    ///                         SharedStorageAccountName = "storageacc",
+    ///                         SharedStorageAccountPrivateEndPointName = "peForxNFS",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilityZone",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure (with OS configuration) with custom resource names for Single Server System
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.SingleServerConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 DatabaseType = "HANA",
+    ///                 DeploymentType = "SingleServer",
+    ///                 NetworkConfiguration = new AzureNative.Workloads.V20230401.Inputs.NetworkConfigurationArgs
+    ///                 {
+    ///                     IsSecondaryIpEnabled = true,
+    ///                 },
+    ///                 SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                 VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                 {
+    ///                     ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "RHEL-SAP",
+    ///                         Publisher = "RedHat",
+    ///                         Sku = "84sapha-gen2",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                     {
+    ///                         AdminUsername = "{your-username}",
+    ///                         OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                         {
+    ///                             DisablePasswordAuthentication = true,
+    ///                             OsType = "Linux",
+    ///                             SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                             {
+    ///                                 PrivateKey = "xyz",
+    ///                                 PublicKey = "abc",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VmSize = "Standard_E32ds_v4",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "NonProd",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure only for Distributed System
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "Deployment",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             KeyData = "ssh-rsa public key",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             KeyData = "ssh-rsa public key",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             KeyData = "ssh-rsa public key",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure only for HA System with Availability Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "Deployment",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 5,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             KeyData = "ssh-rsa public key",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             KeyData = "ssh-rsa public key",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             KeyData = "ssh-rsa public key",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilitySet",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure only for HA System with Availability Zone
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "Deployment",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             KeyData = "ssh-rsa public key",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             KeyData = "ssh-rsa public key",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                                 {
+    ///                                     PublicKeys = new[]
+    ///                                     {
+    ///                                         new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                         {
+    ///                                             KeyData = "ssh-rsa public key",
+    ///                                         },
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilityZone",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure only for Single Server System
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "Deployment",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.SingleServerConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 DatabaseType = "HANA",
+    ///                 DeploymentType = "SingleServer",
+    ///                 NetworkConfiguration = new AzureNative.Workloads.V20230401.Inputs.NetworkConfigurationArgs
+    ///                 {
+    ///                     IsSecondaryIpEnabled = true,
+    ///                 },
+    ///                 SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                 VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                 {
+    ///                     ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "RHEL-SAP",
+    ///                         Publisher = "RedHat",
+    ///                         Sku = "84sapha-gen2",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                     {
+    ///                         AdminUsername = "{your-username}",
+    ///                         OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                         {
+    ///                             DisablePasswordAuthentication = true,
+    ///                             OsType = "Linux",
+    ///                             Ssh = new AzureNative.Workloads.V20230401.Inputs.SshConfigurationArgs
+    ///                             {
+    ///                                 PublicKeys = new[]
+    ///                                 {
+    ///                                     new AzureNative.Workloads.V20230401.Inputs.SshPublicKeyArgs
+    ///                                     {
+    ///                                         KeyData = "ssh-rsa public key",
+    ///                                     },
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VmSize = "Standard_E32ds_v4",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Environment = "NonProd",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with Disk and OS configuration for Distributed System (Recommended)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     DiskConfiguration = new AzureNative.Workloads.V20230401.Inputs.DiskConfigurationArgs
+    ///                     {
+    ///                         DiskVolumeConfigurations = 
+    ///                         {
+    ///                             { "backup", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 2,
+    ///                                 SizeGB = 256,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "StandardSSD_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "hana/data", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 4,
+    ///                                 SizeGB = 128,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "Premium_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "hana/log", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 3,
+    ///                                 SizeGB = 128,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "Premium_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "hana/shared", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 SizeGB = 256,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "StandardSSD_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "os", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 SizeGB = 64,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "StandardSSD_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "usr/sap", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 SizeGB = 128,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "Premium_LRS",
+    ///                                 },
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with Disk and OS configuration for HA System with Availability Set (Recommended)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     DiskConfiguration = new AzureNative.Workloads.V20230401.Inputs.DiskConfigurationArgs
+    ///                     {
+    ///                         DiskVolumeConfigurations = 
+    ///                         {
+    ///                             { "backup", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 2,
+    ///                                 SizeGB = 256,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "StandardSSD_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "hana/data", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 4,
+    ///                                 SizeGB = 128,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "Premium_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "hana/log", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 3,
+    ///                                 SizeGB = 128,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "Premium_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "hana/shared", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 SizeGB = 256,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "StandardSSD_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "os", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 SizeGB = 64,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "StandardSSD_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "usr/sap", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 SizeGB = 128,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "Premium_LRS",
+    ///                                 },
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilitySet",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with Disk and OS configuration for HA System with Availability Zone (Recommended)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     DiskConfiguration = new AzureNative.Workloads.V20230401.Inputs.DiskConfigurationArgs
+    ///                     {
+    ///                         DiskVolumeConfigurations = 
+    ///                         {
+    ///                             { "backup", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 2,
+    ///                                 SizeGB = 256,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "StandardSSD_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "hana/data", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 4,
+    ///                                 SizeGB = 128,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "Premium_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "hana/log", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 3,
+    ///                                 SizeGB = 128,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "Premium_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "hana/shared", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 SizeGB = 256,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "StandardSSD_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "os", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 SizeGB = 64,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "StandardSSD_LRS",
+    ///                                 },
+    ///                             } },
+    ///                             { "usr/sap", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                             {
+    ///                                 Count = 1,
+    ///                                 SizeGB = 128,
+    ///                                 Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                                 {
+    ///                                     Name = "Premium_LRS",
+    ///                                 },
+    ///                             } },
+    ///                         },
+    ///                     },
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilityZone",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with Disk and OS configurations for Single Server System (Recommended)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.SingleServerConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 DatabaseType = "HANA",
+    ///                 DbDiskConfiguration = new AzureNative.Workloads.V20230401.Inputs.DiskConfigurationArgs
+    ///                 {
+    ///                     DiskVolumeConfigurations = 
+    ///                     {
+    ///                         { "backup", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                         {
+    ///                             Count = 2,
+    ///                             SizeGB = 256,
+    ///                             Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                             {
+    ///                                 Name = "StandardSSD_LRS",
+    ///                             },
+    ///                         } },
+    ///                         { "hana/data", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                         {
+    ///                             Count = 4,
+    ///                             SizeGB = 128,
+    ///                             Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                             {
+    ///                                 Name = "Premium_LRS",
+    ///                             },
+    ///                         } },
+    ///                         { "hana/log", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                         {
+    ///                             Count = 3,
+    ///                             SizeGB = 128,
+    ///                             Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                             {
+    ///                                 Name = "Premium_LRS",
+    ///                             },
+    ///                         } },
+    ///                         { "hana/shared", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                         {
+    ///                             Count = 1,
+    ///                             SizeGB = 256,
+    ///                             Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                             {
+    ///                                 Name = "StandardSSD_LRS",
+    ///                             },
+    ///                         } },
+    ///                         { "os", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                         {
+    ///                             Count = 1,
+    ///                             SizeGB = 64,
+    ///                             Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                             {
+    ///                                 Name = "StandardSSD_LRS",
+    ///                             },
+    ///                         } },
+    ///                         { "usr/sap", new AzureNative.Workloads.V20230401.Inputs.DiskVolumeConfigurationArgs
+    ///                         {
+    ///                             Count = 1,
+    ///                             SizeGB = 128,
+    ///                             Sku = new AzureNative.Workloads.V20230401.Inputs.DiskSkuArgs
+    ///                             {
+    ///                                 Name = "Premium_LRS",
+    ///                             },
+    ///                         } },
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "SingleServer",
+    ///                 NetworkConfiguration = new AzureNative.Workloads.V20230401.Inputs.NetworkConfigurationArgs
+    ///                 {
+    ///                     IsSecondaryIpEnabled = true,
+    ///                 },
+    ///                 SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/dindurkhya-e2etesting/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                 VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                 {
+    ///                     ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "RHEL-SAP",
+    ///                         Publisher = "RedHat",
+    ///                         Sku = "84sapha-gen2",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                     {
+    ///                         AdminUsername = "{your-username}",
+    ///                         OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                         {
+    ///                             DisablePasswordAuthentication = true,
+    ///                             OsType = "Linux",
+    ///                             SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                             {
+    ///                                 PrivateKey = "xyz",
+    ///                                 PublicKey = "abc",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VmSize = "Standard_E32ds_v4",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "NonProd",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with OS configuration for Distributed System (Recommended)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with OS configuration for HA System with Availability Set (Recommended)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilitySet",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with OS configuration for HA System with Availability Zone (Recommended)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilityZone",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with OS configuration for Single Server System (Recommended)
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.SingleServerConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 DatabaseType = "HANA",
+    ///                 DeploymentType = "SingleServer",
+    ///                 NetworkConfiguration = new AzureNative.Workloads.V20230401.Inputs.NetworkConfigurationArgs
+    ///                 {
+    ///                     IsSecondaryIpEnabled = true,
+    ///                 },
+    ///                 SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                 VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                 {
+    ///                     ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "RHEL-SAP",
+    ///                         Publisher = "RedHat",
+    ///                         Sku = "84sapha-gen2",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                     {
+    ///                         AdminUsername = "{your-username}",
+    ///                         OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                         {
+    ///                             DisablePasswordAuthentication = true,
+    ///                             OsType = "Linux",
+    ///                             SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                             {
+    ///                                 PrivateKey = "xyz",
+    ///                                 PublicKey = "abc",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VmSize = "Standard_E32ds_v4",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "NonProd",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with a new SAP Transport Directory Fileshare
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 StorageConfiguration = new AzureNative.Workloads.V20230401.Inputs.StorageConfigurationArgs
+    ///                 {
+    ///                     TransportFileShareConfiguration = new AzureNative.Workloads.V20230401.Inputs.CreateAndMountFileShareConfigurationArgs
+    ///                     {
+    ///                         ConfigurationType = "CreateAndMount",
+    ///                         ResourceGroup = "rgName",
+    ///                         StorageAccountName = "storageName",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure with an existing SAP Transport Directory Fileshare
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 StorageConfiguration = new AzureNative.Workloads.V20230401.Inputs.StorageConfigurationArgs
+    ///                 {
+    ///                     TransportFileShareConfiguration = new AzureNative.Workloads.V20230401.Inputs.MountFileShareConfigurationArgs
+    ///                     {
+    ///                         ConfigurationType = "Mount",
+    ///                         Id = "/subscriptions/49d64d54-e888-4c46-a868-1936802b762c/resourceGroups/testrg/providers/Microsoft.Network/privateEndpoints/endpoint",
+    ///                         PrivateEndpointId = "/subscriptions/49d64d54-e888-4c46-a868-1936802b762c/resourceGroups/testrg/providers/Microsoft.Network/privateEndpoints/endpoint",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Infrastructure without a SAP Transport Directory Fileshare
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 StorageConfiguration = new AzureNative.Workloads.V20230401.Inputs.StorageConfigurationArgs
+    ///                 {
+    ///                     TransportFileShareConfiguration = new AzureNative.Workloads.V20230401.Inputs.SkipFileShareConfigurationArgs
+    ///                     {
+    ///                         ConfigurationType = "Skip",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Detect SAP Software Installation on a Distributed System
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "{{resourcegrp}}",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/app",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "azureuser",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "{{privateKey}}",
+    ///                                     PublicKey = "{{sshkey}}",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E4ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/app",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "azureuser",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "{{privateKey}}",
+    ///                                     PublicKey = "{{sshkey}}",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E4ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/app",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "azureuser",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "{{privateKey}}",
+    ///                                     PublicKey = "{{sshkey}}",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 NetworkConfiguration = new AzureNative.Workloads.V20230401.Inputs.NetworkConfigurationArgs
+    ///                 {
+    ///                     IsSecondaryIpEnabled = true,
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "sap.bpaas.com",
+    ///             },
+    ///             SoftwareConfiguration = new AzureNative.Workloads.V20230401.Inputs.ExternalInstallationSoftwareConfigurationArgs
+    ///             {
+    ///                 CentralServerVmId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/sapq20scsvm0",
+    ///                 SoftwareInstallationType = "External",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "eastus2",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = 
+    ///         {
+    ///             { "created by", "azureuser" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Detect SAP Software Installation on a Single Server System
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.SingleServerConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 DatabaseType = "HANA",
+    ///                 DeploymentType = "SingleServer",
+    ///                 NetworkConfiguration = new AzureNative.Workloads.V20230401.Inputs.NetworkConfigurationArgs
+    ///                 {
+    ///                     IsSecondaryIpEnabled = true,
+    ///                 },
+    ///                 SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                 VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                 {
+    ///                     ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "RHEL-SAP-HA",
+    ///                         Publisher = "RedHat",
+    ///                         Sku = "84sapha-gen2",
+    ///                         Version = "latest",
+    ///                     },
+    ///                     OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                     {
+    ///                         AdminUsername = "{your-username}",
+    ///                         OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                         {
+    ///                             DisablePasswordAuthentication = true,
+    ///                             OsType = "Linux",
+    ///                             SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                             {
+    ///                                 PrivateKey = "xyz",
+    ///                                 PublicKey = "abc",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VmSize = "Standard_E32ds_v4",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///             SoftwareConfiguration = new AzureNative.Workloads.V20230401.Inputs.ExternalInstallationSoftwareConfigurationArgs
+    ///             {
+    ///                 CentralServerVmId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/sapq20scsvm0",
+    ///                 SoftwareInstallationType = "External",
+    ///             },
+    ///         },
+    ///         Environment = "NonProd",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Detect SAP Software Installation on an HA System with Availability Set
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilitySet",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///             SoftwareConfiguration = new AzureNative.Workloads.V20230401.Inputs.ExternalInstallationSoftwareConfigurationArgs
+    ///             {
+    ///                 CentralServerVmId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/sapq20scsvm0",
+    ///                 SoftwareInstallationType = "External",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Detect SAP Software Installation on an HA System with Availability Zone
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "X00-RG",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 6,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E32ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/appsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E16ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     DatabaseType = "HANA",
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Networks/virtualNetworks/test-vnet/subnets/dbsubnet",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "84sapha-gen2",
+    ///                             Version = "latest",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "{your-username}",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "xyz",
+    ///                                     PublicKey = "abc",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 HighAvailabilityConfig = new AzureNative.Workloads.V20230401.Inputs.HighAvailabilityConfigurationArgs
+    ///                 {
+    ///                     HighAvailabilityType = "AvailabilityZone",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "xyz.test.com",
+    ///             },
+    ///             SoftwareConfiguration = new AzureNative.Workloads.V20230401.Inputs.ExternalInstallationSoftwareConfigurationArgs
+    ///             {
+    ///                 CentralServerVmId = "/subscriptions/49d64d54-e966-4c46-a868-1999802b762c/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/sapq20scsvm0",
+    ///                 SoftwareInstallationType = "External",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "westcentralus",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Install SAP Software on Distributed System
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.ThreeTierConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "{{resourcegrp}}",
+    ///                 ApplicationServer = new AzureNative.Workloads.V20230401.Inputs.ApplicationServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 2,
+    ///                     SubnetId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/app",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "8.2",
+    ///                             Version = "8.2.2021091201",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "azureuser",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "{{privateKey}}",
+    ///                                     PublicKey = "{{sshkey}}",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E4ds_v4",
+    ///                     },
+    ///                 },
+    ///                 CentralServer = new AzureNative.Workloads.V20230401.Inputs.CentralServerConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/app",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "8.2",
+    ///                             Version = "8.2.2021091201",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "azureuser",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "{{privateKey}}",
+    ///                                     PublicKey = "{{sshkey}}",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_E4ds_v4",
+    ///                     },
+    ///                 },
+    ///                 DatabaseServer = new AzureNative.Workloads.V20230401.Inputs.DatabaseConfigurationArgs
+    ///                 {
+    ///                     InstanceCount = 1,
+    ///                     SubnetId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/app",
+    ///                     VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                     {
+    ///                         ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                         {
+    ///                             Offer = "RHEL-SAP-HA",
+    ///                             Publisher = "RedHat",
+    ///                             Sku = "8.2",
+    ///                             Version = "8.2.2021091201",
+    ///                         },
+    ///                         OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                         {
+    ///                             AdminUsername = "azureuser",
+    ///                             OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                             {
+    ///                                 DisablePasswordAuthentication = true,
+    ///                                 OsType = "Linux",
+    ///                                 SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                                 {
+    ///                                     PrivateKey = "{{privateKey}}",
+    ///                                     PublicKey = "{{sshkey}}",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                         VmSize = "Standard_M32ts",
+    ///                     },
+    ///                 },
+    ///                 DeploymentType = "ThreeTier",
+    ///                 NetworkConfiguration = new AzureNative.Workloads.V20230401.Inputs.NetworkConfigurationArgs
+    ///                 {
+    ///                     IsSecondaryIpEnabled = true,
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "sap.bpaas.com",
+    ///             },
+    ///             SoftwareConfiguration = new AzureNative.Workloads.V20230401.Inputs.SAPInstallWithoutOSConfigSoftwareConfigurationArgs
+    ///             {
+    ///                 BomUrl = "https://teststorageaccount.blob.core.windows.net/sapbits/sapfiles/boms/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml",
+    ///                 SapBitsStorageAccountId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Storage/storageAccounts/teststorageaccount",
+    ///                 SoftwareInstallationType = "SAPInstallWithoutOSConfig",
+    ///                 SoftwareVersion = "SAP S/4HANA 1909 SPS 03",
+    ///             },
+    ///         },
+    ///         Environment = "Prod",
+    ///         Location = "eastus2",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = 
+    ///         {
+    ///             { "created by", "azureuser" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Install SAP Software on Single Server System
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DeploymentWithOSConfigurationArgs
+    ///         {
+    ///             AppLocation = "eastus",
+    ///             ConfigurationType = "DeploymentWithOSConfig",
+    ///             InfrastructureConfiguration = new AzureNative.Workloads.V20230401.Inputs.SingleServerConfigurationArgs
+    ///             {
+    ///                 AppResourceGroup = "test-rg",
+    ///                 DeploymentType = "SingleServer",
+    ///                 SubnetId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/testsubnet",
+    ///                 VirtualMachineConfiguration = new AzureNative.Workloads.V20230401.Inputs.VirtualMachineConfigurationArgs
+    ///                 {
+    ///                     ImageReference = new AzureNative.Workloads.V20230401.Inputs.ImageReferenceArgs
+    ///                     {
+    ///                         Offer = "SLES-SAP",
+    ///                         Publisher = "SUSE",
+    ///                         Sku = "12-sp4-gen2",
+    ///                         Version = "2022.02.01",
+    ///                     },
+    ///                     OsProfile = new AzureNative.Workloads.V20230401.Inputs.OSProfileArgs
+    ///                     {
+    ///                         AdminUsername = "azureappadmin",
+    ///                         OsConfiguration = new AzureNative.Workloads.V20230401.Inputs.LinuxConfigurationArgs
+    ///                         {
+    ///                             DisablePasswordAuthentication = true,
+    ///                             OsType = "Linux",
+    ///                             SshKeyPair = new AzureNative.Workloads.V20230401.Inputs.SshKeyPairArgs
+    ///                             {
+    ///                                 PrivateKey = "{{privateKey}}",
+    ///                                 PublicKey = "{{sshkey}}",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     VmSize = "Standard_E32ds_v4",
+    ///                 },
+    ///             },
+    ///             OsSapConfiguration = new AzureNative.Workloads.V20230401.Inputs.OsSapConfigurationArgs
+    ///             {
+    ///                 SapFqdn = "sap.bpaas.com",
+    ///             },
+    ///             SoftwareConfiguration = new AzureNative.Workloads.V20230401.Inputs.SAPInstallWithoutOSConfigSoftwareConfigurationArgs
+    ///             {
+    ///                 BomUrl = "https://teststorageaccount.blob.core.windows.net/sapbits/sapfiles/boms/S41909SPS03_v0011ms/S41909SPS03_v0011ms.yaml",
+    ///                 SapBitsStorageAccountId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Storage/storageAccounts/teststorageaccount",
+    ///                 SoftwareInstallationType = "SAPInstallWithoutOSConfig",
+    ///                 SoftwareVersion = "SAP S/4HANA 1909 SPS 03",
+    ///             },
+    ///         },
+    ///         Environment = "NonProd",
+    ///         Location = "eastus2",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Register existing SAP system as Virtual Instance for SAP solutions with optional customizations.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DiscoveryConfigurationArgs
+    ///         {
+    ///             CentralServerVmId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/sapq20scsvm0",
+    ///             ConfigurationType = "Discovery",
+    ///             ManagedRgStorageAccountName = "q20saacssgrs",
+    ///         },
+    ///         Environment = "NonProd",
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = 
+    ///         {
+    ///             { "createdby", "abc@microsoft.com" },
+    ///             { "test", "abc" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Register existing SAP system as Virtual Instance for SAP solutions.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var sapVirtualInstance = new AzureNative.Workloads.V20230401.SAPVirtualInstance("sapVirtualInstance", new()
+    ///     {
+    ///         Configuration = new AzureNative.Workloads.V20230401.Inputs.DiscoveryConfigurationArgs
+    ///         {
+    ///             CentralServerVmId = "/subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Compute/virtualMachines/sapq20scsvm0",
+    ///             ConfigurationType = "Discovery",
+    ///         },
+    ///         Environment = "NonProd",
+    ///         Location = "northeurope",
+    ///         ResourceGroupName = "test-rg",
+    ///         SapProduct = "S4HANA",
+    ///         SapVirtualInstanceName = "X00",
+    ///         Tags = 
+    ///         {
+    ///             { "createdby", "abc@microsoft.com" },
+    ///             { "test", "abc" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:workloads/v20230401:SAPVirtualInstance Q20 /subscriptions/8e17e36c-42e9-4cd5-a078-7b44883414e0/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/Q20 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:workloads/v20230401:SAPVirtualInstance")]
     public partial class SAPVirtualInstance : global::Pulumi.CustomResource

@@ -11,6 +11,57 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
 {
     /// <summary>
     /// Deployment resource payload
+    /// 
+    /// ## Example Usage
+    /// ### Deployments_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deployment = new AzureNative.AppPlatform.V20200701.Deployment("deployment", new()
+    ///     {
+    ///         AppName = "myapp",
+    ///         DeploymentName = "mydeployment",
+    ///         Properties = new AzureNative.AppPlatform.V20200701.Inputs.DeploymentResourcePropertiesArgs
+    ///         {
+    ///             DeploymentSettings = new AzureNative.AppPlatform.V20200701.Inputs.DeploymentSettingsArgs
+    ///             {
+    ///                 Cpu = 1,
+    ///                 EnvironmentVariables = 
+    ///                 {
+    ///                     { "env", "test" },
+    ///                 },
+    ///                 JvmOptions = "-Xms1G -Xmx3G",
+    ///                 MemoryInGB = 3,
+    ///                 RuntimeVersion = "Java_8",
+    ///             },
+    ///             Source = new AzureNative.AppPlatform.V20200701.Inputs.UserSourceInfoArgs
+    ///             {
+    ///                 ArtifactSelector = "sub-module-1",
+    ///                 RelativePath = "resources/a172cedcae47474b615c54d510a5d84a8dea3032e958587430b413538be3f333-2019082605-e3095339-1723-44b7-8b5e-31b1003978bc",
+    ///                 Type = "Source",
+    ///                 Version = "1.0",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20200701:Deployment mydeployment /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/deployments/mydeployment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20200701:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

@@ -13,6 +13,56 @@ namespace Pulumi.AzureNative.EdgeOrder
     /// Address Resource.
     /// API Version: 2021-12-01.
     /// Previous API Version: 2021-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CreateAddress
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var addressByName = new AzureNative.EdgeOrder.AddressByName("addressByName", new()
+    ///     {
+    ///         AddressName = "TestAddressName2",
+    ///         ContactDetails = new AzureNative.EdgeOrder.Inputs.ContactDetailsArgs
+    ///         {
+    ///             ContactName = "XXXX XXXX",
+    ///             EmailList = new[]
+    ///             {
+    ///                 "xxxx@xxxx.xxx",
+    ///             },
+    ///             Phone = "0000000000",
+    ///             PhoneExtension = "",
+    ///         },
+    ///         Location = "eastus",
+    ///         ResourceGroupName = "YourResourceGroupName",
+    ///         ShippingAddress = new AzureNative.EdgeOrder.Inputs.ShippingAddressArgs
+    ///         {
+    ///             AddressType = "None",
+    ///             City = "San Francisco",
+    ///             CompanyName = "Microsoft",
+    ///             Country = "US",
+    ///             PostalCode = "94107",
+    ///             StateOrProvince = "CA",
+    ///             StreetAddress1 = "16 TOWNSEND ST",
+    ///             StreetAddress2 = "UNIT 1",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:edgeorder:AddressByName TestAddressName2 /subscriptions/YourSubscriptionId/resourceGroups/YourResourceGroupName/providers/Microsoft.EdgeOrder/addresses/TestAddressName2 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:edgeorder:AddressByName")]
     public partial class AddressByName : global::Pulumi.CustomResource

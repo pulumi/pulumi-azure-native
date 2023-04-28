@@ -46,6 +46,25 @@ class OnPremiseSensor(pulumi.CustomResource):
         """
         On-premise IoT sensor
 
+        ## Example Usage
+        ### Create or update on-premise IoT sensor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        on_premise_sensor = azure_native.iotsecurity.v20210201preview.OnPremiseSensor("onPremiseSensor", on_premise_sensor_name="mySensor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity/v20210201preview:OnPremiseSensor mySensor /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.IoTSecurity/sensors/mySensor 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] on_premise_sensor_name: Name of the on-premise IoT sensor
@@ -58,6 +77,25 @@ class OnPremiseSensor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         On-premise IoT sensor
+
+        ## Example Usage
+        ### Create or update on-premise IoT sensor
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        on_premise_sensor = azure_native.iotsecurity.v20210201preview.OnPremiseSensor("onPremiseSensor", on_premise_sensor_name="mySensor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:iotsecurity/v20210201preview:OnPremiseSensor mySensor /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.IoTSecurity/sensors/mySensor 
+        ```
 
         :param str resource_name: The name of the resource.
         :param OnPremiseSensorArgs args: The arguments to use to populate this resource's properties.

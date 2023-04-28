@@ -130,6 +130,45 @@ class EncryptionProtector(pulumi.CustomResource):
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Update the encryption protector to key vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        encryption_protector = azure_native.sql.EncryptionProtector("encryptionProtector",
+            auto_rotation_enabled=False,
+            encryption_protector_name="current",
+            resource_group_name="sqlcrudtest-7398",
+            server_key_name="someVault_someKey_01234567890123456789012345678901",
+            server_key_type="AzureKeyVault",
+            server_name="sqlcrudtest-4645")
+
+        ```
+        ### Update the encryption protector to service managed
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        encryption_protector = azure_native.sql.EncryptionProtector("encryptionProtector",
+            encryption_protector_name="current",
+            resource_group_name="sqlcrudtest-7398",
+            server_key_name="ServiceManaged",
+            server_key_type="ServiceManaged",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:EncryptionProtector current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/encryptionProtector/current 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_rotation_enabled: Key auto rotation opt-in flag. Either true or false.
@@ -149,6 +188,45 @@ class EncryptionProtector(pulumi.CustomResource):
         The server encryption protector.
         API Version: 2021-11-01.
         Previous API Version: 2020-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Update the encryption protector to key vault
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        encryption_protector = azure_native.sql.EncryptionProtector("encryptionProtector",
+            auto_rotation_enabled=False,
+            encryption_protector_name="current",
+            resource_group_name="sqlcrudtest-7398",
+            server_key_name="someVault_someKey_01234567890123456789012345678901",
+            server_key_type="AzureKeyVault",
+            server_name="sqlcrudtest-4645")
+
+        ```
+        ### Update the encryption protector to service managed
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        encryption_protector = azure_native.sql.EncryptionProtector("encryptionProtector",
+            encryption_protector_name="current",
+            resource_group_name="sqlcrudtest-7398",
+            server_key_name="ServiceManaged",
+            server_key_type="ServiceManaged",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql:EncryptionProtector current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645/encryptionProtector/current 
+        ```
 
         :param str resource_name: The name of the resource.
         :param EncryptionProtectorArgs args: The arguments to use to populate this resource's properties.

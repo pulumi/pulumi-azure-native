@@ -112,6 +112,44 @@ class SAPCentralInstance(pulumi.CustomResource):
         """
         Define the SAP Central Services Instance resource.
 
+        ## Example Usage
+        ### Create SAP Central Instances for HA System with Availability Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_central_instance = azure_native.workloads.v20211201preview.SAPCentralInstance("sapCentralInstance",
+            central_instance_name="centralServer",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+        ### SAPCentralInstances_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_central_instance = azure_native.workloads.v20211201preview.SAPCentralInstance("sapCentralInstance",
+            central_instance_name="centralServer",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads/v20211201preview:SAPCentralInstance centralServer /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/centralInstances/centralServer 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] central_instance_name: Central Services Instance resource name string modeled as parameter for auto generation to work correctly.
@@ -128,6 +166,44 @@ class SAPCentralInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Define the SAP Central Services Instance resource.
+
+        ## Example Usage
+        ### Create SAP Central Instances for HA System with Availability Set
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_central_instance = azure_native.workloads.v20211201preview.SAPCentralInstance("sapCentralInstance",
+            central_instance_name="centralServer",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+        ### SAPCentralInstances_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sap_central_instance = azure_native.workloads.v20211201preview.SAPCentralInstance("sapCentralInstance",
+            central_instance_name="centralServer",
+            location="westcentralus",
+            resource_group_name="test-rg",
+            sap_virtual_instance_name="X00",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:workloads/v20211201preview:SAPCentralInstance centralServer /subscriptions/6d875e77-e412-4d7d-9af4-8895278b4443/resourceGroups/test-rg/providers/Microsoft.Workloads/sapVirtualInstances/X00/centralInstances/centralServer 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SAPCentralInstanceArgs args: The arguments to use to populate this resource's properties.

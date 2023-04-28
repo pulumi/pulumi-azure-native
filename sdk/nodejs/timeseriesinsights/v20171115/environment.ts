@@ -10,6 +10,38 @@ import * as utilities from "../../utilities";
 /**
  * An environment is a set of time-series data available for query, and is the top level Azure Time Series Insights resource.
  *
+ * ## Example Usage
+ * ### EnvironmentsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const environment = new azure_native.timeseriesinsights.v20171115.Environment("environment", {
+ *     dataRetentionTime: "P31D",
+ *     environmentName: "env1",
+ *     location: "West US",
+ *     partitionKeyProperties: [{
+ *         name: "DeviceId1",
+ *         type: "String",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         capacity: 1,
+ *         name: azure_native.timeseriesinsights.v20171115.SkuName.S1,
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:timeseriesinsights/v20171115:Environment env1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1 
+ * ```
+ *
  * @deprecated Version 2017-11-15 will be removed in v2 of the provider.
  */
 export class Environment extends pulumi.CustomResource {

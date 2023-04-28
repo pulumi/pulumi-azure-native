@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * A profile object that contains change analysis configuration, such as notification settings, for this subscription
+ *
+ * ## Example Usage
+ * ### ConfigurationProfile_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationProfile = new azure_native.changeanalysis.v20200401preview.ConfigurationProfile("configurationProfile", {profileName: "default"});
+ *
+ * ```
+ * ### ConfigurationProfile_CreateWithIdentity
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationProfile = new azure_native.changeanalysis.v20200401preview.ConfigurationProfile("configurationProfile", {profileName: "default"});
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:changeanalysis/v20200401preview:ConfigurationProfile default /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/providers/Microsoft.ChangeAnalysis/profile/default 
+ * ```
  */
 export class ConfigurationProfile extends pulumi.CustomResource {
     /**

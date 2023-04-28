@@ -9,6 +9,60 @@ import * as utilities from "../../utilities";
 
 /**
  * Azure Resource Manager resource envelope.
+ *
+ * ## Example Usage
+ * ### CreateOrUpdate Environment Version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const environmentVersion = new azure_native.machinelearningservices.v20220201preview.EnvironmentVersion("environmentVersion", {
+ *     environmentVersionDetails: {
+ *         build: {
+ *             contextUri: "https://storage-account.blob.core.windows.net/azureml/DockerBuildContext/95ddede6b9b8c4e90472db3acd0a8d28/",
+ *             dockerfilePath: "prod/Dockerfile",
+ *         },
+ *         condaFile: "string",
+ *         description: "string",
+ *         image: "docker.io/tensorflow/serving:latest",
+ *         inferenceConfig: {
+ *             livenessRoute: {
+ *                 path: "string",
+ *                 port: 1,
+ *             },
+ *             readinessRoute: {
+ *                 path: "string",
+ *                 port: 1,
+ *             },
+ *             scoringRoute: {
+ *                 path: "string",
+ *                 port: 1,
+ *             },
+ *         },
+ *         isAnonymous: false,
+ *         properties: {
+ *             string: "string",
+ *         },
+ *         tags: {
+ *             string: "string",
+ *         },
+ *     },
+ *     name: "string",
+ *     resourceGroupName: "test-rg",
+ *     version: "string",
+ *     workspaceName: "my-aml-workspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20220201preview:EnvironmentVersion string string 
+ * ```
  */
 export class EnvironmentVersion extends pulumi.CustomResource {
     /**

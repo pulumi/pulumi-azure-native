@@ -11,6 +11,118 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210101
 {
     /// <summary>
     /// Machine Learning service object wrapped into ARM resource envelope.
+    /// 
+    /// ## Example Usage
+    /// ### Create Or Update service
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var aciService = new AzureNative.MachineLearningServices.V20210101.ACIService("aciService", new()
+    ///     {
+    ///         AppInsightsEnabled = true,
+    ///         AuthEnabled = true,
+    ///         ComputeType = "ACI",
+    ///         ContainerResourceRequirements = new AzureNative.MachineLearningServices.V20210101.Inputs.ContainerResourceRequirementsArgs
+    ///         {
+    ///             Cpu = 1,
+    ///             MemoryInGB = 1,
+    ///         },
+    ///         EnvironmentImageRequest = new AzureNative.MachineLearningServices.V20210101.Inputs.CreateServiceRequestEnvironmentImageRequestArgs
+    ///         {
+    ///             Assets = new[]
+    ///             {
+    ///                 new AzureNative.MachineLearningServices.V20210101.Inputs.ImageAssetArgs
+    ///                 {
+    ///                     MimeType = "application/x-python",
+    ///                     Unpack = false,
+    ///                     Url = "aml://storage/azureml/score.py",
+    ///                 },
+    ///             },
+    ///             DriverProgram = "score.py",
+    ///             Environment = new AzureNative.MachineLearningServices.V20210101.Inputs.EnvironmentImageRequestEnvironmentArgs
+    ///             {
+    ///                 Docker = new AzureNative.MachineLearningServices.V20210101.Inputs.ModelEnvironmentDefinitionDockerArgs
+    ///                 {
+    ///                     BaseImage = "mcr.microsoft.com/azureml/base:openmpi3.1.2-ubuntu16.04",
+    ///                     BaseImageRegistry = null,
+    ///                 },
+    ///                 EnvironmentVariables = 
+    ///                 {
+    ///                     { "EXAMPLE_ENV_VAR", "EXAMPLE_VALUE" },
+    ///                 },
+    ///                 Name = "AzureML-Scikit-learn-0.20.3",
+    ///                 Python = new AzureNative.MachineLearningServices.V20210101.Inputs.ModelEnvironmentDefinitionPythonArgs
+    ///                 {
+    ///                     CondaDependencies = 
+    ///                     {
+    ///                         { "channels", new[]
+    ///                         {
+    ///                             "conda-forge",
+    ///                         } },
+    ///                         { "dependencies", new[]
+    ///                         {
+    ///                             "python=3.6.2",
+    ///                             
+    ///                             {
+    ///                                 { "pip", new[]
+    ///                                 {
+    ///                                     "azureml-core==1.0.69",
+    ///                                     "azureml-defaults==1.0.69",
+    ///                                     "azureml-telemetry==1.0.69",
+    ///                                     "azureml-train-restclients-hyperdrive==1.0.69",
+    ///                                     "azureml-train-core==1.0.69",
+    ///                                     "scikit-learn==0.20.3",
+    ///                                     "scipy==1.2.1",
+    ///                                     "numpy==1.16.2",
+    ///                                     "joblib==0.13.2",
+    ///                                 } },
+    ///                             },
+    ///                         } },
+    ///                         { "name", "azureml_ae1acbe6e1e6aabbad900b53c491a17c" },
+    ///                     },
+    ///                     InterpreterPath = "python",
+    ///                     UserManagedDependencies = false,
+    ///                 },
+    ///                 Spark = new AzureNative.MachineLearningServices.V20210101.Inputs.ModelEnvironmentDefinitionSparkArgs
+    ///                 {
+    ///                     Packages = new[] {},
+    ///                     PrecachePackages = true,
+    ///                     Repositories = new[] {},
+    ///                 },
+    ///                 Version = "3",
+    ///             },
+    ///             Models = new[]
+    ///             {
+    ///                 new AzureNative.MachineLearningServices.V20210101.Inputs.ModelArgs
+    ///                 {
+    ///                     MimeType = "application/x-python",
+    ///                     Name = "sklearn_regression_model.pkl",
+    ///                     Url = "aml://storage/azureml/sklearn_regression_model.pkl",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "eastus2",
+    ///         ResourceGroupName = "testrg123",
+    ///         ServiceName = "service456",
+    ///         WorkspaceName = "workspaces123",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20210101:ACIService service456 subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/workspaces123/services/service456 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20210101:ACIService")]
     public partial class ACIService : global::Pulumi.CustomResource

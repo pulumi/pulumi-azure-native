@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.Automation.V20190601
 {
     /// <summary>
     /// Definition of the certificate.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a certificate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var certificate = new AzureNative.Automation.V20190601.Certificate("certificate", new()
+    ///     {
+    ///         AutomationAccountName = "myAutomationAccount18",
+    ///         Base64Value = "base 64 value of cert",
+    ///         CertificateName = "testCert",
+    ///         Description = "Sample Cert",
+    ///         IsExportable = false,
+    ///         Name = "testCert",
+    ///         ResourceGroupName = "rg",
+    ///         Thumbprint = "thumbprint of cert",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automation/v20190601:Certificate testCert /subscriptions/subid/resourceGroups/rg/providers/Microsoft.Automation/automationAccounts/myAutomationAccount33/certificates/testCert 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automation/v20190601:Certificate")]
     public partial class Certificate : global::Pulumi.CustomResource

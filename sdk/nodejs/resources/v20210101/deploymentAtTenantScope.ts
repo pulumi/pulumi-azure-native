@@ -9,6 +9,39 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment information.
+ *
+ * ## Example Usage
+ * ### Create deployment at tenant scope.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentAtTenantScope = new azure_native.resources.v20210101.DeploymentAtTenantScope("deploymentAtTenantScope", {
+ *     deploymentName: "tenant-dep01",
+ *     location: "eastus",
+ *     properties: {
+ *         mode: azure_native.resources.v20210101.DeploymentMode.Incremental,
+ *         parameters: {},
+ *         templateLink: {
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ *     tags: {
+ *         tagKey1: "tag-value-1",
+ *         tagKey2: "tag-value-2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources/v20210101:DeploymentAtTenantScope tenant-dep01 /providers/Microsoft.Resources/deployments/tenant-dep01 
+ * ```
  */
 export class DeploymentAtTenantScope extends pulumi.CustomResource {
     /**

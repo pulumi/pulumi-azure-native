@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.MachineLearning.V20160401
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
+    /// 
+    /// ## Example Usage
+    /// ### WorkspaceCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.MachineLearning.V20160401.Workspace("workspace", new()
+    ///     {
+    ///         Location = "West Europe",
+    ///         OwnerEmail = "abc@microsoft.com",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "TagValue1" },
+    ///         },
+    ///         UserStorageAccountId = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/teststorage",
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearning/v20160401:Workspace testworkspace /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.MachineLearning/workspaces/testworkspace 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearning/v20160401:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

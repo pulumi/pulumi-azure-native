@@ -111,6 +111,30 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
         """
         Represents a Sql pool transparent data encryption configuration.
 
+        ## Example Usage
+        ### Create or update a Sql pool's transparent data encryption configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool_transparent_data_encryption = azure_native.synapse.v20210301.SqlPoolTransparentDataEncryption("sqlPoolTransparentDataEncryption",
+            resource_group_name="sqlcrudtest-6852",
+            sql_pool_name="sqlcrudtest-9187",
+            status="Enabled",
+            transparent_data_encryption_name="current",
+            workspace_name="sqlcrudtest-2080")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Synapse/workspaces/sqlcrudtest-2080/sqlPools/sqlcrudtest-9187/transparentDataEncryption/current 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -127,6 +151,30 @@ class SqlPoolTransparentDataEncryption(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Represents a Sql pool transparent data encryption configuration.
+
+        ## Example Usage
+        ### Create or update a Sql pool's transparent data encryption configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        sql_pool_transparent_data_encryption = azure_native.synapse.v20210301.SqlPoolTransparentDataEncryption("sqlPoolTransparentDataEncryption",
+            resource_group_name="sqlcrudtest-6852",
+            sql_pool_name="sqlcrudtest-9187",
+            status="Enabled",
+            transparent_data_encryption_name="current",
+            workspace_name="sqlcrudtest-2080")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210301:SqlPoolTransparentDataEncryption current /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-6852/providers/Microsoft.Synapse/workspaces/sqlcrudtest-2080/sqlPools/sqlcrudtest-9187/transparentDataEncryption/current 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SqlPoolTransparentDataEncryptionArgs args: The arguments to use to populate this resource's properties.

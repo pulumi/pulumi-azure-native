@@ -11,6 +11,65 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
     /// <summary>
     /// Workload group operations for a data warehouse
+    /// 
+    /// ## Example Usage
+    /// ### Create a workload group with all properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadGroup = new AzureNative.Sql.V20201101Preview.WorkloadGroup("workloadGroup", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         Importance = "normal",
+    ///         MaxResourcePercent = 100,
+    ///         MaxResourcePercentPerRequest = 3,
+    ///         MinResourcePercent = 0,
+    ///         MinResourcePercentPerRequest = 3,
+    ///         QueryExecutionTimeout = 0,
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         WorkloadGroupName = "smallrc",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a workload group with the required properties specified.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workloadGroup = new AzureNative.Sql.V20201101Preview.WorkloadGroup("workloadGroup", new()
+    ///     {
+    ///         DatabaseName = "testdb",
+    ///         MaxResourcePercent = 100,
+    ///         MinResourcePercent = 0,
+    ///         MinResourcePercentPerRequest = 3,
+    ///         ResourceGroupName = "Default-SQL-SouthEastAsia",
+    ///         ServerName = "testsvr",
+    ///         WorkloadGroupName = "smallrc",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20201101preview:WorkloadGroup smallrc /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb/workloadGroups/smallrc 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20201101preview:WorkloadGroup")]
     public partial class WorkloadGroup : global::Pulumi.CustomResource

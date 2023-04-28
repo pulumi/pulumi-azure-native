@@ -150,6 +150,29 @@ class Suppression(pulumi.CustomResource):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 
+        ## Example Usage
+        ### CreateSuppression
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        suppression = azure_native.advisor.v20160712preview.Suppression("suppression",
+            name="suppressionName1",
+            recommendation_id="recommendationId",
+            resource_uri="resourceUri",
+            ttl="07:00:00:00")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:advisor/v20160712preview:Suppression suppressionName1 /resourceUri/providers/Microsoft.Advisor/recommendations/recommendationId/suppressions/suppressionName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The location of the resource. This cannot be changed after the resource is created.
@@ -168,6 +191,29 @@ class Suppression(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
+
+        ## Example Usage
+        ### CreateSuppression
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        suppression = azure_native.advisor.v20160712preview.Suppression("suppression",
+            name="suppressionName1",
+            recommendation_id="recommendationId",
+            resource_uri="resourceUri",
+            ttl="07:00:00:00")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:advisor/v20160712preview:Suppression suppressionName1 /resourceUri/providers/Microsoft.Advisor/recommendations/recommendationId/suppressions/suppressionName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SuppressionArgs args: The arguments to use to populate this resource's properties.

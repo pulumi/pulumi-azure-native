@@ -9,6 +9,232 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Video Indexer account.
+ *
+ * ## Example Usage
+ * ### Put example #1
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi": {},
+ *         },
+ *     },
+ *     location: "NorthEurope",
+ *     mediaServices: {
+ *         resourceId: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Media/mediaservices/contoso-videoanalyzer-ms",
+ *         userAssignedIdentity: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi",
+ *     },
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ * ### Put example #10
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {},
+ *     },
+ *     location: "NorthEurope",
+ *     mediaServices: {
+ *         resourceId: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Media/mediaservices/contoso-videoanalyzer-ms",
+ *         userAssignedIdentity: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi",
+ *     },
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ * ### Put example #2
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi": {},
+ *         },
+ *     },
+ *     location: "NorthEurope",
+ *     mediaServices: {
+ *         resourceId: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Media/mediaservices/contoso-videoanalyzer-ms",
+ *         userAssignedIdentity: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi",
+ *     },
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ * ### Put example #3
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi": {},
+ *         },
+ *     },
+ *     location: "NorthEurope",
+ *     mediaServices: {
+ *         resourceId: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Media/mediaservices/contoso-videoanalyzer-ms",
+ *         userAssignedIdentity: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi",
+ *     },
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ * ### Put example #4
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi": {},
+ *         },
+ *     },
+ *     location: "NorthEurope",
+ *     mediaServices: {
+ *         resourceId: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Media/mediaservices/contoso-videoanalyzer-ms",
+ *         userAssignedIdentity: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi",
+ *     },
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ * ### Put example #5
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi": {},
+ *         },
+ *     },
+ *     location: "NorthEurope",
+ *     mediaServices: {
+ *         resourceId: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Media/mediaservices/contoso-videoanalyzer-ms",
+ *         userAssignedIdentity: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi",
+ *     },
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ * ### Put example #6
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi": {},
+ *         },
+ *     },
+ *     location: "NorthEurope",
+ *     mediaServices: {
+ *         resourceId: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Media/mediaservices/contoso-videoanalyzer-ms",
+ *         userAssignedIdentity: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi",
+ *     },
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ * ### Put example #7
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi": {},
+ *         },
+ *     },
+ *     location: "NorthEurope",
+ *     mediaServices: {
+ *         resourceId: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.Media/mediaservices/contoso-videoanalyzer-ms",
+ *         userAssignedIdentity: "/subscriptions/xxx/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/contoso-videoanalyzer-mi",
+ *     },
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ * ### Put example #8
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "subscriptions/24237b72-8546-4da5-b204-8c3cb76dd930/resourceGroups/uratzmon-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/talshoham": {},
+ *         },
+ *     },
+ *     location: "NorthEurope",
+ *     mediaServices: {
+ *         resourceId: "/subscriptions/24237b72-8546-4da5-b204-8c3cb76dd930/resourceGroups/uratzmon-rg/providers/Microsoft.Media/mediaservices/talshoham",
+ *     },
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ * ### Put example #9
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const account = new azure_native.videoindexer.v20220801.Account("account", {
+ *     accountName: "contosto-videoanalyzer",
+ *     resourceGroupName: "contosto-videoanalyzer-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:videoindexer/v20220801:Account contosto-videoanalyzer /subscriptions/586d4f48-8f08-4a4e-96b7-e1892d6dba9e/resourceGroups/contoso-videoanalyzer-rg/providers/Microsoft.VideoIndexer/accounts/contosto-videoanalyzer 
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

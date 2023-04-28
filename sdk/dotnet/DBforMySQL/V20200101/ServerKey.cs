@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.DBforMySQL.V20200101
 {
     /// <summary>
     /// A MySQL Server key.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a MySQL Server key
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serverKey = new AzureNative.DBforMySQL.V20200101.ServerKey("serverKey", new()
+    ///     {
+    ///         KeyName = "someVault_someKey_01234567890123456789012345678901",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerKeyType = "AzureKeyVault",
+    ///         ServerName = "testserver",
+    ///         Uri = "https://someVault.vault.azure.net/keys/someKey/01234567890123456789012345678901",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbformysql/v20200101:ServerKey omeVault_someKey_01234567890123456789012345678901 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforMySQL/servers/testserver/keys/someVault_someKey_01234567890123456789012345678901 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql/v20200101:ServerKey")]
     public partial class ServerKey : global::Pulumi.CustomResource

@@ -151,6 +151,30 @@ class Service(pulumi.CustomResource):
         """
         The description of the Windows IoT Device Service.
 
+        ## Example Usage
+        ### Service_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.windowsiot.v20180216preview.Service("service",
+            admin_domain_name="d.e.f",
+            device_name="service4445",
+            notes="blah",
+            quantity=1000000,
+            resource_group_name="res9101")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:windowsiot/v20180216preview:Service myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsIoT/deviceServices/{deviceName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] admin_domain_name: Windows IoT Device Service OEM AAD domain
@@ -169,6 +193,30 @@ class Service(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of the Windows IoT Device Service.
+
+        ## Example Usage
+        ### Service_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        service = azure_native.windowsiot.v20180216preview.Service("service",
+            admin_domain_name="d.e.f",
+            device_name="service4445",
+            notes="blah",
+            quantity=1000000,
+            resource_group_name="res9101")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:windowsiot/v20180216preview:Service myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.WindowsIoT/deviceServices/{deviceName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.

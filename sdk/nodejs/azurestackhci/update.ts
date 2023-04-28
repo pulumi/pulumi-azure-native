@@ -10,6 +10,48 @@ import * as utilities from "../utilities";
 /**
  * Update details
  * API Version: 2023-02-01.
+ *
+ * ## Example Usage
+ * ### Put a specific update
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const update = new azure_native.azurestackhci.Update("update", {
+ *     additionalProperties: "additional properties",
+ *     availabilityType: "Local",
+ *     clusterName: "testcluster",
+ *     description: "AzS Update 4.2203.2.32",
+ *     displayName: "AzS Update - 4.2203.2.32",
+ *     installedDate: "2022-04-06T14:08:18.254Z",
+ *     notifyMessage: "Brief message with instructions for updates of AvailabilityType Notify",
+ *     packagePath: "\\\\SU1FileServer\\SU1_Infrastructure_2\\Updates\\Packages\\Microsoft4.2203.2.32",
+ *     packageSizeInMb: 18858,
+ *     packageType: "Infrastructure",
+ *     prerequisites: [{
+ *         packageName: "update package name",
+ *         updateType: "update type",
+ *         version: "prerequisite version",
+ *     }],
+ *     progressPercentage: 0,
+ *     publisher: "Microsoft",
+ *     releaseLink: "https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2203",
+ *     resourceGroupName: "testrg",
+ *     state: "Installed",
+ *     updateName: "Microsoft4.2203.2.32",
+ *     version: "4.2203.2.32",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci:Update Microsoft4.2203.2.32 /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updates/Microsoft4.2203.2.32 
+ * ```
  */
 export class Update extends pulumi.CustomResource {
     /**

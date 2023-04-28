@@ -11,6 +11,45 @@ namespace Pulumi.AzureNative.VMwareCloudSimple.V20190401
 {
     /// <summary>
     /// Dedicated cloud node model
+    /// 
+    /// ## Example Usage
+    /// ### CreateDedicatedCloudNode
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dedicatedCloudNode = new AzureNative.VMwareCloudSimple.V20190401.DedicatedCloudNode("dedicatedCloudNode", new()
+    ///     {
+    ///         AvailabilityZoneId = "az1",
+    ///         DedicatedCloudNodeName = "myNode",
+    ///         Id = "general",
+    ///         Location = "westus",
+    ///         Name = "CS28-Node",
+    ///         NodesCount = 1,
+    ///         PlacementGroupId = "n1",
+    ///         PurchaseId = "56acbd46-3d36-4bbf-9b08-57c30fdf6932",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Sku = new AzureNative.VMwareCloudSimple.V20190401.Inputs.SkuArgs
+    ///         {
+    ///             Name = "VMware_CloudSimple_CS28",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode myNode /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.VMwareCloudSimple/dedicatedCloudNodes/myNode 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:vmwarecloudsimple/v20190401:DedicatedCloudNode")]
     public partial class DedicatedCloudNode : global::Pulumi.CustomResource

@@ -10,6 +10,33 @@ import * as utilities from "../../utilities";
 /**
  * Single item in List or Get Event Hub operation
  *
+ * ## Example Usage
+ * ### EventHubCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const eventHub = new azure_native.eventhub.v20150801.EventHub("eventHub", {
+ *     eventHubName: "sdk-EventHub6448",
+ *     location: "West US",
+ *     messageRetentionInDays: 7,
+ *     namespaceName: "sdk-Namespace7834",
+ *     partitionCount: 4,
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ *     status: azure_native.eventhub.v20150801.EntityStatus.Active,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub/v20150801:EventHub sdk-EventHub6448 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace7834/eventhubs/sdk-EventHub6448 
+ * ```
+ *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class EventHub extends pulumi.CustomResource {

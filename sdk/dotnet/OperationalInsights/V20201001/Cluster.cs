@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.OperationalInsights.V20201001
 {
     /// <summary>
     /// The top level Log Analytics cluster resource container.
+    /// 
+    /// ## Example Usage
+    /// ### ClustersCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.OperationalInsights.V20201001.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "oiautorest6685",
+    ///         Location = "australiasoutheast",
+    ///         ResourceGroupName = "oiautorest6685",
+    ///         Sku = new AzureNative.OperationalInsights.V20201001.Inputs.ClusterSkuArgs
+    ///         {
+    ///             Capacity = 1000,
+    ///             Name = "CapacityReservation",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "val1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights/v20201001:Cluster oiautorest6685 /subscriptions/594038b5-1093-476e-a366-482775671c11/resourcegroups/oiautorest6685/providers/microsoft.operationalinsights/clusters/oiautorest6685 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20201001:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

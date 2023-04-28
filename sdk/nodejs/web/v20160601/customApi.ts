@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * A custom API
+ *
+ * ## Example Usage
+ * ### Replace a custom API
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const customApi = new azure_native.web.v20160601.CustomApi("customApi", {
+ *     apiName: "testCustomApi",
+ *     properties: {
+ *         apiDefinitions: {
+ *             originalSwaggerUrl: "https://tempuri.org/swagger.json",
+ *         },
+ *         apiType: "Rest",
+ *         capabilities: [],
+ *         description: "",
+ *         displayName: "testCustomApi",
+ *         iconUri: "/testIcon.svg",
+ *     },
+ *     resourceGroupName: "testResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20160601:CustomApi testCustomApi /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/testResourceGroup/providers/Microsoft.Web/customApis/testCustomApi 
+ * ```
  */
 export class CustomApi extends pulumi.CustomResource {
     /**

@@ -9,6 +9,56 @@ import * as utilities from "../../utilities";
 
 /**
  * A common class for general resource information.
+ *
+ * ## Example Usage
+ * ### UpdateVirtualNetworkGateway
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualNetworkGateway = new azure_native.network.v20190801.VirtualNetworkGateway("virtualNetworkGateway", {
+ *     activeActive: false,
+ *     bgpSettings: {
+ *         asn: 65515,
+ *         bgpPeeringAddress: "10.0.1.30",
+ *         peerWeight: 0,
+ *     },
+ *     customRoutes: {
+ *         addressPrefixes: ["101.168.0.6/32"],
+ *     },
+ *     enableBgp: false,
+ *     enableDnsForwarding: true,
+ *     gatewayType: "Vpn",
+ *     ipConfigurations: [{
+ *         name: "gwipconfig1",
+ *         privateIPAllocationMethod: "Dynamic",
+ *         publicIPAddress: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+ *         },
+ *         subnet: {
+ *             id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+ *         },
+ *     }],
+ *     location: "centralus",
+ *     resourceGroupName: "rg1",
+ *     sku: {
+ *         name: "VpnGw1",
+ *         tier: "VpnGw1",
+ *     },
+ *     virtualNetworkGatewayName: "vpngw",
+ *     vpnType: "RouteBased",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20190801:VirtualNetworkGateway vpngw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw 
+ * ```
  */
 export class VirtualNetworkGateway extends pulumi.CustomResource {
     /**

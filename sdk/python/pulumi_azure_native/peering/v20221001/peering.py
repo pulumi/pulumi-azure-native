@@ -181,6 +181,145 @@ class Peering(pulumi.CustomResource):
         """
         Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
 
+        ## Example Usage
+        ### Create a direct peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering = azure_native.peering.v20221001.Peering("peering",
+            direct=azure_native.peering.v20221001.PeeringPropertiesDirectResponseArgs(
+                connections=[
+                    {
+                        "bandwidthInMbps": 10000,
+                        "bgpSession": azure_native.peering.v20221001.BgpSessionArgs(
+                            max_prefixes_advertised_v4=1000,
+                            max_prefixes_advertised_v6=100,
+                            md5_authentication_key="test-md5-auth-key",
+                            session_prefix_v4="192.168.0.0/31",
+                            session_prefix_v6="fd00::0/127",
+                        ),
+                        "connectionIdentifier": "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+                        "peeringDBFacilityId": 99999,
+                        "sessionAddressProvider": "Peer",
+                        "useForPeeringService": False,
+                    },
+                    azure_native.peering.v20221001.DirectConnectionArgs(
+                        bandwidth_in_mbps=10000,
+                        connection_identifier="8AB00818-D533-4504-A25A-03A17F61201C",
+                        peering_db_facility_id=99999,
+                        session_address_provider="Microsoft",
+                        use_for_peering_service=True,
+                    ),
+                ],
+                direct_peering_type="Edge",
+                peer_asn=azure_native.peering.v20221001.SubResourceArgs(
+                    id="/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+                ),
+            ),
+            kind="Direct",
+            location="eastus",
+            peering_location="peeringLocation0",
+            peering_name="peeringName",
+            resource_group_name="rgName",
+            sku=azure_native.peering.v20221001.PeeringSkuArgs(
+                name="Basic_Direct_Free",
+            ))
+
+        ```
+        ### Create a peering with exchange route server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering = azure_native.peering.v20221001.Peering("peering",
+            direct=azure_native.peering.v20221001.PeeringPropertiesDirectResponseArgs(
+                connections=[{
+                    "bandwidthInMbps": 10000,
+                    "bgpSession": azure_native.peering.v20221001.BgpSessionArgs(
+                        max_prefixes_advertised_v4=1000,
+                        max_prefixes_advertised_v6=100,
+                        microsoft_session_i_pv4_address="192.168.0.123",
+                        peer_session_i_pv4_address="192.168.0.234",
+                        session_prefix_v4="192.168.0.0/24",
+                    ),
+                    "connectionIdentifier": "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+                    "peeringDBFacilityId": 99999,
+                    "sessionAddressProvider": "Peer",
+                    "useForPeeringService": True,
+                }],
+                direct_peering_type="IxRs",
+                peer_asn=azure_native.peering.v20221001.SubResourceArgs(
+                    id="/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+                ),
+            ),
+            kind="Direct",
+            location="eastus",
+            peering_location="peeringLocation0",
+            peering_name="peeringName",
+            resource_group_name="rgName",
+            sku=azure_native.peering.v20221001.PeeringSkuArgs(
+                name="Premium_Direct_Free",
+            ))
+
+        ```
+        ### Create an exchange peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering = azure_native.peering.v20221001.Peering("peering",
+            exchange=azure_native.peering.v20221001.PeeringPropertiesExchangeResponseArgs(
+                connections=[
+                    {
+                        "bgpSession": azure_native.peering.v20221001.BgpSessionArgs(
+                            max_prefixes_advertised_v4=1000,
+                            max_prefixes_advertised_v6=100,
+                            md5_authentication_key="test-md5-auth-key",
+                            peer_session_i_pv4_address="192.168.2.1",
+                            peer_session_i_pv6_address="fd00::1",
+                        ),
+                        "connectionIdentifier": "CE495334-0E94-4E51-8164-8116D6CD284D",
+                        "peeringDBFacilityId": 99999,
+                    },
+                    {
+                        "bgpSession": azure_native.peering.v20221001.BgpSessionArgs(
+                            max_prefixes_advertised_v4=1000,
+                            max_prefixes_advertised_v6=100,
+                            md5_authentication_key="test-md5-auth-key",
+                            peer_session_i_pv4_address="192.168.2.2",
+                            peer_session_i_pv6_address="fd00::2",
+                        ),
+                        "connectionIdentifier": "CDD8E673-CB07-47E6-84DE-3739F778762B",
+                        "peeringDBFacilityId": 99999,
+                    },
+                ],
+                peer_asn=azure_native.peering.v20221001.SubResourceArgs(
+                    id="/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+                ),
+            ),
+            kind="Exchange",
+            location="eastus",
+            peering_location="peeringLocation0",
+            peering_name="peeringName",
+            resource_group_name="rgName",
+            sku=azure_native.peering.v20221001.PeeringSkuArgs(
+                name="Basic_Exchange_Free",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20221001:Peering peeringName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PeeringPropertiesDirectArgs']] direct: The properties that define a direct peering.
@@ -201,6 +340,145 @@ class Peering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
+
+        ## Example Usage
+        ### Create a direct peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering = azure_native.peering.v20221001.Peering("peering",
+            direct=azure_native.peering.v20221001.PeeringPropertiesDirectResponseArgs(
+                connections=[
+                    {
+                        "bandwidthInMbps": 10000,
+                        "bgpSession": azure_native.peering.v20221001.BgpSessionArgs(
+                            max_prefixes_advertised_v4=1000,
+                            max_prefixes_advertised_v6=100,
+                            md5_authentication_key="test-md5-auth-key",
+                            session_prefix_v4="192.168.0.0/31",
+                            session_prefix_v6="fd00::0/127",
+                        ),
+                        "connectionIdentifier": "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+                        "peeringDBFacilityId": 99999,
+                        "sessionAddressProvider": "Peer",
+                        "useForPeeringService": False,
+                    },
+                    azure_native.peering.v20221001.DirectConnectionArgs(
+                        bandwidth_in_mbps=10000,
+                        connection_identifier="8AB00818-D533-4504-A25A-03A17F61201C",
+                        peering_db_facility_id=99999,
+                        session_address_provider="Microsoft",
+                        use_for_peering_service=True,
+                    ),
+                ],
+                direct_peering_type="Edge",
+                peer_asn=azure_native.peering.v20221001.SubResourceArgs(
+                    id="/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+                ),
+            ),
+            kind="Direct",
+            location="eastus",
+            peering_location="peeringLocation0",
+            peering_name="peeringName",
+            resource_group_name="rgName",
+            sku=azure_native.peering.v20221001.PeeringSkuArgs(
+                name="Basic_Direct_Free",
+            ))
+
+        ```
+        ### Create a peering with exchange route server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering = azure_native.peering.v20221001.Peering("peering",
+            direct=azure_native.peering.v20221001.PeeringPropertiesDirectResponseArgs(
+                connections=[{
+                    "bandwidthInMbps": 10000,
+                    "bgpSession": azure_native.peering.v20221001.BgpSessionArgs(
+                        max_prefixes_advertised_v4=1000,
+                        max_prefixes_advertised_v6=100,
+                        microsoft_session_i_pv4_address="192.168.0.123",
+                        peer_session_i_pv4_address="192.168.0.234",
+                        session_prefix_v4="192.168.0.0/24",
+                    ),
+                    "connectionIdentifier": "5F4CB5C7-6B43-4444-9338-9ABC72606C16",
+                    "peeringDBFacilityId": 99999,
+                    "sessionAddressProvider": "Peer",
+                    "useForPeeringService": True,
+                }],
+                direct_peering_type="IxRs",
+                peer_asn=azure_native.peering.v20221001.SubResourceArgs(
+                    id="/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+                ),
+            ),
+            kind="Direct",
+            location="eastus",
+            peering_location="peeringLocation0",
+            peering_name="peeringName",
+            resource_group_name="rgName",
+            sku=azure_native.peering.v20221001.PeeringSkuArgs(
+                name="Premium_Direct_Free",
+            ))
+
+        ```
+        ### Create an exchange peering
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        peering = azure_native.peering.v20221001.Peering("peering",
+            exchange=azure_native.peering.v20221001.PeeringPropertiesExchangeResponseArgs(
+                connections=[
+                    {
+                        "bgpSession": azure_native.peering.v20221001.BgpSessionArgs(
+                            max_prefixes_advertised_v4=1000,
+                            max_prefixes_advertised_v6=100,
+                            md5_authentication_key="test-md5-auth-key",
+                            peer_session_i_pv4_address="192.168.2.1",
+                            peer_session_i_pv6_address="fd00::1",
+                        ),
+                        "connectionIdentifier": "CE495334-0E94-4E51-8164-8116D6CD284D",
+                        "peeringDBFacilityId": 99999,
+                    },
+                    {
+                        "bgpSession": azure_native.peering.v20221001.BgpSessionArgs(
+                            max_prefixes_advertised_v4=1000,
+                            max_prefixes_advertised_v6=100,
+                            md5_authentication_key="test-md5-auth-key",
+                            peer_session_i_pv4_address="192.168.2.2",
+                            peer_session_i_pv6_address="fd00::2",
+                        ),
+                        "connectionIdentifier": "CDD8E673-CB07-47E6-84DE-3739F778762B",
+                        "peeringDBFacilityId": 99999,
+                    },
+                ],
+                peer_asn=azure_native.peering.v20221001.SubResourceArgs(
+                    id="/subscriptions/subId/providers/Microsoft.Peering/peerAsns/myAsn1",
+                ),
+            ),
+            kind="Exchange",
+            location="eastus",
+            peering_location="peeringLocation0",
+            peering_name="peeringName",
+            resource_group_name="rgName",
+            sku=azure_native.peering.v20221001.PeeringSkuArgs(
+                name="Basic_Exchange_Free",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:peering/v20221001:Peering peeringName /subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Peering/peerings/peeringName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PeeringArgs args: The arguments to use to populate this resource's properties.

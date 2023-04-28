@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20221014Preview
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### PrivateEndpointConnection_UpdateByWorkspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnectionByWorkspace = new AzureNative.DesktopVirtualization.V20221014Preview.PrivateEndpointConnectionByWorkspace("privateEndpointConnectionByWorkspace", new()
+    ///     {
+    ///         PrivateEndpointConnectionName = "workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.DesktopVirtualization.V20221014Preview.Inputs.PrivateLinkServiceConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Description = "Approved by admin@consoto.com",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/workspaces/workspace1/privateEndpointConnections/workspace1.377103f1-5179-4bdf-8556-4cdd3207cc5b 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20221014preview:PrivateEndpointConnectionByWorkspace")]
     public partial class PrivateEndpointConnectionByWorkspace : global::Pulumi.CustomResource

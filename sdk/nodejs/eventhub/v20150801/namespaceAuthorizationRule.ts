@@ -10,6 +10,34 @@ import * as utilities from "../../utilities";
 /**
  * Single item in a List or Get AuthorizationRule operation
  *
+ * ## Example Usage
+ * ### NameSpaceAuthorizationRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const namespaceAuthorizationRule = new azure_native.eventhub.v20150801.NamespaceAuthorizationRule("namespaceAuthorizationRule", {
+ *     authorizationRuleName: "sdk-Authrules4867",
+ *     location: "West US",
+ *     namespaceName: "sdk-Namespace743",
+ *     resourceGroupName: "Default-ServiceBus-WestUS",
+ *     rights: [
+ *         azure_native.eventhub.v20150801.AccessRights.Listen,
+ *         azure_native.eventhub.v20150801.AccessRights.Send,
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub/v20150801:NamespaceAuthorizationRule sdk-Authrules4867 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.EventHub/namespaces/sdk-Namespace743/AuthorizationRules/sdk-Authrules4867 
+ * ```
+ *
  * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class NamespaceAuthorizationRule extends pulumi.CustomResource {

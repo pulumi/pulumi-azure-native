@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * Deployment information.
+ *
+ * ## Example Usage
+ * ### Create deployment at management group scope.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const deploymentAtManagementGroupScope = new azure_native.resources.v20210101.DeploymentAtManagementGroupScope("deploymentAtManagementGroupScope", {
+ *     deploymentName: "my-deployment",
+ *     groupId: "my-management-group-id",
+ *     location: "eastus",
+ *     properties: {
+ *         mode: azure_native.resources.v20210101.DeploymentMode.Incremental,
+ *         parameters: {},
+ *         templateLink: {
+ *             uri: "https://example.com/exampleTemplate.json",
+ *         },
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:resources/v20210101:DeploymentAtManagementGroupScope my-deployment /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/my-deployment 
+ * ```
  */
 export class DeploymentAtManagementGroupScope extends pulumi.CustomResource {
     /**

@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.AppPlatform.V20200701
 {
     /// <summary>
     /// Custom domain resource payload.
+    /// 
+    /// ## Example Usage
+    /// ### CustomDomains_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var customDomain = new AzureNative.AppPlatform.V20200701.CustomDomain("customDomain", new()
+    ///     {
+    ///         AppName = "myapp",
+    ///         DomainName = "mydomain.com",
+    ///         Properties = new AzureNative.AppPlatform.V20200701.Inputs.CustomDomainPropertiesArgs
+    ///         {
+    ///             CertName = "mycert",
+    ///             Thumbprint = "934367bf1c97033f877db0f15cb1b586957d3133",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20200701:CustomDomain mydomain.com /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/apps/myapp/domains/mydomain.com 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20200701:CustomDomain")]
     public partial class CustomDomain : global::Pulumi.CustomResource

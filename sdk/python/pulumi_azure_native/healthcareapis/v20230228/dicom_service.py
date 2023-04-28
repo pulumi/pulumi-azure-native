@@ -148,6 +148,29 @@ class DicomService(pulumi.CustomResource):
         """
         The description of Dicom Service
 
+        ## Example Usage
+        ### Create or update a Dicom Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dicom_service = azure_native.healthcareapis.v20230228.DicomService("dicomService",
+            dicom_service_name="blue",
+            location="westus",
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20230228:DicomService blue /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CorsConfigurationArgs']] cors_configuration: Dicom Service Cors configuration.
@@ -166,6 +189,29 @@ class DicomService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of Dicom Service
+
+        ## Example Usage
+        ### Create or update a Dicom Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        dicom_service = azure_native.healthcareapis.v20230228.DicomService("dicomService",
+            dicom_service_name="blue",
+            location="westus",
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20230228:DicomService blue /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/dicomservices/blue 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DicomServiceArgs args: The arguments to use to populate this resource's properties.

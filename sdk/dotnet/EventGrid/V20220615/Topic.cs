@@ -11,6 +11,54 @@ namespace Pulumi.AzureNative.EventGrid.V20220615
 {
     /// <summary>
     /// EventGrid Topic
+    /// 
+    /// ## Example Usage
+    /// ### Topics_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var topic = new AzureNative.EventGrid.V20220615.Topic("topic", new()
+    ///     {
+    ///         InboundIpRules = new[]
+    ///         {
+    ///             new AzureNative.EventGrid.V20220615.Inputs.InboundIpRuleArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "12.18.30.15",
+    ///             },
+    ///             new AzureNative.EventGrid.V20220615.Inputs.InboundIpRuleArgs
+    ///             {
+    ///                 Action = "Allow",
+    ///                 IpMask = "12.18.176.1",
+    ///             },
+    ///         },
+    ///         Location = "westus2",
+    ///         PublicNetworkAccess = "Enabled",
+    ///         ResourceGroupName = "examplerg",
+    ///         Tags = 
+    ///         {
+    ///             { "tag1", "value1" },
+    ///             { "tag2", "value2" },
+    ///         },
+    ///         TopicName = "exampletopic1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20220615:Topic exampletopic1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20220615:Topic")]
     public partial class Topic : global::Pulumi.CustomResource

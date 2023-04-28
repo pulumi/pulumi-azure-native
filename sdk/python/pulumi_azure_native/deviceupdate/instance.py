@@ -167,6 +167,38 @@ class Instance(pulumi.CustomResource):
         API Version: 2022-10-01.
         Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Creates or updates Instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance = azure_native.deviceupdate.Instance("instance",
+            account_name="contoso",
+            diagnostic_storage_properties=azure_native.deviceupdate.DiagnosticStoragePropertiesResponseArgs(
+                authentication_type="KeyBased",
+                connection_string="string",
+                resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/adu-resource-group/providers/Microsoft.Storage/storageAccounts/testAccount",
+            ),
+            enable_diagnostics=False,
+            instance_name="blue",
+            iot_hubs=[{
+                "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub",
+            }],
+            location="westus2",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceupdate:Instance blue /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso/instances/blue 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: Account name.
@@ -188,6 +220,38 @@ class Instance(pulumi.CustomResource):
         Device Update instance details.
         API Version: 2022-10-01.
         Previous API Version: 2020-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Creates or updates Instance
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        instance = azure_native.deviceupdate.Instance("instance",
+            account_name="contoso",
+            diagnostic_storage_properties=azure_native.deviceupdate.DiagnosticStoragePropertiesResponseArgs(
+                authentication_type="KeyBased",
+                connection_string="string",
+                resource_id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/adu-resource-group/providers/Microsoft.Storage/storageAccounts/testAccount",
+            ),
+            enable_diagnostics=False,
+            instance_name="blue",
+            iot_hubs=[{
+                "resourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Devices/IotHubs/blue-contoso-hub",
+            }],
+            location="westus2",
+            resource_group_name="test-rg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:deviceupdate:Instance blue /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DeviceUpdate/accounts/contoso/instances/blue 
+        ```
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

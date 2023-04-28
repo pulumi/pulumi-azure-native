@@ -11,6 +11,53 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Policy Contract details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateProductPolicy
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var productPolicy = new AzureNative.ApiManagement.V20201201.ProductPolicy("productPolicy", new()
+    ///     {
+    ///         Format = "xml",
+    ///         PolicyId = "policy",
+    ///         ProductId = "5702e97e5157a50f48dce801",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///         Value = @"&lt;policies&gt;
+    ///   &lt;inbound&gt;
+    ///     &lt;rate-limit calls=""{{call-count}}"" renewal-period=""15""&gt;&lt;/rate-limit&gt;
+    ///     &lt;log-to-eventhub logger-id=""16""&gt;
+    ///                       @( string.Join("","", DateTime.UtcNow, context.Deployment.ServiceName, context.RequestId, context.Request.IpAddress, context.Operation.Name) ) 
+    ///                   &lt;/log-to-eventhub&gt;
+    ///     &lt;quota-by-key calls=""40"" counter-key=""cc"" renewal-period=""3600"" increment-count=""@(context.Request.Method == &amp;quot;POST&amp;quot; ? 1:2)"" /&gt;
+    ///     &lt;base /&gt;
+    ///   &lt;/inbound&gt;
+    ///   &lt;backend&gt;
+    ///     &lt;base /&gt;
+    ///   &lt;/backend&gt;
+    ///   &lt;outbound&gt;
+    ///     &lt;base /&gt;
+    ///   &lt;/outbound&gt;
+    /// &lt;/policies&gt;",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:ProductPolicy policy /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/products/5702e97e5157a50f48dce801/policies/policy 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:ProductPolicy")]
     public partial class ProductPolicy : global::Pulumi.CustomResource

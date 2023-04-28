@@ -119,6 +119,29 @@ class ProximityPlacementGroup(pulumi.CustomResource):
         """
         Specifies information about the proximity placement group.
 
+        ## Example Usage
+        ### Create or Update a proximity placement group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        proximity_placement_group = azure_native.compute.v20190301.ProximityPlacementGroup("proximityPlacementGroup",
+            location="westus",
+            proximity_placement_group_name="myProximityPlacementGroup",
+            proximity_placement_group_type="Standard",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20190301:ProximityPlacementGroup myProximityPlacementGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myProximityPlacementGroup 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: Resource location
@@ -135,6 +158,29 @@ class ProximityPlacementGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Specifies information about the proximity placement group.
+
+        ## Example Usage
+        ### Create or Update a proximity placement group.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        proximity_placement_group = azure_native.compute.v20190301.ProximityPlacementGroup("proximityPlacementGroup",
+            location="westus",
+            proximity_placement_group_name="myProximityPlacementGroup",
+            proximity_placement_group_type="Standard",
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute/v20190301:ProximityPlacementGroup myProximityPlacementGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/proximityPlacementGroups/myProximityPlacementGroup 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProximityPlacementGroupArgs args: The arguments to use to populate this resource's properties.

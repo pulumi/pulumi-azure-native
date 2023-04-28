@@ -12,6 +12,475 @@ namespace Pulumi.AzureNative.ContainerRegistry.V20190601Preview
     /// <summary>
     /// The task that has the ARM resource and task properties.
     /// The task will have all information to schedule a run against it.
+    /// 
+    /// ## Example Usage
+    /// ### Tasks_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var task = new AzureNative.ContainerRegistry.V20190601Preview.Task("task", new()
+    ///     {
+    ///         AgentConfiguration = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.AgentPropertiesArgs
+    ///         {
+    ///             Cpu = 2,
+    ///         },
+    ///         Identity = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.IdentityPropertiesArgs
+    ///         {
+    ///             Type = AzureNative.ContainerRegistry.V20190601Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         IsSystemTask = false,
+    ///         Location = "eastus",
+    ///         LogTemplate = "acr/tasks:{{.Run.OS}}",
+    ///         Platform = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.PlatformPropertiesArgs
+    ///         {
+    ///             Architecture = "amd64",
+    ///             Os = "Linux",
+    ///         },
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Status = "Enabled",
+    ///         Step = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.DockerBuildStepArgs
+    ///         {
+    ///             Arguments = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
+    ///                 {
+    ///                     IsSecret = false,
+    ///                     Name = "mytestargument",
+    ///                     Value = "mytestvalue",
+    ///                 },
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
+    ///                 {
+    ///                     IsSecret = true,
+    ///                     Name = "mysecrettestargument",
+    ///                     Value = "mysecrettestvalue",
+    ///                 },
+    ///             },
+    ///             ContextPath = "src",
+    ///             DockerFilePath = "src/DockerFile",
+    ///             ImageNames = new[]
+    ///             {
+    ///                 "azurerest:testtag",
+    ///             },
+    ///             IsPushEnabled = true,
+    ///             NoCache = false,
+    ///             Type = "Docker",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testkey", "value" },
+    ///         },
+    ///         TaskName = "mytTask",
+    ///         Trigger = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.TriggerPropertiesArgs
+    ///         {
+    ///             BaseImageTrigger = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.BaseImageTriggerArgs
+    ///             {
+    ///                 BaseImageTriggerType = "Runtime",
+    ///                 Name = "myBaseImageTrigger",
+    ///                 UpdateTriggerEndpoint = "https://user:pass@mycicd.webhook.com?token=foo",
+    ///                 UpdateTriggerPayloadType = "Token",
+    ///             },
+    ///             SourceTriggers = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.SourceTriggerArgs
+    ///                 {
+    ///                     Name = "mySourceTrigger",
+    ///                     SourceRepository = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.SourcePropertiesArgs
+    ///                     {
+    ///                         Branch = "master",
+    ///                         RepositoryUrl = "https://github.com/Azure/azure-rest-api-specs",
+    ///                         SourceControlAuthProperties = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.AuthInfoArgs
+    ///                         {
+    ///                             Token = "xxxxx",
+    ///                             TokenType = "PAT",
+    ///                         },
+    ///                         SourceControlType = "Github",
+    ///                     },
+    ///                     SourceTriggerEvents = new[]
+    ///                     {
+    ///                         "commit",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TimerTriggers = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.TimerTriggerArgs
+    ///                 {
+    ///                     Name = "myTimerTrigger",
+    ///                     Schedule = "30 9 * * 1-5",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Tasks_Create_QuickTask
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var task = new AzureNative.ContainerRegistry.V20190601Preview.Task("task", new()
+    ///     {
+    ///         IsSystemTask = true,
+    ///         Location = "eastus",
+    ///         LogTemplate = "acr/tasks:{{.Run.OS}}",
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Status = "Enabled",
+    ///         Tags = 
+    ///         {
+    ///             { "testkey", "value" },
+    ///         },
+    ///         TaskName = "quicktask",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Tasks_Create_WithSystemAndUserIdentities
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var task = new AzureNative.ContainerRegistry.V20190601Preview.Task("task", new()
+    ///     {
+    ///         AgentConfiguration = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.AgentPropertiesArgs
+    ///         {
+    ///             Cpu = 2,
+    ///         },
+    ///         Identity = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.IdentityPropertiesArgs
+    ///         {
+    ///             Type = AzureNative.ContainerRegistry.V20190601Preview.ResourceIdentityType.SystemAssigned_UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2", null },
+    ///             },
+    ///         },
+    ///         IsSystemTask = false,
+    ///         Location = "eastus",
+    ///         Platform = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.PlatformPropertiesArgs
+    ///         {
+    ///             Architecture = "amd64",
+    ///             Os = "Linux",
+    ///         },
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Status = "Enabled",
+    ///         Step = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.DockerBuildStepArgs
+    ///         {
+    ///             Arguments = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
+    ///                 {
+    ///                     IsSecret = false,
+    ///                     Name = "mytestargument",
+    ///                     Value = "mytestvalue",
+    ///                 },
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
+    ///                 {
+    ///                     IsSecret = true,
+    ///                     Name = "mysecrettestargument",
+    ///                     Value = "mysecrettestvalue",
+    ///                 },
+    ///             },
+    ///             ContextPath = "src",
+    ///             DockerFilePath = "src/DockerFile",
+    ///             ImageNames = new[]
+    ///             {
+    ///                 "azurerest:testtag",
+    ///             },
+    ///             IsPushEnabled = true,
+    ///             NoCache = false,
+    ///             Type = "Docker",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testkey", "value" },
+    ///         },
+    ///         TaskName = "mytTask",
+    ///         Trigger = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.TriggerPropertiesArgs
+    ///         {
+    ///             BaseImageTrigger = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.BaseImageTriggerArgs
+    ///             {
+    ///                 BaseImageTriggerType = "Runtime",
+    ///                 Name = "myBaseImageTrigger",
+    ///                 UpdateTriggerEndpoint = "https://user:pass@mycicd.webhook.com?token=foo",
+    ///                 UpdateTriggerPayloadType = "Default",
+    ///             },
+    ///             SourceTriggers = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.SourceTriggerArgs
+    ///                 {
+    ///                     Name = "mySourceTrigger",
+    ///                     SourceRepository = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.SourcePropertiesArgs
+    ///                     {
+    ///                         Branch = "master",
+    ///                         RepositoryUrl = "https://github.com/Azure/azure-rest-api-specs",
+    ///                         SourceControlAuthProperties = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.AuthInfoArgs
+    ///                         {
+    ///                             Token = "xxxxx",
+    ///                             TokenType = "PAT",
+    ///                         },
+    ///                         SourceControlType = "Github",
+    ///                     },
+    ///                     SourceTriggerEvents = new[]
+    ///                     {
+    ///                         "commit",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TimerTriggers = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.TimerTriggerArgs
+    ///                 {
+    ///                     Name = "myTimerTrigger",
+    ///                     Schedule = "30 9 * * 1-5",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Tasks_Create_WithUserIdentities
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var task = new AzureNative.ContainerRegistry.V20190601Preview.Task("task", new()
+    ///     {
+    ///         AgentConfiguration = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.AgentPropertiesArgs
+    ///         {
+    ///             Cpu = 2,
+    ///         },
+    ///         Identity = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.IdentityPropertiesArgs
+    ///         {
+    ///             Type = AzureNative.ContainerRegistry.V20190601Preview.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1", null },
+    ///                 { "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2", null },
+    ///             },
+    ///         },
+    ///         IsSystemTask = false,
+    ///         Location = "eastus",
+    ///         Platform = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.PlatformPropertiesArgs
+    ///         {
+    ///             Architecture = "amd64",
+    ///             Os = "Linux",
+    ///         },
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Status = "Enabled",
+    ///         Step = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.DockerBuildStepArgs
+    ///         {
+    ///             Arguments = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
+    ///                 {
+    ///                     IsSecret = false,
+    ///                     Name = "mytestargument",
+    ///                     Value = "mytestvalue",
+    ///                 },
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
+    ///                 {
+    ///                     IsSecret = true,
+    ///                     Name = "mysecrettestargument",
+    ///                     Value = "mysecrettestvalue",
+    ///                 },
+    ///             },
+    ///             ContextPath = "src",
+    ///             DockerFilePath = "src/DockerFile",
+    ///             ImageNames = new[]
+    ///             {
+    ///                 "azurerest:testtag",
+    ///             },
+    ///             IsPushEnabled = true,
+    ///             NoCache = false,
+    ///             Type = "Docker",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testkey", "value" },
+    ///         },
+    ///         TaskName = "mytTask",
+    ///         Trigger = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.TriggerPropertiesArgs
+    ///         {
+    ///             BaseImageTrigger = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.BaseImageTriggerArgs
+    ///             {
+    ///                 BaseImageTriggerType = "Runtime",
+    ///                 Name = "myBaseImageTrigger",
+    ///                 UpdateTriggerEndpoint = "https://user:pass@mycicd.webhook.com?token=foo",
+    ///                 UpdateTriggerPayloadType = "Default",
+    ///             },
+    ///             SourceTriggers = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.SourceTriggerArgs
+    ///                 {
+    ///                     Name = "mySourceTrigger",
+    ///                     SourceRepository = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.SourcePropertiesArgs
+    ///                     {
+    ///                         Branch = "master",
+    ///                         RepositoryUrl = "https://github.com/Azure/azure-rest-api-specs",
+    ///                         SourceControlAuthProperties = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.AuthInfoArgs
+    ///                         {
+    ///                             Token = "xxxxx",
+    ///                             TokenType = "PAT",
+    ///                         },
+    ///                         SourceControlType = "Github",
+    ///                     },
+    ///                     SourceTriggerEvents = new[]
+    ///                     {
+    ///                         "commit",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TimerTriggers = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.TimerTriggerArgs
+    ///                 {
+    ///                     Name = "myTimerTrigger",
+    ///                     Schedule = "30 9 * * 1-5",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Tasks_Create_WithUserIdentities_WithSystemIdentity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var task = new AzureNative.ContainerRegistry.V20190601Preview.Task("task", new()
+    ///     {
+    ///         AgentConfiguration = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.AgentPropertiesArgs
+    ///         {
+    ///             Cpu = 2,
+    ///         },
+    ///         Identity = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.IdentityPropertiesArgs
+    ///         {
+    ///             Type = AzureNative.ContainerRegistry.V20190601Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         IsSystemTask = false,
+    ///         Location = "eastus",
+    ///         Platform = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.PlatformPropertiesArgs
+    ///         {
+    ///             Architecture = "amd64",
+    ///             Os = "Linux",
+    ///         },
+    ///         RegistryName = "myRegistry",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         Status = "Enabled",
+    ///         Step = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.DockerBuildStepArgs
+    ///         {
+    ///             Arguments = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
+    ///                 {
+    ///                     IsSecret = false,
+    ///                     Name = "mytestargument",
+    ///                     Value = "mytestvalue",
+    ///                 },
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.ArgumentArgs
+    ///                 {
+    ///                     IsSecret = true,
+    ///                     Name = "mysecrettestargument",
+    ///                     Value = "mysecrettestvalue",
+    ///                 },
+    ///             },
+    ///             ContextPath = "src",
+    ///             DockerFilePath = "src/DockerFile",
+    ///             ImageNames = new[]
+    ///             {
+    ///                 "azurerest:testtag",
+    ///             },
+    ///             IsPushEnabled = true,
+    ///             NoCache = false,
+    ///             Type = "Docker",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "testkey", "value" },
+    ///         },
+    ///         TaskName = "mytTask",
+    ///         Trigger = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.TriggerPropertiesArgs
+    ///         {
+    ///             BaseImageTrigger = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.BaseImageTriggerArgs
+    ///             {
+    ///                 BaseImageTriggerType = "Runtime",
+    ///                 Name = "myBaseImageTrigger",
+    ///             },
+    ///             SourceTriggers = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.SourceTriggerArgs
+    ///                 {
+    ///                     Name = "mySourceTrigger",
+    ///                     SourceRepository = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.SourcePropertiesArgs
+    ///                     {
+    ///                         Branch = "master",
+    ///                         RepositoryUrl = "https://github.com/Azure/azure-rest-api-specs",
+    ///                         SourceControlAuthProperties = new AzureNative.ContainerRegistry.V20190601Preview.Inputs.AuthInfoArgs
+    ///                         {
+    ///                             Token = "xxxxx",
+    ///                             TokenType = "PAT",
+    ///                         },
+    ///                         SourceControlType = "Github",
+    ///                     },
+    ///                     SourceTriggerEvents = new[]
+    ///                     {
+    ///                         "commit",
+    ///                     },
+    ///                 },
+    ///             },
+    ///             TimerTriggers = new[]
+    ///             {
+    ///                 new AzureNative.ContainerRegistry.V20190601Preview.Inputs.TimerTriggerArgs
+    ///                 {
+    ///                     Name = "myTimerTrigger",
+    ///                     Schedule = "30 9 * * 1-5",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerregistry/v20190601preview:Task myTask /subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/tasks/myTask 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerregistry/v20190601preview:Task")]
     public partial class Task : global::Pulumi.CustomResource

@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * VirtualHub Resource.
+ *
+ * ## Example Usage
+ * ### VirtualHubPut
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualHub = new azure_native.network.v20200401.VirtualHub("virtualHub", {
+ *     addressPrefix: "10.168.0.0/24",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     sku: "Basic",
+ *     tags: {
+ *         key1: "value1",
+ *     },
+ *     virtualHubName: "virtualHub2",
+ *     virtualWan: {
+ *         id: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualWans/virtualWan1",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20200401:VirtualHub virtualHub2 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualHubs/virtualHub2 
+ * ```
  */
 export class VirtualHub extends pulumi.CustomResource {
     /**

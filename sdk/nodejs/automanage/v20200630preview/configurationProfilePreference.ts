@@ -9,6 +9,40 @@ import * as utilities from "../../utilities";
 
 /**
  * Definition of the configuration profile preference.
+ *
+ * ## Example Usage
+ * ### Create or update configuration profile preference
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationProfilePreference = new azure_native.automanage.v20200630preview.ConfigurationProfilePreference("configurationProfilePreference", {
+ *     configurationProfilePreferenceName: "defaultProfilePreference",
+ *     location: "East US",
+ *     properties: {
+ *         antiMalware: {
+ *             enableRealTimeProtection: "True",
+ *         },
+ *         vmBackup: {
+ *             timeZone: "Pacific Standard Time",
+ *         },
+ *     },
+ *     resourceGroupName: "myResourceGroupName",
+ *     tags: {
+ *         Organization: "Administration",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:automanage/v20200630preview:ConfigurationProfilePreference defaultProfilePreference /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.Automanage/configurationProfilePreferences/defaultProfilePreference 
+ * ```
  */
 export class ConfigurationProfilePreference extends pulumi.CustomResource {
     /**

@@ -11,6 +11,147 @@ namespace Pulumi.AzureNative.ContainerService.V20200601
 {
     /// <summary>
     /// Agent Pool.
+    /// 
+    /// ## Example Usage
+    /// ### Create Agent Pool with PPG
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20200601.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ProximityPlacementGroupID = "/subscriptions/subid1/resourcegroups/rg1/providers//Microsoft.Compute/proximityPlacementGroups/ppg1",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         VmSize = "Standard_DS2_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Spot Agent Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20200601.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         NodeLabels = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///         NodeTaints = new[]
+    ///         {
+    ///             "Key1=Value1:NoSchedule",
+    ///         },
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ScaleSetEvictionPolicy = "Delete",
+    ///         ScaleSetPriority = "Spot",
+    ///         Tags = 
+    ///         {
+    ///             { "name1", "val1" },
+    ///         },
+    ///         VmSize = "Standard_DS1_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/Update Agent Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20200601.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         Mode = "User",
+    ///         NodeLabels = 
+    ///         {
+    ///             { "key1", "val1" },
+    ///         },
+    ///         NodeTaints = new[]
+    ///         {
+    ///             "Key1=Value1:NoSchedule",
+    ///         },
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ScaleSetEvictionPolicy = "Delete",
+    ///         ScaleSetPriority = "Spot",
+    ///         Tags = 
+    ///         {
+    ///             { "name1", "val1" },
+    ///         },
+    ///         VmSize = "Standard_DS1_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Update Agent Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var agentPool = new AzureNative.ContainerService.V20200601.AgentPool("agentPool", new()
+    ///     {
+    ///         AgentPoolName = "agentpool1",
+    ///         Count = 3,
+    ///         EnableAutoScaling = true,
+    ///         MaxCount = 2,
+    ///         MinCount = 2,
+    ///         NodeTaints = new[]
+    ///         {
+    ///             "Key1=Value1:NoSchedule",
+    ///         },
+    ///         OrchestratorVersion = "",
+    ///         OsType = "Linux",
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ScaleSetEvictionPolicy = "Delete",
+    ///         ScaleSetPriority = "Spot",
+    ///         VmSize = "Standard_DS1_v2",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20200601:AgentPool agentpool1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/agentPools/agentpool1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20200601:AgentPool")]
     public partial class AgentPool : global::Pulumi.CustomResource

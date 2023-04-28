@@ -389,6 +389,62 @@ class PublicIPAddress(pulumi.CustomResource):
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create public IP address DNS
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_address = azure_native.network.PublicIPAddress("publicIPAddress",
+            dns_settings=azure_native.network.PublicIPAddressDnsSettingsArgs(
+                domain_name_label="dnslbl",
+            ),
+            location="eastus",
+            public_ip_address_name="test-ip",
+            resource_group_name="rg1")
+
+        ```
+        ### Create public IP address allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_address = azure_native.network.PublicIPAddress("publicIPAddress",
+            idle_timeout_in_minutes=10,
+            location="eastus",
+            public_ip_address_version="IPv4",
+            public_ip_allocation_method="Static",
+            public_ip_address_name="test-ip",
+            resource_group_name="rg1",
+            sku=azure_native.network.PublicIPAddressSkuArgs(
+                name="Standard",
+                tier="Global",
+            ))
+
+        ```
+        ### Create public IP address defaults
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_address = azure_native.network.PublicIPAddress("publicIPAddress",
+            location="eastus",
+            public_ip_address_name="test-ip",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:PublicIPAddress testDNS-ip /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['DdosSettingsArgs']] ddos_settings: The DDoS protection custom policy associated with the public IP address.
@@ -423,6 +479,62 @@ class PublicIPAddress(pulumi.CustomResource):
         Public IP address resource.
         API Version: 2022-09-01.
         Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create public IP address DNS
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_address = azure_native.network.PublicIPAddress("publicIPAddress",
+            dns_settings=azure_native.network.PublicIPAddressDnsSettingsArgs(
+                domain_name_label="dnslbl",
+            ),
+            location="eastus",
+            public_ip_address_name="test-ip",
+            resource_group_name="rg1")
+
+        ```
+        ### Create public IP address allocation method
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_address = azure_native.network.PublicIPAddress("publicIPAddress",
+            idle_timeout_in_minutes=10,
+            location="eastus",
+            public_ip_address_version="IPv4",
+            public_ip_allocation_method="Static",
+            public_ip_address_name="test-ip",
+            resource_group_name="rg1",
+            sku=azure_native.network.PublicIPAddressSkuArgs(
+                name="Standard",
+                tier="Global",
+            ))
+
+        ```
+        ### Create public IP address defaults
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        public_ip_address = azure_native.network.PublicIPAddress("publicIPAddress",
+            location="eastus",
+            public_ip_address_name="test-ip",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network:PublicIPAddress testDNS-ip /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/test-ip 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PublicIPAddressInitArgs args: The arguments to use to populate this resource's properties.

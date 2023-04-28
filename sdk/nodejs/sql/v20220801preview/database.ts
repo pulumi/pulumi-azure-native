@@ -9,6 +9,422 @@ import * as utilities from "../../utilities";
 
 /**
  * A database resource.
+ *
+ * ## Example Usage
+ * ### Creates a VCore database by specifying service objective name.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         capacity: 2,
+ *         family: "Gen4",
+ *         name: "BC",
+ *     },
+ * });
+ *
+ * ```
+ * ### Creates a VCore database by specifying sku name and capacity.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "BC_Gen4",
+ *     },
+ * });
+ *
+ * ```
+ * ### Creates a data warehouse database as a cross-subscription restore from a backup of a dropped database.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     createMode: "Restore",
+ *     databaseName: "testdw",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     sourceResourceId: "/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/srcsvr/restorableDroppedDatabases/srcdw,131403269876900000",
+ * });
+ *
+ * ```
+ * ### Creates a data warehouse database as a cross-subscription restore from a geo-backup.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     createMode: "Recovery",
+ *     databaseName: "testdw",
+ *     location: "westus",
+ *     resourceGroupName: "Default-SQL-WestUS",
+ *     serverName: "testsvr",
+ *     sourceResourceId: "/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-EastUS/providers/Microsoft.Sql/servers/srcsvr/recoverabledatabases/srcdw",
+ * });
+ *
+ * ```
+ * ### Creates a data warehouse database as a cross-subscription restore from a restore point of an existing database.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     createMode: "PointInTimeRestore",
+ *     databaseName: "testdw",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     restorePointInTime: "2022-01-22T05:35:31.503Z",
+ *     serverName: "testsvr",
+ *     sourceResourceId: "/subscriptions/55555555-6666-7777-8888-999999999999/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/srcsvr/databases/srcdw",
+ * });
+ *
+ * ```
+ * ### Creates a database as a copy.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     createMode: "Copy",
+ *     databaseName: "dbcopy",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+ * });
+ *
+ * ```
+ * ### Creates a database as a standby secondary.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     createMode: "Secondary",
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     secondaryType: "Standby",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb",
+ * });
+ *
+ * ```
+ * ### Creates a database as an on-line secondary.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     createMode: "Secondary",
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     secondaryType: "Geo",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/testdb",
+ * });
+ *
+ * ```
+ * ### Creates a database as named replica secondary.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     createMode: "Secondary",
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     secondaryType: "Named",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "HS_Gen4",
+ *         tier: "Hyperscale",
+ *     },
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-NorthEurope/providers/Microsoft.Sql/servers/testsvr1/databases/primarydb",
+ * });
+ *
+ * ```
+ * ### Creates a database from PointInTimeRestore.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     createMode: "PointInTimeRestore",
+ *     databaseName: "dbpitr",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     restorePointInTime: "2020-10-22T05:35:31.503Z",
+ *     serverName: "testsvr",
+ *     sourceDatabaseId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SoutheastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb",
+ * });
+ *
+ * ```
+ * ### Creates a database with Default enclave type.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     preferredEnclaveType: "Default",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ * });
+ *
+ * ```
+ * ### Creates a database with VBS enclave type.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     preferredEnclaveType: "VBS",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ * });
+ *
+ * ```
+ * ### Creates a database with availability zone specified.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     availabilityZone: "1",
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     createMode: "Default",
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     maxSizeBytes: 1073741824,
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Creates a database with database-level customer managed keys.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     createMode: "Default",
+ *     databaseName: "testdb",
+ *     encryptionProtector: "https://your-key-vault-name.vault.azure.net/yourKey/yourKeyVersion",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/Default-SQL-SouthEastAsia/providers/Microsoft.ManagedIdentity/userAssignedIdentities/umi": {},
+ *         },
+ *     },
+ *     keys: {
+ *         "https://your-key-vault-name.vault.azure.net/yourKey/yourKeyVersion": {},
+ *         "https://your-key-vault-name.vault.azure.net/yourKey2/yourKey2Version": {},
+ *     },
+ *     location: "southeastasia",
+ *     maxSizeBytes: 1073741824,
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Creates a database with default mode.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     createMode: "Default",
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     maxSizeBytes: 1073741824,
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         name: "S0",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Creates a database with ledger on.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     databaseName: "testdb",
+ *     isLedgerOn: true,
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ * });
+ *
+ * ```
+ * ### Creates a database with minimum number of parameters.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ * });
+ *
+ * ```
+ * ### Creates a database with preferred maintenance window.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     collation: "SQL_Latin1_General_CP1_CI_AS",
+ *     createMode: "Default",
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     maintenanceConfigurationId: "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_SouthEastAsia_1",
+ *     maxSizeBytes: 1073741824,
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         name: "S2",
+ *         tier: "Standard",
+ *     },
+ * });
+ *
+ * ```
+ * ### Creates a database with specified backup storage redundancy.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     databaseName: "testdb",
+ *     location: "southeastasia",
+ *     requestedBackupStorageRedundancy: "Zone",
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ * });
+ *
+ * ```
+ * ### Updates a database to Hyperscale SLO with manual cutover
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     databaseName: "testdb",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/userAssignedIdentities/umi": {},
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/userAssignedIdentities/umiToDelete": undefined,
+ *         },
+ *     },
+ *     location: "southeastasia",
+ *     manualCutover: true,
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ *     sku: {
+ *         name: "HS_Gen5_2",
+ *         tier: "Hyperscale",
+ *     },
+ * });
+ *
+ * ```
+ * ### Updates a database to Hyperscale tier by triggering manual cutover during Migration workflow
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const database = new azure_native.sql.v20220801preview.Database("database", {
+ *     databaseName: "testdb",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/userAssignedIdentities/umi": {},
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourcegroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/userAssignedIdentities/umiToDelete": undefined,
+ *         },
+ *     },
+ *     location: "southeastasia",
+ *     performCutover: true,
+ *     resourceGroupName: "Default-SQL-SouthEastAsia",
+ *     serverName: "testsvr",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:Database testdb /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/Default-SQL-SouthEastAsia/providers/Microsoft.Sql/servers/testsvr/databases/testdb 
+ * ```
  */
 export class Database extends pulumi.CustomResource {
     /**

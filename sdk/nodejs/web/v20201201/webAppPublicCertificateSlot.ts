@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * Public certificate object
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:web/v20201201:WebAppPublicCertificateSlot myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/publicCertificates/{publicCertificateName} 
+ * ```
  */
 export class WebAppPublicCertificateSlot extends pulumi.CustomResource {
     /**

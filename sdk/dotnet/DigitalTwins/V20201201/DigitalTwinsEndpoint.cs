@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201201
 {
     /// <summary>
     /// DigitalTwinsInstance endpoint resource.
+    /// 
+    /// ## Example Usage
+    /// ### Put a DigitalTwinsInstance resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var digitalTwinsEndpoint = new AzureNative.DigitalTwins.V20201201.DigitalTwinsEndpoint("digitalTwinsEndpoint", new()
+    ///     {
+    ///         EndpointName = "myServiceBus",
+    ///         Properties = new AzureNative.DigitalTwins.V20201201.Inputs.ServiceBusArgs
+    ///         {
+    ///             AuthenticationType = "KeyBased",
+    ///             EndpointType = "ServiceBus",
+    ///             PrimaryConnectionString = "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+    ///             SecondaryConnectionString = "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=;EntityPath=abcabc",
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Put a DigitalTwinsInstance resource with identity
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var digitalTwinsEndpoint = new AzureNative.DigitalTwins.V20201201.DigitalTwinsEndpoint("digitalTwinsEndpoint", new()
+    ///     {
+    ///         EndpointName = "myServiceBus",
+    ///         Properties = new AzureNative.DigitalTwins.V20201201.Inputs.ServiceBusArgs
+    ///         {
+    ///             AuthenticationType = "IdentityBased",
+    ///             EndpointType = "ServiceBus",
+    ///             EndpointUri = "sb://mysb.servicebus.windows.net/",
+    ///             EntityPath = "mysbtopic",
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint myServiceBus /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/endpoints/myServiceBus 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins/v20201201:DigitalTwinsEndpoint")]
     public partial class DigitalTwinsEndpoint : global::Pulumi.CustomResource

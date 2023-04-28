@@ -265,6 +265,60 @@ class NetworkFabric(pulumi.CustomResource):
         """
         The NetworkFabric resource definition.
 
+        ## Example Usage
+        ### NetworkFabrics_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_fabric = azure_native.managednetworkfabric.v20230201preview.NetworkFabric("networkFabric",
+            fabric_asn=29249,
+            ipv4_prefix="10.18.0.0/19",
+            ipv6_prefix="3FFE:FFFF:0:CD40::/59",
+            location="eastus",
+            management_network_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricPropertiesResponseManagementNetworkConfigurationArgs(
+                infrastructure_vpn_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricPropertiesInfrastructureVpnConfigurationArgs(
+                    option_b_properties=azure_native.managednetworkfabric.v20230201preview.FabricOptionBPropertiesArgs(
+                        export_route_targets=["65046:10039"],
+                        import_route_targets=["65046:10039"],
+                    ),
+                    peering_option="OptionA",
+                ),
+                workload_vpn_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricPropertiesWorkloadVpnConfigurationArgs(
+                    option_b_properties=azure_native.managednetworkfabric.v20230201preview.FabricOptionBPropertiesArgs(
+                        export_route_targets=["65046:10050"],
+                        import_route_targets=["65046:10050"],
+                    ),
+                    peering_option="OptionA",
+                ),
+            ),
+            network_fabric_controller_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+            network_fabric_name="FabricName",
+            network_fabric_sku="M4-A400-A100-C16-aa",
+            rack_count=4,
+            resource_group_name="resourceGroupName",
+            server_count_per_rack=8,
+            terminal_server_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricPropertiesTerminalServerConfigurationArgs(
+                password="xxxx",
+                primary_ipv4_prefix="20.0.0.12/30",
+                primary_ipv6_prefix="3FFE:FFFF:0:CD30::a8/126",
+                secondary_ipv4_prefix="20.0.0.13/30",
+                secondary_ipv6_prefix="3FFE:FFFF:0:CD30::ac/126",
+                serial_number="123456",
+                username="username",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkFabric FabricName /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] annotation: Switch configuration description.
@@ -290,6 +344,60 @@ class NetworkFabric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The NetworkFabric resource definition.
+
+        ## Example Usage
+        ### NetworkFabrics_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        network_fabric = azure_native.managednetworkfabric.v20230201preview.NetworkFabric("networkFabric",
+            fabric_asn=29249,
+            ipv4_prefix="10.18.0.0/19",
+            ipv6_prefix="3FFE:FFFF:0:CD40::/59",
+            location="eastus",
+            management_network_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricPropertiesResponseManagementNetworkConfigurationArgs(
+                infrastructure_vpn_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricPropertiesInfrastructureVpnConfigurationArgs(
+                    option_b_properties=azure_native.managednetworkfabric.v20230201preview.FabricOptionBPropertiesArgs(
+                        export_route_targets=["65046:10039"],
+                        import_route_targets=["65046:10039"],
+                    ),
+                    peering_option="OptionA",
+                ),
+                workload_vpn_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricPropertiesWorkloadVpnConfigurationArgs(
+                    option_b_properties=azure_native.managednetworkfabric.v20230201preview.FabricOptionBPropertiesArgs(
+                        export_route_targets=["65046:10050"],
+                        import_route_targets=["65046:10050"],
+                    ),
+                    peering_option="OptionA",
+                ),
+            ),
+            network_fabric_controller_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/fabricControllerName",
+            network_fabric_name="FabricName",
+            network_fabric_sku="M4-A400-A100-C16-aa",
+            rack_count=4,
+            resource_group_name="resourceGroupName",
+            server_count_per_rack=8,
+            terminal_server_configuration=azure_native.managednetworkfabric.v20230201preview.NetworkFabricPropertiesTerminalServerConfigurationArgs(
+                password="xxxx",
+                primary_ipv4_prefix="20.0.0.12/30",
+                primary_ipv6_prefix="3FFE:FFFF:0:CD30::a8/126",
+                secondary_ipv4_prefix="20.0.0.13/30",
+                secondary_ipv6_prefix="3FFE:FFFF:0:CD30::ac/126",
+                serial_number="123456",
+                username="username",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:NetworkFabric FabricName /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NetworkFabricArgs args: The arguments to use to populate this resource's properties.

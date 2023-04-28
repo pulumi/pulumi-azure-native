@@ -11,6 +11,57 @@ import * as utilities from "../utilities";
  * Specifies information about the dedicated host group that the dedicated hosts should be assigned to. <br><br> Currently, a dedicated host can only be added to a dedicated host group at creation time. An existing dedicated host cannot be added to another dedicated host group.
  * API Version: 2022-11-01.
  * Previous API Version: 2020-12-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create or update a dedicated host group with Ultra SSD support.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dedicatedHostGroup = new azure_native.compute.DedicatedHostGroup("dedicatedHostGroup", {
+ *     additionalCapabilities: {
+ *         ultraSSDEnabled: true,
+ *     },
+ *     hostGroupName: "myDedicatedHostGroup",
+ *     location: "westus",
+ *     platformFaultDomainCount: 3,
+ *     resourceGroupName: "myResourceGroup",
+ *     supportAutomaticPlacement: true,
+ *     tags: {
+ *         department: "finance",
+ *     },
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ * ### Create or update a dedicated host group.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const dedicatedHostGroup = new azure_native.compute.DedicatedHostGroup("dedicatedHostGroup", {
+ *     hostGroupName: "myDedicatedHostGroup",
+ *     location: "westus",
+ *     platformFaultDomainCount: 3,
+ *     resourceGroupName: "myResourceGroup",
+ *     supportAutomaticPlacement: true,
+ *     tags: {
+ *         department: "finance",
+ *     },
+ *     zones: ["1"],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute:DedicatedHostGroup myDedicatedHostGroup /subscriptions/{subscription-id}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/HostGroups/myDedicatedHostGroup 
+ * ```
  */
 export class DedicatedHostGroup extends pulumi.CustomResource {
     /**

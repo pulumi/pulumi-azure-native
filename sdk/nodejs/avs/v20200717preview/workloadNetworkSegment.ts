@@ -9,6 +9,36 @@ import * as utilities from "../../utilities";
 
 /**
  * NSX Segment
+ *
+ * ## Example Usage
+ * ### WorkloadNetworks_CreateSegments
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadNetworkSegment = new azure_native.avs.v20200717preview.WorkloadNetworkSegment("workloadNetworkSegment", {
+ *     connectedGateway: "/infra/tier-1s/gateway",
+ *     displayName: "segment1",
+ *     privateCloudName: "cloud1",
+ *     resourceGroupName: "group1",
+ *     revision: 1,
+ *     segmentId: "segment1",
+ *     subnet: {
+ *         dhcpRanges: ["40.20.0.0-40.20.0.1"],
+ *         gatewayAddress: "40.20.20.20/16",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:avs/v20200717preview:WorkloadNetworkSegment segment1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/segments/segment1 
+ * ```
  */
 export class WorkloadNetworkSegment extends pulumi.CustomResource {
     /**

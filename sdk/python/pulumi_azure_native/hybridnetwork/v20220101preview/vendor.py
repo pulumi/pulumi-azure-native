@@ -46,6 +46,25 @@ class Vendor(pulumi.CustomResource):
         """
         Vendor resource.
 
+        ## Example Usage
+        ### Create or update Vendor resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vendor = azure_native.hybridnetwork.v20220101preview.Vendor("vendor", vendor_name="TestVendor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork/v20220101preview:Vendor TestVendor /subscriptions/subid/providers/Microsoft.HybridNetwork/vendors/TestVendor 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] vendor_name: The name of the vendor.
@@ -58,6 +77,25 @@ class Vendor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Vendor resource.
+
+        ## Example Usage
+        ### Create or update Vendor resource
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        vendor = azure_native.hybridnetwork.v20220101preview.Vendor("vendor", vendor_name="TestVendor")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridnetwork/v20220101preview:Vendor TestVendor /subscriptions/subid/providers/Microsoft.HybridNetwork/vendors/TestVendor 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VendorArgs args: The arguments to use to populate this resource's properties.

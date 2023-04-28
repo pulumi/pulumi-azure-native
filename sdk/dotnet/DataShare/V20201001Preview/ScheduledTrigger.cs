@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.DataShare.V20201001Preview
 {
     /// <summary>
     /// A type of trigger based on schedule
+    /// 
+    /// ## Example Usage
+    /// ### Triggers_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var scheduledTrigger = new AzureNative.DataShare.V20201001Preview.ScheduledTrigger("scheduledTrigger", new()
+    ///     {
+    ///         AccountName = "Account1",
+    ///         Kind = "ScheduleBased",
+    ///         RecurrenceInterval = "Day",
+    ///         ResourceGroupName = "SampleResourceGroup",
+    ///         ShareSubscriptionName = "ShareSubscription1",
+    ///         SynchronizationMode = "Incremental",
+    ///         SynchronizationTime = "2018-11-14T04:47:52.9614956Z",
+    ///         TriggerName = "Trigger1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datashare/v20201001preview:ScheduledTrigger Trigger1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/shareSubscriptions/ShareSubscription1/triggers/Trigger1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datashare/v20201001preview:ScheduledTrigger")]
     public partial class ScheduledTrigger : global::Pulumi.CustomResource

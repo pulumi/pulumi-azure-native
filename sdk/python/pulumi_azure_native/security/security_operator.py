@@ -63,6 +63,27 @@ class SecurityOperator(pulumi.CustomResource):
         Security operator under a given subscription and pricing
         API Version: 2023-01-01-preview.
 
+        ## Example Usage
+        ### Create a security operator on the given scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_operator = azure_native.security.SecurityOperator("securityOperator",
+            pricing_name="CloudPosture",
+            security_operator_name="DefenderCSPMSecurityOperator")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityOperator DefenderCSPMSecurityOperator /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] pricing_name: name of the pricing configuration
@@ -77,6 +98,27 @@ class SecurityOperator(pulumi.CustomResource):
         """
         Security operator under a given subscription and pricing
         API Version: 2023-01-01-preview.
+
+        ## Example Usage
+        ### Create a security operator on the given scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        security_operator = azure_native.security.SecurityOperator("securityOperator",
+            pricing_name="CloudPosture",
+            security_operator_name="DefenderCSPMSecurityOperator")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security:SecurityOperator DefenderCSPMSecurityOperator /subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/pricings/CloudPosture/securityOperators/DefenderCSPMSecurityOperator 
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityOperatorArgs args: The arguments to use to populate this resource's properties.

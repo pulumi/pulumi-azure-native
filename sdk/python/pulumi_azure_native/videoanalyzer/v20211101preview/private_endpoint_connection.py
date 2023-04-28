@@ -96,6 +96,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         """
         The Private Endpoint Connection resource.
 
+        ## Example Usage
+        ### Update private endpoint connection.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.videoanalyzer.v20211101preview.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="contososports",
+            name="10000000-0000-0000-0000-000000000000",
+            private_link_service_connection_state=azure_native.videoanalyzer.v20211101preview.PrivateLinkServiceConnectionStateArgs(
+                description="Test description.",
+                status="Approved",
+            ),
+            resource_group_name="contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection 10000000-0000-0000-0000-000000000000 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fabrikam/providers/Microsoft.Media/videoanalyzers/contososports/privateEndpointConnections/10000000-0000-0000-0000-000000000000 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_name: The Video Analyzer account name.
@@ -111,6 +137,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
+
+        ## Example Usage
+        ### Update private endpoint connection.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.videoanalyzer.v20211101preview.PrivateEndpointConnection("privateEndpointConnection",
+            account_name="contososports",
+            name="10000000-0000-0000-0000-000000000000",
+            private_link_service_connection_state=azure_native.videoanalyzer.v20211101preview.PrivateLinkServiceConnectionStateArgs(
+                description="Test description.",
+                status="Approved",
+            ),
+            resource_group_name="contoso")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:videoanalyzer/v20211101preview:PrivateEndpointConnection 10000000-0000-0000-0000-000000000000 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/fabrikam/providers/Microsoft.Media/videoanalyzers/contososports/privateEndpointConnections/10000000-0000-0000-0000-000000000000 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

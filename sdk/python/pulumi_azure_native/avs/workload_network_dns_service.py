@@ -182,6 +182,34 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         API Version: 2022-05-01.
         Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### WorkloadNetworks_CreateDnsService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_dns_service = azure_native.avs.WorkloadNetworkDnsService("workloadNetworkDnsService",
+            default_dns_zone="defaultDnsZone1",
+            display_name="dnsService1",
+            dns_service_id="dnsService1",
+            dns_service_ip="5.5.5.5",
+            fqdn_zones=["fqdnZone1"],
+            log_level="INFO",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:WorkloadNetworkDnsService dnsService1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/dnsServices/dnsService1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_dns_zone: Default DNS zone of the DNS Service.
@@ -204,6 +232,34 @@ class WorkloadNetworkDnsService(pulumi.CustomResource):
         NSX DNS Service
         API Version: 2022-05-01.
         Previous API Version: 2020-07-17-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### WorkloadNetworks_CreateDnsService
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workload_network_dns_service = azure_native.avs.WorkloadNetworkDnsService("workloadNetworkDnsService",
+            default_dns_zone="defaultDnsZone1",
+            display_name="dnsService1",
+            dns_service_id="dnsService1",
+            dns_service_ip="5.5.5.5",
+            fqdn_zones=["fqdnZone1"],
+            log_level="INFO",
+            private_cloud_name="cloud1",
+            resource_group_name="group1",
+            revision=1)
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:avs:WorkloadNetworkDnsService dnsService1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/workloadNetworks/default/dnsServices/dnsService1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkloadNetworkDnsServiceArgs args: The arguments to use to populate this resource's properties.

@@ -95,6 +95,29 @@ class WorkspaceManagerConfiguration(pulumi.CustomResource):
         """
         The workspace manager configuration
 
+        ## Example Usage
+        ### Create or Update a workspace manager Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_manager_configuration = azure_native.securityinsights.v20230401preview.WorkspaceManagerConfiguration("workspaceManagerConfiguration",
+            mode="Enabled",
+            resource_group_name="myRg",
+            workspace_manager_configuration_name="default",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration default /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerConfigurations/default 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Mode']] mode: The current mode of the workspace manager configuration
@@ -110,6 +133,29 @@ class WorkspaceManagerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The workspace manager configuration
+
+        ## Example Usage
+        ### Create or Update a workspace manager Configuration
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace_manager_configuration = azure_native.securityinsights.v20230401preview.WorkspaceManagerConfiguration("workspaceManagerConfiguration",
+            mode="Enabled",
+            resource_group_name="myRg",
+            workspace_manager_configuration_name="default",
+            workspace_name="myWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:securityinsights/v20230401preview:WorkspaceManagerConfiguration default /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/workspaceManagerConfigurations/default 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceManagerConfigurationArgs args: The arguments to use to populate this resource's properties.

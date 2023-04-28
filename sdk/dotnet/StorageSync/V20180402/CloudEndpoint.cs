@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.StorageSync.V20180402
 {
     /// <summary>
     /// Cloud Endpoint object.
+    /// 
+    /// ## Example Usage
+    /// ### CloudEndpoints_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cloudEndpoint = new AzureNative.StorageSync.V20180402.CloudEndpoint("cloudEndpoint", new()
+    ///     {
+    ///         CloudEndpointName = "SampleCloudEndpoint_1",
+    ///         ResourceGroupName = "SampleResourceGroup_1",
+    ///         StorageAccountResourceId = "",
+    ///         StorageAccountShareName = "",
+    ///         StorageAccountTenantId = "\"a4d1b191-c1af-4cef-a14b-f670e0beea52\"",
+    ///         StorageSyncServiceName = "SampleStorageSyncService_1",
+    ///         SyncGroupName = "SampleSyncGroup_1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagesync/v20180402:CloudEndpoint SampleCloudEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/10.91.86.47/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/cloudEndpoints/SampleCloudEndpoint_1 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2018-04-02 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagesync/v20180402:CloudEndpoint")]

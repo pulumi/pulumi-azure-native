@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * A node pool snapshot resource.
  * API Version: 2023-01-01.
  * Previous API Version: 2021-08-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create/Update Snapshot
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const snapshot = new azure_native.containerservice.Snapshot("snapshot", {
+ *     creationData: {
+ *         sourceResourceId: "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool0",
+ *     },
+ *     location: "westus",
+ *     resourceGroupName: "rg1",
+ *     resourceName: "snapshot1",
+ *     tags: {
+ *         key1: "val1",
+ *         key2: "val2",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerservice:Snapshot snapshot1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1 
+ * ```
  */
 export class Snapshot extends pulumi.CustomResource {
     /**

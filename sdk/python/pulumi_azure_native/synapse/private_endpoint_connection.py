@@ -98,6 +98,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Approve private endpoint connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.synapse.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="ExamplePrivateEndpointConnection",
+            private_link_service_connection_state=azure_native.synapse.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by abc@example.com",
+                status="Approved",
+            ),
+            resource_group_name="ExampleResourceGroup",
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:PrivateEndpointConnection sql /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/privateEndpointConnections/ExamplePrivateEndpointConnection 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
@@ -115,6 +141,32 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         A private endpoint connection
         API Version: 2021-06-01.
         Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Approve private endpoint connection
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint_connection = azure_native.synapse.PrivateEndpointConnection("privateEndpointConnection",
+            private_endpoint_connection_name="ExamplePrivateEndpointConnection",
+            private_link_service_connection_state=azure_native.synapse.PrivateLinkServiceConnectionStateArgs(
+                description="Approved by abc@example.com",
+                status="Approved",
+            ),
+            resource_group_name="ExampleResourceGroup",
+            workspace_name="ExampleWorkspace")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse:PrivateEndpointConnection sql /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/privateEndpointConnections/ExamplePrivateEndpointConnection 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.

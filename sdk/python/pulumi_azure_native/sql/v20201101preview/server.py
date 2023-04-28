@@ -251,6 +251,37 @@ class Server(pulumi.CustomResource):
         """
         An Azure SQL Database server.
 
+        ## Example Usage
+        ### Create server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.sql.v20201101preview.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="PLACEHOLDER",
+            administrators=azure_native.sql.v20201101preview.ServerExternalAdministratorArgs(
+                azure_ad_only_authentication=True,
+                login="bob@contoso.com",
+                principal_type="User",
+                sid="00000011-1111-2222-2222-123456789111",
+                tenant_id="00000011-1111-2222-2222-123456789111",
+            ),
+            location="Japan East",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20201101preview:Server sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] administrator_login: Administrator username for the server. Once created it cannot be changed.
@@ -275,6 +306,37 @@ class Server(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An Azure SQL Database server.
+
+        ## Example Usage
+        ### Create server
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        server = azure_native.sql.v20201101preview.Server("server",
+            administrator_login="dummylogin",
+            administrator_login_password="PLACEHOLDER",
+            administrators=azure_native.sql.v20201101preview.ServerExternalAdministratorArgs(
+                azure_ad_only_authentication=True,
+                login="bob@contoso.com",
+                principal_type="User",
+                sid="00000011-1111-2222-2222-123456789111",
+                tenant_id="00000011-1111-2222-2222-123456789111",
+            ),
+            location="Japan East",
+            resource_group_name="sqlcrudtest-7398",
+            server_name="sqlcrudtest-4645")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:sql/v20201101preview:Server sqlcrudtest-4645 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-7398/providers/Microsoft.Sql/servers/sqlcrudtest-4645 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

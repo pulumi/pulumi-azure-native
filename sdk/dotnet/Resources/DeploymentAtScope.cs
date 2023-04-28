@@ -13,6 +13,49 @@ namespace Pulumi.AzureNative.Resources
     /// Deployment information.
     /// API Version: 2022-09-01.
     /// Previous API Version: 2021-01-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create deployment at a given scope.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var deploymentAtScope = new AzureNative.Resources.DeploymentAtScope("deploymentAtScope", new()
+    ///     {
+    ///         DeploymentName = "my-deployment",
+    ///         Location = "eastus",
+    ///         Properties = new AzureNative.Resources.Inputs.DeploymentPropertiesArgs
+    ///         {
+    ///             Mode = AzureNative.Resources.DeploymentMode.Incremental,
+    ///             Parameters = null,
+    ///             TemplateLink = new AzureNative.Resources.Inputs.TemplateLinkArgs
+    ///             {
+    ///                 Uri = "https://example.com/exampleTemplate.json",
+    ///             },
+    ///         },
+    ///         Scope = "providers/Microsoft.Management/managementGroups/my-management-group-id",
+    ///         Tags = 
+    ///         {
+    ///             { "tagKey1", "tag-value-1" },
+    ///             { "tagKey2", "tag-value-2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:resources:DeploymentAtScope my-deployment /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/my-deployment 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:resources:DeploymentAtScope")]
     public partial class DeploymentAtScope : global::Pulumi.CustomResource

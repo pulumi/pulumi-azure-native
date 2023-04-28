@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * The variable.
+ *
+ * ## Example Usage
+ * ### Create or update a variable
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const variable = new azure_native.authorization.v20220801preview.Variable("variable", {
+ *     columns: [{
+ *         columnName: "TestColumn",
+ *     }],
+ *     variableName: "DemoTestVariable",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:authorization/v20220801preview:Variable DemoTestVariable /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/variables/DemoTestVariable 
+ * ```
  */
 export class Variable extends pulumi.CustomResource {
     /**

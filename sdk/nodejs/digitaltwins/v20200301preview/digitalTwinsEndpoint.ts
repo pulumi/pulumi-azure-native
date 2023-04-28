@@ -10,6 +10,34 @@ import * as utilities from "../../utilities";
 /**
  * DigitalTwinsInstance endpoint resource.
  *
+ * ## Example Usage
+ * ### Put a DigitalTwinsInstance resource
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const digitalTwinsEndpoint = new azure_native.digitaltwins.v20200301preview.DigitalTwinsEndpoint("digitalTwinsEndpoint", {
+ *     endpointName: "myServiceBus",
+ *     properties: {
+ *         endpointType: "ServiceBus",
+ *         primaryConnectionString: "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=",
+ *         secondaryConnectionString: "Endpoint=sb://mysb.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xyzxyzoX4=",
+ *     },
+ *     resourceGroupName: "resRg",
+ *     resourceName: "myDigitalTwinsService",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint myServiceBus /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/DigitalTwinsInstance/myDigitalTwinsService/endpoints/myServiceBus 
+ * ```
+ *
  * @deprecated Version 2020-03-01-preview will be removed in v2 of the provider.
  */
 export class DigitalTwinsEndpoint extends pulumi.CustomResource {

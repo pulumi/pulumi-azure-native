@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * AzureADMetrics resource.
+ *
+ * ## Example Usage
+ * ### azureADMetricsCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const azureADMetric = new azure_native.aadiam.v20200701preview.AzureADMetric("azureADMetric", {
+ *     azureADMetricsName: "ddb1",
+ *     location: "West US",
+ *     resourceGroupName: "rg1",
+ *     tags: {},
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:aadiam/v20200701preview:azureADMetric ddb1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/rg1/providers/Microsoft.Aadiam/azureADMetrics/ddb1 
+ * ```
  */
 export class AzureADMetric extends pulumi.CustomResource {
     /**

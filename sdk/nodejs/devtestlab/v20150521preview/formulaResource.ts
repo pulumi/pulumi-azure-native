@@ -9,6 +9,13 @@ import * as utilities from "../../utilities";
 
 /**
  * A formula.
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:devtestlab/v20150521preview:FormulaResource myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/formulas/{name} 
+ * ```
  *
  * @deprecated Version 2015-05-21-preview will be removed in v2 of the provider.
  */

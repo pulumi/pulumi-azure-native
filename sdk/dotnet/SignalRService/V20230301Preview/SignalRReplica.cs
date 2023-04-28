@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.SignalRService.V20230301Preview
 {
     /// <summary>
     /// A class represent a replica resource.
+    /// 
+    /// ## Example Usage
+    /// ### SignalRReplicas_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var signalRReplica = new AzureNative.SignalRService.V20230301Preview.SignalRReplica("signalRReplica", new()
+    ///     {
+    ///         Location = "eastus",
+    ///         ReplicaName = "mySignalRService-eastus",
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ResourceName = "mySignalRService",
+    ///         Sku = new AzureNative.SignalRService.V20230301Preview.Inputs.ResourceSkuArgs
+    ///         {
+    ///             Capacity = 1,
+    ///             Name = "Premium_P1",
+    ///             Tier = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key1", "value1" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:signalrservice/v20230301preview:SignalRReplica mySignalRService-eastus /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/SignalR/mySignalRService/replicas/mySignalRService-eastus 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:signalrservice/v20230301preview:SignalRReplica")]
     public partial class SignalRReplica : global::Pulumi.CustomResource

@@ -9,6 +9,38 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Machine Extension.
+ *
+ * ## Example Usage
+ * ### Create or Update a Machine Extension
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const machineExtension = new azure_native.hybridcompute.v20220510preview.MachineExtension("machineExtension", {
+ *     extensionName: "CustomScriptExtension",
+ *     location: "eastus2euap",
+ *     machineName: "myMachine",
+ *     properties: {
+ *         publisher: "Microsoft.Compute",
+ *         settings: {
+ *             commandToExecute: `powershell.exe -c "Get-Process | Where-Object { $_.CPU -gt 10000 }"`,
+ *         },
+ *         type: "CustomScriptExtension",
+ *         typeHandlerVersion: "1.10",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:hybridcompute/v20220510preview:MachineExtension CustomScriptExtension /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/Machines/myMachine/Extensions/CustomScriptExtension 
+ * ```
  */
 export class MachineExtension extends pulumi.CustomResource {
     /**

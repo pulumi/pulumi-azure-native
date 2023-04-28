@@ -11,6 +11,67 @@ namespace Pulumi.AzureNative.ApiManagement.V20201201
 {
     /// <summary>
     /// Logger details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateAILogger
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var logger = new AzureNative.ApiManagement.V20201201.Logger("logger", new()
+    ///     {
+    ///         Credentials = 
+    ///         {
+    ///             { "instrumentationKey", "11................a1" },
+    ///         },
+    ///         Description = "adding a new logger",
+    ///         LoggerId = "loggerId",
+    ///         LoggerType = "applicationInsights",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ApiManagementCreateEHLogger
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var logger = new AzureNative.ApiManagement.V20201201.Logger("logger", new()
+    ///     {
+    ///         Credentials = 
+    ///         {
+    ///             { "connectionString", "Endpoint=sb://hydraeventhub-ns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=********=" },
+    ///             { "name", "hydraeventhub" },
+    ///         },
+    ///         Description = "adding a new logger",
+    ///         LoggerId = "eh1",
+    ///         LoggerType = "azureEventHub",
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20201201:Logger eh1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/loggers/eh1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20201201:Logger")]
     public partial class Logger : global::Pulumi.CustomResource

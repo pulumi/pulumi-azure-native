@@ -9,6 +9,110 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents NRT alert rule.
+ *
+ * ## Example Usage
+ * ### Creates or updates a Fusion alert rule with scenario exclusion pattern.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nrtAlertRule = new azure_native.securityinsights.v20211001preview.NrtAlertRule("nrtAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "myFirstFusionRule",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Fusion alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nrtAlertRule = new azure_native.securityinsights.v20211001preview.NrtAlertRule("nrtAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "myFirstFusionRule",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a MicrosoftSecurityIncidentCreation rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nrtAlertRule = new azure_native.securityinsights.v20211001preview.NrtAlertRule("nrtAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "microsoftSecurityIncidentCreationRuleExample",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Nrt alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nrtAlertRule = new azure_native.securityinsights.v20211001preview.NrtAlertRule("nrtAlertRule", {
+ *     description: "",
+ *     displayName: "Rule2",
+ *     enabled: true,
+ *     incidentConfiguration: {
+ *         createIncident: true,
+ *         groupingConfiguration: {
+ *             enabled: true,
+ *             groupByEntities: [
+ *                 "Host",
+ *                 "Account",
+ *             ],
+ *             lookbackDuration: "PT5H",
+ *             matchingMethod: "Selected",
+ *             reopenClosedIncident: false,
+ *         },
+ *     },
+ *     kind: "NRT",
+ *     query: "ProtectionStatus | extend HostCustomEntity = Computer | extend IPCustomEntity = ComputerIP_Hidden",
+ *     resourceGroupName: "myRg",
+ *     ruleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     severity: "High",
+ *     suppressionDuration: "PT1H",
+ *     suppressionEnabled: false,
+ *     tactics: [
+ *         "Persistence",
+ *         "LateralMovement",
+ *     ],
+ *     techniques: [
+ *         "T1037",
+ *         "T1021",
+ *     ],
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates a Scheduled alert rule.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const nrtAlertRule = new azure_native.securityinsights.v20211001preview.NrtAlertRule("nrtAlertRule", {
+ *     resourceGroupName: "myRg",
+ *     ruleId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20211001preview:NrtAlertRule 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalIinsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/alertRules/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class NrtAlertRule extends pulumi.CustomResource {
     /**

@@ -11,6 +11,259 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20221201
 {
     /// <summary>
     /// Represents a server.
+    /// 
+    /// ## Example Usage
+    /// ### Create a database as a geo-restore in geo-paired location
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20221201.Server("server", new()
+    ///     {
+    ///         CreateMode = "GeoRestore",
+    ///         Location = "eastus",
+    ///         PointInTimeUTC = "2021-06-27T00:04:59.4078005+00:00",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "pgtestsvc5geo",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a database as a point in time restore
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20221201.Server("server", new()
+    ///     {
+    ///         CreateMode = "PointInTimeRestore",
+    ///         Location = "westus",
+    ///         PointInTimeUTC = "2021-06-27T00:04:59.4078005+00:00",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "pgtestsvc5",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20221201.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "cloudsa",
+    ///         AdministratorLoginPassword = "password",
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforPostgreSQL.V20221201.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = "Disabled",
+    ///         },
+    ///         CreateMode = "Create",
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.V20221201.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = "ZoneRedundant",
+    ///         },
+    ///         Location = "westus",
+    ///         Network = new AzureNative.DBforPostgreSQL.V20221201.Inputs.NetworkArgs
+    ///         {
+    ///             DelegatedSubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+    ///             PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "pgtestsvc4",
+    ///         Sku = new AzureNative.DBforPostgreSQL.V20221201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4s_v3",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.V20221201.Inputs.StorageArgs
+    ///         {
+    ///             StorageSizeGB = 512,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///         Version = "12",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create a new server with active directory authentication enabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20221201.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "cloudsa",
+    ///         AdministratorLoginPassword = "password",
+    ///         AuthConfig = new AzureNative.DBforPostgreSQL.V20221201.Inputs.AuthConfigArgs
+    ///         {
+    ///             ActiveDirectoryAuth = "Enabled",
+    ///             PasswordAuth = "Enabled",
+    ///             TenantId = "tttttt-tttt-tttt-tttt-tttttttttttt",
+    ///         },
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforPostgreSQL.V20221201.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = "Disabled",
+    ///         },
+    ///         CreateMode = "Create",
+    ///         DataEncryption = new AzureNative.DBforPostgreSQL.V20221201.Inputs.DataEncryptionArgs
+    ///         {
+    ///             Type = "SystemManaged",
+    ///         },
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.V20221201.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = "ZoneRedundant",
+    ///         },
+    ///         Location = "westus",
+    ///         Network = new AzureNative.DBforPostgreSQL.V20221201.Inputs.NetworkArgs
+    ///         {
+    ///             DelegatedSubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+    ///             PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "pgtestsvc4",
+    ///         Sku = new AzureNative.DBforPostgreSQL.V20221201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4s_v3",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.V20221201.Inputs.StorageArgs
+    ///         {
+    ///             StorageSizeGB = 512,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///         Version = "12",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ServerCreateReplica
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20221201.Server("server", new()
+    ///     {
+    ///         CreateMode = "Replica",
+    ///         Location = "westus",
+    ///         PointInTimeUTC = "2021-06-27T00:04:59.4078005+00:00",
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "pgtestsvc5rep",
+    ///         SourceServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/sourcepgservername",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ServerCreateWithDataEncryptionEnabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var server = new AzureNative.DBforPostgreSQL.V20221201.Server("server", new()
+    ///     {
+    ///         AdministratorLogin = "cloudsa",
+    ///         AdministratorLoginPassword = "password",
+    ///         AvailabilityZone = "1",
+    ///         Backup = new AzureNative.DBforPostgreSQL.V20221201.Inputs.BackupArgs
+    ///         {
+    ///             BackupRetentionDays = 7,
+    ///             GeoRedundantBackup = "Disabled",
+    ///         },
+    ///         CreateMode = "Create",
+    ///         DataEncryption = new AzureNative.DBforPostgreSQL.V20221201.Inputs.DataEncryptionArgs
+    ///         {
+    ///             PrimaryKeyURI = "https://test-kv.vault.azure.net/keys/test-key1/77f57315bab34b0189daa113fbc78787",
+    ///             PrimaryUserAssignedIdentityId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity",
+    ///             Type = "AzureKeyVault",
+    ///         },
+    ///         HighAvailability = new AzureNative.DBforPostgreSQL.V20221201.Inputs.HighAvailabilityArgs
+    ///         {
+    ///             Mode = "ZoneRedundant",
+    ///         },
+    ///         Identity = new AzureNative.DBforPostgreSQL.V20221201.Inputs.UserAssignedIdentityArgs
+    ///         {
+    ///             Type = "UserAssigned",
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testresourcegroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/test-usermanagedidentity", null },
+    ///             },
+    ///         },
+    ///         Location = "westus",
+    ///         Network = new AzureNative.DBforPostgreSQL.V20221201.Inputs.NetworkArgs
+    ///         {
+    ///             DelegatedSubnetResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/test-vnet-subnet",
+    ///             PrivateDnsZoneArmResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourcegroups/testrg/providers/Microsoft.Network/privateDnsZones/test-private-dns-zone.postgres.database.azure.com",
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         ServerName = "pgtestsvc4",
+    ///         Sku = new AzureNative.DBforPostgreSQL.V20221201.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Standard_D4s_v3",
+    ///             Tier = "GeneralPurpose",
+    ///         },
+    ///         Storage = new AzureNative.DBforPostgreSQL.V20221201.Inputs.StorageArgs
+    ///         {
+    ///             StorageSizeGB = 512,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ElasticServer", "1" },
+    ///         },
+    ///         Version = "12",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20221201:Server pgtestsvc4 /subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBforPostgreSQL/flexibleServers/pgtestsvc4 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20221201:Server")]
     public partial class Server : global::Pulumi.CustomResource

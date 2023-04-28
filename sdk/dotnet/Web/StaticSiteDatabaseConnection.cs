@@ -12,6 +12,39 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Static Site Database Connection resource.
     /// API Version: 2022-09-01.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update a database connection for a static site
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var staticSiteDatabaseConnection = new AzureNative.Web.StaticSiteDatabaseConnection("staticSiteDatabaseConnection", new()
+    ///     {
+    ///         ConnectionIdentity = "SystemAssigned",
+    ///         ConnectionString = "AccountEndpoint=https://exampleDatabaseName.documents.azure.com:443/;Database=mydb;",
+    ///         DatabaseConnectionName = "default",
+    ///         Name = "testStaticSite0",
+    ///         Region = "West US 2",
+    ///         ResourceGroupName = "rg",
+    ///         ResourceId = "/subscription/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/databaseRG/providers/Microsoft.DocumentDB/databaseAccounts/exampleDatabaseName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:web:StaticSiteDatabaseConnection default /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/rg/providers/Microsoft.Web/staticSites/testStaticSite0/databaseConnections/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:web:StaticSiteDatabaseConnection")]
     public partial class StaticSiteDatabaseConnection : global::Pulumi.CustomResource

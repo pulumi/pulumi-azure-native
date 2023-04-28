@@ -9,6 +9,55 @@ import * as utilities from "../../utilities";
 
 /**
  * Represents office data connector.
+ *
+ * ## Example Usage
+ * ### Creates or updates an Office365 data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const officeDataConnector = new azure_native.securityinsights.v20211001.OfficeDataConnector("officeDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     dataTypes: {
+ *         exchange: {
+ *             state: "Enabled",
+ *         },
+ *         sharePoint: {
+ *             state: "Enabled",
+ *         },
+ *         teams: {
+ *             state: "Enabled",
+ *         },
+ *     },
+ *     kind: "Office365",
+ *     resourceGroupName: "myRg",
+ *     tenantId: "2070ecc9-b4d5-4ae4-adaa-936fa1954fa8",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ * ### Creates or updates an Threat Intelligence Platform data connector.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const officeDataConnector = new azure_native.securityinsights.v20211001.OfficeDataConnector("officeDataConnector", {
+ *     dataConnectorId: "73e01a99-5cd7-4139-a149-9f2736ff2ab5",
+ *     resourceGroupName: "myRg",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights/v20211001:OfficeDataConnector 73e01a99-5cd7-4139-a149-9f2736ff2ab5 /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/dataConnectors/73e01a99-5cd7-4139-a149-9f2736ff2ab5 
+ * ```
  */
 export class OfficeDataConnector extends pulumi.CustomResource {
     /**

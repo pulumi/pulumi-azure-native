@@ -336,6 +336,68 @@ class Workspace(pulumi.CustomResource):
         """
         A workspace
 
+        ## Example Usage
+        ### Create or update a workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.synapse.v20210301.Workspace("workspace",
+            default_data_lake_storage=azure_native.synapse.v20210301.DataLakeStorageAccountDetailsArgs(
+                account_url="https://accountname.dfs.core.windows.net",
+                filesystem="default",
+            ),
+            encryption=azure_native.synapse.v20210301.EncryptionDetailsResponseArgs(
+                cmk={
+                    "key": azure_native.synapse.v20210301.WorkspaceKeyDetailsArgs(
+                        key_vault_url="https://vault.azure.net/keys/key1",
+                        name="default",
+                    ),
+                },
+            ),
+            identity=azure_native.synapse.v20210301.ManagedIdentityArgs(
+                type=azure_native.synapse/v20210301.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="East US",
+            managed_resource_group_name="workspaceManagedResourceGroupUnique",
+            managed_virtual_network="default",
+            managed_virtual_network_settings=azure_native.synapse.v20210301.ManagedVirtualNetworkSettingsArgs(
+                allowed_aad_tenant_ids_for_linking=["740239CE-A25B-485B-86A0-262F29F6EBDB"],
+                linked_access_check_on_target_resource=False,
+                prevent_data_exfiltration=False,
+            ),
+            public_network_access="Enabled",
+            purview_configuration=azure_native.synapse.v20210301.PurviewConfigurationArgs(
+                purview_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.ProjectPurview/accounts/accountname1",
+            ),
+            resource_group_name="resourceGroup1",
+            sql_administrator_login="login",
+            sql_administrator_login_password="password",
+            tags={
+                "key": "value",
+            },
+            workspace_name="workspace1",
+            workspace_repository_configuration=azure_native.synapse.v20210301.WorkspaceRepositoryConfigurationArgs(
+                account_name="mygithubaccount",
+                collaboration_branch="master",
+                host_name="",
+                project_name="myproject",
+                repository_name="myrepository",
+                root_folder="/",
+                type="FactoryGitHubConfiguration",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210301:Workspace workspace1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] connectivity_endpoints: Connectivity endpoints
@@ -365,6 +427,68 @@ class Workspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A workspace
+
+        ## Example Usage
+        ### Create or update a workspace
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        workspace = azure_native.synapse.v20210301.Workspace("workspace",
+            default_data_lake_storage=azure_native.synapse.v20210301.DataLakeStorageAccountDetailsArgs(
+                account_url="https://accountname.dfs.core.windows.net",
+                filesystem="default",
+            ),
+            encryption=azure_native.synapse.v20210301.EncryptionDetailsResponseArgs(
+                cmk={
+                    "key": azure_native.synapse.v20210301.WorkspaceKeyDetailsArgs(
+                        key_vault_url="https://vault.azure.net/keys/key1",
+                        name="default",
+                    ),
+                },
+            ),
+            identity=azure_native.synapse.v20210301.ManagedIdentityArgs(
+                type=azure_native.synapse/v20210301.ResourceIdentityType.SYSTEM_ASSIGNED,
+            ),
+            location="East US",
+            managed_resource_group_name="workspaceManagedResourceGroupUnique",
+            managed_virtual_network="default",
+            managed_virtual_network_settings=azure_native.synapse.v20210301.ManagedVirtualNetworkSettingsArgs(
+                allowed_aad_tenant_ids_for_linking=["740239CE-A25B-485B-86A0-262F29F6EBDB"],
+                linked_access_check_on_target_resource=False,
+                prevent_data_exfiltration=False,
+            ),
+            public_network_access="Enabled",
+            purview_configuration=azure_native.synapse.v20210301.PurviewConfigurationArgs(
+                purview_resource_id="/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.ProjectPurview/accounts/accountname1",
+            ),
+            resource_group_name="resourceGroup1",
+            sql_administrator_login="login",
+            sql_administrator_login_password="password",
+            tags={
+                "key": "value",
+            },
+            workspace_name="workspace1",
+            workspace_repository_configuration=azure_native.synapse.v20210301.WorkspaceRepositoryConfigurationArgs(
+                account_name="mygithubaccount",
+                collaboration_branch="master",
+                host_name="",
+                project_name="myproject",
+                repository_name="myrepository",
+                root_folder="/",
+                type="FactoryGitHubConfiguration",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:synapse/v20210301:Workspace workspace1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.

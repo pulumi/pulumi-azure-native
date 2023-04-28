@@ -11,6 +11,56 @@ namespace Pulumi.AzureNative.KeyVault.V20210601Preview
 {
     /// <summary>
     /// Resource information with extended details.
+    /// 
+    /// ## Example Usage
+    /// ### Create a new managed HSM Pool or update an existing managed HSM Pool
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedHsm = new AzureNative.KeyVault.V20210601Preview.ManagedHsm("managedHsm", new()
+    ///     {
+    ///         Location = "westus",
+    ///         Name = "hsm1",
+    ///         Properties = new AzureNative.KeyVault.V20210601Preview.Inputs.ManagedHsmPropertiesArgs
+    ///         {
+    ///             EnablePurgeProtection = true,
+    ///             EnableSoftDelete = true,
+    ///             InitialAdminObjectIds = new[]
+    ///             {
+    ///                 "00000000-0000-0000-0000-000000000000",
+    ///             },
+    ///             SoftDeleteRetentionInDays = 90,
+    ///             TenantId = "00000000-0000-0000-0000-000000000000",
+    ///         },
+    ///         ResourceGroupName = "hsm-group",
+    ///         Sku = new AzureNative.KeyVault.V20210601Preview.Inputs.ManagedHsmSkuArgs
+    ///         {
+    ///             Family = "B",
+    ///             Name = AzureNative.KeyVault.V20210601Preview.ManagedHsmSkuName.Standard_B1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Dept", "hsm" },
+    ///             { "Environment", "dogfood" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:keyvault/v20210601preview:ManagedHsm hsm1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/hsm-group/providers/Microsoft.KeyVault/managedHSMs/hsm1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:keyvault/v20210601preview:ManagedHsm")]
     public partial class ManagedHsm : global::Pulumi.CustomResource

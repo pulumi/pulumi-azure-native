@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Sentinel onboarding state
  * API Version: 2023-02-01.
  * Previous API Version: 2021-03-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create Sentinel onboarding state
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sentinelOnboardingState = new azure_native.securityinsights.SentinelOnboardingState("sentinelOnboardingState", {
+ *     customerManagedKey: false,
+ *     resourceGroupName: "myRg",
+ *     sentinelOnboardingStateName: "default",
+ *     workspaceName: "myWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:securityinsights:SentinelOnboardingState default /subscriptions/d0cfe6b2-9ac0-4464-9919-dccaee2e48c0/resourceGroups/myRg/providers/Microsoft.OperationalInsights/workspaces/myWorkspace/providers/Microsoft.SecurityInsights/onboardingStates/default 
+ * ```
  */
 export class SentinelOnboardingState extends pulumi.CustomResource {
     /**

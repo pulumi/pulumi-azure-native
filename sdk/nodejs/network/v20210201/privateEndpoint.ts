@@ -9,6 +9,59 @@ import * as utilities from "../../utilities";
 
 /**
  * Private endpoint resource.
+ *
+ * ## Example Usage
+ * ### Create private endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpoint = new azure_native.network.v20210201.PrivateEndpoint("privateEndpoint", {
+ *     location: "eastus2euap",
+ *     privateEndpointName: "testPe",
+ *     privateLinkServiceConnections: [{
+ *         groupIds: ["groupIdFromResource"],
+ *         name: "testPlc",
+ *         privateLinkServiceId: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+ *         requestMessage: "Please approve my connection.",
+ *     }],
+ *     resourceGroupName: "rg1",
+ *     subnet: {
+ *         id: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create private endpoint with manual approval connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const privateEndpoint = new azure_native.network.v20210201.PrivateEndpoint("privateEndpoint", {
+ *     location: "eastus",
+ *     manualPrivateLinkServiceConnections: [{
+ *         groupIds: ["groupIdFromResource"],
+ *         privateLinkServiceId: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+ *         requestMessage: "Please manually approve my connection.",
+ *     }],
+ *     privateEndpointName: "testPe",
+ *     resourceGroupName: "rg1",
+ *     subnet: {
+ *         id: "/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20210201:PrivateEndpoint testPe /subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateEndpoints/testPe 
+ * ```
  */
 export class PrivateEndpoint extends pulumi.CustomResource {
     /**

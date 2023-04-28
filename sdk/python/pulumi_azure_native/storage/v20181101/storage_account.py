@@ -271,6 +271,38 @@ class StorageAccount(pulumi.CustomResource):
         """
         The storage account.
 
+        ## Example Usage
+        ### StorageAccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20181101.StorageAccount("storageAccount",
+            account_name="sto4445",
+            enable_azure_files_aad_integration=True,
+            is_hns_enabled=True,
+            kind=azure_native.storage/v20181101.Kind.STORAGE,
+            location="eastus2euap",
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20181101.SkuArgs(
+                name=azure_native.storage/v20181101.SkuName.STANDARD_GRS,
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20181101:StorageAccount sto4445 /subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['AccessTier'] access_tier: Required for storage accounts where kind = BlobStorage. The access tier used for billing.
@@ -296,6 +328,38 @@ class StorageAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The storage account.
+
+        ## Example Usage
+        ### StorageAccountCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        storage_account = azure_native.storage.v20181101.StorageAccount("storageAccount",
+            account_name="sto4445",
+            enable_azure_files_aad_integration=True,
+            is_hns_enabled=True,
+            kind=azure_native.storage/v20181101.Kind.STORAGE,
+            location="eastus2euap",
+            resource_group_name="res9101",
+            sku=azure_native.storage.v20181101.SkuArgs(
+                name=azure_native.storage/v20181101.SkuName.STANDARD_GRS,
+            ),
+            tags={
+                "key1": "value1",
+                "key2": "value2",
+            })
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:storage/v20181101:StorageAccount sto4445 /subscriptions/{subscription-id}/resourceGroups/res9101/providers/Microsoft.Storage/storageAccounts/sto4445 
+        ```
 
         :param str resource_name: The name of the resource.
         :param StorageAccountArgs args: The arguments to use to populate this resource's properties.

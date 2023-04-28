@@ -236,6 +236,28 @@ class ContainerService(pulumi.CustomResource):
         """
         Container service.
 
+        ## Example Usage
+        ### Create/Update Container Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_service = azure_native.containerservice.v20170131.ContainerService("containerService",
+            container_service_name="acs1",
+            location="location1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20170131:ContainerService acs1 /subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/containerServices/acs1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContainerServiceAgentPoolProfileArgs']]]] agent_pool_profiles: Properties of the agent pool.
@@ -259,6 +281,28 @@ class ContainerService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Container service.
+
+        ## Example Usage
+        ### Create/Update Container Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        container_service = azure_native.containerservice.v20170131.ContainerService("containerService",
+            container_service_name="acs1",
+            location="location1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerservice/v20170131:ContainerService acs1 /subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/containerServices/acs1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContainerServiceArgs args: The arguments to use to populate this resource's properties.

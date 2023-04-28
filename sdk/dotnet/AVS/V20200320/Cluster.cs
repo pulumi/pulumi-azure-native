@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.AVS.V20200320
 {
     /// <summary>
     /// A cluster resource
+    /// 
+    /// ## Example Usage
+    /// ### Clusters_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var cluster = new AzureNative.AVS.V20200320.Cluster("cluster", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         ClusterSize = 3,
+    ///         PrivateCloudName = "cloud1",
+    ///         ResourceGroupName = "group1",
+    ///         Sku = new AzureNative.AVS.V20200320.Inputs.SkuArgs
+    ///         {
+    ///             Name = "AV20",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20200320:Cluster cluster1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20200320:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

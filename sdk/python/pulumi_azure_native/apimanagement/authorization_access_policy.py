@@ -144,6 +144,32 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
         Authorization access policy contract.
         API Version: 2022-08-01.
 
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationAccessPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_access_policy = azure_native.apimanagement.AuthorizationAccessPolicy("authorizationAccessPolicy",
+            authorization_access_policy_id="fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+            authorization_id="authz1",
+            authorization_provider_id="aadwithauthcode",
+            object_id="fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tenant_id="13932a0d-5c63-4d37-901d-1df9c97722ff")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:AuthorizationAccessPolicy fe0bed83-631f-4149-bd0b-0464b1bc7cab /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/aadwithauthcode/authorizations/authz1/accessPolicies 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_access_policy_id: Identifier of the authorization access policy.
@@ -163,6 +189,32 @@ class AuthorizationAccessPolicy(pulumi.CustomResource):
         """
         Authorization access policy contract.
         API Version: 2022-08-01.
+
+        ## Example Usage
+        ### ApiManagementCreateAuthorizationAccessPolicy
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        authorization_access_policy = azure_native.apimanagement.AuthorizationAccessPolicy("authorizationAccessPolicy",
+            authorization_access_policy_id="fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+            authorization_id="authz1",
+            authorization_provider_id="aadwithauthcode",
+            object_id="fe0bed83-631f-4149-bd0b-0464b1bc7cab",
+            resource_group_name="rg1",
+            service_name="apimService1",
+            tenant_id="13932a0d-5c63-4d37-901d-1df9c97722ff")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:apimanagement:AuthorizationAccessPolicy fe0bed83-631f-4149-bd0b-0464b1bc7cab /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/authorizationProviders/aadwithauthcode/authorizations/authz1/accessPolicies 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AuthorizationAccessPolicyArgs args: The arguments to use to populate this resource's properties.

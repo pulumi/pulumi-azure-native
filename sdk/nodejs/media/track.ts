@@ -11,6 +11,36 @@ import * as utilities from "../utilities";
  * An Asset Track resource.
  * API Version: 2022-08-01.
  * Previous API Version: 2021-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Creates a Track
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const track = new azure_native.media.Track("track", {
+ *     accountName: "contosomedia",
+ *     assetName: "ClimbingMountRainer",
+ *     resourceGroupName: "contosorg",
+ *     track: {
+ *         displayName: "A new track",
+ *         fileName: "text3.ttml",
+ *         odataType: "#Microsoft.Media.TextTrack",
+ *         playerVisibility: "Visible",
+ *     },
+ *     trackName: "text3",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:media:Track text3 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Media/mediaservices/contosomedia/assets/ClimbingMountRainer/tracks/text3 
+ * ```
  */
 export class Track extends pulumi.CustomResource {
     /**

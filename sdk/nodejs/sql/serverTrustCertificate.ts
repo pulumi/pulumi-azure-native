@@ -8,6 +8,30 @@ import * as utilities from "../utilities";
  * Server trust certificate imported from box to enable connection between box and Sql Managed Instance.
  * API Version: 2021-11-01.
  * Previous API Version: 2021-05-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### Create server trust certificate.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverTrustCertificate = new azure_native.sql.ServerTrustCertificate("serverTrustCertificate", {
+ *     certificateName: "customerCertificateName",
+ *     managedInstanceName: "testcl",
+ *     publicBlob: "308203AE30820296A0030201020210",
+ *     resourceGroupName: "testrg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql:ServerTrustCertificate customerCertificateName /subscriptions/0574222d-5c7f-489c-a172-b3013eafab53/resourceGroups/testrg/providers/Microsoft.Sql/managedInstances/testcl/serverTrustCertificates/customerCertificateName 
+ * ```
  */
 export class ServerTrustCertificate extends pulumi.CustomResource {
     /**

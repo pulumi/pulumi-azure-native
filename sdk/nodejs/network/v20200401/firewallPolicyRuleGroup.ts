@@ -9,6 +9,74 @@ import * as utilities from "../../utilities";
 
 /**
  * Rule Group resource.
+ *
+ * ## Example Usage
+ * ### Create FirewallPolicyRuleGroup
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallPolicyRuleGroup = new azure_native.network.v20200401.FirewallPolicyRuleGroup("firewallPolicyRuleGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 110,
+ *     resourceGroupName: "rg1",
+ *     ruleGroupName: "ruleGroup1",
+ *     rules: [{
+ *         action: {
+ *             type: "Deny",
+ *         },
+ *         name: "Example-Filter-Rule",
+ *         ruleConditions: [{
+ *             destinationAddresses: ["*"],
+ *             destinationPorts: ["*"],
+ *             ipProtocols: ["TCP"],
+ *             name: "network-condition1",
+ *             ruleConditionType: "NetworkRuleCondition",
+ *             sourceAddresses: ["10.1.25.0/24"],
+ *         }],
+ *         ruleType: "FirewallPolicyFilterRule",
+ *     }],
+ * });
+ *
+ * ```
+ * ### Create FirewallPolicyRuleGroup With IpGroups
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const firewallPolicyRuleGroup = new azure_native.network.v20200401.FirewallPolicyRuleGroup("firewallPolicyRuleGroup", {
+ *     firewallPolicyName: "firewallPolicy",
+ *     priority: 110,
+ *     resourceGroupName: "rg1",
+ *     ruleGroupName: "ruleGroup1",
+ *     rules: [{
+ *         action: {
+ *             type: "Deny",
+ *         },
+ *         name: "Example-Filter-Rule",
+ *         ruleConditions: [{
+ *             destinationIpGroups: ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups2"],
+ *             destinationPorts: ["*"],
+ *             ipProtocols: ["TCP"],
+ *             name: "network-condition1",
+ *             ruleConditionType: "NetworkRuleCondition",
+ *             sourceIpGroups: ["/subscriptions/subid/providers/Microsoft.Network/resourceGroup/rg1/ipGroups/ipGroups1"],
+ *         }],
+ *         ruleType: "FirewallPolicyFilterRule",
+ *     }],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20200401:FirewallPolicyRuleGroup ruleGroup1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/firewallPolicies/firewallPolicy/ruleGroups/ruleGroup1 
+ * ```
  */
 export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     /**

@@ -11,6 +11,83 @@ namespace Pulumi.AzureNative.Storage.V20220901
 {
     /// <summary>
     /// The local user associated with the storage accounts.
+    /// 
+    /// ## Example Usage
+    /// ### CreateLocalUser
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var localUser = new AzureNative.Storage.V20220901.LocalUser("localUser", new()
+    ///     {
+    ///         AccountName = "sto2527",
+    ///         HasSshPassword = true,
+    ///         HomeDirectory = "homedirectory",
+    ///         PermissionScopes = new[]
+    ///         {
+    ///             new AzureNative.Storage.V20220901.Inputs.PermissionScopeArgs
+    ///             {
+    ///                 Permissions = "rwd",
+    ///                 ResourceName = "share1",
+    ///                 Service = "file",
+    ///             },
+    ///             new AzureNative.Storage.V20220901.Inputs.PermissionScopeArgs
+    ///             {
+    ///                 Permissions = "rw",
+    ///                 ResourceName = "share2",
+    ///                 Service = "file",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "res6977",
+    ///         SshAuthorizedKeys = new[]
+    ///         {
+    ///             new AzureNative.Storage.V20220901.Inputs.SshPublicKeyArgs
+    ///             {
+    ///                 Description = "key name",
+    ///                 Key = "ssh-rsa keykeykeykeykey=",
+    ///             },
+    ///         },
+    ///         Username = "user1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### UpdateLocalUser
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var localUser = new AzureNative.Storage.V20220901.LocalUser("localUser", new()
+    ///     {
+    ///         AccountName = "sto2527",
+    ///         HasSharedKey = false,
+    ///         HasSshKey = false,
+    ///         HasSshPassword = false,
+    ///         HomeDirectory = "homedirectory2",
+    ///         ResourceGroupName = "res6977",
+    ///         Username = "user1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storage/v20220901:LocalUser user1 /subscriptions/{subscription-id}/resourceGroups/res6977/providers/Microsoft.Storage/storageAccounts/sto2527/loalUsers/user1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storage/v20220901:LocalUser")]
     public partial class LocalUser : global::Pulumi.CustomResource

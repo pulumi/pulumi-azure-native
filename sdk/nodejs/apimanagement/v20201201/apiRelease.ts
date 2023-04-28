@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * ApiRelease details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateApiRelease
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const apiRelease = new azure_native.apimanagement.v20201201.ApiRelease("apiRelease", {
+ *     apiId: "/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1",
+ *     notes: "yahooagain",
+ *     releaseId: "testrev",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:ApiRelease testrev /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/apis/a1/releases/testrev 
+ * ```
  */
 export class ApiRelease extends pulumi.CustomResource {
     /**

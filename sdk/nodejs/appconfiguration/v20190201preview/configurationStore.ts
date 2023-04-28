@@ -7,6 +7,32 @@ import * as utilities from "../../utilities";
 /**
  * The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
  *
+ * ## Example Usage
+ * ### ConfigurationStores_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const configurationStore = new azure_native.appconfiguration.v20190201preview.ConfigurationStore("configurationStore", {
+ *     configStoreName: "fayeh",
+ *     location: "westus",
+ *     resourceGroupName: "myResourceGroup",
+ *     tags: {
+ *         myTag: "myTagValue",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appconfiguration/v20190201preview:ConfigurationStore fayeh /subscriptions/c80fb759-c965-4c6a-9110-9b2b2d038882/resourceGroups/myResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/fayeh 
+ * ```
+ *
  * @deprecated Version 2019-02-01-preview will be removed in v2 of the provider.
  */
 export class ConfigurationStore extends pulumi.CustomResource {

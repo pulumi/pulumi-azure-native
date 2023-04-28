@@ -81,6 +81,42 @@ class LinkerDryrun(pulumi.CustomResource):
         """
         a dryrun job resource
 
+        ## Example Usage
+        ### PutDryrun
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linker_dryrun = azure_native.servicelinker.v20221101preview.LinkerDryrun("linkerDryrun",
+            dryrun_name="dryrunName",
+            parameters=azure_native.servicelinker.v20221101preview.CreateOrUpdateDryrunParametersResponseArgs(
+                action_name="createOrUpdate",
+                auth_info=azure_native.servicelinker.v20221101preview.SecretAuthInfoArgs(
+                    auth_type="secret",
+                    name="name",
+                    secret_info=azure_native.servicelinker.v20221101preview.ValueSecretInfoArgs(
+                        secret_type="rawValue",
+                        value="secret",
+                    ),
+                ),
+                target_service=azure_native.servicelinker.v20221101preview.AzureResourceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+                    type="AzureResource",
+                ),
+            ),
+            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicelinker/v20221101preview:LinkerDryrun dryrunName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/dryruns/dryrunName 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dryrun_name: The name of dryrun.
@@ -95,6 +131,42 @@ class LinkerDryrun(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         a dryrun job resource
+
+        ## Example Usage
+        ### PutDryrun
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        linker_dryrun = azure_native.servicelinker.v20221101preview.LinkerDryrun("linkerDryrun",
+            dryrun_name="dryrunName",
+            parameters=azure_native.servicelinker.v20221101preview.CreateOrUpdateDryrunParametersResponseArgs(
+                action_name="createOrUpdate",
+                auth_info=azure_native.servicelinker.v20221101preview.SecretAuthInfoArgs(
+                    auth_type="secret",
+                    name="name",
+                    secret_info=azure_native.servicelinker.v20221101preview.ValueSecretInfoArgs(
+                        secret_type="rawValue",
+                        value="secret",
+                    ),
+                ),
+                target_service=azure_native.servicelinker.v20221101preview.AzureResourceArgs(
+                    id="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.DocumentDb/databaseAccounts/test-acc/mongodbDatabases/test-db",
+                    type="AzureResource",
+                ),
+            ),
+            resource_uri="subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicelinker/v20221101preview:LinkerDryrun dryrunName /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Web/sites/test-app/providers/Microsoft.ServiceLinker/dryruns/dryrunName 
+        ```
 
         :param str resource_name: The name of the resource.
         :param LinkerDryrunArgs args: The arguments to use to populate this resource's properties.

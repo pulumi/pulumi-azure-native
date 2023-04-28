@@ -147,6 +147,32 @@ class AFDEndpoint(pulumi.CustomResource):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
 
+        ## Example Usage
+        ### AFDEndpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_endpoint = azure_native.cdn.v20200901.AFDEndpoint("afdEndpoint",
+            enabled_state="Enabled",
+            endpoint_name="endpoint1",
+            location="CentralUs",
+            origin_response_timeout_seconds=30,
+            profile_name="profile1",
+            resource_group_name="RG",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:AFDEndpoint endpoint1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
@@ -165,6 +191,32 @@ class AFDEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The AzureFrontDoor endpoint uses the URL format <endpointname>.azureedge.net.
+
+        ## Example Usage
+        ### AFDEndpoints_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_endpoint = azure_native.cdn.v20200901.AFDEndpoint("afdEndpoint",
+            enabled_state="Enabled",
+            endpoint_name="endpoint1",
+            location="CentralUs",
+            origin_response_timeout_seconds=30,
+            profile_name="profile1",
+            resource_group_name="RG",
+            tags={})
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:AFDEndpoint endpoint1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AFDEndpointArgs args: The arguments to use to populate this resource's properties.

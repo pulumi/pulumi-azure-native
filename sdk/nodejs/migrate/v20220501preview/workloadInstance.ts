@@ -9,6 +9,58 @@ import * as utilities from "../../utilities";
 
 /**
  * Workload instance model.
+ *
+ * ## Example Usage
+ * ### WorkloadInstance_Create_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadInstance = new azure_native.migrate.v20220501preview.WorkloadInstance("workloadInstance", {
+ *     modernizeProjectName: "mx8",
+ *     properties: {
+ *         customProperties: {
+ *             instanceType: "IISWorkload",
+ *             webAppArmId: "xseseqsrzdiga",
+ *             webAppSiteName: "mirgzmy",
+ *         },
+ *         displayName: "juoorbubchvk",
+ *         masterSiteName: "ubks",
+ *         migrateAgentId: "aqgzsxqbk",
+ *         name: "wonkuhgsafzviuwqerzdmme",
+ *         sourceName: "weuxcqzwpeyzsjhdgqflhxlwjhbz",
+ *         sourcePlatform: "eh",
+ *     },
+ *     resourceGroupName: "rgmigrateEngine",
+ *     tags: {
+ *         key2836: "biqip",
+ *     },
+ *     workloadInstanceName: "m",
+ * });
+ *
+ * ```
+ * ### WorkloadInstance_Create_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const workloadInstance = new azure_native.migrate.v20220501preview.WorkloadInstance("workloadInstance", {
+ *     modernizeProjectName: "tv39",
+ *     resourceGroupName: "rgmigrateEngine",
+ *     workloadInstanceName: "io",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:migrate/v20220501preview:WorkloadInstance piu tin 
+ * ```
  */
 export class WorkloadInstance extends pulumi.CustomResource {
     /**

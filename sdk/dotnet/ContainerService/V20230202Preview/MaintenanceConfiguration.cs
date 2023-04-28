@@ -11,6 +11,103 @@ namespace Pulumi.AzureNative.ContainerService.V20230202Preview
 {
     /// <summary>
     /// See [planned maintenance](https://docs.microsoft.com/azure/aks/planned-maintenance) for more information about planned maintenance.
+    /// 
+    /// ## Example Usage
+    /// ### Create/Update Maintenance Configuration
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var maintenanceConfiguration = new AzureNative.ContainerService.V20230202Preview.MaintenanceConfiguration("maintenanceConfiguration", new()
+    ///     {
+    ///         ConfigName = "default",
+    ///         NotAllowedTime = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20230202Preview.Inputs.TimeSpanArgs
+    ///             {
+    ///                 End = "2020-11-30T12:00:00Z",
+    ///                 Start = "2020-11-26T03:00:00Z",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         TimeInWeek = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.V20230202Preview.Inputs.TimeInWeekArgs
+    ///             {
+    ///                 Day = "Monday",
+    ///                 HourSlots = new[]
+    ///                 {
+    ///                     1,
+    ///                     2,
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/Update Maintenance Configuration with Maintenance Window
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var maintenanceConfiguration = new AzureNative.ContainerService.V20230202Preview.MaintenanceConfiguration("maintenanceConfiguration", new()
+    ///     {
+    ///         ConfigName = "aksManagedAutoUpgradeSchedule",
+    ///         MaintenanceWindow = new AzureNative.ContainerService.V20230202Preview.Inputs.MaintenanceWindowArgs
+    ///         {
+    ///             DurationHours = 10,
+    ///             NotAllowedDates = new[]
+    ///             {
+    ///                 new AzureNative.ContainerService.V20230202Preview.Inputs.DateSpanArgs
+    ///                 {
+    ///                     End = "2023-02-25",
+    ///                     Start = "2023-02-18",
+    ///                 },
+    ///                 new AzureNative.ContainerService.V20230202Preview.Inputs.DateSpanArgs
+    ///                 {
+    ///                     End = "2024-01-05",
+    ///                     Start = "2023-12-23",
+    ///                 },
+    ///             },
+    ///             Schedule = new AzureNative.ContainerService.V20230202Preview.Inputs.ScheduleArgs
+    ///             {
+    ///                 RelativeMonthly = new AzureNative.ContainerService.V20230202Preview.Inputs.RelativeMonthlyScheduleArgs
+    ///                 {
+    ///                     DayOfWeek = "Monday",
+    ///                     IntervalMonths = 3,
+    ///                     WeekIndex = "First",
+    ///                 },
+    ///             },
+    ///             StartDate = "2023-01-01",
+    ///             StartTime = "08:30",
+    ///             UtcOffset = "+05:30",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice/v20230202preview:MaintenanceConfiguration aksManagedAutoUpgradeSchedule /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1/maintenanceConfigurations/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice/v20230202preview:MaintenanceConfiguration")]
     public partial class MaintenanceConfiguration : global::Pulumi.CustomResource

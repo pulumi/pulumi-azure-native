@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.StorageMover
     /// The Endpoint resource, which contains information about file sources and targets.
     /// API Version: 2023-03-01.
     /// Previous API Version: 2022-07-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Endpoints_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var endpoint = new AzureNative.StorageMover.Endpoint("endpoint", new()
+    ///     {
+    ///         EndpointName = "examples-endpointName",
+    ///         Properties = new AzureNative.StorageMover.Inputs.AzureStorageBlobContainerEndpointPropertiesArgs
+    ///         {
+    ///             BlobContainerName = "examples-blobContainerName",
+    ///             Description = "Example Storage Container Endpoint Description",
+    ///             EndpointType = "AzureStorageBlobContainer",
+    ///             StorageAccountResourceId = "/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.Storage/storageAccounts/examples-storageAccountName/",
+    ///         },
+    ///         ResourceGroupName = "examples-rg",
+    ///         StorageMoverName = "examples-storageMoverName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:storagemover:Endpoint examples-endpointName /subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/examples-rg/providers/Microsoft.StorageMover/storageMovers/examples-storageMoverName/endpoints/examples-endpointName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource

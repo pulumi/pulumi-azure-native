@@ -13,6 +13,82 @@ namespace Pulumi.AzureNative.HealthcareApis
     /// IoT Connector definition.
     /// API Version: 2022-12-01.
     /// Previous API Version: 2022-05-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create an IoT Connector
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var iotConnector = new AzureNative.HealthcareApis.IotConnector("iotConnector", new()
+    ///     {
+    ///         DeviceMapping = new AzureNative.HealthcareApis.Inputs.IotMappingPropertiesArgs
+    ///         {
+    ///             Content = 
+    ///             {
+    ///                 { "template", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "template", 
+    ///                         {
+    ///                             { "deviceIdExpression", "$.deviceid" },
+    ///                             { "timestampExpression", "$.measurementdatetime" },
+    ///                             { "typeMatchExpression", "$..[?(@heartrate)]" },
+    ///                             { "typeName", "heartrate" },
+    ///                             { "values", new[]
+    ///                             {
+    ///                                 
+    ///                                 {
+    ///                                     { "required", "true" },
+    ///                                     { "valueExpression", "$.heartrate" },
+    ///                                     { "valueName", "hr" },
+    ///                                 },
+    ///                             } },
+    ///                         } },
+    ///                         { "templateType", "JsonPathContent" },
+    ///                     },
+    ///                 } },
+    ///                 { "templateType", "CollectionContent" },
+    ///             },
+    ///         },
+    ///         Identity = new AzureNative.HealthcareApis.Inputs.ServiceManagedIdentityIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///         IngestionEndpointConfiguration = new AzureNative.HealthcareApis.Inputs.IotEventHubIngestionEndpointConfigurationArgs
+    ///         {
+    ///             ConsumerGroup = "ConsumerGroupA",
+    ///             EventHubName = "MyEventHubName",
+    ///             FullyQualifiedEventHubNamespace = "myeventhub.servicesbus.windows.net",
+    ///         },
+    ///         IotConnectorName = "blue",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "testRG",
+    ///         Tags = 
+    ///         {
+    ///             { "additionalProp1", "string" },
+    ///             { "additionalProp2", "string" },
+    ///             { "additionalProp3", "string" },
+    ///         },
+    ///         WorkspaceName = "workspace1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:healthcareapis:IotConnector blue /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/iotconnectors/blue 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:IotConnector")]
     public partial class IotConnector : global::Pulumi.CustomResource

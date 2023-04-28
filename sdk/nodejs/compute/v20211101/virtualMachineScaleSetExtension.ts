@@ -6,6 +6,53 @@ import * as utilities from "../../utilities";
 
 /**
  * Describes a Virtual Machine Scale Set Extension.
+ *
+ * ## Example Usage
+ * ### VirtualMachineScaleSetExtensions_CreateOrUpdate_MaximumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineScaleSetExtension = new azure_native.compute.v20211101.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension", {
+ *     autoUpgradeMinorVersion: true,
+ *     enableAutomaticUpgrade: true,
+ *     forceUpdateTag: "aaaaaaaaa",
+ *     name: "{extension-name}",
+ *     protectedSettings: {},
+ *     provisionAfterExtensions: ["aa"],
+ *     publisher: "{extension-Publisher}",
+ *     resourceGroupName: "rgcompute",
+ *     settings: {},
+ *     suppressFailures: true,
+ *     type: "{extension-Type}",
+ *     typeHandlerVersion: "{handler-version}",
+ *     vmScaleSetName: "aaaaaaa",
+ *     vmssExtensionName: "aaaaaaaaaaaaaaaaaaaaa",
+ * });
+ *
+ * ```
+ * ### VirtualMachineScaleSetExtensions_CreateOrUpdate_MinimumSet_Gen
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const virtualMachineScaleSetExtension = new azure_native.compute.v20211101.VirtualMachineScaleSetExtension("virtualMachineScaleSetExtension", {
+ *     resourceGroupName: "rgcompute",
+ *     vmScaleSetName: "aaaaaaaaaaa",
+ *     vmssExtensionName: "aaaaaaaaaaa",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20211101:VirtualMachineScaleSetExtension {extension-name} aaaaaaaa 
+ * ```
  */
 export class VirtualMachineScaleSetExtension extends pulumi.CustomResource {
     /**

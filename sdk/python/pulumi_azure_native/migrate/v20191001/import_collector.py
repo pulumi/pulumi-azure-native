@@ -103,7 +103,28 @@ class ImportCollector(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a ImportCollector resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ImportCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        import_collector = azure_native.migrate.v20191001.ImportCollector("importCollector",
+            import_collector_name="importCollector2952",
+            project_name="rajoshCCY9671project",
+            resource_group_name="markusavstestrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20191001:ImportCollector importCollector2952 /subscriptions/31be0ff4-c932-4cb3-8efc-efa411d79280/resourceGroups/markusavstestrg/providers/Microsoft.Migrate/assessmentprojects/rajoshCCY9671project/importcollectors/importCollector2952 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] import_collector_name: Unique name of a Import collector within a project.
@@ -117,7 +138,28 @@ class ImportCollector(pulumi.CustomResource):
                  args: ImportCollectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ImportCollector resource with the given unique name, props, and options.
+        ## Example Usage
+        ### ImportCollectors_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        import_collector = azure_native.migrate.v20191001.ImportCollector("importCollector",
+            import_collector_name="importCollector2952",
+            project_name="rajoshCCY9671project",
+            resource_group_name="markusavstestrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20191001:ImportCollector importCollector2952 /subscriptions/31be0ff4-c932-4cb3-8efc-efa411d79280/resourceGroups/markusavstestrg/providers/Microsoft.Migrate/assessmentprojects/rajoshCCY9671project/importcollectors/importCollector2952 
+        ```
+
         :param str resource_name: The name of the resource.
         :param ImportCollectorArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

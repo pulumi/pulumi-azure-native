@@ -11,6 +11,40 @@ import * as utilities from "../utilities";
  * Server Endpoint object.
  * API Version: 2022-06-01.
  * Previous API Version: 2020-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### ServerEndpoints_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const serverEndpoint = new azure_native.storagesync.ServerEndpoint("serverEndpoint", {
+ *     cloudTiering: "off",
+ *     initialDownloadPolicy: "NamespaceThenModifiedFiles",
+ *     initialUploadPolicy: "ServerAuthoritative",
+ *     localCacheMode: "UpdateLocallyCachedFiles",
+ *     offlineDataTransfer: "on",
+ *     offlineDataTransferShareName: "myfileshare",
+ *     resourceGroupName: "SampleResourceGroup_1",
+ *     serverEndpointName: "SampleServerEndpoint_1",
+ *     serverLocalPath: "D:\\SampleServerEndpoint_1",
+ *     serverResourceId: "/subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/registeredServers/080d4133-bdb5-40a0-96a0-71a6057bfe9a",
+ *     storageSyncServiceName: "SampleStorageSyncService_1",
+ *     syncGroupName: "SampleSyncGroup_1",
+ *     tierFilesOlderThanDays: 0,
+ *     volumeFreeSpacePercent: 100,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storagesync:ServerEndpoint SampleServerEndpoint_1 /subscriptions/52b8da2f-61e0-4a1f-8dde-336911f367fb/resourceGroups/SampleResourceGroup_1/providers/Microsoft.StorageSync/storageSyncServices/SampleStorageSyncService_1/syncGroups/SampleSyncGroup_1/serverEndpoints/SampleServerEndpoint_1 
+ * ```
  */
 export class ServerEndpoint extends pulumi.CustomResource {
     /**

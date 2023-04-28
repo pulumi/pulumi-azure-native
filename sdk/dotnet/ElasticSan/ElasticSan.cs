@@ -13,6 +13,74 @@ namespace Pulumi.AzureNative.ElasticSan
     /// Response for ElasticSan request.
     /// API Version: 2021-11-20-preview.
     /// Previous API Version: 2021-11-20-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### ElasticSans_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticSan = new AzureNative.ElasticSan.ElasticSan("elasticSan", new()
+    ///     {
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "aaaaaaaaaaaaaaaaa",
+    ///         },
+    ///         BaseSizeTiB = 26,
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         ExtendedCapacitySizeTiB = 7,
+    ///         Location = "aaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         Sku = new AzureNative.ElasticSan.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Premium_LRS",
+    ///             Tier = "Premium",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key896", "aaaaaaaaaaaaaaaaaa" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### ElasticSans_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var elasticSan = new AzureNative.ElasticSan.ElasticSan("elasticSan", new()
+    ///     {
+    ///         BaseSizeTiB = 26,
+    ///         ElasticSanName = "ti7q-k952-1qB3J_5",
+    ///         ExtendedCapacitySizeTiB = 7,
+    ///         ResourceGroupName = "rgelasticsan",
+    ///         Sku = new AzureNative.ElasticSan.Inputs.SkuArgs
+    ///         {
+    ///             Name = "Premium_LRS",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:elasticsan:ElasticSan aaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaa 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:elasticsan:ElasticSan")]
     public partial class ElasticSan : global::Pulumi.CustomResource

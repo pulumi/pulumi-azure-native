@@ -11,6 +11,46 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview
 {
     /// <summary>
     /// Describes a time series database connection resource.
+    /// 
+    /// ## Example Usage
+    /// ### Create or replace a time series database connection for a DigitalTwins instance.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var timeSeriesDatabaseConnection = new AzureNative.DigitalTwins.V20210630Preview.TimeSeriesDatabaseConnection("timeSeriesDatabaseConnection", new()
+    ///     {
+    ///         Properties = new AzureNative.DigitalTwins.V20210630Preview.Inputs.AzureDataExplorerConnectionPropertiesArgs
+    ///         {
+    ///             AdxDatabaseName = "myDatabase",
+    ///             AdxEndpointUri = "https://mycluster.kusto.windows.net",
+    ///             AdxResourceId = "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.Kusto/clusters/mycluster",
+    ///             AdxTableName = "myTable",
+    ///             ConnectionType = "AzureDataExplorer",
+    ///             EventHubEndpointUri = "sb://myeh.servicebus.windows.net/",
+    ///             EventHubEntityPath = "myeh",
+    ///             EventHubNamespaceResourceId = "/subscriptions/c493073e-2460-45ba-a403-f3e0df1e9feg/resourceGroups/testrg/providers/Microsoft.EventHub/namespaces/myeh",
+    ///         },
+    ///         ResourceGroupName = "resRg",
+    ///         ResourceName = "myDigitalTwinsService",
+    ///         TimeSeriesDatabaseConnectionName = "myConnection",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection myConnection /subscriptions/50016170-c839-41ba-a724-51e9df440b9e/resourcegroups/resRg/providers/Microsoft.DigitalTwins/digitalTwinsInstances/myDigitalTwinsService/timeSeriesDatabaseConnections/myConnection 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection")]
     public partial class TimeSeriesDatabaseConnection : global::Pulumi.CustomResource

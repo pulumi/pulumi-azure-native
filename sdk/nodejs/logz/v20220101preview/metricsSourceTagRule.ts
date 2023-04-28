@@ -9,6 +9,30 @@ import * as utilities from "../../utilities";
 
 /**
  * Capture metrics of Azure resources based on ARM tags.
+ *
+ * ## Example Usage
+ * ### MetricsSourceTagRules_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const metricsSourceTagRule = new azure_native.logz.v20220101preview.MetricsSourceTagRule("metricsSourceTagRule", {
+ *     metricsSourceName: "MetricsSource1",
+ *     monitorName: "myMonitor",
+ *     resourceGroupName: "myResourceGroup",
+ *     ruleSetName: "default",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:logz/v20220101preview:MetricsSourceTagRule default /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Logz/monitors/myMonitor/metricsSource/MetricsSource1/tagRules/default 
+ * ```
  */
 export class MetricsSourceTagRule extends pulumi.CustomResource {
     /**

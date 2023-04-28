@@ -13,6 +13,43 @@ namespace Pulumi.AzureNative.DesktopVirtualization
     /// Schema for Application properties.
     /// API Version: 2022-09-09.
     /// Previous API Version: 2021-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Application_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var application = new AzureNative.DesktopVirtualization.Application("application", new()
+    ///     {
+    ///         ApplicationGroupName = "applicationGroup1",
+    ///         ApplicationName = "application1",
+    ///         CommandLineArguments = "arguments",
+    ///         CommandLineSetting = "Allow",
+    ///         Description = "des1",
+    ///         FilePath = "path",
+    ///         FriendlyName = "friendly",
+    ///         IconIndex = 1,
+    ///         IconPath = "icon",
+    ///         ResourceGroupName = "resourceGroup1",
+    ///         ShowInPortal = true,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:desktopvirtualization:Application applicationGroup1/application1 /subscriptions/daefabc0-95b4-48b3-b645-8a753a63c4fa/resourceGroups/resourceGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/applicationGroup1/applications/application1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:desktopvirtualization:Application")]
     public partial class Application : global::Pulumi.CustomResource

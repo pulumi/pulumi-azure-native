@@ -336,6 +336,55 @@ class VirtualNetworkGateway(pulumi.CustomResource):
         """
         A common class for general resource information.
 
+        ## Example Usage
+        ### UpdateVirtualNetworkGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_gateway = azure_native.network.v20190801.VirtualNetworkGateway("virtualNetworkGateway",
+            active_active=False,
+            bgp_settings=azure_native.network.v20190801.BgpSettingsArgs(
+                asn=65515,
+                bgp_peering_address="10.0.1.30",
+                peer_weight=0,
+            ),
+            custom_routes=azure_native.network.v20190801.AddressSpaceArgs(
+                address_prefixes=["101.168.0.6/32"],
+            ),
+            enable_bgp=False,
+            enable_dns_forwarding=True,
+            gateway_type="Vpn",
+            ip_configurations=[{
+                "name": "gwipconfig1",
+                "privateIPAllocationMethod": "Dynamic",
+                "publicIPAddress": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+                ),
+                "subnet": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+                ),
+            }],
+            location="centralus",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20190801.VirtualNetworkGatewaySkuArgs(
+                name="VpnGw1",
+                tier="VpnGw1",
+            ),
+            virtual_network_gateway_name="vpngw",
+            vpn_type="RouteBased")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190801:VirtualNetworkGateway vpngw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] active_active: ActiveActive flag.
@@ -365,6 +414,55 @@ class VirtualNetworkGateway(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A common class for general resource information.
+
+        ## Example Usage
+        ### UpdateVirtualNetworkGateway
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_gateway = azure_native.network.v20190801.VirtualNetworkGateway("virtualNetworkGateway",
+            active_active=False,
+            bgp_settings=azure_native.network.v20190801.BgpSettingsArgs(
+                asn=65515,
+                bgp_peering_address="10.0.1.30",
+                peer_weight=0,
+            ),
+            custom_routes=azure_native.network.v20190801.AddressSpaceArgs(
+                address_prefixes=["101.168.0.6/32"],
+            ),
+            enable_bgp=False,
+            enable_dns_forwarding=True,
+            gateway_type="Vpn",
+            ip_configurations=[{
+                "name": "gwipconfig1",
+                "privateIPAllocationMethod": "Dynamic",
+                "publicIPAddress": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/publicIPAddresses/gwpip",
+                ),
+                "subnet": azure_native.network.v20190801.SubResourceArgs(
+                    id="/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/vnet1/subnets/GatewaySubnet",
+                ),
+            }],
+            location="centralus",
+            resource_group_name="rg1",
+            sku=azure_native.network.v20190801.VirtualNetworkGatewaySkuArgs(
+                name="VpnGw1",
+                tier="VpnGw1",
+            ),
+            virtual_network_gateway_name="vpngw",
+            vpn_type="RouteBased")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:network/v20190801:VirtualNetworkGateway vpngw /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworkGateways/vpngw 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkGatewayInitArgs args: The arguments to use to populate this resource's properties.

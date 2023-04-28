@@ -220,6 +220,43 @@ class L3IsolationDomain(pulumi.CustomResource):
         """
         The L3IsolationDomain resource definition.
 
+        ## Example Usage
+        ### L3IsolationDomains_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l3_isolation_domain = azure_native.managednetworkfabric.v20230201preview.L3IsolationDomain("l3IsolationDomain",
+            aggregate_route_configuration=azure_native.managednetworkfabric.v20230201preview.L3IsolationDomainPatchPropertiesResponseAggregateRouteConfigurationArgs(
+                ipv4_routes=[azure_native.managednetworkfabric.v20230201preview.L3IsolationDomainPatchPropertiesIpv4RoutesArgs(
+                    prefix="10.0.0.0/24",
+                )],
+                ipv6_routes=[azure_native.managednetworkfabric.v20230201preview.L3IsolationDomainPatchPropertiesIpv6RoutesArgs(
+                    prefix="10.0.0.1",
+                )],
+            ),
+            connected_subnet_route_policy=azure_native.managednetworkfabric.v20230201preview.L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs(
+                export_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+            ),
+            description="creating L3 isolation domain",
+            l3_isolation_domain_name="example-l3domain",
+            location="eastus",
+            network_fabric_id="/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+            redistribute_connected_subnets="True",
+            redistribute_static_routes="False",
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:L3IsolationDomain example-l3domain /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['L3IsolationDomainPatchPropertiesAggregateRouteConfigurationArgs']] aggregate_route_configuration: List of Ipv4 and Ipv6 route configurations.
@@ -242,6 +279,43 @@ class L3IsolationDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The L3IsolationDomain resource definition.
+
+        ## Example Usage
+        ### L3IsolationDomains_Create_MaximumSet_Gen
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        l3_isolation_domain = azure_native.managednetworkfabric.v20230201preview.L3IsolationDomain("l3IsolationDomain",
+            aggregate_route_configuration=azure_native.managednetworkfabric.v20230201preview.L3IsolationDomainPatchPropertiesResponseAggregateRouteConfigurationArgs(
+                ipv4_routes=[azure_native.managednetworkfabric.v20230201preview.L3IsolationDomainPatchPropertiesIpv4RoutesArgs(
+                    prefix="10.0.0.0/24",
+                )],
+                ipv6_routes=[azure_native.managednetworkfabric.v20230201preview.L3IsolationDomainPatchPropertiesIpv6RoutesArgs(
+                    prefix="10.0.0.1",
+                )],
+            ),
+            connected_subnet_route_policy=azure_native.managednetworkfabric.v20230201preview.L3IsolationDomainPatchPropertiesConnectedSubnetRoutePolicyArgs(
+                export_route_policy_id="/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName2",
+            ),
+            description="creating L3 isolation domain",
+            l3_isolation_domain_name="example-l3domain",
+            location="eastus",
+            network_fabric_id="/subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/networkFabrics/FabricName",
+            redistribute_connected_subnets="True",
+            redistribute_static_routes="False",
+            resource_group_name="resourceGroupName")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:managednetworkfabric/v20230201preview:L3IsolationDomain example-l3domain /subscriptions/xxxxxx/resourceGroups/resourcegroupname/providers/Microsoft.ManagedNetworkFabric/l3IsolationDomains/example-l3domain 
+        ```
 
         :param str resource_name: The name of the resource.
         :param L3IsolationDomainArgs args: The arguments to use to populate this resource's properties.

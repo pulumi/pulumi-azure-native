@@ -351,6 +351,37 @@ class GalleryImage(pulumi.CustomResource):
         API Version: 2022-03-03.
         Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create or update a simple gallery image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image = azure_native.compute.GalleryImage("galleryImage",
+            gallery_image_name="myGalleryImageName",
+            gallery_name="myGalleryName",
+            hyper_v_generation="V1",
+            identifier=azure_native.compute.GalleryImageIdentifierArgs(
+                offer="myOfferName",
+                publisher="myPublisherName",
+                sku="mySkuName",
+            ),
+            location="West US",
+            os_state=azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+            os_type=azure_native.compute.OperatingSystemTypes.WINDOWS,
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:GalleryImage myGalleryImageName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'Architecture']] architecture: The architecture of the image. Applicable to OS disks only.
@@ -383,6 +414,37 @@ class GalleryImage(pulumi.CustomResource):
         Specifies information about the gallery image definition that you want to create or update.
         API Version: 2022-03-03.
         Previous API Version: 2020-09-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create or update a simple gallery image.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        gallery_image = azure_native.compute.GalleryImage("galleryImage",
+            gallery_image_name="myGalleryImageName",
+            gallery_name="myGalleryName",
+            hyper_v_generation="V1",
+            identifier=azure_native.compute.GalleryImageIdentifierArgs(
+                offer="myOfferName",
+                publisher="myPublisherName",
+                sku="mySkuName",
+            ),
+            location="West US",
+            os_state=azure_native.compute.OperatingSystemStateTypes.GENERALIZED,
+            os_type=azure_native.compute.OperatingSystemTypes.WINDOWS,
+            resource_group_name="myResourceGroup")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:compute:GalleryImage myGalleryImageName /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/galleries/{galleryName}/images/{galleryImageName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GalleryImageArgs args: The arguments to use to populate this resource's properties.

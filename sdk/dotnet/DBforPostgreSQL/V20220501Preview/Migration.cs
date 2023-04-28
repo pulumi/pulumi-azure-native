@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.V20220501Preview
 {
     /// <summary>
     /// Represents a migration resource.
+    /// 
+    /// ## Example Usage
+    /// ### Migrations_Create
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var migration = new AzureNative.DBforPostgreSQL.V20220501Preview.Migration("migration", new()
+    ///     {
+    ///         DBsToMigrate = new[]
+    ///         {
+    ///             "db1",
+    ///             "db2",
+    ///             "db3",
+    ///             "db4",
+    ///         },
+    ///         Location = "westus",
+    ///         MigrationName = "testmigration",
+    ///         ResourceGroupName = "testrg",
+    ///         SourceDBServerResourceId = "/subscriptions/ffffffff-ffff-ffff-ffff-ffffffffffff/resourceGroups/testrg/providers/Microsoft.DBForPostgreSql/servers/testsource",
+    ///         TargetDBServerName = "testtarget",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:dbforpostgresql/v20220501preview:Migration d3ceacbb-a5fd-43dc-a9db-6022b5154856 d3ceacbb-a5fd-43dc-a9db-6022b5154856 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql/v20220501preview:Migration")]
     public partial class Migration : global::Pulumi.CustomResource

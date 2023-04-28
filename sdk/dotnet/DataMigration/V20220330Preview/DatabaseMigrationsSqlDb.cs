@@ -11,6 +11,109 @@ namespace Pulumi.AzureNative.DataMigration.V20220330Preview
 {
     /// <summary>
     /// Database Migration Resource for SQL Database.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update Database Migration resource with Maximum parameters.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseMigrationsSqlDb = new AzureNative.DataMigration.V20220330Preview.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb", new()
+    ///     {
+    ///         Properties = new AzureNative.DataMigration.V20220330Preview.Inputs.DatabaseMigrationPropertiesSqlDbArgs
+    ///         {
+    ///             Kind = "SqlDb",
+    ///             MigrationService = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+    ///             Scope = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+    ///             SourceDatabaseName = "aaa",
+    ///             SourceSqlConnection = new AzureNative.DataMigration.V20220330Preview.Inputs.SqlConnectionInformationArgs
+    ///             {
+    ///                 Authentication = "WindowsAuthentication",
+    ///                 DataSource = "aaa",
+    ///                 EncryptConnection = true,
+    ///                 Password = "placeholder",
+    ///                 TrustServerCertificate = true,
+    ///                 UserName = "bbb",
+    ///             },
+    ///             TableList = new[]
+    ///             {
+    ///                 "[Schema1].[TableName1]",
+    ///                 "[Schema2].[TableName2]",
+    ///             },
+    ///             TargetSqlConnection = new AzureNative.DataMigration.V20220330Preview.Inputs.SqlConnectionInformationArgs
+    ///             {
+    ///                 Authentication = "SqlAuthentication",
+    ///                 DataSource = "sqldbinstance",
+    ///                 EncryptConnection = true,
+    ///                 Password = "placeholder",
+    ///                 TrustServerCertificate = true,
+    ///                 UserName = "bbb",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SqlDbInstanceName = "sqldbinstance",
+    ///         TargetDbName = "db1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or Update Database Migration resource with Minimum parameters.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var databaseMigrationsSqlDb = new AzureNative.DataMigration.V20220330Preview.DatabaseMigrationsSqlDb("databaseMigrationsSqlDb", new()
+    ///     {
+    ///         Properties = new AzureNative.DataMigration.V20220330Preview.Inputs.DatabaseMigrationPropertiesSqlDbArgs
+    ///         {
+    ///             Kind = "SqlDb",
+    ///             MigrationService = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.DataMigration/sqlMigrationServices/testagent",
+    ///             Scope = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance",
+    ///             SourceDatabaseName = "aaa",
+    ///             SourceSqlConnection = new AzureNative.DataMigration.V20220330Preview.Inputs.SqlConnectionInformationArgs
+    ///             {
+    ///                 Authentication = "WindowsAuthentication",
+    ///                 DataSource = "aaa",
+    ///                 EncryptConnection = true,
+    ///                 Password = "placeholder",
+    ///                 TrustServerCertificate = true,
+    ///                 UserName = "bbb",
+    ///             },
+    ///             TargetSqlConnection = new AzureNative.DataMigration.V20220330Preview.Inputs.SqlConnectionInformationArgs
+    ///             {
+    ///                 Authentication = "SqlAuthentication",
+    ///                 DataSource = "sqldbinstance",
+    ///                 EncryptConnection = true,
+    ///                 Password = "placeholder",
+    ///                 TrustServerCertificate = true,
+    ///                 UserName = "bbb",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "testrg",
+    ///         SqlDbInstanceName = "sqldbinstance",
+    ///         TargetDbName = "db1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:datamigration/v20220330preview:DatabaseMigrationsSqlDb db1 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.Sql/servers/sqldbinstance/providers/Microsoft.DataMigration/databaseMigrations/db1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:datamigration/v20220330preview:DatabaseMigrationsSqlDb")]
     public partial class DatabaseMigrationsSqlDb : global::Pulumi.CustomResource

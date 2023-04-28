@@ -11,6 +11,68 @@ namespace Pulumi.AzureNative.Batch.V20170101
 {
     /// <summary>
     /// Contains information about an Azure Batch account.
+    /// 
+    /// ## Example Usage
+    /// ### BatchAccountCreate_BYOS
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var batchAccount = new AzureNative.Batch.V20170101.BatchAccount("batchAccount", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         AutoStorage = new AzureNative.Batch.V20170101.Inputs.AutoStorageBasePropertiesArgs
+    ///         {
+    ///             StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    ///         },
+    ///         KeyVaultReference = new AzureNative.Batch.V20170101.Inputs.KeyVaultReferenceArgs
+    ///         {
+    ///             Id = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.KeyVault/vaults/sample",
+    ///             Url = "http://sample.vault.azure.net/",
+    ///         },
+    ///         Location = "japaneast",
+    ///         PoolAllocationMode = AzureNative.Batch.V20170101.PoolAllocationMode.UserSubscription,
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### BatchAccountCreate_Default
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var batchAccount = new AzureNative.Batch.V20170101.BatchAccount("batchAccount", new()
+    ///     {
+    ///         AccountName = "sampleacct",
+    ///         AutoStorage = new AzureNative.Batch.V20170101.Inputs.AutoStorageBasePropertiesArgs
+    ///         {
+    ///             StorageAccountId = "/subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Storage/storageAccounts/samplestorage",
+    ///         },
+    ///         Location = "japaneast",
+    ///         ResourceGroupName = "default-azurebatch-japaneast",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:batch/v20170101:BatchAccount sampleacct /subscriptions/subid/resourceGroups/default-azurebatch-japaneast/providers/Microsoft.Batch/batchAccounts/sampleacct 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:batch/v20170101:BatchAccount")]

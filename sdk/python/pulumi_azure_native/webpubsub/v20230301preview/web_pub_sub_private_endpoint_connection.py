@@ -114,6 +114,33 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
         """
         A private endpoint connection to an azure resource
 
+        ## Example Usage
+        ### WebPubSubPrivateEndpointConnections_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_private_endpoint_connection = azure_native.webpubsub.v20230301preview.WebPubSubPrivateEndpointConnection("webPubSubPrivateEndpointConnection",
+            private_endpoint=azure_native.webpubsub.v20230301preview.PrivateEndpointArgs(),
+            private_endpoint_connection_name="mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+            private_link_service_connection_state=azure_native.webpubsub.v20230301preview.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                status="Approved",
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/privateEndpointConnections/mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['PrivateEndpointArgs']] private_endpoint: Private endpoint
@@ -130,6 +157,33 @@ class WebPubSubPrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A private endpoint connection to an azure resource
+
+        ## Example Usage
+        ### WebPubSubPrivateEndpointConnections_Update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        web_pub_sub_private_endpoint_connection = azure_native.webpubsub.v20230301preview.WebPubSubPrivateEndpointConnection("webPubSubPrivateEndpointConnection",
+            private_endpoint=azure_native.webpubsub.v20230301preview.PrivateEndpointArgs(),
+            private_endpoint_connection_name="mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e",
+            private_link_service_connection_state=azure_native.webpubsub.v20230301preview.PrivateLinkServiceConnectionStateArgs(
+                actions_required="None",
+                status="Approved",
+            ),
+            resource_group_name="myResourceGroup",
+            resource_name_="myWebPubSubService")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:webpubsub/v20230301preview:WebPubSubPrivateEndpointConnection mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/providers/Microsoft.SignalRService/WebPubSub/myWebPubSubService/privateEndpointConnections/mywebpubsubservice.1fa229cd-bf3f-47f0-8c49-afb36723997e 
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebPubSubPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.

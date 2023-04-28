@@ -13,6 +13,82 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     /// The RoutePolicy resource definition.
     /// API Version: 2023-02-01-preview.
     /// Previous API Version: 2023-02-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### RoutePolicies_Create_MaximumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var routePolicy = new AzureNative.ManagedNetworkFabric.RoutePolicy("routePolicy", new()
+    ///     {
+    ///         Annotation = "example routepolicy",
+    ///         Conditions = new[]
+    ///         {
+    ///             new AzureNative.ManagedNetworkFabric.Inputs.RoutePolicyPropertiesConditionsArgs
+    ///             {
+    ///                 Action = new AzureNative.ManagedNetworkFabric.Inputs.RoutePolicyPropertiesActionArgs
+    ///                 {
+    ///                     Action = "allow",
+    ///                     Set = new AzureNative.ManagedNetworkFabric.Inputs.RoutePolicyPropertiesSetArgs
+    ///                     {
+    ///                         Set = new AzureNative.ManagedNetworkFabric.Inputs.RoutePolicyPropertiesSetSetArgs
+    ///                         {
+    ///                             IpCommunityListIds = new[]
+    ///                             {
+    ///                                 "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName",
+    ///                             },
+    ///                             IpExtendedCommunityListIds = new[]
+    ///                             {
+    ///                                 "",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Annotation = "",
+    ///                 Match = new AzureNative.ManagedNetworkFabric.Inputs.RoutePolicyPropertiesMatchArgs
+    ///                 {
+    ///                     AccessControlListIds = new[]
+    ///                     {
+    ///                         "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/accessControlLists/accessControlListName",
+    ///                     },
+    ///                     IpCommunityListIds = new[]
+    ///                     {
+    ///                         "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/ipCommunityLists/ipCommunityListName",
+    ///                     },
+    ///                     IpExtendedCommunityListIds = new[]
+    ///                     {
+    ///                         "",
+    ///                     },
+    ///                 },
+    ///                 SequenceNumber = 7,
+    ///             },
+    ///         },
+    ///         Description = "RPexample",
+    ///         Location = "EastUS",
+    ///         ResourceGroupName = "rgRoutePolicies",
+    ///         RoutePolicyName = "example RoutePolicy",
+    ///         Tags = 
+    ///         {
+    ///             { "key8254", "" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric:RoutePolicy routePolicyName /subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.ManagedNetworkFabric/routePolicies/routePolicyName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric:RoutePolicy")]
     public partial class RoutePolicy : global::Pulumi.CustomResource

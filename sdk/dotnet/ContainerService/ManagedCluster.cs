@@ -13,6 +13,2212 @@ namespace Pulumi.AzureNative.ContainerService
     /// Managed cluster.
     /// API Version: 2023-01-01.
     /// Previous API Version: 2021-03-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Managed Cluster using an agent pool snapshot
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 CreationData = new AzureNative.ContainerService.Inputs.CreationDataArgs
+    ///                 {
+    ///                     SourceResourceId = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.ContainerService/snapshots/snapshot1",
+    ///                 },
+    ///                 EnableFIPS = true,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = false,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with AKS-managed NAT gateway as outbound type
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = false,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerSku = "standard",
+    ///             NatGatewayProfile = new AzureNative.ContainerService.Inputs.ManagedClusterNATGatewayProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPProfile = new AzureNative.ContainerService.Inputs.ManagedClusterManagedOutboundIPProfileArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             OutboundType = "managedNATGateway",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with Azure KeyVault Secrets Provider Addon
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = 
+    ///         {
+    ///             { "azureKeyvaultSecretsProvider", new AzureNative.ContainerService.Inputs.ManagedClusterAddonProfileArgs
+    ///             {
+    ///                 Config = 
+    ///                 {
+    ///                     { "enableSecretRotation", "true" },
+    ///                     { "rotationPollInterval", "2m" },
+    ///                 },
+    ///                 Enabled = true,
+    ///             } },
+    ///         },
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with Dedicated Host Group
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 HostGroupID = "/subscriptions/subid1/resourcegroups/rg/providers/Microsoft.Compute/hostGroups/hostgroup1",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = false,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with EncryptionAtHost enabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableEncryptionAtHost = true,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with FIPS enabled OS
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableFIPS = true,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = false,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with GPUMIG
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 GpuInstanceProfile = "MIG3g",
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_ND96asr_v4",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         HttpProxyConfig = new AzureNative.ContainerService.Inputs.ManagedClusterHTTPProxyConfigArgs
+    ///         {
+    ///             HttpProxy = "http://myproxy.server.com:8080",
+    ///             HttpsProxy = "https://myproxy.server.com:8080",
+    ///             NoProxy = new[]
+    ///             {
+    ///                 "localhost",
+    ///                 "127.0.0.1",
+    ///             },
+    ///             TrustedCa = "Q29uZ3JhdHMhIFlvdSBoYXZlIGZvdW5kIGEgaGlkZGVuIG1lc3NhZ2U=",
+    ///         },
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with HTTP proxy configured
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         HttpProxyConfig = new AzureNative.ContainerService.Inputs.ManagedClusterHTTPProxyConfigArgs
+    ///         {
+    ///             HttpProxy = "http://myproxy.server.com:8080",
+    ///             HttpsProxy = "https://myproxy.server.com:8080",
+    ///             NoProxy = new[]
+    ///             {
+    ///                 "localhost",
+    ///                 "127.0.0.1",
+    ///             },
+    ///             TrustedCa = "Q29uZ3JhdHMhIFlvdSBoYXZlIGZvdW5kIGEgaGlkZGVuIG1lc3NhZ2U=",
+    ///         },
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with Node Public IP Prefix
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 NodePublicIPPrefixID = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.Network/publicIPPrefixes/public-ip-prefix",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with OSSKU
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsSKU = "CBLMariner",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         HttpProxyConfig = new AzureNative.ContainerService.Inputs.ManagedClusterHTTPProxyConfigArgs
+    ///         {
+    ///             HttpProxy = "http://myproxy.server.com:8080",
+    ///             HttpsProxy = "https://myproxy.server.com:8080",
+    ///             NoProxy = new[]
+    ///             {
+    ///                 "localhost",
+    ///                 "127.0.0.1",
+    ///             },
+    ///             TrustedCa = "Q29uZ3JhdHMhIFlvdSBoYXZlIGZvdW5kIGEgaGlkZGVuIG1lc3NhZ2U=",
+    ///         },
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with PPG
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 ProximityPlacementGroupID = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.Compute/proximityPlacementGroups/ppg1",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with PodIdentity enabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         PodIdentityProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPodIdentityProfileArgs
+    ///         {
+    ///             AllowNetworkPluginKubenet = true,
+    ///             Enabled = true,
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with RunCommand disabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableEncryptionAtHost = true,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         ApiServerAccessProfile = new AzureNative.ContainerService.Inputs.ManagedClusterAPIServerAccessProfileArgs
+    ///         {
+    ///             DisableRunCommand = true,
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with Security Profile configured
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         DnsPrefix = "dnsprefix1",
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         SecurityProfile = new AzureNative.ContainerService.Inputs.ManagedClusterSecurityProfileArgs
+    ///         {
+    ///             Defender = new AzureNative.ContainerService.Inputs.ManagedClusterSecurityProfileDefenderArgs
+    ///             {
+    ///                 LogAnalyticsWorkspaceResourceId = "/subscriptions/SUB_ID/resourcegroups/RG_NAME/providers/microsoft.operationalinsights/workspaces/WORKSPACE_NAME",
+    ///                 SecurityMonitoring = new AzureNative.ContainerService.Inputs.ManagedClusterSecurityProfileDefenderSecurityMonitoringArgs
+    ///                 {
+    ///                     Enabled = true,
+    ///                 },
+    ///             },
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with UltraSSD enabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 EnableUltraSSD = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Cluster with user-assigned NAT gateway as outbound type
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = false,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "userAssignedNATGateway",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Private Cluster with Public FQDN specified
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableEncryptionAtHost = true,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         ApiServerAccessProfile = new AzureNative.ContainerService.Inputs.ManagedClusterAPIServerAccessProfileArgs
+    ///         {
+    ///             EnablePrivateCluster = true,
+    ///             EnablePrivateClusterPublicFQDN = true,
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create Managed Private Cluster with fqdn subdomain specified
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 Count = 3,
+    ///                 EnableEncryptionAtHost = true,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS2_v2",
+    ///             },
+    ///         },
+    ///         ApiServerAccessProfile = new AzureNative.ContainerService.Inputs.ManagedClusterAPIServerAccessProfileArgs
+    ///         {
+    ///             EnablePrivateCluster = true,
+    ///             PrivateDNSZone = "/subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.Network/privateDnsZones/privatelink.location1.azmk8s.io",
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         FqdnSubdomain = "domain1",
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/Update AAD Managed Cluster with EnableAzureRBAC
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AadProfile = new AzureNative.ContainerService.Inputs.ManagedClusterAADProfileArgs
+    ///         {
+    ///             EnableAzureRBAC = true,
+    ///             Managed = true,
+    ///         },
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 AvailabilityZones = new[]
+    ///                 {
+    ///                     "1",
+    ///                     "2",
+    ///                     "3",
+    ///                 },
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/Update Managed Cluster
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 AvailabilityZones = new[]
+    ///                 {
+    ///                     "1",
+    ///                     "2",
+    ///                     "3",
+    ///                 },
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 ScaleDownMode = "Deallocate",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             BalanceSimilarNodeGroups = "true",
+    ///             Expander = "priority",
+    ///             MaxNodeProvisionTime = "15m",
+    ///             NewPodScaleUpDelay = "1m",
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///             SkipNodesWithSystemPods = "false",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         Identity = new AzureNative.ContainerService.Inputs.ManagedClusterIdentityArgs
+    ///         {
+    ///             Type = AzureNative.ContainerService.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1", null },
+    ///             },
+    ///         },
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/Update Managed Cluster with EnableAHUB
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 AvailabilityZones = new[]
+    ///                 {
+    ///                     "1",
+    ///                     "2",
+    ///                     "3",
+    ///                 },
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         Identity = new AzureNative.ContainerService.Inputs.ManagedClusterIdentityArgs
+    ///         {
+    ///             Type = AzureNative.ContainerService.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1", null },
+    ///             },
+    ///         },
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///             LicenseType = "Windows_Server",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/Update Managed Cluster with Windows gMSA enabled
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 AvailabilityZones = new[]
+    ///                 {
+    ///                     "1",
+    ///                     "2",
+    ///                     "3",
+    ///                 },
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         Identity = new AzureNative.ContainerService.Inputs.ManagedClusterIdentityArgs
+    ///         {
+    ///             Type = AzureNative.ContainerService.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1", null },
+    ///             },
+    ///         },
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///             GmsaProfile = new AzureNative.ContainerService.Inputs.WindowsGmsaProfileArgs
+    ///             {
+    ///                 Enabled = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create/Update Managed Cluster with dual-stack networking
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var managedCluster = new AzureNative.ContainerService.ManagedCluster("managedCluster", new()
+    ///     {
+    ///         AddonProfiles = null,
+    ///         AgentPoolProfiles = new[]
+    ///         {
+    ///             new AzureNative.ContainerService.Inputs.ManagedClusterAgentPoolProfileArgs
+    ///             {
+    ///                 AvailabilityZones = new[]
+    ///                 {
+    ///                     "1",
+    ///                     "2",
+    ///                     "3",
+    ///                 },
+    ///                 Count = 3,
+    ///                 EnableNodePublicIP = true,
+    ///                 Mode = "System",
+    ///                 Name = "nodepool1",
+    ///                 OsType = "Linux",
+    ///                 ScaleDownMode = "Deallocate",
+    ///                 Type = "VirtualMachineScaleSets",
+    ///                 VmSize = "Standard_DS1_v2",
+    ///             },
+    ///         },
+    ///         AutoScalerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterPropertiesAutoScalerProfileArgs
+    ///         {
+    ///             BalanceSimilarNodeGroups = "true",
+    ///             Expander = "priority",
+    ///             MaxNodeProvisionTime = "15m",
+    ///             NewPodScaleUpDelay = "1m",
+    ///             ScaleDownDelayAfterAdd = "15m",
+    ///             ScanInterval = "20s",
+    ///             SkipNodesWithSystemPods = "false",
+    ///         },
+    ///         DiskEncryptionSetID = "/subscriptions/subid1/resourceGroups/rg1/providers/Microsoft.Compute/diskEncryptionSets/des",
+    ///         DnsPrefix = "dnsprefix1",
+    ///         EnablePodSecurityPolicy = true,
+    ///         EnableRBAC = true,
+    ///         Identity = new AzureNative.ContainerService.Inputs.ManagedClusterIdentityArgs
+    ///         {
+    ///             Type = AzureNative.ContainerService.ResourceIdentityType.UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/subid1/resourceGroups/rgName1/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity1", null },
+    ///             },
+    ///         },
+    ///         KubernetesVersion = "",
+    ///         LinuxProfile = new AzureNative.ContainerService.Inputs.ContainerServiceLinuxProfileArgs
+    ///         {
+    ///             AdminUsername = "azureuser",
+    ///             Ssh = new AzureNative.ContainerService.Inputs.ContainerServiceSshConfigurationArgs
+    ///             {
+    ///                 PublicKeys = new[]
+    ///                 {
+    ///                     new AzureNative.ContainerService.Inputs.ContainerServiceSshPublicKeyArgs
+    ///                     {
+    ///                         KeyData = "keydata",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Location = "location1",
+    ///         NetworkProfile = new AzureNative.ContainerService.Inputs.ContainerServiceNetworkProfileArgs
+    ///         {
+    ///             IpFamilies = new[]
+    ///             {
+    ///                 "IPv4",
+    ///                 "IPv6",
+    ///             },
+    ///             LoadBalancerProfile = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileArgs
+    ///             {
+    ///                 ManagedOutboundIPs = new AzureNative.ContainerService.Inputs.ManagedClusterLoadBalancerProfileManagedOutboundIPsArgs
+    ///                 {
+    ///                     Count = 2,
+    ///                 },
+    ///             },
+    ///             LoadBalancerSku = "standard",
+    ///             OutboundType = "loadBalancer",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         ResourceName = "clustername1",
+    ///         ServicePrincipalProfile = new AzureNative.ContainerService.Inputs.ManagedClusterServicePrincipalProfileArgs
+    ///         {
+    ///             ClientId = "clientid",
+    ///             Secret = "secret",
+    ///         },
+    ///         Sku = new AzureNative.ContainerService.Inputs.ManagedClusterSKUArgs
+    ///         {
+    ///             Name = "Basic",
+    ///             Tier = "Free",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "archv2", "" },
+    ///             { "tier", "production" },
+    ///         },
+    ///         WindowsProfile = new AzureNative.ContainerService.Inputs.ManagedClusterWindowsProfileArgs
+    ///         {
+    ///             AdminPassword = "replacePassword1234$",
+    ///             AdminUsername = "azureuser",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:containerservice:ManagedCluster clustername1 /subscriptions/subid1/resourcegroups/rg1/providers/Microsoft.ContainerService/managedClusters/clustername1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:containerservice:ManagedCluster")]
     public partial class ManagedCluster : global::Pulumi.CustomResource

@@ -9,6 +9,34 @@ import * as utilities from "../../utilities";
 
 /**
  * Storage resource payload.
+ *
+ * ## Example Usage
+ * ### Storages_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const storage = new azure_native.appplatform.v20230101preview.Storage("storage", {
+ *     properties: {
+ *         accountKey: "account-key-of-storage-account",
+ *         accountName: "storage-account-name",
+ *         storageType: "StorageAccount",
+ *     },
+ *     resourceGroupName: "myResourceGroup",
+ *     serviceName: "myservice",
+ *     storageName: "mystorage",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:appplatform/v20230101preview:Storage mystorage /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/storages/mystorage 
+ * ```
  */
 export class Storage extends pulumi.CustomResource {
     /**

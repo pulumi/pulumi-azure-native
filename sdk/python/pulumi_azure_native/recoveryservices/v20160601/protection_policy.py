@@ -203,6 +203,13 @@ class ProtectionPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         The base class for backup policy. Workload-specific backup policies are derived from this class.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20160601:ProtectionPolicy myresource1 /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -225,6 +232,13 @@ class ProtectionPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The base class for backup policy. Workload-specific backup policies are derived from this class.
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20160601:ProtectionPolicy myresource1 /Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ProtectionPolicyArgs args: The arguments to use to populate this resource's properties.

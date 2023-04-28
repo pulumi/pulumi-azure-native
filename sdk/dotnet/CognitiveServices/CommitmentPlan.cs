@@ -13,6 +13,50 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services account commitment plan.
     /// API Version: 2022-12-01.
     /// Previous API Version: 2021-10-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create Commitment Plan
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var commitmentPlan = new AzureNative.CognitiveServices.CommitmentPlan("commitmentPlan", new()
+    ///     {
+    ///         CommitmentPlanName = "commitmentPlanName",
+    ///         Kind = "SpeechServices",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.CognitiveServices.Inputs.CommitmentPlanPropertiesArgs
+    ///         {
+    ///             AutoRenew = true,
+    ///             Current = new AzureNative.CognitiveServices.Inputs.CommitmentPeriodArgs
+    ///             {
+    ///                 Tier = "T1",
+    ///             },
+    ///             HostingModel = "Web",
+    ///             PlanType = "STT",
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Sku = new AzureNative.CognitiveServices.Inputs.SkuArgs
+    ///         {
+    ///             Name = "S0",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:cognitiveservices:CommitmentPlan commitmentPlanName /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/resourceGroupName/providers/Microsoft.CognitiveServices/commitmentPlans/commitmentPlanName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:CommitmentPlan")]
     public partial class CommitmentPlan : global::Pulumi.CustomResource

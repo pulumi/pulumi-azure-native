@@ -9,6 +9,47 @@ import * as utilities from "../../utilities";
 
 /**
  * A SqlServerInstance.
+ *
+ * ## Example Usage
+ * ### Updates a SQL Server Instance tags.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const sqlServerInstance = new azure_native.azurearcdata.v20210601preview.SqlServerInstance("sqlServerInstance", {
+ *     location: "northeurope",
+ *     properties: {
+ *         collation: "collation",
+ *         containerResourceId: "Arc Machine Name",
+ *         currentVersion: "2008 R2",
+ *         edition: "Developer",
+ *         instanceName: "name of instance",
+ *         licenseType: "Free",
+ *         patchLevel: "patchlevel",
+ *         productId: "sql id",
+ *         status: "Connected",
+ *         tcpDynamicPorts: "1433",
+ *         tcpStaticPorts: "1433",
+ *         vCore: "4",
+ *         version: "SQL Server 2017",
+ *     },
+ *     resourceGroupName: "testrg",
+ *     sqlServerInstanceName: "testsqlServerInstance",
+ *     tags: {
+ *         mytag: "myval",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurearcdata/v20210601preview:SqlServerInstance testsqlServerInstance /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg/providers/Microsoft.AzureArcData/SqlServerInstances/testsqlServerInstance 
+ * ```
  */
 export class SqlServerInstance extends pulumi.CustomResource {
     /**

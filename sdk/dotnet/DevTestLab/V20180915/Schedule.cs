@@ -11,6 +11,70 @@ namespace Pulumi.AzureNative.DevTestLab.V20180915
 {
     /// <summary>
     /// A schedule.
+    /// 
+    /// ## Example Usage
+    /// ### Schedules_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var schedule = new AzureNative.DevTestLab.V20180915.Schedule("schedule", new()
+    ///     {
+    ///         DailyRecurrence = new AzureNative.DevTestLab.V20180915.Inputs.DayDetailsArgs
+    ///         {
+    ///             Time = "{timeOfTheDayTheScheduleWillOccurEveryDay}",
+    ///         },
+    ///         HourlyRecurrence = new AzureNative.DevTestLab.V20180915.Inputs.HourDetailsArgs
+    ///         {
+    ///             Minute = 30,
+    ///         },
+    ///         LabName = "{labName}",
+    ///         Location = "{location}",
+    ///         Name = "{scheduleName}",
+    ///         NotificationSettings = new AzureNative.DevTestLab.V20180915.Inputs.NotificationSettingsArgs
+    ///         {
+    ///             EmailRecipient = "{email}",
+    ///             NotificationLocale = "EN",
+    ///             Status = "{Enabled|Disabled}",
+    ///             TimeInMinutes = 15,
+    ///             WebhookUrl = "{webhookUrl}",
+    ///         },
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         Status = "{Enabled|Disabled}",
+    ///         Tags = 
+    ///         {
+    ///             { "tagName1", "tagValue1" },
+    ///         },
+    ///         TargetResourceId = "/subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}",
+    ///         TaskType = "{myLabVmTaskType}",
+    ///         TimeZoneId = "Pacific Standard Time",
+    ///         WeeklyRecurrence = new AzureNative.DevTestLab.V20180915.Inputs.WeekDetailsArgs
+    ///         {
+    ///             Time = "{timeOfTheDayTheScheduleWillOccurOnThoseDays}",
+    ///             Weekdays = new[]
+    ///             {
+    ///                 "Monday",
+    ///                 "Wednesday",
+    ///                 "Friday",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devtestlab/v20180915:Schedule {scheduleName} /subscriptions/{subscriptionId}/resourcegroups/resourceGroupName/providers/microsoft.devtestlab/labs/{labName}/schedules/{scheduleName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devtestlab/v20180915:Schedule")]
     public partial class Schedule : global::Pulumi.CustomResource

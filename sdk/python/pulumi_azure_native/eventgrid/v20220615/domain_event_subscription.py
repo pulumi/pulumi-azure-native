@@ -243,6 +243,37 @@ class DomainEventSubscription(pulumi.CustomResource):
         """
         Event Subscription
 
+        ## Example Usage
+        ### DomainEventSubscriptions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_event_subscription = azure_native.eventgrid.v20220615.DomainEventSubscription("domainEventSubscription",
+            destination=azure_native.eventgrid.v20220615.WebHookEventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            domain_name="exampleDomain1",
+            event_subscription_name="exampleEventSubscriptionName1",
+            filter=azure_native.eventgrid.v20220615.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+                subject_begins_with="ExamplePrefix",
+                subject_ends_with="ExampleSuffix",
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20220615:DomainEventSubscription exampleEventSubscriptionName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampleDomain1/eventSubscriptions/exampleEventSubscriptionName1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['StorageBlobDeadLetterDestinationArgs']] dead_letter_destination: The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
@@ -270,6 +301,37 @@ class DomainEventSubscription(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Event Subscription
+
+        ## Example Usage
+        ### DomainEventSubscriptions_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        domain_event_subscription = azure_native.eventgrid.v20220615.DomainEventSubscription("domainEventSubscription",
+            destination=azure_native.eventgrid.v20220615.WebHookEventSubscriptionDestinationArgs(
+                endpoint_type="WebHook",
+                endpoint_url="https://requestb.in/15ksip71",
+            ),
+            domain_name="exampleDomain1",
+            event_subscription_name="exampleEventSubscriptionName1",
+            filter=azure_native.eventgrid.v20220615.EventSubscriptionFilterArgs(
+                is_subject_case_sensitive=False,
+                subject_begins_with="ExamplePrefix",
+                subject_ends_with="ExampleSuffix",
+            ),
+            resource_group_name="examplerg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:eventgrid/v20220615:DomainEventSubscription exampleEventSubscriptionName1 /subscriptions/5b4b650e-28b9-4790-b3ab-ddbd88d727c4/resourceGroups/examplerg/providers/Microsoft.EventGrid/domains/exampleDomain1/eventSubscriptions/exampleEventSubscriptionName1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param DomainEventSubscriptionArgs args: The arguments to use to populate this resource's properties.

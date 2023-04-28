@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Backup of a Volume
+ *
+ * ## Example Usage
+ * ### Backups_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const backup = new azure_native.netapp.v20220901.Backup("backup", {
+ *     accountName: "account1",
+ *     backupName: "backup1",
+ *     label: "myLabel",
+ *     location: "eastus",
+ *     poolName: "pool1",
+ *     resourceGroupName: "myRG",
+ *     volumeName: "volume1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp/v20220901:Backup account1/pool1/volume1/backup1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/volume1/backups/backup1 
+ * ```
  */
 export class Backup extends pulumi.CustomResource {
     /**

@@ -164,6 +164,45 @@ class ImportPipeline(pulumi.CustomResource):
         """
         An object that represents an import pipeline for a container registry.
 
+        ## Example Usage
+        ### ImportPipelineCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        import_pipeline = azure_native.containerregistry.v20201101preview.ImportPipeline("importPipeline",
+            identity=azure_native.containerregistry.v20201101preview.IdentityPropertiesResponseArgs(
+                type=azure_native.containerregistry/v20201101preview.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": azure_native.containerregistry.v20201101preview.UserIdentityPropertiesArgs(),
+                },
+            ),
+            import_pipeline_name="myImportPipeline",
+            location="westus",
+            options=[
+                "OverwriteTags",
+                "DeleteSourceBlobOnSuccess",
+                "ContinueOnErrors",
+            ],
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            source=azure_native.containerregistry.v20201101preview.ImportPipelineSourcePropertiesArgs(
+                key_vault_uri="https://myvault.vault.azure.net/secrets/acrimportsas",
+                type="AzureStorageBlobContainer",
+                uri="https://accountname.blob.core.windows.net/containername",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20201101preview:ImportPipeline myImportPipeline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['IdentityPropertiesArgs']] identity: The identity of the import pipeline.
@@ -183,6 +222,45 @@ class ImportPipeline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         An object that represents an import pipeline for a container registry.
+
+        ## Example Usage
+        ### ImportPipelineCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        import_pipeline = azure_native.containerregistry.v20201101preview.ImportPipeline("importPipeline",
+            identity=azure_native.containerregistry.v20201101preview.IdentityPropertiesResponseArgs(
+                type=azure_native.containerregistry/v20201101preview.ResourceIdentityType.USER_ASSIGNED,
+                user_assigned_identities={
+                    "/subscriptions/f9d7ebed-adbd-4cb4-b973-aaf82c136138/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity2": azure_native.containerregistry.v20201101preview.UserIdentityPropertiesArgs(),
+                },
+            ),
+            import_pipeline_name="myImportPipeline",
+            location="westus",
+            options=[
+                "OverwriteTags",
+                "DeleteSourceBlobOnSuccess",
+                "ContinueOnErrors",
+            ],
+            registry_name="myRegistry",
+            resource_group_name="myResourceGroup",
+            source=azure_native.containerregistry.v20201101preview.ImportPipelineSourcePropertiesArgs(
+                key_vault_uri="https://myvault.vault.azure.net/secrets/acrimportsas",
+                type="AzureStorageBlobContainer",
+                uri="https://accountname.blob.core.windows.net/containername",
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:containerregistry/v20201101preview:ImportPipeline myImportPipeline /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/myRegistry/importPipelines/myImportPipeline 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ImportPipelineArgs args: The arguments to use to populate this resource's properties.

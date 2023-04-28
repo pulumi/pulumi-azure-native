@@ -11,6 +11,51 @@ namespace Pulumi.AzureNative.AppPlatform.V20230301Preview
 {
     /// <summary>
     /// Build resource payload
+    /// 
+    /// ## Example Usage
+    /// ### BuildService_CreateOrUpdateBuild
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var buildServiceBuild = new AzureNative.AppPlatform.V20230301Preview.BuildServiceBuild("buildServiceBuild", new()
+    ///     {
+    ///         BuildName = "mybuild",
+    ///         BuildServiceName = "default",
+    ///         Properties = new AzureNative.AppPlatform.V20230301Preview.Inputs.BuildPropertiesArgs
+    ///         {
+    ///             AgentPool = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/agentPools/default",
+    ///             Builder = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builders/default",
+    ///             Env = 
+    ///             {
+    ///                 { "environmentVariable", "test" },
+    ///             },
+    ///             RelativePath = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855-20210601-3ed9f4a2-986b-4bbd-b833-a42dccb2f777",
+    ///             ResourceRequests = new AzureNative.AppPlatform.V20230301Preview.Inputs.BuildResourceRequestsArgs
+    ///             {
+    ///                 Cpu = "1",
+    ///                 Memory = "2Gi",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         ServiceName = "myservice",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:appplatform/v20230301preview:BuildServiceBuild mybuild /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.AppPlatform/Spring/myservice/buildServices/default/builds/mybuild 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:appplatform/v20230301preview:BuildServiceBuild")]
     public partial class BuildServiceBuild : global::Pulumi.CustomResource

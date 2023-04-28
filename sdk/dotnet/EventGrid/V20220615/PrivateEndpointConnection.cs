@@ -9,6 +9,43 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.EventGrid.V20220615
 {
+    /// <summary>
+    /// ## Example Usage
+    /// ### PrivateEndpointConnections_Update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var privateEndpointConnection = new AzureNative.EventGrid.V20220615.PrivateEndpointConnection("privateEndpointConnection", new()
+    ///     {
+    ///         ParentName = "exampletopic1",
+    ///         ParentType = "topics",
+    ///         PrivateEndpointConnectionName = "BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B",
+    ///         PrivateLinkServiceConnectionState = new AzureNative.EventGrid.V20220615.Inputs.ConnectionStateArgs
+    ///         {
+    ///             ActionsRequired = "None",
+    ///             Description = "approving connection",
+    ///             Status = "Approved",
+    ///         },
+    ///         ResourceGroupName = "examplerg",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:eventgrid/v20220615:PrivateEndpointConnection BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B /subscriptions/5B4B650E-28B9-4790-B3AB-DDBD88D727C4/resourceGroups/examplerg/providers/Microsoft.EventGrid/topics/exampletopic1/privateEndpointConnections/BMTPE5.8A30D251-4C61-489D-A1AA-B37C4A329B8B 
+    /// ```
+    /// </summary>
     [AzureNativeResourceType("azure-native:eventgrid/v20220615:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : global::Pulumi.CustomResource
     {

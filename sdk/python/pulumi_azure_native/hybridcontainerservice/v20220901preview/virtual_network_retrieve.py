@@ -127,6 +127,49 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
         """
         The virtualNetworks resource definition.
 
+        ## Example Usage
+        ### PutVirtualNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_retrieve = azure_native.hybridcontainerservice.v20220901preview.VirtualNetworkRetrieve("virtualNetworkRetrieve",
+            extended_location=azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksExtendedLocationArgs(
+                name="/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+                type="CustomLocation",
+            ),
+            location="westus",
+            properties=azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksPropertiesResponseArgs(
+                infra_vnet_profile={
+                    "hci": azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksPropertiesHciArgs(
+                        moc_group="target-group",
+                        moc_location="MocLocation",
+                        moc_vnet_name="test-vnet",
+                    ),
+                },
+                vip_pool=[azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksPropertiesVipPoolArgs(
+                    end_ip="192.168.0.50",
+                    start_ip="192.168.0.10",
+                )],
+                vmip_pool=[azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksPropertiesVmipPoolArgs(
+                    end_ip="192.168.0.130",
+                    start_ip="192.168.0.110",
+                )],
+            ),
+            resource_group_name="test-arcappliance-resgrp",
+            virtual_networks_name="test-vnet-static")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice/v20220901preview:virtualNetworkRetrieve test-vnet-static /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/virtualNetworks/test-vnet-static 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -143,6 +186,49 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The virtualNetworks resource definition.
+
+        ## Example Usage
+        ### PutVirtualNetwork
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        virtual_network_retrieve = azure_native.hybridcontainerservice.v20220901preview.VirtualNetworkRetrieve("virtualNetworkRetrieve",
+            extended_location=azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksExtendedLocationArgs(
+                name="/subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourcegroups/test-arcappliance-resgrp/providers/microsoft.extendedlocation/customlocations/testcustomlocation",
+                type="CustomLocation",
+            ),
+            location="westus",
+            properties=azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksPropertiesResponseArgs(
+                infra_vnet_profile={
+                    "hci": azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksPropertiesHciArgs(
+                        moc_group="target-group",
+                        moc_location="MocLocation",
+                        moc_vnet_name="test-vnet",
+                    ),
+                },
+                vip_pool=[azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksPropertiesVipPoolArgs(
+                    end_ip="192.168.0.50",
+                    start_ip="192.168.0.10",
+                )],
+                vmip_pool=[azure_native.hybridcontainerservice.v20220901preview.VirtualNetworksPropertiesVmipPoolArgs(
+                    end_ip="192.168.0.130",
+                    start_ip="192.168.0.110",
+                )],
+            ),
+            resource_group_name="test-arcappliance-resgrp",
+            virtual_networks_name="test-vnet-static")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:hybridcontainerservice/v20220901preview:virtualNetworkRetrieve test-vnet-static /subscriptions/a3e42606-29b1-4d7d-b1d9-9ff6b9d3c71b/resourceGroups/test-arcappliance-resgrp/providers/Microsoft.HybridContainerService/virtualNetworks/test-vnet-static 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkRetrieveArgs args: The arguments to use to populate this resource's properties.

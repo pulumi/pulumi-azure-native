@@ -11,6 +11,96 @@ namespace Pulumi.AzureNative.Sql.V20201101Preview
 {
     /// <summary>
     /// An extended database blob auditing policy.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update an extended database's azure monitor auditing policy with minimal parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extendedDatabaseBlobAuditingPolicy = new AzureNative.Sql.V20201101Preview.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy", new()
+    ///     {
+    ///         BlobAuditingPolicyName = "default",
+    ///         DatabaseName = "testdb",
+    ///         IsAzureMonitorTargetEnabled = true,
+    ///         ResourceGroupName = "blobauditingtest-4799",
+    ///         ServerName = "blobauditingtest-6440",
+    ///         State = AzureNative.Sql.V20201101Preview.BlobAuditingPolicyState.Enabled,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an extended database's blob auditing policy with all parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extendedDatabaseBlobAuditingPolicy = new AzureNative.Sql.V20201101Preview.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy", new()
+    ///     {
+    ///         AuditActionsAndGroups = new[]
+    ///         {
+    ///             "DATABASE_LOGOUT_GROUP",
+    ///             "DATABASE_ROLE_MEMBER_CHANGE_GROUP",
+    ///             "UPDATE on database::TestDatabaseName by public",
+    ///         },
+    ///         BlobAuditingPolicyName = "default",
+    ///         DatabaseName = "testdb",
+    ///         IsAzureMonitorTargetEnabled = true,
+    ///         IsStorageSecondaryKeyInUse = false,
+    ///         PredicateExpression = "statement = 'select 1'",
+    ///         QueueDelayMs = 4000,
+    ///         ResourceGroupName = "blobauditingtest-4799",
+    ///         RetentionDays = 6,
+    ///         ServerName = "blobauditingtest-6440",
+    ///         State = AzureNative.Sql.V20201101Preview.BlobAuditingPolicyState.Enabled,
+    ///         StorageAccountAccessKey = "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    ///         StorageAccountSubscriptionId = "00000000-1234-0000-5678-000000000000",
+    ///         StorageEndpoint = "https://mystorage.blob.core.windows.net",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create or update an extended database's blob auditing policy with minimal parameters
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var extendedDatabaseBlobAuditingPolicy = new AzureNative.Sql.V20201101Preview.ExtendedDatabaseBlobAuditingPolicy("extendedDatabaseBlobAuditingPolicy", new()
+    ///     {
+    ///         BlobAuditingPolicyName = "default",
+    ///         DatabaseName = "testdb",
+    ///         ResourceGroupName = "blobauditingtest-4799",
+    ///         ServerName = "blobauditingtest-6440",
+    ///         State = AzureNative.Sql.V20201101Preview.BlobAuditingPolicyState.Enabled,
+    ///         StorageAccountAccessKey = "sdlfkjabc+sdlfkjsdlkfsjdfLDKFTERLKFDFKLjsdfksjdflsdkfD2342309432849328476458/3RSD==",
+    ///         StorageEndpoint = "https://mystorage.blob.core.windows.net",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:sql/v20201101preview:ExtendedDatabaseBlobAuditingPolicy default /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/blobauditingtest-4799/providers/Microsoft.Sql/servers/blobauditingtest-6440/databases/testdb 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:sql/v20201101preview:ExtendedDatabaseBlobAuditingPolicy")]
     public partial class ExtendedDatabaseBlobAuditingPolicy : global::Pulumi.CustomResource

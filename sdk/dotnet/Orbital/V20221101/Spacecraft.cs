@@ -11,6 +11,58 @@ namespace Pulumi.AzureNative.Orbital.V20221101
 {
     /// <summary>
     /// Customer creates a spacecraft resource to schedule a contact.
+    /// 
+    /// ## Example Usage
+    /// ### Create a spacecraft
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var spacecraft = new AzureNative.Orbital.V20221101.Spacecraft("spacecraft", new()
+    ///     {
+    ///         Links = new[]
+    ///         {
+    ///             new AzureNative.Orbital.V20221101.Inputs.SpacecraftLinkArgs
+    ///             {
+    ///                 BandwidthMHz = 2,
+    ///                 CenterFrequencyMHz = 2250,
+    ///                 Direction = "Uplink",
+    ///                 Name = "uplink_lhcp1",
+    ///                 Polarization = "LHCP",
+    ///             },
+    ///             new AzureNative.Orbital.V20221101.Inputs.SpacecraftLinkArgs
+    ///             {
+    ///                 BandwidthMHz = 15,
+    ///                 CenterFrequencyMHz = 8160,
+    ///                 Direction = "Downlink",
+    ///                 Name = "downlink_rhcp1",
+    ///                 Polarization = "RHCP",
+    ///             },
+    ///         },
+    ///         Location = "eastus2",
+    ///         NoradId = "36411",
+    ///         ResourceGroupName = "contoso-Rgp",
+    ///         SpacecraftName = "CONTOSO_SAT",
+    ///         TitleLine = "CONTOSO_SAT",
+    ///         TleLine1 = "1 27424U 02022A   22167.05119303  .00000638  00000+0  15103-3 0  9994",
+    ///         TleLine2 = "2 27424  98.2477 108.9546 0000928  92.9194 327.0802 14.57300770 69982",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:orbital/v20221101:Spacecraft CONTOSO_SAT /subscriptions/c1be1141-a7c9-4aac-9608-3c2e2f1152c3/resourceGroups/contoso-Rgp/providers/Microsoft.Orbital/spacecrafts/CONTOSO_SAT 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital/v20221101:Spacecraft")]
     public partial class Spacecraft : global::Pulumi.CustomResource

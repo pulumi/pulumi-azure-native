@@ -179,6 +179,43 @@ class AnalyticsConnector(pulumi.CustomResource):
         """
         Analytics Connector definition.
 
+        ## Example Usage
+        ### Create or update a Analytics Connectors Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        analytics_connector = azure_native.healthcareapis.v20221001preview.AnalyticsConnector("analyticsConnector",
+            analytics_connector_name="exampleconnector",
+            data_destination_configuration=azure_native.healthcareapis.v20221001preview.AnalyticsConnectorDataLakeDataDestinationResponseArgs(
+                data_lake_name="exampledatalake",
+                type="datalake",
+            ),
+            data_mapping_configuration=azure_native.healthcareapis.v20221001preview.AnalyticsConnectorFhirToParquetMappingResponseArgs(
+                extension_schema_reference="acrexample.azurecr.io/blah@sha256aaa/Extension",
+                filter_configuration_reference="acrexample.azurecr.io/blah@sha256xxx",
+                type="fhirToParquet",
+            ),
+            data_source_configuration=azure_native.healthcareapis.v20221001preview.AnalyticsConnectorFhirServiceDataSourceResponseArgs(
+                kind="R4",
+                type="fhirservice",
+                url="https://workspace-examplefhir.fhir.azurehealthcareapis.com",
+            ),
+            location="westus",
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20221001preview:AnalyticsConnector exampleconnector /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/analyticsconnectors/exampleconnector 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] analytics_connector_name: The name of Analytics Connector resource.
@@ -199,6 +236,43 @@ class AnalyticsConnector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Analytics Connector definition.
+
+        ## Example Usage
+        ### Create or update a Analytics Connectors Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        analytics_connector = azure_native.healthcareapis.v20221001preview.AnalyticsConnector("analyticsConnector",
+            analytics_connector_name="exampleconnector",
+            data_destination_configuration=azure_native.healthcareapis.v20221001preview.AnalyticsConnectorDataLakeDataDestinationResponseArgs(
+                data_lake_name="exampledatalake",
+                type="datalake",
+            ),
+            data_mapping_configuration=azure_native.healthcareapis.v20221001preview.AnalyticsConnectorFhirToParquetMappingResponseArgs(
+                extension_schema_reference="acrexample.azurecr.io/blah@sha256aaa/Extension",
+                filter_configuration_reference="acrexample.azurecr.io/blah@sha256xxx",
+                type="fhirToParquet",
+            ),
+            data_source_configuration=azure_native.healthcareapis.v20221001preview.AnalyticsConnectorFhirServiceDataSourceResponseArgs(
+                kind="R4",
+                type="fhirservice",
+                url="https://workspace-examplefhir.fhir.azurehealthcareapis.com",
+            ),
+            location="westus",
+            resource_group_name="testRG",
+            workspace_name="workspace1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:healthcareapis/v20221001preview:AnalyticsConnector exampleconnector /subscriptions/subid/resourceGroups/testRG/providers/Microsoft.HealthcareApis/workspaces/workspace1/analyticsconnectors/exampleconnector 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AnalyticsConnectorArgs args: The arguments to use to populate this resource's properties.

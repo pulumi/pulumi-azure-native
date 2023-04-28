@@ -13,6 +13,42 @@ namespace Pulumi.AzureNative.DocumentDB
     /// An Azure Cosmos DB Table.
     /// API Version: 2022-11-15.
     /// Previous API Version: 2021-03-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### CosmosDBTableReplace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var tableResourceTable = new AzureNative.DocumentDB.TableResourceTable("tableResourceTable", new()
+    ///     {
+    ///         AccountName = "ddb1",
+    ///         Location = "West US",
+    ///         Options = null,
+    ///         Resource = new AzureNative.DocumentDB.Inputs.TableResourceArgs
+    ///         {
+    ///             Id = "tableName",
+    ///         },
+    ///         ResourceGroupName = "rg1",
+    ///         TableName = "tableName",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:documentdb:TableResourceTable tableName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/ddb1/tables/tableName 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:documentdb:TableResourceTable")]
     public partial class TableResourceTable : global::Pulumi.CustomResource

@@ -96,6 +96,34 @@ class PrivateEndpoint(pulumi.CustomResource):
         """
         Complete information about the private endpoint.
 
+        ## Example Usage
+        ### Create a private endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint = azure_native.streamanalytics.v20200301preview.PrivateEndpoint("privateEndpoint",
+            cluster_name="testcluster",
+            private_endpoint_name="testpe",
+            properties=azure_native.streamanalytics.v20200301preview.PrivateEndpointPropertiesResponseArgs(
+                manual_private_link_service_connections=[azure_native.streamanalytics.v20200301preview.PrivateLinkServiceConnectionArgs(
+                    group_ids=["groupIdFromResource"],
+                    private_link_service_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+                )],
+            ),
+            resource_group_name="sjrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics/v20200301preview:PrivateEndpoint An Example Private Endpoint /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/sjrg/providers/Microsoft.StreamAnalytics/clusters/testcluster/privateEndpoints/AnExamplePrivateEndpoint 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_name: The name of the cluster.
@@ -111,6 +139,34 @@ class PrivateEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Complete information about the private endpoint.
+
+        ## Example Usage
+        ### Create a private endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        private_endpoint = azure_native.streamanalytics.v20200301preview.PrivateEndpoint("privateEndpoint",
+            cluster_name="testcluster",
+            private_endpoint_name="testpe",
+            properties=azure_native.streamanalytics.v20200301preview.PrivateEndpointPropertiesResponseArgs(
+                manual_private_link_service_connections=[azure_native.streamanalytics.v20200301preview.PrivateLinkServiceConnectionArgs(
+                    group_ids=["groupIdFromResource"],
+                    private_link_service_id="/subscriptions/subId/resourceGroups/rg1/providers/Microsoft.Network/privateLinkServices/testPls",
+                )],
+            ),
+            resource_group_name="sjrg")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:streamanalytics/v20200301preview:PrivateEndpoint An Example Private Endpoint /subscriptions/34adfa4f-cedf-4dc0-ba29-b6d1a69ab345/resourceGroups/sjrg/providers/Microsoft.StreamAnalytics/clusters/testcluster/privateEndpoints/AnExamplePrivateEndpoint 
+        ```
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointArgs args: The arguments to use to populate this resource's properties.

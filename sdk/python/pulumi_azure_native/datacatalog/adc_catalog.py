@@ -202,6 +202,43 @@ class ADCCatalog(pulumi.CustomResource):
         API Version: 2016-03-30.
         Previous API Version: 2016-03-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### Create Azure Data Catalog Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adc_catalog = azure_native.datacatalog.ADCCatalog("adcCatalog",
+            admins=[azure_native.datacatalog.PrincipalsArgs(
+                object_id="99999999-9999-9999-999999999999",
+                upn="myupn@microsoft.com",
+            )],
+            catalog_name="exampleCatalog",
+            enable_automatic_unit_adjustment=False,
+            location="North US",
+            resource_group_name="exampleResourceGroup",
+            sku="Standard",
+            tags={
+                "mykey": "myvalue",
+                "mykey2": "myvalue2",
+            },
+            units=1,
+            users=[azure_native.datacatalog.PrincipalsArgs(
+                object_id="99999999-9999-9999-999999999999",
+                upn="myupn@microsoft.com",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datacatalog:ADCCatalog exampleCatalog /subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataCatalog/catalogs/exampleCatalog 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PrincipalsArgs']]]] admins: Azure data catalog admin list.
@@ -225,6 +262,43 @@ class ADCCatalog(pulumi.CustomResource):
         Azure Data Catalog.
         API Version: 2016-03-30.
         Previous API Version: 2016-03-30. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### Create Azure Data Catalog Service
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        adc_catalog = azure_native.datacatalog.ADCCatalog("adcCatalog",
+            admins=[azure_native.datacatalog.PrincipalsArgs(
+                object_id="99999999-9999-9999-999999999999",
+                upn="myupn@microsoft.com",
+            )],
+            catalog_name="exampleCatalog",
+            enable_automatic_unit_adjustment=False,
+            location="North US",
+            resource_group_name="exampleResourceGroup",
+            sku="Standard",
+            tags={
+                "mykey": "myvalue",
+                "mykey2": "myvalue2",
+            },
+            units=1,
+            users=[azure_native.datacatalog.PrincipalsArgs(
+                object_id="99999999-9999-9999-999999999999",
+                upn="myupn@microsoft.com",
+            )])
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:datacatalog:ADCCatalog exampleCatalog /subscriptions/12345678-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataCatalog/catalogs/exampleCatalog 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ADCCatalogArgs args: The arguments to use to populate this resource's properties.

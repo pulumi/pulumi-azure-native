@@ -10,6 +10,39 @@ import * as utilities from "../../utilities";
 /**
  * disk encryption set resource.
  *
+ * ## Example Usage
+ * ### Create a disk encryption set.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const diskEncryptionSet = new azure_native.compute.v20200630.DiskEncryptionSet("diskEncryptionSet", {
+ *     activeKey: {
+ *         keyUrl: "https://myvmvault.vault-int.azure-int.net/keys/{key}",
+ *         sourceVault: {
+ *             id: "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.KeyVault/vaults/myVMVault",
+ *         },
+ *     },
+ *     diskEncryptionSetName: "myDiskEncryptionSet",
+ *     encryptionType: "EncryptionAtRestWithCustomerKey",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ *     location: "West US",
+ *     resourceGroupName: "myResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:compute/v20200630:DiskEncryptionSet myDiskEncryptionSet /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName} 
+ * ```
+ *
  * @deprecated Version 2020-06-30 will be removed in v2 of the provider.
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {

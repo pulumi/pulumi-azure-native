@@ -9,6 +9,145 @@ import * as utilities from "../../utilities";
 
 /**
  * An elastic pool.
+ *
+ * ## Example Usage
+ * ### Create or Update an elastic pool with Availability Zone
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticPool = new azure_native.sql.v20220801preview.ElasticPool("elasticPool", {
+ *     availabilityZone: "1",
+ *     elasticPoolName: "sqlcrudtest-8102",
+ *     location: "Japan East",
+ *     perDatabaseSettings: {
+ *         maxCapacity: 2,
+ *         minCapacity: 0.25,
+ *     },
+ *     resourceGroupName: "sqlcrudtest-2369",
+ *     serverName: "sqlcrudtest-8069",
+ *     sku: {
+ *         name: "HS_Gen5_4",
+ *     },
+ *     zoneRedundant: true,
+ * });
+ *
+ * ```
+ * ### Create or update Hyperscale elastic pool with high availability replica count parameter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticPool = new azure_native.sql.v20220801preview.ElasticPool("elasticPool", {
+ *     elasticPoolName: "sqlcrudtest-8102",
+ *     highAvailabilityReplicaCount: 2,
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-2369",
+ *     serverName: "sqlcrudtest-8069",
+ *     sku: {
+ *         name: "HS_Gen5_4",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update elastic pool with all parameter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticPool = new azure_native.sql.v20220801preview.ElasticPool("elasticPool", {
+ *     elasticPoolName: "sqlcrudtest-8102",
+ *     location: "Japan East",
+ *     perDatabaseSettings: {
+ *         maxCapacity: 2,
+ *         minCapacity: 0.25,
+ *     },
+ *     resourceGroupName: "sqlcrudtest-2369",
+ *     serverName: "sqlcrudtest-8069",
+ *     sku: {
+ *         capacity: 2,
+ *         name: "GP_Gen4_2",
+ *         tier: "GeneralPurpose",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update elastic pool with maintenance configuration parameter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticPool = new azure_native.sql.v20220801preview.ElasticPool("elasticPool", {
+ *     elasticPoolName: "sqlcrudtest-8102",
+ *     location: "Japan East",
+ *     maintenanceConfigurationId: "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Maintenance/publicMaintenanceConfigurations/SQL_JapanEast_1",
+ *     resourceGroupName: "sqlcrudtest-2369",
+ *     serverName: "sqlcrudtest-8069",
+ * });
+ *
+ * ```
+ * ### Create or update elastic pool with minimum parameters
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticPool = new azure_native.sql.v20220801preview.ElasticPool("elasticPool", {
+ *     elasticPoolName: "sqlcrudtest-8102",
+ *     location: "Japan East",
+ *     resourceGroupName: "sqlcrudtest-2369",
+ *     serverName: "sqlcrudtest-8069",
+ * });
+ *
+ * ```
+ * ### Create or update elastic pool with preferred enclave type parameter as Default
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticPool = new azure_native.sql.v20220801preview.ElasticPool("elasticPool", {
+ *     elasticPoolName: "sqlcrudtest-8102",
+ *     location: "Japan East",
+ *     preferredEnclaveType: "Default",
+ *     resourceGroupName: "sqlcrudtest-2369",
+ *     serverName: "sqlcrudtest-8069",
+ *     sku: {
+ *         name: "GP_Gen5_4",
+ *     },
+ * });
+ *
+ * ```
+ * ### Create or update elastic pool with preferred enclave type parameter as VBS
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const elasticPool = new azure_native.sql.v20220801preview.ElasticPool("elasticPool", {
+ *     elasticPoolName: "sqlcrudtest-8102",
+ *     location: "Japan East",
+ *     preferredEnclaveType: "VBS",
+ *     resourceGroupName: "sqlcrudtest-2369",
+ *     serverName: "sqlcrudtest-8069",
+ *     sku: {
+ *         name: "GP_Gen5_4",
+ *     },
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:sql/v20220801preview:ElasticPool sqlcrudtest-8102 /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/sqlcrudtest-2369/providers/Microsoft.Sql/servers/sqlcrudtest-8069/elasticPools/sqlcrudtest-8102 
+ * ```
  */
 export class ElasticPool extends pulumi.CustomResource {
     /**

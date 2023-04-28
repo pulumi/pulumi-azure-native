@@ -201,6 +201,35 @@ class NotificationChannel(pulumi.CustomResource):
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
 
+        ## Example Usage
+        ### NotificationChannels_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_channel = azure_native.devtestlab.NotificationChannel("notificationChannel",
+            description="Integration configured for auto-shutdown",
+            email_recipient="{email}",
+            events=[azure_native.devtestlab.EventArgs(
+                event_name="AutoShutdown",
+            )],
+            lab_name="{labName}",
+            name="{notificationChannelName}",
+            notification_locale="en",
+            resource_group_name="resourceGroupName",
+            web_hook_url="{webhookUrl}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:NotificationChannel {notificationChannelName} /subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/notificationChannels/{notificationChannelName} 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of notification.
@@ -224,6 +253,35 @@ class NotificationChannel(pulumi.CustomResource):
         A notification.
         API Version: 2018-09-15.
         Previous API Version: 2018-09-15. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+
+        ## Example Usage
+        ### NotificationChannels_CreateOrUpdate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        notification_channel = azure_native.devtestlab.NotificationChannel("notificationChannel",
+            description="Integration configured for auto-shutdown",
+            email_recipient="{email}",
+            events=[azure_native.devtestlab.EventArgs(
+                event_name="AutoShutdown",
+            )],
+            lab_name="{labName}",
+            name="{notificationChannelName}",
+            notification_locale="en",
+            resource_group_name="resourceGroupName",
+            web_hook_url="{webhookUrl}")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:devtestlab:NotificationChannel {notificationChannelName} /subscriptions/{subscriptionId}/resourceGroups/resourceGroupName/providers/Microsoft.DevTestLab/labs/{labName}/notificationChannels/{notificationChannelName} 
+        ```
 
         :param str resource_name: The name of the resource.
         :param NotificationChannelArgs args: The arguments to use to populate this resource's properties.

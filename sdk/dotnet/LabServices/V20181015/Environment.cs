@@ -11,6 +11,13 @@ namespace Pulumi.AzureNative.LabServices.V20181015
 {
     /// <summary>
     /// Represents an environment instance
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:labservices/v20181015:Environment myresource1 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labaccounts/{labAccountName}/labs/{labName}/environmentsettings/{environmentSettingName}/environments/{environmentName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:labservices/v20181015:Environment")]
     public partial class Environment : global::Pulumi.CustomResource

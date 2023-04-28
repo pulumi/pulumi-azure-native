@@ -10,6 +10,37 @@ import * as utilities from "../../utilities";
 /**
  * The File Share.
  *
+ * ## Example Usage
+ * ### FileSharesCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const fileShare = new azure_native.storsimple.v20161001.FileShare("fileShare", {
+ *     adminUser: "fareast\\idcdlslb",
+ *     dataPolicy: azure_native.storsimple.v20161001.DataPolicy.Tiered,
+ *     description: "Demo FileShare for SDK Test Tiered",
+ *     deviceName: "HSDK-4XY4FI2IVG",
+ *     fileServerName: "HSDK-4XY4FI2IVG",
+ *     managerName: "hAzureSDKOperations",
+ *     monitoringStatus: azure_native.storsimple.v20161001.MonitoringStatus.Enabled,
+ *     provisionedCapacityInBytes: 536870912000,
+ *     resourceGroupName: "ResourceGroupForSDKTest",
+ *     shareName: "Auto-TestFileShare1",
+ *     shareStatus: azure_native.storsimple.v20161001.ShareStatus.Online,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:storsimple/v20161001:FileShare Auto-TestFileShare1 /subscriptions/9eb689cd-7243-43b4-b6f6-5c65cb296641/resourceGroups/ResourceGroupForSDKTest/providers/Microsoft.StorSimple/managers/hAzureSDKOperations/devices/hsdk-4xy4fi2ivg/fileServers/HSDK-4XY4FI2IVG/shares/Auto-TestFileShare1 
+ * ```
+ *
  * @deprecated Version 2016-10-01 will be removed in v2 of the provider.
  */
 export class FileShare extends pulumi.CustomResource {

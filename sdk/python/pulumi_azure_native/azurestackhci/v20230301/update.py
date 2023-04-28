@@ -369,6 +369,47 @@ class Update(pulumi.CustomResource):
         """
         Update details
 
+        ## Example Usage
+        ### Put a specific update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        update = azure_native.azurestackhci.v20230301.Update("update",
+            additional_properties="additional properties",
+            availability_type="Local",
+            cluster_name="testcluster",
+            description="AzS Update 4.2203.2.32",
+            display_name="AzS Update - 4.2203.2.32",
+            installed_date="2022-04-06T14:08:18.254Z",
+            notify_message="Brief message with instructions for updates of AvailabilityType Notify",
+            package_path="\\\\\\\\SU1FileServer\\\\SU1_Infrastructure_2\\\\Updates\\\\Packages\\\\Microsoft4.2203.2.32",
+            package_size_in_mb=18858,
+            package_type="Infrastructure",
+            prerequisites=[azure_native.azurestackhci.v20230301.UpdatePrerequisiteArgs(
+                package_name="update package name",
+                update_type="update type",
+                version="prerequisite version",
+            )],
+            progress_percentage=0,
+            publisher="Microsoft",
+            release_link="https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2203",
+            resource_group_name="testrg",
+            state="Installed",
+            update_name="Microsoft4.2203.2.32",
+            version="4.2203.2.32")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20230301:Update Microsoft4.2203.2.32 /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updates/Microsoft4.2203.2.32 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] additional_properties: Extensible KV pairs serialized as a string. This is currently used to report the stamp OEM family and hardware model information when an update is flagged as Invalid for the stamp based on OEM type.
@@ -400,6 +441,47 @@ class Update(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Update details
+
+        ## Example Usage
+        ### Put a specific update
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        update = azure_native.azurestackhci.v20230301.Update("update",
+            additional_properties="additional properties",
+            availability_type="Local",
+            cluster_name="testcluster",
+            description="AzS Update 4.2203.2.32",
+            display_name="AzS Update - 4.2203.2.32",
+            installed_date="2022-04-06T14:08:18.254Z",
+            notify_message="Brief message with instructions for updates of AvailabilityType Notify",
+            package_path="\\\\\\\\SU1FileServer\\\\SU1_Infrastructure_2\\\\Updates\\\\Packages\\\\Microsoft4.2203.2.32",
+            package_size_in_mb=18858,
+            package_type="Infrastructure",
+            prerequisites=[azure_native.azurestackhci.v20230301.UpdatePrerequisiteArgs(
+                package_name="update package name",
+                update_type="update type",
+                version="prerequisite version",
+            )],
+            progress_percentage=0,
+            publisher="Microsoft",
+            release_link="https://docs.microsoft.com/azure-stack/operator/release-notes?view=azs-2203",
+            resource_group_name="testrg",
+            state="Installed",
+            update_name="Microsoft4.2203.2.32",
+            version="4.2203.2.32")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:azurestackhci/v20230301:Update Microsoft4.2203.2.32 /subscriptions/b8d594e5-51f3-4c11-9c54-a7771b81c712/resourceGroups/testrg/providers/Microsoft.AzureStackHCI/clusters/testcluster/updates/Microsoft4.2203.2.32 
+        ```
 
         :param str resource_name: The name of the resource.
         :param UpdateArgs args: The arguments to use to populate this resource's properties.

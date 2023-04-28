@@ -11,6 +11,52 @@ namespace Pulumi.AzureNative.AVS.V20211201
 {
     /// <summary>
     /// A vSphere Distributed Resource Scheduler (DRS) placement policy
+    /// 
+    /// ## Example Usage
+    /// ### PlacementPolicies_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var placementPolicy = new AzureNative.AVS.V20211201.PlacementPolicy("placementPolicy", new()
+    ///     {
+    ///         ClusterName = "cluster1",
+    ///         PlacementPolicyName = "policy1",
+    ///         PrivateCloudName = "cloud1",
+    ///         Properties = new AzureNative.AVS.V20211201.Inputs.VmHostPlacementPolicyPropertiesArgs
+    ///         {
+    ///             AffinityType = "AntiAffinity",
+    ///             HostMembers = new[]
+    ///             {
+    ///                 "fakehost22.nyc1.kubernetes.center",
+    ///                 "fakehost23.nyc1.kubernetes.center",
+    ///                 "fakehost24.nyc1.kubernetes.center",
+    ///             },
+    ///             Type = "VmHost",
+    ///             VmMembers = new[]
+    ///             {
+    ///                 "/subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-128",
+    ///                 "/subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/virtualMachines/vm-256",
+    ///             },
+    ///         },
+    ///         ResourceGroupName = "group1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:avs/v20211201:PlacementPolicy policy1 /subscriptions/{subscription-id}/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/cloud1/clusters/cluster1/placementPolicies/policy1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:avs/v20211201:PlacementPolicy")]
     public partial class PlacementPolicy : global::Pulumi.CustomResource

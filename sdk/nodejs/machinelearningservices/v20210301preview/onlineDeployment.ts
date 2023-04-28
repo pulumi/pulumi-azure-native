@@ -7,6 +7,155 @@ import * as outputs from "../../types/output";
 import * as enums from "../../types/enums";
 import * as utilities from "../../utilities";
 
+/**
+ * ## Example Usage
+ * ### CreateOrUpdate K8S Online Deployment.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const onlineDeployment = new azure_native.machinelearningservices.v20210301preview.OnlineDeployment("onlineDeployment", {
+ *     deploymentName: "testDeployment",
+ *     endpointName: "testEndpoint",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuseridentity": {
+ *                 clientId: "string",
+ *                 principalId: "string",
+ *             },
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     properties: {
+ *         appInsightsEnabled: true,
+ *         codeConfiguration: {
+ *             codeId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/code123/versions/1",
+ *             scoringScript: "string",
+ *         },
+ *         containerResourceRequirements: {
+ *             cpu: 4,
+ *             cpuLimit: 4,
+ *             memoryInGB: 64,
+ *             memoryInGBLimit: 64,
+ *         },
+ *         description: "string",
+ *         endpointComputeType: "K8S",
+ *         environmentId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/env123",
+ *         livenessProbe: {
+ *             failureThreshold: 50,
+ *             initialDelay: "PT1M",
+ *             period: "PT1M",
+ *             successThreshold: 50,
+ *             timeout: "PT1M",
+ *         },
+ *         model: {
+ *             assetId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/models/model123",
+ *             referenceType: "Id",
+ *         },
+ *         properties: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         requestSettings: {
+ *             maxConcurrentRequestsPerInstance: 5,
+ *             maxQueueWait: "PT1M",
+ *             requestTimeout: "PT1M",
+ *         },
+ *         scaleSettings: {
+ *             pollingInterval: "PT1M",
+ *             scaleType: "Auto",
+ *             targetUtilizationPercentage: 50,
+ *         },
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     tags: {
+ *         additionalProp1: "string",
+ *         additionalProp2: "string",
+ *         additionalProp3: "string",
+ *     },
+ *     workspaceName: "workspace123",
+ * });
+ *
+ * ```
+ * ### CreateOrUpdate Managed Online Deployment.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const onlineDeployment = new azure_native.machinelearningservices.v20210301preview.OnlineDeployment("onlineDeployment", {
+ *     deploymentName: "testDeployment",
+ *     endpointName: "testEndpoint",
+ *     identity: {
+ *         type: "UserAssigned",
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuseridentity": {
+ *                 clientId: "string",
+ *                 principalId: "string",
+ *             },
+ *         },
+ *     },
+ *     kind: "string",
+ *     location: "string",
+ *     properties: {
+ *         appInsightsEnabled: true,
+ *         codeConfiguration: {
+ *             codeId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/codes/code123/versions/1",
+ *             scoringScript: "string",
+ *         },
+ *         description: "string",
+ *         endpointComputeType: "Managed",
+ *         environmentId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/environments/env123",
+ *         livenessProbe: {
+ *             failureThreshold: 50,
+ *             initialDelay: "PT1M",
+ *             period: "PT1M",
+ *             successThreshold: 50,
+ *             timeout: "PT1M",
+ *         },
+ *         model: {
+ *             assetId: "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/models/model123",
+ *             referenceType: "Id",
+ *         },
+ *         properties: {
+ *             additionalProp1: "string",
+ *             additionalProp2: "string",
+ *             additionalProp3: "string",
+ *         },
+ *         requestSettings: {
+ *             maxConcurrentRequestsPerInstance: 5,
+ *             maxQueueWait: "PT1M",
+ *             requestTimeout: "PT1M",
+ *         },
+ *         scaleSettings: {
+ *             pollingInterval: "PT1M",
+ *             scaleType: "Auto",
+ *             targetUtilizationPercentage: 50,
+ *         },
+ *     },
+ *     resourceGroupName: "testrg123",
+ *     tags: {
+ *         additionalProp1: "string",
+ *         additionalProp2: "string",
+ *         additionalProp3: "string",
+ *     },
+ *     workspaceName: "workspace123",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:machinelearningservices/v20210301preview:OnlineDeployment testDeployment /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/testrg123/providers/Microsoft.MachineLearningServices/workspaces/testworkspace/onlineEndpoints/testEndpoint/deployments/testDeployment 
+ * ```
+ */
 export class OnlineDeployment extends pulumi.CustomResource {
     /**
      * Get an existing OnlineDeployment resource's state with the given name, ID, and optional extra

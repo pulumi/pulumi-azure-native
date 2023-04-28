@@ -9,6 +9,16 @@ import * as utilities from "../../utilities";
 
 /**
  * Pipeline resource type.
+ *
+ * ## Example Usage
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datafactory/v20180601:Pipeline examplePipeline /subscriptions/12345678-1234-1234-1234-12345678abc/resourceGroups/exampleResourceGroup/providers/Microsoft.DataFactory/factories/exampleFactoryName/pipelines/examplePipeline 
+ * ```
  */
 export class Pipeline extends pulumi.CustomResource {
     /**

@@ -11,6 +11,79 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
 {
     /// <summary>
     /// An object that represents a machine learning workspace.
+    /// 
+    /// ## Example Usage
+    /// ### Create Workspace
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspace = new AzureNative.MachineLearningServices.V20220101Preview.Workspace("workspace", new()
+    ///     {
+    ///         ApplicationInsights = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/microsoft.insights/components/testinsights",
+    ///         ContainerRegistry = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ContainerRegistry/registries/testRegistry",
+    ///         Description = "test description",
+    ///         Encryption = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.EncryptionPropertyArgs
+    ///         {
+    ///             CosmosDbResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.DocumentDb/databaseAccounts/byo-cosmosdb",
+    ///             Identity = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.IdentityForCmkArgs
+    ///             {
+    ///                 UserAssignedIdentity = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testuai",
+    ///             },
+    ///             KeyVaultProperties = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.KeyVaultPropertiesArgs
+    ///             {
+    ///                 IdentityClientId = "",
+    ///                 KeyIdentifier = "https://testkv.vault.azure.net/keys/testkey/aabbccddee112233445566778899aabb",
+    ///                 KeyVaultArmId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+    ///             },
+    ///             SearchAccountResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.Search/searchServices/byo-search",
+    ///             Status = "Enabled",
+    ///             StorageAccountResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.Storage/storageAccounts/byostorage",
+    ///         },
+    ///         FriendlyName = "HelloName",
+    ///         HbiWorkspace = false,
+    ///         Identity = new AzureNative.MachineLearningServices.V20220101Preview.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.MachineLearningServices.V20220101Preview.ResourceIdentityType.SystemAssigned_UserAssigned,
+    ///             UserAssignedIdentities = 
+    ///             {
+    ///                 { "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testuai", null },
+    ///             },
+    ///         },
+    ///         KeyVault = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.KeyVault/vaults/testkv",
+    ///         Location = "eastus2euap",
+    ///         ResourceGroupName = "workspace-1234",
+    ///         SharedPrivateLinkResources = new[]
+    ///         {
+    ///             new AzureNative.MachineLearningServices.V20220101Preview.Inputs.SharedPrivateLinkResourceArgs
+    ///             {
+    ///                 GroupId = "Sql",
+    ///                 Name = "testdbresource",
+    ///                 PrivateLinkResourceId = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.DocumentDB/databaseAccounts/testdbresource/privateLinkResources/Sql",
+    ///                 RequestMessage = "Please approve",
+    ///                 Status = "Approved",
+    ///             },
+    ///         },
+    ///         SoftDeleteEnabled = "True",
+    ///         StorageAccount = "/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/accountcrud-1234/providers/Microsoft.Storage/storageAccounts/testStorageAccount",
+    ///         WorkspaceName = "testworkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:machinelearningservices/v20220101preview:Workspace testworkspace /subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/workspace-1234/providers/Microsoft.MachineLearningServices/workspaces/testworkspace 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices/v20220101preview:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource

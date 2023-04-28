@@ -6,6 +6,31 @@ import * as utilities from "../../utilities";
 
 /**
  * A workspace key
+ *
+ * ## Example Usage
+ * ### Create or update a workspace key
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const key = new azure_native.synapse.v20210601preview.Key("key", {
+ *     isActiveCMK: true,
+ *     keyName: "somekey",
+ *     keyVaultUrl: "https://vault.azure.net/keys/somesecret",
+ *     resourceGroupName: "ExampleResourceGroup",
+ *     workspaceName: "ExampleWorkspace",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:synapse/v20210601preview:Key somekey /subscriptions/01234567-89ab-4def-0123-456789abcdef/resourceGroups/ExampleResourceGroup/providers/Microsoft.Synapse/workspaces/ExampleWorkspace/keys/somekey 
+ * ```
  */
 export class Key extends pulumi.CustomResource {
     /**

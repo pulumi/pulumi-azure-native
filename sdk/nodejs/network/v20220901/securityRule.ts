@@ -9,6 +9,37 @@ import * as utilities from "../../utilities";
 
 /**
  * Network security rule.
+ *
+ * ## Example Usage
+ * ### Create security rule
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const securityRule = new azure_native.network.v20220901.SecurityRule("securityRule", {
+ *     access: "Deny",
+ *     destinationAddressPrefix: "11.0.0.0/8",
+ *     destinationPortRange: "8080",
+ *     direction: "Outbound",
+ *     networkSecurityGroupName: "testnsg",
+ *     priority: 100,
+ *     protocol: "*",
+ *     resourceGroupName: "rg1",
+ *     securityRuleName: "rule1",
+ *     sourceAddressPrefix: "10.0.0.0/8",
+ *     sourcePortRange: "*",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network/v20220901:SecurityRule rule1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/rule1 
+ * ```
  */
 export class SecurityRule extends pulumi.CustomResource {
     /**

@@ -11,6 +11,35 @@ import * as utilities from "../utilities";
  * Route Filter Rule Resource.
  * API Version: 2022-09-01.
  * Previous API Version: 2020-11-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### RouteFilterRuleCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const routeFilterRule = new azure_native.network.RouteFilterRule("routeFilterRule", {
+ *     access: "Allow",
+ *     communities: [
+ *         "12076:5030",
+ *         "12076:5040",
+ *     ],
+ *     resourceGroupName: "rg1",
+ *     routeFilterName: "filterName",
+ *     routeFilterRuleType: "Community",
+ *     ruleName: "ruleName",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:network:RouteFilterRule ruleName /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/routeFilters/filterName/routeFilterRules/ruleName 
+ * ```
  */
 export class RouteFilterRule extends pulumi.CustomResource {
     /**

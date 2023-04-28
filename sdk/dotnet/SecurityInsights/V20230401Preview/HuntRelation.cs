@@ -11,6 +11,41 @@ namespace Pulumi.AzureNative.SecurityInsights.V20230401Preview
 {
     /// <summary>
     /// Represents a Hunt Relation in Azure Security Insights.
+    /// 
+    /// ## Example Usage
+    /// ### Creates or updates a hunt relation.
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var huntRelation = new AzureNative.SecurityInsights.V20230401Preview.HuntRelation("huntRelation", new()
+    ///     {
+    ///         HuntId = "163e7b2a-a2ec-4041-aaba-d878a38f265f",
+    ///         HuntRelationId = "2216d0e1-91e3-4902-89fd-d2df8c535096",
+    ///         Labels = new[]
+    ///         {
+    ///             "Test Label",
+    ///         },
+    ///         RelatedResourceId = "/subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/Bookmarks/2216d0e1-91e3-4902-89fd-d2df8c535096",
+    ///         ResourceGroupName = "myRg",
+    ///         WorkspaceName = "myWorkspace",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:securityinsights/v20230401preview:HuntRelation 2216d0e1-91e3-4902-89fd-d2df8c535096 /subscriptions/bd794837-4d29-4647-9105-6339bfdb4e6a/resourceGroups/mms-eus/providers/Microsoft.OperationalInsights/workspaces/avdvirint/providers/Microsoft.SecurityInsights/hunts/163e7b2a-a2ec-4041-aaba-d878a38f265f/relations/2216d0e1-91e3-4902-89fd-d2df8c535096 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:securityinsights/v20230401preview:HuntRelation")]
     public partial class HuntRelation : global::Pulumi.CustomResource

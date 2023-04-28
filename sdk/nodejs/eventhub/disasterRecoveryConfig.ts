@@ -11,6 +11,30 @@ import * as utilities from "../utilities";
  * Single item in List or Get Alias(Disaster Recovery configuration) operation
  * API Version: 2021-11-01.
  * Previous API Version: 2017-04-01. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+ *
+ * ## Example Usage
+ * ### EHAliasCreate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const disasterRecoveryConfig = new azure_native.eventhub.DisasterRecoveryConfig("disasterRecoveryConfig", {
+ *     alias: "sdk-DisasterRecovery-3814",
+ *     namespaceName: "sdk-Namespace-8859",
+ *     partnerNamespace: "sdk-Namespace-37",
+ *     resourceGroupName: "exampleResourceGroup",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:eventhub:DisasterRecoveryConfig sdk-DisasterRecovery-3814 /subscriptions/exampleResourceGroup/resourceGroups/exampleResourceGroup/providers/Microsoft.EventHub/namespaces/sdk-Namespace-8859/disasterRecoveryConfig/sdk-DisasterRecovery-3814 
+ * ```
  */
 export class DisasterRecoveryConfig extends pulumi.CustomResource {
     /**

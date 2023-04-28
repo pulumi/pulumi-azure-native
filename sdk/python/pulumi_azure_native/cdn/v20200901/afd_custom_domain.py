@@ -130,6 +130,36 @@ class AFDCustomDomain(pulumi.CustomResource):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 
+        ## Example Usage
+        ### AFDCustomDomains_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_custom_domain = azure_native.cdn.v20200901.AFDCustomDomain("afdCustomDomain",
+            azure_dns_zone=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="",
+            ),
+            custom_domain_name="domain1",
+            host_name="www.someDomain.net",
+            profile_name="profile1",
+            resource_group_name="RG",
+            tls_settings=azure_native.cdn.v20200901.AFDDomainHttpsParametersResponseArgs(
+                certificate_type="ManagedCertificate",
+                minimum_tls_version=azure_native.cdn/v20200901.AfdMinimumTlsVersion.TLS12,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:AFDCustomDomain domain1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/domains/domain1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] azure_dns_zone: Resource reference to the Azure DNS zone
@@ -147,6 +177,36 @@ class AFDCustomDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
+
+        ## Example Usage
+        ### AFDCustomDomains_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        afd_custom_domain = azure_native.cdn.v20200901.AFDCustomDomain("afdCustomDomain",
+            azure_dns_zone=azure_native.cdn.v20200901.ResourceReferenceArgs(
+                id="",
+            ),
+            custom_domain_name="domain1",
+            host_name="www.someDomain.net",
+            profile_name="profile1",
+            resource_group_name="RG",
+            tls_settings=azure_native.cdn.v20200901.AFDDomainHttpsParametersResponseArgs(
+                certificate_type="ManagedCertificate",
+                minimum_tls_version=azure_native.cdn/v20200901.AfdMinimumTlsVersion.TLS12,
+            ))
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:cdn/v20200901:AFDCustomDomain domain1 /subscriptions/subid/resourcegroups/RG/providers/Microsoft.Cdn/profiles/profile1/domains/domain1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param AFDCustomDomainArgs args: The arguments to use to populate this resource's properties.

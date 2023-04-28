@@ -11,6 +11,40 @@ namespace Pulumi.AzureNative.OperationalInsights.V20151101Preview
 {
     /// <summary>
     /// Datasources under OMS Workspace.
+    /// 
+    /// ## Example Usage
+    /// ### DataSourcesCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var dataSource = new AzureNative.OperationalInsights.V20151101Preview.DataSource("dataSource", new()
+    ///     {
+    ///         DataSourceName = "AzTestDS774",
+    ///         Kind = "AzureActivityLog",
+    ///         Properties = 
+    ///         {
+    ///             { "LinkedResourceId", "/subscriptions/00000000-0000-0000-0000-00000000000/providers/microsoft.insights/eventtypes/management" },
+    ///         },
+    ///         ResourceGroupName = "OIAutoRest5123",
+    ///         WorkspaceName = "AzTest9724",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:operationalinsights/v20151101preview:DataSource AzTestDS774 /subscriptions/00000000-0000-0000-0000-000000000005/resourceGroups/OIAutoRest5123/providers/Microsoft.OperationalInsights/workspaces/AzTest9724/datasources/AzTestDS774 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:operationalinsights/v20151101preview:DataSource")]
     public partial class DataSource : global::Pulumi.CustomResource

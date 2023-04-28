@@ -7,6 +7,30 @@ import * as utilities from "../../utilities";
 /**
  * A share subscription data transfer object.
  *
+ * ## Example Usage
+ * ### ShareSubscriptions_Create
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const shareSubscription = new azure_native.datashare.v20181101preview.ShareSubscription("shareSubscription", {
+ *     accountName: "Account1",
+ *     invitationId: "12345678-1234-1234-12345678abd",
+ *     resourceGroupName: "SampleResourceGroup",
+ *     shareSubscriptionName: "ShareSubscription1",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:datashare/v20181101preview:ShareSubscription ShareSubscription1 /subscriptions/433a8dfd-e5d5-4e77-ad86-90acdc75eb1a/resourceGroups/SampleResourceGroup/providers/Microsoft.DataShare/accounts/Account1/sharesubscriptions/ShareSubscription1 
+ * ```
+ *
  * @deprecated Version 2018-11-01-preview will be removed in v2 of the provider.
  */
 export class ShareSubscription extends pulumi.CustomResource {

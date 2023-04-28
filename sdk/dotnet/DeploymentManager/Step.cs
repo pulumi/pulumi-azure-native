@@ -13,6 +13,145 @@ namespace Pulumi.AzureNative.DeploymentManager
     /// The resource representation of a rollout step.
     /// API Version: 2019-11-01-preview.
     /// Previous API Version: 2019-11-01-preview. See https://github.com/pulumi/pulumi-azure-native/discussions/TODO for information on migrating from v1 to v2 of the provider.
+    /// 
+    /// ## Example Usage
+    /// ### Create health check step
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var step = new AzureNative.DeploymentManager.Step("step", new()
+    ///     {
+    ///         Location = "centralus",
+    ///         Properties = new AzureNative.DeploymentManager.Inputs.HealthCheckStepPropertiesArgs
+    ///         {
+    ///             Attributes = new AzureNative.DeploymentManager.Inputs.RestHealthCheckStepAttributesArgs
+    ///             {
+    ///                 HealthChecks = new[]
+    ///                 {
+    ///                     new AzureNative.DeploymentManager.Inputs.RestHealthCheckArgs
+    ///                     {
+    ///                         Name = "appHealth",
+    ///                         Request = new AzureNative.DeploymentManager.Inputs.RestRequestArgs
+    ///                         {
+    ///                             Authentication = new AzureNative.DeploymentManager.Inputs.ApiKeyAuthenticationArgs
+    ///                             {
+    ///                                 In = AzureNative.DeploymentManager.RestAuthLocation.Query,
+    ///                                 Name = "Code",
+    ///                                 Type = "ApiKey",
+    ///                                 Value = "NBCapiMOBQyAAbCkeytoPadnvO0eGHmidwFz5rXpappznKp3Jt7LLg==",
+    ///                             },
+    ///                             Method = AzureNative.DeploymentManager.RestRequestMethod.GET,
+    ///                             Uri = "https://resthealth.healthservice.com/api/applications/contosoApp/healthStatus",
+    ///                         },
+    ///                         Response = new AzureNative.DeploymentManager.Inputs.RestResponseArgs
+    ///                         {
+    ///                             Regex = new AzureNative.DeploymentManager.Inputs.RestResponseRegexArgs
+    ///                             {
+    ///                                 MatchQuantifier = AzureNative.DeploymentManager.RestMatchQuantifier.All,
+    ///                                 Matches = new[]
+    ///                                 {
+    ///                                     "(?i)Contoso-App",
+    ///                                     @"(?i)""health_status"":((.|
+    /// )*)""(green|yellow)""",
+    ///                                     "(?mi)^(\"application_host\": 94781052)$",
+    ///                                 },
+    ///                             },
+    ///                             SuccessStatusCodes = new[]
+    ///                             {
+    ///                                 "OK",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     new AzureNative.DeploymentManager.Inputs.RestHealthCheckArgs
+    ///                     {
+    ///                         Name = "serviceHealth",
+    ///                         Request = new AzureNative.DeploymentManager.Inputs.RestRequestArgs
+    ///                         {
+    ///                             Authentication = new AzureNative.DeploymentManager.Inputs.ApiKeyAuthenticationArgs
+    ///                             {
+    ///                                 In = AzureNative.DeploymentManager.RestAuthLocation.Header,
+    ///                                 Name = "code",
+    ///                                 Type = "ApiKey",
+    ///                                 Value = "NBCapiMOBQyAAbCkeytoPadnvO0eGHmidwFz5rXpappznKp3Jt7LLg==",
+    ///                             },
+    ///                             Method = AzureNative.DeploymentManager.RestRequestMethod.GET,
+    ///                             Uri = "https://resthealth.healthservice.com/api/services/contosoService/healthStatus",
+    ///                         },
+    ///                         Response = new AzureNative.DeploymentManager.Inputs.RestResponseArgs
+    ///                         {
+    ///                             Regex = new AzureNative.DeploymentManager.Inputs.RestResponseRegexArgs
+    ///                             {
+    ///                                 MatchQuantifier = AzureNative.DeploymentManager.RestMatchQuantifier.All,
+    ///                                 Matches = new[]
+    ///                                 {
+    ///                                     "(?i)Contoso-Service-EndToEnd",
+    ///                                     @"(?i)""health_status"":((.|
+    /// )*)""(green)""",
+    ///                                 },
+    ///                             },
+    ///                             SuccessStatusCodes = new[]
+    ///                             {
+    ///                                 "OK",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 HealthyStateDuration = "PT2H",
+    ///                 MaxElasticDuration = "PT30M",
+    ///                 Type = "REST",
+    ///                 WaitDuration = "PT15M",
+    ///             },
+    ///             StepType = "HealthCheck",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StepName = "healthCheckStep",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Create wait step
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var step = new AzureNative.DeploymentManager.Step("step", new()
+    ///     {
+    ///         Location = "centralus",
+    ///         Properties = new AzureNative.DeploymentManager.Inputs.WaitStepPropertiesArgs
+    ///         {
+    ///             Attributes = new AzureNative.DeploymentManager.Inputs.WaitStepAttributesArgs
+    ///             {
+    ///                 Duration = "PT20M",
+    ///             },
+    ///             StepType = "Wait",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///         StepName = "waitStep",
+    ///         Tags = null,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:deploymentmanager:Step waitStep /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeploymentManager/steps/{stepName} 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:deploymentmanager:Step")]
     public partial class Step : global::Pulumi.CustomResource

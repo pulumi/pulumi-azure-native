@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * User details.
+ *
+ * ## Example Usage
+ * ### ApiManagementCreateUser
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const user = new azure_native.apimanagement.v20201201.User("user", {
+ *     confirmation: "signup",
+ *     email: "foobar@outlook.com",
+ *     firstName: "foo",
+ *     lastName: "bar",
+ *     resourceGroupName: "rg1",
+ *     serviceName: "apimService1",
+ *     userId: "5931a75ae4bbd512288c680b",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:apimanagement/v20201201:User 5931a75ae4bbd512288c680b /subscriptions/subid/resourcegroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/users/5931a75ae4bbd512288c680b 
+ * ```
  */
 export class User extends pulumi.CustomResource {
     /**

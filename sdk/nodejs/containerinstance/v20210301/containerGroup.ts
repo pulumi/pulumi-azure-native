@@ -9,6 +9,120 @@ import * as utilities from "../../utilities";
 
 /**
  * A container group.
+ *
+ * ## Example Usage
+ * ### ContainerGroupsCreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const containerGroup = new azure_native.containerinstance.v20210301.ContainerGroup("containerGroup", {
+ *     containerGroupName: "demo1",
+ *     containers: [{
+ *         command: [],
+ *         environmentVariables: [],
+ *         image: "nginx",
+ *         name: "demo1",
+ *         ports: [{
+ *             port: 80,
+ *         }],
+ *         resources: {
+ *             requests: {
+ *                 cpu: 1,
+ *                 gpu: {
+ *                     count: 1,
+ *                     sku: "K80",
+ *                 },
+ *                 memoryInGB: 1.5,
+ *             },
+ *         },
+ *         volumeMounts: [
+ *             {
+ *                 mountPath: "/mnt/volume1",
+ *                 name: "volume1",
+ *                 readOnly: false,
+ *             },
+ *             {
+ *                 mountPath: "/mnt/volume2",
+ *                 name: "volume2",
+ *                 readOnly: false,
+ *             },
+ *             {
+ *                 mountPath: "/mnt/volume3",
+ *                 name: "volume3",
+ *                 readOnly: true,
+ *             },
+ *         ],
+ *     }],
+ *     diagnostics: {
+ *         logAnalytics: {
+ *             logType: "ContainerInsights",
+ *             metadata: {
+ *                 "test-key": "test-metadata-value",
+ *             },
+ *             workspaceId: "workspaceid",
+ *             workspaceKey: "workspaceKey",
+ *         },
+ *     },
+ *     dnsConfig: {
+ *         nameServers: ["1.1.1.1"],
+ *         options: "ndots:2",
+ *         searchDomains: "cluster.local svc.cluster.local",
+ *     },
+ *     identity: {
+ *         type: azure_native.containerinstance.v20210301.ResourceIdentityType.SystemAssigned_UserAssigned,
+ *         userAssignedIdentities: {
+ *             "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name": {},
+ *         },
+ *     },
+ *     imageRegistryCredentials: [],
+ *     ipAddress: {
+ *         dnsNameLabel: "dnsnamelabel1",
+ *         ports: [{
+ *             port: 80,
+ *             protocol: "TCP",
+ *         }],
+ *         type: "Public",
+ *     },
+ *     location: "west us",
+ *     networkProfile: {
+ *         id: "test-network-profile-id",
+ *     },
+ *     osType: "Linux",
+ *     resourceGroupName: "demo",
+ *     volumes: [
+ *         {
+ *             azureFile: {
+ *                 shareName: "shareName",
+ *                 storageAccountKey: "accountKey",
+ *                 storageAccountName: "accountName",
+ *             },
+ *             name: "volume1",
+ *         },
+ *         {
+ *             emptyDir: {},
+ *             name: "volume2",
+ *         },
+ *         {
+ *             name: "volume3",
+ *             secret: {
+ *                 secretKey1: "SecretValue1InBase64",
+ *                 secretKey2: "SecretValue2InBase64",
+ *             },
+ *         },
+ *     ],
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:containerinstance/v20210301:ContainerGroup demo1 /subscriptions/subid/resourceGroups/demo/providers/Microsoft.ContainerInstance/containerGroups/demo1 
+ * ```
  */
 export class ContainerGroup extends pulumi.CustomResource {
     /**

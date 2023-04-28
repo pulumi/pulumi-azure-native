@@ -9,6 +9,35 @@ import * as utilities from "../../utilities";
 
 /**
  * The gallery image resource definition.
+ *
+ * ## Example Usage
+ * ### PutGalleryImage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const galleryimageRetrieve = new azure_native.azurestackhci.v20210901preview.GalleryimageRetrieve("galleryimageRetrieve", {
+ *     containerName: "Default_Container",
+ *     extendedLocation: {
+ *         name: "/subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.ExtendedLocation/customLocations/dogfood-location",
+ *         type: "CustomLocation",
+ *     },
+ *     galleryimagesName: "test-gallery-image",
+ *     imagePath: "C:\\test.vhdx",
+ *     location: "West US2",
+ *     resourceGroupName: "test-rg",
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:azurestackhci/v20210901preview:galleryimageRetrieve test-gallery-image /subscriptions/a95612cb-f1fa-4daa-a4fd-272844fa512c/resourceGroups/dogfoodarc/providers/Microsoft.AzureStackHCI/galleryimages/test-gallery-image 
+ * ```
  */
 export class GalleryimageRetrieve extends pulumi.CustomResource {
     /**

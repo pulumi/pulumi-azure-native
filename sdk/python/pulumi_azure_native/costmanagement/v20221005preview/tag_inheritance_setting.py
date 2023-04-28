@@ -115,6 +115,16 @@ class TagInheritanceSetting(pulumi.CustomResource):
         """
         Tag Inheritance Setting definition.
 
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20221005preview:TagInheritanceSetting taginheritance /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/settings/taginheritance 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
@@ -132,6 +142,16 @@ class TagInheritanceSetting(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Tag Inheritance Setting definition.
+
+        ## Example Usage
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:costmanagement/v20221005preview:TagInheritanceSetting taginheritance /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/settings/taginheritance 
+        ```
 
         :param str resource_name: The name of the resource.
         :param TagInheritanceSettingArgs args: The arguments to use to populate this resource's properties.

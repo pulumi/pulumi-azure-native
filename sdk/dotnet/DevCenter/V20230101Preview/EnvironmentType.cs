@@ -11,6 +11,39 @@ namespace Pulumi.AzureNative.DevCenter.V20230101Preview
 {
     /// <summary>
     /// Represents an environment type.
+    /// 
+    /// ## Example Usage
+    /// ### EnvironmentTypes_CreateOrUpdate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var environmentType = new AzureNative.DevCenter.V20230101Preview.EnvironmentType("environmentType", new()
+    ///     {
+    ///         DevCenterName = "Contoso",
+    ///         EnvironmentTypeName = "DevTest",
+    ///         ResourceGroupName = "rg1",
+    ///         Tags = 
+    ///         {
+    ///             { "Owner", "superuser" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:devcenter/v20230101preview:EnvironmentType DevTest /subscriptions/0ac520ee-14c0-480f-b6c9-0a90c58ffff/resourceGroups/rg1/providers/Microsoft.DevCenter/devcenters/Contoso/environmentTypes/DevTest 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:devcenter/v20230101preview:EnvironmentType")]
     public partial class EnvironmentType : global::Pulumi.CustomResource

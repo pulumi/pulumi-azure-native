@@ -11,6 +11,50 @@ namespace Pulumi.AzureNative.HybridCompute.V20220510Preview
 {
     /// <summary>
     /// Describes a hybrid machine.
+    /// 
+    /// ## Example Usage
+    /// ### Create or Update a Machine
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var machine = new AzureNative.HybridCompute.V20220510Preview.Machine("machine", new()
+    ///     {
+    ///         Identity = new AzureNative.HybridCompute.V20220510Preview.Inputs.IdentityArgs
+    ///         {
+    ///             Type = AzureNative.HybridCompute.V20220510Preview.ResourceIdentityType.SystemAssigned,
+    ///         },
+    ///         Location = "eastus2euap",
+    ///         MachineName = "myMachine",
+    ///         Properties = new AzureNative.HybridCompute.V20220510Preview.Inputs.MachinePropertiesArgs
+    ///         {
+    ///             ClientPublicKey = "string",
+    ///             LocationData = new AzureNative.HybridCompute.V20220510Preview.Inputs.LocationDataArgs
+    ///             {
+    ///                 Name = "Redmond",
+    ///             },
+    ///             ParentClusterResourceId = "{AzureStackHCIResourceId}",
+    ///             PrivateLinkScopeResourceId = "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScopeName",
+    ///             VmId = "b7a098cc-b0b8-46e8-a205-62f301a62a8f",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroup",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:hybridcompute/v20220510preview:Machine myMachine /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/myMachine 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridcompute/v20220510preview:Machine")]
     public partial class Machine : global::Pulumi.CustomResource

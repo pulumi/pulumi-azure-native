@@ -112,6 +112,36 @@ class ReplicationvCenter(pulumi.CustomResource):
         """
         vCenter definition.
 
+        ## Example Usage
+        ### Add vCenter.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replicationv_center = azure_native.recoveryservices.v20230201.ReplicationvCenter("replicationvCenter",
+            fabric_name="MadhaviFabric",
+            properties=azure_native.recoveryservices.v20230201.AddVCenterRequestPropertiesArgs(
+                friendly_name="esx-78",
+                ip_address="inmtest78",
+                port="443",
+                process_server_id="5A720CAB-39CB-F445-BD1662B0B33164B5",
+                run_as_account_id="2",
+            ),
+            resource_group_name="MadhaviVRG",
+            resource_name_="MadhaviVault",
+            vcenter_name="esx-78")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20230201:ReplicationvCenter esx-78 /Subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/MadhaviVRG/providers/Microsoft.RecoveryServices/vaults/MadhaviVault/replicationFabrics/239f778f368e34f78216d81f030725cdf2033174b47879b9f2eeede06fdd9c4d/replicationvCenters/esx-78 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] fabric_name: Fabric name.
@@ -128,6 +158,36 @@ class ReplicationvCenter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         vCenter definition.
+
+        ## Example Usage
+        ### Add vCenter.
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        replicationv_center = azure_native.recoveryservices.v20230201.ReplicationvCenter("replicationvCenter",
+            fabric_name="MadhaviFabric",
+            properties=azure_native.recoveryservices.v20230201.AddVCenterRequestPropertiesArgs(
+                friendly_name="esx-78",
+                ip_address="inmtest78",
+                port="443",
+                process_server_id="5A720CAB-39CB-F445-BD1662B0B33164B5",
+                run_as_account_id="2",
+            ),
+            resource_group_name="MadhaviVRG",
+            resource_name_="MadhaviVault",
+            vcenter_name="esx-78")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:recoveryservices/v20230201:ReplicationvCenter esx-78 /Subscriptions/7c943c1b-5122-4097-90c8-861411bdd574/resourceGroups/MadhaviVRG/providers/Microsoft.RecoveryServices/vaults/MadhaviVault/replicationFabrics/239f778f368e34f78216d81f030725cdf2033174b47879b9f2eeede06fdd9c4d/replicationvCenters/esx-78 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReplicationvCenterArgs args: The arguments to use to populate this resource's properties.

@@ -11,6 +11,37 @@ namespace Pulumi.AzureNative.ServiceBus.V20150801
 {
     /// <summary>
     /// Description of subscription resource.
+    /// 
+    /// ## Example Usage
+    /// ### SubscriptionCreate
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var subscription = new AzureNative.ServiceBus.V20150801.Subscription("subscription", new()
+    ///     {
+    ///         Location = "West US",
+    ///         NamespaceName = "sdk-Namespace2500",
+    ///         ResourceGroupName = "Default-ServiceBus-WestUS",
+    ///         SubscriptionName = "sdk-Subscriptions3374",
+    ///         TopicName = "sdk-Topics2565",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:servicebus/v20150801:Subscription sdk-Subscriptions3374 /subscriptions/e2f361f0-3b27-4503-a9cc-21cfba380093/resourceGroups/Default-ServiceBus-WestUS/providers/Microsoft.ServiceBus/namespaces/sdk-Namespace2500/topics/sdk-Topics2565/subscriptions/sdk-Subscriptions3374 
+    /// ```
     /// </summary>
     [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicebus/v20150801:Subscription")]

@@ -11,6 +11,57 @@ namespace Pulumi.AzureNative.Kusto.V20220201
 {
     /// <summary>
     /// Class representing a read only following database.
+    /// 
+    /// ## Example Usage
+    /// ### Kusto ReadOnly database update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var readOnlyFollowingDatabase = new AzureNative.Kusto.V20220201.ReadOnlyFollowingDatabase("readOnlyFollowingDatabase", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         DatabaseName = "kustoReadOnlyDatabase",
+    ///         HotCachePeriod = "P1D",
+    ///         Kind = "ReadOnlyFollowing",
+    ///         Location = "westus",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// ### Kusto ReadWrite database create or update
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var readOnlyFollowingDatabase = new AzureNative.Kusto.V20220201.ReadOnlyFollowingDatabase("readOnlyFollowingDatabase", new()
+    ///     {
+    ///         ClusterName = "kustoCluster",
+    ///         DatabaseName = "KustoDatabase8",
+    ///         ResourceGroupName = "kustorptest",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:kusto/v20220201:ReadOnlyFollowingDatabase kustoCluster/KustoDatabase8 /subscriptions/12345678-1234-1234-1234-123456789098/resourceGroups/kustorptest/providers/Microsoft.Kusto/Clusters/kustoCluster/Databases/KustoDatabase8 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:kusto/v20220201:ReadOnlyFollowingDatabase")]
     public partial class ReadOnlyFollowingDatabase : global::Pulumi.CustomResource

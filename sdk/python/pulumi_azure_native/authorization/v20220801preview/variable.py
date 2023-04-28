@@ -63,6 +63,29 @@ class Variable(pulumi.CustomResource):
         """
         The variable.
 
+        ## Example Usage
+        ### Create or update a variable
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable = azure_native.authorization.v20220801preview.Variable("variable",
+            columns=[azure_native.authorization.v20220801preview.PolicyVariableColumnArgs(
+                column_name="TestColumn",
+            )],
+            variable_name="DemoTestVariable")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220801preview:Variable DemoTestVariable /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/variables/DemoTestVariable 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyVariableColumnArgs']]]] columns: Variable column definitions.
@@ -76,6 +99,29 @@ class Variable(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The variable.
+
+        ## Example Usage
+        ### Create or update a variable
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        variable = azure_native.authorization.v20220801preview.Variable("variable",
+            columns=[azure_native.authorization.v20220801preview.PolicyVariableColumnArgs(
+                column_name="TestColumn",
+            )],
+            variable_name="DemoTestVariable")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:authorization/v20220801preview:Variable DemoTestVariable /subscriptions/ae640e6b-ba3e-4256-9d62-2993eecfa6f2/providers/Microsoft.Authorization/variables/DemoTestVariable 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VariableArgs args: The arguments to use to populate this resource's properties.

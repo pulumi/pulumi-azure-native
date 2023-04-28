@@ -12,6 +12,39 @@ namespace Pulumi.AzureNative.Automanage
     /// <summary>
     /// Configuration profile assignment is an association between a VM and automanage profile configuration.
     /// API Version: 2022-05-04.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update HCRP configuration profile assignment
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var configurationProfileHCRPAssignment = new AzureNative.Automanage.ConfigurationProfileHCRPAssignment("configurationProfileHCRPAssignment", new()
+    ///     {
+    ///         ConfigurationProfileAssignmentName = "default",
+    ///         MachineName = "myMachineName",
+    ///         Properties = new AzureNative.Automanage.Inputs.ConfigurationProfileAssignmentPropertiesArgs
+    ///         {
+    ///             ConfigurationProfile = "/providers/Microsoft.Automanage/bestPractices/AzureBestPracticesProduction",
+    ///         },
+    ///         ResourceGroupName = "myResourceGroupName",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:automanage:ConfigurationProfileHCRPAssignment default /subscriptions/subscriptionId/resourceGroups/myResourceGroupName/providers/Microsoft.HybridCompute/machines/myMachineName/providers/Microsoft.Automanage/configurationProfileAssignments/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:automanage:ConfigurationProfileHCRPAssignment")]
     public partial class ConfigurationProfileHCRPAssignment : global::Pulumi.CustomResource

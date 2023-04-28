@@ -11,6 +11,36 @@ namespace Pulumi.AzureNative.ApiManagement.V20180101
 {
     /// <summary>
     /// Diagnostic details.
+    /// 
+    /// ## Example Usage
+    /// ### ApiManagementCreateDiagnostic
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var diagnostic = new AzureNative.ApiManagement.V20180101.Diagnostic("diagnostic", new()
+    ///     {
+    ///         DiagnosticId = "default",
+    ///         Enabled = true,
+    ///         ResourceGroupName = "rg1",
+    ///         ServiceName = "apimService1",
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:apimanagement/v20180101:Diagnostic default /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.ApiManagement/service/apimService1/diagnostics/default 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:apimanagement/v20180101:Diagnostic")]
     public partial class Diagnostic : global::Pulumi.CustomResource

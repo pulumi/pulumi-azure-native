@@ -153,6 +153,35 @@ class Volume(pulumi.CustomResource):
         """
         This type describes a volume resource.
 
+        ## Example Usage
+        ### VolumeCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.servicefabricmesh.v20180701preview.Volume("volume",
+            azure_file_parameters=azure_native.servicefabricmesh.v20180701preview.VolumeProviderParametersAzureFileResponseArgs(
+                account_key="provide-account-key-here",
+                account_name="sbzdemoaccount",
+                share_name="sharel",
+            ),
+            description="File share backed by Azure Files storage.",
+            location="eastus",
+            provider="SFAzureFile",
+            resource_group_name="sbz_demo",
+            volume_name="sbzDemoVolume")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180701preview:Volume sbzDemoVolume /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/volumes/sbzDemoVolume 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['VolumeProviderParametersAzureFileArgs']] azure_file_parameters: This type describes a volume provided by an Azure Files file share.
@@ -171,6 +200,35 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         This type describes a volume resource.
+
+        ## Example Usage
+        ### VolumeCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        volume = azure_native.servicefabricmesh.v20180701preview.Volume("volume",
+            azure_file_parameters=azure_native.servicefabricmesh.v20180701preview.VolumeProviderParametersAzureFileResponseArgs(
+                account_key="provide-account-key-here",
+                account_name="sbzdemoaccount",
+                share_name="sharel",
+            ),
+            description="File share backed by Azure Files storage.",
+            location="eastus",
+            provider="SFAzureFile",
+            resource_group_name="sbz_demo",
+            volume_name="sbzDemoVolume")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:servicefabricmesh/v20180701preview:Volume sbzDemoVolume /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/sbz_demo/providers/Microsoft.ServiceFabricMesh/volumes/sbzDemoVolume 
+        ```
 
         :param str resource_name: The name of the resource.
         :param VolumeArgs args: The arguments to use to populate this resource's properties.

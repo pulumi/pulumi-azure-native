@@ -9,6 +9,33 @@ import * as utilities from "../../utilities";
 
 /**
  * Capacity pool resource
+ *
+ * ## Example Usage
+ * ### Pools_CreateOrUpdate
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure_native from "@pulumi/azure-native";
+ *
+ * const pool = new azure_native.netapp.v20220901.Pool("pool", {
+ *     accountName: "account1",
+ *     location: "eastus",
+ *     poolName: "pool1",
+ *     qosType: "Auto",
+ *     resourceGroupName: "myRG",
+ *     serviceLevel: "Premium",
+ *     size: 4398046511104,
+ * });
+ *
+ * ```
+ *
+ * ## Import
+ *
+ * An existing resource can be imported using its type token, name, and identifier, e.g.
+ *
+ * ```sh
+ * $ pulumi import azure-native:netapp/v20220901:Pool account1/pool1 /subscriptions/D633CC2E-722B-4AE1-B636-BBD9E4C60ED9/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1 
+ * ```
  */
 export class Pool extends pulumi.CustomResource {
     /**

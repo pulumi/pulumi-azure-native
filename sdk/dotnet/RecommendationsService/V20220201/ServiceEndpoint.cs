@@ -11,6 +11,44 @@ namespace Pulumi.AzureNative.RecommendationsService.V20220201
 {
     /// <summary>
     /// ServiceEndpoint resource details.
+    /// 
+    /// ## Example Usage
+    /// ### Create or update ServiceEndpoint resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceEndpoint = new AzureNative.RecommendationsService.V20220201.ServiceEndpoint("serviceEndpoint", new()
+    ///     {
+    ///         AccountName = "sampleAccount",
+    ///         Location = "West US",
+    ///         Properties = new AzureNative.RecommendationsService.V20220201.Inputs.ServiceEndpointResourcePropertiesArgs
+    ///         {
+    ///             PreAllocatedCapacity = 100,
+    ///         },
+    ///         ResourceGroupName = "rg",
+    ///         ServiceEndpointName = "s1",
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "Prod" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:recommendationsservice/v20220201:ServiceEndpoint s1 /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg/providers/Microsoft.RecommendationsService/accounts/sampleAccount/serviceEndpoints/s1 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:recommendationsservice/v20220201:ServiceEndpoint")]
     public partial class ServiceEndpoint : global::Pulumi.CustomResource

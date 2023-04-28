@@ -97,6 +97,41 @@ class MoveResource(pulumi.CustomResource):
         """
         Defines the move resource.
 
+        ## Example Usage
+        ### MoveResources_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        move_resource = azure_native.migrate.v20210101.MoveResource("moveResource",
+            move_collection_name="movecollection1",
+            move_resource_name="moveresourcename1",
+            properties=azure_native.migrate.v20210101.MoveResourcePropertiesResponseArgs(
+                depends_on_overrides=[azure_native.migrate.v20210101.MoveResourceDependencyOverrideArgs(
+                    id="/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/eastusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+                    target_id="/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/westusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+                )],
+                resource_settings=azure_native.migrate.v20210101.VirtualMachineResourceSettingsArgs(
+                    resource_type="Microsoft.Compute/virtualMachines",
+                    target_availability_set_id="/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/availabilitySets/avset1",
+                    target_availability_zone="2",
+                    target_resource_name="westusvm1",
+                ),
+                source_id="/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/virtualMachines/eastusvm1",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20210101:MoveResource moveresourcename1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Migrate/MoveCollections/movecollection1/MoveResources/moveresource1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] move_collection_name: The Move Collection Name.
@@ -112,6 +147,41 @@ class MoveResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Defines the move resource.
+
+        ## Example Usage
+        ### MoveResources_Create
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        move_resource = azure_native.migrate.v20210101.MoveResource("moveResource",
+            move_collection_name="movecollection1",
+            move_resource_name="moveresourcename1",
+            properties=azure_native.migrate.v20210101.MoveResourcePropertiesResponseArgs(
+                depends_on_overrides=[azure_native.migrate.v20210101.MoveResourceDependencyOverrideArgs(
+                    id="/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/eastusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+                    target_id="/subscriptions/c4488a3f-a7f7-4ad4-aa72-0e1f4d9c0756/resourceGroups/westusRG/providers/Microsoft.Network/networkInterfaces/eastusvm140",
+                )],
+                resource_settings=azure_native.migrate.v20210101.VirtualMachineResourceSettingsArgs(
+                    resource_type="Microsoft.Compute/virtualMachines",
+                    target_availability_set_id="/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/availabilitySets/avset1",
+                    target_availability_zone="2",
+                    target_resource_name="westusvm1",
+                ),
+                source_id="/subscriptions/subid/resourceGroups/eastusRG/providers/Microsoft.Compute/virtualMachines/eastusvm1",
+            ),
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:migrate/v20210101:MoveResource moveresourcename1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Migrate/MoveCollections/movecollection1/MoveResources/moveresource1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param MoveResourceArgs args: The arguments to use to populate this resource's properties.

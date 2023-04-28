@@ -152,6 +152,39 @@ class ReferenceDataSet(pulumi.CustomResource):
         """
         A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
 
+        ## Example Usage
+        ### ReferenceDataSetsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        reference_data_set = azure_native.timeseriesinsights.v20171115.ReferenceDataSet("referenceDataSet",
+            environment_name="env1",
+            key_properties=[
+                azure_native.timeseriesinsights.v20171115.ReferenceDataSetKeyPropertyArgs(
+                    name="DeviceId1",
+                    type=azure_native.timeseriesinsights/v20171115.ReferenceDataKeyPropertyType.STRING,
+                ),
+                azure_native.timeseriesinsights.v20171115.ReferenceDataSetKeyPropertyArgs(
+                    name="DeviceFloor",
+                    type=azure_native.timeseriesinsights/v20171115.ReferenceDataKeyPropertyType.DOUBLE,
+                ),
+            ],
+            location="West US",
+            reference_data_set_name="rds1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20171115:ReferenceDataSet rds1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/referenceDataSets/rds1 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['DataStringComparisonBehavior'] data_string_comparison_behavior: The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
@@ -170,6 +203,39 @@ class ReferenceDataSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
+
+        ## Example Usage
+        ### ReferenceDataSetsCreate
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        reference_data_set = azure_native.timeseriesinsights.v20171115.ReferenceDataSet("referenceDataSet",
+            environment_name="env1",
+            key_properties=[
+                azure_native.timeseriesinsights.v20171115.ReferenceDataSetKeyPropertyArgs(
+                    name="DeviceId1",
+                    type=azure_native.timeseriesinsights/v20171115.ReferenceDataKeyPropertyType.STRING,
+                ),
+                azure_native.timeseriesinsights.v20171115.ReferenceDataSetKeyPropertyArgs(
+                    name="DeviceFloor",
+                    type=azure_native.timeseriesinsights/v20171115.ReferenceDataKeyPropertyType.DOUBLE,
+                ),
+            ],
+            location="West US",
+            reference_data_set_name="rds1",
+            resource_group_name="rg1")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:timeseriesinsights/v20171115:ReferenceDataSet rds1 /subscriptions/subid/resourceGroups/rg1/providers/Microsoft.TimeSeriesInsights/Environments/env1/referenceDataSets/rds1 
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReferenceDataSetArgs args: The arguments to use to populate this resource's properties.

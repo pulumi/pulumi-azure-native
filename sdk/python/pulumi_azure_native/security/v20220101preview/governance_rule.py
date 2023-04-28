@@ -263,6 +263,98 @@ class GovernanceRule(pulumi.CustomResource):
         """
         Governance rule over a given scope
 
+        ## Example Usage
+        ### Create or update governance rule over management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        governance_rule = azure_native.security.v20220101preview.GovernanceRule("governanceRule",
+            description="A rule for a management group",
+            display_name="Management group rule",
+            excluded_scopes=["/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23"],
+            governance_email_notification=azure_native.security.v20220101preview.GovernanceRuleEmailNotificationArgs(
+                disable_manager_email_notification=True,
+                disable_owner_email_notification=False,
+            ),
+            is_disabled=False,
+            is_grace_period=True,
+            owner_source=azure_native.security.v20220101preview.GovernanceRuleOwnerSourceArgs(
+                type="Manually",
+                value="user@contoso.com",
+            ),
+            remediation_timeframe="7.00:00:00",
+            rule_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            rule_priority=200,
+            rule_type="Integrated",
+            scope="providers/Microsoft.Management/managementGroups/contoso",
+            source_resource_type="Assessments")
+
+        ```
+        ### Create or update governance rule over security connector scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        governance_rule = azure_native.security.v20220101preview.GovernanceRule("governanceRule",
+            description="A rule on critical GCP recommendations",
+            display_name="GCP Admin's rule",
+            governance_email_notification=azure_native.security.v20220101preview.GovernanceRuleEmailNotificationArgs(
+                disable_manager_email_notification=True,
+                disable_owner_email_notification=False,
+            ),
+            is_disabled=False,
+            is_grace_period=True,
+            owner_source=azure_native.security.v20220101preview.GovernanceRuleOwnerSourceArgs(
+                type="Manually",
+                value="user@contoso.com",
+            ),
+            remediation_timeframe="7.00:00:00",
+            rule_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            rule_priority=200,
+            rule_type="Integrated",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+            source_resource_type="Assessments")
+
+        ```
+        ### Create or update governance rule over subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        governance_rule = azure_native.security.v20220101preview.GovernanceRule("governanceRule",
+            description="A rule for critical recommendations",
+            display_name="Admin's rule",
+            governance_email_notification=azure_native.security.v20220101preview.GovernanceRuleEmailNotificationArgs(
+                disable_manager_email_notification=False,
+                disable_owner_email_notification=False,
+            ),
+            is_disabled=False,
+            is_grace_period=True,
+            owner_source=azure_native.security.v20220101preview.GovernanceRuleOwnerSourceArgs(
+                type="Manually",
+                value="user@contoso.com",
+            ),
+            remediation_timeframe="7.00:00:00",
+            rule_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            rule_priority=200,
+            rule_type="Integrated",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            source_resource_type="Assessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20220101preview:GovernanceRule ad9a8e26-29d9-4829-bb30-e597a58cdbb8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/governanceRules/ad9a8e26-29d9-4829-bb30-e597a58cdbb8 
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the governance rule
@@ -288,6 +380,98 @@ class GovernanceRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Governance rule over a given scope
+
+        ## Example Usage
+        ### Create or update governance rule over management group scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        governance_rule = azure_native.security.v20220101preview.GovernanceRule("governanceRule",
+            description="A rule for a management group",
+            display_name="Management group rule",
+            excluded_scopes=["/subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23"],
+            governance_email_notification=azure_native.security.v20220101preview.GovernanceRuleEmailNotificationArgs(
+                disable_manager_email_notification=True,
+                disable_owner_email_notification=False,
+            ),
+            is_disabled=False,
+            is_grace_period=True,
+            owner_source=azure_native.security.v20220101preview.GovernanceRuleOwnerSourceArgs(
+                type="Manually",
+                value="user@contoso.com",
+            ),
+            remediation_timeframe="7.00:00:00",
+            rule_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            rule_priority=200,
+            rule_type="Integrated",
+            scope="providers/Microsoft.Management/managementGroups/contoso",
+            source_resource_type="Assessments")
+
+        ```
+        ### Create or update governance rule over security connector scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        governance_rule = azure_native.security.v20220101preview.GovernanceRule("governanceRule",
+            description="A rule on critical GCP recommendations",
+            display_name="GCP Admin's rule",
+            governance_email_notification=azure_native.security.v20220101preview.GovernanceRuleEmailNotificationArgs(
+                disable_manager_email_notification=True,
+                disable_owner_email_notification=False,
+            ),
+            is_disabled=False,
+            is_grace_period=True,
+            owner_source=azure_native.security.v20220101preview.GovernanceRuleOwnerSourceArgs(
+                type="Manually",
+                value="user@contoso.com",
+            ),
+            remediation_timeframe="7.00:00:00",
+            rule_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            rule_priority=200,
+            rule_type="Integrated",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/resourceGroups/gcpResourceGroup/providers/Microsoft.Security/securityConnectors/gcpconnector",
+            source_resource_type="Assessments")
+
+        ```
+        ### Create or update governance rule over subscription scope
+
+        ```python
+        import pulumi
+        import pulumi_azure_native as azure_native
+
+        governance_rule = azure_native.security.v20220101preview.GovernanceRule("governanceRule",
+            description="A rule for critical recommendations",
+            display_name="Admin's rule",
+            governance_email_notification=azure_native.security.v20220101preview.GovernanceRuleEmailNotificationArgs(
+                disable_manager_email_notification=False,
+                disable_owner_email_notification=False,
+            ),
+            is_disabled=False,
+            is_grace_period=True,
+            owner_source=azure_native.security.v20220101preview.GovernanceRuleOwnerSourceArgs(
+                type="Manually",
+                value="user@contoso.com",
+            ),
+            remediation_timeframe="7.00:00:00",
+            rule_id="ad9a8e26-29d9-4829-bb30-e597a58cdbb8",
+            rule_priority=200,
+            rule_type="Integrated",
+            scope="subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23",
+            source_resource_type="Assessments")
+
+        ```
+
+        ## Import
+
+        An existing resource can be imported using its type token, name, and identifier, e.g.
+
+        ```sh
+        $ pulumi import azure-native:security/v20220101preview:GovernanceRule ad9a8e26-29d9-4829-bb30-e597a58cdbb8 subscriptions/20ff7fc3-e762-44dd-bd96-b71116dcdc23/providers/Microsoft.Security/governanceRules/ad9a8e26-29d9-4829-bb30-e597a58cdbb8 
+        ```
 
         :param str resource_name: The name of the resource.
         :param GovernanceRuleArgs args: The arguments to use to populate this resource's properties.

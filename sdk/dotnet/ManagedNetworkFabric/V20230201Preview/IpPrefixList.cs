@@ -11,6 +11,38 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric.V20230201Preview
 {
     /// <summary>
     /// The IpPrefixList resource definition.
+    /// 
+    /// ## Example Usage
+    /// ### IpPrefixLists_Create_MinimumSet_Gen
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using Pulumi;
+    /// using AzureNative = Pulumi.AzureNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var ipPrefixList = new AzureNative.ManagedNetworkFabric.V20230201Preview.IpPrefixList("ipPrefixList", new()
+    ///     {
+    ///         Action = "allow",
+    ///         IpPrefixListName = "IpPrefixList1",
+    ///         Location = "EastUS",
+    ///         NetworkAddress = "1.1.1.0/24",
+    ///         ResourceGroupName = "resourceGroupName",
+    ///         SequenceNumber = 19,
+    ///     });
+    /// 
+    /// });
+    /// 
+    /// 
+    /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// An existing resource can be imported using its type token, name, and identifier, e.g.
+    /// 
+    /// ```sh
+    /// $ pulumi import azure-native:managednetworkfabric/v20230201preview:IpPrefixList myresource1 resourceId 
+    /// ```
     /// </summary>
     [AzureNativeResourceType("azure-native:managednetworkfabric/v20230201preview:IpPrefixList")]
     public partial class IpPrefixList : global::Pulumi.CustomResource
